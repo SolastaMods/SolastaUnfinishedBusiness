@@ -1,4 +1,6 @@
 ﻿using HarmonyLib;
+using System.Collections.Generic;
+using System.Reflection.Emit;
 
 namespace SolastaCJDExtraContent.Patches.InitialChoices
 {
@@ -7,6 +9,14 @@ namespace SolastaCJDExtraContent.Patches.InitialChoices
         [HarmonyPatch(typeof(GuiFeatDefinition), "IsFeatMacthingPrerequisites")]
         internal static class GuiFeatDefinition_IsFeatMacthingPrerequisites_Patch
         {
+            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            {
+                var code = new List<CodeInstruction>(instructions);
+                code.Find(x => x.opcode == OpCodes.Ldc_I4_1).opcode = OpCodes.Ldc_I4_0;
+
+                return code;
+            }
+
             internal static void Postfix(FeatDefinition feat, RulesetCharacterHero hero, ref bool __result)
             {
                 if (Main.Settings.EnableFirstLevelCasterFeats && !__result && feat.MustCastSpellsPrerequisite && hero.SpellRepertoires.Count == 0)
