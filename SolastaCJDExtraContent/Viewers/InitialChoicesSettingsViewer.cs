@@ -14,7 +14,7 @@ namespace SolastaCJDExtraContent.Menus.Viewers
             int value;
             bool toggle;
 
-            UI.Div();
+            UI.Label("");
             UI.Label("Settings:".yellow());
 
             UI.Label("");
@@ -36,6 +36,7 @@ namespace SolastaCJDExtraContent.Menus.Viewers
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
             UI.Label("Welcome to Solasta Content Expansion".yellow().bold());
+            UI.Div();
 
             DisplayInitialChoicesSettings();
         }
