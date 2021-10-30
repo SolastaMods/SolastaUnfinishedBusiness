@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using System;
+using HarmonyLib;
 
 namespace SolastaCJDExtraContent.Features
 {
@@ -78,6 +79,19 @@ namespace SolastaCJDExtraContent.Features
                 Definition.SetUsableDeviceDescription(usableDescription);
             }
 
+            public void SetUsableDeviceDescription(List<FeatureDefinitionPower> functions)
+            {
+                Definition.IsUsableDevice = true;
+                Definition.SetUsableDeviceDescription(new UsableDeviceDescription());
+                Traverse.Create(Definition.UsableDeviceDescription).Field("deviceFunctions").SetValue(new List<DeviceFunctionDescription>());
+                foreach (FeatureDefinitionPower power in functions)
+                {
+                    DeviceFunctionDescription functionDescription = new DeviceFunctionDescription(DatabaseHelper.ItemDefinitions.Berry_Ration.UsableDeviceDescription.DeviceFunctions[0]);
+                    functionDescription.SetType(DeviceFunctionDescription.FunctionType.Power);
+                    functionDescription.SetFeatureDefinitionPower(power);
+                    Definition.UsableDeviceDescription.DeviceFunctions.Add(functionDescription);
+                }
+            }
         }
 
         public static ItemDefinition BuilderCopyFromItemSetRecipe(Guid collectionGuid, RecipeDefinition recipeDefinition, ItemDefinition toCopy, string name, GuiPresentation guiPresentation, int gold)
@@ -151,6 +165,17 @@ namespace SolastaCJDExtraContent.Features
                 }
             }
             return toReturn;
+        }
+
+        public static ItemDefinition CopyFromItemSetFunctions(Guid baseGuid, List<FeatureDefinitionPower> functions, ItemDefinition toCopy, string name, GuiPresentation guiPresentation)
+        {
+            ItemDefinitionBuilder builder = new ItemDefinitionBuilder(toCopy, name, GuidHelper.Create(baseGuid, name).ToString());
+
+            // Set new GuiPresentation
+            builder.SetGuiTitleAndDescription(guiPresentation.Title, guiPresentation.Description);
+            builder.SetUsableDeviceDescription(functions);
+
+            return builder.AddToDB();
         }
     }
 }
