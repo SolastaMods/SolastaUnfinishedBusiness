@@ -16,7 +16,7 @@ namespace SolastaCJDExtraContent.Menus.Viewers
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            UI.Label("Welcome to CJD Initial Choices".yellow().bold());
+            UI.Label("Welcome to Solasta Content Expansion".yellow().bold());
 
             DisplayHelp();
         }
