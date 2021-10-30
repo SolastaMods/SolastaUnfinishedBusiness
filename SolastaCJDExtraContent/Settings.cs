@@ -33,5 +33,14 @@ namespace SolastaCJDExtraContent
                 Models.ItemCraftingContext.UpdateRecipeCost();
             }
         }
+
+        /* Commands to allow the player to hide certain parts of the HUD */
+        public const InputCommands.Id CTRL_C = (InputCommands.Id)44440000;
+        public const InputCommands.Id CTRL_L = (InputCommands.Id)44440001;
+        public const InputCommands.Id CTRL_M = (InputCommands.Id)44440002;
+        public const InputCommands.Id CTRL_P = (InputCommands.Id)44440003;
+
+        public int MaxSpellLevelsPerLine = 5;
+        public float SpellPanelGapBetweenLines = 30f;
     }
 }

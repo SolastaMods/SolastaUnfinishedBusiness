@@ -1,13 +1,13 @@
 {
-	"Id": "SolastaCJDExtraContent",
-	"DisplayName": "SolastaCJDExtraContent",
-	"Author": "CJD;ThyWoof",
+	"Id": "SolastaContentExpansion",
+	"DisplayName": "SolastaContentExpansion",
+	"Author": "CJD",
 	"Version": "1.2.5.0",
 	"ManagerVersion": "0.23.4",
 	"Requirements": [ "SolastaModApi" ],
 	"LoadAfter": [ "SolastaModApi" ],
-	"AssemblyName": "SolastaCJDExtraContent.dll",
+	"AssemblyName": "SolastaContentExpansion.dll",
 	"EntryMethod": "SolastaCJDExtraContent.Main.Load",
-	"Repository": "https://raw.githubusercontent.com/ThyWoof/SolastaCJDExtraContent/main/SolastaCJDExtraContent/Repository.json",
+	"Repository": "https://raw.githubusercontent.com/ChrisPJohn/SolastaContentExpansion/main/SolastaContentExpansion/Repository.json",
 	"HomePage": "https://www.nexusmods.com/solastacrownofthemagister/mods/##"
 }
