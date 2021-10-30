@@ -2,19 +2,19 @@
 
 	<PropertyGroup>
 		<TargetFramework>net472</TargetFramework>
-		<AssemblyVersion>0.0.2.0</AssemblyVersion>
-		<FileVersion>0.0.2.0</FileVersion>
+		<AssemblyVersion>1.2.5.0</AssemblyVersion>
+		<FileVersion>1.2.5.0</FileVersion>
 		<Description></Description>
-		<PackageProjectUrl>https://github.com/ThyWoof/SolastaCJDExtraContent</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/ThyWoof/SolastaCJDExtraContent</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/ChrisPJohn/SolastaContentExpansion</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/ChrisPJohn/SolastaContentExpansion</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<Configurations>Debug;Release;Debug Install;Release Install</Configurations>
-		<Authors>Zappastuff</Authors>
+		<Authors>ChrisPJohn</Authors>
 		<Company />
 		<Product />
-		<Copyright>Copyright � 2020</Copyright>
+		<Copyright>Copyright 2021</Copyright>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-		<Version>0.0.2</Version>
+		<Version>1.2.5.0</Version>
 	</PropertyGroup>
 
 	<Target Name="CheckEnvironmentVars">
@@ -22,7 +22,7 @@
 	</Target>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Install|AnyCPU' Or '$(Configuration)|$(Platform)' == 'Release Install|AnyCPU'">
-		<OutputPath>$(SolastaInstallDir)\Mods\SolastaCJDExtraContent\</OutputPath>
+		<OutputPath>$(SolastaInstallDir)\Mods\SolastaContentExpansion\</OutputPath>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
 	</PropertyGroup>
@@ -395,9 +395,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Include="..\README.md" Link="README.md">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</None>
 		<None Update="Info.json">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
