@@ -81,7 +81,7 @@ namespace SolastaCJDExtraContent.Models
             {
                 foreach (var characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>().GetAllElements())
                 {
-                    if (characterRaceDefinition != human)
+                    if (characterRaceDefinition != human && !IsSubRace(characterRaceDefinition))
                     {
                         characterRaceDefinition.FeatureUnlocks.Add(featureUnlockByLevelNonHuman);
                     }
@@ -152,6 +152,18 @@ namespace SolastaCJDExtraContent.Models
                     human.FeatureUnlocks.Add(pointPoolHumanSkillPool);
                 }
             }
+        }
+
+        private static bool IsSubRace(CharacterRaceDefinition raceDefinition)
+        {
+            foreach (var characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>().GetAllElements())
+            {
+                if (characterRaceDefinition.SubRaces.Contains(raceDefinition))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
