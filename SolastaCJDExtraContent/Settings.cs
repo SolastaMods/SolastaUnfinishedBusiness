@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityModManagerNet;
 
 namespace SolastaCJDExtraContent
@@ -20,6 +21,18 @@ namespace SolastaCJDExtraContent
         public bool EnableFirstLevelCasterFeats = true;
 
         public bool EnablesAsiAndFeat = false;
+
+        public Dictionary<string, bool> InStore = new Dictionary<string, bool>();
+
+        private int recipeCost = 200;
+        public int RecipeCost
+        {
+            get => recipeCost; set
+            {
+                recipeCost = value;
+                Models.ItemCraftingContext.UpdateRecipeCost();
+            }
+        }
 
         /* Commands to allow the player to hide certain parts of the HUD */
         public const InputCommands.Id CTRL_C = (InputCommands.Id)44440000;
