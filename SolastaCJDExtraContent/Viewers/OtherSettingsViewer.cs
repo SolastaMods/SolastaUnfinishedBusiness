@@ -1,13 +1,13 @@
 using UnityModManagerNet;
 using ModKit;
 
-namespace SolastaCJDExtraContent.Menus.Viewers
+namespace SolastaCJDExtraContent.Viewers
 {
     public class OtherSettingsViewer : IMenuSelectablePage
     {
         public string Name => "Other Settings";
 
-        public int Priority => 1;
+        public int Priority => 4;
 
         public static void DisplaySettings()
         {
