@@ -11,6 +11,8 @@ namespace SolastaCJDExtraContent.Patches
             {
                 Models.AsiAndFeatContext.Load();
                 Models.InitialChoicesContext.Load();
+
+                Models.GameUiContext.Load();
             }
         }
     }
