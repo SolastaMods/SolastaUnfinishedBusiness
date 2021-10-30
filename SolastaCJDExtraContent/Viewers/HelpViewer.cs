@@ -1,7 +1,7 @@
 using UnityModManagerNet;
 using ModKit;
 
-namespace SolastaCJDExtraContent.Menus.Viewers
+namespace SolastaCJDExtraContent.Viewers
 {
     public class HelpViewer : IMenuSelectablePage
     {

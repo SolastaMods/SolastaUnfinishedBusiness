@@ -1,11 +1,11 @@
 using UnityModManagerNet;
 using ModKit;
 
-namespace SolastaCJDExtraContent.Menus.Viewers
+namespace SolastaCJDExtraContent.Viewers
 {
     public class InitialChoicesSettingsViewer : IMenuSelectablePage
     {
-        public string Name => "Initial Choices Settings";
+        public string Name => "Initial Choices";
 
         public int Priority => 1;
 

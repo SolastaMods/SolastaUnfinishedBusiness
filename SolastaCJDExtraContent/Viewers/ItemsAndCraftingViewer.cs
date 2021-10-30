@@ -6,25 +6,9 @@ namespace SolastaCJDExtraContent.Viewers
 {
     public class ControlItemGroupsMenu : IMenuSelectablePage
     {
-        public string Name => "Item Options";
+        public string Name => "Items and Crafting";
 
-        public int Priority => 0;
-
-
-
-        public void OnGUI(UnityModManager.ModEntry modEntry)
-        {
-            int intValue = Main.Settings.RecipeCost;
-            if (UI.Slider("Cost of Recipes", ref intValue, 1, 500, 200, "", UI.AutoWidth()))
-            {
-                Main.Settings.RecipeCost = intValue;
-            }
-
-            foreach (string key in Models.ItemCraftingContext.RecipeBooks.Keys)
-            {
-                AddUIForWeaponKey(key);
-            }
-        }
+        public int Priority => 3;
 
         private void AddUIForWeaponKey(string key)
         {
@@ -41,6 +25,34 @@ namespace SolastaCJDExtraContent.Viewers
                     }
                 }
             );
+        }
+
+        public void DisplayRecipesCostSettings()
+        {
+            int intValue = Main.Settings.RecipeCost;
+
+            UI.Label("");
+            UI.Label("Settings:".yellow());
+
+            if (UI.Slider("Recipes' Cost", ref intValue, 1, 500, 200, "", UI.AutoWidth()))
+            {
+                Main.Settings.RecipeCost = intValue;
+            }
+
+            foreach (string key in Models.ItemCraftingContext.RecipeBooks.Keys)
+            {
+                AddUIForWeaponKey(key);
+            }
+        }
+
+
+
+        public void OnGUI(UnityModManager.ModEntry modEntry)
+        {
+            UI.Label("Welcome to Solasta Content Expansion".yellow().bold());
+            UI.Div();
+
+            DisplayRecipesCostSettings();
         }
     }
 }
