@@ -16,7 +16,8 @@ namespace SolastaCJDExtraContent
 
         public int AllRacesInitialFeats = 0;
         public bool AlternateHuman = false;
-        public bool AllowNonCastersMagicalFeats = false;
+        /* This is in the settings so it can be disabled, but if a player has access to first level feats they almost definitely want this on. */
+        public bool EnableFirstLevelCasterFeats = true;
 
         public bool EnablesAsiAndFeat = false;
     }

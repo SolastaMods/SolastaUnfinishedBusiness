@@ -24,12 +24,6 @@ namespace SolastaCJDExtraContent.Menus.Viewers
                 Main.Settings.AlternateHuman = toggle;
             }
 
-            toggle = Main.Settings.AllowNonCastersMagicalFeats;
-            if (UI.Toggle("Allows magical feats to be picked up by non-casters", ref toggle, 0, UI.AutoWidth()))
-            {
-                Main.Settings.AllowNonCastersMagicalFeats = toggle;
-            }
-
             value = Main.Settings.AllRacesInitialFeats;
             if (UI.Slider("Number of feats granted at first level", ref value, Settings.MIN_INITIAL_FEATS, Settings.MAX_INITIAL_FEATS, 0, "", UI.AutoWidth()))
             {

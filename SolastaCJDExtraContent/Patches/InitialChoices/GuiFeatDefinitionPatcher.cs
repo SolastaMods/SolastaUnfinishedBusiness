@@ -9,7 +9,7 @@ namespace SolastaCJDExtraContent.Patches.InitialChoices
         {
             internal static void Postfix(FeatDefinition feat, RulesetCharacterHero hero, ref bool __result)
             {
-                if (Main.Settings.AllowNonCastersMagicalFeats && !__result && feat.MustCastSpellsPrerequisite && hero.SpellRepertoires.Count == 0)
+                if (Main.Settings.EnableFirstLevelCasterFeats && !__result && feat.MustCastSpellsPrerequisite && hero.SpellRepertoires.Count == 0)
                 {
                     GetLastAssignedClassAndLevel(hero, out CharacterClassDefinition lastClassDefinition, out int _);
 
