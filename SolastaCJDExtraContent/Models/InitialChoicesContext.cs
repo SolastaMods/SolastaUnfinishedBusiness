@@ -28,13 +28,13 @@ namespace SolastaCJDExtraContent.Models
 
         internal static void RefreshAllRacesInitialFeats()
         {
-            if (previousAllRacesInitialFeats > 0)
+            if (previousAllRacesInitialFeats > -1)
             {
-                UnloadRacesLevel1Feats(Main.Settings.AllRacesInitialFeats, Main.Settings.AlternateHuman);
+                UnloadRacesLevel1Feats(previousAllRacesInitialFeats, previousAlternateHuman);
             }
             previousAllRacesInitialFeats = Main.Settings.AllRacesInitialFeats;
             previousAlternateHuman = Main.Settings.AlternateHuman;
-            LoadRacesLevel1Feats(previousAllRacesInitialFeats, previousAlternateHuman);
+            LoadRacesLevel1Feats(Main.Settings.AllRacesInitialFeats, Main.Settings.AlternateHuman);
         }
 
         internal static void BuildFeatureUnlocks(int initialFeats, bool alternateHuman, out FeatureUnlockByLevel featureUnlockByLevelNonHuman, out FeatureUnlockByLevel featureUnlockByLevelHuman)
@@ -112,11 +112,9 @@ namespace SolastaCJDExtraContent.Models
                     {
                         var featureDefinition = characterRaceDefinition.FeatureUnlocks[i].FeatureDefinition;
 
-                        if (featureDefinition == featureUnlockByLevel.FeatureDefinition || 
-                            featureDefinition == DatabaseHelper.FeatureDefinitionPointPools.PointPoolHumanSkillPool ||
-                            featureDefinition == DatabaseHelper.FeatureDefinitionPointPools.PointPoolAbilityScoreImprovement)
+                        if (featureDefinition == featureUnlockByLevel.FeatureDefinition)
                         {
-                            characterRaceDefinition.FeatureUnlocks.RemoveAt(ndx);
+                            ndx = i;
                         }
                     }
                 }
@@ -146,10 +144,10 @@ namespace SolastaCJDExtraContent.Models
                     Remove(human, featureUnlockByLevelHuman);
 
                     FeatureUnlockByLevel pointPoolAbilityScoreImprovement = new FeatureUnlockByLevel(DatabaseHelper.FeatureDefinitionPointPools.PointPoolAbilityScoreImprovement, 1);
-                    human.FeatureUnlocks.Add(pointPoolAbilityScoreImprovement);
+                    Remove(human, pointPoolAbilityScoreImprovement);
 
                     FeatureUnlockByLevel pointPoolHumanSkillPool = new FeatureUnlockByLevel((FeatureDefinition)DatabaseHelper.FeatureDefinitionPointPools.PointPoolHumanSkillPool, 1);
-                    human.FeatureUnlocks.Add(pointPoolHumanSkillPool);
+                    Remove(human, pointPoolHumanSkillPool);
                 }
             }
         }
