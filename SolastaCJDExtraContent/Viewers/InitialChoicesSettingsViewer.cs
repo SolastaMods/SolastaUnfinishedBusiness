@@ -22,6 +22,7 @@ namespace SolastaCJDExtraContent.Menus.Viewers
             if (UI.Toggle("Enables the Alternate Human", ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.AlternateHuman = toggle;
+                Models.InitialChoicesContext.RefreshAllRacesInitialFeats();
             }
 
             value = Main.Settings.AllRacesInitialFeats;

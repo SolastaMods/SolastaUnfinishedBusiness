@@ -45,6 +45,13 @@ namespace SolastaCJDExtraContent.Models
             featureUnlockByLevelNonHuman = null;
             featureUnlockByLevelHuman = null;
 
+            if (initialFeats == 0)
+            {
+                if (alternateHuman)
+                {
+                    featureUnlockByLevelHuman = new FeatureUnlockByLevel(DatabaseHelper.FeatureDefinitionPointPools.PointPoolBonusFeat, 1);
+                }
+            }
             if (initialFeats == 1)
             {
                 featureUnlockByLevelNonHuman = new FeatureUnlockByLevel(DatabaseHelper.FeatureDefinitionPointPools.PointPoolBonusFeat, 1);
@@ -77,79 +84,95 @@ namespace SolastaCJDExtraContent.Models
 
             BuildFeatureUnlocks(initialFeats, alternateHuman, out FeatureUnlockByLevel featureUnlockByLevelNonHuman, out FeatureUnlockByLevel featureUnlockByLevelHuman);
 
-            if (featureUnlockByLevelNonHuman != null)
+
+            foreach (var characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>().GetAllElements())
             {
-                foreach (var characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>().GetAllElements())
+                if (!IsSubRace(characterRaceDefinition))
                 {
-                    if (characterRaceDefinition != human && !IsSubRace(characterRaceDefinition))
+                    if (alternateHuman && characterRaceDefinition == human)
                     {
-                        characterRaceDefinition.FeatureUnlocks.Add(featureUnlockByLevelNonHuman);
+                        if (featureUnlockByLevelHuman != null)
+                        {
+                            human.FeatureUnlocks.Add(featureUnlockByLevelHuman);
+                        }
+
+                        FeatureUnlockByLevel pointPoolAbilityScoreImprovement = new FeatureUnlockByLevel(DatabaseHelper.FeatureDefinitionPointPools.PointPoolAbilityScoreImprovement, 1);
+                        human.FeatureUnlocks.Add(pointPoolAbilityScoreImprovement);
+
+                        FeatureUnlockByLevel pointPoolHumanSkillPool = new FeatureUnlockByLevel((FeatureDefinition)DatabaseHelper.FeatureDefinitionPointPools.PointPoolHumanSkillPool, 1);
+                        human.FeatureUnlocks.Add(pointPoolHumanSkillPool);
+
+                        Remove(human, DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierHumanAbilityScoreIncrease);
+                    }
+                    else
+                    {
+                        if (featureUnlockByLevelNonHuman != null)
+                        {
+                            characterRaceDefinition.FeatureUnlocks.Add(featureUnlockByLevelNonHuman);
+                        }
                     }
                 }
-            }
-
-            if (featureUnlockByLevelHuman != null)
-            {
-                human.FeatureUnlocks.Add(featureUnlockByLevelHuman);
-
-                FeatureUnlockByLevel pointPoolAbilityScoreImprovement = new FeatureUnlockByLevel(DatabaseHelper.FeatureDefinitionPointPools.PointPoolAbilityScoreImprovement, 1);
-                human.FeatureUnlocks.Add(pointPoolAbilityScoreImprovement);
-
-                FeatureUnlockByLevel pointPoolHumanSkillPool = new FeatureUnlockByLevel((FeatureDefinition)DatabaseHelper.FeatureDefinitionPointPools.PointPoolHumanSkillPool, 1);
-                human.FeatureUnlocks.Add(pointPoolHumanSkillPool);
             }
         }
 
         internal static void UnloadRacesLevel1Feats(int initialFeats, bool alternateHuman)
         {
-            void Remove(CharacterRaceDefinition characterRaceDefinition, FeatureUnlockByLevel featureUnlockByLevel)
-            {
-                var ndx = -1;
-
-                for (var i = 0; i < characterRaceDefinition.FeatureUnlocks.Count; i++)
-                {
-                    if (characterRaceDefinition.FeatureUnlocks[i].Level == 1)
-                    {
-                        var featureDefinition = characterRaceDefinition.FeatureUnlocks[i].FeatureDefinition;
-
-                        if (featureDefinition == featureUnlockByLevel.FeatureDefinition)
-                        {
-                            ndx = i;
-                        }
-                    }
-                }
-
-                if (ndx > 0)
-                {
-                    characterRaceDefinition.FeatureUnlocks.RemoveAt(ndx);
-                }
-            }
-
             var human = DatabaseHelper.CharacterRaceDefinitions.Human;
 
             BuildFeatureUnlocks(initialFeats, alternateHuman, out FeatureUnlockByLevel featureUnlockByLevelNonHuman, out FeatureUnlockByLevel featureUnlockByLevelHuman);
 
-            if (featureUnlockByLevelNonHuman != null)
+
+            foreach (var characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>().GetAllElements())
             {
-                foreach (var characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>().GetAllElements())
+                if (!IsSubRace(characterRaceDefinition))
                 {
-                    if (characterRaceDefinition != human)
+                    if (alternateHuman && characterRaceDefinition == human)
                     {
-                        Remove(characterRaceDefinition, featureUnlockByLevelNonHuman);
+                        if (featureUnlockByLevelHuman != null)
+                        {
+                            Remove(human, featureUnlockByLevelHuman);
+                        }
+                        Remove(human, DatabaseHelper.FeatureDefinitionPointPools.PointPoolAbilityScoreImprovement);
+                        Remove(human, DatabaseHelper.FeatureDefinitionPointPools.PointPoolHumanSkillPool);
+
+                        FeatureUnlockByLevel humanAttributeIncrease = new FeatureUnlockByLevel(DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierHumanAbilityScoreIncrease, 1);
+                        human.FeatureUnlocks.Add(humanAttributeIncrease);
+                    }
+                    else
+                    {
+                        if (featureUnlockByLevelNonHuman != null)
+                        {
+                            Remove(characterRaceDefinition, featureUnlockByLevelNonHuman);
+                        }
                     }
                 }
+            }
+        }
 
-                if (featureUnlockByLevelHuman != null)
+        private static void Remove(CharacterRaceDefinition characterRaceDefinition, FeatureDefinition toRemove)
+        {
+            var ndx = -1;
+
+            for (var i = 0; i < characterRaceDefinition.FeatureUnlocks.Count; i++)
+            {
+                if (characterRaceDefinition.FeatureUnlocks[i].Level == 1)
                 {
-                    Remove(human, featureUnlockByLevelHuman);
-
-                    FeatureUnlockByLevel pointPoolAbilityScoreImprovement = new FeatureUnlockByLevel(DatabaseHelper.FeatureDefinitionPointPools.PointPoolAbilityScoreImprovement, 1);
-                    Remove(human, pointPoolAbilityScoreImprovement);
-
-                    FeatureUnlockByLevel pointPoolHumanSkillPool = new FeatureUnlockByLevel((FeatureDefinition)DatabaseHelper.FeatureDefinitionPointPools.PointPoolHumanSkillPool, 1);
-                    Remove(human, pointPoolHumanSkillPool);
+                    if (characterRaceDefinition.FeatureUnlocks[i].FeatureDefinition == toRemove)
+                    {
+                        ndx = i;
+                    }
                 }
             }
+
+            if (ndx > 0)
+            {
+                characterRaceDefinition.FeatureUnlocks.RemoveAt(ndx);
+            }
+        }
+
+        private static void Remove(CharacterRaceDefinition characterRaceDefinition, FeatureUnlockByLevel featureUnlockByLevel)
+        {
+            Remove(characterRaceDefinition, featureUnlockByLevel.FeatureDefinition);
         }
 
         private static bool IsSubRace(CharacterRaceDefinition raceDefinition)
