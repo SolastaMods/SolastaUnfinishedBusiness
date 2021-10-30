@@ -34,6 +34,7 @@ namespace SolastaContentExpansion.Viewers
             UI.Label("");
             UI.Label("Settings:".yellow());
 
+            UI.Label("");
             if (UI.Slider("Recipes' Cost", ref intValue, 1, 500, 200, "", UI.AutoWidth()))
             {
                 Main.Settings.RecipeCost = intValue;
