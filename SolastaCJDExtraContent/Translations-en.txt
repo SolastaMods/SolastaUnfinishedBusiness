@@ -182,3 +182,19 @@ Equipment/&Enchanted_Shield_Wooden_FrostWalking_Title Wooden Shield of Frost Wal
 Equipment/&Enchanted_Shield_Wooden_FrostWalking_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 Equipment/&Enchanted_Shield_Wooden_Deflection_Title Wooden Shield of Deflection
 Equipment/&Enchanted_Shield_Wooden_Deflection_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Feat/&ProfLightArmorDescription Gain proficiency with Light Armor
+Feat/&ProfLightArmorTitle Light Armor
+Feat/&FeatDexIncrementDescription +1 Dexterity
+Feat/&FeatDexIncrementTitle Attribute Increase
+Feat/&LightArmorDescription Gain proficiency with Light Armor and +1 Dexterity
+Feat/&LightArmorTitle Light Armor
+Feat/&ProfMediumArmorDescription Gain proficiency with Medium Armor and Shields
+Feat/&ProfMediumArmorTitle Medium Armor
+Feat/&MediumDexArmorDescription Gain proficiency with Medium Armor and Shields and +1 Dexterity
+Feat/&MediumDexArmorTitle Medium Armor
+Feat/&FeatStrengthIncrementDescription +1 Strength
+Feat/&FeatStrengthIncrementTitle Attribute Increase
+Feat/&MediumStrengthArmorDescription Gain proficiency with Medium Armor and Shields and +1 Strength
+Feat/&MediumStrengthArmorTitle Medium Armor
+Feat/&HeavyArmorMasterDescription Resistance to Bludgeoning, Slashing, and Piercing damage.
+Feat/&HeavyArmorMasterTitle Heavy Defense Mastery

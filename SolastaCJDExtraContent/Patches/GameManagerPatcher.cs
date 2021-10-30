@@ -13,6 +13,7 @@ namespace SolastaCJDExtraContent.Patches
                 Models.InitialChoicesContext.Load();
                 Models.ItemCraftingContext.Load();
                 Models.GameUiContext.Load();
+                Models.FeatsContext.Load();
             }
         }
     }
