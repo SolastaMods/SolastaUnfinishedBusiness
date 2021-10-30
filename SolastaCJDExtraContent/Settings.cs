@@ -22,7 +22,7 @@ namespace SolastaCJDExtraContent
 
         public bool EnablesAsiAndFeat = false;
 
-        public Dictionary<string, bool> InStore = new Dictionary<string, bool>();
+        public List<string> InStore = new List<string>();
 
         private int recipeCost = 200;
         public int RecipeCost
@@ -33,6 +33,8 @@ namespace SolastaCJDExtraContent
                 Models.ItemCraftingContext.UpdateRecipeCost();
             }
         }
+
+        public List<string> FeatHidden = new List<string>();
 
         /* Commands to allow the player to hide certain parts of the HUD */
         public const InputCommands.Id CTRL_C = (InputCommands.Id)44440000;

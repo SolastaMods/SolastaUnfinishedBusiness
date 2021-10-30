@@ -20,7 +20,7 @@ namespace SolastaCJDExtraContent.Viewers
                 Main.Settings.RecipeCost = intValue;
             }
 
-            foreach (string key in Main.Settings.InStore.Keys)
+            foreach (string key in Models.ItemCraftingContext.RecipeBooks.Keys)
             {
                 AddUIForWeaponKey(key);
             }
@@ -28,7 +28,7 @@ namespace SolastaCJDExtraContent.Viewers
 
         private void AddUIForWeaponKey(string key)
         {
-            bool toggle = Main.Settings.InStore[key];
+            bool toggle = Main.Settings.InStore.Contains(key);
             UI.HStack(key, 3,
                 () => { UI.ActionButton("Learn Recipes (instant)", () => Models.ItemCraftingContext.LearnRecipes(key), UI.AutoWidth()); },
                 () => { UI.Space(25); },
@@ -36,7 +36,7 @@ namespace SolastaCJDExtraContent.Viewers
                 {
                     if (UI.Toggle("In Store (may need travel away and back)", ref toggle, 0, UI.AutoWidth()))
                     {
-                        Main.Settings.InStore[key] = toggle;
+                        Main.Settings.InStore.Add(key);
                         Models.ItemCraftingContext.AddToStore(key);
                     }
                 }

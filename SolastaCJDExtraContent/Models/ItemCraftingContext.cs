@@ -40,7 +40,7 @@ namespace SolastaCJDExtraContent.Models
 
         internal static void AddToStore(string key)
         {
-            if (Main.Settings.InStore[key])
+            if (Main.Settings.InStore.Contains(key))
             {
                 foreach (ItemDefinition item in RecipeBooks[key])
                 {

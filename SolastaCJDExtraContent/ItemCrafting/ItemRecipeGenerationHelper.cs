@@ -40,13 +40,9 @@ namespace SolastaCJDExtraContent.ItemCrafting
                     {
                         Models.ItemCraftingContext.RecipeBooks.Add(baseItem.Name, new List<ItemDefinition>());
                     }
-                    if (!Main.Settings.InStore.ContainsKey(baseItem.Name))
-                    {
-                        Main.Settings.InStore.Add(baseItem.Name, false);
-                    }
                     Models.ItemCraftingContext.RecipeBooks[baseItem.Name].Add(craftingManual);
 
-                    if (Main.Settings.InStore[baseItem.Name])
+                    if (Main.Settings.InStore.Contains(baseItem.Name))
                     {
                         StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Circe, craftingManual);
                         StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore, craftingManual);
@@ -88,13 +84,9 @@ namespace SolastaCJDExtraContent.ItemCrafting
                     {
                         Models.ItemCraftingContext.RecipeBooks.Add(baseItem.Name, new List<ItemDefinition>());    
                     }
-                    if (!Main.Settings.InStore.ContainsKey(baseItem.Name))
-                    {
-                        Main.Settings.InStore.Add(baseItem.Name, false);
-                    }
                     Models.ItemCraftingContext.RecipeBooks[baseItem.Name].Add(craftingManual);
 
-                    if (Main.Settings.InStore[baseItem.Name])
+                    if (Main.Settings.InStore.Contains(baseItem.Name))
                     {
                         StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Circe, craftingManual);
                         StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore, craftingManual);
@@ -158,10 +150,6 @@ namespace SolastaCJDExtraContent.ItemCrafting
 
             string groupKey = "EnchantingIngredients";
             Models.ItemCraftingContext.RecipeBooks.Add(groupKey, new List<ItemDefinition>());
-            if (!Main.Settings.InStore.ContainsKey(groupKey))
-            {
-                Main.Settings.InStore.Add(groupKey, false);
-            }
 
             foreach (RecipeDefinition recipe in recipes)
             {
@@ -170,7 +158,7 @@ namespace SolastaCJDExtraContent.ItemCrafting
 
                 Models.ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
 
-                if (Main.Settings.InStore[groupKey])
+                if (Main.Settings.InStore.Contains(groupKey))
                 {
                     StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Circe, craftingManual);
                     StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore, craftingManual);
@@ -194,10 +182,6 @@ namespace SolastaCJDExtraContent.ItemCrafting
 
             string groupKey = "PrimedItems";
             Models.ItemCraftingContext.RecipeBooks.Add(groupKey, new List<ItemDefinition>());
-            if (!Main.Settings.InStore.ContainsKey(groupKey))
-            {
-                Main.Settings.InStore.Add(groupKey, false);
-            }
 
             foreach (RecipeDefinition recipe in recipes)
             {
@@ -206,7 +190,7 @@ namespace SolastaCJDExtraContent.ItemCrafting
 
                 Models.ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
 
-                if (Main.Settings.InStore[groupKey])
+                if (Main.Settings.InStore.Contains(groupKey))
                 {
                     StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Circe, craftingManual);
                     StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore, craftingManual);
