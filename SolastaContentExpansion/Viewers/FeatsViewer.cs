@@ -1,8 +1,6 @@
-﻿using UnityModManagerNet;
+﻿using System.Linq;
+using UnityModManagerNet;
 using ModKit;
-using System;
-using System.Collections.Generic;
-using SolastaContentExpansion.Models;
 
 namespace SolastaContentExpansion.Viewers
 {
@@ -12,30 +10,49 @@ namespace SolastaContentExpansion.Viewers
 
         public int Priority => 2;
 
-        private void AddUIForFeat(string key, List<Action> actions)
-        {
-            actions.Add(
-                () =>
-                {
-                    bool toggle = !Main.Settings.FeatHidden.Contains(key);
-                    if (UI.Toggle(key, ref toggle, 0, UI.AutoWidth()))
-                    {
-                        FeatsContext.Switch(key, toggle);
-                    }
-                }
-            );
-        }
+        private const int MAX_COLUMNS = 4;
+        private const float PIXELS_PER_COLUMN = 250;
+
+        private static int maxColumns = MAX_COLUMNS;
 
         public void DisplayFeatsSettings()
         {
             UI.Label("");
             UI.Label("Settings: [game restart required]".yellow());
-            List<Action> actions = new List<Action>();
-            foreach (string key in Models.FeatsContext.Feats.Keys)
+            
+            UI.Label("");
+            UI.Slider("Max columns below", ref maxColumns, 1, MAX_COLUMNS * 2, MAX_COLUMNS, "", UI.AutoWidth());
+
+            UI.Label("");
+
+            int columns;
+            var current = 0;
+            var featsCount = Models.FeatsContext.Feats.Count;
+
+            using (UI.VerticalScope())
             {
-                AddUIForFeat(key, actions);
+                while (current < featsCount)
+                {
+                    columns = maxColumns;
+
+                    using (UI.HorizontalScope())
+                    {
+                        while (current < featsCount && columns-- > 0)
+                        {
+                            var keyValuePair = Models.FeatsContext.Feats.ElementAt(current);
+                            var toggle = !Main.Settings.FeatHidden.Contains(keyValuePair.Key);
+                            var title = Gui.Format(keyValuePair.Value.GuiPresentation.Title);
+
+                            if (UI.Toggle(title, ref toggle, PIXELS_PER_COLUMN))
+                            {
+                                Models.FeatsContext.Switch(keyValuePair.Key, toggle);
+                            }
+
+                            current++;
+                        }
+                    }
+                }
             }
-            UI.HStack(null, 4, actions.ToArray());
         }
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
@@ -47,4 +64,3 @@ namespace SolastaContentExpansion.Viewers
         }
     }
 }
-

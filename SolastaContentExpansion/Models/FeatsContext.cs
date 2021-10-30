@@ -1,6 +1,4 @@
-﻿
-using SolastaContentExpansion.Feats;
-using SolastaModApi;
+﻿using SolastaContentExpansion.Feats;
 using SolastaModApi.Extensions;
 using System.Collections.Generic;
 
@@ -8,7 +6,7 @@ namespace SolastaContentExpansion.Models
 {
     class FeatsContext
     {
-        public static Dictionary<string, FeatDefinition> Feats = new Dictionary<string, FeatDefinition>();
+        public static SortedDictionary<string, FeatDefinition> Feats = new SortedDictionary<string, FeatDefinition>();
 
         internal static void Load()
         {
