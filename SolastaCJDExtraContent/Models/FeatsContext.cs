@@ -17,6 +17,8 @@ namespace SolastaCJDExtraContent.Models
 
             // Build feats
             ArmorFeats.CreateArmorFeats(feats);
+            FightingStlyeFeats.CreateFeats(feats);
+            OtherFeats.CreateFeats(feats);
 
             // Use the list of feats to get the settings and ui set up.
 

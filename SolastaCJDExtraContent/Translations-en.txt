@@ -198,3 +198,24 @@ Feat/&MediumStrengthArmorDescription Gain proficiency with Medium Armor and Shie
 Feat/&MediumStrengthArmorTitle Medium Armor
 Feat/&HeavyArmorMasterDescription Resistance to Bludgeoning, Slashing, and Piercing damage.
 Feat/&HeavyArmorMasterTitle Heavy Defense Mastery
+Feat/&FeatSavageAttackerDescription Reroll damage dice when they roll a 1.
+Feat/&FeatSavageAttackerTitle Savage Attacker
+Feat/&FeatSavageAttackerReroll Rerolling damage due to Savage Attacker.
+Feat/&FeatToughDescription Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.
+Feat/&FeatToughTitle Tough
+Feat/&FeatWarCasterDescription You gain advantage on checks to maintain concentration. You gain the ability to perform the somatic component of spells even with full hands. You gain +2 on spell attack rolls.
+Feat/&FeatWarCasterTitle War Caster
+Feat/&FightingStyleTwoWeaponDescription When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
+Feat/&FightingStyleTwoWeaponTitle Fighting Style: Two Weapon
+Feat/&FightingStyleProtectionDescription When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
+Feat/&FightingStyleProtectionTitle Fighting Style: Protection
+Feat/&FightingStyleGreatWeaponDescription When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die. You must use the new roll, even if it is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.
+Feat/&FightingStyleGreatWeaponTitle Fighting Style: Great Weapon
+Feat/&FightingStyleDuelingDescription When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.
+Feat/&FightingStyleDuelingTitle Fighting Style: Dueling
+Feat/&FightingStyleDefenseDescription While you are wearing armor you gain a +1 bonus to AC.
+Feat/&FightingStyleDefenseTitle Fighting Style: Defense
+Feat/&FightingStyleArcheryDescription You gain a +2 bonus to attack rolls with ranged weapons.
+Feat/&FightingStyleArcheryTitle Fighting Style: Archery
+Feat/&FightingStyleGeneralFeatDescription You can select a fighting style.
+Feat/&FightingStyleGeneralFeatitle Fighting Style
