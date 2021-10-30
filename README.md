@@ -1,6 +1,6 @@
-# SolastaCJDCollection
+# SolastaContentExpansion
 
-SolastaCJDCollection
+SolastaContentExpansion
 
 # How to Compile
 
