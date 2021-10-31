@@ -219,6 +219,32 @@ Feat/&FightingStyleArcheryDescription You gain a +2 bonus to attack rolls with r
 Feat/&FightingStyleArcheryTitle Fighting Style: Archery
 Feat/&FightingStyleGeneralFeatDescription You can select a fighting style.
 Feat/&FightingStyleGeneralFeatitle Fighting Style
+Feat/&InspiringLeaderDescription Spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier. Useable once per short rest.
+Feat/&InspiringLeaderTitle Inspiring Leader
+Feat/&HealerDescription You gain proficiency or expertise in Medicine checks. You gain the ability to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
+Feat/&HealerTitle Healer
+Feat/&HealerUseMedicineDescription You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
+Feat/&HealerUseMedicineTitle Use Medicine
+Feat/&HealerResuscitateDescription Use an action to revive a creature that died within the last 15 seconds.
+Feat/&HealerResuscitateTitle Resuscitate
+Feat/&ProfHealerMedicineDescription Gain Proficiency in Medicine, or Expertise if you are already proficient.
+Feat/&ProfHealerMedicineTitle Medicine Knowledge
+Feat/&ProfChefTreatActionDescription Eat a treat as a bonus action and gain 5 temporary hitpoints.
+Feat/&ProfChefTreatActionTitle Eat Chef's Treat
+Feat/&ProfChefTreatDescription Eat as a bonus action and gain 5 temporary hitpoints.
+Feat/&ProfChefTreatTitle Chef's Treat
+Feat/&ProfChefTreatCookDescription Spend one hour to cook treats that when eaten provide 5 temporary hitpoints.
+Feat/&ProfChefTreatCookTitle Cook Chef's Treat
+Feat/&ChefShortRestFeastDescription Spend 1 hour to prepare a meal that helps heal you and your companions 1d8.
+Feat/&ChefShortRestFeastTitle Short Rest Meal
+Feat/&FeatChefConIncrementDescription +1 Constitution
+Feat/&FeatChefConIncrementTitle Attribute Increase
+Feat/&FeatChefWisIncrementDescription +1 Wisdom
+Feat/&FeatChefWisIncrementTitle Attribute Increase
+Feat/&ChefConDescription You gain +1 to Constitution. Spend 1 hour to cook a meal to heal yourself and your companions 1d8. Once a day you may spend an hour to cook treats that provide temporary HP when eaten.
+Feat/&ChefConTitle Chef (Constitution)
+Feat/&ChefWisDescription You gain +1 to Wisdom. Spend 1 hour to cook a meal to heal yourself and your companions. Once a day you may spend an hour to cook treats that provide temporary HP when eaten.
+Feat/&ChefWisTitle Chef (Wisdom)
 FlexibleBackgrounds/&BackgroundSkillSelect3Description Select 3 skill proficiencies
 FlexibleBackgrounds/&BackgroundSkillSelect3Title Skills
 FlexibleBackgrounds/&BackgroundSkillSelect2Description Select 2 skill proficiencies
