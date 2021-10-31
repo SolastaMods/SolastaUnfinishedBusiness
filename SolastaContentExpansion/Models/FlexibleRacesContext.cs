@@ -40,6 +40,7 @@ namespace SolastaContentExpansion.Models
             { Elf, attributeChoiceThree },
             { Halfling, attributeChoiceThree },
             { HalfElf, attributeChoiceFour },
+            // TODO add support for HalfOrc
         };
 
         private static readonly Dictionary<CharacterRaceDefinition, FeatureDefinition> removedFeatures = new Dictionary<CharacterRaceDefinition, FeatureDefinition>
@@ -57,6 +58,7 @@ namespace SolastaContentExpansion.Models
 
         };
 
+        // TODO- is this used- if not, remove.
         internal static void ModEntryPoint()
         {
             RemoveMatchingFeature(DatabaseHelper.CharacterRaceDefinitions.Dwarf.FeatureUnlocks, DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierDwarfAbilityScoreIncrease);
