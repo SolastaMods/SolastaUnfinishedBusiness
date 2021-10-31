@@ -46,6 +46,8 @@ namespace SolastaContentExpansion.Viewers
                 Models.FlexibleRacesContext.Switch(toggle);
             }
 
+            // TODO- check if the vision changes only take effect when creating a character. If so we may want to make
+            // this clear so players don't expect to be able to toggle mid-game.
             toggle = Main.Settings.DisableSenseDarkVisionFromAllRaces;
             if (UI.Toggle("Disables Sense Dark Vision from all races [requires restart]", ref toggle, 0, UI.AutoWidth()))
             {
