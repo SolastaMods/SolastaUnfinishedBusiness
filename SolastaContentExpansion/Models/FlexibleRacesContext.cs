@@ -9,6 +9,7 @@ namespace SolastaContentExpansion.Models
 {
     internal static class FlexibleRacesContext
     {
+        // TODO- Move the point pool builder to features. I believe we now have this in at least 2 places.
         public class AbilityScoreSelectBuilder : BaseDefinitionBuilder<FeatureDefinitionPointPool>
         {
             public AbilityScoreSelectBuilder(string name, string guid, int pointPoolSize, GuiPresentation guiPresentation) : base(name, guid)
