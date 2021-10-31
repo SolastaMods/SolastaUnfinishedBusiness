@@ -33,8 +33,8 @@ namespace SolastaContentExpansion.Models
                 UnloadRacesLevel1Feats(previousAllRacesInitialFeats, previousAlternateHuman);
             }
             previousAllRacesInitialFeats = Main.Settings.AllRacesInitialFeats;
-            previousAlternateHuman = Main.Settings.AlternateHuman;
-            LoadRacesLevel1Feats(Main.Settings.AllRacesInitialFeats, Main.Settings.AlternateHuman);
+            previousAlternateHuman = Main.Settings.EnableAlternateHuman;
+            LoadRacesLevel1Feats(Main.Settings.AllRacesInitialFeats, Main.Settings.EnableAlternateHuman);
         }
 
         internal static void BuildFeatureUnlocks(int initialFeats, bool alternateHuman, out FeatureUnlockByLevel featureUnlockByLevelNonHuman, out FeatureUnlockByLevel featureUnlockByLevelHuman)
