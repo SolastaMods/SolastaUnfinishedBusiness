@@ -1,5 +1,5 @@
-﻿using SolastaModApi;
-using SolastaModApi.Extensions;
+﻿using SolastaContentExpansion.Features;
+using SolastaModApi;
 using System.Collections.Generic;
 using static SolastaModApi.DatabaseHelper.CharacterBackgroundDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
@@ -8,35 +8,25 @@ namespace SolastaContentExpansion.Models
 {
     public class FlexibleBackgroundsContext
     {
-        private class PoolBuilder : BaseDefinitionBuilder<FeatureDefinitionPointPool>
-        {
-            public PoolBuilder(string name, string guid, HeroDefinitions.PointsPoolType poolType, int pointPoolSize, GuiPresentation guiPresentation) : base(name, guid)
-            {
-                Definition.SetPoolAmount(pointPoolSize);
-                Definition.SetPoolType(poolType);
-                Definition.SetGuiPresentation(guiPresentation);
-            }
-        }
-
         private static readonly GuiPresentationBuilder skillThreeGui = new GuiPresentationBuilder(
             "FlexibleBackgrounds/&BackgroundSkillSelect3Description",
             "FlexibleBackgrounds/&BackgroundSkillSelect3Title");
 
-        private static readonly FeatureDefinition skillThree = new PoolBuilder("BackgroundSkillSelect3",
+        private static readonly FeatureDefinition skillThree = new FeatureDefinitionPointPoolBuilder("BackgroundSkillSelect3",
             "e6f2ed65-a44e-4314-b38c-393abb4ad900", HeroDefinitions.PointsPoolType.Skill, 3, skillThreeGui.Build()).AddToDB();
 
         private static readonly GuiPresentationBuilder skillTwoGui = new GuiPresentationBuilder(
             "FlexibleBackgrounds/&BackgroundSkillSelect2Description",
             "FlexibleBackgrounds/&BackgroundSkillSelect2Title");
 
-        private static readonly FeatureDefinition skillTwo = new PoolBuilder("BackgroundSkillSelect2",
+        private static readonly FeatureDefinition skillTwo = new FeatureDefinitionPointPoolBuilder("BackgroundSkillSelect2",
             "77d6eb2c-d99f-4256-9bb6-c6395e440629", HeroDefinitions.PointsPoolType.Skill, 2, skillTwoGui.Build()).AddToDB();
 
         private static readonly GuiPresentationBuilder toolGui = new GuiPresentationBuilder(
             "FlexibleBackgrounds/&BackgroundToolSelectDescription",
             "FlexibleBackgrounds/&BackgroundToolSelectTitle");
 
-        private static readonly FeatureDefinition toolChoice = new PoolBuilder("BackgroundToolSelect",
+        private static readonly FeatureDefinition toolChoice = new FeatureDefinitionPointPoolBuilder("BackgroundToolSelect",
             "989ddb03-b915-42cc-9612-bc8be96b7476", HeroDefinitions.PointsPoolType.Tool, 1, toolGui.Build()).AddToDB();
 
         private static Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>> addedFeatures = new Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>>
