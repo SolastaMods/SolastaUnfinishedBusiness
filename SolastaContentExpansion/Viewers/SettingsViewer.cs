@@ -18,10 +18,10 @@ namespace SolastaContentExpansion.Viewers
             UI.Label("Progression settings:".yellow());
             UI.Label("");
 
-            toggle = Main.Settings.AlternateHuman;
+            toggle = Main.Settings.EnableAlternateHuman;
             if (UI.Toggle("Enables the Alternate Human", ref toggle, 0, UI.AutoWidth()))
             {
-                Main.Settings.AlternateHuman = toggle;
+                Main.Settings.EnableAlternateHuman = toggle;
                 Models.InitialChoicesContext.RefreshAllRacesInitialFeats();
             }
 
