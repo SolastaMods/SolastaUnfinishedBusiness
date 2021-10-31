@@ -66,7 +66,7 @@ namespace SolastaContentExpansion.Feats
         private static FeatureDefinitionMagicAffinity BuildMagicAffinityWarCaster(string name, GuiPresentation guiPresentation)
         {
             FeatureDefinitionMagicAffinityBuilder builder = new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(OtherFeatNamespace, name).ToString(),
-                RuleDefinitions.ConcentrationAffinity.Advantage, guiPresentation);
+                RuleDefinitions.ConcentrationAffinity.Advantage, 2 /* attackModifier */, guiPresentation);
             return builder.AddToDB();
         }
 

@@ -8,7 +8,7 @@ namespace SolastaContentExpansion.Viewers
     {
         public string Name => "Items and Crafting";
 
-        public int Priority => 3;
+        public int Priority => 4;
 
         private void AddUIForWeaponKey(string key)
         {

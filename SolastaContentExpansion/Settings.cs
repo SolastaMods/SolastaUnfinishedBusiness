@@ -1,3 +1,4 @@
+using SolastaContentExpansion.Subclasses.Rogue;
 using System.Collections.Generic;
 using UnityModManagerNet;
 
@@ -41,6 +42,18 @@ namespace SolastaContentExpansion
         }
 
         public List<string> FeatHidden = new List<string>();
+        public List<string> SubclassHidden = new List<string>();
+
+        private int rogueConArtistSpellDCBoost = 3;
+
+        public int RogueConArtistSpellDCBoost
+        {
+            get => rogueConArtistSpellDCBoost; set
+            {
+                rogueConArtistSpellDCBoost = value;
+                ConArtist.UpdateSpellDCBoost();
+            }
+        }
 
         /* Commands to allow the player to hide certain parts of the HUD */
         public const InputCommands.Id CTRL_C = (InputCommands.Id)44440000;

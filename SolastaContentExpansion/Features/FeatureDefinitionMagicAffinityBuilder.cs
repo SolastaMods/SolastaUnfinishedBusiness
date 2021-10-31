@@ -7,7 +7,7 @@ namespace SolastaContentExpansion.Features
     public class FeatureDefinitionMagicAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionMagicAffinity>
     {
 
-        public FeatureDefinitionMagicAffinityBuilder(string name, string guid, RuleDefinitions.ConcentrationAffinity concentrationAffinity,
+        public FeatureDefinitionMagicAffinityBuilder(string name, string guid, RuleDefinitions.ConcentrationAffinity concentrationAffinity, int attackModifier,
             GuiPresentation guiPresentation) : base(name, guid)
         {
             Definition.SetConcentrationAffinity(concentrationAffinity);
@@ -15,7 +15,7 @@ namespace SolastaContentExpansion.Features
 
             Definition.SetSomaticWithWeaponOrShield(true);
             Definition.SetRangeSpellNoProximityPenalty(true);
-            Definition.SetSpellAttackModifier(2);
+            Definition.SetSpellAttackModifier(attackModifier);
         }
 
         public FeatureDefinitionMagicAffinityBuilder(string name, string guid, List<string> spellNames,

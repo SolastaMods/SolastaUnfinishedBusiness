@@ -15,6 +15,7 @@ namespace SolastaContentExpansion.Patches
                 Models.ItemCraftingContext.Load();
                 Models.GameUiContext.Load();
                 Models.FeatsContext.Load();
+                Models.SubclassesContext.Load();
                 Models.FlexibleBackgroundsContext.Load();
                 Models.FlexibleRacesContext.Load();
                 Models.VisionContext.Load();

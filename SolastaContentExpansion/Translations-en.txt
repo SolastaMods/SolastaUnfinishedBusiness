@@ -255,3 +255,38 @@ FlexibleRaces/&PointPoolAbilityScore3Description Use three boosts on ability sco
 FlexibleRaces/&PointPoolAbilityScore3Title Ability Score Increase
 FlexibleRaces/&PointPoolAbilityScore4Description Use four boosts on ability scores in any combination of your choosing.
 FlexibleRaces/&PointPoolAbilityScore4Title Ability Score Increase
+Subclass/&FighterSpellShieldDescription Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
+Subclass/&FighterSpellShieldTitle Spell Shield
+Subclass/&FighterSpellShieldSpellcastingDescription Cast wizard spells and cantrips from the Abjuration, Illusion, Transmutation, and Necromancy schools.
+Subclass/&FighterSpellShieldSpellcastingTitle Spellcasting
+Subclass/&FighterSpellShieldSpellResistanceDescription Your experience with spells and Abjuration magic in particular has made you resistant to spells cast against you.
+Subclass/&FighterSpellShieldSpellResistanceTitle Spell Resistance
+Subclass/&MagicAffinityFighterSpellShieldDescription Advantage on concentration checks as well as the ability to perform somatic components of spells while holding items.
+Subclass/&MagicAffinityFighterSpellShieldTitle Combat Casting
+Subclass/&SpellShieldAdditionalActionDescription You can cast a spell after defeating an enemy with your weapon attacks.
+Subclass/&SpellShieldAdditionalActionTitle Spell Fighting
+Subclass/&ConditionSpellShieldArcaneDeflectionDescription You can use your arcane powers to shield yourself as a reaction. This gives you +3 to your AC until your next turn.
+Subclass/&ConditionSpellShieldArcaneDeflectionTitle Arcane Deflection
+Subclass/&PowerSpellShieldArcaneDeflectionDescription You can use your arcane powers to shield yourself as a reaction. This gives you +3 to your AC until your next turn.
+Subclass/&PowerSpellShieldArcaneDeflectionTitle Arcane Deflection
+Subclass/&PowerSpellShieldRangedDeflectionDescription When an attacker that you can see hits you with a ranged attack or spell, you can use your reaction to halve the attack's damage against you.
+Subclass/&PowerSpellShieldRangedDeflectionTitle Ranged Deflection
+Subclass/&RoguishConArtistSpellcastingDescription Cast wizard spells and cantrips from the Conjuration, Enchantment, Illusion, and Transmutation schools. The Con Artist uses Charisma to cast their spells.
+Subclass/&RoguishConArtistSpellcastingTitle Spellcasting
+Subclass/&AbilityAffinityRogueConArtistDescription Advantage on ability checks using Persuasion, Deception, Performance, and Sleight of Hand.
+Subclass/&AbilityAffinityRogueConArtistTitle Manipulative
+Subclass/&RoguishConArtistDescription Con Artists are rogues that specialize in deception and tricking others. They use magic to aid their natural manipulative abilities.
+Subclass/&RoguishConArtistTitle Con Artist
+Subclass/&RoguishConArtistFeintDescription Gain the ability to feint in combat as a bonus action. If the target fails their saving throw, this grants advantage on the next attack against the target.
+Subclass/&RoguishConArtistFeintTitle Feint
+Subclass/&MagicAffinityRoguishConArtistDCTitle Improved Manipulation
+Subclass/&RoguishConArtistMentalSavingThrowsDescription You gain proficiency in Wisdom and Charisma saving throws.
+Subclass/&RoguishConArtistMentalSavingThrowsTitle Mental Strength
+Subclass/&RoguishConArtistFeintConditionDescription Being tricked grants advantage on the next attack.
+Subclass/&RoguishConArtistFeintConditionTitle Tricked
+Subclass/&MagicAffinityRoguishConArtistDC0Description Your spell save DC increases by 0.
+Subclass/&MagicAffinityRoguishConArtistDC1Description Your spell save DC increases by 1.
+Subclass/&MagicAffinityRoguishConArtistDC2Description Your spell save DC increases by 2.
+Subclass/&MagicAffinityRoguishConArtistDC3Description Your spell save DC increases by 3.
+Subclass/&MagicAffinityRoguishConArtistDC4Description Your spell save DC increases by 4.
+Subclass/&MagicAffinityRoguishConArtistDC5Description Your spell save DC increases by 5.
