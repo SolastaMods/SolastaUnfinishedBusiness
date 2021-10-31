@@ -99,6 +99,9 @@ namespace SolastaContentExpansion.Viewers
             {
                 Main.Settings.SpellPanelGapBetweenLines = floatValue;
             }
+
+            UI.Toggle("Hide monster's exact hit points. Show HP in steps of 25/50/75/100%.",
+                ref Main.Settings.HideMonsterHitPoints, 0, UI.AutoWidth());
         }
 
         public void OnGUI(UnityModManager.ModEntry modEntry)

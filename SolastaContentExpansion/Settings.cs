@@ -66,5 +66,7 @@ namespace SolastaContentExpansion
 
         public int MaxSpellLevelsPerLine = 5;
         public float SpellPanelGapBetweenLines = 30f;
+
+        public bool HideMonsterHitPoints;
     }
 }
