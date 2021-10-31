@@ -23,6 +23,9 @@ namespace SolastaContentExpansion
         public bool EnableFlexibleBackgrounds = false;
         public bool EnableFlexibleRaces = false;
 
+        public bool DisableSenseDarkVisionFromAllRaces = false;
+        public bool DisableSenseSuperiorDarkVisionFromAllRaces = false;
+
         public int AllRacesInitialFeats = 0;
 
         public List<string> InStore = new List<string>();

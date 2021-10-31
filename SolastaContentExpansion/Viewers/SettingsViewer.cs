@@ -46,6 +46,18 @@ namespace SolastaContentExpansion.Viewers
                 Models.FlexibleRacesContext.Switch(toggle);
             }
 
+            toggle = Main.Settings.DisableSenseDarkVisionFromAllRaces;
+            if (UI.Toggle("Disables Sense Dark Vision from all races [requires restart]", ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.DisableSenseDarkVisionFromAllRaces = toggle;
+            }
+
+            toggle = Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces;
+            if (UI.Toggle("Disables Superior Sense Dark Vision from all races [requires restart]", ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces = toggle;
+            }
+
             intValue = Main.Settings.AllRacesInitialFeats;
             if (UI.Slider("Total feats granted at first level", ref intValue, Settings.MIN_INITIAL_FEATS, Settings.MAX_INITIAL_FEATS, 0, "", UI.AutoWidth()))
             {
