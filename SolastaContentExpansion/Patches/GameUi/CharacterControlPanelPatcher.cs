@@ -170,23 +170,4 @@ namespace SolastaContentExpansion.Patches
             panelToActivate = null;
         }
     }
-
-    [HarmonyPatch(typeof(CharacterControlPanel), "SetupFeatures")]
-    internal static class CharacterControlPanelPatcher
-    {
-        internal static void Prefix(ref TooltipDefinitions.Scope scope, GuiTooltipClassDefinition tooltipClassDefinition, Dictionary<string, TooltipFeature> tooltipsFeatures)
-        {
-            if (Main.Settings.InvertAltBehaviorOnTooltips)
-            {
-                if (scope == TooltipDefinitions.Scope.Simplified)
-                {
-                    scope = TooltipDefinitions.Scope.Detailed;
-                }
-                else if (scope == TooltipDefinitions.Scope.Detailed)
-                {
-                    scope = TooltipDefinitions.Scope.Simplified;
-                }
-            }
-        }
-    }
 }

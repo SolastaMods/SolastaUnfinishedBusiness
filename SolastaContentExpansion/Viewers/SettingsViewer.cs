@@ -19,7 +19,7 @@ namespace SolastaContentExpansion.Viewers
             UI.Label("");
 
             toggle = Main.Settings.EnableAlternateHuman;
-            if (UI.Toggle("Enables the Alternate Human", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Enables the alternate Human", ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.EnableAlternateHuman = toggle;
                 Models.InitialChoicesContext.RefreshAllRacesInitialFeats();
@@ -76,10 +76,10 @@ namespace SolastaContentExpansion.Viewers
             UI.Label("Game UI Settings:".yellow());
             UI.Label("");
 
-            toggle = Main.Settings.InvertAltBehaviorOnTooltips;
-            if (UI.Toggle("Offers additional lore friendly names on Hero Creation", ref toggle, 0, UI.AutoWidth()))
+            toggle = Main.Settings.OfferAdditionalNames;
+            if (UI.Toggle("Offers additional lore friendly names [requires restart]", ref toggle, 0, UI.AutoWidth()))
             {
-                Main.Settings.InvertAltBehaviorOnTooltips = toggle;
+                Main.Settings.OfferAdditionalNames = toggle;
             }
 
             toggle = Main.Settings.InvertAltBehaviorOnTooltips;
