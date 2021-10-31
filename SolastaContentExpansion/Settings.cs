@@ -15,12 +15,18 @@ namespace SolastaContentExpansion
         public const int MIN_INITIAL_FEATS = 0;
         public const int MAX_INITIAL_FEATS = 10;
 
-        public int AllRacesInitialFeats = 0;
-        public bool AlternateHuman = false;
         /* This is in the settings so it can be disabled, but if a player has access to first level feats they almost definitely want this on. */
         public bool EnableFirstLevelCasterFeats = true;
-
+        
+        public bool EnableAlternateHuman = false;
         public bool EnablesAsiAndFeat = false;
+        public bool EnableFlexibleBackgrounds = false;
+        public bool EnableFlexibleRaces = false;
+
+        public bool DisableSenseDarkVisionFromAllRaces = false;
+        public bool DisableSenseSuperiorDarkVisionFromAllRaces = false;
+
+        public int AllRacesInitialFeats = 0;
 
         public List<string> InStore = new List<string>();
 
@@ -41,6 +47,9 @@ namespace SolastaContentExpansion
         public const InputCommands.Id CTRL_L = (InputCommands.Id)44440001;
         public const InputCommands.Id CTRL_M = (InputCommands.Id)44440002;
         public const InputCommands.Id CTRL_P = (InputCommands.Id)44440003;
+
+        public bool OfferAdditionalNames = true;
+        public bool InvertAltBehaviorOnTooltips = true;
 
         public int MaxSpellLevelsPerLine = 5;
         public float SpellPanelGapBetweenLines = 30f;

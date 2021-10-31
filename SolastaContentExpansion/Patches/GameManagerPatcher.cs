@@ -9,11 +9,15 @@ namespace SolastaContentExpansion.Patches
         {
             internal static void Postfix()
             {
+                Models.AdditionalNamesContext.Load();
                 Models.AsiAndFeatContext.Load();
                 Models.InitialChoicesContext.Load();
                 Models.ItemCraftingContext.Load();
                 Models.GameUiContext.Load();
                 Models.FeatsContext.Load();
+                Models.FlexibleBackgroundsContext.Load();
+                Models.FlexibleRacesContext.Load();
+                Models.VisionContext.Load();
             }
         }
     }

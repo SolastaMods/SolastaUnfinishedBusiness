@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using System.Collections.Generic;
+using HarmonyLib;
 
 namespace SolastaContentExpansion.Patches
 {
@@ -8,7 +9,7 @@ namespace SolastaContentExpansion.Patches
         private static CharacterActionPanel panelToActivate;
         private static ActionDefinitions.Id actionId;
 
-        public static void Prefix(CharacterControlPanel __instance)
+        internal static void Prefix(CharacterControlPanel __instance)
         {
             bool foundActivePanel = false;
             if (__instance.Visible && __instance.SpellSelectionPanel != null && __instance.SpellSelectionPanel.Visible)
@@ -159,7 +160,7 @@ namespace SolastaContentExpansion.Patches
             }
         }
 
-        public static void Postfix()
+        internal static void Postfix()
         {
             // Re transition to current state?
             if (panelToActivate != null)
@@ -167,6 +168,25 @@ namespace SolastaContentExpansion.Patches
                 panelToActivate.OnActivateAction(actionId);
             }
             panelToActivate = null;
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterControlPanel), "SetupFeatures")]
+    internal static class CharacterControlPanelPatcher
+    {
+        internal static void Prefix(ref TooltipDefinitions.Scope scope, GuiTooltipClassDefinition tooltipClassDefinition, Dictionary<string, TooltipFeature> tooltipsFeatures)
+        {
+            if (Main.Settings.InvertAltBehaviorOnTooltips)
+            {
+                if (scope == TooltipDefinitions.Scope.Simplified)
+                {
+                    scope = TooltipDefinitions.Scope.Detailed;
+                }
+                else if (scope == TooltipDefinitions.Scope.Detailed)
+                {
+                    scope = TooltipDefinitions.Scope.Simplified;
+                }
+            }
         }
     }
 }
