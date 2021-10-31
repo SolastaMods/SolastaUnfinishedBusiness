@@ -100,11 +100,17 @@ namespace SolastaContentExpansion.Viewers
                 Main.Settings.SpellPanelGapBetweenLines = floatValue;
             }
 
-            UI.Toggle("Hide monster's exact hit points. Show HP in steps of 25/50/75/100%.",
-                ref Main.Settings.HideMonsterHitPoints, 0, UI.AutoWidth());
+            toggle = Main.Settings.HideMonsterHitPoints;
+            if (UI.Toggle("Hide monster's exact hit points. Show HP in steps of 25/50/75/100%", ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.HideMonsterHitPoints = toggle;
+            }
 
-            UI.Toggle("Pause the UI when victorious in battle.",
-                ref Main.Settings.AutoPauseOnVictory, 0, UI.AutoWidth());
+            toggle = Main.Settings.AutoPauseOnVictory;
+            if (UI.Toggle("Pause the UI when victorious in battle", ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.AutoPauseOnVictory = toggle;
+            }
         }
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
