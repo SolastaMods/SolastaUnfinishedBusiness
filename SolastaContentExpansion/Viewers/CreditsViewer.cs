@@ -14,11 +14,12 @@ namespace SolastaContentExpansion.Viewers
             UI.Label("");
             UI.Label("Author:".yellow());
             UI.Label("");
-            UI.Label(". Chris P. John".bold() + " - feats, items, subclasses, progression, etc.");
+            UI.Label(". ChrisPJohnDigital".bold() + " - feats, items, subclasses, progression, etc.");
 
             UI.Label("");
             UI.Label("Credits:".yellow());
             UI.Label("");
+            UI.Label(". Zappastuff    - Mod UI Work, Integration, Community Organization");
             UI.Label(". View619       - Darkvision");
             UI.Label(". SilverGriffon - Solastanomicon");
             UI.Label("");
