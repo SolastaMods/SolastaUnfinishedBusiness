@@ -9,6 +9,7 @@ namespace SolastaContentExpansion.Patches
         {
             internal static void Postfix()
             {
+                Models.AdditionalNamesContext.Load();
                 Models.AsiAndFeatContext.Load();
                 Models.InitialChoicesContext.Load();
                 Models.ItemCraftingContext.Load();

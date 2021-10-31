@@ -3,18 +3,27 @@ using ModKit;
 
 namespace SolastaContentExpansion.Viewers
 {
-    public class OtherSettingsViewer : IMenuSelectablePage
+    public class SettingsViewer : IMenuSelectablePage
     {
-        public string Name => "Other Settings";
+        public string Name => "Settings";
 
-        public int Priority => 4;
+        public int Priority => 1;
 
         public static void DisplaySettings()
         {
+            int intValue;
             bool toggle;
 
             UI.Label("");
             UI.Label("Progression settings:".yellow());
+            UI.Label("");
+
+            toggle = Main.Settings.AlternateHuman;
+            if (UI.Toggle("Enables the Alternate Human", ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.AlternateHuman = toggle;
+                Models.InitialChoicesContext.RefreshAllRacesInitialFeats();
+            }
 
             toggle = Main.Settings.EnablesAsiAndFeat;
             if (UI.Toggle("Enables both ASI and Feat", ref toggle, 0, UI.AutoWidth()))
@@ -36,16 +45,31 @@ namespace SolastaContentExpansion.Viewers
                 Main.Settings.EnableFlexibleRaces = toggle;
                 Models.FlexibleRacesContext.Switch(toggle);
             }
+
+            intValue = Main.Settings.AllRacesInitialFeats;
+            if (UI.Slider("Total feats granted at first level", ref intValue, Settings.MIN_INITIAL_FEATS, Settings.MAX_INITIAL_FEATS, 0, "", UI.AutoWidth()))
+            {
+                Main.Settings.AllRacesInitialFeats = intValue;
+                Models.InitialChoicesContext.RefreshAllRacesInitialFeats();
+            }
         }
 
         private static void DisplaySpellPanelSettings()
         {
-            
+            bool toggle;
+
             UI.Label("");
             UI.Label("Game UI Settings:".yellow());
+            UI.Label("");
 
-            bool toggle = Main.Settings.InvertAltBehaviorOnTooltips;
-            if (UI.Toggle("Invert ALT key behavior on tooltips", ref toggle, 0, UI.AutoWidth()))
+            toggle = Main.Settings.InvertAltBehaviorOnTooltips;
+            if (UI.Toggle("Offers additional lore friendly names on Hero Creation", ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.InvertAltBehaviorOnTooltips = toggle;
+            }
+
+            toggle = Main.Settings.InvertAltBehaviorOnTooltips;
+            if (UI.Toggle("Inverts ALT key behavior on Tooltips", ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.InvertAltBehaviorOnTooltips = toggle;
             }

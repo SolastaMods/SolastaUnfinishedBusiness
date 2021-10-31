@@ -11,7 +11,17 @@ namespace SolastaContentExpansion.Viewers
 
         public void DisplayHelp()
         {
+            UI.Label("");
+            UI.Label("Author:".yellow());
+            UI.Label("");
+            UI.Label(". Chris P. John".bold() + " - feats, items, subclasses, progression, etc.");
 
+            UI.Label("");
+            UI.Label("Credits:".yellow());
+            UI.Label("");
+            UI.Label(". View619       - Darkvision / COD");
+            UI.Label(". SilverGriffon - Solastanomicon");
+            UI.Label("");
         }
 
         public void OnGUI(UnityModManager.ModEntry modEntry)

@@ -44,6 +44,7 @@ namespace SolastaContentExpansion
         public const InputCommands.Id CTRL_M = (InputCommands.Id)44440002;
         public const InputCommands.Id CTRL_P = (InputCommands.Id)44440003;
 
+        public bool OfferAdditionalNames = true;
         public bool InvertAltBehaviorOnTooltips = true;
         public int MaxSpellLevelsPerLine = 5;
         public float SpellPanelGapBetweenLines = 30f;
