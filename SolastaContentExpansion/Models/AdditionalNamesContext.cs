@@ -20,83 +20,84 @@ namespace SolastaContentExpansion.Models
                 {
                     var splitted = line.Split(new[] { '\t', ' ' }, 2);
                     var term = splitted[0];
+                    var name = splitted[1];
 
                     if (term.Contains("DwarfFemale"))
                     {
-                        dwarfNames.RacePresentation.FemaleNameOptions.Add(term);
+                        dwarfNames.RacePresentation.FemaleNameOptions.Add(name);
                     }
                     else if (term.Contains("DwarfMale"))
                     {
-                        dwarfNames.RacePresentation.MaleNameOptions.Add(term);
+                        dwarfNames.RacePresentation.MaleNameOptions.Add(name);
                     }
                     else if (term.Contains("DwarfSur"))
                     {
-                        dwarfNames.RacePresentation.SurNameOptions.Add(term);
+                        dwarfNames.RacePresentation.SurNameOptions.Add(name);
                     }
 
                     else if (term.Contains("ElfFemale"))
                     {
-                        elfHighNames.RacePresentation.FemaleNameOptions.Add(term);
+                        elfHighNames.RacePresentation.FemaleNameOptions.Add(name);
                     }
                     else if (term.Contains("ElfMale"))
                     {
-                        elfHighNames.RacePresentation.MaleNameOptions.Add(term);
+                        elfHighNames.RacePresentation.MaleNameOptions.Add(name);
                     }
                     else if (term.Contains("ElfSur"))
                     {
-                        elfHighNames.RacePresentation.SurNameOptions.Add(term);
+                        elfHighNames.RacePresentation.SurNameOptions.Add(name);
                     }
 
                     else if (term.Contains("SylvanElfFemale"))
                     {
-                        elfSylvanNames.RacePresentation.FemaleNameOptions.Add(term);
+                        elfSylvanNames.RacePresentation.FemaleNameOptions.Add(name);
                     }
                     else if (term.Contains("SylvanElfMale"))
                     {
-                        elfSylvanNames.RacePresentation.MaleNameOptions.Add(term);
+                        elfSylvanNames.RacePresentation.MaleNameOptions.Add(name);
                     }
                     else if (term.Contains("SylvanElfSur"))
                     {
-                        elfSylvanNames.RacePresentation.SurNameOptions.Add(term);
+                        elfSylvanNames.RacePresentation.SurNameOptions.Add(name);
                     }
 
                     else if (term.Contains("HalfElfFemale"))
                     {
-                        halfElfNames.RacePresentation.FemaleNameOptions.Add(term);
+                        halfElfNames.RacePresentation.FemaleNameOptions.Add(name);
                     }
                     else if (term.Contains("HalfElfMale"))
                     {
-                        halfElfNames.RacePresentation.MaleNameOptions.Add(term);
+                        halfElfNames.RacePresentation.MaleNameOptions.Add(name);
                     }
                     else if (term.Contains("HalfElfSur"))
                     {
-                        halfElfNames.RacePresentation.SurNameOptions.Add(term);
+                        halfElfNames.RacePresentation.SurNameOptions.Add(name);
                     }
 
                     else if (term.Contains("HalflingFemale"))
                     {
-                        halflingNames.RacePresentation.FemaleNameOptions.Add(term);
+                        halflingNames.RacePresentation.FemaleNameOptions.Add(name);
                     }
                     else if (term.Contains("HalflingMale"))
                     {
-                        halflingNames.RacePresentation.MaleNameOptions.Add(term);
+                        halflingNames.RacePresentation.MaleNameOptions.Add(name);
                     }
                     else if (term.Contains("HalflingSur"))
                     {
-                        halflingNames.RacePresentation.SurNameOptions.Add(term);
+                        halflingNames.RacePresentation.SurNameOptions.Add(name);
                     }
 
                     else if (term.Contains("HumanFemale"))
                     {
-                        humanNames.RacePresentation.FemaleNameOptions.Add(term);
+                        humanNames.RacePresentation.FemaleNameOptions.Add(name);
                     }
                     else if (term.Contains("HumanMale"))
                     {
-                        humanNames.RacePresentation.MaleNameOptions.Add(term);
+                        humanNames.RacePresentation.MaleNameOptions.Add(name);
                     }
                     else if (term.Contains("HumanSur"))
                     {
-                        humanNames.RacePresentation.SurNameOptions.Add(term);
+                        humanNames.RacePresentation.SurNameOptions.Add(name);
                     }
                 }
             }
