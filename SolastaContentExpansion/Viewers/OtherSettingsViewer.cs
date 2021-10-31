@@ -14,7 +14,7 @@ namespace SolastaContentExpansion.Viewers
             bool toggle;
 
             UI.Label("");
-            UI.Label("Settings:".yellow());
+            UI.Label("Progression settings:".yellow());
 
             toggle = Main.Settings.EnablesAsiAndFeat;
             if (UI.Toggle("Enables both ASI and Feat", ref toggle, 0, UI.AutoWidth()))
@@ -40,17 +40,24 @@ namespace SolastaContentExpansion.Viewers
 
         private static void DisplaySpellPanelSettings()
         {
+            
             UI.Label("");
-            UI.Label("Spells Panel:".yellow());
+            UI.Label("Game UI Settings:".yellow());
+
+            bool toggle = Main.Settings.InvertAltBehaviorOnTooltips;
+            if (UI.Toggle("Invert ALT key behavior on tooltips", ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.InvertAltBehaviorOnTooltips = toggle;
+            }
 
             int intValue = Main.Settings.MaxSpellLevelsPerLine;
-            if (UI.Slider("Max Levels per line", ref intValue, 3, 7, 5, "", UI.AutoWidth()))
+            if (UI.Slider("Max levels per line on Spell Panel", ref intValue, 3, 7, 5, "", UI.AutoWidth()))
             {
                 Main.Settings.MaxSpellLevelsPerLine = intValue;
             }
 
             float floatValue = Main.Settings.SpellPanelGapBetweenLines;
-            if (UI.Slider("Gap between spell lines", ref floatValue, 0f, 200f, 50f, 0, "", UI.AutoWidth()))
+            if (UI.Slider("Gap between spell lines on Spell Panel", ref floatValue, 0f, 200f, 50f, 0, "", UI.AutoWidth()))
             {
                 Main.Settings.SpellPanelGapBetweenLines = floatValue;
             }
