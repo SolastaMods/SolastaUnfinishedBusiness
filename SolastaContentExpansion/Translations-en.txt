@@ -219,3 +219,13 @@ Feat/&FightingStyleArcheryDescription You gain a +2 bonus to attack rolls with r
 Feat/&FightingStyleArcheryTitle Fighting Style: Archery
 Feat/&FightingStyleGeneralFeatDescription You can select a fighting style.
 Feat/&FightingStyleGeneralFeatitle Fighting Style
+FlexibleBackgrounds/&BackgroundSkillSelect3Description Select 3 skill proficiencies
+FlexibleBackgrounds/&BackgroundSkillSelect3Title Skills
+FlexibleBackgrounds/&BackgroundSkillSelect2Description Select 2 skill proficiencies
+FlexibleBackgrounds/&BackgroundSkillSelect2Title Skills
+FlexibleBackgrounds/&BackgroundToolSelectDescription Select a tool proficiency
+FlexibleBackgrounds/&BackgroundToolSelectTitle Tool
+FlexibleRaces/&PointPoolAbilityScore3Description Use three boosts on ability scores in any combination of your choosing.
+FlexibleRaces/&PointPoolAbilityScore3Title Ability Score Increase
+FlexibleRaces/&PointPoolAbilityScore4Description Use four boosts on ability scores in any combination of your choosing.
+FlexibleRaces/&PointPoolAbilityScore4Title Ability Score Increase

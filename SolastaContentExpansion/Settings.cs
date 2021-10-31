@@ -21,6 +21,8 @@ namespace SolastaContentExpansion
         public bool EnableFirstLevelCasterFeats = true;
 
         public bool EnablesAsiAndFeat = false;
+        public bool EnableFlexibleBackgrounds = false;
+        public bool EnableFlexibleRaces = false;
 
         public List<string> InStore = new List<string>();
 

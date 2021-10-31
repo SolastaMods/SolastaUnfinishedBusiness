@@ -17,10 +17,24 @@ namespace SolastaContentExpansion.Viewers
             UI.Label("Settings:".yellow());
 
             toggle = Main.Settings.EnablesAsiAndFeat;
-            if (UI.Toggle("Enables both ASI and Feat instead of ASI or Feat", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Enables both ASI and Feat", ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.EnablesAsiAndFeat = toggle;
                 Models.AsiAndFeatContext.Switch(toggle);
+            }
+
+            toggle = Main.Settings.EnableFlexibleBackgrounds;
+            if (UI.Toggle("Enables flexible backgrounds", ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.EnableFlexibleBackgrounds = toggle;
+                Models.FlexibleBackgroundsContext.Switch(toggle);
+            }
+
+            toggle = Main.Settings.EnableFlexibleRaces;
+            if (UI.Toggle("Enables flexible races", ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.EnableFlexibleRaces = toggle;
+                Models.FlexibleRacesContext.Switch(toggle);
             }
         }
 
