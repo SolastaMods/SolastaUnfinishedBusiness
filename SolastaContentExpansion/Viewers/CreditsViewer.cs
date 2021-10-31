@@ -3,11 +3,11 @@ using ModKit;
 
 namespace SolastaContentExpansion.Viewers
 {
-    public class HelpViewer : IMenuSelectablePage
+    public class CreditsViewer : IMenuSelectablePage
     {
-        public string Name => "Help";
+        public string Name => "Credits";
 
-        public int Priority => 0;
+        public int Priority => 10;
 
         public void DisplayHelp()
         {
@@ -19,7 +19,7 @@ namespace SolastaContentExpansion.Viewers
             UI.Label("");
             UI.Label("Credits:".yellow());
             UI.Label("");
-            UI.Label(". View619       - Darkvision / COD");
+            UI.Label(". View619       - Darkvision");
             UI.Label(". SilverGriffon - Solastanomicon");
             UI.Label("");
         }
