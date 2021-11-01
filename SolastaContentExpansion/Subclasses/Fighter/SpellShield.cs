@@ -106,7 +106,7 @@ namespace SolastaContentExpansion.Subclasses.Fighter
             arcaneDeflectionGuiCondition.SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionShielded.GuiPresentation.SpriteReference);
             FeatureDefinitionPower arcaneDeflectionPower = new FeatureDefinitionPowerBuilder("PowerSpellShieldArcaneDeflection", GuidHelper.Create(SubclassNamespace, "PowerSpellShieldArcaneDeflection").ToString(),
                 0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, RuleDefinitions.ActivationTime.Reaction, 0, RuleDefinitions.RechargeRate.AtWill,
-                false, false, AttributeDefinitions.Intelligence, arcaneDeflection.Build(), arcaneDeflectionGuiPower.Build()).AddToDB();
+                false, false, AttributeDefinitions.Intelligence, arcaneDeflection.Build(), arcaneDeflectionGuiPower.Build(), false /* unique instance */).AddToDB();
             spellShield.AddFeatureAtLevel(arcaneDeflectionPower, 15);
 
             GuiPresentationBuilder rangedDeflectionGuiPower = new GuiPresentationBuilder(

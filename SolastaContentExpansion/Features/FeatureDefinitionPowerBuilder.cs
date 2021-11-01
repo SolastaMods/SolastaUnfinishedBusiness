@@ -11,7 +11,7 @@ namespace SolastaContentExpansion.Features
             string usesAbilityScoreName,
             RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge,
             bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
-            EffectDescription effectDescription, GuiPresentation guiPresentation) : base(name, guid)
+            EffectDescription effectDescription, GuiPresentation guiPresentation, bool uniqueInstance) : base(name, guid)
         {
             Definition.SetFixedUsesPerRecharge(usesPerRecharge);
             Definition.SetUsesDetermination(usesDetermination);
@@ -24,6 +24,7 @@ namespace SolastaContentExpansion.Features
             Definition.SetAbilityScore(abilityScore);
             Definition.SetEffectDescription(effectDescription);
             Definition.SetGuiPresentation(guiPresentation);
+            Definition.SetUniqueInstance(uniqueInstance);
         }
     }
 }
