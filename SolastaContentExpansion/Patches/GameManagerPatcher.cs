@@ -19,6 +19,7 @@ namespace SolastaContentExpansion.Patches
                 Models.FlexibleBackgroundsContext.Load();
                 Models.FlexibleRacesContext.Load();
                 Models.VisionContext.Load();
+                Models.PickPocketContext.Load();
             }
         }
     }
