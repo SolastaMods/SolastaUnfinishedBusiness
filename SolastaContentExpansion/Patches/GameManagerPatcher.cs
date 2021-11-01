@@ -19,7 +19,9 @@ namespace SolastaContentExpansion.Patches
                 Models.FlexibleBackgroundsContext.Load();
                 Models.FlexibleRacesContext.Load();
                 Models.VisionContext.Load();
-                Models.PickPocketContext.Load();
+
+                // TODO: Review PickPocket code before enabling below
+                // Models.PickPocketContext.Load();
             }
         }
     }
