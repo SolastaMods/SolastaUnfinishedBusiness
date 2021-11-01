@@ -61,7 +61,7 @@ namespace SolastaContentExpansion.Viewers
             }
 
             intValue = Main.Settings.AllRacesInitialFeats;
-            if (UI.Slider("Total feats granted at first level", ref intValue, Settings.MIN_INITIAL_FEATS, Settings.MAX_INITIAL_FEATS, 0, "", UI.AutoWidth()))
+            if (UI.Slider("Total feats granted at first level".white(), ref intValue, Settings.MIN_INITIAL_FEATS, Settings.MAX_INITIAL_FEATS, 0, "", UI.AutoWidth()))
             {
                 Main.Settings.AllRacesInitialFeats = intValue;
                 Models.InitialChoicesContext.RefreshAllRacesInitialFeats();
@@ -89,13 +89,13 @@ namespace SolastaContentExpansion.Viewers
             }
 
             int intValue = Main.Settings.MaxSpellLevelsPerLine;
-            if (UI.Slider("Max levels per line on Spell Panel", ref intValue, 3, 7, 5, "", UI.AutoWidth()))
+            if (UI.Slider("Max levels per line on Spell Panel".white(), ref intValue, 3, 7, 5, "", UI.AutoWidth()))
             {
                 Main.Settings.MaxSpellLevelsPerLine = intValue;
             }
 
             float floatValue = Main.Settings.SpellPanelGapBetweenLines;
-            if (UI.Slider("Gap between spell lines on Spell Panel", ref floatValue, 0f, 200f, 50f, 0, "", UI.AutoWidth()))
+            if (UI.Slider("Gap between spell lines on Spell Panel".white(), ref floatValue, 0f, 200f, 50f, 0, "", UI.AutoWidth()))
             {
                 Main.Settings.SpellPanelGapBetweenLines = floatValue;
             }

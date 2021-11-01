@@ -13,17 +13,17 @@ namespace SolastaContentExpansion.Viewers
         private const int MAX_COLUMNS = 4;
         private const float PIXELS_PER_COLUMN = 250;
 
-        private static int maxColumns = MAX_COLUMNS;
-
         public void DisplaySubclassesSettings()
         {
+            int intValue;
+
             UI.Label("");
             UI.Label("Settings:".yellow());
             bool toggle;
 
             UI.Label("");
-            int intValue = Main.Settings.RogueConArtistSpellDCBoost;
-            if (UI.Slider("Rogue Con Artist 'Improved Manipulation' Spell DC Boost", ref intValue, 0, 5, 3, "", UI.AutoWidth()))
+            intValue = Main.Settings.RogueConArtistSpellDCBoost;
+            if (UI.Slider("Rogue Con Artist\n'Improved Manipulation' Spell DC Boost".white(), ref intValue, 0, 5, 3, "", UI.AutoWidth()))
             {
                 Main.Settings.RogueConArtistSpellDCBoost = intValue;
             }
@@ -42,11 +42,19 @@ namespace SolastaContentExpansion.Viewers
             }
 
             UI.Label("");
-            UI.Slider("Max columns below", ref maxColumns, 1, MAX_COLUMNS * 2, MAX_COLUMNS, "", UI.AutoWidth());
+            UI.Label("Subclasses:".yellow());
+
+            UI.Label("");
+            intValue = Main.Settings.SubclassSliderPosition;
+            if (UI.Slider("slide left for description / right to collapse".white(), ref intValue, 1, MAX_COLUMNS, 1, ""))
+            {
+                Main.Settings.SubclassSliderPosition = intValue;
+            }
 
             UI.Label("");
 
             int columns;
+            var flip = false;
             var current = 0;
             var subclassesCount = Models.SubclassesContext.Subclasses.Count;
 
@@ -54,7 +62,7 @@ namespace SolastaContentExpansion.Viewers
             {
                 while (current < subclassesCount)
                 {
-                    columns = maxColumns;
+                    columns = Main.Settings.SubclassSliderPosition;
 
                     using (UI.HorizontalScope())
                     {
@@ -62,11 +70,31 @@ namespace SolastaContentExpansion.Viewers
                         {
                             var keyValuePair = Models.SubclassesContext.Subclasses.ElementAt(current);
                             toggle = !Main.Settings.SubclassHidden.Contains(keyValuePair.Key);
-                            var title = Gui.Format(keyValuePair.Value.GetSubclass().GuiPresentation.Title);
+                            var subclass = keyValuePair.Value.GetSubclass();
+                            var title = Gui.Format(subclass.GuiPresentation.Title);
+
+                            if (flip)
+                            {
+                                title = title.yellow();
+                            }
 
                             if (UI.Toggle(title, ref toggle, PIXELS_PER_COLUMN))
                             {
                                 Models.SubclassesContext.Switch(keyValuePair.Key, toggle);
+                            }
+
+                            if (Main.Settings.SubclassSliderPosition == 1)
+                            {
+                                var description = Gui.Format(subclass.GuiPresentation.Description);
+
+                                if (flip)
+                                {
+                                    description = description.yellow();
+                                }
+
+                                UI.Label(description, UI.Width(PIXELS_PER_COLUMN * 4));
+
+                                flip = !flip;
                             }
 
                             current++;

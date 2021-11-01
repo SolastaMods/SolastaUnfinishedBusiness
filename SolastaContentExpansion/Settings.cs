@@ -45,6 +45,9 @@ namespace SolastaContentExpansion
         public List<string> FeatHidden = new List<string>();
         public List<string> SubclassHidden = new List<string>();
 
+        public int FeatSliderPosition = 1;
+        public int SubclassSliderPosition = 1;
+
         private int rogueConArtistSpellDCBoost = 3;
 
         public int RogueConArtistSpellDCBoost

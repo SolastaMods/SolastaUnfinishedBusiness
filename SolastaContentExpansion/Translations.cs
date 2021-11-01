@@ -29,12 +29,6 @@ namespace SolastaContentExpansion
                         var term = splitted[0];
                         var text = splitted[1];
 
-                        if (languageSourceData.ContainsTerm(term))
-                        {
-                            languageSourceData.RemoveTerm(term);
-                            Main.Warning($"official game term {term} was overwritten with \"{text}\"");
-                        }
-
                         languageSourceData.AddTerm(term).Languages[languageIndex] = text;
                     }
                     catch
