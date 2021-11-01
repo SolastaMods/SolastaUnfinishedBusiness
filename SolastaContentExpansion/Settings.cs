@@ -70,7 +70,6 @@ namespace SolastaContentExpansion
             }
         }
 
-
         /* Commands to allow the player to hide certain parts of the HUD */
         public const InputCommands.Id CTRL_C = (InputCommands.Id)44440000;
         public const InputCommands.Id CTRL_L = (InputCommands.Id)44440001;
@@ -82,6 +81,10 @@ namespace SolastaContentExpansion
 
         public int MaxSpellLevelsPerLine = 5;
         public float SpellPanelGapBetweenLines = 30f;
+
+        /* Faster Time Scale */
+        public float CustomTimeScale = 1.5f;
+        public bool PermanentSpeedUp = false;
 
         public bool AutoPauseOnVictory;
         public bool HideMonsterHitPoints;
