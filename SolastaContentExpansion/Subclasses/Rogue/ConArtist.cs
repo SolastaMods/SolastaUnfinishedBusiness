@@ -86,7 +86,7 @@ namespace SolastaContentExpansion.Subclasses.Rogue
             //feintBuilder.AddEffectForm(new EffectFormBuilder().SetConditionForm(DatabaseHelper.ConditionDefinitions.))
             FeatureDefinitionPower feint = new FeatureDefinitionPowerBuilder("RoguishConArtistFeint", GuidHelper.Create(SubclassNamespace, "RoguishConArtistFeint").ToString(),
                 0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Charisma, RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill,
-                false, false, AttributeDefinitions.Charisma, feintBuilder.Build(), feintGui.Build()).AddToDB();
+                false, false, AttributeDefinitions.Charisma, feintBuilder.Build(), feintGui.Build(), false /* unique instance */).AddToDB();
             conArtist.AddFeatureAtLevel(feint, 9);
 
             DcIncreaseAffinity = new FeatureDefinitionMagicAffinityBuilder("MagicAffinityRoguishConArtistDC", GuidHelper.Create(SubclassNamespace, "MagicAffinityRoguishConArtistDC").ToString(),
