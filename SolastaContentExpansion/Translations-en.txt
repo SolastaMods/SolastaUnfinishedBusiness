@@ -245,6 +245,8 @@ Feat/&ChefConDescription You gain +1 to Constitution. Spend 1 hour to cook a mea
 Feat/&ChefConTitle Chef (Constitution)
 Feat/&ChefWisDescription You gain +1 to Wisdom. Spend 1 hour to cook a meal to heal yourself and your companions. Once a day you may spend an hour to cook treats that provide temporary HP when eaten.
 Feat/&ChefWisTitle Chef (Wisdom)
+Feat/&PickPocketFeatTitle	Pickpocket
+Feat/&PickPocketFeatDescription	You gain proficiency with Sleight Of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
 FlexibleBackgrounds/&BackgroundSkillSelect3Description Select 3 skill proficiencies
 FlexibleBackgrounds/&BackgroundSkillSelect3Title Skills
 FlexibleBackgrounds/&BackgroundSkillSelect2Description Select 2 skill proficiencies

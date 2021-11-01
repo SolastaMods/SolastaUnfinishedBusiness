@@ -21,7 +21,7 @@ namespace SolastaContentExpansion.Viewers
             UI.Label("");
             UI.Label(". Zappastuff    - Mod UI Work, Integration, Community Organization");
             UI.Label(". View619       - Darkvision");
-            UI.Label(". SilverGriffon - Solastanomicon");
+            UI.Label(". SilverGriffon - Pickpocket, Solastanomicon");
             UI.Label("");
         }
 
