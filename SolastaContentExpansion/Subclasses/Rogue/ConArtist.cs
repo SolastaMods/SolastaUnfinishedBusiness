@@ -90,7 +90,7 @@ namespace SolastaContentExpansion.Subclasses.Rogue
             conArtist.AddFeatureAtLevel(feint, 9);
 
             DcIncreaseAffinity = new FeatureDefinitionMagicAffinityBuilder("MagicAffinityRoguishConArtistDC", GuidHelper.Create(SubclassNamespace, "MagicAffinityRoguishConArtistDC").ToString(),
-                0, Main.Settings.RogueConArtistSpellDCBoost, GetSpellDCPresentation().Build()).AddToDB();
+                GetSpellDCPresentation().Build()).SetCastingModifiers(0, Main.Settings.RogueConArtistSpellDCBoost, false, false, false).AddToDB();
             conArtist.AddFeatureAtLevel(DcIncreaseAffinity, 13);
 
             FeatureDefinitionProficiency proficiency = new FeatureDefinitionProficiencyBuilder("RoguishConArtistMentalSavingThrows", GuidHelper.Create(SubclassNamespace, "RoguishConArtistMentalSavingThrows").ToString(),

@@ -34,8 +34,9 @@ namespace SolastaContentExpansion.Subclasses.Fighter
                 "Subclass/&MagicAffinityFighterSpellShieldDescription",
                 "Subclass/&MagicAffinityFighterSpellShieldTitle");
             FeatureDefinitionMagicAffinity magicAffinity = new FeatureDefinitionMagicAffinityBuilder("MagicAffinityFighterSpellShield",
-                GuidHelper.Create(SubclassNamespace, "MagicAffinityFighterSpellShield").ToString(), RuleDefinitions.ConcentrationAffinity.Advantage, 0 /* attack modifier */,
-                combatCastingPresentation.Build()).AddToDB();
+                GuidHelper.Create(SubclassNamespace, "MagicAffinityFighterSpellShield").ToString(),
+                combatCastingPresentation.Build()).SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0).SetHandsFullCastingModifiers(true, true, true)
+                .SetCastingModifiers(0, 0, true, false, false).AddToDB();
             spellShield.AddFeatureAtLevel(magicAffinity, 3);
 
             CastSpellBuilder spellCasting = new CastSpellBuilder("CastSpellSpellShield", GuidHelper.Create(SubclassNamespace, "CastSpellSpellShield").ToString());
