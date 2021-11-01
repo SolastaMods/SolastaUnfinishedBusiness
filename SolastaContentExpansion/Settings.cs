@@ -1,4 +1,5 @@
 using SolastaContentExpansion.Subclasses.Rogue;
+using SolastaContentExpansion.Subclasses.Wizard;
 using System.Collections.Generic;
 using UnityModManagerNet;
 
@@ -55,6 +56,17 @@ namespace SolastaContentExpansion
             }
         }
 
+        private int masterManipulatorSpellDCBoost = 2;
+
+        public int MasterManipulatorSpellDCBoost
+        {
+            get => masterManipulatorSpellDCBoost; set
+            {
+                masterManipulatorSpellDCBoost = value;
+                MasterManipulator.UpdateSpellDCBoost();
+            }
+        }
+
 
         /* Commands to allow the player to hide certain parts of the HUD */
         public const InputCommands.Id CTRL_C = (InputCommands.Id)44440000;
@@ -70,5 +82,6 @@ namespace SolastaContentExpansion
 
         public bool AutoPauseOnVictory;
         public bool HideMonsterHitPoints;
+        public bool SpellMasterUnlimitedArcaneRecovery = false;
     }
 }

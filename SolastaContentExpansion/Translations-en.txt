@@ -290,3 +290,82 @@ Subclass/&MagicAffinityRoguishConArtistDC2Description Your spell save DC increas
 Subclass/&MagicAffinityRoguishConArtistDC3Description Your spell save DC increases by 3.
 Subclass/&MagicAffinityRoguishConArtistDC4Description Your spell save DC increases by 4.
 Subclass/&MagicAffinityRoguishConArtistDC5Description Your spell save DC increases by 5.
+Subclass/&TraditionLifeTransmuterDescription Masters of manipulating both matter and life energy.
+Subclass/&TraditionLifeTransmuterTitle Life Transmuter
+Subclass/&MagicAffinityLifeTransmuterListDescription When casting some Transmutation and Necromancy spells they are cast at a spell slot 2 levels higher than the one used. Improved spells include: False Life, Blindness, Fly, Bestow Curse, Vampiric Touch, Blight, and Cloud Kill. -- Note Intention is to have Magic Weapon benefit as well, but currently increasing the spell level this way on Magic Weapon has no effect.
+Subclass/&MagicAffinityLifeTransmuterListTitle Reality Bending
+Subclass/&HealingPoolLifeTransmuterListDescription 2 times per day enact your will on reality with special abilities.
+Subclass/&HealingPoolLifeTransmuterListTitle Transmute Force
+Subclass/&PowerTransmuteDarkvisionDescription Use your Transmute Force to grant Superior Darkvision until the next long rest.
+Subclass/&PowerTransmuteDarkvisionTitle Superior Darkvision
+Subclass/&PowerTransmuteDarkvisionDescription Temporary Superior Darkvision granted by the Transmute Force power.
+Subclass/&PowerTransmuteDarkvisionTitle Superior Darkvision
+Subclass/&PowerTransmuteElementalResistanceDescription Use your Transmute Force to grant resistance to Acid, Cold, Fire, Lightning, Necrotic, Thunder, and Poison until the next long rest.
+Subclass/&PowerTransmuteElemnetalResistanceTitle Elemental Resistance
+Subclass/&ConditionTransmutePoisonDescription Temporary Acid, Cold, Fire, Lightning, Necrotic, Thunder, and Poison Resistance granted by the Transmute Force power.
+Subclass/&ConditionTransmutePoisonTitle Elemental Resistance
+Subclass/&PowerTransmuteConstitutionDescription Use your Transmute Force to grant proficiency with Constitution Saves until the next long rest.
+Subclass/&PowerTransmuteConstitutionTitle Constitution Saves
+Subclass/&ConditionTransmuteConstitutionSaveDescription Temporary Constitution save proficiency granted by the Transmute Force power.
+Subclass/&ConditionTransmuteConstitutionSaveTitle Constitution Saves
+Subclass/&HealingPoolLifeTransmuterBonusDescription 2 additional times per day you can force your will on reality.
+Subclass/&HealingPoolLifeTransmuterBonusTitle Additional Transmute Force
+Subclass/&PowerTransmuteFlyDescription Use your Transmute Force to grant the ability of flight.
+Subclass/&PowerTransmuteFlyTitle Fly
+Subclass/&PowerTransmuteHealDescription Use your Transmute Force to heal up to 6 targets.
+Subclass/&PowerTransmuteHealTitle Heal
+Subclass/&PowerTransmuteReviveDescription Use your Transmute Force to revive a character (within 1 minute of them dying).
+Subclass/&PowerTransmuteReviveTitle Revive
+Subclass/&HealingPoolLifeTransmuterBonusExtraDescription 4 additional times per day you can force your will on reality.
+Subclass/&HealingPoolLifeTransmuterBonusExtraTitle Additional Transmute Force
+Subclass/&TraditionMasterManipulatorDescription Master Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
+Subclass/&TraditionMasterManipulatorTitle Master Manipulator
+Subclass/&MagicAffinityMasterManipulatorListDescription When casting some Enchantment, Abjuration, and Illusion spells they are cast at a spell slot 1 level higher than the one used. Improved spells include: Charm Person, Sleep, Color Spray, Hold Person, Invisibility, Counterspell, Dispel Magic, Banishment, Confusion, Phantasmal Killer, Dominate Person, and Hold Monster.
+Subclass/&MagicAffinityMasterManipulatorListTitle Arcane Manipulation
+Subclass/&MagicAffinityMasterManipulatorDCDescription It is harder for opponents to resist your spells. The save DC increases by 3.
+Subclass/&MagicAffinityMasterManipulatorDCTitle Arcane Force
+Subclass/&ManipulatorMentalSavingThrowsDescription Gain proficiency in saving throws with Constitution and Charisma.
+Subclass/&ManipulatorMentalSavingThrowsTitle Mental Resistance
+Subclass/&PowerManipulatorDominatePersonDescription You can use Dominate Person a number of times per long rest equal to your intelligence modifier.
+Subclass/&PowerManipulatorDominatePersonTitle Dominate Person
+Subclass/&MagicAffinityMasterManipulatorDC0Description It is harder for opponents to resist your spells. The save DC increases by 0.
+Subclass/&MagicAffinityMasterManipulatorDC1Description It is harder for opponents to resist your spells. The save DC increases by 1.
+Subclass/&MagicAffinityMasterManipulatorDC2Description It is harder for opponents to resist your spells. The save DC increases by 2.
+Subclass/&MagicAffinityMasterManipulatorDC3Description It is harder for opponents to resist your spells. The save DC increases by 3.
+Subclass/&MagicAffinityMasterManipulatorDC4Description It is harder for opponents to resist your spells. The save DC increases by 4.
+Subclass/&MagicAffinityMasterManipulatorDC5Description It is harder for opponents to resist your spells. The save DC increases by 5.
+Subclass/&TraditionSpellMasterDescription Spell masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
+Subclass/&TraditionSpellMasterTitle Spell Master
+Subclass/&TraditionSpellMasterPreparedDescription Prepare proficiency bonus additional spells so you always have what you need.
+Subclass/&TraditionSpellMasterPreparedTitle Be Prepared
+Subclass/&MagicAffinitySpellMasterBonusScribingDescription Scribe an additional spell at each level up.
+Subclass/&MagicAffinitySpellMasterBonusScribingTitle Breadth of Knowledge
+Subclass/&MagicAffinitySpellMasterRecoveryDescription Once per long rest you can recover spell slots (in addition to Arcane Recovery).
+Subclass/&MagicAffinitySpellMasterRecoveryTitle Arcane Depth
+Subclass/&MagicAffinitySpellMasterScribingDescription Scribing spells takes 1/4 the time and cost, and you have advantage.
+Subclass/&MagicAffinitySpellMasterScribingTitle Master Scriber
+Subclass/&TraditionSpellMasterExtraPreparedDescription Prepare intelligence modifier additional spells so you always have what you need.
+Subclass/&TraditionSpellMasterExtraPreparedTitle Extra Prepared
+Subclass/&TraditionSpellMasterBonusCantripsDescription Gain 2 extra cantrips known.
+Subclass/&TraditionSpellMasterBonusCantripsTitle Bonus Cantrips
+Subclass/&TraditionSpellMasterSpellResistanceDescription Your training with magic gives you advantage on saving throws against spells.
+Subclass/&TraditionSpellMasterSpellResistanceTitle Spell Resistance
+Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedDescription Unlimited times you can recover spell slots (in addition to Arcane Recovery).
+Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedTitle Arcane Depth
+Subclass/&TraditionArcaneFighterDescription Channel your magic into weapon attacks.
+Subclass/&TraditionArcaneFighterTitle Arcane Fighter
+Subclass/&WeaponProfArcaneFighterDescription Experience in combat has given the Arcane Fighter training in Simple and Martial Weapons.
+Subclass/&WeaponProfArcaneFighterTitle  Weapon Training
+Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription Your attacks count as Magical and you use your intelligence to your attack and damage rolls.
+Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle Arcane Weapon
+Subclass/&MagicAffinityMeleeWizardConcentrationDescription Due to experience in the chaos of combat, gain advantage on concentration checks.
+Subclass/&MagicAffinityMeleeWizardConcentrationTitle Improved Concentration
+Subclass/&AttributeModifierMeleeWizardExtraAttackDescription You gain an extra attack
+Subclass/&AttributeModifierMeleeWizardExtraAttackTitle Extra Attack
+Subclass/&ArcaneFighterAdditionalActionDescription You can cast a spell after defeating an enemy with your weapon attacks.
+Subclass/&ArcaneFighterAdditionalActionTitle Spell Fighting
+Subclass/&ArcaneFighterBonusWeaponDamageDescription Once per turn your weapon attacks deal an extra 1d8 damage.
+Subclass/&ArcaneFighterBonusWeaponDamageTitle Magically Powered Attacks
+ArcaneFighterBonusWeaponDamage Magically Powered Attacks
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine Additional Damage from Magically Powered Attacks
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat Additional Damage from Magically Powered Attacks

@@ -19,12 +19,26 @@ namespace SolastaContentExpansion.Viewers
         {
             UI.Label("");
             UI.Label("Settings:".yellow());
+            bool toggle;
 
             UI.Label("");
             int intValue = Main.Settings.RogueConArtistSpellDCBoost;
             if (UI.Slider("Rogue Con Artist 'Improved Manipulation' Spell DC Boost", ref intValue, 0, 5, 3, "", UI.AutoWidth()))
             {
                 Main.Settings.RogueConArtistSpellDCBoost = intValue;
+            }
+            UI.Label("");
+            intValue = Main.Settings.MasterManipulatorSpellDCBoost;
+            if (UI.Slider("Wizard Master Manipulator 'Arcane Manipulation' Spell DC Boost", ref intValue, 0, 5, 2, "", UI.AutoWidth()))
+            {
+                Main.Settings.RogueConArtistSpellDCBoost = intValue;
+            }
+
+            toggle = Main.Settings.SpellMasterUnlimitedArcaneRecovery;
+            if (UI.Toggle("Wizard Spell Master enable unlimited 'Arcane Recovery'", ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.SpellMasterUnlimitedArcaneRecovery = toggle;
+                Subclasses.Wizard.SpellMaster.UpdateRecoveryLimited();
             }
 
             UI.Label("");
@@ -47,7 +61,7 @@ namespace SolastaContentExpansion.Viewers
                         while (current < subclassesCount && columns-- > 0)
                         {
                             var keyValuePair = Models.SubclassesContext.Subclasses.ElementAt(current);
-                            var toggle = !Main.Settings.SubclassHidden.Contains(keyValuePair.Key);
+                            toggle = !Main.Settings.SubclassHidden.Contains(keyValuePair.Key);
                             var title = Gui.Format(keyValuePair.Value.GetSubclass().GuiPresentation.Title);
 
                             if (UI.Toggle(title, ref toggle, PIXELS_PER_COLUMN))
