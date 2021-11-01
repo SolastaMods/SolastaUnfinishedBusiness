@@ -6,20 +6,44 @@ namespace SolastaContentExpansion.Features
 {
     public class FeatureDefinitionMagicAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionMagicAffinity>
     {
-
-        public FeatureDefinitionMagicAffinityBuilder(string name, string guid, RuleDefinitions.ConcentrationAffinity concentrationAffinity, int attackModifier,
+        // TODO this is not yet complete, also I'm unsure the current groupings are the best set.
+        public FeatureDefinitionMagicAffinityBuilder(string name, string guid,
             GuiPresentation guiPresentation) : base(name, guid)
         {
-            Definition.SetConcentrationAffinity(concentrationAffinity);
             Definition.SetGuiPresentation(guiPresentation);
-
-            Definition.SetSomaticWithWeaponOrShield(true);
-            Definition.SetRangeSpellNoProximityPenalty(true);
-            Definition.SetSpellAttackModifier(attackModifier);
         }
 
-        public FeatureDefinitionMagicAffinityBuilder(string name, string guid, List<string> spellNames,
-            int levelBonus, GuiPresentation guiPresentation) : base(name, guid)
+        public FeatureDefinitionMagicAffinityBuilder SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity concentrationAffinity,
+               int threshold) 
+        {
+            Definition.SetConcentrationAffinity(concentrationAffinity);
+            if (threshold > 0)
+            {
+                Definition.SetOverConcentrationThreshold(threshold);
+            }
+            return this;
+        }
+
+        public FeatureDefinitionMagicAffinityBuilder SetHandsFullCastingModifiers(bool weapon, bool weaponOrShield, bool weaponAsFocus)
+        {
+            Definition.SetSomaticWithWeaponOrShield(weaponOrShield);
+            Definition.SetSomaticWithWeapon(weapon);
+            Definition.SetCanUseProficientWeaponAsFocus(weaponAsFocus);
+            return this;
+        }
+
+        public FeatureDefinitionMagicAffinityBuilder SetCastingModifiers(int attackModifier, int dcModifier, bool noProximityPenalty, bool cantripRetribution, bool halfDamageCantrips)
+        {
+            Definition.SetRangeSpellNoProximityPenalty(noProximityPenalty);
+            Definition.SetSpellAttackModifier(attackModifier);
+            Definition.SetSaveDCModifier(dcModifier);
+            Definition.SetCantripRetribution(cantripRetribution);
+            Definition.SetForceHalfDamageOnCantrips(halfDamageCantrips);
+            return this;
+        }
+
+        public FeatureDefinitionMagicAffinityBuilder SetWarList(List<string> spellNames,
+            int levelBonus)
         {
             Definition.SetUsesWarList(true);
             Definition.SetWarListSlotBonus(levelBonus);
@@ -27,15 +51,19 @@ namespace SolastaContentExpansion.Features
             {
                 Definition.WarListSpells.Add(spell);
             }
-            Definition.SetGuiPresentation(guiPresentation);
+            return this;
         }
 
-        public FeatureDefinitionMagicAffinityBuilder(string name, string guid, int attackModifier,
-            int dcModifier, GuiPresentation guiPresentation) : base(name, guid)
+        public FeatureDefinitionMagicAffinityBuilder SetSpellLearnAndPrepModifiers(
+                float scribeDurationMultiplier, float scribeCostMultiplier,
+            int additionalScribedSpells, RuleDefinitions.AdvantageType scribeAdvantage, RuleDefinitions.PreparedSpellsModifier preparedModifier)
         {
-            Definition.SetSpellAttackModifier(attackModifier);
-            Definition.SetSaveDCModifier(dcModifier);
-            Definition.SetGuiPresentation(guiPresentation);
+            Definition.SetScribeCostMultiplier(scribeCostMultiplier);
+            Definition.SetScribeDurationMultiplier(scribeDurationMultiplier);
+            Definition.SetAdditionalScribedSpells(additionalScribedSpells);
+            Definition.SetScribeAdvantageType(scribeAdvantage);
+            Definition.SetPreparedSpellModifier(preparedModifier);
+            return this;
         }
     }
 }

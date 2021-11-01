@@ -1,6 +1,7 @@
 ﻿using SolastaContentExpansion.Subclasses;
 using SolastaContentExpansion.Subclasses.Fighter;
 using SolastaContentExpansion.Subclasses.Rogue;
+using SolastaContentExpansion.Subclasses.Wizard;
 using System.Collections.Generic;
 
 namespace SolastaContentExpansion.Models
@@ -13,6 +14,10 @@ namespace SolastaContentExpansion.Models
         {
             LoadSubclass(new SpellShield());
             LoadSubclass(new ConArtist());
+            LoadSubclass(new MasterManipulator());
+            LoadSubclass(new SpellMaster());
+            LoadSubclass(new ArcaneFighter());
+            LoadSubclass(new LifeTransmuter());
         }
 
         private static void LoadSubclass(AbstractSubclass subclassBuilder)
