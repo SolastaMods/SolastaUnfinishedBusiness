@@ -1,5 +1,5 @@
-﻿using SolastaContentExpansion.Features;
-using SolastaModApi;
+﻿using SolastaModApi;
+using SolastaModApi.BuilderHelpers;
 using System.Collections.Generic;
 using static SolastaModApi.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;

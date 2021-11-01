@@ -224,7 +224,7 @@ namespace SolastaContentExpansion.Feats
             FeatureDefinitionPowerBuilder builder = new FeatureDefinitionPowerBuilder(name, GuidHelper.Create(HealingFeatNamespace, name).ToString(),
                 usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse, recharge, proficiencyBonusToAttack,
                 abilityScoreBonusToAttack, abilityScore,
-                effectDescription, guiPresentation);
+                effectDescription, guiPresentation, false /* unique instance */);
             return builder.AddToDB();
         }
 
