@@ -11,8 +11,9 @@ namespace SolastaContentExpansion.Patches
         private static RectTransform secondRow;
         private static RectTransform thirdRow;
 
+        // second line bind
         [HarmonyPatch(typeof(PowerSelectionPanel), "Bind")]
-        internal static class PowerSelectionPanel_SecondLine
+        internal static class PowerSelectionPanel_Bind
         {
             internal static void Postfix(PowerSelectionPanel __instance)
             {
@@ -59,8 +60,9 @@ namespace SolastaContentExpansion.Patches
             }
         }
 
+        // second line unbind
         [HarmonyPatch(typeof(PowerSelectionPanel), "Unbind")]
-        internal static class PowerSelectionPanel_SecondLineUnbind
+        internal static class PowerSelectionPanel_Unbind
         {
             internal static void Postfix(PowerSelectionPanel __instance)
             {

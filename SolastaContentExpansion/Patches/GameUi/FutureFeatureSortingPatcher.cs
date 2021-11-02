@@ -4,11 +4,11 @@ using System.Collections.Generic;
 
 namespace SolastaContentExpansion.Patches
 {
-    class FutureFeatureSorting
+    class FutureFeatureSortingPatcher
     {
 
         [HarmonyPatch(typeof(CharacterStageSubclassSelectionPanel), "FillSubclassFeatures")]
-        internal static class CharacterStageSubclassSelectionPanel_SubclassSort
+        internal static class CharacterStageSubclassSelectionPanel_FillSubclassFeatures
         {
             internal static void Prefix(CharacterSubclassDefinition subclassDefinition)
             {
@@ -22,7 +22,7 @@ namespace SolastaContentExpansion.Patches
         }
 
         [HarmonyPatch(typeof(CharacterStageDeitySelectionPanel), "FillSubclassFeatures")]
-        internal static class CharacterStageDeitySelectionPanel_SubclassSort
+        internal static class CharacterStageDeitySelectionPanel_FillSubclassFeatures
         {
             internal static void Prefix(CharacterSubclassDefinition currentSubclassDefinition)
             {
@@ -34,7 +34,7 @@ namespace SolastaContentExpansion.Patches
         }
 
         [HarmonyPatch(typeof(ArchetypesPreviewModal), "Bind")]
-        internal static class ArchetypesPreviewModal_SubclassSort
+        internal static class ArchetypesPreviewModal_Bind
         {
             internal static void Postfix(ArchetypesPreviewModal __instance)
             {
@@ -50,7 +50,7 @@ namespace SolastaContentExpansion.Patches
         }
 
         [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "FillClassFeatures")]
-        internal static class CharacterStageClassSelectionPanel_SecondLineUnbind
+        internal static class CharacterStageClassSelectionPanel_FillSubclassFeatures
         {
             internal static void Prefix(CharacterClassDefinition classDefinition)
             {

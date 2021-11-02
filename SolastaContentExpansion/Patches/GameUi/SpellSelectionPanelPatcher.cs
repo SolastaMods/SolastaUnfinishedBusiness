@@ -9,6 +9,7 @@ namespace SolastaContentExpansion.Patches
     {
 		private static List<RectTransform> spellLineTables = new List<RectTransform>();
 
+		// second line bind
 		[HarmonyPatch(typeof(SpellSelectionPanel), "Bind")]
 		internal static class SpellSelectionPanel_SecondLine
 		{
@@ -208,8 +209,9 @@ namespace SolastaContentExpansion.Patches
 			}
 		}
 
+		// second line unbind
         [HarmonyPatch(typeof(SpellSelectionPanel), "Unbind")]
-        internal static class SpellSelectionPanel_SecondLineUnbind
+        internal static class SpellSelectionPanel_Unbind
         {
             internal static void Postfix()
             {

@@ -7,7 +7,7 @@ namespace SolastaContentExpansion.Patches.InitialChoices
     internal class GuiFeatDefinitionPatcher
     {
         [HarmonyPatch(typeof(GuiFeatDefinition), "IsFeatMacthingPrerequisites")]
-        internal static class GuiFeatDefinition_IsFeatMacthingPrerequisites_Patch
+        internal static class GuiFeatDefinition_IsFeatMacthingPrerequisites
         {
             internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
