@@ -62,7 +62,7 @@ namespace SolastaCommunityExpansion.Viewers
                 }
 
                 intValue = Main.Settings.SubclassSliderPosition;
-                if (UI.Slider("slide left for description / right to collapse".white(), ref intValue, 1, MAX_COLUMNS, 1, ""))
+                if (UI.Slider("[slide left for description / right to collapse]".red().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
                 {
                     Main.Settings.SubclassSliderPosition = intValue;
                 }
