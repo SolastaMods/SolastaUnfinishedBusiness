@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using UnityModManagerNet;
 using ModKit;
+using SolastaContentExpansion.Models;
 
 namespace SolastaContentExpansion.Viewers
 {
@@ -18,7 +19,19 @@ namespace SolastaContentExpansion.Viewers
         {
             UI.Label("");
             UI.Label("Feats: ".yellow() + reqRestart);
-            
+
+            UI.Label("");
+            bool toggle = Main.Settings.PickPocketEnabled;
+            if (UI.Toggle("Adds pickpocketable loot to monsters", ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.PickPocketEnabled = toggle;
+                if (toggle)
+                {
+                    PickPocketContext.Load();
+                }
+            }
+
+
             UI.Label("");
 
             var intValue = Main.Settings.FeatSliderPosition;
@@ -46,7 +59,7 @@ namespace SolastaContentExpansion.Viewers
                         while (current < featsCount && columns-- > 0)
                         {
                             var keyValuePair = Models.FeatsContext.Feats.ElementAt(current);
-                            var toggle = !Main.Settings.FeatHidden.Contains(keyValuePair.Key);
+                            toggle = !Main.Settings.FeatHidden.Contains(keyValuePair.Key);
                             var title = Gui.Format(keyValuePair.Value.GuiPresentation.Title);
 
                             if (flip)
