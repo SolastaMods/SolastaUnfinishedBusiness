@@ -121,13 +121,13 @@ namespace SolastaCommunityExpansion.Viewers
             }
 
             toggle = Main.Settings.ExactMerchantCostScaling;
-            if (UI.Toggle("Scale merchant prices correctly/exactly", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Scales merchant prices correctly/exactly", ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.ExactMerchantCostScaling = toggle;
             }
 
             toggle = Main.Settings.DisableAutoEquip;
-            if (UI.Toggle("Disable auto-equip of all/any inventory", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Disables auto-equip of all/any inventory", ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.DisableAutoEquip = toggle;
             }
