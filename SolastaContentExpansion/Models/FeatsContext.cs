@@ -18,13 +18,11 @@ namespace SolastaContentExpansion.Models
             FightingStlyeFeats.CreateFeats(feats);
             OtherFeats.CreateFeats(feats);
             HealingFeats.CreateFeats(feats);
-
-            // TODO: Review PickPocket code before enabling below
-            // PickPocketContext.CreateFeats(feats);
+            PickPocketContext.CreateFeats(feats);
 
             // Use the list of feats to get the settings and ui set up.
 
-            foreach(FeatDefinition feat in feats)
+            foreach (FeatDefinition feat in feats)
             {
                 if (!Feats.ContainsKey(feat.Name))
                 {

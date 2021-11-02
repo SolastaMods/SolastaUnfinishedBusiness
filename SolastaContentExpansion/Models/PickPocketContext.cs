@@ -39,6 +39,7 @@ namespace SolastaContentExpansion.Models
                 "AbilityCheckAffinityFeatPickPocket", "30b1492a-053f-412e-b247-798fbc255038", "Feat/&PickPocketFeatTitle", "Feat/&PickPocketFeatDescription",
                 DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityFeatLockbreaker);
 
+            // TODO make the set field calls type safe by using extensions annd/or builders
             FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup pickpocketAbilityCheckAffinityGroup = new FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup();
 
             pickpocketAbilityCheckAffinityGroup.SetField("abilityScoreName", "Dexterity");
@@ -66,8 +67,16 @@ namespace SolastaContentExpansion.Models
             feats.Add(PickPocketFeat);
         }
 
+        static bool initialized = false;
+
         internal static void Load()
         {
+            if (!Main.Settings.PickPocketEnabled || initialized)
+            {
+                return;
+            }
+            initialized = true;
+
             SkillDefinition sleight_of_hand = DatabaseHelper.SkillDefinitions.SleightOfHand;
             sleight_of_hand.GuiPresentation.SetUnusedInSolastaCOTM(false);
 
@@ -233,11 +242,10 @@ namespace SolastaContentExpansion.Models
 
             MonsterDefinition skeleton_sorcerer = DatabaseHelper.MonsterDefinitions.Skeleton_Sorcerer;
             skeleton_sorcerer.SetStealableLootDefinition(pick_pocket_undead);
-
-
         }
     }
 
+    // TODO move complete builders to ModAPI, move reusable builders to the Features folder so they can be shared.
     public class LootPackDefinitionBuilder : BaseDefinitionBuilder<LootPackDefinition>
     {
         protected LootPackDefinitionBuilder(string name, string guid, string title_string, string description_string, LootPackDefinition base_loot) : base(base_loot, name, guid)
