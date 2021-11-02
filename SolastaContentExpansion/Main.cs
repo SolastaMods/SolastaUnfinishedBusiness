@@ -44,5 +44,17 @@ namespace SolastaContentExpansion
 
             return true;
         }
+
+        internal static bool IsModHelpersLoaded()
+        {
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                if (assembly.FullName.Contains("SolastaModHelpers"))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
