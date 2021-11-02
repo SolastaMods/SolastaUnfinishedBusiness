@@ -31,6 +31,8 @@ namespace SolastaContentExpansion.Viewers
                 }
             }
 
+            // todo make the acehigh power attack feats tunable here. It is already in the settings (FeatPowerAttackModifier),
+            // but the text does not currently update to reflect the actual tuning.
 
             UI.Label("");
 

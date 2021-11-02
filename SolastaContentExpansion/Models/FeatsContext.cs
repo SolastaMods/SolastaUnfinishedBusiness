@@ -14,6 +14,7 @@ namespace SolastaContentExpansion.Models
             List<FeatDefinition> feats = new List<FeatDefinition>();
 
             // Build feats
+            AcehighFeats.CreateFeats(feats);
             ArmorFeats.CreateArmorFeats(feats);
             CasterFeats.CreateFeats(feats);
             FightingStlyeFeats.CreateFeats(feats);
