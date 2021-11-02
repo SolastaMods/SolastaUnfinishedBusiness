@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion.Viewers
             bool toggle;
             int intValue;
 
-            selectAll = Main.Settings.FeatHidden.Count == 0;
+            selectAll = Main.Settings.FeatEnabled.Count == FeatsContext.Feats.Count;
 
             UI.Label("");
             UI.Label("Settings: ".yellow() + reqRestart);
@@ -79,7 +79,7 @@ namespace SolastaCommunityExpansion.Viewers
                         while (current < featsCount && columns-- > 0)
                         {
                             var keyValuePair = Models.FeatsContext.Feats.ElementAt(current);
-                            toggle = !Main.Settings.FeatHidden.Contains(keyValuePair.Key);
+                            toggle = Main.Settings.FeatEnabled.Contains(keyValuePair.Key);
                             var title = Gui.Format(keyValuePair.Value.GuiPresentation.Title);
 
                             if (flip)

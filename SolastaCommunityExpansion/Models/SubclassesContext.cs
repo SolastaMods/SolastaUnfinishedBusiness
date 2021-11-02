@@ -37,17 +37,17 @@ namespace SolastaCommunityExpansion.Models
         private static void UpdateSubclassVisibility(string name)
         {
             FeatureDefinitionSubclassChoice choiceList = Subclasses[name].GetSubclassChoiceList();
-            if (Main.Settings.SubclassHidden.Contains(name))
-            {
-                if (choiceList.Subclasses.Contains(name))
-                {
-                    choiceList.Subclasses.Remove(name);
-                }
-            } else
+            if (Main.Settings.SubclassEnabled.Contains(name))
             {
                 if (!choiceList.Subclasses.Contains(name))
                 {
                     choiceList.Subclasses.Add(name);
+                }
+            } else
+            {
+                if (choiceList.Subclasses.Contains(name))
+                {
+                    choiceList.Subclasses.Remove(name);
                 }
             }
         }
@@ -61,11 +61,14 @@ namespace SolastaCommunityExpansion.Models
 
             if (active)
             {
-                Main.Settings.SubclassHidden.Remove(subclassName);
+                if (!Main.Settings.SubclassEnabled.Contains(subclassName))
+                {
+                    Main.Settings.SubclassEnabled.Add(subclassName);
+                }
             }
             else
             {
-                Main.Settings.SubclassHidden.Add(subclassName);
+                Main.Settings.SubclassEnabled.Remove(subclassName);
             }
 
             UpdateSubclassVisibility(subclassName);
