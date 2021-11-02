@@ -15,30 +15,33 @@ namespace SolastaContentExpansion.Viewers
 
         public void DisplaySubclassesSettings()
         {
+            bool toggle;
             int intValue;
 
             UI.Label("");
             UI.Label("Settings:".yellow());
-            bool toggle;
 
             UI.Label("");
-            intValue = Main.Settings.RogueConArtistSpellDCBoost;
-            if (UI.Slider("Rogue Con Artist\n'Improved Manipulation' Spell DC Boost".white(), ref intValue, 0, 5, 3, "", UI.AutoWidth()))
-            {
-                Main.Settings.RogueConArtistSpellDCBoost = intValue;
-            }
-            UI.Label("");
-            intValue = Main.Settings.MasterManipulatorSpellDCBoost;
-            if (UI.Slider("Wizard Master Manipulator 'Arcane Manipulation' Spell DC Boost", ref intValue, 0, 5, 2, "", UI.AutoWidth()))
-            {
-                Main.Settings.RogueConArtistSpellDCBoost = intValue;
-            }
-
             toggle = Main.Settings.SpellMasterUnlimitedArcaneRecovery;
-            if (UI.Toggle("Wizard Spell Master enable unlimited 'Arcane Recovery'", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Enables unlimited " + "Arcane Recovery".orange() + " on Wizard Spell Master", ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.SpellMasterUnlimitedArcaneRecovery = toggle;
                 Subclasses.Wizard.SpellMaster.UpdateRecoveryLimited();
+            }
+
+            UI.Label("");
+            UI.Label("Overrides Rogue Con Artist ".white() + "Improved Manipulation".orange() + " Spell DC".white());
+            intValue = Main.Settings.RogueConArtistSpellDCBoost;
+            if (UI.Slider("", ref intValue, 0, 5, 3, "", UI.AutoWidth()))
+            {
+                Main.Settings.RogueConArtistSpellDCBoost = intValue;
+            }
+            UI.Label("");
+            UI.Label("Overrides Wizard Master Manipulator ".white() + "Arcane Manipulation".orange() + " Spell DC".white());
+            intValue = Main.Settings.MasterManipulatorSpellDCBoost;
+            if (UI.Slider("", ref intValue, 0, 5, 2, "", UI.AutoWidth()))
+            {
+                Main.Settings.RogueConArtistSpellDCBoost = intValue;
             }
 
             UI.Label("");

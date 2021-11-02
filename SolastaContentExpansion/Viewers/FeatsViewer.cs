@@ -10,13 +10,14 @@ namespace SolastaContentExpansion.Viewers
 
         public int Priority => 2;
 
+        private static string reqRestart = "[requires restart]".italic().red().bold();
         private const int MAX_COLUMNS = 4;
         private const float PIXELS_PER_COLUMN = 250;
 
         public void DisplayFeatsSettings()
         {
             UI.Label("");
-            UI.Label("Feats: [game restart required]".yellow());
+            UI.Label("Feats: ".yellow() + reqRestart);
             
             UI.Label("");
 
