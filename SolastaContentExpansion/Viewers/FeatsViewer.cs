@@ -18,7 +18,7 @@ namespace SolastaContentExpansion.Viewers
         public void DisplayFeatsSettings()
         {
             UI.Label("");
-            UI.Label("Feats: ".yellow() + reqRestart);
+            UI.Label("Settings: ".yellow() + reqRestart);
 
             UI.Label("");
             bool toggle = Main.Settings.PickPocketEnabled;
@@ -31,9 +31,10 @@ namespace SolastaContentExpansion.Viewers
                 }
             }
 
+            UI.Label("");
+            UI.Label("Feats: ".yellow() + reqRestart);
 
             UI.Label("");
-
             var intValue = Main.Settings.FeatSliderPosition;
 
             if (UI.Slider("slide left for description / right to collapse".white(), ref intValue, 1, MAX_COLUMNS, 1, ""))
