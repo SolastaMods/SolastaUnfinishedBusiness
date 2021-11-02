@@ -95,12 +95,6 @@ namespace SolastaContentExpansion.Viewers
             UI.Label("Game UI Settings:".yellow());
             UI.Label("");
 
-            toggle = Main.Settings.ShowAllAutoPreparedSpells;
-            if (UI.Toggle("Show all auto prepared spells in level up spell selection", ref toggle, 0, UI.AutoWidth()))
-            {
-                Main.Settings.ShowAllAutoPreparedSpells = toggle;
-            }
-
             toggle = Main.Settings.InvertAltBehaviorOnTooltips;
             if (UI.Toggle("Inverts ALT key behavior on Tooltips", ref toggle, 0, UI.AutoWidth()))
             {
