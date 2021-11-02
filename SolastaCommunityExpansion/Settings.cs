@@ -104,5 +104,8 @@ namespace SolastaCommunityExpansion
         public bool SpellMasterUnlimitedArcaneRecovery = false;
         public bool ShowAllAutoPreparedSpells = true;
         public bool PickPocketEnabled = true;
+
+        public bool DisableAutoEquip;
+        public bool ExactMerchantCostScaling;
     }
 }
