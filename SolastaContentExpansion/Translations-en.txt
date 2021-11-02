@@ -247,6 +247,60 @@ Feat/&ChefWisDescription You gain +1 to Wisdom. Spend 1 hour to cook a meal to h
 Feat/&ChefWisTitle Chef (Wisdom)
 Feat/&PickPocketFeatTitle	Pickpocket
 Feat/&PickPocketFeatDescription	You gain proficiency with Sleight Of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
+Feat/&FeatIntIncrementDescription +1 Intelligence
+Feat/&FeatIntIncrementTitle Attribute Increase
+Feat/&FeatIntIncrementDescription +1 Charisma
+Feat/&FeatIntIncrementTitle Attribute Increase
+Feat/&FeatIntIncrementDescription +1 Wisdom
+Feat/&FeatIntIncrementTitle Attribute Increase
+Feat/&FeatTelekineticIntPushDescription Telekinetically shove a creature away from you.
+Feat/&FeatTelkineticIntPushTitle Telekinetic Push
+Feat/&FeatTelekineticIntPullDescription Telekinetically pull a creature toward you.
+Feat/&FeatTelkineticIntPullTitle Telekinetic Pull
+Feat/&FeatTelekineticIntDescription Increase Intelligence attribute by 1. Gain a bonus action ability to shove or pull creatures.
+Feat/&FeatTelkineticIntTitle Telekinetic (Intelligence)
+Feat/&FeatTelekineticChaPushDescription Telekinetically shove a creature away from you.
+Feat/&FeatTelkineticChaPushTitle Telekinetic Push
+Feat/&FeatTelekineticChaPullDescription Telekinetically pull a creature toward you.
+Feat/&FeatTelkineticChaPullTitle Telekinetic Pull
+Feat/&FeatTelekineticChaDescription Increase Charisma attribute by 1. Gain a bonus action ability to shove or pull creatures.
+Feat/&FeatTelkineticChaTitle Telekinetic (Charisma)
+Feat/&FeatTelekineticWisPushDescription Telekinetically shove a creature away from you.
+Feat/&FeatTelkineticWisPushTitle Telekinetic Push
+Feat/&FeatTelekineticWisPullDescription Telekinetically pull a creature toward you.
+Feat/&FeatTelkineticWisPullTitle Telekinetic Pull
+Feat/&PowerMistyStepFromFeatDescription Learn to cast the spell Misty Step.
+Feat/&PowerMistyStepFromFeatTitle Learn Misty Step
+Feat/&PowerMistyStepFromFeatDescription Briefly surrounded by silvery mist, you teleport up to 30 feet to an unoccupied space that you can see.
+Feat/&PowerMistyStepFromFeatTitle Misty Step
+Feat/&FeyTeleportationLanguageTirmarianDescription Gain proficiency in Tirmarian.
+Feat/&FeyTeleportationLanguageTirmarianTitle Tirmarian
+Feat/&FeatFeyTeleportationIntDescription Increase Intelligence attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell. Gain proficiency in Tirmarian.
+Feat/&FeatFeyTeleportationIntTitle Fey Teleportation (Intelligence)
+Feat/&FeatFeyTeleportationChaDescription Increase Charisma attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell.  Gain proficiency in Tirmarian.
+Feat/&FeatFeyTeleportationChaTitle Fey Teleportation (Charisma)
+Feat/&FeatFeyTeleportationWisDescription Increase Wisdom attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell.  Gain proficiency in Tirmarian.
+Feat/&FeatFeyTeleportationWisTitle Fey Teleportation (Wisdom)
+Feat/&PowerInvisibilityFromFeatDescription A creature you touch becomes Invisible until the spell ends. Anything the target is wearing or carrying is Invisible as long as it is on the target's person. The spell ends for a target that attacks or casts a spell.
+Feat/&PowerInvisibilityFromFeatTitle Invisibility
+Feat/&PowerFalseLifeFromFeatDescription Bolstering yourself with a necromantic facsimile of life, you gain 1d4+4 Temporary Hit Points for the Duration.
+Feat/&PowerFalseLifeFromFeatTitle False Life
+Feat/&PowerInflictWoundsFromFeatDescription Make a melee spell Attack against a creature you can reach. On a hit, the target takes 3d10 necrotic damage.
+Feat/&PowerInflictWoundsFromFeatTitle Inflict Wounds
+Feat/&FeatShadowTouchedIntDescription Increase Intelligence attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
+Feat/&FeatShadowTouchedIntTitle Shadow Touched (Intelligence)
+Feat/&FeatShadowTouchedWisDescription Increase Wisdom attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
+Feat/&FeatShadowTouchedWisTitle Shadow Touched (Wisdom)
+Feat/&FeatShadowTouchedChaDescription Increase Charisma attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
+Feat/&FeatShadowTouchedChaTitle Shadow Touched (Charisma)
+Feat/&FeatTelekineticWisDescription Increase Wisdom attribute by 1. Gain a bonus action ability to shove or pull creatures.
+Feat/&FeatTelkineticWisTitle Telekinetic (Wisdom)
+Feat/&PowerShadowTouchedFromFeatDescription Learn to cast the spells Invisibility, False Life, and Inflict Wounds.
+Feat/&PowerShadowTouchedFromFeatTitle Learn Invisibility, False Life, and Inflict Wounds
+Screen/&ShadowTouchedSpellTitle Shadow
+Screen/&ShadowTouchedSpellDescription This Shadow spell is always prepared.
+Screen/&FeyTeleportSpellTitle Fey
+Screen/&FeyTeleportSpellDescription This Fey spell is always prepared.
 FlexibleBackgrounds/&BackgroundSkillSelect3Description Select 3 skill proficiencies
 FlexibleBackgrounds/&BackgroundSkillSelect3Title Skills
 FlexibleBackgrounds/&BackgroundSkillSelect2Description Select 2 skill proficiencies

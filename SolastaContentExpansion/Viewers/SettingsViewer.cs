@@ -127,6 +127,12 @@ namespace SolastaContentExpansion.Viewers
             {
                 Main.Settings.SpellPanelGapBetweenLines = floatValue;
             }
+
+            toggle = Main.Settings.ShowAllAutoPreparedSpells;
+            if (UI.Toggle("Show all auto prepared spells in level up spell selection", ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.ShowAllAutoPreparedSpells = toggle;
+            }
         }
 
         public void OnGUI(UnityModManager.ModEntry modEntry)

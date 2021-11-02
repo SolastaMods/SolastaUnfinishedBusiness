@@ -89,5 +89,6 @@ namespace SolastaContentExpansion
         public bool AutoPauseOnVictory;
         public bool HideMonsterHitPoints;
         public bool SpellMasterUnlimitedArcaneRecovery = false;
+        public bool ShowAllAutoPreparedSpells = true;
     }
 }

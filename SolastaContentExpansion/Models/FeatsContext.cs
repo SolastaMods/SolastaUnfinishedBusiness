@@ -15,6 +15,7 @@ namespace SolastaContentExpansion.Models
 
             // Build feats
             ArmorFeats.CreateArmorFeats(feats);
+            CasterFeats.CreateFeats(feats);
             FightingStlyeFeats.CreateFeats(feats);
             OtherFeats.CreateFeats(feats);
             HealingFeats.CreateFeats(feats);
