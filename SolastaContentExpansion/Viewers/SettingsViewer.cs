@@ -11,13 +11,13 @@ namespace SolastaContentExpansion.Viewers
 
         private static string reqRestart = "[requires restart]".italic().red();
 
-        public static void DisplaySettings()
+        public static void DisplayCharacterCreationSettings()
         {
             int intValue;
             bool toggle;
 
             UI.Label("");
-            UI.Label("Progression settings:".yellow());
+            UI.Label("Character creation:".yellow());
             UI.Label("");
 
             toggle = Main.Settings.EnableAlternateHuman;
@@ -25,13 +25,6 @@ namespace SolastaContentExpansion.Viewers
             {
                 Main.Settings.EnableAlternateHuman = toggle;
                 Models.InitialChoicesContext.RefreshAllRacesInitialFeats();
-            }
-
-            toggle = Main.Settings.EnablesAsiAndFeat;
-            if (UI.Toggle("Enables both ASI and Feat", ref toggle, 0, UI.AutoWidth()))
-            {
-                Main.Settings.EnablesAsiAndFeat = toggle;
-                Models.AsiAndFeatContext.Switch(toggle);
             }
 
             toggle = Main.Settings.EnableFlexibleBackgrounds;
@@ -48,8 +41,7 @@ namespace SolastaContentExpansion.Viewers
                 Models.FlexibleRacesContext.Switch(toggle);
             }
 
-            // TODO- check if the vision changes only take effect when creating a character. If so we may want to make
-            // this clear so players don't expect to be able to toggle mid-game.
+            // TODO: vision changes only take effect when creating a character. not sure if new block label is clear enough on intentions or we need more explanation here.
             toggle = Main.Settings.DisableSenseDarkVisionFromAllRaces;
             if (UI.Toggle("Disables " + "Sense Dark Vision".orange() + " from all races " + reqRestart, ref toggle, 0, UI.AutoWidth()))
             {
@@ -62,6 +54,13 @@ namespace SolastaContentExpansion.Viewers
                 Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces = toggle;
             }
 
+            toggle = Main.Settings.OfferAdditionalNames;
+            if (UI.Toggle("Offers additional lore friendly names on character creation " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.OfferAdditionalNames = toggle;
+            }
+
+            UI.Label("");
             intValue = Main.Settings.AllRacesInitialFeats;
             if (UI.Slider("Total feats granted at first level".white(), ref intValue, Settings.MIN_INITIAL_FEATS, Settings.MAX_INITIAL_FEATS, 0, "", UI.AutoWidth()))
             {
@@ -70,7 +69,23 @@ namespace SolastaContentExpansion.Viewers
             }
         }
 
-        private static void DisplaySpellPanelSettings()
+        private static void DisplayCharacterProgressionSettings()
+        {
+            bool toggle;
+
+            UI.Label("");
+            UI.Label("Character progression:".yellow());
+            UI.Label("");
+
+            toggle = Main.Settings.EnablesAsiAndFeat;
+            if (UI.Toggle("Enables both ASI and Feat", ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.EnablesAsiAndFeat = toggle;
+                Models.AsiAndFeatContext.Switch(toggle);
+            }
+        }
+
+        private static void DisplayGameUiSettings()
         {
             bool toggle;
             int intValue;
@@ -80,10 +95,10 @@ namespace SolastaContentExpansion.Viewers
             UI.Label("Game UI Settings:".yellow());
             UI.Label("");
 
-            toggle = Main.Settings.OfferAdditionalNames;
-            if (UI.Toggle("Offers additional lore friendly names " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            toggle = Main.Settings.ShowAllAutoPreparedSpells;
+            if (UI.Toggle("Show all auto prepared spells in level up spell selection", ref toggle, 0, UI.AutoWidth()))
             {
-                Main.Settings.OfferAdditionalNames = toggle;
+                Main.Settings.ShowAllAutoPreparedSpells = toggle;
             }
 
             toggle = Main.Settings.InvertAltBehaviorOnTooltips;
@@ -110,6 +125,7 @@ namespace SolastaContentExpansion.Viewers
                 Main.Settings.PermanentSpeedUp = toggle;
             }
 
+            UI.Label("");
             floatValue = Main.Settings.CustomTimeScale;
             if (UI.Slider("Battle timescale modifier".white(), ref floatValue, 1f, 50f, 1f, 2, "", UI.AutoWidth()))
             {
@@ -127,12 +143,6 @@ namespace SolastaContentExpansion.Viewers
             {
                 Main.Settings.SpellPanelGapBetweenLines = floatValue;
             }
-
-            toggle = Main.Settings.ShowAllAutoPreparedSpells;
-            if (UI.Toggle("Show all auto prepared spells in level up spell selection", ref toggle, 0, UI.AutoWidth()))
-            {
-                Main.Settings.ShowAllAutoPreparedSpells = toggle;
-            }
         }
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
@@ -140,8 +150,9 @@ namespace SolastaContentExpansion.Viewers
             UI.Label("Welcome to Solasta Content Expansion".yellow().bold());
             UI.Div();
 
-            DisplaySettings();
-            DisplaySpellPanelSettings();
+            DisplayCharacterCreationSettings();
+            DisplayCharacterProgressionSettings();
+            DisplayGameUiSettings();
         }
     }
 }
