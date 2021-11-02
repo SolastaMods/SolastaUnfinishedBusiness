@@ -1,5 +1,6 @@
 using UnityModManagerNet;
 using ModKit;
+using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Viewers
 {
@@ -8,6 +9,17 @@ namespace SolastaCommunityExpansion.Viewers
         public string Name => "Credits";
 
         public int Priority => 10;
+
+        private static Dictionary<string, string> creditsTable = new Dictionary<string, string>
+        {
+            { "Zappastuff", "mod UI work, integration, community organization" },
+            { "ImpPhil", "monster's health, pause UI, stocks prices" },
+            { "View619", "darkvision / superior dark vision" },
+            { "SilverGriffon", "pickpocket, lore friendly names, crafty feats" },
+            { "Boofat", "alwaysAlt, faster time scale" },
+            { "AceHigh", "power attack, reckless fury" },
+            { "DubhHerder", "crafty feats migration" }
+        };
 
         public void DisplayHelp()
         {
@@ -18,12 +30,15 @@ namespace SolastaCommunityExpansion.Viewers
             UI.Label("");
             UI.Label("Credits:".yellow());
             UI.Label("");
-            UI.Label(". Zappastuff    - mod UI work, integration, community organization");
-            UI.Label(". ImpPhil       - monster's health, pause UI after battle");
-            UI.Label(". View619       - darkvision / superior dark vision");
-            UI.Label(". SilverGriffon - pickpocket, lore friendly names");
-            UI.Label(". boofat        - alwaysAlt, faster time scale");
-            UI.Label(". Acehigh       - power attack, reckless fury");            
+
+            foreach (var kvp in creditsTable)
+            {
+                using (UI.HorizontalScope())
+                {
+                    UI.Label(kvp.Key.orange(), UI.Width(100));
+                    UI.Label(kvp.Value, UI.Width(400));
+                }
+            }          
             UI.Label("");
         }
 
