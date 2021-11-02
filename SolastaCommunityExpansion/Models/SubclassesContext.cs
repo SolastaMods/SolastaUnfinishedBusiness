@@ -3,12 +3,13 @@ using SolastaCommunityExpansion.Subclasses.Fighter;
 using SolastaCommunityExpansion.Subclasses.Rogue;
 using SolastaCommunityExpansion.Subclasses.Wizard;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SolastaCommunityExpansion.Models
 {
     class SubclassesContext
     {
-        public static SortedDictionary<string, AbstractSubclass> Subclasses = new SortedDictionary<string, AbstractSubclass>();
+        public static Dictionary<string, AbstractSubclass> Subclasses = new Dictionary<string, AbstractSubclass>();
 
         internal static void Load()
         {
@@ -27,6 +28,8 @@ namespace SolastaCommunityExpansion.Models
             {
                 Subclasses.Add(subclass.Name, subclassBuilder);
             }
+
+            Subclasses = Subclasses.OrderBy(x => Gui.Format(x.Value.GetSubclass().GuiPresentation.Title)).ToDictionary(x => x.Key, x => x.Value);
 
             UpdateSubclassVisibility(subclass.Name);
         }
