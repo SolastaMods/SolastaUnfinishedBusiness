@@ -20,6 +20,13 @@ namespace SolastaCommunityExpansion.Viewers
             UI.Label("Character creation:".yellow());
             UI.Label("");
 
+            toggle = Main.Settings.EnableEpicPoints;
+            if (UI.Toggle("Enables Epic [17,15,13,12,10,8] array instead of Standard [15,14,13,12,10,8]", ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.EnableEpicPoints = toggle;
+                Models.EpicArrayContext.Load();
+            }
+
             toggle = Main.Settings.EnableAlternateHuman;
             if (UI.Toggle("Enables the Alternate Human [+2 attribute choices / +1 skill]", ref toggle, 0, UI.AutoWidth()))
             {
@@ -92,7 +99,7 @@ namespace SolastaCommunityExpansion.Viewers
             float floatValue;
 
             UI.Label("");
-            UI.Label("Game UI Settings:".yellow());
+            UI.Label("Game UI:".yellow());
             UI.Label("");
 
             toggle = Main.Settings.InvertAltBehaviorOnTooltips;

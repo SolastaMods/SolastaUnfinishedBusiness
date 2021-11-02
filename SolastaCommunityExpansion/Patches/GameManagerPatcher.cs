@@ -20,6 +20,7 @@ namespace SolastaCommunityExpansion.Patches
                 Models.FlexibleRacesContext.Load();
                 Models.VisionContext.Load();
                 Models.PickPocketContext.Load();
+                Models.EpicArrayContext.Load();
             }
         }
     }
