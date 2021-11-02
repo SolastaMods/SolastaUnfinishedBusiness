@@ -14,8 +14,7 @@ namespace SolastaContentExpansion.Viewers
             UI.Label("");
             UI.Label("Author:".yellow());
             UI.Label("");
-            UI.Label(". ChrisPJohnDigital".bold() + " - feats, items, subclasses, progression, etc.");
-
+            UI.Label(". ChrisJohnDigital".bold() + " - feats, items, subclasses, progression, etc.");
             UI.Label("");
             UI.Label("Credits:".yellow());
             UI.Label("");
@@ -24,6 +23,7 @@ namespace SolastaContentExpansion.Viewers
             UI.Label(". View619       - darkvision / superior dark vision");
             UI.Label(". SilverGriffon - pickpocket, lore friendly names");
             UI.Label(". boofat        - alwaysAlt, faster time scale");
+            UI.Label(". Acehigh       - power attack, reckless fury");            
             UI.Label("");
         }
 

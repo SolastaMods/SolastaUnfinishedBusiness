@@ -1,3 +1,4 @@
+using SolastaContentExpansion.Feats;
 using SolastaContentExpansion.Subclasses.Rogue;
 using SolastaContentExpansion.Subclasses.Wizard;
 using System.Collections.Generic;
@@ -67,6 +68,17 @@ namespace SolastaContentExpansion
             {
                 masterManipulatorSpellDCBoost = value;
                 MasterManipulator.UpdateSpellDCBoost();
+            }
+        }
+
+        private int featPowerAttackModifier = 3;
+
+        public int FeatPowerAttackModifier
+        {
+            get => featPowerAttackModifier; set
+            {
+                featPowerAttackModifier = value;
+                AcehighFeats.UpdatePowerAttackModifier();
             }
         }
 

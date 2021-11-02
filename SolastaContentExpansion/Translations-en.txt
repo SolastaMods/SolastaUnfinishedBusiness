@@ -301,6 +301,30 @@ Screen/&ShadowTouchedSpellTitle Shadow
 Screen/&ShadowTouchedSpellDescription This Shadow spell is always prepared.
 Screen/&FeyTeleportSpellTitle Fey
 Screen/&FeyTeleportSpellDescription This Fey spell is always prepared.
+Feature/&PowerAttackPowerTitle One handed power attack
+Feature/&PowerAttackPowerDescription Take a -3 to hit penalty to your attack for the rest of the turn to do +3 damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
+Feature/&PowerAttackAttackModifierOneHandedTitle One handed power attack
+Feature/&PowerAttackAttackModifierOneHandedDescription Take a -3 to hit penalty to your attack for the rest of the turn to do +3 damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
+Feature/&PowerAttackConditionTitle One handed power attack
+Feature/&PowerAttackConditionDescription Take a -3 to hit penalty to your attack for the rest of the turn to do +3 damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
+Feature/&PowerAttackTwoHandedPowerTitle Two Handed power attack
+Feature/&PowerAttackTwoHandedPowerDescription Take a -3 to hit penalty to your attack for the rest of the turn to do +6 damage when you land your strikes.  Only to be used when attacking with two hands, melee or ranged.
+Feature/&PowerAttackTwoHandedAttackModifierTitle Two Handed power attack
+Feature/&PowerAttackTwoHandedAttackModifierDescription Take a -3 to hit penalty to your attack for the rest of the turn to do +6 damage when you land your strikes.  Only to be used when attacking with two hands, melee or ranged.
+Feature/&PowerAttackTwoHandedConditionTitle Two Handed power attack
+Feature/&PowerAttackTwoHandedConditionDescription Take a -3 to hit penalty to your attack for the rest of the turn to do +6 damage when you land your strikes.  Only to be used when attacking with two hands, melee or ranged.
+Feat/&PowerAttackFeatTitle Power attack
+Feat/&PowerAttackFeatDescription You learned to trade accuracy to lander deadlier/harder blows.  You can choose to take a -3 penalty to your to hit in order to do more damage (+3 damage for one handed weapons, +6 damage for two handed weapons).  Lasts for the whole turn once activated.  Works with melee and ranged weapons.
+Feat/&RecklessFuryFeatTitle Reckless Fury
+Feat/&RecklessFuryFeatDescription You gain the ability to enter a rage for one minute once per day (note no armor restriciton), and you can attack recklessly gaining advantage on your melee attacks while giving advantage to your attackers until your next turn.
+Feature/&RagePowerTitle Rage
+Feature/&RagePowerDescription As a bonus action you enter a rage for one minute and gain the following: Advantage on Strength checks and Strength saving throws, a bonus to damage rolls of +2, and resistance to bludgeoning, piercing, and slashing damage.
+Feature/&RageFeatConditionTitle	Raging
+Feature/&RageFeatConditionDescription While in a rage you gain the following: Advantage on Strength checks and Strength saving throws, a bonus to damage rolls of +2, and resistance to bludgeoning, piercing, and slashing damage.
+Feature/&RageStrengthSavingThrowAffinityTitle Rage strength save advantage
+Feature/&RageStrengthSavingThrowAffinityDescription You get advantage on strength saves while raging
+Feature/&RageDamageBonusAttackModifierTitle Rage damage
+Feature/&RageDamageBonusAttackModifierDescription Add +2 damage to your attacks while raging.
 FlexibleBackgrounds/&BackgroundSkillSelect3Description Select 3 skill proficiencies
 FlexibleBackgrounds/&BackgroundSkillSelect3Title Skills
 FlexibleBackgrounds/&BackgroundSkillSelect2Description Select 2 skill proficiencies
