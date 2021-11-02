@@ -57,6 +57,7 @@ namespace SolastaContentExpansion.Subclasses.Wizard
             BonusRecovery = BuildSpellFormPower(1 /* usePerRecharge */, RuleDefinitions.UsesDetermination.Fixed, RuleDefinitions.ActivationTime.Rest,
                 1 /* cost */, RuleDefinitions.RechargeRate.LongRest, "PowerSpellMasterBonusRecovery", spellRecoveryGui.Build());
             spellMaster.AddFeatureAtLevel(BonusRecovery, 2);
+            UpdateRecoveryLimited();
 
             BuildRestActivity(RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.ShortRest,
                 RestActivityDefinition.ActivityCondition.CanUsePower, "UsePower", BonusRecovery.Name, "ArcaneDepth", spellRecoveryGui.Build());
@@ -168,7 +169,8 @@ namespace SolastaContentExpansion.Subclasses.Wizard
                 BonusRecovery.SetGuiPresentation(spellRecoveryGui.Build());
                 BonusRecovery.SetCostPerUse(0);
                 BonusRecovery.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
-            } else
+            }
+            else
             {
                 GuiPresentationBuilder spellRecoveryGui = new GuiPresentationBuilder(
                     "Subclass/&MagicAffinitySpellMasterRecoveryDescription",
