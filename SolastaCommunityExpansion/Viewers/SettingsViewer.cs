@@ -160,7 +160,7 @@ namespace SolastaCommunityExpansion.Viewers
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            UI.Label("Welcome to Solasta Content Expansion".yellow().bold());
+            UI.Label("Welcome to Solasta Community Expansion".yellow().bold());
             UI.Div();
 
             DisplayCharacterCreationSettings();
