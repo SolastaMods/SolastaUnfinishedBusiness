@@ -23,21 +23,23 @@ namespace SolastaContentExpansion.Viewers
 
             UI.Label("");
             toggle = Main.Settings.SpellMasterUnlimitedArcaneRecovery;
-            if (UI.Toggle("Enables unlimited 'Arcane Recovery' on Wizard Spell Master", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Enables unlimited " + "Arcane Recovery".orange() + " on Wizard Spell Master", ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.SpellMasterUnlimitedArcaneRecovery = toggle;
                 Subclasses.Wizard.SpellMaster.UpdateRecoveryLimited();
             }
 
             UI.Label("");
+            UI.Label("Overrides Rogue Con Artist ".white() + "Improved Manipulation".orange() + " Spell DC".white());
             intValue = Main.Settings.RogueConArtistSpellDCBoost;
-            if (UI.Slider("Rogue Con Artist\nBoosts 'Improved Manipulation' Spell DC".white(), ref intValue, 0, 5, 3, "", UI.AutoWidth()))
+            if (UI.Slider("", ref intValue, 0, 5, 3, "", UI.AutoWidth()))
             {
                 Main.Settings.RogueConArtistSpellDCBoost = intValue;
             }
             UI.Label("");
+            UI.Label("Overrides Wizard Master Manipulator ".white() + "Arcane Manipulation".orange() + " Spell DC".white());
             intValue = Main.Settings.MasterManipulatorSpellDCBoost;
-            if (UI.Slider("Wizard Master Manipulator\nBoosts 'Arcane Manipulation' Spell DC".white(), ref intValue, 0, 5, 2, "", UI.AutoWidth()))
+            if (UI.Slider("", ref intValue, 0, 5, 2, "", UI.AutoWidth()))
             {
                 Main.Settings.RogueConArtistSpellDCBoost = intValue;
             }

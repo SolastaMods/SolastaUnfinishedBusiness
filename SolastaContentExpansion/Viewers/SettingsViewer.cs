@@ -9,6 +9,8 @@ namespace SolastaContentExpansion.Viewers
 
         public int Priority => 1;
 
+        private static string reqRestart = "[requires restart]".italic().red();
+
         public static void DisplaySettings()
         {
             int intValue;
@@ -19,7 +21,7 @@ namespace SolastaContentExpansion.Viewers
             UI.Label("");
 
             toggle = Main.Settings.EnableAlternateHuman;
-            if (UI.Toggle("Enables the alternate Human", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Enables the Alternate Human [+2 attribute choices / +1 skill]", ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.EnableAlternateHuman = toggle;
                 Models.InitialChoicesContext.RefreshAllRacesInitialFeats();
@@ -49,13 +51,13 @@ namespace SolastaContentExpansion.Viewers
             // TODO- check if the vision changes only take effect when creating a character. If so we may want to make
             // this clear so players don't expect to be able to toggle mid-game.
             toggle = Main.Settings.DisableSenseDarkVisionFromAllRaces;
-            if (UI.Toggle("Disables Sense Dark Vision from all races [requires restart]", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Disables " + "Sense Dark Vision".orange() + " from all races " + reqRestart, ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.DisableSenseDarkVisionFromAllRaces = toggle;
             }
 
             toggle = Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces;
-            if (UI.Toggle("Disables Superior Sense Dark Vision from all races [requires restart]", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Disables " + "Superior Sense Dark Vision".orange() + " from all races " + reqRestart, ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces = toggle;
             }
@@ -79,7 +81,7 @@ namespace SolastaContentExpansion.Viewers
             UI.Label("");
 
             toggle = Main.Settings.OfferAdditionalNames;
-            if (UI.Toggle("Offers additional lore friendly names [requires restart]", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Offers additional lore friendly names " + reqRestart, ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.OfferAdditionalNames = toggle;
             }
