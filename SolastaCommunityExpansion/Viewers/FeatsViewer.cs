@@ -11,17 +11,23 @@ namespace SolastaCommunityExpansion.Viewers
 
         public int Priority => 2;
 
-        private static string reqRestart = "[requires restart]".italic().red().bold();
+        private static bool selectAll = false;
         private const int MAX_COLUMNS = 4;
         private const float PIXELS_PER_COLUMN = 250;
+        private static readonly string reqRestart = "[requires restart]".italic().red().bold();
 
         public void DisplayFeatsSettings()
         {
+            bool toggle;
+            int intValue;
+
+            selectAll = Main.Settings.FeatHidden.Count == 0;
+
             UI.Label("");
             UI.Label("Settings: ".yellow() + reqRestart);
 
             UI.Label("");
-            bool toggle = Main.Settings.PickPocketEnabled;
+            toggle = Main.Settings.PickPocketEnabled;
             if (UI.Toggle("Adds pickpocketable loot to monsters", ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.PickPocketEnabled = toggle;
@@ -36,13 +42,23 @@ namespace SolastaCommunityExpansion.Viewers
 
             UI.Label("");
             UI.Label("Feats: ".yellow() + reqRestart);
-
             UI.Label("");
-            var intValue = Main.Settings.FeatSliderPosition;
 
-            if (UI.Slider("slide left for description / right to collapse".white(), ref intValue, 1, MAX_COLUMNS, 1, ""))
+            using (UI.HorizontalScope())
             {
-                Main.Settings.FeatSliderPosition = intValue;
+                if (UI.Toggle("Select all", ref selectAll))
+                {
+                    foreach (var keyValuePair in Models.FeatsContext.Feats)
+                    {
+                        Models.FeatsContext.Switch(keyValuePair.Key, selectAll);
+                    }
+                }
+
+                intValue = Main.Settings.FeatSliderPosition;
+                if (UI.Slider("slide left for description / right to collapse".white(), ref intValue, 1, MAX_COLUMNS, 1, ""))
+                {
+                    Main.Settings.FeatSliderPosition = intValue;
+                }
             }
 
             UI.Label("");
@@ -73,6 +89,7 @@ namespace SolastaCommunityExpansion.Viewers
 
                             if (UI.Toggle(title, ref toggle, PIXELS_PER_COLUMN))
                             {
+                                selectAll = false;
                                 Models.FeatsContext.Switch(keyValuePair.Key, toggle);
                             }
 
