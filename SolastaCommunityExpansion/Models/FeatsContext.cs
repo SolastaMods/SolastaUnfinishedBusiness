@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Models
                     Feats.Add(feat.Name, feat);
                 }
 
-                feat.GuiPresentation.SetHidden(Main.Settings.FeatHidden.Contains(feat.Name));
+                feat.GuiPresentation.SetHidden(!Main.Settings.FeatEnabled.Contains(feat.Name));
             }
 
             Feats = Feats.OrderBy(x => Gui.Format(x.Value.GuiPresentation.Title)).ToDictionary(x => x.Key, x => x.Value);
@@ -49,11 +49,14 @@ namespace SolastaCommunityExpansion.Models
 
             if (active)
             {
-                Main.Settings.FeatHidden.Remove(featName);
+                if (!Main.Settings.FeatEnabled.Contains(featName))
+                {
+                    Main.Settings.FeatEnabled.Add(featName);
+                }
             }
             else
             {
-                Main.Settings.FeatHidden.Add(featName);
+                Main.Settings.FeatEnabled.Remove(featName);
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using ModKit;
+using SolastaCommunityExpansion.Models;
 using System.Linq;
 using UnityModManagerNet;
 
@@ -19,7 +20,7 @@ namespace SolastaCommunityExpansion.Viewers
             bool toggle;
             int intValue;
 
-            selectAll = Main.Settings.SubclassHidden.Count == 0;
+            selectAll = Main.Settings.SubclassEnabled.Count == SubclassesContext.Subclasses.Count;
 
             UI.Label("");
             UI.Label("Settings:".yellow());
@@ -87,7 +88,7 @@ namespace SolastaCommunityExpansion.Viewers
                         while (current < subclassesCount && columns-- > 0)
                         {
                             var keyValuePair = Models.SubclassesContext.Subclasses.ElementAt(current);
-                            toggle = !Main.Settings.SubclassHidden.Contains(keyValuePair.Key);
+                            toggle = Main.Settings.SubclassEnabled.Contains(keyValuePair.Key);
                             var subclass = keyValuePair.Value.GetSubclass();
                             var title = Gui.Format(subclass.GuiPresentation.Title);
 

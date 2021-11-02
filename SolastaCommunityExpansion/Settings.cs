@@ -44,8 +44,8 @@ namespace SolastaCommunityExpansion
             }
         }
 
-        public List<string> FeatHidden = new List<string>();
-        public List<string> SubclassHidden = new List<string>();
+        public List<string> FeatEnabled= new List<string>();
+        public List<string> SubclassEnabled= new List<string>();
 
         public int FeatSliderPosition = 1;
         public int SubclassSliderPosition = 1;
@@ -89,8 +89,8 @@ namespace SolastaCommunityExpansion
         public const InputCommands.Id CTRL_M = (InputCommands.Id)44440002;
         public const InputCommands.Id CTRL_P = (InputCommands.Id)44440003;
 
-        public bool OfferAdditionalNames = true;
-        public bool InvertAltBehaviorOnTooltips = true;
+        public bool OfferAdditionalNames = false;
+        public bool InvertAltBehaviorOnTooltips = false;
 
         public int MaxSpellLevelsPerLine = 5;
         public float SpellPanelGapBetweenLines = 30f;
@@ -103,7 +103,7 @@ namespace SolastaCommunityExpansion
         public bool HideMonsterHitPoints;
         public bool SpellMasterUnlimitedArcaneRecovery = false;
         public bool ShowAllAutoPreparedSpells = true;
-        public bool PickPocketEnabled = true;
+        public bool PickPocketEnabled = false;
 
         public bool DisableAutoEquip;
         public bool ExactMerchantCostScaling;
