@@ -3,8 +3,9 @@ using HarmonyLib;
 
 namespace SolastaContentExpansion.Patches
 {
+    // always alt
     [HarmonyPatch(typeof(TooltipPanel), "SetupFeatures")]
-    internal static class TooltipPanel_SetupFeatures_Patcher
+    internal static class TooltipPanel_SetupFeatures
     {
         internal static void Prefix(ref TooltipDefinitions.Scope scope, GuiTooltipClassDefinition tooltipClassDefinition, Dictionary<string, TooltipFeature> tooltipsFeatures)
         {

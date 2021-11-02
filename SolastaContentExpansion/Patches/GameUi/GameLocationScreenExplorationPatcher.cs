@@ -5,7 +5,7 @@ namespace SolastaContentExpansion.Patches
     class GameLocationScreenExplorationPatcher
     {
         [HarmonyPatch(typeof(GameLocationScreenExploration), "HandleInput")]
-        internal static class GameLocationScreenExploration_HandleInput_Patch
+        internal static class GameLocationScreenExploration_HandleInput
         {
             internal static bool Prefix(
                 GameLocationScreenExploration __instance,

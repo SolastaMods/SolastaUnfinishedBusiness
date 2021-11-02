@@ -15,15 +15,15 @@ namespace SolastaContentExpansion.Viewers
             UI.Label("Author:".yellow());
             UI.Label("");
             UI.Label(". ChrisJohnDigital".bold() + " - feats, items, subclasses, progression, etc.");
-
             UI.Label("");
             UI.Label("Credits:".yellow());
             UI.Label("");
-            UI.Label(". Zappastuff    - Mod UI Work, Integration, Community Organization");
-            UI.Label(". View619       - Darkvision");
-            UI.Label(". SilverGriffon - Pickpocket, Solastanomicon");
-            UI.Label(". Acehigh       - Power Attack, Reckless Fury");
-            UI.Label(". ImpPhil       - Pause on victory, Hide monster health");
+            UI.Label(". Zappastuff    - mod UI work, integration, community organization");
+            UI.Label(". ImpPhil       - monster's health, pause UI after battle");
+            UI.Label(". View619       - darkvision / superior dark vision");
+            UI.Label(". SilverGriffon - pickpocket, lore friendly names");
+            UI.Label(". boofat        - alwaysAlt, faster time scale");
+            UI.Label(". Acehigh       - power attack, reckless fury");            
             UI.Label("");
         }
 

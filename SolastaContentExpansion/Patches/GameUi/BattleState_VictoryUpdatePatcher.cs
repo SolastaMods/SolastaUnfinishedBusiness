@@ -3,7 +3,7 @@
 namespace SolastaContentExpansion.Patches.GameUi
 {
     [HarmonyPatch(typeof(BattleState_Victory), "Update")]
-    internal static class BattleState_Victory_Update
+    internal static class BattleState_VictoryUpdatePatcher
     {
         public static void Postfix()
         {

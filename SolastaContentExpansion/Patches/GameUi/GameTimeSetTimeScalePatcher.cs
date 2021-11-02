@@ -6,7 +6,7 @@ namespace SolastaContentExpansion.Patches
     internal static class GameTimeSetTimeScalePatcher
     {
         [HarmonyPatch(typeof(GameTime), "SetTimeScale")]
-        internal static class GameTime_SetTimeScale_Patch
+        internal static class GameTime_SetTimeScale
         {
             internal static bool Prefix(ref float ___timeScale, ref bool ___fasterTimeMode)
             {
