@@ -1,0 +1,13 @@
+{
+	"Id": "SolastaCommunityExpansion",
+	"DisplayName": "SolastaCommunityExpansion",
+	"Author": "CJD",
+	"Version": "1.2.5.0",
+	"ManagerVersion": "0.23.4",
+	"Requirements": [ "SolastaModApi" ],
+	"LoadAfter": [ "SolastaModApi" ],
+	"AssemblyName": "SolastaCommunityExpansion.dll",
+	"EntryMethod": "SolastaCommunityExpansion.Main.Load",
+	"Repository": "https://raw.githubusercontent.com/ChrisPJohn/SolastaCommunityExpansion/main/SolastaCommunityExpansion/Repository.json",
+	"HomePage": "https://www.nexusmods.com/solastacrownofthemagister/mods/##"
+}
