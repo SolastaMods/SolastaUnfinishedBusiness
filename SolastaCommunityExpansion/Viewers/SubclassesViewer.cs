@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Viewers
 
         private static bool selectAll = false;
         private const int MAX_COLUMNS = 4;
-        private const float PIXELS_PER_COLUMN = 250;
+        private const float PIXELS_PER_COLUMN = 225;
 
         public void DisplaySubclassesSettings()
         {
@@ -111,7 +111,7 @@ namespace SolastaCommunityExpansion.Viewers
                                     description = description.yellow();
                                 }
 
-                                UI.Label(description, UI.Width(PIXELS_PER_COLUMN * 4));
+                                UI.Label(description, UI.Width(PIXELS_PER_COLUMN * 3));
 
                                 flip = !flip;
                             }
@@ -125,7 +125,7 @@ namespace SolastaCommunityExpansion.Viewers
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            UI.Label("Welcome to Solasta Content Expansion".yellow().bold());
+            UI.Label("Welcome to Solasta Community Expansion".yellow().bold());
             UI.Div();
 
             DisplaySubclassesSettings();
