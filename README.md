@@ -1,6 +1,6 @@
-# SolastaContentExpansion
+# SolastaCommunityExpansion
 
-SolastaContentExpansion
+SolastaCommunityExpansion
 
 # How to Compile
 
