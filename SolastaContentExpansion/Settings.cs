@@ -90,5 +90,6 @@ namespace SolastaContentExpansion
         public bool HideMonsterHitPoints;
         public bool SpellMasterUnlimitedArcaneRecovery = false;
         public bool ShowAllAutoPreparedSpells = true;
+        public bool PickPocketEnabled = true;
     }
 }

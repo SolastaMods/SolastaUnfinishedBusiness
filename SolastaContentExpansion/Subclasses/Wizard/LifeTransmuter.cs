@@ -23,7 +23,6 @@ namespace SolastaContentExpansion.Subclasses.Wizard
 
         internal LifeTransmuter()
         {
-            // TODO make this use a custom resource instead of healing pool
             CharacterSubclassDefinitionBuilder lifeTransmuter = new CharacterSubclassDefinitionBuilder("LifeTransmuter", GuidHelper.Create(SubclassNamespace, "LifeTransmuter").ToString());
             GuiPresentationBuilder LifeTransmuterPresentation = new GuiPresentationBuilder(
                 "Subclass/&TraditionLifeTransmuterDescription",
@@ -48,12 +47,9 @@ namespace SolastaContentExpansion.Subclasses.Wizard
             lifeTransmuter.AddFeatureAtLevel(LifeTransmuterAffinity, 2);
 
             // Add tranmsuter stone like abilities.
-            // Add "channel divinity"
             GuiPresentationBuilder LifeTransmuterDivintyGui = new GuiPresentationBuilder(
                 "Subclass/&HealingPoolLifeTransmuterListDescription",
                 "Subclass/&HealingPoolLifeTransmuterListTitle");
-            //FeatureDefinitionAttributeModifier TransmuteForce = BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set,
-            //    AttributeDefinitions.HealingPool, 2, "AttributeModiferTransmuterHealingPool", LifeTransmuterDivintyGui.Build());
 
             FeatureDefinitionPower TransmuteForce = new FeatureDefinitionPowerPoolBuilder("AttributeModiferTransmuterHealingPool",
                 GuidHelper.Create(SubclassNamespace, "AttributeModiferTransmuterHealingPool").ToString(),
@@ -122,8 +118,6 @@ namespace SolastaContentExpansion.Subclasses.Wizard
             GuiPresentationBuilder LifeTransmuterExtraPoolGui = new GuiPresentationBuilder(
                 "Subclass/&HealingPoolLifeTransmuterBonusDescription",
                 "Subclass/&HealingPoolLifeTransmuterBonusTitle");
-            //FeatureDefinitionAttributeModifier TransmuteForceExtra = BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-            //    AttributeDefinitions.HealingPool, 2, "AttributeModiferTransmuterHealingPoolExtra", LifeTransmuterExtraPoolGui.Build());
             FeatureDefinitionPowerPoolModifier TransmuteForceExtra = new FeatureDefinitionPowerPoolModifierBuilder("AttributeModiferTransmuterHealingPoolExtra",
                 GuidHelper.Create(SubclassNamespace, "AttributeModiferTransmuterHealingPoolExtra").ToString(),
                 2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, TransmuteForce, LifeTransmuterExtraPoolGui.Build()).AddToDB();
@@ -160,8 +154,6 @@ namespace SolastaContentExpansion.Subclasses.Wizard
             GuiPresentationBuilder LifeTransmuterExtraPoolBonusGui = new GuiPresentationBuilder(
                 "Subclass/&HealingPoolLifeTransmuterBonusExtraDescription",
                 "Subclass/&HealingPoolLifeTransmuterBonusExtraTitle");
-            //FeatureDefinitionAttributeModifier TransmuteForceExtraBonus = BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-            //    AttributeDefinitions.HealingPool, 4, "AttributeModiferTransmuterHealingPoolBonus", LifeTransmuterExtraPoolBonusGui.Build());
             FeatureDefinitionPowerPoolModifier TransmuteForceExtraBonus = new FeatureDefinitionPowerPoolModifierBuilder("AttributeModiferTransmuterHealingPoolBonus",
                 GuidHelper.Create(SubclassNamespace, "AttributeModiferTransmuterHealingPoolBonus").ToString(),
                 4, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, TransmuteForce, LifeTransmuterExtraPoolBonusGui.Build()).AddToDB();
