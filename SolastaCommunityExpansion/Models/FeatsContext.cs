@@ -1,12 +1,13 @@
 ﻿using SolastaCommunityExpansion.Feats;
 using SolastaModApi.Extensions;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SolastaCommunityExpansion.Models
 {
     class FeatsContext
     {
-        public static SortedDictionary<string, FeatDefinition> Feats = new SortedDictionary<string, FeatDefinition>();
+        public static Dictionary<string, FeatDefinition> Feats = new Dictionary<string, FeatDefinition>();
 
         internal static void Load()
         {
@@ -33,6 +34,8 @@ namespace SolastaCommunityExpansion.Models
 
                 feat.GuiPresentation.SetHidden(Main.Settings.FeatHidden.Contains(feat.Name));
             }
+
+            Feats = Feats.OrderBy(x => Gui.Format(x.Value.GuiPresentation.Title)).ToDictionary(x => x.Key, x => x.Value);
         }
 
         internal static void Switch(string featName, bool active)

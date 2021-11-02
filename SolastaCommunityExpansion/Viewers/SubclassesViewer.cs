@@ -10,6 +10,7 @@ namespace SolastaCommunityExpansion.Viewers
 
         public int Priority => 3;
 
+        private static bool selectAll = false;
         private const int MAX_COLUMNS = 4;
         private const float PIXELS_PER_COLUMN = 250;
 
@@ -18,12 +19,14 @@ namespace SolastaCommunityExpansion.Viewers
             bool toggle;
             int intValue;
 
+            selectAll = Main.Settings.SubclassHidden.Count == 0;
+
             UI.Label("");
             UI.Label("Settings:".yellow());
 
             UI.Label("");
             toggle = Main.Settings.SpellMasterUnlimitedArcaneRecovery;
-            if (UI.Toggle("Enables unlimited ".white() + "Arcane Recovery".orange() + " on Wizard Spell Master ".white() + "must be enabled when the ability has available uses (or before character creation).".red(), ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Enables unlimited ".white() + "Arcane Recovery".orange() + " on Wizard Spell Master\n".white() + "must be enabled when the ability has available uses (or before character creation)".red(), ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.SpellMasterUnlimitedArcaneRecovery = toggle;
                 Subclasses.Wizard.SpellMaster.UpdateRecoveryLimited();
@@ -46,13 +49,25 @@ namespace SolastaCommunityExpansion.Viewers
 
             UI.Label("");
             UI.Label("Subclasses:".yellow());
-
             UI.Label("");
-            intValue = Main.Settings.SubclassSliderPosition;
-            if (UI.Slider("slide left for description / right to collapse".white(), ref intValue, 1, MAX_COLUMNS, 1, ""))
+
+            using (UI.HorizontalScope())
             {
-                Main.Settings.SubclassSliderPosition = intValue;
+                if (UI.Toggle("Select all", ref selectAll))
+                {
+                    foreach (var keyValuePair in Models.SubclassesContext.Subclasses)
+                    {
+                        Models.SubclassesContext.Switch(keyValuePair.Key, selectAll);
+                    }
+                }
+
+                intValue = Main.Settings.SubclassSliderPosition;
+                if (UI.Slider("[slide left for description / right to collapse]".red().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
+                {
+                    Main.Settings.SubclassSliderPosition = intValue;
+                }
             }
+
 
             UI.Label("");
 
