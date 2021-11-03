@@ -59,5 +59,18 @@ namespace SolastaCommunityExpansion.Models
                 Main.Settings.FeatEnabled.Remove(featName);
             }
         }
+
+        public static string GenerateFeatsDescription()
+        {
+            string outString = "[heading]Feats[/heading]";
+            outString += "\n[list]";
+            foreach(FeatDefinition feat in Feats.Values)
+            {
+                outString += "\n[*][b]" + Gui.Format(feat.GuiPresentation.Title) + "[/b]: " + Gui.Format(feat.GuiPresentation.Description);
+
+            }
+            outString += "\n[/list]";
+            return outString;
+        }
     }
 }

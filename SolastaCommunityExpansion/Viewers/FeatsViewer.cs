@@ -28,7 +28,7 @@ namespace SolastaCommunityExpansion.Viewers
 
             UI.Label("");
             toggle = Main.Settings.PickPocketEnabled;
-            if (UI.Toggle("Adds pickpocketable loot to monsters", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Adds pickpocketable loot", ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.PickPocketEnabled = toggle;
                 if (toggle)
