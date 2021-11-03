@@ -73,6 +73,19 @@ namespace SolastaCommunityExpansion.Models
 
             UpdateSubclassVisibility(subclassName);
         }
+
+        public static string GenerateSubclassDescription()
+        {
+            string outString = "[heading]Subclasses[/heading]";
+            outString += "\n[list]";
+            foreach (AbstractSubclass subclass in Subclasses.Values)
+            {
+                outString += "\n[*][b]" + Gui.Format(subclass.GetSubclass().GuiPresentation.Title) + "[/b]: " + Gui.Format(subclass.GetSubclass().GuiPresentation.Description);
+
+            }
+            outString += "\n[/list]";
+            return outString;
+        }
     }
 
 }

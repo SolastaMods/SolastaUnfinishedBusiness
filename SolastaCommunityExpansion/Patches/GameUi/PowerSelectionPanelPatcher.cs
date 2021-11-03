@@ -17,6 +17,10 @@ namespace SolastaCommunityExpansion.Patches
         {
             internal static void Postfix(PowerSelectionPanel __instance)
             {
+                if (!Main.Settings.MultiLinePowerPanel)
+                {
+                    return;
+                }
                 List<UsablePowerBox> powerBoxes = (List<UsablePowerBox>)Traverse.Create(__instance).Field("usablePowerBoxes").GetValue();
                 RectTransform powersTable = (RectTransform)Traverse.Create(__instance).Field("powersTable").GetValue();
                 if (powerBoxes.Count > 14)
@@ -66,6 +70,10 @@ namespace SolastaCommunityExpansion.Patches
         {
             internal static void Postfix(PowerSelectionPanel __instance)
             {
+                if (!Main.Settings.MultiLinePowerPanel)
+                {
+                    return;
+                }
                 if (secondRow != null && secondRow.gameObject.activeSelf)
                 {
                     Gui.ReleaseChildrenToPool(secondRow);

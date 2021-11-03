@@ -12,6 +12,10 @@ namespace SolastaCommunityExpansion.Patches
         {
             internal static void Prefix(CharacterSubclassDefinition subclassDefinition)
             {
+                if (!Main.Settings.FutureFeatureSorting)
+                {
+                    return;
+                }
                 subclassDefinition.FeatureUnlocks.Sort(delegate (FeatureUnlockByLevel a, FeatureUnlockByLevel b)
                 {
                     return a.Level - b.Level;
@@ -26,6 +30,10 @@ namespace SolastaCommunityExpansion.Patches
         {
             internal static void Prefix(CharacterSubclassDefinition currentSubclassDefinition)
             {
+                if (!Main.Settings.FutureFeatureSorting)
+                {
+                    return;
+                }
                 currentSubclassDefinition.FeatureUnlocks.Sort(delegate (FeatureUnlockByLevel a, FeatureUnlockByLevel b)
                 {
                     return a.Level - b.Level;
@@ -38,6 +46,10 @@ namespace SolastaCommunityExpansion.Patches
         {
             internal static void Postfix(ArchetypesPreviewModal __instance)
             {
+                if (!Main.Settings.FutureFeatureSorting)
+                {
+                    return;
+                }
                 List<CharacterSubclassDefinition> subclasses = (List<CharacterSubclassDefinition>)Traverse.Create(__instance).Field("subclasses").GetValue();
                 foreach (CharacterSubclassDefinition subclassDefinition in subclasses)
                 {
@@ -54,6 +66,10 @@ namespace SolastaCommunityExpansion.Patches
         {
             internal static void Prefix(CharacterClassDefinition classDefinition)
             {
+                if (!Main.Settings.FutureFeatureSorting)
+                {
+                    return;
+                }
                 classDefinition.FeatureUnlocks.Sort(delegate (FeatureUnlockByLevel a, FeatureUnlockByLevel b)
                 {
                     return a.Level - b.Level;

@@ -11,6 +11,10 @@ namespace SolastaCommunityExpansion.Patches
 
         internal static void Prefix(CharacterControlPanel __instance)
         {
+            if (!Main.Settings.KeepSpellsOpenSwitchingEquipment)
+            {
+                return;
+            }
             bool foundActivePanel = false;
             if (__instance.Visible && __instance.SpellSelectionPanel != null && __instance.SpellSelectionPanel.Visible)
             {
@@ -162,6 +166,10 @@ namespace SolastaCommunityExpansion.Patches
 
         internal static void Postfix()
         {
+            if (!Main.Settings.KeepSpellsOpenSwitchingEquipment)
+            {
+                return;
+            }
             // Re transition to current state?
             if (panelToActivate != null)
             {
