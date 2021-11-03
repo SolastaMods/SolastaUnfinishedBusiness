@@ -20,7 +20,13 @@ namespace SolastaCommunityExpansion
 
         /* This is in the settings so it can be disabled, but if a player has access to first level feats they almost definitely want this on. */
         public bool EnableFirstLevelCasterFeats = true;
-        
+        // If this is off only the first auto prepared spells group is used during level up
+        public bool ShowAllAutoPreparedSpells = true;
+        public bool FutureFeatureSorting = true;
+        public bool MultiLineSpellPanel = true;
+        public bool MultiLinePowerPanel = true;
+        public bool KeepSpellsOpenSwitchingEquipment = true;
+
         public bool EnableEpicPoints = false;
         public bool EnableAlternateHuman = false;
         public bool EnablesAsiAndFeat = false;
@@ -102,7 +108,6 @@ namespace SolastaCommunityExpansion
         public bool AutoPauseOnVictory;
         public bool HideMonsterHitPoints;
         public bool SpellMasterUnlimitedArcaneRecovery = false;
-        public bool ShowAllAutoPreparedSpells = true;
         public bool PickPocketEnabled = false;
 
         public bool DisableAutoEquip;

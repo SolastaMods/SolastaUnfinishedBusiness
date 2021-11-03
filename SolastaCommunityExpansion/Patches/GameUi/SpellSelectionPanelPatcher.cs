@@ -15,6 +15,10 @@ namespace SolastaCommunityExpansion.Patches
 		{
 			internal static void Postfix(SpellSelectionPanel __instance, GameLocationCharacter caster, SpellSelectionPanel.SpellcastCancelledHandler spellcastCancelled, SpellsByLevelBox.SpellCastEngagedHandler spellCastEngaged, ActionDefinitions.ActionType actionType, bool cantripOnly)
 			{
+				if (!Main.Settings.MultiLineSpellPanel)
+                {
+					return;
+                }
 				List<SpellRepertoireLine> spellRepertoireLines = (List<SpellRepertoireLine>)Traverse.Create(__instance).Field("spellRepertoireLines").GetValue();
 				SpellRepertoireLine spellRepertoireSecondaryLine = (SpellRepertoireLine)Traverse.Create(__instance).Field("spellRepertoireSecondaryLine").GetValue();
 				RectTransform spellRepertoireLinesTable = (RectTransform)Traverse.Create(__instance).Field("spellRepertoireLinesTable").GetValue();
@@ -215,7 +219,11 @@ namespace SolastaCommunityExpansion.Patches
         {
             internal static void Postfix()
             {
-				foreach(RectTransform spellTable in spellLineTables)
+				if (!Main.Settings.MultiLineSpellPanel)
+				{
+					return;
+				}
+				foreach (RectTransform spellTable in spellLineTables)
                 {
 					if (spellTable != null && spellTable.gameObject.activeSelf & spellTable.childCount > 0)
 					{
