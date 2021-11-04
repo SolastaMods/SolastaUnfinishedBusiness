@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion.Viewers
             bool toggle = Main.Settings.InStore.Contains(key);
             using (UI.HorizontalScope())
             {
-                UI.ActionButton(Models.ItemCraftingContext.RecipeTitles[key], () => Models.ItemCraftingContext.LearnRecipes(key), UI.Width(250));
+                UI.ActionButton(Models.ItemCraftingContext.RecipeTitles[key], () => Models.ItemCraftingContext.LearnRecipes(key), UI.Width(200));
                 UI.Space(10);
                 if (UI.Toggle("Add to store", ref toggle, 0, UI.AutoWidth()))
                 {
