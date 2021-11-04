@@ -124,7 +124,7 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString += "\n[*]Armor Feats";
                 collectedString += "\n[*]ASI and Feat";
                 collectedString += "\n[*]Caster Feats -Telekinetic - Fey Teleportation - Shadow Touched";
-                collectedString += "\n[*]Character Export[author working on integrating this]";
+                collectedString += "\n[*]Character Export [to-be imported by @impPhil]";
                 collectedString += "\n[*]Crafty Feats";
                 collectedString += "\n[*]Custom Merchants";
                 collectedString += "\n[*]Darkvision";
@@ -150,11 +150,12 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString += "\n[*]Primed Recipes";
                 collectedString += "\n[*]Respec";
                 collectedString += "\n[*]Rogue Con Artist";
-                collectedString += "\n[*]Save by Location[author working on integrating this]";
+                collectedString += "\n[*]Save by Location [to-be imported by @impPhil]";
                 collectedString += "\n[*]Skip Tutorials";
                 collectedString += "\n[*]Solastanomicon";
-                collectedString += "\n[*]Tinkerer Subclass -Scout Sentinel[author working on integrating this]";
-                collectedString += "\n[*]Two Feats -Power Attack and Reckless Fury";
+                collectedString += "\n[*]Telema Campaign";
+                collectedString += "\n[*]Tinkerer Subclass - Scout Sentinel [to-be imported by @dubhHerder]";
+                collectedString += "\n[*]Two Feats - Power Attack and Reckless Fury";
                 collectedString += "\n[*]UI Updates";
                 collectedString += "\n[*]Unofficial Hotfixes";
                 collectedString += "\n[*]Wizard Arcane Fighter";
