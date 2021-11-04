@@ -1,5 +1,6 @@
 ﻿
 using HarmonyLib;
+using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Patches
@@ -50,7 +51,7 @@ namespace SolastaCommunityExpansion.Patches
                 {
                     return;
                 }
-                List<CharacterSubclassDefinition> subclasses = (List<CharacterSubclassDefinition>)Traverse.Create(__instance).Field("subclasses").GetValue();
+                List<CharacterSubclassDefinition> subclasses = __instance.GetField<List<CharacterSubclassDefinition>>("subclasses");
                 foreach (CharacterSubclassDefinition subclassDefinition in subclasses)
                 {
                     subclassDefinition.FeatureUnlocks.Sort(delegate (FeatureUnlockByLevel a, FeatureUnlockByLevel b)

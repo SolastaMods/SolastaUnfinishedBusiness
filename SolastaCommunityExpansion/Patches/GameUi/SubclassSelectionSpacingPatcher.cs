@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +13,7 @@ namespace SolastaUIUpdates.Patches
         {
             public static void Postfix(CharacterStageSubclassSelectionPanel __instance)
             {
-                Transform subclassesTable = Traverse.Create(__instance).Field<Transform>("subclassesTable").Value;
+                Transform subclassesTable = __instance.GetField<Transform>("subclassesTable");
                 GridLayoutGroup subclassGrid = subclassesTable.GetComponent<GridLayoutGroup>();
                 subclassGrid.spacing = new Vector2(subclassGrid.spacing.x, 60f);
             }

@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
+using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -37,7 +38,7 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
                 if (poolPower.PowerDefinition == sharedPoolPower.GetUsagePoolPower())
                 {
                     int remainingUses = Mathf.Clamp(poolPower.RemainingUses - poolUsage, 0, poolPower.MaxUses);
-                    Traverse.Create(poolPower).Field<int>("remainingUses").Value = remainingUses;
+                    poolPower.SetField("remainingUses", remainingUses);
 
                     // Find powers that rely on this pool
                     foreach (RulesetUsablePower usablePower in character.UsablePowers)
@@ -48,7 +49,7 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
                             if (pointPoolPower == poolPower.PowerDefinition)
                             {
                                 // Set remaining uses to max uses
-                                Traverse.Create(usablePower).Field("remainingUses").SetValue(remainingUses / usablePower.PowerDefinition.CostPerUse);
+                                usablePower.SetField("remainingUses", remainingUses / usablePower.PowerDefinition.CostPerUse);
                             }
                         }
                     }

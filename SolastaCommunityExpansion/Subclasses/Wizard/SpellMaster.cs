@@ -149,7 +149,6 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             restActivity.SetFunctor(functor);
             restActivity.SetStringParameter(stringParameter);
 
-            Traverse.Create(restActivity).Field("name").SetValue(name);
             restActivity.name = name;
             restActivity.SetGuiPresentation(guiPresentation);
             restActivity.SetGuid(GuidHelper.Create(SubclassNamespace, name).ToString());

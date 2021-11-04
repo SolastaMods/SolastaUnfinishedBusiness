@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using HarmonyLib;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches
 {
@@ -111,7 +112,7 @@ namespace SolastaCommunityExpansion.Patches
                         case ActionDefinitions.Id.ProxySpiritualWeapon:
                         case ActionDefinitions.Id.ProxyFlamingSphere:
                         case ActionDefinitions.Id.ProxyDancingLights:
-                            panelToActivate = Traverse.Create(battlePanel).Field<CharacterActionPanel>("bonusActionPanel").Value;
+                            panelToActivate = battlePanel.GetField<CharacterActionPanel>("bonusActionPanel");
                             break;
                         case ActionDefinitions.Id.AttackOpportunity:
                         case ActionDefinitions.Id.BlockAttack:
@@ -157,7 +158,7 @@ namespace SolastaCommunityExpansion.Patches
                         case ActionDefinitions.Id.LeafScales:
                         case ActionDefinitions.Id.UseIndomitableResistance:
                         default:
-                            panelToActivate = Traverse.Create(battlePanel).Field<CharacterActionPanel>("otherActionPanel").Value;
+                            panelToActivate = battlePanel.GetField<CharacterActionPanel>("otherActionPanel");
                             break;
                     }
                 }

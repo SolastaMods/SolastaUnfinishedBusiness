@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 
@@ -28,8 +29,8 @@ namespace SolastaCommunityExpansion.Features
                 Definition.SetSilentWhenAdded(true);
                 Definition.SetSilentWhenRemoved(true);
             }
-            Traverse.Create(Definition).Field("recurrentEffectForms").SetValue(new List<EffectForm>());
-            Traverse.Create(Definition).Field("cancellingConditions").SetValue(new List<ConditionDefinition>());
+            Definition.SetField("recurrentEffectForms", new List<EffectForm>());
+            Definition.SetField("cancellingConditions", new List<ConditionDefinition>());
             Definition.SetGuiPresentation(guiPresentation);
         }
     }

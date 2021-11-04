@@ -1,5 +1,5 @@
-﻿
-using HarmonyLib;
+﻿using HarmonyLib;
+using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,8 +21,8 @@ namespace SolastaCommunityExpansion.Patches
                 {
                     return;
                 }
-                List<UsablePowerBox> powerBoxes = (List<UsablePowerBox>)Traverse.Create(__instance).Field("usablePowerBoxes").GetValue();
-                RectTransform powersTable = (RectTransform)Traverse.Create(__instance).Field("powersTable").GetValue();
+                List<UsablePowerBox> powerBoxes = __instance.GetField<List<UsablePowerBox>>("usablePowerBoxes");
+                RectTransform powersTable = __instance.GetField<RectTransform>("powersTable");
                 if (powerBoxes.Count > 14)
                 {
                     if (thirdRow == null)
