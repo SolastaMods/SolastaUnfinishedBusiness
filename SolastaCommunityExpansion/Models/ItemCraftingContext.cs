@@ -91,7 +91,7 @@ namespace SolastaCommunityExpansion.Models
             outString += "\n[list]";
             foreach (string key in RecipeBooks.Keys)
             {
-                outString += "\n[*][b]" + key + "[/b]: ";
+                outString += "\n[*][b]" + RecipeTitles[key] + "[/b]: ";
                 bool first = true;
                 List<string> uniqueEntries = new List<string>();
                 foreach (ItemDefinition item in RecipeBooks[key])
