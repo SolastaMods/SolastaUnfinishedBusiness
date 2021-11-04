@@ -1,6 +1,19 @@
-# SolastaCommunityExpansion
+# Solasta Community Expansion
 
-SolastaCommunityExpansion
+This is a collection of work from the Solasta modding community. It includes feats, subclasses, items, crafting recipes, gameplay options, UI improvements, and more. The general philosophy is everything is optional is everything is optional to enable for users so they can install the mod and then enalbe the pieces they want. There are some minor bug fixes that are enabled by default.
+
+The goal with the modifications provided here is to minimize code patches. Minimizing code patches means compatability with other mods is easier as well as makes maintenance easier. Any code patches should be as targeted and minimal as possible to reduce the chance of unintended side effects. There are a lot of interesting things that can be done with just edits to the database.
+
+# How to contribute
+
+Do you have a mod you want to see included here? We are happy to take new contributions! The best way to get involved is to:
+
+1. Make a branch off of the `Dev` branch, name it something related to the changes you are making.
+2. Commit your edits to your branch.
+3. Make sure to test your changes. This is a good opportunity to take screen shots so you can show off the changes.
+4. Make a pull request to merge your branch into `Dev`. You can help this process by sharing screen shots to show off the change as well as including an english description of what the change does.
+5. Wait for a review. We try to stay on top of this, but it's a hobby. If you haven't heard anything in 3 days you can message ChrisJohnDigital#9182 on Discord or email chris@chrisjohn.digital.
+6. Once the review is done, the changes will get merged in to the `Dev` branch. The `Dev` branch will periodically be tested and merged in to `master` to build releases.
 
 # How to Compile
 
@@ -36,17 +49,6 @@ NOTE Unity Mod Manager and this mod template make use of [Harmony](https://go.mi
 		* Rename *UnityPlayer.dll* to *UnityPlayer.dll.original*
 		* Paste *UnityPlayer.dll* and *WinPixEventRuntime.dll* from clipboard
 5. You can now attach the Unity Debugger from Visual Studio 2019, Debug -> Attach Unity Debug
-
-# How to publish (first time)
-
-1. Create a new repo on GitHub on Browser UI
-2. Run CREATE_SOLASTA_MOD.PS1 on my computer to get template and first commit to Repo
-3. Develop / Test the Mod
-4. Create new hidden Mod on Nexus page with minimum required entries. Get Nexus URL
-5. Edit version entries on CSPROJ, Info.json, and Repository.json (I always start with 0.0.1)
-6. Edit Info.json and fix Nexus URL
-7. Release Mod on GitHub using Vx.y.z as TAG/RELEASE convention (I always start with V0.0.1)
-8. Update Nexus page with download file and set mod to unhidden
 
 # How to publish (update)
 
