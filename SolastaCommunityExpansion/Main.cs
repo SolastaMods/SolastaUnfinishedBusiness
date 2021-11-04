@@ -9,6 +9,7 @@ namespace SolastaCommunityExpansion
 {
     public class Main
     {
+        public static bool Enabled = false;
         public static readonly string MOD_FOLDER = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
         [Conditional("DEBUG")]

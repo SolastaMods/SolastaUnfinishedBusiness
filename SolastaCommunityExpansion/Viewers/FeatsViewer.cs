@@ -119,6 +119,8 @@ namespace SolastaCommunityExpansion.Viewers
             UI.Label("Welcome to Solasta Community Expansion".yellow().bold());
             UI.Div();
 
+            if (!Main.Enabled) return;
+
             DisplayFeatsSettings();
         }
     }

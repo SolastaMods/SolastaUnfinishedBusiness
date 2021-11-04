@@ -14,11 +14,12 @@ namespace SolastaCommunityExpansion.Viewers
         {
             { "Zappastuff", "mod UI work, integration, community organization" },
             { "ImpPhil", "monster's health, pause UI, stocks prices" },
-            { "View619", "darkvision / superior dark vision" },
+            { "DubhHerder", "crafty feats migration" },
+            { "View619", "darkvision, superior dark vision" },
             { "SilverGriffon", "pickpocket, lore friendly names, crafty feats" },
-            { "Boofat", "alwaysAlt, faster time scale" },
+            { "Boofat", "alwaysAlt" },
+            { "Myztikrice", "faster time scale" },
             { "AceHigh", "power attack, reckless fury" },
-            { "DubhHerder", "crafty feats migration" }
         };
 
         public void DisplayHelp()

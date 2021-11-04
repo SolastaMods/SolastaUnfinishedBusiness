@@ -85,7 +85,7 @@ namespace SolastaCommunityExpansion.Viewers
             UI.Label("");
 
             toggle = Main.Settings.EnablesAsiAndFeat;
-            if (UI.Toggle("Enables both ASI and Feat", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Enables both ASI and feat", ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.EnablesAsiAndFeat = toggle;
                 Models.AsiAndFeatContext.Switch(toggle);
@@ -103,13 +103,13 @@ namespace SolastaCommunityExpansion.Viewers
             UI.Label("");
 
             toggle = Main.Settings.InvertAltBehaviorOnTooltips;
-            if (UI.Toggle("Inverts ALT key behavior on Tooltips", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Inverts ALT key behavior on tooltips", ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.InvertAltBehaviorOnTooltips = toggle;
             }
 
             toggle = Main.Settings.HideMonsterHitPoints;
-            if (UI.Toggle("Displays Monsters's health in steps of 25/50/75/100% instead of exact hit points.", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Displays Monsters's health in steps of 25/50/75/100% instead of exact hit points", ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.HideMonsterHitPoints = toggle;
             }
@@ -162,6 +162,8 @@ namespace SolastaCommunityExpansion.Viewers
         {
             UI.Label("Welcome to Solasta Community Expansion".yellow().bold());
             UI.Div();
+
+            if (!Main.Enabled) return;
 
             DisplayCharacterCreationSettings();
             DisplayCharacterProgressionSettings();
