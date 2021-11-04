@@ -3,6 +3,7 @@ using SolastaCommunityExpansion.Features;
 using SolastaModApi;
 using SolastaModApi.BuilderHelpers;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using System;
 using System.Collections.Generic;
 
@@ -110,9 +111,9 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             public AdvantageBuilder(string name, string guid, ConditionDefinition original, GuiPresentation guiPresentation) : base(original, name, guid)
             {
                 Definition.SetGuiPresentation(guiPresentation);
-                Traverse.Create(Definition).Field("specialInterruptions").SetValue(new List<RuleDefinitions.ConditionInterruption>() {
+                Definition.SetField("specialInterruptions", (new List<RuleDefinitions.ConditionInterruption>() {
                     RuleDefinitions.ConditionInterruption.Attacked,
-                });
+                }));
                 Definition.SetAdditionalDamageWhenHit(true);
                 Definition.SetAdditionalDamageDieType(RuleDefinitions.DieType.D8);
                 Definition.SetAdditionalDamageDieNumber(3);

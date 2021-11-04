@@ -50,15 +50,32 @@ namespace SolastaCommunityExpansion.Viewers
 
             DisplayHelp();
 
-            // AddDumpDescriptionToLogButton();
+            //AddDumpDescriptionToLogButton();
         }
 
         private void AddDumpDescriptionToLogButton()
         {
             UI.ActionButton("Dump Description to Logs", () => {
                 string collectedString = "";
-                // settings page
-                collectedString += "[heading]Character Creation Options[/heading]\n[list]";
+                collectedString += "[heading][size=5] [b] [i] Solasta Community Expansion[/i][/b][/size][/heading]";
+                collectedString += "\nThis is a collection of work from the Solasta modding community. It includes feats, subclasses, items, crafting recipes, gameplay options, UI improvements, and more. The general philosophy is everything is optional to enable, so you can install the mod and then enalbe the pieces you want. There are some minor bug fixes that are enabled by default.";
+                collectedString += "\n\n[b] ATTENTION:[/b] This mod is a collection of previously released mods in addition to some new components. If any of the mods this is replacing is still installed, you will have errors on startup. It is highly suggested to delete all mods from [b]GAME_FOLDER\\Mods[/b] and add the ones you need. No previous mod from the list at the end of this document should be installed unless the author specifically says it is supported. [b]ChrisJohnDigital[/b], [b]ImpPhil[/b] and [b]Zappastuff[/b] put many hours consolidating all previous work to offer the best we created over the last year in a simple set of 4 basic mods:";
+                collectedString += "\n\n[list=1]";
+                collectedString += "\n[*] Solasta Mod API - Provides the basis for all other mods to work";
+                collectedString += "\n[*] Solasta Community Expansion - About 40 mods from the community were consolidated here. 40 Feats, 6 Subclasses, Bug Fixes, etc.";
+                collectedString += "\n[*] DM Multiplayer PRO - Offers REAL Multiplayer with up to 4 users, additional design options for Dungeon Creators, Lua Scripting, etc.";
+                collectedString += "\n[*] Solasta Unfinished Business - Offers progression to level 20, multiclassing and respecing";
+                collectedString += "\n[/list]";
+                collectedString += "\n[heading] How to Report Bugs[/heading]";
+                collectedString += "\n[list]";
+                collectedString += "\n[*] The versions of Solasta, the Solasta Mod API, and Solasta Community Expansion.";
+                collectedString += "\n[*] A list of other mods you have installed.";
+                collectedString += "\n[*] A short description of the bug";
+                collectedString += "\n[*] A step-by-step procedure to reproduce it";
+                collectedString += "\n[*] The save, character and log files";
+                collectedString += "\n[/list]";
+                collectedString += "\n[heading][size=5]Features[/size][/heading]";
+                collectedString += "\n[heading]Character Creation Options[/heading]\n[list]";
                 collectedString += "\n[*]Epic [17,15,13,12,10,8] array";
                 collectedString += "\n[*]Alternate Human [+2 attribute choices / +1 skill]";
                 collectedString += "\n[*]Feats available at level 1";
@@ -98,6 +115,53 @@ namespace SolastaCommunityExpansion.Viewers
                 {
                     collectedString += "\n[*]" + kvp.Key + ": " + kvp.Value;
                 }
+                collectedString += "\n[/list]";
+                collectedString += "\nSource code on [url=https://github.com/ChrisPJohn/SolastaCommunityExpansion]GitHub[/url].";
+                collectedString += "\n[heading]DEPRECATED MODS LIST[/heading]";
+                collectedString += "\n[list]";
+                collectedString += "\n[*]Alternate Human";
+                collectedString += "\n[*]AlwaysAlt - Auto expand tooltips";
+                collectedString += "\n[*]Armor Feats";
+                collectedString += "\n[*]ASI and Feat";
+                collectedString += "\n[*]Caster Feats -Telekinetic - Fey Teleportation - Shadow Touched";
+                collectedString += "\n[*]Character Export [to-be imported by @impPhil]";
+                collectedString += "\n[*]Crafty Feats";
+                collectedString += "\n[*]Custom Merchants";
+                collectedString += "\n[*]Darkvision";
+                collectedString += "\n[*]Data Viewer";
+                collectedString += "\n[*]Druid Class by DubhHerder";
+                collectedString += "\n[*]Dungeon Maker Merchants";
+                collectedString += "\n[*]Enchanting Crafting Ingredients";
+                collectedString += "\n[*]Enhanced Vision";
+                collectedString += "\n[*]Faster Time Scale";
+                collectedString += "\n[*]Feats - Savage Attacker - Tough - War Caster";
+                collectedString += "\n[*]Fighter Spell Shield";
+                collectedString += "\n[*]Fighting Style Feats";
+                collectedString += "\n[*]Flexible Ancestries";
+                collectedString += "\n[*]Flexible Backgrounds";
+                collectedString += "\n[*]Healing Feats -Inspiring Leader - Chef - Healer";
+                collectedString += "\n[*]Hot Seat Multiplayer Dungeon Master Mode";
+                collectedString += "\n[*]Level 1 Feat All Races";
+                collectedString += "\n[*]Level 20";
+                collectedString += "\n[*]Magic Crossbows";
+                collectedString += "\n[*]More Magic Items";
+                collectedString += "\n[*]Multiclass";
+                collectedString += "\n[*]No Level Constraint";
+                collectedString += "\n[*]Primed Recipes";
+                collectedString += "\n[*]Respec";
+                collectedString += "\n[*]Rogue Con Artist";
+                collectedString += "\n[*]Save by Location [to-be imported by @impPhil]";
+                collectedString += "\n[*]Skip Tutorials";
+                collectedString += "\n[*]Solastanomicon";
+                collectedString += "\n[*]Telema Campaign";
+                collectedString += "\n[*]Tinkerer Subclass - Scout Sentinel [to-be imported by @dubhHerder]";
+                collectedString += "\n[*]Two Feats - Power Attack and Reckless Fury";
+                collectedString += "\n[*]UI Updates";
+                collectedString += "\n[*]Unofficial Hotfixes";
+                collectedString += "\n[*]Wizard Arcane Fighter";
+                collectedString += "\n[*]Wizard Life Transmuter";
+                collectedString += "\n[*]Wizard Master Manipulator";
+                collectedString += "\n[*]Wizard Spell Master";
                 collectedString += "\n[/list]";
                 // items
                 Main.Error(collectedString);

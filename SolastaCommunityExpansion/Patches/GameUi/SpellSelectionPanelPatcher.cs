@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,10 +20,10 @@ namespace SolastaCommunityExpansion.Patches
                 {
 					return;
                 }
-				List<SpellRepertoireLine> spellRepertoireLines = (List<SpellRepertoireLine>)Traverse.Create(__instance).Field("spellRepertoireLines").GetValue();
-				SpellRepertoireLine spellRepertoireSecondaryLine = (SpellRepertoireLine)Traverse.Create(__instance).Field("spellRepertoireSecondaryLine").GetValue();
-				RectTransform spellRepertoireLinesTable = (RectTransform)Traverse.Create(__instance).Field("spellRepertoireLinesTable").GetValue();
-				SlotAdvancementPanel slotAdvancementPanel = (SlotAdvancementPanel)Traverse.Create(__instance).Field("slotAdvancementPanel").GetValue();
+				List<SpellRepertoireLine> spellRepertoireLines = __instance.GetField<List<SpellRepertoireLine>>("spellRepertoireLines");
+				SpellRepertoireLine spellRepertoireSecondaryLine = __instance.GetField<SpellRepertoireLine>("spellRepertoireSecondaryLine");
+				RectTransform spellRepertoireLinesTable = __instance.GetField<RectTransform>("spellRepertoireLinesTable");
+				SlotAdvancementPanel slotAdvancementPanel = __instance.GetField<SlotAdvancementPanel>("slotAdvancementPanel");
 				foreach (SpellRepertoireLine spellRepertoireLine in spellRepertoireLines)
 				{
 					spellRepertoireLine.Unbind();
@@ -127,7 +128,7 @@ namespace SolastaCommunityExpansion.Patches
 				GameObject newLine;
 				if (spellRepertoireLinesTable.childCount <= index)
                 {
-					newLine = Gui.GetPrefabFromPool((GameObject)Traverse.Create(__instance).Field("spellRepertoireLinePrefab").GetValue(),
+					newLine = Gui.GetPrefabFromPool(__instance.GetField<GameObject>("spellRepertoireLinePrefab"),
 						spellRepertoireLinesTable);
 				} else
                 {
