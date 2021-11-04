@@ -83,7 +83,7 @@ namespace SolastaCommunityExpansion.Features
             {
                 Definition.IsUsableDevice = true;
                 Definition.SetUsableDeviceDescription(new UsableDeviceDescription());
-                Traverse.Create(Definition.UsableDeviceDescription).Field("deviceFunctions").SetValue(new List<DeviceFunctionDescription>());
+                Definition.UsableDeviceDescription.SetField("deviceFunctions", new List<DeviceFunctionDescription>());
                 foreach (FeatureDefinitionPower power in functions)
                 {
                     DeviceFunctionDescription functionDescription = new DeviceFunctionDescription(DatabaseHelper.ItemDefinitions.Berry_Ration.UsableDeviceDescription.DeviceFunctions[0]);

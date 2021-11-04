@@ -1,5 +1,6 @@
 ﻿
 using HarmonyLib;
+using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Patches
@@ -12,6 +13,10 @@ namespace SolastaCommunityExpansion.Patches
         {
             internal static void Prefix(CharacterSubclassDefinition subclassDefinition)
             {
+                if (!Main.Settings.FutureFeatureSorting)
+                {
+                    return;
+                }
                 subclassDefinition.FeatureUnlocks.Sort(delegate (FeatureUnlockByLevel a, FeatureUnlockByLevel b)
                 {
                     return a.Level - b.Level;
@@ -26,6 +31,10 @@ namespace SolastaCommunityExpansion.Patches
         {
             internal static void Prefix(CharacterSubclassDefinition currentSubclassDefinition)
             {
+                if (!Main.Settings.FutureFeatureSorting)
+                {
+                    return;
+                }
                 currentSubclassDefinition.FeatureUnlocks.Sort(delegate (FeatureUnlockByLevel a, FeatureUnlockByLevel b)
                 {
                     return a.Level - b.Level;
@@ -38,7 +47,11 @@ namespace SolastaCommunityExpansion.Patches
         {
             internal static void Postfix(ArchetypesPreviewModal __instance)
             {
-                List<CharacterSubclassDefinition> subclasses = (List<CharacterSubclassDefinition>)Traverse.Create(__instance).Field("subclasses").GetValue();
+                if (!Main.Settings.FutureFeatureSorting)
+                {
+                    return;
+                }
+                List<CharacterSubclassDefinition> subclasses = __instance.GetField<List<CharacterSubclassDefinition>>("subclasses");
                 foreach (CharacterSubclassDefinition subclassDefinition in subclasses)
                 {
                     subclassDefinition.FeatureUnlocks.Sort(delegate (FeatureUnlockByLevel a, FeatureUnlockByLevel b)
@@ -54,6 +67,10 @@ namespace SolastaCommunityExpansion.Patches
         {
             internal static void Prefix(CharacterClassDefinition classDefinition)
             {
+                if (!Main.Settings.FutureFeatureSorting)
+                {
+                    return;
+                }
                 classDefinition.FeatureUnlocks.Sort(delegate (FeatureUnlockByLevel a, FeatureUnlockByLevel b)
                 {
                     return a.Level - b.Level;

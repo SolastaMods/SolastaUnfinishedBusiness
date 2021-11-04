@@ -1,5 +1,5 @@
-﻿
-using HarmonyLib;
+﻿using HarmonyLib;
+using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,8 +17,12 @@ namespace SolastaCommunityExpansion.Patches
         {
             internal static void Postfix(PowerSelectionPanel __instance)
             {
-                List<UsablePowerBox> powerBoxes = (List<UsablePowerBox>)Traverse.Create(__instance).Field("usablePowerBoxes").GetValue();
-                RectTransform powersTable = (RectTransform)Traverse.Create(__instance).Field("powersTable").GetValue();
+                if (!Main.Settings.MultiLinePowerPanel)
+                {
+                    return;
+                }
+                List<UsablePowerBox> powerBoxes = __instance.GetField<List<UsablePowerBox>>("usablePowerBoxes");
+                RectTransform powersTable = __instance.GetField<RectTransform>("powersTable");
                 if (powerBoxes.Count > 14)
                 {
                     if (thirdRow == null)
@@ -66,6 +70,10 @@ namespace SolastaCommunityExpansion.Patches
         {
             internal static void Postfix(PowerSelectionPanel __instance)
             {
+                if (!Main.Settings.MultiLinePowerPanel)
+                {
+                    return;
+                }
                 if (secondRow != null && secondRow.gameObject.activeSelf)
                 {
                     Gui.ReleaseChildrenToPool(secondRow);

@@ -1,6 +1,7 @@
 ﻿using SolastaCommunityExpansion.Features;
 using SolastaModApi;
 using SolastaModApi.BuilderHelpers;
+using SolastaModApi.Extensions;
 using System;
 using System.Collections.Generic;
 
@@ -47,10 +48,13 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 "Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription",
                 "Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle");
             arcaneWeaponGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference);
+            FeatureDefinitionAttackModifier weaponUseIntModifier = new FeatureDefinitionAttackModifierBuilder("AttackModifierMeleeWizard",
+                 GuidHelper.Create(SubclassNamespace, "AttackModifierMeleeWizard").ToString(),
+                 RuleDefinitions.AbilityScoreReplacement.SpellcastingAbility, TagsDefinitions.Magical, attackModGui.Build()).AddToDB();
             FeatureDefinitionPower enchantWeapon = BuildActionItemPower(0 /* fixed uses*/, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence,
                 RuleDefinitions.ActivationTime.BonusAction, 1 /* use cost */, RuleDefinitions.RechargeRate.LongRest, RuleDefinitions.RangeType.Touch, 1 /* range */, ActionDefinitions.ItemSelectionType.Weapon,
                 RuleDefinitions.DurationType.Minute, 10 /* duration */, RuleDefinitions.TurnOccurenceType.EndOfTurn,
-                DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierShillelagh, "PowerMeleeWizardArcaneWeapon", arcaneWeaponGui.Build());
+                weaponUseIntModifier, "PowerMeleeWizardArcaneWeapon", arcaneWeaponGui.Build());
             meleeWizard.AddFeatureAtLevel(enchantWeapon, 2);
 
             GuiPresentationBuilder concentrationAffinityGui = new GuiPresentationBuilder(
@@ -117,17 +121,6 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             return builder.AddToDB();
         }
 
-        private static FeatureDefinitionAttackModifier BuildAttackModifier(RuleDefinitions.AttackModifierMethod attackRollModifierMethod,
-            int attackRollModifier, string attackRollAbilityScore, RuleDefinitions.AttackModifierMethod damageRollModifierMethod,
-            int damageRollModifier, string damageRollAbilityScore, bool canAddAbilityBonusToSecondary, string additionalAttackTag,
-            string name, GuiPresentation guiPresentation)
-        {
-            FeatureDefinitionAttackModifierBuilder builder = new FeatureDefinitionAttackModifierBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
-                attackRollModifierMethod, attackRollModifier, attackRollAbilityScore, damageRollModifierMethod, damageRollModifier, damageRollAbilityScore,
-                canAddAbilityBonusToSecondary, additionalAttackTag, guiPresentation);
-            return builder.AddToDB();
-        }
-
         private static FeatureDefinitionPower BuildActionItemPower(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
             string usesAbilityScoreName,
             RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge,
@@ -149,6 +142,18 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse, recharge, false, false,
                 AttributeDefinitions.Intelligence, effectBuilder.Build(), guiPresentation, false /* unique instance */);
             return builder.AddToDB();
+        }
+
+        private class FeatureDefinitionAttackModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttackModifier>
+        {
+            public FeatureDefinitionAttackModifierBuilder(string name, string guid,
+            RuleDefinitions.AbilityScoreReplacement abilityReplacement, string additionalAttackTag, 
+            GuiPresentation guiPresentation) : base(name, guid)
+            {
+                Definition.SetAbilityScoreReplacement(abilityReplacement);
+                Definition.SetAdditionalAttackTag(additionalAttackTag);
+                Definition.SetGuiPresentation(guiPresentation);
+            }
         }
     }
 }

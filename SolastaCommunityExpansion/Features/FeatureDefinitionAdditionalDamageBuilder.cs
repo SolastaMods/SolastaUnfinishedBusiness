@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using System;
 using System.Collections.Generic;
 
@@ -27,11 +28,11 @@ namespace SolastaCommunityExpansion.Features
             Definition.SetAdditionalDamageType(additionalDamageType);
             Definition.SetSpecificDamageType(specificDamageType);
             Definition.SetDamageAdvancement(damageAdvancement);
-            Traverse.Create(Definition).Field("diceByRankTable").SetValue(diceByRankTable);
+            Definition.SetField("diceByRankTable", diceByRankTable);
             Definition.SetDamageDieType(damageDieType);
             Definition.SetGuiPresentation(guiPresentation);
-            Traverse.Create(Definition).Field("conditionOperations").SetValue(new List<ConditionOperationDescription>());
-            Traverse.Create(Definition).Field("familiesWithAdditionalDice").SetValue(new List<string>());
+            Definition.SetField("conditionOperations", new List<ConditionOperationDescription>());
+            Definition.SetField("familiesWithAdditionalDice", new List<string>());
         }
     }
 }

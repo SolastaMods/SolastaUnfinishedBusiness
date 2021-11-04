@@ -9,12 +9,35 @@ namespace SolastaCommunityExpansion.Models
     {
         public static Dictionary<string, List<ItemDefinition>> RecipeBooks = new Dictionary<string, List<ItemDefinition>>();
 
+        public static Dictionary<string, string> RecipeTitles = new Dictionary<string, string>
+        {
+            { "PrimedItems", "Primed Items" },
+            { "EnchantingIngredients", "Enchanting Ingredients" },
+            { "RelicForgeries", "Relic Forgeries" },
+            { "LightCrossbow", "Light Crossbow" },
+            { "HeavyCrossbow", "Heavy Crossbow" },
+            { "Handaxe", "Handaxe" },
+            { "Javelin", "Javelin" },
+            { "Dart", "Dart" },
+            { "Club", "Club" },
+            { "Maul", "Maul" },
+            { "Warhammer", "Warhammer" },
+            { "Quarterstaff", "Quarterstaff" },
+            { "Spear", "Spear" },
+            { "Scimitar", "Scimitar" },
+            { "Shield_Wooden", "Shield [Wooden]" },
+            { "Shield", "Shield" },
+            { "HideArmor", "Hide Armor" },
+            { "StuddedLeather", "Studded Leather" },
+        };
+
         internal static void Load()
         {
             ItemRecipeGenerationHelper.StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore, DatabaseHelper.ItemDefinitions.Maul);
 
             ItemRecipeGenerationHelper.AddPrimingRecipes();
             ItemRecipeGenerationHelper.AddIngredientEnchanting();
+            ItemRecipeGenerationHelper.AddFactionItems();
 
             ItemRecipeGenerationHelper.AddRecipesForWeapons(CrossbowData.CrossbowItems);
             ItemRecipeGenerationHelper.AddRecipesForWeapons(HandaxeData.Items);
@@ -60,6 +83,37 @@ namespace SolastaCommunityExpansion.Models
             {
                 gameLoreService.LearnRecipe(recipeBookDefinition.DocumentDescription.RecipeDefinition, false);
             }
+        }
+
+        public static string GenerateItemsDescription()
+        {
+            string outString = "[heading]Craftable Items[/heading]";
+            outString += "\n[list]";
+            foreach (string key in RecipeBooks.Keys)
+            {
+                outString += "\n[*][b]" + RecipeTitles[key] + "[/b]: ";
+                bool first = true;
+                List<string> uniqueEntries = new List<string>();
+                foreach (ItemDefinition item in RecipeBooks[key])
+                {
+                    string name = item.DocumentDescription.RecipeDefinition.GuiPresentation.Title;
+                    if (!uniqueEntries.Contains(name))
+                    {
+                        uniqueEntries.Add(name);
+                    }
+                }
+                foreach(string name in uniqueEntries)
+                { 
+                    if (!first)
+                    {
+                        outString += ", ";
+                    }
+                    first = false;
+                    outString += Gui.Format(name);
+                }
+            }
+            outString += "\n[/list]";
+            return outString;
         }
     }
 }

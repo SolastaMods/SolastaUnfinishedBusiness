@@ -26,5 +26,11 @@ namespace SolastaCommunityExpansion.Features
             Definition.SetGuiPresentation(guiPresentation);
             Definition.SetUniqueInstance(uniqueInstance);
         }
+
+        public FeatureDefinitionPowerBuilder AddOverriddenPower(FeatureDefinitionPower overridenPower)
+        {
+            Definition.SetOverriddenPower(overridenPower);
+            return this;
+        }
     }
 }

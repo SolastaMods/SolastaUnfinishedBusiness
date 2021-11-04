@@ -146,6 +146,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
                 builder.AddIngredient(EnchantedToIngredient[item]);
                 builder.SetCraftedItem(item);
                 builder.SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.EnchantingToolType);
+                builder.SetGuiPresentation(item.GuiPresentation);
                 recipes.Add(builder.AddToDB());
             }
 
@@ -188,6 +189,70 @@ namespace SolastaCommunityExpansion.ItemCrafting
             {
                 ItemDefinition craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(baseGuid, recipe, DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_Longsword_Warden,
                     "CraftingManual_" + recipe.Name, DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_Longsword_Warden.GuiPresentation, Main.Settings.RecipeCost);
+
+                Models.ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
+
+                if (Main.Settings.InStore.Contains(groupKey))
+                {
+                    StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Circe, craftingManual);
+                    StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore, craftingManual);
+                }
+            }
+        }
+
+        public static void AddFactionItems()
+        {
+            Guid baseGuid = new Guid("80a5106e-5cb7-4fdd-8f96-b94f3aafd4dd");
+
+            Dictionary<ItemDefinition, ItemDefinition> ForgeryToIngredient = new Dictionary<ItemDefinition, ItemDefinition>()
+            {
+                {DatabaseHelper.ItemDefinitions.CAERLEM_TirmarianHolySymbol, DatabaseHelper.ItemDefinitions.Art_Item_50_GP_JadePendant},
+                {DatabaseHelper.ItemDefinitions.BONEKEEP_MagicRune, DatabaseHelper.ItemDefinitions.Art_Item_25_GP_EngraveBoneDice},
+                {DatabaseHelper.ItemDefinitions.CaerLem_Gate_Plaque, DatabaseHelper.ItemDefinitions.Art_Item_25_GP_SilverChalice},
+
+            };
+            List<RecipeDefinition> recipes = new List<RecipeDefinition>();
+            foreach (ItemDefinition item in ForgeryToIngredient.Keys)
+            {
+
+                string recipeName = "RecipeForgery" + item.Name;
+                RecipeBuilder builder = new RecipeBuilder(recipeName, GuidHelper.Create(baseGuid, recipeName).ToString());
+                builder.AddIngredient(ForgeryToIngredient[item]);
+                builder.SetCraftedItem(item);
+                builder.SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.ArtisanToolSmithToolsType);
+                builder.SetGuiPresentation(item.GuiPresentation);
+                recipes.Add(builder.AddToDB());
+            }
+
+            Dictionary<ItemDefinition, ItemDefinition> ScrollForgeries = new Dictionary<ItemDefinition, ItemDefinition>()
+            {
+                {DatabaseHelper.ItemDefinitions.BONEKEEP_AkshasJournal, DatabaseHelper.ItemDefinitions.Ingredient_AngryViolet},
+                {DatabaseHelper.ItemDefinitions.ABJURATION_TOWER_Manifest, DatabaseHelper.ItemDefinitions.Ingredient_ManacalonOrchid},
+                {DatabaseHelper.ItemDefinitions.ABJURATION_MastersmithLoreDocument, DatabaseHelper.ItemDefinitions.Ingredient_RefinedOil},
+                {DatabaseHelper.ItemDefinitions.CAERLEM_Inquisitor_Document, DatabaseHelper.ItemDefinitions.Ingredient_AbyssMoss},
+                {DatabaseHelper.ItemDefinitions.ABJURATION_TOWER_Poem, DatabaseHelper.ItemDefinitions.Ingredient_LilyOfTheBadlands},
+                {DatabaseHelper.ItemDefinitions.ABJURATION_TOWER_ElvenWars, DatabaseHelper.ItemDefinitions.Ingredient_BloodDaffodil},
+                {DatabaseHelper.ItemDefinitions.CAERLEM_Daliat_Document, DatabaseHelper.ItemDefinitions.Ingredient_Skarn},
+
+            };
+            foreach (ItemDefinition item in ScrollForgeries.Keys)
+            {
+                string recipeName = "RecipeForgery" + item.Name;
+                RecipeBuilder builder = new RecipeBuilder(recipeName, GuidHelper.Create(baseGuid, recipeName).ToString());
+                builder.AddIngredient(ScrollForgeries[item]);
+                builder.SetCraftedItem(item);
+                builder.SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.ScrollKitType);
+                builder.SetGuiPresentation(item.GuiPresentation);
+                recipes.Add(builder.AddToDB());
+            }
+
+            string groupKey = "RelicForgeries";
+            Models.ItemCraftingContext.RecipeBooks.Add(groupKey, new List<ItemDefinition>());
+
+            foreach (RecipeDefinition recipe in recipes)
+            {
+                ItemDefinition craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(baseGuid, recipe, DatabaseHelper.ItemDefinitions.CraftingManualRemedy,
+                    "CraftingManual_" + recipe.Name, DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation, Main.Settings.RecipeCost);
 
                 Models.ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
 
