@@ -1,6 +1,7 @@
 ﻿using UnityModManagerNet;
 using ModKit;
 using SolastaCommunityExpansion.ItemCrafting;
+using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Viewers
 {
@@ -10,21 +11,21 @@ namespace SolastaCommunityExpansion.Viewers
 
         public int Priority => 4;
 
+
+
         private void AddUIForWeaponKey(string key)
         {
             bool toggle = Main.Settings.InStore.Contains(key);
-            UI.HStack(key, 3,
-                () => { UI.ActionButton("Learn Recipes (instant)", () => Models.ItemCraftingContext.LearnRecipes(key), UI.AutoWidth()); },
-                () => { UI.Space(25); },
-                () =>
+            using (UI.HorizontalScope())
+            {
+                UI.ActionButton(Models.ItemCraftingContext.RecipeTitles[key], () => Models.ItemCraftingContext.LearnRecipes(key), UI.Width(200));
+                UI.Space(10);
+                if (UI.Toggle("Add to store", ref toggle, 0, UI.AutoWidth()))
                 {
-                    if (UI.Toggle("In Store (may need travel away and back)", ref toggle, 0, UI.AutoWidth()))
-                    {
-                        Main.Settings.InStore.Add(key);
-                        Models.ItemCraftingContext.AddToStore(key);
-                    }
+                    Main.Settings.InStore.Add(key);
+                    Models.ItemCraftingContext.AddToStore(key);
                 }
-            );
+            }
         }
 
         public void DisplayRecipesCostSettings()
@@ -39,6 +40,11 @@ namespace SolastaCommunityExpansion.Viewers
             {
                 Main.Settings.RecipeCost = intValue;
             }
+
+            UI.Label("");
+            UI.Label(". Press the button to learn recipes instantly");
+            UI.Label(". Items added to stores might need the party to travel away from the location and come back");
+            UI.Label("");
 
             foreach (string key in Models.ItemCraftingContext.RecipeBooks.Keys)
             {

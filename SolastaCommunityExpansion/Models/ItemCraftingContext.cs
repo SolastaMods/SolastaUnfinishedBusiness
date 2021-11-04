@@ -9,6 +9,28 @@ namespace SolastaCommunityExpansion.Models
     {
         public static Dictionary<string, List<ItemDefinition>> RecipeBooks = new Dictionary<string, List<ItemDefinition>>();
 
+        public static Dictionary<string, string> RecipeTitles = new Dictionary<string, string>
+        {
+            { "PrimedItems", "Primed Items" },
+            { "EnchantingIngredients", "Enchanting Ingredients" },
+            { "RelicForgeries", "Relic Forgeries" },
+            { "LightCrossbow", "Light Crossbow" },
+            { "HeavyCrossbow", "Heavy Crossbow" },
+            { "Handaxe", "Handaxe" },
+            { "Javelin", "Javelin" },
+            { "Dart", "Dart" },
+            { "Club", "Club" },
+            { "Maul", "Maul" },
+            { "Warhammer", "Warhammer" },
+            { "Quarterstaff", "Quarterstaff" },
+            { "Spear", "Spear" },
+            { "Scimitar", "Scimitar" },
+            { "Shield_Wooden", "Shield [Wooden]" },
+            { "Shield", "Shield" },
+            { "HideArmor", "Hide Armor" },
+            { "StuddedLeather", "Studded Leather" },
+        };
+
         internal static void Load()
         {
             ItemRecipeGenerationHelper.StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore, DatabaseHelper.ItemDefinitions.Maul);
