@@ -72,7 +72,10 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
             } else
             {
                 // Note Holic's ModHelpers removes all overriden powers.
-                Definition.SetOverriddenPower(Definition);
+                // Setting to hidden means it never shows in the UI including on level up screens.
+                // By not hidding and not overriding the feature users will see it in the list of available powers.
+                // That is not ideal, but seems like a decent compromise for now.
+                //Definition.SetOverriddenPower(Definition);
             }
             Definition.SetGuiPresentation(guiPresentation);
         }
@@ -130,6 +133,12 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
             Definition.SetGuiPresentation(guiPresentation);
             Definition.SetUniqueInstance(uniqueInstance);
             Definition.SharedPool = poolPower;
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder AddOverriddenPower(FeatureDefinitionPower overridenPower)
+        {
+            Definition.SetOverriddenPower(overridenPower);
+            return this;
         }
     }
 }
