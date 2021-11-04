@@ -9,13 +9,13 @@ namespace SolastaCommunityExpansion.Patches.InitialChoices
         [HarmonyPatch(typeof(GuiFeatDefinition), "IsFeatMacthingPrerequisites")]
         internal static class GuiFeatDefinition_IsFeatMacthingPrerequisites
         {
-            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-            {
-                var code = new List<CodeInstruction>(instructions);
-                code.Find(x => x.opcode == OpCodes.Ldc_I4_1).opcode = OpCodes.Ldc_I4_0;
+            //internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            //{
+            //    var code = new List<CodeInstruction>(instructions);
+            //    code.Find(x => x.opcode == OpCodes.Ldc_I4_1).opcode = OpCodes.Ldc_I4_0;
 
-                return code;
-            }
+            //    return code;
+            //}
 
             internal static void Postfix(FeatDefinition feat, RulesetCharacterHero hero, ref bool __result)
             {
