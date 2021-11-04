@@ -1,8 +1,8 @@
 # Solasta Community Expansion
 
-This is a collection of work from the Solasta modding community. It includes feats, subclasses, items, crafting recipes, gameplay options, UI improvements, and more. The general philosophy is everything is optional to enable, so you can install the mod and then enalbe the pieces you want. There are some minor bug fixes that are enabled by default.
+This is a collection of work from the Solasta modding community. It includes feats, subclasses, items, crafting recipes, gameplay options, UI improvements, and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
 
-The goal with the modifications provided here is to minimize code patches. Minimizing code patches means compatability with other mods is easier as well as makes maintenance easier. Any code patches should be as targeted and minimal as possible to reduce the chance of unintended side effects. There are a lot of interesting things that can be done with just edits to the database.
+The goal with the modifications provided here is to minimize code patches. Minimizing code patches means compatibility with other mods is easier as well as makes maintenance easier. Any code patches should be as targeted and minimal as possible to reduce the chance of unintended side effects. There are a lot of interesting things that can be done with just edits to the database.
 
 # How to contribute
 
