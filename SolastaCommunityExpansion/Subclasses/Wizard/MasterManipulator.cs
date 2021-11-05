@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
-            return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
+            return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
         }
         internal override CharacterSubclassDefinition GetSubclass()
         {
