@@ -77,10 +77,10 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString += "\n[heading][size=5]Features[/size][/heading]";
                 collectedString += "\n[heading]Character Creation Options[/heading]\n[list]";
                 collectedString += "\n[*]Epic [17,15,13,12,10,8] array";
-                collectedString += "\n[*]Alternate Human [+2 attribute choices / +1 skill]";
+                collectedString += "\n[*]Alternate Human [+1 feat / +2 attribute choices / +1 skill]";
                 collectedString += "\n[*]Feats available at level 1";
-                collectedString += "\n[*]Flexible backgrounds";
-                collectedString += "\n[*]Flexible races";
+                collectedString += "\n[*]Flexible backgrounds [Select skill and tool proficiencies from backgrounds]";
+                collectedString += "\n[*]Flexible races [Assign ability score points instead of the racial defaults (High Elf has 3 points to assign instead of +2 Dex/+1 Int)]";
                 collectedString += "\n[*]Remove darkvision";
                 collectedString += "\n[*]Additional lore friendly names";
                 collectedString += "\n[/list]";

@@ -28,21 +28,21 @@ namespace SolastaCommunityExpansion.Viewers
             }
 
             toggle = Main.Settings.EnableAlternateHuman;
-            if (UI.Toggle("Enables the Alternate Human [+2 attribute choices / +1 skill]", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Enables the Alternate Human [+1 feat / +2 attribute choices / +1 skill]", ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.EnableAlternateHuman = toggle;
                 Models.InitialChoicesContext.RefreshAllRacesInitialFeats();
             }
 
             toggle = Main.Settings.EnableFlexibleBackgrounds;
-            if (UI.Toggle("Enables flexible backgrounds", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Enables flexible backgrounds [Select skill and tool proficiencies from backgrounds]", ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.EnableFlexibleBackgrounds = toggle;
                 Models.FlexibleBackgroundsContext.Switch(toggle);
             }
 
             toggle = Main.Settings.EnableFlexibleRaces;
-            if (UI.Toggle("Enables flexible races", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Enables flexible races [Assign ability score points instead of the racial defaults (High Elf has 3 points to assign instead of +2 Dex/+1 Int)]", ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.EnableFlexibleRaces = toggle;
                 Models.FlexibleRacesContext.Switch(toggle);
