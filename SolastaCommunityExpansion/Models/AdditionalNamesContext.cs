@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Models
                 CharacterRaceDefinition elfHighNames = ElfHigh;
                 CharacterRaceDefinition elfSylvanNames = ElfSylvan;
                 CharacterRaceDefinition halfElfNames = HalfElf;
-				CharacterRaceDefinition halfOrcNames = HalfOrc;
+		CharacterRaceDefinition halfOrcNames = HalfOrc;
                 CharacterRaceDefinition halflingNames = Halfling;
                 CharacterRaceDefinition humanNames = Human;
 
