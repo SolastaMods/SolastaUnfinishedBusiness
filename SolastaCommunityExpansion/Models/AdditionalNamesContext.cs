@@ -13,6 +13,7 @@ namespace SolastaCommunityExpansion.Models
                 CharacterRaceDefinition elfHighNames = ElfHigh;
                 CharacterRaceDefinition elfSylvanNames = ElfSylvan;
                 CharacterRaceDefinition halfElfNames = HalfElf;
+				CharacterRaceDefinition halfOrcNames = HalfOrc;
                 CharacterRaceDefinition halflingNames = Halfling;
                 CharacterRaceDefinition humanNames = Human;
 
@@ -73,6 +74,15 @@ namespace SolastaCommunityExpansion.Models
                     {
                         halfElfNames.RacePresentation.SurNameOptions.Add(name);
                     }
+					
+                    else if (term.Contains("HalfOrcFemale"))
+                    {
+                        halfOrcNames.RacePresentation.FemaleNameOptions.Add(name);
+                    }
+                    else if (term.Contains("HalfOrcMale"))
+                    {
+                        halfOrcNames.RacePresentation.MaleNameOptions.Add(name);
+                    }					
 
                     else if (term.Contains("HalflingFemale"))
                     {
