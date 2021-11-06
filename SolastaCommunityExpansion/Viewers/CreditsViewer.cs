@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Viewers
             { "SilverGriffon", "pickpocket, lore friendly names, crafty feats" },
             { "Boofat", "alwaysAlt" },
             { "Myztikrice", "faster time scale" },
-            { "AceHigh", "power attack, reckless fury" },
+            { "AceHigh", "power attack, reckless fury, no identification" },
         };
 
         public void DisplayHelp()

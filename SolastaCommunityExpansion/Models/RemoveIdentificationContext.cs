@@ -15,7 +15,9 @@ namespace SolastaCommunityExpansion.Models
             {
                 var itemDB = DatabaseRepository.GetDatabase<ItemDefinition>();
                 foreach (ItemDefinition item in itemDB.GetAllElements())
+                {
                     item.SetRequiresIdentification(false);
+                }
             }
         }
     }
