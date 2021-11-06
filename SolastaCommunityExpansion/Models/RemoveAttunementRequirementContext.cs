@@ -2,15 +2,15 @@
 
 namespace SolastaCommunityExpansion.Models
 {
-    internal static class RemoveIdentificationContext
+    internal static class RemoveAttunementRequirementContext
     {
         internal static void Load()
         {
-            if (Main.Settings.NoIdentification)
+            if (Main.Settings.NoAttunementRequired)
             {
                 foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>())
                 {
-                    item.SetRequiresIdentification(false);
+                    item.SetRequiresAttunement(false);
                 }
             }
         }

@@ -56,9 +56,9 @@ namespace SolastaCommunityExpansion.Viewers
             {
                 if (UI.Toggle("Select all", ref selectAll))
                 {
-                    foreach (var keyValuePair in Models.SubclassesContext.Subclasses)
+                    foreach (var keyValuePair in SubclassesContext.Subclasses)
                     {
-                        Models.SubclassesContext.Switch(keyValuePair.Key, selectAll);
+                        SubclassesContext.Switch(keyValuePair.Key, selectAll);
                     }
                 }
 
@@ -75,7 +75,7 @@ namespace SolastaCommunityExpansion.Viewers
             int columns;
             var flip = false;
             var current = 0;
-            var subclassesCount = Models.SubclassesContext.Subclasses.Count;
+            var subclassesCount = SubclassesContext.Subclasses.Count;
 
             using (UI.VerticalScope())
             {
@@ -87,7 +87,7 @@ namespace SolastaCommunityExpansion.Viewers
                     {
                         while (current < subclassesCount && columns-- > 0)
                         {
-                            var keyValuePair = Models.SubclassesContext.Subclasses.ElementAt(current);
+                            var keyValuePair = SubclassesContext.Subclasses.ElementAt(current);
                             toggle = Main.Settings.SubclassEnabled.Contains(keyValuePair.Key);
                             var subclass = keyValuePair.Value.GetSubclass();
                             var title = Gui.Format(subclass.GuiPresentation.Title);
@@ -99,7 +99,7 @@ namespace SolastaCommunityExpansion.Viewers
 
                             if (UI.Toggle(title, ref toggle, PIXELS_PER_COLUMN))
                             {
-                                Models.SubclassesContext.Switch(keyValuePair.Key, toggle);
+                                SubclassesContext.Switch(keyValuePair.Key, toggle);
                             }
 
                             if (Main.Settings.SubclassSliderPosition == 1)

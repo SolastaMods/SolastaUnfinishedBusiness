@@ -1,7 +1,5 @@
 ﻿using UnityModManagerNet;
 using ModKit;
-using SolastaCommunityExpansion.ItemCrafting;
-using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Viewers
 {
@@ -11,7 +9,7 @@ namespace SolastaCommunityExpansion.Viewers
 
         public int Priority => 4;
 
-        private static string reqRestart = "[requires restart to disable]".italic().red();
+        private static readonly string reqRestart = "[requires restart to disable]".italic().red();
 
         private void AddUIForWeaponKey(string key)
         {
@@ -61,8 +59,6 @@ namespace SolastaCommunityExpansion.Viewers
             }
         }
 
-
-
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
             UI.Label("Welcome to Solasta Community Expansion".yellow().bold());
@@ -71,6 +67,13 @@ namespace SolastaCommunityExpansion.Viewers
             if (!Main.Enabled) return;
 
             DisplayRecipesCostSettings();
+
+            bool toggle = Main.Settings.NoAttunementRequired;
+            if (UI.Toggle("Remove attunement requirement " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.NoAttunementRequired = toggle;
+                Models.RemoveAttunementRequirementContext.Load();
+            }
         }
     }
 }
