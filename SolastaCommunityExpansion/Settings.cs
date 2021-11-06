@@ -113,5 +113,6 @@ namespace SolastaCommunityExpansion
         public bool DisableAutoEquip;
         public bool ExactMerchantCostScaling;
         public bool NoIdentification;
+        public bool SetMaxFactionRelations;
     }
 }
