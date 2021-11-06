@@ -477,3 +477,30 @@ Subclass/&TraditionSpellMasterSpellResistanceTitle Spell Resistance
 Subclass/&TraditionSpellMasterTitle Spell Master
 Subclass/&WeaponProfArcaneFighterDescription Experience in combat has given the Arcane Fighter training in Simple and Martial Weapons.
 Subclass/&WeaponProfArcaneFighterTitle  Weapon Training
+Feature/&RangerVanishActionTitle	Vanish
+Feature/&RangerVanishActionDescription	Starting at 14th level, you can use the Hide action as a bonus action on your turn.
+Feature/&RangerFeatureSetFoeSlayerTitle	Foe Slayer
+Feature/&RangerFeatureSetFoeSlayerDescription	At 20th level, you become an unparalleled Hunter of your enemies. Once on each of your turns, you can add your Wisdom modifier to the Attack roll or the damage roll of an Attack you make against one of your Favored enemies.
+Feature/&PowerPaladinAuraOfProtection18Title	Improved Aura of Protection
+Feature/&PowerPaladinAuraOfProtection18Description	You and your allies within 30ft cannot be frightened.
+Feature/&PowerPaladinAuraOfCourage18Title	Improved Aura of Courage
+Feature/&PowerPaladinAuraOfCourage18Description Grant a saving throw bonus to allies withing 30ft.
+Feature/&PrimalChampionConstitutionDescription At 20th level, you embody the power of the wilds. Your Constitution scores increase by 4
+Feature/&PrimalChampionConstitutionTitle Primal Champion (Constitution)
+Feature/&PrimalChampionStrengthDescription At 20th level, you embody the power of the wilds. Your Strength scores increase by 4
+Feature/&PrimalChampionStrengthTitle Primal Champion (Strength)
+Feature/&ProficiencyRogueSlipperyMindTitle	Slippery Mind
+Feature/&ProficiencyRogueSlipperyMindDescription	By 15th level, you have acquired greater mental strength. You gain proficiency in Wisdom saving throws.
+Feature/&ProficiencyRogueBlindSenseTitle	Blindsense
+Feature/&ProficiencyRogueBlindSenseDescription	Starting at 14th level, if you are able to hear, you are aware of the location of any hidden or invisible creature within 10 feet of you.
+Feature/&IndomitableResistanceAddTitle	Indomitable Resistance (increased)
+Feature/&IndomitableResistanceAddDescription	+1 Indomitable Resistance use between rests.
+Feature/&IndomitableResistanceTitle	Indomitable Resitance
+Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageTitle	Foe Slayer
+Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageDescription	Add your Wisdom modifier to your damage roll.
+Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageReactTitle	Foe Slayer
+Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageReactDescription	Add your Wisdom modifier to your damage roll.
+Reaction/&UseZSPowerRangerFoeSlayerAttackTitle	Foe Slayer
+Reaction/&UseZSPowerRangerFoeSlayerAttackDescription	Add your Wisdom modifier to your attack roll.
+Reaction/&UseZSPowerRangerFoeSlayerAttackReactTitle	Foe Slayer
+Reaction/&UseZSPowerRangerFoeSlayerDamageReactDescription	Add your Wisdom modifier to your attack roll.

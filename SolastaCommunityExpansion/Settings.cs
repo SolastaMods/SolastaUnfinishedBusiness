@@ -30,6 +30,7 @@ namespace SolastaCommunityExpansion
         public bool EnableEpicPoints = false;
         public bool EnableAlternateHuman = false;
         public bool EnablesAsiAndFeat = false;
+        public bool EnableLevel20 = true;
         public bool EnableFlexibleBackgrounds = false;
         public bool EnableFlexibleRaces = false;
 
