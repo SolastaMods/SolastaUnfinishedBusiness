@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Viewers
 
         public int Priority => 4;
 
-
+        private static string reqRestart = "[requires restart to disable]".italic().red();
 
         private void AddUIForWeaponKey(string key)
         {
@@ -34,6 +34,15 @@ namespace SolastaCommunityExpansion.Viewers
 
             UI.Label("");
             UI.Label("Settings:".yellow());
+
+            UI.Label("");
+
+            bool toggle = Main.Settings.NoIdentification;
+            if (UI.Toggle("Remove identification requirements " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.NoIdentification = toggle;
+                Models.RemoveIdentificationContext.Load();
+            }
 
             UI.Label("");
             if (UI.Slider("Recipes' Cost".white(), ref intValue, 1, 500, 200, "", UI.AutoWidth()))
