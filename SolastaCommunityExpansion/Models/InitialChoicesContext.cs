@@ -24,7 +24,7 @@ namespace SolastaCommunityExpansion.Models
                         new GuiPresentationBuilder($"Race/&PointPoolSelect{i}FeatsDescription", $"Race/&PointPoolSelect{i}FeatsTitle").Build()).AddToDB(true);
             }
 
-            Models.InitialChoicesContext.RefreshAllRacesInitialFeats();
+            RefreshAllRacesInitialFeats();
         }
 
         internal static void RefreshAllRacesInitialFeats()

@@ -44,7 +44,7 @@ namespace SolastaCommunityExpansion.Models
 
             pickpocketAbilityCheckAffinityGroup.SetField("abilityScoreName", "Dexterity");
             pickpocketAbilityCheckAffinityGroup.SetField("proficiencyName", "SleightOfHand");
-            pickpocketAbilityCheckAffinityGroup.SetField("affinity", RuleDefinitions.CharacterAbilityCheckAffinity.Advantage);
+            pickpocketAbilityCheckAffinityGroup.SetField("affinity", CharacterAbilityCheckAffinity.Advantage);
             pickpocket_check_affinity.AffinityGroups.Clear();
             pickpocket_check_affinity.AffinityGroups.Add(pickpocketAbilityCheckAffinityGroup);
 
@@ -191,12 +191,12 @@ namespace SolastaCommunityExpansion.Models
             loot_pickpocket_undead.SetTreasureTableDefinition(pick_pocket_table_undead);
             loot_pickpocket_undead.SetDiceNumber(1);
 
-            LootPackDefinition pick_pocket_loot = LootPackDefinitionBuilder.createCopyFrom("PickPocketLoot", "30c308db-1ad7-4f93-9431-43ce32358493", "", "", DatabaseHelper.LootPackDefinitions.Tutorial_04_Loot_Stealable);
+            LootPackDefinition pick_pocket_loot = LootPackDefinitionBuilder.createCopyFrom("PickPocketLoot", "30c308db-1ad7-4f93-9431-43ce32358493", "", "", Tutorial_04_Loot_Stealable);
             pick_pocket_loot.SetLootChallengeMode(LootPackDefinition.LootChallenge.ByPartyLevel);
             pick_pocket_loot.ItemOccurencesList.Clear();
             pick_pocket_loot.ItemOccurencesList.Add(loot_pickpocket_table);
 
-            LootPackDefinition pick_pocket_undead = LootPackDefinitionBuilder.createCopyFrom("PickPocketUndead", "af2eb8e0-6a5a-40e2-8a62-160f80e2453e", "", "", DatabaseHelper.LootPackDefinitions.Tutorial_04_Loot_Stealable);
+            LootPackDefinition pick_pocket_undead = LootPackDefinitionBuilder.createCopyFrom("PickPocketUndead", "af2eb8e0-6a5a-40e2-8a62-160f80e2453e", "", "", Tutorial_04_Loot_Stealable);
             pick_pocket_undead.SetLootChallengeMode(LootPackDefinition.LootChallenge.ByPartyLevel);
             pick_pocket_undead.ItemOccurencesList.Clear();
             pick_pocket_undead.ItemOccurencesList.Add(loot_pickpocket_undead);

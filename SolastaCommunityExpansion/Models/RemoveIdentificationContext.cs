@@ -1,9 +1,4 @@
 ﻿using SolastaModApi.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -16,6 +11,14 @@ namespace SolastaCommunityExpansion.Models
                 foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>())
                 {
                     item.SetRequiresIdentification(false);
+                }
+            }
+
+            if (Main.Settings.NoAttunement)
+            {
+                foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>())
+                {
+                    item.SetRequiresAttunement(false);
                 }
             }
         }

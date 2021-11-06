@@ -95,6 +95,10 @@ namespace SolastaCommunityExpansion
         public const InputCommands.Id CTRL_M = (InputCommands.Id)44440002;
         public const InputCommands.Id CTRL_P = (InputCommands.Id)44440003;
 
+        public const RestActivityDefinition.ActivityCondition ActivityConditionCanRespec = (RestActivityDefinition.ActivityCondition)(int)-1001;
+
+        public bool EnableRespec = false;
+
         public bool OfferAdditionalNames = false;
         public bool InvertAltBehaviorOnTooltips = false;
 
@@ -113,6 +117,7 @@ namespace SolastaCommunityExpansion
         public bool DisableAutoEquip;
         public bool ExactMerchantCostScaling;
         public bool NoIdentification;
+        public bool NoAttunement;
         public bool SetMaxFactionRelations;
     }
 }

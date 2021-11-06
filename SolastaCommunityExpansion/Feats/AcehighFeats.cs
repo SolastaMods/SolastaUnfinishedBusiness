@@ -234,7 +234,7 @@ namespace SolastaCommunityExpansion.Feats
 
             public static FeatDefinition AddToFeatList()
             {
-                var powerAttackFeat = PowerAttackFeatBuilder.PowerAttackFeat;//Instantiating it adds to the DB
+                var powerAttackFeat = PowerAttackFeat;//Instantiating it adds to the DB
                 return powerAttackFeat;
             }
         }
