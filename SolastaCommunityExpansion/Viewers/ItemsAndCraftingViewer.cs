@@ -42,6 +42,13 @@ namespace SolastaCommunityExpansion.Viewers
                 Models.RemoveIdentificationContext.Load();
             }
 
+            toggle = Main.Settings.NoAttunementRequired;
+            if (UI.Toggle("Remove attunement requirement " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.NoAttunementRequired = toggle;
+                Models.RemoveAttunementRequirementContext.Load();
+            }
+
             UI.Label("");
             if (UI.Slider("Recipes' Cost".white(), ref intValue, 1, 500, 200, "", UI.AutoWidth()))
             {
@@ -67,13 +74,6 @@ namespace SolastaCommunityExpansion.Viewers
             if (!Main.Enabled) return;
 
             DisplayRecipesCostSettings();
-
-            bool toggle = Main.Settings.NoAttunementRequired;
-            if (UI.Toggle("Remove attunement requirement " + reqRestart, ref toggle, 0, UI.AutoWidth()))
-            {
-                Main.Settings.NoAttunementRequired = toggle;
-                Models.RemoveAttunementRequirementContext.Load();
-            }
         }
     }
 }
