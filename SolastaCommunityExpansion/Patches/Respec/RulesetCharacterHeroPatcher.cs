@@ -15,11 +15,9 @@ namespace SolastaCommunityExpansion.Patches
                 {
                     foreach (var restActivityDefinition in DatabaseRepository.GetDatabase<RestActivityDefinition>().GetAllElements())
                     {
-                        switch (restActivityDefinition.Condition)
+                        if (restActivityDefinition.Condition == Settings.ActivityConditionCanRespec)
                         {
-                            case Settings.ActivityConditionCanRespec:
-                                ___afterRestActions.Add(restActivityDefinition);
-                                break;
+                            ___afterRestActions.Add(restActivityDefinition);
                         }
                     }
                 }
