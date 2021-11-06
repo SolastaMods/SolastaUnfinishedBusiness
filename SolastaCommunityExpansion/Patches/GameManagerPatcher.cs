@@ -4,7 +4,10 @@ namespace SolastaCommunityExpansion.Patches
 {
     internal static class GameManagerPatcher
     {
-        [HarmonyPatch(typeof(GameManager), "BindPostDatabase")]
+        //
+        // DISABLE FOR NOW TO MAKE IT EASIER LATER ON SO MANY MERGES. WHEN IT COMES TO MERGE MOVE ANYTHING NEW IN HERE TO Main.FinishLoading()
+        //
+        //[HarmonyPatch(typeof(GameManager), "BindPostDatabase")]
         internal static class GameManager_BindPostDatabase_Patch
         {
             internal static void Postfix()
