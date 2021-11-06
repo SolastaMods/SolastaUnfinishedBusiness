@@ -21,6 +21,7 @@ namespace SolastaCommunityExpansion.Patches
                 Models.VisionContext.Load();
                 Models.PickPocketContext.Load();
                 Models.EpicArrayContext.Load();
+                Models.RespecContext.Load();
 
                 Main.Enabled = true;
             }

@@ -334,6 +334,8 @@ Race/&PointPoolSelect8FeatsDescription Select 8 additional feats for your charac
 Race/&PointPoolSelect8FeatsTitle 8 Bonus Feats
 Race/&PointPoolSelect9FeatsDescription Select 9 additional feats for your character.
 Race/&PointPoolSelect9FeatsTitle 9 Bonus Feats
+RestActivity/&ZSRespecDescription	Respec this Hero
+RestActivity/&ZSRespecTitle	Respec
 Screen/&FeyTeleportSpellDescription This Fey spell is always prepared.
 Screen/&FeyTeleportSpellTitle Fey
 Screen/&ShadowTouchedSpellDescription This Shadow spell is always prepared.
