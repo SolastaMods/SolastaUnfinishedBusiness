@@ -13,8 +13,7 @@ namespace SolastaCommunityExpansion.Models
         {
             if(Main.Settings.NoIdentification)
             {
-                var itemDB = DatabaseRepository.GetDatabase<ItemDefinition>();
-                foreach (ItemDefinition item in itemDB.GetAllElements())
+                foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>())
                 {
                     item.SetRequiresIdentification(false);
                 }
