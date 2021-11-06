@@ -1,7 +1,5 @@
 ﻿using UnityModManagerNet;
 using ModKit;
-using SolastaCommunityExpansion.ItemCrafting;
-using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Viewers
 {
@@ -11,7 +9,7 @@ namespace SolastaCommunityExpansion.Viewers
 
         public int Priority => 4;
 
-
+        private static readonly string reqRestart = "[requires restart to disable]".italic().red();
 
         private void AddUIForWeaponKey(string key)
         {
@@ -36,6 +34,22 @@ namespace SolastaCommunityExpansion.Viewers
             UI.Label("Settings:".yellow());
 
             UI.Label("");
+
+            bool toggle = Main.Settings.NoIdentification;
+            if (UI.Toggle("Remove identification requirements " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.NoIdentification = toggle;
+                Models.RemoveIdentificationContext.Load();
+            }
+
+            toggle = Main.Settings.NoAttunement;
+            if (UI.Toggle("Remove attunement requirements " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.NoAttunement = toggle;
+                Models.RemoveIdentificationContext.Load();
+            }
+
+            UI.Label("");
             if (UI.Slider("Recipes' Cost".white(), ref intValue, 1, 500, 200, "", UI.AutoWidth()))
             {
                 Main.Settings.RecipeCost = intValue;
@@ -51,8 +65,6 @@ namespace SolastaCommunityExpansion.Viewers
                 AddUIForWeaponKey(key);
             }
         }
-
-
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
