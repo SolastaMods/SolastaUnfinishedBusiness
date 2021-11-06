@@ -27,7 +27,7 @@ namespace SolastaCommunityExpansion.Patches
                 {
                     if (thirdRow == null)
                     {
-                        thirdRow = GameObject.Instantiate(powersTable);
+                        thirdRow = Object.Instantiate(powersTable);
                     }
                     int toStayCount = powersTable.childCount * 2 / 3;
                     MovePowersToRow(powersTable, thirdRow, toStayCount, 200);
@@ -36,7 +36,7 @@ namespace SolastaCommunityExpansion.Patches
                 {
                     if (secondRow == null)
                     {
-                        secondRow = GameObject.Instantiate(powersTable);
+                        secondRow = Object.Instantiate(powersTable);
                     }
                     int toStayCount = powersTable.childCount / 2;
                     MovePowersToRow(powersTable, secondRow, toStayCount, 80);
