@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Models
     {
         internal static void Load()
         {
-            if(Main.Settings.NoIdentification)
+            if (Main.Settings.NoIdentification)
             {
                 foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>())
                 {
