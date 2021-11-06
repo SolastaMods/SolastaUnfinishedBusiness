@@ -42,11 +42,11 @@ namespace SolastaCommunityExpansion.Viewers
                 Models.RemoveIdentificationContext.Load();
             }
 
-            toggle = Main.Settings.NoAttunementRequired;
-            if (UI.Toggle("Remove attunement requirement " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            toggle = Main.Settings.NoAttunement;
+            if (UI.Toggle("Remove attunement requirements " + reqRestart, ref toggle, 0, UI.AutoWidth()))
             {
-                Main.Settings.NoAttunementRequired = toggle;
-                Models.RemoveAttunementRequirementContext.Load();
+                Main.Settings.NoAttunement = toggle;
+                Models.RemoveIdentificationContext.Load();
             }
 
             UI.Label("");

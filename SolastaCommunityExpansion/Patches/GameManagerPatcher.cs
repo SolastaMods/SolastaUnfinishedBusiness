@@ -22,7 +22,6 @@ namespace SolastaCommunityExpansion.Patches
                 Models.PickPocketContext.Load();
                 Models.EpicArrayContext.Load();
                 Models.RemoveIdentificationContext.Load();
-                Models.RemoveAttunementRequirementContext.Load();
 
                 Main.Enabled = true;
             }

@@ -13,6 +13,14 @@ namespace SolastaCommunityExpansion.Models
                     item.SetRequiresIdentification(false);
                 }
             }
+
+            if (Main.Settings.NoAttunement)
+            {
+                foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>())
+                {
+                    item.SetRequiresAttunement(false);
+                }
+            }
         }
     }
 }
