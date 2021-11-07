@@ -30,17 +30,17 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
             UI.Label("Settings:".yellow());
 
-            toggle = Main.Settings.NoIdentification;
-            if (UI.Toggle("Removes identification requirements " + reqRestart, ref toggle, 0, UI.AutoWidth()))
-            {
-                Main.Settings.NoIdentification = toggle;
-                RemoveIdentificationContext.Load();
-            }
-
             toggle = Main.Settings.NoAttunement;
             if (UI.Toggle("Removes attunement requirements " + reqRestart, ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.NoAttunement = toggle;
+                RemoveIdentificationContext.Load();
+            }
+
+            toggle = Main.Settings.NoIdentification;
+            if (UI.Toggle("Removes identification requirements " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.NoIdentification = toggle;
                 RemoveIdentificationContext.Load();
             }
 

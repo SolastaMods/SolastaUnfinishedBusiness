@@ -59,7 +59,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             toggle = Main.Settings.EnableFlexibleRaces;
-            if (UI.Toggle("Enables flexible races [Assign ability score points instead of the racial defaults (High Elf has 3 points to assign instead of +2 Dex/+1 Int)]", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Enables flexible races [Assign ability score points instead of the racial defaults]\n" + "High Elf has 3 points to assign instead of +2 Dex / +1 Int".italic().red(), ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.EnableFlexibleRaces = toggle;
                 FlexibleRacesContext.Switch(toggle);
