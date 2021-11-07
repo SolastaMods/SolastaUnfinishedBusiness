@@ -25,7 +25,9 @@ namespace SolastaCommunityExpansion.Level20.Features
             cleansingTouch.AddEffectForm(new EffectFormBuilder().CreatedByCharacter().SetCounterForm(CounterForm.CounterType.DissipateSpells, 9, 10, true, true).Build());
             cleansingTouch.AddEffectForm(new EffectFormBuilder().CreatedByCharacter().SetAlterationForm(AlterationForm.Type.DissipateSpell).Build());
             Definition.SetEffectDescription(cleansingTouch.Build());
-            //Definition.SetGuiPresentation(guiPresentation);
+            GuiPresentationBuilder cleansingGui = new GuiPresentationBuilder("Feature/&ZSPowerPaladinCleansingTouchDescription", "Feature/&ZSPowerPaladinCleansingTouchTitle");
+            cleansingGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerPaladinLayOnHands.GuiPresentation.SpriteReference);
+            Definition.SetGuiPresentation(cleansingGui.Build());
         }
 
         private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)

@@ -302,6 +302,8 @@ Feature/&RagePowerDescription As a bonus action you enter a rage for one minute 
 Feature/&RagePowerTitle Rage
 Feature/&RageStrengthSavingThrowAffinityDescription You get advantage on strength saves while raging
 Feature/&RageStrengthSavingThrowAffinityTitle Rage strength save advantage
+Feature/&ZSPowerPaladinCleansingTouchDescription Remove spell effects by touching an ally. You can do this a number of times per day equal to your Charisma modifier.
+Feature/&ZSPowerPaladinCleansingTouchTitle Cleansing Touch
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat Additional Damage from Magically Powered Attacks
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine Additional Damage from Magically Powered Attacks
 FlexibleBackgrounds/&BackgroundSkillSelect2Description Select 2 skill proficiencies
