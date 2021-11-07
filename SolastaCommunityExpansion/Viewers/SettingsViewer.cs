@@ -28,7 +28,7 @@ namespace SolastaCommunityExpansion.Viewers
             }
 
             toggle = Main.Settings.HideMonsterHitPoints;
-            if (UI.Toggle("Displays Monsters's health in steps of 25/50/75/100% instead of exact hit points", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Displays Monsters's health in steps of 25% / 50% / 75% / 100% instead of exact hit points", ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.HideMonsterHitPoints = toggle;
             }

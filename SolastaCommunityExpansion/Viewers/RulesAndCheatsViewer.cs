@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion.Viewers
             UI.Label("");
 
             toggle = Main.Settings.EnableSRDAdvantageRules;
-            if (UI.Toggle("Uses official advantage/disadvantage rules", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Uses official advantage / disadvantage rules", ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.EnableSRDAdvantageRules = toggle;
             }
