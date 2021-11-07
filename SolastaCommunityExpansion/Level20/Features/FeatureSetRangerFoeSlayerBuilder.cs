@@ -1,4 +1,12 @@
-﻿//using System;
+﻿/*
+ 
+Feature written by ElAntonius for the Ranger
+- requires ModHelpers extensions
+- left code here to check how difficult to rewrite without this dependency
+
+*/
+
+//using System;
 //using System.Collections.Generic;
 //using System.Linq;
 //using System.Text;
