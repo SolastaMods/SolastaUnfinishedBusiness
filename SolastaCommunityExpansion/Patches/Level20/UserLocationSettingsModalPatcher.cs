@@ -14,11 +14,15 @@ namespace SolastaCommunityExpansion.Patches
             internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
                 var code = new List<CodeInstruction>(instructions);
-                var opcodes = code.FindAll(x => x.opcode.Name == "ldc.i4.s" && Convert.ToInt32(x.operand) == GAME_MAX_LEVEL);
 
-                foreach (var opcode in opcodes)
+                if (Main.Settings.EnableLevel20)
                 {
-                    opcode.operand = MOD_MAX_LEVEL;
+                    var opcodes = code.FindAll(x => x.opcode.Name == "ldc.i4.s" && Convert.ToInt32(x.operand) == GAME_MAX_LEVEL);
+
+                    foreach (var opcode in opcodes)
+                    {
+                        opcode.operand = MOD_MAX_LEVEL;
+                    }
                 }
 
                 return code;
@@ -31,11 +35,15 @@ namespace SolastaCommunityExpansion.Patches
             internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
                 var code = new List<CodeInstruction>(instructions);
-                var opcodes = code.FindAll(x => x.opcode.Name == "ldc.i4.s" && Convert.ToInt32(x.operand) == GAME_MAX_LEVEL);
 
-                foreach (var opcode in opcodes)
+                if (Main.Settings.EnableLevel20)
                 {
-                    opcode.operand = MOD_MAX_LEVEL;
+                    var opcodes = code.FindAll(x => x.opcode.Name == "ldc.i4.s" && Convert.ToInt32(x.operand) == GAME_MAX_LEVEL);
+
+                    foreach (var opcode in opcodes)
+                    {
+                        opcode.operand = MOD_MAX_LEVEL;
+                    }
                 }
 
                 return code;

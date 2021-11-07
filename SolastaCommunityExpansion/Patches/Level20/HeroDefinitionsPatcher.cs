@@ -11,9 +11,14 @@ namespace SolastaCommunityExpansion.Patches
         {
             internal static bool Prefix(ref int __result)
             {
-                __result = MAX_CHARACTER_EXPERIENCE;
+                if (Main.Settings.EnableLevel20)
+                {
+                    __result = MAX_CHARACTER_EXPERIENCE;
 
-                return false;
+                    return false;
+                }
+
+                return true;
             }
         }
     }
