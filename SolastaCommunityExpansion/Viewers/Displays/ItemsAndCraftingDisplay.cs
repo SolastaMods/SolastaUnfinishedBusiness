@@ -6,7 +6,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class ItemsAndCraftingDisplay
     {
-        // private static readonly string reqRestart = "[requires restart to disable]".italic().red();
+        private static readonly string reqRestart = "[requires restart to disable]".italic().red();
 
         private static void AddUIForWeaponKey(string key)
         {
@@ -24,46 +24,56 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
         internal static void DisplayItemsAndCrafting()
         {
-            int intValue = Main.Settings.RecipeCost;
+            bool toggle;
+            int intValue;
 
             UI.Label("");
             UI.Label("Settings:".yellow());
 
+            toggle = Main.Settings.NoIdentification;
+            if (UI.Toggle("Removes identification requirements " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.NoIdentification = toggle;
+                RemoveIdentificationContext.Load();
+            }
+
+            toggle = Main.Settings.NoAttunement;
+            if (UI.Toggle("Removes attunement requirements " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.NoAttunement = toggle;
+                RemoveIdentificationContext.Load();
+            }
+
             UI.Label("");
+            intValue = Main.Settings.RecipeCost;
             if (UI.Slider("Recipes' Cost".white(), ref intValue, 1, 500, 200, "", UI.AutoWidth()))
             {
                 Main.Settings.RecipeCost = intValue;
             }
 
             UI.Label("");
-            UI.Label(". Press the button to learn recipes instantly");
+            UI.Label(". Press the button to learn recipes instantly on the active party");
             UI.Label(". Items added to stores might need the party to travel away from the location and come back");
+            UI.Label(". Actions below only take effect during gameplay");
             UI.Label("");
 
-            if (ServiceRepository.GetService<IGameService>()?.Game == null)
-            {
-                UI.Label("Start a game to display the recipes list...");
-            }
-            else
-            {
-                var keys = ItemCraftingContext.RecipeBooks.Keys;
-                var current = 0;
-                var count = keys.Count;
-                int cols;
+            var keys = ItemCraftingContext.RecipeBooks.Keys;
+            var current = 0;
+            var count = keys.Count;
+            int cols;
 
-                while (current < count)
+            while (current < count)
+            {
+                cols = 0;
+
+                using (UI.HorizontalScope())
                 {
-                    cols = 0;
-
-                    using (UI.HorizontalScope())
+                    while (current < count && cols < 3)
                     {
-                        while (current < count && cols < 3)
-                        {
-                            AddUIForWeaponKey(keys.ElementAt(current));
+                        AddUIForWeaponKey(keys.ElementAt(current));
 
-                            cols++;
-                            current++;
-                        }
+                        cols++;
+                        current++;
                     }
                 }
             }

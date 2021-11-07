@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.PickPocketEnabled;
-            if (UI.Toggle("Adds pickpocketable loot", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Adds pickpocketable loot [required by " + "Pickpocket".orange() + " feat to make it relevant]", ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.PickPocketEnabled = toggle;
                 if (toggle)
@@ -59,6 +59,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (UI.Toggle("Disables " + "Superior Sense Dark Vision".orange() + " from all races " + reqRestart, ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces = toggle;
+            }
+
+            toggle = Main.Settings.NoExperienceOnLevelUp;
+            if (UI.Toggle("No experience is required to level up", ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.NoExperienceOnLevelUp = toggle;
             }
 
             toggle = Main.Settings.ExactMerchantCostScaling;

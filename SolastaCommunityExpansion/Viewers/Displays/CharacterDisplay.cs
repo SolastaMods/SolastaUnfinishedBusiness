@@ -13,14 +13,22 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             bool toggle;
 
             UI.Label("");
-            UI.Label("Progression:".yellow());
-            UI.Label("");
+            //UI.Label("Progression:".yellow());
+            //UI.Label("");
 
             toggle = Main.Settings.EnableLevel20;
             if (UI.Toggle("Enables Level 20 " + reqRestart, ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.EnableLevel20 = toggle;
             }
+
+            toggle = Main.Settings.EnableRespec;
+            if (UI.Toggle("Enables RESPEC", ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.EnableRespec = toggle;
+            }
+
+            UI.Label("");
 
             toggle = Main.Settings.EnablesAsiAndFeat;
             if (UI.Toggle("Enables both ASI and feat", ref toggle, 0, UI.AutoWidth()))
