@@ -40,7 +40,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             intValue = Main.Settings.MasterManipulatorSpellDCBoost;
             if (UI.Slider("", ref intValue, 0, 5, 2, "", UI.AutoWidth()))
             {
-                Main.Settings.RogueConArtistSpellDCBoost = intValue;
+                Main.Settings.MasterManipulatorSpellDCBoost = intValue;
             }
 
             UI.Label("");
