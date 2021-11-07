@@ -84,6 +84,11 @@ namespace SolastaCommunityExpansion.Viewers
             UI.Label("Character progression:".yellow());
             UI.Label("");
 
+            toggle = Main.Settings.EnableLevel20;
+            if (UI.Toggle("Enables Level 20 " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.EnableLevel20 = toggle;
+            }
             toggle = Main.Settings.EnableRespec;
             if (UI.Toggle("Enables RESPEC", ref toggle, 0, UI.AutoWidth()))
             {
