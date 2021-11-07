@@ -53,6 +53,9 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             UI.Label("");
+            UI.Label("Crafting:".yellow());
+            UI.Label("");
+
             UI.Label(". Press the button to learn recipes instantly on the active party");
             UI.Label(". Items added to stores might need the party to travel away from the location and come back");
             UI.Label(". Actions below only take effect during gameplay");
