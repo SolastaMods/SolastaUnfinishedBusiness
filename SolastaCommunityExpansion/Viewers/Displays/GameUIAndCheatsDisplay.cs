@@ -1,17 +1,13 @@
-using UnityModManagerNet;
-using ModKit;
+﻿using ModKit;
+using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Viewers
+namespace SolastaCommunityExpansion.Viewers.Displays
 {
-    public class SettingsViewer : IMenuSelectablePage
+    internal static class GameUIAndCheatsDisplay
     {
-        public string Name => "Settings";
+        private static readonly string reqRestart = "[requires restart]".italic().red();
 
-        public int Priority => 0;
-
-        private static string reqRestart = "[requires restart]".italic().red();
-
-        private static void DisplayGameUiSettings()
+        internal static void DisplayGameUiSettings()
         {
             bool toggle;
             int intValue;
@@ -45,6 +41,12 @@ namespace SolastaCommunityExpansion.Viewers
                 Main.Settings.AutoPauseOnVictory = toggle;
             }
 
+            toggle = Main.Settings.OfferAdditionalNames;
+            if (UI.Toggle("Offers additional lore friendly names on character creation " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.OfferAdditionalNames = toggle;
+            }
+
             UI.Label("");
 
             toggle = Main.Settings.PermanentSpeedUp;
@@ -74,15 +76,40 @@ namespace SolastaCommunityExpansion.Viewers
                 Main.Settings.SpellPanelGapBetweenLines = floatValue;
             }
         }
-
-        public void OnGUI(UnityModManager.ModEntry modEntry)
+        internal static void DisplayCheats()
         {
-            UI.Label("Welcome to Solasta Community Expansion".yellow().bold());
-            UI.Div();
+            bool toggle;
 
-            if (!Main.Enabled) return;
+            UI.Label("");
+            UI.Label("Cheats:".yellow());
 
-            DisplayGameUiSettings();
+            UI.Label("");
+
+            toggle = Main.Settings.EnableRespec;
+            if (UI.Toggle("Enables RESPEC", ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.EnableRespec = toggle;
+            }
+
+            toggle = Main.Settings.NoExperienceOnLevelUp;
+            if (UI.Toggle("No experience is required on level up", ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.NoExperienceOnLevelUp = toggle;
+            }
+
+            toggle = Main.Settings.NoIdentification;
+            if (UI.Toggle("Removes identification requirements " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.NoIdentification = toggle;
+                RemoveIdentificationContext.Load();
+            }
+
+            toggle = Main.Settings.NoAttunement;
+            if (UI.Toggle("Removes attunement requirements " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.NoAttunement = toggle;
+                RemoveIdentificationContext.Load();
+            }
         }
     }
 }

@@ -1,21 +1,16 @@
-﻿using ModKit;
+﻿using System.Linq;
+using ModKit;
 using SolastaCommunityExpansion.Models;
-using System.Linq;
-using UnityModManagerNet;
 
-namespace SolastaCommunityExpansion.Viewers
+namespace SolastaCommunityExpansion.Viewers.Displays
 {
-   public class SubclassesViewer : IMenuSelectablePage
+    internal static class SubClassesDisplay
     {
-        public string Name => "Subclasses";
-
-        public int Priority => 3;
-
         private static bool selectAll = false;
         private const int MAX_COLUMNS = 4;
         private const float PIXELS_PER_COLUMN = 225;
 
-        public void DisplaySubclassesSettings()
+        internal static void DisplaySubclassesSettings()
         {
             bool toggle;
             int intValue;
@@ -123,14 +118,5 @@ namespace SolastaCommunityExpansion.Viewers
             }
         }
 
-        public void OnGUI(UnityModManager.ModEntry modEntry)
-        {
-            UI.Label("Welcome to Solasta Community Expansion".yellow().bold());
-            UI.Div();
-
-            if (!Main.Enabled) return;
-
-            DisplaySubclassesSettings();
-        }
     }
 }

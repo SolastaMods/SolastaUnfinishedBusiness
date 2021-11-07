@@ -1,44 +1,28 @@
 ﻿using System.Linq;
-using UnityModManagerNet;
 using ModKit;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Viewers
+namespace SolastaCommunityExpansion.Viewers.Displays
 {
-    public class FeatsViewer : IMenuSelectablePage
+    internal static class FeatsDisplay
     {
-        public string Name => "Feats";
-
-        public int Priority => 2;
-
         private static bool selectAll = false;
         private const int MAX_COLUMNS = 4;
         private const float PIXELS_PER_COLUMN = 225;
         private static readonly string reqRestart = "[requires restart]".italic().red().bold();
 
-        public void DisplayFeatsSettings()
+        internal static void DisplayFeatsSettings()
         {
             bool toggle;
             int intValue;
 
             selectAll = Main.Settings.FeatEnabled.Count == FeatsContext.Feats.Count;
 
-            UI.Label("");
-            UI.Label("Settings: ".yellow() + reqRestart);
-
-            UI.Label("");
-            toggle = Main.Settings.PickPocketEnabled;
-            if (UI.Toggle("Adds pickpocketable loot", ref toggle, 0, UI.AutoWidth()))
-            {
-                Main.Settings.PickPocketEnabled = toggle;
-                if (toggle)
-                {
-                    PickPocketContext.Load();
-                }
-            }
-
             // todo make the acehigh power attack feats tunable here. It is already in the settings (FeatPowerAttackModifier),
             // but the text does not currently update to reflect the actual tuning.
+
+            //UI.Label("");
+            //UI.Label("Settings: ".yellow() + reqRestart);
 
             UI.Label("");
             UI.Label("Feats: ".yellow() + reqRestart);
@@ -99,7 +83,7 @@ namespace SolastaCommunityExpansion.Viewers
 
                                 if (flip)
                                 {
-                                    description = description.yellow(); 
+                                    description = description.yellow();
                                 }
 
                                 UI.Label(description, UI.Width(PIXELS_PER_COLUMN * 3));
@@ -112,16 +96,6 @@ namespace SolastaCommunityExpansion.Viewers
                     }
                 }
             }
-        }
-
-        public void OnGUI(UnityModManager.ModEntry modEntry)
-        {
-            UI.Label("Welcome to Solasta Community Expansion".yellow().bold());
-            UI.Div();
-
-            if (!Main.Enabled) return;
-
-            DisplayFeatsSettings();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Viewers
     {
         public string Name => "Help & Credits";
 
-        public int Priority => 10;
+        public int Priority => 40;
 
         private static Dictionary<string, string> creditsTable = new Dictionary<string, string>
         {

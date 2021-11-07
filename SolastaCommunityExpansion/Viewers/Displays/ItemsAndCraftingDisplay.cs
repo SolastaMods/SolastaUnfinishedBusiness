@@ -1,18 +1,14 @@
-﻿using UnityModManagerNet;
+﻿using System.Linq;
 using ModKit;
-using System.Linq;
+using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Viewers
+namespace SolastaCommunityExpansion.Viewers.Displays
 {
-    public class ItemsAndCraftingViewer : IMenuSelectablePage
+    internal static class ItemsAndCraftingDisplay
     {
-        public string Name => "Items & Crafting";
-
-        public int Priority => 4;
-
         private static readonly string reqRestart = "[requires restart to disable]".italic().red();
 
-        private void AddUIForWeaponKey(string key)
+        private static void AddUIForWeaponKey(string key)
         {
             bool toggle = Main.Settings.InStore.Contains(key);
             using (UI.HorizontalScope(UI.Width(350)))
@@ -20,34 +16,18 @@ namespace SolastaCommunityExpansion.Viewers
                 if (UI.Toggle("Add to store", ref toggle, 0, UI.Width(75)))
                 {
                     Main.Settings.InStore.Add(key);
-                    Models.ItemCraftingContext.AddToStore(key);
+                    ItemCraftingContext.AddToStore(key);
                 }
-                UI.ActionButton(Models.ItemCraftingContext.RecipeTitles[key], () => Models.ItemCraftingContext.LearnRecipes(key), UI.Width(200));
+                UI.ActionButton(ItemCraftingContext.RecipeTitles[key], () => ItemCraftingContext.LearnRecipes(key), UI.Width(200));
             }
         }
 
-        public void DisplayRecipesCostSettings()
+        internal static void DisplayItemsAndCraftingSettings()
         {
             int intValue = Main.Settings.RecipeCost;
 
             UI.Label("");
             UI.Label("Settings:".yellow());
-
-            UI.Label("");
-
-            bool toggle = Main.Settings.NoIdentification;
-            if (UI.Toggle("Remove identification requirements " + reqRestart, ref toggle, 0, UI.AutoWidth()))
-            {
-                Main.Settings.NoIdentification = toggle;
-                Models.RemoveIdentificationContext.Load();
-            }
-
-            toggle = Main.Settings.NoAttunement;
-            if (UI.Toggle("Remove attunement requirements " + reqRestart, ref toggle, 0, UI.AutoWidth()))
-            {
-                Main.Settings.NoAttunement = toggle;
-                Models.RemoveIdentificationContext.Load();
-            }
 
             UI.Label("");
             if (UI.Slider("Recipes' Cost".white(), ref intValue, 1, 500, 200, "", UI.AutoWidth()))
@@ -66,7 +46,7 @@ namespace SolastaCommunityExpansion.Viewers
             }
             else
             {
-                var keys = Models.ItemCraftingContext.RecipeBooks.Keys;
+                var keys = ItemCraftingContext.RecipeBooks.Keys;
                 var current = 0;
                 var count = keys.Count;
                 int cols;
@@ -88,16 +68,5 @@ namespace SolastaCommunityExpansion.Viewers
                 }
             }
         }
-
-        public void OnGUI(UnityModManager.ModEntry modEntry)
-        {
-            UI.Label("Welcome to Solasta Community Expansion".yellow().bold());
-            UI.Div();
-
-            if (!Main.Enabled) return;
-
-            DisplayRecipesCostSettings();
-        }
     }
 }
-
