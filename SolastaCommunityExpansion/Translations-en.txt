@@ -336,6 +336,8 @@ Race/&PointPoolSelect9FeatsDescription Select 9 additional feats for your charac
 Race/&PointPoolSelect9FeatsTitle 9 Bonus Feats
 RestActivity/&ZSRespecDescription	Respec this Hero
 RestActivity/&ZSRespecTitle	Respec
+RestActivity/&ZSSorcerousRestorationTitle Sorcerous Restoration
+RestActivity/&ZSSorcerousRestorationDescription Regain 4 sorcery points during a short rest.
 Screen/&FeyTeleportSpellDescription This Fey spell is always prepared.
 Screen/&FeyTeleportSpellTitle Fey
 Screen/&ShadowTouchedSpellDescription This Shadow spell is always prepared.
@@ -368,6 +370,8 @@ SolastaCraftyFeats/&ToxicologistIntFeatDescription	+1 Intelligence, Proficiency 
 SolastaCraftyFeats/&ToxicologistIntFeatTitle	Toxicologist (Intelligence)
 SolastaCraftyFeats/&ToxicologistWisFeatDescription	+1 Wisdom, Proficiency or Expertise with Poisoner's Kit and Medicine
 SolastaCraftyFeats/&ToxicologistWisFeatTitle	Toxicologist (Wisdom)
+Sorceror/&ZSSorcerousRestorationTitle Sorcerous Restoration
+Sorceror/&ZSSorcerousRestorationDescription Regain 4 sorcery points during a short rest.
 Subclass/&AbilityAffinityRogueConArtistDescription Advantage on ability checks using Persuasion, Deception, Performance, and Sleight of Hand.
 Subclass/&AbilityAffinityRogueConArtistTitle Manipulative
 Subclass/&ArcaneFighterAdditionalActionDescription You can cast a spell after defeating an enemy with your weapon attacks.
