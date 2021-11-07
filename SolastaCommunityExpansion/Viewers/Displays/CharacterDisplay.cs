@@ -30,6 +30,45 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
+            // TODO: vision changes only take effect when creating a character. not sure if new block label is clear enough on intentions or we need more explanation here.
+            toggle = Main.Settings.DisableSenseDarkVisionFromAllRaces;
+            if (UI.Toggle("Disables " + "Sense Dark Vision".orange() + " from all races " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.DisableSenseDarkVisionFromAllRaces = toggle;
+            }
+
+            toggle = Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces;
+            if (UI.Toggle("Disables " + "Superior Sense Dark Vision".orange() + " from all races " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces = toggle;
+            }
+
+            UI.Label("");
+
+            toggle = Main.Settings.EnableAlternateHuman;
+            if (UI.Toggle("Enables the alternate human [+1 feat / +2 attribute choices / +1 skill]", ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.EnableAlternateHuman = toggle;
+                InitialChoicesContext.RefreshAllRacesInitialFeats();
+            }
+
+            toggle = Main.Settings.EnableFlexibleRaces;
+            if (UI.Toggle("Enables flexible races [Assign ability score points instead of the racial defaults]\n" + "High Elf has 3 points to assign instead of +2 Dex / +1 Int".italic().red(), ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.EnableFlexibleRaces = toggle;
+                FlexibleRacesContext.Switch(toggle);
+            }
+            UI.Label("");
+
+            toggle = Main.Settings.EnableFlexibleBackgrounds;
+            if (UI.Toggle("Enables flexible backgrounds [Select skill and tool proficiencies from backgrounds]", ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.EnableFlexibleBackgrounds = toggle;
+                FlexibleBackgroundsContext.Switch(toggle);
+            }
+
+            UI.Label("");
+
             toggle = Main.Settings.EnablesAsiAndFeat;
             if (UI.Toggle("Enables both ASI and feat", ref toggle, 0, UI.AutoWidth()))
             {
@@ -44,28 +83,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 EpicArrayContext.Load();
             }
 
-            toggle = Main.Settings.EnableAlternateHuman;
-            if (UI.Toggle("Enables the Alternate Human [+1 feat / +2 attribute choices / +1 skill]", ref toggle, 0, UI.AutoWidth()))
-            {
-                Main.Settings.EnableAlternateHuman = toggle;
-                InitialChoicesContext.RefreshAllRacesInitialFeats();
-            }
-
-            toggle = Main.Settings.EnableFlexibleBackgrounds;
-            if (UI.Toggle("Enables flexible backgrounds [Select skill and tool proficiencies from backgrounds]", ref toggle, 0, UI.AutoWidth()))
-            {
-                Main.Settings.EnableFlexibleBackgrounds = toggle;
-                FlexibleBackgroundsContext.Switch(toggle);
-            }
-
-            toggle = Main.Settings.EnableFlexibleRaces;
-            if (UI.Toggle("Enables flexible races [Assign ability score points instead of the racial defaults]\n" + "High Elf has 3 points to assign instead of +2 Dex / +1 Int".italic().red(), ref toggle, 0, UI.AutoWidth()))
-            {
-                Main.Settings.EnableFlexibleRaces = toggle;
-                FlexibleRacesContext.Switch(toggle);
-            }
-
             UI.Label("");
+
             intValue = Main.Settings.AllRacesInitialFeats;
             if (UI.Slider("Total feats granted at first level".white(), ref intValue, Settings.MIN_INITIAL_FEATS, Settings.MAX_INITIAL_FEATS, 0, "", UI.AutoWidth()))
             {

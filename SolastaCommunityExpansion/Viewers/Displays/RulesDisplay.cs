@@ -48,19 +48,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.DisableAutoEquip = toggle;
             }
 
-            // TODO: vision changes only take effect when creating a character. not sure if new block label is clear enough on intentions or we need more explanation here.
-            toggle = Main.Settings.DisableSenseDarkVisionFromAllRaces;
-            if (UI.Toggle("Disables " + "Sense Dark Vision".orange() + " from all races " + reqRestart, ref toggle, 0, UI.AutoWidth()))
-            {
-                Main.Settings.DisableSenseDarkVisionFromAllRaces = toggle;
-            }
-
-            toggle = Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces;
-            if (UI.Toggle("Disables " + "Superior Sense Dark Vision".orange() + " from all races " + reqRestart, ref toggle, 0, UI.AutoWidth()))
-            {
-                Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces = toggle;
-            }
-
             toggle = Main.Settings.NoExperienceOnLevelUp;
             if (UI.Toggle("No experience is required to level up", ref toggle, 0, UI.AutoWidth()))
             {
