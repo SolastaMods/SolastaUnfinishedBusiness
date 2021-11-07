@@ -13,13 +13,13 @@ namespace SolastaCommunityExpansion.Viewers
         private static Dictionary<string, string> creditsTable = new Dictionary<string, string>
         {
             { "Zappastuff", "mod UI work, integration, community organization" },
-            { "ImpPhil", "monster's health, pause UI, stocks prices" },
+            { "ImpPhil", "monster's health, pause UI, stocks prices, no attunement" },
             { "DubhHerder", "crafty feats migration" },
             { "View619", "darkvision, superior dark vision" },
             { "SilverGriffon", "pickpocket, lore friendly names, crafty feats" },
             { "Boofat", "alwaysAlt" },
             { "Myztikrice", "faster time scale" },
-            { "AceHigh", "power attack, reckless fury" },
+            { "AceHigh", "power attack, reckless fury, no identification" },
         };
 
         public void DisplayHelp()
@@ -100,6 +100,8 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString += "[heading]Other Options[/heading]\n[list]";
                 collectedString += "\n[*]Receive both ASI and Feat every 4 levels";
                 collectedString += "\n[*]Add pickpocketable loot";
+                collectedString += "\n[*]Remove identification requirement from items";
+                collectedString += "\n[*]Remove attunement requirement from items";
                 collectedString += "\n[/list]";
                 collectedString += "\n[line]\n";
                 collectedString += Models.SubclassesContext.GenerateSubclassDescription();
@@ -141,6 +143,7 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString += "\n[*]Flexible Backgrounds";
                 collectedString += "\n[*]Healing Feats -Inspiring Leader - Chef - Healer";
                 collectedString += "\n[*]Hot Seat Multiplayer Dungeon Master Mode";
+                collectedString += "\n[*]Identify all items";
                 collectedString += "\n[*]Level 1 Feat All Races";
                 collectedString += "\n[*]Level 20";
                 collectedString += "\n[*]Magic Crossbows";

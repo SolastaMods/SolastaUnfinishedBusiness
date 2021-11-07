@@ -89,6 +89,11 @@ namespace SolastaCommunityExpansion.Viewers
             {
                 Main.Settings.EnableLevel20 = toggle;
             }
+            toggle = Main.Settings.EnableRespec;
+            if (UI.Toggle("Enables RESPEC", ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.EnableRespec = toggle;
+            }
 
             toggle = Main.Settings.EnablesAsiAndFeat;
             if (UI.Toggle("Enables both ASI and feat", ref toggle, 0, UI.AutoWidth()))

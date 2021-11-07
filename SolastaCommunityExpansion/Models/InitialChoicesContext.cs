@@ -20,11 +20,11 @@ namespace SolastaCommunityExpansion.Models
                 var name = $"PointPool{i}BonusFeats";
                 var guid = GuidHelper.Create(new System.Guid(Settings.GUID), name).ToString();
 
-                _ = new FeatureDefinitionPointPoolBuilder(name, guid, HeroDefinitions.PointsPoolType.Feat, 2,
+                _ = new FeatureDefinitionPointPoolBuilder(name, guid, HeroDefinitions.PointsPoolType.Feat, i,
                         new GuiPresentationBuilder($"Race/&PointPoolSelect{i}FeatsDescription", $"Race/&PointPoolSelect{i}FeatsTitle").Build()).AddToDB(true);
             }
 
-            Models.InitialChoicesContext.RefreshAllRacesInitialFeats();
+            RefreshAllRacesInitialFeats();
         }
 
         internal static void RefreshAllRacesInitialFeats()

@@ -48,9 +48,9 @@ namespace SolastaCommunityExpansion.Viewers
             {
                 if (UI.Toggle("Select all", ref selectAll))
                 {
-                    foreach (var keyValuePair in Models.FeatsContext.Feats)
+                    foreach (var keyValuePair in FeatsContext.Feats)
                     {
-                        Models.FeatsContext.Switch(keyValuePair.Key, selectAll);
+                        FeatsContext.Switch(keyValuePair.Key, selectAll);
                     }
                 }
 
@@ -66,7 +66,7 @@ namespace SolastaCommunityExpansion.Viewers
             int columns;
             var flip = false;
             var current = 0;
-            var featsCount = Models.FeatsContext.Feats.Count;
+            var featsCount = FeatsContext.Feats.Count;
 
             using (UI.VerticalScope())
             {
@@ -78,7 +78,7 @@ namespace SolastaCommunityExpansion.Viewers
                     {
                         while (current < featsCount && columns-- > 0)
                         {
-                            var keyValuePair = Models.FeatsContext.Feats.ElementAt(current);
+                            var keyValuePair = FeatsContext.Feats.ElementAt(current);
                             toggle = Main.Settings.FeatEnabled.Contains(keyValuePair.Key);
                             var title = Gui.Format(keyValuePair.Value.GuiPresentation.Title);
 
@@ -90,7 +90,7 @@ namespace SolastaCommunityExpansion.Viewers
                             if (UI.Toggle(title, ref toggle, PIXELS_PER_COLUMN))
                             {
                                 selectAll = false;
-                                Models.FeatsContext.Switch(keyValuePair.Key, toggle);
+                                FeatsContext.Switch(keyValuePair.Key, toggle);
                             }
 
                             if (Main.Settings.FeatSliderPosition == 1)

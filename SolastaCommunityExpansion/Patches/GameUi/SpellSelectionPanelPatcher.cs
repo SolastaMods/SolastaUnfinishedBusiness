@@ -108,7 +108,7 @@ namespace SolastaCommunityExpansion.Patches
 					if (lineIndex > 0)
                     {
 						// instantiate new table
-						spellRepertoireLinesTable = GameObject.Instantiate(spellRepertoireLinesTable);
+						spellRepertoireLinesTable = Object.Instantiate(spellRepertoireLinesTable);
 						// clear it of children
 						spellRepertoireLinesTable.DetachChildren();
 						spellRepertoireLinesTable.SetParent(previousTable.parent.transform, true);
@@ -230,7 +230,7 @@ namespace SolastaCommunityExpansion.Patches
 					{
 						Gui.ReleaseChildrenToPool(spellTable);
 						spellTable.SetParent(null);
-						GameObject.Destroy(spellTable.gameObject);
+                        Object.Destroy(spellTable.gameObject);
 					}
                 }
 				spellLineTables.Clear();
