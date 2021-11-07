@@ -13,8 +13,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             float floatValue;
 
             UI.Label("");
-            UI.Label("Game UI:".yellow());
-            UI.Label("");
 
             toggle = Main.Settings.AllowExtraKeyboardCharactersInNames;
             if (UI.Toggle("Allows extra keyboard characters in names", ref toggle, 0, UI.AutoWidth()))
