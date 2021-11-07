@@ -139,6 +139,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
         internal static void DisplayLevel20Help()
         {
+            UI.Label("");
+
             UI.DisclosureToggle("Level 20".orange().bold(), ref level20HelpToggle);
             if (level20HelpToggle)
             {
