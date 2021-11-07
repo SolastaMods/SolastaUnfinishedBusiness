@@ -30,7 +30,6 @@ namespace SolastaCommunityExpansion.Models
                 RangerBuilder.Load();
                 RogueBuilder.Load();
                 SorcererBuilder.Load();
-                TinkererBuilder.Load();
                 WizardBuilder.Load();
 
                 ConArtistBuilder.Load();
