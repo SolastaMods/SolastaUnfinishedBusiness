@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Viewers
 
         private static Dictionary<string, string> creditsTable = new Dictionary<string, string>
         {
-            { "Zappastuff", "mod UI work, integration, community organization" },
+            { "Zappastuff", "mod UI work, integration, community organization, level 20, respec" },
             { "ImpPhil", "monster's health, pause UI, stocks prices, no attunement" },
             { "DubhHerder", "crafty feats migration" },
             { "View619", "darkvision, superior dark vision" },
@@ -20,6 +20,7 @@ namespace SolastaCommunityExpansion.Viewers
             { "Boofat", "alwaysAlt" },
             { "Myztikrice", "faster time scale" },
             { "AceHigh", "power attack, reckless fury, no identification" },
+            { "Narria", "modKit development, support" }
         };
 
         public void DisplayHelp()
@@ -61,10 +62,10 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString += "\nThis is a collection of work from the Solasta modding community. It includes feats, subclasses, items, crafting recipes, gameplay options, UI improvements, and more. The general philosophy is everything is optional to enable, so you can install the mod and then enalbe the pieces you want. There are some minor bug fixes that are enabled by default.";
                 collectedString += "\n\n[b] ATTENTION:[/b] This mod is a collection of previously released mods in addition to some new components. If any of the mods this is replacing is still installed, you will have errors on startup. It is highly suggested to delete all mods from [b]GAME_FOLDER\\Mods[/b] and add the ones you need. No previous mod from the list at the end of this document should be installed unless the author specifically says it is supported. [b]ChrisJohnDigital[/b], [b]ImpPhil[/b] and [b]Zappastuff[/b] put many hours consolidating all previous work to offer the best we created over the last year in a simple set of 4 basic mods:";
                 collectedString += "\n\n[list=1]";
-                collectedString += "\n[*] Solasta Mod API - Provides the basis for all other mods to work";
-                collectedString += "\n[*] Solasta Community Expansion - About 40 mods from the community were consolidated here. 40 Feats, 6 Subclasses, Bug Fixes, etc.";
-                collectedString += "\n[*] DM Multiplayer PRO - Offers REAL Multiplayer with up to 4 users, additional design options for Dungeon Creators, Lua Scripting, etc.";
-                collectedString += "\n[*] Solasta Unfinished Business - Offers progression to level 20, multiclassing and respecing";
+                collectedString += "\n[*] [b]Solasta Mod API[/b] - Provides the basis for all other mods to work";
+                collectedString += "\n[*] [b]Solasta Community Expansion[/b] - About 40 mods from the community were consolidated here. 40 Feats, 6 Subclasses, Bug Fixes, etc.";
+                collectedString += "\n[*] [b]Solasta Dungeon Maker PRO [Multiplayer][/b] - Offers multiplayer with up to 4 users, additional design options for Dungeon Creators, Lua Scripting, etc.";
+                collectedString += "\n[*] [b]Solasta Unfinished Business [Multiclass][/b] - Brings SRD official multiclassing rules into Solasta";
                 collectedString += "\n[/list]";
                 collectedString += "\n[heading] How to Report Bugs[/heading]";
                 collectedString += "\n[list]";
