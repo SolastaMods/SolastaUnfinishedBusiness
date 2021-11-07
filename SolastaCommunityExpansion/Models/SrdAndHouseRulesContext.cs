@@ -3,7 +3,7 @@ using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
 
 namespace SolastaCommunityExpansion.Models
 {
-    internal static class HouseRulesContext
+    internal static class SrdAndHouseRulesContext
     {
         public static void ApplyConditionBlindedShouldNotAllowOpportunityAttack()
         {
