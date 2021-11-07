@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Level20.Classes
         internal static void Load()
         {
             Paladin.FeatureUnlocks.AddRange(
-                // TODO 14: Cleansing Touch
+                new FeatureUnlockByLevel(PowerPaladinCleansingTouchBuilder.PowerPaladinCleansingTouch, 14),
                 new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 16),
                 new FeatureUnlockByLevel(PowerPaladinAuraOfCourage18Builder.Instance, 18),
                 new FeatureUnlockByLevel(PowerPaladinAuraOfProtection18Builder.Instance, 18),
