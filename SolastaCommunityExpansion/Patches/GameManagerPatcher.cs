@@ -23,6 +23,7 @@ namespace SolastaCommunityExpansion.Patches
                 Models.EpicArrayContext.Load();
                 Models.RespecContext.Load();
                 Models.RemoveIdentificationContext.Load();
+                Models.Level20Context.Load();
 
                 Main.Enabled = true;
             }

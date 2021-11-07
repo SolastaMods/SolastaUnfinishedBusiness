@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaCommunityExpansion.Level20.Features.PowerClericTurnUndeadBuilder;
+using static SolastaCommunityExpansion.Level20.Features.PowerClericDivineInterventionImprovementBuilder;
 
 namespace SolastaCommunityExpansion.Level20.Classes
 {
@@ -12,14 +14,13 @@ namespace SolastaCommunityExpansion.Level20.Classes
     {
         internal static void Load()
         {
-            // add missing progression
             Cleric.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel> {
                 new FeatureUnlockByLevel(PowerClericTurnUndead14, 14),
                 new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 16),
                 new FeatureUnlockByLevel(PowerClericTurnUndead17, 17),
                 new FeatureUnlockByLevel(AttributeModifierClericChannelDivinityAdd, 18),
                 new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19)
-                // TODO 20: Divine Intervention Improvement
+                // Solasta handles divine intervention on the subclasses, added below.
             });
 
             CastSpellCleric.SetSpellCastingLevel(9);
@@ -29,6 +30,17 @@ namespace SolastaCommunityExpansion.Level20.Classes
 
             CastSpellCleric.ReplacedSpells.Clear();
             CastSpellCleric.ReplacedSpells.AddRange(SpellsHelper.EmptyReplacedSpells);
+
+
+            DomainBattle.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementPaladin, 20));
+            DomainElementalCold.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
+            DomainElementalFire.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
+            DomainElementalLighting.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
+            DomainInsight.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementCleric, 20));
+            DomainLaw.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementPaladin, 20));
+            DomainLife.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementCleric, 20));
+            DomainOblivion.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementCleric, 20));
+            DomainSun.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
         }
     }
 }
