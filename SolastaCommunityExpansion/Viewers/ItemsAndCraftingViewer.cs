@@ -3,9 +3,9 @@ using ModKit;
 
 namespace SolastaCommunityExpansion.Viewers
 {
-    public class ControlItemGroupsMenu : IMenuSelectablePage
+    public class ItemsAndCraftingViewer : IMenuSelectablePage
     {
-        public string Name => "Items and Crafting";
+        public string Name => "Items & Crafting";
 
         public int Priority => 4;
 
