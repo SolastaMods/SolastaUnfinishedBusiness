@@ -13,6 +13,10 @@ namespace SolastaCommunityExpansion
     
     public class Settings : UnityModManager.ModSettings
     {
+        //
+        // TODO: Reorganize the order of these settings in code per viewers on UI to simplify maintenance
+        //
+
         public const string GUID = "b1ffaca74824486ea74a68d45e6b1925";
 
         public const int MIN_INITIAL_FEATS = 0;
@@ -100,6 +104,8 @@ namespace SolastaCommunityExpansion
 
         public bool EnableRespec = false;
 
+        public bool NoExperienceOnLevelUp = false;
+
         public bool OfferAdditionalNames = false;
         public bool InvertAltBehaviorOnTooltips = false;
 
@@ -120,5 +126,8 @@ namespace SolastaCommunityExpansion
         public bool NoIdentification;
         public bool NoAttunement;
         public bool SetMaxFactionRelations;
+
+        public bool EnableSRDAdvantageRules = false; // TODO: UI toggle
+        public bool EnableConditionBlindedShouldNotAllowOpportunityAttack = false; // TODO: UI toggle
     }
 }
