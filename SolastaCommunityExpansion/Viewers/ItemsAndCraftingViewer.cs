@@ -60,24 +60,30 @@ namespace SolastaCommunityExpansion.Viewers
             UI.Label(". Items added to stores might need the party to travel away from the location and come back");
             UI.Label("");
 
-
-            var keys = Models.ItemCraftingContext.RecipeBooks.Keys;
-            var current = 0;
-            var count = keys.Count;
-            int cols;
-
-            while (current < count)
+            if (ServiceRepository.GetService<IGameService>()?.Game == null)
             {
-                cols = 0;
+                UI.Label("Start a game to display the recipes list...");
+            }
+            else
+            {
+                var keys = Models.ItemCraftingContext.RecipeBooks.Keys;
+                var current = 0;
+                var count = keys.Count;
+                int cols;
 
-                using (UI.HorizontalScope())
+                while (current < count)
                 {
-                    while (current < count && cols < 3)
-                    {
-                        AddUIForWeaponKey(keys.ElementAt(current));
+                    cols = 0;
 
-                        cols++;
-                        current++;
+                    using (UI.HorizontalScope())
+                    {
+                        while (current < count && cols < 3)
+                        {
+                            AddUIForWeaponKey(keys.ElementAt(current));
+
+                            cols++;
+                            current++;
+                        }
                     }
                 }
             }
