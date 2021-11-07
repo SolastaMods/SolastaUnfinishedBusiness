@@ -1,5 +1,6 @@
 ﻿using UnityModManagerNet;
 using ModKit;
+using System.Linq;
 
 namespace SolastaCommunityExpansion.Viewers
 {
@@ -14,15 +15,14 @@ namespace SolastaCommunityExpansion.Viewers
         private void AddUIForWeaponKey(string key)
         {
             bool toggle = Main.Settings.InStore.Contains(key);
-            using (UI.HorizontalScope())
+            using (UI.HorizontalScope(UI.Width(350)))
             {
-                UI.ActionButton(Models.ItemCraftingContext.RecipeTitles[key], () => Models.ItemCraftingContext.LearnRecipes(key), UI.Width(200));
-                UI.Space(10);
-                if (UI.Toggle("Add to store", ref toggle, 0, UI.AutoWidth()))
+                if (UI.Toggle("Add to store", ref toggle, 0, UI.Width(75)))
                 {
                     Main.Settings.InStore.Add(key);
                     Models.ItemCraftingContext.AddToStore(key);
                 }
+                UI.ActionButton(Models.ItemCraftingContext.RecipeTitles[key], () => Models.ItemCraftingContext.LearnRecipes(key), UI.Width(200));
             }
         }
 
@@ -60,9 +60,26 @@ namespace SolastaCommunityExpansion.Viewers
             UI.Label(". Items added to stores might need the party to travel away from the location and come back");
             UI.Label("");
 
-            foreach (string key in Models.ItemCraftingContext.RecipeBooks.Keys)
+
+            var keys = Models.ItemCraftingContext.RecipeBooks.Keys;
+            var current = 0;
+            var count = keys.Count;
+            int cols;
+
+            while (current < count)
             {
-                AddUIForWeaponKey(key);
+                cols = 0;
+
+                using (UI.HorizontalScope())
+                {
+                    while (current < count && cols < 3)
+                    {
+                        AddUIForWeaponKey(keys.ElementAt(current));
+
+                        cols++;
+                        current++;
+                    }
+                }
             }
         }
 
