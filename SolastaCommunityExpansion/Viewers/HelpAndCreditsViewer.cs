@@ -1,56 +1,23 @@
 using UnityModManagerNet;
 using ModKit;
-using System.Collections.Generic;
+using static SolastaCommunityExpansion.Viewers.Displays.Level20HelpDisplay;
+using static SolastaCommunityExpansion.Viewers.Displays.CreditsDisplay;
 
 namespace SolastaCommunityExpansion.Viewers
 {
-    public class CreditsViewer : IMenuSelectablePage
+    public class HelpAndCreditsViewer : IMenuSelectablePage
     {
-        public string Name => "Credits";
+        public string Name => "Help & Credits";
 
-        public int Priority => 10;
-
-        private static Dictionary<string, string> creditsTable = new Dictionary<string, string>
-        {
-            { "Zappastuff", "mod UI work, integration, community organization, level 20, respec" },
-            { "ImpPhil", "monster's health, pause UI, stocks prices, no attunement" },
-            { "DubhHerder", "crafty feats migration" },
-            { "View619", "darkvision, superior dark vision" },
-            { "SilverGriffon", "pickpocket, lore friendly names, crafty feats" },
-            { "Boofat", "alwaysAlt" },
-            { "Myztikrice", "faster time scale" },
-            { "AceHigh", "power attack, reckless fury, no identification" },
-            { "Narria", "modKit development, support" }
-        };
-
-        public void DisplayHelp()
-        {
-            UI.Label("");
-            UI.Label("Author:".yellow());
-            UI.Label("");
-            UI.Label(". ChrisJohnDigital".bold() + " - feats, items, subclasses, progression, etc.");
-            UI.Label("");
-            UI.Label("Credits:".yellow());
-            UI.Label("");
-
-            foreach (var kvp in creditsTable)
-            {
-                using (UI.HorizontalScope())
-                {
-                    UI.Label(kvp.Key.orange(), UI.Width(100));
-                    UI.Label(kvp.Value, UI.Width(400));
-                }
-            }
-            UI.Label("");
-        }
+        public int Priority => 40;
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
             UI.Label("Welcome to Solasta Community Expansion".yellow().bold());
             UI.Div();
 
-            DisplayHelp();
-
+            DisplayLevel20Help();
+            DisplayCredits();
             //AddDumpDescriptionToLogButton();
         }
 
@@ -114,7 +81,7 @@ namespace SolastaCommunityExpansion.Viewers
 
                 collectedString += "[heading]Credits[/heading]\n[list]";
                 collectedString += "\n[*]Chris John Digital";
-                foreach (var kvp in creditsTable)
+                foreach (var kvp in Displays.CreditsDisplay.CreditsTable)
                 {
                     collectedString += "\n[*]" + kvp.Key + ": " + kvp.Value;
                 }
