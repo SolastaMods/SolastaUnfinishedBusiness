@@ -22,74 +22,74 @@ namespace SolastaCommunityExpansion.Level20.Classes
                 new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19)
             );
 
-            // Oath of Devotion
-            AutoPreparedSpellsOathOfDevotion.AutoPreparedSpellsGroups.Add(
-                new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
-                {
-                    ClassLevel = 13,
-                    SpellsList = new List<SpellDefinition>
-                    {
-                        FreedomOfMovement,
-                        GuardianOfFaith
-                    }
-                });
+            //// Oath of Devotion
+            //AutoPreparedSpellsOathOfDevotion.AutoPreparedSpellsGroups.Add(
+            //    new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
+            //    {
+            //        ClassLevel = 13,
+            //        SpellsList = new List<SpellDefinition>
+            //        {
+            //            FreedomOfMovement,
+            //            GuardianOfFaith
+            //        }
+            //    });
 
-            AutoPreparedSpellsOathOfDevotion.AutoPreparedSpellsGroups.Add(
-                new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
-                {
-                    ClassLevel = 17,
-                    SpellsList = new List<SpellDefinition>
-                    {
-                        // Commune,
-                        FlameStrike
-                    }
-                });
+            //AutoPreparedSpellsOathOfDevotion.AutoPreparedSpellsGroups.Add(
+            //    new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
+            //    {
+            //        ClassLevel = 17,
+            //        SpellsList = new List<SpellDefinition>
+            //        {
+            //            // Commune,
+            //            FlameStrike
+            //        }
+            //    });
 
-            // Oath of Motherlands
-            AutoPreparedSpellsOathOfMotherland.AutoPreparedSpellsGroups.Add(
-                new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
-                {
-                    ClassLevel = 13,
-                    SpellsList = new List<SpellDefinition>
-                    {
-                        WallOfFire,
-                        Stoneskin
-                    }
-                });
+            //// Oath of Motherlands
+            //AutoPreparedSpellsOathOfMotherland.AutoPreparedSpellsGroups.Add(
+            //    new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
+            //    {
+            //        ClassLevel = 13,
+            //        SpellsList = new List<SpellDefinition>
+            //        {
+            //            WallOfFire,
+            //            Stoneskin
+            //        }
+            //    });
 
-            AutoPreparedSpellsOathOfMotherland.AutoPreparedSpellsGroups.Add(
-                new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
-                {
-                    ClassLevel = 17,
-                    SpellsList = new List<SpellDefinition>
-                    {
-                        WallOfThorns,
-                        FlameStrike
-                    }
-                });
+            //AutoPreparedSpellsOathOfMotherland.AutoPreparedSpellsGroups.Add(
+            //    new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
+            //    {
+            //        ClassLevel = 17,
+            //        SpellsList = new List<SpellDefinition>
+            //        {
+            //            WallOfThorns,
+            //            FlameStrike
+            //        }
+            //    });
 
-            // Oath of Tirmar
-            AutoPreparedSpellsOathOfTirmar.AutoPreparedSpellsGroups.Add(
-                new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
-                {
-                    ClassLevel = 13,
-                    SpellsList = new List<SpellDefinition>
-                    {
-                        Banishment,
-                        // Compulsion
-                    }
-                });
+            //// Oath of Tirmar
+            //AutoPreparedSpellsOathOfTirmar.AutoPreparedSpellsGroups.Add(
+            //    new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
+            //    {
+            //        ClassLevel = 13,
+            //        SpellsList = new List<SpellDefinition>
+            //        {
+            //            Banishment,
+            //            // Compulsion
+            //        }
+            //    });
 
-            AutoPreparedSpellsOathOfTirmar.AutoPreparedSpellsGroups.Add(
-                new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
-                {
-                    ClassLevel = 17,
-                    SpellsList = new List<SpellDefinition>
-                    {
-                        WallOfForce,
-                        HoldMonster
-                    }
-                });
+            //AutoPreparedSpellsOathOfTirmar.AutoPreparedSpellsGroups.Add(
+            //    new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
+            //    {
+            //        ClassLevel = 17,
+            //        SpellsList = new List<SpellDefinition>
+            //        {
+            //            WallOfForce,
+            //            HoldMonster
+            //        }
+            //    });
 
             CastSpellPaladin.SetSpellCastingLevel(5);
 
