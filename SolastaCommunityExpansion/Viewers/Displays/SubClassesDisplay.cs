@@ -22,7 +22,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
             toggle = Main.Settings.SpellMasterUnlimitedArcaneRecovery;
-            if (UI.Toggle("Enables unlimited ".white() + "Arcane Recovery".orange() + " on Wizard Spell Master\n".white() + "Must be enabled when the ability has available uses (or before character creation)".red(), ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Enables unlimited ".white() + "Arcane Recovery".orange() + " on Wizard Spell Master\n".white() + "Must be enabled when the ability has available uses (or before character creation)".italic().red(), ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.SpellMasterUnlimitedArcaneRecovery = toggle;
                 Subclasses.Wizard.SpellMaster.UpdateRecoveryLimited();
