@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.PickPocketEnabled;
-            if (UI.Toggle("Adds pickpocketable loot [required by " + "Pickpocket".orange() + " feat to make it relevant]", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Adds pickpocketable loot [suggested if " + "Pickpocket".orange() + " feat is enabled]", ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.PickPocketEnabled = toggle;
                 if (toggle)
