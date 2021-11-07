@@ -3,11 +3,11 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
-    internal static class GameplayDisplay
+    internal static class CharacterDisplay
     {
         private static readonly string reqRestart = "[requires restart]".italic().red();
 
-        private static void DisplayProgressionSettings()
+        internal static void DisplayCharacter()
         {
             int intValue;
             bool toggle;
@@ -66,7 +66,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
         }
 
-        private static void DisplayRulesSettings()
+        public static void DisplayRulesSettings()
         {
             bool toggle;
 
@@ -124,12 +124,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             {
                 Main.Settings.ExactMerchantCostScaling = toggle;
             }
-        }
-
-        internal static void DisplayGameplaySettings()
-        {
-            DisplayProgressionSettings();
-            DisplayRulesSettings();
         }
     }
 }

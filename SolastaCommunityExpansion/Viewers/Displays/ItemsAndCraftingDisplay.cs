@@ -6,7 +6,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class ItemsAndCraftingDisplay
     {
-        private static readonly string reqRestart = "[requires restart to disable]".italic().red();
+        // private static readonly string reqRestart = "[requires restart to disable]".italic().red();
 
         private static void AddUIForWeaponKey(string key)
         {
@@ -22,7 +22,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
         }
 
-        internal static void DisplayItemsAndCraftingSettings()
+        internal static void DisplayItemsAndCrafting()
         {
             int intValue = Main.Settings.RecipeCost;
 

@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         private const float PIXELS_PER_COLUMN = 225;
         private static readonly string reqRestart = "[requires restart]".italic().red().bold();
 
-        internal static void DisplayFeatsSettings()
+        internal static void DisplayFeats()
         {
             bool toggle;
             int intValue;

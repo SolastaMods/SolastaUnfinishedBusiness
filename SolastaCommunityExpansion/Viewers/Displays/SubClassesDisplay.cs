@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         private const int MAX_COLUMNS = 4;
         private const float PIXELS_PER_COLUMN = 225;
 
-        internal static void DisplaySubclassesSettings()
+        internal static void DisplaySubclasses()
         {
             bool toggle;
             int intValue;

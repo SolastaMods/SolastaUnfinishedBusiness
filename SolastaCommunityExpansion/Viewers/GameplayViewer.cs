@@ -1,17 +1,16 @@
 ﻿using UnityModManagerNet;
 using ModKit;
-using static SolastaCommunityExpansion.Viewers.Displays.GameplayDisplay;
-using static SolastaCommunityExpansion.Viewers.Displays.FeatsDisplay;
+using static SolastaCommunityExpansion.Viewers.Displays.RulesDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.ItemsAndCraftingDisplay;
-using static SolastaCommunityExpansion.Viewers.Displays.SubClassesDisplay;
+using static SolastaCommunityExpansion.Viewers.Displays.CheatsDisplay;
 
 namespace SolastaCommunityExpansion.Viewers
 {
     public class GameplayViewer : IMenuSelectablePage
     {
-        public string Name => "Settings";
+        public string Name => "Gameplay";
 
-        public int Priority => 10;
+        public int Priority => 20;
 
         private static int selectedPane = 0;
 
@@ -24,10 +23,9 @@ namespace SolastaCommunityExpansion.Viewers
             {
                 UI.TabBar(ref selectedPane, null, new NamedAction[]
                 {
-                    new NamedAction("Gameplay", DisplayGameplaySettings),
-                    new NamedAction("Feats", DisplayFeatsSettings),
-                    new NamedAction("Subclasses", DisplaySubclassesSettings),
-                    new NamedAction("Items & Crafting", DisplayItemsAndCraftingSettings),
+                    new NamedAction("Rules", DisplayRules),
+                    new NamedAction("Items & Crafting", DisplayItemsAndCrafting),
+                     new NamedAction("Cheats", DisplayCheats),
                 });
             }
         }
