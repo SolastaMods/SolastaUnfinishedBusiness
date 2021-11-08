@@ -127,8 +127,8 @@ namespace SolastaCommunityExpansion
         public bool NoAttunement;
         public bool SetMaxFactionRelations;
 
-        public bool EnableSRDAdvantageRules = false; // TODO: UI toggle
-        public bool EnableConditionBlindedShouldNotAllowOpportunityAttack = false; // TODO: UI toggle
+        public bool EnableSRDAdvantageRules = false;
+        public bool EnableConditionBlindedShouldNotAllowOpportunityAttack = false;
         public bool AllowExtraKeyboardCharactersInNames = false;
     }
 }
