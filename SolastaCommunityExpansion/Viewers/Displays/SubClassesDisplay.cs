@@ -1,21 +1,16 @@
-﻿using ModKit;
+﻿using System.Linq;
+using ModKit;
 using SolastaCommunityExpansion.Models;
-using System.Linq;
-using UnityModManagerNet;
 
-namespace SolastaCommunityExpansion.Viewers
+namespace SolastaCommunityExpansion.Viewers.Displays
 {
-   public class SubclassesViewer : IMenuSelectablePage
+    internal static class SubClassesDisplay
     {
-        public string Name => "Subclasses";
-
-        public int Priority => 3;
-
         private static bool selectAll = false;
         private const int MAX_COLUMNS = 4;
         private const float PIXELS_PER_COLUMN = 225;
 
-        public void DisplaySubclassesSettings()
+        internal static void DisplaySubclasses()
         {
             bool toggle;
             int intValue;
@@ -27,7 +22,7 @@ namespace SolastaCommunityExpansion.Viewers
 
             UI.Label("");
             toggle = Main.Settings.SpellMasterUnlimitedArcaneRecovery;
-            if (UI.Toggle("Enables unlimited ".white() + "Arcane Recovery".orange() + " on Wizard Spell Master\n".white() + "must be enabled when the ability has available uses (or before character creation)".red(), ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Enables unlimited ".white() + "Arcane Recovery".orange() + " on Wizard Spell Master\n".white() + "Must be enabled when the ability has available uses (or before character creation)".italic().red(), ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.SpellMasterUnlimitedArcaneRecovery = toggle;
                 Subclasses.Wizard.SpellMaster.UpdateRecoveryLimited();
@@ -45,7 +40,7 @@ namespace SolastaCommunityExpansion.Viewers
             intValue = Main.Settings.MasterManipulatorSpellDCBoost;
             if (UI.Slider("", ref intValue, 0, 5, 2, "", UI.AutoWidth()))
             {
-                Main.Settings.RogueConArtistSpellDCBoost = intValue;
+                Main.Settings.MasterManipulatorSpellDCBoost = intValue;
             }
 
             UI.Label("");
@@ -123,14 +118,5 @@ namespace SolastaCommunityExpansion.Viewers
             }
         }
 
-        public void OnGUI(UnityModManager.ModEntry modEntry)
-        {
-            UI.Label("Welcome to Solasta Community Expansion".yellow().bold());
-            UI.Div();
-
-            if (!Main.Enabled) return;
-
-            DisplaySubclassesSettings();
-        }
     }
 }

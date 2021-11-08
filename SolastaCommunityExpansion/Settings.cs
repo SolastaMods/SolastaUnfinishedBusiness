@@ -13,6 +13,10 @@ namespace SolastaCommunityExpansion
     
     public class Settings : UnityModManager.ModSettings
     {
+        //
+        // TODO: Reorganize the order of these settings in code per viewers on UI to simplify maintenance
+        //
+
         public const string GUID = "b1ffaca74824486ea74a68d45e6b1925";
 
         public const int MIN_INITIAL_FEATS = 0;
@@ -30,6 +34,7 @@ namespace SolastaCommunityExpansion
         public bool EnableEpicPoints = false;
         public bool EnableAlternateHuman = false;
         public bool EnablesAsiAndFeat = false;
+        public bool EnableLevel20 = false;
         public bool EnableFlexibleBackgrounds = false;
         public bool EnableFlexibleRaces = false;
 
@@ -95,6 +100,12 @@ namespace SolastaCommunityExpansion
         public const InputCommands.Id CTRL_M = (InputCommands.Id)44440002;
         public const InputCommands.Id CTRL_P = (InputCommands.Id)44440003;
 
+        public const RestActivityDefinition.ActivityCondition ActivityConditionCanRespec = (RestActivityDefinition.ActivityCondition)(int)-1001;
+
+        public bool EnableRespec = false;
+
+        public bool NoExperienceOnLevelUp = false;
+
         public bool OfferAdditionalNames = false;
         public bool InvertAltBehaviorOnTooltips = false;
 
@@ -114,5 +125,10 @@ namespace SolastaCommunityExpansion
         public bool ExactMerchantCostScaling;
         public bool NoIdentification;
         public bool NoAttunement;
+        public bool SetMaxFactionRelations;
+
+        public bool EnableSRDAdvantageRules = false; // TODO: UI toggle
+        public bool EnableConditionBlindedShouldNotAllowOpportunityAttack = false; // TODO: UI toggle
+        public bool AllowExtraKeyboardCharactersInNames = false;
     }
 }

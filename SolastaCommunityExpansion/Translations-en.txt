@@ -302,6 +302,8 @@ Feature/&RagePowerDescription As a bonus action you enter a rage for one minute 
 Feature/&RagePowerTitle Rage
 Feature/&RageStrengthSavingThrowAffinityDescription You get advantage on strength saves while raging
 Feature/&RageStrengthSavingThrowAffinityTitle Rage strength save advantage
+Feature/&ZSPowerPaladinCleansingTouchDescription Remove spell effects by touching an ally. You can do this a number of times per day equal to your Charisma modifier.
+Feature/&ZSPowerPaladinCleansingTouchTitle Cleansing Touch
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat Additional Damage from Magically Powered Attacks
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine Additional Damage from Magically Powered Attacks
 FlexibleBackgrounds/&BackgroundSkillSelect2Description Select 2 skill proficiencies
@@ -334,6 +336,10 @@ Race/&PointPoolSelect8FeatsDescription Select 8 additional feats for your charac
 Race/&PointPoolSelect8FeatsTitle 8 Bonus Feats
 Race/&PointPoolSelect9FeatsDescription Select 9 additional feats for your character.
 Race/&PointPoolSelect9FeatsTitle 9 Bonus Feats
+RestActivity/&ZSRespecDescription	Respec this Hero
+RestActivity/&ZSRespecTitle	Respec
+RestActivity/&ZSSorcerousRestorationTitle Sorcerous Restoration
+RestActivity/&ZSSorcerousRestorationDescription Regain 4 sorcery points during a short rest.
 Screen/&FeyTeleportSpellDescription This Fey spell is always prepared.
 Screen/&FeyTeleportSpellTitle Fey
 Screen/&ShadowTouchedSpellDescription This Shadow spell is always prepared.
@@ -366,6 +372,8 @@ SolastaCraftyFeats/&ToxicologistIntFeatDescription	+1 Intelligence, Proficiency 
 SolastaCraftyFeats/&ToxicologistIntFeatTitle	Toxicologist (Intelligence)
 SolastaCraftyFeats/&ToxicologistWisFeatDescription	+1 Wisdom, Proficiency or Expertise with Poisoner's Kit and Medicine
 SolastaCraftyFeats/&ToxicologistWisFeatTitle	Toxicologist (Wisdom)
+Sorceror/&ZSSorcerousRestorationTitle Sorcerous Restoration
+Sorceror/&ZSSorcerousRestorationDescription Regain 4 sorcery points during a short rest.
 Subclass/&AbilityAffinityRogueConArtistDescription Advantage on ability checks using Persuasion, Deception, Performance, and Sleight of Hand.
 Subclass/&AbilityAffinityRogueConArtistTitle Manipulative
 Subclass/&ArcaneFighterAdditionalActionDescription You can cast a spell after defeating an enemy with your weapon attacks.
@@ -477,3 +485,30 @@ Subclass/&TraditionSpellMasterSpellResistanceTitle Spell Resistance
 Subclass/&TraditionSpellMasterTitle Spell Master
 Subclass/&WeaponProfArcaneFighterDescription Experience in combat has given the Arcane Fighter training in Simple and Martial Weapons.
 Subclass/&WeaponProfArcaneFighterTitle  Weapon Training
+Feature/&RangerVanishActionTitle	Vanish
+Feature/&RangerVanishActionDescription	Starting at 14th level, you can use the Hide action as a bonus action on your turn.
+Feature/&RangerFeatureSetFoeSlayerTitle	Foe Slayer
+Feature/&RangerFeatureSetFoeSlayerDescription	At 20th level, you become an unparalleled Hunter of your enemies. Once on each of your turns, you can add your Wisdom modifier to the Attack roll or the damage roll of an Attack you make against one of your Favored enemies.
+Feature/&PowerPaladinAuraOfProtection18Title	Improved Aura of Protection
+Feature/&PowerPaladinAuraOfProtection18Description	You and your allies within 30ft cannot be frightened.
+Feature/&PowerPaladinAuraOfCourage18Title	Improved Aura of Courage
+Feature/&PowerPaladinAuraOfCourage18Description Grant a saving throw bonus to allies withing 30ft.
+Feature/&PrimalChampionConstitutionDescription At 20th level, you embody the power of the wilds. Your Constitution scores increase by 4
+Feature/&PrimalChampionConstitutionTitle Primal Champion (Constitution)
+Feature/&PrimalChampionStrengthDescription At 20th level, you embody the power of the wilds. Your Strength scores increase by 4
+Feature/&PrimalChampionStrengthTitle Primal Champion (Strength)
+Feature/&ProficiencyRogueSlipperyMindTitle	Slippery Mind
+Feature/&ProficiencyRogueSlipperyMindDescription	By 15th level, you have acquired greater mental strength. You gain proficiency in Wisdom saving throws.
+Feature/&ProficiencyRogueBlindSenseTitle	Blindsense
+Feature/&ProficiencyRogueBlindSenseDescription	Starting at 14th level, if you are able to hear, you are aware of the location of any hidden or invisible creature within 10 feet of you.
+Feature/&IndomitableResistanceAddTitle	Indomitable Resistance (increased)
+Feature/&IndomitableResistanceAddDescription	+1 Indomitable Resistance use between rests.
+Feature/&IndomitableResistanceTitle	Indomitable Resitance
+Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageTitle	Foe Slayer
+Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageDescription	Add your Wisdom modifier to your damage roll.
+Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageReactTitle	Foe Slayer
+Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageReactDescription	Add your Wisdom modifier to your damage roll.
+Reaction/&UseZSPowerRangerFoeSlayerAttackTitle	Foe Slayer
+Reaction/&UseZSPowerRangerFoeSlayerAttackDescription	Add your Wisdom modifier to your attack roll.
+Reaction/&UseZSPowerRangerFoeSlayerAttackReactTitle	Foe Slayer
+Reaction/&UseZSPowerRangerFoeSlayerDamageReactDescription	Add your Wisdom modifier to your attack roll.
