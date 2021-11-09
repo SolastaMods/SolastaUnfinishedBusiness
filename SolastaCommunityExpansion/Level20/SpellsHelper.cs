@@ -66,7 +66,6 @@ namespace SolastaCommunityExpansion.Level20
             "SpellListRanger",
             "SpellListShockArcanist",
             "SpellListSorcerer",
-            "SpellListTinkerer",
             "SpellListWizard",
             "SpellListWizardGreenmage",
         };

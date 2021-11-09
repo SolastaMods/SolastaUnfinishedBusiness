@@ -42,6 +42,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
             }
 
+            toggle = Main.Settings.DruidNoMetalRestriction;
+            if (UI.Toggle("Allow Druids to wear metal armor", ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.DruidNoMetalRestriction = toggle;
+                DruidArmorContext.Switch(toggle);
+            }
+
             toggle = Main.Settings.DisableAutoEquip;
             if (UI.Toggle("Disables auto-equip of items in inventory", ref toggle, 0, UI.AutoWidth()))
             {

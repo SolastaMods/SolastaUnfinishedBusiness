@@ -30,6 +30,7 @@ namespace SolastaCommunityExpansion
         public bool MultiLineSpellPanel = true;
         public bool MultiLinePowerPanel = true;
         public bool KeepSpellsOpenSwitchingEquipment = true;
+        public bool BugFixExpandColorTables = true;
 
         public bool EnableEpicPoints = false;
         public bool EnableAlternateHuman = false;
@@ -127,8 +128,10 @@ namespace SolastaCommunityExpansion
         public bool NoAttunement;
         public bool SetMaxFactionRelations;
 
-        public bool EnableSRDAdvantageRules = false; // TODO: UI toggle
-        public bool EnableConditionBlindedShouldNotAllowOpportunityAttack = false; // TODO: UI toggle
+        public bool EnableSRDAdvantageRules = false;
+        public bool EnableConditionBlindedShouldNotAllowOpportunityAttack = false;
         public bool AllowExtraKeyboardCharactersInNames = false;
+        public bool DruidNoMetalRestriction;
+        public bool RecipeTooltipShowsRecipe;
     }
 }

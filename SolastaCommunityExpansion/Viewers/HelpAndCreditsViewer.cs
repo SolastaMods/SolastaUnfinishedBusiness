@@ -63,6 +63,7 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString += "\n[*]Use official advantage/disadvantage rules";
                 collectedString += "\n[*]Blinded condition doesn't allow attack of opportunity";
                 collectedString += "\n[*]Add pickpocketable loot";
+                collectedString += "\n[*]Allow Druids to wear metal armor";
                 collectedString += "\n[*]Disable auto-equip";
                 collectedString += "\n[*]No experience required for level up";
                 collectedString += "\n[*]Scale merchant prices correctly/exactly";
@@ -76,6 +77,7 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString += "\n[*]Allow extra keyboard characters in names";
                 collectedString += "\n[*]Monsters's health in steps of 25/50/75/100%";
                 collectedString += "\n[*]Invert ALT behavior on tooltips";
+                collectedString += "\n[*]Shows crafting recipe in detailed tooltips";
                 collectedString += "\n[*]Pause the UI when victorious in battle";
                 collectedString += "\n[*]Additional lore friendly names";
                 collectedString += "\n[*]Speed up battles";                
