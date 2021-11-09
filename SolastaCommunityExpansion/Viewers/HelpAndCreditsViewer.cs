@@ -77,6 +77,7 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString += "\n[*]Allow extra keyboard characters in names";
                 collectedString += "\n[*]Monsters's health in steps of 25/50/75/100%";
                 collectedString += "\n[*]Invert ALT behavior on tooltips";
+                collectedString += "\n[*]Shows crafting recipe in detailed tooltips";
                 collectedString += "\n[*]Pause the UI when victorious in battle";
                 collectedString += "\n[*]Additional lore friendly names";
                 collectedString += "\n[*]Speed up battles";                
