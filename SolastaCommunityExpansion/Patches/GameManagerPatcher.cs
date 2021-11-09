@@ -9,6 +9,8 @@ namespace SolastaCommunityExpansion.Patches
         {
             internal static void Postfix()
             {
+                Models.BugFixContext.Load();
+
                 Models.AdditionalNamesContext.Load();
                 Models.AsiAndFeatContext.Load();
                 Models.InitialChoicesContext.Load();
