@@ -24,6 +24,7 @@ namespace SolastaCommunityExpansion.Patches
                 Models.RespecContext.Load();
                 Models.RemoveIdentificationContext.Load();
                 Models.Level20Context.Load();
+                Models.DruidArmorContext.Load();
 
                 Main.Enabled = true;
             }

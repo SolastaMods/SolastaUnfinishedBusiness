@@ -63,6 +63,7 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString += "\n[*]Use official advantage/disadvantage rules";
                 collectedString += "\n[*]Blinded condition doesn't allow attack of opportunity";
                 collectedString += "\n[*]Add pickpocketable loot";
+                collectedString += "\n[*]Allow Druids to wear metal armor";
                 collectedString += "\n[*]Disable auto-equip";
                 collectedString += "\n[*]No experience required for level up";
                 collectedString += "\n[*]Scale merchant prices correctly/exactly";

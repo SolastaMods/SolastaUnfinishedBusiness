@@ -130,6 +130,7 @@ namespace SolastaCommunityExpansion
         public bool EnableSRDAdvantageRules = false; // TODO: UI toggle
         public bool EnableConditionBlindedShouldNotAllowOpportunityAttack = false; // TODO: UI toggle
         public bool AllowExtraKeyboardCharactersInNames = false;
+        public bool DruidNoMetalRestriction;
         public bool RecipeTooltipShowsRecipe;
     }
 }
