@@ -29,7 +29,6 @@ namespace SolastaCommunityExpansion.Models
             { Elf, attributeChoiceThree },
             { Halfling, attributeChoiceThree },
             { HalfElf, attributeChoiceFour },
-            // TODO- verify this doesn't break for folks missing the dlc
             { HalfOrc, attributeChoiceThree },
             // TODO - look into support for user races (like Gnome)
         };
