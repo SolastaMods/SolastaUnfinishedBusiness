@@ -9,6 +9,8 @@ namespace SolastaCommunityExpansion.Patches
         {
             internal static void Postfix()
             {
+                Models.BugFixContext.Load();
+
                 Models.AdditionalNamesContext.Load();
                 Models.AsiAndFeatContext.Load();
                 Models.InitialChoicesContext.Load();
@@ -24,6 +26,7 @@ namespace SolastaCommunityExpansion.Patches
                 Models.RespecContext.Load();
                 Models.RemoveIdentificationContext.Load();
                 Models.Level20Context.Load();
+                Models.DruidArmorContext.Load();
 
                 Main.Enabled = true;
             }

@@ -39,7 +39,6 @@ namespace SolastaCommunityExpansion.Models
             { Philosopher, new List<FeatureDefinition> { skillThree, toolChoice } },
             { SellSword, new List<FeatureDefinition> { skillTwo, toolChoice } },
             { Spy, new List<FeatureDefinition> { skillTwo, toolChoice } },
-            // TODO- verify this doesn't break users who don't have the DLC
             { Wanderer, new List<FeatureDefinition> { skillThree, toolChoice } },
         };
 

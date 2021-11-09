@@ -135,6 +135,7 @@ Equipment/&Enchanted_Spear_BlackViper_Description This enchanted weapon was forg
 Equipment/&Enchanted_Spear_BlackViper_Title Black Viper Spear
 Equipment/&Enchanted_Spear_Doomblade_Title Doom Tipped Spear
 Equipment/&Enchanted_Spear_Lightbringer_Description This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
+Equipment/&Enchanted_Spear_Lightbringer_Title Lightbringer Spear
 Equipment/&Enchanted_Spear_Sharpness_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
 Equipment/&Enchanted_Spear_Sharpness_Description This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. Kenaloth Darkmind devised the Doomblades as a tool of punishment for those who resisted the magic of the Empire.
 Equipment/&Enchanted_Spear_Sharpness_Title Spear of Sharpness
