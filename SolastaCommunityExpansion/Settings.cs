@@ -133,5 +133,6 @@ namespace SolastaCommunityExpansion
         public bool AllowExtraKeyboardCharactersInNames = false;
         public bool DruidNoMetalRestriction;
         public bool RecipeTooltipShowsRecipe;
+        public bool EnableCheatMenuDuringGameplay = false;
     }
 }

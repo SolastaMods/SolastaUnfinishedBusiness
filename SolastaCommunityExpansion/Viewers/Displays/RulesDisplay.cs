@@ -55,6 +55,15 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.DisableAutoEquip = toggle;
             }
 
+            //
+            // TODO: not sure if this is the best place for this toggle. adding here for now...
+            //
+            toggle = Main.Settings.EnableCheatMenuDuringGameplay;
+            if (UI.Toggle("Enables the cheats menu during gameplay", ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.EnableCheatMenuDuringGameplay = toggle;
+            }
+
             toggle = Main.Settings.NoExperienceOnLevelUp;
             if (UI.Toggle("No experience is required to level up", ref toggle, 0, UI.AutoWidth()))
             {
