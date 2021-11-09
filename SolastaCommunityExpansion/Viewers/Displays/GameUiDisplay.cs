@@ -32,6 +32,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.InvertAltBehaviorOnTooltips = toggle;
             }
 
+            toggle = Main.Settings.RecipeTooltipShowsRecipe;
+            if (UI.Toggle("Shows crafting recipe in detailed tooltips", ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.RecipeTooltipShowsRecipe = toggle;
+            }
+
             toggle = Main.Settings.AutoPauseOnVictory;
             if (UI.Toggle("Pauses the UI when victorious in battle", ref toggle, 0, UI.AutoWidth()))
             {
