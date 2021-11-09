@@ -30,6 +30,7 @@ namespace SolastaCommunityExpansion
         public bool MultiLineSpellPanel = true;
         public bool MultiLinePowerPanel = true;
         public bool KeepSpellsOpenSwitchingEquipment = true;
+        public bool BugFixExpandColorTables = true;
 
         public bool EnableEpicPoints = false;
         public bool EnableAlternateHuman = false;
