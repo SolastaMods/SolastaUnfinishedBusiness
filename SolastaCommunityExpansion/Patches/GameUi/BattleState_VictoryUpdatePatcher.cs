@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using static SolastaModApi.DatabaseHelper.QuestTreeDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.GameUi
 {
@@ -8,6 +9,10 @@ namespace SolastaCommunityExpansion.Patches.GameUi
         public static void Postfix()
         {
             if (!Main.Settings.AutoPauseOnVictory) return;
+
+            var gameQuestService = ServiceRepository.GetService<IGameQuestService>();
+
+            if (gameQuestService?.ActiveQuests?.Exists(x => x.QuestTreeDefinition == Tutorial_SUB_Scenario_Tutorial_02_Combat) == true) return;
 
             var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
