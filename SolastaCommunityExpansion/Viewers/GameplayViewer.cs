@@ -1,7 +1,8 @@
 ﻿using UnityModManagerNet;
 using ModKit;
-using static SolastaCommunityExpansion.Viewers.Displays.RulesDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.ItemsAndCraftingDisplay;
+using static SolastaCommunityExpansion.Viewers.Displays.RulesDisplay;
+using static SolastaCommunityExpansion.Viewers.Displays.ToolsDisplay;
 
 namespace SolastaCommunityExpansion.Viewers
 {
@@ -24,6 +25,7 @@ namespace SolastaCommunityExpansion.Viewers
                 {
                     new NamedAction("Rules", DisplayRules),
                     new NamedAction("Items & Crafting", DisplayItemsAndCrafting),
+                    new NamedAction("Tools", DisplayTools),
                 });
             }
         }
