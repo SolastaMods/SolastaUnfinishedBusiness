@@ -65,7 +65,6 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString += "\n[*]Add pickpocketable loot";
                 collectedString += "\n[*]Allow Druids to wear metal armor";
                 collectedString += "\n[*]Disable auto-equip";
-                collectedString += "\n[*]No experience required for level up";
                 collectedString += "\n[*]Scale merchant prices correctly/exactly";
                 collectedString += "\n[*]Remove identification requirement from items";
                 collectedString += "\n[*]Remove attunement requirement from items";
@@ -84,6 +83,14 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString += "\n[*]Multi line spell casting selection";
                 collectedString += "\n[*]Multi line power activation selection";
                 collectedString += "\n[*]Keep spell UI open when switching weapons";
+                collectedString += "\n[/list]";
+                collectedString += "\n[line]\n";
+                collectedString += "[heading]Tools[/heading]\n[list]";
+                collectedString += "\n[*]Enable the cheats menu";
+                collectedString += "\n[*]Enable the debug camera";
+                collectedString += "\n[*]Enable the debug overlay";
+                collectedString += "\n[*]No experience required for level up";
+                collectedString += "\n[*]Set Faction relation levels";
                 collectedString += "\n[/list]";
                 collectedString += "\n[line]\n";
                 collectedString += "[heading]Credits[/heading]\n[list]";

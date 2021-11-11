@@ -2,21 +2,12 @@
 {
     internal static class SetFactionRelationsContext
     {
-        internal static void Load()
+        internal static void SetFactionRelation(string name, int value)
         {
-            if (Main.Settings.SetMaxFactionRelations)
+            var service = ServiceRepository.GetService<IGameFactionService>();
+            if (service != null)
             {
-                var service = ServiceRepository.GetService<IGameFactionService>();
-                if (service != null)
-                {
-                    service.ModifyRelation("Antiquarians", FactionDefinition.RelationOperation.SetValue, 100, "LivingLegend");
-                    service.ModifyRelation("Arcaneum", FactionDefinition.RelationOperation.SetValue, 100, "LivingLegend");
-                    service.ModifyRelation("ChurchOfEinar", FactionDefinition.RelationOperation.SetValue, 100, "LivingLegend");
-                    service.ModifyRelation("CircleOfDanantar", FactionDefinition.RelationOperation.SetValue, 100, "LivingLegend");
-                    service.ModifyRelation("Principality", FactionDefinition.RelationOperation.SetValue, 100, "LivingLegend");
-                    service.ModifyRelation("Scavengers", FactionDefinition.RelationOperation.SetValue, 100, "LivingLegend");
-                    service.ModifyRelation("TowerOfKnowledge", FactionDefinition.RelationOperation.SetValue, 100, "LivingLegend");
-                }
+                service.ModifyRelation(name, FactionDefinition.RelationOperation.Increase, value - service.FactionRelations[name], "" /* this string doesn't matter if we're using "SetValue" */);
             }
         }
     }
