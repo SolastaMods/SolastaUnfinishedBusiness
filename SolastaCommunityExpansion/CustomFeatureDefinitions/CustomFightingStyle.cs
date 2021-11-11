@@ -19,7 +19,13 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 
     public class CustomizableFightingStyle : FightingStyleDefinition, ICustomFightingStyle
     {
-        public IsActiveFightingStyleDelegate isActive;
+        private IsActiveFightingStyleDelegate isActive;
+
+        internal void SetIsActiveDelegate(IsActiveFightingStyleDelegate del)
+        {
+            isActive = del;
+        }
+
         public bool IsActive(RulesetCharacterHero character)
         {
             if (isActive != null)
@@ -43,7 +49,7 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 
         public CustomizableFightingStyleBuilder SetIsActive(IsActiveFightingStyleDelegate del)
         {
-            Definition.isActive = del;
+            Definition.SetIsActiveDelegate(del);
             return this;
         }
 
