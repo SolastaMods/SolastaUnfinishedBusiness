@@ -13,8 +13,9 @@ namespace SolastaCommunityExpansion.Feats
 {
     class TorchbearerFeatBuilder : BaseDefinitionBuilder<FeatDefinition>
     {
+        private static Guid TorchbearerGuid = new Guid("03C523EB-91B9-4F1B-A697-804D1BC2D6DD");
         const string TorchbearerFeatName = "TorchbearerFeat";
-        private static readonly string TorchbearerFeatNameGuid = GuidHelper.Create(Core.FP_GUID, TorchbearerFeatName).ToString();
+        private static readonly string TorchbearerFeatNameGuid = GuidHelper.Create(TorchbearerGuid, TorchbearerFeatName).ToString();
 
         protected TorchbearerFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous, name, guid)
         {
@@ -58,8 +59,8 @@ namespace SolastaCommunityExpansion.Feats
             burn_description.SetDurationParameter(3);
             burn_description.SetCanBePlacedOnCharacter(false);
             burn_description.SetHasSavingThrow(true);
-            burn_description.SetSavingThrowAbility(Helpers.Stats.Dexterity);
-            burn_description.SetSavingThrowDifficultyAbility(Helpers.Stats.Dexterity);
+            burn_description.SetSavingThrowAbility(AttributeDefinitions.Dexterity);
+            burn_description.SetSavingThrowDifficultyAbility(AttributeDefinitions.Dexterity);
             burn_description.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency);
             burn_description.SetSpeedType(RuleDefinitions.SpeedType.Instant);
 
@@ -69,7 +70,7 @@ namespace SolastaCommunityExpansion.Feats
             return Helpers.FeatureBuilder<NewFeatureDefinitions.PowerWithRestrictions>.createFeature
             (
                 "PowerTorchbearer",
-                GuidHelper.Create(Core.FP_GUID, "PowerTorchbearer").ToString(),
+                GuidHelper.Create(TorchbearerGuid, "PowerTorchbearer").ToString(),
                 "Feature/&PowerTorchbearerTitle",
                 "Feature/&PowerTorchbearerDescription",
                 DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalFireBurst.GuiPresentation.SpriteReference,

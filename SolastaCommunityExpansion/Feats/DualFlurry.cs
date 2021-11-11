@@ -8,13 +8,15 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 using TA;
+using SolastaModApi.BuilderHelpers;
 
 namespace SolastaCommunityExpansion.Feats
 {
     class DualFlurryFeatBuilder : BaseDefinitionBuilder<FeatDefinition>
     {
+        public static Guid DualFlurryGuid = new Guid("03C523EB-91B9-4F1B-A697-804D1BC2D6DD");
         const string DualFlurryFeatName = "DualFlurryFeat";
-        private static readonly string DualFlurryFeatNameGuid = GuidHelper.Create(Core.FP_GUID, DualFlurryFeatName).ToString();
+        private static readonly string DualFlurryFeatNameGuid = GuidHelper.Create(DualFlurryGuid, DualFlurryFeatName).ToString();
 
         protected DualFlurryFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous, name, guid)
         {
@@ -45,7 +47,7 @@ namespace SolastaCommunityExpansion.Feats
             return Helpers.FeatureBuilder<PrereqApplyConditionOnDamageDone>.createFeature
             (
                 "FeatureDualFlurry",
-                GuidHelper.Create(Core.FP_GUID, "FeatureDualFlurry").ToString(),
+                GuidHelper.Create(DualFlurryGuid, "FeatureDualFlurry").ToString(),
                 "Feature/&DualFlurryTitle",
                 "Feature/&DualFlurryDescription",
                 null,
@@ -85,12 +87,12 @@ namespace SolastaCommunityExpansion.Feats
         }
 
         public static ConditionDefinition CreateAndAddToDB()
-            => new ConditionDualFlurryApplyBuilder("ConditionDualFlurryApply", GuidHelper.Create(Core.FP_GUID, "ConditionDualFlurryApply").ToString()).AddToDB();
+            => new ConditionDualFlurryApplyBuilder("ConditionDualFlurryApply", GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryApply").ToString()).AddToDB();
 
         public static ConditionDefinition GetOrAdd()
         {
             var db = DatabaseRepository.GetDatabase<ConditionDefinition>();
-            return db.TryGetElement("ConditionDualFlurryApply", GuidHelper.Create(Core.FP_GUID, "ConditionDualFlurryApply").ToString()) ?? CreateAndAddToDB();
+            return db.TryGetElement("ConditionDualFlurryApply", GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryApply").ToString()) ?? CreateAndAddToDB();
         }
     }
 
@@ -115,33 +117,28 @@ namespace SolastaCommunityExpansion.Feats
         }
 
         public static ConditionDefinition CreateAndAddToDB()
-            => new ConditionDualFlurryGrantBuilder("ConditionDualFlurryGrant", GuidHelper.Create(Core.FP_GUID, "ConditionDualFlurryGrant").ToString()).AddToDB();
+            => new ConditionDualFlurryGrantBuilder("ConditionDualFlurryGrant", GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryGrant").ToString()).AddToDB();
 
         public static ConditionDefinition GetOrAdd()
         {
             var db = DatabaseRepository.GetDatabase<ConditionDefinition>();
-            return db.TryGetElement("ConditionDualFlurryGrant", GuidHelper.Create(Core.FP_GUID, "ConditionDualFlurryGrant").ToString()) ?? CreateAndAddToDB();
+            return db.TryGetElement("ConditionDualFlurryGrant", GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryGrant").ToString()) ?? CreateAndAddToDB();
         }
 
         private static FeatureDefinition buildAdditionalActionDualFlurry()
         {
-            return Helpers.CopyFeatureBuilder<FeatureDefinitionAdditionalAction>.createFeatureCopy
-            (
-                "AdditionalActionDualFlurry",
-                GuidHelper.Create(Core.FP_GUID, "AdditionalActionDualFlurry").ToString(),
-                "Feature/&AdditionalActionDualFlurryTitle",
-                "Feature/&AdditionalActionDualFlurryDescription",
-                DatabaseHelper.FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain.GuiPresentation.SpriteReference,
-                DatabaseHelper.FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain,
-                a =>
-                {
-                    a.SetActionType(ActionDefinitions.ActionType.Bonus);
-                    a.AuthorizedActions.Clear();
-                    a.ForbiddenActions.Clear();
-                    a.RestrictedActions.Clear();
-                    a.RestrictedActions.Add(DatabaseHelper.ActionDefinitions.AttackOff.Id);
-                }
-            );
+            GuiPresentationBuilder guiBuilder = new GuiPresentationBuilder("Feature/&AdditionalActionDualFlurryDescription",
+                "Feature/&AdditionalActionDualFlurryTitle")
+                .SetSpriteReference(DatabaseHelper.FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain.GuiPresentation.SpriteReference);
+            FeatureDefinitionAdditionalActionBuilder flurryBuilder = new FeatureDefinitionAdditionalActionBuilder(
+                DatabaseHelper.FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain, "AdditionalActionDualFlurry",
+                GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "AdditionalActionDualFlurry").ToString())
+                .SetGuiPresentation(guiBuilder.Build())
+                .SetActionType(ActionDefinitions.ActionType.Bonus)
+                .SetAuthorizedActions(new List<ActionDefinitions.Id>())
+                .SetForbiddenActions(new List<ActionDefinitions.Id>())
+                .SetRestrictedActions(new List<ActionDefinitions.Id>() { ActionDefinitions.Id.AttackOff });
+            return flurryBuilder.AddToDB();
         }
     }
 }
