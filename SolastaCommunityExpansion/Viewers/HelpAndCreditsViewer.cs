@@ -59,6 +59,8 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString += "\n[line]\n";
                 collectedString += Models.SubclassesContext.GenerateSubclassDescription();
                 collectedString += "\n[line]\n";
+                collectedString += Models.FightingStyleContext.GenerateFightingStyleDescription();
+                collectedString += "\n[line]\n";
                 collectedString += "[heading]Gameplay Options[/heading]\n[list]";
                 collectedString += "\n[*]Use official advantage/disadvantage rules";
                 collectedString += "\n[*]Blinded condition doesn't allow attack of opportunity";

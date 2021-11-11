@@ -1,10 +1,9 @@
 ﻿using SolastaCommunityExpansion.Features;
+using SolastaCommunityExpansion.FightingStyles;
+using SolastaCommunityExpansion.Models;
 using SolastaModApi;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SolastaCommunityExpansion.Feats
 {
@@ -36,7 +35,7 @@ namespace SolastaCommunityExpansion.Feats
                 new List<FeatureDefinition>()
             {
                     new FeatureDefinitionProficiencyBuilder("FeatFightingStyleProtectionProficiency", GuidHelper.Create(FightingStyleFeatsNamespace, "FeatFightingStyleProtectionProficiency").ToString(),
-                    RuleDefinitions.ProficiencyType.FightingStyle, new List<string>(){"Protection"}, twoWeaponPresentation.Build()).AddToDB(),
+                    RuleDefinitions.ProficiencyType.FightingStyle, new List<string>(){"Protection"}, protectionPresentation.Build()).AddToDB(),
             }, protectionPresentation.Build());
             feats.Add(protection.AddToDB());
 
@@ -49,7 +48,7 @@ namespace SolastaCommunityExpansion.Feats
                 new List<FeatureDefinition>()
             {
                     new FeatureDefinitionProficiencyBuilder("FeatFightingStyleGreatWeaponProficiency", GuidHelper.Create(FightingStyleFeatsNamespace, "FeatFightingStyleGreatWeaponProficiency").ToString(),
-                    RuleDefinitions.ProficiencyType.FightingStyle, new List<string>(){"GreatWeapon"}, twoWeaponPresentation.Build()).AddToDB(),
+                    RuleDefinitions.ProficiencyType.FightingStyle, new List<string>(){"GreatWeapon"}, greatWeaponPresentation.Build()).AddToDB(),
             }, greatWeaponPresentation.Build());
             feats.Add(greatWeapon.AddToDB());
 
@@ -62,7 +61,7 @@ namespace SolastaCommunityExpansion.Feats
                 new List<FeatureDefinition>()
             {
                     new FeatureDefinitionProficiencyBuilder("FeatFightingStyleDuelingProficiency", GuidHelper.Create(FightingStyleFeatsNamespace, "FeatFightingStyleDuelingProficiency").ToString(),
-                    RuleDefinitions.ProficiencyType.FightingStyle, new List<string>(){"Dueling"}, twoWeaponPresentation.Build()).AddToDB(),
+                    RuleDefinitions.ProficiencyType.FightingStyle, new List<string>(){"Dueling"}, duelingPresentation.Build()).AddToDB(),
             }, duelingPresentation.Build());
             feats.Add(dueling.AddToDB());
 
@@ -75,7 +74,7 @@ namespace SolastaCommunityExpansion.Feats
                 new List<FeatureDefinition>()
             {
                     new FeatureDefinitionProficiencyBuilder("FeatFightingStyleDefenseProficiency", GuidHelper.Create(FightingStyleFeatsNamespace, "FeatFightingStyleDefenseProficiency").ToString(),
-                    RuleDefinitions.ProficiencyType.FightingStyle, new List<string>(){"Defense"}, twoWeaponPresentation.Build()).AddToDB(),
+                    RuleDefinitions.ProficiencyType.FightingStyle, new List<string>(){"Defense"}, defensePresentation.Build()).AddToDB(),
             }, defensePresentation.Build());
             feats.Add(defense.AddToDB());
 
@@ -88,9 +87,28 @@ namespace SolastaCommunityExpansion.Feats
                 new List<FeatureDefinition>()
             {
                     new FeatureDefinitionProficiencyBuilder("FeatFightingStyleArcheryProficiency", GuidHelper.Create(FightingStyleFeatsNamespace, "FeatFightingStyleArcheryProficiency").ToString(),
-                    RuleDefinitions.ProficiencyType.FightingStyle, new List<string>(){"Archery"}, twoWeaponPresentation.Build()).AddToDB(),
+                    RuleDefinitions.ProficiencyType.FightingStyle, new List<string>(){"Archery"}, archeryPresentation.Build()).AddToDB(),
             }, archeryPresentation.Build());
             feats.Add(archery.AddToDB());
+
+            foreach(AbstractFightingStyle fightingStyle in FightingStyleContext.Styles.Values)
+            {
+                feats.Add(BuildFightingStyleFeat(fightingStyle.GetStyle()));
+            }
+        }
+
+        private static FeatDefinition BuildFightingStyleFeat(FightingStyleDefinition fightingStyle)
+        {
+            string name = "Feat" + fightingStyle.Name;
+
+
+            FeatDefinitionBuilder feat = new FeatDefinitionBuilder(name, GuidHelper.Create(FightingStyleFeatsNamespace, name).ToString(),
+                new List<FeatureDefinition>()
+            {
+                    new FeatureDefinitionProficiencyBuilder(name+"Proficiency", GuidHelper.Create(FightingStyleFeatsNamespace, name+"Proficiency").ToString(),
+                    RuleDefinitions.ProficiencyType.FightingStyle, new List<string>(){fightingStyle.Name}, fightingStyle.GuiPresentation).AddToDB(),
+            }, fightingStyle.GuiPresentation);
+            return feat.AddToDB();
         }
     }
 }

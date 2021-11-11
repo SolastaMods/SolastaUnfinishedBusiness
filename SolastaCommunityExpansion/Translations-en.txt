@@ -513,3 +513,10 @@ Reaction/&UseZSPowerRangerFoeSlayerAttackTitle	Foe Slayer
 Reaction/&UseZSPowerRangerFoeSlayerAttackDescription	Add your Wisdom modifier to your attack roll.
 Reaction/&UseZSPowerRangerFoeSlayerAttackReactTitle	Foe Slayer
 Reaction/&UseZSPowerRangerFoeSlayerDamageReactDescription	Add your Wisdom modifier to your attack roll.
+Pugilist Pugilist Damage
+Feedback/&AdditionalDamagePugilistFormat Pugilist
+Feedback/&AdditionalDamagePugilistLine Additional Unarmed Damage from Pugilist
+FightingStyle/&PugilistFightingDescription While you are completely unarmed, your unarmed strikes deal an additional d8 of damage and you can punch with your offhand as a bonus action.
+FightingStyle/&PugilistFightingTitle Pugilist
+FightingStyle/&BlindFightingTitle	Blind Fighting
+FightingStyle/&BlindFightingDescription	You have blindsight with a range of 10 feet.
