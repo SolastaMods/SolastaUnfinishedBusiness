@@ -31,6 +31,7 @@ namespace SolastaCommunityExpansion
         public bool MultiLinePowerPanel = true;
         public bool KeepSpellsOpenSwitchingEquipment = true;
         public bool BugFixExpandColorTables = true;
+        public bool AllowDynamicPowers = true;
 
         public bool EnableEpicPoints = false;
         public bool EnableAlternateHuman = false;

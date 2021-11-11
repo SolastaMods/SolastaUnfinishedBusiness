@@ -32,9 +32,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFightingStyle
 						}
 					}
 				}
-
-				// This allows fighting styles to grant powers!
-				__instance.GrantPowers();
 			}
 		}
 	}
