@@ -52,14 +52,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
             UI.Label("Faction Relations");
-            UI.Label("");
-            
 
             bool flip = true;
             var service = ServiceRepository.GetService<IGameFactionService>();
             if (service != null) {
-                UI.Label("Does not grant achievements for faction relations, you can modify the faction relationship through gameplay after setting it here to gain the achievements.".red());
-                UI.Label("");
                 foreach (FactionDefinition faction in service.RegisteredFactions)
                 {
                     if (faction.BuiltIn)
@@ -81,7 +77,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         title = title.white();
                     }
                     int intValue = service.FactionRelations[faction.Name];
-                    if (UI.Slider(title, ref intValue, faction.MinRelationCap, faction.MaxRelationCap, 0, "", UI.AutoWidth()))
+                    if (UI.Slider("                              " + title, ref intValue, faction.MinRelationCap, faction.MaxRelationCap, 0, "", UI.AutoWidth()))
                     {
                         SetFactionRelationsContext.SetFactionRelation(faction.Name, intValue);
                     }
