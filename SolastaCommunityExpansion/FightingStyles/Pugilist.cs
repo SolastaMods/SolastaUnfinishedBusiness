@@ -70,7 +70,7 @@ namespace SolastaCommunityExpansion.FightingStyles
                 FeatureDefinitionPower offhandAttack = new FeatureDefinitionPowerBuilder("PowerPugilistOffhandAttack", "a97a1c9c-232b-42ae-8003-30d244e958b3",
                     1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Strength, RuleDefinitions.ActivationTime.BonusAction,
                     0, RuleDefinitions.RechargeRate.AtWill, true, true, AttributeDefinitions.Strength,
-                    offhandEffect.Build(), gui.Build(), false /* unique */).AddToDB();
+                    offhandEffect.Build(), gui.Build(), false /* unique */).SetShowCasting(false).AddToDB();
 
                 CustomizableFightingStyleBuilder builder = new CustomizableFightingStyleBuilder("PugilistFightingStlye", "b14f91dc-8706-498b-a9a0-d583b7b00d09",
                     new List<FeatureDefinition>() {
@@ -91,7 +91,7 @@ namespace SolastaCommunityExpansion.FightingStyles
         {
             RulesetInventorySlot mainHand = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand];
             RulesetInventorySlot offHand = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand];
-            return mainHand.EquipedItem == null && offHand.EquipedItem == null;
+            return mainHand.EquipedItem == null && (offHand.EquipedItem == null || offHand.EquipedItem.ItemDefinition.IsLightSourceItem);
         }
     }
 }

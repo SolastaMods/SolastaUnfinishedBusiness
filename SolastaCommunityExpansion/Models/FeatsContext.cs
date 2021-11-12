@@ -23,6 +23,7 @@ namespace SolastaCommunityExpansion.Models
             HealingFeats.CreateFeats(feats);
             PickPocketContext.CreateFeats(feats);
             CraftyFeats.CreateFeats(feats);
+            ElAntoniousFeats.CreateFeats(feats);
 
             // Use the list of feats to get the settings and ui set up.
 

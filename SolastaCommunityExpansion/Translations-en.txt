@@ -513,6 +513,20 @@ Reaction/&UseZSPowerRangerFoeSlayerAttackTitle	Foe Slayer
 Reaction/&UseZSPowerRangerFoeSlayerAttackDescription	Add your Wisdom modifier to your attack roll.
 Reaction/&UseZSPowerRangerFoeSlayerAttackReactTitle	Foe Slayer
 Reaction/&UseZSPowerRangerFoeSlayerDamageReactDescription	Add your Wisdom modifier to your attack roll.
+Feat/&DualFlurryTitle	Dual Flurry
+Feat/&DualFlurryDescription	You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack.
+Feature/&DualFlurryTitle	Dual Flurry
+Feature/&DualFlurryDescription	You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack.
+Feature/&AdditionalActionDualFlurryTitle	Dual Flurry!
+Feature/&AdditionalActionDualFlurryDescription	You may make an additional off-hand attack.
+Condition/&ConditionDualFlurryApplyTitle	Dual Flurry!
+Condition/&ConditionDualFlurryApplyDescription	You are building momentum...
+Condition/&ConditionDualFlurryGrantTitle	Dual Flurry!
+Condition/&ConditionDualFlurryGrantDescription	Your foes are reeling!
+Feat/&TorchbearerTitle	Torchbearer
+Feat/&TorchbearerDescription	You are skilled in the use of a torch in battle. Once per turn, as a bonus action you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw or take 1d4 fire damage per turn for 1 minute or until extinguished. The DC of this save is based on your Dexterity and Proficiency Bonus.
+Feature/&PowerTorchbearerTitle	Torchbearer
+Feature/&PowerTorchbearerDescription	Attempt to set a melee target on fire!
 Pugilist Pugilist Damage
 Feedback/&AdditionalDamagePugilistFormat Pugilist
 Feedback/&AdditionalDamagePugilistLine Additional Unarmed Damage from Pugilist
