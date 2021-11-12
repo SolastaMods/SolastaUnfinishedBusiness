@@ -51,10 +51,50 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.NoExperienceOnLevelUp = toggle;
             }
 
+
             intValue = Main.Settings.ExperienceModifier;
             if (UI.Slider("Multiplies the experience gained by ".white() + "[%]".red(), ref intValue, 50, 200, 100, "", UI.Width(100)))
             {
                 Main.Settings.ExperienceModifier = intValue;
+            }
+          
+            UI.Label("");
+            UI.Label("Faction Relations");
+
+            bool flip = true;
+            var service = ServiceRepository.GetService<IGameFactionService>();
+            if (service != null) {
+                foreach (FactionDefinition faction in service.RegisteredFactions)
+                {
+                    if (faction.BuiltIn)
+                    {
+                        // These are things like monster factions, generally set to a specific relation and can't be changed.
+                        continue;
+                    }
+                    if (faction.GuiPresentation.Hidden)
+                    {
+                        // These are things like Silent Whipsers and Church Of Einar that are not fully implemented factions.
+                        continue;
+                    }
+                    string title = Gui.Format(faction.GuiPresentation.Title);
+                    if (flip)
+                    {
+                        title = title.yellow();
+                    } else
+                    {
+                        title = title.white();
+                    }
+                    int intValue = service.FactionRelations[faction.Name];
+                    if (UI.Slider("                              " + title, ref intValue, faction.MinRelationCap, faction.MaxRelationCap, 0, "", UI.AutoWidth()))
+                    {
+                        SetFactionRelationsContext.SetFactionRelation(faction.Name, intValue);
+                    }
+                    flip = !flip;
+                }                 
+            } else
+            {
+                UI.Label("Load a game to modify faction relations".red());
+
             }
         }
     }
