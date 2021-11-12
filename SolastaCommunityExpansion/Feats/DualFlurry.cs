@@ -5,10 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using SolastaModApi;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
-using UnityEngine.AddressableAssets;
-using TA;
 using SolastaModApi.BuilderHelpers;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
 
 namespace SolastaCommunityExpansion.Feats
 {
@@ -41,30 +39,34 @@ namespace SolastaCommunityExpansion.Feats
 
         private static FeatureDefinition buildFeatureDualFlurry()
         {
-            var cond_apply = ConditionDualFlurryApplyBuilder.GetOrAdd();
-            var cond_grant = ConditionDualFlurryGrantBuilder.GetOrAdd();
+            FeatureDefinitionOnAttackHitEffectBuilder builder = new FeatureDefinitionOnAttackHitEffectBuilder(
+                "FeatureDualFlurry", GuidHelper.Create(DualFlurryGuid, "FeatureDualFlurry").ToString(),
+                OnAttackHit, new GuiPresentationBuilder("Feature/&DualFlurryDescription", "Feature/&DualFlurryTitle").Build());
 
-            return Helpers.FeatureBuilder<PrereqApplyConditionOnDamageDone>.createFeature
-            (
-                "FeatureDualFlurry",
-                GuidHelper.Create(DualFlurryGuid, "FeatureDualFlurry").ToString(),
-                "Feature/&DualFlurryTitle",
-                "Feature/&DualFlurryDescription",
-                null,
-                a =>
-                {
-                    a.initialize_applicator
-                    (
-                        true,
-                        cond_apply,
-                        cond_grant,
-                        1,
-                        RuleDefinitions.DurationType.Turn,
-                        RuleDefinitions.TurnOccurenceType.EndOfTurn,
-                        true, false, false
-                    );
-                }
-            );
+            return builder.AddToDB();
+        }
+
+        private static void OnAttackHit(GameLocationCharacter attacker,
+                GameLocationCharacter defender, ActionModifier attackModifier, RulesetAttackMode attackMode,
+                bool rangedAttack, RuleDefinitions.AdvantageType advantageType, List<EffectForm> actualEffectForms,
+                RulesetEffect rulesetEffect, bool criticalHit, bool firstTarget)
+        {
+            // Note the game code currently always passes attackMode = null for magic attacks,
+            // if that changes this will need to be updated.
+            if (rangedAttack || attackMode == null)
+            {
+                return;
+            }
+
+            var condition = attacker.RulesetCharacter.HasConditionOfType(ConditionDualFlurryApplyBuilder.GetOrAdd().Name) ?
+                ConditionDualFlurryGrantBuilder.GetOrAdd() : ConditionDualFlurryApplyBuilder.GetOrAdd();
+
+            RulesetCondition active_condition = RulesetCondition.CreateActiveCondition(attacker.RulesetCharacter.Guid,
+                                                                                       condition, RuleDefinitions.DurationType.Turn, 1,
+                                                                                       RuleDefinitions.TurnOccurenceType.EndOfTurn,
+                                                                                       attacker.RulesetCharacter.Guid,
+                                                                                       attacker.RulesetCharacter.CurrentFaction.Name);
+            attacker.RulesetCharacter.AddConditionOfCategory("10Combat", active_condition, true);
         }
     }
 
