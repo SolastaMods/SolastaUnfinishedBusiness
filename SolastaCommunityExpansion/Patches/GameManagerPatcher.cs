@@ -16,6 +16,9 @@ namespace SolastaCommunityExpansion.Patches
                 Models.InitialChoicesContext.Load();
                 Models.ItemCraftingContext.Load();
                 Models.GameUiContext.Load();
+                // Fighting Styles should be loaded before feats in
+                // order to generate feats of new fighting styles.
+                Models.FightingStyleContext.Load();
                 Models.FeatsContext.Load();
                 Models.SubclassesContext.Load();
                 Models.FlexibleBackgroundsContext.Load();
