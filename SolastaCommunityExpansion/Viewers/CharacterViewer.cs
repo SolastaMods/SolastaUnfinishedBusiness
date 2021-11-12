@@ -3,7 +3,7 @@ using ModKit;
 using static SolastaCommunityExpansion.Viewers.Displays.CharacterDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.FeatsDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.SubClassesDisplay;
-using static SolastaCommunityExpansion.Viewers.Displays.FightingStyles;
+using static SolastaCommunityExpansion.Viewers.Displays.FightingStylesDisplay;
 
 namespace SolastaCommunityExpansion.Viewers
 {
@@ -27,7 +27,7 @@ namespace SolastaCommunityExpansion.Viewers
                     new NamedAction("General", DisplayCharacter),
                     new NamedAction("Feats", DisplayFeats),
                     new NamedAction("Subclasses", DisplaySubclasses),
-                    new NamedAction("FightingStyles", DisplayFightingStyles),
+                    new NamedAction("Fighting Styles", DisplayFightingStyles),
                 });
             }
         }

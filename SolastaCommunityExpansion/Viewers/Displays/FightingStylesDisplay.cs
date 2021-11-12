@@ -4,7 +4,7 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
-    internal static class FightingStyles
+    internal static class FightingStylesDisplay
     {
         private static bool selectAll = false;
         private const int MAX_COLUMNS = 4;
