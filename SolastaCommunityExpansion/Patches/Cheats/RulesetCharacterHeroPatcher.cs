@@ -42,6 +42,7 @@ namespace SolastaCommunityExpansion.Patches.Cheats
         /// <summary>
         /// This is *only* called from FunctorGrantExperience.  We adjust the amount of XP required to cancel the adjustment made in RulesetCharacterHero_GrantExperience_Patch.
         /// This results in a call from FunctorGrantExperience with GrantExperienceMode.ReachLevel working as expected.
+        /// NOTE: If this gets called from anywhere else in future then there will be a problem.
         /// </summary>
         [HarmonyPatch(typeof(RulesetCharacterHero), "ComputeNeededExperienceToReachLevel")]
         internal static class RulesetCharacterHero_ComputeNeededExperienceToReachLevel_Patch
