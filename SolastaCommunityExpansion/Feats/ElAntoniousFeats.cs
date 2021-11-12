@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.Feats
         public static void CreateFeats(List<FeatDefinition> feats)
         {
             feats.Add(DualFlurryFeatBuilder.DualFlurryFeat);
-            //feats.Add(TorchBearerFeatBuilder.TorchbearerFeat));
+            feats.Add(TorchbearerFeatBuilder.TorchbearerFeat);
         }
     }
 }

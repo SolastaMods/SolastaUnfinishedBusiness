@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SolastaModApi;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
-using UnityEngine.AddressableAssets;
-using TA;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
 
 namespace SolastaCommunityExpansion.Feats
 {
@@ -40,7 +34,6 @@ namespace SolastaCommunityExpansion.Feats
 
         private static FeatureDefinition buildFeatureTorchbearer()
         {
-            var light_restrict = new HasLightSourceRestriction();
 
             var burn_effect = new EffectForm();
             burn_effect.SetFormType(EffectForm.EffectFormType.Condition);
@@ -67,29 +60,28 @@ namespace SolastaCommunityExpansion.Feats
             burn_description.EffectForms.Clear();
             burn_description.EffectForms.Add(burn_effect);
 
-            return Helpers.FeatureBuilder<NewFeatureDefinitions.PowerWithRestrictions>.createFeature
-            (
-                "PowerTorchbearer",
+            FeatureDefinitionConditionalPowerBuilder powerFeature = new FeatureDefinitionConditionalPowerBuilder("PowerTorchbearer",
                 GuidHelper.Create(TorchbearerGuid, "PowerTorchbearer").ToString(),
-                "Feature/&PowerTorchbearerTitle",
-                "Feature/&PowerTorchbearerDescription",
-                DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalFireBurst.GuiPresentation.SpriteReference,
-                a =>
-                {
-                    a.SetActivationTime(RuleDefinitions.ActivationTime.BonusAction);
-                    a.SetCostPerUse(0);
-                    a.SetEffectDescription(burn_description);
-                    a.SetFixedUsesPerRecharge(1);
-                    a.SetUsesDetermination(RuleDefinitions.UsesDetermination.Fixed);
-                    a.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
-                    a.SetShowCasting(false);
-                    a.SetUniqueInstance(false);
-                    a.restrictions = new List<NewFeatureDefinitions.IRestriction>()
-                    {
-                        light_restrict
-                    };
-                }
-            );
+                new GuiPresentationBuilder("Feature/&PowerTorchbearerDescription", "Feature/&PowerTorchbearerTitle").Build());
+            powerFeature.SetActivation(RuleDefinitions.ActivationTime.BonusAction, 0);
+            powerFeature.SetEffect(burn_description);
+            powerFeature.SetUsesFixed(1);
+            powerFeature.SetRecharge(RuleDefinitions.RechargeRate.AtWill);
+            powerFeature.SetShowCasting(false);
+            powerFeature.SetIsActive(IsActive);
+
+            return powerFeature.AddToDB();
+        }
+
+        private static bool IsActive(RulesetCharacterHero hero)
+        {
+            if (hero == null)
+            {
+                return false;
+            }
+            RulesetItem off_item = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
+
+            return (off_item != null && off_item.ItemDefinition != null && off_item.ItemDefinition.IsLightSourceItem);
         }
     }
 }
