@@ -12,6 +12,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
         internal static void DisplayTools()
         {
+            int intValue;
             bool toggle;
 
             UI.Label("");
@@ -50,6 +51,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.NoExperienceOnLevelUp = toggle;
             }
 
+
+            intValue = Main.Settings.ExperienceModifier;
+            if (UI.Slider("Multiplies the experience gained by ".white() + "[%]".red(), ref intValue, 50, 200, 100, "", UI.Width(100)))
+            {
+                Main.Settings.ExperienceModifier = intValue;
+            }
+          
             UI.Label("");
             UI.Label("Faction Relations");
 
@@ -86,6 +94,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             } else
             {
                 UI.Label("Load a game to modify faction relations".red());
+
             }
         }
     }
