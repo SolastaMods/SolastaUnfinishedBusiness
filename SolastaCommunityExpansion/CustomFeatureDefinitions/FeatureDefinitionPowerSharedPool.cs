@@ -96,17 +96,7 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
             Definition.SetCostPerUse(1);
             // The game throws an exception if there is no effect description.
             Definition.SetEffectDescription(new EffectDescription());
-
-            if (Main.IsModHelpersLoaded())
-            {
-                // use gui hidden if mod helpers is installed- this also hides the power from level up screens which is not ideal
-                guiPresentation.SetHidden(true);
-            }
-            else
-            {
-                // Note Holic's ModHelpers removes all overriden powers.
-                Definition.SetOverriddenPower(Definition);
-            }
+            Definition.SetOverriddenPower(Definition);
             Definition.SetGuiPresentation(guiPresentation);
 
             Definition.PoolPower = poolPower;
