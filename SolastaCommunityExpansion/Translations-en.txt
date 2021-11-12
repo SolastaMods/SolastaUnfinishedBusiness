@@ -527,3 +527,10 @@ Feat/&TorchbearerTitle	Torchbearer
 Feat/&TorchbearerDescription	You are skilled in the use of a torch in battle. Once per turn, as a bonus action you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw or take 1d4 fire damage per turn for 1 minute or until extinguished. The DC of this save is based on your Dexterity and Proficiency Bonus.
 Feature/&PowerTorchbearerTitle	Torchbearer
 Feature/&PowerTorchbearerDescription	Attempt to set a melee target on fire!
+Pugilist Pugilist Damage
+Feedback/&AdditionalDamagePugilistFormat Pugilist
+Feedback/&AdditionalDamagePugilistLine Additional Unarmed Damage from Pugilist
+FightingStyle/&PugilistFightingDescription While you are completely unarmed, your unarmed strikes deal an additional d8 of damage and you can punch with your offhand as a bonus action.
+FightingStyle/&PugilistFightingTitle Pugilist
+FightingStyle/&BlindFightingTitle	Blind Fighting
+FightingStyle/&BlindFightingDescription	You have blindsight with a range of 10 feet.
