@@ -56,13 +56,15 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             UI.Label("");
-            UI.Label("Faction Relations");
+            UI.Label("Faction Relations:");
 
             bool flip = true;
-            var service = ServiceRepository.GetService<IGameFactionService>();
-            if (service != null)
+            var gameService = ServiceRepository.GetService<IGameService>();
+            var gameFactionService = ServiceRepository.GetService<IGameFactionService>();
+
+            if (gameFactionService != null && gameService?.Game?.GameCampaign?.CampaignDefinitionName?.Contains("UserCampaign") == false)
             {
-                foreach (FactionDefinition faction in service.RegisteredFactions)
+                foreach (FactionDefinition faction in gameFactionService.RegisteredFactions)
                 {
                     if (faction.BuiltIn)
                     {
@@ -83,7 +85,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     {
                         title = title.white();
                     }
-                    intValue = service.FactionRelations[faction.Name];
+                    intValue = gameFactionService.FactionRelations[faction.Name];
                     if (UI.Slider("                              " + title, ref intValue, faction.MinRelationCap, faction.MaxRelationCap, 0, "", UI.AutoWidth()))
                     {
                         SetFactionRelationsContext.SetFactionRelation(faction.Name, intValue);
@@ -93,7 +95,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
             else
             {
-                UI.Label("Load a game to modify faction relations".red());
+                UI.Label("");
+                UI.Label("Load an official campaign game to modify faction relations...".red());
             }
         }
     }
