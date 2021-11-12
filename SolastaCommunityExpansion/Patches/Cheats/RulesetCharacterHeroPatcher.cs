@@ -27,7 +27,7 @@ namespace SolastaCommunityExpansion.Patches.Cheats
         {
             internal static void Prefix(ref int experiencePoints)
             {
-                experiencePoints = experiencePoints * Main.Settings.ExperienceModifier / 100;
+                experiencePoints = (int) (experiencePoints * (Main.Settings.ExperienceModifier / 100f));
             }
         }
     }
