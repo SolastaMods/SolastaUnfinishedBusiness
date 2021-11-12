@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using System;
 
 namespace SolastaCommunityExpansion.Patches.Cheats
 {
@@ -27,7 +28,10 @@ namespace SolastaCommunityExpansion.Patches.Cheats
         {
             internal static void Prefix(ref int experiencePoints)
             {
-                experiencePoints = (int) (experiencePoints * (Main.Settings.ExperienceModifier / 100f));
+                if (Main.Settings.ExperienceModifier != 100)
+                {
+                    experiencePoints = (int)Math.Round(experiencePoints * Main.Settings.ExperienceModifier / 100.0f, MidpointRounding.AwayFromZero);
+                }
             }
         }
     }
