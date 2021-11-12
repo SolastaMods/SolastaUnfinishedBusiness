@@ -3,7 +3,7 @@ using System;
 
 namespace SolastaCommunityExpansion.Patches.Cheats
 {
-    internal static class RulesetCharacterHeroPatcher_LevelUp
+    internal static partial class RulesetCharacterHeroPatcher_LevelUp
     {
         // use this patch to enable the No Experience on Level up cheat
         [HarmonyPatch(typeof(RulesetCharacterHero), "CanLevelUp", MethodType.Getter)]
@@ -28,9 +28,33 @@ namespace SolastaCommunityExpansion.Patches.Cheats
         {
             internal static void Prefix(ref int experiencePoints)
             {
-                if (Main.Settings.ExperienceModifier != 100)
+                if (Main.Settings.ExperienceModifier != 100 && Main.Settings.ExperienceModifier > 0)
                 {
+                    var original = experiencePoints;
+
                     experiencePoints = (int)Math.Round(experiencePoints * Main.Settings.ExperienceModifier / 100.0f, MidpointRounding.AwayFromZero);
+
+                    Main.Log($"GrantExperience: Multiplying experience gained by {Main.Settings.ExperienceModifier}%. Original={original}, modified={experiencePoints}.");
+                }
+            }
+        }
+
+        /// <summary>
+        /// This is *only* called from FunctorGrantExperience.  We adjust the amount of XP required to cancel the adjustment made in RulesetCharacterHero_GrantExperience_Patch.
+        /// This results in a call from FunctorGrantExperience with GrantExperienceMode.ReachLevel working as expected.
+        /// </summary>
+        [HarmonyPatch(typeof(RulesetCharacterHero), "ComputeNeededExperienceToReachLevel")]
+        internal static class RulesetCharacterHero_ComputeNeededExperienceToReachLevel_Patch
+        {
+            internal static void Postfix(ref int __result)
+            {
+                if (Main.Settings.ExperienceModifier != 100 && Main.Settings.ExperienceModifier > 0)
+                {
+                    var original = __result;
+
+                    __result = (int)Math.Round(__result / (Main.Settings.ExperienceModifier / 100.0f), MidpointRounding.AwayFromZero);
+
+                    Main.Log($"ComputeNeededExperienceToReachLevel: Dividing experience gained by {Main.Settings.ExperienceModifier}%. Original={original}, modified={__result}.");
                 }
             }
         }
