@@ -21,5 +21,14 @@ namespace SolastaCommunityExpansion.Patches.Cheats
                 return true;
             }
         }
+
+        [HarmonyPatch(typeof(RulesetCharacterHero), "GrantExperience")]
+        internal static class RulesetCharacterHero_GrantExperience_Patch
+        {
+            internal static void Prefix(ref int experiencePoints)
+            {
+                experiencePoints = experiencePoints * Main.Settings.ExperienceModifier / 100;
+            }
+        }
     }
 }

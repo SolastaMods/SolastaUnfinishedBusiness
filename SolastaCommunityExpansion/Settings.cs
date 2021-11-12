@@ -134,5 +134,7 @@ namespace SolastaCommunityExpansion
         public bool DruidNoMetalRestriction;
         public bool RecipeTooltipShowsRecipe;
         public bool EnableCheatMenuDuringGameplay = false;
+
+        public int ExperienceModifier = 100;
     }
 }

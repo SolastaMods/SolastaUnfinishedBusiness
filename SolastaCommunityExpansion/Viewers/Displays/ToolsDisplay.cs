@@ -12,6 +12,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
         internal static void DisplayTools()
         {
+            int intValue;
             bool toggle;
 
             UI.Label("");
@@ -48,6 +49,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (UI.Toggle("No experience is required to level up", ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.NoExperienceOnLevelUp = toggle;
+            }
+
+            intValue = Main.Settings.ExperienceModifier;
+            if (UI.Slider("Multiplies the experience gained by ".white() + "[%]".red(), ref intValue, 50, 200, 100, "", UI.Width(100)))
+            {
+                Main.Settings.ExperienceModifier = intValue;
             }
         }
     }
