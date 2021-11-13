@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
+using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Patches.ConditionalPowers
@@ -14,47 +15,64 @@ namespace SolastaCommunityExpansion.Patches.ConditionalPowers
             // this shouldn't get exposed in the UI.
             if (Main.Settings.AllowDynamicPowers)
             {
-				// Grant powers when we do a refresh all. This allows powers from things like fighting styles and conditions.
-				// This is similar to grant powers, but doesn't use grant powers because grant powers also resets all powers
-				// to max available uses.
-				List<RulesetUsablePower> curPowers = new List<RulesetUsablePower>();
-				curPowers.AddRange(__instance.UsablePowers);
-				__instance.UsablePowers.Clear();
-				__instance.EnumerateFeaturesToBrowse<FeatureDefinitionPower>(__instance.FeaturesToBrowse, null);
-				foreach (FeatureDefinition featureDefinition in __instance.FeaturesToBrowse)
+				RefreshPowers(__instance);
+			}
+        }
+
+		private static void RefreshPowers(RulesetCharacterHero hero)
+        {
+			// Grant powers when we do a refresh all. This allows powers from things like fighting styles and conditions.
+			// This is similar to grant powers, but doesn't use grant powers because grant powers also resets all powers
+			// to max available uses.
+			List<RulesetUsablePower> curPowers = new List<RulesetUsablePower>();
+			bool newPower = false;
+			hero.EnumerateFeaturesToBrowse<FeatureDefinitionPower>(hero.FeaturesToBrowse, null);
+			foreach (FeatureDefinition featureDefinition in hero.FeaturesToBrowse)
+			{
+				FeatureDefinitionPower featureDefinitionPower = (FeatureDefinitionPower)featureDefinition;
+				if (featureDefinitionPower is IConditionalPower)
 				{
-					FeatureDefinitionPower featureDefinitionPower = (FeatureDefinitionPower)featureDefinition;
-					if (featureDefinitionPower is IConditionalPower)
-                    {
-						// If this is a conditional power, then check if it is active.
-						if (!(featureDefinitionPower as IConditionalPower).IsActive(__instance))
-                        {
-							continue;
-                        }
-                    }
-					RulesetUsablePower rulesetUsablePower = null;
-					foreach (RulesetUsablePower rulesetUsablePower2 in curPowers)
+					// If this is a conditional power, then check if it is active.
+					if (!(featureDefinitionPower as IConditionalPower).IsActive(hero))
 					{
-						if (rulesetUsablePower2.PowerDefinition == featureDefinitionPower)
-						{
-							rulesetUsablePower = rulesetUsablePower2;
-							break;
-						}
-					}
-					if (rulesetUsablePower != null)
-                    {
-						// If we found a power that was already on the character, re-add the same instance.
-						__instance.UsablePowers.Add(rulesetUsablePower);
-                    } else
-                    {
-						// If the character didn't already have the power, create the RulesetUsablePower and add it.
-						__instance.UsablePowers.Add(BuildUsablePower(__instance, featureDefinitionPower));
+						continue;
 					}
 				}
-				Traverse.Create(__instance).Method("RebindUsablePowers", __instance, __instance.UsablePowers);
-				__instance.RefreshPowers();
+				RulesetUsablePower rulesetUsablePower = null;
+				foreach (RulesetUsablePower rulesetUsablePower2 in hero.UsablePowers)
+				{
+					if (rulesetUsablePower2.PowerDefinition == featureDefinitionPower)
+					{
+						rulesetUsablePower = rulesetUsablePower2;
+						break;
+					}
+				}
+				if (rulesetUsablePower != null)
+				{
+					// If we found a power that was already on the character, re-add the same instance.
+					curPowers.Add(rulesetUsablePower);
+				}
+				else
+				{
+					// If the character didn't already have the power, create the RulesetUsablePower and add it.
+					RulesetUsablePower power = BuildUsablePower(hero, featureDefinitionPower);
+					curPowers.Add(power);
+					newPower = true;
+				}
+			}
+            if (hero.UsablePowers.Count == curPowers.Count && !newPower)
+            {
+				// No change to powers, don't do the potentially expensive calls below.
+                return;
             }
-        }
+			// We only want to modify the UsablePowers list if needed. Because it is modified so rarely in the base game
+			// there are some TA.coroutines that iterate over the list with yields in between. This iteration breaks if
+			// UsablePowers is modified. We intentionally use SetField here rather than modify the UsablePowers list so
+			// that anything currently iterating over the powers won't hang the game.
+			hero.SetField("usablePowers", curPowers);
+			Traverse.Create(hero).Method("RebindUsablePowers", hero, hero.UsablePowers);
+			hero.RefreshPowers();
+		}
 
 		private static RulesetUsablePower BuildUsablePower(RulesetCharacterHero hero, FeatureDefinitionPower featureDefinitionPower)
         {
