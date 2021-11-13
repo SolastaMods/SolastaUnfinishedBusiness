@@ -15,6 +15,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             { "Boofat", "alwaysAlt" },
             { "Myztikrice", "faster time scale" },
             { "AceHigh", "power attack, reckless fury, no identification" },
+            { "ElAntonious", "Torchbearer and Dual Flurry" },
             { "Narria", "ModKit creator, developer" }
         };
 

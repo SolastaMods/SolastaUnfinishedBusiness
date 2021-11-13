@@ -117,6 +117,7 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString += "\n[*]Data Viewer";
                 collectedString += "\n[*]Druid Class by DubhHerder";
                 collectedString += "\n[*]Dungeon Maker Merchants";
+                collectedString += "\n[*]ElAntonius's Feat Pack";
                 collectedString += "\n[*]Enchanting Crafting Ingredients";
                 collectedString += "\n[*]Enhanced Vision";
                 collectedString += "\n[*]Faster Time Scale";
