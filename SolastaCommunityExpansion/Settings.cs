@@ -31,6 +31,7 @@ namespace SolastaCommunityExpansion
         public bool MultiLinePowerPanel = true;
         public bool KeepSpellsOpenSwitchingEquipment = true;
         public bool BugFixExpandColorTables = true;
+        public bool AllowDynamicPowers = true;
 
         public bool EnableEpicPoints = false;
         public bool EnableAlternateHuman = false;
@@ -58,9 +59,11 @@ namespace SolastaCommunityExpansion
 
         public List<string> FeatEnabled= new List<string>();
         public List<string> SubclassEnabled= new List<string>();
+        public List<string> FightingStyleEnabled;
 
         public int FeatSliderPosition = 1;
         public int SubclassSliderPosition = 1;
+        public int FightingStyleSliderPosition = 1;
 
         private int rogueConArtistSpellDCBoost = 3;
 
@@ -126,12 +129,14 @@ namespace SolastaCommunityExpansion
         public bool ExactMerchantCostScaling;
         public bool NoIdentification;
         public bool NoAttunement;
-        public bool SetMaxFactionRelations;
 
         public bool EnableSRDAdvantageRules = false;
         public bool EnableConditionBlindedShouldNotAllowOpportunityAttack = false;
         public bool AllowExtraKeyboardCharactersInNames = false;
         public bool DruidNoMetalRestriction;
         public bool RecipeTooltipShowsRecipe;
+        public bool EnableCheatMenuDuringGameplay = false;
+
+        public int ExperienceModifier = 100;
     }
 }

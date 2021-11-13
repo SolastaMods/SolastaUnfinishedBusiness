@@ -43,7 +43,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             toggle = Main.Settings.DruidNoMetalRestriction;
-            if (UI.Toggle("Allow Druids to wear metal armor", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Allows Druids to wear metal armor", ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.DruidNoMetalRestriction = toggle;
                 DruidArmorContext.Switch(toggle);
@@ -53,12 +53,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (UI.Toggle("Disables auto-equip of items in inventory", ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.DisableAutoEquip = toggle;
-            }
-
-            toggle = Main.Settings.NoExperienceOnLevelUp;
-            if (UI.Toggle("No experience is required to level up", ref toggle, 0, UI.AutoWidth()))
-            {
-                Main.Settings.NoExperienceOnLevelUp = toggle;
             }
 
             toggle = Main.Settings.ExactMerchantCostScaling;

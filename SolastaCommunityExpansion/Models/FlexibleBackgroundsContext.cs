@@ -51,7 +51,7 @@ namespace SolastaCommunityExpansion.Models
             { Lowlife, new List<FeatureDefinition> { ProficiencyLowlifeSkills, ProficiencyLowLifeSkillsTools } },
             { Philosopher, new List<FeatureDefinition> { ProficiencyPhilosopherSkills, ProficiencyPhilosopherTools } },
             { SellSword, new List<FeatureDefinition> { ProficiencySellSwordSkills, ProficiencySmithTools } },
-            { Spy, new List<FeatureDefinition> { ProficienctSpySkillsTool, ProficiencySmithTools } },
+            { Spy, new List<FeatureDefinition> { ProficiencySpySkills, ProficienctSpySkillsTool } },
             { Wanderer, new List<FeatureDefinition> { ProficiencyWandererSkills, ProficiencyWandererTools } },
         };
 
