@@ -137,6 +137,8 @@ namespace SolastaCommunityExpansion
         public bool RecipeTooltipShowsRecipe;
         public bool EnableCheatMenuDuringGameplay = false;
 
+        public bool EnableHudToggleElementsHotkeys = false;
+
         public int ExperienceModifier = 100;
     }
 }

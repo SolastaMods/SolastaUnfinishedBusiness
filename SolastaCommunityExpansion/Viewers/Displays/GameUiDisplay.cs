@@ -26,6 +26,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.HideMonsterHitPoints = toggle;
             }
 
+            toggle = Main.Settings.EnableHudToggleElementsHotkeys;
+            if (UI.Toggle("Enables hotkeys to toggle HUD components visibility " + "[ctrl-(C)ontrol Panel / ctrl-(L)og / ctrl-(M)ap / ctrl-(P)arty]".italic().red(), ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.EnableHudToggleElementsHotkeys = toggle;
+            }
+
             toggle = Main.Settings.InvertAltBehaviorOnTooltips;
             if (UI.Toggle("Inverts ALT key behavior on tooltips", ref toggle, 0, UI.AutoWidth()))
             {
