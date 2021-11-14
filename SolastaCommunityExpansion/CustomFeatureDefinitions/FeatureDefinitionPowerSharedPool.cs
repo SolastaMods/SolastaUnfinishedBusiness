@@ -101,6 +101,7 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
         {
             // We set uses determination to fixed because the code handling updates needs that.
             Definition.SetUsesDetermination(RuleDefinitions.UsesDetermination.Fixed);
+            // Recharge rate probably shouldn't be in here, but for now leave it be because there is already usage outside of this mod.
             Definition.SetRechargeRate(recharge);
             Definition.SetActivationTime(activationTime);
             Definition.SetCostPerUse(costPerUse);
@@ -113,9 +114,147 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
             Definition.SharedPool = poolPower;
         }
 
+        public FeatureDefinitionPowerSharedPoolBuilder(string name, string guid,
+            FeatureDefinitionPower poolPower, GuiPresentation guiPresentation) : base(name, guid)
+        {
+            Definition.SharedPool = poolPower;
+            Definition.SetGuiPresentation(guiPresentation);
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder SetEffect(EffectDescription effect)
+        {
+            Definition.SetEffectDescription(effect);
+            return this;
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder DelegatedToAction()
+        {
+            Definition.SetDelegatedToAction(true);
+            return this;
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder SurrogateToSpell(SpellDefinition spell)
+        {
+            Definition.SetSurrogateToSpell(spell);
+            return this;
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder SetActivation(RuleDefinitions.ActivationTime time, int costPerUse)
+        {
+            Definition.SetActivationTime(time);
+            Definition.SetCostPerUse(costPerUse);
+            return this;
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder SetReaction(RuleDefinitions.ReactionTriggerContext context, string name)
+        {
+            Definition.SetReactionContext(context);
+            Definition.SetReactionName(name);
+            return this;
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder SetCastingFailure(RuleDefinitions.CastingSuccessComputation computation)
+        {
+            Definition.SetHasCastingFailure(true);
+            Definition.SetCastingSuccessComputation(computation);
+            return this;
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder CanUseInDialog()
+        {
+            Definition.SetCanUseInDialog(true);
+            return this;
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder SetDisablingCondition(ConditionDefinition condition)
+        {
+            Definition.SetDisableIfConditionIsOwned(condition);
+            return this;
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder SetRecharge(RuleDefinitions.RechargeRate rate)
+        {
+            Definition.SetRechargeRate(rate);
+            return this;
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder SetSpellCastingFeature(FeatureDefinitionCastSpell spellFeature)
+        {
+            Definition.SetSpellcastingFeature(spellFeature);
+            return this;
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder SetUsesFixed(int fixedUses)
+        {
+            Definition.SetFixedUsesPerRecharge(fixedUses);
+            Definition.SetUsesDetermination(RuleDefinitions.UsesDetermination.Fixed);
+            return this;
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder SetUsesProficiency()
+        {
+            Definition.SetUsesDetermination(RuleDefinitions.UsesDetermination.ProficiencyBonus);
+            return this;
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder SetUsesAbility(int fixedUses, string attribute)
+        {
+            Definition.SetFixedUsesPerRecharge(fixedUses);
+            Definition.SetUsesAbilityScoreName(attribute);
+            Definition.SetUsesDetermination(RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed);
+            return this;
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder UseSpellCastingModifier()
+        {
+            Definition.SetAbilityScoreDetermination(RuleDefinitions.AbilityScoreDetermination.SpellcastingAbility);
+            return this;
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder SetAttackModifierAbility(bool ability, bool proficiency, string attribute)
+        {
+            Definition.SetAbilityScore(attribute);
+            Definition.SetAbilityScoreBonusToAttack(ability);
+            Definition.SetProficiencyBonusToAttack(proficiency);
+            Definition.SetAttackHitComputation(RuleDefinitions.PowerAttackHitComputation.AbilityScore);
+            return this;
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder SetAttackModifierStatic(int attackModifier)
+        {
+            Definition.SetFixedAttackHit(attackModifier);
+            Definition.SetAttackHitComputation(RuleDefinitions.PowerAttackHitComputation.Fixed);
+            return this;
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder SetUniqueInstance(bool uniqueInstance)
+        {
+            Definition.SetUniqueInstance(uniqueInstance);
+            return this;
+        }
+
+
+        public FeatureDefinitionPowerSharedPoolBuilder SetShowCasting(bool casting)
+        {
+            Definition.SetShowCasting(casting);
+            return this;
+        }
+
         public FeatureDefinitionPowerSharedPoolBuilder AddOverriddenPower(FeatureDefinitionPower overridenPower)
         {
             Definition.SetOverriddenPower(overridenPower);
+            return this;
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder SetShortTitle(string title)
+        {
+            Definition.SetShortTitleOverride(title);
+            return this;
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder SetAbility(string ability)
+        {
+            Definition.SetAbilityScore(ability);
             return this;
         }
     }

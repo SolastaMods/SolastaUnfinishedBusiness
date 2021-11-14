@@ -21,6 +21,7 @@ namespace SolastaCommunityExpansion.Models
             LoadSubclass(new ArcaneFighter());
             LoadSubclass(new LifeTransmuter());
             LoadSubclass(new Arcanist());
+            LoadSubclass(new Tactician());
         }
 
         private static void LoadSubclass(AbstractSubclass subclassBuilder)
