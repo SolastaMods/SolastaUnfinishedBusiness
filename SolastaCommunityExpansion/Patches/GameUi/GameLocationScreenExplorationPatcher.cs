@@ -15,67 +15,71 @@ namespace SolastaCommunityExpansion.Patches
                 CharacterControlPanelExploration ___characterControlPanelExploration,
                 TimeAndNavigationPanel ___timeAndNavigationPanel)
             {
-                switch (command)
+                if (Main.Settings.EnableHudToggleElementsHotkeys)
                 {
-                    case Settings.CTRL_C:
-                        if (___characterControlPanelExploration.Visible)
-                        {
-                            ___characterControlPanelExploration.Hide();
-                        }
-                        else
-                        {
-                            var gameLocationSelectionService = ServiceRepository.GetService<IGameLocationSelectionService>();
-
-                            if (gameLocationSelectionService.SelectedCharacters.Count > 0)
+                    switch (command)
+                    {
+                        case Settings.CTRL_C:
+                            if (___characterControlPanelExploration.Visible)
                             {
-                                ___characterControlPanelExploration.Bind(gameLocationSelectionService.SelectedCharacters[0], __instance.ActionTooltipDock);
-                                ___characterControlPanelExploration.Show();
+                                ___characterControlPanelExploration.Hide();
                             }
-                        }
-                        __result = true;
-                        return false;
+                            else
+                            {
+                                var gameLocationSelectionService = ServiceRepository.GetService<IGameLocationSelectionService>();
 
-                    case Settings.CTRL_L:
-                        var guiConsoleScreen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
+                                if (gameLocationSelectionService.SelectedCharacters.Count > 0)
+                                {
+                                    ___characterControlPanelExploration.Bind(gameLocationSelectionService.SelectedCharacters[0], __instance.ActionTooltipDock);
+                                    ___characterControlPanelExploration.Show();
+                                }
+                            }
+                            __result = true;
+                            return false;
 
-                        if (guiConsoleScreen.Visible)
-                        {
-                            guiConsoleScreen.Hide();
-                        }
-                        else
-                        {
-                            guiConsoleScreen.Show();
-                        }
-                        __result = true;
-                        return false;
+                        case Settings.CTRL_L:
+                            var guiConsoleScreen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
 
-                    case Settings.CTRL_M:
-                        if (___timeAndNavigationPanel.Visible)
-                        {
-                            ___timeAndNavigationPanel.Hide();
-                        }
-                        else
-                        {
-                            ___timeAndNavigationPanel.Show();
-                        }
-                        __result = true;
-                        return false;
+                            if (guiConsoleScreen.Visible)
+                            {
+                                guiConsoleScreen.Hide();
+                            }
+                            else
+                            {
+                                guiConsoleScreen.Show();
+                            }
+                            __result = true;
+                            return false;
 
-                    case Settings.CTRL_P:
-                        if (___partyControlPanel.Visible)
-                        {
-                            ___partyControlPanel.Hide();
-                        }
-                        else
-                        {
-                            ___partyControlPanel.Show();
-                        }
-                        __result = true;
-                        return false;
+                        case Settings.CTRL_M:
+                            if (___timeAndNavigationPanel.Visible)
+                            {
+                                ___timeAndNavigationPanel.Hide();
+                            }
+                            else
+                            {
+                                ___timeAndNavigationPanel.Show();
+                            }
+                            __result = true;
+                            return false;
 
-                    default:
-                        return true;
+                        case Settings.CTRL_P:
+                            if (___partyControlPanel.Visible)
+                            {
+                                ___partyControlPanel.Hide();
+                            }
+                            else
+                            {
+                                ___partyControlPanel.Show();
+                            }
+                            __result = true;
+                            return false;
+
+                        default:
+                            return true;
+                    }
                 }
+                return true;
             }
         }
     }
