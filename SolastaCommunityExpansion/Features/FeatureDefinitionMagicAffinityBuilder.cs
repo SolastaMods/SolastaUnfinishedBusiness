@@ -13,6 +13,12 @@ namespace SolastaCommunityExpansion.Features
             Definition.SetGuiPresentation(guiPresentation);
         }
 
+        public FeatureDefinitionMagicAffinityBuilder(FeatureDefinitionMagicAffinity toCopy, string name, string guid,
+           GuiPresentation guiPresentation) : base(toCopy, name, guid)
+        {
+            Definition.SetGuiPresentation(guiPresentation);
+        }
+
         public FeatureDefinitionMagicAffinityBuilder SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity concentrationAffinity,
                int threshold) 
         {
