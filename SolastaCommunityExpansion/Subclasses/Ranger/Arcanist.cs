@@ -11,8 +11,22 @@ using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Subclasses.Ranger
 {
-    class Arcanist
+    class Arcanist : AbstractSubclass
     {
+        private CharacterSubclassDefinition Subclass;
+        internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
+        {
+            return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceRangerArchetypes;
+        }
+        internal override CharacterSubclassDefinition GetSubclass()
+        {
+            if (Subclass == null)
+            {
+                Subclass = BuildAndAddSubclass();
+            }
+            return Subclass;
+        }
+
         const string RangerArcanistRangerSubclassName = "RangerArcanistRangerSubclass";
         const string RangerArcanistRangerSubclassGuid = "5ABD870D-9ABD-4953-A2EC-E2109324FAB9";
 
@@ -24,7 +38,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
         static public FeatureDefinition arcane_detonation_upgrade = createArcaneDetonationUpgrade();
         static public Dictionary<int, FeatureDefinitionPower> arcane_pulse_dict = createArcanePulseDict();
 
-        public static void BuildAndAddSubclass()
+        public static CharacterSubclassDefinition BuildAndAddSubclass()
         {
             var subclassGuiPresentation = new GuiPresentationBuilder(
                     "Subclass/&RangerArcanistRangerSubclassDescription",
@@ -42,7 +56,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
                     .AddFeatureAtLevel(arcane_pulse_dict[15], 15)
                     .AddToDB();
 
-            DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceRangerArchetypes.Subclasses.Add(definition.Name);
+            return definition;
         }
 
         private static DiceByRank buildDiceByRank(int rank, int dice)
@@ -93,17 +107,11 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
                 "MagicAffinityRangerArcanist",
                 GuidHelper.Create(RA_BASE_GUID, "MagicAffinityRangerArcanist").ToString(), blank).AddToDB();
 
-            return Helpers.FeatureSetBuilder.createFeatureSet
-            (
-                "RangerArcanistMagic",
-                GuidHelper.Create(RA_BASE_GUID, "RangerArcanistManaTouchedGuardian").ToString(), // Oops, will have to live with this name being off
-                "Feature/&RangerArcanistMagicTitle",
-                "Feature/&RangerArcanistMagicDescription",
-                false,
-                FeatureDefinitionFeatureSet.FeatureSetMode.Union,
-                false,
-                preparedSpells, arcanist_affinity
-            );
+            GuiPresentation arcanistMagicGui = new GuiPresentationBuilder("Feature/&RangerArcanistMagicDescription", "Feature/&RangerArcanistMagicTitle").Build();
+            return new FeatureDefinitionFeatureSetBuilder("RangerArcanistMagic",
+                GuidHelper.Create(RA_BASE_GUID, "RangerArcanistManaTouchedGuardian").ToString(), // Oops, will have to live with this name being off)
+                new List<FeatureDefinition>() { preparedSpells, arcanist_affinity},
+                FeatureDefinitionFeatureSet.FeatureSetMode.Union, arcanistMagicGui).AddToDB();
         }
 
         private class FeatureDefinitionAutoPreparedSpellsBuilder : BaseDefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
@@ -117,42 +125,42 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             }
         }
 
+        private class FeatureDefinitionFeatureSetBuilder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
+        {
+            public FeatureDefinitionFeatureSetBuilder(string name, string guid, List<FeatureDefinition> features,
+                FeatureDefinitionFeatureSet.FeatureSetMode mode, GuiPresentation guiPresentation) : base(name, guid)
+            {
+                Definition.SetField("featureSet", features);
+                Definition.SetMode(mode);
+                Definition.SetGuiPresentation(guiPresentation);
+                // enumerateInDescription and uniqueChoices default to false.
+            }
+        }
+
         static FeatureDefinitionAdditionalDamage createArcanistMark()
         {
             var marked_condition = ConditionMarkedByArcanistBuilder.GetOrAdd();
 
-            var mark_apply = Helpers.CopyFeatureBuilder<FeatureDefinitionAdditionalDamage>.createFeatureCopy
-            (
+            var mark_apply = new FeatureDefinitionAdditionalDamageBuilder(
+                DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageHuntersMark,
                 "AdditionalDamageArcanistMark",
                 GuidHelper.Create(RA_BASE_GUID, "AdditionalDamageArcanistMark").ToString(),
-                "Feature/&ArcanistMarkTitle",
-                "Feature/&ArcanistMarkDescription",
-                null,
-                DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageHuntersMark,
-                a =>
-                {
-                    a.SetAdditionalDamageType(RuleDefinitions.AdditionalDamageType.Specific);
-                    a.SetSpecificDamageType("DamageForce");
-                    a.SetDamageDiceNumber(0);
-                    a.SetDamageDieType(RuleDefinitions.DieType.D6);
-                    a.SetNotificationTag("ArcanistMark");
-                    a.SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive);
-                    a.SetDamageValueDetermination(RuleDefinitions.AdditionalDamageValueDetermination.Die);
-                    a.SetDamageAdvancement(RuleDefinitions.AdditionalDamageAdvancement.None);
-                    a.SetDamageSaveAffinity(RuleDefinitions.EffectSavingThrowType.None);
-                    a.ConditionOperations.Clear();
-                    a.ConditionOperations.Add
-                    (
-                        new ConditionOperationDescription()
+                new GuiPresentationBuilder("Feature/&ArcanistMarkDescription", "Feature/&ArcanistMarkTitle").Build());
+            mark_apply.SetSpecificDamageType("DamageForce");
+            mark_apply.SetDamageDice(RuleDefinitions.DieType.D6, 0);
+            mark_apply.SetNotificationTag("ArcanistMark");
+            mark_apply.SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive);
+            mark_apply.SetNoSave();
+            mark_apply.NoAdvancement();
+            mark_apply.SetConditionOperations(new List<ConditionOperationDescription>(){
+                new ConditionOperationDescription()
                         {
                             ConditionDefinition = marked_condition,
                             Operation = ConditionOperationDescription.ConditionOperation.Add
                         }
-                    );
-                }
-            );
+            });
 
-            return mark_apply;
+            return mark_apply.AddToDB();
         }
 
         static FeatureDefinitionAdditionalDamage createArcaneDetonation()
@@ -162,30 +170,24 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             var asset_reference = new AssetReference();
             asset_reference.SetField("m_AssetGUID", "9f1fe10e6ef8c9c43b6b2ef91b2ad38a");
 
-            var mark_damage = Helpers.CopyFeatureBuilder<FeatureDefinitionAdditionalDamage>.createFeatureCopy
-            (
+            var mark_damage = new FeatureDefinitionAdditionalDamageBuilder(
+                DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageHuntersMark,
                 "AdditionalDamageArcaneDetonation",
                 GuidHelper.Create(RA_BASE_GUID, "AdditionalDamageArcaneDetonation").ToString(),
-                "Feature/&ArcaneDetonationTitle",
-                "Feature/&ArcaneDetonationDescription",
-                null,
-                DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageHuntersMark,
-                a =>
-                {
-                    a.SetAdditionalDamageType(RuleDefinitions.AdditionalDamageType.Specific);
-                    a.SetRequiredTargetCondition(marked_condition);
-                    a.SetSpecificDamageType("DamageForce");
-                    a.SetNotificationTag("ArcanistMark");
-                    a.SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasConditionCreatedByMe);
-                    a.SetDamageValueDetermination(RuleDefinitions.AdditionalDamageValueDetermination.Die);
-                    a.SetDamageDiceNumber(1);
-                    a.SetDamageDieType(RuleDefinitions.DieType.D6);
-                    a.SetDamageSaveAffinity(RuleDefinitions.EffectSavingThrowType.None);
-                    a.SetDamageAdvancement(RuleDefinitions.AdditionalDamageAdvancement.ClassLevel);
-                    a.SetLimitedUsage(RuleDefinitions.FeatureLimitedUsage.None);
-                    a.SetImpactParticleReference(asset_reference);
-                    a.DiceByRankTable.Clear();
-                    a.DiceByRankTable.AddRange(new List<DiceByRank>
+                new GuiPresentationBuilder("Feature/&ArcaneDetonationDescription", "Feature/&ArcaneDetonationTitle").Build());
+            mark_damage.SetSpecificDamageType("DamageForce");
+            mark_damage.SetDamageDice(RuleDefinitions.DieType.D6, 1);
+            mark_damage.SetNotificationTag("ArcanistMark");
+            mark_damage.SetTargetCondition(marked_condition, RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasConditionCreatedByMe);
+            mark_damage.SetNoSave();
+            mark_damage.SetConditionOperations(new List<ConditionOperationDescription>(){
+               new ConditionOperationDescription()
+                        {
+                            ConditionDefinition = marked_condition,
+                            Operation = ConditionOperationDescription.ConditionOperation.Remove
+                        }
+            });
+            mark_damage.SetClassAdvancement(new List<DiceByRank>
                     {
                         buildDiceByRank(1, 1),
                         buildDiceByRank(2, 1),
@@ -208,35 +210,26 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
                         buildDiceByRank(19, 2),
                         buildDiceByRank(20, 2)
                     });
-
-                    a.ConditionOperations.Clear();
-                    a.ConditionOperations.Add
-                    (
-                        new ConditionOperationDescription()
-                        {
-                            ConditionDefinition = marked_condition,
-                            Operation = ConditionOperationDescription.ConditionOperation.Remove
-                        }
-                    );
-                }
-            );
-
-            return mark_damage;
+            mark_damage.SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.None);
+            mark_damage.SetImpactParticleReference(asset_reference);    
+            return mark_damage.AddToDB();
         }
 
         static FeatureDefinition createArcaneDetonationUpgrade()
         {
             // This is a blank feature. It does nothing except create a description for what happens at level 11.
-            var blank_feature = Helpers.FeatureBuilder<FeatureDefinition>.createFeature
-            (
-                "AdditionalDamageArcaneDetonationUpgrade",
+            var blank_feature = new FeatureDefinitionBuilder("AdditionalDamageArcaneDetonationUpgrade",
                 GuidHelper.Create(RA_BASE_GUID, "AdditionalDamageArcaneDetonationUpgrade").ToString(),
-                "Feature/&ArcaneDetonationUpgradeTitle",
-                "Feature/&ArcaneDetonationUpgradeDescription",
-                null
-            );
-
+                new GuiPresentationBuilder("Feature/&ArcaneDetonationUpgradeDescription", "Feature/&ArcaneDetonationUpgradeTitle").Build()).AddToDB();
             return blank_feature;
+        }
+
+        private class FeatureDefinitionBuilder : BaseDefinitionBuilder<FeatureDefinition>
+        {
+            public FeatureDefinitionBuilder(string name, string guid, GuiPresentation guiPresentation) : base(name, guid)
+            {
+                Definition.SetGuiPresentation(guiPresentation);
+            }
         }
 
         static Dictionary<int, FeatureDefinitionPower> createArcanePulseDict()
@@ -293,27 +286,17 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
                 marked_effect
             });
 
-            return Helpers.FeatureBuilder<FeatureDefinitionPower>.createFeature
-            (
-                name,
-                GuidHelper.Create(RA_BASE_GUID, name).ToString(),
-                title,
-                description,
-                DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsThunder.GuiPresentation.SpriteReference,
-                a =>
-                {
-                    a.SetAbilityScore(Helpers.Stats.Wisdom);
-                    a.SetActivationTime(RuleDefinitions.ActivationTime.Action);
-                    a.SetCostPerUse(1);
-                    a.SetEffectDescription(pulse_description);
-                    a.SetFixedUsesPerRecharge(0);
-                    a.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
-                    a.SetShortTitleOverride("Arcane Pulse");
-                    a.SetShowCasting(true);
-                    a.SetUsesAbilityScoreName(Helpers.Stats.Wisdom);
-                    a.SetUsesDetermination(RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed);
-                }
-            );
+            return new FeatureDefinitionPowerBuilder(name, GuidHelper.Create(RA_BASE_GUID, name).ToString(),
+                new GuiPresentationBuilder(description, title)
+                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsThunder.GuiPresentation.SpriteReference).Build())
+                .SetUsesAbility(0, AttributeDefinitions.Wisdom)
+                .SetShowCasting(true)
+                .SetRecharge(RuleDefinitions.RechargeRate.LongRest)
+                .SetActivation(RuleDefinitions.ActivationTime.Action, 1)
+                .SetEffect(pulse_description)
+                .SetAbility(AttributeDefinitions.Wisdom)
+                .SetShortTitle("Arcane Pulse")
+                .AddToDB();
         }
     }
 
