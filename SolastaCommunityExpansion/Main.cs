@@ -21,6 +21,7 @@ namespace SolastaCommunityExpansion
         internal static ModManager<Core, Settings> Mod;
         internal static MenuManager Menu;
         internal static Settings Settings { get { return Mod.Settings; } }
+        internal static Type CurrentCursorType = null;
 
         internal static bool Load(UnityModManager.ModEntry modEntry)
         {
@@ -34,6 +35,28 @@ namespace SolastaCommunityExpansion
 
                 Menu = new MenuManager();
                 Menu.Enable(modEntry, assembly);
+
+                modEntry.OnShowGUI = (UnityModManager.ModEntry _) =>
+                {
+                    var service = ServiceRepository.GetService<ICursorService>();
+
+                    if (service?.CurrentCursor != null)
+                    {
+                        CurrentCursorType = service.CurrentCursor.GetType();
+                        service.DeactivateCursor();
+                    }
+                };
+
+                modEntry.OnHideGUI = (UnityModManager.ModEntry _) =>
+                {
+                    var service = ServiceRepository.GetService<ICursorService>();
+
+                    if (service?.CurrentCursor != null && CurrentCursorType != null)
+                    {
+                        service.ActivateCursor(CurrentCursorType);
+                        CurrentCursorType = null;
+                    }
+                };
 
                 Translations.Load(MOD_FOLDER);
             }
