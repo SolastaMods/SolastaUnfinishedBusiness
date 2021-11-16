@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
+using SolastaCommunityExpansion.Patches.PowerSharedPool;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 
@@ -56,6 +57,12 @@ namespace SolastaCommunityExpansion.Patches.ConditionalPowers
 				{
 					// If the character didn't already have the power, create the RulesetUsablePower and add it.
 					RulesetUsablePower power = BuildUsablePower(hero, featureDefinitionPower);
+					// If this new power is part of a shared pool, get it properly initialized for usage.
+					if (featureDefinitionPower is IPowerSharedPool)
+                    {
+						RulesetCharacterPatch.UpdateUsageForPowerPool(hero, power, 0);
+
+					}
 					curPowers.Add(power);
 					newPower = true;
 				}
