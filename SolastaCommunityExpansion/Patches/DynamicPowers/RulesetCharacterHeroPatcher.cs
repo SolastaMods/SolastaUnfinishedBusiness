@@ -3,6 +3,7 @@ using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaCommunityExpansion.Patches.PowerSharedPool;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SolastaCommunityExpansion.Patches.ConditionalPowers
 {
@@ -28,26 +29,14 @@ namespace SolastaCommunityExpansion.Patches.ConditionalPowers
 			List<RulesetUsablePower> curPowers = new List<RulesetUsablePower>();
 			bool newPower = false;
 			hero.EnumerateFeaturesToBrowse<FeatureDefinitionPower>(hero.FeaturesToBrowse, null);
-			foreach (FeatureDefinition featureDefinition in hero.FeaturesToBrowse)
+			foreach (FeatureDefinitionPower featureDefinitionPower in hero.FeaturesToBrowse.Cast<FeatureDefinitionPower>())
 			{
-				FeatureDefinitionPower featureDefinitionPower = (FeatureDefinitionPower)featureDefinition;
-				if (featureDefinitionPower is IConditionalPower)
+				if (featureDefinitionPower is IConditionalPower &&
+					!(featureDefinitionPower as IConditionalPower).IsActive(hero))
 				{
-					// If this is a conditional power, then check if it is active.
-					if (!(featureDefinitionPower as IConditionalPower).IsActive(hero))
-					{
-						continue;
-					}
+					continue;
 				}
-				RulesetUsablePower rulesetUsablePower = null;
-				foreach (RulesetUsablePower rulesetUsablePower2 in hero.UsablePowers)
-				{
-					if (rulesetUsablePower2.PowerDefinition == featureDefinitionPower)
-					{
-						rulesetUsablePower = rulesetUsablePower2;
-						break;
-					}
-				}
+				RulesetUsablePower rulesetUsablePower = hero.UsablePowers.FirstOrDefault(up => up.PowerDefinition == featureDefinitionPower);
 				if (rulesetUsablePower != null)
 				{
 					// If we found a power that was already on the character, re-add the same instance.
@@ -118,71 +107,39 @@ namespace SolastaCommunityExpansion.Patches.ConditionalPowers
 			raceDefinition = null;
 			classDefinition = null;
 			featDefinition = null;
-			using (List<FeatureUnlockByLevel>.Enumerator enumerator = hero.RaceDefinition.FeatureUnlocks.GetEnumerator())
-			{
-				while (enumerator.MoveNext())
-				{
-					if (enumerator.Current.FeatureDefinition == featureDefinition)
-					{
-						raceDefinition = hero.RaceDefinition;
-						return;
-					}
-				}
+			if (hero.RaceDefinition.FeatureUnlocks.Any(unlock => unlock.FeatureDefinition == featureDefinition))
+            {
+				raceDefinition = hero.RaceDefinition;
+				return;
 			}
-			if (hero.SubRaceDefinition != null)
+			if (hero.SubRaceDefinition != null &&
+				hero.SubRaceDefinition.FeatureUnlocks.Any(unlock => unlock.FeatureDefinition == featureDefinition))
 			{
-				using (List<FeatureUnlockByLevel>.Enumerator enumerator = hero.SubRaceDefinition.FeatureUnlocks.GetEnumerator())
-				{
-					while (enumerator.MoveNext())
-					{
-						if (enumerator.Current.FeatureDefinition == featureDefinition)
-						{
-							raceDefinition = hero.SubRaceDefinition;
-							return;
-						}
-					}
-				}
+				raceDefinition = hero.SubRaceDefinition;
+				return;
 			}
 			foreach (KeyValuePair<CharacterClassDefinition, int> keyValuePair in hero.ClassesAndLevels)
 			{
-				using (List<FeatureUnlockByLevel>.Enumerator enumerator = keyValuePair.Key.FeatureUnlocks.GetEnumerator())
+				if (keyValuePair.Key.FeatureUnlocks.Any(unlock => unlock.FeatureDefinition == featureDefinition))
 				{
-					while (enumerator.MoveNext())
-					{
-						if (enumerator.Current.FeatureDefinition == featureDefinition)
-						{
-							classDefinition = keyValuePair.Key;
-							return;
-						}
-					}
+					classDefinition = keyValuePair.Key;
+					return;
 				}
 				if (hero.ClassesAndSubclasses.ContainsKey(keyValuePair.Key) && hero.ClassesAndSubclasses[keyValuePair.Key] != null)
 				{
-					using (List<FeatureUnlockByLevel>.Enumerator enumerator = hero.ClassesAndSubclasses[keyValuePair.Key].FeatureUnlocks.GetEnumerator())
+					if (hero.ClassesAndSubclasses[keyValuePair.Key].FeatureUnlocks.Any(unlock => unlock.FeatureDefinition == featureDefinition))
 					{
-						while (enumerator.MoveNext())
-						{
-							if (enumerator.Current.FeatureDefinition == featureDefinition)
-							{
-								classDefinition = keyValuePair.Key;
-								return;
-							}
-						}
+						classDefinition = keyValuePair.Key;
+						return;
 					}
 				}
 			}
 			foreach (FeatDefinition featDefinition2 in hero.TrainedFeats)
 			{
-				using (List<FeatureDefinition>.Enumerator enumerator4 = featDefinition2.Features.GetEnumerator())
-				{
-					while (enumerator4.MoveNext())
-					{
-						if (enumerator4.Current == featureDefinition)
-						{
-							featDefinition = featDefinition2;
-							return;
-						}
-					}
+				if (featDefinition.Features.Contains(featureDefinition))
+                {
+					featDefinition = featDefinition2;
+					return;
 				}
 			}
 		}
