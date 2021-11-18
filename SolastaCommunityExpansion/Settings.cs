@@ -59,7 +59,7 @@ namespace SolastaCommunityExpansion
 
         public List<string> FeatEnabled= new List<string>();
         public List<string> SubclassEnabled= new List<string>();
-        public List<string> FightingStyleEnabled;
+        public List<string> FightingStyleEnabled = new List<string>();
 
         public int FeatSliderPosition = 1;
         public int SubclassSliderPosition = 1;
