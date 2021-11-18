@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Level20.Features
         protected PrimalChampionConstitutionModifierBuilder(string name, string guid) : base(AttributeModifierTomeOfAllThings_CON, name, guid)
         {
             Definition.SetModifierValue(4);
-            Definition.SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddAbilityScoreBonus);
+            Definition.SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive);
             Definition.GuiPresentation.Description = "Feature/&PrimalChampionConstitutionDescription";
             Definition.GuiPresentation.Title = "Feature/&PrimalChampionConstitutionTitle";
         }
