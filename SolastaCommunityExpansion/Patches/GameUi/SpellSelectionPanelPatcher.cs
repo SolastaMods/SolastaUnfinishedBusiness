@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Patches
 {
     internal static class SpellSelectionPanelPatcher
     {
-        private static List<RectTransform> spellLineTables = new List<RectTransform>();
+        private static readonly List<RectTransform> spellLineTables = new List<RectTransform>();
 
         // second line bind
         [HarmonyPatch(typeof(SpellSelectionPanel), "Bind")]

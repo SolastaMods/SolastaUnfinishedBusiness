@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
     internal class ArcaneFighter : AbstractSubclass
     {
         private static Guid SubclassNamespace = new Guid("cab151dd-cc94-4c4c-bfba-a712b9a0b53d");
-        private CharacterSubclassDefinition Subclass;
+        private readonly CharacterSubclassDefinition Subclass;
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
