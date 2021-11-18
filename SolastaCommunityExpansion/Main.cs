@@ -1,9 +1,9 @@
+using ModKit;
 using System;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using UnityModManagerNet;
-using ModKit;
 
 namespace SolastaCommunityExpansion
 {

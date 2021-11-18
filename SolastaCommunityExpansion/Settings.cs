@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion
     {
 
     }
-    
+
     public class Settings : UnityModManager.ModSettings
     {
         //
@@ -57,8 +57,8 @@ namespace SolastaCommunityExpansion
             }
         }
 
-        public List<string> FeatEnabled= new List<string>();
-        public List<string> SubclassEnabled= new List<string>();
+        public List<string> FeatEnabled = new List<string>();
+        public List<string> SubclassEnabled = new List<string>();
         public List<string> FightingStyleEnabled;
 
         public int FeatSliderPosition = 1;

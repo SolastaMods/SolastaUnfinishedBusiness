@@ -95,7 +95,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         public static FeatureDefinitionMagicAffinity BuildMagicAffinityModifiers(int attackModifier, int dcModifier, string name, GuiPresentation guiPresentation)
         {
             FeatureDefinitionMagicAffinityBuilder builder = new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
-                guiPresentation).SetCastingModifiers(attackModifier, dcModifier, false, false , false);
+                guiPresentation).SetCastingModifiers(attackModifier, dcModifier, false, false, false);
             return builder.AddToDB();
         }
 

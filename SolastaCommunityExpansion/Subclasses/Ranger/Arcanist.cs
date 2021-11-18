@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using SolastaCommunityExpansion.Features;
+﻿using SolastaCommunityExpansion.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using System;
+using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Subclasses.Ranger
@@ -71,7 +71,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup arcanistSpells1 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 2,
-                SpellsList = new List<SpellDefinition>(){DatabaseHelper.SpellDefinitions.Shield,}
+                SpellsList = new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.Shield, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup arcanistSpells2 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
@@ -107,7 +107,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             GuiPresentation arcanistMagicGui = new GuiPresentationBuilder("Feature/&RangerArcanistMagicDescription", "Feature/&RangerArcanistMagicTitle").Build();
             return new FeatureDefinitionFeatureSetBuilder("RangerArcanistMagic",
                 GuidHelper.Create(RA_BASE_GUID, "RangerArcanistManaTouchedGuardian").ToString(), // Oops, will have to live with this name being off)
-                new List<FeatureDefinition>() { preparedSpells, arcanist_affinity},
+                new List<FeatureDefinition>() { preparedSpells, arcanist_affinity },
                 FeatureDefinitionFeatureSet.FeatureSetMode.Union, arcanistMagicGui).AddToDB();
         }
 
@@ -208,7 +208,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
                         buildDiceByRank(20, 2)
                     });
             mark_damage.SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.None);
-            mark_damage.SetImpactParticleReference(asset_reference);    
+            mark_damage.SetImpactParticleReference(asset_reference);
             return mark_damage.AddToDB();
         }
 

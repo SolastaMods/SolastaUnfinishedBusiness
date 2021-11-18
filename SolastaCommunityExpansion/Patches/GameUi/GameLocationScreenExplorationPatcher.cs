@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Patches
         {
             internal static bool Prefix(
                 GameLocationScreenExploration __instance,
-                InputCommands.Id command, 
+                InputCommands.Id command,
                 ref bool __result,
                 PartyControlPanel ___partyControlPanel,
                 CharacterControlPanelExploration ___characterControlPanelExploration,

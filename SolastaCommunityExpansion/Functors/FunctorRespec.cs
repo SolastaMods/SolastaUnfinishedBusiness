@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using HarmonyLib;
+﻿using HarmonyLib;
 using SolastaModApi.Extensions;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Functors

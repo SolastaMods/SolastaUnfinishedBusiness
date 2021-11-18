@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Models
                 DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Clear();
             }
             else
-            {           
+            {
                 if (!DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Contains(TagsDefinitions.ItemTagMetal))
                 {
                     DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Add(TagsDefinitions.ItemTagMetal);

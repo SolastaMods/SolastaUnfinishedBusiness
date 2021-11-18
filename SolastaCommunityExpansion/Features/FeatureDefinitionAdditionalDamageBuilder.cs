@@ -1,8 +1,6 @@
-﻿using HarmonyLib;
-using SolastaModApi;
+﻿using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using System;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 

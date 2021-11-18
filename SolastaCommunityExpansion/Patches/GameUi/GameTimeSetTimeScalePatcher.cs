@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion.Patches
                 {
                     Time.timeScale = ___timeScale * (___fasterTimeMode ? Main.Settings.CustomTimeScale : 1f);
                 }
-                
+
                 return false;
             }
         }

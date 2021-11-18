@@ -21,7 +21,8 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             return Subclass;
         }
 
-        internal SpellShield() {
+        internal SpellShield()
+        {
             // Make Spell Shield subclass
             CharacterSubclassDefinitionBuilder spellShield = new CharacterSubclassDefinitionBuilder("FighterSpellShield", GuidHelper.Create(SubclassNamespace, "FighterSpellShield").ToString());
             GuiPresentationBuilder spellShieldPresentation = new GuiPresentationBuilder(

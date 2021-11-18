@@ -1,10 +1,10 @@
 
 using SolastaModApi;
 using SolastaModApi.Extensions;
-using static RuleDefinitions;
 using SolastaModApi.Infrastructure;
-using static SolastaModApi.DatabaseHelper.LootPackDefinitions;
 using System.Collections.Generic;
+using static RuleDefinitions;
+using static SolastaModApi.DatabaseHelper.LootPackDefinitions;
 
 namespace SolastaCommunityExpansion.Models
 {

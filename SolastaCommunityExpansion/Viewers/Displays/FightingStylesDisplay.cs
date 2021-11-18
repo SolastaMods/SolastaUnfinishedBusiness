@@ -1,6 +1,6 @@
-﻿using System.Linq;
-using ModKit;
+﻿using ModKit;
 using SolastaCommunityExpansion.Models;
+using System.Linq;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             selectAll = Main.Settings.FightingStyleEnabled.Count == FightingStyleContext.Styles.Count;
 
-         
+
 
             UI.Label("");
             UI.Label("Fighting Styles: ".yellow());

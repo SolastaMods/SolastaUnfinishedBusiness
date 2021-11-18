@@ -1,6 +1,6 @@
-﻿using SolastaModApi;
+﻿using SolastaCommunityExpansion.CustomFeatureDefinitions;
+using SolastaModApi;
 using SolastaModApi.Extensions;
-using SolastaCommunityExpansion.CustomFeatureDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Fighter
 {
@@ -74,12 +74,12 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
     }
 
 
-    internal static class InspirePowerBuilder 
+    internal static class InspirePowerBuilder
     {
         const string InspirePowerName = "InspirePower";
         const string InspirePowerNameGuid = "163c28de-48e5-4f75-bdd0-d42374a75ef8";
 
-        internal static FeatureDefinitionPower Build(string name, string guid) 
+        internal static FeatureDefinitionPower Build(string name, string guid)
         {
             //Create the temp hp form
             EffectForm healingEffect = new EffectForm();
@@ -129,12 +129,12 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
     }
 
 
-    internal static class CounterStrikePowerBuilder 
+    internal static class CounterStrikePowerBuilder
     {
         const string CounterStrikePowerName = "CounterStrikePower";
         const string CounterStrikePowerNameGuid = "88c294ce-14fa-4f7e-8b81-ea4d289e3d8b";
 
-        internal static FeatureDefinitionPower Build (string name, string guid)
+        internal static FeatureDefinitionPower Build(string name, string guid)
         {
             //Create the damage form - TODO make it do the same damage as the wielded weapon (seems impossible with current tools, would need to use the AdditionalDamage feature but I'm not sure how to combine that with this to make it a reaction ability).
             EffectForm damageEffect = new EffectForm();
@@ -167,7 +167,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
     }
 
 
-    internal static class GambitResourcePoolBuilder 
+    internal static class GambitResourcePoolBuilder
     {
         const string GambitResourcePoolName = "GambitResourcePool";
         const string GambitResourcePoolNameGuid = "00da2b27-139a-4ca0-a285-aaa70d108bc8";
@@ -188,7 +188,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
             => new FeatureDefinitionPowerPoolModifierBuilder(name, guid,
                 1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Dexterity, TacticianFighterSubclassBuilder.GambitResourcePool,
-                new GuiPresentationBuilder("Feature/&GambitResourcePoolAddDescription","Feature/&GambitResourcePoolAddTitle").Build()).AddToDB();
+                new GuiPresentationBuilder("Feature/&GambitResourcePoolAddDescription", "Feature/&GambitResourcePoolAddTitle").Build()).AddToDB();
 
         public static readonly FeatureDefinitionPower GambitResourcePoolAdd = CreateAndAddToDB(GambitResourcePoolAddName, GambitResourcePoolAddNameGuid);
     }

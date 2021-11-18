@@ -1,5 +1,5 @@
-﻿using UnityModManagerNet;
-using ModKit;
+﻿using ModKit;
+using UnityModManagerNet;
 using static SolastaCommunityExpansion.Viewers.Displays.ItemsAndCraftingDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.RulesDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.ToolsDisplay;

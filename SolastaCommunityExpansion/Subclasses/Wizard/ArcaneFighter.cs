@@ -147,7 +147,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         private class FeatureDefinitionAttackModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttackModifier>
         {
             public FeatureDefinitionAttackModifierBuilder(string name, string guid,
-            RuleDefinitions.AbilityScoreReplacement abilityReplacement, string additionalAttackTag, 
+            RuleDefinitions.AbilityScoreReplacement abilityReplacement, string additionalAttackTag,
             GuiPresentation guiPresentation) : base(name, guid)
             {
                 Definition.SetAbilityScoreReplacement(abilityReplacement);

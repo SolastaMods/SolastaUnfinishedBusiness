@@ -1,7 +1,7 @@
-using System;
-using System.Collections.Generic;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using System;
+using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion
@@ -40,34 +40,34 @@ namespace SolastaCommunityExpansion
             FeatureDefinitionAttributeModifier crafty_wis = BuildNewAttributeModifier(
                 "AttributeModifierFeatCraftyWis",
                 "23f944c7-2359-43cc-8bdc-71833bf35302",
-                "SolastaCraftyFeats/&AttributeWisTitle", 
+                "SolastaCraftyFeats/&AttributeWisTitle",
                 "SolastaCraftyFeats/&AttributeWisDescription",
                 DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Maraike.GuiPresentation.SpriteReference,
                 DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Maraike);
 
             FeatureDefinitionAttributeModifier crafty_dex = BuildNewAttributeModifier(
-                "AttributeModifierFeatCraftyDex", 
+                "AttributeModifierFeatCraftyDex",
                 "4db12466-67da-47a4-8d96-a9bf9cf3a251",
-                "SolastaCraftyFeats/&AttributeDexTitle", 
+                "SolastaCraftyFeats/&AttributeDexTitle",
                 "SolastaCraftyFeats/&AttributeDexDescription",
                 DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Misaye.GuiPresentation.SpriteReference,
                 DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Misaye);
 
             FeatureDefinitionProficiency crafty_arcana = BuildNewProficiency(
-                "CraftyArcana", 
+                "CraftyArcana",
                 "44a54666-80ba-475c-90b1-774e86f1a69a",
-                "SolastaCraftyFeats/&CraftySkillsTitle", 
+                "SolastaCraftyFeats/&CraftySkillsTitle",
                 "SolastaCraftyFeats/&CraftyArcanaDescription",
                 null,
                 DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyAllLanguages,
                 RuleDefinitions.ProficiencyType.SkillOrExpertise,
-                new List<string>{DatabaseHelper.SkillDefinitions.Arcana.name }
+                new List<string> { DatabaseHelper.SkillDefinitions.Arcana.name }
                 );
 
             FeatureDefinitionProficiency crafty_medicine = BuildNewProficiency(
                 "CraftyMedicine",
                 "1ac54869-a8ce-4a51-a858-1f7e34680b96",
-                "SolastaCraftyFeats/&CraftySkillsTitle", 
+                "SolastaCraftyFeats/&CraftySkillsTitle",
                 "SolastaCraftyFeats/&CraftyMedicineDescription",
                 null,
                 DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyAllLanguages,
@@ -76,9 +76,9 @@ namespace SolastaCommunityExpansion
                 );
 
             FeatureDefinitionProficiency crafty_nature = BuildNewProficiency(
-                "CraftyNature", 
+                "CraftyNature",
                 "7399b06a-bfda-4e60-8366-17e0d6cec0d0",
-                "SolastaCraftyFeats/&CraftySkillsTitle", 
+                "SolastaCraftyFeats/&CraftySkillsTitle",
                 "SolastaCraftyFeats/&CraftyNatureDescription",
                 null,
                 DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyAllLanguages,
@@ -87,7 +87,7 @@ namespace SolastaCommunityExpansion
                 );
 
             FeatureDefinitionProficiency crafty_herbalism_kit = BuildNewProficiency(
-                "CraftyHerbalismKit", 
+                "CraftyHerbalismKit",
                 "9345e1fd-ec4c-4509-acb5-3f3257b25ec4",
                 "SolastaCraftyFeats/&CraftyToolsTitle",
                 "Feature/&ToolProficiencyPluralShortDescription",
@@ -98,7 +98,7 @@ namespace SolastaCommunityExpansion
                 );
 
             FeatureDefinitionProficiency crafty_manacalon_rosary = BuildNewProficiency(
-                "CraftyManacalonRosary", 
+                "CraftyManacalonRosary",
                 "0685a944-76cd-423a-81a1-9ceec507d69a",
                 "SolastaCraftyFeats/&CraftyToolsTitle",
                 "Feature/&ToolProficiencyPluralShortDescription",
@@ -119,7 +119,7 @@ namespace SolastaCommunityExpansion
                 );
 
             FeatureDefinitionProficiency crafty_scroll_kit = BuildNewProficiency(
-                "CraftyScrollKit", 
+                "CraftyScrollKit",
                 "5309bd7f-b533-40ff-ae95-d977e02d61fe",
                 "SolastaCraftyFeats/&CraftyToolsTitle",
                 "Feature/&ToolProficiencyPluralShortDescription",
@@ -140,19 +140,19 @@ namespace SolastaCommunityExpansion
                 );
 
             FeatureDefinitionProficiency crafty_bows = BuildNewProficiency(
-                "CraftyBows", 
+                "CraftyBows",
                 "62a71277-b62d-41e6-9546-19f6faa2b5a7",
-                "SolastaCraftyFeats/&CraftyBowsTitle", 
+                "SolastaCraftyFeats/&CraftyBowsTitle",
                 "SolastaCraftyFeats/&CraftyBowsDescription",
                  null,
                 DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyAllLanguages,
                 RuleDefinitions.ProficiencyType.Weapon,
-                new List<string> 
+                new List<string>
                 {
                     DatabaseHelper.WeaponTypeDefinitions.ShortbowType.name,
                     DatabaseHelper.WeaponTypeDefinitions.LongbowType.name,
                     DatabaseHelper.WeaponTypeDefinitions.LightCrossbowType.name,
-                    DatabaseHelper.WeaponTypeDefinitions.HeavyCrossbowType.name 
+                    DatabaseHelper.WeaponTypeDefinitions.HeavyCrossbowType.name
                 });
 
             FeatDefinition ApothecaryIntFeat = CraftyFeatBuilder.CreateCopyFrom(
@@ -234,7 +234,7 @@ namespace SolastaCommunityExpansion
 
         public class CopyAndCreateNewBlueprint<TDefinition> : BaseDefinitionBuilder<TDefinition> where TDefinition : BaseDefinition
         {
-            protected CopyAndCreateNewBlueprint(string name, string guid, string title_string, string description_string,AssetReferenceSprite  sprite_reference, TDefinition base_Blueprint) : base(base_Blueprint, name, guid)
+            protected CopyAndCreateNewBlueprint(string name, string guid, string title_string, string description_string, AssetReferenceSprite sprite_reference, TDefinition base_Blueprint) : base(base_Blueprint, name, guid)
             {
                 Definition.GuiPresentation.SetTitle(title_string);
                 Definition.GuiPresentation.SetDescription(description_string);
@@ -247,7 +247,7 @@ namespace SolastaCommunityExpansion
             }
         }
 
-        public static FeatureDefinitionAttributeModifier BuildNewAttributeModifier(string name, string guid, string title, string description, AssetReferenceSprite sprite_reference, FeatureDefinitionAttributeModifier baseAttributeModifier )
+        public static FeatureDefinitionAttributeModifier BuildNewAttributeModifier(string name, string guid, string title, string description, AssetReferenceSprite sprite_reference, FeatureDefinitionAttributeModifier baseAttributeModifier)
         {
             var unit = CopyAndCreateNewBlueprint<FeatureDefinitionAttributeModifier>.CreateCopy(
                 name,
@@ -261,7 +261,7 @@ namespace SolastaCommunityExpansion
             return unit;
         }
 
-        public static FeatureDefinitionProficiency BuildNewProficiency(string name, string guid, string title, string description, AssetReferenceSprite sprite_reference,FeatureDefinitionProficiency baseProficiency, RuleDefinitions.ProficiencyType ProficiencyType, List<String> Proficiencies)
+        public static FeatureDefinitionProficiency BuildNewProficiency(string name, string guid, string title, string description, AssetReferenceSprite sprite_reference, FeatureDefinitionProficiency baseProficiency, RuleDefinitions.ProficiencyType ProficiencyType, List<String> Proficiencies)
         {
             var unit = CopyAndCreateNewBlueprint<FeatureDefinitionProficiency>.CreateCopy(
                 name,

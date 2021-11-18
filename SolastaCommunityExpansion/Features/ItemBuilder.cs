@@ -1,8 +1,8 @@
 ﻿using SolastaModApi;
-using System.Collections.Generic;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SolastaCommunityExpansion.Features

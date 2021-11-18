@@ -55,7 +55,7 @@ namespace SolastaCommunityExpansion.Models
             { Wanderer, new List<FeatureDefinition> { ProficiencyWandererSkills, ProficiencyWandererTools } },
         };
 
-        internal static void Switch(bool enabled) 
+        internal static void Switch(bool enabled)
         {
             foreach (var keyValuePair in addedFeatures)
             {

@@ -1,5 +1,5 @@
-﻿using TMPro;
-using HarmonyLib;
+﻿using HarmonyLib;
+using TMPro;
 
 namespace SolastaCommunityExpansion.Patches
 {

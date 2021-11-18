@@ -8,7 +8,7 @@ using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
 namespace SolastaCommunityExpansion.Models
 {
     internal static class FlexibleRacesContext
-    {   
+    {
         private static readonly GuiPresentationBuilder attributeThreeGui = new GuiPresentationBuilder(
             "FlexibleRaces/&PointPoolAbilityScore3Description",
             "FlexibleRaces/&PointPoolAbilityScore3Title");
@@ -71,7 +71,7 @@ namespace SolastaCommunityExpansion.Models
                 }
                 else if (exists && !enabled)
                 {
-                   keyValuePair.Key.FeatureUnlocks.Remove(keyValuePair.Value);
+                    keyValuePair.Key.FeatureUnlocks.Remove(keyValuePair.Value);
                 }
             }
 

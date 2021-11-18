@@ -9,9 +9,9 @@ namespace SolastaCommunityExpansion.Patches.OnAttackEffects
         [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttackDamage")]
         internal static class GameLocationBattleManager_HandleCharacterAttackDamage_Patch
         {
-            internal static void Postfix(GameLocationBattleManager __instance, GameLocationCharacter attacker, 
-                GameLocationCharacter defender, ActionModifier attackModifier, RulesetAttackMode attackMode, 
-                bool rangedAttack, RuleDefinitions.AdvantageType advantageType, List<EffectForm> actualEffectForms, 
+            internal static void Postfix(GameLocationBattleManager __instance, GameLocationCharacter attacker,
+                GameLocationCharacter defender, ActionModifier attackModifier, RulesetAttackMode attackMode,
+                bool rangedAttack, RuleDefinitions.AdvantageType advantageType, List<EffectForm> actualEffectForms,
                 RulesetEffect rulesetEffect, bool criticalHit, bool firstTarget)
             {
                 if (attacker.RulesetCharacter == null)
