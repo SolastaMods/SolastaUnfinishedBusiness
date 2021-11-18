@@ -46,6 +46,8 @@ namespace SolastaCommunityExpansion
         public int AllRacesInitialFeats = 0;
 
         public List<string> InStore = new List<string>();
+        public List<string> ItemsInDM = new List<string>();
+        public List<string> RecipesInDM = new List<string>();
 
         private int recipeCost = 200;
         public int RecipeCost

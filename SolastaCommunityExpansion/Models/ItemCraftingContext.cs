@@ -48,6 +48,12 @@ namespace SolastaCommunityExpansion.Models
             ItemRecipeGenerationHelper.AddRecipesForWeapons(ScimitarData.Items);
 
             ItemRecipeGenerationHelper.AddRecipesForArmor(ArmorAndShieldData.Items);
+
+            foreach(string key in RecipeBooks.Keys)
+            {
+                UpdateItemsInDMState(key);
+                UpdateRecipesInDMState(key);
+            }
         }
 
         internal static void UpdateRecipeCost()
@@ -72,6 +78,25 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
         }
+
+        internal static void UpdateItemsInDMState(string key)
+        {
+            bool available = Main.Settings.ItemsInDM.Contains(key);
+            foreach (ItemDefinition recipeBookDefinition in RecipeBooks[key])
+            {
+                recipeBookDefinition.DocumentDescription.RecipeDefinition.CraftedItem.SetInDungeonEditor(available);
+            }
+        }
+
+        internal static void UpdateRecipesInDMState(string key)
+        {
+            bool available = Main.Settings.RecipesInDM.Contains(key);
+            foreach (ItemDefinition recipeBookDefinition in RecipeBooks[key])
+            {
+                recipeBookDefinition.SetInDungeonEditor(available);
+            }
+        }
+
         internal static void LearnRecipes(string key)
         {
             IGameLoreService gameLoreService = ServiceRepository.GetService<IGameLoreService>();
