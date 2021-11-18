@@ -6,7 +6,7 @@ using static SolastaCommunityExpansion.Models.Level20Context;
 namespace SolastaCommunityExpansion.Patches
 {
     // unhides features for levels above 10
-    class HigherLevelFeaturesModalPatcher
+    internal static class HigherLevelFeaturesModalPatcher
     {
         // replaces the hard coded experience
         [HarmonyPatch(typeof(HigherLevelFeaturesModal), "Bind")]

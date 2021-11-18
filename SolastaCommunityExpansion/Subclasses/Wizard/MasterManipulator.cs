@@ -6,10 +6,10 @@ using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard
 {
-    class MasterManipulator : AbstractSubclass
+    internal class MasterManipulator : AbstractSubclass
     {
         private static Guid SubclassNamespace = new Guid("af7255d2-8ce2-4398-8999-f1ef536001f6");
-        private CharacterSubclassDefinition Subclass;
+        private readonly CharacterSubclassDefinition Subclass;
 
         private static FeatureDefinitionMagicAffinity DcIncreaseAffinity;
 

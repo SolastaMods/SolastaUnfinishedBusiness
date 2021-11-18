@@ -5,7 +5,7 @@ using static SolastaCommunityExpansion.Models.Level20Context;
 
 namespace SolastaCommunityExpansion.Patches.Level20
 {
-    class ArchetypesPreviewModalPatcher
+    internal static class ArchetypesPreviewModalPatcher
     {
         // replaces the hard coded experience
         [HarmonyPatch(typeof(ArchetypesPreviewModal), "Refresh")]

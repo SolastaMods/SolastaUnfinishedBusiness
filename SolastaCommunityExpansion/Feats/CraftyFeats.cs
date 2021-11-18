@@ -263,8 +263,6 @@ namespace SolastaCommunityExpansion
 
         public static FeatureDefinitionProficiency BuildNewProficiency(string name, string guid, string title, string description, AssetReferenceSprite sprite_reference,FeatureDefinitionProficiency baseProficiency, RuleDefinitions.ProficiencyType ProficiencyType, List<String> Proficiencies)
         {
-
-
             var unit = CopyAndCreateNewBlueprint<FeatureDefinitionProficiency>.CreateCopy(
                 name,
                 guid,

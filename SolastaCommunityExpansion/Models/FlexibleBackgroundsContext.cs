@@ -6,7 +6,7 @@ using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
 
 namespace SolastaCommunityExpansion.Models
 {
-    public class FlexibleBackgroundsContext
+    public static class FlexibleBackgroundsContext
     {
         private static readonly GuiPresentationBuilder skillThreeGui = new GuiPresentationBuilder(
             "FlexibleBackgrounds/&BackgroundSkillSelect3Description",

@@ -1,5 +1,4 @@
-﻿using HarmonyLib;
-using SolastaCommunityExpansion.Features;
+﻿using SolastaCommunityExpansion.Features;
 using SolastaModApi;
 using SolastaModApi.BuilderHelpers;
 using SolastaModApi.Extensions;
@@ -9,10 +8,10 @@ using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Subclasses.Rogue
 {
-    class ConArtist : AbstractSubclass
+    internal class ConArtist : AbstractSubclass
     {
         private static Guid SubclassNamespace = new Guid("fdf8dc11-5006-489e-951c-92a8d72ca4c0");
-        private CharacterSubclassDefinition Subclass;
+        private readonly CharacterSubclassDefinition Subclass;
 
         private static FeatureDefinitionMagicAffinity DcIncreaseAffinity;
 

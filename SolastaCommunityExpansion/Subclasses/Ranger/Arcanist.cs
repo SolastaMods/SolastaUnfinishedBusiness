@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using SolastaCommunityExpansion.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
-
-
 
 namespace SolastaCommunityExpansion.Subclasses.Ranger
 {

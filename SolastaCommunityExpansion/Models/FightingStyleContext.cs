@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace SolastaCommunityExpansion.Models
 {
-    class FightingStyleContext
+    internal static class FightingStyleContext
     {
         public static Dictionary<string, AbstractFightingStyle> Styles = new Dictionary<string, AbstractFightingStyle>();
 
@@ -47,7 +47,6 @@ namespace SolastaCommunityExpansion.Models
                     }
                 }
             }
-            
         }
 
         internal static void Switch(string styleName, bool active)

@@ -5,13 +5,14 @@ using static FeatureDefinitionSavingThrowAffinity;
 
 namespace SolastaCommunityExpansion.Feats
 {
-    class AcehighFeats
+    internal static class AcehighFeats
     {
         private static bool initialized = false;
+
         public static void CreateFeats(List<FeatDefinition> feats)
         {
-            feats.Add(PowerAttackFeatBuilder.AddToFeatList());
-            feats.Add(RecklessFuryFeatBuilder.AddToFeatList());
+            feats.Add(PowerAttackFeatBuilder.PowerAttackFeat);
+            feats.Add(RecklessFuryFeatBuilder.RecklessFuryFeat);
 
             initialized = true;
         }
@@ -25,6 +26,7 @@ namespace SolastaCommunityExpansion.Feats
             {
                 return;
             }
+
             PowerAttackModifier.SetAttackRollModifier(-Main.Settings.FeatPowerAttackModifier);
             PowerAttackModifier.SetDamageRollModifier(Main.Settings.FeatPowerAttackModifier);
             PowerAttackModifierTwoHanded.SetAttackRollModifier(-Main.Settings.FeatPowerAttackModifier);
@@ -46,9 +48,11 @@ namespace SolastaCommunityExpansion.Feats
                 Definition.SetShortTitleOverride("Feature/&PowerAttackPowerTitle");
 
                 //Create the power attack effect
-                EffectForm powerAttackEffect = new EffectForm();
-                powerAttackEffect.ConditionForm = new ConditionForm();
-                powerAttackEffect.FormType = EffectForm.EffectFormType.Condition;
+                EffectForm powerAttackEffect = new EffectForm
+                {
+                    ConditionForm = new ConditionForm(),
+                    FormType = EffectForm.EffectFormType.Condition
+                };
                 powerAttackEffect.ConditionForm.Operation = ConditionForm.ConditionOperation.Add;
                 powerAttackEffect.ConditionForm.ConditionDefinition = PowerAttackConditionBuilder.PowerAttackCondition;
 
@@ -69,7 +73,7 @@ namespace SolastaCommunityExpansion.Feats
             public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
                 => new PowerAttackPowerBuilder(name, guid).AddToDB();
 
-            public static FeatureDefinitionPower PowerAttackPower = CreateAndAddToDB(PowerAttackPowerName, PowerAttackPowerNameGuid);
+            public static readonly FeatureDefinitionPower PowerAttackPower = CreateAndAddToDB(PowerAttackPowerName, PowerAttackPowerNameGuid);
         }
 
         internal class PowerAttackTwoHandedPowerBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
@@ -87,9 +91,11 @@ namespace SolastaCommunityExpansion.Feats
                 Definition.SetShortTitleOverride("Feature/&PowerAttackTwoHandedPowerTitle");
 
                 //Create the power attack effect
-                EffectForm powerAttackEffect = new EffectForm();
-                powerAttackEffect.ConditionForm = new ConditionForm();
-                powerAttackEffect.FormType = EffectForm.EffectFormType.Condition;
+                EffectForm powerAttackEffect = new EffectForm
+                {
+                    ConditionForm = new ConditionForm(),
+                    FormType = EffectForm.EffectFormType.Condition
+                };
                 powerAttackEffect.ConditionForm.Operation = ConditionForm.ConditionOperation.Add;
                 powerAttackEffect.ConditionForm.ConditionDefinition = PowerAttackTwoHandedConditionBuilder.PowerAttackTwoHandedCondition;
 
@@ -110,7 +116,7 @@ namespace SolastaCommunityExpansion.Feats
             public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
                 => new PowerAttackTwoHandedPowerBuilder(name, guid).AddToDB();
 
-            public static FeatureDefinitionPower PowerAttackTwoHandedPower = CreateAndAddToDB(PowerAttackTwoHandedPowerName, PowerAttackTwoHandedPowerNameGuid);
+            public static readonly FeatureDefinitionPower PowerAttackTwoHandedPower = CreateAndAddToDB(PowerAttackTwoHandedPowerName, PowerAttackTwoHandedPowerNameGuid);
         }
 
         internal class PowerAttackOnHandedAttackModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttackModifier>
@@ -135,8 +141,8 @@ namespace SolastaCommunityExpansion.Feats
             public static FeatureDefinitionAttackModifier CreateAndAddToDB(string name, string guid)
                 => new PowerAttackOnHandedAttackModifierBuilder(name, guid).AddToDB();
 
-            public static FeatureDefinitionAttackModifier PowerAttackAttackModifier
-                => CreateAndAddToDB(PowerAttackAttackModifierName, PowerAttackAttackModifierNameGuid);
+            public static readonly FeatureDefinitionAttackModifier PowerAttackAttackModifier
+                = CreateAndAddToDB(PowerAttackAttackModifierName, PowerAttackAttackModifierNameGuid);
         }
 
         internal class PowerAttackTwoHandedAttackModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttackModifier>
@@ -162,7 +168,7 @@ namespace SolastaCommunityExpansion.Feats
             public static FeatureDefinitionAttackModifier CreateAndAddToDB(string name, string guid)
                 => new PowerAttackTwoHandedAttackModifierBuilder(name, guid).AddToDB();
 
-            public static FeatureDefinitionAttackModifier PowerAttackTwoHandedAttackModifier = CreateAndAddToDB(PowerAttackTwoHandedAttackModifierName, PowerAttackTwoHandedAttackModifierNameGuid);
+            public static readonly FeatureDefinitionAttackModifier PowerAttackTwoHandedAttackModifier = CreateAndAddToDB(PowerAttackTwoHandedAttackModifierName, PowerAttackTwoHandedAttackModifierNameGuid);
         }
 
         internal class PowerAttackConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
@@ -185,7 +191,7 @@ namespace SolastaCommunityExpansion.Feats
             public static ConditionDefinition CreateAndAddToDB(string name, string guid)
                 => new PowerAttackConditionBuilder(name, guid).AddToDB();
 
-            public static ConditionDefinition PowerAttackCondition = CreateAndAddToDB(PowerAttackConditionName, PowerAttackConditionNameGuid);
+            public static readonly ConditionDefinition PowerAttackCondition = CreateAndAddToDB(PowerAttackConditionName, PowerAttackConditionNameGuid);
         }
 
         internal class PowerAttackTwoHandedConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
@@ -208,7 +214,7 @@ namespace SolastaCommunityExpansion.Feats
             public static ConditionDefinition CreateAndAddToDB(string name, string guid)
                 => new PowerAttackTwoHandedConditionBuilder(name, guid).AddToDB();
 
-            public static ConditionDefinition PowerAttackTwoHandedCondition = CreateAndAddToDB(PowerAttackTwoHandedConditionName, PowerAttackTwoHandedConditionNameGuid);
+            public static readonly ConditionDefinition PowerAttackTwoHandedCondition = CreateAndAddToDB(PowerAttackTwoHandedConditionName, PowerAttackTwoHandedConditionNameGuid);
         }
 
         internal class PowerAttackFeatBuilder : BaseDefinitionBuilder<FeatDefinition>
@@ -230,14 +236,9 @@ namespace SolastaCommunityExpansion.Feats
             public static FeatDefinition CreateAndAddToDB(string name, string guid)
                 => new PowerAttackFeatBuilder(name, guid).AddToDB();
 
-            public static FeatDefinition PowerAttackFeat = CreateAndAddToDB(PowerAttackFeatName, PowerAttackFeatNameGuid);
-
-            public static FeatDefinition AddToFeatList()
-            {
-                var powerAttackFeat = PowerAttackFeat;//Instantiating it adds to the DB
-                return powerAttackFeat;
-            }
+            public static readonly FeatDefinition PowerAttackFeat = CreateAndAddToDB(PowerAttackFeatName, PowerAttackFeatNameGuid);
         }
+
         internal class RecklessFuryFeatBuilder : BaseDefinitionBuilder<FeatDefinition>
         {
             const string RecklessFuryFeatName = "RecklessFuryFeat";
@@ -257,13 +258,7 @@ namespace SolastaCommunityExpansion.Feats
             public static FeatDefinition CreateAndAddToDB(string name, string guid)
                 => new RecklessFuryFeatBuilder(name, guid).AddToDB();
 
-            public static FeatDefinition RecklessFuryFeat = CreateAndAddToDB(RecklessFuryFeatName, RecklessFuryFeatNameGuid);
-
-            public static FeatDefinition AddToFeatList()
-            {
-                var RecklessFuryFeat = RecklessFuryFeatBuilder.RecklessFuryFeat;//Instantiating it adds to the DB
-                return RecklessFuryFeat;
-            }
+            public static readonly FeatDefinition RecklessFuryFeat = CreateAndAddToDB(RecklessFuryFeatName, RecklessFuryFeatNameGuid);
         }
 
         internal class RagePowerBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
@@ -307,7 +302,7 @@ namespace SolastaCommunityExpansion.Feats
             public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
                 => new RagePowerBuilder(name, guid).AddToDB();
 
-            public static FeatureDefinitionPower RagePower = CreateAndAddToDB(RagePowerName, RagePowerNameGuid);
+            public static readonly FeatureDefinitionPower RagePower = CreateAndAddToDB(RagePowerName, RagePowerNameGuid);
         }
 
         internal class RageFeatConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
@@ -338,7 +333,7 @@ namespace SolastaCommunityExpansion.Feats
             public static ConditionDefinition CreateAndAddToDB(string name, string guid)
                 => new RageFeatConditionBuilder(name, guid).AddToDB();
 
-            public static ConditionDefinition RageFeatCondition = CreateAndAddToDB(RageFeatConditionName, RageFeatConditionNameGuid);
+            public static readonly ConditionDefinition RageFeatCondition = CreateAndAddToDB(RageFeatConditionName, RageFeatConditionNameGuid);
         }
 
         internal class RageStrengthSavingThrowAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionSavingThrowAffinity>
@@ -360,7 +355,7 @@ namespace SolastaCommunityExpansion.Feats
             public static FeatureDefinitionSavingThrowAffinity CreateAndAddToDB(string name, string guid)
                 => new RageStrengthSavingThrowAffinityBuilder(name, guid).AddToDB();
 
-            public static FeatureDefinitionSavingThrowAffinity RageStrengthSavingThrowAffinity = CreateAndAddToDB(RageStrengthSavingThrowAffinityName, RageStrengthSavingThrowAffinityNameGuid);
+            public static readonly FeatureDefinitionSavingThrowAffinity RageStrengthSavingThrowAffinity = CreateAndAddToDB(RageStrengthSavingThrowAffinityName, RageStrengthSavingThrowAffinityNameGuid);
         }
 
         internal class RageDamageBonusAttackModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttackModifier>
@@ -381,7 +376,7 @@ namespace SolastaCommunityExpansion.Feats
             public static FeatureDefinitionAttackModifier CreateAndAddToDB(string name, string guid)
                 => new RageDamageBonusAttackModifierBuilder(name, guid).AddToDB();
 
-            public static FeatureDefinitionAttackModifier RageDamageBonusAttackModifier = CreateAndAddToDB(RageDamageBonusAttackModifierName, RageDamageBonusAttackModifierNameGuid);
+            public static readonly FeatureDefinitionAttackModifier RageDamageBonusAttackModifier = CreateAndAddToDB(RageDamageBonusAttackModifierName, RageDamageBonusAttackModifierNameGuid);
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Feats
 {
-    class FightingStlyeFeats
+    internal class FightingStlyeFeats
     {
         public static Guid FightingStyleFeatsNamespace = new Guid("db157827-0f8a-4fbb-bb87-6d54689a587a");
 
@@ -91,7 +91,7 @@ namespace SolastaCommunityExpansion.Feats
             }, archeryPresentation.Build());
             feats.Add(archery.AddToDB());
 
-            foreach(AbstractFightingStyle fightingStyle in FightingStyleContext.Styles.Values)
+            foreach (AbstractFightingStyle fightingStyle in FightingStyleContext.Styles.Values)
             {
                 feats.Add(BuildFightingStyleFeat(fightingStyle.GetStyle()));
             }
@@ -101,13 +101,13 @@ namespace SolastaCommunityExpansion.Feats
         {
             string name = "Feat" + fightingStyle.Name;
 
-
             FeatDefinitionBuilder feat = new FeatDefinitionBuilder(name, GuidHelper.Create(FightingStyleFeatsNamespace, name).ToString(),
                 new List<FeatureDefinition>()
             {
                     new FeatureDefinitionProficiencyBuilder(name+"Proficiency", GuidHelper.Create(FightingStyleFeatsNamespace, name+"Proficiency").ToString(),
                     RuleDefinitions.ProficiencyType.FightingStyle, new List<string>(){fightingStyle.Name}, fightingStyle.GuiPresentation).AddToDB(),
             }, fightingStyle.GuiPresentation);
+
             return feat.AddToDB();
         }
     }

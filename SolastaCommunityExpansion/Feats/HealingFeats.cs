@@ -3,24 +3,21 @@ using SolastaModApi;
 using SolastaModApi.BuilderHelpers;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Feats
 {
-    class HealingFeats
+    internal static class HealingFeats
     {
         public static Guid HealingFeatNamespace = new Guid("501448fd-3c84-4031-befe-84c2ae75123b");
 
         public static void CreateFeats(List<FeatDefinition> feats)
         {
             // Inspiring Leader- prereq charisma 13, spend 10 minutes inspiring folks to fit temp hp == level + charisma modifier (1/short rest)
-            GuiPresentationBuilder inspringLeaderPresentation = new GuiPresentationBuilder(
+            GuiPresentationBuilder inspiringLeaderPresentation = new GuiPresentationBuilder(
                 "Feat/&InspiringLeaderDescription",
                 "Feat/&InspiringLeaderTitle");
-            inspringLeaderPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerOathOfTirmarGoldenSpeech.GuiPresentation.SpriteReference);
+            inspiringLeaderPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerOathOfTirmarGoldenSpeech.GuiPresentation.SpriteReference);
 
             EffectDescription inspriringEffect = BuildEffectDescriptionTempHPForm(RuleDefinitions.RangeType.Distance, 10,
                 RuleDefinitions.TargetType.Individuals, 6, RuleDefinitions.DurationType.Permanent, 0, RuleDefinitions.TurnOccurenceType.EndOfTurn,
@@ -29,13 +26,13 @@ namespace SolastaCommunityExpansion.Feats
             FeatureDefinitionPower inspiringPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
                 AttributeDefinitions.Charisma, RuleDefinitions.ActivationTime.Minute10, 1, RuleDefinitions.RechargeRate.ShortRest,
                 false, false, AttributeDefinitions.Charisma, inspriringEffect,
-                "PowerInspiringLeaderFeat", inspringLeaderPresentation.Build());
+                "PowerInspiringLeaderFeat", inspiringLeaderPresentation.Build());
 
             FeatDefinitionBuilder inspiringLeader = new FeatDefinitionBuilder("FeatInspiringLeader", GuidHelper.Create(HealingFeatNamespace, "FeatInspiringLeader").ToString(),
                 new List<FeatureDefinition>()
             {
                 inspiringPower,
-            }, inspringLeaderPresentation.Build());
+            }, inspiringLeaderPresentation.Build());
             inspiringLeader.SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13);
             feats.Add(inspiringLeader.AddToDB());
 
@@ -59,7 +56,6 @@ namespace SolastaCommunityExpansion.Feats
                 AttributeDefinitions.Wisdom, RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.ShortRest,
                 false, false, AttributeDefinitions.Wisdom, medKitEffect,
                 "PowerMedKitHealerFeat", medKitPresentation.Build());
-
 
             GuiPresentationBuilder resuscitatePresentation = new GuiPresentationBuilder(
                 "Feat/&HealerResuscitateDescription",
@@ -94,8 +90,6 @@ namespace SolastaCommunityExpansion.Feats
             }, "FeatHealerMedicineProficiency", medicineExpertisePresentation.Build()
             );
 
-
-
             FeatDefinitionBuilder healer = new FeatDefinitionBuilder("FeatHealer", GuidHelper.Create(HealingFeatNamespace, "FeatHealer").ToString(),
                 new List<FeatureDefinition>()
             {
@@ -105,7 +99,6 @@ namespace SolastaCommunityExpansion.Feats
                 stabalizePower,
             }, healerPresentation.Build());
             feats.Add(healer.AddToDB());
-
 
             // Chef: con/wis, short rest ability, everyone regains 1d8 (supposed to be only if they spend hit dice)
             //     once per long rest cook treats that grant temp hp (prof bonus # treats and #thp)
@@ -149,7 +142,7 @@ namespace SolastaCommunityExpansion.Feats
             GuiPresentationBuilder shortRestFeastPresentation = new GuiPresentationBuilder(
                 "Feat/&ChefShortRestFeastDescription",
                 "Feat/&ChefShortRestFeastTitle");
-            inspringLeaderPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionGoodberryHealingOther.GuiPresentation.SpriteReference);
+            inspiringLeaderPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionGoodberryHealingOther.GuiPresentation.SpriteReference);
 
             EffectDescription shortRestFeastEffect = BuildEffectDescriptionHealingForm(RuleDefinitions.RangeType.Distance, 10,
                 RuleDefinitions.TargetType.Individuals, 4, RuleDefinitions.DurationType.Permanent, 0, RuleDefinitions.TurnOccurenceType.EndOfTurn,
@@ -213,7 +206,6 @@ namespace SolastaCommunityExpansion.Feats
             FeatureDefinitionProficiencyBuilder builder = new FeatureDefinitionProficiencyBuilder(name, GuidHelper.Create(HealingFeatNamespace, name).ToString(), type, proficiencies, guiPresentation);
             return builder.AddToDB();
         }
-
 
         public static FeatureDefinitionPower BuildPowerFromEffectDescription(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
           string usesAbilityScoreName,

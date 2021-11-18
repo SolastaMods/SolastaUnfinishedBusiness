@@ -52,7 +52,7 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
     {
         public FeatureDefinitionPowerPoolBuilder(string name, string guid, int usesPerRecharge,
             RuleDefinitions.UsesDetermination usesDetermination, string usesAbilityScoreName,
-            RuleDefinitions.RechargeRate recharge, GuiPresentation guiPresentation) : base(name,guid)
+            RuleDefinitions.RechargeRate recharge, GuiPresentation guiPresentation) : base(name, guid)
         {
             Definition.SetFixedUsesPerRecharge(usesPerRecharge);
             Definition.SetUsesDetermination(usesDetermination);

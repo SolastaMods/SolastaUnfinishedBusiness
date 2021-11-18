@@ -10,10 +10,7 @@ namespace SolastaCommunityExpansion.Features
         List<string> proficiencies, GuiPresentation guiPresentation) : base(name, guid)
         {
             Definition.SetProficiencyType(type);
-            foreach (string item in proficiencies)
-            {
-                Definition.Proficiencies.Add(item);
-            }
+            Definition.Proficiencies.AddRange(proficiencies);
             Definition.SetGuiPresentation(guiPresentation);
         }
     }

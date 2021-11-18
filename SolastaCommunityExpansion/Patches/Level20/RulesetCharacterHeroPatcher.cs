@@ -5,7 +5,7 @@ using static SolastaCommunityExpansion.Models.Level20Context;
 
 namespace SolastaCommunityExpansion.Patches
 {
-    class RulesetCharacterHeroPatcher
+    internal static class RulesetCharacterHeroPatcher
     {
         // replaces the hard coded experience
         [HarmonyPatch(typeof(RulesetCharacterHero), "RegisterAttributes")]

@@ -3,7 +3,7 @@ using SolastaCommunityExpansion.CustomFeatureDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.CustomFightingStyle
 {
-	class RulesetCharacterHeroPatcher
+	internal static class RulesetCharacterHeroPatcher
 	{
 		[HarmonyPatch(typeof(RulesetCharacterHero), "RefreshActiveFightingStyles")]
 		internal static class RulesetCharacterHero_RefreshActiveFightingStyles

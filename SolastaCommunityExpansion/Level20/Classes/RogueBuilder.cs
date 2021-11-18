@@ -6,7 +6,7 @@ using static SolastaCommunityExpansion.Level20.Features.ProficiencyRogueSlippery
 
 namespace SolastaCommunityExpansion.Level20.Classes
 {
-    class RogueBuilder
+    internal static class RogueBuilder
     {
         internal static void Load()
         {

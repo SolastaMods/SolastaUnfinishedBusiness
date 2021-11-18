@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.Patches
 {
-    class PowerSelectionPanelPatcher
+    internal static class PowerSelectionPanelPatcher
     {
         private static RectTransform secondRow;
         private static RectTransform thirdRow;
@@ -41,7 +41,7 @@ namespace SolastaCommunityExpansion.Patches
                     int toStayCount = powersTable.childCount / 2;
                     MovePowersToRow(powersTable, secondRow, toStayCount, 80);
                 }
-                float height = __instance.transform.parent.GetComponent<RectTransform>().rect.height;
+//                float height = __instance.transform.parent.GetComponent<RectTransform>().rect.height;
                 LayoutRebuilder.ForceRebuildLayoutImmediate(powersTable);
                 __instance.RectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, powersTable.rect.width);
             }
@@ -58,7 +58,6 @@ namespace SolastaCommunityExpansion.Patches
                     Transform child = powersTable.GetChild(i);
                     child.SetParent(newRow, false);
                     child.localScale = powersTable.GetChild(0).localScale;
-
                 }
                 LayoutRebuilder.ForceRebuildLayoutImmediate(newRow);
             }

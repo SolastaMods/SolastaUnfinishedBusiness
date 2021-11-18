@@ -5,7 +5,7 @@ using static SolastaCommunityExpansion.Models.Level20Context;
 
 namespace SolastaCommunityExpansion.Patches
 {
-    class CharactersPanelPatcher
+    internal static class CharactersPanelPatcher
     {
         // replaces the hard-coded level
         [HarmonyPatch(typeof(CharactersPanel), "Refresh")]

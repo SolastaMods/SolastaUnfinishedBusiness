@@ -6,10 +6,10 @@ using static SolastaCommunityExpansion.Models.Level20Context;
 namespace SolastaCommunityExpansion.Patches
 {
     // allows custom dungeons to be set for parties up to level 20
-    class UserLocationSettingsModalPatcher
+    internal static class UserLocationSettingsModalPatcher
     {
         [HarmonyPatch(typeof(UserLocationSettingsModal), "OnMinLevelEndEdit")]
-        public class UserLocationSettingsModal_OnMinLevelEndEdit_Patch
+        public static class UserLocationSettingsModal_OnMinLevelEndEdit_Patch
         {
             internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
@@ -30,7 +30,7 @@ namespace SolastaCommunityExpansion.Patches
         }
 
         [HarmonyPatch(typeof(UserLocationSettingsModal), "OnMaxLevelEndEdit")]
-        public class UserLocationSettingsModal_OnMaxLevelEndEdit_Patch
+        public static class UserLocationSettingsModal_OnMaxLevelEndEdit_Patch
         {
             internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {

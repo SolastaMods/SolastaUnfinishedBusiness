@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Patches.OnAttackEffects
 {
-    class GameLocationBattleManagerPatcher
+    internal static class GameLocationBattleManagerPatcher
     {
         [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttackDamage")]
         internal static class GameLocationBattleManager_HandleCharacterAttackDamage_Patch

@@ -3,7 +3,7 @@ using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.LongActivationPowers
 {
-    class GameLocationCharacterPatcher
+    internal static class GameLocationCharacterPatcher
     {
 		// Yes the actual game typos this it is "OnPower" and not the expected "OnePower".
 		[HarmonyPatch(typeof(GameLocationCharacter), "CanUseAtLeastOnPower")]

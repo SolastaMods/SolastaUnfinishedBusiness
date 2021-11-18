@@ -109,7 +109,7 @@ namespace SolastaCommunityExpansion.Features
             return this;
         }
 
-       public FeatureDefinitionAdditionalDamageBuilder SetImpactParticleReference(AssetReference asset)
+        public FeatureDefinitionAdditionalDamageBuilder SetImpactParticleReference(AssetReference asset)
         {
             Definition.SetImpactParticleReference(asset);
             return this;
