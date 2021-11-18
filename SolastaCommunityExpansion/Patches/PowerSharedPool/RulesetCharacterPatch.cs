@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
         {
             public static void Postfix(RulesetCharacter __instance, RulesetUsablePower usablePower)
             {
-                UpdateUsageForPowerPool(__instance, usablePower, usablePower.PowerDefinition.CostPerUse);
+                __instance.UpdateUsageForPowerPool(usablePower, usablePower.PowerDefinition.CostPerUse);
             }
         }
 
@@ -22,11 +22,11 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
         {
             public static void Postfix(RulesetCharacter __instance, RulesetUsablePower usablePower)
             {
-                UpdateUsageForPowerPool(__instance, usablePower, -usablePower.PowerDefinition.CostPerUse);
+                __instance.UpdateUsageForPowerPool(usablePower, -usablePower.PowerDefinition.CostPerUse);
             }
         }
 
-        public static void UpdateUsageForPowerPool(RulesetCharacter character, RulesetUsablePower modifiedPower, int poolUsage)
+        public static void UpdateUsageForPowerPool(this RulesetCharacter character, RulesetUsablePower modifiedPower, int poolUsage)
         {
             if (!(modifiedPower.PowerDefinition is IPowerSharedPool))
             {
@@ -51,7 +51,7 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
         {
             public static void Postfix(RulesetCharacter __instance)
             {
-                RechargeLinkedPowers(__instance);
+                RechargeLinkedPowers(__instance, RuleDefinitions.RestType.LongRest);
             }
         }
 
@@ -59,11 +59,11 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
         internal static class RulesetCharacter_ApplyRest
         {
             internal static void Postfix(RulesetCharacter __instance,
-                                        bool simulate)
+                                        RuleDefinitions.RestType restType, bool simulate, TimeInfo restStartTime)
             {
                 if (!simulate)
                 {
-                    RechargeLinkedPowers(__instance);
+                    RechargeLinkedPowers(__instance, restType);
                 }
                 // The player isn't recharging the shared pool features, just the pool.
                 // Hide the features that use the pool from the UI.
@@ -77,7 +77,7 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
             }
         }
 
-        public static void RechargeLinkedPowers(RulesetCharacter character)
+        public static void RechargeLinkedPowers(RulesetCharacter character, RuleDefinitions.RestType restType)
         {
             List<FeatureDefinitionPower> pointPoolPowerDefinitions = new List<FeatureDefinitionPower>();
             foreach (RulesetUsablePower usablePower in character.UsablePowers)
@@ -87,7 +87,14 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
                     FeatureDefinitionPower pointPoolPower = ((IPowerSharedPool)usablePower.PowerDefinition).GetUsagePoolPower();
                     if (!pointPoolPowerDefinitions.Contains(pointPoolPower))
                     {
-                        pointPoolPowerDefinitions.Add(pointPoolPower);
+                        // Only add to recharge here if it (recharges on a short rest and this is a short or long rost) or 
+                        // it recharges on a long rest and this is a long rest.
+                        if (((pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.ShortRest &&
+                            (restType == RuleDefinitions.RestType.ShortRest || restType == RuleDefinitions.RestType.LongRest)) ||
+                            (pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.LongRest && restType == RuleDefinitions.RestType.LongRest)))
+                        {
+                            pointPoolPowerDefinitions.Add(pointPoolPower);
+                        }
                     }
                 }
             }
