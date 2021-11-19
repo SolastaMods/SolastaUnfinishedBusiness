@@ -35,8 +35,8 @@ namespace SolastaCommunityExpansion.Feats
 
         internal class PowerAttackPowerBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
         {
-            const string PowerAttackPowerName = "PowerAttack";
-            const string PowerAttackPowerNameGuid = "0a3e6a7d-4628-4189-b91d-d7146d774bb6";
+            private const string PowerAttackPowerName = "PowerAttack";
+            private const string PowerAttackPowerNameGuid = "0a3e6a7d-4628-4189-b91d-d7146d774bb6";
 
             protected PowerAttackPowerBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLifePreserveLife, name, guid)
             {
@@ -78,8 +78,8 @@ namespace SolastaCommunityExpansion.Feats
 
         internal class PowerAttackTwoHandedPowerBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
         {
-            const string PowerAttackTwoHandedPowerName = "PowerAttackTwoHanded";
-            const string PowerAttackTwoHandedPowerNameGuid = "b45b8467-7caa-428e-b4b5-ba3c4a153f07";
+            private const string PowerAttackTwoHandedPowerName = "PowerAttackTwoHanded";
+            private const string PowerAttackTwoHandedPowerNameGuid = "b45b8467-7caa-428e-b4b5-ba3c4a153f07";
 
             protected PowerAttackTwoHandedPowerBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalLightningBlade, name, guid)
             {
@@ -121,8 +121,8 @@ namespace SolastaCommunityExpansion.Feats
 
         internal class PowerAttackOnHandedAttackModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttackModifier>
         {
-            const string PowerAttackAttackModifierName = "PowerAttackAttackModifier";
-            const string PowerAttackAttackModifierNameGuid = "87286627-3e62-459d-8781-ceac1c3462e6";
+            private const string PowerAttackAttackModifierName = "PowerAttackAttackModifier";
+            private const string PowerAttackAttackModifierNameGuid = "87286627-3e62-459d-8781-ceac1c3462e6";
 
             protected PowerAttackOnHandedAttackModifierBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierFightingStyleArchery, name, guid)
             {
@@ -147,8 +147,8 @@ namespace SolastaCommunityExpansion.Feats
 
         internal class PowerAttackTwoHandedAttackModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttackModifier>
         {
-            const string PowerAttackTwoHandedAttackModifierName = "PowerAttackTwoHandedAttackModifier";
-            const string PowerAttackTwoHandedAttackModifierNameGuid = "b1b05940-7558-4f03-98d1-01f616b5ae25";
+            private const string PowerAttackTwoHandedAttackModifierName = "PowerAttackTwoHandedAttackModifier";
+            private const string PowerAttackTwoHandedAttackModifierNameGuid = "b1b05940-7558-4f03-98d1-01f616b5ae25";
 
             protected PowerAttackTwoHandedAttackModifierBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierFightingStyleArchery, name, guid)
             {
@@ -173,8 +173,8 @@ namespace SolastaCommunityExpansion.Feats
 
         internal class PowerAttackConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
         {
-            const string PowerAttackConditionName = "PowerAttackCondition";
-            const string PowerAttackConditionNameGuid = "c125b7b9-e668-4c6f-a742-63c065ad2292";
+            private const string PowerAttackConditionName = "PowerAttackCondition";
+            private const string PowerAttackConditionNameGuid = "c125b7b9-e668-4c6f-a742-63c065ad2292";
 
             protected PowerAttackConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle, name, guid)
             {
@@ -196,8 +196,8 @@ namespace SolastaCommunityExpansion.Feats
 
         internal class PowerAttackTwoHandedConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
         {
-            const string PowerAttackTwoHandedConditionName = "PowerAttackTwoHandedCondition";
-            const string PowerAttackTwoHandedConditionNameGuid = "7d0eecbd-9ad8-4915-a3f7-cfa131001fe6";
+            private const string PowerAttackTwoHandedConditionName = "PowerAttackTwoHandedCondition";
+            private const string PowerAttackTwoHandedConditionNameGuid = "7d0eecbd-9ad8-4915-a3f7-cfa131001fe6";
 
             protected PowerAttackTwoHandedConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle, name, guid)
             {
@@ -219,8 +219,8 @@ namespace SolastaCommunityExpansion.Feats
 
         internal class PowerAttackFeatBuilder : BaseDefinitionBuilder<FeatDefinition>
         {
-            const string PowerAttackFeatName = "PowerAttackFeat";
-            const string PowerAttackFeatNameGuid = "88f1fb27-66af-49c6-b038-a38142b1083e";
+            private const string PowerAttackFeatName = "PowerAttackFeat";
+            private const string PowerAttackFeatNameGuid = "88f1fb27-66af-49c6-b038-a38142b1083e";
 
             protected PowerAttackFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.FollowUpStrike, name, guid)
             {
@@ -241,8 +241,8 @@ namespace SolastaCommunityExpansion.Feats
 
         internal class RecklessFuryFeatBuilder : BaseDefinitionBuilder<FeatDefinition>
         {
-            const string RecklessFuryFeatName = "RecklessFuryFeat";
-            const string RecklessFuryFeatNameGuid = "78c5fd76-e25b-499d-896f-3eaf84c711d8";
+            private const string RecklessFuryFeatName = "RecklessFuryFeat";
+            private const string RecklessFuryFeatNameGuid = "78c5fd76-e25b-499d-896f-3eaf84c711d8";
 
             protected RecklessFuryFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.FollowUpStrike, name, guid)
             {
@@ -263,8 +263,8 @@ namespace SolastaCommunityExpansion.Feats
 
         internal class RagePowerBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
         {
-            const string RagePowerName = "AHRagePower";
-            const string RagePowerNameGuid = "a46c1722-7825-4a81-bca1-392b51cd7d97";
+            private const string RagePowerName = "AHRagePower";
+            private const string RagePowerNameGuid = "a46c1722-7825-4a81-bca1-392b51cd7d97";
 
             protected RagePowerBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalFireBurst, name, guid)
             {
@@ -307,8 +307,8 @@ namespace SolastaCommunityExpansion.Feats
 
         internal class RageFeatConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
         {
-            const string RageFeatConditionName = "AHRageFeatCondition";
-            const string RageFeatConditionNameGuid = "2f34fb85-6a5d-4a4e-871b-026872bc24b8";
+            private const string RageFeatConditionName = "AHRageFeatCondition";
+            private const string RageFeatConditionNameGuid = "2f34fb85-6a5d-4a4e-871b-026872bc24b8";
 
             protected RageFeatConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle, name, guid)
             {
@@ -338,8 +338,8 @@ namespace SolastaCommunityExpansion.Feats
 
         internal class RageStrengthSavingThrowAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionSavingThrowAffinity>
         {
-            const string RageStrengthSavingThrowAffinityName = "AHRageStrengthSavingThrowAffinity";
-            const string RageStrengthSavingThrowAffinityNameGuid = "17d26173-7353-4087-a295-96e1ec2e6cd4";
+            private const string RageStrengthSavingThrowAffinityName = "AHRageStrengthSavingThrowAffinity";
+            private const string RageStrengthSavingThrowAffinityNameGuid = "17d26173-7353-4087-a295-96e1ec2e6cd4";
 
             protected RageStrengthSavingThrowAffinityBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfArun, name, guid)
             {
@@ -360,8 +360,8 @@ namespace SolastaCommunityExpansion.Feats
 
         internal class RageDamageBonusAttackModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttackModifier>
         {
-            const string RageDamageBonusAttackModifierName = "AHRageDamageBonusAttackModifier";
-            const string RageDamageBonusAttackModifierNameGuid = "7bc1a47e-9519-4a37-a89a-10bcfa83e48a";
+            private const string RageDamageBonusAttackModifierName = "AHRageDamageBonusAttackModifier";
+            private const string RageDamageBonusAttackModifierNameGuid = "7bc1a47e-9519-4a37-a89a-10bcfa83e48a";
 
             protected RageDamageBonusAttackModifierBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierFightingStyleArchery, name, guid)
             {

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.ItemCrafting
 {
-    class ItemRecipeGenerationHelper
+    internal class ItemRecipeGenerationHelper
     {
         public static void AddRecipesForArmor(ItemCollection itemCollection)
         {

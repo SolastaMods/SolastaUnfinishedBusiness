@@ -4,7 +4,7 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Subclasses.Fighter
 {
-    class Tactician : AbstractSubclass
+    internal class Tactician : AbstractSubclass
     {
         private CharacterSubclassDefinition Subclass;
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
@@ -23,8 +23,8 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
     internal class KnockDownPowerBuilder
     {
-        const string KnockDownPowerName = "KnockDownPower";
-        const string KnockDownPowerNameGuid = "90dd5e81-40d7-4824-89b4-45bcf4c05218";
+        private const string KnockDownPowerName = "KnockDownPower";
+        private const string KnockDownPowerNameGuid = "90dd5e81-40d7-4824-89b4-45bcf4c05218";
 
         protected static FeatureDefinitionPowerSharedPool Build(string name, string guid)
         {
@@ -73,8 +73,8 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
     internal class InspirePowerBuilder
     {
-        const string InspirePowerName = "InspirePower";
-        const string InspirePowerNameGuid = "163c28de-48e5-4f75-bdd0-d42374a75ef8";
+        private const string InspirePowerName = "InspirePower";
+        private const string InspirePowerNameGuid = "163c28de-48e5-4f75-bdd0-d42374a75ef8";
 
         protected static FeatureDefinitionPowerSharedPool Build(string name, string guid)
         {
@@ -125,8 +125,8 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
     internal class CounterStrikePowerBuilder
     {
-        const string CounterStrikePowerName = "CounterStrikePower";
-        const string CounterStrikePowerNameGuid = "88c294ce-14fa-4f7e-8b81-ea4d289e3d8b";
+        private const string CounterStrikePowerName = "CounterStrikePower";
+        private const string CounterStrikePowerNameGuid = "88c294ce-14fa-4f7e-8b81-ea4d289e3d8b";
 
         protected static FeatureDefinitionPowerSharedPool Build(string name, string guid)
         {
@@ -160,8 +160,8 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
     internal class GambitResourcePoolBuilder
     {
-        const string GambitResourcePoolName = "GambitResourcePool";
-        const string GambitResourcePoolNameGuid = "00da2b27-139a-4ca0-a285-aaa70d108bc8";
+        private const string GambitResourcePoolName = "GambitResourcePool";
+        private const string GambitResourcePoolNameGuid = "00da2b27-139a-4ca0-a285-aaa70d108bc8";
 
         public static FeatureDefinitionPower CreateAndAddToDB()
             => new FeatureDefinitionPowerPoolBuilder(GambitResourcePoolName, GambitResourcePoolNameGuid,
@@ -171,17 +171,17 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
     internal class GambitResourcePoolAddBuilder
     {
-        const string GambitResourcePoolAddName = "GambitResourcePoolAdd";
-        const string GambitResourcePoolAddNameGuid = "056d786a-2611-4981-a652-704fa5056375";
+        private const string GambitResourcePoolAddName = "GambitResourcePoolAdd";
+        private const string GambitResourcePoolAddNameGuid = "056d786a-2611-4981-a652-704fa5056375";
 
-        const string GambitResourcePoolAdd10Name = "GambitResourcePoolAdd10";
-        const string GambitResourcePoolAdd10Guid = "52b74360-eecf-407c-9445-4515cbb372f3";
+        private const string GambitResourcePoolAdd10Name = "GambitResourcePoolAdd10";
+        private const string GambitResourcePoolAdd10Guid = "52b74360-eecf-407c-9445-4515cbb372f3";
 
-        const string GambitResourcePoolAdd15Name = "GambitResourcePoolAdd15";
-        const string GambitResourcePoolAdd15Guid = "b4307074-cd80-4376-96f0-46f7a3a79b5a";
+        private const string GambitResourcePoolAdd15Name = "GambitResourcePoolAdd15";
+        private const string GambitResourcePoolAdd15Guid = "b4307074-cd80-4376-96f0-46f7a3a79b5a";
 
-        const string GambitResourcePoolAdd18Name = "GambitResourcePoolAdd18";
-        const string GambitResourcePoolAdd18Guid = "c7ced45a-572f-4af0-8ec5-2add074dd7c3";
+        private const string GambitResourcePoolAdd18Name = "GambitResourcePoolAdd18";
+        private const string GambitResourcePoolAdd18Guid = "c7ced45a-572f-4af0-8ec5-2add074dd7c3";
 
         public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
             => new FeatureDefinitionPowerPoolModifierBuilder(name, guid,
@@ -196,8 +196,8 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
     public static class TacticianFighterSubclassBuilder
     {
-        const string TacticianFighterSubclassName = "TacticianFighter";
-        const string TacticianFighterSubclassNameGuid = "9d32577d-d3ec-4859-b66d-451d071bb117";
+        private const string TacticianFighterSubclassName = "TacticianFighter";
+        private const string TacticianFighterSubclassNameGuid = "9d32577d-d3ec-4859-b66d-451d071bb117";
 
         public static CharacterSubclassDefinition BuildAndAddSubclass()
         {

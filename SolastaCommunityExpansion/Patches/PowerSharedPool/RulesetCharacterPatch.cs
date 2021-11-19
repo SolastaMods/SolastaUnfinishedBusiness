@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.PowerSharedPool
 {
-    static class RulesetCharacterPatch
+    internal static class RulesetCharacterPatch
     {
         [HarmonyPatch(typeof(RulesetCharacter), "UsePower")]
         internal static class RulesetCharacter_UsePower

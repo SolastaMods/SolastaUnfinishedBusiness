@@ -67,7 +67,7 @@ namespace SolastaCommunityExpansion.Models
             feats.Add(PickPocketFeat);
         }
 
-        static bool initialized = false;
+        private static bool initialized = false;
 
         internal static void Load()
         {

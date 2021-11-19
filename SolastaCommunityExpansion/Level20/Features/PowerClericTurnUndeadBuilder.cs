@@ -6,11 +6,11 @@ namespace SolastaCommunityExpansion.Level20.Features
 {
     internal class PowerClericTurnUndeadBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
     {
-        const string PowerClericTurnUndead14Name = "ZSPowerClericTurnUndead14";
-        const string PowerClericTurnUndead14Guid = "1258a27f594542e1b9df6f9d36a50fbe";
+        private const string PowerClericTurnUndead14Name = "ZSPowerClericTurnUndead14";
+        private const string PowerClericTurnUndead14Guid = "1258a27f594542e1b9df6f9d36a50fbe";
 
-        const string PowerClericTurnUndead17Name = "ZSPowerClericTurnUndead17";
-        const string PowerClericTurnUndead17Guid = "b0ef65ba1e784628b1c5b4af75d4f395";
+        private const string PowerClericTurnUndead17Name = "ZSPowerClericTurnUndead17";
+        private const string PowerClericTurnUndead17Guid = "b0ef65ba1e784628b1c5b4af75d4f395";
 
         protected PowerClericTurnUndeadBuilder(string name, string guid, int challengeRating) : base(PowerClericTurnUndead8, name, guid)
         {

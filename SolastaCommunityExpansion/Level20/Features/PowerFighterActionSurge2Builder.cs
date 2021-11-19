@@ -6,8 +6,8 @@ namespace SolastaCommunityExpansion.Level20.Features
 {
     internal class PowerFighterActionSurge2Builder : BaseDefinitionBuilder<FeatureDefinitionPower>
     {
-        const string PowerFighterActionSurgeName = "ZSPowerFighterActionSurge2";
-        const string PowerFighterActionSurgeGuid = "a20a3955a66142e5ba9d2580a71b6c36";
+        private const string PowerFighterActionSurgeName = "ZSPowerFighterActionSurge2";
+        private const string PowerFighterActionSurgeGuid = "a20a3955a66142e5ba9d2580a71b6c36";
 
         protected PowerFighterActionSurge2Builder(string name, string guid) : base(PowerFighterActionSurge, name, guid)
         {

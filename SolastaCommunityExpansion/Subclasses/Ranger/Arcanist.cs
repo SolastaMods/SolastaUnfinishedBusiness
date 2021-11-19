@@ -24,8 +24,8 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             return Subclass;
         }
 
-        const string RangerArcanistRangerSubclassName = "RangerArcanistRangerSubclass";
-        const string RangerArcanistRangerSubclassGuid = "5ABD870D-9ABD-4953-A2EC-E2109324FAB9";
+        private const string RangerArcanistRangerSubclassName = "RangerArcanistRangerSubclass";
+        private const string RangerArcanistRangerSubclassGuid = "5ABD870D-9ABD-4953-A2EC-E2109324FAB9";
 
         public static Guid RA_BASE_GUID = new Guid(RangerArcanistRangerSubclassGuid);
 
@@ -64,7 +64,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             return diceByRank;
         }
 
-        static FeatureDefinitionFeatureSet createRangerArcanistMagic()
+        private static FeatureDefinitionFeatureSet createRangerArcanistMagic()
         {
             GuiPresentation blank = new GuiPresentationBuilder("Feature/&NoContentTitle", "Feature/&NoContentTitle").Build();
 

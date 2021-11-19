@@ -4,10 +4,10 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    class SorcerousRestorationBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
+    internal class SorcerousRestorationBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
     {
-        const string SorcerousRestorationName = "ZSSorcerousRestoration";
-        const string SorcerousRestorationGuid = "a524f8eb-8d30-4614-819d-a8f7df84f73e";
+        private const string SorcerousRestorationName = "ZSSorcerousRestoration";
+        private const string SorcerousRestorationGuid = "a524f8eb-8d30-4614-819d-a8f7df84f73e";
 
         protected SorcerousRestorationBuilder(string name, string guid) : base(name, guid)
         {
