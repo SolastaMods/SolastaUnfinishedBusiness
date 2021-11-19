@@ -48,9 +48,9 @@ namespace SolastaCommunityExpansion.Patches.ConditionalPowers
 					RulesetUsablePower power = BuildUsablePower(hero, featureDefinitionPower);
 					// If this new power is part of a shared pool, get it properly initialized for usage.
 					if (featureDefinitionPower is IPowerSharedPool)
+
 					{
 						hero.UpdateUsageForPowerPool(power, 0);
-
 					}
 					curPowers.Add(power);
 					newPower = true;

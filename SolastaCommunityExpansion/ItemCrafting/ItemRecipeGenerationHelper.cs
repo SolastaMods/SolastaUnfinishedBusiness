@@ -269,7 +269,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
                     (item.ItemPresentation != null && item.ItemPresentation.ItemFlags != null && item.ItemPresentation.ItemFlags.Count > 0) ||
                     (item.ItemTags != null && (item.ItemTags.Contains("Quest") || !item.ItemTags.Contains("Standard"))) ||
                     item == DatabaseHelper.ItemDefinitions.ScaleMailCleric || item == DatabaseHelper.ItemDefinitions.Shortsword_Duel_Autoequip ||
-                    item == DatabaseHelper.ItemDefinitions.ScaleMail_VigdisOnly)
+                    item == DatabaseHelper.ItemDefinitions.ScaleMail_VigdisOnly || item == DatabaseHelper.ItemDefinitions.LeatherDruid)
                 {
                     continue;
                 }

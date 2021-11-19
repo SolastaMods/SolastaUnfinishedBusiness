@@ -69,6 +69,12 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
         }
     }
 
+    /**
+     * Note this is based on FeatureDefinitionPower so that you can take advantage of power usage calculations
+     * like proficiency or ability score usage. However in order to do that the game needs to add a power to
+     * the hero and only one power for a given name+guid is added. Which means if you want to add a +1 modifier
+     * at 4 different character levels you need to create 4 different FeatureDefinitionPowerPoolModifier.
+     */
     public class FeatureDefinitionPowerPoolModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionPowerPoolModifier>
     {
         public FeatureDefinitionPowerPoolModifierBuilder(string name, string guid,

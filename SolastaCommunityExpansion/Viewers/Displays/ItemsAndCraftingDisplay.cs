@@ -10,15 +10,51 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
         private static void AddUIForWeaponKey(string key)
         {
-            bool toggle = Main.Settings.InStore.Contains(key);
-            using (UI.HorizontalScope(UI.Width(350)))
+            bool toggle;
+            using (UI.HorizontalScope(UI.Width(550)))
             {
+                UI.ActionButton(ItemCraftingContext.RecipeTitles[key], () => ItemCraftingContext.LearnRecipes(key), UI.Width(175));
+
+                toggle = Main.Settings.InStore.Contains(key);
                 if (UI.Toggle("Add to store", ref toggle, 0, UI.Width(75)))
                 {
-                    Main.Settings.InStore.Add(key);
+                    if (toggle)
+                    {
+                        Main.Settings.InStore.Add(key);
+                    } else
+                    {
+                        Main.Settings.InStore.Remove(key);
+                    }
                     ItemCraftingContext.AddToStore(key);
                 }
-                UI.ActionButton(ItemCraftingContext.RecipeTitles[key], () => ItemCraftingContext.LearnRecipes(key), UI.Width(200));
+
+                toggle = Main.Settings.ItemsInDM.Contains(key);
+                if (UI.Toggle("Items in DM", ref toggle, 0, UI.Width(75)))
+                {
+                    if (toggle)
+                    {
+                        Main.Settings.ItemsInDM.Add(key);
+                    }
+                    else
+                    {
+                        Main.Settings.ItemsInDM.Remove(key);
+                    }
+                    ItemCraftingContext.UpdateItemsInDMState(key);
+                }
+
+                toggle = Main.Settings.RecipesInDM.Contains(key);
+                if (UI.Toggle("Recipes in DM", ref toggle, 0, UI.Width(75)))
+                {
+                    if (toggle)
+                    {
+                        Main.Settings.RecipesInDM.Add(key);
+                    }
+                    else
+                    {
+                        Main.Settings.RecipesInDM.Remove(key);
+                    }
+                    ItemCraftingContext.UpdateRecipesInDMState(key);
+                }
             }
         }
 
@@ -58,7 +94,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label(". Press the button to learn recipes instantly on the active party");
             UI.Label(". Items added to stores might need the party to travel away from the location and come back");
-            UI.Label(". Actions below only take effect during gameplay");
             UI.Label("");
 
             var keys = ItemCraftingContext.RecipeBooks.Keys;
@@ -72,7 +107,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                 using (UI.HorizontalScope())
                 {
-                    while (current < count && cols < 3)
+                    while (current < count && cols < 2)
                     {
                         AddUIForWeaponKey(keys.ElementAt(current));
 

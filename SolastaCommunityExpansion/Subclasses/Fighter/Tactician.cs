@@ -71,6 +71,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             => Build(KnockDownPowerName, KnockDownPowerNameGuid);
     }
 
+
     internal class InspirePowerBuilder
     {
         const string InspirePowerName = "InspirePower";
