@@ -258,11 +258,9 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             var arcane_pulse_upgrade_action = createArcanePulse("ArcanePulseUpgrade", "Feature/&ArcanePulseTitle", "Feature/&ArcanePulseDescription", marked_effect, damage_upgrade_effect);
             arcane_pulse_upgrade_action.SetOverriddenPower(arcane_pulse_action);
 
-            var arcane_pulse_dict = new Dictionary<int, FeatureDefinitionPower>();
-            arcane_pulse_dict.Add(7, arcane_pulse_action);
-            arcane_pulse_dict.Add(15, arcane_pulse_upgrade_action);
-
-            return arcane_pulse_dict;
+            return new Dictionary<int, FeatureDefinitionPower>{
+                {7, arcane_pulse_action},
+                {15, arcane_pulse_upgrade_action}};
         }
 
         static FeatureDefinitionPower createArcanePulse(string name, string title, string description, EffectForm marked_effect, EffectForm damage_effect)
