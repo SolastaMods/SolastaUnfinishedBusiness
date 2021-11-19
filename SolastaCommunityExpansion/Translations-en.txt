@@ -255,7 +255,7 @@ Feat/&MediumStrengthArmorDescription Gain proficiency with Medium Armor and Shie
 Feat/&MediumStrengthArmorTitle Medium Armor
 Feat/&PickPocketFeatDescription	You gain proficiency with Sleight Of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
 Feat/&PickPocketFeatTitle	Pickpocket
-Feat/&PowerAttackFeatDescription You learned to trade accuracy to lander deadlier/harder blows.  You can choose to take a -3 penalty to your to hit in order to do more damage (+3 damage for one handed weapons, +6 damage for two handed weapons).  Lasts for the whole turn once activated.  Works with melee and ranged weapons.
+Feat/&PowerAttackFeatDescription You learned to trade accuracy to lander deadlier/harder blows.  You can choose to take a -{0} penalty to your to hit in order to do more damage (+{0} damage for one handed weapons, +{1} damage for two handed weapons).  Lasts for the whole turn once activated.  Works with melee and ranged weapons.
 Feat/&PowerAttackFeatTitle Power attack
 Feat/&PowerFalseLifeFromFeatDescription Bolstering yourself with a necromantic facsimile of life, you gain 1d4+4 Temporary Hit Points for the Duration.
 Feat/&PowerFalseLifeFromFeatTitle False Life
@@ -283,17 +283,17 @@ Feat/&ProfMediumArmorDescription Gain proficiency with Medium Armor and Shields
 Feat/&ProfMediumArmorTitle Medium Armor
 Feat/&RecklessFuryFeatDescription You gain the ability to enter a rage for one minute once per day (note no armor restriciton), and you can attack recklessly gaining advantage on your melee attacks while giving advantage to your attackers until your next turn.
 Feat/&RecklessFuryFeatTitle Reckless Fury
-Feature/&PowerAttackAttackModifierOneHandedDescription Take a -3 to hit penalty to your attack for the rest of the turn to do +3 damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
+Feature/&PowerAttackAttackModifierOneHandedDescription Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
 Feature/&PowerAttackAttackModifierOneHandedTitle One handed power attack
-Feature/&PowerAttackConditionDescription Take a -3 to hit penalty to your attack for the rest of the turn to do +3 damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
+Feature/&PowerAttackConditionDescription Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
 Feature/&PowerAttackConditionTitle One handed power attack
-Feature/&PowerAttackPowerDescription Take a -3 to hit penalty to your attack for the rest of the turn to do +3 damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
+Feature/&PowerAttackPowerDescription Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
 Feature/&PowerAttackPowerTitle One handed power attack
-Feature/&PowerAttackTwoHandedAttackModifierDescription Take a -3 to hit penalty to your attack for the rest of the turn to do +6 damage when you land your strikes.  Only to be used when attacking with two hands, melee or ranged.
+Feature/&PowerAttackTwoHandedAttackModifierDescription Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes.  Only to be used when attacking with two hands, melee or ranged.
 Feature/&PowerAttackTwoHandedAttackModifierTitle Two Handed power attack
-Feature/&PowerAttackTwoHandedConditionDescription Take a -3 to hit penalty to your attack for the rest of the turn to do +6 damage when you land your strikes.  Only to be used when attacking with two hands, melee or ranged.
+Feature/&PowerAttackTwoHandedConditionDescription Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes.  Only to be used when attacking with two hands, melee or ranged.
 Feature/&PowerAttackTwoHandedConditionTitle Two Handed power attack
-Feature/&PowerAttackTwoHandedPowerDescription Take a -3 to hit penalty to your attack for the rest of the turn to do +6 damage when you land your strikes.  Only to be used when attacking with two hands, melee or ranged.
+Feature/&PowerAttackTwoHandedPowerDescription Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes.  Only to be used when attacking with two hands, melee or ranged.
 Feature/&PowerAttackTwoHandedPowerTitle Two Handed power attack
 Feature/&RageDamageBonusAttackModifierDescription Add +2 damage to your attacks while raging.
 Feature/&RageDamageBonusAttackModifierTitle Rage damage
@@ -385,7 +385,7 @@ Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription Your attacks count as
 Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle Arcane Weapon
 Subclass/&AttributeModifierMeleeWizardExtraAttackDescription You gain an extra attack
 Subclass/&AttributeModifierMeleeWizardExtraAttackTitle Extra Attack
-Subclass/&ConditionSpellShieldArcaneDeflectionDescription You can use your arcane powers to shield yourself as a reaction. This gives you +3 to your AC until your next turn.
+Subclass/&ConditionSpellShieldArcaneDeflectionDescription You can use your arcane powers to shield yourself as a reaction. This gives you +{0} to your AC until your next turn.
 Subclass/&ConditionSpellShieldArcaneDeflectionTitle Arcane Deflection
 Subclass/&ConditionTransmuteConstitutionSaveDescription Temporary Constitution save proficiency granted by the Transmute Force power.
 Subclass/&ConditionTransmuteConstitutionSaveTitle Constitution Saves
@@ -438,7 +438,7 @@ Subclass/&ManipulatorMentalSavingThrowsDescription Gain proficiency in saving th
 Subclass/&ManipulatorMentalSavingThrowsTitle Mental Resistance
 Subclass/&PowerManipulatorDominatePersonDescription You can use Dominate Person a number of times per long rest equal to your intelligence modifier.
 Subclass/&PowerManipulatorDominatePersonTitle Dominate Person
-Subclass/&PowerSpellShieldArcaneDeflectionDescription You can use your arcane powers to shield yourself as a reaction. This gives you +3 to your AC until your next turn.
+Subclass/&PowerSpellShieldArcaneDeflectionDescription You can use your arcane powers to shield yourself as a reaction. This gives you +{0} to your AC until your next turn.
 Subclass/&PowerSpellShieldArcaneDeflectionTitle Arcane Deflection
 Subclass/&PowerSpellShieldRangedDeflectionDescription When an attacker that you can see hits you with a ranged attack or spell, you can use your reaction to halve the attack's damage against you.
 Subclass/&PowerSpellShieldRangedDeflectionTitle Ranged Deflection
