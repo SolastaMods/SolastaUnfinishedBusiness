@@ -99,7 +99,7 @@ namespace SolastaCommunityExpansion.Models
                         FeatureUnlockByLevel pointPoolAbilityScoreImprovement = new FeatureUnlockByLevel(DatabaseHelper.FeatureDefinitionPointPools.PointPoolAbilityScoreImprovement, 1);
                         human.FeatureUnlocks.Add(pointPoolAbilityScoreImprovement);
 
-                        FeatureUnlockByLevel pointPoolHumanSkillPool = new FeatureUnlockByLevel((FeatureDefinition)DatabaseHelper.FeatureDefinitionPointPools.PointPoolHumanSkillPool, 1);
+                        FeatureUnlockByLevel pointPoolHumanSkillPool = new FeatureUnlockByLevel(DatabaseHelper.FeatureDefinitionPointPools.PointPoolHumanSkillPool, 1);
                         human.FeatureUnlocks.Add(pointPoolHumanSkillPool);
 
                         Remove(human, DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierHumanAbilityScoreIncrease);

@@ -64,9 +64,9 @@ namespace SolastaCommunityExpansion.Patches.Cheats
 
                     if (levelupRequired)
                     {
-                        /// Adjust the amount of XP required in order to cancel the adjustment made in RulesetCharacterHero_GrantExperience_Patch.
-                        /// This results in a call from FunctorGrantExperience with GrantExperienceMode.ReachLevel working as expected and 
-                        /// the relevant quest step is then not blocked.
+                        // Adjust the amount of XP required in order to cancel the adjustment made in RulesetCharacterHero_GrantExperience_Patch.
+                        // This results in a call from FunctorGrantExperience with GrantExperienceMode.ReachLevel working as expected and 
+                        // the relevant quest step is then not blocked.
                         var original = __result;
 
                         __result = (int)Math.Round(__result / (Main.Settings.ExperienceModifier / 100.0f), MidpointRounding.AwayFromZero);

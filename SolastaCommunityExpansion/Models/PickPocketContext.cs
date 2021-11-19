@@ -9,7 +9,7 @@ using static SolastaModApi.DatabaseHelper.LootPackDefinitions;
 namespace SolastaCommunityExpansion.Models
 {
     [TargetType(typeof(TreasureOption))]
-    public static partial class TreasurreOptionsExtension
+    public static partial class TreasureOptionsExtension
     {
         public static T SetOdds<T>(this T entity, int value)
            where T : TreasureOption

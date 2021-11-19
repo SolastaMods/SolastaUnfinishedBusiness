@@ -1,6 +1,6 @@
-﻿using SolastaModApi;
+﻿using SolastaCommunityExpansion.CustomFeatureDefinitions;
+using SolastaModApi;
 using SolastaModApi.Extensions;
-using SolastaCommunityExpansion.CustomFeatureDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Fighter
 {
@@ -70,7 +70,6 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         public static FeatureDefinitionPowerSharedPool CreateAndAddToDB()
             => Build(KnockDownPowerName, KnockDownPowerNameGuid);
     }
-
 
     internal class InspirePowerBuilder
     {
@@ -223,14 +222,14 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             return definition;
         }
 
-        public readonly static FeatureDefinitionPower GambitResourcePool = GambitResourcePoolBuilder.CreateAndAddToDB();
-        public readonly static FeatureDefinitionPower GambitResourcePoolAdd = GambitResourcePoolAddBuilder.GambitResourcePoolAdd();
-        public readonly static FeatureDefinitionPower GambitResourcePoolAdd10 = GambitResourcePoolAddBuilder.GambitResourcePoolAdd10();
-        public readonly static FeatureDefinitionPower GambitResourcePoolAdd15 = GambitResourcePoolAddBuilder.GambitResourcePoolAdd15();
-        public readonly static FeatureDefinitionPower GambitResourcePoolAdd18 = GambitResourcePoolAddBuilder.GambitResourcePoolAdd18();
-        public readonly static FeatureDefinitionPowerSharedPool KnockDownPower = KnockDownPowerBuilder.CreateAndAddToDB();
-        public readonly static FeatureDefinitionPowerSharedPool InspirePower = InspirePowerBuilder.CreateAndAddToDB();
-        public readonly static FeatureDefinitionPowerSharedPool CounterStrikePower = CounterStrikePowerBuilder.CreateAndAddToDB();
+        public static readonly FeatureDefinitionPower GambitResourcePool = GambitResourcePoolBuilder.CreateAndAddToDB();
+        public static readonly FeatureDefinitionPower GambitResourcePoolAdd = GambitResourcePoolAddBuilder.GambitResourcePoolAdd();
+        public static readonly FeatureDefinitionPower GambitResourcePoolAdd10 = GambitResourcePoolAddBuilder.GambitResourcePoolAdd10();
+        public static readonly FeatureDefinitionPower GambitResourcePoolAdd15 = GambitResourcePoolAddBuilder.GambitResourcePoolAdd15();
+        public static readonly FeatureDefinitionPower GambitResourcePoolAdd18 = GambitResourcePoolAddBuilder.GambitResourcePoolAdd18();
+        public static readonly FeatureDefinitionPowerSharedPool KnockDownPower = KnockDownPowerBuilder.CreateAndAddToDB();
+        public static readonly FeatureDefinitionPowerSharedPool InspirePower = InspirePowerBuilder.CreateAndAddToDB();
+        public static readonly FeatureDefinitionPowerSharedPool CounterStrikePower = CounterStrikePowerBuilder.CreateAndAddToDB();
 
     }
 }
