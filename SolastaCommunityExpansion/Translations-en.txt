@@ -106,17 +106,17 @@ Equipment/&Enchanted_Scimitar_Warden_Title Warden Scimitar
 Equipment/&Enchanted_Scimitar_Whiteburn_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
 Equipment/&Enchanted_Scimitar_Whiteburn_Title Whiteburn Scimitar
 Equipment/&Enchanted_Shield_Deflection_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_Shield_Deflection_Title Wooden Shield of Deflection
+Equipment/&Enchanted_Shield_Deflection_Title Shield of Deflection
 Equipment/&Enchanted_Shield_FlameDancing_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_Shield_FlameDancing_Title Wooden Shield of Flame Dancing
+Equipment/&Enchanted_Shield_FlameDancing_Title Shield of Flame Dancing
 Equipment/&Enchanted_Shield_FrostWalking_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_Shield_FrostWalking_Title Wooden Shield of Frost Walking
+Equipment/&Enchanted_Shield_FrostWalking_Title Shield of Frost Walking
 Equipment/&Enchanted_Shield_Robustness_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_Shield_Robustness_Title Wooden Shield of Robustness
+Equipment/&Enchanted_Shield_Robustness_Title Shield of Robustness
 Equipment/&Enchanted_Shield_Sturdiness_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_Shield_Sturdiness_Title Wooden Shield of Sturdiness
+Equipment/&Enchanted_Shield_Sturdiness_Title Shield of Sturdiness
 Equipment/&Enchanted_Shield_Survival_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_Shield_Survival_Title Wooden Shield of Survival
+Equipment/&Enchanted_Shield_Survival_Title Shield of Survival
 Equipment/&Enchanted_Shield_Wooden_Deflection_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 Equipment/&Enchanted_Shield_Wooden_Deflection_Title Wooden Shield of Deflection
 Equipment/&Enchanted_Shield_Wooden_FlameDancing_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
