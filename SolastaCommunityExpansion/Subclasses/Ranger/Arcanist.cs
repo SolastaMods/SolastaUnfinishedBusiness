@@ -27,13 +27,13 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
         private const string RangerArcanistRangerSubclassName = "RangerArcanistRangerSubclass";
         private const string RangerArcanistRangerSubclassGuid = "5ABD870D-9ABD-4953-A2EC-E2109324FAB9";
 
-        public static Guid RA_BASE_GUID = new Guid(RangerArcanistRangerSubclassGuid);
+        public static readonly Guid RA_BASE_GUID = new Guid(RangerArcanistRangerSubclassGuid);
 
-        public static FeatureDefinitionFeatureSet ranger_arcanist_magic = createRangerArcanistMagic();
-        public static FeatureDefinitionAdditionalDamage arcanist_mark = CreateArcanistMark();
-        public static FeatureDefinitionAdditionalDamage arcane_detonation = CreateArcaneDetonation();
-        public static FeatureDefinition arcane_detonation_upgrade = CreateArcaneDetonationUpgrade();
-        public static Dictionary<int, FeatureDefinitionPower> arcane_pulse_dict = CreateArcanePulseDict();
+        public static readonly FeatureDefinitionFeatureSet ranger_arcanist_magic = createRangerArcanistMagic();
+        public static readonly FeatureDefinitionAdditionalDamage arcanist_mark = CreateArcanistMark();
+        public static readonly FeatureDefinitionAdditionalDamage arcane_detonation = CreateArcaneDetonation();
+        public static readonly FeatureDefinition arcane_detonation_upgrade = CreateArcaneDetonationUpgrade();
+        public static readonly Dictionary<int, FeatureDefinitionPower> arcane_pulse_dict = CreateArcanePulseDict();
 
         public static CharacterSubclassDefinition BuildAndAddSubclass()
         {
