@@ -36,7 +36,7 @@ namespace SolastaCommunityExpansion.Patches
             // scale
             var scaledCopper = priceMultiplier * cp;
 
-            if(scaledCopper < 1 && cp >= 1)
+            if (scaledCopper < 1 && cp >= 1)
             {
                 // it's always worth at least 1cp
                 scaledCopper = 1;

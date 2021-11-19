@@ -36,10 +36,7 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
                 bool rangedAttack, RuleDefinitions.AdvantageType advantageType, List<EffectForm> actualEffectForms,
                 RulesetEffect rulesetEffect, bool criticalHit, bool firstTarget)
         {
-            if (onHit != null)
-            {
-                onHit(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
-            }
+            onHit?.Invoke(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
         }
     }
 

@@ -1,6 +1,4 @@
-﻿
-
-using SolastaModApi;
+﻿using SolastaModApi;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Features

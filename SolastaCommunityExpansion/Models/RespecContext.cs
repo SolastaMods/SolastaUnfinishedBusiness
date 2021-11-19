@@ -15,8 +15,8 @@ namespace SolastaCommunityExpansion.Models
             {
                 Definition.GuiPresentation.Title = "RestActivity/&ZSRespecTitle";
                 Definition.GuiPresentation.Description = "RestActivity/&ZSRespecDescription";
-                Definition.SetCondition<RestActivityDefinition>(Settings.ActivityConditionCanRespec);
-                Definition.SetFunctor<RestActivityDefinition>(RespecName);
+                Definition.SetCondition(Settings.ActivityConditionCanRespec);
+                Definition.SetFunctor(RespecName);
                 ServiceRepository.GetService<IFunctorService>().RegisterFunctor(RespecName, new Functors.FunctorRespec());
             }
 

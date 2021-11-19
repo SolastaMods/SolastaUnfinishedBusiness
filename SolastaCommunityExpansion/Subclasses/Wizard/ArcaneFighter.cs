@@ -7,10 +7,10 @@ using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard
 {
-    class ArcaneFighter : AbstractSubclass
+    internal class ArcaneFighter : AbstractSubclass
     {
         private static Guid SubclassNamespace = new Guid("cab151dd-cc94-4c4c-bfba-a712b9a0b53d");
-        private CharacterSubclassDefinition Subclass;
+        private readonly CharacterSubclassDefinition Subclass;
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
@@ -147,7 +147,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         private class FeatureDefinitionAttackModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttackModifier>
         {
             public FeatureDefinitionAttackModifierBuilder(string name, string guid,
-            RuleDefinitions.AbilityScoreReplacement abilityReplacement, string additionalAttackTag, 
+            RuleDefinitions.AbilityScoreReplacement abilityReplacement, string additionalAttackTag,
             GuiPresentation guiPresentation) : base(name, guid)
             {
                 Definition.SetAbilityScoreReplacement(abilityReplacement);

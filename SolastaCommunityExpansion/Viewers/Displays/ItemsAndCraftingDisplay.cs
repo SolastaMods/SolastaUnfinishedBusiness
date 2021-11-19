@@ -1,6 +1,6 @@
-﻿using System.Linq;
-using ModKit;
+﻿using ModKit;
 using SolastaCommunityExpansion.Models;
+using System.Linq;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {

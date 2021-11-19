@@ -127,8 +127,8 @@ namespace SolastaCommunityExpansion.Models
                         uniqueEntries.Add(name);
                     }
                 }
-                foreach(string name in uniqueEntries)
-                { 
+                foreach (string name in uniqueEntries)
+                {
                     if (!first)
                     {
                         outString += ", ";

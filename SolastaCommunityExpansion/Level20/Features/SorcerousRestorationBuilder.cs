@@ -4,7 +4,7 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    class SorcerousRestorationBuilder :  BaseDefinitionBuilder<FeatureDefinitionPower>
+    class SorcerousRestorationBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
     {
         const string SorcerousRestorationName = "ZSSorcerousRestoration";
         const string SorcerousRestorationGuid = "a524f8eb-8d30-4614-819d-a8f7df84f73e";
@@ -26,7 +26,7 @@ namespace SolastaCommunityExpansion.Level20.Features
             restoreForm.SpellSlotsForm.SetSorceryPointsGain(4);
             restoration.AddEffectForm(restoreForm);
             Definition.SetEffectDescription(restoration.Build());
-            
+
 
             GuiPresentationBuilder gui = new GuiPresentationBuilder(
                "Sorceror/&ZSSorcerousRestorationDescription",
@@ -61,6 +61,6 @@ namespace SolastaCommunityExpansion.Level20.Features
 
         internal static readonly FeatureDefinitionPower SorcerousRestoration =
             CreateAndAddToDB(SorcerousRestorationName, SorcerousRestorationGuid);
-       
+
     }
 }

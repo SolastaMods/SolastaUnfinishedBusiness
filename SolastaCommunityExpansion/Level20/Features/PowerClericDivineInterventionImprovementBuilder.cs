@@ -27,10 +27,10 @@ namespace SolastaCommunityExpansion.Level20.Features
         internal static readonly FeatureDefinitionPower PowerClericDivineInterventionImprovementCleric =
             CreateAndAddToDB(PowerClericDivineInterventionCleric, PowerClericDivineInterventionImprovementClericName, PowerClericDivineInterventionImprovementClericGuid);
 
-        internal static readonly FeatureDefinitionPower PowerClericDivineInterventionImprovementPaladin=
+        internal static readonly FeatureDefinitionPower PowerClericDivineInterventionImprovementPaladin =
             CreateAndAddToDB(PowerClericDivineInterventionPaladin, PowerClericDivineInterventionImprovementPaladinName, PowerClericDivineInterventionImprovementPaladinGuid);
 
-        internal static readonly FeatureDefinitionPower PowerClericDivineInterventionImprovementWizard=
+        internal static readonly FeatureDefinitionPower PowerClericDivineInterventionImprovementWizard =
             CreateAndAddToDB(PowerClericDivineInterventionWizard, PowerClericDivineInterventionImprovementWizardName, PowerClericDivineInterventionImprovementWizardGuid);
     }
 }

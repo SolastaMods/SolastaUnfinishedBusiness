@@ -7,10 +7,10 @@ using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard
 {
-    class LifeTransmuter : AbstractSubclass
+    internal class LifeTransmuter : AbstractSubclass
     {
         private static Guid SubclassNamespace = new Guid("81cdcf44-5f04-4aea-8232-b22a1c264065");
-        private CharacterSubclassDefinition Subclass;
+        private readonly CharacterSubclassDefinition Subclass;
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Feats
 {
-    class OtherFeats
+    internal static class OtherFeats
     {
         public static Guid OtherFeatNamespace = new Guid("655e8588-4d6e-42f3-9564-69e7345d5620");
 

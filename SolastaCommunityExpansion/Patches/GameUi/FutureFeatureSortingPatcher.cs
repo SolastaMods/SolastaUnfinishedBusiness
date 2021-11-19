@@ -1,11 +1,10 @@
-﻿
-using HarmonyLib;
+﻿using HarmonyLib;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Patches
 {
-    class FutureFeatureSortingPatcher
+    internal static class FutureFeatureSortingPatcher
     {
 
         [HarmonyPatch(typeof(CharacterStageSubclassSelectionPanel), "FillSubclassFeatures")]
@@ -22,8 +21,6 @@ namespace SolastaCommunityExpansion.Patches
                     return a.Level - b.Level;
                 });
             }
-
-       
         }
 
         [HarmonyPatch(typeof(CharacterStageDeitySelectionPanel), "FillSubclassFeatures")]

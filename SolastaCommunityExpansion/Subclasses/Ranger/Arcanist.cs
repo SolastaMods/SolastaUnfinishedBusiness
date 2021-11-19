@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using SolastaCommunityExpansion.Features;
+﻿using SolastaCommunityExpansion.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using System;
+using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
-
-
 
 namespace SolastaCommunityExpansion.Subclasses.Ranger
 {
@@ -74,7 +71,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup arcanistSpells1 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 2,
-                SpellsList = new List<SpellDefinition>(){DatabaseHelper.SpellDefinitions.Shield,}
+                SpellsList = new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.Shield, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup arcanistSpells2 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
@@ -110,7 +107,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             GuiPresentation arcanistMagicGui = new GuiPresentationBuilder("Feature/&RangerArcanistMagicDescription", "Feature/&RangerArcanistMagicTitle").Build();
             return new FeatureDefinitionFeatureSetBuilder("RangerArcanistMagic",
                 GuidHelper.Create(RA_BASE_GUID, "RangerArcanistManaTouchedGuardian").ToString(), // Oops, will have to live with this name being off)
-                new List<FeatureDefinition>() { preparedSpells, arcanist_affinity},
+                new List<FeatureDefinition>() { preparedSpells, arcanist_affinity },
                 FeatureDefinitionFeatureSet.FeatureSetMode.Union, arcanistMagicGui).AddToDB();
         }
 
@@ -211,7 +208,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
                         buildDiceByRank(20, 2)
                     });
             mark_damage.SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.None);
-            mark_damage.SetImpactParticleReference(asset_reference);    
+            mark_damage.SetImpactParticleReference(asset_reference);
             return mark_damage.AddToDB();
         }
 
@@ -261,11 +258,9 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             var arcane_pulse_upgrade_action = createArcanePulse("ArcanePulseUpgrade", "Feature/&ArcanePulseTitle", "Feature/&ArcanePulseDescription", marked_effect, damage_upgrade_effect);
             arcane_pulse_upgrade_action.SetOverriddenPower(arcane_pulse_action);
 
-            var arcane_pulse_dict = new Dictionary<int, FeatureDefinitionPower>();
-            arcane_pulse_dict.Add(7, arcane_pulse_action);
-            arcane_pulse_dict.Add(15, arcane_pulse_upgrade_action);
-
-            return arcane_pulse_dict;
+            return new Dictionary<int, FeatureDefinitionPower>{
+                {7, arcane_pulse_action},
+                {15, arcane_pulse_upgrade_action}};
         }
 
         static FeatureDefinitionPower createArcanePulse(string name, string title, string description, EffectForm marked_effect, EffectForm damage_effect)

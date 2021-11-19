@@ -3,7 +3,7 @@ using static SolastaCommunityExpansion.Models.Level20Context;
 
 namespace SolastaCommunityExpansion.Patches
 {
-    class GameCampaignPartyPatcher
+    internal static class GameCampaignPartyPatcher
     {
         // replaces the hard-coded level and max experience
         [HarmonyPatch(typeof(GameCampaignParty), "UpdateLevelCaps")]

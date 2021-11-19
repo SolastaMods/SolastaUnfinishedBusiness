@@ -1,7 +1,7 @@
-using UnityModManagerNet;
 using ModKit;
-using static SolastaCommunityExpansion.Viewers.Displays.Level20HelpDisplay;
+using UnityModManagerNet;
 using static SolastaCommunityExpansion.Viewers.Displays.CreditsDisplay;
+using static SolastaCommunityExpansion.Viewers.Displays.Level20HelpDisplay;
 
 namespace SolastaCommunityExpansion.Viewers
 {
@@ -23,7 +23,8 @@ namespace SolastaCommunityExpansion.Viewers
 
         private void AddDumpDescriptionToLogButton()
         {
-            UI.ActionButton("Dump Description to Logs", () => {
+            UI.ActionButton("Dump Description to Logs", () =>
+            {
                 string collectedString = "";
                 collectedString += "[heading][size=5] [b] [i] Solasta Community Expansion[/i][/b][/size][/heading]";
                 collectedString += "\nThis is a collection of work from the Solasta modding community. It includes feats, subclasses, items, crafting recipes, gameplay options, UI improvements, and more. The general philosophy is everything is optional to enable, so you can install the mod and then enalbe the pieces you want. There are some minor bug fixes that are enabled by default.";
@@ -81,7 +82,7 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString += "\n[*]Shows crafting recipe in detailed tooltips";
                 collectedString += "\n[*]Pause the UI when victorious in battle";
                 collectedString += "\n[*]Additional lore friendly names";
-                collectedString += "\n[*]Speed up battles";                
+                collectedString += "\n[*]Speed up battles";
                 collectedString += "\n[*]Multi line spell casting selection";
                 collectedString += "\n[*]Multi line power activation selection";
                 collectedString += "\n[*]Keep spell UI open when switching weapons";
@@ -157,7 +158,7 @@ namespace SolastaCommunityExpansion.Viewers
                 // items
                 Main.Error(collectedString);
             }, UI.AutoWidth());
-           
+
         }
     }
 }

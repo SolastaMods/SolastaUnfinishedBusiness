@@ -1,11 +1,11 @@
-﻿using System;
+﻿using HarmonyLib;
+using System;
 using System.Collections.Generic;
-using HarmonyLib;
 using static SolastaCommunityExpansion.Models.Level20Context;
 
 namespace SolastaCommunityExpansion.Patches
 {
-    class CharactersPanelPatcher
+    internal static class CharactersPanelPatcher
     {
         // replaces the hard-coded level
         [HarmonyPatch(typeof(CharactersPanel), "Refresh")]

@@ -7,10 +7,10 @@ using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Subclasses.Fighter
 {
-    class SpellShield : AbstractSubclass
+    internal class SpellShield : AbstractSubclass
     {
         private static Guid SubclassNamespace = new Guid("d4732dc2-c4f9-4a35-a12a-ae2d7858ff74");
-        private CharacterSubclassDefinition Subclass;
+        private readonly CharacterSubclassDefinition Subclass;
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
@@ -21,7 +21,8 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             return Subclass;
         }
 
-        internal SpellShield() {
+        internal SpellShield()
+        {
             // Make Spell Shield subclass
             CharacterSubclassDefinitionBuilder spellShield = new CharacterSubclassDefinitionBuilder("FighterSpellShield", GuidHelper.Create(SubclassNamespace, "FighterSpellShield").ToString());
             GuiPresentationBuilder spellShieldPresentation = new GuiPresentationBuilder(

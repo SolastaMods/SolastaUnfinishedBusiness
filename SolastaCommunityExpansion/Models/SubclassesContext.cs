@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace SolastaCommunityExpansion.Models
 {
-    class SubclassesContext
+    internal static class SubclassesContext
     {
         public static Dictionary<string, AbstractSubclass> Subclasses = new Dictionary<string, AbstractSubclass>();
 
@@ -46,7 +46,8 @@ namespace SolastaCommunityExpansion.Models
                 {
                     choiceList.Subclasses.Add(name);
                 }
-            } else
+            }
+            else
             {
                 if (choiceList.Subclasses.Contains(name))
                 {

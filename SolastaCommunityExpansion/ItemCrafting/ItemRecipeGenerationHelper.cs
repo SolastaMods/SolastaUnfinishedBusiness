@@ -83,7 +83,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
 
                     if (!Models.ItemCraftingContext.RecipeBooks.ContainsKey(baseItem.Name))
                     {
-                        Models.ItemCraftingContext.RecipeBooks.Add(baseItem.Name, new List<ItemDefinition>());    
+                        Models.ItemCraftingContext.RecipeBooks.Add(baseItem.Name, new List<ItemDefinition>());
                     }
                     Models.ItemCraftingContext.RecipeBooks[baseItem.Name].Add(craftingManual);
 
@@ -93,7 +93,6 @@ namespace SolastaCommunityExpansion.ItemCrafting
                         StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore, craftingManual);
                     }
                 }
-
             }
         }
 
@@ -140,7 +139,6 @@ namespace SolastaCommunityExpansion.ItemCrafting
             List<RecipeDefinition> recipes = new List<RecipeDefinition>();
             foreach (ItemDefinition item in EnchantedToIngredient.Keys)
             {
-
                 string recipeName = "RecipeEnchanting" + item.Name;
                 RecipeBuilder builder = new RecipeBuilder(recipeName, GuidHelper.Create(baseGuid, recipeName).ToString());
                 builder.AddIngredient(EnchantedToIngredient[item]);
@@ -214,7 +212,6 @@ namespace SolastaCommunityExpansion.ItemCrafting
             List<RecipeDefinition> recipes = new List<RecipeDefinition>();
             foreach (ItemDefinition item in ForgeryToIngredient.Keys)
             {
-
                 string recipeName = "RecipeForgery" + item.Name;
                 RecipeBuilder builder = new RecipeBuilder(recipeName, GuidHelper.Create(baseGuid, recipeName).ToString());
                 builder.AddIngredient(ForgeryToIngredient[item]);
@@ -233,7 +230,6 @@ namespace SolastaCommunityExpansion.ItemCrafting
                 {DatabaseHelper.ItemDefinitions.ABJURATION_TOWER_Poem, DatabaseHelper.ItemDefinitions.Ingredient_LilyOfTheBadlands},
                 {DatabaseHelper.ItemDefinitions.ABJURATION_TOWER_ElvenWars, DatabaseHelper.ItemDefinitions.Ingredient_BloodDaffodil},
                 {DatabaseHelper.ItemDefinitions.CAERLEM_Daliat_Document, DatabaseHelper.ItemDefinitions.Ingredient_Skarn},
-
             };
             foreach (ItemDefinition item in ScrollForgeries.Keys)
             {

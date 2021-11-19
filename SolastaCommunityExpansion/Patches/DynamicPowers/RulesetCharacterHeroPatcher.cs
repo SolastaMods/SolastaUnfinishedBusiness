@@ -7,22 +7,22 @@ using System.Linq;
 
 namespace SolastaCommunityExpansion.Patches.ConditionalPowers
 {
-    [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshAll")]
-    internal static class RulesetCharacterHero_RefreshAll_Patch
-    {
-        internal static void Postfix(RulesetCharacterHero __instance)
-        {
-            // Anything that grants powers dynamically will stop working if this is turned off.
-            // I'm making it a setting to allow it to be disabled if that becomes necesary, but 
-            // this shouldn't get exposed in the UI.
-            if (Main.Settings.AllowDynamicPowers)
-            {
+	[HarmonyPatch(typeof(RulesetCharacterHero), "RefreshAll")]
+	internal static class RulesetCharacterHero_RefreshAll_Patch
+	{
+		internal static void Postfix(RulesetCharacterHero __instance)
+		{
+			// Anything that grants powers dynamically will stop working if this is turned off.
+			// I'm making it a setting to allow it to be disabled if that becomes necesary, but 
+			// this shouldn't get exposed in the UI.
+			if (Main.Settings.AllowDynamicPowers)
+			{
 				RefreshPowers(__instance);
 			}
-        }
+		}
 
 		private static void RefreshPowers(RulesetCharacterHero hero)
-        {
+		{
 			// Grant powers when we do a refresh all. This allows powers from things like fighting styles and conditions.
 			// This is similar to grant powers, but doesn't use grant powers because grant powers also resets all powers
 			// to max available uses.
@@ -48,19 +48,19 @@ namespace SolastaCommunityExpansion.Patches.ConditionalPowers
 					RulesetUsablePower power = BuildUsablePower(hero, featureDefinitionPower);
 					// If this new power is part of a shared pool, get it properly initialized for usage.
 					if (featureDefinitionPower is IPowerSharedPool)
-                    {
-						hero.UpdateUsageForPowerPool(power, 0);
 
+					{
+						hero.UpdateUsageForPowerPool(power, 0);
 					}
 					curPowers.Add(power);
 					newPower = true;
 				}
 			}
-            if (hero.UsablePowers.Count == curPowers.Count && !newPower)
-            {
+			if (hero.UsablePowers.Count == curPowers.Count && !newPower)
+			{
 				// No change to powers, don't do the potentially expensive calls below.
-                return;
-            }
+				return;
+			}
 			// We only want to modify the UsablePowers list if needed. Because it is modified so rarely in the base game
 			// there are some TA.coroutines that iterate over the list with yields in between. This iteration breaks if
 			// UsablePowers is modified. We intentionally use SetField here rather than modify the UsablePowers list so
@@ -71,12 +71,12 @@ namespace SolastaCommunityExpansion.Patches.ConditionalPowers
 		}
 
 		private static RulesetUsablePower BuildUsablePower(RulesetCharacterHero hero, FeatureDefinitionPower featureDefinitionPower)
-        {
+		{
 			CharacterRaceDefinition originRace;
 			CharacterClassDefinition originClass;
 			(originRace, originClass, _) = LookForFeatureOrigin(hero, featureDefinitionPower);
 			RulesetUsablePower rulesetUsablePower = new RulesetUsablePower(featureDefinitionPower, originRace, originClass);
-			
+
 			if (featureDefinitionPower.RechargeRate == RuleDefinitions.RechargeRate.ChannelDivinity)
 			{
 				rulesetUsablePower.UsesAttribute = hero.GetAttribute("ChannelDivinityNumber", false);
