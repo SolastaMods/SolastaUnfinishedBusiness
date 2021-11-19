@@ -124,6 +124,7 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString += "\n[*]Faster Time Scale";
                 collectedString += "\n[*]Feats - Savage Attacker - Tough - War Caster";
                 collectedString += "\n[*]Fighter Spell Shield";
+                collectedString += "\n[*]Fighter Subclass - Tactician";
                 collectedString += "\n[*]Fighting Style Feats";
                 collectedString += "\n[*]Flexible Ancestries";
                 collectedString += "\n[*]Flexible Backgrounds";
@@ -137,6 +138,7 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString += "\n[*]Multiclass";
                 collectedString += "\n[*]No Level Constraint";
                 collectedString += "\n[*]Primed Recipes";
+                collectedString += "\n[*]Ranger Arcanist -Ranger Subclass";
                 collectedString += "\n[*]Respec";
                 collectedString += "\n[*]Rogue Con Artist";
                 collectedString += "\n[*]Save by Location [to-be imported by @impPhil]";
