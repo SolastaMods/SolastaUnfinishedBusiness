@@ -46,6 +46,8 @@ namespace SolastaCommunityExpansion
         public int AllRacesInitialFeats = 0;
 
         public List<string> InStore = new List<string>();
+        public List<string> ItemsInDM = new List<string>();
+        public List<string> RecipesInDM = new List<string>();
 
         private int recipeCost = 200;
         public int RecipeCost
@@ -59,7 +61,7 @@ namespace SolastaCommunityExpansion
 
         public List<string> FeatEnabled= new List<string>();
         public List<string> SubclassEnabled= new List<string>();
-        public List<string> FightingStyleEnabled;
+        public List<string> FightingStyleEnabled = new List<string>();
 
         public int FeatSliderPosition = 1;
         public int SubclassSliderPosition = 1;
@@ -136,6 +138,8 @@ namespace SolastaCommunityExpansion
         public bool DruidNoMetalRestriction;
         public bool RecipeTooltipShowsRecipe;
         public bool EnableCheatMenuDuringGameplay = false;
+
+        public bool EnableHudToggleElementsHotkeys = false;
 
         public int ExperienceModifier = 100;
     }

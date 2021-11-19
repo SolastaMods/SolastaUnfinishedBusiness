@@ -157,5 +157,17 @@ namespace SolastaCommunityExpansion.Features
             Definition.SetOverriddenPower(overridenPower);
             return this;
         }
+
+        public FeatureDefinitionPowerBuilder SetShortTitle(string title)
+        {
+            Definition.SetShortTitleOverride(title);
+            return this;
+        }
+
+        public FeatureDefinitionPowerBuilder SetAbility(string ability)
+        {
+            Definition.SetAbilityScore(ability);
+            return this;
+        }
     }
 }

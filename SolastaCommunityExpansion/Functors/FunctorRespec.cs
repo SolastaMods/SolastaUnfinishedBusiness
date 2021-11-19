@@ -50,7 +50,6 @@ namespace SolastaCommunityExpansion.Functors
           FunctorParametersDescription functorParameters,
           Functor.FunctorExecutionContext context)
         {
-            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
 
             var gameCampaignScreen = Gui.GuiService.GetScreen<GameCampaignScreen>();
@@ -78,7 +77,8 @@ namespace SolastaCommunityExpansion.Functors
             if (respecState != RESPEC_STATE_ABORTED)
             {
                 var gameCampaignCharacters = gameCampaignScreen.GameService.Game.GameCampaign.Party.CharactersList;
-                var gameLocationCharacter = gameLocationCharacterService.PartyCharacters.Find(x => x.RulesetCharacter.Guid == functorParameters.RestingHero.Guid);
+                var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+                var gameLocationCharacter = gameLocationCharacterService?.PartyCharacters.Find(x => x.RulesetCharacter.Guid == functorParameters.RestingHero.Guid);
 
                 CopyInventoryOver(functorParameters.RestingHero, newHero);
 
@@ -86,7 +86,7 @@ namespace SolastaCommunityExpansion.Functors
                 newHero.Attributes[AttributeDefinitions.Experience] = functorParameters.RestingHero.GetAttribute(AttributeDefinitions.Experience);
 
                 gameCampaignCharacters.Find(x => x.RulesetCharacter == functorParameters.RestingHero).RulesetCharacter = newHero;
-                gameLocationCharacter.SetRuleset(newHero);
+                gameLocationCharacter?.SetRuleset(newHero);
 
                 if (gameLocationscreenExplorationVisible == true)
                 {
@@ -97,7 +97,7 @@ namespace SolastaCommunityExpansion.Functors
                 }
                 else
                 {
-                    UpdateUI();
+                    yield return UpdateUI();
                 }
             }
             else
