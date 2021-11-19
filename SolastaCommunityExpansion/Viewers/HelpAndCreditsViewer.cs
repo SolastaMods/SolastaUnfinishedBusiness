@@ -93,6 +93,7 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString += "\n[*]Enable the debug overlay";
                 collectedString += "\n[*]No experience required for level up";
                 collectedString += "\n[*]Set Faction relation levels";
+                collectedString += "\n[*]Multiplier for earned experience";
                 collectedString += "\n[/list]";
                 collectedString += "\n[line]\n";
                 collectedString += "[heading]Credits[/heading]\n[list]";
