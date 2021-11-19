@@ -6,14 +6,14 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.PowerSharedPool
 {
-    class RulesetCharacterPatch
+    static class RulesetCharacterPatch
     {
         [HarmonyPatch(typeof(RulesetCharacter), "UsePower")]
         internal static class RulesetCharacter_UsePower
         {
             public static void Postfix(RulesetCharacter __instance, RulesetUsablePower usablePower)
             {
-                UpdateUsageForPowerPool(__instance, usablePower, usablePower.PowerDefinition.CostPerUse);
+                __instance.UpdateUsageForPowerPool(usablePower, usablePower.PowerDefinition.CostPerUse);
             }
         }
 
@@ -22,11 +22,11 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
         {
             public static void Postfix(RulesetCharacter __instance, RulesetUsablePower usablePower)
             {
-                UpdateUsageForPowerPool(__instance, usablePower, -usablePower.PowerDefinition.CostPerUse);
+                __instance.UpdateUsageForPowerPool(usablePower, -usablePower.PowerDefinition.CostPerUse);
             }
         }
 
-        private static void UpdateUsageForPowerPool(RulesetCharacter character, RulesetUsablePower modifiedPower, int poolUsage)
+        public static void UpdateUsageForPowerPool(this RulesetCharacter character, RulesetUsablePower modifiedPower, int poolUsage)
         {
             if (!(modifiedPower.PowerDefinition is IPowerSharedPool))
             {
@@ -37,22 +37,10 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
             {
                 if (poolPower.PowerDefinition == sharedPoolPower.GetUsagePoolPower())
                 {
-                    int remainingUses = Mathf.Clamp(poolPower.RemainingUses - poolUsage, 0, poolPower.MaxUses);
+                    int maxUses = GetMaxUsesForPool(poolPower, character);
+                    int remainingUses = Mathf.Clamp(poolPower.RemainingUses - poolUsage, 0, maxUses);
                     poolPower.SetField("remainingUses", remainingUses);
-
-                    // Find powers that rely on this pool
-                    foreach (RulesetUsablePower usablePower in character.UsablePowers)
-                    {
-                        if (usablePower.PowerDefinition is IPowerSharedPool)
-                        {
-                            FeatureDefinitionPower pointPoolPower = ((IPowerSharedPool)usablePower.PowerDefinition).GetUsagePoolPower();
-                            if (pointPoolPower == poolPower.PowerDefinition)
-                            {
-                                // Set remaining uses to max uses
-                                usablePower.SetField("remainingUses", remainingUses / usablePower.PowerDefinition.CostPerUse);
-                            }
-                        }
-                    }
+                    AssignUsesToSharedPowersForPool(character, poolPower, remainingUses, maxUses);
                     return;
                 }
             }
@@ -63,7 +51,7 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
         {
             public static void Postfix(RulesetCharacter __instance)
             {
-                SetLinkedPowerUsages(__instance, true);
+                RechargeLinkedPowers(__instance, RuleDefinitions.RestType.LongRest);
             }
         }
 
@@ -71,11 +59,11 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
         internal static class RulesetCharacter_ApplyRest
         {
             internal static void Postfix(RulesetCharacter __instance,
-                                        bool simulate)
+                                        RuleDefinitions.RestType restType, bool simulate, TimeInfo restStartTime)
             {
                 if (!simulate)
                 {
-                    SetLinkedPowerUsages(__instance, false);
+                    RechargeLinkedPowers(__instance, restType);
                 }
                 // The player isn't recharging the shared pool features, just the pool.
                 // Hide the features that use the pool from the UI.
@@ -89,7 +77,7 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
             }
         }
 
-        private static void SetLinkedPowerUsages(RulesetCharacter character, bool recalculateMaxUsage)
+        public static void RechargeLinkedPowers(RulesetCharacter character, RuleDefinitions.RestType restType)
         {
             List<FeatureDefinitionPower> pointPoolPowerDefinitions = new List<FeatureDefinitionPower>();
             foreach (RulesetUsablePower usablePower in character.UsablePowers)
@@ -99,7 +87,14 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
                     FeatureDefinitionPower pointPoolPower = ((IPowerSharedPool)usablePower.PowerDefinition).GetUsagePoolPower();
                     if (!pointPoolPowerDefinitions.Contains(pointPoolPower))
                     {
-                        pointPoolPowerDefinitions.Add(pointPoolPower);
+                        // Only add to recharge here if it (recharges on a short rest and this is a short or long rost) or 
+                        // it recharges on a long rest and this is a long rest.
+                        if (((pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.ShortRest &&
+                            (restType == RuleDefinitions.RestType.ShortRest || restType == RuleDefinitions.RestType.LongRest)) ||
+                            (pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.LongRest && restType == RuleDefinitions.RestType.LongRest)))
+                        {
+                            pointPoolPowerDefinitions.Add(pointPoolPower);
+                        }
                     }
                 }
             }
@@ -109,29 +104,26 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
             {
                 if (pointPoolPowerDefinitions.Contains(poolPower.PowerDefinition))
                 {
-                    if (recalculateMaxUsage)
-                    {
-                        int poolSize = GetMaxUsesForPool(poolPower, character);
-                        // We don't set the max uses for the base pool because 
-                        poolPower.AddUses(poolSize - poolPower.MaxUses);
-                        poolPower.Recharge();
-                    }
-                    int totalPoolSize = poolPower.MaxUses;
+                    int poolSize = GetMaxUsesForPool(poolPower, character);
+                    poolPower.SetField("remainingUses", poolSize);
 
-                    // Find powers that rely on this pool
-                    foreach (RulesetUsablePower usablePower in character.UsablePowers)
+                    AssignUsesToSharedPowersForPool(character, poolPower, poolSize, poolSize);
+                }
+            }
+        }
+
+        private static void AssignUsesToSharedPowersForPool(RulesetCharacter character, RulesetUsablePower poolPower, int remainingUses, int totalUses)
+        {
+            // Find powers that rely on this pool
+            foreach (RulesetUsablePower usablePower in character.UsablePowers)
+            {
+                if (usablePower.PowerDefinition is IPowerSharedPool)
+                {
+                    FeatureDefinitionPower pointPoolPower = ((IPowerSharedPool)usablePower.PowerDefinition).GetUsagePoolPower();
+                    if (pointPoolPower == poolPower.PowerDefinition)
                     {
-                        if (usablePower.PowerDefinition is IPowerSharedPool)
-                        {
-                            FeatureDefinitionPower pointPoolPower = ((IPowerSharedPool)usablePower.PowerDefinition).GetUsagePoolPower();
-                            if (pointPoolPower == poolPower.PowerDefinition)
-                            {
-                                // Set max uses modified by power cost
-                                usablePower.AddUses(totalPoolSize / usablePower.PowerDefinition.CostPerUse - usablePower.MaxUses);
-                                // Set remaining uses to max uses
-                                usablePower.Recharge();
-                            }
-                        }
+                        usablePower.SetField("maxUses", totalUses / usablePower.PowerDefinition.CostPerUse);
+                        usablePower.SetField("remainingUses", remainingUses / usablePower.PowerDefinition.CostPerUse);
                     }
                 }
             }
