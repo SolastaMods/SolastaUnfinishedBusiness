@@ -42,6 +42,7 @@ namespace SolastaCommunityExpansion
 
         public bool DisableSenseDarkVisionFromAllRaces = false;
         public bool DisableSenseSuperiorDarkVisionFromAllRaces = false;
+        public bool IncreaseNormalVisionSenseRange = false;
 
         public int AllRacesInitialFeats = 0;
 

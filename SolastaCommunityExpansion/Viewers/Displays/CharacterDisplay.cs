@@ -42,6 +42,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces = toggle;
             }
 
+            toggle = Main.Settings.IncreaseNormalVisionSenseRange;
+            if (UI.Toggle("Increases " + "Sense Normal Vision".orange() + " range to enable long range attacks " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.IncreaseNormalVisionSenseRange = toggle;
+            }
+
             UI.Label("");
 
             toggle = Main.Settings.EnableAlternateHuman;
