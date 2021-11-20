@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.FightingStyles
 {
     internal class Pugilist : AbstractFightingStyle
     {
-        CustomizableFightingStyle instance;
+        private CustomizableFightingStyle instance;
 
         internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
         {

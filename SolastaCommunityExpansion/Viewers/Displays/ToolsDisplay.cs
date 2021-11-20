@@ -5,8 +5,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class ToolsDisplay
     {
-        // private static readonly string reqRestart = "[requires restart]".italic().red();
-
         private static bool enableDebugCamera = false;
         private static bool enableDebugOverlay = false;
 

@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Feats
     internal class DualFlurryFeatBuilder : BaseDefinitionBuilder<FeatDefinition>
     {
         public static Guid DualFlurryGuid = new Guid("03C523EB-91B9-4F1B-A697-804D1BC2D6DD");
-        const string DualFlurryFeatName = "DualFlurryFeat";
+        private const string DualFlurryFeatName = "DualFlurryFeat";
         private static readonly string DualFlurryFeatNameGuid = GuidHelper.Create(DualFlurryGuid, DualFlurryFeatName).ToString();
 
         protected DualFlurryFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous, name, guid)
@@ -147,7 +147,7 @@ namespace SolastaCommunityExpansion.Feats
     internal class TorchbearerFeatBuilder : BaseDefinitionBuilder<FeatDefinition>
     {
         private static Guid TorchbearerGuid = new Guid("03C523EB-91B9-4F1B-A697-804D1BC2D6DD");
-        const string TorchbearerFeatName = "TorchbearerFeat";
+        private const string TorchbearerFeatName = "TorchbearerFeat";
         private static readonly string TorchbearerFeatNameGuid = GuidHelper.Create(TorchbearerGuid, TorchbearerFeatName).ToString();
 
         protected TorchbearerFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous, name, guid)

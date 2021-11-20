@@ -49,7 +49,7 @@ namespace SolastaCommunityExpansion.Models
 
             ItemRecipeGenerationHelper.AddRecipesForArmor(ArmorAndShieldData.Items);
 
-            foreach(string key in RecipeBooks.Keys)
+            foreach (string key in RecipeBooks.Keys)
             {
                 UpdateItemsInDMState(key);
                 UpdateRecipesInDMState(key);

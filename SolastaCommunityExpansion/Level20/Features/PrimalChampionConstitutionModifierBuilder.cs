@@ -6,8 +6,8 @@ namespace SolastaCommunityExpansion.Level20.Features
 {
     internal class PrimalChampionConstitutionModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttributeModifier>
     {
-        const string PrimalChampionConstitutionName = "ZSPrimalChampionConstitution";
-        const string PrimalChampionConstitutionGuid = "8fd61e6f5ded4dfea2d8783b16c7ca1c";
+        private const string PrimalChampionConstitutionName = "ZSPrimalChampionConstitution";
+        private const string PrimalChampionConstitutionGuid = "8fd61e6f5ded4dfea2d8783b16c7ca1c";
 
         protected PrimalChampionConstitutionModifierBuilder(string name, string guid) : base(AttributeModifierTomeOfAllThings_CON, name, guid)
         {

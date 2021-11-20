@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace SolastaCommunityExpansion.Models
 {
-    class FeatsContext
+    internal static class FeatsContext
     {
         public static Dictionary<string, FeatDefinition> Feats = new Dictionary<string, FeatDefinition>();
 

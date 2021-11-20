@@ -41,7 +41,7 @@ namespace SolastaCommunityExpansion.Patches
                     int toStayCount = powersTable.childCount / 2;
                     MovePowersToRow(powersTable, secondRow, toStayCount, 80);
                 }
-                //                float height = __instance.transform.parent.GetComponent<RectTransform>().rect.height;
+
                 LayoutRebuilder.ForceRebuildLayoutImmediate(powersTable);
                 __instance.RectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, powersTable.rect.width);
             }

@@ -21,7 +21,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     if (toggle)
                     {
                         Main.Settings.InStore.Add(key);
-                    } else
+                    }
+                    else
                     {
                         Main.Settings.InStore.Remove(key);
                     }

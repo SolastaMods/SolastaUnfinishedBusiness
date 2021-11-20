@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.PowerSharedPool
 {
-    static class RulesetCharacterPatch
+    internal static class RulesetCharacterPatch
     {
         [HarmonyPatch(typeof(RulesetCharacter), "UsePower")]
         internal static class RulesetCharacter_UsePower
@@ -58,8 +58,8 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
         [HarmonyPatch(typeof(RulesetCharacter), "ApplyRest")]
         internal static class RulesetCharacter_ApplyRest
         {
-            internal static void Postfix(RulesetCharacter __instance,
-                                        RuleDefinitions.RestType restType, bool simulate, TimeInfo restStartTime)
+            internal static void Postfix(
+                RulesetCharacter __instance, RuleDefinitions.RestType restType, bool simulate)
             {
                 if (!simulate)
                 {
@@ -82,16 +82,16 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
             List<FeatureDefinitionPower> pointPoolPowerDefinitions = new List<FeatureDefinitionPower>();
             foreach (RulesetUsablePower usablePower in character.UsablePowers)
             {
-                if (usablePower.PowerDefinition is IPowerSharedPool)
+                if (usablePower.PowerDefinition is IPowerSharedPool pool)
                 {
-                    FeatureDefinitionPower pointPoolPower = ((IPowerSharedPool)usablePower.PowerDefinition).GetUsagePoolPower();
+                    FeatureDefinitionPower pointPoolPower = pool.GetUsagePoolPower();
                     if (!pointPoolPowerDefinitions.Contains(pointPoolPower))
                     {
                         // Only add to recharge here if it (recharges on a short rest and this is a short or long rost) or 
                         // it recharges on a long rest and this is a long rest.
-                        if (((pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.ShortRest &&
+                        if ((pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.ShortRest &&
                             (restType == RuleDefinitions.RestType.ShortRest || restType == RuleDefinitions.RestType.LongRest)) ||
-                            (pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.LongRest && restType == RuleDefinitions.RestType.LongRest)))
+                            (pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.LongRest && restType == RuleDefinitions.RestType.LongRest))
                         {
                             pointPoolPowerDefinitions.Add(pointPoolPower);
                         }
@@ -117,9 +117,9 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
             // Find powers that rely on this pool
             foreach (RulesetUsablePower usablePower in character.UsablePowers)
             {
-                if (usablePower.PowerDefinition is IPowerSharedPool)
+                if (usablePower.PowerDefinition is IPowerSharedPool pool)
                 {
-                    FeatureDefinitionPower pointPoolPower = ((IPowerSharedPool)usablePower.PowerDefinition).GetUsagePoolPower();
+                    FeatureDefinitionPower pointPoolPower = pool.GetUsagePoolPower();
                     if (pointPoolPower == poolPower.PowerDefinition)
                     {
                         usablePower.SetField("maxUses", totalUses / usablePower.PowerDefinition.CostPerUse);
@@ -135,15 +135,12 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
 
             foreach (RulesetUsablePower modifierPower in character.UsablePowers)
             {
-                if (modifierPower.PowerDefinition is IPowerPoolModifier)
+                if (modifierPower.PowerDefinition is IPowerPoolModifier modifier && modifier.GetUsagePoolPower() == poolPower.PowerDefinition)
                 {
-                    FeatureDefinitionPower poolModifierDef = ((IPowerPoolModifier)modifierPower.PowerDefinition).GetUsagePoolPower();
-                    if (poolModifierDef == poolPower.PowerDefinition)
-                    {
-                        totalPoolSize += modifierPower.MaxUses;
-                    }
+                    totalPoolSize += modifierPower.MaxUses;
                 }
             }
+
             return totalPoolSize;
         }
     }
