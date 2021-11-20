@@ -43,7 +43,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             toggle = Main.Settings.IncreaseNormalVisionSenseRange;
-            if (UI.Toggle("Increases " + "Normal Vision".orange() + " range to enable long range attacks " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Increases " + "Sense Normal Vision".orange() + " range to enable long range attacks " + reqRestart, ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.IncreaseNormalVisionSenseRange = toggle;
             }
