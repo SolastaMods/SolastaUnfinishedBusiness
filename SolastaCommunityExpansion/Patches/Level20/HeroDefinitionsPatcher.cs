@@ -3,7 +3,7 @@ using static SolastaCommunityExpansion.Models.Level20Context;
 
 namespace SolastaCommunityExpansion.Patches
 {
-    class HeroDefinitionsPatcher
+    internal static class HeroDefinitionsPatcher
     {
         // overrides the max experience returned
         [HarmonyPatch(typeof(HeroDefinitions), "MaxHeroExperience")]

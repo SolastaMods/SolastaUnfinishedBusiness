@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using SolastaCommunityExpansion.Features;
+﻿using SolastaCommunityExpansion.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using System;
+using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
-
-
 
 namespace SolastaCommunityExpansion.Subclasses.Ranger
 {
-    class Arcanist : AbstractSubclass
+    internal class Arcanist : AbstractSubclass
     {
         private CharacterSubclassDefinition Subclass;
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
@@ -27,16 +24,16 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             return Subclass;
         }
 
-        const string RangerArcanistRangerSubclassName = "RangerArcanistRangerSubclass";
-        const string RangerArcanistRangerSubclassGuid = "5ABD870D-9ABD-4953-A2EC-E2109324FAB9";
+        private const string RangerArcanistRangerSubclassName = "RangerArcanistRangerSubclass";
+        private const string RangerArcanistRangerSubclassGuid = "5ABD870D-9ABD-4953-A2EC-E2109324FAB9";
 
-        public static Guid RA_BASE_GUID = new Guid(RangerArcanistRangerSubclassGuid);
+        public static readonly Guid RA_BASE_GUID = new Guid(RangerArcanistRangerSubclassGuid);
 
-        static public FeatureDefinitionFeatureSet ranger_arcanist_magic = createRangerArcanistMagic();
-        static public FeatureDefinitionAdditionalDamage arcanist_mark = createArcanistMark();
-        static public FeatureDefinitionAdditionalDamage arcane_detonation = createArcaneDetonation();
-        static public FeatureDefinition arcane_detonation_upgrade = createArcaneDetonationUpgrade();
-        static public Dictionary<int, FeatureDefinitionPower> arcane_pulse_dict = createArcanePulseDict();
+        public static readonly FeatureDefinitionFeatureSet ranger_arcanist_magic = createRangerArcanistMagic();
+        public static readonly FeatureDefinitionAdditionalDamage arcanist_mark = CreateArcanistMark();
+        public static readonly FeatureDefinitionAdditionalDamage arcane_detonation = CreateArcaneDetonation();
+        public static readonly FeatureDefinition arcane_detonation_upgrade = CreateArcaneDetonationUpgrade();
+        public static readonly Dictionary<int, FeatureDefinitionPower> arcane_pulse_dict = CreateArcanePulseDict();
 
         public static CharacterSubclassDefinition BuildAndAddSubclass()
         {
@@ -59,7 +56,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             return definition;
         }
 
-        private static DiceByRank buildDiceByRank(int rank, int dice)
+        private static DiceByRank BuildDiceByRank(int rank, int dice)
         {
             DiceByRank diceByRank = new DiceByRank();
             diceByRank.SetField("rank", rank);
@@ -67,14 +64,14 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             return diceByRank;
         }
 
-        static FeatureDefinitionFeatureSet createRangerArcanistMagic()
+        private static FeatureDefinitionFeatureSet createRangerArcanistMagic()
         {
             GuiPresentation blank = new GuiPresentationBuilder("Feature/&NoContentTitle", "Feature/&NoContentTitle").Build();
 
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup arcanistSpells1 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 2,
-                SpellsList = new List<SpellDefinition>(){DatabaseHelper.SpellDefinitions.Shield,}
+                SpellsList = new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.Shield, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup arcanistSpells2 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
@@ -110,7 +107,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             GuiPresentation arcanistMagicGui = new GuiPresentationBuilder("Feature/&RangerArcanistMagicDescription", "Feature/&RangerArcanistMagicTitle").Build();
             return new FeatureDefinitionFeatureSetBuilder("RangerArcanistMagic",
                 GuidHelper.Create(RA_BASE_GUID, "RangerArcanistManaTouchedGuardian").ToString(), // Oops, will have to live with this name being off)
-                new List<FeatureDefinition>() { preparedSpells, arcanist_affinity},
+                new List<FeatureDefinition>() { preparedSpells, arcanist_affinity },
                 FeatureDefinitionFeatureSet.FeatureSetMode.Union, arcanistMagicGui).AddToDB();
         }
 
@@ -137,7 +134,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             }
         }
 
-        static FeatureDefinitionAdditionalDamage createArcanistMark()
+        private static FeatureDefinitionAdditionalDamage CreateArcanistMark()
         {
             var marked_condition = ConditionMarkedByArcanistBuilder.GetOrAdd();
 
@@ -163,7 +160,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             return mark_apply.AddToDB();
         }
 
-        static FeatureDefinitionAdditionalDamage createArcaneDetonation()
+        private static FeatureDefinitionAdditionalDamage CreateArcaneDetonation()
         {
             var marked_condition = ConditionMarkedByArcanistBuilder.GetOrAdd();
 
@@ -189,33 +186,33 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             });
             mark_damage.SetClassAdvancement(new List<DiceByRank>
                     {
-                        buildDiceByRank(1, 1),
-                        buildDiceByRank(2, 1),
-                        buildDiceByRank(3, 1),
-                        buildDiceByRank(4, 1),
-                        buildDiceByRank(5, 1),
-                        buildDiceByRank(6, 1),
-                        buildDiceByRank(7, 1),
-                        buildDiceByRank(8, 1),
-                        buildDiceByRank(9, 1),
-                        buildDiceByRank(10, 1),
-                        buildDiceByRank(11, 2),
-                        buildDiceByRank(12, 2),
-                        buildDiceByRank(13, 2),
-                        buildDiceByRank(14, 2),
-                        buildDiceByRank(15, 2),
-                        buildDiceByRank(16, 2),
-                        buildDiceByRank(17, 2),
-                        buildDiceByRank(18, 2),
-                        buildDiceByRank(19, 2),
-                        buildDiceByRank(20, 2)
+                        BuildDiceByRank(1, 1),
+                        BuildDiceByRank(2, 1),
+                        BuildDiceByRank(3, 1),
+                        BuildDiceByRank(4, 1),
+                        BuildDiceByRank(5, 1),
+                        BuildDiceByRank(6, 1),
+                        BuildDiceByRank(7, 1),
+                        BuildDiceByRank(8, 1),
+                        BuildDiceByRank(9, 1),
+                        BuildDiceByRank(10, 1),
+                        BuildDiceByRank(11, 2),
+                        BuildDiceByRank(12, 2),
+                        BuildDiceByRank(13, 2),
+                        BuildDiceByRank(14, 2),
+                        BuildDiceByRank(15, 2),
+                        BuildDiceByRank(16, 2),
+                        BuildDiceByRank(17, 2),
+                        BuildDiceByRank(18, 2),
+                        BuildDiceByRank(19, 2),
+                        BuildDiceByRank(20, 2)
                     });
             mark_damage.SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.None);
-            mark_damage.SetImpactParticleReference(asset_reference);    
+            mark_damage.SetImpactParticleReference(asset_reference);
             return mark_damage.AddToDB();
         }
 
-        static FeatureDefinition createArcaneDetonationUpgrade()
+        private static FeatureDefinition CreateArcaneDetonationUpgrade()
         {
             // This is a blank feature. It does nothing except create a description for what happens at level 11.
             var blank_feature = new FeatureDefinitionBuilder("AdditionalDamageArcaneDetonationUpgrade",
@@ -232,7 +229,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             }
         }
 
-        static Dictionary<int, FeatureDefinitionPower> createArcanePulseDict()
+        private static Dictionary<int, FeatureDefinitionPower> CreateArcanePulseDict()
         {
             var marked_effect = new EffectForm();
             marked_effect.ConditionForm = new ConditionForm();
@@ -256,19 +253,17 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             damage_upgrade_effect.DamageForm.SetHealFromInflictedDamage(RuleDefinitions.HealFromInflictedDamage.Never);
             damage_upgrade_effect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.None;
 
-            var arcane_pulse_action = createArcanePulse("ArcanePulse", "Feature/&ArcanePulseTitle", "Feature/&ArcanePulseDescription", marked_effect, damage_effect);
+            var arcane_pulse_action = CreateArcanePulse("ArcanePulse", "Feature/&ArcanePulseTitle", "Feature/&ArcanePulseDescription", marked_effect, damage_effect);
 
-            var arcane_pulse_upgrade_action = createArcanePulse("ArcanePulseUpgrade", "Feature/&ArcanePulseTitle", "Feature/&ArcanePulseDescription", marked_effect, damage_upgrade_effect);
+            var arcane_pulse_upgrade_action = CreateArcanePulse("ArcanePulseUpgrade", "Feature/&ArcanePulseTitle", "Feature/&ArcanePulseDescription", marked_effect, damage_upgrade_effect);
             arcane_pulse_upgrade_action.SetOverriddenPower(arcane_pulse_action);
 
-            var arcane_pulse_dict = new Dictionary<int, FeatureDefinitionPower>();
-            arcane_pulse_dict.Add(7, arcane_pulse_action);
-            arcane_pulse_dict.Add(15, arcane_pulse_upgrade_action);
-
-            return arcane_pulse_dict;
+            return new Dictionary<int, FeatureDefinitionPower>{
+                {7, arcane_pulse_action},
+                {15, arcane_pulse_upgrade_action}};
         }
 
-        static FeatureDefinitionPower createArcanePulse(string name, string title, string description, EffectForm marked_effect, EffectForm damage_effect)
+        private static FeatureDefinitionPower CreateArcanePulse(string name, string title, string description, EffectForm marked_effect, EffectForm damage_effect)
         {
             var pulse_description = new EffectDescription();
             pulse_description.Copy(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription);

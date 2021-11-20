@@ -1,9 +1,5 @@
-﻿
-using SolastaModApi;
-using SolastaModApi.Diagnostics;
+﻿using SolastaModApi;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
-using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 {
@@ -25,11 +21,7 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 
         public bool IsActive(RulesetCharacterHero character)
         {
-            if (isActive != null)
-            {
-                return isActive(character);
-            }
-            return true;
+            return isActive == null || isActive(character);
         }
     }
 
@@ -152,7 +144,6 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
             Definition.SetUniqueInstance(uniqueInstance);
             return this;
         }
-
 
         public FeatureDefinitionConditionalPowerBuilder SetShowCasting(bool casting)
         {

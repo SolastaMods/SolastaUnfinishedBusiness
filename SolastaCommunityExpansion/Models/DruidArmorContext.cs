@@ -1,5 +1,4 @@
 ﻿using SolastaModApi;
-using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -13,7 +12,6 @@ namespace SolastaCommunityExpansion.Models
             }
             else
             {
-                
                 if (!DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Contains(TagsDefinitions.ItemTagMetal))
                 {
                     DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Add(TagsDefinitions.ItemTagMetal);
@@ -25,6 +23,5 @@ namespace SolastaCommunityExpansion.Models
         {
             Switch(Main.Settings.DruidNoMetalRestriction);
         }
-
     }
 }

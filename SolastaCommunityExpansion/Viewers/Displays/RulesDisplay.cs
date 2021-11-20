@@ -5,8 +5,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class RulesDisplay
     {
-        private static readonly string reqRestart = "[requires restart]".italic().red();
-
         internal static void DisplayRules()
         {
             bool toggle;

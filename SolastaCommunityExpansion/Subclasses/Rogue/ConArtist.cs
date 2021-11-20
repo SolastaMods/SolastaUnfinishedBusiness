@@ -1,5 +1,4 @@
-﻿using HarmonyLib;
-using SolastaCommunityExpansion.Features;
+﻿using SolastaCommunityExpansion.Features;
 using SolastaModApi;
 using SolastaModApi.BuilderHelpers;
 using SolastaModApi.Extensions;
@@ -9,10 +8,10 @@ using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Subclasses.Rogue
 {
-    class ConArtist : AbstractSubclass
+    internal class ConArtist : AbstractSubclass
     {
         private static Guid SubclassNamespace = new Guid("fdf8dc11-5006-489e-951c-92a8d72ca4c0");
-        private CharacterSubclassDefinition Subclass;
+        private readonly CharacterSubclassDefinition Subclass;
 
         private static FeatureDefinitionMagicAffinity DcIncreaseAffinity;
 
@@ -39,11 +38,11 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                 "Subclass/&AbilityAffinityRogueConArtistDescription",
                 "Subclass/&AbilityAffinityRogueConArtistTitle");
             FeatureDefinitionAbilityCheckAffinity abilityAffinity = BuildAbilityAffinity(
-                new List<Tuple<string, string>>() {
-                    new Tuple<string, string>(AttributeDefinitions.Dexterity, SkillDefinitions.SleightOfHand),
-                    new Tuple<string, string>(AttributeDefinitions.Charisma, SkillDefinitions.Persuasion),
-                    new Tuple<string, string>(AttributeDefinitions.Charisma, SkillDefinitions.Deception),
-                    new Tuple<string, string>(AttributeDefinitions.Charisma, SkillDefinitions.Performance),
+                new List<(string, string)> {
+                    (AttributeDefinitions.Dexterity, SkillDefinitions.SleightOfHand),
+                    (AttributeDefinitions.Charisma, SkillDefinitions.Persuasion),
+                    (AttributeDefinitions.Charisma, SkillDefinitions.Deception),
+                    (AttributeDefinitions.Charisma, SkillDefinitions.Performance)
                 },
                 RuleDefinitions.CharacterAbilityCheckAffinity.Advantage, "AbilityAffinityRogueConArtist", conAffinity.Build());
             conArtist.AddFeatureAtLevel(abilityAffinity, 3);
@@ -126,7 +125,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             return new GuiPresentationBuilder("Subclass/&MagicAffinityRoguishConArtistDC" + Main.Settings.RogueConArtistSpellDCBoost + "Description", "Subclass/&MagicAffinityRoguishConArtistDCTitle");
         }
 
-        public static FeatureDefinitionAbilityCheckAffinity BuildAbilityAffinity(List<Tuple<string, string>> abilityProficiencyPairs,
+        public static FeatureDefinitionAbilityCheckAffinity BuildAbilityAffinity(List<(string abilityScoreName, string proficiencyName)> abilityProficiencyPairs,
             RuleDefinitions.CharacterAbilityCheckAffinity affinityType, string name, GuiPresentation guiPresentation)
         {
             FeatureDefinitionAbilityCheckAffinityBuilder builder = new FeatureDefinitionAbilityCheckAffinityBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),

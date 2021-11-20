@@ -6,8 +6,8 @@ namespace SolastaCommunityExpansion.Level20.Features
 {
     internal class ProficiencyRogueBlindSenseBuilder : BaseDefinitionBuilder<FeatureDefinitionSense>
     {
-        const string ProficiencyRogueBlindSenseName = "ZSProficiencyRogueBlindSense";
-        const string ProficiencyRogueBlindSensedGuid = "30c27691f42f4705985c638d38fadc21";
+        private const string ProficiencyRogueBlindSenseName = "ZSProficiencyRogueBlindSense";
+        private const string ProficiencyRogueBlindSensedGuid = "30c27691f42f4705985c638d38fadc21";
 
         protected ProficiencyRogueBlindSenseBuilder(string name, string guid) : base(SenseBlindSight2, name, guid)
         {

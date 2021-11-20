@@ -6,7 +6,7 @@ using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
 
 namespace SolastaCommunityExpansion.Models
 {
-    public class FlexibleBackgroundsContext
+    public static class FlexibleBackgroundsContext
     {
         private static readonly GuiPresentationBuilder skillThreeGui = new GuiPresentationBuilder(
             "FlexibleBackgrounds/&BackgroundSkillSelect3Description",
@@ -29,7 +29,7 @@ namespace SolastaCommunityExpansion.Models
         private static readonly FeatureDefinition toolChoice = new FeatureDefinitionPointPoolBuilder("BackgroundToolSelect",
             "989ddb03-b915-42cc-9612-bc8be96b7476", HeroDefinitions.PointsPoolType.Tool, 1, toolGui.Build()).AddToDB();
 
-        private static Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>> addedFeatures = new Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>>
+        private static readonly Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>> addedFeatures = new Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>>
         {
             { Academic, new List<FeatureDefinition> { skillThree, toolChoice } },
             { Acolyte, new List<FeatureDefinition> { skillThree, toolChoice } },
@@ -42,7 +42,7 @@ namespace SolastaCommunityExpansion.Models
             { Wanderer, new List<FeatureDefinition> { skillThree, toolChoice } },
         };
 
-        private static Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>> removedFeatures = new Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>>
+        private static readonly Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>> removedFeatures = new Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>>
         {
             { Academic, new List<FeatureDefinition> { ProficiencyAcademicSkills, ProficiencyAcademicSkillsTool } },
             { Acolyte, new List<FeatureDefinition> { ProficiencyAcolyteSkills, ProficiencyAcolyteToolsSkills } },
@@ -55,7 +55,7 @@ namespace SolastaCommunityExpansion.Models
             { Wanderer, new List<FeatureDefinition> { ProficiencyWandererSkills, ProficiencyWandererTools } },
         };
 
-        internal static void Switch(bool enabled) 
+        internal static void Switch(bool enabled)
         {
             foreach (var keyValuePair in addedFeatures)
             {

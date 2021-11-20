@@ -1,16 +1,14 @@
-﻿
-using SolastaModApi;
-using System.Collections.Generic;
+﻿using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using System;
-using HarmonyLib;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SolastaCommunityExpansion.Features
 {
-    class ItemBuilder
+    internal static class ItemBuilder
     {
-
         private class ItemDefinitionBuilder : BaseDefinitionBuilder<ItemDefinition>
         {
             public ItemDefinitionBuilder(ItemDefinition original, string name, string guid) : base(original, name, guid)
@@ -156,15 +154,7 @@ namespace SolastaCommunityExpansion.Features
 
         private static List<ItemPropertyDescription> FilterItemProperty(List<ItemPropertyDescription> listToFilter, FeatureDefinition toFilter)
         {
-            List<ItemPropertyDescription> toReturn = new List<ItemPropertyDescription>();
-            foreach (ItemPropertyDescription itemProp in listToFilter)
-            {
-                if (!itemProp.FeatureDefinition.GUID.Equals(toFilter.GUID))
-                {
-                    toReturn.Add(itemProp);
-                }
-            }
-            return toReturn;
+            return listToFilter.Where(ip => !ip.FeatureDefinition.GUID.Equals(toFilter.GUID)).ToList();
         }
 
         public static ItemDefinition CopyFromItemSetFunctions(Guid baseGuid, List<FeatureDefinitionPower> functions, ItemDefinition toCopy, string name, GuiPresentation guiPresentation)

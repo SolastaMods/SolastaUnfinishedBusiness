@@ -24,11 +24,7 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 
         public bool IsActive(RulesetCharacterHero character)
         {
-            if (isActive != null)
-            {
-                return isActive(character);
-            }
-            return true;
+            return isActive == null || isActive(character);
         }
     }
 
@@ -38,8 +34,7 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
             List<FeatureDefinition> features, GuiPresentation guiPresentation) : base(name, guid)
         {
             // The features field is not automatically initialized.
-            Definition.SetField("features", new List<FeatureDefinition>());
-            Definition.Features.AddRange(features);
+            Definition.SetField("features", new List<FeatureDefinition>(features));
             Definition.SetGuiPresentation(guiPresentation);
         }
 
@@ -49,6 +44,7 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
             return this;
         }
 
+        // Can this be removed now?
         /**
          * The ModAPI doesn't handle adding extensions of things that aren't feature definitions well.
          * Override the mod api logic and add this to the appropriate DB.

@@ -1,6 +1,6 @@
-﻿using System.Linq;
-using ModKit;
+﻿using ModKit;
 using SolastaCommunityExpansion.Models;
+using System.Linq;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
@@ -21,7 +21,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     if (toggle)
                     {
                         Main.Settings.InStore.Add(key);
-                    } else
+                    }
+                    else
                     {
                         Main.Settings.InStore.Remove(key);
                     }

@@ -226,7 +226,7 @@ Feature written by ElAntonius for the Ranger
 //                new RuleDefinitions.ConditionInterruption[] { RuleDefinitions.ConditionInterruption.Attacks },
 //                attack_wis
 //            );
-            
+
 //            condition.SetSilentWhenAdded(true);
 //            condition.SetSilentWhenRemoved(true);
 //            condition.GuiPresentation.SetHidden(true);
@@ -300,13 +300,13 @@ Feature written by ElAntonius for the Ranger
 
 //            // Get all favored enemies
 //            attacker.RulesetCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionAdditionalDamage>(attacker.RulesetCharacter.FeaturesToBrowse);
-            
+
 //            favored_enemies.Clear();
-            
+
 //            foreach (FeatureDefinition feature in attacker.RulesetCharacter.FeaturesToBrowse)
 //            {
 //                var damage_feature = feature as FeatureDefinitionAdditionalDamage;
-            
+
 //                if (damage_feature.Name.Contains("AdditionalDamageRangerFavoredEnemy"))
 //                {
 //                    favored_enemies.Add(damage_feature.RequiredCharacterFamily.Name);
@@ -335,18 +335,18 @@ Feature written by ElAntonius for the Ranger
 //            {
 //                return false;
 //            }
-            
+
 //            if ( prerolled_data.outcome != RuleDefinitions.RollOutcome.Failure )
 //            {
 //                return false;
 //            }
-            
+
 //            var effect = this.EffectDescription;
 //            if (effect == null)
 //            {
 //                return false;
 //            }
-            
+
 //            if (attack_mode == null)
 //            {
 //                return false;

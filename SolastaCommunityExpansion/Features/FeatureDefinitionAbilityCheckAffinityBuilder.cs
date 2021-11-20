@@ -1,24 +1,27 @@
 ﻿using SolastaModApi;
 using SolastaModApi.Extensions;
-using System;
 using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Features
 {
     public class FeatureDefinitionAbilityCheckAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionAbilityCheckAffinity>
     {
-        public FeatureDefinitionAbilityCheckAffinityBuilder(string name, string guid, List<Tuple<string, string>> abilityProficiencyPairs,
-        int diceNumber, RuleDefinitions.DieType dieType, RuleDefinitions.CharacterAbilityCheckAffinity affinityType,
+        public FeatureDefinitionAbilityCheckAffinityBuilder(string name, string guid, List<(string abilityScoreName, string proficiencyName)> abilityProficiencyPairs,
+            int diceNumber, RuleDefinitions.DieType dieType, RuleDefinitions.CharacterAbilityCheckAffinity affinityType,
         GuiPresentation guiPresentation) : base(name, guid)
         {
-            foreach (Tuple<string, string> abilityProficiency in abilityProficiencyPairs)
+            foreach ((string abilityScoreName, string proficiencyName) in abilityProficiencyPairs)
             {
-                FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup group = new FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup();
-                group.abilityScoreName = abilityProficiency.Item1;
-                if (!String.IsNullOrEmpty(abilityProficiency.Item2))
+                var group = new FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup
                 {
-                    group.proficiencyName = abilityProficiency.Item2;
+                    abilityScoreName = abilityScoreName
+                };
+
+                if (!string.IsNullOrEmpty(proficiencyName))
+                {
+                    group.proficiencyName = proficiencyName;
                 }
+
                 group.affinity = affinityType;
                 group.abilityCheckModifierDiceNumber = diceNumber;
                 group.abilityCheckModifierDieType = dieType;

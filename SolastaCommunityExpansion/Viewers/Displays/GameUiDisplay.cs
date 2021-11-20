@@ -1,11 +1,10 @@
 ﻿using ModKit;
+using static SolastaCommunityExpansion.Viewers.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class GameUiDisplay
     {
-        private static readonly string reqRestart = "[requires restart]".italic().red();
-
         internal static void DisplayGameUi()
         {
             bool toggle;
@@ -51,7 +50,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             toggle = Main.Settings.OfferAdditionalNames;
-            if (UI.Toggle("Offers additional lore friendly names on character creation " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Offers additional lore friendly names on character creation " + RequiresRestart, ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.OfferAdditionalNames = toggle;
             }

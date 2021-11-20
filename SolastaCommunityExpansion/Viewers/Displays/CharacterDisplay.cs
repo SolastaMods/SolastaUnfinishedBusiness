@@ -1,12 +1,11 @@
 ﻿using ModKit;
 using SolastaCommunityExpansion.Models;
+using static SolastaCommunityExpansion.Viewers.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class CharacterDisplay
     {
-        private static readonly string reqRestart = "[requires restart]".italic().red();
-
         internal static void DisplayCharacter()
         {
             int intValue;
@@ -17,7 +16,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             //UI.Label("");
 
             toggle = Main.Settings.EnableLevel20;
-            if (UI.Toggle("Enables Level 20 " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Enables Level 20 " + RequiresRestart, ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.EnableLevel20 = toggle;
             }
@@ -32,13 +31,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             // TODO: vision changes only take effect when creating a character. not sure if new block label is clear enough on intentions or we need more explanation here.
             toggle = Main.Settings.DisableSenseDarkVisionFromAllRaces;
-            if (UI.Toggle("Disables " + "Sense Dark Vision".orange() + " from all races " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Disables " + "Sense Dark Vision".orange() + " from all races " + RequiresRestart, ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.DisableSenseDarkVisionFromAllRaces = toggle;
             }
 
             toggle = Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces;
-            if (UI.Toggle("Disables " + "Superior Sense Dark Vision".orange() + " from all races " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Disables " + "Superior Sense Dark Vision".orange() + " from all races " + RequiresRestart, ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces = toggle;
             }

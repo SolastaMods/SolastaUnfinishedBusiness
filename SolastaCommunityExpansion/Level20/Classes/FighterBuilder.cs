@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
+using static SolastaCommunityExpansion.Level20.Features.AttributeModifierFighterIndomitableBuilder;
+using static SolastaCommunityExpansion.Level20.Features.PowerFighterActionSurge2Builder;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
-using static SolastaCommunityExpansion.Level20.Features.AttributeModifierFighterIndomitableBuilder;
-using static SolastaCommunityExpansion.Level20.Features.PowerFighterActionSurge2Builder;
 
 namespace SolastaCommunityExpansion.Level20.Classes
 {

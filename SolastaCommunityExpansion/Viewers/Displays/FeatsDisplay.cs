@@ -1,6 +1,7 @@
-﻿using System.Linq;
-using ModKit;
+﻿using ModKit;
 using SolastaCommunityExpansion.Models;
+using System.Linq;
+using static SolastaCommunityExpansion.Viewers.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
@@ -9,7 +10,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         private static bool selectAll = false;
         private const int MAX_COLUMNS = 4;
         private const float PIXELS_PER_COLUMN = 225;
-        private static readonly string reqRestart = "[requires restart]".italic().red().bold();
 
         internal static void DisplayFeats()
         {
@@ -25,7 +25,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             //UI.Label("Settings: ".yellow() + reqRestart);
 
             UI.Label("");
-            UI.Label("Feats: ".yellow() + reqRestart);
+            UI.Label("Feats: ".yellow() + RequiresRestart);
             UI.Label("");
 
             using (UI.HorizontalScope())

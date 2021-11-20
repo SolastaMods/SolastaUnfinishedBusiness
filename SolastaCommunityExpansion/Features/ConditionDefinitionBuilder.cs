@@ -1,5 +1,4 @@
-﻿using HarmonyLib;
-using SolastaModApi;
+﻿using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
@@ -12,10 +11,7 @@ namespace SolastaCommunityExpansion.Features
         public ConditionDefinitionBuilder(string name, string guid, List<FeatureDefinition> conditionFeatures, RuleDefinitions.DurationType durationType,
         int durationParameter, bool silent, GuiPresentation guiPresentation) : base(name, guid)
         {
-            foreach (FeatureDefinition feature in conditionFeatures)
-            {
-                Definition.Features.Add(feature);
-            }
+            Definition.Features.AddRange(conditionFeatures);
             Definition.SetConditionType(RuleDefinitions.ConditionType.Beneficial);
             Definition.SetAllowMultipleInstances(false);
             Definition.SetDurationType(durationType);

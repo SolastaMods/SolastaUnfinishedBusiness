@@ -3,7 +3,7 @@
 
 namespace SolastaCommunityExpansion.FightingStyles
 {
-    abstract class AbstractFightingStyle
+    internal abstract class AbstractFightingStyle
     {
         internal abstract FightingStyleDefinition GetStyle();
 

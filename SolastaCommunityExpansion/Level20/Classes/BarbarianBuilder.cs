@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
+using static SolastaCommunityExpansion.Level20.Features.PrimalChampionConstitutionModifierBuilder;
+using static SolastaCommunityExpansion.Level20.Features.PrimalChampionStrengthModifierBuilder;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
-using static SolastaCommunityExpansion.Level20.Features.PrimalChampionConstitutionModifierBuilder;
-using static SolastaCommunityExpansion.Level20.Features.PrimalChampionStrengthModifierBuilder;
 
 namespace SolastaCommunityExpansion.Level20.Classes
 {

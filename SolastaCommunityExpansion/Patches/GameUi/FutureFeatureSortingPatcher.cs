@@ -1,13 +1,11 @@
-﻿
-using HarmonyLib;
+﻿using HarmonyLib;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Patches
 {
-    class FutureFeatureSortingPatcher
+    internal static class FutureFeatureSortingPatcher
     {
-
         [HarmonyPatch(typeof(CharacterStageSubclassSelectionPanel), "FillSubclassFeatures")]
         internal static class CharacterStageSubclassSelectionPanel_FillSubclassFeatures
         {
@@ -17,13 +15,8 @@ namespace SolastaCommunityExpansion.Patches
                 {
                     return;
                 }
-                subclassDefinition.FeatureUnlocks.Sort(delegate (FeatureUnlockByLevel a, FeatureUnlockByLevel b)
-                {
-                    return a.Level - b.Level;
-                });
+                subclassDefinition.FeatureUnlocks.Sort((a, b) => a.Level - b.Level);
             }
-
-       
         }
 
         [HarmonyPatch(typeof(CharacterStageDeitySelectionPanel), "FillSubclassFeatures")]
@@ -35,10 +28,7 @@ namespace SolastaCommunityExpansion.Patches
                 {
                     return;
                 }
-                currentSubclassDefinition.FeatureUnlocks.Sort(delegate (FeatureUnlockByLevel a, FeatureUnlockByLevel b)
-                {
-                    return a.Level - b.Level;
-                });
+                currentSubclassDefinition.FeatureUnlocks.Sort((a, b) => a.Level - b.Level);
             }
         }
 
@@ -54,10 +44,7 @@ namespace SolastaCommunityExpansion.Patches
                 List<CharacterSubclassDefinition> subclasses = __instance.GetField<List<CharacterSubclassDefinition>>("subclasses");
                 foreach (CharacterSubclassDefinition subclassDefinition in subclasses)
                 {
-                    subclassDefinition.FeatureUnlocks.Sort(delegate (FeatureUnlockByLevel a, FeatureUnlockByLevel b)
-                    {
-                        return a.Level - b.Level;
-                    });
+                    subclassDefinition.FeatureUnlocks.Sort((a, b) => a.Level - b.Level);
                 }
             }
         }
@@ -71,10 +58,7 @@ namespace SolastaCommunityExpansion.Patches
                 {
                     return;
                 }
-                classDefinition.FeatureUnlocks.Sort(delegate (FeatureUnlockByLevel a, FeatureUnlockByLevel b)
-                {
-                    return a.Level - b.Level;
-                });
+                classDefinition.FeatureUnlocks.Sort((a, b) => a.Level - b.Level);
             }
         }
     }

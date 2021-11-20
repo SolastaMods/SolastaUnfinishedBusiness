@@ -5,8 +5,8 @@ namespace SolastaCommunityExpansion.Level20.Features
 {
     internal class ProficiencyRogueSlipperyMindBuilder : BaseDefinitionBuilder<FeatureDefinitionProficiency>
     {
-        const string ProficiencyRogueSlipperyMindName = "ZSProficiencyRogueSlipperyMind";
-        const string ProficiencyRogueSlipperyMindGuid = "b7eb00f96e13495ea4af1389fafca546";
+        private const string ProficiencyRogueSlipperyMindName = "ZSProficiencyRogueSlipperyMind";
+        private const string ProficiencyRogueSlipperyMindGuid = "b7eb00f96e13495ea4af1389fafca546";
 
         protected ProficiencyRogueSlipperyMindBuilder(string name, string guid) : base(ProficiencyRogueSavingThrow, name, guid)
         {

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Feats
 {
-    class ElAntoniousFeats
+    internal static class ElAntoniousFeats
     {
         public static void CreateFeats(List<FeatDefinition> feats)
         {
@@ -16,10 +16,10 @@ namespace SolastaCommunityExpansion.Feats
         }
     }
 
-    class DualFlurryFeatBuilder : BaseDefinitionBuilder<FeatDefinition>
+    internal class DualFlurryFeatBuilder : BaseDefinitionBuilder<FeatDefinition>
     {
         public static Guid DualFlurryGuid = new Guid("03C523EB-91B9-4F1B-A697-804D1BC2D6DD");
-        const string DualFlurryFeatName = "DualFlurryFeat";
+        private const string DualFlurryFeatName = "DualFlurryFeat";
         private static readonly string DualFlurryFeatNameGuid = GuidHelper.Create(DualFlurryGuid, DualFlurryFeatName).ToString();
 
         protected DualFlurryFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous, name, guid)
@@ -36,12 +36,7 @@ namespace SolastaCommunityExpansion.Feats
         public static FeatDefinition CreateAndAddToDB(string name, string guid)
             => new DualFlurryFeatBuilder(name, guid).AddToDB();
 
-        public static FeatDefinition DualFlurryFeat = CreateAndAddToDB(DualFlurryFeatName, DualFlurryFeatNameGuid);
-
-        public static void AddToFeatList()
-        {
-            var DualFlurryFeat = DualFlurryFeatBuilder.DualFlurryFeat;
-        }
+        public static readonly FeatDefinition DualFlurryFeat = CreateAndAddToDB(DualFlurryFeatName, DualFlurryFeatNameGuid);
 
         private static FeatureDefinition buildFeatureDualFlurry()
         {
@@ -121,7 +116,7 @@ namespace SolastaCommunityExpansion.Feats
             Definition.SetSilentWhenRemoved(false);
             Definition.SetConditionType(RuleDefinitions.ConditionType.Beneficial);
             Definition.Features.Clear();
-            Definition.Features.Add(buildAdditionalActionDualFlurry());
+            Definition.Features.Add(BuildAdditionalActionDualFlurry());
         }
 
         public static ConditionDefinition CreateAndAddToDB()
@@ -132,8 +127,7 @@ namespace SolastaCommunityExpansion.Feats
             var db = DatabaseRepository.GetDatabase<ConditionDefinition>();
             return db.TryGetElement("ConditionDualFlurryGrant", GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryGrant").ToString()) ?? CreateAndAddToDB();
         }
-
-        private static FeatureDefinition buildAdditionalActionDualFlurry()
+        private static FeatureDefinition BuildAdditionalActionDualFlurry()
         {
             GuiPresentationBuilder guiBuilder = new GuiPresentationBuilder("Feature/&AdditionalActionDualFlurryDescription",
                 "Feature/&AdditionalActionDualFlurryTitle")
@@ -150,10 +144,10 @@ namespace SolastaCommunityExpansion.Feats
         }
     }
 
-    class TorchbearerFeatBuilder : BaseDefinitionBuilder<FeatDefinition>
+    internal class TorchbearerFeatBuilder : BaseDefinitionBuilder<FeatDefinition>
     {
         private static Guid TorchbearerGuid = new Guid("03C523EB-91B9-4F1B-A697-804D1BC2D6DD");
-        const string TorchbearerFeatName = "TorchbearerFeat";
+        private const string TorchbearerFeatName = "TorchbearerFeat";
         private static readonly string TorchbearerFeatNameGuid = GuidHelper.Create(TorchbearerGuid, TorchbearerFeatName).ToString();
 
         protected TorchbearerFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous, name, guid)
@@ -170,21 +164,17 @@ namespace SolastaCommunityExpansion.Feats
         public static FeatDefinition CreateAndAddToDB(string name, string guid)
             => new TorchbearerFeatBuilder(name, guid).AddToDB();
 
-        public static FeatDefinition TorchbearerFeat = CreateAndAddToDB(TorchbearerFeatName, TorchbearerFeatNameGuid);
-
-        public static void AddToFeatList()
-        {
-            var TorchbearerFeat = TorchbearerFeatBuilder.TorchbearerFeat;
-        }
+        public static readonly FeatDefinition TorchbearerFeat = CreateAndAddToDB(TorchbearerFeatName, TorchbearerFeatNameGuid);
 
         private static FeatureDefinition buildFeatureTorchbearer()
         {
-
             var burn_effect = new EffectForm();
             burn_effect.SetFormType(EffectForm.EffectFormType.Condition);
-            burn_effect.ConditionForm = new ConditionForm();
-            burn_effect.ConditionForm.Operation = ConditionForm.ConditionOperation.Add;
-            burn_effect.ConditionForm.ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionOnFire1D4;
+            burn_effect.ConditionForm = new ConditionForm
+            {
+                Operation = ConditionForm.ConditionOperation.Add,
+                ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionOnFire1D4
+            };
 
             var burn_description = new EffectDescription();
             burn_description.Copy(DatabaseHelper.SpellDefinitions.Fireball.EffectDescription);
