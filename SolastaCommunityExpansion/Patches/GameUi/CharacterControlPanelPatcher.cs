@@ -71,13 +71,12 @@ namespace SolastaCommunityExpansion.Patches
 
             if (foundActivePanel)
             {
-                if (__instance is CharacterControlPanelExploration)
+                if (__instance is CharacterControlPanelExploration exploration)
                 {
-                    panelToActivate = ((CharacterControlPanelExploration)__instance).ExplorationActionPanel;
+                    panelToActivate = exploration.ExplorationActionPanel;
                 }
-                else if (__instance is CharacterControlPanelBattle)
+                else if (__instance is CharacterControlPanelBattle battlePanel)
                 {
-                    CharacterControlPanelBattle battlePanel = ((CharacterControlPanelBattle)__instance);
                     switch (actionId)
                     {
                         case ActionDefinitions.Id.CastMain:

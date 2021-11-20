@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +15,7 @@ namespace SolastaCommunityExpansion.Patches
         [HarmonyPatch(typeof(SpellSelectionPanel), "Bind")]
         internal static class SpellSelectionPanel_SecondLine
         {
-            internal static void Postfix(SpellSelectionPanel __instance, GameLocationCharacter caster, SpellSelectionPanel.SpellcastCancelledHandler spellcastCancelled, SpellsByLevelBox.SpellCastEngagedHandler spellCastEngaged, ActionDefinitions.ActionType actionType, bool cantripOnly)
+            internal static void Postfix(SpellSelectionPanel __instance, GameLocationCharacter caster, SpellsByLevelBox.SpellCastEngagedHandler spellCastEngaged, ActionDefinitions.ActionType actionType, bool cantripOnly)
             {
                 if (!Main.Settings.MultiLineSpellPanel)
                 {
@@ -43,16 +44,8 @@ namespace SolastaCommunityExpansion.Patches
                     spellRepertoireLinesTable.SetParent(spellLineHolder.transform);
                 }
 
-                List<RulesetSpellRepertoire> spellRepertoires = __instance.Caster.RulesetCharacter.SpellRepertoires;
-                int spellLevels = 0;
-                using (List<RulesetSpellRepertoire>.Enumerator enumerator = spellRepertoires.GetEnumerator())
-                {
-                    while (enumerator.MoveNext())
-                    {
-                        RulesetSpellRepertoire rulesetSpellRepertoire = enumerator.Current;
-                        spellLevels += ActiveSpellLevelsForRepetoire(rulesetSpellRepertoire, actionType);
-                    }
-                }
+                var spellRepertoires = __instance.Caster.RulesetCharacter.SpellRepertoires;
+                int spellLevels = spellRepertoires.Sum(sp => ActiveSpellLevelsForRepetoire(sp, actionType));
 
                 spellRepertoireLines.Clear();
                 bool needNewLine = true;
@@ -160,6 +153,7 @@ namespace SolastaCommunityExpansion.Patches
                         break;
 
                 }
+
                 if (level == 0)
                 {
                     foreach (SpellDefinition cantrip in spellRepertoire.KnownCantrips)
@@ -168,34 +162,25 @@ namespace SolastaCommunityExpansion.Patches
                         {
                             return true;
                         }
-
                     }
+
                     return false;
                 }
 
                 if (spellRepertoire.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.Prepared)
                 {
-                    using (List<SpellDefinition>.Enumerator enumerator = spellRepertoire.PreparedSpells.GetEnumerator())
+                    if(spellRepertoire.PreparedSpells
+                        .Where(spellDefinition => spellDefinition.SpellLevel == level)
+                        .Any(spellDefinition => spellDefinition.ActivationTime == spellActivationTime))
                     {
-                        while (enumerator.MoveNext())
-                        {
-                            SpellDefinition spellDefinition = enumerator.Current;
-                            if (spellDefinition.SpellLevel == level && spellDefinition.ActivationTime == spellActivationTime)
-                            {
-                                return true;
-                            }
-                        }
+                        return true;
                     }
                 }
-                if (spellRepertoire.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.AllKnown)
+
+                if (spellRepertoire.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.AllKnown 
+                    && spellRepertoire.KnownSpells.Any(spellDefinition => spellDefinition.SpellLevel == level))
                 {
-                    foreach (SpellDefinition spellDefinition2 in spellRepertoire.KnownSpells)
-                    {
-                        if (spellDefinition2.SpellLevel == level)
-                        {
-                            return true;
-                        }
-                    }
+                    return true;
                 }
 
                 return false;

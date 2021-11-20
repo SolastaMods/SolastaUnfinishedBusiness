@@ -25,7 +25,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("General:".yellow());
 
             intValue = Main.Settings.FeatPowerAttackModifier;
-            if (UI.Slider("Power Attack modifier ".white() + reqRestart, ref intValue, 1, 6, 3, ""))
+            if (UI.Slider("Power Attack modifier ".white() + RequiresRestart, ref intValue, 1, 6, 3, ""))
             {
                 Main.Settings.FeatPowerAttackModifier = intValue;
             }

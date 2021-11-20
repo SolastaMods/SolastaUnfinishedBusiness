@@ -179,7 +179,7 @@ namespace SolastaCommunityExpansion.Feats
             protected PowerAttackConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle, name, guid)
             {
                 Definition.GuiPresentation.Title = "Feature/&PowerAttackConditionTitle";
-                Definition.GuiPresentation.Description = Gui.Format("Feature/&PowerAttackConditionDescription", Main.Settings.FeatPowerAttackModifier.ToString()); 
+                Definition.GuiPresentation.Description = Gui.Format("Feature/&PowerAttackConditionDescription", Main.Settings.FeatPowerAttackModifier.ToString());
 
                 Definition.SetAllowMultipleInstances(false);
                 Definition.Features.Clear();
@@ -278,11 +278,15 @@ namespace SolastaCommunityExpansion.Feats
                 Definition.SetShortTitleOverride("Feature/&RagePowerTitle");
 
                 //Create the power attack effect
-                EffectForm rageEffect = new EffectForm();
-                rageEffect.ConditionForm = new ConditionForm();
-                rageEffect.FormType = EffectForm.EffectFormType.Condition;
-                rageEffect.ConditionForm.Operation = ConditionForm.ConditionOperation.Add;
-                rageEffect.ConditionForm.ConditionDefinition = RageFeatConditionBuilder.RageFeatCondition;
+                EffectForm rageEffect = new EffectForm
+                {
+                    ConditionForm = new ConditionForm
+                    {
+                        Operation = ConditionForm.ConditionOperation.Add,
+                        ConditionDefinition = RageFeatConditionBuilder.RageFeatCondition
+                    },
+                    FormType = EffectForm.EffectFormType.Condition
+                };
 
                 //Add to our new effect
                 EffectDescription newEffectDescription = new EffectDescription();
@@ -347,9 +351,13 @@ namespace SolastaCommunityExpansion.Feats
                 Definition.GuiPresentation.Description = "Feature/&RageStrengthSavingThrowAffinityDescription";
 
                 Definition.AffinityGroups.Clear();
-                var strengthSaveAffinityGroup = new SavingThrowAffinityGroup();
-                strengthSaveAffinityGroup.affinity = RuleDefinitions.CharacterSavingThrowAffinity.Advantage;
-                strengthSaveAffinityGroup.abilityScoreName = "Strength";
+
+                Definition.AffinityGroups.Add(
+                    new SavingThrowAffinityGroup
+                    {
+                        affinity = RuleDefinitions.CharacterSavingThrowAffinity.Advantage,
+                        abilityScoreName = "Strength"
+                    });
             }
 
             public static FeatureDefinitionSavingThrowAffinity CreateAndAddToDB(string name, string guid)

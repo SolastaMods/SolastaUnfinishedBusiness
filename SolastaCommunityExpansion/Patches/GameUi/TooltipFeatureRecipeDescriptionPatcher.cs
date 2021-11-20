@@ -21,14 +21,13 @@ namespace SolastaCommunityExpansion.Patches.GameUi
                     {
                         if (contentFragmentDescription.Type == ContentFragmentDescription.FragmentType.Body)
                         {
-                            string text = string.Empty;
                             GuiRecipeDefinition guiRecipeDefinition = ServiceRepository.GetService<IGuiWrapperService>().GetGuiRecipeDefinition(item.DocumentDescription.RecipeDefinition.Name);
-                            text = Gui.Format(contentFragmentDescription.Text, new string[]
+
+                            __instance.DescriptionLabel.Text = Gui.Format(contentFragmentDescription.Text, new string[]
                             {
                                 guiRecipeDefinition.Title,
                                 guiRecipeDefinition.IngredientsText
                             });
-                            __instance.DescriptionLabel.Text = text;
                         }
                     }
                 }

@@ -29,17 +29,23 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         protected static FeatureDefinitionPowerSharedPool Build(string name, string guid)
         {
             //Create the damage form - TODO make it do the same damage as the wielded weapon?  This doesn't seem possible
-            EffectForm damageEffect = new EffectForm();
-            damageEffect.DamageForm = new DamageForm();
-            damageEffect.DamageForm.DiceNumber = 1;
-            damageEffect.DamageForm.DieType = RuleDefinitions.DieType.D6;
-            damageEffect.DamageForm.BonusDamage = 2;
-            damageEffect.DamageForm.DamageType = "DamageBludgeoning";
-            damageEffect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.None;
+            EffectForm damageEffect = new EffectForm
+            {
+                DamageForm = new DamageForm
+                {
+                    DiceNumber = 1,
+                    DieType = RuleDefinitions.DieType.D6,
+                    BonusDamage = 2,
+                    DamageType = "DamageBludgeoning"
+                },
+                SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.None
+            };
 
             //Create the prone effect - Weirdly enough the motion form seems to also automatically apply the prone condition
-            EffectForm proneMotionEffect = new EffectForm();
-            proneMotionEffect.FormType = EffectForm.EffectFormType.Motion;
+            EffectForm proneMotionEffect = new EffectForm
+            {
+                FormType = EffectForm.EffectFormType.Motion
+            };
             var proneMotion = new MotionForm();
             proneMotion.SetType(MotionForm.MotionType.FallProne);
             proneMotion.SetDistance(1);
@@ -79,12 +85,16 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         protected static FeatureDefinitionPowerSharedPool Build(string name, string guid)
         {
             //Create the temp hp form
-            EffectForm healingEffect = new EffectForm();
-            healingEffect.FormType = EffectForm.EffectFormType.TemporaryHitPoints;
-            var tempHPForm = new TemporaryHitPointsForm();
-            tempHPForm.DiceNumber = 1;
-            tempHPForm.DieType = RuleDefinitions.DieType.D6;
-            tempHPForm.BonusHitPoints = 2;
+            EffectForm healingEffect = new EffectForm
+            {
+                FormType = EffectForm.EffectFormType.TemporaryHitPoints
+            };
+            var tempHPForm = new TemporaryHitPointsForm
+            {
+                DiceNumber = 1,
+                DieType = RuleDefinitions.DieType.D6,
+                BonusHitPoints = 2
+            };
             healingEffect.SetTemporaryHitPointsForm(tempHPForm);
 
             //Create the bless effect - A fun test, unfortunately the two effects can't have varying durations AFAIK so a bless or similar effect might be overpowered (was thinking a bless for 1 round).  Alternatively both could last 1 minute instead and be intended for in battle.
@@ -131,13 +141,17 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         protected static FeatureDefinitionPowerSharedPool Build(string name, string guid)
         {
             //Create the damage form - TODO make it do the same damage as the wielded weapon (seems impossible with current tools, would need to use the AdditionalDamage feature but I'm not sure how to combine that with this to make it a reaction ability).
-            EffectForm damageEffect = new EffectForm();
-            damageEffect.DamageForm = new DamageForm();
-            damageEffect.DamageForm.DiceNumber = 1;
-            damageEffect.DamageForm.DieType = RuleDefinitions.DieType.D6;
-            damageEffect.DamageForm.BonusDamage = 2;
-            damageEffect.DamageForm.DamageType = "DamageBludgeoning";
-            damageEffect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.None;
+            EffectForm damageEffect = new EffectForm
+            {
+                DamageForm = new DamageForm
+                {
+                    DiceNumber = 1,
+                    DieType = RuleDefinitions.DieType.D6,
+                    BonusDamage = 2,
+                    DamageType = "DamageBludgeoning"
+                },
+                SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.None
+            };
 
             //Add to our new effect
             EffectDescription newEffectDescription = new EffectDescription();
