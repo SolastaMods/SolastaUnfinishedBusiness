@@ -68,7 +68,7 @@ namespace SolastaCommunityExpansion.Feats
                 ConditionDualFlurryGrantBuilder.GetOrAdd() : ConditionDualFlurryApplyBuilder.GetOrAdd();
 
             RulesetCondition active_condition = RulesetCondition.CreateActiveCondition(attacker.RulesetCharacter.Guid,
-                                                                                       condition, RuleDefinitions.DurationType.Turn, 1,
+                                                                                       condition, RuleDefinitions.DurationType.Round, 0,
                                                                                        RuleDefinitions.TurnOccurenceType.EndOfTurn,
                                                                                        attacker.RulesetCharacter.Guid,
                                                                                        attacker.RulesetCharacter.CurrentFaction.Name);
@@ -84,8 +84,8 @@ namespace SolastaCommunityExpansion.Feats
             Definition.GuiPresentation.Description = "Condition/&ConditionDualFlurryApplyDescription";
 
             Definition.SetAllowMultipleInstances(false);
-            Definition.SetDurationParameter(1);
-            Definition.SetDurationType(RuleDefinitions.DurationType.Turn);
+            Definition.SetDurationParameter(0);
+            Definition.SetDurationType(RuleDefinitions.DurationType.Round);
             Definition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
             Definition.SetPossessive(true);
             Definition.SetSilentWhenAdded(true);
@@ -113,8 +113,8 @@ namespace SolastaCommunityExpansion.Feats
             Definition.GuiPresentation.SetHidden(true);
 
             Definition.SetAllowMultipleInstances(false);
-            Definition.SetDurationParameter(1);
-            Definition.SetDurationType(RuleDefinitions.DurationType.Turn);
+            Definition.SetDurationParameter(0);
+            Definition.SetDurationType(RuleDefinitions.DurationType.Round);
             Definition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
             Definition.SetPossessive(true);
             Definition.SetSilentWhenAdded(false);
@@ -193,7 +193,7 @@ namespace SolastaCommunityExpansion.Feats
             burn_description.SetTargetType(RuleDefinitions.TargetType.Individuals);
             burn_description.SetTargetParameter(1);
             burn_description.SetRangeType(RuleDefinitions.RangeType.Touch);
-            burn_description.SetDurationType(RuleDefinitions.DurationType.Turn);
+            burn_description.SetDurationType(RuleDefinitions.DurationType.Round);
             burn_description.SetDurationParameter(3);
             burn_description.SetCanBePlacedOnCharacter(false);
             burn_description.SetHasSavingThrow(true);
