@@ -26,7 +26,9 @@ using static SolastaModApi.DatabaseHelper.FeatureDefinitionSenses;
             }
 
             if (Main.Settings.IncreaseNormalVisionSenseRange)
+            {
                 SenseNormalVision.SetSenseRange(120);
+            }
         }
     }
 }
