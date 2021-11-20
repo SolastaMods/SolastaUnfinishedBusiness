@@ -21,21 +21,18 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("Fighting Styles: ".yellow());
             UI.Label("");
 
-            using (UI.HorizontalScope())
+            if (UI.Toggle("Select all", ref selectAll))
             {
-                if (UI.Toggle("Select all", ref selectAll))
+                foreach (var keyValuePair in FightingStyleContext.Styles)
                 {
-                    foreach (var keyValuePair in FightingStyleContext.Styles)
-                    {
-                        FightingStyleContext.Switch(keyValuePair.Key, selectAll);
-                    }
+                    FightingStyleContext.Switch(keyValuePair.Key, selectAll);
                 }
+            }
 
-                intValue = Main.Settings.FightingStyleSliderPosition;
-                if (UI.Slider("[slide left for description / right to collapse]".red().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
-                {
-                    Main.Settings.FightingStyleSliderPosition = intValue;
-                }
+            intValue = Main.Settings.FightingStyleSliderPosition;
+            if (UI.Slider("[slide left for description / right to collapse]".red().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
+            {
+                Main.Settings.FightingStyleSliderPosition = intValue;
             }
 
             UI.Label("");

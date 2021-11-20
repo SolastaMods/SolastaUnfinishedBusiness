@@ -41,7 +41,7 @@ namespace SolastaCommunityExpansion.Feats
             protected PowerAttackPowerBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLifePreserveLife, name, guid)
             {
                 Definition.GuiPresentation.Title = "Feature/&PowerAttackPowerTitle";
-                Definition.GuiPresentation.Description = "Feature/&PowerAttackPowerDescription";
+                Definition.GuiPresentation.Description = Gui.Format("Feature/&PowerAttackPowerDescription", Main.Settings.FeatPowerAttackModifier.ToString());
 
                 Definition.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
                 Definition.SetActivationTime(RuleDefinitions.ActivationTime.NoCost);
@@ -84,7 +84,7 @@ namespace SolastaCommunityExpansion.Feats
             protected PowerAttackTwoHandedPowerBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalLightningBlade, name, guid)
             {
                 Definition.GuiPresentation.Title = "Feature/&PowerAttackTwoHandedPowerTitle";
-                Definition.GuiPresentation.Description = "Feature/&PowerAttackTwoHandedPowerDescription";
+                Definition.GuiPresentation.Description = Gui.Format("Feature/&PowerAttackTwoHandedPowerDescription", Main.Settings.FeatPowerAttackModifier.ToString(), (Main.Settings.FeatPowerAttackModifier * 2).ToString());
 
                 Definition.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
                 Definition.SetActivationTime(RuleDefinitions.ActivationTime.NoCost);
@@ -127,7 +127,7 @@ namespace SolastaCommunityExpansion.Feats
             protected PowerAttackOnHandedAttackModifierBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierFightingStyleArchery, name, guid)
             {
                 Definition.GuiPresentation.Title = "Feature/&PowerAttackAttackModifierTitle";
-                Definition.GuiPresentation.Description = "Feature/&PowerAttackAttackModifierDescription";
+                Definition.GuiPresentation.Description = Gui.Format("Feature/&PowerAttackAttackModifierDescription", Main.Settings.FeatPowerAttackModifier.ToString());
 
                 //Ideally this would be proficiency but there isn't a nice way to subtract proficiency.
                 //To do this properly you could likely make multiple versions of this that get replaced at proficiency level ups but it's a bit of a pain, so going with -3 for now.
@@ -153,7 +153,7 @@ namespace SolastaCommunityExpansion.Feats
             protected PowerAttackTwoHandedAttackModifierBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierFightingStyleArchery, name, guid)
             {
                 Definition.GuiPresentation.Title = "Feature/&PowerAttackTwoHandedAttackModifierTitle";
-                Definition.GuiPresentation.Description = "Feature/&PowerAttackTwoHandedAttackModifierDescription";
+                Definition.GuiPresentation.Description = Gui.Format("Feature/&PowerAttackTwoHandedAttackModifierDescription", Main.Settings.FeatPowerAttackModifier.ToString(), (Main.Settings.FeatPowerAttackModifier * 2).ToString());
 
                 //Ideally this would be proficiency but there isn't a nice way to subtract proficiency.
                 //To do this properly you could likely make multiple versions of this that get replaced at proficiency level ups but it's a bit of a pain, so going with -3 for now.
@@ -179,7 +179,7 @@ namespace SolastaCommunityExpansion.Feats
             protected PowerAttackConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle, name, guid)
             {
                 Definition.GuiPresentation.Title = "Feature/&PowerAttackConditionTitle";
-                Definition.GuiPresentation.Description = "Feature/&PowerAttackConditionDescription";
+                Definition.GuiPresentation.Description = Gui.Format("Feature/&PowerAttackConditionDescription", Main.Settings.FeatPowerAttackModifier.ToString()); 
 
                 Definition.SetAllowMultipleInstances(false);
                 Definition.Features.Clear();
@@ -202,7 +202,7 @@ namespace SolastaCommunityExpansion.Feats
             protected PowerAttackTwoHandedConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle, name, guid)
             {
                 Definition.GuiPresentation.Title = "Feature/&PowerAttackTwoHandedConditionTitle";
-                Definition.GuiPresentation.Description = "Feature/&PowerAttackTwoHandedConditionDescription";
+                Definition.GuiPresentation.Description = Gui.Format("Feature/&PowerAttackTwoHandedConditionDescription", Main.Settings.FeatPowerAttackModifier.ToString(), (Main.Settings.FeatPowerAttackModifier * 2).ToString());
 
                 Definition.SetAllowMultipleInstances(false);
                 Definition.Features.Clear();
@@ -225,7 +225,7 @@ namespace SolastaCommunityExpansion.Feats
             protected PowerAttackFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.FollowUpStrike, name, guid)
             {
                 Definition.GuiPresentation.Title = "Feat/&PowerAttackFeatTitle";
-                Definition.GuiPresentation.Description = "Feat/&PowerAttackFeatDescription";
+                Definition.GuiPresentation.Description = Gui.Format("Feat/&PowerAttackFeatDescription", Main.Settings.FeatPowerAttackModifier.ToString(), (Main.Settings.FeatPowerAttackModifier * 2).ToString());
 
                 Definition.Features.Clear();
                 Definition.Features.Add(PowerAttackPowerBuilder.PowerAttackPower);
