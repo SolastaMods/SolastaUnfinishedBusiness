@@ -67,12 +67,13 @@ namespace SolastaCommunityExpansion.Patches
         [HarmonyPatch(typeof(PowerSelectionPanel), "Unbind")]
         internal static class PowerSelectionPanel_Unbind
         {
-            internal static void Postfix(PowerSelectionPanel __instance)
+            internal static void Postfix()
             {
                 if (!Main.Settings.MultiLinePowerPanel)
                 {
                     return;
                 }
+
                 if (secondRow != null && secondRow.gameObject.activeSelf)
                 {
                     Gui.ReleaseChildrenToPool(secondRow);

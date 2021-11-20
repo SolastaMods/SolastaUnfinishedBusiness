@@ -1,4 +1,4 @@
-using ModKit;
+﻿using ModKit;
 using UnityModManagerNet;
 using static SolastaCommunityExpansion.Viewers.Displays.CreditsDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.Level20HelpDisplay;
@@ -21,7 +21,9 @@ namespace SolastaCommunityExpansion.Viewers
             //AddDumpDescriptionToLogButton();
         }
 
-        private void AddDumpDescriptionToLogButton()
+#pragma warning disable IDE0051 // Remove unused private members
+        private static void AddDumpDescriptionToLogButton()
+#pragma warning restore IDE0051 // Remove unused private members
         {
             UI.ActionButton("Dump Description to Logs", () =>
             {

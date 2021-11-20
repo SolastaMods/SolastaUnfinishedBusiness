@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk" InitialTargets="CheckEnvironmentVars">
+﻿<Project Sdk="Microsoft.NET.Sdk" InitialTargets="CheckEnvironmentVars">
 
 	<PropertyGroup>
 		<TargetFramework>net472</TargetFramework>
@@ -15,6 +15,9 @@
 		<Copyright>Copyright 2021</Copyright>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<Version>1.2.5.0</Version>
+		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+		<EnableNETAnalyzers>True</EnableNETAnalyzers>
+		<AnalysisLevel>latest</AnalysisLevel>
 	</PropertyGroup>
 
 	<Target Name="CheckEnvironmentVars">
@@ -404,5 +407,13 @@
 		<None Update="Names-en.txt">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EditorConfigFiles Remove="C:\Users\passp\source\repos\SolastaCommunityExpansion\SolastaCommunityExpansion\.editorconfig" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="C:\Users\passp\source\repos\SolastaCommunityExpansion\SolastaCommunityExpansion\.editorconfig" />
 	</ItemGroup>
 </Project>
