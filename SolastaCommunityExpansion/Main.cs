@@ -1,4 +1,4 @@
-using ModKit;
+﻿using ModKit;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -9,7 +9,8 @@ namespace SolastaCommunityExpansion
 {
     public class Main
     {
-        public static bool Enabled = false;
+        public static bool Enabled { get; set; } = false;
+
         public static readonly string MOD_FOLDER = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
         [Conditional("DEBUG")]

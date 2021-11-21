@@ -12,8 +12,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             bool toggle;
 
             UI.Label("");
-            //UI.Label("Progression:".yellow());
-            //UI.Label("");
 
             toggle = Main.Settings.EnableLevel20;
             if (UI.Toggle("Enables Level 20 " + RequiresRestart, ref toggle, 0, UI.AutoWidth()))
@@ -40,6 +38,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (UI.Toggle("Disables " + "Superior Sense Dark Vision".orange() + " from all races " + RequiresRestart, ref toggle, 0, UI.AutoWidth()))
             {
                 Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces = toggle;
+            }
+
+            toggle = Main.Settings.IncreaseNormalVisionSenseRange;
+            if (UI.Toggle("Increases " + "Sense Normal Vision".orange() + " range to enable long range attacks " + RequiresRestart, ref toggle, 0, UI.AutoWidth()))
+            {
+                Main.Settings.IncreaseNormalVisionSenseRange = toggle;
             }
 
             UI.Label("");

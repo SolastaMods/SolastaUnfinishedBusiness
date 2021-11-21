@@ -1,3 +1,6 @@
+using SolastaModApi.Extensions;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionSenses;
+
 ﻿namespace SolastaCommunityExpansion.Models
 {
     internal static class VisionContext
@@ -20,6 +23,11 @@
                 {
                     characterRaceDefinition.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition.name == "SenseSuperiorDarkvision");
                 }
+            }
+
+            if (Main.Settings.IncreaseNormalVisionSenseRange)
+            {
+                SenseNormalVision.SetSenseRange(120);
             }
         }
     }

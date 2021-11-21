@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.Patches.Cheats
     [HarmonyPatch(typeof(GameMenuModal), "SetButtonAvailability")]
     internal static class GameMenuModal_SetButtonAvailability
     {
-        internal static void Postfix(GameMenuModal.MenuButtonIndex index, bool visible, bool interactable, CanvasGroup[] ___buttonCanvases)
+        internal static void Postfix(GameMenuModal.MenuButtonIndex index, CanvasGroup[] ___buttonCanvases)
         {
             if (Main.Settings.EnableCheatMenuDuringGameplay && index == GameMenuModal.MenuButtonIndex.Cheats)
             {

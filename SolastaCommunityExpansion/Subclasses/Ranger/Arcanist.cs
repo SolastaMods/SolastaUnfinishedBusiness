@@ -231,25 +231,35 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
 
         private static Dictionary<int, FeatureDefinitionPower> CreateArcanePulseDict()
         {
-            var marked_effect = new EffectForm();
-            marked_effect.ConditionForm = new ConditionForm();
-            marked_effect.FormType = EffectForm.EffectFormType.Condition;
+            var marked_effect = new EffectForm
+            {
+                ConditionForm = new ConditionForm(),
+                FormType = EffectForm.EffectFormType.Condition
+            };
             marked_effect.ConditionForm.Operation = ConditionForm.ConditionOperation.Add;
             marked_effect.ConditionForm.ConditionDefinition = ConditionMarkedByArcanistBuilder.GetOrAdd();
 
-            var damage_effect = new EffectForm();
-            damage_effect.DamageForm = new DamageForm();
-            damage_effect.DamageForm.DamageType = "DamageForce";
-            damage_effect.DamageForm.DieType = RuleDefinitions.DieType.D8;
-            damage_effect.DamageForm.DiceNumber = 4;
+            var damage_effect = new EffectForm
+            {
+                DamageForm = new DamageForm
+                {
+                    DamageType = "DamageForce",
+                    DieType = RuleDefinitions.DieType.D8,
+                    DiceNumber = 4
+                }
+            };
             damage_effect.DamageForm.SetHealFromInflictedDamage(RuleDefinitions.HealFromInflictedDamage.Never);
             damage_effect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.None;
 
-            var damage_upgrade_effect = new EffectForm();
-            damage_upgrade_effect.DamageForm = new DamageForm();
-            damage_upgrade_effect.DamageForm.DamageType = "DamageForce";
-            damage_upgrade_effect.DamageForm.DieType = RuleDefinitions.DieType.D8;
-            damage_upgrade_effect.DamageForm.DiceNumber = 8;
+            var damage_upgrade_effect = new EffectForm
+            {
+                DamageForm = new DamageForm
+                {
+                    DamageType = "DamageForce",
+                    DieType = RuleDefinitions.DieType.D8,
+                    DiceNumber = 8
+                }
+            };
             damage_upgrade_effect.DamageForm.SetHealFromInflictedDamage(RuleDefinitions.HealFromInflictedDamage.Never);
             damage_upgrade_effect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.None;
 

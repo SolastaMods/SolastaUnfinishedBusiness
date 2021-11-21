@@ -21,14 +21,20 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             // todo make the acehigh power attack feats tunable here. It is already in the settings (FeatPowerAttackModifier),
             // but the text does not currently update to reflect the actual tuning.
 
-            //UI.Label("");
-            //UI.Label("Settings: ".yellow() + reqRestart);
+            UI.Label("");
+            UI.Label("General:".yellow());
+
+            intValue = Main.Settings.FeatPowerAttackModifier;
+            if (UI.Slider("Power Attack modifier ".white() + RequiresRestart, ref intValue, 1, 6, 3, ""))
+            {
+                Main.Settings.FeatPowerAttackModifier = intValue;
+            }
 
             UI.Label("");
             UI.Label("Feats: ".yellow() + RequiresRestart);
             UI.Label("");
 
-            using (UI.HorizontalScope())
+            //using (UI.HorizontalScope())
             {
                 if (UI.Toggle("Select all", ref selectAll))
                 {
@@ -39,7 +45,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 intValue = Main.Settings.FeatSliderPosition;
-                if (UI.Slider("[slide left for description / right to collapse]".red().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
+                if (UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
                 {
                     Main.Settings.FeatSliderPosition = intValue;
                 }
