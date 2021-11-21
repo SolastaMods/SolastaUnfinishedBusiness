@@ -62,7 +62,8 @@ namespace SolastaCommunityExpansion.Feats
                 newEffectDescription.EffectForms.Clear();
                 newEffectDescription.EffectForms.Add(powerAttackEffect);
                 newEffectDescription.HasSavingThrow = false;
-                newEffectDescription.DurationType = RuleDefinitions.DurationType.Turn;
+                newEffectDescription.DurationType = RuleDefinitions.DurationType.Round;
+                newEffectDescription.DurationParameter = 0;
                 newEffectDescription.SetTargetSide(RuleDefinitions.Side.Ally);
                 newEffectDescription.SetTargetType(RuleDefinitions.TargetType.Self);
                 newEffectDescription.SetCanBePlacedOnCharacter(true);
@@ -105,7 +106,8 @@ namespace SolastaCommunityExpansion.Feats
                 newEffectDescription.EffectForms.Clear();
                 newEffectDescription.EffectForms.Add(powerAttackEffect);
                 newEffectDescription.HasSavingThrow = false;
-                newEffectDescription.DurationType = RuleDefinitions.DurationType.Turn;
+                newEffectDescription.DurationType = RuleDefinitions.DurationType.Round;
+                newEffectDescription.DurationParameter = 0;
                 newEffectDescription.SetTargetSide(RuleDefinitions.Side.Ally);
                 newEffectDescription.SetTargetType(RuleDefinitions.TargetType.Self);
                 newEffectDescription.SetCanBePlacedOnCharacter(true);
@@ -185,7 +187,8 @@ namespace SolastaCommunityExpansion.Feats
                 Definition.Features.Clear();
                 Definition.Features.Add(PowerAttackOnHandedAttackModifierBuilder.PowerAttackAttackModifier);
 
-                Definition.SetDurationType(RuleDefinitions.DurationType.Turn);
+                Definition.SetDurationType(RuleDefinitions.DurationType.Round);
+                Definition.SetDurationParameter(0);
             }
 
             public static ConditionDefinition CreateAndAddToDB(string name, string guid)
@@ -208,7 +211,8 @@ namespace SolastaCommunityExpansion.Feats
                 Definition.Features.Clear();
                 Definition.Features.Add(PowerAttackTwoHandedAttackModifierBuilder.PowerAttackTwoHandedAttackModifier);
 
-                Definition.SetDurationType(RuleDefinitions.DurationType.Turn);
+                Definition.SetDurationType(RuleDefinitions.DurationType.Round);
+                Definition.SetDurationParameter(0);
             }
 
             public static ConditionDefinition CreateAndAddToDB(string name, string guid)
@@ -329,9 +333,6 @@ namespace SolastaCommunityExpansion.Feats
                 Definition.Features.Add(RageDamageBonusAttackModifierBuilder.RageDamageBonusAttackModifier);
                 Definition.SetDurationType(RuleDefinitions.DurationType.Minute);
                 Definition.SetDurationParameter(1);
-
-
-                Definition.SetDurationType(RuleDefinitions.DurationType.Turn);
             }
 
             public static ConditionDefinition CreateAndAddToDB(string name, string guid)

@@ -62,7 +62,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             newEffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency);
             newEffectDescription.SavingThrowAbility = "Strength";
             newEffectDescription.HasSavingThrow = true;
-            newEffectDescription.DurationType = RuleDefinitions.DurationType.Turn;
+            newEffectDescription.DurationType = RuleDefinitions.DurationType.Round;
 
             FeatureDefinitionPowerSharedPoolBuilder builder = new FeatureDefinitionPowerSharedPoolBuilder(name, guid,
                 TacticianFighterSubclassBuilder.GambitResourcePool, RuleDefinitions.RechargeRate.ShortRest, RuleDefinitions.ActivationTime.OnAttackHit,
