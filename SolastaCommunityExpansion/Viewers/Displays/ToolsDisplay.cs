@@ -13,12 +13,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             bool toggle = Main.Settings.EnableCheatMenuDuringGameplay;
-            if (UI.Toggle("Enables the cheats menu", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Enables the cheats menu", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableCheatMenuDuringGameplay = toggle;
             }
 
-            if (UI.Toggle("Enables the debug camera", ref enableDebugCamera, 0, UI.AutoWidth()))
+            if (UI.Toggle("Enables the debug camera", ref enableDebugCamera, UI.AutoWidth()))
             {
                 IViewService viewService = ServiceRepository.GetService<IViewService>();
                 ICameraService cameraService = ServiceRepository.GetService<ICameraService>();
@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
             }
 
-            if (UI.Toggle("Enables the debug overlay", ref enableDebugOverlay, 0, UI.AutoWidth()))
+            if (UI.Toggle("Enables the debug overlay", ref enableDebugOverlay, UI.AutoWidth()))
             {
                 ServiceRepository.GetService<IDebugOverlayService>().ToggleActivation();
             }
@@ -41,7 +41,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.NoExperienceOnLevelUp;
-            if (UI.Toggle("No experience is required to level up", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("No experience is required to level up", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.NoExperienceOnLevelUp = toggle;
             }
