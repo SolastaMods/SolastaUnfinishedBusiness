@@ -7,7 +7,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class FeatsDisplay
     {
-        private static bool selectAll = false;
         private const int MAX_COLUMNS = 4;
         private const float PIXELS_PER_COLUMN = 225;
 
@@ -15,11 +14,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         {
             bool toggle;
             int intValue;
-
-            selectAll = Main.Settings.FeatEnabled.Count == FeatsContext.Feats.Count;
-
-            // todo make the acehigh power attack feats tunable here. It is already in the settings (FeatPowerAttackModifier),
-            // but the text does not currently update to reflect the actual tuning.
+            bool selectAll = Main.Settings.FeatEnabled.Count == FeatsContext.Feats.Count;
 
             UI.Label("");
             UI.Label("General:".yellow());
@@ -34,21 +29,18 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("Feats: ".yellow() + RequiresRestart);
             UI.Label("");
 
-            //using (UI.HorizontalScope())
+            if (UI.Toggle("Select all", ref selectAll))
             {
-                if (UI.Toggle("Select all", ref selectAll))
+                foreach (var keyValuePair in FeatsContext.Feats)
                 {
-                    foreach (var keyValuePair in FeatsContext.Feats)
-                    {
-                        FeatsContext.Switch(keyValuePair.Key, selectAll);
-                    }
+                    FeatsContext.Switch(keyValuePair.Key, selectAll);
                 }
+            }
 
-                intValue = Main.Settings.FeatSliderPosition;
-                if (UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
-                {
-                    Main.Settings.FeatSliderPosition = intValue;
-                }
+            intValue = Main.Settings.FeatSliderPosition;
+            if (UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
+            {
+                Main.Settings.FeatSliderPosition = intValue;
             }
 
             UI.Label("");
@@ -77,9 +69,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                                 title = title.yellow();
                             }
 
-                            if (UI.Toggle(title, ref toggle, PIXELS_PER_COLUMN))
+                            if (UI.Toggle(title, ref toggle, UI.ChecklyphOn, UI.CheckGlyphOff, PIXELS_PER_COLUMN))
                             {
-                                selectAll = false;
                                 FeatsContext.Switch(keyValuePair.Key, toggle);
                             }
 

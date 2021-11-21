@@ -391,6 +391,10 @@
 			<HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\I2.dll'))</HintPath>
 			<Private>False</Private>
 		</Reference>
+		<Reference Include="ModKit">
+			<HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Mods\SolastaModApi\ModKit.dll'))</HintPath>
+			<Private>False</Private>
+		</Reference>
 		<Reference Include="SolastaModApi">
 			<HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Mods\SolastaModApi\SolastaModApi.dll'))</HintPath>
 			<Private>False</Private>

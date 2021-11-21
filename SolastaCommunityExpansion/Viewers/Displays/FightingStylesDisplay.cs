@@ -6,7 +6,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class FightingStylesDisplay
     {
-        private static bool selectAll = false;
         private const int MAX_COLUMNS = 4;
         private const float PIXELS_PER_COLUMN = 225;
 
@@ -14,8 +13,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         {
             bool toggle;
             int intValue;
-
-            selectAll = Main.Settings.FightingStyleEnabled.Count == FightingStyleContext.Styles.Count;
+            bool selectAll = Main.Settings.FightingStyleEnabled.Count == FightingStyleContext.Styles.Count;
 
             UI.Label("");
             UI.Label("Fighting Styles: ".yellow());
@@ -61,9 +59,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                                 title = title.yellow();
                             }
 
-                            if (UI.Toggle(title, ref toggle, PIXELS_PER_COLUMN))
+                            if (UI.Toggle(title, ref toggle, UI.ChecklyphOn, UI.CheckGlyphOff, PIXELS_PER_COLUMN))
                             {
-                                selectAll = false;
                                 FightingStyleContext.Switch(keyValuePair.Key, toggle);
                             }
 
