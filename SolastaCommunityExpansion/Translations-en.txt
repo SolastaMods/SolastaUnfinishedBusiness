@@ -572,3 +572,5 @@ Feature/&GambitResourcePoolAddTitle	Additional Gambit die.
 Feature/&GambitResourcePoolAddDescription	Adds an additional gambit die.
 Subclass/&TactitionFighterSubclassTitle The Tactician 
 Subclass/&TactitionFighterSubclassDescription The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed.  They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.  Mod note - This class re-uses channel divinity for these features.
+Feature/&RangerFeralSensesTitle	Feral Senses
+Feature/&RangerFeralSensesDescription	 You gain preternatural senses that help you fight creatures you can’t see. When you attack a creature you can’t see, your inability to see it doesn’t impose disadvantage on your attack rolls against it.
