@@ -14,21 +14,24 @@ namespace SolastaCommunityExpansion.Patches
         {
             internal static void Postfix(string content, GuiLabel ___contentLabel)
             {
-                if (InputField == null)
+                if (Main.Settings.EnableCharacterExport)
                 {
-                    CharacterCreationScreen characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
-                    CharacterStageIdentityDefinitionPanel panel = characterCreationScreen.GetComponentInChildren<CharacterStageIdentityDefinitionPanel>();
-                    InputField = Object.Instantiate(panel.transform.FindChildRecursive("FirstNameInputField").GetComponent<TMP_InputField>(), ___contentLabel.transform);
+                    if (InputField == null)
+                    {
+                        CharacterCreationScreen characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
+                        CharacterStageIdentityDefinitionPanel panel = characterCreationScreen.GetComponentInChildren<CharacterStageIdentityDefinitionPanel>();
+                        InputField = Object.Instantiate(panel.transform.FindChildRecursive("FirstNameInputField").GetComponent<TMP_InputField>(), ___contentLabel.transform);
 
-                    InputField.characterLimit = 20;
-                    InputField.onValueChanged = null;
-                    InputField.pointSize = ___contentLabel.TMP_Text.fontSize;
-                    InputField.transform.position = ___contentLabel.transform.position;
-                }
-                if (InputField != null)
-                {
-                    InputField.text = string.Empty;
-                    InputField.gameObject.SetActive(content == Models.CharacterExportContext.INPUT_MODAL_MARK);
+                        InputField.characterLimit = 20;
+                        InputField.onValueChanged = null;
+                        InputField.pointSize = ___contentLabel.TMP_Text.fontSize;
+                        InputField.transform.position = ___contentLabel.transform.position;
+                    }
+                    if (InputField != null)
+                    {
+                        InputField.text = string.Empty;
+                        InputField.gameObject.SetActive(content == Models.CharacterExportContext.INPUT_MODAL_MARK);
+                    }
                 }
             }
         }

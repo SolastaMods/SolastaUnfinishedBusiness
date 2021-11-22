@@ -118,6 +118,7 @@ namespace SolastaCommunityExpansion
 
         public bool OfferAdditionalNames = false;
         public bool InvertAltBehaviorOnTooltips = false;
+        public bool EnableCharacterExport = false;
 
         public int MaxSpellLevelsPerLine = 5;
         public float SpellPanelGapBetweenLines = 30f;

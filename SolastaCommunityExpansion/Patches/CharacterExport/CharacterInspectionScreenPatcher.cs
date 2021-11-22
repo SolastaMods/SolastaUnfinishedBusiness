@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Patches
     {
         public static bool Prefix(CharacterInspectionScreen __instance, InputCommands.Id command)
         {
-            bool trap = command == Settings.CTRL_E;
+            bool trap = Main.Settings.EnableCharacterExport && command == Settings.CTRL_E;
 
             if (trap)
             {

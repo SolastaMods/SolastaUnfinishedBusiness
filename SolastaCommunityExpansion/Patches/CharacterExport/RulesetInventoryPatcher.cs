@@ -12,26 +12,32 @@ namespace SolastaCommunityExpansion.Patches
 
         internal static void Prefix()
         {
-            lock (Locker)
+            if (Main.Settings.EnableCharacterExport)
             {
-                var registeredService = ServiceRepository.GetService<IRulesetEntityService>();
-
-                if (registeredService == null)
+                lock (Locker)
                 {
-                    Main.Log("Adding DummyRulesetEntityService");
-                    ServiceRepository.AddService(Models.CharacterExportContext.DummyRulesetEntityService.Instance);
+                    var registeredService = ServiceRepository.GetService<IRulesetEntityService>();
+
+                    if (registeredService == null)
+                    {
+                        Main.Log("Adding DummyRulesetEntityService");
+                        ServiceRepository.AddService(Models.CharacterExportContext.DummyRulesetEntityService.Instance);
+                    }
                 }
             }
         }
 
         internal static void Postfix()
         {
-            lock (Locker)
+            if (Main.Settings.EnableCharacterExport)
             {
-                if (ServiceRepository.GetService<IRulesetEntityService>() is Models.CharacterExportContext.DummyRulesetEntityService)
+                lock (Locker)
                 {
-                    Main.Log("Removing DummyRulesetEntityService");
-                    ServiceRepository.RemoveService<IRulesetEntityService>();
+                    if (ServiceRepository.GetService<IRulesetEntityService>() is Models.CharacterExportContext.DummyRulesetEntityService)
+                    {
+                        Main.Log("Removing DummyRulesetEntityService");
+                        ServiceRepository.RemoveService<IRulesetEntityService>();
+                    }
                 }
             }
         }
