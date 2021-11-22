@@ -1,4 +1,4 @@
-using HarmonyLib;
+﻿using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches
 {
@@ -30,6 +30,7 @@ namespace SolastaCommunityExpansion.Patches
                 Models.RemoveIdentificationContext.Load();
                 Models.Level20Context.Load();
                 Models.DruidArmorContext.Load();
+                Models.CharacterExportContext.Load();
 
                 Main.Enabled = true;
             }
