@@ -8,8 +8,8 @@ namespace SolastaCommunityExpansion.Level20.Features
     {
         private static FeatureDefinitionPower _instance;
 
-        const string PowerPaladinAuraOfCourage18Name = "ZSPowerPaladinAuraOfCourage18";
-        const string PowerPaladinAuraOfCourage18Guid = "d68c46024ea8432b981506a13ae35ecd";
+        private const string PowerPaladinAuraOfCourage18Name = "ZSPowerPaladinAuraOfCourage18";
+        private const string PowerPaladinAuraOfCourage18Guid = "d68c46024ea8432b981506a13ae35ecd";
 
         public PowerPaladinAuraOfCourage18Builder() : base(PowerPaladinAuraOfCourage, PowerPaladinAuraOfCourage18Name, PowerPaladinAuraOfCourage18Guid)
         {

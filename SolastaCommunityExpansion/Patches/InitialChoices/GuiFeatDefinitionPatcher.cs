@@ -1,6 +1,4 @@
 ﻿using HarmonyLib;
-using System.Collections.Generic;
-using System.Reflection.Emit;
 
 namespace SolastaCommunityExpansion.Patches.InitialChoices
 {

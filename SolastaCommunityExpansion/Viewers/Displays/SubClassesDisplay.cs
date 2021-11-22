@@ -1,12 +1,11 @@
-﻿using System.Linq;
-using ModKit;
+﻿using ModKit;
 using SolastaCommunityExpansion.Models;
+using System.Linq;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class SubClassesDisplay
     {
-        private static bool selectAll = false;
         private const int MAX_COLUMNS = 4;
         private const float PIXELS_PER_COLUMN = 225;
 
@@ -14,15 +13,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         {
             bool toggle;
             int intValue;
-
-            selectAll = Main.Settings.SubclassEnabled.Count == SubclassesContext.Subclasses.Count;
+            bool selectAll = Main.Settings.SubclassEnabled.Count == SubclassesContext.Subclasses.Count;
 
             UI.Label("");
-            UI.Label("Settings:".yellow());
+            UI.Label("General:".yellow());
 
             UI.Label("");
             toggle = Main.Settings.SpellMasterUnlimitedArcaneRecovery;
-            if (UI.Toggle("Enables unlimited ".white() + "Arcane Recovery".orange() + " on Wizard Spell Master\n".white() + "Must be enabled when the ability has available uses (or before character creation)".italic().red(), ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Enables unlimited ".white() + "Arcane Recovery".orange() + " on Wizard Spell Master\n".white() + "Must be enabled when the ability has available uses (or before character creation)".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.SpellMasterUnlimitedArcaneRecovery = toggle;
                 Subclasses.Wizard.SpellMaster.UpdateRecoveryLimited();
@@ -47,23 +45,19 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("Subclasses:".yellow());
             UI.Label("");
 
-            using (UI.HorizontalScope())
+            if (UI.Toggle("Select all", ref selectAll))
             {
-                if (UI.Toggle("Select all", ref selectAll))
+                foreach (var keyValuePair in SubclassesContext.Subclasses)
                 {
-                    foreach (var keyValuePair in SubclassesContext.Subclasses)
-                    {
-                        SubclassesContext.Switch(keyValuePair.Key, selectAll);
-                    }
-                }
-
-                intValue = Main.Settings.SubclassSliderPosition;
-                if (UI.Slider("[slide left for description / right to collapse]".red().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
-                {
-                    Main.Settings.SubclassSliderPosition = intValue;
+                    SubclassesContext.Switch(keyValuePair.Key, selectAll);
                 }
             }
 
+            intValue = Main.Settings.SubclassSliderPosition;
+            if (UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
+            {
+                Main.Settings.SubclassSliderPosition = intValue;
+            }
 
             UI.Label("");
 
@@ -92,7 +86,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                                 title = title.yellow();
                             }
 
-                            if (UI.Toggle(title, ref toggle, PIXELS_PER_COLUMN))
+                            if (UI.Toggle(title, ref toggle, UI.ChecklyphOn, UI.CheckGlyphOff, PIXELS_PER_COLUMN))
                             {
                                 SubclassesContext.Switch(keyValuePair.Key, toggle);
                             }

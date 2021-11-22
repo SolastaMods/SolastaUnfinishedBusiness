@@ -1,7 +1,7 @@
+﻿using ModKit;
 using UnityModManagerNet;
-using ModKit;
-using static SolastaCommunityExpansion.Viewers.Displays.Level20HelpDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.CreditsDisplay;
+using static SolastaCommunityExpansion.Viewers.Displays.Level20HelpDisplay;
 
 namespace SolastaCommunityExpansion.Viewers
 {
@@ -21,9 +21,12 @@ namespace SolastaCommunityExpansion.Viewers
             //AddDumpDescriptionToLogButton();
         }
 
-        private void AddDumpDescriptionToLogButton()
+#pragma warning disable IDE0051 // Remove unused private members
+        private static void AddDumpDescriptionToLogButton()
+#pragma warning restore IDE0051 // Remove unused private members
         {
-            UI.ActionButton("Dump Description to Logs", () => {
+            UI.ActionButton("Dump Description to Logs", () =>
+            {
                 string collectedString = "";
                 collectedString += "[heading][size=5] [b] [i] Solasta Community Expansion[/i][/b][/size][/heading]";
                 collectedString += "\nThis is a collection of work from the Solasta modding community. It includes feats, subclasses, items, crafting recipes, gameplay options, UI improvements, and more. The general philosophy is everything is optional to enable, so you can install the mod and then enalbe the pieces you want. There are some minor bug fixes that are enabled by default.";
@@ -81,7 +84,7 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString += "\n[*]Shows crafting recipe in detailed tooltips";
                 collectedString += "\n[*]Pause the UI when victorious in battle";
                 collectedString += "\n[*]Additional lore friendly names";
-                collectedString += "\n[*]Speed up battles";                
+                collectedString += "\n[*]Speed up battles";
                 collectedString += "\n[*]Multi line spell casting selection";
                 collectedString += "\n[*]Multi line power activation selection";
                 collectedString += "\n[*]Keep spell UI open when switching weapons";
@@ -124,6 +127,7 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString += "\n[*]Faster Time Scale";
                 collectedString += "\n[*]Feats - Savage Attacker - Tough - War Caster";
                 collectedString += "\n[*]Fighter Spell Shield";
+                collectedString += "\n[*]Fighter Subclass - Tactician";
                 collectedString += "\n[*]Fighting Style Feats";
                 collectedString += "\n[*]Flexible Ancestries";
                 collectedString += "\n[*]Flexible Backgrounds";
@@ -137,6 +141,7 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString += "\n[*]Multiclass";
                 collectedString += "\n[*]No Level Constraint";
                 collectedString += "\n[*]Primed Recipes";
+                collectedString += "\n[*]Ranger Arcanist -Ranger Subclass";
                 collectedString += "\n[*]Respec";
                 collectedString += "\n[*]Rogue Con Artist";
                 collectedString += "\n[*]Save by Location [to-be imported by @impPhil]";
@@ -155,7 +160,7 @@ namespace SolastaCommunityExpansion.Viewers
                 // items
                 Main.Error(collectedString);
             }, UI.AutoWidth());
-           
+
         }
     }
 }

@@ -1,15 +1,15 @@
 
 using SolastaModApi;
 using SolastaModApi.Extensions;
-using static RuleDefinitions;
 using SolastaModApi.Infrastructure;
-using static SolastaModApi.DatabaseHelper.LootPackDefinitions;
 using System.Collections.Generic;
+using static RuleDefinitions;
+using static SolastaModApi.DatabaseHelper.LootPackDefinitions;
 
 namespace SolastaCommunityExpansion.Models
 {
     [TargetType(typeof(TreasureOption))]
-    public static partial class TreasurreOptionsExtension
+    public static partial class TreasureOptionsExtension
     {
         public static T SetOdds<T>(this T entity, int value)
            where T : TreasureOption
@@ -67,7 +67,7 @@ namespace SolastaCommunityExpansion.Models
             feats.Add(PickPocketFeat);
         }
 
-        static bool initialized = false;
+        private static bool initialized = false;
 
         internal static void Load()
         {
@@ -250,6 +250,7 @@ namespace SolastaCommunityExpansion.Models
     {
         protected LootPackDefinitionBuilder(string name, string guid, string title_string, string description_string, LootPackDefinition base_loot) : base(base_loot, name, guid)
         {
+            // ?? would these be better as !string.IsNullOr...
             if (title_string != "")
             {
                 Definition.GuiPresentation.Title = title_string;
@@ -260,6 +261,7 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
+        // TODO: should be capitalized - breaking change?
         public static LootPackDefinition createCopyFrom(string name, string guid, string new_title_string, string new_description_string, LootPackDefinition base_loot)
         {
             return new LootPackDefinitionBuilder(name, guid, new_title_string, new_description_string, base_loot).AddToDB();
@@ -278,8 +280,6 @@ namespace SolastaCommunityExpansion.Models
             {
                 Definition.GuiPresentation.Description = description_string;
             }
-
-
         }
 
         public static TreasureTableDefinition createCopyFrom(string name, string guid, string new_title_string, string new_description_string, TreasureTableDefinition base_table)
@@ -304,7 +304,6 @@ namespace SolastaCommunityExpansion.Models
         public static FeatureDefinitionAbilityCheckAffinity CreateCopyFrom(string name, string guid, string new_title_string, string new_description_string, FeatureDefinitionAbilityCheckAffinity base_check_affinity)
         {
             return new PickPocketAbilityCheckAffinityBuilder(name, guid, new_title_string, new_description_string, base_check_affinity).AddToDB();
-
         }
     }
 
@@ -324,7 +323,6 @@ namespace SolastaCommunityExpansion.Models
         public static FeatureDefinitionProficiency CreateCopyFrom(string name, string guid, string new_title_string, string new_description_string, FeatureDefinitionProficiency base_proficiency)
         {
             return new PickPocketProficiencyBuilder(name, guid, new_title_string, new_description_string, base_proficiency).AddToDB();
-
         }
     }
 
@@ -344,7 +342,6 @@ namespace SolastaCommunityExpansion.Models
         public static FeatDefinition CreateCopyFrom(string name, string guid, string new_title_string, string new_description_string, FeatDefinition base_Feat)
         {
             return new PickPocketFeatBuilder(name, guid, new_title_string, new_description_string, base_Feat).AddToDB();
-
         }
     }
 }

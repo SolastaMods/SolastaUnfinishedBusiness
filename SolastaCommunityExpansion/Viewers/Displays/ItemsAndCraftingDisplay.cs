@@ -1,6 +1,6 @@
-﻿using System.Linq;
-using ModKit;
+﻿using ModKit;
 using SolastaCommunityExpansion.Models;
+using System.Linq;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
@@ -16,12 +16,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 UI.ActionButton(ItemCraftingContext.RecipeTitles[key], () => ItemCraftingContext.LearnRecipes(key), UI.Width(175));
 
                 toggle = Main.Settings.InStore.Contains(key);
-                if (UI.Toggle("Add to store", ref toggle, 0, UI.Width(75)))
+                if (UI.Toggle("Add to store", ref toggle, UI.Width(75)))
                 {
                     if (toggle)
                     {
                         Main.Settings.InStore.Add(key);
-                    } else
+                    }
+                    else
                     {
                         Main.Settings.InStore.Remove(key);
                     }
@@ -29,7 +30,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.ItemsInDM.Contains(key);
-                if (UI.Toggle("Items in DM", ref toggle, 0, UI.Width(75)))
+                if (UI.Toggle("Items in DM", ref toggle, UI.Width(75)))
                 {
                     if (toggle)
                     {
@@ -43,7 +44,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.RecipesInDM.Contains(key);
-                if (UI.Toggle("Recipes in DM", ref toggle, 0, UI.Width(75)))
+                if (UI.Toggle("Recipes in DM", ref toggle, UI.Width(75)))
                 {
                     if (toggle)
                     {
@@ -68,14 +69,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.NoAttunement;
-            if (UI.Toggle("Removes attunement requirements " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Removes attunement requirements " + reqRestart, ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.NoAttunement = toggle;
                 RemoveIdentificationContext.Load();
             }
 
             toggle = Main.Settings.NoIdentification;
-            if (UI.Toggle("Removes identification requirements " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Removes identification requirements " + reqRestart, ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.NoIdentification = toggle;
                 RemoveIdentificationContext.Load();

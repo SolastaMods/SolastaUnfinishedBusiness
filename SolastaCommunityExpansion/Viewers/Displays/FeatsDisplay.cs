@@ -1,48 +1,46 @@
-﻿using System.Linq;
-using ModKit;
+﻿using ModKit;
 using SolastaCommunityExpansion.Models;
+using System.Linq;
+using static SolastaCommunityExpansion.Viewers.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class FeatsDisplay
     {
-        private static bool selectAll = false;
         private const int MAX_COLUMNS = 4;
         private const float PIXELS_PER_COLUMN = 225;
-        private static readonly string reqRestart = "[requires restart]".italic().red().bold();
 
         internal static void DisplayFeats()
         {
             bool toggle;
             int intValue;
-
-            selectAll = Main.Settings.FeatEnabled.Count == FeatsContext.Feats.Count;
-
-            // todo make the acehigh power attack feats tunable here. It is already in the settings (FeatPowerAttackModifier),
-            // but the text does not currently update to reflect the actual tuning.
-
-            //UI.Label("");
-            //UI.Label("Settings: ".yellow() + reqRestart);
+            bool selectAll = Main.Settings.FeatEnabled.Count == FeatsContext.Feats.Count;
 
             UI.Label("");
-            UI.Label("Feats: ".yellow() + reqRestart);
-            UI.Label("");
+            UI.Label("General:".yellow());
 
-            using (UI.HorizontalScope())
+            intValue = Main.Settings.FeatPowerAttackModifier;
+            if (UI.Slider("Power Attack modifier ".white() + RequiresRestart, ref intValue, 1, 6, 3, ""))
             {
-                if (UI.Toggle("Select all", ref selectAll))
-                {
-                    foreach (var keyValuePair in FeatsContext.Feats)
-                    {
-                        FeatsContext.Switch(keyValuePair.Key, selectAll);
-                    }
-                }
+                Main.Settings.FeatPowerAttackModifier = intValue;
+            }
 
-                intValue = Main.Settings.FeatSliderPosition;
-                if (UI.Slider("[slide left for description / right to collapse]".red().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
+            UI.Label("");
+            UI.Label("Feats: ".yellow() + RequiresRestart);
+            UI.Label("");
+
+            if (UI.Toggle("Select all", ref selectAll))
+            {
+                foreach (var keyValuePair in FeatsContext.Feats)
                 {
-                    Main.Settings.FeatSliderPosition = intValue;
+                    FeatsContext.Switch(keyValuePair.Key, selectAll);
                 }
+            }
+
+            intValue = Main.Settings.FeatSliderPosition;
+            if (UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
+            {
+                Main.Settings.FeatSliderPosition = intValue;
             }
 
             UI.Label("");
@@ -71,9 +69,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                                 title = title.yellow();
                             }
 
-                            if (UI.Toggle(title, ref toggle, PIXELS_PER_COLUMN))
+                            if (UI.Toggle(title, ref toggle, UI.ChecklyphOn, UI.CheckGlyphOff, PIXELS_PER_COLUMN))
                             {
-                                selectAll = false;
                                 FeatsContext.Switch(keyValuePair.Key, toggle);
                             }
 

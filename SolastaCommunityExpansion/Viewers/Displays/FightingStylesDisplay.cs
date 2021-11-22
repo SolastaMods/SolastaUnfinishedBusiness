@@ -1,44 +1,36 @@
-﻿using System.Linq;
-using ModKit;
+﻿using ModKit;
 using SolastaCommunityExpansion.Models;
+using System.Linq;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class FightingStylesDisplay
     {
-        private static bool selectAll = false;
         private const int MAX_COLUMNS = 4;
         private const float PIXELS_PER_COLUMN = 225;
-        private static readonly string reqRestart = "[requires restart]".italic().red().bold();
 
         internal static void DisplayFightingStyles()
         {
             bool toggle;
             int intValue;
-
-            selectAll = Main.Settings.FightingStyleEnabled.Count == FightingStyleContext.Styles.Count;
-
-         
+            bool selectAll = Main.Settings.FightingStyleEnabled.Count == FightingStyleContext.Styles.Count;
 
             UI.Label("");
             UI.Label("Fighting Styles: ".yellow());
             UI.Label("");
 
-            using (UI.HorizontalScope())
+            if (UI.Toggle("Select all", ref selectAll))
             {
-                if (UI.Toggle("Select all", ref selectAll))
+                foreach (var keyValuePair in FightingStyleContext.Styles)
                 {
-                    foreach (var keyValuePair in FightingStyleContext.Styles)
-                    {
-                        FightingStyleContext.Switch(keyValuePair.Key, selectAll);
-                    }
+                    FightingStyleContext.Switch(keyValuePair.Key, selectAll);
                 }
+            }
 
-                intValue = Main.Settings.FightingStyleSliderPosition;
-                if (UI.Slider("[slide left for description / right to collapse]".red().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
-                {
-                    Main.Settings.FightingStyleSliderPosition = intValue;
-                }
+            intValue = Main.Settings.FightingStyleSliderPosition;
+            if (UI.Slider("[slide left for description / right to collapse]".red().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
+            {
+                Main.Settings.FightingStyleSliderPosition = intValue;
             }
 
             UI.Label("");
@@ -67,9 +59,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                                 title = title.yellow();
                             }
 
-                            if (UI.Toggle(title, ref toggle, PIXELS_PER_COLUMN))
+                            if (UI.Toggle(title, ref toggle, UI.ChecklyphOn, UI.CheckGlyphOff, PIXELS_PER_COLUMN))
                             {
-                                selectAll = false;
                                 FightingStyleContext.Switch(keyValuePair.Key, toggle);
                             }
 

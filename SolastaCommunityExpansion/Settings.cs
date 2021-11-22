@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion
     {
 
     }
-    
+
     public class Settings : UnityModManager.ModSettings
     {
         //
@@ -42,6 +42,7 @@ namespace SolastaCommunityExpansion
 
         public bool DisableSenseDarkVisionFromAllRaces = false;
         public bool DisableSenseSuperiorDarkVisionFromAllRaces = false;
+        public bool IncreaseNormalVisionSenseRange = false;
 
         public int AllRacesInitialFeats = 0;
 
@@ -59,8 +60,8 @@ namespace SolastaCommunityExpansion
             }
         }
 
-        public List<string> FeatEnabled= new List<string>();
-        public List<string> SubclassEnabled= new List<string>();
+        public List<string> FeatEnabled = new List<string>();
+        public List<string> SubclassEnabled = new List<string>();
         public List<string> FightingStyleEnabled = new List<string>();
 
         public int FeatSliderPosition = 1;

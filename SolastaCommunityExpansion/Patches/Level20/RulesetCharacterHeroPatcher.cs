@@ -1,11 +1,11 @@
-﻿using System;
+﻿using HarmonyLib;
+using System;
 using System.Collections.Generic;
-using HarmonyLib;
 using static SolastaCommunityExpansion.Models.Level20Context;
 
 namespace SolastaCommunityExpansion.Patches
 {
-    class RulesetCharacterHeroPatcher
+    internal static class RulesetCharacterHeroPatcher
     {
         // replaces the hard coded experience
         [HarmonyPatch(typeof(RulesetCharacterHero), "RegisterAttributes")]

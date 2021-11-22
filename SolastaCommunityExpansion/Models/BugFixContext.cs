@@ -2,7 +2,7 @@
 
 namespace SolastaCommunityExpansion.Models
 {
-    class BugFixContext
+    internal static class BugFixContext
     {
         internal static void Load()
         {

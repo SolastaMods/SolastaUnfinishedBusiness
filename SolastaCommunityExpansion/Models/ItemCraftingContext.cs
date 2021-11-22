@@ -49,7 +49,7 @@ namespace SolastaCommunityExpansion.Models
 
             ItemRecipeGenerationHelper.AddRecipesForArmor(ArmorAndShieldData.Items);
 
-            foreach(string key in RecipeBooks.Keys)
+            foreach (string key in RecipeBooks.Keys)
             {
                 UpdateItemsInDMState(key);
                 UpdateRecipesInDMState(key);
@@ -127,8 +127,8 @@ namespace SolastaCommunityExpansion.Models
                         uniqueEntries.Add(name);
                     }
                 }
-                foreach(string name in uniqueEntries)
-                { 
+                foreach (string name in uniqueEntries)
+                {
                     if (!first)
                     {
                         outString += ", ";

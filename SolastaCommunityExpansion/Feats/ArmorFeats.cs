@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Feats
 {
-    class ArmorFeats
+    internal static class ArmorFeats
     {
         public static Guid ArmorNamespace = new Guid("d37cf3a0-6dbe-461f-8af5-58761414ef6b");
 

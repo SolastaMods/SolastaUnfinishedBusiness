@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
-using SolastaModApi.Extensions;
+﻿using SolastaModApi.Extensions;
+using System.Collections.Generic;
+using static SolastaCommunityExpansion.Level20.Features.PowerClericDivineInterventionImprovementBuilder;
+using static SolastaCommunityExpansion.Level20.Features.PowerClericTurnUndeadBuilder;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
-using static SolastaCommunityExpansion.Level20.Features.PowerClericTurnUndeadBuilder;
-using static SolastaCommunityExpansion.Level20.Features.PowerClericDivineInterventionImprovementBuilder;
 
 namespace SolastaCommunityExpansion.Level20.Classes
 {

@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace SolastaCommunityExpansion.Models
 {
-    class FeatsContext
+    internal static class FeatsContext
     {
         public static Dictionary<string, FeatDefinition> Feats = new Dictionary<string, FeatDefinition>();
 
@@ -65,7 +65,7 @@ namespace SolastaCommunityExpansion.Models
         {
             string outString = "[heading]Feats[/heading]";
             outString += "\n[list]";
-            foreach(FeatDefinition feat in Feats.Values)
+            foreach (FeatDefinition feat in Feats.Values)
             {
                 outString += "\n[*][b]" + Gui.Format(feat.GuiPresentation.Title) + "[/b]: " + Gui.Format(feat.GuiPresentation.Description);
 

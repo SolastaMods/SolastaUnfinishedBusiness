@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Patches.AutoPreparedSpells
 {
-    class SpellsByLevelGroupPatch
+    internal static class SpellsByLevelGroupPatch
     {
         [HarmonyPatch(typeof(SpellsByLevelGroup), "CommonBind")]
         internal static class SpellsByLevelGroup_CommonBind_Patch
@@ -26,7 +26,7 @@ namespace SolastaCommunityExpansion.Patches.AutoPreparedSpells
                     ICharacterBuildingService service = ServiceRepository.GetService<ICharacterBuildingService>();
                     caster = service.HeroCharacter;
                 }
-                
+
                 // Collect the auto prepared spells for all spell repertoirs (we also could have enumerated features and iterated through all)
                 // either way works.
                 // Also filter the prepped spells by level this group is displaying.
@@ -46,5 +46,4 @@ namespace SolastaCommunityExpansion.Patches.AutoPreparedSpells
             }
         }
     }
-    
 }

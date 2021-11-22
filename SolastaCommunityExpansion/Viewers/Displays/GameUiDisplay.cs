@@ -1,11 +1,10 @@
 ﻿using ModKit;
+using static SolastaCommunityExpansion.Viewers.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class GameUiDisplay
     {
-        private static readonly string reqRestart = "[requires restart]".italic().red();
-
         internal static void DisplayGameUi()
         {
             bool toggle;
@@ -15,43 +14,43 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.AllowExtraKeyboardCharactersInNames;
-            if (UI.Toggle("Allows extra keyboard characters in names", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Allows extra keyboard characters in names", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.AllowExtraKeyboardCharactersInNames = toggle;
             }
 
             toggle = Main.Settings.HideMonsterHitPoints;
-            if (UI.Toggle("Displays Monsters's health in steps of 25% / 50% / 75% / 100% instead of exact hit points", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Displays Monsters's health in steps of 25% / 50% / 75% / 100% instead of exact hit points", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.HideMonsterHitPoints = toggle;
             }
 
             toggle = Main.Settings.EnableHudToggleElementsHotkeys;
-            if (UI.Toggle("Enables hotkeys to toggle HUD components visibility " + "[ctrl-(C)ontrol Panel / ctrl-(L)og / ctrl-(M)ap / ctrl-(P)arty]".italic().red(), ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Enables hotkeys to toggle HUD components visibility " + "[ctrl-(C)ontrol Panel / ctrl-(L)og / ctrl-(M)ap / ctrl-(P)arty]".italic().red(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableHudToggleElementsHotkeys = toggle;
             }
 
             toggle = Main.Settings.InvertAltBehaviorOnTooltips;
-            if (UI.Toggle("Inverts ALT key behavior on tooltips", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Inverts ALT key behavior on tooltips", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.InvertAltBehaviorOnTooltips = toggle;
             }
 
             toggle = Main.Settings.RecipeTooltipShowsRecipe;
-            if (UI.Toggle("Shows crafting recipe in detailed tooltips", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Shows crafting recipe in detailed tooltips", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.RecipeTooltipShowsRecipe = toggle;
             }
 
             toggle = Main.Settings.AutoPauseOnVictory;
-            if (UI.Toggle("Pauses the UI when victorious in battle", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Pauses the UI when victorious in battle", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.AutoPauseOnVictory = toggle;
             }
 
             toggle = Main.Settings.OfferAdditionalNames;
-            if (UI.Toggle("Offers additional lore friendly names on character creation " + reqRestart, ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Offers additional lore friendly names on character creation " + RequiresRestart, ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.OfferAdditionalNames = toggle;
             }
@@ -59,7 +58,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.PermanentSpeedUp;
-            if (UI.Toggle("Permanently speeds battle up", ref toggle, 0, UI.AutoWidth()))
+            if (UI.Toggle("Permanently speeds battle up", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.PermanentSpeedUp = toggle;
             }

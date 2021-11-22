@@ -1,5 +1,4 @@
-﻿using HarmonyLib;
-using SolastaCommunityExpansion.Features;
+﻿using SolastaCommunityExpansion.Features;
 using SolastaModApi;
 using SolastaModApi.BuilderHelpers;
 using SolastaModApi.Extensions;
@@ -9,11 +8,10 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard
 {
-
-    class SpellMaster : AbstractSubclass
+    internal class SpellMaster : AbstractSubclass
     {
         private static Guid SubclassNamespace = new Guid("9f322734-1498-4f65-ace5-e6072b1d99be");
-        private CharacterSubclassDefinition Subclass;
+        private readonly CharacterSubclassDefinition Subclass;
 
         private static FeatureDefinitionPower BonusRecovery;
 

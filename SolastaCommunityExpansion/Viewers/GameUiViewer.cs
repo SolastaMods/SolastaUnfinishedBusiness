@@ -1,5 +1,5 @@
-using UnityModManagerNet;
 using ModKit;
+using UnityModManagerNet;
 using static SolastaCommunityExpansion.Viewers.Displays.GameUiDisplay;
 
 namespace SolastaCommunityExpansion.Viewers

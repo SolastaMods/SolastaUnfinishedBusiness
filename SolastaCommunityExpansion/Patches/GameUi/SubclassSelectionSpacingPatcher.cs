@@ -6,7 +6,7 @@ using UnityEngine.UI;
 namespace SolastaUIUpdates.Patches
 {
     // spacing
-    class SubclassSelectionSpacingPatcher
+    internal static class SubclassSelectionSpacingPatcher
     {
         [HarmonyPatch(typeof(CharacterStageSubclassSelectionPanel), "EnterStage")]
         internal static class CharacterStageSubclassSelectionPanel_EnterStage

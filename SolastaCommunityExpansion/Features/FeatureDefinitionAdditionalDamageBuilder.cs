@@ -1,8 +1,6 @@
-﻿using HarmonyLib;
-using SolastaModApi;
+﻿using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using System;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 
@@ -109,7 +107,7 @@ namespace SolastaCommunityExpansion.Features
             return this;
         }
 
-       public FeatureDefinitionAdditionalDamageBuilder SetImpactParticleReference(AssetReference asset)
+        public FeatureDefinitionAdditionalDamageBuilder SetImpactParticleReference(AssetReference asset)
         {
             Definition.SetImpactParticleReference(asset);
             return this;

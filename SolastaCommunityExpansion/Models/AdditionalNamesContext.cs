@@ -74,7 +74,7 @@ namespace SolastaCommunityExpansion.Models
                     {
                         halfElfNames.RacePresentation.SurNameOptions.Add(name);
                     }
-					
+
                     else if (term.Contains("HalfOrcFemale"))
                     {
                         halfOrcNames.RacePresentation.FemaleNameOptions.Add(name);
@@ -82,7 +82,7 @@ namespace SolastaCommunityExpansion.Models
                     else if (term.Contains("HalfOrcMale"))
                     {
                         halfOrcNames.RacePresentation.MaleNameOptions.Add(name);
-                    }					
+                    }
 
                     else if (term.Contains("HalflingFemale"))
                     {

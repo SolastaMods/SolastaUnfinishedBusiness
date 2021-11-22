@@ -1,9 +1,9 @@
-﻿using UnityModManagerNet;
-using ModKit;
+﻿using ModKit;
+using UnityModManagerNet;
 using static SolastaCommunityExpansion.Viewers.Displays.CharacterDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.FeatsDisplay;
-using static SolastaCommunityExpansion.Viewers.Displays.SubClassesDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.FightingStylesDisplay;
+using static SolastaCommunityExpansion.Viewers.Displays.SubClassesDisplay;
 
 namespace SolastaCommunityExpansion.Viewers
 {

@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using SolastaModApi.Extensions;
+﻿using SolastaModApi.Extensions;
+using System.Collections.Generic;
+using static SolastaCommunityExpansion.Level20.Features.ActionAffinityRangerVanishActionBuilder;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
-using static SolastaCommunityExpansion.Level20.Features.ActionAffinityRangerVanishActionBuilder;
 //using static SolastaCommunityExpansion.Models.Features.FeatureSetRangerFoeSlayerBuilder;
 
 namespace SolastaCommunityExpansion.Level20.Classes

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using HarmonyLib;
+﻿using HarmonyLib;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches
@@ -72,12 +71,12 @@ namespace SolastaCommunityExpansion.Patches
 
             if (foundActivePanel)
             {
-                if (__instance is CharacterControlPanelExploration)
+                if (__instance is CharacterControlPanelExploration exploration)
                 {
-                    panelToActivate = ((CharacterControlPanelExploration)__instance).ExplorationActionPanel;
-                } else if (__instance is CharacterControlPanelBattle)
+                    panelToActivate = exploration.ExplorationActionPanel;
+                }
+                else if (__instance is CharacterControlPanelBattle battlePanel)
                 {
-                    CharacterControlPanelBattle battlePanel = ((CharacterControlPanelBattle)__instance);
                     switch (actionId)
                     {
                         case ActionDefinitions.Id.CastMain:

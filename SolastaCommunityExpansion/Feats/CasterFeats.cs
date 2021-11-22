@@ -3,10 +3,11 @@ using SolastaModApi;
 using SolastaModApi.BuilderHelpers;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SolastaCommunityExpansion.Feats
 {
-    class CasterFeats
+    internal static class CasterFeats
     {
         public static Guid CasterFeatsNamespace = new Guid("bf70984d-e7b9-446a-9ae3-0f2039de833d");
 
@@ -389,14 +390,11 @@ namespace SolastaCommunityExpansion.Feats
 
         public static FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup BuildAutoPreparedSpellGroup(int classLevel, List<SpellDefinition> spellnames)
         {
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup spellgroup = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup();
-            spellgroup.ClassLevel = classLevel;
-            spellgroup.SpellsList = new List<SpellDefinition>();
-            foreach (SpellDefinition spell in spellnames)
+            return new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
-                spellgroup.SpellsList.Add(spell);
-            }
-            return spellgroup;
+                ClassLevel = classLevel,
+                SpellsList = spellnames.ToList()
+            };
         }
 
         public static FeatureDefinitionProficiency BuildProficiency(RuleDefinitions.ProficiencyType type,

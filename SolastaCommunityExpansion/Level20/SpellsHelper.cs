@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using static SolastaCommunityExpansion.Models.Level20Context;
 using static FeatureDefinitionCastSpell;
+using static SolastaCommunityExpansion.Models.Level20Context;
 
 namespace SolastaCommunityExpansion.Level20
 {
@@ -36,7 +36,7 @@ namespace SolastaCommunityExpansion.Level20
 
         internal static void UpdateSpellLists()
         {
-            foreach(var spellListDefinitionName in SpellListDefinitionList)
+            foreach (var spellListDefinitionName in SpellListDefinitionList)
             {
                 DatabaseRepository.GetDatabase<SpellListDefinition>().TryGetElement(spellListDefinitionName, out SpellListDefinition spellListDefinition);
 

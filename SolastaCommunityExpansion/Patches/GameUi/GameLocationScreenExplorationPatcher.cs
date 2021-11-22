@@ -2,14 +2,14 @@
 
 namespace SolastaCommunityExpansion.Patches
 {
-    class GameLocationScreenExplorationPatcher
+    internal static class GameLocationScreenExplorationPatcher
     {
         [HarmonyPatch(typeof(GameLocationScreenExploration), "HandleInput")]
         internal static class GameLocationScreenExploration_HandleInput
         {
             internal static bool Prefix(
                 GameLocationScreenExploration __instance,
-                InputCommands.Id command, 
+                InputCommands.Id command,
                 ref bool __result,
                 PartyControlPanel ___partyControlPanel,
                 CharacterControlPanelExploration ___characterControlPanelExploration,

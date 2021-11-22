@@ -3,8 +3,7 @@ using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.ItemCrafting
 {
-    
-    class ItemCollection
+    internal class ItemCollection
     {
         public struct MagicItemDataHolder
         {

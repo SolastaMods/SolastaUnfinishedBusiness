@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using HarmonyLib;
+﻿using HarmonyLib;
+using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Patches
 {
@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.Patches
     [HarmonyPatch(typeof(TooltipPanel), "SetupFeatures")]
     internal static class TooltipPanel_SetupFeatures
     {
-        internal static void Prefix(ref TooltipDefinitions.Scope scope, GuiTooltipClassDefinition tooltipClassDefinition, Dictionary<string, TooltipFeature> tooltipsFeatures)
+        internal static void Prefix(ref TooltipDefinitions.Scope scope)
         {
             if (Main.Settings.InvertAltBehaviorOnTooltips)
             {
