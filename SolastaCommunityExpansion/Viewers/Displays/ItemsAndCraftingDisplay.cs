@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 UI.ActionButton(ItemCraftingContext.RecipeTitles[key], () => ItemCraftingContext.LearnRecipes(key), UI.Width(175));
 
                 toggle = Main.Settings.InStore.Contains(key);
-                if (UI.Toggle("Add to store", ref toggle, UI.Width(75)))
+                if (UI.Toggle("Add to store", ref toggle, UI.Width(95)))
                 {
                     if (toggle)
                     {
@@ -30,7 +30,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.ItemsInDM.Contains(key);
-                if (UI.Toggle("Items in DM", ref toggle, UI.Width(75)))
+                if (UI.Toggle("Items in DM", ref toggle, UI.Width(95)))
                 {
                     if (toggle)
                     {
@@ -44,7 +44,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.RecipesInDM.Contains(key);
-                if (UI.Toggle("Recipes in DM", ref toggle, UI.Width(75)))
+                if (UI.Toggle("Recipes in DM", ref toggle, UI.Width(95)))
                 {
                     if (toggle)
                     {
