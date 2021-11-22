@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using static SolastaCommunityExpansion.Level20.Features.PowerBarbarianPersistentRageBuilder;
 using static SolastaCommunityExpansion.Level20.Features.PrimalChampionConstitutionModifierBuilder;
 using static SolastaCommunityExpansion.Level20.Features.PrimalChampionStrengthModifierBuilder;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
@@ -12,7 +13,7 @@ namespace SolastaCommunityExpansion.Level20.Classes
         internal static void Load()
         {
             Barbarian.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel> {
-                // TODO 15: Persistent Rage
+                new FeatureUnlockByLevel(PowerBarbarianPersistentRageStart, 15),
                 new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 16),
                 new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 17),
                 // TODO 18: Indomitable Might

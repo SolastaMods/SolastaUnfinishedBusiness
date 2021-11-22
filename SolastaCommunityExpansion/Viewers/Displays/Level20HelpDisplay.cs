@@ -1,4 +1,4 @@
-using ModKit;
+﻿using ModKit;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             {
                 UI.Label("Barbarian".green());
                 UI.Label("13 - Brutal Critical (2 dices)");
-                UI.Label("15 - Persistent Rage" + PLANNED);
+                UI.Label("15 - Persistent Rage");
                 UI.Label("16 - Ability score or feat");
                 UI.Label("17 - Brutal Critical (3 dices)");
                 UI.Label("18 - Indomitable Might" + PLANNED);

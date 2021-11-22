@@ -572,3 +572,7 @@ Feature/&GambitResourcePoolAddTitle	Additional Gambit die.
 Feature/&GambitResourcePoolAddDescription	Adds an additional gambit die.
 Subclass/&TactitionFighterSubclassTitle The Tactician 
 Subclass/&TactitionFighterSubclassDescription The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed.  They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.  Mod note - This class re-uses channel divinity for these features.
+Condition/&ZSConditionPersistentRagingTitle	Persistent Raging
+Condition/&ZSConditionPersistentRagingDescription	Your rage is so fierce that it ends early only if you fall unconscious or if you choose to end it.
+Power/&ZSPowerBarbarianPersistentRageStartTitle	Persistent Rage
+Power/&ZSPowerBarbarianPersistentRageStartDescription	Grants you advantage on strength saves & checks, a bonus to melee attacks damage, and resistance to slashing, bludgeoning and piercing damage until a long rest or if you fall unconscious.
