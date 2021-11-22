@@ -1,4 +1,4 @@
-using SolastaCommunityExpansion.Feats;
+﻿using SolastaCommunityExpansion.Feats;
 using SolastaCommunityExpansion.Subclasses.Rogue;
 using SolastaCommunityExpansion.Subclasses.Wizard;
 using System.Collections.Generic;
@@ -106,6 +106,9 @@ namespace SolastaCommunityExpansion
         public const InputCommands.Id CTRL_L = (InputCommands.Id)44440001;
         public const InputCommands.Id CTRL_M = (InputCommands.Id)44440002;
         public const InputCommands.Id CTRL_P = (InputCommands.Id)44440003;
+
+        /* Character Export command */
+        public const InputCommands.Id CTRL_E = (InputCommands.Id)44440004;
 
         public const RestActivityDefinition.ActivityCondition ActivityConditionCanRespec = (RestActivityDefinition.ActivityCondition)(int)-1001;
 
