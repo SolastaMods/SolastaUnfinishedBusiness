@@ -97,7 +97,7 @@ namespace SolastaCommunityExpansion.Models
 
             void messageValidated()
             {
-                string newFirstName = Patches.MessageModalPatcher.InputField.text;
+                string newFirstName = Patches.MessageModalPatcher.InputField.text.Trim();
                 string newSurname = string.Empty;
                 RacePresentation racePresentation = hero.RaceDefinition.RacePresentation;
                 HashSet<string> usedNames = Directory
@@ -105,6 +105,12 @@ namespace SolastaCommunityExpansion.Models
                     .Select(f => Path.GetFileNameWithoutExtension(f))
                     .ToHashSet(StringComparer.OrdinalIgnoreCase);
 
+                if (newFirstName == string.Empty)
+                {
+                    Gui.GuiService.ShowAlert("Export Cancelled: Please enter a valid name.", "EA7171", 5);
+                    return;
+                }
+                
                 if (newFirstName.Contains(" "))
                 {
                     var a = newFirstName.Split(new char[] { ' ' }, 2);
