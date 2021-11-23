@@ -171,9 +171,25 @@ namespace SolastaCommunityExpansion.Models
                 heroCharacter.SurName = newSurname;
                 heroCharacter.BuiltIn = false;
 
+                foreach (var item in attunedItems)
+                {
+                    item.Item.AttunedToCharacter = string.Empty;
+                }
+
+                foreach (var item in heroItemGuids)
+                {
+                    item.Item.SetGuid(0);
+                }
+
+                foreach (var item in inventoryItemGuids)
+                {
+                    item.Item.SetGuid(0);
+                }
+
                 heroCharacter.SetCurrentHitPoints(heroCharacter.CurrentHitPoints + heroCharacter.MissingHitPoints);
                 heroCharacter.Unregister();
                 heroCharacter.ResetForOutgame();
+                heroCharacter.SetGuid(0);
 
                 ServiceRepository.GetService<ICharacterPoolService>().SaveCharacter(heroCharacter, true);
             }
