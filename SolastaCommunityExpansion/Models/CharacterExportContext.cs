@@ -9,6 +9,160 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class CharacterExportContext
     {
+        internal const string INPUT_MODAL_MARK = "\n\n\n";
+
+        internal static bool InputModalVisible { get; set; }
+
+        internal static void Load()
+        {
+            ServiceRepository.GetService<IInputService>().RegisterCommand(Settings.CTRL_E, (int)KeyCode.E, (int)KeyCode.LeftControl, -1, -1, -1, -1);
+        }
+
+        internal static void ExportInspectedCharacter(RulesetCharacterHero hero)
+        {
+            MessageModal messageModal = Gui.GuiService.GetScreen<MessageModal>();
+
+            InputModalVisible = true;
+
+            messageModal.Show(MessageModal.Severity.Informative1, "Message/&CharacterExportModalTitleDescription", INPUT_MODAL_MARK, "Message/&MessageOkTitle", "Message/&MessageCancelTitle", messageValidated, messageCancelled, true);
+
+            void messageCancelled()
+            {
+                InputModalVisible = false;
+            }
+
+            void messageValidated()
+            {
+                string newFirstName = Patches.MessageModalPatcher.InputField.text.Trim();
+                string newSurname = string.Empty;
+                bool hasSurname = hero.RaceDefinition.RacePresentation.HasSurName;
+
+                HashSet<string> usedNames = Directory
+                    .EnumerateFiles(TacticalAdventuresApplication.GameCharactersDirectory, $"*.chr")
+                    .Select(f => Path.GetFileNameWithoutExtension(f))
+                    .ToHashSet(StringComparer.OrdinalIgnoreCase);
+
+                if (newFirstName == string.Empty)
+                {
+                    Gui.GuiService.ShowAlert("Message/&CharacterExportEmptyNameErrorDescription", "EA7171", 5);
+                }
+                else
+                {
+                    if (newFirstName.Contains(" "))
+                    {
+                        var a = newFirstName.Split(new char[] { ' ' }, 2);
+
+                        newFirstName = a[0];
+                        newSurname = hasSurname ? a[1] : string.Empty;
+                    }
+
+                    if (usedNames.Contains(newFirstName))
+                    {
+                        Gui.GuiService.ShowAlert("Message/&CharacterExportDuplicateNameErrorDescription", "EA7171", 5);
+                    }
+                    else
+                    {
+                        ExportCharacter(hero, newFirstName, newSurname);
+                    }
+                }
+
+                InputModalVisible = false;
+            }
+        }
+
+        internal static void ExportCharacter(RulesetCharacterHero heroCharacter, string newFirstName, string newSurname)
+        {
+            // record current name, etc..
+            //var guid = heroCharacter.Guid;
+            var firstName = heroCharacter.Name;
+            var surName = heroCharacter.SurName;
+            var builtin = heroCharacter.BuiltIn;
+            var hitPoints = heroCharacter.CurrentHitPoints;
+
+            // record current conditions, powers, spells and attunements
+            var conditions = heroCharacter.ConditionsByCategory.ToList();
+            var powers = heroCharacter.PowersUsedByMe.ToList();
+            var spells = heroCharacter.SpellsCastByMe.ToList();
+            
+            //var inventoryItems = new List<RulesetItem>();
+
+            //// record inventory
+            //heroCharacter.CharacterInventory.EnumerateAllItems(inventoryItems);
+
+            //// record attuned items
+            //var attunedItems = inventoryItems.Select(i => new { Item = i, Name = i.AttunedToCharacter }).ToList();
+
+            //// record item guids
+            //var heroItemGuids = heroCharacter.Items.Select(i => new { Item = i, i.Guid }).ToList();
+            //var inventoryItemGuids = inventoryItems.Select(i => new { Item = i, i.Guid }).ToList();
+
+            try
+            {
+                heroCharacter.Name = newFirstName;
+                heroCharacter.SurName = newSurname;
+                heroCharacter.BuiltIn = false;
+
+                //foreach (var item in attunedItems)
+                //{
+                //    item.Item.AttunedToCharacter = string.Empty;
+                //}
+
+                //foreach (var item in heroItemGuids)
+                //{
+                //    item.Item.SetGuid(0);
+                //}
+
+                //foreach (var item in inventoryItemGuids)
+                //{
+                //    item.Item.SetGuid(0);
+                //}
+
+                heroCharacter.SetCurrentHitPoints(heroCharacter.GetAttribute("HitPoints").CurrentValue);
+                heroCharacter.Unregister();
+                heroCharacter.ResetForOutgame();
+
+                ServiceRepository.GetService<ICharacterPoolService>().SaveCharacter(heroCharacter, true);
+            }
+            finally
+            {
+                // restore original values
+                heroCharacter.Name = firstName;
+                heroCharacter.SurName = surName;
+                heroCharacter.BuiltIn = builtin;
+                heroCharacter.SetCurrentHitPoints(hitPoints);
+
+                // restore conditions
+                foreach (var kvp in conditions)
+                {
+                    heroCharacter.ConditionsByCategory.Add(kvp.Key, kvp.Value);
+                }
+
+                // restore active spells and effects
+                heroCharacter.PowersUsedByMe.AddRange(powers);
+                heroCharacter.SpellsCastByMe.AddRange(spells);
+
+                // restore item status
+                //foreach (var item in attunedItems)
+                //{
+                //    item.Item.AttunedToCharacter = item.Name;
+                //}
+
+                //foreach (var item in heroItemGuids)
+                //{
+                //    item.Item.SetGuid(item.Guid);
+                //}
+
+                //foreach (var item in inventoryItemGuids)
+                //{
+                //    item.Item.SetGuid(item.Guid);
+                //}
+
+                //heroCharacter.SetGuid(guid);
+
+                heroCharacter.Register(true);
+            }
+        }
+
         /// <summary>
         /// Required during de-serialization in the character inspection screen to prevent null-ref exceptions
         /// </summary>
@@ -78,156 +232,6 @@ namespace SolastaCommunityExpansion.Models
             {
                 rulesetEntity = null;
                 return false;
-            }
-        }
-
-        internal const string INPUT_MODAL_MARK = "\n\n\n";
-
-        internal static bool InputModalVisible { get; set; }
-
-        internal static void Load()
-        {
-            ServiceRepository.GetService<IInputService>().RegisterCommand(Settings.CTRL_E, (int)KeyCode.E, (int)KeyCode.LeftControl, -1, -1, -1, -1);
-        }
-
-        internal static void ExportInspectedCharacter(RulesetCharacterHero hero)
-        {
-            MessageModal messageModal = Gui.GuiService.GetScreen<MessageModal>();
-
-            InputModalVisible = true;
-
-            messageModal.Show(MessageModal.Severity.Informative1, "Message/&CharacterExportModalTitleDescription", INPUT_MODAL_MARK, "Message/&MessageOkTitle", "Message/&MessageCancelTitle", messageValidated, messageCancelled, true);
-
-            void messageCancelled()
-            {
-                InputModalVisible = false;
-            }
-
-            void messageValidated()
-            {
-                string newFirstName = Patches.MessageModalPatcher.InputField.text.Trim();
-                string newSurname = string.Empty;
-                bool hasSurname = hero.RaceDefinition.RacePresentation.HasSurName;
-
-                HashSet<string> usedNames = Directory
-                    .EnumerateFiles(TacticalAdventuresApplication.GameCharactersDirectory, $"*.chr")
-                    .Select(f => Path.GetFileNameWithoutExtension(f))
-                    .ToHashSet(StringComparer.OrdinalIgnoreCase);
-
-                if (newFirstName == string.Empty)
-                {
-                    Gui.GuiService.ShowAlert("Message/&CharacterExportEmptyNameErrorDescription", "EA7171", 5);
-                }
-                else
-                {
-                    if (newFirstName.Contains(" "))
-                    {
-                        var a = newFirstName.Split(new char[] { ' ' }, 2);
-
-                        newFirstName = a[0];
-                        newSurname = hasSurname ? a[1] : string.Empty;
-                    }
-
-                    if (usedNames.Contains(newFirstName))
-                    {
-                        Gui.GuiService.ShowAlert("Message/&CharacterExportDuplicateNameErrorDescription", "EA7171", 5);
-                    }
-                    else
-                    {
-                        ExportCharacter(hero, newFirstName, newSurname);
-                    }
-                }
-
-                InputModalVisible = false;
-            }
-        }
-
-        internal static void ExportCharacter(RulesetCharacterHero heroCharacter, string newFirstName, string newSurname)
-        {
-            // record current name, etc..
-            var guid = heroCharacter.Guid;
-            var firstName = heroCharacter.Name;
-            var surName = heroCharacter.SurName;
-            var builtin = heroCharacter.BuiltIn;
-
-            // record current conditions, powers, spells and attunements
-            var conditions = heroCharacter.ConditionsByCategory.ToList();
-            var powers = heroCharacter.PowersUsedByMe.ToList();
-            var spells = heroCharacter.SpellsCastByMe.ToList();
-
-            var inventoryItems = new List<RulesetItem>();
-
-            heroCharacter.CharacterInventory.EnumerateAllItems(inventoryItems);
-
-            var attunedItems = inventoryItems.Select(i => new { Item = i, Name = i.AttunedToCharacter }).ToList();
-
-            // record item guids
-            var heroItemGuids = heroCharacter.Items.Select(i => new { Item = i, i.Guid }).ToList();
-            var inventoryItemGuids = inventoryItems.Select(i => new { Item = i, i.Guid }).ToList();
-
-            try
-            {
-                heroCharacter.Name = newFirstName;
-                heroCharacter.SurName = newSurname;
-                heroCharacter.BuiltIn = false;
-
-                foreach (var item in attunedItems)
-                {
-                    item.Item.AttunedToCharacter = string.Empty;
-                }
-
-                foreach (var item in heroItemGuids)
-                {
-                    item.Item.SetGuid(0);
-                }
-
-                foreach (var item in inventoryItemGuids)
-                {
-                    item.Item.SetGuid(0);
-                }
-
-                heroCharacter.SetCurrentHitPoints(heroCharacter.CurrentHitPoints + heroCharacter.MissingHitPoints);
-                heroCharacter.Unregister();
-                heroCharacter.ResetForOutgame();
-                heroCharacter.SetGuid(0);
-
-                ServiceRepository.GetService<ICharacterPoolService>().SaveCharacter(heroCharacter, true);
-            }
-            finally
-            {
-                // restore guids
-                heroCharacter.SetGuid(guid);
-
-                // restore original values
-                heroCharacter.Name = firstName;
-                heroCharacter.SurName = surName;
-                heroCharacter.BuiltIn = builtin;
-
-                // restore conditions
-                foreach (var kvp in conditions)
-                {
-                    heroCharacter.ConditionsByCategory.Add(kvp.Key, kvp.Value);
-                }
-
-                // restore active spells and effects
-                heroCharacter.PowersUsedByMe.AddRange(powers);
-                heroCharacter.SpellsCastByMe.AddRange(spells);
-
-                // restore item status
-                foreach (var item in attunedItems) 
-                { 
-                    item.Item.AttunedToCharacter = item.Name; 
-                }
-
-                foreach (var item in heroItemGuids)
-                {
-                    item.Item.SetGuid(item.Guid);
-                }
-
-                foreach (var item in inventoryItemGuids)
-                {
-                    item.Item.SetGuid(item.Guid);
-                }
             }
         }
     }
