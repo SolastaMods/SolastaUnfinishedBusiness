@@ -118,33 +118,35 @@ namespace SolastaCommunityExpansion.Functors
 
         internal static void FinalizeRespec(RulesetCharacterHero oldHero, RulesetCharacterHero newHero)
         {
+            var gameCampaignCharacters = Gui.GameCampaign.Party.CharactersList;
+            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
-                var gameCampaignCharacters = Gui.GameCampaign.Party.CharactersList;
+            oldHero.Unregister();
+            oldHero.ResetForOutgame();
+
+            CopyInventoryOver(oldHero, newHero);
+
+            newHero.Register(true);
+            newHero.Attributes[AttributeDefinitions.Experience] = oldHero.GetAttribute(AttributeDefinitions.Experience);
+
+            UpdateRestPanelUi(gameCampaignCharacters);
+
+            gameCampaignCharacters.Find(x => x.RulesetCharacter == oldHero).RulesetCharacter = newHero;
+
+            if (gameLocationCharacterService != null)
+            {
+                var gameLocationCharacter = gameLocationCharacterService.PartyCharacters.Find(x => x.RulesetCharacter == oldHero);
                 var worldLocationEntityFactoryService = ServiceRepository.GetService<IWorldLocationEntityFactoryService>();
-                var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-                var gameLocationCharacter = gameLocationCharacterService?.PartyCharacters.Find(x => x.RulesetCharacter == oldHero);
-                var gameSerializationService = ServiceRepository.GetService<IGameSerializationService>();
 
-                oldHero.Unregister();
-                oldHero.ResetForOutgame();
+                gameLocationCharacter.SetRuleset(newHero);
 
-                CopyInventoryOver(oldHero, newHero);
-
-                gameCampaignCharacters.Find(x => x.RulesetCharacter == oldHero).RulesetCharacter = newHero;
-                gameLocationCharacter?.SetRuleset(newHero);
-
-                newHero.Attributes[AttributeDefinitions.Experience] = oldHero.GetAttribute(AttributeDefinitions.Experience);
-                newHero.Register(true);
-
-                UpdateRestPanelUi();
-
-                if (gameLocationCharacter != null)
+                if (worldLocationEntityFactoryService.TryFindWorldCharacter(gameLocationCharacter, out WorldLocationCharacter worldLocationCharacter))
                 {
-                    // TODO: need to find a way to refresh the hero model instead of this workaround
-                    Gui.GuiService.ShowAlert("Please save / reload your game to refresh the hero model.", "EA7171", 4);
+                    worldLocationCharacter.GraphicsCharacter.RulesetCharacter = newHero;
                 }
-
+            }
         }
+
         internal static void CopyInventoryOver(RulesetCharacterHero oldHero, RulesetCharacterHero newHero)
         {
             foreach (var inventorySlot in oldHero.CharacterInventory.PersonalContainer.InventorySlots)
@@ -172,9 +174,8 @@ namespace SolastaCommunityExpansion.Functors
             }
         }
 
-        internal static void UpdateRestPanelUi()
+        internal static void UpdateRestPanelUi(List<GameCampaignCharacter> gameCampaignCharacters)
         {
-            var gameCampaignCharacters = Gui.GameCampaign.Party.CharactersList;
             var restModalScreen = Gui.GuiService.GetScreen<RestModal>();
             var restAfterPanel = AccessTools.Field(restModalScreen.GetType(), "restAfterPanel").GetValue(restModalScreen) as RestAfterPanel;
             var characterPlatesTable = AccessTools.Field(restAfterPanel.GetType(), "characterPlatesTable").GetValue(restAfterPanel) as RectTransform;
