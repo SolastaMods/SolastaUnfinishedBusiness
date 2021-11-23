@@ -83,6 +83,8 @@ namespace SolastaCommunityExpansion.Models
 
         internal const string INPUT_MODAL_MARK = "\n\n\n";
 
+        internal static bool InputModalVisible { get; set; }
+
         internal static void Load()
         {
             ServiceRepository.GetService<IInputService>().RegisterCommand(Settings.CTRL_E, (int)KeyCode.E, (int)KeyCode.LeftControl, -1, -1, -1, -1);
@@ -90,10 +92,16 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void ExportInspectedCharacter(RulesetCharacterHero hero)
         {
-            IGuiService guiService = ServiceRepository.GetService<IGuiService>();
-            MessageModal messageModal = guiService.GetScreen<MessageModal>();
+            MessageModal messageModal = Gui.GuiService.GetScreen<MessageModal>();
 
-            messageModal.Show(MessageModal.Severity.Informative1, "Enter the hero name to export:", INPUT_MODAL_MARK, "Ok", "Cancel", messageValidated, null, true);
+            InputModalVisible = true;
+
+            messageModal.Show(MessageModal.Severity.Informative1, "Enter the hero name to export:", INPUT_MODAL_MARK, "Ok", "Cancel", messageValidated, messageCancelled, true);
+
+            void messageCancelled()
+            {
+                InputModalVisible = false;
+            }
 
             void messageValidated()
             {
@@ -108,29 +116,32 @@ namespace SolastaCommunityExpansion.Models
                 if (newFirstName == string.Empty)
                 {
                     Gui.GuiService.ShowAlert("Export Cancelled: Please enter a valid name.", "EA7171", 5);
-                    return;
-                }
-                
-                if (newFirstName.Contains(" "))
-                {
-                    var a = newFirstName.Split(new char[] { ' ' }, 2);
-
-                    newFirstName = a[0];
-
-                    if (racePresentation.HasSurName)
-                    {
-                        newSurname = a[1];
-                    }
-                }
-
-                if (usedNames.Contains(newFirstName))
-                {
-                    Gui.GuiService.ShowAlert("Export Cancelled: A hero with this name already exists in the pool.\nPlease try again with a different name.", "EA7171", 5);
                 }
                 else
                 {
-                    DoExportInspectedCharacter(hero, newFirstName, newSurname);
+                    if (newFirstName.Contains(" "))
+                    {
+                        var a = newFirstName.Split(new char[] { ' ' }, 2);
+
+                        newFirstName = a[0];
+
+                        if (racePresentation.HasSurName)
+                        {
+                            newSurname = a[1];
+                        }
+                    }
+
+                    if (usedNames.Contains(newFirstName))
+                    {
+                        Gui.GuiService.ShowAlert("Export Cancelled: A hero with this name already exists in the pool.\nPlease try again with a different name.", "EA7171", 5);
+                    }
+                    else
+                    {
+                        DoExportInspectedCharacter(hero, newFirstName, newSurname);
+                    }
                 }
+
+                InputModalVisible = false;
             }
         }
 
