@@ -96,7 +96,7 @@ namespace SolastaCommunityExpansion.Models
 
             InputModalVisible = true;
 
-            messageModal.Show(MessageModal.Severity.Informative1, "Enter the hero name to export:", INPUT_MODAL_MARK, "Ok", "Cancel", messageValidated, messageCancelled, true);
+            messageModal.Show(MessageModal.Severity.Informative1, "Message/&CharacterExportModalTitleDescription", INPUT_MODAL_MARK, "Message/&MessageOkTitle", "Message/&MessageCancelTitle", messageValidated, messageCancelled, true);
 
             void messageCancelled()
             {
@@ -107,7 +107,8 @@ namespace SolastaCommunityExpansion.Models
             {
                 string newFirstName = Patches.MessageModalPatcher.InputField.text.Trim();
                 string newSurname = string.Empty;
-                RacePresentation racePresentation = hero.RaceDefinition.RacePresentation;
+                bool hasSurname = hero.RaceDefinition.RacePresentation.HasSurName;
+
                 HashSet<string> usedNames = Directory
                     .EnumerateFiles(TacticalAdventuresApplication.GameCharactersDirectory, $"*.chr")
                     .Select(f => Path.GetFileNameWithoutExtension(f))
@@ -115,7 +116,7 @@ namespace SolastaCommunityExpansion.Models
 
                 if (newFirstName == string.Empty)
                 {
-                    Gui.GuiService.ShowAlert("Export Cancelled: Please enter a valid name.", "EA7171", 5);
+                    Gui.GuiService.ShowAlert("Message/&CharacterExportEmptyNameErrorDescription", "EA7171", 5);
                 }
                 else
                 {
@@ -124,20 +125,16 @@ namespace SolastaCommunityExpansion.Models
                         var a = newFirstName.Split(new char[] { ' ' }, 2);
 
                         newFirstName = a[0];
-
-                        if (racePresentation.HasSurName)
-                        {
-                            newSurname = a[1];
-                        }
+                        newSurname = hasSurname ? a[1] : string.Empty;
                     }
 
                     if (usedNames.Contains(newFirstName))
                     {
-                        Gui.GuiService.ShowAlert("Export Cancelled: A hero with this name already exists in the pool.\nPlease try again with a different name.", "EA7171", 5);
+                        Gui.GuiService.ShowAlert("Message/&CharacterExportDuplicateNameErrorDescription", "EA7171", 5);
                     }
                     else
                     {
-                        DoExportInspectedCharacter(hero, newFirstName, newSurname);
+                        ExportCharacter(hero, newFirstName, newSurname);
                     }
                 }
 
@@ -145,13 +142,13 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void DoExportInspectedCharacter(RulesetCharacterHero heroCharacter, string newFirstName, string newSurname)
+        internal static void ExportCharacter(RulesetCharacterHero heroCharacter, string newFirstName, string newSurname)
         {
             // record current name, etc..
+            var guid = heroCharacter.Guid;
             var firstName = heroCharacter.Name;
             var surName = heroCharacter.SurName;
             var builtin = heroCharacter.BuiltIn;
-            var guid = heroCharacter.Guid;
 
             // record current conditions, powers, spells and attunements
             var conditions = heroCharacter.ConditionsByCategory.ToList();
@@ -159,7 +156,9 @@ namespace SolastaCommunityExpansion.Models
             var spells = heroCharacter.SpellsCastByMe.ToList();
 
             var inventoryItems = new List<RulesetItem>();
+
             heroCharacter.CharacterInventory.EnumerateAllItems(inventoryItems);
+
             var attunedItems = inventoryItems.Select(i => new { Item = i, Name = i.AttunedToCharacter }).ToList();
 
             // record item guids
@@ -172,52 +171,16 @@ namespace SolastaCommunityExpansion.Models
                 heroCharacter.SurName = newSurname;
                 heroCharacter.BuiltIn = false;
 
-                // remove active conditions (or filter out during serialization)
-                heroCharacter.ConditionsByCategory.Clear();
+                heroCharacter.SetCurrentHitPoints(heroCharacter.CurrentHitPoints + heroCharacter.MissingHitPoints);
+                heroCharacter.Unregister();
+                heroCharacter.ResetForOutgame();
 
-                // remove spells and effects (or filter out during serialization)
-                heroCharacter.PowersUsedByMe.Clear();
-                heroCharacter.SpellsCastByMe.Clear();
-
-                // TODO: remove weapon modifiers and effects
-
-                // remove attunement, attuned items don't work well in the character inspection screen out of game
-                foreach (var item in attunedItems)
-                {
-                    item.Item.AttunedToCharacter = string.Empty;
-                }
-
-                // clear guids
-                heroCharacter.SetGuid(0);
-
-                foreach (var item in heroItemGuids)
-                {
-                    item.Item.SetGuid(0);
-                }
-
-                foreach (var item in inventoryItemGuids)
-                {
-                    item.Item.SetGuid(0);
-                }
-
-                // TODO: check if below rest will affect in game hero
-
-                // TODO: fully rest but below code throwns an exception on the finally block
-                //Game game = ServiceRepository.GetService<IGameService>().Game;
-                //GameTime gameTime = game.GameCampaign.GameTime;
-                //TimeInfo timeInfo = gameTime.TimeInfo;
-                //heroCharacter.ApplyRest(RuleDefinitions.RestType.LongRest, false, timeInfo);
-
-                // finally, save the character
-                ServiceRepository
-                    .GetService<ICharacterPoolService>()
-                    .SaveCharacter(heroCharacter, true);
+                ServiceRepository.GetService<ICharacterPoolService>().SaveCharacter(heroCharacter, true);
             }
             finally
             {
-                // and finally, finally, restore everything
-
-                // TODO: check these things are really restored
+                // restore guids
+                heroCharacter.SetGuid(guid);
 
                 // restore original values
                 heroCharacter.Name = firstName;
@@ -234,11 +197,11 @@ namespace SolastaCommunityExpansion.Models
                 heroCharacter.PowersUsedByMe.AddRange(powers);
                 heroCharacter.SpellsCastByMe.AddRange(spells);
 
-                // restore attunements
-                foreach (var item in attunedItems) { item.Item.AttunedToCharacter = item.Name; }
-
-                // restore guids
-                heroCharacter.SetGuid(guid);
+                // restore item status
+                foreach (var item in attunedItems) 
+                { 
+                    item.Item.AttunedToCharacter = item.Name; 
+                }
 
                 foreach (var item in heroItemGuids)
                 {
