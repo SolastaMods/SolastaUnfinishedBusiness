@@ -43,9 +43,7 @@ namespace SolastaCommunityExpansion.Models
         {
             if (Main.Settings.AllowExtraKeyboardCharactersInNames)
             {
-                return new string(text
-                    .Where(n => !HeroNameContext.InvalidFilenameChars.Contains(n))
-                    .ToArray()).Trim();
+                return new string(text.Where(n => !HeroNameContext.InvalidFilenameChars.Contains(n)).ToArray()).Trim();
             }
             else
             {
