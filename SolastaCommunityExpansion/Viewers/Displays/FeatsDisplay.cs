@@ -18,6 +18,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
             UI.Label("General:".yellow());
+            UI.Label("");
 
             intValue = Main.Settings.FeatPowerAttackModifier;
             if (UI.Slider("Power Attack modifier ".white() + RequiresRestart, ref intValue, 1, 6, 3, ""))
@@ -69,7 +70,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                                 title = title.yellow();
                             }
 
-                            if (UI.Toggle(title, ref toggle, UI.ChecklyphOn, UI.CheckGlyphOff, PIXELS_PER_COLUMN))
+                            if (UI.Toggle(title, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                             {
                                 FeatsContext.Switch(keyValuePair.Key, toggle);
                             }
