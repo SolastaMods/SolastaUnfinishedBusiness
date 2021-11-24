@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Patches
     {
         public static bool Prefix(CharacterInspectionScreen __instance, InputCommands.Id command, ref bool __result)
         {
-            bool trap = Main.Settings.EnableCharacterExport && !Models.CharacterExportContext.InputModalVisible && command == Settings.CTRL_E;
+            bool trap = Gui.Game != null && Main.Settings.EnableCharacterExport && !Models.CharacterExportContext.InputModalVisible && command == Settings.CTRL_E;
 
             if (trap)
             {
