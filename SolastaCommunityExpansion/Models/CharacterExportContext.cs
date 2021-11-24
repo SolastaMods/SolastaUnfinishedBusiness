@@ -39,17 +39,15 @@ namespace SolastaCommunityExpansion.Models
             InputField.transform.localPosition = new Vector3(0, contentText.transform.parent.localPosition.y - contentText.fontSize, 0);
         }
 
-        private static void ParseText(TMP_InputField textField)
+        private static string ParseText(string text)
         {
             if (Main.Settings.AllowExtraKeyboardCharactersInNames)
             {
-                textField.text = new string(textField.text
-                    .Where(n => !HeroNameContext.InvalidFilenameChars.Contains(n))
-                    .ToArray()).TrimStart();
+                return new string(text.Where(n => !HeroNameContext.InvalidFilenameChars.Contains(n)).ToArray()).TrimStart();
             }
             else
             {
-                textField.text = Gui.TrimInvalidCharacterNameSymbols(textField.text).Trim();
+                return Gui.TrimInvalidCharacterNameSymbols(.text).Trim();
             }
         }
 
@@ -77,8 +75,6 @@ namespace SolastaCommunityExpansion.Models
                     .Select(f => Path.GetFileNameWithoutExtension(f))
                     .ToHashSet(StringComparer.OrdinalIgnoreCase);
 
-                ParseText(InputField);
-
                 if (newFirstName == string.Empty)
                 {
                     Gui.GuiService.ShowAlert("Message/&CharacterExportEmptyNameErrorDescription", "EA7171", 5);
@@ -89,8 +85,8 @@ namespace SolastaCommunityExpansion.Models
                     {
                         var a = newFirstName.Split(new char[] { ' ' }, 2);
 
-                        newFirstName = a[0];
-                        newSurname = hasSurname ? a[1] : string.Empty;
+                        newFirstName = ParseText(a[0]);
+                        newSurname = hasSurname ? ParseText(a[1]) : string.Empty;
                     }
 
                     if (usedNames.Contains(newFirstName))
