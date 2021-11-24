@@ -43,11 +43,13 @@ namespace SolastaCommunityExpansion.Models
         {
             if (Main.Settings.AllowExtraKeyboardCharactersInNames)
             {
-                return new string(text.Where(n => !HeroNameContext.InvalidFilenameChars.Contains(n)).ToArray()).TrimStart();
+                return new string(text
+                    .Where(n => !HeroNameContext.InvalidFilenameChars.Contains(n))
+                    .ToArray()).Trim();
             }
             else
             {
-                return Gui.TrimInvalidCharacterNameSymbols(.text).Trim();
+                return Gui.TrimInvalidCharacterNameSymbols(text).Trim();
             }
         }
 
@@ -75,6 +77,8 @@ namespace SolastaCommunityExpansion.Models
                     .Select(f => Path.GetFileNameWithoutExtension(f))
                     .ToHashSet(StringComparer.OrdinalIgnoreCase);
 
+                newFirstName = newFirstName.TrimStart();
+
                 if (newFirstName == string.Empty)
                 {
                     Gui.GuiService.ShowAlert("Message/&CharacterExportEmptyNameErrorDescription", "EA7171", 5);
@@ -86,7 +90,7 @@ namespace SolastaCommunityExpansion.Models
                         var a = newFirstName.Split(new char[] { ' ' }, 2);
 
                         newFirstName = ParseText(a[0]);
-                        newSurname = hasSurname ? ParseText(a[1]) : string.Empty;
+                        newSurname = hasSurname ? ParseText(a[1]) ?? string.Empty : string.Empty;
                     }
 
                     if (usedNames.Contains(newFirstName))
@@ -151,9 +155,9 @@ namespace SolastaCommunityExpansion.Models
                 }
 
                 // restore items
-                foreach (var item in attunedItems) 
-                { 
-                    item.Item.AttunedToCharacter = item.Name; 
+                foreach (var item in attunedItems)
+                {
+                    item.Item.AttunedToCharacter = item.Name;
                 }
 
                 foreach (var item in heroItemGuids)
