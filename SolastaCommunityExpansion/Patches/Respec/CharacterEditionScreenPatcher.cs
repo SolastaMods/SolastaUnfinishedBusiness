@@ -8,7 +8,6 @@ namespace SolastaCommunityExpansion.Patches
     {
         internal static void Postfix()
         {
-            // should not check if Respec is enabled here otherwise users that disable respec in Mod UI while doing one and cancelling will get in big, big trouble ;-)
             Functors.FunctorRespec.AbortRespec();
         }
     }

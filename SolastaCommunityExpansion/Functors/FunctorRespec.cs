@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Functors
 {
@@ -25,7 +26,7 @@ namespace SolastaCommunityExpansion.Functors
 
         internal static void DropSpellbooksIfRequired(RulesetCharacterHero rulesetCharacterHero)
         {
-            rulesetCharacterHero.CharacterInventory.BrowseAllCarriedItems<RulesetItemSpellbook>(rulesetItemSpellbooks);
+            rulesetCharacterHero.CharacterInventory.BrowseAllCarriedItems(rulesetItemSpellbooks);
 
             if (rulesetCharacterHero.ClassesHistory[rulesetCharacterHero.ClassesHistory.Count - 1].Name == "Wizard")
             {
@@ -49,21 +50,24 @@ namespace SolastaCommunityExpansion.Functors
 
         public override IEnumerator Execute(FunctorParametersDescription functorParameters, FunctorExecutionContext context)
         {
-            var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
-
-            var gameCampaignScreen = Gui.GuiService.GetScreen<GameCampaignScreen>();
-            var gameLocationScreenExploration = Gui.GuiService.GetScreen<GameLocationScreenExploration>();
             var guiConsoleScreen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
+            var gameCampaignScreen = Gui.GuiService.GetScreen<GameCampaignScreen>();
 
-            var gameCampaignScreenVisible = gameCampaignScreen?.Visible;
+            var gameLocationScreenExploration = Gui.GuiService.GetScreen<GameLocationScreenExploration>();
+
+            var guiConsoleScreenVisible = guiConsoleScreen.Visible;
+            var gameCampaignScreenVisible = gameCampaignScreen.Visible;
+
             var gameLocationscreenExplorationVisible = gameLocationScreenExploration?.Visible;
-            var guiConsoleScreenVisible = guiConsoleScreen?.Visible;
 
             StartRespec();
 
-            gameCampaignScreen.Hide(true);
-            gameLocationScreenExploration?.Hide(true);
             guiConsoleScreen.Hide(true);
+            gameCampaignScreen.Hide(true);
+
+            gameLocationScreenExploration?.Hide(true);
+
+            var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
 
             characterBuildingService.CreateNewCharacter();
 
@@ -83,24 +87,15 @@ namespace SolastaCommunityExpansion.Functors
                 PickupSpellbooksIfRequired(oldHero);
             }
 
-            if (gameCampaignScreenVisible == true)
-            {
-                gameCampaignScreen.Show(true);
-            }
+            guiConsoleScreen.Show(guiConsoleScreenVisible);
+            gameCampaignScreen.Show(gameCampaignScreenVisible);
 
             if (gameLocationscreenExplorationVisible == true)
             {
                 gameLocationScreenExploration.Show(true);
             }
 
-            if (guiConsoleScreenVisible == true)
-            {
-                guiConsoleScreen.Show(true);
-            }
-
             StopRespec();
-
-            yield break;
         }
 
         internal static IEnumerator StartCharacterCreationWizard()
@@ -118,6 +113,7 @@ namespace SolastaCommunityExpansion.Functors
 
         internal static void FinalizeRespec(RulesetCharacterHero oldHero, RulesetCharacterHero newHero)
         {
+            var experience = oldHero.GetAttribute(AttributeDefinitions.Experience);
             var gameCampaignCharacters = Gui.GameCampaign.Party.CharactersList;
             var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
@@ -127,11 +123,11 @@ namespace SolastaCommunityExpansion.Functors
             CopyInventoryOver(oldHero, newHero);
 
             newHero.Register(true);
-            newHero.Attributes[AttributeDefinitions.Experience] = oldHero.GetAttribute(AttributeDefinitions.Experience);
-
-            UpdateRestPanelUi(gameCampaignCharacters);
+            newHero.Attributes[AttributeDefinitions.Experience] = experience;
 
             gameCampaignCharacters.Find(x => x.RulesetCharacter == oldHero).RulesetCharacter = newHero;
+
+            UpdateRestPanelUi(gameCampaignCharacters);
 
             if (gameLocationCharacterService != null)
             {
@@ -144,6 +140,8 @@ namespace SolastaCommunityExpansion.Functors
                 {
                     worldLocationCharacter.GraphicsCharacter.RulesetCharacter = newHero;
                 }
+
+                AccessTools.Field(gameLocationCharacterService.GetType(), "dirtyParty").SetValue(gameLocationCharacterService, true);
             }
         }
 

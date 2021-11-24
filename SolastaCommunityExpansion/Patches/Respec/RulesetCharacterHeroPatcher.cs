@@ -9,9 +9,9 @@ namespace SolastaCommunityExpansion.Patches
         [HarmonyPatch(typeof(RulesetCharacterHero), "EnumerateAfterRestActions")]
         internal static class RulesetCharacterHero_EnumerateAfterRestActions
         {
-            internal static void Postfix(List<RestActivityDefinition> ___afterRestActions)
+            internal static void Postfix(RuleDefinitions.RestType restType, List<RestActivityDefinition> ___afterRestActions)
             {
-                if (Main.Settings.EnableRespec)
+                if (Main.Settings.EnableRespec && restType == RuleDefinitions.RestType.LongRest)
                 {
                     foreach (var restActivityDefinition in DatabaseRepository.GetDatabase<RestActivityDefinition>().GetAllElements())
                     {
