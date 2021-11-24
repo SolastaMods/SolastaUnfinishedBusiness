@@ -1,8 +1,8 @@
 ﻿using HarmonyLib;
-using SolastaModApi.Extensions;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Functors
 {
@@ -12,15 +12,22 @@ namespace SolastaCommunityExpansion.Functors
         private const int RESPEC_STATE_RESPECING = 1;
         private const int RESPEC_STATE_ABORTED = 2;
 
-        private static int respecState = RESPEC_STATE_NORESPEC;
-        private static RulesetCharacterHero newHero;
+        private static int RespecState { get; set; }
 
-        public static bool IsRespecing => respecState == RESPEC_STATE_RESPECING;
+        internal static bool IsRespecing => RespecState == RESPEC_STATE_RESPECING;
+
+        internal static void AbortRespec() => RespecState = RESPEC_STATE_ABORTED;
+
+        internal static void StartRespec() => RespecState = RESPEC_STATE_RESPECING;
+
+        internal static void StopRespec() => RespecState = RESPEC_STATE_NORESPEC;
 
         private static readonly List<RulesetItemSpellbook> rulesetItemSpellbooks = new List<RulesetItemSpellbook>();
 
         internal static void DropSpellbooksIfRequired(RulesetCharacterHero rulesetCharacterHero)
         {
+            rulesetCharacterHero.CharacterInventory.BrowseAllCarriedItems(rulesetItemSpellbooks);
+
             if (rulesetCharacterHero.ClassesHistory[rulesetCharacterHero.ClassesHistory.Count - 1].Name == "Wizard")
             {
                 foreach (var rulesetItemSpellbook in rulesetItemSpellbooks)
@@ -41,87 +48,54 @@ namespace SolastaCommunityExpansion.Functors
             }
         }
 
-        public static void AbortRespec()
+        public override IEnumerator Execute(FunctorParametersDescription functorParameters, FunctorExecutionContext context)
         {
-            respecState = RESPEC_STATE_ABORTED;
-        }
-
-        public override IEnumerator Execute(
-          FunctorParametersDescription functorParameters,
-          Functor.FunctorExecutionContext context)
-        {
-            var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
-
-            var gameCampaignScreen = Gui.GuiService.GetScreen<GameCampaignScreen>();
-            var gameLocationScreenExploration = Gui.GuiService.GetScreen<GameLocationScreenExploration>();
             var guiConsoleScreen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
+            var gameCampaignScreen = Gui.GuiService.GetScreen<GameCampaignScreen>();
 
-            var guiConsoleScreenVisible = guiConsoleScreen?.Visible;
-            var gameCampaignScreenVisible = gameCampaignScreen?.Visible;
+            var gameLocationScreenExploration = Gui.GuiService.GetScreen<GameLocationScreenExploration>();
+
+            var guiConsoleScreenVisible = guiConsoleScreen.Visible;
+            var gameCampaignScreenVisible = gameCampaignScreen.Visible;
+
             var gameLocationscreenExplorationVisible = gameLocationScreenExploration?.Visible;
 
-            respecState = RESPEC_STATE_RESPECING;
+            StartRespec();
 
-            gameCampaignScreen.Hide(true);
-            gameLocationScreenExploration?.Hide(true);
             guiConsoleScreen.Hide(true);
+            gameCampaignScreen.Hide(true);
+
+            gameLocationScreenExploration?.Hide(true);
+
+            var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
 
             characterBuildingService.CreateNewCharacter();
-            newHero = characterBuildingService.HeroCharacter;
 
-            functorParameters.RestingHero?.CharacterInventory?.BrowseAllCarriedItems<RulesetItemSpellbook>(rulesetItemSpellbooks);
-            DropSpellbooksIfRequired(functorParameters.RestingHero);
+            var oldHero = functorParameters.RestingHero;
+            var newHero = characterBuildingService.HeroCharacter;
+
+            DropSpellbooksIfRequired(oldHero);
 
             yield return StartCharacterCreationWizard();
 
-            if (respecState != RESPEC_STATE_ABORTED)
+            if (IsRespecing)
             {
-                var gameCampaignCharacters = gameCampaignScreen.GameService.Game.GameCampaign.Party.CharactersList;
-                var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-                var gameLocationCharacter = gameLocationCharacterService?.PartyCharacters.Find(x => x.RulesetCharacter.Guid == functorParameters.RestingHero.Guid);
-
-                CopyInventoryOver(functorParameters.RestingHero, newHero);
-
-                newHero.SetGuid(functorParameters.RestingHero.Guid);
-                newHero.Attributes[AttributeDefinitions.Experience] = functorParameters.RestingHero.GetAttribute(AttributeDefinitions.Experience);
-
-                gameCampaignCharacters.Find(x => x.RulesetCharacter == functorParameters.RestingHero).RulesetCharacter = newHero;
-                gameLocationCharacter?.SetRuleset(newHero);
-
-                if (gameLocationscreenExplorationVisible == true)
-                {
-                    var gameSerializationService = ServiceRepository.GetService<IGameSerializationService>();
-
-                    gameSerializationService.QuickSaveGame();
-                    gameSerializationService.QuickLoadGame();
-                }
-                else
-                {
-                    yield return UpdateUI();
-                }
+                FinalizeRespec(oldHero, newHero);
             }
             else
             {
-                PickupSpellbooksIfRequired(functorParameters.RestingHero);
+                PickupSpellbooksIfRequired(oldHero);
             }
 
-            if (gameCampaignScreenVisible == true)
-            {
-                gameCampaignScreen.Show(true);
-            }
+            guiConsoleScreen.Show(guiConsoleScreenVisible);
+            gameCampaignScreen.Show(gameCampaignScreenVisible);
+
             if (gameLocationscreenExplorationVisible == true)
             {
                 gameLocationScreenExploration.Show(true);
             }
-            if (guiConsoleScreenVisible == true)
-            {
-                guiConsoleScreen.Show(true);
-            }
 
-            newHero = null;
-            respecState = RESPEC_STATE_NORESPEC;
-
-            yield break;
+            StopRespec();
         }
 
         internal static IEnumerator StartCharacterCreationWizard()
@@ -135,11 +109,45 @@ namespace SolastaCommunityExpansion.Functors
             characterCreationScreen.Show();
 
             while (characterCreationScreen.isActiveAndEnabled) yield return null;
-
-            yield return null;
         }
 
-        internal static void CopyInventoryOver(RulesetCharacter oldHero, RulesetCharacter newHero)
+        internal static void FinalizeRespec(RulesetCharacterHero oldHero, RulesetCharacterHero newHero)
+        {
+            var guid = oldHero.Guid;
+            var experience = oldHero.GetAttribute(AttributeDefinitions.Experience);
+            var gameCampaignCharacters = Gui.GameCampaign.Party.CharactersList;
+            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+
+            oldHero.Unregister();
+            oldHero.ResetForOutgame();
+            newHero.SetGuid(guid);
+
+            CopyInventoryOver(oldHero, newHero);
+
+            newHero.Register(false);
+            newHero.Attributes[AttributeDefinitions.Experience] = experience;
+
+            gameCampaignCharacters.Find(x => x.RulesetCharacter == oldHero).RulesetCharacter = newHero;
+
+            UpdateRestPanelUi(gameCampaignCharacters);
+
+            if (gameLocationCharacterService != null)
+            {
+                var gameLocationCharacter = gameLocationCharacterService.PartyCharacters.Find(x => x.RulesetCharacter == oldHero);
+                var worldLocationEntityFactoryService = ServiceRepository.GetService<IWorldLocationEntityFactoryService>();
+
+                gameLocationCharacter.SetRuleset(newHero);
+
+                if (worldLocationEntityFactoryService.TryFindWorldCharacter(gameLocationCharacter, out WorldLocationCharacter worldLocationCharacter))
+                {
+                    worldLocationCharacter.GraphicsCharacter.RulesetCharacter = newHero;
+                }
+
+                AccessTools.Field(gameLocationCharacterService.GetType(), "dirtyParty").SetValue(gameLocationCharacterService, true);
+            }
+        }
+
+        internal static void CopyInventoryOver(RulesetCharacterHero oldHero, RulesetCharacterHero newHero)
         {
             foreach (var inventorySlot in oldHero.CharacterInventory.PersonalContainer.InventorySlots)
             {
@@ -166,31 +174,27 @@ namespace SolastaCommunityExpansion.Functors
             }
         }
 
-        internal static IEnumerator UpdateUI()
+        internal static void UpdateRestPanelUi(List<GameCampaignCharacter> gameCampaignCharacters)
         {
             var restModalScreen = Gui.GuiService.GetScreen<RestModal>();
-            var restAfterPanel = (RestAfterPanel)AccessTools.Field(restModalScreen.GetType(), "restAfterPanel").GetValue(restModalScreen);
-            var characterPlatesTable = (RectTransform)AccessTools.Field(restAfterPanel.GetType(), "characterPlatesTable").GetValue(restAfterPanel);
-            var heroes = restModalScreen.GameService.EnumerateHeroes();
+            var restAfterPanel = AccessTools.Field(restModalScreen.GetType(), "restAfterPanel").GetValue(restModalScreen) as RestAfterPanel;
+            var characterPlatesTable = AccessTools.Field(restAfterPanel.GetType(), "characterPlatesTable").GetValue(restAfterPanel) as RectTransform;
 
             for (int index = 0; index < characterPlatesTable.childCount; ++index)
             {
                 Transform child = characterPlatesTable.GetChild(index);
                 CharacterPlateGame component = child.GetComponent<CharacterPlateGame>();
-                if (index < heroes.Count)
+
+                component.Unbind();
+
+                if (index < gameCampaignCharacters.Count)
                 {
-                    child.gameObject.SetActive(true);
-                    component.Bind((RulesetCharacter)heroes[index], TooltipDefinitions.AnchorMode.BOTTOM_CENTER);
+                    component.Bind(gameCampaignCharacters[index].RulesetCharacter, TooltipDefinitions.AnchorMode.BOTTOM_CENTER);
                     component.Refresh();
                 }
-                else
-                {
-                    component.Unbind();
-                    child.gameObject.SetActive(false);
-                }
-            }
 
-            yield return null;
+                child.gameObject.SetActive(index < gameCampaignCharacters.Count);
+            }
         }
     }
 }
