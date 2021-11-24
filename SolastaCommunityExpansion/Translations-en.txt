@@ -584,3 +584,7 @@ Subclass/&FighterRoyalKnightTitle Royal Knight
 Subclass/&FighterRoyalKnightDescription A knight who inspires greatness in others by committing brave deeds in battle. A lone knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 Feature/&RangerFeralSensesTitle	Feral Senses
 Feature/&RangerFeralSensesDescription	 You gain preternatural senses that help you fight creatures you can’t see. When you attack a creature you can’t see, your inability to see it doesn’t impose disadvantage on your attack rolls against it.
+Message/&CharacterExportEmptyNameErrorDescription	Export Cancelled:\n\nPlease try a non empty name.
+Message/&CharacterExportDuplicateNameErrorDescription	Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name.
+Message/&CharacterExportModalContentDescription	Enter the hero name to export:
+Message/&CharacterExportModalTitleDescription	Character Export
