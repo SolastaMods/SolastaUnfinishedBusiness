@@ -1,4 +1,4 @@
-using SolastaCommunityExpansion.Feats;
+﻿using SolastaCommunityExpansion.Feats;
 using SolastaCommunityExpansion.Subclasses.Rogue;
 using SolastaCommunityExpansion.Subclasses.Wizard;
 using System.Collections.Generic;
@@ -143,5 +143,7 @@ namespace SolastaCommunityExpansion
         public bool EnableHudToggleElementsHotkeys = false;
 
         public int ExperienceModifier = 100;
+
+        public bool EnableFeatsSorting = true;
     }
 }
