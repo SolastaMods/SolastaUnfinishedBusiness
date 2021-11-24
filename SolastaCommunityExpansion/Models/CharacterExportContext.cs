@@ -94,6 +94,7 @@ namespace SolastaCommunityExpansion.Models
         internal static void ExportCharacter(RulesetCharacterHero heroCharacter, string newFirstName, string newSurname)
         {
             // record current name, etc..
+            var guid = heroCharacter.Guid;
             var firstName = heroCharacter.Name;
             var surName = heroCharacter.SurName;
             var builtin = heroCharacter.BuiltIn;
@@ -103,6 +104,13 @@ namespace SolastaCommunityExpansion.Models
             var conditions = heroCharacter.ConditionsByCategory.ToList();
             var powers = heroCharacter.PowersUsedByMe.ToList();
             var spells = heroCharacter.SpellsCastByMe.ToList();
+            var inventoryItems = new List<RulesetItem>();
+
+            heroCharacter.CharacterInventory.EnumerateAllItems(inventoryItems);
+
+            var attunedItems = inventoryItems.Select(i => new { Item = i, Name = i.AttunedToCharacter }).ToList();
+            var heroItemGuids = heroCharacter.Items.Select(i => new { Item = i, i.Guid }).ToList();
+            var inventoryItemGuids = inventoryItems.Select(i => new { Item = i, i.Guid }).ToList();
 
             try
             {
@@ -119,21 +127,33 @@ namespace SolastaCommunityExpansion.Models
             finally
             {
                 // restore original values
+                heroCharacter.SetGuid(guid);
                 heroCharacter.Name = firstName;
                 heroCharacter.SurName = surName;
                 heroCharacter.BuiltIn = builtin;
-                
+
                 // restore conditions
-                foreach (var kvp in conditions)
+                foreach (var item in attunedItems) 
+                { 
+                    item.Item.AttunedToCharacter = item.Name; 
+                }
+
+                foreach (var item in heroItemGuids)
                 {
-                    heroCharacter.ConditionsByCategory.Add(kvp.Key, kvp.Value);
+                    item.Item.SetGuid(item.Guid);
+                }
+
+                foreach (var item in inventoryItemGuids)
+                {
+                    item.Item.SetGuid(item.Guid);
                 }
 
                 // restore active spells and effects
                 heroCharacter.PowersUsedByMe.AddRange(powers);
                 heroCharacter.SpellsCastByMe.AddRange(spells);
-                heroCharacter.Register(true);
                 heroCharacter.SetCurrentHitPoints(hitPoints);
+
+                heroCharacter.Register(false);
             }
         }
 
