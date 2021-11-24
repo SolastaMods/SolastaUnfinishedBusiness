@@ -39,6 +39,20 @@ namespace SolastaCommunityExpansion.Models
             InputField.transform.localPosition = new Vector3(0, contentText.transform.parent.localPosition.y - contentText.fontSize, 0);
         }
 
+        private static void ParseText(TMP_InputField textField)
+        {
+            if (Main.Settings.AllowExtraKeyboardCharactersInNames)
+            {
+                textField.text = new string(textField.text
+                    .Where(n => !HeroNameContext.InvalidFilenameChars.Contains(n))
+                    .ToArray()).TrimStart();
+            }
+            else
+            {
+                textField.text = Gui.TrimInvalidCharacterNameSymbols(textField.text).Trim();
+            }
+        }
+
         internal static void ExportInspectedCharacter(RulesetCharacterHero hero)
         {
             MessageModal messageModal = Gui.GuiService.GetScreen<MessageModal>();
@@ -54,7 +68,7 @@ namespace SolastaCommunityExpansion.Models
 
             void messageValidated()
             {
-                string newFirstName = InputField.text.Trim();
+                string newFirstName = InputField.text;
                 string newSurname = string.Empty;
                 bool hasSurname = hero.RaceDefinition.RacePresentation.HasSurName;
 
@@ -62,6 +76,8 @@ namespace SolastaCommunityExpansion.Models
                     .EnumerateFiles(TacticalAdventuresApplication.GameCharactersDirectory, $"*.chr")
                     .Select(f => Path.GetFileNameWithoutExtension(f))
                     .ToHashSet(StringComparer.OrdinalIgnoreCase);
+
+                ParseText(InputField);
 
                 if (newFirstName == string.Empty)
                 {
