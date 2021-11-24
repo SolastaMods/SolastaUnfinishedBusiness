@@ -1,4 +1,4 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches
 {
@@ -8,7 +8,6 @@ namespace SolastaCommunityExpansion.Patches
         internal static void Postfix()
         {
             Models.BugFixContext.Load();
-
             Models.AdditionalNamesContext.Load();
             Models.AsiAndFeatContext.Load();
             Models.InitialChoicesContext.Load();
@@ -28,7 +27,8 @@ namespace SolastaCommunityExpansion.Patches
             Models.RemoveIdentificationContext.Load();
             Models.Level20Context.Load();
             Models.DruidArmorContext.Load();
-
+            Models.CharacterExportContext.Load();
+          
             Main.Enabled = true;
         }
     }

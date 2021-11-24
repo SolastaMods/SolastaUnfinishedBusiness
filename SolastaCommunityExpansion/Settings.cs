@@ -107,6 +107,9 @@ namespace SolastaCommunityExpansion
         public const InputCommands.Id CTRL_M = (InputCommands.Id)44440002;
         public const InputCommands.Id CTRL_P = (InputCommands.Id)44440003;
 
+        /* Character Export hotkey */
+        public const InputCommands.Id CTRL_E = (InputCommands.Id)44440004;
+
         public const RestActivityDefinition.ActivityCondition ActivityConditionCanRespec = (RestActivityDefinition.ActivityCondition)(int)-1001;
 
         public bool EnableRespec = false;
@@ -115,6 +118,7 @@ namespace SolastaCommunityExpansion
 
         public bool OfferAdditionalNames = false;
         public bool InvertAltBehaviorOnTooltips = false;
+        public bool EnableCharacterExport = false;
 
         public int MaxSpellLevelsPerLine = 5;
         public float SpellPanelGapBetweenLines = 30f;

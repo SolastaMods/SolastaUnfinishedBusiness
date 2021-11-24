@@ -7,9 +7,9 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class HeroNameContext
     {
-        private static readonly HashSet<char> InvalidFilenameChars = new HashSet<char>(Path.GetInvalidFileNameChars());
+        internal static readonly HashSet<char> InvalidFilenameChars = new HashSet<char>(Path.GetInvalidFileNameChars());
 
-        public static bool Invoke(TMP_InputField textField)
+        internal static bool Invoke(TMP_InputField textField)
         {
             if (textField != null)
             {
