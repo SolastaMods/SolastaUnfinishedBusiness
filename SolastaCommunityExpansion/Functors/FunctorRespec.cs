@@ -113,16 +113,18 @@ namespace SolastaCommunityExpansion.Functors
 
         internal static void FinalizeRespec(RulesetCharacterHero oldHero, RulesetCharacterHero newHero)
         {
+            var guid = oldHero.Guid;
             var experience = oldHero.GetAttribute(AttributeDefinitions.Experience);
             var gameCampaignCharacters = Gui.GameCampaign.Party.CharactersList;
             var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
             oldHero.Unregister();
             oldHero.ResetForOutgame();
+            newHero.SetGuid(guid);
 
             CopyInventoryOver(oldHero, newHero);
 
-            newHero.Register(true);
+            newHero.Register(false);
             newHero.Attributes[AttributeDefinitions.Experience] = experience;
 
             gameCampaignCharacters.Find(x => x.RulesetCharacter == oldHero).RulesetCharacter = newHero;
