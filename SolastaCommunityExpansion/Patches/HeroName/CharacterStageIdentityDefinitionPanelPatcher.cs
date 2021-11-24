@@ -3,24 +3,21 @@ using TMPro;
 
 namespace SolastaCommunityExpansion.Patches
 {
-    internal static class CharacterStageIdentityDefinitionPanelPatcher
+    [HarmonyPatch(typeof(CharacterStageIdentityDefinitionPanel), "EnterStage")]
+    internal static class CharacterStageIdentityDefinitionPanel_EnterStage
     {
-        [HarmonyPatch(typeof(CharacterStageIdentityDefinitionPanel), "EnterStage")]
-        internal static class CharacterStageIdentityDefinitionPanel_EnterStage_Patch
+        public static void Postfix(TMP_InputField ___firstNameInputField, TMP_InputField ___lastNameInputField)
         {
-            public static void Postfix(TMP_InputField ___firstNameInputField, TMP_InputField ___lastNameInputField)
+            if (Main.Settings.AllowExtraKeyboardCharactersInNames)
             {
-                if (Main.Settings.AllowExtraKeyboardCharactersInNames)
-                {
-                    ___firstNameInputField.characterLimit = 20;
-                    ___lastNameInputField.characterLimit = 20;
-                }
+                ___firstNameInputField.characterLimit = 20;
+                ___lastNameInputField.characterLimit = 20;
             }
         }
     }
 
     [HarmonyPatch(typeof(CharacterStageIdentityDefinitionPanel), "RemoveUselessSpaces")]
-    internal static class CharacterStageIdentityDefinitionPanel_RemoveUselessSpaces_Patch
+    internal static class CharacterStageIdentityDefinitionPanel_RemoveUselessSpaces
     {
         public static bool Prefix(TMP_InputField textField)
         {

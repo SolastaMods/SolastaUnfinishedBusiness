@@ -4,9 +4,9 @@ using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.PowerSharedPool
+namespace SolastaCommunityExpansion.Patches
 {
-    internal static class RulesetCharacterPatch
+    internal static class RulesetCharacterPatcher
     {
         [HarmonyPatch(typeof(RulesetCharacter), "UsePower")]
         internal static class RulesetCharacter_UsePower

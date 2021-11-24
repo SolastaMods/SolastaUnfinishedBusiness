@@ -4,8 +4,9 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SolastaCommunityExpansion.Patches.GameUi
+namespace SolastaCommunityExpansion.Patches
 {
+    // TODO: split this with a proper model
     internal static class HideMonsterHitPoints
     {
         /// <summary>

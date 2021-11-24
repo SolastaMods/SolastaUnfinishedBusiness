@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patch
+namespace SolastaCommunityExpansion.Patches
 {
     internal static class CharacterPoolManagerPatcher
     {
