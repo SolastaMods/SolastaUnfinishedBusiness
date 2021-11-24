@@ -90,6 +90,10 @@ namespace SolastaCommunityExpansion.Models
                         newFirstName = ParseText(a[0]);
                         newSurname = hasSurname ? ParseText(a[1]) ?? string.Empty : string.Empty;
                     }
+                    else
+                    {
+                        newFirstName = ParseText(newFirstName);
+                    }
 
                     if (usedNames.Contains(newFirstName))
                     {
