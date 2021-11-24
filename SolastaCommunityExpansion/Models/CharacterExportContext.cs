@@ -133,6 +133,12 @@ namespace SolastaCommunityExpansion.Models
                 heroCharacter.BuiltIn = builtin;
 
                 // restore conditions
+                foreach (var kvp in conditions)
+                {
+                    heroCharacter.ConditionsByCategory.Add(kvp.Key, kvp.Value);
+                }
+
+                // restore items
                 foreach (var item in attunedItems) 
                 { 
                     item.Item.AttunedToCharacter = item.Name; 
