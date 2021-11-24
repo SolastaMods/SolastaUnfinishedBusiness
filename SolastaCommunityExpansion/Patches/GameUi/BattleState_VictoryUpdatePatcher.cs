@@ -1,9 +1,9 @@
 ﻿using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.GameUi
+namespace SolastaCommunityExpansion.Patches
 {
     [HarmonyPatch(typeof(BattleState_Victory), "Update")]
-    internal static class BattleState_VictoryUpdatePatcher
+    internal static class BattleState_Victory_Update
     {
         public static void Postfix()
         {

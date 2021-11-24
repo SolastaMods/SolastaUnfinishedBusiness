@@ -2,32 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SolastaCommunityExpansion.Patches.SrdAndHouseRulesContext
+namespace SolastaCommunityExpansion.Patches
 {
-    internal static class RuleDefinitionsPatcher
+    [HarmonyPatch(typeof(RuleDefinitions), "ComputeAdvantage")]
+    internal static class RuleDefinitions_ComputeAdvantage
     {
-        [HarmonyPatch(typeof(RuleDefinitions), "ComputeAdvantage")]
-        internal static class RuleDefinitions_ComputeAdvantage_Patch
+        public static void Postfix(List<RuleDefinitions.TrendInfo> trends, RuleDefinitions.AdvantageType __result)
         {
-            public static void Postfix(List<RuleDefinitions.TrendInfo> trends, RuleDefinitions.AdvantageType __result)
+            if (Main.Settings.EnableSRDAdvantageRules)
             {
-                if (Main.Settings.EnableSRDAdvantageRules)
-                {
-                    var hasAdvantage = trends.Any(t => t.value > 0);
-                    var hasDisadvantage = trends.Any(t => t.value < 0);
+                var hasAdvantage = trends.Any(t => t.value > 0);
+                var hasDisadvantage = trends.Any(t => t.value < 0);
 
-                    if (!(hasAdvantage ^ hasDisadvantage))
-                    {
-                        __result = RuleDefinitions.AdvantageType.None;
-                    }
-                    else if (hasAdvantage)
-                    {
-                        __result = RuleDefinitions.AdvantageType.Advantage;
-                    }
-                    else
-                    {
-                        __result = RuleDefinitions.AdvantageType.Disadvantage;
-                    }
+                if (!(hasAdvantage ^ hasDisadvantage))
+                {
+                    __result = RuleDefinitions.AdvantageType.None;
+                }
+                else if (hasAdvantage)
+                {
+                    __result = RuleDefinitions.AdvantageType.Advantage;
+                }
+                else
+                {
+                    __result = RuleDefinitions.AdvantageType.Disadvantage;
                 }
             }
         }

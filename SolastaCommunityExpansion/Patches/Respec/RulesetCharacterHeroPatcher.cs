@@ -3,22 +3,19 @@ using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Patches
 {
-    internal static class RulesetCharacterHeroPatcher_Respec
+    // use this patch to enable the after rest actions
+    [HarmonyPatch(typeof(RulesetCharacterHero), "EnumerateAfterRestActions")]
+    internal static class RulesetCharacterHero_EnumerateAfterRestActions
     {
-        // use this patch to enable the after rest actions
-        [HarmonyPatch(typeof(RulesetCharacterHero), "EnumerateAfterRestActions")]
-        internal static class RulesetCharacterHero_EnumerateAfterRestActions
+        internal static void Postfix(RuleDefinitions.RestType restType, List<RestActivityDefinition> ___afterRestActions)
         {
-            internal static void Postfix(RuleDefinitions.RestType restType, List<RestActivityDefinition> ___afterRestActions)
+            if (Main.Settings.EnableRespec && restType == RuleDefinitions.RestType.LongRest)
             {
-                if (Main.Settings.EnableRespec && restType == RuleDefinitions.RestType.LongRest)
+                foreach (var restActivityDefinition in DatabaseRepository.GetDatabase<RestActivityDefinition>().GetAllElements())
                 {
-                    foreach (var restActivityDefinition in DatabaseRepository.GetDatabase<RestActivityDefinition>().GetAllElements())
+                    if (restActivityDefinition.Condition == Settings.ActivityConditionCanRespec)
                     {
-                        if (restActivityDefinition.Condition == Settings.ActivityConditionCanRespec)
-                        {
-                            ___afterRestActions.Add(restActivityDefinition);
-                        }
+                        ___afterRestActions.Add(restActivityDefinition);
                     }
                 }
             }

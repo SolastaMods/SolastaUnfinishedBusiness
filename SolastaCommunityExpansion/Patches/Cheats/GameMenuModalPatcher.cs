@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.Cheats
+namespace SolastaCommunityExpansion.Patches
 {
     // use this patch to enable the cheats window during gameplay
     [HarmonyPatch(typeof(GameMenuModal), "SetButtonAvailability")]

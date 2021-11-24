@@ -1,10 +1,10 @@
 ﻿using HarmonyLib;
 using System.Collections.Generic;
 
-namespace SolastaCommunityExpansion.Patches.FightingStyleFeats
+namespace SolastaCommunityExpansion.Patches
 {
     [HarmonyPatch(typeof(RulesetCharacterHero), "TrainFeats")]
-    internal static class RulesetCharacterHero_TrainFeatsFightingStyles_Patch
+    internal static class RulesetCharacterHero_TrainFeatsFightingStyles
     {
         internal static void Postfix(RulesetCharacterHero __instance, List<FeatDefinition> feats)
         {

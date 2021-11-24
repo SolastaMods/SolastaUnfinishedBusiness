@@ -1,8 +1,7 @@
 ﻿using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.GameUi
+namespace SolastaCommunityExpansion.Patches
 {
-
     [HarmonyPatch(typeof(TooltipFeatureDescription), "Bind")]
     internal static class TooltipFeatureDescription_Bind
     {

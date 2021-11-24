@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Patches
     internal static class UserLocationSettingsModalPatcher
     {
         [HarmonyPatch(typeof(UserLocationSettingsModal), "OnMinLevelEndEdit")]
-        public static class UserLocationSettingsModal_OnMinLevelEndEdit_Patch
+        public static class UserLocationSettingsModal_OnMinLevelEndEdit
         {
             internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
@@ -30,7 +30,7 @@ namespace SolastaCommunityExpansion.Patches
         }
 
         [HarmonyPatch(typeof(UserLocationSettingsModal), "OnMaxLevelEndEdit")]
-        public static class UserLocationSettingsModal_OnMaxLevelEndEdit_Patch
+        public static class UserLocationSettingsModal_OnMaxLevelEndEdit
         {
             internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {

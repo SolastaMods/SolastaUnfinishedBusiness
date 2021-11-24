@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Patches
 
         // second line bind
         [HarmonyPatch(typeof(SpellSelectionPanel), "Bind")]
-        internal static class SpellSelectionPanel_SecondLine
+        internal static class SpellSelectionPanel_Bind
         {
             internal static void Postfix(SpellSelectionPanel __instance, GameLocationCharacter caster, SpellsByLevelBox.SpellCastEngagedHandler spellCastEngaged, ActionDefinitions.ActionType actionType, bool cantripOnly)
             {
