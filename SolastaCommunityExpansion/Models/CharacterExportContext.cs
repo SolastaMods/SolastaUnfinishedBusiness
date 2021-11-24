@@ -18,10 +18,16 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
+            LoadInputField();
+            ServiceRepository.GetService<IInputService>().RegisterCommand(Settings.CTRL_E, (int)KeyCode.E, (int)KeyCode.LeftControl, -1, -1, -1, -1);
+        }
+
+        internal static void LoadInputField()
+        {
             MessageModal messageModal = Gui.GuiService.GetScreen<MessageModal>();
             TMP_Text contentText = messageModal.transform.FindChildRecursive("Content").GetComponent<TMP_Text>();
-            
-            CharacterCreationScreen characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();   
+
+            CharacterCreationScreen characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
             TMP_InputField firstNameInputField = characterCreationScreen.transform.FindChildRecursive("FirstNameInputField").GetComponent<TMP_InputField>();
 
             InputField = UnityEngine.Object.Instantiate(firstNameInputField, contentText.transform.parent.parent);
@@ -31,8 +37,6 @@ namespace SolastaCommunityExpansion.Models
             InputField.fontAsset = contentText.font;
             InputField.pointSize = contentText.fontSize;
             InputField.transform.localPosition = new Vector3(0, contentText.transform.parent.localPosition.y - contentText.fontSize, 0);
-
-            ServiceRepository.GetService<IInputService>().RegisterCommand(Settings.CTRL_E, (int)KeyCode.E, (int)KeyCode.LeftControl, -1, -1, -1, -1);
         }
 
         internal static void ExportInspectedCharacter(RulesetCharacterHero hero)
