@@ -250,9 +250,9 @@ Feat/&InspiringLeaderTitle Inspiring Leader
 Feat/&LightArmorDescription Gain proficiency with Light Armor and +1 Dexterity
 Feat/&LightArmorTitle Light Armor
 Feat/&MediumDexArmorDescription Gain proficiency with Medium Armor and Shields and +1 Dexterity
-Feat/&MediumDexArmorTitle Medium Armor
+Feat/&MediumDexArmorTitle Medium Armor (Dexterity)
 Feat/&MediumStrengthArmorDescription Gain proficiency with Medium Armor and Shields and +1 Strength
-Feat/&MediumStrengthArmorTitle Medium Armor
+Feat/&MediumStrengthArmorTitle Medium Armor (Strength)
 Feat/&PickPocketFeatDescription	You gain proficiency with Sleight Of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
 Feat/&PickPocketFeatTitle	Pickpocket
 Feat/&PowerAttackFeatDescription You learned to trade accuracy to lander deadlier/harder blows.  You can choose to take a -{0} penalty to your to hit in order to do more damage (+{0} damage for one handed weapons, +{1} damage for two handed weapons).  Lasts for the whole turn once activated.  Works with melee and ranged weapons.
@@ -572,3 +572,19 @@ Feature/&GambitResourcePoolAddTitle	Additional Gambit die.
 Feature/&GambitResourcePoolAddDescription	Adds an additional gambit die.
 Subclass/&TactitionFighterSubclassTitle The Tactician 
 Subclass/&TactitionFighterSubclassDescription The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed.  They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.  Mod note - This class re-uses channel divinity for these features.
+Feature/&RallyingCryPowerTitle Rallying Cry
+Feature/&RallyingCryPowerTitleShort Rallying Cry
+Feature/&RallyingCryPowerDescription Replaces Second Wind with a power to restore 4x Fighter Levels hit points to one or more allies within 6 cells, up to their hit point maximum.
+Feature/&RoyalEnvoyFeatureTitle Royal Envoy
+Feature/&RoyalEnvoyFeatureDescription Add half of your proficiency bonus (round up) to any Charisma check you make that doesn't already use your proficiency bonus. In addition, you become proficient with Charisma saving throws.
+Feature/&InspiringSurgePowerTitle Inspiring Surge
+Feature/&InspiringSurgePowerTitleShort Inspiring Surge
+Feature/&InspiringSurgePowerDescription Grant an ally an additional main action for 1 round. Does not stack with Action Surge.
+Subclass/&FighterRoyalKnightTitle Royal Knight
+Subclass/&FighterRoyalKnightDescription A knight who inspires greatness in others by committing brave deeds in battle. A lone knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
+Feature/&RangerFeralSensesTitle	Feral Senses
+Feature/&RangerFeralSensesDescription	 You gain preternatural senses that help you fight creatures you can’t see. When you attack a creature you can’t see, your inability to see it doesn’t impose disadvantage on your attack rolls against it.
+Message/&CharacterExportEmptyNameErrorDescription	Export Cancelled:\n\nPlease try a non empty name.
+Message/&CharacterExportDuplicateNameErrorDescription	Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name.
+Message/&CharacterExportModalContentDescription	Enter the hero name to export:
+Message/&CharacterExportModalTitleDescription	Character Export

@@ -1,4 +1,4 @@
-using ModKit;
+﻿using ModKit;
 using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
@@ -7,15 +7,17 @@ namespace SolastaCommunityExpansion.Viewers.Displays
     {
         internal static Dictionary<string, string> CreditsTable = new Dictionary<string, string>
         {
+            { "ChrisJohnDigital".orange().bold(), "head developer, feats, items, subclasses, progression, etc." },
             { "Zappastuff", "mod UI work, integration, community organization, level 20, respec" },
             { "ImpPhil", "monster's health, pause UI, stocks prices, no attunement, xp scaling" },
-            { "DubhHerder", "crafty feats migration" },
-            { "View619", "darkvision, superior dark vision" },
-            { "SilverGriffon", "pickpocket, lore friendly names, crafty feats" },
+            { "DubhHerder", "Crafty Feats Migration" },
+            { "View619", "Darkvision, Superior Dark Vision" },
+            { "SilverGriffon", "PickPocket, lore friendly names, crafty feats" },
             { "Boofat", "alwaysAlt" },
             { "Myztikrice", "faster time scale" },
-            { "AceHigh", "power attack, reckless fury, no identification, Tactician Subclass" },
+            { "AceHigh", "Power Attack, Reckless Fury, no identification, Tactician Subclass" },
             { "ElAntonious", "Torchbearer and Dual Flurry, Arcanist Subclass" },
+            { "Scarlex", "Royal Knight Subclass" },
             { "Narria", "ModKit creator, developer" }
         };
 
@@ -25,11 +27,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
             UI.Label("Credits:".yellow());
             UI.Label("");
-            using (UI.HorizontalScope())
-            {
-                UI.Label("ChrisJohnDigital".orange().bold(), UI.Width(110));
-                UI.Label("head developer, feats, items, subclasses, progression, etc.", UI.Width(400));
-            }
+
             foreach (var kvp in CreditsTable)
             {
                 using (UI.HorizontalScope())

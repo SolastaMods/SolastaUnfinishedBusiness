@@ -11,12 +11,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         private static void AddUIForWeaponKey(string key)
         {
             bool toggle;
-            using (UI.HorizontalScope(UI.Width(550)))
+            using (UI.HorizontalScope(UI.AutoWidth()))
             {
                 UI.ActionButton(ItemCraftingContext.RecipeTitles[key], () => ItemCraftingContext.LearnRecipes(key), UI.Width(175));
 
                 toggle = Main.Settings.InStore.Contains(key);
-                if (UI.Toggle("Add to store", ref toggle, UI.Width(75)))
+                if (UI.Toggle("Add to store", ref toggle, UI.Width(125)))
                 {
                     if (toggle)
                     {
@@ -30,7 +30,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.ItemsInDM.Contains(key);
-                if (UI.Toggle("Items in DM", ref toggle, UI.Width(75)))
+                if (UI.Toggle("Items in DM", ref toggle, UI.Width(125)))
                 {
                     if (toggle)
                     {
@@ -44,7 +44,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.RecipesInDM.Contains(key);
-                if (UI.Toggle("Recipes in DM", ref toggle, UI.Width(75)))
+                if (UI.Toggle("Recipes in DM", ref toggle, UI.Width(125)))
                 {
                     if (toggle)
                     {
@@ -65,7 +65,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             int intValue;
 
             UI.Label("");
-            UI.Label("Settings:".yellow());
+            UI.Label("General:".yellow());
             UI.Label("");
 
             toggle = Main.Settings.NoAttunement;
@@ -95,6 +95,46 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label(". Press the button to learn recipes instantly on the active party");
             UI.Label(". Items added to stores might need the party to travel away from the location and come back");
+            UI.Label("");
+
+            using (UI.HorizontalScope(UI.AutoWidth()))
+            {
+                UI.Space(180);
+
+                toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.InStore.Count;
+                if (UI.Toggle("Add all to store", ref toggle, UI.Width(125)))
+                {
+                    Main.Settings.InStore.Clear();
+
+                    if (toggle)
+                    {
+                        Main.Settings.InStore.AddRange(ItemCraftingContext.RecipeBooks.Keys);
+                    }
+                }
+
+                toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.ItemsInDM.Count;
+                if (UI.Toggle("All items in DM", ref toggle, UI.Width(125)))
+                {
+                    Main.Settings.ItemsInDM.Clear();
+
+                    if (toggle)
+                    {
+                        Main.Settings.ItemsInDM.AddRange(ItemCraftingContext.RecipeBooks.Keys);
+                    }
+                }
+
+                toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.RecipesInDM.Count;
+                if (UI.Toggle("All recipes in DM", ref toggle, UI.Width(125)))
+                {
+                    Main.Settings.RecipesInDM.Clear();
+
+                    if (toggle)
+                    {
+                        Main.Settings.RecipesInDM.AddRange(ItemCraftingContext.RecipeBooks.Keys);
+                    }
+                }
+            }
+
             UI.Label("");
 
             var keys = ItemCraftingContext.RecipeBooks.Keys;

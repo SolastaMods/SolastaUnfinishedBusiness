@@ -28,7 +28,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             intValue = Main.Settings.FightingStyleSliderPosition;
-            if (UI.Slider("[slide left for description / right to collapse]".red().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
+            if (UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
             {
                 Main.Settings.FightingStyleSliderPosition = intValue;
             }
@@ -59,7 +59,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                                 title = title.yellow();
                             }
 
-                            if (UI.Toggle(title, ref toggle, UI.ChecklyphOn, UI.CheckGlyphOff, PIXELS_PER_COLUMN))
+                            if (UI.Toggle(title, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                             {
                                 FightingStyleContext.Switch(keyValuePair.Key, toggle);
                             }

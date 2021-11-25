@@ -1,4 +1,4 @@
-using SolastaCommunityExpansion.Feats;
+﻿using SolastaCommunityExpansion.Feats;
 using SolastaCommunityExpansion.Subclasses.Rogue;
 using SolastaCommunityExpansion.Subclasses.Wizard;
 using System.Collections.Generic;
@@ -22,6 +22,12 @@ namespace SolastaCommunityExpansion
         public const int MIN_INITIAL_FEATS = 0;
         public const int MAX_INITIAL_FEATS = 10;
 
+        public const int GAME_MAX_ATTRIBUTE = 15;
+        public const int GAME_BUY_POINTS = 27;
+
+        public const int MOD_MAX_ATTRIBUTE = 17;
+        public const int MOD_BUY_POINTS = 32;
+
         /* This is in the settings so it can be disabled, but if a player has access to first level feats they almost definitely want this on. */
         public bool EnableFirstLevelCasterFeats = true;
         // If this is off only the first auto prepared spells group is used during level up
@@ -34,6 +40,7 @@ namespace SolastaCommunityExpansion
         public bool AllowDynamicPowers = true;
 
         public bool EnableEpicPoints = false;
+        public bool EnableEpicArray = false;
         public bool EnableAlternateHuman = false;
         public bool EnablesAsiAndFeat = false;
         public bool EnableLevel20 = false;
@@ -107,6 +114,9 @@ namespace SolastaCommunityExpansion
         public const InputCommands.Id CTRL_M = (InputCommands.Id)44440002;
         public const InputCommands.Id CTRL_P = (InputCommands.Id)44440003;
 
+        /* Character Export hotkey */
+        public const InputCommands.Id CTRL_E = (InputCommands.Id)44440004;
+
         public const RestActivityDefinition.ActivityCondition ActivityConditionCanRespec = (RestActivityDefinition.ActivityCondition)(int)-1001;
 
         public bool EnableRespec = false;
@@ -115,6 +125,7 @@ namespace SolastaCommunityExpansion
 
         public bool OfferAdditionalNames = false;
         public bool InvertAltBehaviorOnTooltips = false;
+        public bool EnableCharacterExport = false;
 
         public int MaxSpellLevelsPerLine = 5;
         public float SpellPanelGapBetweenLines = 30f;
@@ -143,5 +154,7 @@ namespace SolastaCommunityExpansion
         public bool EnableHudToggleElementsHotkeys = false;
 
         public int ExperienceModifier = 100;
+
+        public bool EnableFeatsSorting = true;
     }
 }
