@@ -1,4 +1,4 @@
-using ModKit;
+﻿using ModKit;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
@@ -89,7 +89,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 UI.Label("Ranger".green());
                 UI.Label("14 - Favored Enemy");
                 UI.Label("16 - Ability score or feat");
-                UI.Label("18 - Feral Senses" + PLANNED);
+                UI.Label("18 - Feral Senses");
                 UI.Label("19 - Ability score or feat");
                 UI.Label("20 - Foe Slayer" + PLANNED);
                 UI.Label("");
