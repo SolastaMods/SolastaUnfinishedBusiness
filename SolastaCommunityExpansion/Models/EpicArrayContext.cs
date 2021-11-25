@@ -4,7 +4,7 @@
     {
         internal static void Load()
         {
-            if (Main.Settings.EnableEpicPoints)
+            if (Main.Settings.EnableEpicArray)
             {
                 AttributeDefinitions.PredeterminedRollScores = new int[6] { 17, 15, 13, 12, 10, 8 };
             }
