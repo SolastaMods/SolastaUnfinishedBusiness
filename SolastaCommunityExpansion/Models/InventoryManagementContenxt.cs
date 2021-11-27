@@ -80,7 +80,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 previousSortDropDownValue = currentSortDropDownValue;
                 currentSortDropDownValue = guiSortDropdown.value;
-                Refresh(containerPanel);
+                RefreshAfterDropdownChange(containerPanel);
             });
 
             guiSortDropdown.AddOptions(new List<TMP_Dropdown.OptionData>()
@@ -105,7 +105,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 previousFilterDropDownValue = currentFilterDropDownValue;
                 currentFilterDropDownValue = guiFilterDropdown.value;
-                Refresh(containerPanel);
+                RefreshAfterDropdownChange(containerPanel);
             });
 
             foreach (var filterCategory in FilterCategories)
@@ -116,27 +116,23 @@ namespace SolastaCommunityExpansion.Models
             guiFilterDropdown.AddOptions(filterOptions);
         }
 
-        internal static void Reset(bool resetSortOrder = false)
+        internal static void ResetDropdowns(bool filterDropdown, bool sortDropdown)
         {
+            currentFilterDropDownValue = filterDropdown ? 0 : currentFilterDropDownValue; ;
+            currentSortDropDownValue = sortDropdown? 0 : currentSortDropDownValue;
             previousFilterDropDownValue = 0;
-            currentFilterDropDownValue = 0;
-            if (resetSortOrder)
-            {
-                currentSortDropDownValue = 0;
-            }
             previousSortDropDownValue = 0;
-
-            var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
-            var rightGroup = characterInspectionScreen.transform.FindChildRecursive("RightGroup");
-            var containerPanel = rightGroup.GetComponentInChildren<ContainerPanel>();
 
             try
             {
-                var filterDropdown = containerPanel.transform.parent.Find("FilterDropdown").GetComponent<GuiDropdown>();
-                var sortDropdown = containerPanel.transform.parent.Find("SortDropdown").GetComponent<GuiDropdown>();
+                var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
+                var rightGroup = characterInspectionScreen.transform.FindChildRecursive("RightGroup");
+                var containerPanel = rightGroup.GetComponentInChildren<ContainerPanel>();
+                var filterGuiDropdown = containerPanel.transform.parent.Find("FilterDropdown").GetComponent<GuiDropdown>();
+                var sortGuiDropdown = containerPanel.transform.parent.Find("SortDropdown").GetComponent<GuiDropdown>();
 
-                filterDropdown.value = 0;
-                sortDropdown.value = currentSortDropDownValue;
+                filterGuiDropdown.value = currentFilterDropDownValue;
+                sortGuiDropdown.value = currentSortDropDownValue;
             }
             catch
             {
@@ -144,7 +140,19 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void Refresh(ContainerPanel containerPanel)
+        internal static void RefreshAfterDrag()
+        {
+            if (Main.Settings.EnableInventoryFilterAndSort)
+            {
+                var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
+                var rightGroup = characterInspectionScreen.transform.FindChildRecursive("RightGroup");
+                var containerPanel = rightGroup.GetComponentInChildren<ContainerPanel>();
+
+                containerPanel.InspectedCharacter?.RulesetCharacterHero?.CharacterRefreshed?.Invoke(containerPanel.InspectedCharacter.RulesetCharacterHero);
+            }
+        }
+
+        private static void RefreshAfterDropdownChange(ContainerPanel containerPanel)
         {
             if (previousFilterDropDownValue == currentFilterDropDownValue && previousSortDropDownValue == currentSortDropDownValue)
             {
