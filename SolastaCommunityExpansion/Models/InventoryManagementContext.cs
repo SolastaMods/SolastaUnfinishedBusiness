@@ -114,6 +114,7 @@ namespace SolastaCommunityExpansion.Models
             }
 
             guiFilterDropdown.AddOptions(filterOptions);
+            guiFilterDropdown.template.sizeDelta = new Vector2(1f, 208f);
         }
 
         internal static void ResetDropdowns(bool filterDropdown, bool sortDropdown)
