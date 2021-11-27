@@ -156,5 +156,7 @@ namespace SolastaCommunityExpansion
         public int ExperienceModifier = 100;
 
         public bool EnableFeatsSorting = true;
+
+        public bool EnableInventoryFilterAndSort = true;
     }
 }
