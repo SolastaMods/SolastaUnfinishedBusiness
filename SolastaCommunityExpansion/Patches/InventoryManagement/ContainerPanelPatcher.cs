@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Patches
         {
             internal static void Prefix()
             {
-                Models.InventoryManagementContext.ResetDropdowns(filterDropdown: false, sortDropdown: true);
+                Models.InventoryManagementContext.ResetDropdowns(filterDropdown: true, sortDropdown: true);
             }
         }
     }

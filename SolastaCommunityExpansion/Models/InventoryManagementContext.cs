@@ -14,11 +14,11 @@ namespace SolastaCommunityExpansion.Models
 
         internal static int currentSortDropDownValue = 0;
 
-        private static bool previousSortAscending = true;
+        private static bool previousSortAscending = false;
 
-        private static int previousFilterDropDownValue = 0;
+        private static int previousFilterDropDownValue = -1;
 
-        private static int previousSortDropDownValue = 0;
+        private static int previousSortDropDownValue = -1;
 
         internal static readonly List<RulesetItem> FilteredOutItems = new List<RulesetItem>();
 
@@ -59,6 +59,9 @@ namespace SolastaCommunityExpansion.Models
             var rectSortDropdown = sortDropdown.GetComponent<RectTransform>();
             var guiSortDropdown = sortDropdown.GetComponent<GuiDropdown>();
 
+            var reorderButton = rightGroup.transform.Find("ReorderPersonalContainerButton");
+            var textMeshReorderButton = reorderButton.GetComponentInChildren<TextMeshProUGUI>();
+
             // caches the categories
 
             var merchantCategoryDefinitions = DatabaseRepository.GetDatabase<MerchantCategoryDefinition>();
@@ -95,6 +98,7 @@ namespace SolastaCommunityExpansion.Models
             sortGroup.name = "SortGroup";
             sortGroup.transform.localPosition = new Vector3(-302f, 370f, 0f);
             guiSortGroup.Inverted = !currentSortAscending;
+            guiSortGroup.Selected = true;
             guiSortGroup.SortRequested = new SortGroup.SortRequestedHandler((sortCategory, inverted) =>
             {
                 previousSortAscending = currentSortAscending;
@@ -128,15 +132,20 @@ namespace SolastaCommunityExpansion.Models
                 new TMP_Dropdown.OptionData() { text = "Weight" },
                 new TMP_Dropdown.OptionData() { text = "Cost per Weight" },
             });
+
+            // tweaks the reorder button
+            reorderButton.localPosition = new Vector3(-32f, 358f, 0f);
+            textMeshReorderButton.text = "Reset";
         }
 
         internal static void ResetDropdowns(bool filterDropdown, bool sortDropdown)
         {
-            currentFilterDropDownValue = filterDropdown ? 0 : currentFilterDropDownValue; ;
-            currentSortDropDownValue = sortDropdown? 0 : currentSortDropDownValue;
-            currentSortAscending = sortDropdown ? true : currentSortAscending;
-            previousFilterDropDownValue = 0;
-            previousSortDropDownValue = 0;
+            previousFilterDropDownValue = filterDropdown ? -1 : previousFilterDropDownValue;
+            previousSortDropDownValue = sortDropdown ? -1 : previousSortDropDownValue;
+            previousSortAscending = sortDropdown || previousSortAscending;
+            currentFilterDropDownValue = filterDropdown ? 0 : currentFilterDropDownValue;
+            currentSortDropDownValue = sortDropdown ? 0 : currentSortDropDownValue;
+            currentSortAscending = sortDropdown || currentSortAscending;
 
             try
             {
@@ -148,13 +157,15 @@ namespace SolastaCommunityExpansion.Models
                 var sortGuiDropdown = containerPanel.transform.parent.Find("SortDropdown").GetComponent<GuiDropdown>();
 
                 filterGuiDropdown.value = currentFilterDropDownValue;
+
                 guiSortGroup.Inverted = !currentSortAscending;
                 guiSortGroup.Refresh();
+
                 sortGuiDropdown.value = currentSortDropDownValue;
             }
             catch
             {
-                Main.Warning("inventory system is disabled.");
+                Main.Warning("inventory system is disabled. you should restart your game for the changes to take effect.");
             }
         }
 
