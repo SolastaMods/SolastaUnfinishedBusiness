@@ -6,7 +6,7 @@ using static SolastaModApi.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Models
 {
-    internal static class InventoryManagementContenxt
+    internal static class InventoryManagementContext
     {
         private static int currentFilterDropDownValue = 0;
 
