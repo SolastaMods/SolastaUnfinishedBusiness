@@ -8,6 +8,14 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class InventoryManagementContenxt
     {
+        private static int currentFilterDropDownValue = 0;
+
+        private static int currentSortDropDownValue = 0;
+
+        private static int previousFilterDropDownValue = 0;
+
+        private static int previousSortDropDownValue = 0;
+
         internal static readonly List<RulesetItem> FilteredOutItems = new List<RulesetItem>();
 
         internal static readonly List<MerchantCategoryDefinition> FilterCategories = new List<MerchantCategoryDefinition>();
@@ -70,7 +78,8 @@ namespace SolastaCommunityExpansion.Models
             guiSortDropdown.ClearOptions();
             guiSortDropdown.onValueChanged.AddListener(delegate 
             {
-                Main.Settings.InventorySortDropdownValue = guiSortDropdown.value;
+                previousSortDropDownValue = currentSortDropDownValue;
+                currentSortDropDownValue = guiSortDropdown.value;
                 Refresh(containerPanel);
             });
 
@@ -94,6 +103,8 @@ namespace SolastaCommunityExpansion.Models
             guiFilterDropdown.ClearOptions();
             guiFilterDropdown.onValueChanged.AddListener(delegate 
             {
+                previousFilterDropDownValue = currentFilterDropDownValue;
+                currentFilterDropDownValue = guiFilterDropdown.value;
                 Refresh(containerPanel);
             });
 
@@ -105,20 +116,48 @@ namespace SolastaCommunityExpansion.Models
             guiFilterDropdown.AddOptions(filterOptions);
         }
 
+        internal static void Reset(bool resetSortOrder = false)
+        {
+            previousFilterDropDownValue = 0;
+            currentFilterDropDownValue = 0;
+            if (resetSortOrder)
+            {
+                currentSortDropDownValue = 0;
+            }
+            previousSortDropDownValue = 0;
+
+            var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
+            var rightGroup = characterInspectionScreen.transform.FindChildRecursive("RightGroup");
+            var containerPanel = rightGroup.GetComponentInChildren<ContainerPanel>();
+
+            try
+            {
+                var filterDropdown = containerPanel.transform.parent.Find("FilterDropdown").GetComponent<GuiDropdown>();
+                var sortDropdown = containerPanel.transform.parent.Find("SortDropdown").GetComponent<GuiDropdown>();
+
+                filterDropdown.value = 0;
+                sortDropdown.value = currentSortDropDownValue;
+            }
+            catch
+            {
+                Main.Warning("inventory system is disabled.");
+            }
+        }
+
         internal static void Refresh(ContainerPanel containerPanel)
         {
-            var items = new List<RulesetItem>();
-            var container = containerPanel.Container;
-            var filterSortDropdownValue = containerPanel.transform.parent.Find("FilterDropdown").GetComponent<GuiDropdown>().value;
-
-            foreach (var item in FilteredOutItems)
+            if (previousFilterDropDownValue == currentFilterDropDownValue && previousSortDropDownValue == currentSortDropDownValue)
             {
-                container.AddSubItem(item, false);
+                return;
             }
 
-            container.EnumerateAllItems(items);
+            var items = new List<RulesetItem>();
+            var container = containerPanel.Container;
 
-            switch (Main.Settings.InventorySortDropdownValue)
+            container.EnumerateAllItems(items);
+            items.AddRange(FilteredOutItems);
+
+            switch (currentSortDropDownValue)
             {
                 case 0: // Default
                     items.Sort(container);
@@ -169,16 +208,12 @@ namespace SolastaCommunityExpansion.Models
                     break;
             }
 
-            foreach (RulesetInventorySlot inventorySlot in container.InventorySlots)
-            {
-                inventorySlot.UnequipItem(silent: true);
-            }
-
+            container.InventorySlots.ForEach(x => x.UnequipItem(silent: true));
             FilteredOutItems.Clear();
 
             foreach (var item in items)
             {
-                if (filterSortDropdownValue == 0 || item.ItemDefinition.MerchantCategory == FilterCategories[filterSortDropdownValue].Name)
+                if (currentFilterDropDownValue == 0 || item.ItemDefinition.MerchantCategory == FilterCategories[currentFilterDropDownValue].Name)
                 {
                     container.AddSubItem(item, false);
                 }
@@ -188,7 +223,7 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
 
-            containerPanel.InspectedCharacter?.RulesetCharacterHero?.CharacterRefreshed?.Invoke(containerPanel.InspectedCharacter.RulesetCharacterHero);
+            containerPanel.InspectedCharacter.RulesetCharacterHero.CharacterRefreshed?.Invoke(containerPanel.InspectedCharacter.RulesetCharacterHero);
         }
     }
 }

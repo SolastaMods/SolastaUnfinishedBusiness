@@ -158,6 +158,5 @@ namespace SolastaCommunityExpansion
         public bool EnableFeatsSorting = true;
 
         public bool EnableInventoryFilterAndSort = true;
-        public int InventorySortDropdownValue = 0;
     }
 }

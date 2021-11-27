@@ -9,20 +9,7 @@ namespace SolastaCommunityExpansion.Patches
         {
             internal static void Postfix(CharacterInspectionScreen __instance)
             {
-                try
-                {
-                    var inventoryPanel = __instance.InventoryPanel;
-                    var containerPanel = AccessTools.Field(inventoryPanel.GetType(), "personalContainerPanel").GetValue(inventoryPanel) as ContainerPanel;
-                    var filterSortDropdown = containerPanel.transform.parent.Find("FilterDropdown").GetComponent<GuiDropdown>();
-                    var guiSortDropdown = containerPanel.transform.parent.Find("SortDropdown").GetComponent<GuiDropdown>();
-
-                    filterSortDropdown.value = 0;
-                    guiSortDropdown.value = Main.Settings.InventorySortDropdownValue;
-                }
-                catch
-                {
-                    Main.Log("inventory management is disabled.");
-                }
+                Models.InventoryManagementContenxt.Reset();
             }
         }
 
@@ -46,18 +33,7 @@ namespace SolastaCommunityExpansion.Patches
         {
             internal static void Prefix(CharacterInspectionScreen __instance)
             {
-                try
-                {
-                    var inventoryPanel = __instance.InventoryPanel;
-                    var containerPanel = AccessTools.Field(inventoryPanel.GetType(), "personalContainerPanel").GetValue(inventoryPanel) as ContainerPanel;
-                    var filterSortDropdown = containerPanel.transform.parent.Find("FilterDropdown").GetComponent<GuiDropdown>();
-
-                    filterSortDropdown.value = 0;
-                }
-                catch
-                {
-                    Main.Log("inventory management is disabled.");
-                }
+                Models.InventoryManagementContenxt.Reset();
             }
         }
     }
