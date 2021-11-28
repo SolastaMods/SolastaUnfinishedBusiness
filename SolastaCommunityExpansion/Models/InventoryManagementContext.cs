@@ -26,10 +26,6 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
-            //
-            // TODO: move hard-coded texts to translations-en
-            //
-
             if (!Main.Settings.EnableInventoryFilterAndSort)
             {
                 return;
@@ -54,8 +50,9 @@ namespace SolastaCommunityExpansion.Models
             var sortRect = sort.GetComponent<RectTransform>();
             var sortGuiDropdown = sort.GetComponent<GuiDropdown>();
 
-            var reorderButton = rightGroup.transform.Find("ReorderPersonalContainerButton");
-            var textMeshReorderButton = reorderButton.GetComponentInChildren<TextMeshProUGUI>();
+            var reorder = rightGroup.transform.Find("ReorderPersonalContainerButton");
+            var reorderButton = reorder.GetComponent<UnityEngine.UI.Button>();
+            var reorderTextMesh = reorder.GetComponentInChildren<TextMeshProUGUI>();
 
             // caches categories
 
@@ -88,7 +85,7 @@ namespace SolastaCommunityExpansion.Models
             filterGuiDropdown.AddOptions(filterOptions);
             filterGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);
 
-            // adds the label
+            // adds the sort direction toggle
 
             by.name = "SortGroup";
             by.transform.localPosition = new Vector3(-302f, 370f, 0f);
@@ -120,19 +117,28 @@ namespace SolastaCommunityExpansion.Models
                 Refresh(containerPanel);
             });
 
+            //
+            // TODO: move hard-coded texts to translations-en
+            //
+
             sortGuiDropdown.AddOptions(new List<TMP_Dropdown.OptionData>()
             {
                 new TMP_Dropdown.OptionData() { text = "Default" },
-                new TMP_Dropdown.OptionData() { text = "Name" },
                 new TMP_Dropdown.OptionData() { text = "Category" },
+                new TMP_Dropdown.OptionData() { text = "Name" },
                 new TMP_Dropdown.OptionData() { text = "Cost" },
                 new TMP_Dropdown.OptionData() { text = "Weight" },
                 new TMP_Dropdown.OptionData() { text = "Cost per Weight" },
             });
 
-            // tweaks the reorder button
-            reorderButton.localPosition = new Vector3(-32f, 358f, 0f);
-            textMeshReorderButton.text = "Reset";
+            // changes the reorder button behavior
+            reorder.localPosition = new Vector3(-32f, 358f, 0f);
+            reorderButton.onClick.AddListener(delegate
+            {
+                Reset(containerPanel);
+            });
+
+            reorderTextMesh.text = "Reset";
         }
 
         internal static void MarkAsDirty() => previousSortAscending = !previousSortAscending;
@@ -253,7 +259,7 @@ namespace SolastaCommunityExpansion.Models
                 }
 
                 previousFilterDropDownValue = currentFilterDropDownValue;
-                previousSortAscending = flush ? !currentSortAscending : currentSortAscending; // flush here forces a refresh on next bind as it creates an unclean state. needed when swaping heroes
+                previousSortAscending = flush ? !currentSortAscending : currentSortAscending; // flush here forces a refresh on next bind as it creates an unclean state. this is required when swaping heroes
                 previousSortDropDownValue = currentSortDropDownValue;
 
                 containerPanel.InspectedCharacter?.RulesetCharacterHero?.CharacterRefreshed?.Invoke(containerPanel.InspectedCharacter.RulesetCharacterHero);

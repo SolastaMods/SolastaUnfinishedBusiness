@@ -20,6 +20,11 @@ namespace SolastaCommunityExpansion.Patches
             {
                 Models.InventoryManagementContext.Refresh(__instance.MainContainerPanel, flush: true);
             }
+
+            internal static void Postfix()
+            {
+                Models.InventoryManagementContext.MarkAsDirty();
+            }
         }
     }
 }
