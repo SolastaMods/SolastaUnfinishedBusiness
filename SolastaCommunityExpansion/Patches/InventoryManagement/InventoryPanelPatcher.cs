@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion.Patches
         {
             internal static void Prefix(InventoryPanel __instance)
             {
-                Models.InventoryManagementContext.Refresh(__instance.MainContainerPanel, flush: true);
+                Models.InventoryManagementContext.Refresh(__instance.MainContainerPanel, clearState: true);
             }
 
             internal static void Postfix()

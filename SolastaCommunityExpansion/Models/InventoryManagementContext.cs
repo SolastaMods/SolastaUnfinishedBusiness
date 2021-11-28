@@ -131,11 +131,25 @@ namespace SolastaCommunityExpansion.Models
                 new TMP_Dropdown.OptionData() { text = "Cost per Weight" },
             });
 
-            // changes the reorder button behavior
+            // captures and changes the reorder button behavior
             reorder.localPosition = new Vector3(-32f, 358f, 0f);
             reorderButton.onClick.AddListener(delegate
             {
-                Reset(containerPanel);
+                previousFilterDropDownValue = 0;
+                previousSortAscending = true;
+                previousSortDropDownValue = 0;
+
+                currentFilterDropDownValue = 0;
+                currentSortAscending = true;
+                currentSortDropDownValue = 0;
+
+                filterGuiDropdown.value = 0;
+                bySortGroup.Inverted = false;
+                sortGuiDropdown.value = 0;
+
+                bySortGroup.Refresh();
+
+                Refresh(containerPanel, clearState: true);
             });
 
             reorderTextMesh.text = "Reset";
@@ -229,12 +243,12 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void Refresh(ContainerPanel containerPanel, bool flush = false)
+        internal static void Refresh(ContainerPanel containerPanel, bool clearState = false)
         {
             var clean = previousFilterDropDownValue == currentFilterDropDownValue && previousSortAscending == currentSortAscending && previousSortDropDownValue == currentSortDropDownValue;
             var container = containerPanel.Container;
 
-            if ((flush || !clean) && container != null)
+            if ((clearState || !clean) && container != null)
             {
                 var items = new List<RulesetItem>();
 
@@ -248,7 +262,7 @@ namespace SolastaCommunityExpansion.Models
 
                 foreach (var item in items)
                 {
-                    if (flush || currentFilterDropDownValue == 0 || item.ItemDefinition.MerchantCategory == FilterCategories[currentFilterDropDownValue].Name)
+                    if (clearState || currentFilterDropDownValue == 0 || item.ItemDefinition.MerchantCategory == FilterCategories[currentFilterDropDownValue].Name)
                     {
                         container.AddSubItem(item, true);
                     }
@@ -259,39 +273,10 @@ namespace SolastaCommunityExpansion.Models
                 }
 
                 previousFilterDropDownValue = currentFilterDropDownValue;
-                previousSortAscending = flush ? !currentSortAscending : currentSortAscending; // flush here forces a refresh on next bind as it creates an unclean state. this is required when swaping heroes
+                previousSortAscending = clearState ? !currentSortAscending : currentSortAscending; // bypass here forces a refresh on next bind as it creates an unclean state. this is required when swaping heroes
                 previousSortDropDownValue = currentSortDropDownValue;
 
                 containerPanel.InspectedCharacter?.RulesetCharacterHero?.CharacterRefreshed?.Invoke(containerPanel.InspectedCharacter.RulesetCharacterHero);
-            }
-        }
-
-        internal static void Reset(ContainerPanel containerPanel)
-        {
-            try
-            {
-                var filterGuiDropdown = containerPanel.transform.parent.Find("FilterDropdown").GetComponent<GuiDropdown>();
-                var sortGuiDropdown = containerPanel.transform.parent.Find("SortDropdown").GetComponent<GuiDropdown>();
-                var bySortGroup = containerPanel.transform.parent.Find("SortGroup").GetComponent<SortGroup>();
-
-                previousFilterDropDownValue = 0;
-                previousSortAscending = true;
-                previousSortDropDownValue = 0;
-
-                currentFilterDropDownValue = 0;
-                currentSortAscending = true;
-                currentSortDropDownValue = 0;
-
-                filterGuiDropdown.value = 0;
-                bySortGroup.Inverted = false;
-                sortGuiDropdown.value = 0;
-
-                bySortGroup.Refresh();
-                Refresh(containerPanel, flush: true);
-            }
-            catch
-            {
-                Main.Warning("The inventory management context isn't loaded. you should restart your game to suppress this message.");
             }
         }
     }
