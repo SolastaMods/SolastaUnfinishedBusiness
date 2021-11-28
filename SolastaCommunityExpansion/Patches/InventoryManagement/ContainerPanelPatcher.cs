@@ -7,9 +7,14 @@ namespace SolastaCommunityExpansion.Patches
         [HarmonyPatch(typeof(ContainerPanel), "OnReorderCb")]
         internal static class ContainerPanel_OnReorderCb
         {
-            internal static void Prefix()
+            internal static bool Prefix(ContainerPanel __instance)
             {
-                Models.InventoryManagementContext.ResetDropdowns(filterDropdown: true, sortDropdown: true);
+                if (Main.Settings.EnableInventoryFilterAndSort)
+                {
+                    Models.InventoryManagementContext.Reset(__instance);
+                }
+
+                return !Main.Settings.EnableInventoryFilterAndSort;
             }
         }
     }

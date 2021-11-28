@@ -8,28 +8,18 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class InventoryManagementContext
     {
-        private static bool currentSortAscending = true;
-
         private static int currentFilterDropDownValue = 0;
 
-        internal static int currentSortDropDownValue = 0;
+        private static bool currentSortAscending = true;
 
-        private static bool previousSortAscending = false;
+        private static int currentSortDropDownValue = 0;
 
-        private static int previousFilterDropDownValue = -1;
+        private static readonly List<RulesetItem> FilteredOutItems = new List<RulesetItem>();
 
-        private static int previousSortDropDownValue = -1;
-
-        internal static readonly List<RulesetItem> FilteredOutItems = new List<RulesetItem>();
-
-        internal static readonly List<MerchantCategoryDefinition> FilterCategories = new List<MerchantCategoryDefinition>();
+        private static readonly List<MerchantCategoryDefinition> FilterCategories = new List<MerchantCategoryDefinition>();
 
         internal static void Load()
         {
-            //
-            // TODO: check the drop-down positioning on other game resolutions
-            //
-
             //
             // TODO: move hard-coded texts to translations-en
             //
@@ -41,23 +31,22 @@ namespace SolastaCommunityExpansion.Models
 
             var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
             var rightGroup = characterInspectionScreen.transform.FindChildRecursive("RightGroup");
-
             var containerPanel = rightGroup.GetComponentInChildren<ContainerPanel>();
 
             var dropdownPrefab = Resources.Load<GameObject>("GUI/Prefabs/Component/Dropdown");
             var sortGroupPrefab = Gui.GuiService.GetScreen<MainMenuScreen>().transform.FindChildRecursive("SortGroupAlphabetical");
 
-            var filterDropdown = Object.Instantiate(dropdownPrefab, rightGroup);
-            var rectfilterDropdown = filterDropdown.GetComponent<RectTransform>();
-            var guiFilterDropdown = filterDropdown.GetComponent<GuiDropdown>();
+            var filter = Object.Instantiate(dropdownPrefab, rightGroup);
+            var filterRect = filter.GetComponent<RectTransform>();
+            var filterGuiDropdown = filter.GetComponent<GuiDropdown>();
 
-            var sortGroup = Object.Instantiate(sortGroupPrefab, rightGroup);
-            var guiSortGroup = sortGroup.GetComponent<SortGroup>();
-            var textMeshSortGroup = sortGroup.GetComponentInChildren<TextMeshProUGUI>();
+            var by = Object.Instantiate(sortGroupPrefab, rightGroup);
+            var byTextMesh = by.GetComponentInChildren<TextMeshProUGUI>();
+            var bySortGroup = by.GetComponent<SortGroup>();
 
-            var sortDropdown = Object.Instantiate(dropdownPrefab, rightGroup);
-            var rectSortDropdown = sortDropdown.GetComponent<RectTransform>();
-            var guiSortDropdown = sortDropdown.GetComponent<GuiDropdown>();
+            var sort = Object.Instantiate(dropdownPrefab, rightGroup);
+            var sortRect = sort.GetComponent<RectTransform>();
+            var sortGuiDropdown = sort.GetComponent<GuiDropdown>();
 
             var reorderButton = rightGroup.transform.Find("ReorderPersonalContainerButton");
             var textMeshReorderButton = reorderButton.GetComponentInChildren<TextMeshProUGUI>();
@@ -76,54 +65,56 @@ namespace SolastaCommunityExpansion.Models
 
             var filterOptions = new List<TMP_Dropdown.OptionData>();
 
-            filterDropdown.name = "FilterDropdown";
-            filterDropdown.transform.localPosition = new Vector3(-422f, 370f, 0f);
-            rectfilterDropdown.sizeDelta = new Vector2(150f, 28f);
+            filter.name = "FilterDropdown";
+            filter.transform.localPosition = new Vector3(-422f, 370f, 0f);
 
-            guiFilterDropdown.ClearOptions();
-            guiFilterDropdown.onValueChanged.AddListener(delegate
+            filterRect.sizeDelta = new Vector2(150f, 28f);
+
+            filterGuiDropdown.ClearOptions();
+            filterGuiDropdown.onValueChanged.AddListener(delegate
             {
-                previousFilterDropDownValue = currentFilterDropDownValue;
-                currentFilterDropDownValue = guiFilterDropdown.value;
-                RefreshAfterStateChange(containerPanel);
+                currentFilterDropDownValue = filterGuiDropdown.value;
+                Refresh(containerPanel);
             });
 
             FilterCategories.ForEach(x => filterOptions.Add(new TMP_Dropdown.OptionData() { text = x.FormatTitle() }));
 
-            guiFilterDropdown.AddOptions(filterOptions);
-            guiFilterDropdown.template.sizeDelta = new Vector2(1f, 208f);
+            filterGuiDropdown.AddOptions(filterOptions);
+            filterGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);
 
             // adds the label
 
-            sortGroup.name = "SortGroup";
-            sortGroup.transform.localPosition = new Vector3(-302f, 370f, 0f);
-            guiSortGroup.Inverted = !currentSortAscending;
-            guiSortGroup.Selected = true;
-            guiSortGroup.SortRequested = new SortGroup.SortRequestedHandler((sortCategory, inverted) =>
+            by.name = "SortGroup";
+            by.transform.localPosition = new Vector3(-302f, 370f, 0f);
+
+            bySortGroup.Inverted = !currentSortAscending;
+            bySortGroup.Selected = true;
+            bySortGroup.SortRequested = new SortGroup.SortRequestedHandler((sortCategory, inverted) =>
             {
-                previousSortAscending = currentSortAscending;
+                bySortGroup.Inverted = inverted;
+                bySortGroup.Refresh();
+
                 currentSortAscending = !inverted;
-                guiSortGroup.Inverted = inverted;
-                guiSortGroup.Refresh();
-                RefreshAfterStateChange(containerPanel);
+                Refresh(containerPanel);
             });
-            textMeshSortGroup.SetText("by");
+
+            byTextMesh.SetText("by");
 
             // adds the sort dropdown
 
-            sortDropdown.name = "SortDropdown";
-            sortDropdown.transform.localPosition = new Vector3(-205f, 370f, 0f);
-            rectSortDropdown.sizeDelta = new Vector2(150f, 28f);
+            sort.name = "SortDropdown";
+            sort.transform.localPosition = new Vector3(-205f, 370f, 0f);
 
-            guiSortDropdown.ClearOptions();
-            guiSortDropdown.onValueChanged.AddListener(delegate
+            sortRect.sizeDelta = new Vector2(150f, 28f);
+
+            sortGuiDropdown.ClearOptions();
+            sortGuiDropdown.onValueChanged.AddListener(delegate
             {
-                previousSortDropDownValue = currentSortDropDownValue;
-                currentSortDropDownValue = guiSortDropdown.value;
-                RefreshAfterStateChange(containerPanel);
+                currentSortDropDownValue = sortGuiDropdown.value;
+                Refresh(containerPanel);
             });
 
-            guiSortDropdown.AddOptions(new List<TMP_Dropdown.OptionData>()
+            sortGuiDropdown.AddOptions(new List<TMP_Dropdown.OptionData>()
             {
                 new TMP_Dropdown.OptionData() { text = "Default" },
                 new TMP_Dropdown.OptionData() { text = "Name" },
@@ -136,49 +127,6 @@ namespace SolastaCommunityExpansion.Models
             // tweaks the reorder button
             reorderButton.localPosition = new Vector3(-32f, 358f, 0f);
             textMeshReorderButton.text = "Reset";
-        }
-
-        internal static void ResetDropdowns(bool filterDropdown, bool sortDropdown)
-        {
-            previousFilterDropDownValue = filterDropdown ? -1 : previousFilterDropDownValue;
-            previousSortDropDownValue = sortDropdown ? -1 : previousSortDropDownValue;
-            previousSortAscending = sortDropdown || previousSortAscending;
-            currentFilterDropDownValue = filterDropdown ? 0 : currentFilterDropDownValue;
-            currentSortDropDownValue = sortDropdown ? 0 : currentSortDropDownValue;
-            currentSortAscending = sortDropdown || currentSortAscending;
-
-            try
-            {
-                var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
-                var rightGroup = characterInspectionScreen.transform.FindChildRecursive("RightGroup");
-                var containerPanel = rightGroup.GetComponentInChildren<ContainerPanel>();
-                var filterGuiDropdown = containerPanel.transform.parent.Find("FilterDropdown").GetComponent<GuiDropdown>();
-                var guiSortGroup = containerPanel.transform.parent.Find("SortGroup").GetComponent<SortGroup>();
-                var sortGuiDropdown = containerPanel.transform.parent.Find("SortDropdown").GetComponent<GuiDropdown>();
-
-                filterGuiDropdown.value = currentFilterDropDownValue;
-
-                guiSortGroup.Inverted = !currentSortAscending;
-                guiSortGroup.Refresh();
-
-                sortGuiDropdown.value = currentSortDropDownValue;
-            }
-            catch
-            {
-                Main.Warning("inventory system is disabled. you should restart your game for the changes to take effect.");
-            }
-        }
-
-        internal static void RefreshAfterDrag()
-        {
-            if (Main.Settings.EnableInventoryFilterAndSort)
-            {
-                var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
-                var rightGroup = characterInspectionScreen.transform.FindChildRecursive("RightGroup");
-                var containerPanel = rightGroup.GetComponentInChildren<ContainerPanel>();
-
-                containerPanel.InspectedCharacter?.RulesetCharacterHero?.CharacterRefreshed?.Invoke(containerPanel.InspectedCharacter.RulesetCharacterHero);
-            }
         }
 
         private static void Sort(List<RulesetItem> items)
@@ -252,38 +200,60 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void RefreshAfterStateChange(ContainerPanel containerPanel)
+        internal static void Refresh(ContainerPanel containerPanel, bool flush = false)
         {
-            // this increases performance by a lot
-            if (previousFilterDropDownValue == currentFilterDropDownValue && previousSortDropDownValue == currentSortDropDownValue && previousSortAscending == currentSortAscending)
-            {
-                return;
-            }
-
-            var items = new List<RulesetItem>();
             var container = containerPanel.Container;
 
-            container.EnumerateAllItems(items);
-            items.AddRange(FilteredOutItems);
-
-            Sort(items);
-
-            container.InventorySlots.ForEach(x => x.UnequipItem(silent: true));
-            FilteredOutItems.Clear();      
-
-            foreach (var item in items)
+            if (container != null)
             {
-                if (currentFilterDropDownValue == 0 || item.ItemDefinition.MerchantCategory == FilterCategories[currentFilterDropDownValue].Name)
-                {
-                    container.AddSubItem(item, false);
-                }
-                else
-                {
-                    FilteredOutItems.Add(item);
-                }
-            }
+                var items = new List<RulesetItem>();
 
-            containerPanel.BoundSlotBoxes.ForEach(x => x.RefreshState());
+                container.EnumerateAllItems(items);
+                container.InventorySlots.ForEach(x => x.UnequipItem(silent: true));
+
+                items.AddRange(FilteredOutItems);
+                FilteredOutItems.Clear();
+
+                Sort(items);
+
+                foreach (var item in items)
+                {
+                    if (flush || currentFilterDropDownValue == 0 || item.ItemDefinition.MerchantCategory == FilterCategories[currentFilterDropDownValue].Name)
+                    {
+                        container.AddSubItem(item, false);
+                    }
+                    else
+                    {
+                        FilteredOutItems.Add(item);
+                    }
+                }
+
+                containerPanel.InspectedCharacter?.RulesetCharacterHero?.CharacterRefreshed?.Invoke(containerPanel.InspectedCharacter.RulesetCharacterHero);
+            }
+        }
+
+        internal static void Reset(ContainerPanel containerPanel)
+        {
+            try
+            {
+                var filterGuiDropdown = containerPanel.transform.parent.Find("FilterDropdown").GetComponent<GuiDropdown>();
+                var sortGuiDropdown = containerPanel.transform.parent.Find("SortDropdown").GetComponent<GuiDropdown>();
+                var bySortGroup = containerPanel.transform.parent.Find("SortGroup").GetComponent<SortGroup>();
+
+                currentFilterDropDownValue = 0;
+                currentSortAscending = true;
+                currentSortDropDownValue = 0;
+
+                filterGuiDropdown.value = 0;
+                bySortGroup.Inverted = false;
+                sortGuiDropdown.value = 0;
+
+                bySortGroup.Refresh();
+            }
+            catch
+            {
+                Main.Warning("inventory system is disabled. you should restart your game to suppress these warnings.");
+            }
         }
     }
 }
