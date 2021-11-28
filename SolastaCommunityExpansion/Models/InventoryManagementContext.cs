@@ -8,28 +8,24 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class InventoryManagementContext
     {
-        private static int currentFilterDropDownValue = 0;
-
-        private static int currentSortDropDownValue = 0;
-
         private static int previousFilterDropDownValue = 0;
+
+        private static bool previousSortAscending = true;
 
         private static int previousSortDropDownValue = 0;
 
-        internal static readonly List<RulesetItem> FilteredOutItems = new List<RulesetItem>();
+        private static int currentFilterDropDownValue = 0;
 
-        internal static readonly List<MerchantCategoryDefinition> FilterCategories = new List<MerchantCategoryDefinition>();
+        private static bool currentSortAscending = true;
+
+        private static int currentSortDropDownValue = 0;
+
+        private static readonly List<RulesetItem> FilteredOutItems = new List<RulesetItem>();
+
+        private static readonly List<MerchantCategoryDefinition> FilterCategories = new List<MerchantCategoryDefinition>();
 
         internal static void Load()
         {
-            //
-            // TODO: check the drop-down positioning on other game resolutions
-            //
-
-            //
-            // TODO: move hard-coded texts to translations-en
-            //
-
             if (!Main.Settings.EnableInventoryFilterAndSort)
             {
                 return;
@@ -37,24 +33,28 @@ namespace SolastaCommunityExpansion.Models
 
             var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
             var rightGroup = characterInspectionScreen.transform.FindChildRecursive("RightGroup");
-
             var containerPanel = rightGroup.GetComponentInChildren<ContainerPanel>();
 
-            var containerTitle = rightGroup.FindChildRecursive("ContainerTitle");
-            var byLabel = Object.Instantiate(containerTitle, rightGroup);
-            var textMeshLabel = byLabel.GetComponent<TextMeshProUGUI>();
-
             var dropdownPrefab = Resources.Load<GameObject>("GUI/Prefabs/Component/Dropdown");
+            var sortGroupPrefab = Gui.GuiService.GetScreen<MainMenuScreen>().transform.FindChildRecursive("SortGroupAlphabetical");
 
-            var sortDropdown = Object.Instantiate(dropdownPrefab, rightGroup);
-            var rectSortDropdown = sortDropdown.GetComponent<RectTransform>();
-            var guiSortDropdown = sortDropdown.GetComponent<GuiDropdown>();
+            var filter = Object.Instantiate(dropdownPrefab, rightGroup);
+            var filterRect = filter.GetComponent<RectTransform>();
+            var filterGuiDropdown = filter.GetComponent<GuiDropdown>();
 
-            var filterDropdown = Object.Instantiate(dropdownPrefab, rightGroup);
-            var rectfilterDropdown = filterDropdown.GetComponent<RectTransform>();
-            var guiFilterDropdown = filterDropdown.GetComponent<GuiDropdown>();
+            var by = Object.Instantiate(sortGroupPrefab, rightGroup);
+            var byTextMesh = by.GetComponentInChildren<TextMeshProUGUI>();
+            var bySortGroup = by.GetComponent<SortGroup>();
 
-            // caches the categories
+            var sort = Object.Instantiate(dropdownPrefab, rightGroup);
+            var sortRect = sort.GetComponent<RectTransform>();
+            var sortGuiDropdown = sort.GetComponent<GuiDropdown>();
+
+            var reorder = rightGroup.transform.Find("ReorderPersonalContainerButton");
+            var reorderButton = reorder.GetComponent<UnityEngine.UI.Button>();
+            var reorderTextMesh = reorder.GetComponentInChildren<TextMeshProUGUI>();
+
+            // caches categories
 
             var merchantCategoryDefinitions = DatabaseRepository.GetDatabase<MerchantCategoryDefinition>();
             var filteredCategoryDefinitions = merchantCategoryDefinitions.Where(x => x != MerchantCategoryDefinitions.All).ToList();
@@ -64,118 +64,118 @@ namespace SolastaCommunityExpansion.Models
             FilterCategories.Add(MerchantCategoryDefinitions.All);
             FilterCategories.AddRange(filteredCategoryDefinitions);
 
-            // adds the label
-
-            byLabel.transform.localPosition = new Vector3(-332f, 378f, 0f);
-            textMeshLabel.SetText("by");
-
-            // adds the sort dropdown
-
-            sortDropdown.name = "SortDropdown";
-            sortDropdown.transform.localPosition = new Vector3(-230f, 370f, 0f);
-            rectSortDropdown.sizeDelta = new Vector2(150f, 28f);
-
-            guiSortDropdown.ClearOptions();
-            guiSortDropdown.onValueChanged.AddListener(delegate 
-            {
-                previousSortDropDownValue = currentSortDropDownValue;
-                currentSortDropDownValue = guiSortDropdown.value;
-                RefreshAfterDropdownChange(containerPanel);
-            });
-
-            guiSortDropdown.AddOptions(new List<TMP_Dropdown.OptionData>()
-            {
-                new TMP_Dropdown.OptionData() { text = "Default" },
-                new TMP_Dropdown.OptionData() { text = "Name" },
-                new TMP_Dropdown.OptionData() { text = "Category" },
-                new TMP_Dropdown.OptionData() { text = "Cost" },
-                new TMP_Dropdown.OptionData() { text = "Weight" },
-            });
-
             // adds the filter dropdown
 
             var filterOptions = new List<TMP_Dropdown.OptionData>();
 
-            filterDropdown.name = "FilterDropdown";
-            filterDropdown.transform.localPosition = new Vector3(-422f, 370f, 0f);
-            rectfilterDropdown.sizeDelta = new Vector2(150f, 28f);
+            filter.name = "FilterDropdown";
+            filter.transform.localPosition = new Vector3(-422f, 370f, 0f);
 
-            guiFilterDropdown.ClearOptions();
-            guiFilterDropdown.onValueChanged.AddListener(delegate 
+            filterRect.sizeDelta = new Vector2(150f, 28f);
+
+            filterGuiDropdown.ClearOptions();
+            filterGuiDropdown.onValueChanged.AddListener(delegate
             {
-                previousFilterDropDownValue = currentFilterDropDownValue;
-                currentFilterDropDownValue = guiFilterDropdown.value;
-                RefreshAfterDropdownChange(containerPanel);
+                currentFilterDropDownValue = filterGuiDropdown.value;
+                Refresh(containerPanel);
             });
 
-            foreach (var filterCategory in FilterCategories)
-            {
-                filterOptions.Add(new TMP_Dropdown.OptionData() { text = filterCategory.FormatTitle() });
-            }
+            FilterCategories.ForEach(x => filterOptions.Add(new TMP_Dropdown.OptionData() { text = x.FormatTitle() }));
 
-            guiFilterDropdown.AddOptions(filterOptions);
-            guiFilterDropdown.template.sizeDelta = new Vector2(1f, 208f);
+            filterGuiDropdown.AddOptions(filterOptions);
+            filterGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);
+
+            // adds the sort direction toggle
+
+            by.name = "SortGroup";
+            by.transform.localPosition = new Vector3(-302f, 370f, 0f);
+
+            bySortGroup.Inverted = !currentSortAscending;
+            bySortGroup.Selected = true;
+            bySortGroup.SortRequested = new SortGroup.SortRequestedHandler((sortCategory, inverted) =>
+            {
+                bySortGroup.Inverted = inverted;
+                bySortGroup.Refresh();
+
+                currentSortAscending = !inverted;
+                Refresh(containerPanel);
+            });
+
+            byTextMesh.SetText("by");
+
+            // adds the sort dropdown
+
+            sort.name = "SortDropdown";
+            sort.transform.localPosition = new Vector3(-205f, 370f, 0f);
+
+            sortRect.sizeDelta = new Vector2(150f, 28f);
+
+            sortGuiDropdown.ClearOptions();
+            sortGuiDropdown.onValueChanged.AddListener(delegate
+            {
+                currentSortDropDownValue = sortGuiDropdown.value;
+                Refresh(containerPanel);
+            });
+
+            //
+            // TODO: move hard-coded texts to translations-en
+            //
+
+            sortGuiDropdown.AddOptions(new List<TMP_Dropdown.OptionData>()
+            {
+                new TMP_Dropdown.OptionData() { text = "Default" },
+                new TMP_Dropdown.OptionData() { text = "Category" },
+                new TMP_Dropdown.OptionData() { text = "Name" },
+                new TMP_Dropdown.OptionData() { text = "Cost" },
+                new TMP_Dropdown.OptionData() { text = "Weight" },
+                new TMP_Dropdown.OptionData() { text = "Cost per Weight" },
+            });
+
+            // captures and changes the reorder button behavior
+            reorder.localPosition = new Vector3(-32f, 358f, 0f);
+            reorderButton.onClick.AddListener(delegate
+            {
+                previousFilterDropDownValue = 0;
+                previousSortAscending = true;
+                previousSortDropDownValue = 0;
+
+                currentFilterDropDownValue = 0;
+                currentSortAscending = true;
+                currentSortDropDownValue = 0;
+
+                filterGuiDropdown.value = 0;
+                bySortGroup.Inverted = false;
+                sortGuiDropdown.value = 0;
+
+                bySortGroup.Refresh();
+
+                Refresh(containerPanel, clearState: true);
+            });
+
+            reorderTextMesh.text = "Reset";
         }
 
-        internal static void ResetDropdowns(bool filterDropdown, bool sortDropdown)
+        internal static void MarkAsDirty() => previousSortAscending = !previousSortAscending;
+
+        private static void Sort(List<RulesetItem> items)
         {
-            currentFilterDropDownValue = filterDropdown ? 0 : currentFilterDropDownValue; ;
-            currentSortDropDownValue = sortDropdown? 0 : currentSortDropDownValue;
-            previousFilterDropDownValue = 0;
-            previousSortDropDownValue = 0;
-
-            try
-            {
-                var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
-                var rightGroup = characterInspectionScreen.transform.FindChildRecursive("RightGroup");
-                var containerPanel = rightGroup.GetComponentInChildren<ContainerPanel>();
-                var filterGuiDropdown = containerPanel.transform.parent.Find("FilterDropdown").GetComponent<GuiDropdown>();
-                var sortGuiDropdown = containerPanel.transform.parent.Find("SortDropdown").GetComponent<GuiDropdown>();
-
-                filterGuiDropdown.value = currentFilterDropDownValue;
-                sortGuiDropdown.value = currentSortDropDownValue;
-            }
-            catch
-            {
-                Main.Warning("inventory system is disabled.");
-            }
-        }
-
-        internal static void RefreshAfterDrag()
-        {
-            if (Main.Settings.EnableInventoryFilterAndSort)
-            {
-                var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
-                var rightGroup = characterInspectionScreen.transform.FindChildRecursive("RightGroup");
-                var containerPanel = rightGroup.GetComponentInChildren<ContainerPanel>();
-
-                containerPanel.InspectedCharacter?.RulesetCharacterHero?.CharacterRefreshed?.Invoke(containerPanel.InspectedCharacter.RulesetCharacterHero);
-            }
-        }
-
-        private static void RefreshAfterDropdownChange(ContainerPanel containerPanel)
-        {
-            if (previousFilterDropDownValue == currentFilterDropDownValue && previousSortDropDownValue == currentSortDropDownValue)
-            {
-                return;
-            }
-
-            var items = new List<RulesetItem>();
-            var container = containerPanel.Container;
-
-            container.EnumerateAllItems(items);
-            items.AddRange(FilteredOutItems);
+            int SortOrder() => currentSortAscending ? 1 : -1;
 
             switch (currentSortDropDownValue)
             {
                 case 0: // Default
-                    items.Sort(container);
+                    items.Sort((a, b) =>
+                    {
+                        int asi = a.ItemDefinition.SortingIndex;
+                        int bsi = b.ItemDefinition.SortingIndex;
+                        return SortOrder() * (asi == bsi ? Gui.Localize(a.ItemDefinition.FormatTitle()).CompareTo(Gui.Localize(a.ItemDefinition.FormatTitle())) : asi.CompareTo(bsi));
+                    });
                     break;
 
                 case 1: // Name
                     items.Sort((a, b) =>
                     {
-                        return a.ItemDefinition.FormatTitle().CompareTo(b.ItemDefinition.FormatTitle());
+                        return SortOrder() * a.ItemDefinition.FormatTitle().CompareTo(b.ItemDefinition.FormatTitle());
                     });
                     break;
 
@@ -189,10 +189,10 @@ namespace SolastaCommunityExpansion.Models
 
                         if (amc == bmc)
                         {
-                            return a.ItemDefinition.FormatTitle().CompareTo(b.ItemDefinition.FormatTitle());
+                            return SortOrder() * a.ItemDefinition.FormatTitle().CompareTo(b.ItemDefinition.FormatTitle());
                         }
 
-                        return amc.CompareTo(bmc);
+                        return SortOrder() * amc.CompareTo(bmc);
                     });
                     break;
 
@@ -202,7 +202,12 @@ namespace SolastaCommunityExpansion.Models
                         var ac = a.ComputeCost();
                         var bc = b.ComputeCost();
 
-                        return EquipmentDefinitions.CompareCosts(ac, bc);
+                        if (ac == bc)
+                        {
+                            return SortOrder() * a.ItemDefinition.FormatTitle().CompareTo(b.ItemDefinition.FormatTitle());
+                        }
+
+                        return SortOrder() * EquipmentDefinitions.CompareCosts(ac, bc);
                     });
                     break;
 
@@ -211,28 +216,68 @@ namespace SolastaCommunityExpansion.Models
                     {
                         var aw = a.ComputeWeight();
                         var bw = b.ComputeWeight();
-                       
-                        return aw.CompareTo(bw);
+
+                        if (Mathf.Abs(aw - bw) < .0E-5f)
+                        {
+                            return SortOrder() * a.ItemDefinition.FormatTitle().CompareTo(b.ItemDefinition.FormatTitle());
+                        }
+
+                        return SortOrder() * aw.CompareTo(bw);
+                    });
+                    break;
+
+                case 5: // Cost per Weight
+                    items.Sort((a, b) =>
+                    {
+                        var acpw = EquipmentDefinitions.GetApproximateCostInGold(a.ItemDefinition.Costs) / a.ComputeWeight();
+                        var bcpw = EquipmentDefinitions.GetApproximateCostInGold(b.ItemDefinition.Costs) / b.ComputeWeight();
+
+                        if (Mathf.Abs(acpw - bcpw) < .0E-4f)
+                        {
+                            return SortOrder() * a.ItemDefinition.FormatTitle().CompareTo(b.ItemDefinition.FormatTitle());
+                        }
+
+                        return SortOrder() * acpw.CompareTo(bcpw);
                     });
                     break;
             }
+        }
 
-            container.InventorySlots.ForEach(x => x.UnequipItem(silent: true));
-            FilteredOutItems.Clear();
+        internal static void Refresh(ContainerPanel containerPanel, bool clearState = false)
+        {
+            var clean = previousFilterDropDownValue == currentFilterDropDownValue && previousSortAscending == currentSortAscending && previousSortDropDownValue == currentSortDropDownValue;
+            var container = containerPanel.Container;
 
-            foreach (var item in items)
+            if ((clearState || !clean) && container != null)
             {
-                if (currentFilterDropDownValue == 0 || item.ItemDefinition.MerchantCategory == FilterCategories[currentFilterDropDownValue].Name)
-                {
-                    container.AddSubItem(item, false);
-                }
-                else
-                {
-                    FilteredOutItems.Add(item);
-                }
-            }
+                var items = new List<RulesetItem>();
 
-            containerPanel.InspectedCharacter.RulesetCharacterHero.CharacterRefreshed?.Invoke(containerPanel.InspectedCharacter.RulesetCharacterHero);
+                container.EnumerateAllItems(items);
+                container.InventorySlots.ForEach(x => x.UnequipItem(silent: true));
+
+                items.AddRange(FilteredOutItems);
+                FilteredOutItems.Clear();
+
+                Sort(items);
+
+                foreach (var item in items)
+                {
+                    if (clearState || currentFilterDropDownValue == 0 || item.ItemDefinition.MerchantCategory == FilterCategories[currentFilterDropDownValue].Name)
+                    {
+                        container.AddSubItem(item, true);
+                    }
+                    else
+                    {
+                        FilteredOutItems.Add(item);
+                    }
+                }
+
+                previousFilterDropDownValue = currentFilterDropDownValue;
+                previousSortAscending = clearState ? !currentSortAscending : currentSortAscending; // bypass here forces a refresh on next bind as it creates an unclean state. this is required when swaping heroes
+                previousSortDropDownValue = currentSortDropDownValue;
+
+                containerPanel.InspectedCharacter?.RulesetCharacterHero?.CharacterRefreshed?.Invoke(containerPanel.InspectedCharacter.RulesetCharacterHero);
+            }
         }
     }
 }
