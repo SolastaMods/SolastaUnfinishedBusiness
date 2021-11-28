@@ -8,6 +8,12 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class InventoryManagementContext
     {
+        private static int previousFilterDropDownValue = 0;
+
+        private static bool previousSortAscending = true;
+
+        private static int previousSortDropDownValue = 0;
+
         private static int currentFilterDropDownValue = 0;
 
         private static bool currentSortAscending = true;
@@ -129,6 +135,8 @@ namespace SolastaCommunityExpansion.Models
             textMeshReorderButton.text = "Reset";
         }
 
+        internal static void MarkAsDirty() => previousSortAscending = !previousSortAscending;
+
         private static void Sort(List<RulesetItem> items)
         {
             int SortOrder() => currentSortAscending ? 1 : -1;
@@ -202,9 +210,10 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Refresh(ContainerPanel containerPanel, bool flush = false)
         {
+            var clean = previousFilterDropDownValue == currentFilterDropDownValue && previousSortAscending == currentSortAscending && previousSortDropDownValue == currentSortDropDownValue;
             var container = containerPanel.Container;
 
-            if (container != null)
+            if ((flush || !clean) && container != null)
             {
                 var items = new List<RulesetItem>();
 
@@ -228,6 +237,10 @@ namespace SolastaCommunityExpansion.Models
                     }
                 }
 
+                previousFilterDropDownValue = currentFilterDropDownValue;
+                previousSortAscending = flush ? !currentSortAscending : currentSortAscending;
+                previousSortDropDownValue = currentSortDropDownValue;
+
                 containerPanel.InspectedCharacter?.RulesetCharacterHero?.CharacterRefreshed?.Invoke(containerPanel.InspectedCharacter.RulesetCharacterHero);
             }
         }
@@ -240,6 +253,10 @@ namespace SolastaCommunityExpansion.Models
                 var sortGuiDropdown = containerPanel.transform.parent.Find("SortDropdown").GetComponent<GuiDropdown>();
                 var bySortGroup = containerPanel.transform.parent.Find("SortGroup").GetComponent<SortGroup>();
 
+                previousFilterDropDownValue = 0;
+                previousSortAscending = true;
+                previousSortDropDownValue = 0;
+
                 currentFilterDropDownValue = 0;
                 currentSortAscending = true;
                 currentSortDropDownValue = 0;
@@ -249,10 +266,11 @@ namespace SolastaCommunityExpansion.Models
                 sortGuiDropdown.value = 0;
 
                 bySortGroup.Refresh();
+                Refresh(containerPanel, flush: true);
             }
             catch
             {
-                Main.Warning("inventory system is disabled. you should restart your game to suppress these warnings.");
+                Main.Warning("inventory system is disabled. you should restart your game to suppress this warning.");
             }
         }
     }
