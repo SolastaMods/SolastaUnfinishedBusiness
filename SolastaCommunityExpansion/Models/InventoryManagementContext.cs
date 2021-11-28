@@ -57,7 +57,7 @@ namespace SolastaCommunityExpansion.Models
             var reorderButton = rightGroup.transform.Find("ReorderPersonalContainerButton");
             var textMeshReorderButton = reorderButton.GetComponentInChildren<TextMeshProUGUI>();
 
-            // caches the categories
+            // caches categories
 
             var merchantCategoryDefinitions = DatabaseRepository.GetDatabase<MerchantCategoryDefinition>();
             var filteredCategoryDefinitions = merchantCategoryDefinitions.Where(x => x != MerchantCategoryDefinitions.All).ToList();
@@ -182,6 +182,11 @@ namespace SolastaCommunityExpansion.Models
                         var ac = a.ComputeCost();
                         var bc = b.ComputeCost();
 
+                        if (ac == bc)
+                        {
+                            return SortOrder() * a.ItemDefinition.FormatTitle().CompareTo(b.ItemDefinition.FormatTitle());
+                        }
+
                         return SortOrder() * EquipmentDefinitions.CompareCosts(ac, bc);
                     });
                     break;
@@ -192,6 +197,11 @@ namespace SolastaCommunityExpansion.Models
                         var aw = a.ComputeWeight();
                         var bw = b.ComputeWeight();
 
+                        if (Mathf.Abs(aw - bw) < .0E-5f)
+                        {
+                            return SortOrder() * a.ItemDefinition.FormatTitle().CompareTo(b.ItemDefinition.FormatTitle());
+                        }
+
                         return SortOrder() * aw.CompareTo(bw);
                     });
                     break;
@@ -201,6 +211,11 @@ namespace SolastaCommunityExpansion.Models
                     {
                         var acpw = EquipmentDefinitions.GetApproximateCostInGold(a.ItemDefinition.Costs) / a.ComputeWeight();
                         var bcpw = EquipmentDefinitions.GetApproximateCostInGold(b.ItemDefinition.Costs) / b.ComputeWeight();
+
+                        if (Mathf.Abs(acpw - bcpw) < .0E-4f)
+                        {
+                            return SortOrder() * a.ItemDefinition.FormatTitle().CompareTo(b.ItemDefinition.FormatTitle());
+                        }
 
                         return SortOrder() * acpw.CompareTo(bcpw);
                     });
@@ -229,7 +244,7 @@ namespace SolastaCommunityExpansion.Models
                 {
                     if (flush || currentFilterDropDownValue == 0 || item.ItemDefinition.MerchantCategory == FilterCategories[currentFilterDropDownValue].Name)
                     {
-                        container.AddSubItem(item, false);
+                        container.AddSubItem(item, true);
                     }
                     else
                     {
@@ -238,7 +253,7 @@ namespace SolastaCommunityExpansion.Models
                 }
 
                 previousFilterDropDownValue = currentFilterDropDownValue;
-                previousSortAscending = flush ? !currentSortAscending : currentSortAscending;
+                previousSortAscending = flush ? !currentSortAscending : currentSortAscending; // flush here forces a refresh on next bind as it creates an unclean state. needed when swaping heroes
                 previousSortDropDownValue = currentSortDropDownValue;
 
                 containerPanel.InspectedCharacter?.RulesetCharacterHero?.CharacterRefreshed?.Invoke(containerPanel.InspectedCharacter.RulesetCharacterHero);
@@ -270,7 +285,7 @@ namespace SolastaCommunityExpansion.Models
             }
             catch
             {
-                Main.Warning("inventory system is disabled. you should restart your game to suppress this warning.");
+                Main.Warning("The inventory management context isn't loaded. you should restart your game to suppress this message.");
             }
         }
     }
