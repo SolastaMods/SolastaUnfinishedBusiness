@@ -80,9 +80,15 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             toggle = Main.Settings.EnableEpicPoints;
-            if (UI.Toggle("Enables epic [17,15,13,12,10,8] array instead of standard [15,14,13,12,10,8]", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enables an epic 35 points buy system " + RequiresRestart, ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableEpicPoints = toggle;
+            }
+
+            toggle = Main.Settings.EnableEpicArray;
+            if (UI.Toggle("Enables an epic [17,15,13,12,10,8] array instead of a standard [15,14,13,12,10,8]", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableEpicArray = toggle;
                 EpicArrayContext.Load();
             }
 

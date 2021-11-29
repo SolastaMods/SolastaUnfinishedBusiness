@@ -250,9 +250,9 @@ Feat/&InspiringLeaderTitle Inspiring Leader
 Feat/&LightArmorDescription Gain proficiency with Light Armor and +1 Dexterity
 Feat/&LightArmorTitle Light Armor
 Feat/&MediumDexArmorDescription Gain proficiency with Medium Armor and Shields and +1 Dexterity
-Feat/&MediumDexArmorTitle Medium Armor
+Feat/&MediumDexArmorTitle Medium Armor (Dexterity)
 Feat/&MediumStrengthArmorDescription Gain proficiency with Medium Armor and Shields and +1 Strength
-Feat/&MediumStrengthArmorTitle Medium Armor
+Feat/&MediumStrengthArmorTitle Medium Armor (Strength)
 Feat/&PickPocketFeatDescription	You gain proficiency with Sleight Of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
 Feat/&PickPocketFeatTitle	Pickpocket
 Feat/&PowerAttackFeatDescription You learned to trade accuracy to lander deadlier/harder blows.  You can choose to take a -{0} penalty to your to hit in order to do more damage (+{0} damage for one handed weapons, +{1} damage for two handed weapons).  Lasts for the whole turn once activated.  Works with melee and ranged weapons.

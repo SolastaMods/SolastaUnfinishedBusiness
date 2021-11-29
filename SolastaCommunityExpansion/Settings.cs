@@ -22,6 +22,12 @@ namespace SolastaCommunityExpansion
         public const int MIN_INITIAL_FEATS = 0;
         public const int MAX_INITIAL_FEATS = 10;
 
+        public const int GAME_MAX_ATTRIBUTE = 15;
+        public const int GAME_BUY_POINTS = 27;
+
+        public const int MOD_MAX_ATTRIBUTE = 17;
+        public const int MOD_BUY_POINTS = 35;
+
         /* This is in the settings so it can be disabled, but if a player has access to first level feats they almost definitely want this on. */
         public bool EnableFirstLevelCasterFeats = true;
         // If this is off only the first auto prepared spells group is used during level up
@@ -34,6 +40,7 @@ namespace SolastaCommunityExpansion
         public bool AllowDynamicPowers = true;
 
         public bool EnableEpicPoints = false;
+        public bool EnableEpicArray = false;
         public bool EnableAlternateHuman = false;
         public bool EnablesAsiAndFeat = false;
         public bool EnableLevel20 = false;
@@ -149,5 +156,7 @@ namespace SolastaCommunityExpansion
         public int ExperienceModifier = 100;
 
         public bool EnableFeatsSorting = true;
+
+        public bool EnableInventoryFilterAndSort = true;
     }
 }
