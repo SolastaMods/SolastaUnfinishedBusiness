@@ -3,6 +3,7 @@ using SolastaCommunityExpansion.Subclasses.Fighter;
 using SolastaCommunityExpansion.Subclasses.Ranger;
 using SolastaCommunityExpansion.Subclasses.Rogue;
 using SolastaCommunityExpansion.Subclasses.Wizard;
+using SolastaCommunityExpansion.Subclasses.Witch;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,6 +24,7 @@ namespace SolastaCommunityExpansion.Models
             LoadSubclass(new Arcanist());
             LoadSubclass(new Tactician());
             LoadSubclass(new RoyalKnight());
+            LoadSubclass(new BloodWitch());
         }
 
         private static void LoadSubclass(AbstractSubclass subclassBuilder)

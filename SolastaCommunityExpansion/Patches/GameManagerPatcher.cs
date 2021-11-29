@@ -11,6 +11,7 @@ namespace SolastaCommunityExpansion.Patches
             {
                 Models.BugFixContext.Load();
 
+                Models.ClassesContext.Load();
                 Models.AdditionalNamesContext.Load();
                 Models.AsiAndFeatContext.Load();
                 Models.InitialChoicesContext.Load();
