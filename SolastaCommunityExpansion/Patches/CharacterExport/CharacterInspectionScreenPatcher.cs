@@ -6,17 +6,12 @@ namespace SolastaCommunityExpansion.Patches
     [HarmonyPatch(typeof(CharacterInspectionScreen), "HandleInput")]
     internal static class CharacterInspectionScreen_HandleInput
     {
-        public static bool Prefix(CharacterInspectionScreen __instance, InputCommands.Id command, ref bool __result)
+        public static void Prefix(CharacterInspectionScreen __instance, InputCommands.Id command, ref bool __result)
         {
-            bool trap = Gui.Game != null && Main.Settings.EnableCharacterExport && !Models.CharacterExportContext.InputModalVisible && command == Settings.CTRL_E;
-
-            if (trap)
+            if (Gui.Game != null && Main.Settings.EnableCharacterExport && !Models.CharacterExportContext.InputModalVisible && command == Settings.CTRL_E)
             {
                 Models.CharacterExportContext.ExportInspectedCharacter(__instance.InspectedCharacter.RulesetCharacterHero);
-                __result = true;
             }
-
-            return !trap;
         }
     }
 }
