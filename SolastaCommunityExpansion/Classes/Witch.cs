@@ -162,6 +162,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 //                                                                                    DatabaseHelper.SpellDefinitions.FireBolt,
 //                                                                                    DatabaseHelper.SpellDefinitions.Guidance,
 //                                                                                    DatabaseHelper.SpellDefinitions.Light,
+                                                                                    MinorLifestealSpellBuilder.AddToSpellList(),
 //                                                                                    DatabaseHelper.SpellDefinitions.PoisonSpray,
                                                                                     DatabaseHelper.SpellDefinitions.ProduceFlame,
 //                                                                                    DatabaseHelper.SpellDefinitions.RayOfFrost,
@@ -244,8 +245,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                     DatabaseHelper.SpellDefinitions.MistyStep,
 //                                                                                    DatabaseHelper.SpellDefinitions.MoonBeam,
 //                                                                                    DatabaseHelper.SpellDefinitions.PassWithoutTrace,
+                                                                                    PetalStormSpellBuilder.AddToSpellList(),
 //                                                                                    DatabaseHelper.SpellDefinitions.PrayerOfHealing,
 //                                                                                    DatabaseHelper.SpellDefinitions.ProtectionFromPoison,
+                                                                                    ProtectThresholdSpellBuilder.AddToSpellList(),
                                                                                     DatabaseHelper.SpellDefinitions.RayOfEnfeeblement,
 //                                                                                    DatabaseHelper.SpellDefinitions.ScorchingRay,
                                                                                     DatabaseHelper.SpellDefinitions.SeeInvisibility,
@@ -347,6 +350,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                     DatabaseHelper.SpellDefinitions.Resurrection
 */                                                                                });
 
+
             CastSpellBuilder spellCasting = new CastSpellBuilder(   "CastSpellClassWitch", 
                                                                     GuidHelper.Create(ClassNamespace, "CastSpellClassWitch").ToString())
                                                                     .SetSpellList(spellList)
@@ -390,7 +394,9 @@ namespace SolastaCommunityExpansion.Classes.Witch
             witch.AddFeatureAtLevel(weaponProficiencies, 1);
             witch.AddFeatureAtLevel(armorProficiencies, 1);
 //            witch.AddFeatureAtLevel(toolProficiencies, 1);
+
             witch.AddFeatureAtLevel(spellCasting.AddToDB(), 1);
+
 //            Definition.FeatureUnlocks.Add(new FeatureUnlockByLevel(ritual_spellcasting, 1));
 
             // TODO: Do a dropdown like the Druid of the Land land type or summon type for the Druid of Spirits (?)
@@ -399,7 +405,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             // powers should last 1 round by default
             // how to do 2nd concentration mechanic???
 //            witch.AddFeatureAtLevel(Maledictions, 1);
-            // This should actually be a bit refined, i.e. give the Find Familiar spell, and have a longer casting time
+            // This should actually be a bit refined, i.e. give the Find Familiar spell, and have a longer casting time/ritual tag
             // Beckon Familiar is actually a Malediction, i.e. instant cast familiar
             witch.AddFeatureAtLevel(BeckonFamiliar(), 2);
             // TODO: unsure about this one...
@@ -419,16 +425,16 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             // Maybe change this... not sure what to do... is there an OnDeath event or something?
 //            witch.AddFeatureAtLevel(DyingCurse,9);
-            // TODO: Another set of Tinkerer infusions
+            // TODO: Another set of Maledictions, but stronger, and again follow the Tinkerer infusions pattern
 //            witch.AddFeatureAtLevel(GreaterMalediction,11);
 
             witch.AddFeatureAtLevel(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 12);
 
-            // TODO: Another set of Tinkerer infusions
+            // TODO: Another set of Maledictions, but stronger, and again follow the Tinkerer infusions pattern
 //            witch.AddFeatureAtLevel(GreaterMalediction,13);
-            // TODO: Another set of Tinkerer infusions
+            // TODO: Another set of Maledictions, but stronger, and again follow the Tinkerer infusions pattern
 //            witch.AddFeatureAtLevel(GreaterMalediction,15);
-            // TODO: Another set of Tinkerer infusions
+            // TODO: Another set of Maledictions, but stronger, and again follow the Tinkerer infusions pattern
 //            witch.AddFeatureAtLevel(GreaterMalediction,18);
             // TODO: Another drop down list like Circle of the Land Druid
 //            witch.AddFeatureAtLevel(AbsoluteMalediction,20);
@@ -546,318 +552,186 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
         }
 
-
-
-
-        internal class FamiliarSpellListBuilder : BaseDefinitionBuilder<SpellListDefinition>
+        internal class MinorLifestealSpellBuilder : BaseDefinitionBuilder<SpellDefinition>
         {
-            const string FamiliarSpellListName = "FamiliarSpellList";
-            const string FamiliarSpellListNameGuid = "0a3e6a7d-4628-4189-b91d-d7146d991234";
+            const string SpellName = "MinorLifestealSpell";
+            const string SpellNameGuid = "35240973-9bd0-466c-a835-32e4915a27ec";
 
-            protected FamiliarSpellListBuilder(string name, string guid) : base(DatabaseHelper.SpellListDefinitions.SpellListCubeOfLight, name, guid)
+            protected MinorLifestealSpellBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.VampiricTouch, name, guid)
             {
-                Definition.SpellsByLevel.Clear();
-                Definition.SetHasCantrips(true);
+                Definition.GuiPresentation.Title = "Spell/&MinorLifestealTitle";
+                Definition.GuiPresentation.Description = "Spell/&MinorLifestealDescription";
+                Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.VampiricTouch.GuiPresentation.SpriteReference);
 
-                // 0
-                SpellListDefinition.SpellsByLevelDuplet spellsByLevelDuplet0 = new SpellListDefinition.SpellsByLevelDuplet();
-                List<SpellDefinition> spellList0 = new List<SpellDefinition>();
-                spellsByLevelDuplet0.Spells = spellList0;
-                spellsByLevelDuplet0.Spells.Add(DatabaseHelper.SpellDefinitions.Dazzle);
-                spellsByLevelDuplet0.Spells.Add(DatabaseHelper.SpellDefinitions.Guidance);
-
-                SpellDefinition nudgeFate = new SpellDefinition();
-                nudgeFate = NudgeFateSpellBuilder.AddToSpellList();
-                spellsByLevelDuplet0.Spells.Add(nudgeFate);
-
-                spellsByLevelDuplet0.Spells.Add(DatabaseHelper.SpellDefinitions.Resistance);
-                spellsByLevelDuplet0.Spells.Add(DatabaseHelper.SpellDefinitions.TrueStrike);
-
-                // 1
-                SpellListDefinition.SpellsByLevelDuplet spellsByLevelDuplet1 = new SpellListDefinition.SpellsByLevelDuplet();
-                spellsByLevelDuplet1.Level = 1;
-                List<SpellDefinition> spellList1 = new List<SpellDefinition>();
-                spellsByLevelDuplet1.Spells = spellList1;
-                spellsByLevelDuplet1.Spells.Add(DatabaseHelper.SpellDefinitions.Bane);
-                spellsByLevelDuplet1.Spells.Add(DatabaseHelper.SpellDefinitions.Bless);
-                spellsByLevelDuplet1.Spells.Add(DatabaseHelper.SpellDefinitions.FaerieFire);
-                spellsByLevelDuplet1.Spells.Add(DatabaseHelper.SpellDefinitions.ShieldOfFaith);
-                // 2
-                SpellListDefinition.SpellsByLevelDuplet spellsByLevelDuplet2 = new SpellListDefinition.SpellsByLevelDuplet();
-                spellsByLevelDuplet2.Level = 2;
-                List<SpellDefinition> spellList2 = new List<SpellDefinition>();
-                spellsByLevelDuplet2.Spells = spellList2;
-                spellsByLevelDuplet2.Spells.Add(DatabaseHelper.SpellDefinitions.EnhanceAbility);
-                spellsByLevelDuplet2.Spells.Add(DatabaseHelper.SpellDefinitions.LesserRestoration);
-                spellsByLevelDuplet2.Spells.Add(DatabaseHelper.SpellDefinitions.MagicWeapon);
-                spellsByLevelDuplet2.Spells.Add(DatabaseHelper.SpellDefinitions.RayOfEnfeeblement);
-                spellsByLevelDuplet2.Spells.Add(DatabaseHelper.SpellDefinitions.WardingBond);
-                // 3
-                SpellListDefinition.SpellsByLevelDuplet spellsByLevelDuplet3 = new SpellListDefinition.SpellsByLevelDuplet();
-                spellsByLevelDuplet3.Level = 3;
-                List<SpellDefinition> spellList3 = new List<SpellDefinition>();
-                spellsByLevelDuplet3.Spells = spellList3;
-                spellsByLevelDuplet3.Spells.Add(DatabaseHelper.SpellDefinitions.BeaconOfHope);
-                spellsByLevelDuplet3.Spells.Add(DatabaseHelper.SpellDefinitions.BestowCurse);
-    //            spellsByLevelDuplet3.Spells.Add(DatabaseHelper.SpellDefinitions.Counterspell);
-                spellsByLevelDuplet3.Spells.Add(DatabaseHelper.SpellDefinitions.DispelMagic);
-
-                // 4
-                SpellListDefinition.SpellsByLevelDuplet spellsByLevelDuplet4 = new SpellListDefinition.SpellsByLevelDuplet();
-                spellsByLevelDuplet4.Level = 4;
-                List<SpellDefinition> spellList4 = new List<SpellDefinition>();
-                spellsByLevelDuplet4.Spells = spellList4;
-                spellsByLevelDuplet4.Spells.Add(DatabaseHelper.SpellDefinitions.DeathWard);
-                spellsByLevelDuplet4.Spells.Add(DatabaseHelper.SpellDefinitions.DimensionDoor);
-                spellsByLevelDuplet4.Spells.Add(DatabaseHelper.SpellDefinitions.IdentifyCreatures);
-
-                // put this as 4th level spell until multitarget can be done, and proper saving throw logic applies
-                SpellDefinition timeBlink = new SpellDefinition();
-                timeBlink = TimeBlinkSpellBuilder.AddToSpellList();
-                spellsByLevelDuplet4.Spells.Add(timeBlink);
-
-
-                // 5
-                SpellListDefinition.SpellsByLevelDuplet spellsByLevelDuplet5 = new SpellListDefinition.SpellsByLevelDuplet();
-                spellsByLevelDuplet5.Level = 5;
-                List<SpellDefinition> spellList5 = new List<SpellDefinition>();
-                spellsByLevelDuplet5.Spells = spellList5;
-                spellsByLevelDuplet5.Spells.Add(DatabaseHelper.SpellDefinitions.DispelEvilAndGood);
-                spellsByLevelDuplet5.Spells.Add(DatabaseHelper.SpellDefinitions.GreaterRestoration);
-
-
-
-                Definition.SpellsByLevel.Add(spellsByLevelDuplet0);
-                Definition.SpellsByLevel.Add(spellsByLevelDuplet1);
-                Definition.SpellsByLevel.Add(spellsByLevelDuplet2);
-                Definition.SpellsByLevel.Add(spellsByLevelDuplet3);
-                Definition.SpellsByLevel.Add(spellsByLevelDuplet4);
-                Definition.SpellsByLevel.Add(spellsByLevelDuplet5);
-
-            }
-
-            public static SpellListDefinition CreateAndAddToDB(string name, string guid)
-                => new FamiliarSpellListBuilder(name, guid).AddToDB();
-
-            public static SpellListDefinition FamiliarSpellList = CreateAndAddToDB(FamiliarSpellListName, FamiliarSpellListNameGuid);
-
-            public static SpellListDefinition AddToSpellListDefinitionList()
-            {
-                var FamiliarSpellList = FamiliarSpellListBuilder.FamiliarSpellList;//Instantiating it adds to the DB
-                return FamiliarSpellList;
-            }
-        }
-
-        internal class NudgeFateSpellBuilder : BaseDefinitionBuilder<SpellDefinition>
-        {
-            const string SpellName = "NudgeFateSpell";
-            const string SpellNameGuid = "88f1fb27-66af-49c6-b038-a38142b21234";
-
-            protected NudgeFateSpellBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.ShadowDagger, name, guid)
-            {
-                Definition.GuiPresentation.Title = "Spell/&NudgeFateTitle";
-                Definition.GuiPresentation.Description = "Spell/&NudgeFateDescription";
-                Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.TrueStrike.GuiPresentation.SpriteReference);
-
-                Definition.SetSchoolOfMagic("SchoolDivination");
-                Definition.SetVerboseComponent(true);
-                Definition.SetSomaticComponent(false);
+                Definition.SetSpellLevel(0);
+                Definition.SetSchoolOfMagic(RuleDefinitions.SchoolNecromancy);
+                Definition.SetVerboseComponent(false);
+                Definition.SetSomaticComponent(true);
                 Definition.SetMaterialComponentType(RuleDefinitions.MaterialComponentType.None);
-
-                EffectDescription effectDescription = Definition.EffectDescription;
-                effectDescription.DurationType = RuleDefinitions.DurationType.Round;
-                effectDescription.SetRangeParameter(12);
-                effectDescription.HasSavingThrow = true;
-                effectDescription.SetHalfDamageOnAMiss(false);
-                effectDescription.EffectParticleParameters.Clear();
-                effectDescription.SetEffectParticleParameters(DatabaseHelper.SpellDefinitions.TrueStrike.EffectDescription.EffectParticleParameters);
-
-                EffectForm mainEffectForm = effectDescription.EffectForms[0];
-                mainEffectForm.FormType = EffectForm.EffectFormType.Condition;
-                mainEffectForm.SetCreatedByCharacter(true);
-                mainEffectForm.HasSavingThrow = true;
-                mainEffectForm.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
-
-                ConditionDefinition conditionDefinition = new ConditionDefinition();
-                conditionDefinition = NudgeFateConditionBuilder.AddToConditionList();
-
-                ConditionForm conditionForm = new ConditionForm();
-                conditionForm.ConditionDefinition = conditionDefinition;
-                conditionForm.SetConditionDefinitionName(conditionDefinition.Name);
-
-                mainEffectForm.ConditionForm = conditionForm;
-
-            }
-
-            public static SpellDefinition CreateAndAddToDB(string name, string guid)
-                => new NudgeFateSpellBuilder(name, guid).AddToDB();
-
-            public static SpellDefinition NudgeFateSpell = CreateAndAddToDB(SpellName, SpellNameGuid);
-
-            public static SpellDefinition AddToSpellList()
-            {
-                var NudgeFateSpell = NudgeFateSpellBuilder.NudgeFateSpell;//Instantiating it adds to the DB
-                return NudgeFateSpell;
-            }
-        }
-
-        internal class NudgeFateConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
-        {
-            const string ConditionName = "NudgeFateCondition";
-            const string ConditionNameGuid = "1231fb27-66af-49c6-b038-a38142b21234";
-
-            protected NudgeFateConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionTargetedByGuidingBolt, name, guid)
-            {
-                Definition.GuiPresentation.Title = "Condition/&NudgeFateTitle";
-                Definition.GuiPresentation.Description = "Condition/&NudgeFateDescription";
-
-                Definition.SpecialInterruptions.Clear();
-                Definition.SpecialInterruptions.Add(RuleDefinitions.ConditionInterruption.Attacks);
-                Definition.SetTerminateWhenRemoved(true);
-                Definition.Features.Clear();
-
-                //            FeatureDefinitionCombatAffinity featureDefinitionCombatAffinity = new FeatureDefinitionCombatAffinity();
-                FeatureDefinitionCombatAffinity featureDefinitionCombatAffinity = new FeatureDefinitionCombatAffinity();
-
-                featureDefinitionCombatAffinity = NudgeFateFeatureDefinitionCombatAffinityBuilder.AddToFeatureDefinitionCombatAffinityList();
-
-                Definition.Features.Add(featureDefinitionCombatAffinity);
-            }
-
-            public static ConditionDefinition CreateAndAddToDB(string name, string guid)
-                => new NudgeFateConditionBuilder(name, guid).AddToDB();
-
-            public static ConditionDefinition NudgeFateCondition = CreateAndAddToDB(ConditionName, ConditionNameGuid);
-
-            public static ConditionDefinition AddToConditionList()
-            {
-                var NudgeFateCondition = NudgeFateConditionBuilder.NudgeFateCondition;//Instantiating it adds to the DB
-                return NudgeFateCondition;
-            }
-        }
-
-        internal class NudgeFateFeatureDefinitionCombatAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionCombatAffinity>
-        {
-            const string FeatureDefinitionCombatAffinityName = "NudgeFateFeatureDefinitionCombatAffinity";
-            const string FeatureDefinitionCombatAffinityNameGuid = "123aab27-66af-49c6-b038-a38142b21234";
-
-            protected NudgeFateFeatureDefinitionCombatAffinityBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityPoisoned, name, guid)
-            {
-                Definition.GuiPresentation.Title = "FeatureDefinitionCombatAffinity/&NudgeFateTitle";
-                Definition.GuiPresentation.Description = "FeatureDefinitionCombatAffinity/&NudgeFateDescription";
-
-                Definition.SetMyAttackAdvantage(RuleDefinitions.AdvantageType.Disadvantage);
-            }
-
-            public static FeatureDefinitionCombatAffinity CreateAndAddToDB(string name, string guid)
-                => new NudgeFateFeatureDefinitionCombatAffinityBuilder(name, guid).AddToDB();
-
-            public static FeatureDefinitionCombatAffinity NudgeFateFeatureDefinitionCombatAffinity = CreateAndAddToDB(FeatureDefinitionCombatAffinityName, FeatureDefinitionCombatAffinityNameGuid);
-
-            public static FeatureDefinitionCombatAffinity AddToFeatureDefinitionCombatAffinityList()
-            {
-                var NudgeFateFeatureDefinitionCombatAffinity = NudgeFateFeatureDefinitionCombatAffinityBuilder.NudgeFateFeatureDefinitionCombatAffinity;//Instantiating it adds to the DB
-                return NudgeFateFeatureDefinitionCombatAffinity;
-            }
-        }
-
-
-        internal class TimeBlinkSpellBuilder : BaseDefinitionBuilder<SpellDefinition>
-        {
-            const string SpellName = "TimeBlinkSpell";
-            const string SpellNameGuid = "88f1fb27-66af-49c6-b038-a38142b31234";
-
-            protected TimeBlinkSpellBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.Counterspell, name, guid)
-            {
-                Definition.GuiPresentation.Title = "Spell/&TimeBlinkTitle";
-                Definition.GuiPresentation.Description = "Spell/&TimeBlinkDescription";
-                Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Banishment.GuiPresentation.SpriteReference);
-
-                Definition.SetSchoolOfMagic("SchoolTransmutation");
-                Definition.SetSpellLevel(4);
-                Definition.SetVerboseComponent(true);
-                Definition.SetSomaticComponent(false);
-                Definition.SetMaterialComponentType(RuleDefinitions.MaterialComponentType.None);
+                Definition.SetRitual(false);
                 Definition.SetRequiresConcentration(false);
 
-                EffectDescription effectDescription = Definition.EffectDescription;
-                effectDescription.DurationType = RuleDefinitions.DurationType.Round;
-                effectDescription.SetRangeParameter(24);
-                effectDescription.HasSavingThrow = true;
-                effectDescription.SetHalfDamageOnAMiss(false);
-                effectDescription.EffectParticleParameters.Clear();
-                effectDescription.SetEffectParticleParameters(DatabaseHelper.SpellDefinitions.Banishment.EffectDescription.EffectParticleParameters);
-                effectDescription.SavingThrowAbility = "Wisdom";
-                effectDescription.EffectAdvancement.SetAdditionalTargetsPerIncrement(1);
+                Definition.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
+                Definition.EffectDescription.SetRangeParameter(12);
+                Definition.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Instantaneous);
+                Definition.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
+                Definition.EffectDescription.SetHasSavingThrow(true);
+                Definition.EffectDescription.SetHalfDamageOnAMiss(false);
+                Definition.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Constitution);
+                Definition.EffectDescription.EffectAdvancement.SetAdditionalDicePerIncrement(1);
+                Definition.EffectDescription.EffectAdvancement.SetIncrementMultiplier(5);
+                Definition.EffectDescription.EffectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod.CasterLevelTable);
 
-                // counter form
-                EffectForm counterEffectForm = effectDescription.EffectForms[0];
-                counterEffectForm.FormType = EffectForm.EffectFormType.Counter;
-                counterEffectForm.SetCreatedByCharacter(true);
-                counterEffectForm.HasSavingThrow = true;
-                counterEffectForm.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
-                // Until there is a way to actually put a saving throw upon casting a counterspell, make this act like Counterspell, i.e. give a chance to fail
-    //            counterEffectForm.CounterForm.SetAutomaticSpellLevel(9);
-
-                // banish form
-                ConditionDefinition banishConditionDefinition = new ConditionDefinition();
-                banishConditionDefinition = TimeBlinkConditionBuilder.AddToConditionList();
-
-                ConditionForm banishConditionForm = new ConditionForm();
-                banishConditionForm.ConditionDefinition = banishConditionDefinition;
-                banishConditionForm.SetConditionDefinitionName(banishConditionDefinition.Name);
-
-                EffectForm banishEffectForm = new EffectForm();
-                banishEffectForm.FormType = EffectForm.EffectFormType.Condition;
-                banishEffectForm.SetCreatedByCharacter(true);
-                banishEffectForm.HasSavingThrow = true;
-                banishEffectForm.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
-
-                banishEffectForm.ConditionForm = banishConditionForm;
-                effectDescription.EffectForms.Add(banishEffectForm);
+                Definition.EffectDescription.EffectForms[1].SetHasSavingThrow(true);                
+                Definition.EffectDescription.EffectForms[1].SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
+                Definition.EffectDescription.EffectForms[1].DamageForm.SetDiceNumber(1);
+                Definition.EffectDescription.EffectForms[1].DamageForm.SetDieType(RuleDefinitions.DieType.D4);
+                Definition.EffectDescription.EffectForms[1].DamageForm.SetDamageType(RuleDefinitions.DamageTypeNecrotic);
+                Definition.EffectDescription.EffectForms[1].DamageForm.SetHealFromInflictedDamage(RuleDefinitions.HealFromInflictedDamage.Full);
+                Definition.EffectDescription.EffectForms[1].SetLevelMultiplier(1);
+                Definition.EffectDescription.EffectForms[1].AlterationForm.SetMaximumIncrease(2);
+                Definition.EffectDescription.EffectForms[1].AlterationForm.SetValueIncrease(2);
 
             }
 
             public static SpellDefinition CreateAndAddToDB(string name, string guid)
-                => new TimeBlinkSpellBuilder(name, guid).AddToDB();
+                => new MinorLifestealSpellBuilder(name, guid).AddToDB();
 
-            public static SpellDefinition TimeBlinkSpell = CreateAndAddToDB(SpellName, SpellNameGuid);
+            public static SpellDefinition MinorLifestealSpell = CreateAndAddToDB(SpellName, SpellNameGuid);
 
             public static SpellDefinition AddToSpellList()
             {
-                var TimeBlinkSpell = TimeBlinkSpellBuilder.TimeBlinkSpell;//Instantiating it adds to the DB
-                return TimeBlinkSpell;
+                var MinorLifestealSpell = MinorLifestealSpellBuilder.MinorLifestealSpell;//Instantiating it adds to the DB
+                return MinorLifestealSpell;
             }
         }
 
-        internal class TimeBlinkConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
+        internal class PetalStormSpellBuilder : BaseDefinitionBuilder<SpellDefinition>
         {
-            const string ConditionName = "TimeBlinkCondition";
-            const string ConditionNameGuid = "1231fb27-66af-49c6-b038-a38142b31234";
+            const string SpellName = "PetalStormSpell";
+            const string SpellNameGuid = "9b11d003-e3ae-4cf0-b31c-697d386841ec";
 
-            protected TimeBlinkConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionBanished, name, guid)
+            protected PetalStormSpellBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.InsectPlague, name, guid)
             {
-                Definition.GuiPresentation.Title = "Condition/&TimeBlinkTitle";
-                Definition.GuiPresentation.Description = "Condition/&TimeBlinkDescription";
+                Definition.GuiPresentation.Title = "Spell/&PetalStormTitle";
+                Definition.GuiPresentation.Description = "Spell/&PetalStormDescription";
+                Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.WindWall.GuiPresentation.SpriteReference);
 
-                Definition.SetPermanentlyRemovedIfExtraPlanar(false);
+                Definition.SetSpellLevel(2);
+                Definition.SetSchoolOfMagic(RuleDefinitions.SchoolConjuration);
+                Definition.SetVerboseComponent(true);
+                Definition.SetSomaticComponent(true);
+                Definition.SetMaterialComponentType(RuleDefinitions.MaterialComponentType.Mundane);
+                Definition.SetRitual(false);
+                Definition.SetRequiresConcentration(true);
+
+                Definition.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
+                Definition.EffectDescription.SetRangeParameter(12);
+                Definition.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Minute);
+                Definition.EffectDescription.SetDurationParameter(1);
+                Definition.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Cube);
+                Definition.EffectDescription.SetTargetParameter(3);
+                Definition.EffectDescription.SetHasSavingThrow(true);
+                Definition.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Strength);
+                Definition.EffectDescription.SetRecurrentEffect((RuleDefinitions.RecurrentEffect)20);
+                Definition.EffectDescription.EffectAdvancement.SetAdditionalDicePerIncrement(2);
+                Definition.EffectDescription.EffectAdvancement.SetIncrementMultiplier(1);
+                Definition.EffectDescription.EffectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel);
+                Definition.EffectDescription.EffectForms[0].SetHasSavingThrow(true);                
+                Definition.EffectDescription.EffectForms[0].SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
+                Definition.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(3);
+                Definition.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D4);
+                Definition.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeSlashing);
+                Definition.EffectDescription.EffectForms[0].SetLevelMultiplier(1);
+                Definition.EffectDescription.EffectForms[0].AlterationForm.SetMaximumIncrease(2);
+                Definition.EffectDescription.EffectForms[0].AlterationForm.SetValueIncrease(2);
+
+                EffectProxyDefinitionBuilder proxyDefinitionBuilder = new EffectProxyDefinitionBuilder( DatabaseHelper.EffectProxyDefinitions.ProxyInsectPlague,
+                                                                                                        "ProxyPetalStorm",
+                                                                                                        GuidHelper.Create(ClassNamespace, "ProxyPetalStorm").ToString());
+                EffectProxyDefinition proxyDefinition = proxyDefinitionBuilder.AddToDB();
+                proxyDefinition.SetActionId(ActionDefinitions.Id.ProxyFlamingSphere);
+                proxyDefinition.AdditionalFeatures.Add(DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6);
+                proxyDefinition.SetGuiPresentation(new GuiPresentationBuilder(  "PetalStormDescription",
+                                                                                "PetalStormTitle").Build());
+                proxyDefinition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.WindWall.GuiPresentation.SpriteReference);
+                proxyDefinition.SetAttackMethod(RuleDefinitions.ProxyAttackMethod.ReproduceDamageForms);
+                proxyDefinition.SetCanMove(true);
+                proxyDefinition.SetCanMoveOnCharacters(true);
+                proxyDefinition.SetHasPortrait(true);
+                proxyDefinition.SetIsEmptyPresentation(false);
+                proxyDefinition.SetPortraitSpriteReference(DatabaseHelper.SpellDefinitions.WindWall.GuiPresentation.SpriteReference);
+
+                Definition.EffectDescription.EffectForms[2].SummonForm.SetEffectProxyDefinitionName("ProxyPetalStorm");
 
             }
 
-            public static ConditionDefinition CreateAndAddToDB(string name, string guid)
-                => new TimeBlinkConditionBuilder(name, guid).AddToDB();
+            public static SpellDefinition CreateAndAddToDB(string name, string guid)
+                => new PetalStormSpellBuilder(name, guid).AddToDB();
 
-            public static ConditionDefinition TimeBlinkCondition = CreateAndAddToDB(ConditionName, ConditionNameGuid);
+            public static SpellDefinition PetalStormSpell = CreateAndAddToDB(SpellName, SpellNameGuid);
 
-            public static ConditionDefinition AddToConditionList()
+            public static SpellDefinition AddToSpellList()
             {
-                var TimeBlinkCondition = TimeBlinkConditionBuilder.TimeBlinkCondition;//Instantiating it adds to the DB
-                return TimeBlinkCondition;
+                var PetalStormSpell = PetalStormSpellBuilder.PetalStormSpell;//Instantiating it adds to the DB
+                return PetalStormSpell;
             }
         }
 
+        internal class ProtectThresholdSpellBuilder : BaseDefinitionBuilder<SpellDefinition>
+        {
+            const string SpellName = "ProtectThresholdSpell";
+            const string SpellNameGuid = "ff7330cd-e1a2-4ac0-b0b9-3786b8ec29e7";
 
+            protected ProtectThresholdSpellBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.SpikeGrowth, name, guid)
+            {
+                Definition.GuiPresentation.Title = "Spell/&ProtectThresholdTitle";
+                Definition.GuiPresentation.Description = "Spell/&ProtectThresholdDescription";
+                Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Bane.GuiPresentation.SpriteReference);
 
+                Definition.SetSpellLevel(2);
+                Definition.SetSchoolOfMagic(RuleDefinitions.SchoolAbjuration);
+                Definition.SetVerboseComponent(true);
+                Definition.SetSomaticComponent(true);
+                Definition.SetMaterialComponentType(RuleDefinitions.MaterialComponentType.Mundane);
+                Definition.SetRitual(true);
+                Definition.SetRitualCastingTime(RuleDefinitions.ActivationTime.Minute10);
+                Definition.SetRequiresConcentration(false);
+
+                Definition.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
+                Definition.EffectDescription.SetRangeParameter(1);
+                Definition.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Minute);
+                Definition.EffectDescription.SetDurationParameter(10);
+                Definition.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
+                Definition.EffectDescription.SetTargetParameter(0);
+                Definition.EffectDescription.SetHasSavingThrow(true);
+                Definition.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
+                Definition.EffectDescription.SetRecurrentEffect(RuleDefinitions.RecurrentEffect.OnEnter);
+                Definition.EffectDescription.EffectAdvancement.SetAdditionalDicePerIncrement(1);
+                Definition.EffectDescription.EffectAdvancement.SetIncrementMultiplier(1);
+                Definition.EffectDescription.EffectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel);
+                Definition.EffectDescription.EffectForms[1].SetHasSavingThrow(true);                
+                Definition.EffectDescription.EffectForms[1].SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.HalfDamage);
+                Definition.EffectDescription.EffectForms[1].DamageForm.SetDiceNumber(4);
+                Definition.EffectDescription.EffectForms[1].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
+                Definition.EffectDescription.EffectForms[1].DamageForm.SetDamageType(RuleDefinitions.DamageTypePsychic);
+                Definition.EffectDescription.EffectForms[1].SetLevelMultiplier(1);
+                Definition.EffectDescription.EffectForms[1].AlterationForm.SetMaximumIncrease(2);
+                Definition.EffectDescription.EffectForms[1].AlterationForm.SetValueIncrease(2);
+
+            }
+
+            public static SpellDefinition CreateAndAddToDB(string name, string guid)
+                => new ProtectThresholdSpellBuilder(name, guid).AddToDB();
+
+            public static SpellDefinition ProtectThresholdSpell = CreateAndAddToDB(SpellName, SpellNameGuid);
+
+            public static SpellDefinition AddToSpellList()
+            {
+                var ProtectThresholdSpell = ProtectThresholdSpellBuilder.ProtectThresholdSpell;//Instantiating it adds to the DB
+                return ProtectThresholdSpell;
+            }
+        }
 
     }
 }
