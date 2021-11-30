@@ -396,16 +396,16 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                         .SetSilentWhenAdded(true)
                         .SetSilentWhenRemoved(false);
 
-                    definition.Features.Add(CreateDisadvantageAgainstNonCaster());
+                    definition.Features.Add(CreateDisadvantageAgainstNonSource());
                     definition.Features.Add(CreatePreventInvisibility());
                 });
 
             return illuminatedCondition;
         }
 
-        private static AttackDisadvantageAgainstNonCaster CreateDisadvantageAgainstNonCaster()
+        private static AttackDisadvantageAgainstNonSource CreateDisadvantageAgainstNonSource()
         {
-            var disadvantageAgainstNonCaster = FeatureDefinitionBuilder<AttackDisadvantageAgainstNonCaster>.Build(
+            var disadvantageAgainstNonSource = FeatureDefinitionBuilder<AttackDisadvantageAgainstNonSource>.Build(
                 "PathOfTheLightIlluminatedDisadvantage",
                 CreateNamespacedGuid("PathOfTheLightIlluminatedDisadvantage"),
                 "Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription",
@@ -415,7 +415,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                     definition.ConditionName = IlluminatedConditionName;
                 });
 
-            return disadvantageAgainstNonCaster;
+            return disadvantageAgainstNonSource;
         }
 
         private static FeatureDefinition CreatePreventInvisibility()
@@ -532,73 +532,6 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
             {
                 ApplyLightsProtectionHealing(rulesetCondition.SourceGuid);
-            }
-        }
-
-        private class AttackDisadvantageAgainstNonCaster : FeatureDefinition, ICombatAffinityProvider
-        {
-            public string ConditionName { get; set; }
-
-            public RuleDefinitions.SituationalContext SituationalContext => RuleDefinitions.SituationalContext.None;
-            public bool CanRageToOvercomeSurprise => false;
-            public bool AutoCritical => false;
-            public bool CriticalHitImmunity => false;
-            public ConditionDefinition RequiredTargetCondition => null;
-            public bool IgnoreCover => false;
-
-            public void ComputeAttackModifier(RulesetCharacter myself, RulesetCharacter defender, RulesetAttackMode attackMode, ActionModifier attackModifier, RuleDefinitions.FeatureOrigin featureOrigin)
-            {
-                if (myself.AllConditions.Any(c => c.ConditionDefinition.IsSubtypeOf(ConditionName) && c.SourceGuid != defender.Guid))
-                {
-                    attackModifier.AttackAdvantageTrends.Add(new RuleDefinitions.TrendInfo(-1, featureOrigin.sourceType, featureOrigin.sourceName, featureOrigin.source));
-                }
-            }
-
-            public void ComputeDefenseModifier(RulesetCharacter myself, RulesetCharacter attacker, int sustainedAttacks, bool defenderAlreadyAttackedByAttackerThisTurn, ActionModifier attackModifier, RuleDefinitions.FeatureOrigin featureOrigin)
-            {
-                return;
-            }
-
-            public RuleDefinitions.AdvantageType GetAdvantageOnOpportunityAttackOnMe(RulesetCharacter myself, RulesetCharacter attacker)
-            {
-                return RuleDefinitions.AdvantageType.None;
-            }
-
-            public bool IsImmuneToOpportunityAttack(RulesetCharacter myself, RulesetCharacter attacker)
-            {
-                return false;
-            }
-        }
-
-        private class OpportunityAttackImmunityIfAttackerHasCondition : FeatureDefinition, ICombatAffinityProvider
-        {
-            public string ConditionName { get; set; }
-
-            public RuleDefinitions.SituationalContext SituationalContext => RuleDefinitions.SituationalContext.None;
-            public bool CanRageToOvercomeSurprise => false;
-            public bool AutoCritical => false;
-            public bool CriticalHitImmunity => false;
-            public ConditionDefinition RequiredTargetCondition => null;
-            public bool IgnoreCover => false;
-
-            public void ComputeAttackModifier(RulesetCharacter myself, RulesetCharacter defender, RulesetAttackMode attackMode, ActionModifier attackModifier, RuleDefinitions.FeatureOrigin featureOrigin)
-            {
-                return;
-            }
-
-            public void ComputeDefenseModifier(RulesetCharacter myself, RulesetCharacter attacker, int sustainedAttacks, bool defenderAlreadyAttackedByAttackerThisTurn, ActionModifier attackModifier, RuleDefinitions.FeatureOrigin featureOrigin)
-            {
-                return;
-            }
-
-            public RuleDefinitions.AdvantageType GetAdvantageOnOpportunityAttackOnMe(RulesetCharacter myself, RulesetCharacter attacker)
-            {
-                return RuleDefinitions.AdvantageType.None;
-            }
-
-            public bool IsImmuneToOpportunityAttack(RulesetCharacter myself, RulesetCharacter attacker)
-            {
-                return attacker.AllConditions.Any(c => c.SourceGuid == myself.Guid && c.ConditionDefinition.IsSubtypeOf(ConditionName));
             }
         }
 
