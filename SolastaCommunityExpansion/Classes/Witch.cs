@@ -733,5 +733,50 @@ namespace SolastaCommunityExpansion.Classes.Witch
             }
         }
 
+        internal class FrenzySpellBuilder : BaseDefinitionBuilder<SpellDefinition>
+        {
+            const string SpellName = "FrenzySpell";
+            const string SpellNameGuid = "c5ba7337-a1e1-4a74-8117-906c63c6af65";
+
+            protected FrenzySpellBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.Confusion, name, guid)
+            {
+                Definition.GuiPresentation.Title = "Spell/&FrenzyTitle";
+                Definition.GuiPresentation.Description = "Spell/&FrenzyDescription";
+                Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Confusion.GuiPresentation.SpriteReference);
+
+                Definition.SetSpellLevel(6);
+                Definition.SetSchoolOfMagic(RuleDefinitions.SchoolEnchantement);
+                Definition.SetVerboseComponent(true);
+                Definition.SetSomaticComponent(true);
+                Definition.SetMaterialComponentType(RuleDefinitions.MaterialComponentType.Mundane);
+                Definition.SetRitual(false);
+                Definition.SetRequiresConcentration(true);
+
+                Definition.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
+                Definition.EffectDescription.SetRangeParameter(24);
+                Definition.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Minute);
+                Definition.EffectDescription.SetDurationParameter(1);
+                Definition.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
+                Definition.EffectDescription.SetTargetParameter(4);
+                Definition.EffectDescription.SetHasSavingThrow(true);
+                Definition.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
+                Definition.EffectDescription.EffectForms[0].SetHasSavingThrow(true);
+                Definition.EffectDescription.EffectForms[0].SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
+                Definition.EffectDescription.EffectForms[0].ConditionForm.SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionConfusedAttack);
+
+            }
+
+            public static SpellDefinition CreateAndAddToDB(string name, string guid)
+                => new FrenzySpellBuilder(name, guid).AddToDB();
+
+            public static SpellDefinition FrenzySpell = CreateAndAddToDB(SpellName, SpellNameGuid);
+
+            public static SpellDefinition AddToSpellList()
+            {
+                var FrenzySpell = FrenzySpellBuilder.FrenzySpell;//Instantiating it adds to the DB
+                return FrenzySpell;
+            }
+        }
+
     }
 }
