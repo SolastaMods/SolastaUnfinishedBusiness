@@ -1,4 +1,5 @@
 ﻿using SolastaCommunityExpansion.Subclasses;
+using SolastaCommunityExpansion.Subclasses.Barbarian;
 using SolastaCommunityExpansion.Subclasses.Fighter;
 using SolastaCommunityExpansion.Subclasses.Ranger;
 using SolastaCommunityExpansion.Subclasses.Rogue;
@@ -23,6 +24,7 @@ namespace SolastaCommunityExpansion.Models
             LoadSubclass(new Arcanist());
             LoadSubclass(new Tactician());
             LoadSubclass(new RoyalKnight());
+            LoadSubclass(new PathOfTheLight());
         }
 
         private static void LoadSubclass(AbstractSubclass subclassBuilder)
