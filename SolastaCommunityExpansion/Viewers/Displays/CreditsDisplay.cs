@@ -18,6 +18,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             { "AceHigh", "Power Attack, Reckless Fury, no identification, Tactician Subclass" },
             { "ElAntonious", "Torchbearer and Dual Flurry, Arcanist Subclass" },
             { "Scarlex", "Royal Knight Subclass" },
+            { "RedOrca", "Path of Light Subclass" },
             { "Narria", "ModKit creator, developer" }
         };
 
