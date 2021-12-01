@@ -49,6 +49,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
+            toggle = Main.Settings.EnableInventoryFilterAndSort;
+            if (UI.Toggle("Enables inventory filtering and sorting " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableInventoryFilterAndSort = toggle;
+            }
+
             toggle = Main.Settings.InvertAltBehaviorOnTooltips;
             if (UI.Toggle("Inverts ALT key behavior on tooltips", ref toggle, UI.AutoWidth()))
             {

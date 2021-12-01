@@ -26,7 +26,7 @@ namespace SolastaCommunityExpansion
         public const int GAME_BUY_POINTS = 27;
 
         public const int MOD_MAX_ATTRIBUTE = 17;
-        public const int MOD_BUY_POINTS = 32;
+        public const int MOD_BUY_POINTS = 35;
 
         /* This is in the settings so it can be disabled, but if a player has access to first level feats they almost definitely want this on. */
         public bool EnableFirstLevelCasterFeats = true;
@@ -156,5 +156,7 @@ namespace SolastaCommunityExpansion
         public int ExperienceModifier = 100;
 
         public bool EnableFeatsSorting = true;
+
+        public bool EnableInventoryFilterAndSort = true;
     }
 }

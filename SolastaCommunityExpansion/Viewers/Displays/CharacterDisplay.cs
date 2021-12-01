@@ -80,7 +80,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             toggle = Main.Settings.EnableEpicPoints;
-            if (UI.Toggle("Enables an epic 32 points buy system " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enables an epic 35 points buy system " + RequiresRestart, ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableEpicPoints = toggle;
             }

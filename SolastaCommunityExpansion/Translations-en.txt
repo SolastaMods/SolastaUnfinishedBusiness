@@ -588,3 +588,27 @@ Message/&CharacterExportEmptyNameErrorDescription	Export Cancelled:\n\nPlease tr
 Message/&CharacterExportDuplicateNameErrorDescription	Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name.
 Message/&CharacterExportModalContentDescription	Enter the hero name to export:
 Message/&CharacterExportModalTitleDescription	Character Export
+Subclass/&BarbarianPathOfTheLightDescription	Barbarians who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.
+Subclass/&BarbarianPathOfTheLightTitle	Path of the Light
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeDescription	While you're raging, the first creature you hit with an attack on your turn takes an additional 1d6 radiant damage and becomes magically illuminated until the start of your next turn. Additionally, the creature has disadvantage on any attack roll that isn't against you and cannot become invisible.
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeTitle	Illuminating Strike
+Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription	Distracted by Illuminating Strike.
+Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle	Illuminated
+Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription	Disadvantage on any attack roll that isn't against the Path of the Light barbarian.
+Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription	Cannot become invisible.
+Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription	You gain superior darkvision.
+Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle	Pierce the Darkness
+Subclass/&BarbarianPathOfTheLightLightsProtectionDescription	You regain hit points equal to half your barbarian level when a hostile creature affected by your Illuminating Strike dies. Additionally, you no longer provoke opportunity attacks from creatures affected by your Illuminating Strike.
+Subclass/&BarbarianPathOfTheLightLightsProtectionTitle	Light's Protection
+Subclass/&BarbarianPathOfTheLightEyesOfTruthDescription	You are always under the effects of a See Invisibility spell.
+Subclass/&BarbarianPathOfTheLightEyesOfTruthTitle	Eyes of Truth
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Can perceive invisible creatures.
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Invisibility Sight
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementDescription	The additional damage dealt by Illuminating Strike increases to 2d6.
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementTitle	Illuminating Strike Improvement
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstDescription	On the turn that you enter your rage, you can choose to illuminate up to three enemies within 30 feet of you. They must succeed on a Constitution saving throw (DC equal to 8 + your proficiency bonus + your Constitution modifier) or take 4d6 radiant damage and be illuminated by your Illuminating Strike for 1 minute. A creature illuminated in this way makes another Constitution saving throw at the end of each of its turns. On a successful save, the effect ends for it.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstTitle	Illuminating Burst
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription	Up to three enemies take 4d6 radiant damage and become illuminated by your Illuminating Strike. (Constitution saving throw negates.)
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle	Illuminating Burst
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	Illuminating Strike deals extra damage to the target!
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat Illuminating Strike!
