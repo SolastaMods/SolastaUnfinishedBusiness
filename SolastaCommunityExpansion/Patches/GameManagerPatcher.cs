@@ -32,6 +32,7 @@ namespace SolastaCommunityExpansion.Patches
                 Models.DruidArmorContext.Load();
                 Models.CharacterExportContext.Load();
                 Models.InventoryManagementContext.Load();
+                Models.RemoveBugVisualModelsContext.Load();
 
                 Main.Enabled = true;
             }

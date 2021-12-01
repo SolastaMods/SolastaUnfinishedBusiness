@@ -39,6 +39,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.HideMonsterHitPoints = toggle;
             }
 
+            toggle = Main.Settings.RemoveBugVisualModels;
+            if (UI.Toggle("Replaces bug-like models with alternative visuals in the game" + RequiresRestart, ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.RemoveBugVisualModels = toggle;
+            }
+
             UI.Label("");
 
             toggle = Main.Settings.EnableHudToggleElementsHotkeys;

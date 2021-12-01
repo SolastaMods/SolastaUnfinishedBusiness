@@ -158,5 +158,7 @@ namespace SolastaCommunityExpansion
         public bool EnableFeatsSorting = true;
 
         public bool EnableInventoryFilterAndSort = true;
+
+        public bool RemoveBugVisualModels = false;
     }
 }
