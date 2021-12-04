@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patch
+namespace SolastaCommunityExpansion.Patches.HeroName
 {
     internal static class CharacterPoolManagerPatcher
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection.Emit;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches
+namespace SolastaCommunityExpansion.Patches.PointBuy
 {
     // enables epic points
     [HarmonyPatch(typeof(CharacterStageAbilityScoresPanel), "Reset")]

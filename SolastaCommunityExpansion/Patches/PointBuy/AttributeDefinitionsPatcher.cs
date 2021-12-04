@@ -1,7 +1,7 @@
 ﻿using System;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches
+namespace SolastaCommunityExpansion.Patches.PointBuy
 {
     // extends the cost buy table
     [HarmonyPatch(typeof(AttributeDefinitions), "ComputeCostToRaiseAbility")]
