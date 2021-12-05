@@ -1,12 +1,14 @@
 ﻿using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace SolastaCommunityExpansion.Patches.OnAttackEffects
 {
     internal static class GameLocationBattleManagerPatcher
     {
         [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttackDamage")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class GameLocationBattleManager_HandleCharacterAttackDamage_Patch
         {
             internal static void Postfix(GameLocationCharacter attacker,

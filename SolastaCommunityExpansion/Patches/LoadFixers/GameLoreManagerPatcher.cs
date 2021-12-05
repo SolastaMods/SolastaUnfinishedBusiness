@@ -1,10 +1,12 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.LoadFixers
 {
     internal static class GameLoreManagerPatcher
     {
         [HarmonyPatch(typeof(GameLoreManager), "SerializeElements")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class GameLoreManager_SerializeElements_Patch
         {
             // If a recipe can't be found in the database but was previously known, the serialization

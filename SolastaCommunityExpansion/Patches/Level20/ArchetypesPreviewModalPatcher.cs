@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using static SolastaCommunityExpansion.Models.Level20Context;
 
 namespace SolastaCommunityExpansion.Patches.Level20
@@ -9,6 +10,7 @@ namespace SolastaCommunityExpansion.Patches.Level20
     {
         // replaces the hard coded experience
         [HarmonyPatch(typeof(ArchetypesPreviewModal), "Refresh")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class ArchetypesPreviewModal_Refresh_Patch
         {
             internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)

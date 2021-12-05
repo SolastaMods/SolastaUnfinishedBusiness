@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.ClassHoldingFeature
@@ -6,6 +7,7 @@ namespace SolastaCommunityExpansion.Patches.ClassHoldingFeature
     internal static class RulesetCharacterHeroPatcher
     {
         [HarmonyPatch(typeof(RulesetCharacterHero), "FindClassHoldingFeature")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class RulesetCharacterHero_FindClassHoldingFeature
         {
             internal static void Postfix(

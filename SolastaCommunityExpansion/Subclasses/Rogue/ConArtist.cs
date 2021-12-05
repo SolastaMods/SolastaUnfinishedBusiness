@@ -82,7 +82,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             feintBuilder.AddEffectForm(new EffectFormBuilder().CreatedByCharacter().SetConditionForm(new AdvantageBuilder("RogueConArtistFeintCondition",
                 GuidHelper.Create(SubclassNamespace, "RogueConArtistFeintCondition").ToString(),
                 DatabaseHelper.ConditionDefinitions.ConditionTrueStrike, feintGuiCondition.Build()).AddToDB(), ConditionForm.ConditionOperation.Add,
-                false, false, new List<ConditionDefinition>()).Build()); ;
+                false, false, new List<ConditionDefinition>()).Build());
             //feintBuilder.AddEffectForm(new EffectFormBuilder().SetConditionForm(DatabaseHelper.ConditionDefinitions.))
             FeatureDefinitionPower feint = new FeatureDefinitionPowerBuilder("RoguishConArtistFeint", GuidHelper.Create(SubclassNamespace, "RoguishConArtistFeint").ToString(),
                 0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Charisma, RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill,

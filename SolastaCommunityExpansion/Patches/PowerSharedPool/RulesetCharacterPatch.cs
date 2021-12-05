@@ -2,6 +2,7 @@
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.PowerSharedPool
@@ -9,6 +10,7 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
     internal static class RulesetCharacterPatch
     {
         [HarmonyPatch(typeof(RulesetCharacter), "UsePower")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class RulesetCharacter_UsePower
         {
             public static void Postfix(RulesetCharacter __instance, RulesetUsablePower usablePower)
@@ -18,6 +20,7 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
         }
 
         [HarmonyPatch(typeof(RulesetCharacter), "RepayPowerUse")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class RulesetCharacter_RepayPowerUse
         {
             public static void Postfix(RulesetCharacter __instance, RulesetUsablePower usablePower)
@@ -47,6 +50,7 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
         }
 
         [HarmonyPatch(typeof(RulesetCharacter), "GrantPowers")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class RulesetCharacter_GrantPowers
         {
             public static void Postfix(RulesetCharacter __instance)
@@ -56,6 +60,7 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
         }
 
         [HarmonyPatch(typeof(RulesetCharacter), "ApplyRest")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class RulesetCharacter_ApplyRest
         {
             internal static void Postfix(

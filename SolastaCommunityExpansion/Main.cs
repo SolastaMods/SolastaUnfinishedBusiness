@@ -7,7 +7,7 @@ using UnityModManagerNet;
 
 namespace SolastaCommunityExpansion
 {
-    public class Main
+    public static class Main
     {
         public static bool Enabled { get; set; } = false;
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 
@@ -7,6 +8,7 @@ namespace SolastaCommunityExpansion.Patches.NotifyConditionRemoval
     internal static class RulesetCharacterPatcher
     {
         [HarmonyPatch(typeof(RulesetCharacter), "Kill")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class RulesetCharacter_Kill
         {
             internal static void Prefix(RulesetCharacter __instance)

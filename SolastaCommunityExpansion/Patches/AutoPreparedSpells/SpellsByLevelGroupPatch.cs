@@ -1,11 +1,13 @@
 ﻿using HarmonyLib;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace SolastaCommunityExpansion.Patches.AutoPreparedSpells
 {
     internal static class SpellsByLevelGroupPatch
     {
         [HarmonyPatch(typeof(SpellsByLevelGroup), "CommonBind")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class SpellsByLevelGroup_CommonBind_Patch
         {
             /**

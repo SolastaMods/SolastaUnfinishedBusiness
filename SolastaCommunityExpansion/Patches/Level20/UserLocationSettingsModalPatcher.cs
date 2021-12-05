@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using static SolastaCommunityExpansion.Models.Level20Context;
 
 namespace SolastaCommunityExpansion.Patches
@@ -9,6 +10,7 @@ namespace SolastaCommunityExpansion.Patches
     internal static class UserLocationSettingsModalPatcher
     {
         [HarmonyPatch(typeof(UserLocationSettingsModal), "OnMinLevelEndEdit")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         public static class UserLocationSettingsModal_OnMinLevelEndEdit_Patch
         {
             internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
@@ -30,6 +32,7 @@ namespace SolastaCommunityExpansion.Patches
         }
 
         [HarmonyPatch(typeof(UserLocationSettingsModal), "OnMaxLevelEndEdit")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         public static class UserLocationSettingsModal_OnMaxLevelEndEdit_Patch
         {
             internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)

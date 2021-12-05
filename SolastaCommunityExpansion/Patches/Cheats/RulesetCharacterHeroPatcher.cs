@@ -1,14 +1,17 @@
 ﻿using HarmonyLib;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using static SolastaModApi.DatabaseHelper.QuestTreeDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.Cheats
 {
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static partial class RulesetCharacterHeroPatcher_LevelUp
     {
         // use this patch to enable the No Experience on Level up cheat
         [HarmonyPatch(typeof(RulesetCharacterHero), "CanLevelUp", MethodType.Getter)]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class RulesetCharacterHero_CanLevelUp_Patch
         {
             internal static bool Prefix(RulesetCharacterHero __instance, ref bool __result)
@@ -26,6 +29,7 @@ namespace SolastaCommunityExpansion.Patches.Cheats
         }
 
         [HarmonyPatch(typeof(RulesetCharacterHero), "GrantExperience")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class RulesetCharacterHero_GrantExperience_Patch
         {
             internal static void Prefix(ref int experiencePoints)
@@ -47,6 +51,7 @@ namespace SolastaCommunityExpansion.Patches.Cheats
         /// At certain quest specific points the level up must not be scaled.
         /// </summary>
         [HarmonyPatch(typeof(RulesetCharacterHero), "ComputeNeededExperienceToReachLevel")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class RulesetCharacterHero_ComputeNeededExperienceToReachLevel_Patch
         {
             internal static void Postfix(ref int __result)

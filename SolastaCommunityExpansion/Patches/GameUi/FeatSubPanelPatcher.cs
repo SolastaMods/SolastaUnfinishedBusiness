@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches
 {
     [HarmonyPatch(typeof(FeatSubPanel), "RuntimeLoaded")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class FeatSubPanell_RuntimeLoaded
     {
         internal static void Sort(List<FeatDefinition> relevantFeats)

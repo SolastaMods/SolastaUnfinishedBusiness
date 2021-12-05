@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 using TMPro;
 using UnityEngine.EventSystems;
 using static SolastaCommunityExpansion.Models.CharacterExportContext;
@@ -10,6 +11,7 @@ namespace SolastaCommunityExpansion.Patches
     {
 
         [HarmonyPatch(typeof(MessageModal), "Show")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class MessageModal_Show
         {
             internal static void Postfix(string content, GuiLabel ___contentLabel)

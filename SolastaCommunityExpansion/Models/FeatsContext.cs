@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class FeatsContext
     {
-        public static Dictionary<string, FeatDefinition> Feats = new Dictionary<string, FeatDefinition>();
+        public static Dictionary<string, FeatDefinition> Feats { get; private set; } = new Dictionary<string, FeatDefinition>();
 
         internal static void Load()
         {

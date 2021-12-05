@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,7 @@ namespace SolastaCommunityExpansion.Patches
 
         // second line bind
         [HarmonyPatch(typeof(SpellSelectionPanel), "Bind")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class SpellSelectionPanel_SecondLine
         {
             internal static void Postfix(SpellSelectionPanel __instance, GameLocationCharacter caster, SpellsByLevelBox.SpellCastEngagedHandler spellCastEngaged, ActionDefinitions.ActionType actionType, bool cantripOnly)
@@ -202,6 +204,7 @@ namespace SolastaCommunityExpansion.Patches
 
         // second line unbind
         [HarmonyPatch(typeof(SpellSelectionPanel), "Unbind")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class SpellSelectionPanel_Unbind
         {
             internal static void Postfix()

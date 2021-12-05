@@ -1,4 +1,5 @@
 ﻿
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.LongActivationPowers
@@ -7,6 +8,7 @@ namespace SolastaCommunityExpansion.Patches.LongActivationPowers
     {
         // Yes the actual game typos this it is "OnPower" and not the expected "OnePower".
         [HarmonyPatch(typeof(GameLocationCharacter), "CanUseAtLeastOnPower")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class GameLocationCharacter_CanUseAtLeastOnPowerShowLong
         {
             // This makes it so that if a character only has powers that take longer than an action to activate the "Use Power" button is available.

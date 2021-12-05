@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.StartOfTurnRecharge
@@ -6,6 +7,7 @@ namespace SolastaCommunityExpansion.Patches.StartOfTurnRecharge
     internal static class RulesetCharacterPatcher
     {
         [HarmonyPatch(typeof(RulesetCharacter), "RechargePowersForTurnStart")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class RulesetCharacter_RechargePowersForTurnStart
         {
             internal static void Postfix(RulesetCharacter __instance)

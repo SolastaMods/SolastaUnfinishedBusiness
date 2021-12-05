@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 using static SolastaCommunityExpansion.Models.Level20Context;
 
 namespace SolastaCommunityExpansion.Patches
@@ -7,6 +8,7 @@ namespace SolastaCommunityExpansion.Patches
     {
         // replaces the hard-coded level and max experience
         [HarmonyPatch(typeof(GameCampaignParty), "UpdateLevelCaps")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class GameCampaignParty_UpdateLevelCaps_Patch
         {
             internal static bool Prefix(GameCampaignParty __instance)

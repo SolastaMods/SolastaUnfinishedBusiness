@@ -1,10 +1,12 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.InitialChoices
 {
-    internal class GuiFeatDefinitionPatcher
+    internal static class GuiFeatDefinitionPatcher
     {
         [HarmonyPatch(typeof(GuiFeatDefinition), "IsFeatMacthingPrerequisites")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class GuiFeatDefinition_IsFeatMacthingPrerequisites
         {
             //internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)

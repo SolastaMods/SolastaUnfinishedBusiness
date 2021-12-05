@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace SolastaCommunityExpansion.Patches.SrdAndHouseRulesContext
@@ -7,6 +8,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRulesContext
     internal static class RuleDefinitionsPatcher
     {
         [HarmonyPatch(typeof(RuleDefinitions), "ComputeAdvantage")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class RuleDefinitions_ComputeAdvantage_Patch
         {
             public static void Postfix(List<RuleDefinitions.TrendInfo> trends, RuleDefinitions.AdvantageType __result)

@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 using TMPro;
 
 namespace SolastaCommunityExpansion.Patches
@@ -6,6 +7,7 @@ namespace SolastaCommunityExpansion.Patches
     internal static class CharacterStageIdentityDefinitionPanelPatcher
     {
         [HarmonyPatch(typeof(CharacterStageIdentityDefinitionPanel), "EnterStage")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class CharacterStageIdentityDefinitionPanel_EnterStage_Patch
         {
             public static void Postfix(TMP_InputField ___firstNameInputField, TMP_InputField ___lastNameInputField)
@@ -20,6 +22,7 @@ namespace SolastaCommunityExpansion.Patches
     }
 
     [HarmonyPatch(typeof(CharacterStageIdentityDefinitionPanel), "RemoveUselessSpaces")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterStageIdentityDefinitionPanel_RemoveUselessSpaces_Patch
     {
         public static bool Prefix(TMP_InputField textField)
