@@ -153,7 +153,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi
                     return false;
                 }
 
-                if (__instance.RulesetCharacter?.IsSubstitute == true)
+                if (__instance.RulesetCharacter.IsSubstitute)
                 {
                     // It's a hero wildshaping (probably).
                     return false;
