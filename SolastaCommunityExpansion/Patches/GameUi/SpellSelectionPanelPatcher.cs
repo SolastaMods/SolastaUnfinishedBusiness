@@ -45,7 +45,6 @@ namespace SolastaCommunityExpansion.Patches
                 }
 
                 var spellRepertoires = __instance.Caster.RulesetCharacter.SpellRepertoires;
-                int spellLevels = spellRepertoires.Sum(sp => ActiveSpellLevelsForRepetoire(sp, actionType));
 
                 spellRepertoireLines.Clear();
                 bool needNewLine = true;
@@ -184,19 +183,6 @@ namespace SolastaCommunityExpansion.Patches
                 }
 
                 return false;
-            }
-
-            private static int ActiveSpellLevelsForRepetoire(RulesetSpellRepertoire spellRepertoire, ActionDefinitions.ActionType actionType)
-            {
-                int activeSpellLevels = 0;
-                for (int level = 0; level < spellRepertoire.MaxSpellLevelOfSpellCastingLevel; level++)
-                {
-                    if (IsLevelActive(spellRepertoire, level, actionType))
-                    {
-                        activeSpellLevels++;
-                    }
-                }
-                return activeSpellLevels;
             }
         }
 
