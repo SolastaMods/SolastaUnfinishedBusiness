@@ -1,17 +1,22 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.InitialChoices
 {
     [HarmonyPatch(typeof(GuiFeatDefinition), "IsFeatMacthingPrerequisites")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GuiFeatDefinition_IsFeatMacthingPrerequisites
     {
+#pragma warning disable S125 // Sections of code should not be commented out
         //internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-        //{
-        //    var code = new List<CodeInstruction>(instructions);
-        //    code.Find(x => x.opcode == OpCodes.Ldc_I4_1).opcode = OpCodes.Ldc_I4_0;
+
+                            //{
+                            //    var code = new List<CodeInstruction>(instructions);
+                            //    code.Find(x => x.opcode == OpCodes.Ldc_I4_1).opcode = OpCodes.Ldc_I4_0;
 
         //    return code;
         //}
+#pragma warning restore S125 // Sections of code should not be commented out
 
         internal static void Postfix(FeatDefinition feat, RulesetCharacterHero hero, ref bool __result)
         {

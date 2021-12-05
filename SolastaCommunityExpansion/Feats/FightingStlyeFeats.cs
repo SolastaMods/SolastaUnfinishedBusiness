@@ -7,9 +7,9 @@ using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Feats
 {
-    internal class FightingStlyeFeats
+    internal static class FightingStlyeFeats
     {
-        public static Guid FightingStyleFeatsNamespace = new Guid("db157827-0f8a-4fbb-bb87-6d54689a587a");
+        public static readonly Guid FightingStyleFeatsNamespace = new Guid("db157827-0f8a-4fbb-bb87-6d54689a587a");
 
         public static void CreateFeats(List<FeatDefinition> feats)
         {

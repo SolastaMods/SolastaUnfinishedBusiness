@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 using TMPro;
 using UnityEngine.EventSystems;
 using static SolastaCommunityExpansion.Models.CharacterExportContext;
@@ -8,6 +9,7 @@ namespace SolastaCommunityExpansion.Patches.CharacterExport
     // uses this patch to offer an input field when in the context of character export which is set if message content equals to \n\n\n
 
     [HarmonyPatch(typeof(MessageModal), "Show")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class MessageModal_Show
     {
         internal static void Postfix(string content, GuiLabel ___contentLabel)
@@ -33,6 +35,7 @@ namespace SolastaCommunityExpansion.Patches.CharacterExport
     }
 
     [HarmonyPatch(typeof(MessageModal), "OnEndShow")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class MessageModal_OnEndShow
     {
         internal static void Postfix()

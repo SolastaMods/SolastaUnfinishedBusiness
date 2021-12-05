@@ -1,10 +1,11 @@
 ﻿using HarmonyLib;
-using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace SolastaCommunityExpansion.Patches
 {
     // always alt
     [HarmonyPatch(typeof(TooltipPanel), "SetupFeatures")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class TooltipPanel_SetupFeatures
     {
         internal static void Prefix(ref TooltipDefinitions.Scope scope)
