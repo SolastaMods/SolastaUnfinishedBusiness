@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches
+namespace SolastaCommunityExpansion.Patches.InventoryManagement
 {
     internal static class InventoryPanelPatcher
     {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace SolastaCommunityExpansion.Patches.FightingStyleFeats
 {
     [HarmonyPatch(typeof(RulesetCharacterHero), "TrainFeats")]
-    internal static class RulesetCharacterHero_TrainFeatsFightingStyles_Patch
+    internal static class RulesetCharacterHero_TrainFeats
     {
         internal static void Postfix(RulesetCharacterHero __instance, List<FeatDefinition> feats)
         {
