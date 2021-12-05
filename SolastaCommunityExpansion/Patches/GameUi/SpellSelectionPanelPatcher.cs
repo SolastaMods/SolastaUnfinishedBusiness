@@ -168,7 +168,7 @@ namespace SolastaCommunityExpansion.Patches
 
                 if (spellRepertoire.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.Prepared)
                 {
-                    if(spellRepertoire.PreparedSpells
+                    if (spellRepertoire.PreparedSpells
                         .Where(spellDefinition => spellDefinition.SpellLevel == level)
                         .Any(spellDefinition => spellDefinition.ActivationTime == spellActivationTime))
                     {
@@ -176,7 +176,7 @@ namespace SolastaCommunityExpansion.Patches
                     }
                 }
 
-                if (spellRepertoire.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.AllKnown 
+                if (spellRepertoire.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.AllKnown
                     && spellRepertoire.KnownSpells.Any(spellDefinition => spellDefinition.SpellLevel == level))
                 {
                     return true;
@@ -196,15 +196,17 @@ namespace SolastaCommunityExpansion.Patches
                 {
                     return;
                 }
+
                 foreach (RectTransform spellTable in spellLineTables)
                 {
-                    if (spellTable != null && spellTable.gameObject.activeSelf & spellTable.childCount > 0)
+                    if (spellTable != null && spellTable.gameObject.activeSelf && spellTable.childCount > 0)
                     {
                         Gui.ReleaseChildrenToPool(spellTable);
                         spellTable.SetParent(null);
                         Object.Destroy(spellTable.gameObject);
                     }
                 }
+
                 spellLineTables.Clear();
             }
         }
