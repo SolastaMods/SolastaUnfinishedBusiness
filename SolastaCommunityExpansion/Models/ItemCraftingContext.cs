@@ -2,6 +2,8 @@
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -112,33 +114,24 @@ namespace SolastaCommunityExpansion.Models
 
         public static string GenerateItemsDescription()
         {
-            string outString = "[heading]Craftable Items[/heading]";
-            outString += "\n[list]";
+            var outString = new StringBuilder("[heading]Craftable Items[/heading]");
+            outString.Append("\n[list]");
+
             foreach (string key in RecipeBooks.Keys)
             {
-                outString += "\n[*][b]" + RecipeTitles[key] + "[/b]: ";
-                bool first = true;
-                List<string> uniqueEntries = new List<string>();
-                foreach (ItemDefinition item in RecipeBooks[key])
-                {
-                    string name = item.DocumentDescription.RecipeDefinition.GuiPresentation.Title;
-                    if (!uniqueEntries.Contains(name))
-                    {
-                        uniqueEntries.Add(name);
-                    }
-                }
-                foreach (string name in uniqueEntries)
-                {
-                    if (!first)
-                    {
-                        outString += ", ";
-                    }
-                    first = false;
-                    outString += Gui.Format(name);
-                }
+                outString.Append("\n[*][b]");
+                outString.Append(RecipeTitles[key]);
+                outString.Append("[/b]: ");
+
+                var uniqueEntries = RecipeBooks[key]
+                    .Select(rb => rb.DocumentDescription.RecipeDefinition.GuiPresentation.Title)
+                    .Distinct();
+
+                outString.Append(string.Join(", ", uniqueEntries.Select(name => Gui.Format(name))));
             }
-            outString += "\n[/list]";
-            return outString;
+
+            outString.Append("\n[/list]");
+            return outString.ToString();
         }
     }
 }

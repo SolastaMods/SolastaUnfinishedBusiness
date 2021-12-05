@@ -6,6 +6,7 @@ using SolastaCommunityExpansion.Subclasses.Rogue;
 using SolastaCommunityExpansion.Subclasses.Wizard;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -83,15 +84,19 @@ namespace SolastaCommunityExpansion.Models
 
         public static string GenerateSubclassDescription()
         {
-            string outString = "[heading]Subclasses[/heading]";
-            outString += "\n[list]";
+            var outString = new StringBuilder("[heading]Subclasses[/heading]");
+            outString.Append("\n[list]");
+            
             foreach (AbstractSubclass subclass in Subclasses.Values)
             {
-                outString += "\n[*][b]" + Gui.Format(subclass.GetSubclass().GuiPresentation.Title) + "[/b]: " + Gui.Format(subclass.GetSubclass().GuiPresentation.Description);
-
+                outString.Append("\n[*][b]");
+                outString.Append(Gui.Format(subclass.GetSubclass().GuiPresentation.Title));
+                outString.Append("[/b]: ");
+                outString.Append(Gui.Format(subclass.GetSubclass().GuiPresentation.Description));
             }
-            outString += "\n[/list]";
-            return outString;
+
+            outString.Append("\n[/list]");
+            return outString.ToString();
         }
     }
 

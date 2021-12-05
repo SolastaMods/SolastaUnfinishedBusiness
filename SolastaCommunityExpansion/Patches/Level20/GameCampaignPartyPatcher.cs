@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using static SolastaCommunityExpansion.Models.Level20Context;
 
@@ -13,13 +14,13 @@ namespace SolastaCommunityExpansion.Patches.Level20
         {
             if (Main.Settings.EnableLevel20)
             {
-                foreach (GameCampaignCharacter characters in __instance.CharactersList)
+                foreach (var character in __instance.CharactersList.Select(cl => cl.RulesetCharacter))
                 {
-                    RulesetAttribute characterLevelAttribute = characters.RulesetCharacter.GetAttribute("CharacterLevel");
+                    RulesetAttribute characterLevelAttribute = character.GetAttribute("CharacterLevel");
                     characterLevelAttribute.MaxValue = MOD_MAX_LEVEL;
                     characterLevelAttribute.Refresh();
 
-                    RulesetAttribute experienceAttribute = characters.RulesetCharacter.GetAttribute("Experience");
+                    RulesetAttribute experienceAttribute = character.GetAttribute("Experience");
                     experienceAttribute.MaxValue = MAX_CHARACTER_EXPERIENCE;
                     experienceAttribute.Refresh();
                 }

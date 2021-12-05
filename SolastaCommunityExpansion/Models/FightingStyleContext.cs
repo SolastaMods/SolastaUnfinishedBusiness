@@ -1,6 +1,7 @@
 ﻿using SolastaCommunityExpansion.FightingStyles;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -30,20 +31,20 @@ namespace SolastaCommunityExpansion.Models
         private static void UpdateStyleVisibility(string name)
         {
             List<FeatureDefinitionFightingStyleChoice> choiceLists = Styles[name].GetChoiceLists();
-            foreach (FeatureDefinitionFightingStyleChoice choiceList in choiceLists)
+            foreach (var fightingStyles in choiceLists.Select(cl => cl.FightingStyles))
             {
                 if (Main.Settings.FightingStyleEnabled.Contains(name))
                 {
-                    if (!choiceList.FightingStyles.Contains(name))
+                    if (!fightingStyles.Contains(name))
                     {
-                        choiceList.FightingStyles.Add(name);
+                        fightingStyles.Add(name);
                     }
                 }
                 else
                 {
-                    if (choiceList.FightingStyles.Contains(name))
+                    if (fightingStyles.Contains(name))
                     {
-                        choiceList.FightingStyles.Remove(name);
+                        fightingStyles.Remove(name);
                     }
                 }
             }
@@ -73,15 +74,19 @@ namespace SolastaCommunityExpansion.Models
 
         public static string GenerateFightingStyleDescription()
         {
-            string outString = "[heading]Fighting Styles[/heading]";
-            outString += "\n[list]";
+            var outString = new StringBuilder("[heading]Fighting Styles[/heading]");
+            outString.Append("\n[list]");
+
             foreach (AbstractFightingStyle style in Styles.Values)
             {
-                outString += "\n[*][b]" + Gui.Format(style.GetStyle().GuiPresentation.Title) + "[/b]: " + Gui.Format(style.GetStyle().GuiPresentation.Description);
-
+                outString.Append("\n[*][b]");
+                outString.Append(Gui.Format(style.GetStyle().GuiPresentation.Title));
+                outString.Append("[/b]: ");
+                outString.Append(Gui.Format(style.GetStyle().GuiPresentation.Description));
             }
-            outString += "\n[/list]";
-            return outString;
+
+            outString.Append("\n[/list]");
+            return outString.ToString();
         }
     }
 }
