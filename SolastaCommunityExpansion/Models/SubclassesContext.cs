@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class SubclassesContext
     {
-        public static Dictionary<string, AbstractSubclass> Subclasses = new Dictionary<string, AbstractSubclass>();
+        public static Dictionary<string, AbstractSubclass> Subclasses { get; private set; } = new Dictionary<string, AbstractSubclass>();
 
         internal static void Load()
         {

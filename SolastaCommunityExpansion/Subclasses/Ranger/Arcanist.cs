@@ -111,7 +111,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
                 FeatureDefinitionFeatureSet.FeatureSetMode.Union, arcanistMagicGui).AddToDB();
         }
 
-        private class FeatureDefinitionAutoPreparedSpellsBuilder : BaseDefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
+        private sealed class FeatureDefinitionAutoPreparedSpellsBuilder : BaseDefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
         {
             public FeatureDefinitionAutoPreparedSpellsBuilder(string name, string guid, List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> autospelllists,
             CharacterClassDefinition characterclass, GuiPresentation guiPresentation) : base(name, guid)
@@ -122,7 +122,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             }
         }
 
-        private class FeatureDefinitionFeatureSetBuilder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
+        private sealed class FeatureDefinitionFeatureSetBuilder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
         {
             public FeatureDefinitionFeatureSetBuilder(string name, string guid, List<FeatureDefinition> features,
                 FeatureDefinitionFeatureSet.FeatureSetMode mode, GuiPresentation guiPresentation) : base(name, guid)
@@ -221,7 +221,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             return blank_feature;
         }
 
-        private class FeatureDefinitionBuilder : BaseDefinitionBuilder<FeatureDefinition>
+        private sealed class FeatureDefinitionBuilder : BaseDefinitionBuilder<FeatureDefinition>
         {
             public FeatureDefinitionBuilder(string name, string guid, GuiPresentation guiPresentation) : base(name, guid)
             {

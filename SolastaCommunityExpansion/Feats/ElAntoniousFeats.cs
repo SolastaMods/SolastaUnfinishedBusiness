@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion.Feats
 
     internal class DualFlurryFeatBuilder : BaseDefinitionBuilder<FeatDefinition>
     {
-        public static Guid DualFlurryGuid = new Guid("03C523EB-91B9-4F1B-A697-804D1BC2D6DD");
+        public static readonly Guid DualFlurryGuid = new Guid("03C523EB-91B9-4F1B-A697-804D1BC2D6DD");
         private const string DualFlurryFeatName = "DualFlurryFeat";
         private static readonly string DualFlurryFeatNameGuid = GuidHelper.Create(DualFlurryGuid, DualFlurryFeatName).ToString();
 

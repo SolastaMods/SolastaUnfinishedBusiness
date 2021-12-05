@@ -1,21 +1,26 @@
 ﻿using HarmonyLib;
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace SolastaCommunityExpansion.Patches
 {
     //Original method - if cost is say '1' and the multiplier is less than one, it ends up as zero.
     //For the Spear it starts out costing 1gp and ends up costing 0gp.
+
+#pragma warning disable S125 // Sections of code should not be commented out
     /*
-    public static void ScaleAndRoundCosts(float priceMultiplier, int[] baseCosts, int[] scaledCosts)
-    {
-        for (int index = 0; index< 5; ++index)
-            scaledCosts[index] = Mathf.RoundToInt(priceMultiplier* (float) baseCosts[index]);
-    }
-    */
+        public static void ScaleAndRoundCosts(float priceMultiplier, int[] baseCosts, int[] scaledCosts)
+        {
+            for (int index = 0; index< 5; ++index)
+                scaledCosts[index] = Mathf.RoundToInt(priceMultiplier* (float) baseCosts[index]);
+        }
+        */
+#pragma warning restore S125 // Sections of code should not be commented out
 
     /// <summary>
     /// </summary>
     [HarmonyPatch(typeof(EquipmentDefinitions), "ScaleAndRoundCosts")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class EquipmentDefinitions_ScaleAndRoundCosts
     {
         internal static bool Prefix(float priceMultiplier, int[] baseCosts, int[] scaledCosts)

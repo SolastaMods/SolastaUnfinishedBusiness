@@ -6,7 +6,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class FightingStyleContext
     {
-        public static Dictionary<string, AbstractFightingStyle> Styles = new Dictionary<string, AbstractFightingStyle>();
+        public static Dictionary<string, AbstractFightingStyle> Styles { get; private set; } = new Dictionary<string, AbstractFightingStyle>();
 
         internal static void Load()
         {

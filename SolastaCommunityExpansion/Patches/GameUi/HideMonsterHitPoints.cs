@@ -15,7 +15,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi
         internal static bool UpdateHealthStatus(this GuiCharacter __instance)
         {
             // call badly named method
+#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
             var rb = typeof(GuiCharacter).GetMethod("HasHealthUpdated", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
 
             bool retval = false;
 

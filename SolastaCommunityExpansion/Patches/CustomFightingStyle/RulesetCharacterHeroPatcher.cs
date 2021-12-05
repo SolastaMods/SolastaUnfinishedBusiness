@@ -1,9 +1,11 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.CustomFightingStyle
 {
     [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshActiveFightingStyles")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacterHero_RefreshActiveFightingStyles
     {
         internal static void Postfix(RulesetCharacterHero __instance)

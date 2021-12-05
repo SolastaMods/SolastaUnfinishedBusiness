@@ -58,7 +58,7 @@ namespace SolastaCommunityExpansion.Level20
             }
         }
 
-        internal static List<string> SpellListDefinitionList = new List<string>()
+        internal static readonly List<string> SpellListDefinitionList = new List<string>()
         {
             "SpellListCleric",
             "SpellListDruid",

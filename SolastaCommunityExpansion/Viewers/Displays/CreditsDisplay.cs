@@ -5,7 +5,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class CreditsDisplay
     {
-        internal static Dictionary<string, string> CreditsTable = new Dictionary<string, string>
+        internal static readonly Dictionary<string, string> CreditsTable = new Dictionary<string, string>
         {
             { "ChrisJohnDigital".orange().bold(), "head developer, feats, items, subclasses, progression, etc." },
             { "Zappastuff", "mod UI work, integration, community organization, level 20, respec" },

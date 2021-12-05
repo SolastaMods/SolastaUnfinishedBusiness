@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 
@@ -6,6 +7,7 @@ namespace SolastaCommunityExpansion.Patches.ConditionRemovedOnSourceTurnStart
 {
     // Yes, the actual method name has a typo
     [HarmonyPatch(typeof(RulesetActor), "ProcessConditionsMatchingOccurenceType")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetActor_ProcessConditionsMatchingOccurenceType
     {
         internal static void Postfix(RulesetActor __instance, RuleDefinitions.TurnOccurenceType occurenceType)
