@@ -8,7 +8,7 @@ using System.Linq;
 namespace SolastaCommunityExpansion.Patches.ConditionalPowers
 {
     [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshAll")]
-    internal static class RulesetCharacterHero_RefreshAll_Patch
+    internal static class RulesetCharacterHero_RefreshAll
     {
         internal static void Postfix(RulesetCharacterHero __instance)
         {

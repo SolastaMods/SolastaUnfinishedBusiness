@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches
+namespace SolastaCommunityExpansion.Patches.Respec
 {
     // use this patch to track if Respec was aborted
     [HarmonyPatch(typeof(CharacterEditionScreen), "DoAbort")]
