@@ -1,34 +1,31 @@
 ﻿using HarmonyLib;
 using static SolastaCommunityExpansion.Models.Level20Context;
 
-namespace SolastaCommunityExpansion.Patches
+namespace SolastaCommunityExpansion.Patches.Level20
 {
-    internal static class GameCampaignPartyPatcher
+    // replaces the hard-coded level and max experience
+    [HarmonyPatch(typeof(GameCampaignParty), "UpdateLevelCaps")]
+    internal static class GameCampaignParty_UpdateLevelCaps
     {
-        // replaces the hard-coded level and max experience
-        [HarmonyPatch(typeof(GameCampaignParty), "UpdateLevelCaps")]
-        internal static class GameCampaignParty_UpdateLevelCaps_Patch
+        internal static bool Prefix(GameCampaignParty __instance)
         {
-            internal static bool Prefix(GameCampaignParty __instance)
+            if (Main.Settings.EnableLevel20)
             {
-                if (Main.Settings.EnableLevel20)
+                foreach (GameCampaignCharacter characters in __instance.CharactersList)
                 {
-                    foreach (GameCampaignCharacter characters in __instance.CharactersList)
-                    {
-                        RulesetAttribute characterLevelAttribute = characters.RulesetCharacter.GetAttribute("CharacterLevel");
-                        characterLevelAttribute.MaxValue = MOD_MAX_LEVEL;
-                        characterLevelAttribute.Refresh();
+                    RulesetAttribute characterLevelAttribute = characters.RulesetCharacter.GetAttribute("CharacterLevel");
+                    characterLevelAttribute.MaxValue = MOD_MAX_LEVEL;
+                    characterLevelAttribute.Refresh();
 
-                        RulesetAttribute experienceAttribute = characters.RulesetCharacter.GetAttribute("Experience");
-                        experienceAttribute.MaxValue = MAX_CHARACTER_EXPERIENCE;
-                        experienceAttribute.Refresh();
-                    }
-
-                    return false;
+                    RulesetAttribute experienceAttribute = characters.RulesetCharacter.GetAttribute("Experience");
+                    experienceAttribute.MaxValue = MAX_CHARACTER_EXPERIENCE;
+                    experienceAttribute.Refresh();
                 }
 
-                return true;
+                return false;
             }
+
+            return true;
         }
     }
 }

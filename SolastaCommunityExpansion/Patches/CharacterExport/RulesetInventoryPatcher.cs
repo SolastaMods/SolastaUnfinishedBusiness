@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches
+namespace SolastaCommunityExpansion.Patches.CharacterExport
 {
     // When inspecting a character out of game, there is no RulesetEntityService registered.
     // We need to temporarily add the dummy RulesetEntityService and then remove it.

@@ -1,10 +1,10 @@
 ﻿using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches
+namespace SolastaCommunityExpansion.Patches.Respec
 {
     // use this patch to avoid issues during RESPEC if a hero with same name is in the pool
     [HarmonyPatch(typeof(CharacterStageIdentityDefinitionPanel), "CanProceedToNextStage")]
-    internal static class CharacterStageIdentityDefinitionPanel_UpdateRelevance
+    internal static class CharacterStageIdentityDefinitionPanel_CanProceedToNextStage
     {
         internal static void Postfix(CharacterStageIdentityDefinitionPanel __instance, ref bool __result)
         {
