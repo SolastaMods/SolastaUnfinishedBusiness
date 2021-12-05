@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Patches
                 {
                     FeatureDefinitionCastSpell.SlotsByLevelDuplet slotsPerLevel = __instance.SpellCastingFeature?.SlotsPerLevels[__instance.SpellCastingLevel - 1];
 
-                    __result = slotsPerLevel.Slots.IndexOf(0);
+                    __result = slotsPerLevel?.Slots.IndexOf(0) ?? 0;
                 }
             }
         }
