@@ -1,4 +1,5 @@
 using HarmonyLib;
+using System.Diagnostics.CodeAnalysis;
 
 namespace SolastaCommunityExpansion.Patches.LongActivationPowers
 {
