@@ -1,13 +1,16 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.SrdAndHouseRulesContext
 {
     [HarmonyPatch(typeof(RuleDefinitions), "ComputeAdvantage")]
-    internal static class RuleDefinitions_ComputeAdvantage
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RuleDefinitions_ComputeAdvantage_Patch
     {
-        public static void Postfix(List<RuleDefinitions.TrendInfo> trends, RuleDefinitions.AdvantageType __result)
+        public static void Postfix(List<TrendInfo> trends, ref AdvantageType __result)
         {
             if (Main.Settings.EnableSRDAdvantageRules)
             {
@@ -16,17 +19,37 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRulesContext
 
                 if (!(hasAdvantage ^ hasDisadvantage))
                 {
-                    __result = RuleDefinitions.AdvantageType.None;
+                    __result = AdvantageType.None;
                 }
                 else if (hasAdvantage)
                 {
-                    __result = RuleDefinitions.AdvantageType.Advantage;
+                    __result = AdvantageType.Advantage;
                 }
                 else
                 {
-                    __result = RuleDefinitions.AdvantageType.Disadvantage;
+                    __result = AdvantageType.Disadvantage;
                 }
             }
+        }
+    }
+
+    [HarmonyPatch(typeof(ActionModifier), "AttackAdvantageTrend", MethodType.Getter)]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class ActionModifier_AttackAdvantageTrend_Patch
+    {
+        public static bool Prefix(ref int __result, List<TrendInfo> ___attackAdvantageTrends)
+        {
+            if (Main.Settings.EnableSRDAdvantageRules)
+            {
+                var advantage = ___attackAdvantageTrends.Any(t => t.value > 0) ? 1 : 0;
+                var disadvantage = ___attackAdvantageTrends.Any(t => t.value < 0) ? -1 : 0;
+
+                __result = advantage + disadvantage;
+
+                return false;
+            }
+
+            return true;
         }
     }
 }
