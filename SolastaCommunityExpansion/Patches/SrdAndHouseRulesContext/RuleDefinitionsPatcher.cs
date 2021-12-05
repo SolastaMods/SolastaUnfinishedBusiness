@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using static RuleDefinitions;
 
@@ -8,14 +9,13 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRulesContext
     internal static class RuleDefinitionsPatcher
     {
         [HarmonyPatch(typeof(RuleDefinitions), "ComputeAdvantage")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class RuleDefinitions_ComputeAdvantage_Patch
         {
             public static void Postfix(List<TrendInfo> trends, ref AdvantageType __result)
             {
                 if (Main.Settings.EnableSRDAdvantageRules)
                 {
-                    var original = __result;
-
                     var hasAdvantage = trends.Any(t => t.value > 0);
                     var hasDisadvantage = trends.Any(t => t.value < 0);
 
@@ -31,17 +31,12 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRulesContext
                     {
                         __result = AdvantageType.Disadvantage;
                     }
-
-                    Main.Log($"ComputeAdvantage:{trends.Where(t => t.value > 0).Sum(t => (int?)t.value) ?? 0}, {hasAdvantage}, Disadvantage:{trends.Where(t => t.value < 0).Sum(t => (int?)t.value) ?? 0}, {hasDisadvantage}, original={original}, updated={__result}.");
-                }
-                else
-                {
-                    Main.Log($"ComputeAdvantage:{trends.Where(t => t.value > 0).Sum(t => (int?)t.value) ?? 0}, Disadvantage:{trends.Where(t => t.value < 0).Sum(t => (int?)t.value) ?? 0}, result={__result}.");
                 }
             }
         }
 
         [HarmonyPatch(typeof(ActionModifier), "AttackAdvantageTrend", MethodType.Getter)]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class ActionModifier_AttackAdvantageTrend_Patch
         {
             public static bool Prefix(ref int __result, List<TrendInfo> ___attackAdvantageTrends)
@@ -53,11 +48,9 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRulesContext
 
                     __result = advantage + disadvantage;
 
-                    Main.Log($"AttackAdvantage:{___attackAdvantageTrends.Where(t => t.value > 0).Sum(t => (int?)t.value) ?? 0}, {advantage}, Disadvantage:{___attackAdvantageTrends.Where(t => t.value < 0).Sum(t => (int?)t.value) ?? 0}, {disadvantage}, updated={__result}.");
                     return false;
                 }
 
-                Main.Log($"AttackAdvantage:{___attackAdvantageTrends.Where(t => t.value > 0).Sum(t => (int?)t.value) ?? 0}, Disadvantage:{___attackAdvantageTrends.Where(t => t.value < 0).Sum(t => (int?)t.value) ?? 0}, result={__result}.");
                 return true;
             }
         }
