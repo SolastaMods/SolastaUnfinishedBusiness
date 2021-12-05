@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion.Patches.LongActivationPowers
                 {
                     foreach (RulesetUsablePower rulesetUsablePower in __instance.RulesetCharacter.UsablePowers)
                     {
-                        if (__instance.RulesetCharacter.GetRemainingUsesOfPower(rulesetUsablePower) > 0 && !(!accountDelegatedPowers & rulesetUsablePower.PowerDefinition.DelegatedToAction))
+                        if (__instance.RulesetCharacter.GetRemainingUsesOfPower(rulesetUsablePower) > 0 && !(!accountDelegatedPowers && rulesetUsablePower.PowerDefinition.DelegatedToAction))
                         {
                             if (!ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress)
                             {
