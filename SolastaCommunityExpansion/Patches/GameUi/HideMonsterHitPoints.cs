@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -48,6 +49,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi
     /// The gauge now shows health in steps instead of a continuous value.
     /// </summary>
     [HarmonyPatch(typeof(GuiCharacter), "FormatHealthGauge")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GuiCharacter_FormatHealthGauge
     {
         internal static void Prefix(GuiCharacter __instance, bool ___healthGaugeDirty, out bool __state)
@@ -85,6 +87,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi
     /// Mods the monster health label (current/max) hit points to hide current hit points.
     /// </summary>
     [HarmonyPatch(typeof(GuiCharacter), "FormatHealthLabel")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GuiCharacter_FormatHealthLabel
     {
         private static readonly Regex HitPointRegex = new Regex(@"^<#.{6}>(?<current_hp>\d{1,4})</color>/(?<max_hp>\d{1,4})", RegexOptions.Compiled | RegexOptions.Singleline);
@@ -111,18 +114,19 @@ namespace SolastaCommunityExpansion.Patches.GameUi
 
             // A monster has __instance.RulesetCharacterMonster != null and __instance.RulesetCharacter != null
             // A hero has __instance.RulesetCharacterHero != null and __instance.RulesetCharacter != null
+            // A hero with wildshape has __instance.RulesetCharacterMonster != null, __instance.RulesetCharacter != null and __instance.RulesetCharacter.IsSubstitute == true
 
-            if (__instance.HasHitPointsKnowledge && __instance.RulesetCharacterMonster != null)
+            if (__instance.HasHitPointsKnowledge && IsMonster())
             {
-                // Our heros now have enough bestiary knowledge to display the monster hit points
-                // which makes picking off damaged monsters easier that it might be.
+                // Our heros now have enough bestiary knowledge to display the monster's hit points
+                // which makes picking off damaged monsters easier than it might be.
 
-                // We make the following changes:
-                // 1) Full hit points is still displayed, e.g. 28/28
-                // 2) Less than full hit points is hidden, but the number of digits is shown, so **/28 or */28.
+                // Make the following changes:
+                // 1) Full hit points are still displayed, e.g. 28/28
+                // 2) Less than full hit points are hidden, but the number of digits is shown, so **/28 or */28.
                 // Standard health colours will still be in effect.  Green (50%-100%), Orange (25%-50%), Red (0-25%).
 
-                // Normal text formatting runs first so the healthLabel text at this point is
+                // Normal text formatting runs before the patch so the healthLabel text at this point is
                 // "?? / ??" (if HasHitPointsKnowledge=false), or <#xxxxxx>current_hp</color>/max_hp
 
                 var text = healthLabel.Text;
@@ -140,27 +144,45 @@ namespace SolastaCommunityExpansion.Patches.GameUi
                     healthLabel.Text = text.Replace($">{hp}<", $">{stars}<");
                 }
             }
-        }
 
-        /// <summary>
-        /// This mods the horizontal gauge in the monster tooltip.
-        /// The gauge now shows health in steps instead of a continuous value.
-        /// </summary>
-        [HarmonyPatch(typeof(HealthGaugeGroup), "Refresh")]
-        internal static class HealthGaugeGroup_Refresh
-        {
-            internal static void Postfix(HealthGaugeGroup __instance, RectTransform ___gaugeRect, float ___gaugeMaxWidth)
+            bool IsMonster()
             {
-                if (!Main.Settings.HideMonsterHitPoints) return;
-
-                if (__instance.GuiCharacter.RulesetCharacterMonster != null) // Only change for monsters
+                if (__instance.RulesetCharacterMonster == null)
                 {
-                    float ratio = Mathf.Clamp(__instance.GuiCharacter.CurrentHitPoints / (float)__instance.GuiCharacter.HitPoints, 0.0f, 1f);
-
-                    ratio = HideMonsterHitPoints.GetSteppedHealthRatio(ratio);
-
-                    ___gaugeRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, ___gaugeMaxWidth * ratio);
+                    // definitely not a monster
+                    return false;
                 }
+
+                if (__instance.RulesetCharacter?.IsSubstitute == true)
+                {
+                    // It's a hero wildshaping (probably).
+                    return false;
+                }
+
+                return true;
+            }
+        }
+    }
+
+    /// <summary>
+    /// This mods the horizontal gauge in the monster tooltip.
+    /// The gauge now shows health in steps instead of a continuous value.
+    /// </summary>
+    [HarmonyPatch(typeof(HealthGaugeGroup), "Refresh")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class HealthGaugeGroup_Refresh
+    {
+        internal static void Postfix(HealthGaugeGroup __instance, RectTransform ___gaugeRect, float ___gaugeMaxWidth)
+        {
+            if (!Main.Settings.HideMonsterHitPoints) return;
+
+            if (__instance.GuiCharacter.RulesetCharacterMonster != null) // Only change for monsters
+            {
+                float ratio = Mathf.Clamp(__instance.GuiCharacter.CurrentHitPoints / (float)__instance.GuiCharacter.HitPoints, 0.0f, 1f);
+
+                ratio = HideMonsterHitPoints.GetSteppedHealthRatio(ratio);
+
+                ___gaugeRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, ___gaugeMaxWidth * ratio);
             }
         }
     }
