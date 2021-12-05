@@ -2,6 +2,7 @@
 using SolastaModApi.Extensions;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -63,15 +64,19 @@ namespace SolastaCommunityExpansion.Models
 
         public static string GenerateFeatsDescription()
         {
-            string outString = "[heading]Feats[/heading]";
-            outString += "\n[list]";
-            foreach (FeatDefinition feat in Feats.Values)
-            {
-                outString += "\n[*][b]" + Gui.Format(feat.GuiPresentation.Title) + "[/b]: " + Gui.Format(feat.GuiPresentation.Description);
+            var outString = new StringBuilder("[heading]Feats[/heading]");
+            outString.Append("\n[list]");
 
+            foreach (var guiPresentation in Feats.Values.Select(v => v.GuiPresentation))
+            {
+                outString.Append("\n[*][b]");
+                outString.Append(Gui.Format(guiPresentation.Title));
+                outString.Append("[/b]: ");
+                outString.Append(Gui.Format(guiPresentation.Description));
             }
-            outString += "\n[/list]";
-            return outString;
+
+            outString.Append("\n[/list]");
+            return outString.ToString();
         }
     }
 }

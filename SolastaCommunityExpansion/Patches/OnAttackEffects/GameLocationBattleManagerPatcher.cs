@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
+using SolastaCommunityExpansion.Helpers;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
@@ -19,10 +20,7 @@ namespace SolastaCommunityExpansion.Patches.OnAttackEffects
                 return;
             }
 
-            List<FeatureDefinition> features = new List<FeatureDefinition>();
-            attacker.RulesetCharacter.EnumerateFeaturesToBrowse<IOnAttackHitEffect>(features);
-
-            foreach (IOnAttackHitEffect feature in features)
+            foreach (IOnAttackHitEffect feature in attacker.RulesetCharacter.EnumerateFeaturesToBrowse<IOnAttackHitEffect>())
             {
                 feature.OnAttackHit(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
             }
