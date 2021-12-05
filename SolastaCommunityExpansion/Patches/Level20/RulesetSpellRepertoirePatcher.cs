@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+using HarmonyLib;
+using System.Diagnostics.CodeAnalysis;
 
 namespace SolastaCommunityExpansion.Patches
 {
@@ -8,7 +9,7 @@ namespace SolastaCommunityExpansion.Patches
     {
         internal static void Postfix(RulesetSpellRepertoire __instance, ref int __result)
         {
-            if (Main.Settings.EnableLevel20 && __instance.SpellCastingFeature != null && __instance.SpellCastingLevel != null && __instance.SpellCastingLevel > 0)
+            if (Main.Settings.EnableLevel20 && __instance.SpellCastingFeature != null && __instance.SpellCastingLevel > 0)
             {
                 var slotsPerLevel = __instance.SpellCastingFeature.SlotsPerLevels[__instance.SpellCastingLevel - 1];
 
