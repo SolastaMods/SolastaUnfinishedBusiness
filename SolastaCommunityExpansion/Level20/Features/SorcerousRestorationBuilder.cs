@@ -49,18 +49,18 @@ namespace SolastaCommunityExpansion.Level20.Features
                 Definition.SetStringParameter(SorcerousRestorationName);
             }
 
-            private static RestActivityDefinition CreateAndAddToDB(string name, string guid)
-                => new RestActivityBuilder(name, guid).AddToDB();
+            // An alternative pattern for lazily creating definition.
+            private static RestActivityDefinition _restActivityRestoration;
 
-            public static readonly RestActivityDefinition RestActivityRestoration
-                = CreateAndAddToDB(SorcerousRestorationRestName, SorcerousRestorationRestGuid);
+            // get only property
+            public static RestActivityDefinition RestActivityRestoration => 
+                _restActivityRestoration = _restActivityRestoration ?? new RestActivityBuilder(SorcerousRestorationRestName, SorcerousRestorationRestGuid).AddToDB();
         }
 
         private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-        => new SorcerousRestorationBuilder(name, guid).AddToDB();
+            => new SorcerousRestorationBuilder(name, guid).AddToDB();
 
         internal static readonly FeatureDefinitionPower SorcerousRestoration =
             CreateAndAddToDB(SorcerousRestorationName, SorcerousRestorationGuid);
-
     }
 }
