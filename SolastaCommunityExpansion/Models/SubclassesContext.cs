@@ -36,7 +36,7 @@ namespace SolastaCommunityExpansion.Models
                 Subclasses.Add(subclass.Name, subclassBuilder);
             }
 
-            Subclasses = Subclasses.OrderBy(x => Gui.Format(x.Value.GetSubclass().GuiPresentation.Title)).ToDictionary(x => x.Key, x => x.Value);
+            Subclasses = Subclasses.OrderBy(x => x.Value.GetSubclass().FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
 
             UpdateSubclassVisibility(subclass.Name);
         }
@@ -85,17 +85,19 @@ namespace SolastaCommunityExpansion.Models
         public static string GenerateSubclassDescription()
         {
             var outString = new StringBuilder("[heading]Subclasses[/heading]");
+
             outString.Append("\n[list]");
             
-            foreach (AbstractSubclass subclass in Subclasses.Values)
+            foreach (var subclass in Subclasses.Values)
             {
                 outString.Append("\n[*][b]");
-                outString.Append(Gui.Format(subclass.GetSubclass().GuiPresentation.Title));
+                outString.Append(subclass.GetSubclass().FormatTitle());
                 outString.Append("[/b]: ");
-                outString.Append(Gui.Format(subclass.GetSubclass().GuiPresentation.Description));
+                outString.Append(subclass.GetSubclass().FormatDescription());
             }
 
             outString.Append("\n[/list]");
+
             return outString.ToString();
         }
     }

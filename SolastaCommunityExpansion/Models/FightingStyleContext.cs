@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion.Models
                 Styles.Add(style.Name, styleBuilder);
             }
 
-            Styles = Styles.OrderBy(x => Gui.Format(x.Value.GetStyle().GuiPresentation.Title)).ToDictionary(x => x.Key, x => x.Value);
+            Styles = Styles.OrderBy(x => x.Value.GetStyle().FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
 
             UpdateStyleVisibility(style.Name);
         }
@@ -75,17 +75,19 @@ namespace SolastaCommunityExpansion.Models
         public static string GenerateFightingStyleDescription()
         {
             var outString = new StringBuilder("[heading]Fighting Styles[/heading]");
+
             outString.Append("\n[list]");
 
-            foreach (AbstractFightingStyle style in Styles.Values)
+            foreach (var style in Styles.Values)
             {
                 outString.Append("\n[*][b]");
-                outString.Append(Gui.Format(style.GetStyle().GuiPresentation.Title));
+                outString.Append(style.GetStyle().FormatTitle());
                 outString.Append("[/b]: ");
-                outString.Append(Gui.Format(style.GetStyle().GuiPresentation.Description));
+                outString.Append(style.GetStyle().FormatDescription());
             }
 
             outString.Append("\n[/list]");
+
             return outString.ToString();
         }
     }
