@@ -38,7 +38,7 @@ namespace SolastaCommunityExpansion.Models
                 feat.GuiPresentation.SetHidden(!Main.Settings.FeatEnabled.Contains(feat.Name));
             }
 
-            Feats = Feats.OrderBy(x => Gui.Format(x.Value.GuiPresentation.Title)).ToDictionary(x => x.Key, x => x.Value);
+            Feats = Feats.OrderBy(x => x.Value.FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
         }
 
         internal static void Switch(string featName, bool active)
@@ -47,6 +47,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 return;
             }
+
             Feats[featName].GuiPresentation.SetHidden(!active);
 
             if (active)
@@ -65,17 +66,19 @@ namespace SolastaCommunityExpansion.Models
         public static string GenerateFeatsDescription()
         {
             var outString = new StringBuilder("[heading]Feats[/heading]");
+
             outString.Append("\n[list]");
 
-            foreach (var guiPresentation in Feats.Values.Select(v => v.GuiPresentation))
+            foreach (var feat in Feats.Values)
             {
                 outString.Append("\n[*][b]");
-                outString.Append(Gui.Format(guiPresentation.Title));
+                outString.Append(feat.FormatTitle());
                 outString.Append("[/b]: ");
-                outString.Append(Gui.Format(guiPresentation.Description));
+                outString.Append(feat.FormatTitle());
             }
 
             outString.Append("\n[/list]");
+
             return outString.ToString();
         }
     }

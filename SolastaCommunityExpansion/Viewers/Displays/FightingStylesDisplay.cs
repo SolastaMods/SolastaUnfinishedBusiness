@@ -51,14 +51,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         while (current < stylesCount && columns-- > 0)
                         {
                             var keyValuePair = FightingStyleContext.Styles.ElementAt(current);
-                            toggle = Main.Settings.FightingStyleEnabled.Contains(keyValuePair.Key);
-                            var title = Gui.Format(keyValuePair.Value.GetStyle().GuiPresentation.Title);
+                            var title = keyValuePair.Value.GetStyle().FormatTitle();
 
                             if (flip)
                             {
                                 title = title.yellow();
                             }
 
+                            toggle = Main.Settings.FightingStyleEnabled.Contains(keyValuePair.Key);
                             if (UI.Toggle(title, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                             {
                                 FightingStyleContext.Switch(keyValuePair.Key, toggle);
@@ -66,7 +66,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                             if (Main.Settings.FightingStyleSliderPosition == 1)
                             {
-                                var description = Gui.Format(keyValuePair.Value.GetStyle().GuiPresentation.Description);
+                                var description = keyValuePair.Value.GetStyle().FormatDescription();
 
                                 if (flip)
                                 {

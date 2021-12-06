@@ -77,16 +77,16 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         while (current < subclassesCount && columns-- > 0)
                         {
                             var keyValuePair = SubclassesContext.Subclasses.ElementAt(current);
-                            toggle = Main.Settings.SubclassEnabled.Contains(keyValuePair.Key);
                             var subclass = keyValuePair.Value.GetSubclass();
                             var suffix = keyValuePair.Value.GetSubclassChoiceList().SubclassSuffix;
-                            var title = $"{Gui.Format(subclass.GuiPresentation.Title)} ({suffix})";
+                            var title = $"{subclass.FormatTitle()} ({suffix})";
 
                             if (flip)
                             {
                                 title = title.yellow();
                             }
 
+                            toggle = Main.Settings.SubclassEnabled.Contains(keyValuePair.Key);
                             if (UI.Toggle(title, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                             {
                                 SubclassesContext.Switch(keyValuePair.Key, toggle);
@@ -94,7 +94,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                             if (Main.Settings.SubclassSliderPosition == 1)
                             {
-                                var description = Gui.Format(subclass.GuiPresentation.Description);
+                                var description = subclass.FormatDescription();
 
                                 if (flip)
                                 {

@@ -115,6 +115,7 @@ namespace SolastaCommunityExpansion.Models
         public static string GenerateItemsDescription()
         {
             var outString = new StringBuilder("[heading]Craftable Items[/heading]");
+
             outString.Append("\n[list]");
 
             foreach (string key in RecipeBooks.Keys)
@@ -124,13 +125,14 @@ namespace SolastaCommunityExpansion.Models
                 outString.Append("[/b]: ");
 
                 var uniqueEntries = RecipeBooks[key]
-                    .Select(rb => rb.DocumentDescription.RecipeDefinition.GuiPresentation.Title)
+                    .Select(rb => rb.DocumentDescription.RecipeDefinition.FormatTitle())
                     .Distinct();
 
-                outString.Append(string.Join(", ", uniqueEntries.Select(name => Gui.Format(name))));
+                outString.Append(string.Join(", ", uniqueEntries));
             }
 
             outString.Append("\n[/list]");
+
             return outString.ToString();
         }
     }
