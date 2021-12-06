@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 {
     internal class SpellMaster : AbstractSubclass
     {
-        private static Guid SubclassNamespace = new Guid("9f322734-1498-4f65-ace5-e6072b1d99be");
+        private static readonly Guid SubclassNamespace = new Guid("9f322734-1498-4f65-ace5-e6072b1d99be");
         private readonly CharacterSubclassDefinition Subclass;
 
         private static FeatureDefinitionPower BonusRecovery;
