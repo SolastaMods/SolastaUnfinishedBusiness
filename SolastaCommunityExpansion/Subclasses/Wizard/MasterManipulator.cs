@@ -11,7 +11,17 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         private static Guid SubclassNamespace = new Guid("af7255d2-8ce2-4398-8999-f1ef536001f6");
         private readonly CharacterSubclassDefinition Subclass;
 
-        private static FeatureDefinitionMagicAffinity DcIncreaseAffinity;
+        #region DcIncreaseAffinity
+        private static FeatureDefinitionMagicAffinity _dcIncreaseAffinity;
+        private static FeatureDefinitionMagicAffinity DcIncreaseAffinity
+        {
+            get
+            {
+                return _dcIncreaseAffinity = _dcIncreaseAffinity ??
+                    BuildMagicAffinityModifiers(0, Main.Settings.MasterManipulatorSpellDCBoost, "MagicAffinityMasterManipulatorDC", GetSpellDCPresentation().Build());
+            }
+        }
+        #endregion
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
@@ -51,11 +61,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             }, 1,
                 "MagicAffinityControlHeightened", arcaneControlAffinityGui.Build());
             controlMaster.AddFeatureAtLevel(arcaneControlAffinity, 2);
-
-            DcIncreaseAffinity = BuildMagicAffinityModifiers(0, Main.Settings.MasterManipulatorSpellDCBoost,
-                "MagicAffinityMasterManipulatorDC", GetSpellDCPresentation().Build());
             controlMaster.AddFeatureAtLevel(DcIncreaseAffinity, 6);
-
 
             FeatureDefinitionProficiency proficiency = new FeatureDefinitionProficiencyBuilder("ManipulatorMentalSavingThrows", GuidHelper.Create(SubclassNamespace, "ManipulatorMentalSavingThrows").ToString(),
                 RuleDefinitions.ProficiencyType.SavingThrow,
