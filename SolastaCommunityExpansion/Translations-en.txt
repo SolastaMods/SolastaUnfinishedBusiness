@@ -243,7 +243,7 @@ Feat/&HealerResuscitateTitle Resuscitate
 Feat/&HealerTitle Healer
 Feat/&HealerUseMedicineDescription You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 Feat/&HealerUseMedicineTitle Use Medicine
-Feat/&HealerStabalizeDescription Use an action to stabalzie a dying creature.
+Feat/&HealerStabalizeDescription Use an action to stabalize a dying creature.
 Feat/&HealerStabalizeTitle Stabalize
 Feat/&HeavyArmorMasterDescription Resistance to Bludgeoning, Slashing, and Piercing damage.
 Feat/&HeavyArmorMasterTitle Heavy Defense Mastery
