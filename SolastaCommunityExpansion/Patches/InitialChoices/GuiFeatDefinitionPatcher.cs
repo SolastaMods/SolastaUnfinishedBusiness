@@ -7,7 +7,6 @@ namespace SolastaCommunityExpansion.Patches.InitialChoices
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GuiFeatDefinition_IsFeatMacthingPrerequisites
     {
-#pragma warning disable S125 // Sections of code should not be commented out
         //internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
 
                             //{
@@ -16,7 +15,6 @@ namespace SolastaCommunityExpansion.Patches.InitialChoices
 
         //    return code;
         //}
-#pragma warning restore S125 // Sections of code should not be commented out
 
         internal static void Postfix(FeatDefinition feat, RulesetCharacterHero hero, ref bool __result)
         {

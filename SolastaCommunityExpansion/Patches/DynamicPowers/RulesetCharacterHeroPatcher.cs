@@ -116,19 +116,17 @@ namespace SolastaCommunityExpansion.Patches.ConditionalPowers
                 return (hero.SubRaceDefinition, null, null);
             }
 
-            foreach (KeyValuePair<CharacterClassDefinition, int> keyValuePair in hero.ClassesAndLevels)
+            foreach (var key in hero.ClassesAndLevels.Select(kvp => kvp.Key))
             {
-                if (keyValuePair.Key.FeatureUnlocks.Any(unlock => unlock.FeatureDefinition == featureDefinition))
+                if (key.FeatureUnlocks.Any(unlock => unlock.FeatureDefinition == featureDefinition))
                 {
-                    return (null, keyValuePair.Key, null);
+                    return (null, key, null);
                 }
 
-                if (hero.ClassesAndSubclasses.ContainsKey(keyValuePair.Key) && hero.ClassesAndSubclasses[keyValuePair.Key] != null)
+                if (hero.ClassesAndSubclasses.ContainsKey(key) && hero.ClassesAndSubclasses[key] != null
+                    && hero.ClassesAndSubclasses[key].FeatureUnlocks.Any(unlock => unlock.FeatureDefinition == featureDefinition))
                 {
-                    if (hero.ClassesAndSubclasses[keyValuePair.Key].FeatureUnlocks.Any(unlock => unlock.FeatureDefinition == featureDefinition))
-                    {
-                        return (null, keyValuePair.Key, null);
-                    }
+                    return (null, key, null);
                 }
             }
 

@@ -23,8 +23,10 @@ namespace SolastaCommunityExpansion.Viewers
         }
 
 #pragma warning disable IDE0051 // Remove unused private members
+#pragma warning disable S1144 // Remove unused private members
         private static void AddDumpDescriptionToLogButton()
 #pragma warning restore IDE0051 // Remove unused private members
+#pragma warning restore S1144 // Remove unused private members
         {
             UI.ActionButton("Dump Description to Logs", () =>
             {
