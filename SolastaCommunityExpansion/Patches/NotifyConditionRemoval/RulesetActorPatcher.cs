@@ -1,21 +1,20 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.NotifyConditionRemoval
 {
-    internal static class RulesetActorPatcher
+    [HarmonyPatch(typeof(RulesetActor), "RemoveCondition")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetActor_RemoveCondition
     {
-        [HarmonyPatch(typeof(RulesetActor), "RemoveCondition")]
-        internal static class RulesetActor_RemoveCondition
+        internal static void Postfix(RulesetActor __instance, RulesetCondition rulesetCondition)
         {
-            internal static void Postfix(RulesetActor __instance, RulesetCondition rulesetCondition)
-            {
-                var notifiedDefinition = rulesetCondition?.ConditionDefinition as INotifyConditionRemoval;
+            var notifiedDefinition = rulesetCondition?.ConditionDefinition as INotifyConditionRemoval;
 
-                if (notifiedDefinition != null)
-                {
-                    notifiedDefinition.AfterConditionRemoved(__instance, rulesetCondition);
-                }
+            if (notifiedDefinition != null)
+            {
+                notifiedDefinition.AfterConditionRemoved(__instance, rulesetCondition);
             }
         }
     }

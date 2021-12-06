@@ -63,7 +63,7 @@ namespace SolastaCommunityExpansion.Models
                         monster.GuiPresentation.SetSpriteReference(brownBear.GuiPresentation.SpriteReference);
                         monster.SetBestiarySpriteReference(brownBear.BestiarySpriteReference);
                         monster.MonsterPresentation.SetMonsterPresentationDefinitions(brownBear.MonsterPresentation.MonsterPresentationDefinitions);
-                    };
+                    }
 
                     // swap apes for remorhaz
                     if (value.AssetGUID == assetReference_Remorhaz)
@@ -73,7 +73,7 @@ namespace SolastaCommunityExpansion.Models
                         monster.GuiPresentation.SetSpriteReference(ape.GuiPresentation.SpriteReference);
                         monster.SetBestiarySpriteReference(ape.BestiarySpriteReference);
                         monster.MonsterPresentation.SetMonsterPresentationDefinitions(ape.MonsterPresentation.MonsterPresentationDefinitions);
-                    };
+                    }
 
                     // swap wolves for beetles
                     if (value.AssetGUID == assetReference_beetle)
@@ -87,10 +87,8 @@ namespace SolastaCommunityExpansion.Models
                         // changing beetlw scale to suit replacement model
                         monster.MonsterPresentation.SetMaleModelScale(0.655f);
                         monster.MonsterPresentation.SetMaleModelScale(0.655f);
-                    };
-
-                };
-
+                    }
+                }
             }
         }
     }

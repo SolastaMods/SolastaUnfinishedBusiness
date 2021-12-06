@@ -1,3 +1,4 @@
+﻿using System.Linq;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionSenses;
 
@@ -9,17 +10,17 @@ using static SolastaModApi.DatabaseHelper.FeatureDefinitionSenses;
         {
             if (Main.Settings.DisableSenseDarkVisionFromAllRaces)
             {
-                foreach (CharacterRaceDefinition characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>().GetAllElements())
+                foreach (var featureUnlocks in DatabaseRepository.GetDatabase<CharacterRaceDefinition>().Select(crd => crd.FeatureUnlocks))
                 {
-                    characterRaceDefinition.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition.name == "SenseDarkvision");
+                    featureUnlocks.RemoveAll(x => x.FeatureDefinition.name == "SenseDarkvision");
                     // Half-orcs have a different darkvisition.
-                    characterRaceDefinition.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition.name == "SenseDarkvision12");
+                    featureUnlocks.RemoveAll(x => x.FeatureDefinition.name == "SenseDarkvision12");
                 }
             }
 
             if (Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces)
             {
-                foreach (CharacterRaceDefinition characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>().GetAllElements())
+                foreach (CharacterRaceDefinition characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>())
                 {
                     characterRaceDefinition.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition.name == "SenseSuperiorDarkvision");
                 }

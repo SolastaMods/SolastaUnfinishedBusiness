@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Features
 {
     internal static class ItemBuilder
     {
-        private class ItemDefinitionBuilder : BaseDefinitionBuilder<ItemDefinition>
+        private sealed class ItemDefinitionBuilder : BaseDefinitionBuilder<ItemDefinition>
         {
             public ItemDefinitionBuilder(ItemDefinition original, string name, string guid) : base(original, name, guid)
             {

@@ -121,7 +121,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             Subclass = spellShield.AddToDB();
         }
 
-        private class SpellShieldRangedDeflection : BaseDefinitionBuilder<FeatureDefinitionActionAffinity>
+        private sealed class SpellShieldRangedDeflection : BaseDefinitionBuilder<FeatureDefinitionActionAffinity>
         {
             public SpellShieldRangedDeflection(FeatureDefinitionActionAffinity original, string name, string guid, GuiPresentation guiPresentation) : base(original, name, guid)
             {

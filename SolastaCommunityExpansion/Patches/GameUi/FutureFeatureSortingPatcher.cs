@@ -1,12 +1,14 @@
 ﻿using HarmonyLib;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace SolastaCommunityExpansion.Patches
 {
     internal static class FutureFeatureSortingPatcher
     {
         [HarmonyPatch(typeof(CharacterStageSubclassSelectionPanel), "FillSubclassFeatures")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class CharacterStageSubclassSelectionPanel_FillSubclassFeatures
         {
             internal static void Prefix(CharacterSubclassDefinition subclassDefinition)
@@ -20,6 +22,7 @@ namespace SolastaCommunityExpansion.Patches
         }
 
         [HarmonyPatch(typeof(CharacterStageDeitySelectionPanel), "FillSubclassFeatures")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class CharacterStageDeitySelectionPanel_FillSubclassFeatures
         {
             internal static void Prefix(CharacterSubclassDefinition currentSubclassDefinition)
@@ -33,6 +36,7 @@ namespace SolastaCommunityExpansion.Patches
         }
 
         [HarmonyPatch(typeof(ArchetypesPreviewModal), "Bind")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class ArchetypesPreviewModal_Bind
         {
             internal static void Postfix(ArchetypesPreviewModal __instance)
@@ -50,6 +54,7 @@ namespace SolastaCommunityExpansion.Patches
         }
 
         [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "FillClassFeatures")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class CharacterStageClassSelectionPanel_FillSubclassFeatures
         {
             internal static void Prefix(CharacterClassDefinition classDefinition)

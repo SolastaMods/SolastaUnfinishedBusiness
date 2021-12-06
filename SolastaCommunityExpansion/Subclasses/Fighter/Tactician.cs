@@ -21,12 +21,12 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         }
     }
 
-    internal class KnockDownPowerBuilder
+    internal static class KnockDownPowerBuilder
     {
         private const string KnockDownPowerName = "KnockDownPower";
         private const string KnockDownPowerNameGuid = "90dd5e81-40d7-4824-89b4-45bcf4c05218";
 
-        protected static FeatureDefinitionPowerSharedPool Build(string name, string guid)
+        public static FeatureDefinitionPowerSharedPool Build(string name, string guid)
         {
             //Create the damage form - TODO make it do the same damage as the wielded weapon?  This doesn't seem possible
             EffectForm damageEffect = new EffectForm
@@ -77,12 +77,12 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             => Build(KnockDownPowerName, KnockDownPowerNameGuid);
     }
 
-    internal class InspirePowerBuilder
+    internal static class InspirePowerBuilder
     {
         private const string InspirePowerName = "InspirePower";
         private const string InspirePowerNameGuid = "163c28de-48e5-4f75-bdd0-d42374a75ef8";
 
-        protected static FeatureDefinitionPowerSharedPool Build(string name, string guid)
+        public static FeatureDefinitionPowerSharedPool Build(string name, string guid)
         {
             //Create the temp hp form
             EffectForm healingEffect = new EffectForm
@@ -133,12 +133,12 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             => Build(InspirePowerName, InspirePowerNameGuid);
     }
 
-    internal class CounterStrikePowerBuilder
+    internal static class CounterStrikePowerBuilder
     {
         private const string CounterStrikePowerName = "CounterStrikePower";
         private const string CounterStrikePowerNameGuid = "88c294ce-14fa-4f7e-8b81-ea4d289e3d8b";
 
-        protected static FeatureDefinitionPowerSharedPool Build(string name, string guid)
+        public static FeatureDefinitionPowerSharedPool Build(string name, string guid)
         {
             //Create the damage form - TODO make it do the same damage as the wielded weapon (seems impossible with current tools, would need to use the AdditionalDamage feature but I'm not sure how to combine that with this to make it a reaction ability).
             EffectForm damageEffect = new EffectForm
@@ -173,7 +173,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             => Build(CounterStrikePowerName, CounterStrikePowerNameGuid);
     }
 
-    internal class GambitResourcePoolBuilder
+    internal static class GambitResourcePoolBuilder
     {
         private const string GambitResourcePoolName = "GambitResourcePool";
         private const string GambitResourcePoolNameGuid = "00da2b27-139a-4ca0-a285-aaa70d108bc8";
@@ -184,7 +184,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 new GuiPresentationBuilder("Feature/&GambitResourcePoolDescription", "Feature/&GambitResourcePoolTitle").Build()).AddToDB();
     }
 
-    internal class GambitResourcePoolAddBuilder
+    internal static class GambitResourcePoolAddBuilder
     {
         private const string GambitResourcePoolAddName = "GambitResourcePoolAdd";
         private const string GambitResourcePoolAddNameGuid = "056d786a-2611-4981-a652-704fa5056375";

@@ -1,10 +1,12 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patch
+namespace SolastaCommunityExpansion.Patches.HeroName
 {
     internal static class CharacterPoolManagerPatcher
     {
         [HarmonyPatch(typeof(CharacterPoolManager), "SaveCharacter")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class CharacterPoolManager_SaveCharacter
         {
             public static void Prefix(RulesetCharacterHero heroCharacter, [HarmonyArgument("addToPool")] bool _ = false)

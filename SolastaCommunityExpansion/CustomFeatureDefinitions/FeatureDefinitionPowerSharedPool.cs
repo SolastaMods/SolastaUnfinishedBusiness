@@ -30,14 +30,17 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 
     public class FeatureDefinitionPowerPoolModifier : FeatureDefinitionPower, IPowerPoolModifier
     {
-        public FeatureDefinitionPower PoolPower;
-        public int poolChangeAmount;
+        public FeatureDefinitionPower PoolPower { get; set; }
+
+        // TODO: unassigned - remove or use
+        private int poolChangeAmount;
 
         public FeatureDefinitionPower GetUsagePoolPower()
         {
             return PoolPower;
         }
 
+        // TODO: unused  - remove or use
         public int PoolChangeAmount()
         {
             return poolChangeAmount;

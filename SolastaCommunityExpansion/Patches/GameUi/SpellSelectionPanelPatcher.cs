@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,7 +14,8 @@ namespace SolastaCommunityExpansion.Patches
 
         // second line bind
         [HarmonyPatch(typeof(SpellSelectionPanel), "Bind")]
-        internal static class SpellSelectionPanel_SecondLine
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+        internal static class SpellSelectionPanel_Bind
         {
             internal static void Postfix(SpellSelectionPanel __instance, GameLocationCharacter caster, SpellsByLevelBox.SpellCastEngagedHandler spellCastEngaged, ActionDefinitions.ActionType actionType, bool cantripOnly)
             {
@@ -45,7 +47,6 @@ namespace SolastaCommunityExpansion.Patches
                 }
 
                 var spellRepertoires = __instance.Caster.RulesetCharacter.SpellRepertoires;
-                int spellLevels = spellRepertoires.Sum(sp => ActiveSpellLevelsForRepetoire(sp, actionType));
 
                 spellRepertoireLines.Clear();
                 bool needNewLine = true;
@@ -169,7 +170,7 @@ namespace SolastaCommunityExpansion.Patches
 
                 if (spellRepertoire.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.Prepared)
                 {
-                    if(spellRepertoire.PreparedSpells
+                    if (spellRepertoire.PreparedSpells
                         .Where(spellDefinition => spellDefinition.SpellLevel == level)
                         .Any(spellDefinition => spellDefinition.ActivationTime == spellActivationTime))
                     {
@@ -177,7 +178,7 @@ namespace SolastaCommunityExpansion.Patches
                     }
                 }
 
-                if (spellRepertoire.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.AllKnown 
+                if (spellRepertoire.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.AllKnown
                     && spellRepertoire.KnownSpells.Any(spellDefinition => spellDefinition.SpellLevel == level))
                 {
                     return true;
@@ -185,23 +186,11 @@ namespace SolastaCommunityExpansion.Patches
 
                 return false;
             }
-
-            private static int ActiveSpellLevelsForRepetoire(RulesetSpellRepertoire spellRepertoire, ActionDefinitions.ActionType actionType)
-            {
-                int activeSpellLevels = 0;
-                for (int level = 0; level < spellRepertoire.MaxSpellLevelOfSpellCastingLevel; level++)
-                {
-                    if (IsLevelActive(spellRepertoire, level, actionType))
-                    {
-                        activeSpellLevels++;
-                    }
-                }
-                return activeSpellLevels;
-            }
         }
 
         // second line unbind
         [HarmonyPatch(typeof(SpellSelectionPanel), "Unbind")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class SpellSelectionPanel_Unbind
         {
             internal static void Postfix()
@@ -210,15 +199,17 @@ namespace SolastaCommunityExpansion.Patches
                 {
                     return;
                 }
+
                 foreach (RectTransform spellTable in spellLineTables)
                 {
-                    if (spellTable != null && spellTable.gameObject.activeSelf & spellTable.childCount > 0)
+                    if (spellTable != null && spellTable.gameObject.activeSelf && spellTable.childCount > 0)
                     {
                         Gui.ReleaseChildrenToPool(spellTable);
                         spellTable.SetParent(null);
                         Object.Destroy(spellTable.gameObject);
                     }
                 }
+
                 spellLineTables.Clear();
             }
         }

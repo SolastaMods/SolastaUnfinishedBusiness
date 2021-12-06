@@ -79,7 +79,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                             var keyValuePair = SubclassesContext.Subclasses.ElementAt(current);
                             toggle = Main.Settings.SubclassEnabled.Contains(keyValuePair.Key);
                             var subclass = keyValuePair.Value.GetSubclass();
-                            var title = Gui.Format(subclass.GuiPresentation.Title);
+                            var suffix = keyValuePair.Value.GetSubclassChoiceList().SubclassSuffix;
+                            var title = $"{Gui.Format(subclass.GuiPresentation.Title)} ({suffix})";
 
                             if (flip)
                             {

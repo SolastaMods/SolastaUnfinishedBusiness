@@ -1,9 +1,11 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches
 {
     [HarmonyPatch(typeof(CharacterControlPanel), "OnConfigurationSwitchedHandler")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterControlPanel_OnConfigurationSwitchedHandler
     {
         private static CharacterActionPanel panelToActivate;
@@ -77,6 +79,7 @@ namespace SolastaCommunityExpansion.Patches
                 }
                 else if (__instance is CharacterControlPanelBattle battlePanel)
                 {
+#pragma warning disable S3458 // Empty "case" clauses that fall through to the "default" should be omitted
                     switch (actionId)
                     {
                         case ActionDefinitions.Id.CastMain:
@@ -160,6 +163,7 @@ namespace SolastaCommunityExpansion.Patches
                             panelToActivate = battlePanel.GetField<CharacterActionPanel>("otherActionPanel");
                             break;
                     }
+#pragma warning restore S3458 // Empty "case" clauses that fall through to the "default" should be omitted
                 }
             }
         }

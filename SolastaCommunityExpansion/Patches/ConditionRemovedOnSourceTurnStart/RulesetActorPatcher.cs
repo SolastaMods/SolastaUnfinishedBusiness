@@ -1,47 +1,46 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.ConditionRemovedOnSourceTurnStart
 {
-    internal static class RulesetActorPatcher
+    // Yes, the actual method name has a typo
+    [HarmonyPatch(typeof(RulesetActor), "ProcessConditionsMatchingOccurenceType")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetActor_ProcessConditionsMatchingOccurenceType
     {
-        // Yes, the actual method name has a typo
-        [HarmonyPatch(typeof(RulesetActor), "ProcessConditionsMatchingOccurenceType")]
-        internal static class RulesetActor_ProcessConditionsMatchingOccurenceType
+        internal static void Postfix(RulesetActor __instance, RuleDefinitions.TurnOccurenceType occurenceType)
         {
-            internal static void Postfix(RulesetActor __instance, RuleDefinitions.TurnOccurenceType occurenceType)
+            if (occurenceType == RuleDefinitions.TurnOccurenceType.StartOfTurn)
             {
-                if (occurenceType == RuleDefinitions.TurnOccurenceType.StartOfTurn)
+                var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+                if (battleService?.Battle != null)
                 {
-                    var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-                    if (battleService?.Battle != null)
+                    foreach (GameLocationCharacter contender in battleService.Battle.AllContenders)
                     {
-                        foreach (GameLocationCharacter contender in battleService.Battle.AllContenders)
+                        if (contender == null || !contender.Valid || contender.RulesetActor == null)
                         {
-                            if (contender == null || !contender.Valid || contender.RulesetActor == null)
-                            {
-                                continue;
-                            }
+                            continue;
+                        }
 
-                            var conditionsToRemove = new List<RulesetCondition>();
+                        var conditionsToRemove = new List<RulesetCondition>();
 
-                            foreach (KeyValuePair<string, List<RulesetCondition>> keyValuePair in contender.RulesetActor.ConditionsByCategory)
+                        foreach (KeyValuePair<string, List<RulesetCondition>> keyValuePair in contender.RulesetActor.ConditionsByCategory)
+                        {
+                            foreach (RulesetCondition rulesetCondition in keyValuePair.Value)
                             {
-                                foreach (RulesetCondition rulesetCondition in keyValuePair.Value)
+                                if (rulesetCondition.SourceGuid == __instance.Guid && rulesetCondition.ConditionDefinition is IConditionRemovedOnSourceTurnStart)
                                 {
-                                    if (rulesetCondition.SourceGuid == __instance.Guid && rulesetCondition.ConditionDefinition is IConditionRemovedOnSourceTurnStart)
-                                    {
-                                        conditionsToRemove.Add(rulesetCondition);
-                                    }
+                                    conditionsToRemove.Add(rulesetCondition);
                                 }
                             }
+                        }
 
-                            foreach (RulesetCondition conditionToRemove in conditionsToRemove)
-                            {
-                                contender.RulesetActor.RemoveCondition(conditionToRemove);
-                            }
+                        foreach (RulesetCondition conditionToRemove in conditionsToRemove)
+                        {
+                            contender.RulesetActor.RemoveCondition(conditionToRemove);
                         }
                     }
                 }

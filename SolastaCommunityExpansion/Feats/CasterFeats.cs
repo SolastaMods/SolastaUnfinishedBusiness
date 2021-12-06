@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Feats
 {
     internal static class CasterFeats
     {
-        public static Guid CasterFeatsNamespace = new Guid("bf70984d-e7b9-446a-9ae3-0f2039de833d");
+        public static readonly Guid CasterFeatsNamespace = new Guid("bf70984d-e7b9-446a-9ae3-0f2039de833d");
 
         public static void CreateFeats(List<FeatDefinition> feats)
         {
@@ -282,7 +282,7 @@ namespace SolastaCommunityExpansion.Feats
             };
             shadowIntFeatures.AddRange(shadowTouchedClassesPreparedSpells);
             FeatDefinitionBuilder intShadowTouched = new FeatDefinitionBuilder("FeatShadowTouchedInt", GuidHelper.Create(CasterFeatsNamespace, "FeatShadowTouchedInt").ToString(),
-                shadowIntFeatures, intShadowTouchedPresentation.Build()); ;
+                shadowIntFeatures, intShadowTouchedPresentation.Build());
             feats.Add(intShadowTouched.AddToDB());
             // shadow touched wis
             GuiPresentationBuilder wisShadowTouchedPresentation = new GuiPresentationBuilder(
@@ -297,7 +297,7 @@ namespace SolastaCommunityExpansion.Feats
             };
             shadowWisFeatures.AddRange(shadowTouchedClassesPreparedSpells);
             FeatDefinitionBuilder wisShadowTouched = new FeatDefinitionBuilder("FeatShadowTouchedWis", GuidHelper.Create(CasterFeatsNamespace, "FeatShadowTouchedWis").ToString(),
-              shadowWisFeatures, wisShadowTouchedPresentation.Build()); ;
+              shadowWisFeatures, wisShadowTouchedPresentation.Build());
             feats.Add(wisShadowTouched.AddToDB());
             // shadow touched cha
             GuiPresentationBuilder chaShadowTouchedPresentation = new GuiPresentationBuilder(
@@ -312,7 +312,7 @@ namespace SolastaCommunityExpansion.Feats
             };
             shadowChaFeatures.AddRange(shadowTouchedClassesPreparedSpells);
             FeatDefinitionBuilder chaShadowTouched = new FeatDefinitionBuilder("FeatShadowTouchedCha", GuidHelper.Create(CasterFeatsNamespace, "FeatShadowTouchedCha").ToString(),
-                shadowChaFeatures, chaShadowTouchedPresentation.Build()); ;
+                shadowChaFeatures, chaShadowTouchedPresentation.Build());
             feats.Add(chaShadowTouched.AddToDB());
 
             // fey touched? but it'd be 12 feats
