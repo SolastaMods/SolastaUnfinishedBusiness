@@ -237,14 +237,14 @@ Feat/&FightingStyleProtectionDescription When a creature you can see attacks a t
 Feat/&FightingStyleProtectionTitle Fighting Style: Protection
 Feat/&FightingStyleTwoWeaponDescription When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
 Feat/&FightingStyleTwoWeaponTitle Fighting Style: Two Weapon
-Feat/&HealerDescription You gain proficiency or expertise in Medicine checks. You gain the ability to stabalize a dying creature as well as to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
+Feat/&HealerDescription You gain proficiency or expertise in Medicine checks. You gain the ability to stabilize a dying creature as well as to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 Feat/&HealerResuscitateDescription Use an action to revive a creature that died within the last 15 seconds.
 Feat/&HealerResuscitateTitle Resuscitate
 Feat/&HealerTitle Healer
 Feat/&HealerUseMedicineDescription You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 Feat/&HealerUseMedicineTitle Use Medicine
-Feat/&HealerStabalizeDescription Use an action to stabalize a dying creature.
-Feat/&HealerStabalizeTitle Stabalize
+Feat/&HealerStabilizeDescription Use an action to stabilize a dying creature.
+Feat/&HealerStabilizeTitle Stabilize
 Feat/&HeavyArmorMasterDescription Resistance to Bludgeoning, Slashing, and Piercing damage.
 Feat/&HeavyArmorMasterTitle Heavy Defense Mastery
 Feat/&InspiringLeaderDescription Spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier. Useable once per short rest.
