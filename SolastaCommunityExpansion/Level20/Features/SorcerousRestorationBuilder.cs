@@ -37,12 +37,12 @@ namespace SolastaCommunityExpansion.Level20.Features
             _ = RestActivityBuilder.RestActivityRestoration;
         }
 
-        private class RestActivityBuilder : BaseDefinitionBuilder<RestActivityDefinition>
+        private sealed class RestActivityBuilder : BaseDefinitionBuilder<RestActivityDefinition>
         {
             private const string SorcerousRestorationRestName = "ZSSorcerousRestorationRest";
             private const string SorcerousRestorationRestGuid = "5ee0315b-43b6-4dd9-8dd4-1eeded1cdb0e";
 
-            protected RestActivityBuilder(string name, string guid) : base(DatabaseHelper.RestActivityDefinitions.ArcaneRecovery, name, guid)
+            internal RestActivityBuilder(string name, string guid) : base(DatabaseHelper.RestActivityDefinitions.ArcaneRecovery, name, guid)
             {
                 Definition.GuiPresentation.Title = "RestActivity/&ZSSorcerousRestorationTitle";
                 Definition.GuiPresentation.Description = "RestActivity/&ZSSorcerousRestorationDescription";

@@ -20,7 +20,7 @@ namespace SolastaCommunityExpansion.FightingStyles
                 DatabaseHelper.FeatureDefinitionFightingStyleChoices.FightingStyleRanger,};
         }
 
-        private class FeatureDefinitionAdditionalDamageBuilder : BaseDefinitionBuilder<FeatureDefinitionAdditionalDamage>
+        private sealed class FeatureDefinitionAdditionalDamageBuilder : BaseDefinitionBuilder<FeatureDefinitionAdditionalDamage>
         {
             internal FeatureDefinitionAdditionalDamageBuilder(string name, string guid, string notificationTag, RuleDefinitions.FeatureLimitedUsage limitedUsage,
             RuleDefinitions.AdditionalDamageValueDetermination damageValueDetermination,

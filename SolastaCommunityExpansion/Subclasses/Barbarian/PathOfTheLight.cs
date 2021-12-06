@@ -436,18 +436,18 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
                     featureSetDefinition.SetField("featureSet", new List<FeatureDefinition>());
 
-                    foreach (ConditionDefinition invisibleCondition in InvisibleConditions)
+                    foreach (var invisibleConditionName in InvisibleConditions.Select(ic => ic.Name))
                     {
-                        FeatureDefinition preventInvisibilitySubFeature = FeatureDefinitionBuilder<FeatureDefinitionConditionAffinity>.Build(
-                            "PathOfTheLightIlluminatedPreventInvisibility" + invisibleCondition.Name,
-                            CreateNamespacedGuid("PathOfTheLightIlluminatedPreventInvisibility" + invisibleCondition.Name),
+                        var preventInvisibilitySubFeature = FeatureDefinitionBuilder<FeatureDefinitionConditionAffinity>.Build(
+                            "PathOfTheLightIlluminatedPreventInvisibility" + invisibleConditionName,
+                            CreateNamespacedGuid("PathOfTheLightIlluminatedPreventInvisibility" + invisibleConditionName),
                             "Feature/&NoContentTitle",
                             "Feature/&NoContentTitle",
                             conditionAffinityDefinition =>
                             {
                                 conditionAffinityDefinition
                                     .SetConditionAffinityType(RuleDefinitions.ConditionAffinityType.Immunity)
-                                    .SetConditionType(invisibleCondition.Name);
+                                    .SetConditionType(invisibleConditionName);
                             });
 
                         featureSetDefinition.FeatureSet.Add(preventInvisibilitySubFeature);
