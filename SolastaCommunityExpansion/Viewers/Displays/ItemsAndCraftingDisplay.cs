@@ -87,6 +87,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (UI.Slider("Recipes' Cost".white(), ref intValue, 1, 500, 200, "", UI.AutoWidth()))
             {
                 Main.Settings.RecipeCost = intValue;
+                ItemCraftingContext.UpdateRecipeCost();
             }
 
             UI.Label("");

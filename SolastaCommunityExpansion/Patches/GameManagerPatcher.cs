@@ -40,12 +40,6 @@ namespace SolastaCommunityExpansion.Patches
                 InventoryManagementContext.Load();
                 RemoveBugVisualModelsContext.Load();
 
-                // Apply settings after everything loaded
-                ConArtist.UpdateSpellDCBoost();
-                MasterManipulator.UpdateSpellDCBoost();
-                AcehighFeats.UpdatePowerAttackModifier();
-                ItemCraftingContext.UpdateRecipeCost();
-
                 Main.Enabled = true;
             }
         }
