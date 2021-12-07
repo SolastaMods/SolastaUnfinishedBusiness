@@ -55,13 +55,22 @@ namespace SolastaCommunityExpansion.Models
                     {
                         if (gameLocationBattleService.CanAttackerSeeCharacterFromPosition(surprisingCharacter.LocationPosition, surprisedCharacter.LocationPosition, surprisingCharacter, surprisedCharacter))
                         {
-                            int perceptionOnTarget = surprisedCharacter.ComputePassivePerceptionOnTarget(surprisingCharacter, out bool _);
+                            int perceptionOnTarget = SURPRISE_CHECK_DC_BASE;
+                            
+                            if (surprisedCharacter.RulesetCharacter is RulesetCharacterMonster monster)
+                            {
+                                perceptionOnTarget = monster.MonsterDefinition.ComputePassivePerceptionScore();
+                            }
+                            else if (surprisedCharacter.RulesetCharacter is RulesetCharacterHero hero)
+                            {
+                                perceptionOnTarget = hero.ComputePassivePerception();
+                            }
 
-                            surprisingCharacter.RollAbilityCheck("Dexterity", "Stealth", SURPRISE_CHECK_DC_BASE + perceptionOnTarget, RuleDefinitions.AdvantageType.None, new ActionModifier(), false, -1, out RuleDefinitions.RollOutcome outcome, true);
+                            surprisingCharacter.RollAbilityCheck("Dexterity", "Stealth", perceptionOnTarget, RuleDefinitions.AdvantageType.None, new ActionModifier(), false, -1, out RuleDefinitions.RollOutcome outcome, true);
 
                             if (outcome == RuleDefinitions.RollOutcome.CriticalFailure || outcome == RuleDefinitions.RollOutcome.Failure)
                             {
-                                var conditionUnsurprised = UnityEngine.Object.Instantiate(DatabaseRepository.GetDatabase<ConditionDefinition>().GetElement("ConditionUnsurprised"));
+                                var conditionUnsurprised = DatabaseRepository.GetDatabase<ConditionDefinition>().GetElement("ConditionUnsurprised");
 
                                 surprisedCharacter.RulesetCharacter.AddConditionOfCategory("10Combat", RulesetCondition.CreateActiveCondition(surprisedCharacter.RulesetCharacter.Guid, conditionUnsurprised, RuleDefinitions.DurationType.Round, 0, RuleDefinitions.TurnOccurenceType.EndOfTurn, 0UL, string.Empty));
                                 isReallySurprised = false;
