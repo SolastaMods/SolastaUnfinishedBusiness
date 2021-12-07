@@ -13,7 +13,40 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         private static Guid SubclassNamespace = new Guid("9f322734-1498-4f65-ace5-e6072b1d99be");
         private readonly CharacterSubclassDefinition Subclass;
 
-        private static FeatureDefinitionPower BonusRecovery;
+        #region Spell recovery gui
+        private static GuiPresentation _spellRecoveryGui;
+        internal static GuiPresentation SpellRecoveryGui
+        {
+            get
+            {
+                return _spellRecoveryGui = _spellRecoveryGui ?? Build();
+
+                GuiPresentation Build()
+                {
+                    var spellRecoveryGui = new GuiPresentationBuilder(
+                        "Subclass/&MagicAffinitySpellMasterRecoveryDescription",
+                        "Subclass/&MagicAffinitySpellMasterRecoveryTitle");
+                    spellRecoveryGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
+
+                    return spellRecoveryGui.Build();
+                }
+            }
+        }
+        #endregion
+
+        #region Bonus recovery
+        private static FeatureDefinitionPower _bonusRecovery;
+        internal static FeatureDefinitionPower BonusRecovery
+        {
+            get
+            {
+                return _bonusRecovery = _bonusRecovery ?? 
+                    BuildSpellFormPower(
+                        1 /* usePerRecharge */, RuleDefinitions.UsesDetermination.Fixed, RuleDefinitions.ActivationTime.Rest,
+                        1 /* cost */, RuleDefinitions.RechargeRate.LongRest, "PowerSpellMasterBonusRecovery", SpellRecoveryGui);
+            }
+        }
+        #endregion
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
@@ -48,17 +81,11 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 RuleDefinitions.AdvantageType.None, "MagicAffinitySpellMasterKnowledge", extraKnownGui.Build());
             spellMaster.AddFeatureAtLevel(extraKnown, 2);
 
-            GuiPresentationBuilder spellRecoveryGui = new GuiPresentationBuilder(
-                "Subclass/&MagicAffinitySpellMasterRecoveryDescription",
-                "Subclass/&MagicAffinitySpellMasterRecoveryTitle");
-            spellRecoveryGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
-            BonusRecovery = BuildSpellFormPower(1 /* usePerRecharge */, RuleDefinitions.UsesDetermination.Fixed, RuleDefinitions.ActivationTime.Rest,
-                1 /* cost */, RuleDefinitions.RechargeRate.LongRest, "PowerSpellMasterBonusRecovery", spellRecoveryGui.Build());
             spellMaster.AddFeatureAtLevel(BonusRecovery, 2);
             UpdateRecoveryLimited();
 
             BuildRestActivity(RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.ShortRest,
-                RestActivityDefinition.ActivityCondition.CanUsePower, "UsePower", BonusRecovery.Name, "ArcaneDepth", spellRecoveryGui.Build());
+                RestActivityDefinition.ActivityCondition.CanUsePower, "UsePower", BonusRecovery.Name, "ArcaneDepth", SpellRecoveryGui);
 
             GuiPresentationBuilder spellKnowledgeAffinity = new GuiPresentationBuilder(
                 "Subclass/&MagicAffinitySpellMasterScribingDescription",
@@ -88,14 +115,14 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             FeatureDefinitionSavingThrowAffinity spellResistance = new FeatureDefinitionSavingThrowAffinityBuilder("TraditionSpellMasterSpellResistance",
                 GuidHelper.Create(SubclassNamespace, "TraditionSpellMasterSpellResistance").ToString(),
                 new List<string>()
-            {
-                AttributeDefinitions.Strength,
-                AttributeDefinitions.Dexterity,
-                AttributeDefinitions.Constitution,
-                AttributeDefinitions.Wisdom,
-                AttributeDefinitions.Intelligence,
-                AttributeDefinitions.Charisma,
-            }, RuleDefinitions.CharacterSavingThrowAffinity.Advantage, true, spellResistanceGui.Build()).AddToDB();
+                {
+                    AttributeDefinitions.Strength,
+                    AttributeDefinitions.Dexterity,
+                    AttributeDefinitions.Constitution,
+                    AttributeDefinitions.Wisdom,
+                    AttributeDefinitions.Intelligence,
+                    AttributeDefinitions.Charisma,
+                }, RuleDefinitions.CharacterSavingThrowAffinity.Advantage, true, spellResistanceGui.Build()).AddToDB();
             spellMaster.AddFeatureAtLevel(spellResistance, 14);
 
             Subclass = spellMaster.AddToDB();
