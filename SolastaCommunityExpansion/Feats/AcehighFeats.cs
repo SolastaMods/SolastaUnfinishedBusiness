@@ -17,9 +17,6 @@ namespace SolastaCommunityExpansion.Feats
             initialized = true;
         }
 
-        private static FeatureDefinitionAttackModifier PowerAttackModifier;
-        private static FeatureDefinitionAttackModifier PowerAttackModifierTwoHanded;
-
         public static void UpdatePowerAttackModifier()
         {
             if (!initialized)
@@ -27,10 +24,10 @@ namespace SolastaCommunityExpansion.Feats
                 return;
             }
 
-            PowerAttackModifier.SetAttackRollModifier(-Main.Settings.FeatPowerAttackModifier);
-            PowerAttackModifier.SetDamageRollModifier(Main.Settings.FeatPowerAttackModifier);
-            PowerAttackModifierTwoHanded.SetAttackRollModifier(-Main.Settings.FeatPowerAttackModifier);
-            PowerAttackModifierTwoHanded.SetDamageRollModifier(2 * Main.Settings.FeatPowerAttackModifier);
+            PowerAttackOneHandedAttackModifierBuilder.PowerAttackAttackModifier.SetAttackRollModifier(-Main.Settings.FeatPowerAttackModifier);
+            PowerAttackOneHandedAttackModifierBuilder.PowerAttackAttackModifier.SetDamageRollModifier(Main.Settings.FeatPowerAttackModifier);
+            PowerAttackTwoHandedAttackModifierBuilder.PowerAttackTwoHandedAttackModifier.SetAttackRollModifier(-Main.Settings.FeatPowerAttackModifier);
+            PowerAttackTwoHandedAttackModifierBuilder.PowerAttackTwoHandedAttackModifier.SetDamageRollModifier(2 * Main.Settings.FeatPowerAttackModifier);
         }
 
         internal class PowerAttackPowerBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
@@ -121,12 +118,12 @@ namespace SolastaCommunityExpansion.Feats
             public static readonly FeatureDefinitionPower PowerAttackTwoHandedPower = CreateAndAddToDB(PowerAttackTwoHandedPowerName, PowerAttackTwoHandedPowerNameGuid);
         }
 
-        internal class PowerAttackOnHandedAttackModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttackModifier>
+        internal class PowerAttackOneHandedAttackModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttackModifier>
         {
             private const string PowerAttackAttackModifierName = "PowerAttackAttackModifier";
             private const string PowerAttackAttackModifierNameGuid = "87286627-3e62-459d-8781-ceac1c3462e6";
 
-            protected PowerAttackOnHandedAttackModifierBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierFightingStyleArchery, name, guid)
+            protected PowerAttackOneHandedAttackModifierBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierFightingStyleArchery, name, guid)
             {
                 Definition.GuiPresentation.Title = "Feature/&PowerAttackAttackModifierTitle";
                 Definition.GuiPresentation.Description = Gui.Format("Feature/&PowerAttackAttackModifierDescription", Main.Settings.FeatPowerAttackModifier.ToString());
@@ -137,11 +134,10 @@ namespace SolastaCommunityExpansion.Feats
                 //The FeatureDefinitionAdditionalDamage was limited in the sense that you couldn't check for things like the 'TwoHanded' or 'Heavy' properties of a weapon so it wasn't worth using really.
                 Definition.SetAttackRollModifier(-Main.Settings.FeatPowerAttackModifier);
                 Definition.SetDamageRollModifier(Main.Settings.FeatPowerAttackModifier);
-                PowerAttackModifier = Definition;
             }
 
             public static FeatureDefinitionAttackModifier CreateAndAddToDB(string name, string guid)
-                => new PowerAttackOnHandedAttackModifierBuilder(name, guid).AddToDB();
+                => new PowerAttackOneHandedAttackModifierBuilder(name, guid).AddToDB();
 
             public static readonly FeatureDefinitionAttackModifier PowerAttackAttackModifier
                 = CreateAndAddToDB(PowerAttackAttackModifierName, PowerAttackAttackModifierNameGuid);
@@ -163,8 +159,6 @@ namespace SolastaCommunityExpansion.Feats
                 //The FeatureDefinitionAdditionalDamage was limited in the sense that you couldn't check for things like the 'TwoHanded' or 'Heavy' properties of a weapon so it wasn't worth using really.
                 Definition.SetAttackRollModifier(-Main.Settings.FeatPowerAttackModifier);
                 Definition.SetDamageRollModifier(2 * Main.Settings.FeatPowerAttackModifier);
-
-                PowerAttackModifierTwoHanded = Definition;
             }
 
             public static FeatureDefinitionAttackModifier CreateAndAddToDB(string name, string guid)
@@ -185,7 +179,7 @@ namespace SolastaCommunityExpansion.Feats
 
                 Definition.SetAllowMultipleInstances(false);
                 Definition.Features.Clear();
-                Definition.Features.Add(PowerAttackOnHandedAttackModifierBuilder.PowerAttackAttackModifier);
+                Definition.Features.Add(PowerAttackOneHandedAttackModifierBuilder.PowerAttackAttackModifier);
 
                 Definition.SetDurationType(RuleDefinitions.DurationType.Round);
                 Definition.SetDurationParameter(0);
