@@ -145,6 +145,7 @@ namespace SolastaCommunityExpansion
         public bool NoAttunement { get; set; }
 
         public bool EnableSRDAdvantageRules { get; set; }
+        public bool EnableSRDCombatSurpriseRules { get; set; }
         public bool EnableConditionBlindedShouldNotAllowOpportunityAttack { get; set; }
         public bool AllowExtraKeyboardCharactersInNames { get; set; }
         public bool DruidNoMetalRestriction { get; set; }

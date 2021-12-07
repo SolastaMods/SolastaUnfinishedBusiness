@@ -13,6 +13,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("SRD:".yellow());
             UI.Label("");
 
+            toggle = Main.Settings.EnableSRDSurpriseChecks;
+            if (UI.Toggle("Uses official combat surprise rules", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableSRDSurpriseChecks = toggle;
+            }
+
             toggle = Main.Settings.EnableSRDAdvantageRules;
             if (UI.Toggle("Uses official advantage / disadvantage rules", ref toggle, UI.AutoWidth()))
             {
