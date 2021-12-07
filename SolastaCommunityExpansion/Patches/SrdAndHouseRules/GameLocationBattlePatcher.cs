@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using System.Diagnostics.CodeAnalysis;
 
-namespace SolastaCommunityExpansion.Patches.SrdAndHouseRulesContext
+namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
 {
     [HarmonyPatch(typeof(GameLocationBattle), "StartContenders")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

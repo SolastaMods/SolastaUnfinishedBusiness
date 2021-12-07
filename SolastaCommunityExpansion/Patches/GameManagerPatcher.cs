@@ -1,9 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaCommunityExpansion.Feats;
 using SolastaCommunityExpansion.Models;
-using SolastaCommunityExpansion.Subclasses.Rogue;
-using SolastaCommunityExpansion.Subclasses.Wizard;
 
 namespace SolastaCommunityExpansion.Patches
 {
