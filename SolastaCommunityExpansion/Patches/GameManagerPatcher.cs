@@ -12,7 +12,6 @@ namespace SolastaCommunityExpansion.Patches
             internal static void Postfix()
             {
                 Models.BugFixContext.Load();
-
                 Models.AdditionalNamesContext.Load();
                 Models.AsiAndFeatContext.Load();
                 Models.InitialChoicesContext.Load();
@@ -35,6 +34,7 @@ namespace SolastaCommunityExpansion.Patches
                 Models.CharacterExportContext.Load();
                 Models.InventoryManagementContext.Load();
                 Models.RemoveBugVisualModelsContext.Load();
+                Models.SrdAndHouseRulesContext.Load();
 
                 Main.Enabled = true;
             }

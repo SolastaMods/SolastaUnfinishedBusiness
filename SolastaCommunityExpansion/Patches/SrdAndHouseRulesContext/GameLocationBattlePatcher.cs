@@ -1,5 +1,4 @@
 ﻿using HarmonyLib;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
 namespace SolastaCommunityExpansion.Patches.SrdAndHouseRulesContext
@@ -12,8 +11,8 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRulesContext
         {
             if (Main.Settings.EnableSRDCombatSurpriseRules && (partySurprised || enemySurprised))
             {
-                StartContenders(partySurprised, __instance.PlayerContenders, __instance.EnemyContenders);
-                StartContenders(enemySurprised, __instance.EnemyContenders, __instance.PlayerContenders);
+                Models.SrdAndHouseRulesContext.StartContenders(partySurprised, __instance.PlayerContenders, __instance.EnemyContenders);
+                Models.SrdAndHouseRulesContext.StartContenders(enemySurprised, __instance.EnemyContenders, __instance.PlayerContenders);
 
                 return false;
             }
@@ -21,36 +20,6 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRulesContext
             return true;
         }
 
-        internal static void StartContenders(bool surprised, List<GameLocationCharacter> surprisedParty, List<GameLocationCharacter> surprisingParty)
-        {
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            foreach (GameLocationCharacter surprisedCharacter in surprisedParty)
-            {
-                var isReallySurprised = true;
-
-                if (surprised)
-                {
-                    foreach (GameLocationCharacter surprisingCharacter in surprisingParty)
-                    {
-                        if (gameLocationBattleService.CanAttackerSeeCharacterFromPosition(surprisingCharacter.LocationPosition, surprisedCharacter.LocationPosition, surprisingCharacter, surprisedCharacter))
-                        {
-                            int perceptionOnTarget = surprisedCharacter.ComputePassivePerceptionOnTarget(surprisingCharacter, out bool _);
-
-                            surprisingCharacter.RollAbilityCheck("Dexterity", "Stealth", perceptionOnTarget, RuleDefinitions.AdvantageType.None, new ActionModifier(), false, -1, out RuleDefinitions.RollOutcome outcome, true);
-
-                            if (outcome == RuleDefinitions.RollOutcome.CriticalFailure || outcome == RuleDefinitions.RollOutcome.Failure)
-                            {
-                                isReallySurprised = false;
-
-                                break;
-                            }
-                        }
-                    }
-                }
-
-                surprisedCharacter.StartBattle(surprised && isReallySurprised);
-            }
-        }
+       
     }
 }
