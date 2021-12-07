@@ -32,18 +32,14 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
     {
         public FeatureDefinitionPower PoolPower { get; set; }
 
-        // TODO: unassigned - remove or use
-        private readonly int poolChangeAmount;
-
         public FeatureDefinitionPower GetUsagePoolPower()
         {
             return PoolPower;
         }
 
-        // TODO: unused  - remove or use
         public int PoolChangeAmount()
         {
-            return poolChangeAmount;
+            return 0;
         }
     }
 

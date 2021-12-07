@@ -1,7 +1,4 @@
-﻿using SolastaCommunityExpansion.Feats;
-using SolastaCommunityExpansion.Subclasses.Rogue;
-using SolastaCommunityExpansion.Subclasses.Wizard;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityModManagerNet;
 
 namespace SolastaCommunityExpansion
@@ -15,6 +12,8 @@ namespace SolastaCommunityExpansion
     {
         //
         // TODO: Reorganize the order of these settings in code per viewers on UI to simplify maintenance
+        // NOTE: xml deserialization expects properties to match the order of the xml, so reorganizing will 
+        // temporarily lose settings.
         //
 
         public const string GUID = "b1ffaca74824486ea74a68d45e6b1925";
@@ -57,15 +56,7 @@ namespace SolastaCommunityExpansion
         public List<string> ItemsInDM { get; private set; } = new List<string>();
         public List<string> RecipesInDM { get; private set; } = new List<string>();
 
-        private int recipeCost = 200;
-        public int RecipeCost
-        {
-            get => recipeCost; set
-            {
-                recipeCost = value;
-                Models.ItemCraftingContext.UpdateRecipeCost();
-            }
-        }
+        public int RecipeCost { get; set; } = 200;
 
         public List<string> FeatEnabled { get; private set; } = new List<string>();
         public List<string> SubclassEnabled { get; private set; } = new List<string>();
@@ -75,38 +66,9 @@ namespace SolastaCommunityExpansion
         public int SubclassSliderPosition { get; set; } = 1;
         public int FightingStyleSliderPosition { get; set; } = 1;
 
-        private int rogueConArtistSpellDCBoost { get; set; } = 3;
-
-        public int RogueConArtistSpellDCBoost
-        {
-            get => rogueConArtistSpellDCBoost; set
-            {
-                rogueConArtistSpellDCBoost = value;
-                ConArtist.UpdateSpellDCBoost();
-            }
-        }
-
-        private int masterManipulatorSpellDCBoost = 2;
-
-        public int MasterManipulatorSpellDCBoost
-        {
-            get => masterManipulatorSpellDCBoost; set
-            {
-                masterManipulatorSpellDCBoost = value;
-                MasterManipulator.UpdateSpellDCBoost();
-            }
-        }
-
-        private int featPowerAttackModifier = 3;
-
-        public int FeatPowerAttackModifier
-        {
-            get => featPowerAttackModifier; set
-            {
-                featPowerAttackModifier = value;
-                AcehighFeats.UpdatePowerAttackModifier();
-            }
-        }
+        public int RogueConArtistSpellDCBoost { get; set; } = 3;
+        public int MasterManipulatorSpellDCBoost { get; set; } = 2;
+        public int FeatPowerAttackModifier { get; set; } = 3;
 
         /* Commands to allow the player to hide certain parts of the HUD */
         public const InputCommands.Id CTRL_C = (InputCommands.Id)44440000;

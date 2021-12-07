@@ -1,4 +1,5 @@
 ﻿using ModKit;
+using SolastaCommunityExpansion.Feats;
 using SolastaCommunityExpansion.Models;
 using System.Linq;
 using static SolastaCommunityExpansion.Viewers.Displays.Shared;
@@ -24,6 +25,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (UI.Slider("Power Attack modifier ".white() + RequiresRestart, ref intValue, 1, 6, 3, ""))
             {
                 Main.Settings.FeatPowerAttackModifier = intValue;
+                AcehighFeats.UpdatePowerAttackModifier();
             }
 
             UI.Label("");

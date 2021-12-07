@@ -6,8 +6,8 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class InitialChoicesContext
     {
-        internal static int previousAllRacesInitialFeats = -1;
-        internal static bool previousAlternateHuman = false;
+        internal static int PreviousAllRacesInitialFeats { get; set; } = -1;
+        internal static bool PreviousAlternateHuman { get; set; }
 
         internal static void Load()
         {
@@ -30,12 +30,12 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void RefreshAllRacesInitialFeats()
         {
-            if (previousAllRacesInitialFeats > -1)
+            if (PreviousAllRacesInitialFeats > -1)
             {
-                UnloadRacesLevel1Feats(previousAllRacesInitialFeats, previousAlternateHuman);
+                UnloadRacesLevel1Feats(PreviousAllRacesInitialFeats, PreviousAlternateHuman);
             }
-            previousAllRacesInitialFeats = Main.Settings.AllRacesInitialFeats;
-            previousAlternateHuman = Main.Settings.EnableAlternateHuman;
+            PreviousAllRacesInitialFeats = Main.Settings.AllRacesInitialFeats;
+            PreviousAlternateHuman = Main.Settings.EnableAlternateHuman;
             LoadRacesLevel1Feats(Main.Settings.AllRacesInitialFeats, Main.Settings.EnableAlternateHuman);
         }
 
