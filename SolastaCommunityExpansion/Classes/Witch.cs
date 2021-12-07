@@ -159,6 +159,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                     DatabaseHelper.SpellDefinitions.ChillTouch,
                                                                                     DatabaseHelper.SpellDefinitions.DancingLights,
 //?                                                                                    DatabaseHelper.SpellDefinitions.Dazzle,
+                                                                                    EldritchOrbSpellBuilder.AddToSpellList(),
 //                                                                                    DatabaseHelper.SpellDefinitions.FireBolt,
 //                                                                                    DatabaseHelper.SpellDefinitions.Guidance,
 //                                                                                    DatabaseHelper.SpellDefinitions.Light,
@@ -552,6 +553,67 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
         }
 
+        internal class EldritchOrbSpellBuilder : BaseDefinitionBuilder<SpellDefinition>
+        {
+            const string SpellName = "EldritchOrbSpell";
+            const string SpellNameGuid = "141901ce-79b6-484d-a8ff-f7c6be7c4538";
+
+            protected EldritchOrbSpellBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.Fireball, name, guid)
+            {
+                Definition.GuiPresentation.Title = "Spell/&EldritchOrbTitle";
+                Definition.GuiPresentation.Description = "Spell/&EldritchOrbDescription";
+                Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Shine.GuiPresentation.SpriteReference);
+
+                Definition.SetSpellLevel(0);
+                Definition.SetSchoolOfMagic(RuleDefinitions.SchoolEvocation);
+                Definition.SetVerboseComponent(true);
+                Definition.SetSomaticComponent(true);
+                Definition.SetMaterialComponentType(RuleDefinitions.MaterialComponentType.None);
+                Definition.SetRitual(false);
+                Definition.SetRequiresConcentration(false);
+
+                Definition.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
+                Definition.EffectDescription.SetRangeParameter(12);
+                Definition.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Instantaneous);
+                Definition.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
+                Definition.EffectDescription.SetTargetParameter(1);
+                Definition.EffectDescription.SetHasSavingThrow(false);
+                Definition.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Dexterity);
+                Definition.EffectDescription.SetCanBeDispersed(true);
+                Definition.EffectDescription.EffectAdvancement.SetAdditionalDicePerIncrement(1);
+                Definition.EffectDescription.EffectAdvancement.SetIncrementMultiplier(5);
+                Definition.EffectDescription.EffectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod.CasterLevelTable);
+
+                Definition.EffectDescription.EffectForms[0].SetHasSavingThrow(false);
+                Definition.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(1);
+                Definition.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
+                Definition.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeForce);
+                Definition.EffectDescription.EffectForms[0].SetLevelMultiplier(1);
+                Definition.EffectDescription.EffectForms[0].AlterationForm.SetMaximumIncrease(2);
+                Definition.EffectDescription.EffectForms[0].AlterationForm.SetValueIncrease(2);
+
+                EffectForm effectForm = new EffectForm();
+                effectForm.Copy(Definition.EffectDescription.EffectForms[0]);
+                effectForm.SetHasSavingThrow(true);
+                effectForm.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
+                effectForm.DamageForm.SetDieType(RuleDefinitions.DieType.D4);
+                Definition.EffectDescription.EffectForms.Add(effectForm);
+
+            }
+
+            public static SpellDefinition CreateAndAddToDB(string name, string guid)
+                => new EldritchOrbSpellBuilder(name, guid).AddToDB();
+
+            public static SpellDefinition EldritchOrbSpell = CreateAndAddToDB(SpellName, SpellNameGuid);
+
+            public static SpellDefinition AddToSpellList()
+            {
+                var EldritchOrbSpell = EldritchOrbSpellBuilder.EldritchOrbSpell;//Instantiating it adds to the DB
+                return EldritchOrbSpell;
+            }
+        }
+
+
         internal class MinorLifestealSpellBuilder : BaseDefinitionBuilder<SpellDefinition>
         {
             const string SpellName = "MinorLifestealSpell";
@@ -582,7 +644,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 Definition.EffectDescription.EffectAdvancement.SetIncrementMultiplier(5);
                 Definition.EffectDescription.EffectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod.CasterLevelTable);
 
-                Definition.EffectDescription.EffectForms[1].SetHasSavingThrow(true);                
+                Definition.EffectDescription.EffectForms[1].SetHasSavingThrow(true);
                 Definition.EffectDescription.EffectForms[1].SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
                 Definition.EffectDescription.EffectForms[1].DamageForm.SetDiceNumber(1);
                 Definition.EffectDescription.EffectForms[1].DamageForm.SetDieType(RuleDefinitions.DieType.D4);
