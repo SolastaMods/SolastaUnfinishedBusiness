@@ -25,12 +25,12 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRulesContext
         {
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-            if (surprised)
+            foreach (GameLocationCharacter surprisedCharacter in surprisedParty)
             {
-                foreach (GameLocationCharacter surprisedCharacter in surprisedParty)
-                {
-                    var isReallySurprised = true;
+                var isReallySurprised = true;
 
+                if (surprised)
+                {
                     foreach (GameLocationCharacter surprisingCharacter in surprisingParty)
                     {
                         if (gameLocationBattleService.CanAttackerSeeCharacterFromPosition(surprisingCharacter.LocationPosition, surprisedCharacter.LocationPosition, surprisingCharacter, surprisedCharacter))
@@ -47,16 +47,9 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRulesContext
                             }
                         }
                     }
+                }
 
-                    surprisedCharacter.StartBattle(isReallySurprised);
-                }
-            }
-            else
-            {
-                foreach (GameLocationCharacter surprisedCharacter in surprisedParty)
-                {
-                    surprisedCharacter.StartBattle(surprised);
-                }
+                surprisedCharacter.StartBattle(surprised && isReallySurprised);
             }
         }
     }
