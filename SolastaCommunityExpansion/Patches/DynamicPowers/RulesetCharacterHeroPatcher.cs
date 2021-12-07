@@ -3,12 +3,14 @@ using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaCommunityExpansion.Patches.PowerSharedPool;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace SolastaCommunityExpansion.Patches.ConditionalPowers
 {
     [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshAll")]
-    internal static class RulesetCharacterHero_RefreshAll_Patch
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetCharacterHero_RefreshAll
     {
         internal static void Postfix(RulesetCharacterHero __instance)
         {

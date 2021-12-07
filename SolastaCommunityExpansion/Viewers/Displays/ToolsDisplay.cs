@@ -69,12 +69,15 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         // These are things like monster factions, generally set to a specific relation and can't be changed.
                         continue;
                     }
+
                     if (faction.GuiPresentation.Hidden)
                     {
                         // These are things like Silent Whispers and Church Of Einar that are not fully implemented factions.
                         continue;
                     }
-                    string title = Gui.Format(faction.GuiPresentation.Title);
+
+                    string title = faction.FormatTitle();
+
                     if (flip)
                     {
                         title = title.yellow();
@@ -83,11 +86,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     {
                         title = title.white();
                     }
+
                     intValue = gameFactionService.FactionRelations[faction.Name];
+
                     if (UI.Slider("                              " + title, ref intValue, faction.MinRelationCap, faction.MaxRelationCap, 0, "", UI.AutoWidth()))
                     {
                         SetFactionRelationsContext.SetFactionRelation(faction.Name, intValue);
                     }
+
                     flip = !flip;
                 }
             }

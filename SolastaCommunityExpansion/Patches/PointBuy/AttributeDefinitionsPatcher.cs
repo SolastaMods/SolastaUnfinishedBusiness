@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches
+namespace SolastaCommunityExpansion.Patches.PointBuy
 {
     // extends the cost buy table
     [HarmonyPatch(typeof(AttributeDefinitions), "ComputeCostToRaiseAbility")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class AttributeDefinitions_ComputeCostToRaiseAbility 
     {
         internal static void Postfix(int previousValue, ref int __result)

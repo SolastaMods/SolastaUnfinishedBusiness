@@ -117,7 +117,7 @@ namespace SolastaCommunityExpansion
         /* Character Export hotkey */
         public const InputCommands.Id CTRL_E = (InputCommands.Id)44440004;
 
-        public const RestActivityDefinition.ActivityCondition ActivityConditionCanRespec = (RestActivityDefinition.ActivityCondition)(int)-1001;
+        public const RestActivityDefinition.ActivityCondition ActivityConditionCanRespec = (RestActivityDefinition.ActivityCondition)(-1001);
 
         public bool EnableRespec = false;
 
@@ -158,5 +158,7 @@ namespace SolastaCommunityExpansion
         public bool EnableFeatsSorting = true;
 
         public bool EnableInventoryFilterAndSort = true;
+
+        public bool RemoveBugVisualModels = false;
     }
 }

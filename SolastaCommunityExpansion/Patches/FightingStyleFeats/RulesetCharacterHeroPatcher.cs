@@ -1,10 +1,12 @@
 ﻿using HarmonyLib;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace SolastaCommunityExpansion.Patches.FightingStyleFeats
 {
     [HarmonyPatch(typeof(RulesetCharacterHero), "TrainFeats")]
-    internal static class RulesetCharacterHero_TrainFeatsFightingStyles_Patch
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetCharacterHero_TrainFeats
     {
         internal static void Postfix(RulesetCharacterHero __instance, List<FeatDefinition> feats)
         {

@@ -199,22 +199,9 @@ namespace SolastaCommunityExpansion.Models
 
             public void RegisterEntity(RulesetEntity rulesetEntity)
             {
-                try
+                if (!RulesetEntities.ContainsKey(rulesetEntity.Guid))
                 {
-                    if (rulesetEntity is RulesetItem)
-                    {
-                        var ri = rulesetEntity as RulesetItem;
-                    }
-                    else if (rulesetEntity is RulesetItemProperty)
-                    {
-                        var ri = rulesetEntity as RulesetItemProperty;
-                    }
-
                     RulesetEntities.Add(rulesetEntity.Guid, rulesetEntity);
-                }
-                catch (Exception)
-                {
-
                 }
             }
 

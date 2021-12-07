@@ -237,12 +237,14 @@ Feat/&FightingStyleProtectionDescription When a creature you can see attacks a t
 Feat/&FightingStyleProtectionTitle Fighting Style: Protection
 Feat/&FightingStyleTwoWeaponDescription When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
 Feat/&FightingStyleTwoWeaponTitle Fighting Style: Two Weapon
-Feat/&HealerDescription You gain proficiency or expertise in Medicine checks. You gain the ability to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
+Feat/&HealerDescription You gain proficiency or expertise in Medicine checks. You gain the ability to stabilize a dying creature as well as to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 Feat/&HealerResuscitateDescription Use an action to revive a creature that died within the last 15 seconds.
 Feat/&HealerResuscitateTitle Resuscitate
 Feat/&HealerTitle Healer
 Feat/&HealerUseMedicineDescription You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 Feat/&HealerUseMedicineTitle Use Medicine
+Feat/&HealerStabilizeDescription Use an action to stabilize a dying creature.
+Feat/&HealerStabilizeTitle Stabilize
 Feat/&HeavyArmorMasterDescription Resistance to Bludgeoning, Slashing, and Piercing damage.
 Feat/&HeavyArmorMasterTitle Heavy Defense Mastery
 Feat/&InspiringLeaderDescription Spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier. Useable once per short rest.
@@ -269,11 +271,11 @@ Feat/&PowerMistyStepFromFeatTitle Learn Misty Step
 Feat/&PowerMistyStepFromFeatTitle Misty Step
 Feat/&PowerShadowTouchedFromFeatDescription Learn to cast the spells Invisibility, False Life, and Inflict Wounds.
 Feat/&PowerShadowTouchedFromFeatTitle Learn Invisibility, False Life, and Inflict Wounds
-Feat/&ProfChefTreatActionDescription Eat a treat as a bonus action and gain 5 temporary hitpoints.
+Feat/&ProfChefTreatActionDescription Eat a treat as a bonus action and gain 5 temporary hit points.
 Feat/&ProfChefTreatActionTitle Eat Chef's Treat
-Feat/&ProfChefTreatCookDescription Spend one hour to cook treats that when eaten provide 5 temporary hitpoints.
+Feat/&ProfChefTreatCookDescription Spend one hour to cook treats that when eaten provide 5 temporary hit points.
 Feat/&ProfChefTreatCookTitle Cook Chef's Treat
-Feat/&ProfChefTreatDescription Eat as a bonus action and gain 5 temporary hitpoints.
+Feat/&ProfChefTreatDescription Eat as a bonus action and gain 5 temporary hit points.
 Feat/&ProfChefTreatTitle Chef's Treat
 Feat/&ProfHealerMedicineDescription Gain Proficiency in Medicine, or Expertise if you are already proficient.
 Feat/&ProfHealerMedicineTitle Medicine Knowledge
@@ -281,7 +283,7 @@ Feat/&ProfLightArmorDescription Gain proficiency with Light Armor
 Feat/&ProfLightArmorTitle Light Armor
 Feat/&ProfMediumArmorDescription Gain proficiency with Medium Armor and Shields
 Feat/&ProfMediumArmorTitle Medium Armor
-Feat/&RecklessFuryFeatDescription You gain the ability to enter a rage for one minute once per day (note no armor restriciton), and you can attack recklessly gaining advantage on your melee attacks while giving advantage to your attackers until your next turn.
+Feat/&RecklessFuryFeatDescription You gain the ability to enter a rage for one minute once per day (note no armor restriction), and you can attack recklessly gaining advantage on your melee attacks while giving advantage to your attackers until your next turn.
 Feat/&RecklessFuryFeatTitle Reckless Fury
 Feature/&PowerAttackAttackModifierOneHandedDescription Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
 Feature/&PowerAttackAttackModifierOneHandedTitle One handed power attack
@@ -367,7 +369,7 @@ SolastaCraftyFeats/&CraftyScribeFeatDescription	+1 Intelligence, Proficiency or 
 SolastaCraftyFeats/&CraftyScribeFeatTitle	Scribe
 SolastaCraftyFeats/&CraftySkillsTitle	Skills
 SolastaCraftyFeats/&CraftyToolsTitle	Tools
-SolastaCraftyFeats/&ManacalonCrafterFeatDescription	+1 Intelligence, Proficiency or Expertise with Manacolon Rosary and Arcana, Requires the ability to cast spells
+SolastaCraftyFeats/&ManacalonCrafterFeatDescription	+1 Intelligence, Proficiency or Expertise with Manacalon Rosary and Arcana, Requires the ability to cast spells
 SolastaCraftyFeats/&ManacalonCrafterFeatTitle	Manacalon Crafter
 SolastaCraftyFeats/&ToxicologistIntFeatDescription	+1 Intelligence, Proficiency or Expertise with Poisoner's Kit and Nature
 SolastaCraftyFeats/&ToxicologistIntFeatTitle	Toxicologist (Intelligence)
@@ -504,7 +506,7 @@ Feature/&ProficiencyRogueBlindSenseTitle	Blindsense
 Feature/&ProficiencyRogueBlindSenseDescription	Starting at 14th level, if you are able to hear, you are aware of the location of any hidden or invisible creature within 10 feet of you.
 Feature/&IndomitableResistanceAddTitle	Indomitable Resistance (increased)
 Feature/&IndomitableResistanceAddDescription	+1 Indomitable Resistance use between rests.
-Feature/&IndomitableResistanceTitle	Indomitable Resitance
+Feature/&IndomitableResistanceTitle	Indomitable Resistance
 Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageTitle	Foe Slayer
 Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageDescription	Add your Wisdom modifier to your damage roll.
 Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageReactTitle	Foe Slayer

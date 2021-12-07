@@ -62,14 +62,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         while (current < featsCount && columns-- > 0)
                         {
                             var keyValuePair = FeatsContext.Feats.ElementAt(current);
-                            toggle = Main.Settings.FeatEnabled.Contains(keyValuePair.Key);
-                            var title = Gui.Format(keyValuePair.Value.GuiPresentation.Title);
+                            var title = keyValuePair.Value.FormatTitle();                          
 
                             if (flip)
                             {
                                 title = title.yellow();
                             }
 
+                            toggle = Main.Settings.FeatEnabled.Contains(keyValuePair.Key);
                             if (UI.Toggle(title, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                             {
                                 FeatsContext.Switch(keyValuePair.Key, toggle);
@@ -77,7 +77,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                             if (Main.Settings.FeatSliderPosition == 1)
                             {
-                                var description = Gui.Format(keyValuePair.Value.GuiPresentation.Description);
+                                var description = keyValuePair.Value.FormatDescription();
 
                                 if (flip)
                                 {

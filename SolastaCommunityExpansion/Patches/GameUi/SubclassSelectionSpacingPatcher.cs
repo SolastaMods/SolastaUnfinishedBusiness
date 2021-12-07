@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ namespace SolastaUIUpdates.Patches
     internal static class SubclassSelectionSpacingPatcher
     {
         [HarmonyPatch(typeof(CharacterStageSubclassSelectionPanel), "EnterStage")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class CharacterStageSubclassSelectionPanel_EnterStage
         {
             public static void Postfix(CharacterStageSubclassSelectionPanel __instance)

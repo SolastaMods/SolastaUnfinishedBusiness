@@ -2,12 +2,13 @@
 using SolastaModApi.Extensions;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace SolastaCommunityExpansion.Models
 {
     internal static class FeatsContext
     {
-        public static Dictionary<string, FeatDefinition> Feats = new Dictionary<string, FeatDefinition>();
+        public static Dictionary<string, FeatDefinition> Feats { get; private set; } = new Dictionary<string, FeatDefinition>();
 
         internal static void Load()
         {
@@ -37,7 +38,7 @@ namespace SolastaCommunityExpansion.Models
                 feat.GuiPresentation.SetHidden(!Main.Settings.FeatEnabled.Contains(feat.Name));
             }
 
-            Feats = Feats.OrderBy(x => Gui.Format(x.Value.GuiPresentation.Title)).ToDictionary(x => x.Key, x => x.Value);
+            Feats = Feats.OrderBy(x => x.Value.FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
         }
 
         internal static void Switch(string featName, bool active)
@@ -46,6 +47,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 return;
             }
+
             Feats[featName].GuiPresentation.SetHidden(!active);
 
             if (active)
@@ -63,15 +65,21 @@ namespace SolastaCommunityExpansion.Models
 
         public static string GenerateFeatsDescription()
         {
-            string outString = "[heading]Feats[/heading]";
-            outString += "\n[list]";
-            foreach (FeatDefinition feat in Feats.Values)
-            {
-                outString += "\n[*][b]" + Gui.Format(feat.GuiPresentation.Title) + "[/b]: " + Gui.Format(feat.GuiPresentation.Description);
+            var outString = new StringBuilder("[heading]Feats[/heading]");
 
+            outString.Append("\n[list]");
+
+            foreach (var feat in Feats.Values)
+            {
+                outString.Append("\n[*][b]");
+                outString.Append(feat.FormatTitle());
+                outString.Append("[/b]: ");
+                outString.Append(feat.FormatTitle());
             }
-            outString += "\n[/list]";
-            return outString;
+
+            outString.Append("\n[/list]");
+
+            return outString.ToString();
         }
     }
 }
