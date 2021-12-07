@@ -12,18 +12,14 @@ namespace SolastaCommunityExpansion.Patches.StartOfTurnRecharge
         {
             foreach (RulesetUsablePower usablePower in __instance.UsablePowers)
             {
-                var startOfTurnRecharge = usablePower?.PowerDefinition as IStartOfTurnRecharge;
-
-                if (startOfTurnRecharge != null)
+                if (usablePower?.PowerDefinition is IStartOfTurnRecharge startOfTurnRecharge && 
+                    usablePower.RemainingUses < usablePower.MaxUses)
                 {
-                    if (usablePower.RemainingUses < usablePower.MaxUses)
-                    {
-                        usablePower.Recharge();
+                    usablePower.Recharge();
 
-                        if (!startOfTurnRecharge.IsRechargeSilent && __instance.PowerRecharged != null)
-                        {
-                            __instance.PowerRecharged(__instance, usablePower);
-                        }
+                    if (!startOfTurnRecharge.IsRechargeSilent && __instance.PowerRecharged != null)
+                    {
+                        __instance.PowerRecharged(__instance, usablePower);
                     }
                 }
             }

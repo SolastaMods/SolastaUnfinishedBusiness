@@ -3,6 +3,7 @@ using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.PowerSharedPool
@@ -92,19 +93,22 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
                     FeatureDefinitionPower pointPoolPower = pool.GetUsagePoolPower();
                     if (!pointPoolPowerDefinitions.Contains(pointPoolPower))
                     {
-                        // Only add to recharge here if it (recharges on a short rest and this is a short or long rost) or 
+                        // Only add to recharge here if it (recharges on a short rest and this is a short or long rest) or 
                         // it recharges on a long rest and this is a long rest.
+#pragma warning disable S1066 // Collapsible "if" statements should be merged
                         if ((pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.ShortRest &&
                             (restType == RuleDefinitions.RestType.ShortRest || restType == RuleDefinitions.RestType.LongRest)) ||
                             (pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.LongRest && restType == RuleDefinitions.RestType.LongRest))
                         {
                             pointPoolPowerDefinitions.Add(pointPoolPower);
                         }
+#pragma warning restore S1066 // Collapsible "if" statements should be merged
                     }
                 }
             }
 
             // Find the UsablePower of the point pool powers.
+#pragma warning disable S3267 // Loops should be simplified with "LINQ" expressions
             foreach (RulesetUsablePower poolPower in character.UsablePowers)
             {
                 if (pointPoolPowerDefinitions.Contains(poolPower.PowerDefinition))
@@ -115,6 +119,7 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
                     AssignUsesToSharedPowersForPool(character, poolPower, poolSize, poolSize);
                 }
             }
+#pragma warning restore S3267 // Loops should be simplified with "LINQ" expressions
         }
 
         private static void AssignUsesToSharedPowersForPool(RulesetCharacter character, RulesetUsablePower poolPower, int remainingUses, int totalUses)

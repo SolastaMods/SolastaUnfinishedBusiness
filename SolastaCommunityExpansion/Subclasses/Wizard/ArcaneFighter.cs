@@ -145,7 +145,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             return builder.AddToDB();
         }
 
-        private class FeatureDefinitionAttackModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttackModifier>
+        private sealed class FeatureDefinitionAttackModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttackModifier>
         {
             public FeatureDefinitionAttackModifierBuilder(string name, string guid,
             RuleDefinitions.AbilityScoreReplacement abilityReplacement, string additionalAttackTag,

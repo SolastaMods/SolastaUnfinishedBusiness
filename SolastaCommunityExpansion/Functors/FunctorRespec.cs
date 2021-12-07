@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using SolastaModApi.Extensions;
+using System.Linq;
 
 namespace SolastaCommunityExpansion.Functors
 {
@@ -149,28 +150,22 @@ namespace SolastaCommunityExpansion.Functors
 
         internal static void CopyInventoryOver(RulesetCharacterHero oldHero, RulesetCharacterHero newHero)
         {
-            foreach (var inventorySlot in oldHero.CharacterInventory.PersonalContainer.InventorySlots)
-            {
-                if (inventorySlot.EquipedItem != null)
-                {
-                    var equipedItem = inventorySlot.EquipedItem;
+            var personalSlots = oldHero.CharacterInventory.PersonalContainer.InventorySlots;
 
-                    equipedItem.AttunedToCharacter = string.Empty;
-                    oldHero.CharacterInventory.DropItem(equipedItem);
-                    newHero.GrantItem(equipedItem.ItemDefinition, equipedItem.ItemDefinition.ForceEquip, equipedItem.StackCount);
-                }
+            foreach (var equipedItem in personalSlots.Select(i => i.EquipedItem).Where(i => i != null))
+            {
+                equipedItem.AttunedToCharacter = string.Empty;
+                oldHero.CharacterInventory.DropItem(equipedItem);
+                newHero.GrantItem(equipedItem.ItemDefinition, equipedItem.ItemDefinition.ForceEquip, equipedItem.StackCount);
             }
 
-            foreach (var inventorySlot in oldHero.CharacterInventory.InventorySlotsByName)
-            {
-                if (inventorySlot.Value.EquipedItem != null)
-                {
-                    var equipedItem = inventorySlot.Value.EquipedItem;
+            var slotsByName = oldHero.CharacterInventory.InventorySlotsByName;
 
-                    equipedItem.AttunedToCharacter = string.Empty;
-                    oldHero.CharacterInventory.DropItem(inventorySlot.Value.EquipedItem);
-                    newHero.GrantItem(equipedItem.ItemDefinition, equipedItem.ItemDefinition.ForceEquip, equipedItem.StackCount);
-                }
+            foreach (var equipedItem in slotsByName.Select(s => s.Value.EquipedItem).Where(i => i != null))
+            {
+                equipedItem.AttunedToCharacter = string.Empty;
+                oldHero.CharacterInventory.DropItem(equipedItem);
+                newHero.GrantItem(equipedItem.ItemDefinition, equipedItem.ItemDefinition.ForceEquip, equipedItem.StackCount);
             }
         }
 

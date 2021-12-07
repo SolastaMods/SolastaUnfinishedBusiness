@@ -168,18 +168,16 @@ namespace SolastaCommunityExpansion.Patches
                     return false;
                 }
 
-                if (spellRepertoire.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.Prepared)
-                {
-                    if (spellRepertoire.PreparedSpells
+                if (spellRepertoire.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.Prepared &&
+                    spellRepertoire.PreparedSpells
                         .Where(spellDefinition => spellDefinition.SpellLevel == level)
                         .Any(spellDefinition => spellDefinition.ActivationTime == spellActivationTime))
-                    {
-                        return true;
-                    }
+                {
+                    return true;
                 }
 
-                if (spellRepertoire.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.AllKnown
-                    && spellRepertoire.KnownSpells.Any(spellDefinition => spellDefinition.SpellLevel == level))
+                if (spellRepertoire.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.AllKnown &&
+                    spellRepertoire.KnownSpells.Any(spellDefinition => spellDefinition.SpellLevel == level))
                 {
                     return true;
                 }

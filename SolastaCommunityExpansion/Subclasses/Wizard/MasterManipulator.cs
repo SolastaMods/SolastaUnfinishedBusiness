@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 {
     internal class MasterManipulator : AbstractSubclass
     {
-        private static Guid SubclassNamespace = new Guid("af7255d2-8ce2-4398-8999-f1ef536001f6");
+        private static readonly Guid SubclassNamespace = new Guid("af7255d2-8ce2-4398-8999-f1ef536001f6");
         private readonly CharacterSubclassDefinition Subclass;
 
         #region DcIncreaseAffinity

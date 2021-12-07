@@ -185,9 +185,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
         private static void ApplyLightsProtectionHealing(ulong sourceGuid)
         {
-            var conditionSource = RulesetEntity.GetEntity<RulesetCharacter>(sourceGuid) as RulesetCharacterHero;
-
-            if (conditionSource == null || conditionSource.IsDead)
+            if (!(RulesetEntity.GetEntity<RulesetCharacter>(sourceGuid) is RulesetCharacterHero conditionSource) || conditionSource.IsDead)
             {
                 return;
             }
@@ -436,18 +434,18 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
                     featureSetDefinition.SetField("featureSet", new List<FeatureDefinition>());
 
-                    foreach (ConditionDefinition invisibleCondition in InvisibleConditions)
+                    foreach (var invisibleConditionName in InvisibleConditions.Select(ic => ic.Name))
                     {
-                        FeatureDefinition preventInvisibilitySubFeature = FeatureDefinitionBuilder<FeatureDefinitionConditionAffinity>.Build(
-                            "PathOfTheLightIlluminatedPreventInvisibility" + invisibleCondition.Name,
-                            CreateNamespacedGuid("PathOfTheLightIlluminatedPreventInvisibility" + invisibleCondition.Name),
+                        var preventInvisibilitySubFeature = FeatureDefinitionBuilder<FeatureDefinitionConditionAffinity>.Build(
+                            "PathOfTheLightIlluminatedPreventInvisibility" + invisibleConditionName,
+                            CreateNamespacedGuid("PathOfTheLightIlluminatedPreventInvisibility" + invisibleConditionName),
                             "Feature/&NoContentTitle",
                             "Feature/&NoContentTitle",
                             conditionAffinityDefinition =>
                             {
                                 conditionAffinityDefinition
                                     .SetConditionAffinityType(RuleDefinitions.ConditionAffinityType.Immunity)
-                                    .SetConditionType(invisibleCondition.Name);
+                                    .SetConditionType(invisibleConditionName);
                             });
 
                         featureSetDefinition.FeatureSet.Add(preventInvisibilitySubFeature);
@@ -485,24 +483,19 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
         private static void HandleAfterIlluminatedConditionRemoved(RulesetActor removedFrom)
         {
-            var character = removedFrom as RulesetCharacter;
-
-            if (character == null)
+            if (!(removedFrom is RulesetCharacter character))
             {
                 return;
             }
 
             // Intentionally *includes* conditions that have Illuminated as their parent (like the Illuminating Burst condition)
-            if (!character.HasConditionOfTypeOrSubType(IlluminatedConditionName))
+            if (!character.HasConditionOfTypeOrSubType(IlluminatedConditionName)
+                && (character.PersonalLightSource?.SourceName == IlluminatingStrikeName || character.PersonalLightSource?.SourceName == IlluminatingBurstName))
             {
-                if (character.PersonalLightSource?.SourceName == IlluminatingStrikeName ||
-                    character.PersonalLightSource?.SourceName == IlluminatingBurstName)
-                {
-                    var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
+                var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
 
-                    visibilityService.RemoveCharacterLightSource(GameLocationCharacter.GetFromActor(removedFrom), character.PersonalLightSource);
-                    character.PersonalLightSource = null;
-                }
+                visibilityService.RemoveCharacterLightSource(GameLocationCharacter.GetFromActor(removedFrom), character.PersonalLightSource);
+                character.PersonalLightSource = null;
             }
         }
 

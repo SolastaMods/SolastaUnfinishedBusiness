@@ -1,7 +1,6 @@
 ﻿using ModKit.Utility;
 using SolastaModApi;
 using SolastaModApi.Extensions;
-using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Models
@@ -24,6 +23,8 @@ namespace SolastaCommunityExpansion.Models
                 //Young_Remorhaz, Remorhaz
                 string assetReference_Remorhaz = "ded896e0c4ef46144904375ecadb1bb1";
 
+                /*
+                 * Can this be removed?
                 // list of targeted prefab guid references (shared between at least 20 monsters)
                 List<string> listofBugstrings = new List<string>
                 {
@@ -33,6 +34,7 @@ namespace SolastaCommunityExpansion.Models
                 assetReference_beetle,
                 assetReference_Remorhaz
                 };
+                */
 
                 // replacement monster and model references
 
@@ -84,7 +86,7 @@ namespace SolastaCommunityExpansion.Models
                         monster.SetBestiarySpriteReference(wolf.BestiarySpriteReference);
                         monster.MonsterPresentation.SetMonsterPresentationDefinitions(wolf.MonsterPresentation.MonsterPresentationDefinitions);
 
-                        // changing beetlw scale to suit replacement model
+                        // changing beetle scale to suit replacement model
                         monster.MonsterPresentation.SetMaleModelScale(0.655f);
                         monster.MonsterPresentation.SetMaleModelScale(0.655f);
                     }

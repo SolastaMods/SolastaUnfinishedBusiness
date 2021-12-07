@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using UnityModManagerNet;
 
@@ -49,14 +50,7 @@ namespace SolastaCommunityExpansion
 
         internal static bool IsModHelpersLoaded()
         {
-            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
-            {
-                if (assembly.FullName.Contains("SolastaModHelpers"))
-                {
-                    return true;
-                }
-            }
-            return false;
+            return AppDomain.CurrentDomain.GetAssemblies().Any(assembly => assembly.FullName.Contains("SolastaModHelpers"));
         }
     }
 }

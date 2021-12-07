@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
      */
     public class FeatureDefinitionPowerSharedPool : FeatureDefinitionPower, IPowerSharedPool
     {
-        public FeatureDefinitionPower SharedPool;
+        public FeatureDefinitionPower SharedPool { get; internal set; }
 
         public FeatureDefinitionPower GetUsagePoolPower()
         {
@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
         public FeatureDefinitionPower PoolPower { get; set; }
 
         // TODO: unassigned - remove or use
-        private int poolChangeAmount;
+        private readonly int poolChangeAmount;
 
         public FeatureDefinitionPower GetUsagePoolPower()
         {
