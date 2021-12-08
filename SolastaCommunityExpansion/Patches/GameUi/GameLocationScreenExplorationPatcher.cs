@@ -1,10 +1,12 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches
 {
     internal static class GameLocationScreenExplorationPatcher
     {
         [HarmonyPatch(typeof(GameLocationScreenExploration), "HandleInput")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class GameLocationScreenExploration_HandleInput
         {
             internal static bool Prefix(

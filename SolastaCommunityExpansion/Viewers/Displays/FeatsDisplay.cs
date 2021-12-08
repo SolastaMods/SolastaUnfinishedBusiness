@@ -1,4 +1,5 @@
 ﻿using ModKit;
+using SolastaCommunityExpansion.Feats;
 using SolastaCommunityExpansion.Models;
 using System.Linq;
 using static SolastaCommunityExpansion.Viewers.Displays.Shared;
@@ -24,6 +25,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (UI.Slider("Power Attack modifier ".white() + RequiresRestart, ref intValue, 1, 6, 3, ""))
             {
                 Main.Settings.FeatPowerAttackModifier = intValue;
+                AcehighFeats.UpdatePowerAttackModifier();
             }
 
             UI.Label("");
@@ -62,14 +64,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         while (current < featsCount && columns-- > 0)
                         {
                             var keyValuePair = FeatsContext.Feats.ElementAt(current);
-                            toggle = Main.Settings.FeatEnabled.Contains(keyValuePair.Key);
-                            var title = Gui.Format(keyValuePair.Value.GuiPresentation.Title);
+                            var title = keyValuePair.Value.FormatTitle();                          
 
                             if (flip)
                             {
                                 title = title.yellow();
                             }
 
+                            toggle = Main.Settings.FeatEnabled.Contains(keyValuePair.Key);
                             if (UI.Toggle(title, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                             {
                                 FeatsContext.Switch(keyValuePair.Key, toggle);
@@ -77,7 +79,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                             if (Main.Settings.FeatSliderPosition == 1)
                             {
-                                var description = Gui.Format(keyValuePair.Value.GuiPresentation.Description);
+                                var description = keyValuePair.Value.FormatDescription();
 
                                 if (flip)
                                 {

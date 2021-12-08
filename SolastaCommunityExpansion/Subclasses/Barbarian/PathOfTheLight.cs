@@ -185,9 +185,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
         private static void ApplyLightsProtectionHealing(ulong sourceGuid)
         {
-            var conditionSource = RulesetEntity.GetEntity<RulesetCharacter>(sourceGuid) as RulesetCharacterHero;
-
-            if (conditionSource == null || conditionSource.IsDead)
+            if (!(RulesetEntity.GetEntity<RulesetCharacter>(sourceGuid) is RulesetCharacterHero conditionSource) || conditionSource.IsDead)
             {
                 return;
             }
@@ -436,18 +434,18 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
                     featureSetDefinition.SetField("featureSet", new List<FeatureDefinition>());
 
-                    foreach (ConditionDefinition invisibleCondition in InvisibleConditions)
+                    foreach (var invisibleConditionName in InvisibleConditions.Select(ic => ic.Name))
                     {
-                        FeatureDefinition preventInvisibilitySubFeature = FeatureDefinitionBuilder<FeatureDefinitionConditionAffinity>.Build(
-                            "PathOfTheLightIlluminatedPreventInvisibility" + invisibleCondition.Name,
-                            CreateNamespacedGuid("PathOfTheLightIlluminatedPreventInvisibility" + invisibleCondition.Name),
+                        var preventInvisibilitySubFeature = FeatureDefinitionBuilder<FeatureDefinitionConditionAffinity>.Build(
+                            "PathOfTheLightIlluminatedPreventInvisibility" + invisibleConditionName,
+                            CreateNamespacedGuid("PathOfTheLightIlluminatedPreventInvisibility" + invisibleConditionName),
                             "Feature/&NoContentTitle",
                             "Feature/&NoContentTitle",
                             conditionAffinityDefinition =>
                             {
                                 conditionAffinityDefinition
                                     .SetConditionAffinityType(RuleDefinitions.ConditionAffinityType.Immunity)
-                                    .SetConditionType(invisibleCondition.Name);
+                                    .SetConditionType(invisibleConditionName);
                             });
 
                         featureSetDefinition.FeatureSet.Add(preventInvisibilitySubFeature);
@@ -485,31 +483,26 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
         private static void HandleAfterIlluminatedConditionRemoved(RulesetActor removedFrom)
         {
-            var character = removedFrom as RulesetCharacter;
-
-            if (character == null)
+            if (!(removedFrom is RulesetCharacter character))
             {
                 return;
             }
 
             // Intentionally *includes* conditions that have Illuminated as their parent (like the Illuminating Burst condition)
-            if (!character.HasConditionOfTypeOrSubType(IlluminatedConditionName))
+            if (!character.HasConditionOfTypeOrSubType(IlluminatedConditionName)
+                && (character.PersonalLightSource?.SourceName == IlluminatingStrikeName || character.PersonalLightSource?.SourceName == IlluminatingBurstName))
             {
-                if (character.PersonalLightSource?.SourceName == IlluminatingStrikeName ||
-                    character.PersonalLightSource?.SourceName == IlluminatingBurstName)
-                {
-                    var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
+                var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
 
-                    visibilityService.RemoveCharacterLightSource(GameLocationCharacter.GetFromActor(removedFrom), character.PersonalLightSource);
-                    character.PersonalLightSource = null;
-                }
+                visibilityService.RemoveCharacterLightSource(GameLocationCharacter.GetFromActor(removedFrom), character.PersonalLightSource);
+                character.PersonalLightSource = null;
             }
         }
 
 
         // Helper classes
 
-        private class IlluminatedConditionDefinition : ConditionDefinition, IConditionRemovedOnSourceTurnStart, INotifyConditionRemoval
+        private sealed class IlluminatedConditionDefinition : ConditionDefinition, IConditionRemovedOnSourceTurnStart, INotifyConditionRemoval
         {
             public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
             {
@@ -522,7 +515,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             }
         }
 
-        private class IlluminatedByBurstConditionDefinition : ConditionDefinition, INotifyConditionRemoval
+        private sealed class IlluminatedByBurstConditionDefinition : ConditionDefinition, INotifyConditionRemoval
         {
             public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
             {
@@ -535,13 +528,13 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             }
         }
 
-        private class IlluminatingStrikeAdditionalDamage : FeatureDefinitionAdditionalDamage, IClassHoldingFeature
+        private sealed class IlluminatingStrikeAdditionalDamage : FeatureDefinitionAdditionalDamage, IClassHoldingFeature
         {
             // Allows Illuminating Strike damage to scale with barbarian level
             public CharacterClassDefinition Class => DatabaseHelper.CharacterClassDefinitions.Barbarian;
         }
 
-        private class IlluminatingStrikeFeatureBuilder : BaseDefinitionBuilder<IlluminatingStrikeAdditionalDamage>
+        private sealed class IlluminatingStrikeFeatureBuilder : BaseDefinitionBuilder<IlluminatingStrikeAdditionalDamage>
         {
             public IlluminatingStrikeFeatureBuilder(string name, string guid, string description, string title, ConditionDefinition illuminatedCondition) : base(name, guid)
             {
@@ -638,7 +631,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
         /// <summary>
         /// Builds the power that enables Illuminating Strike while you're raging.
         /// </summary>
-        private class IlluminatingStrikeInitiatorBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
+        private sealed class IlluminatingStrikeInitiatorBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
         {
             public IlluminatingStrikeInitiatorBuilder(string name, string guid, string description, string title, ConditionDefinition illuminatedCondition) : base(name, guid)
             {
@@ -716,12 +709,12 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             }
         }
 
-        private class IlluminatingBurstPower : FeatureDefinitionPower, IStartOfTurnRecharge
+        private sealed class IlluminatingBurstPower : FeatureDefinitionPower, IStartOfTurnRecharge
         {
             public bool IsRechargeSilent => true;
         }
 
-        private class IlluminatingBurstBuilder : BaseDefinitionBuilder<IlluminatingBurstPower>
+        private sealed class IlluminatingBurstBuilder : BaseDefinitionBuilder<IlluminatingBurstPower>
         {
             public IlluminatingBurstBuilder(string name, string guid, string description, string title, ConditionDefinition illuminatedCondition, ConditionDefinition illuminatingBurstSuppressedCondition) : base(name, guid)
             {
@@ -852,7 +845,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
         /// <summary>
         /// Builds the power that enables Illuminating Burst on the turn you enter a rage (by removing the condition disabling it).
         /// </summary>
-        private class IlluminatingBurstInitiatorBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
+        private sealed class IlluminatingBurstInitiatorBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
         {
             public IlluminatingBurstInitiatorBuilder(string name, string guid, string description, string title, ConditionDefinition illuminatingBurstSuppressedCondition) : base(name, guid)
             {

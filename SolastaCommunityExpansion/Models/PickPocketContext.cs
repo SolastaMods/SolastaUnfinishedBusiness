@@ -1,4 +1,4 @@
-
+﻿
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -201,15 +201,12 @@ namespace SolastaCommunityExpansion.Models
             pick_pocket_undead.ItemOccurencesList.Clear();
             pick_pocket_undead.ItemOccurencesList.Add(loot_pickpocket_undead);
 
-            MonsterDefinition[] allMonsters = DatabaseRepository.GetDatabase<MonsterDefinition>().GetAllElements();
-            for (int i = 0; i < allMonsters.Length; i++)
+            foreach (var monster in DatabaseRepository.GetDatabase<MonsterDefinition>())
             {
-                if (allMonsters[i].CharacterFamily == "Humanoid")
+                if (monster.CharacterFamily == "Humanoid" &&
+                    monster.DefaultFaction == "HostileMonsters")
                 {
-                    if (allMonsters[i].DefaultFaction == "HostileMonsters")
-                    {
-                        allMonsters[i].SetStealableLootDefinition(pick_pocket_loot);
-                    }
+                    monster.SetStealableLootDefinition(pick_pocket_loot);
                 }
             }
 

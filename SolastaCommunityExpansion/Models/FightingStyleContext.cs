@@ -1,12 +1,13 @@
 ﻿using SolastaCommunityExpansion.FightingStyles;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace SolastaCommunityExpansion.Models
 {
     internal static class FightingStyleContext
     {
-        public static Dictionary<string, AbstractFightingStyle> Styles = new Dictionary<string, AbstractFightingStyle>();
+        public static Dictionary<string, AbstractFightingStyle> Styles { get; private set; } = new Dictionary<string, AbstractFightingStyle>();
 
         internal static void Load()
         {
@@ -22,7 +23,7 @@ namespace SolastaCommunityExpansion.Models
                 Styles.Add(style.Name, styleBuilder);
             }
 
-            Styles = Styles.OrderBy(x => Gui.Format(x.Value.GetStyle().GuiPresentation.Title)).ToDictionary(x => x.Key, x => x.Value);
+            Styles = Styles.OrderBy(x => x.Value.GetStyle().FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
 
             UpdateStyleVisibility(style.Name);
         }
@@ -30,20 +31,20 @@ namespace SolastaCommunityExpansion.Models
         private static void UpdateStyleVisibility(string name)
         {
             List<FeatureDefinitionFightingStyleChoice> choiceLists = Styles[name].GetChoiceLists();
-            foreach (FeatureDefinitionFightingStyleChoice choiceList in choiceLists)
+            foreach (var fightingStyles in choiceLists.Select(cl => cl.FightingStyles))
             {
                 if (Main.Settings.FightingStyleEnabled.Contains(name))
                 {
-                    if (!choiceList.FightingStyles.Contains(name))
+                    if (!fightingStyles.Contains(name))
                     {
-                        choiceList.FightingStyles.Add(name);
+                        fightingStyles.Add(name);
                     }
                 }
                 else
                 {
-                    if (choiceList.FightingStyles.Contains(name))
+                    if (fightingStyles.Contains(name))
                     {
-                        choiceList.FightingStyles.Remove(name);
+                        fightingStyles.Remove(name);
                     }
                 }
             }
@@ -73,15 +74,21 @@ namespace SolastaCommunityExpansion.Models
 
         public static string GenerateFightingStyleDescription()
         {
-            string outString = "[heading]Fighting Styles[/heading]";
-            outString += "\n[list]";
-            foreach (AbstractFightingStyle style in Styles.Values)
-            {
-                outString += "\n[*][b]" + Gui.Format(style.GetStyle().GuiPresentation.Title) + "[/b]: " + Gui.Format(style.GetStyle().GuiPresentation.Description);
+            var outString = new StringBuilder("[heading]Fighting Styles[/heading]");
 
+            outString.Append("\n[list]");
+
+            foreach (var style in Styles.Values)
+            {
+                outString.Append("\n[*][b]");
+                outString.Append(style.GetStyle().FormatTitle());
+                outString.Append("[/b]: ");
+                outString.Append(style.GetStyle().FormatDescription());
             }
-            outString += "\n[/list]";
-            return outString;
+
+            outString.Append("\n[/list]");
+
+            return outString.ToString();
         }
     }
 }

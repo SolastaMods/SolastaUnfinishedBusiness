@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,7 @@ namespace SolastaCommunityExpansion.Patches
 
         // second line bind
         [HarmonyPatch(typeof(PowerSelectionPanel), "Bind")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class PowerSelectionPanel_Bind
         {
             internal static void Postfix(PowerSelectionPanel __instance)
@@ -65,6 +67,7 @@ namespace SolastaCommunityExpansion.Patches
 
         // second line unbind
         [HarmonyPatch(typeof(PowerSelectionPanel), "Unbind")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class PowerSelectionPanel_Unbind
         {
             internal static void Postfix()

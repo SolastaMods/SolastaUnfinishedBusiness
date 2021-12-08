@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Feats
 {
     internal static class HealingFeats
     {
-        public static Guid HealingFeatNamespace = new Guid("501448fd-3c84-4031-befe-84c2ae75123b");
+        public static readonly Guid HealingFeatNamespace = new Guid("501448fd-3c84-4031-befe-84c2ae75123b");
 
         public static void CreateFeats(List<FeatDefinition> feats)
         {
@@ -71,15 +71,15 @@ namespace SolastaCommunityExpansion.Feats
                 false, false, AttributeDefinitions.Wisdom, resuscitateEffect,
                 "PowerResuscitateHealerFeat", resuscitatePresentation.Build());
 
-            GuiPresentationBuilder stabalizePresentation = new GuiPresentationBuilder(
-                "Feat/&HealerStabalizeDescription",
-                "Feat/&HealerStabalizeTitle");
-            stabalizePresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLifePreserveLife.GuiPresentation.SpriteReference);
+            GuiPresentationBuilder stabilizePresentation = new GuiPresentationBuilder(
+                "Feat/&HealerStabilizeDescription",
+                "Feat/&HealerStabilizeTitle");
+            stabilizePresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLifePreserveLife.GuiPresentation.SpriteReference);
 
-            FeatureDefinitionPower stabalizePower = BuildPowerFromEffectDescription(0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
+            FeatureDefinitionPower stabilizePower = BuildPowerFromEffectDescription(0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
                 AttributeDefinitions.Wisdom, RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.ShortRest,
                 false, false, AttributeDefinitions.Wisdom, DatabaseHelper.SpellDefinitions.SpareTheDying.EffectDescription,
-                "PowerStabalizeHealerFeat", stabalizePresentation.Build());
+                "PowerStabilizeHealerFeat", stabilizePresentation.Build());
 
             GuiPresentationBuilder medicineExpertisePresentation = new GuiPresentationBuilder(
                 "Feat/&ProfHealerMedicineDescription",
@@ -96,7 +96,7 @@ namespace SolastaCommunityExpansion.Feats
                 medicineKnowledge,
                 medKitPower,
                 resuscitatePower,
-                stabalizePower,
+                stabilizePower,
             }, healerPresentation.Build());
             feats.Add(healer.AddToDB());
 

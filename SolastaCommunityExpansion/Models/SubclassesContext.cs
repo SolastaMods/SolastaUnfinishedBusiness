@@ -6,12 +6,13 @@ using SolastaCommunityExpansion.Subclasses.Rogue;
 using SolastaCommunityExpansion.Subclasses.Wizard;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace SolastaCommunityExpansion.Models
 {
     internal static class SubclassesContext
     {
-        public static Dictionary<string, AbstractSubclass> Subclasses = new Dictionary<string, AbstractSubclass>();
+        public static Dictionary<string, AbstractSubclass> Subclasses { get; private set; } = new Dictionary<string, AbstractSubclass>();
 
         internal static void Load()
         {
@@ -35,7 +36,7 @@ namespace SolastaCommunityExpansion.Models
                 Subclasses.Add(subclass.Name, subclassBuilder);
             }
 
-            Subclasses = Subclasses.OrderBy(x => Gui.Format(x.Value.GetSubclass().GuiPresentation.Title)).ToDictionary(x => x.Key, x => x.Value);
+            Subclasses = Subclasses.OrderBy(x => x.Value.GetSubclass().FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
 
             UpdateSubclassVisibility(subclass.Name);
         }
@@ -83,15 +84,21 @@ namespace SolastaCommunityExpansion.Models
 
         public static string GenerateSubclassDescription()
         {
-            string outString = "[heading]Subclasses[/heading]";
-            outString += "\n[list]";
-            foreach (AbstractSubclass subclass in Subclasses.Values)
-            {
-                outString += "\n[*][b]" + Gui.Format(subclass.GetSubclass().GuiPresentation.Title) + "[/b]: " + Gui.Format(subclass.GetSubclass().GuiPresentation.Description);
+            var outString = new StringBuilder("[heading]Subclasses[/heading]");
 
+            outString.Append("\n[list]");
+            
+            foreach (var subclass in Subclasses.Values)
+            {
+                outString.Append("\n[*][b]");
+                outString.Append(subclass.GetSubclass().FormatTitle());
+                outString.Append("[/b]: ");
+                outString.Append(subclass.GetSubclass().FormatDescription());
             }
-            outString += "\n[/list]";
-            return outString;
+
+            outString.Append("\n[/list]");
+
+            return outString.ToString();
         }
     }
 

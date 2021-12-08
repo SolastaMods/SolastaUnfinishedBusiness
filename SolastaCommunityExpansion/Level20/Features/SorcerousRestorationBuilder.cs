@@ -37,30 +37,30 @@ namespace SolastaCommunityExpansion.Level20.Features
             _ = RestActivityBuilder.RestActivityRestoration;
         }
 
-        private class RestActivityBuilder : BaseDefinitionBuilder<RestActivityDefinition>
+        private sealed class RestActivityBuilder : BaseDefinitionBuilder<RestActivityDefinition>
         {
             private const string SorcerousRestorationRestName = "ZSSorcerousRestorationRest";
             private const string SorcerousRestorationRestGuid = "5ee0315b-43b6-4dd9-8dd4-1eeded1cdb0e";
 
-            protected RestActivityBuilder(string name, string guid) : base(DatabaseHelper.RestActivityDefinitions.ArcaneRecovery, name, guid)
+            internal RestActivityBuilder(string name, string guid) : base(DatabaseHelper.RestActivityDefinitions.ArcaneRecovery, name, guid)
             {
                 Definition.GuiPresentation.Title = "RestActivity/&ZSSorcerousRestorationTitle";
                 Definition.GuiPresentation.Description = "RestActivity/&ZSSorcerousRestorationDescription";
                 Definition.SetStringParameter(SorcerousRestorationName);
             }
 
-            private static RestActivityDefinition CreateAndAddToDB(string name, string guid)
-                => new RestActivityBuilder(name, guid).AddToDB();
+            // An alternative pattern for lazily creating definition.
+            private static RestActivityDefinition _restActivityRestoration;
 
-            public static readonly RestActivityDefinition RestActivityRestoration
-                = CreateAndAddToDB(SorcerousRestorationRestName, SorcerousRestorationRestGuid);
+            // get only property
+            public static RestActivityDefinition RestActivityRestoration => 
+                _restActivityRestoration = _restActivityRestoration ?? new RestActivityBuilder(SorcerousRestorationRestName, SorcerousRestorationRestGuid).AddToDB();
         }
 
         private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-        => new SorcerousRestorationBuilder(name, guid).AddToDB();
+            => new SorcerousRestorationBuilder(name, guid).AddToDB();
 
         internal static readonly FeatureDefinitionPower SorcerousRestoration =
             CreateAndAddToDB(SorcerousRestorationName, SorcerousRestorationGuid);
-
     }
 }
