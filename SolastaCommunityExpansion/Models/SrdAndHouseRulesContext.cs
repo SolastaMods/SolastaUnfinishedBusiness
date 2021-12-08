@@ -108,7 +108,6 @@ namespace SolastaCommunityExpansion.Models
                     surprisedCharacter.StartBattle(false);
                 }
             }
-
         }
     }
 }
