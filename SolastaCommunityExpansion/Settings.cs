@@ -108,6 +108,7 @@ namespace SolastaCommunityExpansion
 
         public bool EnableSRDAdvantageRules { get; set; }
         public bool EnableSRDCombatSurpriseRules { get; set; }
+        public bool EnableSRDCombatSurpriseRulesManyRolls { get; set; }
         public bool EnableConditionBlindedShouldNotAllowOpportunityAttack { get; set; }
         public bool AllowExtraKeyboardCharactersInNames { get; set; }
         public bool DruidNoMetalRestriction { get; set; }

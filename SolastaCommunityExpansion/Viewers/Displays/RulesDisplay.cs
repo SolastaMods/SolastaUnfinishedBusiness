@@ -13,17 +13,29 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("SRD:".yellow());
             UI.Label("");
 
-            toggle = Main.Settings.EnableSRDCombatSurpriseRules;
-            if (UI.Toggle("Uses official combat surprise rules", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableSRDCombatSurpriseRules = toggle;
-            }
-
             toggle = Main.Settings.EnableSRDAdvantageRules;
             if (UI.Toggle("Uses official advantage / disadvantage rules", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableSRDAdvantageRules = toggle;
             }
+
+            toggle = Main.Settings.EnableSRDCombatSurpriseRules;
+            if (UI.Toggle("Uses official combat surprise rules", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableSRDCombatSurpriseRules = toggle;
+                Main.Settings.EnableSRDCombatSurpriseRulesManyRolls = toggle; // makes many rolls default
+            }
+
+            if (Main.Settings.EnableSRDCombatSurpriseRules)
+            {
+                toggle = Main.Settings.EnableSRDCombatSurpriseRulesManyRolls;
+                if (UI.Toggle("Rolls different " + "Stealth".orange() + " checks for each surprised / surprising character pairs", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableSRDCombatSurpriseRulesManyRolls = toggle;
+                }
+            }
+
+            UI.Label("");
 
             toggle = Main.Settings.EnableConditionBlindedShouldNotAllowOpportunityAttack;
             if (UI.Toggle("Blinded".orange() + " condition doesn't allow attack of opportunity", ref toggle, UI.AutoWidth()))

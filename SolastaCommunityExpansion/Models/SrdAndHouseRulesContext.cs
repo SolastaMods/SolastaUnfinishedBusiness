@@ -44,9 +44,23 @@ namespace SolastaCommunityExpansion.Models
         {
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
+            // does all stealth rolls at the beginning to get a better Game Console output (single stealth roll scenario)
+            var stealthRolls = new Dictionary<GameLocationCharacter, int>();
+
+            if (!Main.Settings.EnableSRDCombatSurpriseRulesManyRolls && surprised)
+            {
+                foreach (GameLocationCharacter surprisingCharacter in surprisingParty)
+                {
+                    var stealthRoll = surprisingCharacter.RollAbilityCheck("Dexterity", "Stealth", 1, RuleDefinitions.AdvantageType.None, new ActionModifier(), false, -1, out _, true);
+
+                    stealthRolls.Add(surprisingCharacter, stealthRoll);
+                }
+            }
+
+            // checks for each surprised / surprising pairs if they can see each other. if so it restates the surprised flag based on a surprising stealth check vs. a surprised passive perception
             foreach (GameLocationCharacter surprisedCharacter in surprisedParty)
             {
-                var isReallySurprised = true;
+                var reallySurprised = true;
 
                 if (surprised)
                 {
@@ -55,7 +69,7 @@ namespace SolastaCommunityExpansion.Models
                         if (gameLocationBattleService.CanAttackerSeeCharacterFromPosition(surprisingCharacter.LocationPosition, surprisedCharacter.LocationPosition, surprisingCharacter, surprisedCharacter))
                         {
                             int perceptionOnTarget = 0;
-                            
+
                             if (surprisedCharacter.RulesetCharacter is RulesetCharacterMonster monster)
                             {
                                 perceptionOnTarget = monster.MonsterDefinition.ComputePassivePerceptionScore();
@@ -65,14 +79,20 @@ namespace SolastaCommunityExpansion.Models
                                 perceptionOnTarget = hero.ComputePassivePerception();
                             }
 
-                            surprisingCharacter.RollAbilityCheck("Dexterity", "Stealth", perceptionOnTarget, RuleDefinitions.AdvantageType.None, new ActionModifier(), false, -1, out RuleDefinitions.RollOutcome outcome, true);
-
-                            if (outcome == RuleDefinitions.RollOutcome.CriticalFailure || outcome == RuleDefinitions.RollOutcome.Failure)
+                            if (Main.Settings.EnableSRDCombatSurpriseRulesManyRolls)
                             {
-                                var conditionAware = DatabaseRepository.GetDatabase<ConditionDefinition>().GetElement("ConditionAware");
+                                surprisingCharacter.RollAbilityCheck("Dexterity", "Stealth", perceptionOnTarget, RuleDefinitions.AdvantageType.None, new ActionModifier(), false, -1, out RuleDefinitions.RollOutcome outcome, true);
 
-                                surprisedCharacter.RulesetCharacter.AddConditionOfCategory("10Combat", RulesetCondition.CreateActiveCondition(surprisedCharacter.RulesetCharacter.Guid, conditionAware, RuleDefinitions.DurationType.Round, 0, RuleDefinitions.TurnOccurenceType.EndOfTurn, 0UL, string.Empty));
-                                isReallySurprised = false;
+                                if (outcome == RuleDefinitions.RollOutcome.CriticalFailure || outcome == RuleDefinitions.RollOutcome.Failure)
+                                {
+                                    reallySurprised = false;
+
+                                    break;
+                                }
+                            }
+                            else if (stealthRolls[surprisingCharacter] < perceptionOnTarget)
+                            {
+                                reallySurprised = false;
 
                                 break;
                             }
@@ -80,7 +100,16 @@ namespace SolastaCommunityExpansion.Models
                     }
                 }
 
-                surprisedCharacter.StartBattle(surprised && isReallySurprised);
+                // adds a dummy Aware condition for a better Game Console description on what is happening
+                if (!reallySurprised)
+                {
+                    var conditionAwareDefinition = DatabaseRepository.GetDatabase<ConditionDefinition>().GetElement("ConditionAware");
+                    var conditionAware = RulesetCondition.CreateActiveCondition(surprisedCharacter.RulesetCharacter.Guid, conditionAwareDefinition, RuleDefinitions.DurationType.Round, 0, RuleDefinitions.TurnOccurenceType.EndOfTurn, 0, string.Empty);
+                    
+                    surprisedCharacter.RulesetCharacter.AddConditionOfCategory("10Combat", conditionAware);
+                }
+
+                surprisedCharacter.StartBattle(surprised && reallySurprised);
             }
         }
     }
