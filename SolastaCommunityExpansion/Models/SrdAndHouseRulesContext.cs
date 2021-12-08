@@ -31,17 +31,6 @@ namespace SolastaCommunityExpansion.Models
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
             var stealthRolls = new Dictionary<GameLocationCharacter, int>();
 
-            // does all stealth rolls at the beginning to get a better Game Console output (single stealth roll scenario)
-            if (!Main.Settings.EnableSRDCombatSurpriseRulesManyRolls && surprised)
-            {
-                foreach (GameLocationCharacter surprisingCharacter in surprisingParty)
-                {
-                    var stealthRoll = surprisingCharacter.RollAbilityCheck("Dexterity", "Stealth", 1, RuleDefinitions.AdvantageType.None, new ActionModifier(), false, -1, out _, true);
-
-                    stealthRolls.Add(surprisingCharacter, stealthRoll);
-                }
-            }
-
             // revalidates a surprised character against surprising contenders
             bool IsReallySurprised(GameLocationCharacter surprisedCharacter)
             {
@@ -50,6 +39,7 @@ namespace SolastaCommunityExpansion.Models
                     if (gameLocationBattleService.CanAttackerSeeCharacterFromPosition(surprisingCharacter.LocationPosition, surprisedCharacter.LocationPosition, surprisingCharacter, surprisedCharacter))
                     {
                         int perceptionOnTarget;
+                        int stealthCheck;
 
                         if (surprisedCharacter.RulesetCharacter is RulesetCharacterMonster monster)
                         {
@@ -62,14 +52,14 @@ namespace SolastaCommunityExpansion.Models
 
                         if (Main.Settings.EnableSRDCombatSurpriseRulesManyRolls)
                         {
-                            surprisingCharacter.RollAbilityCheck("Dexterity", "Stealth", perceptionOnTarget, RuleDefinitions.AdvantageType.None, new ActionModifier(), false, -1, out RuleDefinitions.RollOutcome outcome, true);
-
-                            if (outcome == RuleDefinitions.RollOutcome.CriticalFailure || outcome == RuleDefinitions.RollOutcome.Failure)
-                            {
-                                return false;
-                            }
+                            stealthCheck = surprisingCharacter.RollAbilityCheck("Dexterity", "Stealth", perceptionOnTarget, RuleDefinitions.AdvantageType.None, new ActionModifier(), false, -1, out _, true);
                         }
-                        else if (stealthRolls[surprisingCharacter] < perceptionOnTarget)
+                        else
+                        {
+                            stealthCheck = stealthRolls[surprisingCharacter];
+                        }
+
+                        if (stealthCheck < perceptionOnTarget)
                         {
                             return false;
                         }
@@ -79,35 +69,46 @@ namespace SolastaCommunityExpansion.Models
                 return true;
             }
 
-            // checks for each surprised / surprising pairs if they can see each other. if so it restates the surprised flag based on a surprising stealth check vs. a surprised passive perception
-            foreach (GameLocationCharacter surprisedCharacter in surprisedParty)
+            if (surprised)
             {
-                var reallySurprised = true;
-
-                if (surprised)
+                // only calculates one single set of stealth checks when multiple rolls are disabled
+                if (!Main.Settings.EnableSRDCombatSurpriseRulesManyRolls)
                 {
-                    reallySurprised = IsReallySurprised(surprisedCharacter);
-
-                    // adds feedback to Game Console
-                    if (!reallySurprised)
+                    foreach (GameLocationCharacter surprisingCharacter in surprisingParty)
                     {
-                        var gameConsole = Gui.Game.GameConsole;
-                        var consoleTableDefinition = AccessTools.Field(gameConsole.GetType(), "consoleTableDefinition").GetValue(gameConsole) as ConsoleTableDefinition;
-                        var addCharacterEntryMethod = AccessTools.Method("GameConsole:AddCharacterEntry");
-                        var gameConsoleEntry = new GameConsoleEntry("Feedback/&ConditionRemovedLine", consoleTableDefinition)
-                        {
-                            Indent = true
-                        };
+                        var stealthRoll = surprisingCharacter.RollAbilityCheck("Dexterity", "Stealth", 1, RuleDefinitions.AdvantageType.None, new ActionModifier(), false, -1, out _, true);
 
-                        addCharacterEntryMethod.Invoke(gameConsole, new object[] { surprisedCharacter.RulesetCharacter, gameConsoleEntry });
-                        gameConsoleEntry.AddParameter(ConsoleStyleDuplet.ParameterType.AbilityInfo, ConditionSurprised.FormatTitle(), tooltipContent: ConditionSurprised.FormatDescription());
-                        gameConsole.AddEntry(gameConsoleEntry);
+                        stealthRolls.Add(surprisingCharacter, stealthRoll);
                     }
                 }
+           
+                foreach (GameLocationCharacter surprisedCharacter in surprisedParty)
+                {
+                    var reallySurprised = IsReallySurprised(surprisedCharacter);
 
-                // adds the contender to the battle with the revised surprise calculation
-                surprisedCharacter.StartBattle(surprised && reallySurprised);
+                    // revalidates the surprise
+                    if (IsReallySurprised(surprisedCharacter))
+                    {
+                        surprisedCharacter.StartBattle(true);
+                    }
+                    else
+                    {
+                        var gameConsole = Gui.Game.GameConsole;
+                        var methodConditionRemoved = AccessTools.Method("GameConsole:ConditionRemoved");
+
+                        methodConditionRemoved.Invoke(gameConsole, new object[] { surprisedCharacter.RulesetCharacter, new RulesetCondition() { ConditionDefinition = ConditionSurprised } });
+                        surprisedCharacter.StartBattle(false);
+                    }
+                }
             }
+            else
+            {
+                foreach (GameLocationCharacter surprisedCharacter in surprisedParty)
+                {
+                    surprisedCharacter.StartBattle(false);
+                }
+            }
+
         }
     }
 }
