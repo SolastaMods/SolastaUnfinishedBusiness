@@ -84,8 +84,6 @@ namespace SolastaCommunityExpansion.Models
            
                 foreach (GameLocationCharacter surprisedCharacter in surprisedParty)
                 {
-                    var reallySurprised = IsReallySurprised(surprisedCharacter);
-
                     // revalidates the surprise
                     if (IsReallySurprised(surprisedCharacter))
                     {
