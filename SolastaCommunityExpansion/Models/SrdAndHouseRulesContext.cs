@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using SolastaModApi.Extensions;
+﻿using SolastaModApi.Extensions;
+using System.Collections.Generic;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
 
@@ -7,11 +7,10 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class SrdAndHouseRulesContext
     {
-        private const int SURPRISE_CHECK_DC_BASE = 10;
-
         internal static void Load()
         {
-            var conditionUnsurprised = UnityEngine.Object.Instantiate(DatabaseRepository.GetDatabase<ConditionDefinition>().GetElement("ConditionSurprised"));
+            var dbConditionDefinition = DatabaseRepository.GetDatabase<ConditionDefinition>();
+            var conditionUnsurprised = UnityEngine.Object.Instantiate(dbConditionDefinition.GetElement("ConditionSurprised"));
 
             conditionUnsurprised.name = "ConditionUnsurprised";
             conditionUnsurprised.SetGuid(SolastaModApi.GuidHelper.Create(new System.Guid(Settings.GUID), conditionUnsurprised.name).ToString());
@@ -19,7 +18,7 @@ namespace SolastaCommunityExpansion.Models
             conditionUnsurprised.GuiPresentation.SetDescription("Rules/&ConditionUnsurprisedDescription");
             conditionUnsurprised.Features.Clear();
 
-            DatabaseRepository.GetDatabase<ConditionDefinition>().Add(conditionUnsurprised);
+            dbConditionDefinition.Add(conditionUnsurprised);
         }
 
         internal static void ApplyConditionBlindedShouldNotAllowOpportunityAttack()
@@ -55,7 +54,7 @@ namespace SolastaCommunityExpansion.Models
                     {
                         if (gameLocationBattleService.CanAttackerSeeCharacterFromPosition(surprisingCharacter.LocationPosition, surprisedCharacter.LocationPosition, surprisingCharacter, surprisedCharacter))
                         {
-                            int perceptionOnTarget = SURPRISE_CHECK_DC_BASE;
+                            int perceptionOnTarget = 0;
                             
                             if (surprisedCharacter.RulesetCharacter is RulesetCharacterMonster monster)
                             {
