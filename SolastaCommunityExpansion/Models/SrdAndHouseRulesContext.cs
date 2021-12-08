@@ -1,24 +1,34 @@
-﻿using SolastaModApi.Extensions;
+﻿using SolastaModApi;
 using System.Collections.Generic;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
 
 namespace SolastaCommunityExpansion.Models
 {
+    internal class AwareConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
+    {
+        internal const string ConditionAwareName = "ZSConditionAware";
+        private const string ConditionAwareGuid = "21163c80aa4b459892d8e066badc0b81";
+
+        protected AwareConditionBuilder(string name, string guid) : base(ConditionSurprised, name, guid)
+        {
+            Definition.Features.Clear();
+            Definition.GuiPresentation.Description = "Rules/&ConditionAwareDescription";
+            Definition.GuiPresentation.Title = "Rules/&ConditionAwareTitle";
+        }
+
+        private static ConditionDefinition CreateAndAddToDB(string name, string guid)
+            => new AwareConditionBuilder(name, guid).AddToDB();
+
+        internal static readonly ConditionDefinition AwareCondition =
+            CreateAndAddToDB(ConditionAwareName, ConditionAwareGuid);
+    }
+
     internal static class SrdAndHouseRulesContext
     {
         internal static void Load()
         {
-            var dbConditionDefinition = DatabaseRepository.GetDatabase<ConditionDefinition>();
-            var conditionAware = UnityEngine.Object.Instantiate(dbConditionDefinition.GetElement("ConditionSurprised"));
-
-            conditionAware.name = "ConditionAware";
-            conditionAware.SetGuid(SolastaModApi.GuidHelper.Create(new System.Guid(Settings.GUID), conditionAware.name).ToString());
-            conditionAware.GuiPresentation.SetTitle("Rules/&ConditionAwareTitle");
-            conditionAware.GuiPresentation.SetDescription("Rules/&ConditionAwareDescription");
-            conditionAware.Features.Clear();
-
-            dbConditionDefinition.Add(conditionAware);
+            _ = AwareConditionBuilder.AwareCondition;
         }
 
         internal static void ApplyConditionBlindedShouldNotAllowOpportunityAttack()
@@ -103,7 +113,7 @@ namespace SolastaCommunityExpansion.Models
                 // adds a dummy Aware condition for a better Game Console description on what is happening
                 if (!reallySurprised)
                 {
-                    var conditionAwareDefinition = DatabaseRepository.GetDatabase<ConditionDefinition>().GetElement("ConditionAware");
+                    var conditionAwareDefinition = DatabaseRepository.GetDatabase<ConditionDefinition>().GetElement(AwareConditionBuilder.ConditionAwareName);
                     var conditionAware = RulesetCondition.CreateActiveCondition(surprisedCharacter.RulesetCharacter.Guid, conditionAwareDefinition, RuleDefinitions.DurationType.Round, 0, RuleDefinitions.TurnOccurenceType.EndOfTurn, 0, string.Empty);
                     
                     surprisedCharacter.RulesetCharacter.AddConditionOfCategory("10Combat", conditionAware);
