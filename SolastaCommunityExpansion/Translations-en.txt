@@ -614,5 +614,5 @@ Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription	Up to three e
 Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle	Illuminating Burst
 Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	Illuminating Strike deals extra damage to the target!
 Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat Illuminating Strike!
-Rules/&ConditionUnsurprisedDescription	was surprised but succeed on a perception check.
-Rules/&ConditionUnsurprisedTitle	no longer surprised
+Rules/&ConditionAwareDescription	was surprised but is now aware after succeeding on a perception check.
+Rules/&ConditionAwareTitle	Aware

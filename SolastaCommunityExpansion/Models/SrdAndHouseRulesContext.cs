@@ -10,15 +10,15 @@ namespace SolastaCommunityExpansion.Models
         internal static void Load()
         {
             var dbConditionDefinition = DatabaseRepository.GetDatabase<ConditionDefinition>();
-            var conditionUnsurprised = UnityEngine.Object.Instantiate(dbConditionDefinition.GetElement("ConditionSurprised"));
+            var conditionAware = UnityEngine.Object.Instantiate(dbConditionDefinition.GetElement("ConditionSurprised"));
 
-            conditionUnsurprised.name = "ConditionUnsurprised";
-            conditionUnsurprised.SetGuid(SolastaModApi.GuidHelper.Create(new System.Guid(Settings.GUID), conditionUnsurprised.name).ToString());
-            conditionUnsurprised.GuiPresentation.SetTitle("Rules/&ConditionUnsurprisedTitle");
-            conditionUnsurprised.GuiPresentation.SetDescription("Rules/&ConditionUnsurprisedDescription");
-            conditionUnsurprised.Features.Clear();
+            conditionAware.name = "ConditionAware";
+            conditionAware.SetGuid(SolastaModApi.GuidHelper.Create(new System.Guid(Settings.GUID), conditionAware.name).ToString());
+            conditionAware.GuiPresentation.SetTitle("Rules/&ConditionAwareTitle");
+            conditionAware.GuiPresentation.SetDescription("Rules/&ConditionAwareDescription");
+            conditionAware.Features.Clear();
 
-            dbConditionDefinition.Add(conditionUnsurprised);
+            dbConditionDefinition.Add(conditionAware);
         }
 
         internal static void ApplyConditionBlindedShouldNotAllowOpportunityAttack()
@@ -69,9 +69,9 @@ namespace SolastaCommunityExpansion.Models
 
                             if (outcome == RuleDefinitions.RollOutcome.CriticalFailure || outcome == RuleDefinitions.RollOutcome.Failure)
                             {
-                                var conditionUnsurprised = DatabaseRepository.GetDatabase<ConditionDefinition>().GetElement("ConditionUnsurprised");
+                                var conditionAware = DatabaseRepository.GetDatabase<ConditionDefinition>().GetElement("ConditionAware");
 
-                                surprisedCharacter.RulesetCharacter.AddConditionOfCategory("10Combat", RulesetCondition.CreateActiveCondition(surprisedCharacter.RulesetCharacter.Guid, conditionUnsurprised, RuleDefinitions.DurationType.Round, 0, RuleDefinitions.TurnOccurenceType.EndOfTurn, 0UL, string.Empty));
+                                surprisedCharacter.RulesetCharacter.AddConditionOfCategory("10Combat", RulesetCondition.CreateActiveCondition(surprisedCharacter.RulesetCharacter.Guid, conditionAware, RuleDefinitions.DurationType.Round, 0, RuleDefinitions.TurnOccurenceType.EndOfTurn, 0UL, string.Empty));
                                 isReallySurprised = false;
 
                                 break;
