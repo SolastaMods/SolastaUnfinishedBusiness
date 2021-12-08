@@ -1,10 +1,10 @@
-using HarmonyLib;
+﻿using HarmonyLib;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using static RuleDefinitions;
 
-namespace SolastaCommunityExpansion.Patches.SrdAndHouseRulesContext
+namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
 {
     [HarmonyPatch(typeof(RuleDefinitions), "ComputeAdvantage")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
