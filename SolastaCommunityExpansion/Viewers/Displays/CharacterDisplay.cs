@@ -100,6 +100,46 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.AllRacesInitialFeats = intValue;
                 InitialChoicesContext.RefreshAllRacesInitialFeats();
             }
+
+            UI.Label("");
+            UI.Label("Face Unlocks: ".yellow() + RequiresRestart);
+            UI.Label("");
+
+            toggle = Main.Settings.EnableFaceUnlockNpcs;
+            if (UI.Toggle("Unlocks all NPC faces", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableFaceUnlockNpcs = toggle;
+            }
+
+            toggle = Main.Settings.EnableFaceUnlockUnmarkedSorcerers;
+            if (UI.Toggle("Allows unmarked " + "Sorcerers".orange(), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableFaceUnlockUnmarkedSorcerers = toggle;
+            }
+
+            toggle = Main.Settings.EnableFaceUnlockMarkingsForAll;
+            if (UI.Toggle("Unlocks markings and tattoos for all characters", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableFaceUnlockMarkingsForAll = toggle;
+            }
+
+            toggle = Main.Settings.EnableFaceUnlockEyeStyles;
+            if (UI.Toggle("Unlocks eye styles", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableFaceUnlockEyeStyles = toggle;
+            }
+
+            toggle = Main.Settings.EnableFaceUnlockGlowingEyes;
+            if (UI.Toggle("Unlocks glowing eye colors", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableFaceUnlockGlowingEyes = toggle;
+            }
+
+            toggle = Main.Settings.EnableFaceUnlockGlowingBodyDecorations;
+            if (UI.Toggle("Unlocks glowing colors for all markings and tattoos", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableFaceUnlockGlowingBodyDecorations = toggle;
+            }
         }
     }
 }
