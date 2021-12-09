@@ -35,6 +35,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
             }
 
+            toggle = Main.Settings.FullyControlAlliedConjurations;
+            if (UI.Toggle("Fully control conjurations (animals, elementals, ... etc)", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.FullyControlAlliedConjurations = toggle;
+                ConjurationsContext.Load();
+            }
+
             UI.Label("");
 
             toggle = Main.Settings.EnableConditionBlindedShouldNotAllowOpportunityAttack;
