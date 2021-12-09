@@ -20,4 +20,13 @@ namespace SolastaCommunityExpansion.Helpers
             return features.OfType<T>().ToList();
         }
     }
+
+    public enum ExtraRitualCasting
+    {
+        None = RuleDefinitions.RitualCasting.None,
+        Prepared = RuleDefinitions.RitualCasting.Prepared,
+        Spellbook = RuleDefinitions.RitualCasting.Spellbook,
+        Known = 1337
+    }
+
 }

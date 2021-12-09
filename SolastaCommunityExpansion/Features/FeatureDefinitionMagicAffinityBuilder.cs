@@ -71,5 +71,12 @@ namespace SolastaCommunityExpansion.Features
             Definition.SetPreparedSpellModifier(preparedModifier);
             return this;
         }
+
+        public FeatureDefinitionMagicAffinityBuilder SetRitualCasting(RuleDefinitions.RitualCasting ritualCasting)
+        {
+            Definition.SetRitualCasting(ritualCasting);
+            return this;
+        }
+
     }
 }

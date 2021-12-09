@@ -614,3 +614,41 @@ Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription	Up to three e
 Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle	Illuminating Burst
 Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	Illuminating Strike deals extra damage to the target!
 Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat Illuminating Strike!
+Class/&WitchTitle	Witch
+Class/&WitchDescription	Afflicted by a sinister curse, witches can spin dark magic into Maledictions, which they use to debilitate foes. They are also accompanied by their familiars, loyal magical companions which they use to deal the killing blow.
+Class/&WitchSavingthrowProficiencyTitle	Saving Throw Proficiencies
+Class/&WitchSavingthrowProficiencyDescription	Wisdom, Charisma
+Class/&WitchSkillProficiencyTitle	Witch Skills
+Class/&WitchSkillProficiencyDescription	Choose two from Arcana, Deception, Insight, Intimidation, Persuasion, Nature, and Religion
+Class/&WitchWeaponProficiencyTitle	Witch Weapon Proficiencies
+Class/&WitchWeaponProficiencyDescription	Simple weapons
+Class/&WitchArmorProficiencyTitle	Witch Armor Proficiencies
+Class/&WitchArmorProficiencyDescription	Light Armor
+Class/&WitchToolProficiencyTitle	Witch Tool Proficiencies
+Class/&WitchToolProficiencyDescription	Choose one from Herbalist Kit and Poisoner's Kit
+Class/&WitchSpellcastingTitle	Witch Spellcasting
+Class/&WitchSpellcastingDescription	Can cast spells from the Witch spell list.
+Class/&WitchFamiliarPowerTitle	Familiar
+Class/&WitchFamiliarPowerDescription	You learn the Find Familiar spell and can cast it as a ritual without material components. The spell doesn’t count against your number of spells known. The spell is improved in the following ways: • Your familiar takes its turn immediately before or after your turn each round (your choice). • Once per turn as an action or a bonus action, you can mentally command your familiar to use its reaction to make one attack. • When you cast a spell, you can deliver it through your familiar as if it had cast the spell, even if the spell doesn’t have a range of touch.
+Subclass/&WitchSubclassPathTitle	Witch Covens
+Subclass/&WitchSubclassPathDescription	Your knowledge of magic has culminated in joining a Coven, an innate circle of Witches who delve down a specific path of witchdom and curses.
+Subclass/&BloodWitchTitle	Blood Witch
+Subclass/&BloodWitchDescription	Forbidden by most witch covens, blood magic centers on the use of dark spells and mortal hexes that draw from the spellcaster's very essence. It is fundamentally more perilous than other witch crafts, but its many risks come with copious rewards.
+Stage/&SubclassSelectionStageCovenTitle	asd
+Stage/&SubclassSelectionStageCovenDescription	asd
+Stage/&SubclassSelectionStageCovenHeaderTitle	asd2
+Stage/&SubclassSelectionStageCovenHeaderDescription	asd2
+Spell/&EldritchOrbTitle	Eldritch Orb
+Spell/&EldritchOrbDescription	You fling a ball of eldritch energy at a creature or object within range.
+Spell/&FindFamiliarTitle	Find Familiar
+Spell/&FindFamiliarDescription	You gain the service of a familiar.
+Spell/&MinorLifestealTitle	Minor Lifesteal
+Spell/&MinorLifestealDescription	You drain life energy from a hostile creature you can see within range. You then gain temporary hit points equal to the amount of damage dealt, which lasts until you finish a long rest. This spell has no effect on undead or constructs.
+Spell/&PetalStormTitle	Petal Storm
+Spell/&PetalStormDescription	Choose an unoccupied 15-foot cube of air that you can see within range. An elemental force of swirling winds appears in the cube and lasts for the spell’s duration. The cloud heavily obscures its area. Any creature that enters the storm for the first time on a turn or starts its turn there must make a Strength saving throw. On a failed save, the creature takes 3d4 slashing damage. As a bonus action, you can move the storm up to 30 feet in any direction.
+Spell/&ProtectThresholdTitle	Protect Threshold
+Spell/&ProtectThresholdDescription	Tracing arcane sigils along its boundary, you can ward a doorway, window, or other portal from entry. For the duration, an invisible eldritch creature stalks the warded portal. Any creature that attempts to pass through the portal must make a Wisdom saving throw or take 4d6 psychic damage, or half as much on a successful save.
+Spell/&FrenzyTitle	Frenzy
+Spell/&FrenzyDescription	With a gesture, you reduce a crowd to base instinct and violence. Choose a point you can see within range. Each creature within 20 feet of that point must make a Wisdom saving throw. On a failed save, a creature is frenzied for the duration. When a creature is frenzied, it draws a melee weapon, if it has one. A frenzied creature must use its action at the beginning of its turn to attack a creature within its reach. It uses a melee weapon, if it has one, or an improvised weapon or unarmed strike, if it doesn’t. If multiple targets are within the creature’s reach, it chooses its target randomly. If there is no target within the creature’s reach, it attacks itself, against its own AC, dealing damage as normal on a hit. At the end of its turn, a frenzied creature can repeat its saving throw, ending the effect on it early on a success.
+Power/&FamiliarHelpActionTitle	Help
+Power/&FamiliarHelpActionDescription	 You can aid a friendly creature in attacking a creature within 5 feet of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage. 

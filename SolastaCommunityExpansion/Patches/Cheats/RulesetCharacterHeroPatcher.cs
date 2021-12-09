@@ -3,6 +3,8 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using static SolastaModApi.DatabaseHelper.QuestTreeDefinitions;
+using SolastaCommunityExpansion.Helpers;
+using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Patches.Cheats
 {
@@ -78,4 +80,40 @@ namespace SolastaCommunityExpansion.Patches.Cheats
             }
         }
     }
+
+    [HarmonyPatch(typeof(RulesetCharacterHero), "EnumerateUsableRitualSpells")]
+    internal static class RestModuleHitDice_EnumerateUsableRitualSpells_Patch
+    {
+        internal static void Postfix(RulesetCharacterHero __instance, RuleDefinitions.RitualCasting ritualType, List<SpellDefinition> ritualSpells)
+        {
+            var extended_ritual_type = (ExtraRitualCasting)ritualType;
+            switch (extended_ritual_type)
+            {
+                case ExtraRitualCasting.Known:
+                    RulesetSpellRepertoire rulesetSpellRepertoire1 = (RulesetSpellRepertoire)null;
+                    foreach (RulesetSpellRepertoire spellRepertoire in __instance.SpellRepertoires)
+                    {
+                        if (spellRepertoire.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.AllKnown && spellRepertoire.SpellCastingFeature.SpellKnowledge == RuleDefinitions.SpellKnowledge.Selection)
+                        {
+                            rulesetSpellRepertoire1 = spellRepertoire;
+                            break;
+                        }
+                    }
+                    if (rulesetSpellRepertoire1 == null)
+                        break;
+                    using (List<SpellDefinition>.Enumerator enumerator = rulesetSpellRepertoire1.KnownSpells.GetEnumerator())
+                    {
+                        while (enumerator.MoveNext())
+                        {
+                            SpellDefinition current = enumerator.Current;
+                            if (current.Ritual && rulesetSpellRepertoire1.MaxSpellLevelOfSpellCastingLevel >= current.SpellLevel)
+                                ritualSpells.Add(current);
+                        }
+                        break;
+                    }
+            }
+        }
+    }
+
+
 }

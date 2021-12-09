@@ -5,6 +5,7 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using System;
 using System.Collections.Generic;
+using SolastaCommunityExpansion.Helpers;
 
 namespace SolastaCommunityExpansion.Classes.Witch
 {
@@ -42,6 +43,11 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                             AttributeDefinitions.Wisdom,
                                             AttributeDefinitions.Intelligence,
                                             AttributeDefinitions.Strength);
+
+            witch.AddFeatPreference(DatabaseHelper.FeatDefinitions.PowerfulCantrip);
+
+            witch.AddToolPreference(DatabaseHelper.ToolTypeDefinitions.HerbalismKitType);
+            witch.AddToolPreference(DatabaseHelper.ToolTypeDefinitions.PoisonersKitType);
 
             witch.AddSkillPreference(DatabaseHelper.SkillDefinitions.Arcana);
             witch.AddSkillPreference(DatabaseHelper.SkillDefinitions.Deception);
@@ -92,6 +98,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             witch.AddEquipmentRow(new List<CharacterClassDefinition.HeroEquipmentOption>
             {
                 EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.SorcererArmor, EquipmentDefinitions.OptionArmor, 1),
+                EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.Spellbook, EquipmentDefinitions.OptionGenericItem, 1),
             });
 
             FeatureDefinitionProficiency savingThrowProficiencies = new FeatureDefinitionProficiencyBuilder("WitchSavingthrowProficiency", 
@@ -138,15 +145,17 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                                         "Class/&WitchArmorProficiencyTitle").Build())
                                                                                                         .AddToDB();
 
-/*            FeatureDefinitionProficiency toolProficiencies = new FeatureDefinitionProficiencyBuilder(  "WitchToolProficiency", 
-                                                                                                        GuidHelper.Create(ClassNamespace, "WitchToolProficiency").ToString(),
-                                                                                                        RuleDefinitions.ProficiencyType.Tool,
-                                                                                                        new List<string>() { ToolDefinitions.ArtisanToolType },
-                                                                                                        new GuiPresentationBuilder(
+            FeatureDefinitionPointPool toolProficiencies = new FeatureDefinitionPointPoolBuilder(  "WitchToolProficiency", 
+                                                                                                    GuidHelper.Create(ClassNamespace, "WitchToolProficiency").ToString(),
+                                                                                                    HeroDefinitions.PointsPoolType.Tool,
+                                                                                                    1,
+                                                                                                    new GuiPresentationBuilder(
                                                                                                         "Class/&WitchToolProficiencyDescription",
                                                                                                         "Class/&WitchToolProficiencyTitle").Build())
-                                                                                                        .AddToDB();
-*/
+                                                                                                    .RestrictChoices(new List<string>() { 
+                                                                                                        DatabaseHelper.ToolTypeDefinitions.HerbalismKitType.Name, 
+                                                                                                        DatabaseHelper.ToolTypeDefinitions.PoisonersKitType.Name})
+                                                                                                    .AddToDB();
 
             // Keeping all spells listed here for ease to edit and see the big picture
             SpellListDefinition spellList = SpellListBuilder.createSpellList(  "SpellListClassWitch", 
@@ -199,6 +208,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                     DatabaseHelper.SpellDefinitions.FaerieFire,
 //                                                                                    DatabaseHelper.SpellDefinitions.FalseLife,
 //                                                                                    DatabaseHelper.SpellDefinitions.FeatherFall,
+                                                                                    FindFamiliarSpellBuilder.AddToSpellList(),
 //                                                                                    DatabaseHelper.SpellDefinitions.FogCloud,
 //                                                                                    DatabaseHelper.SpellDefinitions.Goodberry,
 //                                                                                    DatabaseHelper.SpellDefinitions.Grease,
@@ -351,6 +361,47 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                     DatabaseHelper.SpellDefinitions.Resurrection
 */                                                                                });
 
+/*            FeatureDefinitionMagicAffinityBuilder ritualCastingMagicAffinity = new FeatureDefinitionMagicAffinityBuilder(   "WitchRitualCastingMagicAffinity",
+                                                                                                                            GuidHelper.Create(ClassNamespace, "WitchRitualCastingMagicAffinity").ToString(),
+                                                                                                                            new GuiPresentationBuilder(
+                                                                                                                                "Class/&WitchRitualCastingMagicAffinityDescription",
+                                                                                                                                "Class/&WitchRitualCastingMagicAffinityTitle").Build())
+                                                                                                                            .SetRitualCasting((RuleDefinitions.RitualCasting)ExtraRitualCasting.Known);
+                                                                                                                            
+            FeatureDefinitionMagicAffinity magicAffinity = new FeatureDefinitionMagicAffinity();
+            magicAffinity = ritualCastingMagicAffinity.AddToDB();*/
+/*
+            FeatureDefinitionFeatureSet ritualCasting = new FeatureDefinitionFeatureSetBuilder(         "FeatureSetWitchRitualCasting",
+                                                                                                        GuidHelper.Create(ClassNamespace, "FeatureSetWitchRitualCasting").ToString(),
+                                                                                                        new GuiPresentationBuilder(
+                                                                                                        "Class/&WitchRitualSpellcastingDescription",
+                                                                                                        "Class/&WitchRitualSpellcastingTitle").Build()).AddToDB();
+
+            FeatureDefinitionFeatureSet ritualCasting2 = new FeatureDefinitionFeatureSetBuilder(  DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
+                                                                                                        "FeatureSetWitchRitualCasting2",
+                                                                                                        GuidHelper.Create(ClassNamespace, "FeatureSetWitchRitualCasting2").ToString(),
+                                                                                                        new GuiPresentationBuilder(
+                                                                                                        "Class/&WitchRitualSpellcasting2Description",
+                                                                                                        "Class/&WitchRitualSpellcasting2Title").Build()).AddToDB();
+*/
+//            ritualCasting.SetRitualCasting(Helpers.ExtraRitualCasting.Known);
+
+            FeatureDefinitionFeatureSet ritualCasting = new FeatureDefinitionFeatureSetBuilder(  DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
+                                                                                                "WitchFeatureSetRitualCasting",
+                                                                                                GuidHelper.Create(ClassNamespace, "WitchFeatureSetRitualCasting").ToString(),
+                                                                                                new GuiPresentationBuilder(
+                                                                                                    "Class/&WitchFeatureSetRitualCastingDescription",
+                                                                                                    "Class/&WitchFeatureSetRitualCastingTitle").Build())
+                                                                                                .SetFeature(new FeatureDefinitionMagicAffinityBuilder(  "WitchRitualCastingMagicAffinity",
+                                                                                                                                                        GuidHelper.Create(ClassNamespace, "WitchRitualCastingMagicAffinity").ToString(),
+                                                                                                                                                        new GuiPresentationBuilder(
+                                                                                                                                                            "Class/&WitchRitualCastingMagicAffinityDescription",
+                                                                                                                                                            "Class/&WitchRitualCastingMagicAffinityTitle").Build())
+                                                                                                                                                        .SetRitualCasting((RuleDefinitions.RitualCasting)ExtraRitualCasting.Known).AddToDB())
+                                                                                                .AddToDB();
+
+//            ritualCasting.SetFeature(ritualCastingMagicAffinity.SetRitualCasting((RuleDefinitions.RitualCasting)ExtraRitualCasting.Known)
+  //                                                              .AddToDB());
 
             CastSpellBuilder spellCasting = new CastSpellBuilder(   "CastSpellClassWitch", 
                                                                     GuidHelper.Create(ClassNamespace, "CastSpellClassWitch").ToString())
@@ -368,37 +419,20 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                         "Class/&WitchSpellcastingDescription",
                                                                         "Class/&WitchSpellcastingTitle").Build());
 
-/*
-            var summoner_spellcasting = Helpers.SpellcastingBuilder.createSpontaneousSpellcasting("SummonerClassSpellcasting",
-                                                                                              "f720edaf-92c4-43e3-8228-c48c0b411234",
-                                                                                              "Feature/&SummonerClassSpellcastingTitle",
-                                                                                              "Feature/&SummonerClassSpellcastingDescription",
-                                                                                              summoner_spelllist,
-                                                                                              Helpers.Stats.Charisma,
-                                                                                              DatabaseHelper.FeatureDefinitionCastSpells.CastSpellWizard.KnownCantrips,
-                                                                                              new List<int> { 4,  5,  6,  7,  8,  9, 10, 11, 12, 12,
-                                                                                                             13, 13, 14, 14, 15, 15, 16, 16, 16, 16},
-                                                                                              DatabaseHelper.FeatureDefinitionCastSpells.CastSpellWizard.SlotsPerLevels
-                                                                                              );
-            
-*/
-
             GuiPresentationBuilder witchPresentation = new GuiPresentationBuilder(
                 "Class/&WitchDescription",
                 "Class/&WitchTitle");
             witchPresentation.SetSpriteReference(DatabaseHelper.CharacterClassDefinitions.Wizard.GuiPresentation.SpriteReference);
             witch.SetGuiPresentation(witchPresentation.Build());
 
-
             witch.AddFeatureAtLevel(savingThrowProficiencies, 1);
             witch.AddFeatureAtLevel(skillProficiencies, 1);
             witch.AddFeatureAtLevel(weaponProficiencies, 1);
             witch.AddFeatureAtLevel(armorProficiencies, 1);
-//            witch.AddFeatureAtLevel(toolProficiencies, 1);
+            witch.AddFeatureAtLevel(toolProficiencies, 1);
 
             witch.AddFeatureAtLevel(spellCasting.AddToDB(), 1);
-
-//            Definition.FeatureUnlocks.Add(new FeatureUnlockByLevel(ritual_spellcasting, 1));
+            witch.AddFeatureAtLevel(ritualCasting, 1);
 
             // TODO: Do a dropdown like the Druid of the Land land type or summon type for the Druid of Spirits (?)
 //            witch.AddFeatureAtLevel(WitchsCurse,1);
@@ -408,7 +442,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 //            witch.AddFeatureAtLevel(Maledictions, 1);
             // This should actually be a bit refined, i.e. give the Find Familiar spell, and have a longer casting time/ritual tag
             // Beckon Familiar is actually a Malediction, i.e. instant cast familiar
-            witch.AddFeatureAtLevel(BeckonFamiliar(), 2);
+            witch.AddFeatureAtLevel(Familiar(spellList), 2);
             // TODO: unsure about this one...
             // Needs to refresh an existing Malediction, preventing the saving throw again I presume
 //            witch.AddFeatureAtLevel(Cackle,2);
@@ -444,7 +478,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             Class = witch.AddToDB();
         }
 
-        FeatureDefinitionPower BeckonFamiliar()
+        FeatureDefinitionPower Familiar(SpellListDefinition spellListDefinition)
         {
             var effectForm = new EffectForm();
             effectForm.FormType = EffectForm.EffectFormType.Summon;
@@ -468,25 +502,83 @@ namespace SolastaCommunityExpansion.Classes.Witch
             effectDescription.EffectForms.Clear();
             effectDescription.EffectForms.Add(effectForm);
 
-            FeatureDefinitionPower beckonFamiliar = new FeatureDefinitionPowerBuilder(  "ClassWitchBeckonFamiliarPower",
-                                                                                        GuidHelper.Create(ClassNamespace, "ClassWitchBeckonFamiliarPower").ToString(),
-                                                                                        1,
-                                                                                        RuleDefinitions.UsesDetermination.Fixed,
-                                                                                        AttributeDefinitions.Charisma,
-                                                                                        RuleDefinitions.ActivationTime.Action,
-                                                                                        0,
-                                                                                        RuleDefinitions.RechargeRate.AtWill,
-                                                                                        false,
-                                                                                        true,
-                                                                                        AttributeDefinitions.Charisma,
-                                                                                        effectDescription,
-                                                                                        new GuiPresentationBuilder(
-                                                                                            "Class/&ClassWitchBeckonFamiliarPowerDescription",
-                                                                                            "Class/&ClassWitchBeckonFamiliarPowerTitle").Build(),
-                                                                                        true)
-                                                                                        .AddToDB();
+            FeatureDefinitionPower familiar = new FeatureDefinitionPowerBuilder(    "WitchFamiliarPower",
+                                                                                    GuidHelper.Create(ClassNamespace, "WitchFamiliarPower").ToString(),
+                                                                                    1,
+                                                                                    RuleDefinitions.UsesDetermination.Fixed,
+                                                                                    AttributeDefinitions.Charisma,
+                                                                                    RuleDefinitions.ActivationTime.Action,
+                                                                                    0,
+                                                                                    RuleDefinitions.RechargeRate.AtWill,
+                                                                                    false,
+                                                                                    true,
+                                                                                    AttributeDefinitions.Charisma,
+                                                                                    effectDescription,
+                                                                                    new GuiPresentationBuilder(
+                                                                                        "Class/&WitchFamiliarPowerDescription",
+                                                                                        "Class/&WitchFamiliarPowerTitle").Build(),
+                                                                                    true)
+                                                                                    .AddToDB();
 
-            return beckonFamiliar;
+            return familiar;
+        }
+
+        internal class FindFamiliarSpellBuilder : BaseDefinitionBuilder<SpellDefinition>
+        {
+            const string SpellName = "FindFamiliarSpell";
+            const string SpellNameGuid = "c20743cd-a0f3-4cee-a653-a8caaa40cc37";
+
+            protected FindFamiliarSpellBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.Fireball, name, guid)
+            {
+                Definition.GuiPresentation.Title = "Spell/&FindFamiliarTitle";
+                Definition.GuiPresentation.Description = "Spell/&FindFamiliarDescription";
+                Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Shine.GuiPresentation.SpriteReference);
+
+                Definition.SetSpellLevel(1);
+                Definition.SetSchoolOfMagic(RuleDefinitions.SchoolConjuration);
+                Definition.SetVerboseComponent(true);
+                Definition.SetSomaticComponent(true);
+                Definition.SetMaterialComponentType(RuleDefinitions.MaterialComponentType.Specific);
+                Definition.SetSpecificMaterialComponentConsumed(true);
+                Definition.SetSpecificMaterialComponentCostGp(10);
+                Definition.SetRitual(true);
+                Definition.SetRitualCastingTime(RuleDefinitions.ActivationTime.Minute10);
+                Definition.SetRequiresConcentration(false);
+
+                var effectForm = new EffectForm();
+                effectForm.FormType = EffectForm.EffectFormType.Summon;
+                effectForm.SetCreatedByCharacter(true);
+
+                SummonForm summonForm = new SummonForm();
+                effectForm.SetSummonForm(summonForm);
+
+                MonsterDefinition monsterDefinition = new MonsterDefinition();
+                monsterDefinition = FamiliarMonsterBuilder.AddToMonsterList();
+
+                effectForm.SummonForm.SetMonsterDefinitionName(monsterDefinition.Name);
+                effectForm.SummonForm.SetDecisionPackage(null);
+
+                Definition.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.ConjureAnimalsOneBeast.EffectDescription);
+                Definition.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
+                Definition.EffectDescription.SetRangeParameter(2);
+                Definition.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Permanent);
+//                Definition.EffectDescription.SetDurationType(RuleDefinitions.DurationType.UntilLongRest);
+                Definition.EffectDescription.SetTargetSide(RuleDefinitions.Side.Ally);
+                Definition.EffectDescription.EffectForms.Clear();
+                Definition.EffectDescription.EffectForms.Add(effectForm);
+
+            }
+
+            public static SpellDefinition CreateAndAddToDB(string name, string guid)
+                => new FindFamiliarSpellBuilder(name, guid).AddToDB();
+
+            public static SpellDefinition FindFamiliarSpell = CreateAndAddToDB(SpellName, SpellNameGuid);
+
+            public static SpellDefinition AddToSpellList()
+            {
+                var FindFamiliarSpell = FindFamiliarSpellBuilder.FindFamiliarSpell;//Instantiating it adds to the DB
+                return FindFamiliarSpell;
+            }
         }
 
         internal class FamiliarMonsterBuilder : BaseDefinitionBuilder<MonsterDefinition>
