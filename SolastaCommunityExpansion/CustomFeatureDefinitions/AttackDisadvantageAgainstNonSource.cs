@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 
         public void ComputeDefenseModifier(RulesetCharacter myself, RulesetCharacter attacker, int sustainedAttacks, bool defenderAlreadyAttackedByAttackerThisTurn, ActionModifier attackModifier, RuleDefinitions.FeatureOrigin featureOrigin)
         {
-            return;
+            // Intentionally empty?
         }
 
         public RuleDefinitions.AdvantageType GetAdvantageOnOpportunityAttackOnMe(RulesetCharacter myself, RulesetCharacter attacker)

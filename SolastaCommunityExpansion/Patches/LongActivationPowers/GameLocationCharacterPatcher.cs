@@ -1,4 +1,4 @@
-using HarmonyLib;
+﻿using HarmonyLib;
 using System.Diagnostics.CodeAnalysis;
 
 namespace SolastaCommunityExpansion.Patches.LongActivationPowers
@@ -16,25 +16,23 @@ namespace SolastaCommunityExpansion.Patches.LongActivationPowers
             {
                 return;
             }
-            
+
             if (__instance.RulesetCharacter != null)
             {
                 foreach (RulesetUsablePower rulesetUsablePower in __instance.RulesetCharacter.UsablePowers)
                 {
-                    if (__instance.RulesetCharacter.GetRemainingUsesOfPower(rulesetUsablePower) > 0 && !(!accountDelegatedPowers && rulesetUsablePower.PowerDefinition.DelegatedToAction))
+                    if (__instance.RulesetCharacter.GetRemainingUsesOfPower(rulesetUsablePower) > 0 &&
+                        !(!accountDelegatedPowers && rulesetUsablePower.PowerDefinition.DelegatedToAction) &&
+                        !ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress &&
+                        actionType == ActionDefinitions.ActionType.Main &&
+                        (rulesetUsablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.Minute1 ||
+                            rulesetUsablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.Minute10 ||
+                            rulesetUsablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.Hours1 ||
+                            rulesetUsablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.Hours24))
                     {
-                        if (!ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress)
-                        {
-                            if (actionType == ActionDefinitions.ActionType.Main && (rulesetUsablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.Minute1 ||
-                                rulesetUsablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.Minute10 ||
-                                rulesetUsablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.Hours1 ||
-                                rulesetUsablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.Hours24))
-                            {
-                                __result = true;
-                              
-                                return;
-                            }
-                        }
+                        __result = true;
+
+                        return;
                     }
                 }
             }

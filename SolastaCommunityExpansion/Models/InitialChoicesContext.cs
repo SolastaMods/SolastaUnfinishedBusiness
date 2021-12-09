@@ -1,12 +1,13 @@
-﻿using SolastaModApi;
+﻿using System.Linq;
+using SolastaModApi;
 using SolastaModApi.BuilderHelpers;
 
 namespace SolastaCommunityExpansion.Models
 {
     internal static class InitialChoicesContext
     {
-        internal static int previousAllRacesInitialFeats = -1;
-        internal static bool previousAlternateHuman = false;
+        internal static int PreviousAllRacesInitialFeats { get; set; } = -1;
+        internal static bool PreviousAlternateHuman { get; set; }
 
         internal static void Load()
         {
@@ -29,12 +30,12 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void RefreshAllRacesInitialFeats()
         {
-            if (previousAllRacesInitialFeats > -1)
+            if (PreviousAllRacesInitialFeats > -1)
             {
-                UnloadRacesLevel1Feats(previousAllRacesInitialFeats, previousAlternateHuman);
+                UnloadRacesLevel1Feats(PreviousAllRacesInitialFeats, PreviousAlternateHuman);
             }
-            previousAllRacesInitialFeats = Main.Settings.AllRacesInitialFeats;
-            previousAlternateHuman = Main.Settings.EnableAlternateHuman;
+            PreviousAllRacesInitialFeats = Main.Settings.AllRacesInitialFeats;
+            PreviousAlternateHuman = Main.Settings.EnableAlternateHuman;
             LoadRacesLevel1Feats(Main.Settings.AllRacesInitialFeats, Main.Settings.EnableAlternateHuman);
         }
 
@@ -53,7 +54,7 @@ namespace SolastaCommunityExpansion.Models
                     featureUnlockByLevelHuman = new FeatureUnlockByLevel(DatabaseHelper.FeatureDefinitionPointPools.PointPoolBonusFeat, 1);
                 }
             }
-            if (initialFeats == 1)
+            else if (initialFeats == 1)
             {
                 featureUnlockByLevelNonHuman = new FeatureUnlockByLevel(DatabaseHelper.FeatureDefinitionPointPools.PointPoolBonusFeat, 1);
 
@@ -155,12 +156,10 @@ namespace SolastaCommunityExpansion.Models
 
             for (var i = 0; i < characterRaceDefinition.FeatureUnlocks.Count; i++)
             {
-                if (characterRaceDefinition.FeatureUnlocks[i].Level == 1)
+                if (characterRaceDefinition.FeatureUnlocks[i].Level == 1 && 
+                    characterRaceDefinition.FeatureUnlocks[i].FeatureDefinition == toRemove)
                 {
-                    if (characterRaceDefinition.FeatureUnlocks[i].FeatureDefinition == toRemove)
-                    {
-                        ndx = i;
-                    }
+                    ndx = i;
                 }
             }
 
@@ -177,14 +176,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static bool IsSubRace(CharacterRaceDefinition raceDefinition)
         {
-            foreach (var characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>().GetAllElements())
-            {
-                if (characterRaceDefinition.SubRaces.Contains(raceDefinition))
-                {
-                    return true;
-                }
-            }
-            return false;
+            return DatabaseRepository.GetDatabase<CharacterRaceDefinition>().Any(crd => crd.SubRaces.Contains(raceDefinition));
         }
     }
 }

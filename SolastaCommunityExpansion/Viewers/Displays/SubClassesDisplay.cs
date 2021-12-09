@@ -1,5 +1,7 @@
 ﻿using ModKit;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Subclasses.Rogue;
+using SolastaCommunityExpansion.Subclasses.Wizard;
 using System.Linq;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
@@ -23,7 +25,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (UI.Toggle("Enables unlimited ".white() + "Arcane Recovery".orange() + " on Wizard Spell Master\n".white() + "Must be enabled when the ability has available uses (or before character creation)".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.SpellMasterUnlimitedArcaneRecovery = toggle;
-                Subclasses.Wizard.SpellMaster.UpdateRecoveryLimited();
+                SpellMaster.UpdateRecoveryLimited();
             }
 
             UI.Label("");
@@ -32,13 +34,16 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (UI.Slider("", ref intValue, 0, 5, 3, "", UI.AutoWidth()))
             {
                 Main.Settings.RogueConArtistSpellDCBoost = intValue;
+                ConArtist.UpdateSpellDCBoost();
             }
+
             UI.Label("");
             UI.Label("Overrides Wizard Master Manipulator ".white() + "Arcane Manipulation".orange() + " Spell DC".white());
             intValue = Main.Settings.MasterManipulatorSpellDCBoost;
             if (UI.Slider("", ref intValue, 0, 5, 2, "", UI.AutoWidth()))
             {
                 Main.Settings.MasterManipulatorSpellDCBoost = intValue;
+                MasterManipulator.UpdateSpellDCBoost();
             }
 
             UI.Label("");

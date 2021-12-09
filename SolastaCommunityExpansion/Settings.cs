@@ -1,7 +1,4 @@
-﻿using SolastaCommunityExpansion.Feats;
-using SolastaCommunityExpansion.Subclasses.Rogue;
-using SolastaCommunityExpansion.Subclasses.Wizard;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityModManagerNet;
 
 namespace SolastaCommunityExpansion
@@ -15,6 +12,8 @@ namespace SolastaCommunityExpansion
     {
         //
         // TODO: Reorganize the order of these settings in code per viewers on UI to simplify maintenance
+        // NOTE: xml deserialization expects properties to match the order of the xml, so reorganizing will 
+        // temporarily lose settings.
         //
 
         public const string GUID = "b1ffaca74824486ea74a68d45e6b1925";
@@ -29,84 +28,47 @@ namespace SolastaCommunityExpansion
         public const int MOD_BUY_POINTS = 35;
 
         /* This is in the settings so it can be disabled, but if a player has access to first level feats they almost definitely want this on. */
-        public bool EnableFirstLevelCasterFeats = true;
+        public bool EnableFirstLevelCasterFeats { get; set; } = true;
         // If this is off only the first auto prepared spells group is used during level up
-        public bool ShowAllAutoPreparedSpells = true;
-        public bool FutureFeatureSorting = true;
-        public bool MultiLineSpellPanel = true;
-        public bool MultiLinePowerPanel = true;
-        public bool KeepSpellsOpenSwitchingEquipment = true;
-        public bool BugFixExpandColorTables = true;
-        public bool AllowDynamicPowers = true;
+        public bool ShowAllAutoPreparedSpells { get; set; } = true;
+        public bool FutureFeatureSorting { get; set; } = true;
+        public bool MultiLineSpellPanel { get; set; } = true;
+        public bool MultiLinePowerPanel { get; set; } = true;
+        public bool KeepSpellsOpenSwitchingEquipment { get; set; } = true;
+        public bool BugFixExpandColorTables { get; set; } = true;
+        public bool AllowDynamicPowers { get; set; } = true;
 
-        public bool EnableEpicPoints = false;
-        public bool EnableEpicArray = false;
-        public bool EnableAlternateHuman = false;
-        public bool EnablesAsiAndFeat = false;
-        public bool EnableLevel20 = false;
-        public bool EnableFlexibleBackgrounds = false;
-        public bool EnableFlexibleRaces = false;
+        public bool EnableEpicPoints { get; set; }
+        public bool EnableEpicArray { get; set; }
+        public bool EnableAlternateHuman { get; set; }
+        public bool EnablesAsiAndFeat { get; set; }
+        public bool EnableLevel20 { get; set; }
+        public bool EnableFlexibleBackgrounds { get; set; }
+        public bool EnableFlexibleRaces { get; set; }
 
-        public bool DisableSenseDarkVisionFromAllRaces = false;
-        public bool DisableSenseSuperiorDarkVisionFromAllRaces = false;
-        public bool IncreaseNormalVisionSenseRange = false;
+        public bool DisableSenseDarkVisionFromAllRaces { get; set; }
+        public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
+        public bool IncreaseNormalVisionSenseRange { get; set; }
 
-        public int AllRacesInitialFeats = 0;
+        public int AllRacesInitialFeats { get; set; }
 
-        public List<string> InStore = new List<string>();
-        public List<string> ItemsInDM = new List<string>();
-        public List<string> RecipesInDM = new List<string>();
+        public List<string> InStore { get; private set; } = new List<string>();
+        public List<string> ItemsInDM { get; private set; } = new List<string>();
+        public List<string> RecipesInDM { get; private set; } = new List<string>();
 
-        private int recipeCost = 200;
-        public int RecipeCost
-        {
-            get => recipeCost; set
-            {
-                recipeCost = value;
-                Models.ItemCraftingContext.UpdateRecipeCost();
-            }
-        }
+        public int RecipeCost { get; set; } = 200;
 
-        public List<string> FeatEnabled = new List<string>();
-        public List<string> SubclassEnabled = new List<string>();
-        public List<string> FightingStyleEnabled = new List<string>();
+        public List<string> FeatEnabled { get; private set; } = new List<string>();
+        public List<string> SubclassEnabled { get; private set; } = new List<string>();
+        public List<string> FightingStyleEnabled { get; private set; } = new List<string>();
 
-        public int FeatSliderPosition = 1;
-        public int SubclassSliderPosition = 1;
-        public int FightingStyleSliderPosition = 1;
+        public int FeatSliderPosition { get; set; } = 1;
+        public int SubclassSliderPosition { get; set; } = 1;
+        public int FightingStyleSliderPosition { get; set; } = 1;
 
-        private int rogueConArtistSpellDCBoost = 3;
-
-        public int RogueConArtistSpellDCBoost
-        {
-            get => rogueConArtistSpellDCBoost; set
-            {
-                rogueConArtistSpellDCBoost = value;
-                ConArtist.UpdateSpellDCBoost();
-            }
-        }
-
-        private int masterManipulatorSpellDCBoost = 2;
-
-        public int MasterManipulatorSpellDCBoost
-        {
-            get => masterManipulatorSpellDCBoost; set
-            {
-                masterManipulatorSpellDCBoost = value;
-                MasterManipulator.UpdateSpellDCBoost();
-            }
-        }
-
-        private int featPowerAttackModifier = 3;
-
-        public int FeatPowerAttackModifier
-        {
-            get => featPowerAttackModifier; set
-            {
-                featPowerAttackModifier = value;
-                AcehighFeats.UpdatePowerAttackModifier();
-            }
-        }
+        public int RogueConArtistSpellDCBoost { get; set; } = 3;
+        public int MasterManipulatorSpellDCBoost { get; set; } = 2;
+        public int FeatPowerAttackModifier { get; set; } = 3;
 
         /* Commands to allow the player to hide certain parts of the HUD */
         public const InputCommands.Id CTRL_C = (InputCommands.Id)44440000;
@@ -119,46 +81,48 @@ namespace SolastaCommunityExpansion
 
         public const RestActivityDefinition.ActivityCondition ActivityConditionCanRespec = (RestActivityDefinition.ActivityCondition)(-1001);
 
-        public bool EnableRespec = false;
+        public bool EnableRespec { get; set; }
 
-        public bool NoExperienceOnLevelUp = false;
+        public bool NoExperienceOnLevelUp { get; set; }
 
-        public bool OfferAdditionalNames = false;
-        public bool InvertAltBehaviorOnTooltips = false;
-        public bool EnableCharacterExport = false;
+        public bool OfferAdditionalNames { get; set; }
+        public bool InvertAltBehaviorOnTooltips { get; set; }
+        public bool EnableCharacterExport { get; set; }
 
-        public int MaxSpellLevelsPerLine = 5;
-        public float SpellPanelGapBetweenLines = 30f;
+        public int MaxSpellLevelsPerLine { get; set; } = 5;
+        public float SpellPanelGapBetweenLines { get; set; } = 30f;
 
         /* Faster Time Scale */
-        public float CustomTimeScale = 1.5f;
-        public bool PermanentSpeedUp = false;
+        public float CustomTimeScale { get; set; } = 1.5f;
+        public bool PermanentSpeedUp { get; set; }
 
-        public bool AutoPauseOnVictory;
-        public bool HideMonsterHitPoints;
-        public bool SpellMasterUnlimitedArcaneRecovery = false;
-        public bool PickPocketEnabled = false;
+        public bool AutoPauseOnVictory { get; set; }
+        public bool HideMonsterHitPoints { get; set; }
+        public bool SpellMasterUnlimitedArcaneRecovery { get; set; }
+        public bool PickPocketEnabled { get; set; }
 
-        public bool DisableAutoEquip;
-        public bool ExactMerchantCostScaling;
-        public bool NoIdentification;
-        public bool NoAttunement;
+        public bool DisableAutoEquip { get; set; }
+        public bool ExactMerchantCostScaling { get; set; }
+        public bool NoIdentification { get; set; }
+        public bool NoAttunement { get; set; }
 
-        public bool EnableSRDAdvantageRules = false;
-        public bool EnableConditionBlindedShouldNotAllowOpportunityAttack = false;
-        public bool AllowExtraKeyboardCharactersInNames = false;
-        public bool DruidNoMetalRestriction;
-        public bool RecipeTooltipShowsRecipe;
-        public bool EnableCheatMenuDuringGameplay = false;
+        public bool EnableSRDAdvantageRules { get; set; }
+        public bool EnableSRDCombatSurpriseRules { get; set; }
+        public bool EnableSRDCombatSurpriseRulesManyRolls { get; set; }
+        public bool EnableConditionBlindedShouldNotAllowOpportunityAttack { get; set; }
+        public bool AllowExtraKeyboardCharactersInNames { get; set; }
+        public bool DruidNoMetalRestriction { get; set; }
+        public bool RecipeTooltipShowsRecipe { get; set; }
+        public bool EnableCheatMenuDuringGameplay { get; set; }
 
-        public bool EnableHudToggleElementsHotkeys = false;
+        public bool EnableHudToggleElementsHotkeys { get; set; }
 
-        public int ExperienceModifier = 100;
+        public int ExperienceModifier { get; set; } = 100;
 
-        public bool EnableFeatsSorting = true;
+        public bool EnableFeatsSorting { get; set; } = true;
 
-        public bool EnableInventoryFilterAndSort = true;
+        public bool EnableInventoryFilterAndSort { get; set; } = true;
 
-        public bool RemoveBugVisualModels = false;
+        public bool RemoveBugVisualModels { get; set; }
     }
 }

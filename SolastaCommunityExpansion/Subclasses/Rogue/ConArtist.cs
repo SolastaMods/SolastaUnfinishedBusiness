@@ -10,10 +10,24 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
 {
     internal class ConArtist : AbstractSubclass
     {
-        private static Guid SubclassNamespace = new Guid("fdf8dc11-5006-489e-951c-92a8d72ca4c0");
+        private static readonly Guid SubclassNamespace = new Guid("fdf8dc11-5006-489e-951c-92a8d72ca4c0");
         private readonly CharacterSubclassDefinition Subclass;
 
-        private static FeatureDefinitionMagicAffinity DcIncreaseAffinity;
+        #region DcIncreaseAffinity
+        private static FeatureDefinitionMagicAffinity _dcIncreaseAffinity;
+        private static FeatureDefinitionMagicAffinity DcIncreaseAffinity
+        {
+            get
+            {
+                return _dcIncreaseAffinity = _dcIncreaseAffinity ??
+                    new FeatureDefinitionMagicAffinityBuilder(
+                        "MagicAffinityRoguishConArtistDC",
+                        GuidHelper.Create(SubclassNamespace, "MagicAffinityRoguishConArtistDC").ToString(),
+                        GetSpellDCPresentation().Build())
+                            .SetCastingModifiers(0, Main.Settings.RogueConArtistSpellDCBoost, false, false, false).AddToDB();
+            }
+        }
+        #endregion
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
@@ -88,9 +102,6 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                 0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Charisma, RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill,
                 false, false, AttributeDefinitions.Charisma, feintBuilder.Build(), feintGui.Build(), false /* unique instance */).AddToDB();
             conArtist.AddFeatureAtLevel(feint, 9);
-
-            DcIncreaseAffinity = new FeatureDefinitionMagicAffinityBuilder("MagicAffinityRoguishConArtistDC", GuidHelper.Create(SubclassNamespace, "MagicAffinityRoguishConArtistDC").ToString(),
-                GetSpellDCPresentation().Build()).SetCastingModifiers(0, Main.Settings.RogueConArtistSpellDCBoost, false, false, false).AddToDB();
             conArtist.AddFeatureAtLevel(DcIncreaseAffinity, 13);
 
             FeatureDefinitionProficiency proficiency = new FeatureDefinitionProficiencyBuilder("RoguishConArtistMentalSavingThrows", GuidHelper.Create(SubclassNamespace, "RoguishConArtistMentalSavingThrows").ToString(),
