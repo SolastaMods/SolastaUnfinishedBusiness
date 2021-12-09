@@ -124,5 +124,12 @@ namespace SolastaCommunityExpansion
         public bool EnableInventoryFilterAndSort { get; set; } = true;
 
         public bool RemoveBugVisualModels { get; set; }
+
+        public bool EnableFaceUnlockEyeStyles { get; set; }
+        public bool EnableFaceUnlockGlowingEyes { get; set; }
+        public bool EnableFaceUnlockGlowingBodyDecorations { get; set; }
+        public bool EnableFaceUnlockNpcs { get; set; }
+        public bool EnableFaceUnlockMarkingsForAll { get; set; }
+        public bool EnableFaceUnlockUnmarkedSorcerers { get; set; }
     }
 }

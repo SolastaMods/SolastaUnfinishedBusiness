@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             { "ImpPhil", "monster's health, pause UI, stocks prices, no attunement, xp scaling" },
             { "DubhHerder", "Crafty Feats Migration" },
             { "View619", "Darkvision, Superior Dark Vision" },
-            { "SilverGriffon", "PickPocket, lore friendly names, crafty feats" },
+            { "SilverGriffon", "PickPocket, lore friendly names, crafty feats, face unlocks" },
             { "Boofat", "alwaysAlt" },
             { "Myztikrice", "faster time scale" },
             { "AceHigh", "Power Attack, Reckless Fury, no identification, Tactician Subclass" },
