@@ -36,8 +36,9 @@ namespace SolastaCommunityExpansion.Patches
                 CharacterExportContext.Load();
                 InventoryManagementContext.Load();
                 RemoveBugVisualModelsContext.Load();
+                FaceUnlockContext.Load();
                 ConjurationsContext.Load();
-
+              
                 Main.Enabled = true;
             }
         }
