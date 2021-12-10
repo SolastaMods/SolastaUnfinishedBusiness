@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         {
             { "ChrisJohnDigital".orange().bold(), "head developer, feats, items, subclasses, progression, etc." },
             { "Zappastuff", "mod UI work, integration, community organization, level 20, respec" },
-            { "ImpPhil", "monster's health, pause UI, stocks prices, no attunement, xp scaling" },
+            { "ImpPhil", "monster's health, pause UI, stocks prices, no attunement, xp scaling, character export" },
             { "DubhHerder", "Crafty Feats Migration" },
             { "View619", "Darkvision, Superior Dark Vision" },
             { "SilverGriffon", "PickPocket, lore friendly names, crafty feats, face unlocks" },
@@ -34,7 +34,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 using (UI.HorizontalScope())
                 {
                     UI.Label(kvp.Key.orange(), UI.Width(110));
-                    UI.Label(kvp.Value, UI.Width(400));
+                    UI.Label(kvp.Value, UI.Width(500));
                 }
             }
             UI.Label("");

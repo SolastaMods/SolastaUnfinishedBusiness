@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityModManagerNet;
 
 namespace SolastaCommunityExpansion
@@ -8,6 +10,8 @@ namespace SolastaCommunityExpansion
 
     }
 
+    [Serializable]
+    [XmlRoot(ElementName = "Settings")]
     public class Settings : UnityModManager.ModSettings
     {
         //
@@ -124,6 +128,8 @@ namespace SolastaCommunityExpansion
         public bool EnableInventoryFilterAndSort { get; set; } = true;
 
         public bool RemoveBugVisualModels { get; set; }
+
+        public bool FullyControlAlliedConjurations { get; set; }
 
         public bool EnableFaceUnlockEyeStyles { get; set; }
         public bool EnableFaceUnlockGlowingEyes { get; set; }
