@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion.Patches.Camera
                         || __instance.CurrentCameraMode.CameraService == null
                         || !__instance.CurrentCameraMode.CameraService.MainCamera)
                     {
-                        Main.Log("ccl == null"); return true;
+                        return true;
                     }
 
                     var lp = character.LocationPosition;
