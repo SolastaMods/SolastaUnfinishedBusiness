@@ -40,7 +40,6 @@ namespace SolastaCommunityExpansion
                 .FirstOrDefault();
 
             var selectedCampaignService = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>();
-            var sessionService = ServiceRepository.GetService<ISessionService>();
 
             if (mostRecent != null && mostRecent.Path != root && selectedCampaignService != null)
             {
