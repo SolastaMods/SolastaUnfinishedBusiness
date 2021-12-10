@@ -1,4 +1,5 @@
 ﻿using ModKit;
+using SolastaCommunityExpansion.Models;
 using static SolastaCommunityExpansion.Viewers.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
@@ -39,11 +40,19 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.HideMonsterHitPoints = toggle;
             }
 
+            UI.Label("");
+
+            toggle = Main.Settings.EnableInvisibleCrownOfTheMagister;
+            if (UI.Toggle("Hides Crown of the Magister on game UI", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableInvisibleCrownOfTheMagister = toggle;
+                ItemOptionsContext.SwitchCrownOfTheMagister();
+            }
+
             toggle = Main.Settings.RemoveBugVisualModels;
-            if (UI.Toggle("Replaces bug-like models with alternative visuals in the game, must be switched on before maps are loaded" , ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Replaces bug-like models with alternative visuals in the game, must be switched on before maps are loaded " + RequiresRestart , ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.RemoveBugVisualModels = toggle;
-                Models.RemoveBugVisualModelsContext.Load();
             }
 
             UI.Label("");

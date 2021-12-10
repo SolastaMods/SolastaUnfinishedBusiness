@@ -137,5 +137,17 @@ namespace SolastaCommunityExpansion
         public bool EnableFaceUnlockNpcs { get; set; }
         public bool EnableFaceUnlockMarkingsForAll { get; set; }
         public bool EnableFaceUnlockUnmarkedSorcerers { get; set; }
+
+        public bool EnableUniversalSylvanArmor { get; set; }
+        public bool EnableInvisibleCrownOfTheMagister { get; set; }
+        public bool EnableClothingGorimStock { get; set; }
+        public bool EnableRestockAntiquarians { get; set; }
+        public bool EnableRestockArcaneum { get; set; }
+        public bool EnableRestockCircleOfDanantar { get; set; }
+        public bool EnableRestockTowerOfKnowledge { get; set; }
+
+        public int BeltOfDwarvenKindBeardChances { get; set; } = 50;
+
+        public bool EnableMagicStaffFoci { get; set; }    
     }
 }

@@ -614,3 +614,4 @@ Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription	Up to three e
 Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle	Illuminating Burst
 Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	Illuminating Strike deals extra damage to the target!
 Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat Illuminating Strike!
+Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!

@@ -1,4 +1,6 @@
-﻿using ModKit;
+﻿using System;
+using System.Collections.Generic;
+using ModKit;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
@@ -8,6 +10,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         internal static void DisplayRules()
         {
             bool toggle;
+            int value;
 
             UI.Label("");
             UI.Label("SRD:".yellow());
@@ -65,6 +68,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
             }
 
+            toggle = Main.Settings.EnableUniversalSylvanArmor;
+            if (UI.Toggle("Allows any class to wear sylvan armor", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableUniversalSylvanArmor = toggle;
+                ItemOptionsContext.SwitchUniversalSylvanArmor();
+            }
+
             toggle = Main.Settings.DruidNoMetalRestriction;
             if (UI.Toggle("Allows Druids to wear metal armor", ref toggle, UI.AutoWidth()))
             {
@@ -82,6 +92,22 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (UI.Toggle("Scales merchant prices correctly / exactly", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.ExactMerchantCostScaling = toggle;
+            }
+
+            toggle = Main.Settings.EnableMagicStaffFoci;
+            if (UI.Toggle("Makes all magic staves arcane foci " + "[except for Staff of Healing which is Divine]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableMagicStaffFoci = toggle;
+                ItemOptionsContext.SwitchMagicStaffFoci();
+            }
+
+            UI.Label("");
+
+            value = Main.Settings.BeltOfDwarvenKindBeardChances;
+            if (UI.Slider("Sets the chances a beard appears when using the Belt of Dwarvenkin".white(), ref value, 0, 100, 50, "", UI.AutoWidth()))
+            {
+                Main.Settings.BeltOfDwarvenKindBeardChances = value;
+                ItemOptionsContext.SwitchBeltOfDwarvenKindBeardChances();
             }
         }
     }
