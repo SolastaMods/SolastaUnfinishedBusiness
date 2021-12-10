@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using static SolastaCommunityExpansion.Models.SaveByLocationContext;
@@ -7,6 +8,7 @@ using static SolastaCommunityExpansion.Models.SaveByLocationContext;
 namespace SolastaCommunityExpansion
 {
     [HarmonyPatch(typeof(MainMenuScreen), "OnEndShow")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class MainMenuScreen_OnEndShow
     {
         internal static void Postfix()

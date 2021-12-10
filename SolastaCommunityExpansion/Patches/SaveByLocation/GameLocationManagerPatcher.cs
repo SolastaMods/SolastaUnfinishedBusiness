@@ -1,9 +1,11 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 using static SolastaCommunityExpansion.Models.SaveByLocationContext;
 
 namespace SolastaCommunityExpansion.Patches.SaveByLocation
 {
     [HarmonyPatch(typeof(GameLocationManager), "LoadLocationAsync")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameLocationManager_LoadLocationAsync
     {
         public static void Prefix(GameLocationManager __instance, string userLocationName)

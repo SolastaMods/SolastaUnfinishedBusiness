@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ using static SolastaCommunityExpansion.Models.SaveByLocationContext;
 namespace SolastaCommunityExpansion
 {
     [HarmonyPatch(typeof(LoadPanel), "OnBeginShow")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class LoadPanel_OnBeginShow
     {
         internal static GameObject Dropdown { get; private set; }
