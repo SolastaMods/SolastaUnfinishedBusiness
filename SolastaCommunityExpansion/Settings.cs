@@ -138,6 +138,8 @@ namespace SolastaCommunityExpansion
         public bool EnableFaceUnlockMarkingsForAll { get; set; }
         public bool EnableFaceUnlockUnmarkedSorcerers { get; set; }
 
+        public bool EnableSaveByLocation { get; set; }
+        
         public bool EnableUniversalSylvanArmor { get; set; }
         public bool EnableInvisibleCrownOfTheMagister { get; set; }
         public bool EnableClothingGorimStock { get; set; }
