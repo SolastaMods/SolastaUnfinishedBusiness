@@ -90,6 +90,23 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.EnableClothingGorimStock = toggle;
             }
 
+            toggle = Main.Settings.CreateAdditionalFoci;
+            if (UI.Toggle("Stocks Hugo's store with new foci items " + "[Arcane Staff / Druid Neck, Staff and Club]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.CreateAdditionalFoci = toggle;
+                ItemOptionsContext.SwitchFociItems();
+            }
+
+            if (Main.Settings.CreateAdditionalFoci)
+            {
+                toggle = Main.Settings.EnableAdditionalFociDungeonMaker;
+                if (UI.Toggle("Adds new Foci items to Dungeon Maker ", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableAdditionalFociDungeonMaker = toggle;
+                    ItemOptionsContext.SwitchFociItemsDungeonMaker();
+                }
+            }
+
             UI.Label("");
 
             intValue = Main.Settings.RecipeCost;
@@ -109,7 +126,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             if (displayRestocks)
             {
-                UI.Label(". Enables all of the merchant's stock to restock over time except for Manuals / Tomes. Some items can take up to 7 game days to restock");
+                UI.Label(". Enables all merchant's stock to restock over time except for Manuals and Tomes. Note that some items can take up to 7 game days to restock");
                 UI.Label("");
 
                 toggle = Main.Settings.EnableRestockAntiquarians;

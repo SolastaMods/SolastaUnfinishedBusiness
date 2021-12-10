@@ -148,6 +148,8 @@ namespace SolastaCommunityExpansion
 
         public int BeltOfDwarvenKindBeardChances { get; set; } = 50;
 
-        public bool EnableMagicStaffFoci { get; set; }    
+        public bool EnableMagicStaffFoci { get; set; }
+        public bool CreateAdditionalFoci { get; set; }
+        public bool EnableAdditionalFociDungeonMaker { get; set; }
     }
 }

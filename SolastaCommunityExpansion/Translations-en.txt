@@ -615,3 +615,11 @@ Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle	Illuminating Burst
 Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	Illuminating Strike deals extra damage to the target!
 Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat Illuminating Strike!
 Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!
+Equipment/&ArcaneStaffTitle	Arcane Staff
+Equipment/&ArcaneStaffDescription	This staff is inscribed with magical writing and can be used as a focus for Arcane spell casting.
+Equipment/&DruidicAmuletTitle	Druidic Amulet
+Equipment/&DruidicAmuletDescription This totemic amulet can be used as a focus for Druidic spell casting.
+Equipment/&LivewoodStaffTitle	Livewood Staff
+Equipment/&LivewoodStaffDescription	This staff is composed of living wood complete with sprouting leaves and perhaps seasonal blooms. It can be used as a focus for Druidic spell casting.
+Equipment/&LivewoodClubTitle	Livewood Club
+Equipment/&LivewoodClubDescription	This club is composed of living wood complete with sprouting leaves and perhaps seasonal blooms. It can be used as a focus for Druidic spell casting.
