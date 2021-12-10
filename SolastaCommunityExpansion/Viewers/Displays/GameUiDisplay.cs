@@ -96,7 +96,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             toggle = Main.Settings.DontFollowCharacterInBattle;
 
-            if (UI.Toggle("Battle camera doesn't follow when character is already on screen.", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Battle camera doesn't follow when character is already on screen", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.DontFollowCharacterInBattle = toggle;
             }
@@ -104,7 +104,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (Main.Settings.DontFollowCharacterInBattle)
             {
                 intValue = Main.Settings.DontFollowMargin;
-                if (UI.Slider("Unless character is off or within % of screen edge.".italic().white(), ref intValue, 0, 15, 1, "%", UI.AutoWidth()))
+                if (UI.Slider("Unless character is off or within % of screen edge".italic().white(), ref intValue, 0, 15, 1, "%", UI.AutoWidth()))
                 {
                     Main.Settings.DontFollowMargin = intValue;
                 }
