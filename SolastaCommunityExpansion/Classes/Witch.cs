@@ -361,31 +361,6 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                     DatabaseHelper.SpellDefinitions.Resurrection
 */                                                                                });
 
-/*            FeatureDefinitionMagicAffinityBuilder ritualCastingMagicAffinity = new FeatureDefinitionMagicAffinityBuilder(   "WitchRitualCastingMagicAffinity",
-                                                                                                                            GuidHelper.Create(ClassNamespace, "WitchRitualCastingMagicAffinity").ToString(),
-                                                                                                                            new GuiPresentationBuilder(
-                                                                                                                                "Class/&WitchRitualCastingMagicAffinityDescription",
-                                                                                                                                "Class/&WitchRitualCastingMagicAffinityTitle").Build())
-                                                                                                                            .SetRitualCasting((RuleDefinitions.RitualCasting)ExtraRitualCasting.Known);
-                                                                                                                            
-            FeatureDefinitionMagicAffinity magicAffinity = new FeatureDefinitionMagicAffinity();
-            magicAffinity = ritualCastingMagicAffinity.AddToDB();*/
-/*
-            FeatureDefinitionFeatureSet ritualCasting = new FeatureDefinitionFeatureSetBuilder(         "FeatureSetWitchRitualCasting",
-                                                                                                        GuidHelper.Create(ClassNamespace, "FeatureSetWitchRitualCasting").ToString(),
-                                                                                                        new GuiPresentationBuilder(
-                                                                                                        "Class/&WitchRitualSpellcastingDescription",
-                                                                                                        "Class/&WitchRitualSpellcastingTitle").Build()).AddToDB();
-
-            FeatureDefinitionFeatureSet ritualCasting2 = new FeatureDefinitionFeatureSetBuilder(  DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
-                                                                                                        "FeatureSetWitchRitualCasting2",
-                                                                                                        GuidHelper.Create(ClassNamespace, "FeatureSetWitchRitualCasting2").ToString(),
-                                                                                                        new GuiPresentationBuilder(
-                                                                                                        "Class/&WitchRitualSpellcasting2Description",
-                                                                                                        "Class/&WitchRitualSpellcasting2Title").Build()).AddToDB();
-*/
-//            ritualCasting.SetRitualCasting(Helpers.ExtraRitualCasting.Known);
-
             FeatureDefinitionFeatureSet ritualCasting = new FeatureDefinitionFeatureSetBuilder(  DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
                                                                                                 "WitchFeatureSetRitualCasting",
                                                                                                 GuidHelper.Create(ClassNamespace, "WitchFeatureSetRitualCasting").ToString(),
@@ -399,9 +374,6 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                                                                                             "Class/&WitchRitualCastingMagicAffinityTitle").Build())
                                                                                                                                                         .SetRitualCasting((RuleDefinitions.RitualCasting)ExtraRitualCasting.Known).AddToDB())
                                                                                                 .AddToDB();
-
-//            ritualCasting.SetFeature(ritualCastingMagicAffinity.SetRitualCasting((RuleDefinitions.RitualCasting)ExtraRitualCasting.Known)
-  //                                                              .AddToDB());
 
             CastSpellBuilder spellCasting = new CastSpellBuilder(   "CastSpellClassWitch", 
                                                                     GuidHelper.Create(ClassNamespace, "CastSpellClassWitch").ToString())
@@ -422,7 +394,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             GuiPresentationBuilder witchPresentation = new GuiPresentationBuilder(
                 "Class/&WitchDescription",
                 "Class/&WitchTitle");
-            witchPresentation.SetSpriteReference(DatabaseHelper.CharacterClassDefinitions.Wizard.GuiPresentation.SpriteReference);
+            witchPresentation.SetSpriteReference(DatabaseHelper.CharacterClassDefinitions.Sorcerer.GuiPresentation.SpriteReference);
             witch.SetGuiPresentation(witchPresentation.Build());
 
             witch.AddFeatureAtLevel(savingThrowProficiencies, 1);
@@ -434,12 +406,25 @@ namespace SolastaCommunityExpansion.Classes.Witch
             witch.AddFeatureAtLevel(spellCasting.AddToDB(), 1);
             witch.AddFeatureAtLevel(ritualCasting, 1);
 
-            // TODO: Do a dropdown like the Druid of the Land land type or summon type for the Druid of Spirits (?)
-//            witch.AddFeatureAtLevel(WitchsCurse,1);
             // TODO: Do some powers like the Tinkerer infusions, dropdown like infusions too
             // powers should last 1 round by default
             // how to do 2nd concentration mechanic???
-//            witch.AddFeatureAtLevel(Maledictions, 1);
+            // Maledictions progression is as follows:
+            // lvl 1:  2
+            // lvl 2:  3
+            // lvl 5:  4
+            // lvl 9:  5
+            // lvl 13: 6
+            // lvl 17: 7
+            witch.AddFeatureAtLevel(Maledictions(), 1);
+            witch.AddFeatureAtLevel(Maledictions(), 1);
+
+            // BUG: this will not work if applied at level 1, since not all data structures are built before choosing features.
+            // This seems like a limitation of the way character creation is handled :(
+            // Workaround is to apply this at level 2
+            witch.AddFeatureAtLevel(Maledictions(), 2);
+            witch.AddFeatureAtLevel(WitchCurse(),2);
+
             // This should actually be a bit refined, i.e. give the Find Familiar spell, and have a longer casting time/ritual tag
             // Beckon Familiar is actually a Malediction, i.e. instant cast familiar
             witch.AddFeatureAtLevel(Familiar(spellList), 2);
@@ -451,6 +436,9 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             // TODO: Maledictions should now apply a debuff for disadvantage on saving throw like Force Of Law
 //            witch.AddFeatureAtLevel(InsidiousSpell,5);
+
+            witch.AddFeatureAtLevel(Maledictions(), 5);
+
             // TODO: Simply buff the familiar accordingly, i.e. offer more forms, and if that is too hard, 
             // apply proficiency bonus on hit, or
             // extra attack to the familiar
@@ -460,6 +448,9 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             // Maybe change this... not sure what to do... is there an OnDeath event or something?
 //            witch.AddFeatureAtLevel(DyingCurse,9);
+
+            witch.AddFeatureAtLevel(Maledictions(), 9);
+
             // TODO: Another set of Maledictions, but stronger, and again follow the Tinkerer infusions pattern
 //            witch.AddFeatureAtLevel(GreaterMalediction,11);
 
@@ -467,8 +458,14 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             // TODO: Another set of Maledictions, but stronger, and again follow the Tinkerer infusions pattern
 //            witch.AddFeatureAtLevel(GreaterMalediction,13);
+
+            witch.AddFeatureAtLevel(Maledictions(), 13);
+
             // TODO: Another set of Maledictions, but stronger, and again follow the Tinkerer infusions pattern
 //            witch.AddFeatureAtLevel(GreaterMalediction,15);
+
+            witch.AddFeatureAtLevel(Maledictions(), 17);
+
             // TODO: Another set of Maledictions, but stronger, and again follow the Tinkerer infusions pattern
 //            witch.AddFeatureAtLevel(GreaterMalediction,18);
             // TODO: Another drop down list like Circle of the Land Druid
@@ -478,7 +475,164 @@ namespace SolastaCommunityExpansion.Classes.Witch
             Class = witch.AddToDB();
         }
 
-        FeatureDefinitionPower Familiar(SpellListDefinition spellListDefinition)
+        FeatureDefinitionFeatureSet Maledictions()
+        {
+
+            // Abate: 
+            // Apathy: 
+            // Beckon Familiar: 
+            // Bleeding: 
+            // Charm: 
+            // Dire Familiar: 
+            // Disorient: 
+            // Doomward: 
+            // Duplicity: 
+            // Evil Eye:
+            // Fortune:
+            // Go Unseen: 
+            // Hobble:
+            // Knowing:
+            // Mire:
+            // Misfortune:
+            // Obfuscate:
+            // Peacebond:
+            // Pox:
+            // Ruin:
+            // Scurry:
+            // Shriek:
+            // Slumber:
+            // Slur:
+            // Tremors:
+            // Ward:
+
+            FeatureDefinitionDamageAffinityBuilder burnedFireRes = new FeatureDefinitionDamageAffinityBuilder(  DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
+                                                                                                                "WitchBurnedFireResistance",
+                                                                                                                GuidHelper.Create(ClassNamespace, "WitchBurnedFireResistance").ToString(),
+                                                                                                                new GuiPresentationBuilder(
+                                                                                                                    "Class/&WitchBurnedFireResistanceDescription",
+                                                                                                                    "Class/&WitchBurnedFireResistanceTitle").Build());
+
+            FeatureDefinitionBonusCantripsBuilder burnedProduceFlame = new FeatureDefinitionBonusCantripsBuilder(  DatabaseHelper.FeatureDefinitionBonusCantripss.BonusCantripsDomainElementaFire,
+                                                                                                                "WitchBurnedProduceFlame",
+                                                                                                                GuidHelper.Create(ClassNamespace, "WitchBurnedProduceFlame").ToString(),
+                                                                                                                new GuiPresentationBuilder(
+                                                                                                                    "Class/&WitchBurnedProduceFlameDescription",
+                                                                                                                    "Class/&WitchBurnedProduceFlameTitle").Build())
+                                                                                                                .ClearBonusCantrips()
+                                                                                                                .AddBonusCantrip(DatabaseHelper.SpellDefinitions.ProduceFlame);
+
+            FeatureDefinitionFeatureSet maledictions = new FeatureDefinitionFeatureSetBuilder(  DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
+                                                                                                "WitchFeatureSetMaledictions",
+                                                                                                GuidHelper.Create(ClassNamespace, "WitchFeatureSetMaledictions").ToString(),
+                                                                                                new GuiPresentationBuilder(
+                                                                                                    "Class/&WitchFeatureSetMaledictionsDescription",
+                                                                                                    "Class/&WitchFeatureSetMaledictionsTitle").Build())
+                                                                                                .ClearFeatures()
+                                                                                                .AddFeature(burnedFireRes.AddToDB())
+                                                                                                .AddFeature(burnedProduceFlame.AddToDB())
+                                                                                                .AddToDB();
+
+            return maledictions;
+        }
+
+        FeatureDefinitionFeatureSet WitchCurse()
+        {
+
+            //+ Burned: Produce Flame + resist fire
+            //- Drowned: Can breathe water, swimming speed is walking speed
+            //? Feral: Survival Skill + Natural Armor 12 AC + Dex (no armor no shield)
+            //? Hideous: Intimidation skill + at initiative, scare 1 humanoid with wisdom save or frightened until end of turn
+            //? Hollow: When you or familiar have killing blow, gain witch level + CHA mod in temp hp
+            //? Infested: immune to disease + familiar can be swarm of rats at 2nd level + swarm of insects at lvl 7
+            //+ Loveless: immune to charm
+            //? Possessed: learn an additional witch spell of level you have spell slots at 1,4,8,12 
+            //? Starving: no need to eat (?), immune to poison
+            //+ Visions: Add CHA to initiative, on top of DEX
+            //- Whispers: can communicate telepathically 30 feet
+
+            FeatureDefinitionDamageAffinityBuilder burnedFireRes = new FeatureDefinitionDamageAffinityBuilder(  DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
+                                                                                                                "WitchBurnedFireResistance",
+                                                                                                                GuidHelper.Create(ClassNamespace, "WitchBurnedFireResistance").ToString(),
+                                                                                                                new GuiPresentationBuilder(
+                                                                                                                    "Class/&WitchBurnedFireResistanceDescription",
+                                                                                                                    "Class/&WitchBurnedFireResistanceTitle").Build());
+
+            FeatureDefinitionBonusCantripsBuilder burnedProduceFlame = new FeatureDefinitionBonusCantripsBuilder(  DatabaseHelper.FeatureDefinitionBonusCantripss.BonusCantripsDomainElementaFire,
+                                                                                                                "WitchBurnedProduceFlame",
+                                                                                                                GuidHelper.Create(ClassNamespace, "WitchBurnedProduceFlame").ToString(),
+                                                                                                                new GuiPresentationBuilder(
+                                                                                                                    "Class/&WitchBurnedProduceFlameDescription",
+                                                                                                                    "Class/&WitchBurnedProduceFlameTitle").Build())
+                                                                                                                .ClearBonusCantrips()
+                                                                                                                .AddBonusCantrip(DatabaseHelper.SpellDefinitions.ProduceFlame);
+
+            FeatureDefinitionFeatureSet burnedCurse = new FeatureDefinitionFeatureSetBuilder(  DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
+                                                                                                "WitchFeatureSetBurnedCurse",
+                                                                                                GuidHelper.Create(ClassNamespace, "WitchFeatureSetBurnedCurse").ToString(),
+                                                                                                new GuiPresentationBuilder(
+                                                                                                    "Class/&WitchFeatureSetBurnedCurseDescription",
+                                                                                                    "Class/&WitchFeatureSetBurnedCurseTitle").Build())
+                                                                                                .ClearFeatures()
+                                                                                                .AddFeature(burnedFireRes.AddToDB())
+                                                                                                .AddFeature(burnedProduceFlame.AddToDB())
+                                                                                                .AddToDB();
+
+            FeatureDefinitionConditionAffinityBuilder lovelessCharmImmunity = new FeatureDefinitionConditionAffinityBuilder( DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
+                                                                                                                            "WitchLovelessCharmImmunity",
+                                                                                                                            GuidHelper.Create(ClassNamespace, "WitchLovelessCharmImmunity").ToString(),
+                                                                                                                            new GuiPresentationBuilder(
+                                                                                                                                "Class/&WitchLovelessCharmImmunityDescription",
+                                                                                                                                "Class/&WitchLovelessCharmImmunityTitle").Build());
+
+            FeatureDefinitionFeatureSet lovelessCurse = new FeatureDefinitionFeatureSetBuilder( DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
+                                                                                                "WitchFeatureSetLovelessCurse",
+                                                                                                GuidHelper.Create(ClassNamespace, "WitchFeatureSetLovelessCurse").ToString(),
+                                                                                                new GuiPresentationBuilder(
+                                                                                                    "Class/&WitchFeatureSetLovelessCurseDescription",
+                                                                                                    "Class/&WitchFeatureSetLovelessCurseTitle").Build())
+                                                                                                .ClearFeatures()
+                                                                                                .AddFeature(lovelessCharmImmunity.AddToDB())
+                                                                                                .AddToDB();
+
+            // NOTE: I have no idea how to apply a Charisma bonus, so setting the initiative bonus to 3. It seems like only the "Additive" operation works
+            FeatureDefinitionAttributeModifierBuilder visionsInitiative = new FeatureDefinitionAttributeModifierBuilder(    "WitchVisionsInitiative",
+                                                                                                                            GuidHelper.Create(ClassNamespace, "WitchVisionsInitiative").ToString(),
+                                                                                                                            FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                                                                                                                            AttributeDefinitions.Initiative,
+                                                                                                                            3,
+                                                                                                                            new GuiPresentationBuilder(
+                                                                                                                                "Class/&WitchVisionsInitiativeDescription",
+                                                                                                                                "Class/&WitchVisionsInitiativeTitle").Build())
+                                                                                                                            .SetModifierAbilityScore(AttributeDefinitions.Charisma);
+
+            FeatureDefinitionFeatureSet visionsCurse = new FeatureDefinitionFeatureSetBuilder( DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
+                                                                                                "WitchFeatureSetVisionsCurse",
+                                                                                                GuidHelper.Create(ClassNamespace, "WitchFeatureSetVisionsCurse").ToString(),
+                                                                                                new GuiPresentationBuilder(
+                                                                                                    "Class/&WitchFeatureSetVisionsCurseDescription",
+                                                                                                    "Class/&WitchFeatureSetVisionsCurseTitle").Build())
+                                                                                                .ClearFeatures()
+                                                                                                .AddFeature(visionsInitiative.AddToDB())
+                                                                                                .AddToDB();
+
+            FeatureDefinitionFeatureSet witchCurse = new FeatureDefinitionFeatureSetBuilder(  DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
+                                                                                                "WitchFeatureSetWitchCurse",
+                                                                                                GuidHelper.Create(ClassNamespace, "WitchFeatureSetWitchCurse").ToString(),
+                                                                                                new GuiPresentationBuilder(
+                                                                                                    "Class/&WitchFeatureSetWitchCurseDescription",
+                                                                                                    "Class/&WitchFeatureSetWitchCurseTitle").Build())
+                                                                                                .ClearFeatures()
+                                                                                                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+                                                                                                .SetUniqueChoices(true)
+                                                                                                .AddFeature(burnedCurse)
+                                                                                                .AddFeature(lovelessCurse)
+                                                                                                .AddFeature(visionsCurse)
+                                                                                                .AddToDB();
+
+            return witchCurse;
+        }
+
+        FeatureDefinition Familiar(SpellListDefinition spellListDefinition)
         {
             var effectForm = new EffectForm();
             effectForm.FormType = EffectForm.EffectFormType.Summon;

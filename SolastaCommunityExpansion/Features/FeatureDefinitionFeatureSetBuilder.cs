@@ -17,11 +17,37 @@ namespace SolastaCommunityExpansion.Features
         {
             Definition.SetGuiPresentation(guiPresentation);
         }
-        public FeatureDefinitionFeatureSetBuilder SetFeature(FeatureDefinition featureDefinition)
+
+        public FeatureDefinitionFeatureSetBuilder ClearFeatures()
+        {
+            Definition.FeatureSet.Clear();
+            return this;
+        }        public FeatureDefinitionFeatureSetBuilder SetFeature(FeatureDefinition featureDefinition)
         {
             
             // IMPROVE THIS AND SEARCH FOR FEATURESET TYPE... THERE IS NO SETTER FOR FEATURESET
             Definition.FeatureSet[0] = featureDefinition;
+            return this;
+        }
+
+        public FeatureDefinitionFeatureSetBuilder AddFeature(FeatureDefinition featureDefinition)
+        {
+            
+            Definition.FeatureSet.Add(featureDefinition);
+            return this;
+        }
+
+        public FeatureDefinitionFeatureSetBuilder SetMode(FeatureDefinitionFeatureSet.FeatureSetMode mode)
+        {
+            
+            Definition.SetMode(mode);
+            return this;
+        }
+
+        public FeatureDefinitionFeatureSetBuilder SetUniqueChoices(bool uniqueChoice)
+        {
+            
+            Definition.SetUniqueChoices(uniqueChoice);
             return this;
         }
 
