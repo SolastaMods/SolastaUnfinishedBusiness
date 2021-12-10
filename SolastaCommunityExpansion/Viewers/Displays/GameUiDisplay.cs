@@ -62,6 +62,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.EnableInventoryFilterAndSort = toggle;
             }
 
+            toggle = Main.Settings.EnableSaveByLocation;
+            if (UI.Toggle("Enables save by locations / campaigns " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableSaveByLocation = toggle;
+            }
+
             toggle = Main.Settings.InvertAltBehaviorOnTooltips;
             if (UI.Toggle("Inverts ALT key behavior on tooltips", ref toggle, UI.AutoWidth()))
             {

@@ -137,5 +137,7 @@ namespace SolastaCommunityExpansion
         public bool EnableFaceUnlockNpcs { get; set; }
         public bool EnableFaceUnlockMarkingsForAll { get; set; }
         public bool EnableFaceUnlockUnmarkedSorcerers { get; set; }
+
+        public bool EnableSaveByLocation { get; set; }
     }
 }
