@@ -11,7 +11,9 @@ namespace SolastaCommunityExpansion.Patches
         {
             if (Main.Settings.DisableAutoEquip)
             {
-                tryToEquip = false;
+                var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
+
+                tryToEquip = characterBuildingService?.HeroCharacter != null;
             }
         }
     }
