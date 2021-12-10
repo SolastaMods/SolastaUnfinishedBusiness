@@ -4,7 +4,7 @@ using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SolastaUIUpdates.Patches
+namespace SolastaCommunityExpansion.Patches
 {
     // spacing
     internal static class SubclassSelectionSpacingPatcher
