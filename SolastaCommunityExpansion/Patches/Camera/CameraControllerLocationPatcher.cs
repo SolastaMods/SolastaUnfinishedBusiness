@@ -13,18 +13,17 @@ namespace SolastaCommunityExpansion.Patches.Camera
         {
             try
             {
-                if (!__instance) { Main.Log("ccl == null"); return true; }
-                if (character == null) { Main.Log("character == null"); return true; }
-                if (!__instance.CurrentCameraMode)
-                {
-                    // This can be null when loading save game
-                    Main.Log("currentcamera == null"); return true;
-                }
-                if (__instance.CurrentCameraMode.CameraService == null) { Main.Log("cameraservice == null"); return true; }
-                if (!__instance.CurrentCameraMode.CameraService.MainCamera) { Main.Log("maincamera == null"); return true; }
-
                 if (Main.Settings.DontFollowCharacterInBattle)
                 {
+                    if (!__instance 
+                        || character == null 
+                        || !__instance.CurrentCameraMode 
+                        || __instance.CurrentCameraMode.CameraService == null
+                        || !__instance.CurrentCameraMode.CameraService.MainCamera)
+                    {
+                        Main.Log("ccl == null"); return true;
+                    }
+
                     var lp = character.LocationPosition;
                     var sp = __instance.CurrentCameraMode.CameraService.MainCamera.WorldToScreenPoint(new Vector3(lp.x, lp.y, lp.z));
 
@@ -44,8 +43,6 @@ namespace SolastaCommunityExpansion.Patches.Camera
                     Main.Log($"CameraControllerLocation_FollowCharacterForBattle: {character.Name} - ignored.");
                     return false;
                 }
-
-                Main.Log($"CameraControllerLocation_FollowCharacterForBattle (default): {character.Name}");
             }
             catch (Exception ex)
             {
