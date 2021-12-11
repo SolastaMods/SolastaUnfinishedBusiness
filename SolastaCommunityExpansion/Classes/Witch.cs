@@ -347,6 +347,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 //                                                                                    DatabaseHelper.SpellDefinitions.Disintegrate,
                                                                                     DatabaseHelper.SpellDefinitions.Eyebite,
 //                                                                                    DatabaseHelper.SpellDefinitions.FreezingSphere,
+                                                                                    FrenzySpellBuilder.AddToSpellList(),
 //                                                                                    DatabaseHelper.SpellDefinitions.GlobeOfInvulnerability,
 //                                                                                    DatabaseHelper.SpellDefinitions.Harm,
 //                                                                                    DatabaseHelper.SpellDefinitions.Heal,
@@ -494,6 +495,9 @@ namespace SolastaCommunityExpansion.Classes.Witch
             // lvl 9:  5
             // lvl 13: 6
             // lvl 17: 7
+
+            // Legend: 
+            // +: implemented 
 
             //+ Abate: 60 feet CHA save, no reactions on fail
             //+ Apathy: 60 feet CHA save, calm emotions effect on fail
@@ -718,6 +722,11 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
         FeatureDefinitionFeatureSet WitchCurse()
         {
+
+            // Legend: 
+            // +: implemented 
+            // -: will not implement
+            // ?: maybe? not sure how
 
             //+ Burned: Produce Flame + resist fire
             //- Drowned: Can breathe water, swimming speed is walking speed
