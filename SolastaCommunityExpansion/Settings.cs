@@ -97,7 +97,7 @@ namespace SolastaCommunityExpansion
         public float SpellPanelGapBetweenLines { get; set; } = 30f;
 
         /* Faster Time Scale */
-        public float CustomTimeScale { get; set; } = 1.5f;
+        public float CustomTimeScale { get; set; } = 1.0f;
         public bool PermanentSpeedUp { get; set; }
 
         public bool AutoPauseOnVictory { get; set; }
