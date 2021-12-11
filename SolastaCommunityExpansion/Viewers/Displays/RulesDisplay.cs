@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using ModKit;
+﻿using ModKit;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Viewers.Displays

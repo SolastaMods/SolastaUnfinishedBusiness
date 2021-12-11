@@ -6,7 +6,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 {
     internal class RoyalKnight : AbstractSubclass
     {
-        private static Guid SubclassNamespace = new Guid("f5efd735-ff95-4256-ad17-dde585aeb4e2");
+        private static readonly Guid SubclassNamespace = new Guid("f5efd735-ff95-4256-ad17-dde585aeb4e2");
         private readonly CharacterSubclassDefinition Subclass;
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
