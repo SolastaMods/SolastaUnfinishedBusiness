@@ -2,7 +2,6 @@
 using SolastaModApi;
 using SolastaModApi.BuilderHelpers;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 using System;
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Helpers;
@@ -963,12 +962,6 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                         .AddToDB();
 
                 Definition.Features.Add(helpAction);
-
-/*                FeatureDefinitionCastSpell featureDefinitionCastSpell = new FeatureDefinitionCastSpell();
-                featureDefinitionCastSpell = FamiliarCastSpellBuilder.AddToFeatureDefinitionCastSpellList();
-                Definition.Features.Remove(DatabaseHelper.FeatureDefinitionCastSpells.CastSpellCubeOfLight);
-                Definition.Features.Add(featureDefinitionCastSpell);
-*/
             }
 
             public static MonsterDefinition CreateAndAddToDB(string name, string guid)
