@@ -416,14 +416,18 @@ namespace SolastaCommunityExpansion.Classes.Witch
             // lvl 9:  5
             // lvl 13: 6
             // lvl 17: 7
-            witch.AddFeatureAtLevel(Maledictions(), 1);
-            witch.AddFeatureAtLevel(Maledictions(), 1);
+
+            FeatureDefinitionFeatureSet maledictions = Maledictions();
+
+            witch.AddFeatureAtLevel(maledictions, 1);
+            witch.AddFeatureAtLevel(maledictions, 1);
 
             // BUG: this will not work if applied at level 1, since not all data structures are built before choosing features.
             // This seems like a limitation of the way character creation is handled :(
             // Workaround is to apply this at level 2
-            witch.AddFeatureAtLevel(Maledictions(), 2);
             witch.AddFeatureAtLevel(WitchCurse(),2);
+
+            witch.AddFeatureAtLevel(maledictions, 2);
 
             // This should actually be a bit refined, i.e. give the Find Familiar spell, and have a longer casting time/ritual tag
             // Beckon Familiar is actually a Malediction, i.e. instant cast familiar
@@ -437,7 +441,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             // TODO: Maledictions should now apply a debuff for disadvantage on saving throw like Force Of Law
 //            witch.AddFeatureAtLevel(InsidiousSpell,5);
 
-            witch.AddFeatureAtLevel(Maledictions(), 5);
+            witch.AddFeatureAtLevel(maledictions, 5);
 
             // TODO: Simply buff the familiar accordingly, i.e. offer more forms, and if that is too hard, 
             // apply proficiency bonus on hit, or
@@ -449,7 +453,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             // Maybe change this... not sure what to do... is there an OnDeath event or something?
 //            witch.AddFeatureAtLevel(DyingCurse,9);
 
-            witch.AddFeatureAtLevel(Maledictions(), 9);
+            witch.AddFeatureAtLevel(maledictions, 9);
 
             // TODO: Another set of Maledictions, but stronger, and again follow the Tinkerer infusions pattern
 //            witch.AddFeatureAtLevel(GreaterMalediction,11);
@@ -459,12 +463,12 @@ namespace SolastaCommunityExpansion.Classes.Witch
             // TODO: Another set of Maledictions, but stronger, and again follow the Tinkerer infusions pattern
 //            witch.AddFeatureAtLevel(GreaterMalediction,13);
 
-            witch.AddFeatureAtLevel(Maledictions(), 13);
+            witch.AddFeatureAtLevel(maledictions, 13);
 
             // TODO: Another set of Maledictions, but stronger, and again follow the Tinkerer infusions pattern
 //            witch.AddFeatureAtLevel(GreaterMalediction,15);
 
-            witch.AddFeatureAtLevel(Maledictions(), 17);
+            witch.AddFeatureAtLevel(maledictions, 17);
 
             // TODO: Another set of Maledictions, but stronger, and again follow the Tinkerer infusions pattern
 //            witch.AddFeatureAtLevel(GreaterMalediction,18);
@@ -478,48 +482,220 @@ namespace SolastaCommunityExpansion.Classes.Witch
         FeatureDefinitionFeatureSet Maledictions()
         {
 
-            // Abate: 
-            // Apathy: 
-            // Beckon Familiar: 
-            // Bleeding: 
-            // Charm: 
-            // Dire Familiar: 
-            // Disorient: 
-            // Doomward: 
-            // Duplicity: 
-            // Evil Eye:
-            // Fortune:
-            // Go Unseen: 
-            // Hobble:
-            // Knowing:
-            // Mire:
-            // Misfortune:
-            // Obfuscate:
-            // Peacebond:
-            // Pox:
-            // Ruin:
-            // Scurry:
-            // Shriek:
-            // Slumber:
-            // Slur:
-            // Tremors:
-            // Ward:
+            // Maledictions are actions unless mentioned otherwise
+            // If a Malediction calls for an attack roll or saving throw, it uses your spell attack bonus or spell save DC, unless mentioned otherwise. 
+            // All Maledictions require verbal or somatic components
+            // If a Malediction lasts for a duration, i.e. until end of next turn (unless mentioned otherwise), you concentrate on it as you would a spell.
+            // You can concentrate on a Malediction and a spell at the same time, and you make only one Constitution saving throw to maintain your concentration on both.
 
-            FeatureDefinitionDamageAffinityBuilder burnedFireRes = new FeatureDefinitionDamageAffinityBuilder(  DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
-                                                                                                                "WitchBurnedFireResistance",
-                                                                                                                GuidHelper.Create(ClassNamespace, "WitchBurnedFireResistance").ToString(),
-                                                                                                                new GuiPresentationBuilder(
-                                                                                                                    "Class/&WitchBurnedFireResistanceDescription",
-                                                                                                                    "Class/&WitchBurnedFireResistanceTitle").Build());
+            // Maledictions progression is as follows:
+            // lvl 1:  2
+            // lvl 2:  3
+            // lvl 5:  4
+            // lvl 9:  5
+            // lvl 13: 6
+            // lvl 17: 7
 
-            FeatureDefinitionBonusCantripsBuilder burnedProduceFlame = new FeatureDefinitionBonusCantripsBuilder(  DatabaseHelper.FeatureDefinitionBonusCantripss.BonusCantripsDomainElementaFire,
-                                                                                                                "WitchBurnedProduceFlame",
-                                                                                                                GuidHelper.Create(ClassNamespace, "WitchBurnedProduceFlame").ToString(),
-                                                                                                                new GuiPresentationBuilder(
-                                                                                                                    "Class/&WitchBurnedProduceFlameDescription",
-                                                                                                                    "Class/&WitchBurnedProduceFlameTitle").Build())
-                                                                                                                .ClearBonusCantrips()
-                                                                                                                .AddBonusCantrip(DatabaseHelper.SpellDefinitions.ProduceFlame);
+            //+ Abate: 60 feet CHA save, no reactions on fail
+            //+ Apathy: 60 feet CHA save, calm emotions effect on fail
+            // Beckon Familiar: summon familiar as an action, cooldown of 1 minute (how to implement cooldowns??)
+            // Bleeding: 60 feet CON save, applies a Hex-like effect of 1d4 extra damage on any damage on fail
+            //+ Charm: 60 feet WIS save, Charm Person/Monster effect on fail
+            // Dire Familiar: for 1 minute, Familiar gains double witch level in hp and CHA mod bonus on dmg rolls 
+            //                can cast other maledictions while active -> This should be a power or lvl 7 Improved Familiar feature?
+            // Disorient: 60 feet CON save, -1d6 on attack rolls on fail
+            // Doomward: 60 feet friendly creature, Death Ward effect, cannot target that creature again until short or long rest (i.e. add a Doomward fatigue debuff?)
+            // Duplicity: single mirror image effect, odd roll the iamge image abosrbs the hit and disappears
+            //+ Evil Eye: 60 feet WIS save, frightened on fail
+            // Fortune: 60 feet friendly creature other than you gets adv. on saving throws
+            // Go Unseen: you and familiar become invisible, 1 minute cooldown (how to implement cooldowns??)
+            // Hobble: 60 feet STR save, speed reduced TO 10 feet (not BY 10 feet) on fail. Flying creatures fall
+            // Knowing: too complicated... basically, you get one level of Creature lore/encyclopedia
+            //? Mire: 30 feet radius centered on where you cast becomes difficult terrain, you have Land Stride effect
+            // Misfortune: 60 feet, 1 creature, if it rolls a 20 on a d20, it becomes a 1. No saving throw
+            //+ Obfuscate: 20 feet radius Fog Cloud centered on you
+            // Peacebond: no weapons in 30 feet radius, STR check to free -> incapacitated if weapon?
+            //+ Pox: 5 feet CON save, poisoned on fail
+            // Ruin: 60 feet CON save, -3 to AC (minimum of 10)
+            // Scurry: don't bother...
+            // Shriek: BONUS action, Large or less creatures in a 5 foot radius around you are pushed 5 feet, no saving throw, instant duration
+            // Slumber: 60 feet WIS save, unconscious if fail. Undead, charm immune, and creatures with current HP > 5x witch level are immune
+            // Slur: 60 feet CHA save, on fail, if tries to cast spell with verbal component, fails if rolls odd on d20
+            // Tremors: 10 feet radius centered on you, DEX save, creatures on ground become prone if fail, instant duration
+            // Ward: 60 feet 1 creature other than you, reduce damage taken by 3 for every hit
+
+            EffectDescription abateEffectDescription = new EffectDescription();
+            abateEffectDescription.Copy(DatabaseHelper.SpellDefinitions.ShockingGrasp.EffectDescription);
+            abateEffectDescription.EffectForms.RemoveAt(0);
+            abateEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
+            abateEffectDescription.SetHasSavingThrow(true);
+            abateEffectDescription.SetRangeParameter(12);
+            abateEffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
+            abateEffectDescription.SetSavingThrowAbility(AttributeDefinitions.Charisma);
+            abateEffectDescription.SetTargetParameter(1);
+            abateEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
+
+            FeatureDefinitionPower abate = new FeatureDefinitionPowerBuilder(  "WitchMaledictionAbate",
+                                                                                GuidHelper.Create(ClassNamespace, "WitchMaledictionAbate").ToString(),
+                                                                                1,
+                                                                                RuleDefinitions.UsesDetermination.Fixed,
+                                                                                AttributeDefinitions.Charisma,
+                                                                                RuleDefinitions.ActivationTime.Action,
+                                                                                0,
+                                                                                RuleDefinitions.RechargeRate.AtWill,
+                                                                                false,
+                                                                                false,
+                                                                                AttributeDefinitions.Charisma,
+                                                                                abateEffectDescription,
+                                                                                new GuiPresentationBuilder(
+                                                                                    "Class/&WitchMaledictionAbateDescription",
+                                                                                    "Class/&WitchMaledictionAbateTitle").Build(),
+                                                                                true)
+                                                                                .AddToDB();
+
+            EffectDescription apathyEffectDescription = new EffectDescription();
+            apathyEffectDescription.Copy(DatabaseHelper.SpellDefinitions.CalmEmotionsOnEnemy.EffectDescription);
+            apathyEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
+            apathyEffectDescription.SetHasSavingThrow(true);
+            apathyEffectDescription.SetRangeParameter(12);
+            apathyEffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
+            apathyEffectDescription.SetSavingThrowAbility(AttributeDefinitions.Charisma);
+            apathyEffectDescription.SetTargetParameter(1);
+            apathyEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
+
+            FeatureDefinitionPower apathy = new FeatureDefinitionPowerBuilder(  "WitchMaledictionApathy",
+                                                                                GuidHelper.Create(ClassNamespace, "WitchMaledictionApathy").ToString(),
+                                                                                1,
+                                                                                RuleDefinitions.UsesDetermination.Fixed,
+                                                                                AttributeDefinitions.Charisma,
+                                                                                RuleDefinitions.ActivationTime.Action,
+                                                                                0,
+                                                                                RuleDefinitions.RechargeRate.AtWill,
+                                                                                false,
+                                                                                false,
+                                                                                AttributeDefinitions.Charisma,
+                                                                                apathyEffectDescription,
+                                                                                new GuiPresentationBuilder(
+                                                                                    "Class/&WitchMaledictionApathyDescription",
+                                                                                    "Class/&WitchMaledictionApathyTitle").Build(),
+                                                                                true)
+                                                                                .AddToDB();
+
+            EffectDescription charmEffectDescription = new EffectDescription();
+            charmEffectDescription.Copy(DatabaseHelper.SpellDefinitions.CharmPerson.EffectDescription);
+            charmEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
+            charmEffectDescription.SetHasSavingThrow(true);
+            charmEffectDescription.SetRangeParameter(12);
+            charmEffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
+            charmEffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
+            charmEffectDescription.SetTargetParameter(1);
+            charmEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
+
+            FeatureDefinitionPower charm = new FeatureDefinitionPowerBuilder(  "WitchMaledictionCharm",
+                                                                                GuidHelper.Create(ClassNamespace, "WitchMaledictionCharm").ToString(),
+                                                                                1,
+                                                                                RuleDefinitions.UsesDetermination.Fixed,
+                                                                                AttributeDefinitions.Charisma,
+                                                                                RuleDefinitions.ActivationTime.Action,
+                                                                                0,
+                                                                                RuleDefinitions.RechargeRate.AtWill,
+                                                                                false,
+                                                                                false,
+                                                                                AttributeDefinitions.Charisma,
+                                                                                charmEffectDescription,
+                                                                                new GuiPresentationBuilder(
+                                                                                    "Class/&WitchMaledictionCharmDescription",
+                                                                                    "Class/&WitchMaledictionCharmTitle").Build(),
+                                                                                true)
+                                                                                .AddToDB();
+
+            EffectDescription evileyeEffectDescription = new EffectDescription();
+            evileyeEffectDescription.Copy(DatabaseHelper.SpellDefinitions.Fear.EffectDescription);
+            evileyeEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
+            evileyeEffectDescription.SetHasSavingThrow(true);
+            evileyeEffectDescription.SetRangeParameter(12);
+            evileyeEffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
+            evileyeEffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
+            evileyeEffectDescription.SetTargetParameter(1);
+            evileyeEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
+
+            FeatureDefinitionPower evileye = new FeatureDefinitionPowerBuilder( "WitchMaledictionEvilEye",
+                                                                                GuidHelper.Create(ClassNamespace, "WitchMaledictionEvilEye").ToString(),
+                                                                                1,
+                                                                                RuleDefinitions.UsesDetermination.Fixed,
+                                                                                AttributeDefinitions.Charisma,
+                                                                                RuleDefinitions.ActivationTime.Action,
+                                                                                0,
+                                                                                RuleDefinitions.RechargeRate.AtWill,
+                                                                                false,
+                                                                                false,
+                                                                                AttributeDefinitions.Charisma,
+                                                                                evileyeEffectDescription,
+                                                                                new GuiPresentationBuilder(
+                                                                                    "Class/&WitchMaledictionEvilEyeDescription",
+                                                                                    "Class/&WitchMaledictionEvilEyeTitle").Build(),
+                                                                                true)
+                                                                                .AddToDB();
+
+            EffectDescription obfuscateEffectDescription = new EffectDescription();
+            obfuscateEffectDescription.Copy(DatabaseHelper.SpellDefinitions.FogCloud.EffectDescription);
+            obfuscateEffectDescription.SetCanBePlacedOnCharacter(true);
+            obfuscateEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
+            obfuscateEffectDescription.SetRangeParameter(0);
+            obfuscateEffectDescription.SetRangeType(RuleDefinitions.RangeType.Self);
+
+            FeatureDefinitionPower obfuscate = new FeatureDefinitionPowerBuilder(   "WitchMaledictionObfuscate",
+                                                                                    GuidHelper.Create(ClassNamespace, "WitchMaledictionObfuscate").ToString(),
+                                                                                    1,
+                                                                                    RuleDefinitions.UsesDetermination.Fixed,
+                                                                                    AttributeDefinitions.Charisma,
+                                                                                    RuleDefinitions.ActivationTime.Action,
+                                                                                    0,
+                                                                                    RuleDefinitions.RechargeRate.AtWill,
+                                                                                    false,
+                                                                                    false,
+                                                                                    AttributeDefinitions.Charisma,
+                                                                                    obfuscateEffectDescription,
+                                                                                    new GuiPresentationBuilder(
+                                                                                        "Class/&WitchMaledictionObfuscateDescription",
+                                                                                        "Class/&WitchMaledictionObfuscateTitle").Build(),
+                                                                                    true)
+                                                                                    .AddToDB();
+
+            EffectForm poxEffectForm = new EffectForm();
+            poxEffectForm.FormType = EffectForm.EffectFormType.Condition;
+            ConditionForm conditionForm = new ConditionForm();
+            poxEffectForm.SetConditionForm(conditionForm);
+            poxEffectForm.ConditionForm.SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionPoisoned);
+            EffectDescription poxEffectDescription = new EffectDescription();
+            poxEffectDescription.Copy(DatabaseHelper.SpellDefinitions.PoisonSpray.EffectDescription);
+            poxEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
+            poxEffectDescription.SetHasSavingThrow(true);
+            poxEffectDescription.SetRangeParameter(1);
+            poxEffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
+            poxEffectDescription.SetSavingThrowAbility(AttributeDefinitions.Constitution);
+            poxEffectDescription.SetTargetParameter(1);
+            poxEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
+            poxEffectDescription.EffectForms.Clear();
+            poxEffectDescription.EffectForms.Add(poxEffectForm);
+
+            FeatureDefinitionPower pox = new FeatureDefinitionPowerBuilder( "WitchMaledictionPox",
+                                                                            GuidHelper.Create(ClassNamespace, "WitchMaledictionPox").ToString(),
+                                                                            1,
+                                                                            RuleDefinitions.UsesDetermination.Fixed,
+                                                                            AttributeDefinitions.Charisma,
+                                                                            RuleDefinitions.ActivationTime.Action,
+                                                                            0,
+                                                                            RuleDefinitions.RechargeRate.AtWill,
+                                                                            false,
+                                                                            false,
+                                                                            AttributeDefinitions.Charisma,
+                                                                            poxEffectDescription,
+                                                                            new GuiPresentationBuilder(
+                                                                                "Class/&WitchMaledictionPoxDescription",
+                                                                                "Class/&WitchMaledictionPoxTitle").Build(),
+                                                                            true)
+                                                                            .AddToDB();
 
             FeatureDefinitionFeatureSet maledictions = new FeatureDefinitionFeatureSetBuilder(  DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
                                                                                                 "WitchFeatureSetMaledictions",
@@ -528,8 +704,14 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                                     "Class/&WitchFeatureSetMaledictionsDescription",
                                                                                                     "Class/&WitchFeatureSetMaledictionsTitle").Build())
                                                                                                 .ClearFeatures()
-                                                                                                .AddFeature(burnedFireRes.AddToDB())
-                                                                                                .AddFeature(burnedProduceFlame.AddToDB())
+                                                                                                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+                                                                                                .SetUniqueChoices(true)
+                                                                                                .AddFeature(abate)
+                                                                                                .AddFeature(apathy)
+                                                                                                .AddFeature(charm)
+                                                                                                .AddFeature(evileye)
+                                                                                                .AddFeature(obfuscate)
+                                                                                                .AddFeature(pox)
                                                                                                 .AddToDB();
 
             return maledictions;
@@ -695,8 +877,11 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 Definition.SetMaterialComponentType(RuleDefinitions.MaterialComponentType.Specific);
                 Definition.SetSpecificMaterialComponentConsumed(true);
                 Definition.SetSpecificMaterialComponentCostGp(10);
+                Definition.SetCastingTime(RuleDefinitions.ActivationTime.Hours1);
                 Definition.SetRitual(true);
-                Definition.SetRitualCastingTime(RuleDefinitions.ActivationTime.Minute10);
+
+                // BUG: Unable to have 70 minutes ritual casting time... if set to 10 minutes, it really only takes 10 minutes, isntead of 70
+                Definition.SetRitualCastingTime(RuleDefinitions.ActivationTime.Hours1);
                 Definition.SetRequiresConcentration(false);
 
                 var effectForm = new EffectForm();
