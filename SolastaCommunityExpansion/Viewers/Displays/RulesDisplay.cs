@@ -10,7 +10,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         internal static void DisplayRules()
         {
             bool toggle;
-            int value;
 
             UI.Label("");
             UI.Label("SRD:".yellow());
@@ -88,12 +87,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.DisableAutoEquip = toggle;
             }
 
-            toggle = Main.Settings.ExactMerchantCostScaling;
-            if (UI.Toggle("Scales merchant prices correctly / exactly", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.ExactMerchantCostScaling = toggle;
-            }
-
             toggle = Main.Settings.EnableMagicStaffFoci;
             if (UI.Toggle("Makes all magic staves arcane foci " + "[except for Staff of Healing which is Divine]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
@@ -101,13 +94,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 ItemOptionsContext.SwitchMagicStaffFoci();
             }
 
-            UI.Label("");
-
-            value = Main.Settings.BeltOfDwarvenKindBeardChances;
-            if (UI.Slider("Sets the chances a beard appears when using the Belt of Dwarvenkin".white(), ref value, 0, 100, 50, "", UI.AutoWidth()))
+            toggle = Main.Settings.ExactMerchantCostScaling;
+            if (UI.Toggle("Scales merchant prices correctly / exactly", ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.BeltOfDwarvenKindBeardChances = value;
-                ItemOptionsContext.SwitchBeltOfDwarvenKindBeardChances();
+                Main.Settings.ExactMerchantCostScaling = toggle;
             }
         }
     }

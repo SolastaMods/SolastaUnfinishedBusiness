@@ -7,8 +7,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class ItemsAndCraftingDisplay
     {
-        private static bool displayCrafting { get; set; } = false;
-        private static bool displayRestocks { get; set; } = false;
+        private static bool DisplayCrafting { get; set; } = false;
+        private static bool DisplayMerchants { get; set; } = false;
 
         private static void AddUIForWeaponKey(string key)
         {
@@ -84,33 +84,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 RemoveIdentificationContext.Load();
             }
 
-            toggle = Main.Settings.EnableClothingGorimStock;
-            if (UI.Toggle("Stocks Gorim's store with all non-magical clothing " + RequiresRestart, ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableClothingGorimStock = toggle;
-            }
-
-            toggle = Main.Settings.CreateAdditionalFoci;
-            if (UI.Toggle("Stocks Hugo's store with new foci items " + "[Arcane Staff / Druid Neck, Staff and Club]".italic().yellow(), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.CreateAdditionalFoci = toggle;
-                ItemOptionsContext.SwitchFociItems();
-            }
-
-            if (Main.Settings.CreateAdditionalFoci)
-            {
-                toggle = Main.Settings.EnableAdditionalFociDungeonMaker;
-                if (UI.Toggle("Adds new Foci items to Dungeon Maker ", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableAdditionalFociDungeonMaker = toggle;
-                    ItemOptionsContext.SwitchFociItemsDungeonMaker();
-                }
-            }
-
             UI.Label("");
 
             intValue = Main.Settings.RecipeCost;
-            if (UI.Slider("Recipes' Cost".white(), ref intValue, 1, 500, 200, "", UI.AutoWidth()))
+            if (UI.Slider("Recipes' cost".white(), ref intValue, 1, 500, 200, "G", UI.AutoWidth()))
             {
                 Main.Settings.RecipeCost = intValue;
                 ItemCraftingContext.UpdateRecipeCost();
@@ -118,56 +95,24 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            toggle = displayRestocks;
-            if (UI.DisclosureToggle("Restocks: ".yellow(), ref toggle, 200))
+            intValue = Main.Settings.BeltOfDwarvenKindBeardChances;
+            if (UI.Slider("Sets the chances of a beard appearing while using the Belt of Dwarvenkin".white(), ref intValue, 0, 100, 50, "%", UI.Width(500)))
             {
-                displayRestocks = toggle;
-            }
-
-            if (displayRestocks)
-            {
-                UI.Label(". Enables all merchant's stock to restock over time except for Manuals and Tomes. Note that some items can take up to 7 game days to restock");
-                UI.Label("");
-
-                toggle = Main.Settings.EnableRestockAntiquarians;
-                if (UI.Toggle("Restock Antiquarians [Halman Summer]", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableRestockAntiquarians = toggle;
-                    ItemOptionsContext.SwitchRestockAntiquarian();
-                }
-
-                toggle = Main.Settings.EnableRestockArcaneum;
-                if (UI.Toggle("Restock Arcaneum [Heddlon Surespell]", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableRestockArcaneum = toggle;
-                    ItemOptionsContext.SwitchRestockArcaneum();
-                }
-
-                toggle = Main.Settings.EnableRestockCircleOfDanantar;
-                if (UI.Toggle("Restock Circle Of Danantar [Joriel Foxeye]", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableRestockCircleOfDanantar = toggle;
-                    ItemOptionsContext.SwitchRestockCircleOfDanantar();
-                }
-
-                toggle = Main.Settings.EnableRestockTowerOfKnowledge;
-                if (UI.Toggle("Restock Tower OF Knowledge [Maddy Greenisle]", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableRestockTowerOfKnowledge = toggle;
-                    ItemOptionsContext.SwitchRestockTowerOfKnowledge();
-                }
+                Main.Settings.BeltOfDwarvenKindBeardChances = intValue;
+                ItemOptionsContext.SwitchBeltOfDwarvenKindBeardChances();
             }
 
             UI.Label("");
 
-            toggle = displayCrafting;
+            toggle = DisplayCrafting;
             if (UI.DisclosureToggle("Crafting:".yellow(), ref toggle, 200))
             {
-                displayCrafting = toggle;
+                DisplayCrafting = toggle;
             }
 
-            if (displayCrafting)
+            if (DisplayCrafting)
             {
+                UI.Label("");
                 UI.Label(". Press the button to learn recipes instantly on the active party");
                 UI.Label(". Items added to stores might need the party to travel away from the location and come back");
                 UI.Label("");
@@ -231,6 +176,74 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                             current++;
                         }
                     }
+                }
+            }
+
+            UI.Label("");
+
+            toggle = DisplayMerchants;
+            if (UI.DisclosureToggle("Merchants:".yellow(), ref toggle, 200))
+            {
+                DisplayMerchants = toggle;
+            }
+
+            if (DisplayMerchants)
+            {
+                UI.Label("");
+
+                toggle = Main.Settings.EnableClothingGorimStock;
+                if (UI.Toggle("Stocks Gorim's store with all non-magical clothing " + RequiresRestart, ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableClothingGorimStock = toggle;
+                }
+
+                toggle = Main.Settings.CreateAdditionalFoci;
+                if (UI.Toggle("Stocks Hugo's store with new foci items " + "[Arcane Staff / Druid Neck, Staff and Club]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.CreateAdditionalFoci = toggle;
+                    ItemOptionsContext.SwitchFociItems();
+                }
+
+                if (Main.Settings.CreateAdditionalFoci)
+                {
+                    toggle = Main.Settings.EnableAdditionalFociDungeonMaker;
+                    if (UI.Toggle("Adds new foci items to Dungeon Maker ", ref toggle, UI.AutoWidth()))
+                    {
+                        Main.Settings.EnableAdditionalFociDungeonMaker = toggle;
+                        ItemOptionsContext.SwitchFociItemsDungeonMaker();
+                    }
+                }
+
+                UI.Label("");
+                UI.Label(". Enables all merchant's stock to restock over time except for Manuals and Tomes. Note that some items can take up to 7 game days to restock");
+                UI.Label("");
+
+                toggle = Main.Settings.EnableRestockAntiquarians;
+                if (UI.Toggle("Restocks Antiquarians " + "[Halman Summer]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableRestockAntiquarians = toggle;
+                    ItemOptionsContext.SwitchRestockAntiquarian();
+                }
+
+                toggle = Main.Settings.EnableRestockArcaneum;
+                if (UI.Toggle("Restocks Arcaneum " + "[Heddlon Surespell]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableRestockArcaneum = toggle;
+                    ItemOptionsContext.SwitchRestockArcaneum();
+                }
+
+                toggle = Main.Settings.EnableRestockCircleOfDanantar;
+                if (UI.Toggle("Restocks Circle of Danantar " + "[Joriel Foxeye]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableRestockCircleOfDanantar = toggle;
+                    ItemOptionsContext.SwitchRestockCircleOfDanantar();
+                }
+
+                toggle = Main.Settings.EnableRestockTowerOfKnowledge;
+                if (UI.Toggle("Restocks Tower of Knowledge " + "[Maddy Greenisle]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableRestockTowerOfKnowledge = toggle;
+                    ItemOptionsContext.SwitchRestockTowerOfKnowledge();
                 }
             }
         }

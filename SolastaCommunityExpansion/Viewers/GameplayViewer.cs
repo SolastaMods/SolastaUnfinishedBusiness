@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Viewers
         private static readonly NamedAction[] actions = new NamedAction[]
         {
             new NamedAction("Rules", DisplayRules),
-            new NamedAction("Items & Crafting", DisplayItemsAndCrafting),
+            new NamedAction("Items, Crafting & Merchants", DisplayItemsAndCrafting),
             new NamedAction("Tools", DisplayTools),
         };
 

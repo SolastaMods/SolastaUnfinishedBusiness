@@ -6,7 +6,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class CharacterDisplay
     {
-        private static bool displayFaceUnlockSettings { get; set; } = false;
+        private static bool DisplayFaceUnlockSettings { get; set; } = false;
 
         internal static void DisplayCharacter()
         {
@@ -51,14 +51,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableAlternateHuman;
-            if (UI.Toggle("Enables the alternate human [+1 feat / +2 attribute choices / +1 skill]", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enables the alternate human " + "[+1 feat / +2 attribute choices / +1 skill]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableAlternateHuman = toggle;
                 InitialChoicesContext.RefreshAllRacesInitialFeats();
             }
 
             toggle = Main.Settings.EnableFlexibleRaces;
-            if (UI.Toggle("Enables flexible races [Assign ability score points instead of the racial defaults]\n" + "example: High Elf has 3 points to assign instead of +2 Dex / +1 Int".italic().yellow(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enables flexible races " + "[assign ability score points instead of the racial defaults]".italic().yellow() + "\ni.e.: High Elf has 3 points to assign instead of +2 Dex / +1 Int".italic(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableFlexibleRaces = toggle;
                 FlexibleRacesContext.Switch(toggle);
@@ -66,7 +66,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableFlexibleBackgrounds;
-            if (UI.Toggle("Enables flexible backgrounds [Select skill and tool proficiencies from backgrounds]", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enables flexible backgrounds " + "[select skill and tool proficiencies from backgrounds]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableFlexibleBackgrounds = toggle;
                 FlexibleBackgroundsContext.Switch(toggle);
@@ -105,13 +105,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            toggle = displayFaceUnlockSettings;
-            if (UI.DisclosureToggle("Face Unlocks: ".yellow() + RequiresRestart, ref toggle, 200)) 
+            toggle = DisplayFaceUnlockSettings;
+            if (UI.DisclosureToggle("Face unlocks: ".yellow() + RequiresRestart, ref toggle, 200)) 
             {
-                displayFaceUnlockSettings = toggle;
+                DisplayFaceUnlockSettings = toggle;
             }
 
-            if (displayFaceUnlockSettings)
+            if (DisplayFaceUnlockSettings)
             {
                 UI.Label("");
 
