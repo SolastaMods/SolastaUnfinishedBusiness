@@ -240,7 +240,7 @@ namespace SolastaCommunityExpansion.Models
 
                 if (item.IsFocusItem)
                 {
-                    item.FocusItemDescription.SetFocusType(Main.Settings.EnableMagicStaffFoci ? EquipmentDefinitions.FocusType.Arcane : EquipmentDefinitions.FocusType.None);
+                    item.FocusItemDescription.SetFocusType(EquipmentDefinitions.FocusType.Arcane);
                 }
             }
         }
