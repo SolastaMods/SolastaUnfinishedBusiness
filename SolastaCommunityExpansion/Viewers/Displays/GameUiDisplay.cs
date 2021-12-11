@@ -62,6 +62,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.EnableInventoryFilterAndSort = toggle;
             }
 
+            toggle = Main.Settings.EnableSaveByLocation;
+            if (UI.Toggle("Enables save by locations / campaigns " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableSaveByLocation = toggle;
+            }
+
             toggle = Main.Settings.InvertAltBehaviorOnTooltips;
             if (UI.Toggle("Inverts ALT key behavior on tooltips", ref toggle, UI.AutoWidth()))
             {
@@ -86,6 +92,22 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (UI.Toggle("Permanently speeds battle up", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.PermanentSpeedUp = toggle;
+            }
+
+            toggle = Main.Settings.DontFollowCharacterInBattle;
+
+            if (UI.Toggle("Battle camera doesn't follow when character is already on screen", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.DontFollowCharacterInBattle = toggle;
+            }
+
+            if (Main.Settings.DontFollowCharacterInBattle)
+            {
+                intValue = Main.Settings.DontFollowMargin;
+                if (UI.Slider("Unless character is off or within % of screen edge".italic().white(), ref intValue, 0, 15, 1, "%", UI.AutoWidth()))
+                {
+                    Main.Settings.DontFollowMargin = intValue;
+                }
             }
 
             UI.Label("");

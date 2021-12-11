@@ -37,6 +37,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
+            toggle = Main.Settings.FullyControlAlliedConjurations;
+            if (UI.Toggle("Fully controls conjurations " + "[animals, elementals, etc]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.FullyControlAlliedConjurations = toggle;
+                ConjurationsContext.Load();
+            }
+
             toggle = Main.Settings.EnableConditionBlindedShouldNotAllowOpportunityAttack;
             if (UI.Toggle("Blinded".orange() + " condition doesn't allow attack of opportunity", ref toggle, UI.AutoWidth()))
             {
