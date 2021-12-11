@@ -103,6 +103,22 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.PermanentSpeedUp = toggle;
             }
 
+            toggle = Main.Settings.DontFollowCharacterInBattle;
+
+            if (UI.Toggle("Battle camera doesn't follow when character is already on screen", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.DontFollowCharacterInBattle = toggle;
+            }
+
+            if (Main.Settings.DontFollowCharacterInBattle)
+            {
+                intValue = Main.Settings.DontFollowMargin;
+                if (UI.Slider("Unless character is off or within % of screen edge".italic().white(), ref intValue, 0, 15, 1, "%", UI.AutoWidth()))
+                {
+                    Main.Settings.DontFollowMargin = intValue;
+                }
+            }
+
             UI.Label("");
             floatValue = Main.Settings.CustomTimeScale;
             if (UI.Slider("Battle timescale modifier".white(), ref floatValue, 1f, 50f, 1f, 1, "", UI.AutoWidth()))

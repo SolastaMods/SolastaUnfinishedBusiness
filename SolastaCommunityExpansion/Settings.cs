@@ -139,7 +139,7 @@ namespace SolastaCommunityExpansion
         public bool EnableFaceUnlockUnmarkedSorcerers { get; set; }
 
         public bool EnableSaveByLocation { get; set; }
-        
+
         public bool EnableUniversalSylvanArmor { get; set; }
         public bool EnableInvisibleCrownOfTheMagister { get; set; }
         public bool EnableClothingGorimStock { get; set; }
@@ -153,5 +153,8 @@ namespace SolastaCommunityExpansion
         public bool EnableMagicStaffFoci { get; set; }
         public bool CreateAdditionalFoci { get; set; }
         public bool EnableAdditionalFociDungeonMaker { get; set; }
+
+        public bool DontFollowCharacterInBattle { get; set; }
+        public int DontFollowMargin { get; set; } = 5;
     }
 }
