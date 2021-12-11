@@ -18,6 +18,8 @@ namespace SolastaCommunityExpansion
                 return;
             }
 
+            // TODO: select the most recent location/campaign
+
             var root = TacticalAdventuresApplication.SaveGameDirectory;
 
             var mostRecent = Directory.EnumerateDirectories(root)
