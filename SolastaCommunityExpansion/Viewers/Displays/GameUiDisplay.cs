@@ -1,10 +1,16 @@
-﻿using ModKit;
+﻿using System;
+using System.Linq;
+using System.Collections.Generic;
+using ModKit;
+using SolastaCommunityExpansion.Models;
 using static SolastaCommunityExpansion.Viewers.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class GameUiDisplay
     {
+        private static bool DisplayBattle { get; set; }
+
         internal static void DisplayGameUi()
         {
             bool toggle;
@@ -39,11 +45,19 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.HideMonsterHitPoints = toggle;
             }
 
+            UI.Label("");
+
+            toggle = Main.Settings.EnableInvisibleCrownOfTheMagister;
+            if (UI.Toggle("Hides Crown of the Magister on game UI", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableInvisibleCrownOfTheMagister = toggle;
+                ItemOptionsContext.SwitchCrownOfTheMagister();
+            }
+
             toggle = Main.Settings.RemoveBugVisualModels;
-            if (UI.Toggle("Replaces bug-like models with alternative visuals in the game, must be switched on before maps are loaded" , ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Replaces bug-like models with alternative visuals in the game " + "[must be switched on before maps are loaded] ".italic().yellow() + RequiresRestart , ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.RemoveBugVisualModels = toggle;
-                Models.RemoveBugVisualModelsContext.Load();
             }
 
             UI.Label("");
@@ -63,7 +77,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             toggle = Main.Settings.EnableSaveByLocation;
-            if (UI.Toggle("Enables save by locations / campaigns " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enables save by locations / campaigns", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableSaveByLocation = toggle;
             }
@@ -82,39 +96,63 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            toggle = Main.Settings.AutoPauseOnVictory;
-            if (UI.Toggle("Pauses the UI when victorious in battle", ref toggle, UI.AutoWidth()))
+            toggle = DisplayBattle;
+            if (UI.DisclosureToggle("Battle settings:".yellow(), ref toggle, 200))
             {
-                Main.Settings.AutoPauseOnVictory = toggle;
+                DisplayBattle = toggle;
             }
 
-            toggle = Main.Settings.PermanentSpeedUp;
-            if (UI.Toggle("Permanently speeds battle up", ref toggle, UI.AutoWidth()))
+            if (DisplayBattle)
             {
-                Main.Settings.PermanentSpeedUp = toggle;
-            }
+                UI.Label("");
 
-            toggle = Main.Settings.DontFollowCharacterInBattle;
-
-            if (UI.Toggle("Battle camera doesn't follow when character is already on screen", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.DontFollowCharacterInBattle = toggle;
-            }
-
-            if (Main.Settings.DontFollowCharacterInBattle)
-            {
-                intValue = Main.Settings.DontFollowMargin;
-                if (UI.Slider("Unless character is off or within % of screen edge".italic().white(), ref intValue, 0, 15, 1, "%", UI.AutoWidth()))
+                toggle = Main.Settings.DontFollowCharacterInBattle;
+                if (UI.Toggle("Battle camera doesn't follow when character is already on screen", ref toggle, UI.AutoWidth()))
                 {
-                    Main.Settings.DontFollowMargin = intValue;
+                    Main.Settings.DontFollowCharacterInBattle = toggle;
+                }
+
+                toggle = Main.Settings.AutoPauseOnVictory;
+                if (UI.Toggle("Pauses the UI when victorious in battle", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.AutoPauseOnVictory = toggle;
+                }
+
+                toggle = Main.Settings.PermanentSpeedUp;
+                if (UI.Toggle("Permanently speeds battle up", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.PermanentSpeedUp = toggle;
+                }
+
+                if (Main.Settings.DontFollowCharacterInBattle)
+                {
+                    intValue = Main.Settings.DontFollowMargin;
+                    if (UI.Slider("Unless character is off or within % of screen edge".italic().white(), ref intValue, 0, 15, 1, "%", UI.AutoWidth()))
+                    {
+                        Main.Settings.DontFollowMargin = intValue;
+                    }
+                }
+
+                UI.Label("");
+                floatValue = Main.Settings.CustomTimeScale;
+                if (UI.Slider("Battle timescale modifier".white(), ref floatValue, 1f, 50f, 1f, 1, "", UI.AutoWidth()))
+                {
+                    Main.Settings.CustomTimeScale = floatValue;
                 }
             }
 
             UI.Label("");
-            floatValue = Main.Settings.CustomTimeScale;
-            if (UI.Slider("Battle timescale modifier".white(), ref floatValue, 1f, 50f, 1f, 1, "", UI.AutoWidth()))
+
+            using (UI.HorizontalScope())
             {
-                Main.Settings.CustomTimeScale = floatValue;
+                UI.Label("Empress Garb".orange() + " appearance ".white(), UI.Width(325));
+
+                intValue = Array.IndexOf(ItemOptionsContext.EmpressGarbSkins, Main.Settings.EmpressGarbSkin);
+                if (UI.SelectionGrid(ref intValue, ItemOptionsContext.EmpressGarbSkins, ItemOptionsContext.EmpressGarbSkins.Length, UI.Width(600)))
+                {
+                    Main.Settings.EmpressGarbSkin = ItemOptionsContext.EmpressGarbSkins[intValue];
+                    ItemOptionsContext.SwitchEmpressGarb();
+                }
             }
 
             UI.Label("");

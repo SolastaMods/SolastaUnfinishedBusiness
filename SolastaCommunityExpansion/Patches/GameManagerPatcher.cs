@@ -38,6 +38,7 @@ namespace SolastaCommunityExpansion.Patches
                 RemoveBugVisualModelsContext.Load();
                 FaceUnlockContext.Load();
                 ConjurationsContext.Load();
+                ItemOptionsContext.Load();
               
                 Main.Enabled = true;
             }
