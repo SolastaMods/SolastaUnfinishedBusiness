@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 {
     internal class PurpleWitch : AbstractSubclass
     {
-        private static Guid SubclassNamespace = new Guid("5d595308-bcf8-4a9f-a9a0-d2ae85c243e7");
+        private static Guid SubclassNamespace = new Guid("32b329a3-689d-4364-bb72-d2444c788d34");
         private readonly CharacterSubclassDefinition Subclass;
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
@@ -25,7 +25,7 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 
         internal PurpleWitch()
         {
-            // Make Blood Witch subclass
+            // Make Purple Witch subclass
             CharacterSubclassDefinitionBuilder purpleWitch = new CharacterSubclassDefinitionBuilder("PurpleWitch", GuidHelper.Create(SubclassNamespace, "PurpleWitch").ToString());
             GuiPresentationBuilder purpleWitchPresentation = new GuiPresentationBuilder(
                 "Subclass/&PurpleWitchDescription",

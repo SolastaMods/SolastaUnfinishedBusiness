@@ -25,7 +25,7 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 
         internal GreenWitch()
         {
-            // Make Blood Witch subclass
+            // Make Green Witch subclass
             CharacterSubclassDefinitionBuilder greenWitch = new CharacterSubclassDefinitionBuilder("GreenWitch", GuidHelper.Create(SubclassNamespace, "GreenWitch").ToString());
             GuiPresentationBuilder greenWitchPresentation = new GuiPresentationBuilder(
                 "Subclass/&GreenWitchDescription",
