@@ -84,7 +84,7 @@ namespace SolastaCommunityExpansion.Models
                 StaffOfHealing.GuiPresentation.SpriteReference);
         }
 
-        private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; } = null;
+        private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
 
         internal static readonly string[] EmpressGarbSkins = new string[] 
         { 
