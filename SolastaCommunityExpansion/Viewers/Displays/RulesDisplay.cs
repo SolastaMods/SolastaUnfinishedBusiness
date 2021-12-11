@@ -65,6 +65,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
             }
 
+            toggle = Main.Settings.EnableUniversalSylvanArmor;
+            if (UI.Toggle("Allows any class to wear sylvan armor", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableUniversalSylvanArmor = toggle;
+                ItemOptionsContext.SwitchUniversalSylvanArmor();
+            }
+
             toggle = Main.Settings.DruidNoMetalRestriction;
             if (UI.Toggle("Allows Druids to wear metal armor", ref toggle, UI.AutoWidth()))
             {
@@ -76,6 +83,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (UI.Toggle("Disables auto-equip of items in inventory", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.DisableAutoEquip = toggle;
+            }
+
+            toggle = Main.Settings.EnableMagicStaffFoci;
+            if (UI.Toggle("Makes all magic staves arcane foci " + "[except for Staff of Healing which is Universal]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableMagicStaffFoci = toggle;
+                ItemOptionsContext.SwitchMagicStaffFoci();
             }
 
             toggle = Main.Settings.ExactMerchantCostScaling;

@@ -97,7 +97,7 @@ namespace SolastaCommunityExpansion
         public float SpellPanelGapBetweenLines { get; set; } = 30f;
 
         /* Faster Time Scale */
-        public float CustomTimeScale { get; set; } = 1.5f;
+        public float CustomTimeScale { get; set; } = 1.0f;
         public bool PermanentSpeedUp { get; set; }
 
         public bool AutoPauseOnVictory { get; set; }
@@ -139,6 +139,22 @@ namespace SolastaCommunityExpansion
         public bool EnableFaceUnlockUnmarkedSorcerers { get; set; }
 
         public bool EnableSaveByLocation { get; set; }
+
+        public bool EnableUniversalSylvanArmor { get; set; }
+        public bool EnableInvisibleCrownOfTheMagister { get; set; }
+        public bool EnableClothingGorimStock { get; set; }
+        public bool EnableRestockAntiquarians { get; set; }
+        public bool EnableRestockArcaneum { get; set; }
+        public bool EnableRestockCircleOfDanantar { get; set; }
+        public bool EnableRestockTowerOfKnowledge { get; set; }
+
+        public int BeltOfDwarvenKindBeardChances { get; set; } = 50;
+
+        public bool EnableMagicStaffFoci { get; set; }
+        public bool CreateAdditionalFoci { get; set; }
+        public bool EnableAdditionalFociDungeonMaker { get; set; }
+
+        public string EmpressGarbSkin { get; set; } = "Normal";
 
         public bool DontFollowCharacterInBattle { get; set; }
         public int DontFollowMargin { get; set; } = 5;

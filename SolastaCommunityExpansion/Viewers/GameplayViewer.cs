@@ -14,12 +14,12 @@ namespace SolastaCommunityExpansion.Viewers
 
         public int Priority => 20;
 
-        private static int selectedPane = 0;
+        private static int selectedPane;
 
-        private static readonly NamedAction[] actions = new NamedAction[]
+        private static readonly NamedAction[] actions = 
         {
             new NamedAction("Rules", DisplayRules),
-            new NamedAction("Items & Crafting", DisplayItemsAndCrafting),
+            new NamedAction("Items, Crafting & Merchants", DisplayItemsAndCrafting),
             new NamedAction("Tools", DisplayTools),
         };
 

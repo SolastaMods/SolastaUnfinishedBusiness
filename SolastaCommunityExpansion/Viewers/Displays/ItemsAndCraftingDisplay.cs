@@ -1,12 +1,14 @@
 ﻿using ModKit;
 using SolastaCommunityExpansion.Models;
 using System.Linq;
+using static SolastaCommunityExpansion.Viewers.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class ItemsAndCraftingDisplay
     {
-        private static readonly string reqRestart = "[requires restart to disable]".italic().red();
+        private static bool DisplayCrafting { get; set; }
+        private static bool DisplayMerchants { get; set; }
 
         private static void AddUIForWeaponKey(string key)
         {
@@ -69,93 +71,179 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.NoAttunement;
-            if (UI.Toggle("Removes attunement requirements " + reqRestart, ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Removes attunement requirements " + RequiresRestart, ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.NoAttunement = toggle;
                 RemoveIdentificationContext.Load();
             }
 
             toggle = Main.Settings.NoIdentification;
-            if (UI.Toggle("Removes identification requirements " + reqRestart, ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Removes identification requirements " + RequiresRestart, ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.NoIdentification = toggle;
                 RemoveIdentificationContext.Load();
             }
 
             UI.Label("");
+
             intValue = Main.Settings.RecipeCost;
-            if (UI.Slider("Recipes' Cost".white(), ref intValue, 1, 500, 200, "", UI.AutoWidth()))
+            if (UI.Slider("Recipes' cost".white(), ref intValue, 1, 500, 200, "G", UI.AutoWidth()))
             {
                 Main.Settings.RecipeCost = intValue;
                 ItemCraftingContext.UpdateRecipeCost();
             }
 
             UI.Label("");
-            UI.Label("Crafting:".yellow());
-            UI.Label("");
 
-            UI.Label(". Press the button to learn recipes instantly on the active party");
-            UI.Label(". Items added to stores might need the party to travel away from the location and come back");
-            UI.Label("");
-
-            using (UI.HorizontalScope(UI.AutoWidth()))
+            intValue = Main.Settings.BeltOfDwarvenKindBeardChances;
+            if (UI.Slider("Sets the chances of a beard appearing while using the Belt of Dwarvenkin".white(), ref intValue, 0, 100, 50, "%", UI.Width(500)))
             {
-                UI.Space(180);
+                Main.Settings.BeltOfDwarvenKindBeardChances = intValue;
+                ItemOptionsContext.SwitchBeltOfDwarvenKindBeardChances();
+            }
 
-                toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.InStore.Count;
-                if (UI.Toggle("Add all to store", ref toggle, UI.Width(125)))
+            UI.Label("");
+
+            toggle = DisplayCrafting;
+            if (UI.DisclosureToggle("Crafting:".yellow(), ref toggle, 200))
+            {
+                DisplayCrafting = toggle;
+            }
+
+            if (DisplayCrafting)
+            {
+                UI.Label("");
+                UI.Label(". Press the button to learn recipes instantly on the active party");
+                UI.Label(". Items added to stores might need the party to travel away from the location and come back");
+                UI.Label("");
+
+                using (UI.HorizontalScope(UI.AutoWidth()))
                 {
-                    Main.Settings.InStore.Clear();
+                    UI.Space(180);
 
-                    if (toggle)
+                    toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.InStore.Count;
+                    if (UI.Toggle("Add all to store", ref toggle, UI.Width(125)))
                     {
-                        Main.Settings.InStore.AddRange(ItemCraftingContext.RecipeBooks.Keys);
+                        Main.Settings.InStore.Clear();
+
+                        if (toggle)
+                        {
+                            Main.Settings.InStore.AddRange(ItemCraftingContext.RecipeBooks.Keys);
+                        }
+                    }
+
+                    toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.ItemsInDM.Count;
+                    if (UI.Toggle("All items in DM", ref toggle, UI.Width(125)))
+                    {
+                        Main.Settings.ItemsInDM.Clear();
+
+                        if (toggle)
+                        {
+                            Main.Settings.ItemsInDM.AddRange(ItemCraftingContext.RecipeBooks.Keys);
+                        }
+                    }
+
+                    toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.RecipesInDM.Count;
+                    if (UI.Toggle("All recipes in DM", ref toggle, UI.Width(125)))
+                    {
+                        Main.Settings.RecipesInDM.Clear();
+
+                        if (toggle)
+                        {
+                            Main.Settings.RecipesInDM.AddRange(ItemCraftingContext.RecipeBooks.Keys);
+                        }
                     }
                 }
 
-                toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.ItemsInDM.Count;
-                if (UI.Toggle("All items in DM", ref toggle, UI.Width(125)))
+                UI.Label("");
+
+                var keys = ItemCraftingContext.RecipeBooks.Keys;
+                var current = 0;
+                var count = keys.Count;
+                int cols;
+
+                while (current < count)
                 {
-                    Main.Settings.ItemsInDM.Clear();
+                    cols = 0;
 
-                    if (toggle)
+                    using (UI.HorizontalScope())
                     {
-                        Main.Settings.ItemsInDM.AddRange(ItemCraftingContext.RecipeBooks.Keys);
-                    }
-                }
+                        while (current < count && cols < 2)
+                        {
+                            AddUIForWeaponKey(keys.ElementAt(current));
 
-                toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.RecipesInDM.Count;
-                if (UI.Toggle("All recipes in DM", ref toggle, UI.Width(125)))
-                {
-                    Main.Settings.RecipesInDM.Clear();
-
-                    if (toggle)
-                    {
-                        Main.Settings.RecipesInDM.AddRange(ItemCraftingContext.RecipeBooks.Keys);
+                            cols++;
+                            current++;
+                        }
                     }
                 }
             }
 
             UI.Label("");
 
-            var keys = ItemCraftingContext.RecipeBooks.Keys;
-            var current = 0;
-            var count = keys.Count;
-            int cols;
-
-            while (current < count)
+            toggle = DisplayMerchants;
+            if (UI.DisclosureToggle("Merchants:".yellow(), ref toggle, 200))
             {
-                cols = 0;
+                DisplayMerchants = toggle;
+            }
 
-                using (UI.HorizontalScope())
+            if (DisplayMerchants)
+            {
+                UI.Label("");
+
+                toggle = Main.Settings.EnableClothingGorimStock;
+                if (UI.Toggle("Stocks Gorim's store with all non-magical clothing " + RequiresRestart, ref toggle, UI.AutoWidth()))
                 {
-                    while (current < count && cols < 2)
-                    {
-                        AddUIForWeaponKey(keys.ElementAt(current));
+                    Main.Settings.EnableClothingGorimStock = toggle;
+                }
 
-                        cols++;
-                        current++;
+                toggle = Main.Settings.CreateAdditionalFoci;
+                if (UI.Toggle("Stocks Hugo's store with new foci items " + "[Arcane Staff / Druid Neck, Staff and Club]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.CreateAdditionalFoci = toggle;
+                    ItemOptionsContext.SwitchFociItems();
+                }
+
+                if (Main.Settings.CreateAdditionalFoci)
+                {
+                    toggle = Main.Settings.EnableAdditionalFociDungeonMaker;
+                    if (UI.Toggle("Adds new foci items to Dungeon Maker ", ref toggle, UI.AutoWidth()))
+                    {
+                        Main.Settings.EnableAdditionalFociDungeonMaker = toggle;
+                        ItemOptionsContext.SwitchFociItemsDungeonMaker();
                     }
+                }
+
+                UI.Label("");
+                UI.Label(". Enables all merchant's stock to restock over time except for Manuals and Tomes. Note that some items can take up to 7 game days to restock");
+                UI.Label("");
+
+                toggle = Main.Settings.EnableRestockAntiquarians;
+                if (UI.Toggle("Restocks Antiquarians " + "[Halman Summer]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableRestockAntiquarians = toggle;
+                    ItemOptionsContext.SwitchRestockAntiquarian();
+                }
+
+                toggle = Main.Settings.EnableRestockArcaneum;
+                if (UI.Toggle("Restocks Arcaneum " + "[Heddlon Surespell]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableRestockArcaneum = toggle;
+                    ItemOptionsContext.SwitchRestockArcaneum();
+                }
+
+                toggle = Main.Settings.EnableRestockCircleOfDanantar;
+                if (UI.Toggle("Restocks Circle of Danantar " + "[Joriel Foxeye]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableRestockCircleOfDanantar = toggle;
+                    ItemOptionsContext.SwitchRestockCircleOfDanantar();
+                }
+
+                toggle = Main.Settings.EnableRestockTowerOfKnowledge;
+                if (UI.Toggle("Restocks Tower of Knowledge " + "[Maddy Greenisle]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableRestockTowerOfKnowledge = toggle;
+                    ItemOptionsContext.SwitchRestockTowerOfKnowledge();
                 }
             }
         }
