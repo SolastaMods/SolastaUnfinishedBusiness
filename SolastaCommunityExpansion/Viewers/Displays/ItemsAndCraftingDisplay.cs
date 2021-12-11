@@ -7,8 +7,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class ItemsAndCraftingDisplay
     {
-        private static bool DisplayCrafting { get; set; } = false;
-        private static bool DisplayMerchants { get; set; } = false;
+        private static bool DisplayCrafting { get; set; }
+        private static bool DisplayMerchants { get; set; }
 
         private static void AddUIForWeaponKey(string key)
         {

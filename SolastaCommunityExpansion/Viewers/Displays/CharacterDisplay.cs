@@ -6,7 +6,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class CharacterDisplay
     {
-        private static bool DisplayFaceUnlockSettings { get; set; } = false;
+        private static bool DisplayFaceUnlockSettings { get; set; }
 
         internal static void DisplayCharacter()
         {
