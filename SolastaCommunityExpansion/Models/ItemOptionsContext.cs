@@ -12,9 +12,9 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class ItemOptionsContext
     {
-        private class FocusDefinitionBuilder : BaseDefinitionBuilder<ItemDefinition>
+        private sealed class FocusDefinitionBuilder : BaseDefinitionBuilder<ItemDefinition>
         {
-            protected FocusDefinitionBuilder(string name, string guid, string title, string description, ItemDefinition original, EquipmentDefinitions.FocusType type, AssetReferenceSprite assetReferenceSprite) : base(original, name, guid)
+            private FocusDefinitionBuilder(string name, string guid, string title, string description, ItemDefinition original, EquipmentDefinitions.FocusType type, AssetReferenceSprite assetReferenceSprite) : base(original, name, guid)
             {
                 Definition.FocusItemDescription.SetFocusType(type);
                 Definition.GuiPresentation.Title = title;
@@ -233,11 +233,15 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void SwitchMagicStaffFoci()
         {
-            foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>().Where(
-                x => x.WeaponDescription.WeaponType == EquipmentDefinitions.WeaponTypeQuarterstaff && x.Magical && !x.Name.Contains("OfHealing")))
+            foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>()
+                .Where(x => x.WeaponDescription.WeaponType == EquipmentDefinitions.WeaponTypeQuarterstaff && x.Magical && !x.Name.Contains("OfHealing")))
             {
                 item.SetIsFocusItem(Main.Settings.EnableMagicStaffFoci);
-                item.FocusItemDescription.SetFocusType(Main.Settings.EnableMagicStaffFoci ? EquipmentDefinitions.FocusType.Arcane : EquipmentDefinitions.FocusType.None);
+
+                if (item.IsFocusItem)
+                {
+                    item.FocusItemDescription.SetFocusType(EquipmentDefinitions.FocusType.Arcane);
+                }
             }
         }
 
