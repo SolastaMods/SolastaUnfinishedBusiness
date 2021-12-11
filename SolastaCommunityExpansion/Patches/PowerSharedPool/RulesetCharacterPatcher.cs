@@ -3,7 +3,6 @@ using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.PowerSharedPool
@@ -108,7 +107,6 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
             }
 
             // Find the UsablePower of the point pool powers.
-#pragma warning disable S3267 // Loops should be simplified with "LINQ" expressions
             foreach (RulesetUsablePower poolPower in character.UsablePowers)
             {
                 if (pointPoolPowerDefinitions.Contains(poolPower.PowerDefinition))
@@ -119,7 +117,6 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
                     AssignUsesToSharedPowersForPool(character, poolPower, poolSize, poolSize);
                 }
             }
-#pragma warning restore S3267 // Loops should be simplified with "LINQ" expressions
         }
 
         private static void AssignUsesToSharedPowersForPool(RulesetCharacter character, RulesetUsablePower poolPower, int remainingUses, int totalUses)

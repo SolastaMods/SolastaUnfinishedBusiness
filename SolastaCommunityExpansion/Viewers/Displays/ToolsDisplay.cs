@@ -5,8 +5,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class ToolsDisplay
     {
-        private static bool enableDebugCamera = false;
-        private static bool enableDebugOverlay = false;
+        private static bool enableDebugCamera;
+        private static bool enableDebugOverlay;
 
         internal static void DisplayTools()
         {

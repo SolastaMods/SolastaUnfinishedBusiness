@@ -13,15 +13,15 @@ namespace SolastaCommunityExpansion.Models
             {
 
                 // Spiderlings, fire spider, kindred spirit spider, BadlandsSpider(normal, conjured and wildshaped versions)
-                string assetReference_spider_1 = "362fc51df586d254ab182ef854396f82";
+                const string assetReference_spider_1 = "362fc51df586d254ab182ef854396f82";
                 //CrimsonSpiderling, PhaseSpider, SpectralSpider, CrimsonSpider, deep spider(normal, conjured and wildshaped versions)
-                string assetReference_spider_2 = "40b5fe532a9a0814097acdb16c74e967";
+                const string assetReference_spider_2 = "40b5fe532a9a0814097acdb16c74e967";
                 // spider queen
-                string assetReference_spider_3 = "8fc96b2a8c5fcc243b124d31c63df5d9";
+                const string assetReference_spider_3 = "8fc96b2a8c5fcc243b124d31c63df5d9";
                 //Giant_Beetle, Small_Beetle, Redeemer_Zealot, Redeemer_Pilgrim
-                string assetReference_beetle = "04dfcec8c8afb8642a80c1116de218d4";
+                const string assetReference_beetle = "04dfcec8c8afb8642a80c1116de218d4";
                 //Young_Remorhaz, Remorhaz
-                string assetReference_Remorhaz = "ded896e0c4ef46144904375ecadb1bb1";
+                const string assetReference_Remorhaz = "ded896e0c4ef46144904375ecadb1bb1";
 
                 /*
                  * Can this be removed?

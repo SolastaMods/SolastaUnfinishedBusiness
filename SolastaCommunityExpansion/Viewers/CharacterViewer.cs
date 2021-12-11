@@ -15,9 +15,9 @@ namespace SolastaCommunityExpansion.Viewers
 
         public int Priority => 10;
 
-        private static int selectedPane = 0;
+        private static int selectedPane;
 
-        private static readonly NamedAction[] actions = new NamedAction[]
+        private static readonly NamedAction[] actions = 
         {
             new NamedAction("General", DisplayCharacter),
             new NamedAction("Feats", DisplayFeats),

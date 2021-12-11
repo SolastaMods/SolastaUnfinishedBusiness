@@ -8,17 +8,17 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class InventoryManagementContext
     {
-        private static int previousFilterDropDownValue = 0;
+        private static int previousFilterDropDownValue;
 
         private static bool previousSortAscending = true;
 
-        private static int previousSortDropDownValue = 0;
+        private static int previousSortDropDownValue;
 
-        private static int currentFilterDropDownValue = 0;
+        private static int currentFilterDropDownValue;
 
         private static bool currentSortAscending = true;
 
-        private static int currentSortDropDownValue = 0;
+        private static int currentSortDropDownValue;
 
         private static readonly List<RulesetItem> FilteredOutItems = new List<RulesetItem>();
 
