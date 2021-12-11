@@ -1,5 +1,4 @@
-﻿using HarmonyLib;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi;
 using SolastaModApi.Extensions;
@@ -15,11 +14,11 @@ namespace SolastaCommunityExpansion.Models
     {
         private class FocusDefinitionBuilder : BaseDefinitionBuilder<ItemDefinition>
         {
-            protected FocusDefinitionBuilder(string name, string guid, string Title, string Description, ItemDefinition original, EquipmentDefinitions.FocusType type, AssetReferenceSprite assetReferenceSprite) : base(original, name, guid)
+            protected FocusDefinitionBuilder(string name, string guid, string title, string description, ItemDefinition original, EquipmentDefinitions.FocusType type, AssetReferenceSprite assetReferenceSprite) : base(original, name, guid)
             {
                 Definition.FocusItemDescription.SetFocusType(type);
-                Definition.GuiPresentation.Title = Title;
-                Definition.GuiPresentation.Description = Description;
+                Definition.GuiPresentation.Title = title;
+                Definition.GuiPresentation.Description = description;
 
                 if (assetReferenceSprite != null)
                 {
@@ -45,8 +44,8 @@ namespace SolastaCommunityExpansion.Models
                 Store_Merchant_Hugo_Requer_Cyflen_Potions.StockUnitDescriptions.Add(stockFocus);
             }
 
-            private static ItemDefinition CreateAndAddToDB(string name, string guid, string Title, string Description, ItemDefinition original, EquipmentDefinitions.FocusType type, AssetReferenceSprite assetReferenceSprite) =>
-                new FocusDefinitionBuilder(name, guid, Title, Description, original, type, assetReferenceSprite).AddToDB();
+            private static ItemDefinition CreateAndAddToDB(string name, string guid, string title, string description, ItemDefinition original, EquipmentDefinitions.FocusType type, AssetReferenceSprite assetReferenceSprite) =>
+                new FocusDefinitionBuilder(name, guid, title, description, original, type, assetReferenceSprite).AddToDB();
 
             internal static readonly ItemDefinition ArcaneStaff = FocusDefinitionBuilder.CreateAndAddToDB(
                 "ArcaneStaff",
@@ -125,7 +124,7 @@ namespace SolastaCommunityExpansion.Models
             }
             
             foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>().Where(
-                x => x.ArmorDescription.ArmorType == "ClothesType" && !x.Magical && !x.Name.Contains("_Tattoo") && !x.SlotsWhereActive.Contains("TabardSlot")))
+                x => x.ArmorDescription.ArmorType == "ClothesType" && !x.Magical && !x.SlotsWhereActive.Contains("TabardSlot") && x != ClothesCommon_Tattoo && x != ClothesWizard_B))
             {
                 var stockClothing = new StockUnitDescription();
 
@@ -154,7 +153,7 @@ namespace SolastaCommunityExpansion.Models
         {
             foreach (var itemPresentation in Crowns.Select(x => x.ItemPresentation))
             {
-                var maleBodyPartBehaviours = AccessTools.Field(itemPresentation.GetType(), "maleBodyPartBehaviours").GetValue(itemPresentation) as GraphicsCharacterDefinitions.BodyPartBehaviour[];
+                var maleBodyPartBehaviours = itemPresentation.GetBodyPartBehaviours(RuleDefinitions.CreatureSex.Male);
 
                 maleBodyPartBehaviours[0] = Main.Settings.EnableInvisibleCrownOfTheMagister ? GraphicsCharacterDefinitions.BodyPartBehaviour.Shape : GraphicsCharacterDefinitions.BodyPartBehaviour.Armor;
             }
@@ -237,27 +236,18 @@ namespace SolastaCommunityExpansion.Models
             foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>().Where(
                 x => x.WeaponDescription.WeaponType == EquipmentDefinitions.WeaponTypeQuarterstaff && x.Magical && !x.Name.Contains("OfHealing")))
             {
-
-                if (Main.Settings.EnableMagicStaffFoci)
-                {
-                    item.SetIsFocusItem(Main.Settings.EnableMagicStaffFoci);
-                    item.FocusItemDescription.SetFocusType(Main.Settings.EnableMagicStaffFoci ? EquipmentDefinitions.FocusType.Arcane : EquipmentDefinitions.FocusType.None);
-                }
+                item.SetIsFocusItem(Main.Settings.EnableMagicStaffFoci);
+                item.FocusItemDescription.SetFocusType(Main.Settings.EnableMagicStaffFoci ? EquipmentDefinitions.FocusType.Arcane : EquipmentDefinitions.FocusType.None);
             }
         }
 
         internal static void SwitchRestockAntiquarian()
         {
-            foreach (var stock in DatabaseHelper.MerchantDefinitions.Store_Merchant_Antiquarians_Halman_Summer.StockUnitDescriptions)
+            foreach (var stock in DatabaseHelper.MerchantDefinitions.Store_Merchant_Antiquarians_Halman_Summer.StockUnitDescriptions.Where(
+                x => !x.ItemDefinition.Name.Contains("Manual") && !x.ItemDefinition.Name.Contains("Tome")))
             {
-                if (!stock.ItemDefinition.Name.Contains("Manual"))
-                {
-                    if (!stock.ItemDefinition.Name.Contains("Tome"))
-                    {
-                        stock.SetReassortAmount(Main.Settings.EnableRestockAntiquarians ? 1 : 0);
-                        stock.SetReassortRateValue(Main.Settings.EnableRestockAntiquarians ? 7 : 21);
-                    }
-                }
+                stock.SetReassortAmount(Main.Settings.EnableRestockAntiquarians ? 1 : 0);
+                stock.SetReassortRateValue(Main.Settings.EnableRestockAntiquarians ? 7 : 21);
             }
         }
 
