@@ -48,7 +48,7 @@ namespace SolastaCommunityExpansion
                 {
                     var horizontalLayoutGroup = buttonBar.GetComponent<HorizontalLayoutGroup>();
 
-                    if(horizontalLayoutGroup != null)
+                    if (horizontalLayoutGroup != null)
                     {
                         Dropdown.transform.SetParent(horizontalLayoutGroup.transform, false);
                     }
@@ -75,10 +75,19 @@ namespace SolastaCommunityExpansion
             // populate the dropdown
             guiDropdown.ClearOptions();
 
-            var userContentList = allLocations.Select(l => l.Title).Union(allCampaigns.Select(l => l.Title)).ToList();
+            var userContentList = allLocations
+                .Select(l => l.Title)
+                .Union(allCampaigns.Select(l => l.Title))
+                .OrderBy(l => l)
+                .ToList();
 
-            userContentList.Sort();
-            guiDropdown.AddOptions(Enumerable.Repeat("Main campaign", 1).Union(userContentList).Select(l => new TMPro.TMP_Dropdown.OptionData { text = l }).ToList());
+            // TODO: give a visual indication (colour/icon) of campaign vs location
+            guiDropdown.AddOptions(Enumerable.Repeat("Main campaign", 1)
+                .Union(userContentList)
+                .Select(l => new TMPro.TMP_Dropdown.OptionData
+                {
+                    text = l
+                }).ToList());
 
             // Get the current campaign location and select it in the dropdown
             var currentLocation = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>().Location;

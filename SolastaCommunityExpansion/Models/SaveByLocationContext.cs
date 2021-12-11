@@ -31,6 +31,24 @@
         {
             public string Campaign { get; set; }
             public string Location { get; set; }
+
+            public string GetFolderName()
+            {
+                string folder = string.Empty;
+
+                if((Campaign == USER_CAMPAIGN || string.IsNullOrWhiteSpace(Campaign)) && !string.IsNullOrWhiteSpace(Location))
+                {
+                    folder = $@"CE\Location\{Location.Trim()}"; 
+                }
+                else if (Campaign != MAIN_CAMPAIGN && !string.IsNullOrWhiteSpace(Campaign))
+                {
+                    folder = $@"CE\Campaign\{Campaign.Trim()}";
+                }
+
+                Main.Log($"Campaign='{Campaign}', Location='{Location}', Folder='{folder}'");
+
+                return folder;
+            }
         }
     }
 }

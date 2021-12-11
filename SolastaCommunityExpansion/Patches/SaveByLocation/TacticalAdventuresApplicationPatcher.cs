@@ -18,14 +18,10 @@ namespace SolastaCommunityExpansion
 
             var selectedCampaignService = ServiceRepository.GetService<SelectedCampaignService>();
 
-            if (selectedCampaignService == null || string.IsNullOrEmpty(selectedCampaignService.Location) || selectedCampaignService.Campaign == MAIN_CAMPAIGN)
-            {
-                __result = Path.Combine(TacticalAdventuresApplication.GameDirectory, "Saves");
-            }
-            else
-            {
-                __result = Path.Combine(Path.Combine(TacticalAdventuresApplication.GameDirectory, "Saves"), selectedCampaignService.Location);
-            }
+            var saves = Path.Combine(TacticalAdventuresApplication.GameDirectory, "Saves");
+            __result = Path.Combine(saves, selectedCampaignService?.GetFolderName() ?? string.Empty);
+
+            Main.Log($"GetSaveFolder={saves}, {__result}");
 
             return false;
         }
