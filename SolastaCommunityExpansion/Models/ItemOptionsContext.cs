@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class ItemOptionsContext
     {
-        internal class FocusDefinitionBuilder : BaseDefinitionBuilder<ItemDefinition>
+        private class FocusDefinitionBuilder : BaseDefinitionBuilder<ItemDefinition>
         {
             protected FocusDefinitionBuilder(string name, string guid, string Title, string Description, ItemDefinition original, EquipmentDefinitions.FocusType type, AssetReferenceSprite assetReferenceSprite) : base(original, name, guid)
             {
@@ -85,6 +85,21 @@ namespace SolastaCommunityExpansion.Models
                 StaffOfHealing.GuiPresentation.SpriteReference);
         }
 
+        private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; } = null;
+
+        internal static readonly string[] EmpressGarbSkins = new string[] 
+        { 
+            "Normal", 
+            "Plain Shirt", 
+            "Elven Chain",
+            "Sylvan Armor",
+            "Studded Leather", 
+            "Druid Leather",
+            "Barbarian Clothes",
+            "Wizard Clothes",
+            "Sorcerer's Armor"
+        };
+
         private static readonly List<ItemDefinition> Crowns = new List<ItemDefinition>
         {
             CrownOfTheMagister,
@@ -142,6 +157,62 @@ namespace SolastaCommunityExpansion.Models
                 var maleBodyPartBehaviours = AccessTools.Field(itemPresentation.GetType(), "maleBodyPartBehaviours").GetValue(itemPresentation) as GraphicsCharacterDefinitions.BodyPartBehaviour[];
 
                 maleBodyPartBehaviours[0] = Main.Settings.EnableInvisibleCrownOfTheMagister ? GraphicsCharacterDefinitions.BodyPartBehaviour.Shape : GraphicsCharacterDefinitions.BodyPartBehaviour.Armor;
+            }
+        }
+
+        internal static void SwitchEmpressGarb()
+        {
+            if (EmpressGarbOriginalItemPresentation == null)
+            {
+                EmpressGarbOriginalItemPresentation = Enchanted_ChainShirt_Empress_war_garb.ItemPresentation;
+            }
+
+            switch (Main.Settings.EmpressGarbSkin)
+            {
+                case "Normal":
+                    Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(EmpressGarbOriginalItemPresentation);
+                    Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.SetUseCustomArmorMaterial(true);
+                    break;
+
+                case "Plain Shirt":
+                    Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(EmpressGarbOriginalItemPresentation);
+                    Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.SetUseCustomArmorMaterial(false);
+                    break;
+
+                case "Elven Chain":
+                    Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(ElvenChain.ItemPresentation);
+                    Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.SetUseCustomArmorMaterial(true);
+                    break;
+
+                case "Sylvan Armor":
+                    Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(GreenmageArmor.ItemPresentation);
+                    Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.SetUseCustomArmorMaterial(true);
+                    break;
+
+                case "Studded Leather":
+                    Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(StuddedLeather.ItemPresentation);
+                    Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.SetUseCustomArmorMaterial(true);
+                    break;
+
+                case "Druid Leather":
+                    Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(LeatherDruid.ItemPresentation);
+                    Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.SetUseCustomArmorMaterial(true);
+                    break;
+
+                case "Barbarian Clothes":
+                    Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(BarbarianClothes.ItemPresentation);
+                    Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.SetUseCustomArmorMaterial(true);
+                    break;
+
+                case "Wizard Clothes":
+                    Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(WizardClothes_Alternate.ItemPresentation);
+                    Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.SetUseCustomArmorMaterial(true);
+                    break;
+
+                case "Sorcerer's Armor":
+                    Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(SorcererArmor.ItemPresentation);
+                    Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.SetUseCustomArmorMaterial(true);
+                    break;
             }
         }
 
@@ -234,6 +305,7 @@ namespace SolastaCommunityExpansion.Models
             LoadClothingGorimStock();
             SwitchBeltOfDwarvenKindBeardChances();
             SwitchCrownOfTheMagister();
+            SwitchEmpressGarb();
             SwitchFociItems();
             SwitchFociItemsDungeonMaker();
             SwitchMagicStaffFoci();

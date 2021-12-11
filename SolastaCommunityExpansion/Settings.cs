@@ -154,6 +154,8 @@ namespace SolastaCommunityExpansion
         public bool CreateAdditionalFoci { get; set; }
         public bool EnableAdditionalFociDungeonMaker { get; set; }
 
+        public string EmpressGarbSkin { get; set; } = "Normal";
+
         public bool DontFollowCharacterInBattle { get; set; }
         public int DontFollowMargin { get; set; } = 5;
     }
