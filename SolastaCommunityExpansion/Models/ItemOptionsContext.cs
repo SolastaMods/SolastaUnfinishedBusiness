@@ -109,7 +109,8 @@ namespace SolastaCommunityExpansion.Models
                 return;
             }
             
-            foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>().Where(x => x.ArmorDescription.ArmorType == "ClothesType" && !x.Magical && !x.Name.Contains("_Tattoo") && !x.SlotsWhereActive.Contains("TabardSlot")))
+            foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>().Where(
+                x => x.ArmorDescription.ArmorType == "ClothesType" && !x.Magical && !x.Name.Contains("_Tattoo") && !x.SlotsWhereActive.Contains("TabardSlot")))
             {
                 var stockClothing = new StockUnitDescription();
 
@@ -162,7 +163,8 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void SwitchMagicStaffFoci()
         {
-            foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>().Where(x => x.WeaponDescription.WeaponType == EquipmentDefinitions.WeaponTypeQuarterstaff && x.Magical && !x.Name.Contains("OfHealing")))
+            foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>().Where(
+                x => x.WeaponDescription.WeaponType == EquipmentDefinitions.WeaponTypeQuarterstaff && x.Magical && !x.Name.Contains("OfHealing")))
             {
 
                 if (Main.Settings.EnableMagicStaffFoci)
