@@ -275,11 +275,6 @@ namespace SolastaCommunityExpansion.Models
             {
                 stock.SetReassortAmount(Main.Settings.EnableRestockCircleOfDanantar ? 1 : 0);
             }
-
-            foreach (StockUnitDescription stock in DatabaseHelper.MerchantDefinitions.Store_Merchant_TowerOfKnowledge_Maddy_Greenisle.StockUnitDescriptions)
-            {
-                stock.SetReassortAmount(Main.Settings.EnableRestockTowerOfKnowledge ? 1 : 0);
-            }
         }
 
         internal static void SwitchRestockTowerOfKnowledge()
