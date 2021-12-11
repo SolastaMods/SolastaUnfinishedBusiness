@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
                 var selectedCampaignService = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>();
 
                 selectedCampaignService.Campaign = session.CampaignDefinitionName;
-                selectedCampaignService.Location = session.UserLocationName;
+                selectedCampaignService.Location = session.UserCampaignName ?? session.UserLocationName;
             }
 
             __instance.StartCoroutine(ServiceRepository.GetService<IGameSerializationService>()?.EnumerateSavesGames());
