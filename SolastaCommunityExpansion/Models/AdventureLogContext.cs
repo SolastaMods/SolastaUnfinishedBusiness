@@ -35,6 +35,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal class GameAdventureEntryDungeonMaker : GameAdventureEntry
         {
+            private string assetGuid;
             private AssetReferenceSprite assetReferenceSprite;
             private List<GameAdventureConversationInfo> conversationInfos = new List<GameAdventureConversationInfo>();
             private readonly List<TextBreaker> textBreakers = new List<TextBreaker>();
@@ -47,6 +48,7 @@ namespace SolastaCommunityExpansion.Models
 
             public GameAdventureEntryDungeonMaker(AdventureLogDefinition adventureLogDefinition, string title, List<string> captions, string actorName, AssetReferenceSprite assetReferenceSprite) : base(adventureLogDefinition)
             {
+                this.assetGuid = assetReferenceSprite.AssetGUID;
                 this.assetReferenceSprite = assetReferenceSprite;
                 this.title = title;
 
@@ -103,8 +105,9 @@ namespace SolastaCommunityExpansion.Models
             public override void SerializeAttributes(IAttributesSerializer serializer, IVersionProvider versionProvider)
             {
                 base.SerializeAttributes(serializer, versionProvider);
-                this.assetReferenceSprite = serializer.SerializeAttribute<AssetReferenceSprite>("AssetReferenceSprite", this.assetReferenceSprite);
+                this.assetGuid = serializer.SerializeAttribute<string>("AssetGuid", this.assetGuid);
                 this.title = serializer.SerializeAttribute<string>("SectionTitle", this.title);
+                this.assetReferenceSprite = new AssetReferenceSprite(this.assetGuid);
             }
 
             public override void SerializeElements(IElementsSerializer serializer, IVersionProvider versionProvider)
