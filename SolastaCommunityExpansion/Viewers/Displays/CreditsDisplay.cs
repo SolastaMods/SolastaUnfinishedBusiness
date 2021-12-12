@@ -8,8 +8,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         internal static readonly Dictionary<string, string> CreditsTable = new Dictionary<string, string>
         {
             { "ChrisJohnDigital".orange().bold(), "head developer, feats, items, subclasses, progression, etc." },
-            { "Zappastuff", "mod UI work, integration, adventure log, sorting, level 20, respec, party size, QoL" },
-            { "ImpPhil", "monster's health, pause UI, stocks prices, no attunement, xp scaling, character export" },
+            { "Zappastuff", "mod UI work, integration, adventure log, inventory sorting, level 20, respec, party size, QoL" },
+            { "ImpPhil", "monster's health, pause UI, stocks prices, no attunement, xp scaling, character export, save by location" },
             { "DubhHerder", "Crafty Feats Migration" },
             { "View619", "Darkvision, Superior Dark Vision" },
             { "SilverGriffon", "PickPocket, lore friendly names, crafty feats, face unlocks" },
