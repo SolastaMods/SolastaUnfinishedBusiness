@@ -48,7 +48,7 @@ namespace SolastaCommunityExpansion.Models
 
             public GameAdventureEntryDungeonMaker(AdventureLogDefinition adventureLogDefinition, string title, List<string> captions, string actorName, AssetReferenceSprite assetReferenceSprite) : base(adventureLogDefinition)
             {
-                this.assetGuid = assetReferenceSprite.AssetGUID;
+                this.assetGuid = assetReferenceSprite == null ? string.Empty : assetReferenceSprite.AssetGUID;
                 this.assetReferenceSprite = assetReferenceSprite;
                 this.title = title;
 
@@ -107,7 +107,11 @@ namespace SolastaCommunityExpansion.Models
                 base.SerializeAttributes(serializer, versionProvider);
                 this.assetGuid = serializer.SerializeAttribute<string>("AssetGuid", this.assetGuid);
                 this.title = serializer.SerializeAttribute<string>("SectionTitle", this.title);
-                this.assetReferenceSprite = new AssetReferenceSprite(this.assetGuid);
+
+                if (this.assetGuid != string.Empty)
+                {
+                    this.assetReferenceSprite = new AssetReferenceSprite(this.assetGuid);
+                }
             }
 
             public override void SerializeElements(IElementsSerializer serializer, IVersionProvider versionProvider)
