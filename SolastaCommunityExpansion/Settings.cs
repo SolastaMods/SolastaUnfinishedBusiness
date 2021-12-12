@@ -181,5 +181,14 @@ namespace SolastaCommunityExpansion
 
         public bool EnableDungeonLevelBypass { get; set; }
         public int UserDungeonsPartySize { get; set; } = GAME_PARTY_SIZE;
+
+        public bool EnableTelemaCampaign { get; set; }
+
+        public bool FlexibleGadgetsPlacement { get; set; }
+        public bool FlexiblePropsPlacement { get; set; }
+
+        public bool UnleashAllMonsters { get; set; }
+        public bool UnleashAllNPCs { get; set; }
+        public int maxBackupFiles { get; set; } = 10;
     }
 }
