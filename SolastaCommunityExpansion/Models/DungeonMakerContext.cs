@@ -19,17 +19,14 @@ namespace SolastaCommunityExpansion.Models
         {
             var backupDirectory = Path.Combine(Main.MOD_FOLDER, BACKUP_FOLDER);
 
-            if (!Directory.Exists(backupDirectory))
-            {
-                Directory.CreateDirectory(backupDirectory);
-            }
+            Directory.CreateDirectory(backupDirectory);
 
             var title = userContent.Title;
             var compliantTitle = IOHelper.GetOsCompliantFilename(title);
             var destinationPath = Path.Combine(backupDirectory, compliantTitle) + "." + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
             var backupFiles = Directory.EnumerateFiles(backupDirectory, compliantTitle + "*").ToList();
 
-            backupFiles.Sort();
+            backupFiles.Sort(); // consider changing to OrderBy before ToList
 
             for (int i = 0; i <= backupFiles.Count - Main.Settings.maxBackupFiles; i++)
             {
