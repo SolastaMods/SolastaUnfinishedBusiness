@@ -116,7 +116,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     }
                 }
             }
-        }
 
+            UI.Label("");
+        }
     }
 }
