@@ -7,12 +7,12 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class TelemaCampaignContext
     {
-        private class TelemaCampaignUnleashedBuilder : BaseDefinitionBuilder<CampaignDefinition>
+        private sealed class TelemaCampaignUnleashedBuilder : BaseDefinitionBuilder<CampaignDefinition>
         {
             private const string TelemaDemoUnleashedName = "TelemaDemoUnleashed";
             private const string TelemaDemoUnleashedGuid = "397df3dcfcd444f09df11d05034ec52e";
 
-            protected TelemaCampaignUnleashedBuilder(string name, string guid) : base(TelemaDemo, name, guid)
+            private TelemaCampaignUnleashedBuilder(string name, string guid) : base(TelemaDemo, name, guid)
             {
                 Definition.GuiPresentation.Title += " Unleashed";
                 Definition.PredefinedParty.Clear();
