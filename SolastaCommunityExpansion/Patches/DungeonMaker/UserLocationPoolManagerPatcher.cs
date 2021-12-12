@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Patches
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var deleteMethod = typeof(File).GetMethod("Delete");
-            var backupAndDeleteMethod = typeof(Models.DungeonMakerContext).GetMethod("BackupAndDelete", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static););
+            var backupAndDeleteMethod = typeof(Models.DungeonMakerContext).GetMethod("BackupAndDelete", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
 
             foreach (CodeInstruction instruction in instructions)
             {
