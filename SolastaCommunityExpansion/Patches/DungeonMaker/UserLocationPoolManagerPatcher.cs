@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Patches
     // this patch allows the last X location files to be backed up in the mod folder
     [HarmonyPatch(typeof(UserLocationPoolManager), "SaveUserLocation")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class UserLocationPoolManagerSaveUserLocation
+    internal static class UserLocationPoolManager_SaveUserLocation
     {
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {

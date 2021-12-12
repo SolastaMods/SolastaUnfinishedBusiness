@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.Patches.DungeonEditor
     // better tooltips on DM selected items
     [HarmonyPatch(typeof(ListElementButton), "BindItem")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ListElementButtonBindItem
+    internal static class ListElementButton_BindItem
     {
         internal static void Postfix(GuiLabel ___nameLabel)
         {
