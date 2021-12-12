@@ -22,13 +22,14 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
 
             if (sessionService != null && sessionService.Session != null)
             {
+                // Record which campaign/location the latest load game belongs to
+
                 var session = sessionService.Session;
                 var selectedCampaignService = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>();
 
                 Main.Log($"Campaign-ss: Campaign={session.CampaignDefinitionName}, Location: {session.UserLocationName}");
 
-                selectedCampaignService.Campaign = userCampaignName;
-                selectedCampaignService.Location = userLocationName;
+                selectedCampaignService.SetCampaignLocation(userCampaignName, userLocationName);
             }
 
             __instance.StartCoroutine(ServiceRepository.GetService<IGameSerializationService>()?.EnumerateSavesGames());

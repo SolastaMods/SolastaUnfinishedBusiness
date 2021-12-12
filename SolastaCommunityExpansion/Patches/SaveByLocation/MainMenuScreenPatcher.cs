@@ -18,8 +18,10 @@ namespace SolastaCommunityExpansion
                 return;
             }
 
-            // TODO: select the most recent location/campaign
+            // find the most recently touched save file and select the correct location/campaign for that save
 
+
+/*
             var root = TacticalAdventuresApplication.SaveGameDirectory;
 
             var mostRecent = Directory.EnumerateDirectories(root)
@@ -48,6 +50,7 @@ namespace SolastaCommunityExpansion
                 selectedCampaignService.Location = Path.GetFileName(mostRecent.Path);
                 selectedCampaignService.Campaign = USER_CAMPAIGN;
             }
+*/
         }
     }
 }

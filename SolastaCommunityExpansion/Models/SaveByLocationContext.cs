@@ -8,7 +8,13 @@ namespace SolastaCommunityExpansion.Models
         internal const string MAIN_CAMPAIGN = "CrownOfTheMagister";
         internal const string USER_CAMPAIGN = "UserCampaign";
 
-        internal static readonly string BaseSaveFolder = Path.Combine(TacticalAdventuresApplication.GameDirectory, "Saves");
+        internal static readonly string DefaultSaveGameDirectory = Path.Combine(TacticalAdventuresApplication.GameDirectory, "Saves");
+
+        internal const string LocationSaveFolder = @"CE\Location";
+        internal const string CampaignSaveFolder = @"CE\Campaign";
+
+        internal static readonly string LocationSaveGameDirectory = Path.Combine(DefaultSaveGameDirectory, LocationSaveFolder);
+        internal static readonly string CampaignSaveGameDirectory = Path.Combine(DefaultSaveGameDirectory, CampaignSaveFolder);
 
         internal static class ServiceRepositoryEx
         {
@@ -26,62 +32,77 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        interface ISelectedCampaignService : IService
+        internal interface ISelectedCampaignService : IService
         {
-            string Campaign { get; set; }
-            string Location { get; set; }
+            string CampaignOrLocationName { get; }
+            void SetCampaignLocation(string campaign, string location);
+            LocationType LocationType { get; }
+            string SaveGameDirectory { get; }
+        }
+
+        internal enum LocationType
+        {
+            MainCampaign,
+            UserLocation,
+            UserCampaign
         }
 
         internal class SelectedCampaignService : ISelectedCampaignService
         {
-            public string Campaign { get; set; }
-            public string Location { get; set; }
+            public string CampaignOrLocationName { get; private set; }
+            public LocationType LocationType { get; private set; }
+            public string SaveGameDirectory { get; private set; }
 
-            public string GetFolderName()
+            public void SetCampaignLocation(string campaign, string location)
             {
-                string folder = string.Empty;
+                var camp = campaign?.Trim() ?? string.Empty;
+                var loc = location?.Trim() ?? string.Empty;
 
-                if ((Campaign == USER_CAMPAIGN || string.IsNullOrWhiteSpace(Campaign)) && !string.IsNullOrWhiteSpace(Location))
+                if ((camp == USER_CAMPAIGN || string.IsNullOrWhiteSpace(camp)) && !string.IsNullOrWhiteSpace(loc))
                 {
-                    folder = $@"CE\Location\{Location.Trim()}";
+                    // User individual location
+                    SaveGameDirectory = Path.Combine(LocationSaveGameDirectory, loc);
+                    LocationType = LocationType.UserLocation;
+                    CampaignOrLocationName = location;
                 }
-                else if (Campaign != MAIN_CAMPAIGN && !string.IsNullOrWhiteSpace(Campaign))
+                else if (camp != MAIN_CAMPAIGN && !string.IsNullOrWhiteSpace(camp))
                 {
-                    folder = $@"CE\Campaign\{Campaign.Trim()}";
+                    // User campaign
+                    SaveGameDirectory = Path.Combine(CampaignSaveGameDirectory, camp);
+                    LocationType = LocationType.UserCampaign;
+                    CampaignOrLocationName = campaign;
+                }
+                else
+                {
+                    // Crown of the magister
+                    SaveGameDirectory = DefaultSaveGameDirectory;
+                    LocationType = LocationType.MainCampaign;
+                    CampaignOrLocationName = string.Empty;
                 }
 
-                Main.Log($"Campaign='{Campaign}', Location='{Location}', Folder='{folder}'");
-
-                return folder;
+                Main.Log($"Campaign='{camp}', Location='{loc}', Folder='{SaveGameDirectory}'");
             }
         }
 
-        public static bool HasSaves(bool? isLocation, string folder)
+        public static bool HasSaves(LocationType locationType, string folder)
         {
-            switch (isLocation)
+            switch (locationType)
             {
-                case true:
+                case LocationType.UserLocation:
                     {
-                        var saveFolder = Path.Combine(BaseSaveFolder, $@"CE\Location\{folder}");
+                        var saveFolder = Path.Combine(LocationSaveGameDirectory, folder);
 
-                        var hasSaves = Directory.Exists(saveFolder) && Directory.EnumerateFiles(saveFolder, "*.sav").Any();
-
-                        Main.Log($"Scanning {saveFolder}, hasSaves={hasSaves}");
-
-                        return hasSaves;
+                        return Directory.Exists(saveFolder) && Directory.EnumerateFiles(saveFolder, "*.sav").Any();
                     }
-                case false:
+                case LocationType.UserCampaign:
                     {
-                        var saveFolder = Path.Combine(BaseSaveFolder, $@"CE\Campaign\{folder}");
+                        var saveFolder = Path.Combine(CampaignSaveGameDirectory, folder);
 
-                        var hasSaves = Directory.Exists(saveFolder) && Directory.EnumerateFiles(saveFolder, "*.sav").Any();
-
-                        Main.Log($"Scanning {saveFolder}, hasSaves={hasSaves}");
-
-                        return hasSaves;
+                        return Directory.Exists(saveFolder) && Directory.EnumerateFiles(saveFolder, "*.sav").Any();
                     }
             }
 
+            // assume there are saves for the main campaign
             return true;
         }
     }

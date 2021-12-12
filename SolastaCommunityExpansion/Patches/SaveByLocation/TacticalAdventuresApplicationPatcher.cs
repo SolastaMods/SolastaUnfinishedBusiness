@@ -16,12 +16,14 @@ namespace SolastaCommunityExpansion
                 return true;
             }
 
+            // Modify the value returned by TacticalAdventuresApplication.SaveGameDirectory so that saves
+            // end up where we want them (by location/campaign).
+
             var selectedCampaignService = ServiceRepository.GetService<SelectedCampaignService>();
 
-            var saves = Path.Combine(TacticalAdventuresApplication.GameDirectory, "Saves");
-            __result = Path.Combine(saves, selectedCampaignService?.GetFolderName() ?? string.Empty);
+            __result = selectedCampaignService?.SaveGameDirectory ?? DefaultSaveGameDirectory;
 
-            Main.Log($"GetSaveFolder={saves}, {__result}");
+            Main.Log($"SaveFolder changed from {DefaultSaveGameDirectory} to {__result}");
 
             return false;
         }

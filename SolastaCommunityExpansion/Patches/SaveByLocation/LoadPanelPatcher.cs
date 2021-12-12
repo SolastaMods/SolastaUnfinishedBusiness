@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using ModKit;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -31,6 +32,13 @@ namespace SolastaCommunityExpansion
                 return;
             }
 
+            Main.Log($"LoadPanel_start: {Environment.TickCount}");
+
+            // The Load Panel is being shown.
+            // 1) create/activate a dropdown next to the load save button
+            // 2) populate with list of campaign and location names
+            // 3) select the currently loaded campaign/location in the dropdown, or select 'Main Campaign' if none
+
             var guiDropdown = CreateOrActivateDropdown();
 
             // get all user locations
@@ -46,59 +54,67 @@ namespace SolastaCommunityExpansion
             // populate the dropdown
             guiDropdown.ClearOptions();
 
+            // add them together - each block sorted - can we have separators?
             var userContentList =
                 allCampaigns
-                        .Select(l => new { IsLocation = (bool?)false, l.Title })
-                        .OrderBy(l => l.Title)
-                .Concat(
-                    allLocations
-                    .Select(l => new { IsLocation = (bool?)true, l.Title })
+                    .Select(l => new { LocationType = LocationType.UserCampaign, l.Title })
+                    .OrderBy(l => l.Title)
+                .Concat(allLocations
+                    .Select(l => new { LocationType = LocationType.UserLocation, l.Title })
                     .OrderBy(l => l.Title)
                 )
                 .ToList();
 
             guiDropdown.AddOptions(
-                Enumerable.Repeat(new { IsLocation = (bool?)null, Title = "Main campaign" }, 1)
+                Enumerable.Repeat(new { LocationType = LocationType.MainCampaign, Title = "Main campaign" }, 1)
                 .Union(userContentList)
-                .Select(opt => new CEOptionData
+                .Select(opt => new LocationOptionData
                 {
-                    text = GetTitle(opt.IsLocation, opt.Title),
+                    text = GetTitle(opt.LocationType, opt.Title),
                     CampaignOrLocation = opt.Title,
-                    image = GetImage(opt.IsLocation, opt.Title),
-                    IsLocation = opt.IsLocation,
-                    HasSaves = HasSaves(opt.IsLocation, opt.Title),
-                    // TODO: get latest save date
+                    image = GetSprite(opt.LocationType, opt.Title), // TODO
+                    LocationType = opt.LocationType,
+                    HasSaves = HasSaves(opt.LocationType, opt.Title)
                 })
-                .Where(opt => opt.HasSaves)
-                .OfType<OptionData>()
+                .Where(opt => opt.HasSaves) // Only show locations that have saves
+                .Cast<OptionData>()
                 .ToList());
 
-            // TODO: is this working?
             // Get the current campaign location and select it in the dropdown
-            var currentLocation = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>().Location;
+            var selectedCampaign = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>();
+
             var option = guiDropdown.options
-                .Select((o, i) => new { o.text, Index = i })
-                .FirstOrDefault(o => o.text == currentLocation);
+                .Cast<LocationOptionData>()
+                .Select((o, i) => new { o.CampaignOrLocation, o.LocationType, Index = i })
+                .Where(opt => opt.LocationType == selectedCampaign.LocationType)
+                .FirstOrDefault(o => o.CampaignOrLocation == selectedCampaign.CampaignOrLocationName);
 
             guiDropdown.value = option?.Index ?? 0;
 
+            Main.Log($"LoadPanel_end1: {Environment.TickCount}");
+
             ValueChanged(guiDropdown);
 
-            Sprite GetImage(bool? isLocation, string title)
+            Main.Log($"LoadPanel_end: {Environment.TickCount}");
+
+#pragma warning disable S1172 // Unused method parameters should be removed
+            Sprite GetSprite(LocationType locationType, string title)
             {
                 // TODO: get suitable sprites - anyone?
                 return null;
             }
+#pragma warning restore S1172 // Unused method parameters should be removed
 
-            string GetTitle(bool? isLocation, string title)
+            string GetTitle(LocationType locationType, string title)
             {
-                switch (isLocation)
+                switch (locationType)
                 {
-                    case null:
-                        return title;
-                    case false:
-                        return title.yellow();
                     default:
+                    case LocationType.MainCampaign:
+                        return title;
+                    case LocationType.UserCampaign:
+                        return title.yellow();
+                    case LocationType.UserLocation:
                         return title.orange();
                 }
             }
@@ -108,21 +124,18 @@ namespace SolastaCommunityExpansion
                 // update selected campaign
                 var selectedCampaignService = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>();
 
-                var selected = dropdown.options.Skip(dropdown.value).FirstOrDefault() as CEOptionData;
+                var selected = dropdown.options.Skip(dropdown.value).FirstOrDefault() as LocationOptionData;
 
-                switch (selected.IsLocation)
+                switch (selected.LocationType)
                 {
-                    case null: // default campaign
-                        selectedCampaignService.Campaign = MAIN_CAMPAIGN;
-                        selectedCampaignService.Location = "";
+                    case LocationType.MainCampaign:
+                        selectedCampaignService.SetCampaignLocation(MAIN_CAMPAIGN, string.Empty);
                         break;
-                    case true: // location (campaign=USER_CAMPAIGN + location)
-                        selectedCampaignService.Campaign = USER_CAMPAIGN;
-                        selectedCampaignService.Location = selected.CampaignOrLocation;
+                    case LocationType.UserLocation: // location (campaign=USER_CAMPAIGN + location)
+                        selectedCampaignService.SetCampaignLocation(USER_CAMPAIGN, selected.CampaignOrLocation);
                         break;
-                    case false: // campaign
-                        selectedCampaignService.Campaign = selected.CampaignOrLocation;
-                        selectedCampaignService.Location = "";
+                    case LocationType.UserCampaign: // campaign
+                        selectedCampaignService.SetCampaignLocation(selected.CampaignOrLocation, string.Empty);
                         break;
                 }
 
@@ -144,7 +157,7 @@ namespace SolastaCommunityExpansion
                 {
                     var dropdownPrefab = Resources.Load<GameObject>("GUI/Prefabs/Component/Dropdown");
 
-                    Dropdown = Object.Instantiate(dropdownPrefab);
+                    Dropdown = UnityEngine.Object.Instantiate(dropdownPrefab);
                     Dropdown.name = "LoadMenuDropDown";
 
                     dd = Dropdown.GetComponent<GuiDropdown>();
@@ -173,10 +186,10 @@ namespace SolastaCommunityExpansion
         }
     }
 
-    internal class CEOptionData : OptionData
+    internal class LocationOptionData : OptionData
     {
         public string CampaignOrLocation { get; set; }
-        public bool? IsLocation { get; set; }
+        public LocationType LocationType { get; set; }
         public bool HasSaves { get; set; }
     }
 }
