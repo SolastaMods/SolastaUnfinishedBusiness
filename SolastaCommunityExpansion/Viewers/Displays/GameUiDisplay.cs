@@ -75,6 +75,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (DisplayAdventureLog)
             {
                 UI.Label("");
+                UI.Label(". The settings below only work in custom campaigns or locations");
+                UI.Label("");
 
                 toggle = Main.Settings.EnableAdventureLogBanterLines;
                 if (UI.Toggle("Records NPCs banter lines", ref toggle, UI.AutoWidth()))
