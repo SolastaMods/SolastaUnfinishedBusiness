@@ -37,8 +37,8 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("\n\n[list=1]");
                 collectedString.Append("\n[*] [b]Solasta Mod API[/b] - Provides the basis for all other mods to work");
                 collectedString.Append("\n[*] [b]Solasta Community Expansion[/b] - About 40 mods from the community were consolidated here. 40 Feats, 6 Subclasses, Bug Fixes, etc.");
-                collectedString.Append("\n[*] [b]Solasta Dungeon Maker PRO [Multiplayer][/b] - Offers multiplayer with up to 4 users, additional design options for Dungeon Creators, Lua Scripting, etc.");
-                collectedString.Append("\n[*] [b]Solasta Unfinished Business [Multiclass][/b] - Brings SRD official multiclassing rules into Solasta");
+                collectedString.Append("\n[*] [b]Solasta Dungeon Maker PRO[/b] - Offers multiplayer with up to 4 users, additional design options for Dungeon Creators, Lua Scripting, etc.");
+                collectedString.Append("\n[*] [b]Solasta Unfinished Business[/b] - Brings SRD official multiclassing rules into Solasta");
                 collectedString.Append("\n[/list]");
                 collectedString.Append("\n[heading] How to Report Bugs[/heading]");
                 collectedString.Append("\n[list]");
