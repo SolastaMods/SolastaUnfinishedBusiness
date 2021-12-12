@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Patches
         {
             if (Main.Settings.EnableAdventureLogPopups)
             {
-                Models.AdventureLogContext.LogEntry(string.Empty, new List<string> { text });
+                Models.AdventureLogContext.LogEntry(string.Empty, text);
             }
         }
     }
@@ -25,7 +25,7 @@ namespace SolastaCommunityExpansion.Patches
         {
             if (Main.Settings.EnableAdventureLogPopups)
             {
-                Models.AdventureLogContext.LogEntry(string.Empty, new List<string> { text });
+                Models.AdventureLogContext.LogEntry(string.Empty, text);
             }
         }
     }

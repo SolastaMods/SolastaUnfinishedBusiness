@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Text;
 
 namespace SolastaCommunityExpansion.Patches
 {
@@ -12,7 +13,10 @@ namespace SolastaCommunityExpansion.Patches
         {
             if (Main.Settings.EnableAdventureLogLore)
             {
-                Models.AdventureLogContext.LogEntry("Lore", captions);
+                var builder = new StringBuilder();
+
+                builder.Append(captions);
+                Models.AdventureLogContext.LogEntry("Lore", builder.ToString());
             }
         }
     }

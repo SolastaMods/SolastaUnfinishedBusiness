@@ -16,42 +16,28 @@ namespace SolastaCommunityExpansion.Models
 
             if (isUserText)
             {
+                var builder = new StringBuilder();
                 var fragments = itemDefinition.DocumentDescription.ContentFragments.Select(x => x.Text).ToList();
 
-                LogEntry(itemDefinition.FormatTitle(), fragments, string.Empty, assetReferenceSprite);
+                builder.Append(fragments);
+                LogEntry(itemDefinition.FormatTitle(), builder.ToString(), string.Empty, assetReferenceSprite);
             }
         }
 
-        internal static void LogEntry(string title, List<string> captions, string speakerName = "", AssetReferenceSprite assetReferenceSprite = null)
+        internal static void LogEntry(string title, string text, string speakerName = "", AssetReferenceSprite assetReferenceSprite = null)
         {
             var gameCampaign = Gui.GameCampaign;
 
             if (gameCampaign != null && gameCampaign.CampaignDefinitionName == "UserCampaign")
             {
                 var adventureLog = gameCampaign.AdventureLog;
-                var gameDailyLog = adventureLog.DailyLog as GameDailyLog;
                 var adventureLogDefinition = AccessTools.Field(adventureLog.GetType(), "adventureLogDefinition").GetValue(adventureLog) as AdventureLogDefinition;
-                var loreEntry = new GameAdventureEntryDungeonMaker(adventureLogDefinition, title, captions, speakerName, assetReferenceSprite);
-                var found = false;
+                var loreEntry = new GameAdventureEntryDungeonMaker(adventureLogDefinition, title, text, speakerName, assetReferenceSprite);
+                var hashCode = text.GetHashCode();
 
-                //
-                // TODO: still debugging this
-                //
-                foreach (GameDailyIndex gameDailyIndex in gameDailyLog.Entries)
+                if (!captionHashes.Contains(hashCode))
                 {
-                    foreach (var gameAdventureEntry in gameDailyIndex.DailyEntries)
-                    {
-                        if (gameAdventureEntry is GameAdventureEntryDungeonMaker gameAdventureEntryDungeonMaker && gameAdventureEntryDungeonMaker.CaptionsHash == loreEntry.CaptionsHash)
-                        {
-                            found = true;
-                            break;
-                        }
-                    }
-                }
-
-                if (!found && !captionHashes.Contains(loreEntry.CaptionsHash))
-                {
-                    captionHashes.Add(loreEntry.CaptionsHash);
+                    captionHashes.Add(hashCode);
                     adventureLog.AddAdventureEntry(loreEntry);
                 }
             }
@@ -59,7 +45,6 @@ namespace SolastaCommunityExpansion.Models
 
         internal class GameAdventureEntryDungeonMaker : GameAdventureEntry
         {
-            private int captionsHash;
             private string assetGuid;
             private AssetReferenceSprite assetReferenceSprite;
             private List<GameAdventureConversationInfo> conversationInfos = new List<GameAdventureConversationInfo>();
@@ -71,24 +56,17 @@ namespace SolastaCommunityExpansion.Models
 
             }
 
-            public GameAdventureEntryDungeonMaker(AdventureLogDefinition adventureLogDefinition, string title, List<string> captions, string actorName, AssetReferenceSprite assetReferenceSprite) : base(adventureLogDefinition)
+            public GameAdventureEntryDungeonMaker(AdventureLogDefinition adventureLogDefinition, string header, string text, string actorName, AssetReferenceSprite sprite) : base(adventureLogDefinition)
             {
-                var builder = new StringBuilder();
+                var isNpc = actorName != "";
 
-                foreach (var caption in captions)
-                {
-                    builder.Append(caption);
-                    this.conversationInfos.Add(new GameAdventureConversationInfo(actorName, caption, actorName != ""));
-                    this.textBreakers.Add(new TextBreaker());
-                }
+                conversationInfos.Add(new GameAdventureConversationInfo(actorName, text, isNpc));
+                textBreakers.Add(new TextBreaker());
 
-                this.assetGuid = assetReferenceSprite == null ? string.Empty : assetReferenceSprite.AssetGUID;
-                this.assetReferenceSprite = assetReferenceSprite;
-                this.captionsHash = builder.ToString().GetHashCode();
-                this.title = title;
+                assetGuid = assetReferenceSprite == null ? string.Empty : assetReferenceSprite.AssetGUID;
+                assetReferenceSprite = sprite;
+                title = header;
             }
-
-            public int CaptionsHash => this.captionsHash;
 
             public override bool HasIllustration
             {
@@ -99,66 +77,74 @@ namespace SolastaCommunityExpansion.Models
                     //
                     return false;
 
-                    var illustrationReference = this.IllustrationReference;
+                    //var illustrationReference = IllustrationReference;
 
-                    return illustrationReference != null && illustrationReference.RuntimeKeyIsValid();
+                    //return illustrationReference != null && illustrationReference.RuntimeKeyIsValid();
                 }
             }
 
             public override AssetReference IllustrationReference => assetReferenceSprite;
 
-            public List<TextBreaker> TextBreakers => this.textBreakers;
+            public List<TextBreaker> TextBreakers => textBreakers;
 
-            public string Title => this.title;
+            public string Title => title;
 
             public override void ComputeHeight(float areaWidth, ITextComputer textCompute)
             {
                 base.ComputeHeight(areaWidth, textCompute);
-                this.Height = this.AdventureLogDefinition.ConversationHeaderHeight;
+                Height = AdventureLogDefinition.ConversationHeaderHeight;
 
                 for (var i = 0; i < textBreakers.Count; ++i)
                 {
                     var textBreaker = textBreakers[i];
 
-                    if (this.conversationInfos[i].ActorName != "")
+                    if (conversationInfos[i].ActorName != "")
                     {
-                        this.Parameters.Clear();
-                        this.AddParameter(AdventureStyleDuplet.ParameterType.NpcName, this.conversationInfos[i].ActorName + ":");
-                        this.BreakdownFragments(textBreaker, "{0}" + Gui.Localize(this.conversationInfos[i].ActorLine), this.AdventureLogDefinition.BaseStyle);
+                        Parameters.Clear();
+                        AddParameter(AdventureStyleDuplet.ParameterType.NpcName, conversationInfos[i].ActorName + ":");
+                        BreakdownFragments(textBreaker, "{0}" + Gui.Localize(conversationInfos[i].ActorLine), AdventureLogDefinition.BaseStyle);
                     }
                     else
                     {
-                        this.BreakdownFragments(textBreaker, Gui.Localize(this.conversationInfos[i].ActorLine), this.AdventureLogDefinition.BaseStyle);
+                        BreakdownFragments(textBreaker, Gui.Localize(conversationInfos[i].ActorLine), AdventureLogDefinition.BaseStyle);
                     }
 
-                    textBreaker.ComputeFragmentExtents(textCompute, this.AdventureLogDefinition.ConversationLineHeight);
-                    this.Height += textBreaker.DispatchFragments(areaWidth, this.AdventureLogDefinition.ConversationIndentWidth, this.AdventureLogDefinition.ConversationLineHeight, this.AdventureLogDefinition.ConversationLineHeight, this.AdventureLogDefinition.ConversationWordSpacing, true, this.Height - this.AdventureLogDefinition.ConversationHeaderHeight);
-                    this.Height += this.AdventureLogDefinition.ConversationParagraphSpacing;
-                    this.Height += this.AdventureLogDefinition.ConversationTrailingHeight;
+                    textBreaker.ComputeFragmentExtents(textCompute, AdventureLogDefinition.ConversationLineHeight);
+                    Height += textBreaker.DispatchFragments(areaWidth, AdventureLogDefinition.ConversationIndentWidth, AdventureLogDefinition.ConversationLineHeight, AdventureLogDefinition.ConversationLineHeight, AdventureLogDefinition.ConversationWordSpacing, true, Height - AdventureLogDefinition.ConversationHeaderHeight);
+                    Height += AdventureLogDefinition.ConversationParagraphSpacing;
+                    Height += AdventureLogDefinition.ConversationTrailingHeight;
                 }
             }
 
             public override void SerializeAttributes(IAttributesSerializer serializer, IVersionProvider versionProvider)
             {
                 base.SerializeAttributes(serializer, versionProvider);
-                this.assetGuid = serializer.SerializeAttribute<string>("AssetGuid", this.assetGuid);
-                this.captionsHash = serializer.SerializeAttribute<int>("CaptionsHash", this.captionsHash);
-                this.title = serializer.SerializeAttribute<string>("SectionTitle", this.title);
+                assetGuid = serializer.SerializeAttribute<string>("AssetGuid", assetGuid);
+                title = serializer.SerializeAttribute<string>("SectionTitle", title);
 
-                if (this.assetGuid != string.Empty)
+                if (assetGuid != string.Empty)
                 {
-                    this.assetReferenceSprite = new AssetReferenceSprite(this.assetGuid);
+                    assetReferenceSprite = new AssetReferenceSprite(assetGuid);
                 }
             }
 
             public override void SerializeElements(IElementsSerializer serializer, IVersionProvider versionProvider)
             {
                 base.SerializeElements(serializer, versionProvider);
-                this.conversationInfos = serializer.SerializeElement<GameAdventureConversationInfo>("ConversationInfos", this.conversationInfos);
+                conversationInfos = serializer.SerializeElement<GameAdventureConversationInfo>("ConversationInfos", conversationInfos);
 
-                for (int i = 0; i < this.conversationInfos.Count; ++i)
+                for (int i = 0; i < conversationInfos.Count; ++i)
                 {
-                    this.textBreakers.Add(new TextBreaker());
+                    var conversationInfo = conversationInfos[i];
+
+                    if (conversationInfo.LineType == GameAdventureConversationInfo.Type.SpeechLine)
+                    {
+                        var hashCode = conversationInfo.ActorLine.GetHashCode();
+
+                        captionHashes.Add(hashCode);
+                    }
+
+                    textBreakers.Add(new TextBreaker());
                 }
             }
         }

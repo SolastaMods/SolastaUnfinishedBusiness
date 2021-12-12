@@ -11,7 +11,9 @@ namespace SolastaCommunityExpansion.Patches
         {
             if (Main.Settings.EnableAdventureLogDocuments)
             {
-                Models.AdventureLogContext.LogEntry(guiEquipmentItem.ItemDefinition, guiEquipmentItem.ItemDefinition.GuiPresentation.SpriteReference);
+                var itemDefinition = guiEquipmentItem.ItemDefinition;
+
+                Models.AdventureLogContext.LogEntry(itemDefinition, itemDefinition.GuiPresentation.SpriteReference);
             }
         }
     }

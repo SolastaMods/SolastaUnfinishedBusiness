@@ -24,7 +24,7 @@ namespace SolastaCommunityExpansion.Patches
                     assetReferenceSprite = rulesetCharacterMonster.MonsterDefinition.GuiPresentation.SpriteReference;
                 }
 
-                Models.AdventureLogContext.LogEntry(string.Empty, new List<string> { line }, speaker.Name, assetReferenceSprite);
+                Models.AdventureLogContext.LogEntry(string.Empty, line, rulesetCharacterMonster.Name, assetReferenceSprite);
             }
         }
     }
