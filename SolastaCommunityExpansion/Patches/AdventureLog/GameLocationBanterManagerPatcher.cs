@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Patches
     {
         internal static void Postfix(string line, GameLocationCharacter speaker)
         {
-            if (Main.Settings.EnableAdventureLogBanterLines && speaker.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster && rulesetCharacterMonster != null)
+            if (Main.Settings.EnableAdventureLogBanterLines && speaker.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster)
             {
                 AssetReferenceSprite assetReferenceSprite = null;
 
