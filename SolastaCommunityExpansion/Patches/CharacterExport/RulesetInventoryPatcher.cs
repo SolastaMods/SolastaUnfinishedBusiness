@@ -22,7 +22,6 @@ namespace SolastaCommunityExpansion.Patches.CharacterExport
 
                     if (registeredService == null)
                     {
-                        Main.Log("Adding DummyRulesetEntityService");
                         ServiceRepository.AddService(Models.CharacterExportContext.DummyRulesetEntityService.Instance);
                     }
                 }
@@ -37,7 +36,6 @@ namespace SolastaCommunityExpansion.Patches.CharacterExport
                 {
                     if (ServiceRepository.GetService<IRulesetEntityService>() is Models.CharacterExportContext.DummyRulesetEntityService)
                     {
-                        Main.Log("Removing DummyRulesetEntityService");
                         ServiceRepository.RemoveService<IRulesetEntityService>();
                     }
                 }

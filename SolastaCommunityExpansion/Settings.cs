@@ -130,6 +130,7 @@ namespace SolastaCommunityExpansion
         public bool RemoveBugVisualModels { get; set; }
 
         public bool FullyControlAlliedConjurations { get; set; }
+        public bool DismissControlledConjurationsWhenDeliberatelyDropConcentration { get; set; }
 
         public bool EnableFaceUnlockEyeStyles { get; set; }
         public bool EnableFaceUnlockGlowingEyes { get; set; }

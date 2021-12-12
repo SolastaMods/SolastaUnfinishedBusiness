@@ -38,10 +38,19 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.FullyControlAlliedConjurations;
-            if (UI.Toggle("Fully controls conjurations " + "[animals, elementals, etc]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Fully control conjurations " + "[animals, elementals, etc]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.FullyControlAlliedConjurations = toggle;
                 ConjurationsContext.Load();
+            }
+
+            if (Main.Settings.FullyControlAlliedConjurations)
+            {
+                toggle = Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration;
+                if (UI.Toggle("+ Dismiss fully controlled conjurations when deliberately dropping concentration".italic().yellow(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration = toggle;
+                }
             }
 
             toggle = Main.Settings.EnableConditionBlindedShouldNotAllowOpportunityAttack;
