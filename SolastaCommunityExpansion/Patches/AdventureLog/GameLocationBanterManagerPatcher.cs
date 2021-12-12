@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Patches
         {
             if (Main.Settings.EnableAdventureLogBanterLines)
             {
-                Models.AdventureLogContext.LogEntry(new List<string> { line }, speaker: speaker);
+                Models.AdventureLogContext.LogEntry("Conversation", new List<string> { line }, speaker.Name);
             }
         }
     }

@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Patches
         {
             if (Main.Settings.EnableAdventureLogLore)
             {
-                Models.AdventureLogContext.LogEntry(captions);
+                Models.AdventureLogContext.LogEntry("Lore", captions);
             }
         }
     }

@@ -10,6 +10,8 @@ namespace SolastaCommunityExpansion.Patches
     internal static class GuiAdventureLine_Bind
     {
         internal static void Postfix(
+            RectTransform ___sectionHeaderGroup,
+            GuiLabel ___sectionHeaderTitle,
             RectTransform ___conversationGroup, 
             GuiLabel ___conversationTitle,
             RectTransform ___conversationFragmentsContainer,
@@ -19,6 +21,8 @@ namespace SolastaCommunityExpansion.Patches
         {
             if (entry is Models.AdventureLogContext.GameAdventureEntryDungeonMaker gameAdventureEntryLore)
             {
+                ___sectionHeaderGroup.gameObject.SetActive(true);
+                ___sectionHeaderTitle.Text = gameAdventureEntryLore.Title;
                 ___conversationGroup.gameObject.SetActive(true);
                 ___conversationTitle.transform.parent.gameObject.SetActive(false);
                 ___totalFragments.Clear();

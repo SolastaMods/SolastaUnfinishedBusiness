@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Patches
         {
             if (Main.Settings.EnableAdventureLogTextFeedback)
             {
-                Models.AdventureLogContext.LogEntry(new List<string> { caption });
+                Models.AdventureLogContext.LogEntry("Text Feedback", new List<string> { caption });
             }
         }
     }
