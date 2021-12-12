@@ -31,12 +31,13 @@ namespace SolastaCommunityExpansion.Models
             if (gameCampaign != null && gameCampaign.CampaignDefinitionName == "UserCampaign")
             {
                 var adventureLog = gameCampaign.AdventureLog;
-                var adventureLogDefinition = AccessTools.Field(adventureLog.GetType(), "adventureLogDefinition").GetValue(adventureLog) as AdventureLogDefinition;
-                var loreEntry = new GameAdventureEntryDungeonMaker(adventureLogDefinition, title, text, speakerName, assetReferenceSprite);
                 var hashCode = text.GetHashCode();
 
-                if (!captionHashes.Contains(hashCode))
+                if (adventureLog != null && !captionHashes.Contains(hashCode))
                 {
+                    var adventureLogDefinition = AccessTools.Field(adventureLog.GetType(), "adventureLogDefinition").GetValue(adventureLog) as AdventureLogDefinition;
+                    var loreEntry = new GameAdventureEntryDungeonMaker(adventureLogDefinition, title, text, speakerName, assetReferenceSprite);
+
                     captionHashes.Add(hashCode);
                     adventureLog.AddAdventureEntry(loreEntry);
                 }
@@ -58,13 +59,10 @@ namespace SolastaCommunityExpansion.Models
 
             public GameAdventureEntryDungeonMaker(AdventureLogDefinition adventureLogDefinition, string header, string text, string actorName, AssetReferenceSprite sprite) : base(adventureLogDefinition)
             {
-                var isNpc = actorName != "";
-
-                conversationInfos.Add(new GameAdventureConversationInfo(actorName, text, isNpc));
-                textBreakers.Add(new TextBreaker());
-
                 assetGuid = assetReferenceSprite == null ? string.Empty : assetReferenceSprite.AssetGUID;
                 assetReferenceSprite = sprite;
+                conversationInfos.Add(new GameAdventureConversationInfo(actorName, text, actorName != ""));
+                textBreakers.Add(new TextBreaker());
                 title = header;
             }
 
