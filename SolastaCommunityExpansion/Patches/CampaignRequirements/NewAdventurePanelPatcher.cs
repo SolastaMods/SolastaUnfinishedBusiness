@@ -6,7 +6,7 @@ namespace SolastaCommunityExpansion.Patches
     // this patch changes the min/max requirements on campaigns
     [HarmonyPatch(typeof(NewAdventurePanel), "SelectCampaign")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class NewAdventurePanelSelectCampaign
+    internal static class NewAdventurePanel_SelectCampaign
     {
         internal static void Prefix(UserCampaign userCampaign)
         {
@@ -20,7 +20,7 @@ namespace SolastaCommunityExpansion.Patches
 
     // this patch changes the min/max requirements on locations
     [HarmonyPatch(typeof(NewAdventurePanel), "SelectUserLocation")]
-    internal static class NewAdventurePanelSelectUserLocation
+    internal static class NewAdventurePanel_SelectUserLocation
     {
         internal static void Prefix(UserLocation userLocation)
         {
