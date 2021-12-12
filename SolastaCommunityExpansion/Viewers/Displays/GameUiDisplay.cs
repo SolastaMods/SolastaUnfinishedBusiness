@@ -7,7 +7,15 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class GameUiDisplay
     {
+        private static bool DisplayAdventureLog { get; set; }
+
         private static bool DisplayBattle { get; set; }
+
+        private static bool DisplayItem { get; set; }
+
+        private static bool DisplayMonster { get; set; }
+
+        private static bool DisplaySpell { get; set; }
 
         internal static void DisplayGameUi()
         {
@@ -17,56 +25,11 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            toggle = Main.Settings.AllowExtraKeyboardCharactersInNames;
-            if (UI.Toggle("Allows extra keyboard characters in names", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.AllowExtraKeyboardCharactersInNames = toggle;
-            }
-
             toggle = Main.Settings.EnableCharacterExport;
             if (UI.Toggle("Enables character export from inventory screen " + "[ctrl-(E)xport]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableCharacterExport = toggle;
             }
-
-            toggle = Main.Settings.OfferAdditionalNames;
-            if (UI.Toggle("Offers additional lore friendly names on character creation " + RequiresRestart, ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.OfferAdditionalNames = toggle;
-            }
-
-            UI.Label("");
-
-            toggle = Main.Settings.HideMonsterHitPoints;
-            if (UI.Toggle("Displays Monsters's health in steps of 25% / 50% / 75% / 100% instead of exact hit points", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.HideMonsterHitPoints = toggle;
-            }
-
-            UI.Label("");
-
-            toggle = Main.Settings.EnableInvisibleCrownOfTheMagister;
-            if (UI.Toggle("Hides Crown of the Magister on game UI", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableInvisibleCrownOfTheMagister = toggle;
-                ItemOptionsContext.SwitchCrownOfTheMagister();
-            }
-
-            toggle = Main.Settings.RemoveBugVisualModels;
-            if (UI.Toggle("Replaces bug-like models with alternative visuals in the game " + "[must be switched on before maps are loaded] ".italic().yellow() + RequiresRestart , ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.RemoveBugVisualModels = toggle;
-            }
-
-            UI.Label("");
-
-            toggle = Main.Settings.EnableHudToggleElementsHotkeys;
-            if (UI.Toggle("Enables hotkeys to toggle HUD components visibility " + "[ctrl-(C)ontrol Panel / ctrl-(L)og / ctrl-(M)ap / ctrl-(P)arty]".italic().yellow(), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableHudToggleElementsHotkeys = toggle;
-            }
-
-            UI.Label("");
 
             toggle = Main.Settings.EnableInventoryFilterAndSort;
             if (UI.Toggle("Enables inventory filtering and sorting " + RequiresRestart, ref toggle, UI.AutoWidth()))
@@ -75,9 +38,17 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             toggle = Main.Settings.EnableSaveByLocation;
-            if (UI.Toggle("Enables save by locations / campaigns", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enables save by campaigns / locations", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableSaveByLocation = toggle;
+            }
+
+            UI.Label("");
+
+            toggle = Main.Settings.EnableHudToggleElementsHotkeys;
+            if (UI.Toggle("Enables hotkeys to toggle HUD components visibility " + "[ctrl-(C)ontrol Panel / ctrl-(L)og / ctrl-(M)ap / ctrl-(P)arty]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableHudToggleElementsHotkeys = toggle;
             }
 
             toggle = Main.Settings.InvertAltBehaviorOnTooltips;
@@ -92,6 +63,54 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.RecipeTooltipShowsRecipe = toggle;
             }
 
+            #region AdventureLog
+            UI.Label("");
+
+            toggle = DisplayAdventureLog;
+            if (UI.DisclosureToggle("Adventure Log settings: ".yellow(), ref toggle, 200))
+            {
+                DisplayAdventureLog = toggle;
+            }
+
+            if (DisplayAdventureLog)
+            {
+                UI.Label("");
+                UI.Label(". The settings below only work in custom campaigns or locations");
+                UI.Label("");
+
+                toggle = Main.Settings.EnableAdventureLogBanterLines;
+                if (UI.Toggle("Records NPCs banter lines", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableAdventureLogBanterLines = toggle;
+                }
+
+                toggle = Main.Settings.EnableAdventureLogDocuments;
+                if (UI.Toggle("Records read documents and notes", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableAdventureLogDocuments = toggle;
+                }
+
+                toggle = Main.Settings.EnableAdventureLogLore;
+                if (UI.Toggle("Records full screen lore", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableAdventureLogLore = toggle;
+                }
+
+                toggle = Main.Settings.EnableAdventureLogTextFeedback;
+                if (UI.Toggle("Records text feedback", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableAdventureLogTextFeedback = toggle;
+                }
+
+                toggle = Main.Settings.EnableAdventureLogPopups;
+                if (UI.Toggle("Records bottom and header popups", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableAdventureLogPopups = toggle;
+                }
+            }
+            #endregion
+
+            #region Battle
             UI.Label("");
 
             toggle = DisplayBattle;
@@ -138,34 +157,99 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     Main.Settings.CustomTimeScale = floatValue;
                 }
             }
+            #endregion
 
+            #region Item
             UI.Label("");
 
-            using (UI.HorizontalScope())
+            toggle = DisplayItem;
+            if (UI.DisclosureToggle("Item settings: ".yellow(), ref toggle, 200))
             {
-                UI.Label("Empress Garb".orange() + " appearance ".white(), UI.Width(325));
+                DisplayItem = toggle;
+            }
 
-                intValue = Array.IndexOf(ItemOptionsContext.EmpressGarbSkins, Main.Settings.EmpressGarbSkin);
-                if (UI.SelectionGrid(ref intValue, ItemOptionsContext.EmpressGarbSkins, ItemOptionsContext.EmpressGarbSkins.Length, UI.Width(600)))
+            if (DisplayItem)
+            {
+                UI.Label("");
+
+                toggle = Main.Settings.EnableInvisibleCrownOfTheMagister;
+                if (UI.Toggle("Hides Crown of the Magister on game UI", ref toggle, UI.AutoWidth()))
                 {
-                    Main.Settings.EmpressGarbSkin = ItemOptionsContext.EmpressGarbSkins[intValue];
-                    ItemOptionsContext.SwitchEmpressGarb();
+                    Main.Settings.EnableInvisibleCrownOfTheMagister = toggle;
+                    ItemOptionsContext.SwitchCrownOfTheMagister();
+                }
+
+                UI.Label("");
+
+                using (UI.HorizontalScope())
+                {
+                    UI.Label("Empress Garb".orange() + " appearance ".white(), UI.Width(325));
+
+                    intValue = Array.IndexOf(ItemOptionsContext.EmpressGarbSkins, Main.Settings.EmpressGarbSkin);
+                    if (UI.SelectionGrid(ref intValue, ItemOptionsContext.EmpressGarbSkins, ItemOptionsContext.EmpressGarbSkins.Length, UI.Width(600)))
+                    {
+                        Main.Settings.EmpressGarbSkin = ItemOptionsContext.EmpressGarbSkins[intValue];
+                        ItemOptionsContext.SwitchEmpressGarb();
+                    }
                 }
             }
+            #endregion
 
+            #region Monster
             UI.Label("");
 
-            intValue = Main.Settings.MaxSpellLevelsPerLine;
-            if (UI.Slider("Max levels per line on Spell Panel".white(), ref intValue, 3, 7, 5, "", UI.AutoWidth()))
+            toggle = DisplayMonster;
+            if (UI.DisclosureToggle("Monster settings: ".yellow(), ref toggle, 200))
             {
-                Main.Settings.MaxSpellLevelsPerLine = intValue;
+                DisplayMonster = toggle;
             }
 
-            floatValue = Main.Settings.SpellPanelGapBetweenLines;
-            if (UI.Slider("Gap between spell lines on Spell Panel".white(), ref floatValue, 0f, 200f, 50f, 0, "", UI.AutoWidth()))
+            if (DisplayMonster)
             {
-                Main.Settings.SpellPanelGapBetweenLines = floatValue;
+                UI.Label("");
+
+                toggle = Main.Settings.HideMonsterHitPoints;
+                if (UI.Toggle("Displays Monsters's health in steps of 25% / 50% / 75% / 100% instead of exact hit points", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.HideMonsterHitPoints = toggle;
+                }
+
+                toggle = Main.Settings.RemoveBugVisualModels;
+                if (UI.Toggle("Replaces bug-like models with alternative visuals in the game " + "[must be switched on before maps are loaded] ".italic().yellow() + RequiresRestart, ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.RemoveBugVisualModels = toggle;
+                }
             }
+            #endregion
+
+            #region Spell
+            UI.Label("");
+
+            toggle = DisplaySpell;
+            if (UI.DisclosureToggle("Spell settings: ".yellow(), ref toggle, 200))
+            {
+                DisplaySpell = toggle;
+            }
+
+            if (DisplaySpell)
+            {
+                UI.Label("");
+
+                intValue = Main.Settings.MaxSpellLevelsPerLine;
+                if (UI.Slider("Max levels per line on Spell Panel".white(), ref intValue, 3, 7, 5, "", UI.AutoWidth()))
+                {
+                    Main.Settings.MaxSpellLevelsPerLine = intValue;
+                }
+
+                floatValue = Main.Settings.SpellPanelGapBetweenLines;
+                if (UI.Slider("Gap between spell lines on Spell Panel".white(), ref floatValue, 0f, 200f, 50f, 0, "", UI.AutoWidth()))
+                {
+                    Main.Settings.SpellPanelGapBetweenLines = floatValue;
+                }
+            }
+            #endregion
+
+            UI.Label("");
         }
     }
 }
