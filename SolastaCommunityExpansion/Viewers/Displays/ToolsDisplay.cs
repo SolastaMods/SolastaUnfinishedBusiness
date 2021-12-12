@@ -14,11 +14,17 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             int intValue;
 
             UI.Label("");
-            UI.Label("Custom dungeons:".yellow());
+            UI.Label("Campaigns and Locations:".yellow());
             UI.Label("");
 
+            toggle = Main.Settings.EnableTelemaCampaign;
+            if (UI.Toggle("Enables the Telema Kickstarter demo location", ref toggle))
+            {
+                Main.Settings.EnableTelemaCampaign = toggle;
+            }
+
             toggle = Main.Settings.EnableDungeonLevelBypass;
-            if (UI.Toggle("Overrides required min / max level", ref toggle))
+            if (UI.Toggle("Overrides required min / max level " + "[only in custom dungeons]".italic().yellow(), ref toggle))
             {
                 Main.Settings.EnableDungeonLevelBypass = toggle;
             }
@@ -26,11 +32,22 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             intValue = Main.Settings.UserDungeonsPartySize;
-            if (UI.Slider("Overrides party size".white(), ref intValue, Settings.MIN_PARTY_SIZE, Settings.MAX_PARTY_SIZE, Settings.GAME_PARTY_SIZE, "", UI.AutoWidth()))
+            if (UI.Slider("Overrides party size ".white() + "[only in custom dungeons]".italic().yellow(), ref intValue, Settings.MIN_PARTY_SIZE, Settings.MAX_PARTY_SIZE, Settings.GAME_PARTY_SIZE, "", UI.AutoWidth()))
             {
                 Main.Settings.UserDungeonsPartySize = intValue;
             }
 
+
+            UI.Label("");
+
+            intValue = Main.Settings.maxBackupFiles;
+            if (UI.Slider("Max. backup files per location or campaign".white(), ref intValue, 0, 20, 10))
+            {
+                Main.Settings.maxBackupFiles = intValue;
+            }
+
+            UI.Label("");
+            UI.Label(". backup files are saved under " + "GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups".italic().bold());
             UI.Label("");
             UI.Label("Debug:".yellow());
             UI.Label("");

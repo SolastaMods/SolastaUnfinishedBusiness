@@ -11,6 +11,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
         private static bool DisplayBattle { get; set; }
 
+        private static bool DisplayDungeonMaker { get; set; }
+
         private static bool DisplayItem { get; set; }
 
         private static bool DisplayMonster { get; set; }
@@ -155,6 +157,47 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (UI.Slider("Battle timescale modifier".white(), ref floatValue, 1f, 50f, 1f, 1, "", UI.AutoWidth()))
                 {
                     Main.Settings.CustomTimeScale = floatValue;
+                }
+            }
+            #endregion
+
+            #region DungeonMaker
+            UI.Label("");
+
+            toggle = DisplayDungeonMaker;
+            if (UI.DisclosureToggle("Dungeon Maker settings: ".yellow(), ref toggle, 200))
+            {
+                DisplayDungeonMaker = toggle;
+            }
+
+            if (DisplayDungeonMaker)
+            {
+                UI.Label("");
+
+                toggle = Main.Settings.FlexibleGadgetsPlacement;
+                if (UI.Toggle("Allows gadgets to be placed anywhere on the map " + RequiresRestart, ref toggle))
+                {
+                    Main.Settings.FlexibleGadgetsPlacement = toggle;
+                }
+
+                toggle = Main.Settings.FlexiblePropsPlacement;
+                if (UI.Toggle("Allows props to be placed anywhere on the map " + RequiresRestart, ref toggle))
+                {
+                    Main.Settings.FlexiblePropsPlacement = toggle;
+                }
+
+                UI.Label("");
+
+                toggle = Main.Settings.UnleashAllMonsters;
+                if (UI.Toggle("Unleashes NPCs as enemies " + "[press SHIFT while clicking Select on gadget panel]".italic().yellow(), ref toggle))
+                {
+                    Main.Settings.UnleashAllMonsters = toggle;
+                }
+
+                toggle = Main.Settings.UnleashAllNPCs;
+                if (UI.Toggle("Unleashes enemies as NPCs " + "[press SHIFT while clicking Select on gadget panel]".italic().yellow(), ref toggle))
+                {
+                    Main.Settings.UnleashAllNPCs = toggle;
                 }
             }
             #endregion
