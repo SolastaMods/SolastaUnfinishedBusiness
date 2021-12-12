@@ -1,6 +1,6 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using HarmonyLib;
+﻿using HarmonyLib;
 using SolastaCommunityExpansion.Models;
+using System.Diagnostics.CodeAnalysis;
 
 namespace SolastaCommunityExpansion.Patches
 {
@@ -39,7 +39,9 @@ namespace SolastaCommunityExpansion.Patches
                 FaceUnlockContext.Load();
                 ConjurationsContext.Load();
                 ItemOptionsContext.Load();
-              
+                DungeonMakerContext.Load();
+                TelemaCampaignContext.Load();
+
                 Main.Enabled = true;
             }
         }
