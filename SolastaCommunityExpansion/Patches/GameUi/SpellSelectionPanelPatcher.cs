@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SolastaCommunityExpansion.Patches
+namespace SolastaCommunityExpansion.Patches.GameUi
 {
     internal static class SpellSelectionPanelPatcher
     {

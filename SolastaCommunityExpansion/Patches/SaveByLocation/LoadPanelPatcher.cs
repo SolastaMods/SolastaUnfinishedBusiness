@@ -9,7 +9,7 @@ using UnityEngine.UI;
 using static SolastaCommunityExpansion.Models.SaveByLocationContext;
 using static TMPro.TMP_Dropdown;
 
-namespace SolastaCommunityExpansion
+namespace SolastaCommunityExpansion.Patches.SaveByLocation
 {
     [HarmonyPatch(typeof(LoadPanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

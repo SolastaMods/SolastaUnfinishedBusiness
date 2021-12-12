@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Reflection.Emit;
 
-namespace SolastaCommunityExpansion.Patches
+namespace SolastaCommunityExpansion.Patches.DungeonMaker
 {
     // this patch allows the last X campaign files to be backed up in the mod folder
     [HarmonyPatch(typeof(UserCampaignPoolManager), "SaveUserCampaign")]

@@ -2,7 +2,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-namespace SolastaCommunityExpansion.Patches.DungeonEditor
+namespace SolastaCommunityExpansion.Patches.DungeonMaker
 {
     // better tooltips on DM selected items
     [HarmonyPatch(typeof(ListElementButton), "BindItem")]

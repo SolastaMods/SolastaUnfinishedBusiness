@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches
+namespace SolastaCommunityExpansion.Patches.DungeonMaker
 {
     internal static class DatabaseSelectionModalPatcher
     {

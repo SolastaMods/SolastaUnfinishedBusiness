@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using static SolastaCommunityExpansion.Models.SaveByLocationContext;
 
-namespace SolastaCommunityExpansion
+namespace SolastaCommunityExpansion.Patches.SaveByLocation
 {
     [HarmonyPatch(typeof(TacticalAdventuresApplication), "SaveGameDirectory", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

@@ -3,7 +3,7 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.PartySize
+namespace SolastaCommunityExpansion.Patches.PartySize.PartySize
 {
     // this patch scales down the revive party control panel whenever the party size is bigger than 4
     [HarmonyPatch(typeof(RevivePartyControlPanel), "OnBeginShow")]

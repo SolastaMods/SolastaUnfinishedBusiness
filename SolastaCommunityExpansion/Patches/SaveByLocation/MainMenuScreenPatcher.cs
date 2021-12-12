@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using static SolastaCommunityExpansion.Models.SaveByLocationContext;
 
-namespace SolastaCommunityExpansion
+namespace SolastaCommunityExpansion.Patches.SaveByLocation
 {
     [HarmonyPatch(typeof(MainMenuScreen), "OnEndShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

@@ -2,7 +2,7 @@
 using HarmonyLib;
 using TA;
 
-namespace SolastaCommunityExpansion.Patches
+namespace SolastaCommunityExpansion.Patches.PartySize
 {
     // use this patch to recalculate the additional party members positions
     [HarmonyPatch(typeof(GameLocationCharacterManager), "UnlockCharactersForLoading")]
