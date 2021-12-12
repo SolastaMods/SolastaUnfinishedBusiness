@@ -15,6 +15,8 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
                 return true;
             }
 
+            // Enable/disable the 'load' button in the load save panel
+
             __result = !___saving && !___loading && ___loadDisabledTokens.Count <= 0;
 
             return false;
