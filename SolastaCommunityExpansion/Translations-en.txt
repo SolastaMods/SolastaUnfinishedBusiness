@@ -624,3 +624,4 @@ Equipment/&LivewoodStaffDescription	This staff is composed of living wood comple
 Equipment/&LivewoodClubTitle	Livewood Club
 Equipment/&LivewoodClubDescription	This club is composed of living wood complete with sprouting leaves and perhaps seasonal blooms. It can be used as a focus for Druidic spell casting.
 Stage/&IdentifyMorphotypeEyeHeader	Eye Header
+Caption/&GadgetParametersCustomRemoveDescription	Remove:\n{0}
