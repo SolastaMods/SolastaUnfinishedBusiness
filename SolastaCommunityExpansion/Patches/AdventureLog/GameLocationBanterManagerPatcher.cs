@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Patches
 {
@@ -10,9 +11,20 @@ namespace SolastaCommunityExpansion.Patches
     {
         internal static void Postfix(string line, GameLocationCharacter speaker)
         {
-            if (Main.Settings.EnableAdventureLogBanterLines)
+            if (Main.Settings.EnableAdventureLogBanterLines && speaker.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster && rulesetCharacterMonster != null)
             {
-                Models.AdventureLogContext.LogEntry(string.Empty, new List<string> { line }, speaker.Name, (speaker.RulesetCharacter as RulesetCharacterMonster).MonsterDefinition.GuiPresentation.SpriteReference);
+                AssetReferenceSprite assetReferenceSprite = null;
+
+                if (rulesetCharacterMonster.HumanoidMonsterPresentationDefinition != null)
+                {
+                    assetReferenceSprite = rulesetCharacterMonster.HumanoidMonsterPresentationDefinition.GuiPresentation.SpriteReference;
+                }             
+                else if (rulesetCharacterMonster.MonsterDefinition != null)
+                {
+                    assetReferenceSprite = rulesetCharacterMonster.MonsterDefinition.GuiPresentation.SpriteReference;
+                }
+
+                Models.AdventureLogContext.LogEntry(string.Empty, new List<string> { line }, speaker.Name, assetReferenceSprite);
             }
         }
     }
