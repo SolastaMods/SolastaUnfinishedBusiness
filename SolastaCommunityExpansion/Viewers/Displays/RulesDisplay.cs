@@ -55,16 +55,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("House:".yellow());
             UI.Label("");
 
-            toggle = Main.Settings.PickPocketEnabled;
-            if (UI.Toggle("Adds pickpocketable loot [suggested if " + "Pickpocket".orange() + " feat is enabled]", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.PickPocketEnabled = toggle;
-                if (toggle)
-                {
-                    PickPocketContext.Load();
-                }
-            }
-
             toggle = Main.Settings.EnableUniversalSylvanArmor;
             if (UI.Toggle("Allows any class to wear sylvan armor", ref toggle, UI.AutoWidth()))
             {
@@ -79,12 +69,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 DruidArmorContext.Switch(toggle);
             }
 
-            toggle = Main.Settings.DisableAutoEquip;
-            if (UI.Toggle("Disables auto-equip of items in inventory", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.DisableAutoEquip = toggle;
-            }
-
             toggle = Main.Settings.EnableMagicStaffFoci;
             if (UI.Toggle("Makes all magic staves arcane foci " + "[except for Staff of Healing which is Universal]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
@@ -92,11 +76,31 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 ItemOptionsContext.SwitchMagicStaffFoci();
             }
 
+            UI.Label("");
+
+            toggle = Main.Settings.PickPocketEnabled;
+            if (UI.Toggle("Adds pickpocketable loot [suggested if " + "Pickpocket".orange() + " feat is enabled]", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.PickPocketEnabled = toggle;
+                if (toggle)
+                {
+                    PickPocketContext.Load();
+                }
+            }
+
+            toggle = Main.Settings.DisableAutoEquip;
+            if (UI.Toggle("Disables auto-equip of items in inventory", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.DisableAutoEquip = toggle;
+            }
+
             toggle = Main.Settings.ExactMerchantCostScaling;
             if (UI.Toggle("Scales merchant prices correctly / exactly", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.ExactMerchantCostScaling = toggle;
             }
+
+            UI.Label("");
         }
     }
 }
