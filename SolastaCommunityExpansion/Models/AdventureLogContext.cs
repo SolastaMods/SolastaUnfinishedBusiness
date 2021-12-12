@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Models
                 var builder = new StringBuilder();
                 var fragments = itemDefinition.DocumentDescription.ContentFragments.Select(x => x.Text).ToList();
 
-                builder.Append(fragments);
+                fragments.ForEach(x => builder.Append(x));
                 LogEntry(itemDefinition.FormatTitle(), builder.ToString(), string.Empty, assetReferenceSprite);
             }
         }
@@ -72,14 +72,9 @@ namespace SolastaCommunityExpansion.Models
             {
                 get
                 {
-                    //
-                    // TODO: revisit addressables
-                    //
-                    return false;
+                    var illustrationReference = IllustrationReference;
 
-                    //var illustrationReference = IllustrationReference;
-
-                    //return illustrationReference != null && illustrationReference.RuntimeKeyIsValid();
+                    return illustrationReference != null && illustrationReference.RuntimeKeyIsValid();
                 }
             }
 

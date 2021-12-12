@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Patches
             {
                 var builder = new StringBuilder();
 
-                builder.Append(captions);
+                captions.ForEach(x => builder.Append(x));
                 Models.AdventureLogContext.LogEntry("Lore", builder.ToString());
             }
         }
