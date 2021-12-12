@@ -1,6 +1,5 @@
 ﻿using HarmonyLib;
 using ModKit;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -32,8 +31,6 @@ namespace SolastaCommunityExpansion
                 return;
             }
 
-            Main.Log($"LoadPanel_start: {Environment.TickCount}");
-
             // The Load Panel is being shown.
             // 1) create/activate a dropdown next to the load save button
             // 2) populate with list of campaign and location names
@@ -57,7 +54,7 @@ namespace SolastaCommunityExpansion
             // add them together - each block sorted - can we have separators?
             var userContentList =
                 allCampaigns
-                    .Select(l => new { LocationType = LocationType.UserCampaign, l.Title })
+                    .Select(l => new { LocationType = LocationType.CustomCampaign, l.Title })
                     .OrderBy(l => l.Title)
                 .Concat(allLocations
                     .Select(l => new { LocationType = LocationType.UserLocation, l.Title })
@@ -83,19 +80,22 @@ namespace SolastaCommunityExpansion
             // Get the current campaign location and select it in the dropdown
             var selectedCampaign = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>();
 
+            Main.Log($"LoadPanel: selected={selectedCampaign.CampaignOrLocationName}, {selectedCampaign.LocationType}");
+
             var option = guiDropdown.options
                 .Cast<LocationOptionData>()
                 .Select((o, i) => new { o.CampaignOrLocation, o.LocationType, Index = i })
                 .Where(opt => opt.LocationType == selectedCampaign.LocationType)
                 .FirstOrDefault(o => o.CampaignOrLocation == selectedCampaign.CampaignOrLocationName);
 
+            foreach (var o in guiDropdown.options.Cast<LocationOptionData>().Select((od, i) => new {od, i}))
+            {
+                Main.Log($"{o.od.LocationType}, {o.od.CampaignOrLocation}, {o.i}");
+            }
+
             guiDropdown.value = option?.Index ?? 0;
 
-            Main.Log($"LoadPanel_end1: {Environment.TickCount}");
-
             ValueChanged(guiDropdown);
-
-            Main.Log($"LoadPanel_end: {Environment.TickCount}");
 
 #pragma warning disable S1172 // Unused method parameters should be removed
             Sprite GetSprite(LocationType locationType, string title)
@@ -112,7 +112,7 @@ namespace SolastaCommunityExpansion
                     default:
                     case LocationType.MainCampaign:
                         return title;
-                    case LocationType.UserCampaign:
+                    case LocationType.CustomCampaign:
                         return title.yellow();
                     case LocationType.UserLocation:
                         return title.orange();
@@ -134,7 +134,7 @@ namespace SolastaCommunityExpansion
                     case LocationType.UserLocation: // location (campaign=USER_CAMPAIGN + location)
                         selectedCampaignService.SetCampaignLocation(USER_CAMPAIGN, selected.CampaignOrLocation);
                         break;
-                    case LocationType.UserCampaign: // campaign
+                    case LocationType.CustomCampaign: // campaign
                         selectedCampaignService.SetCampaignLocation(selected.CampaignOrLocation, string.Empty);
                         break;
                 }
@@ -157,7 +157,7 @@ namespace SolastaCommunityExpansion
                 {
                     var dropdownPrefab = Resources.Load<GameObject>("GUI/Prefabs/Component/Dropdown");
 
-                    Dropdown = UnityEngine.Object.Instantiate(dropdownPrefab);
+                    Dropdown = Object.Instantiate(dropdownPrefab);
                     Dropdown.name = "LoadMenuDropDown";
 
                     dd = Dropdown.GetComponent<GuiDropdown>();

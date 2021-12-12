@@ -44,7 +44,7 @@ namespace SolastaCommunityExpansion.Models
         {
             MainCampaign,
             UserLocation,
-            UserCampaign
+            CustomCampaign
         }
 
         internal class SelectedCampaignService : ISelectedCampaignService
@@ -69,7 +69,7 @@ namespace SolastaCommunityExpansion.Models
                 {
                     // User campaign
                     SaveGameDirectory = Path.Combine(CampaignSaveGameDirectory, camp);
-                    LocationType = LocationType.UserCampaign;
+                    LocationType = LocationType.CustomCampaign;
                     CampaignOrLocationName = campaign;
                 }
                 else
@@ -94,7 +94,7 @@ namespace SolastaCommunityExpansion.Models
 
                         return Directory.Exists(saveFolder) && Directory.EnumerateFiles(saveFolder, "*.sav").Any();
                     }
-                case LocationType.UserCampaign:
+                case LocationType.CustomCampaign:
                     {
                         var saveFolder = Path.Combine(CampaignSaveGameDirectory, folder);
 
