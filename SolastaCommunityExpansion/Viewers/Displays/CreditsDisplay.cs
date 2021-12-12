@@ -7,19 +7,19 @@ namespace SolastaCommunityExpansion.Viewers.Displays
     {
         internal static readonly Dictionary<string, string> CreditsTable = new Dictionary<string, string>
         {
-            { "ChrisJohnDigital".orange().bold(), "head developer, feats, items, subclasses, progression, etc." },
-            { "Zappastuff", "mod UI work, integration, adventure log, inventory sorting, level 20, respec, party size, QoL" },
-            { "ImpPhil", "monster's health, pause UI, stocks prices, no attunement, xp scaling, character export, save by location" },
-            { "DubhHerder", "Crafty Feats Migration" },
+            { "ChrisJohnDigital".orange().bold(), "head developer, crafting, faction relations, feats, fighting styles, items, subclasses, progression" },
+            { "Zappastuff", "mod UI, integration, adventure log, dungeon maker, encounters, epic points, inventory sorting, level 20, party size, respec, surprise rules, tools" },
+            { "ImpPhil", "adv/dis rules, conjurations control, auto-equip, monster's health, pause UI, stocks prices, no attunement, xp scaling, character export, save by location, combat camera" },
+            { "DubhHerder", "Crafty Feats migration, bug models replacement" },
             { "View619", "Darkvision, Superior Dark Vision" },
-            { "SilverGriffon", "PickPocket, lore friendly names, crafty feats, face unlocks" },
+            { "SilverGriffon", "PickPocket, lore friendly names, crafty feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants" },
             { "Boofat", "alwaysAlt" },
             { "Myztikrice", "faster time scale" },
-            { "AceHigh", "Power Attack, Reckless Fury, no identification, Tactician Subclass" },
-            { "ElAntonious", "Torchbearer and Dual Flurry, Arcanist Subclass" },
-            { "Scarlex", "Royal Knight Subclass" },
-            { "RedOrca", "Path of Light Subclass" },
-            { "Narria", "ModKit creator, developer" }
+            { "AceHigh", "Power Attack, Reckless Fury, no identification, Tactician subclass" },
+            { "ElAntonious", "Torchbearer and Dual Flurry, Arcanist subclass" },
+            { "Scarlex", "Royal Knight subclass" },
+            { "RedOrca", "Path of Light subclass" },
+            { "Narria", "modKit creator, developer" }
         };
 
         internal static void DisplayCredits()
