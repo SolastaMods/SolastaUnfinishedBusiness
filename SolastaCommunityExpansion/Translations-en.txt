@@ -1,4 +1,15 @@
 ArcaneFighterBonusWeaponDamage Magically Powered Attacks
+Caption/&GadgetParametersCustomRemoveDescription	Remove:\n{0}
+Condition/&ConditionDualFlurryApplyDescription	You are building momentum...
+Condition/&ConditionDualFlurryApplyTitle	Dual Flurry!
+Condition/&ConditionDualFlurryGrantDescription	Your foes are reeling!
+Condition/&ConditionDualFlurryGrantTitle	Dual Flurry!
+Condition/&ConditionMarkedByArcanistDescription	Afflicted by Arcanist's Mark.
+Condition/&ConditionMarkedByArcanistTitle	Arcanist's Mark
+Equipment/&ArcaneStaffDescription	This staff is inscribed with magical writing and can be used as a focus for Arcane spell casting.
+Equipment/&ArcaneStaffTitle	Arcane Staff
+Equipment/&DruidicAmuletDescription This totemic amulet can be used as a focus for Druidic spell casting.
+Equipment/&DruidicAmuletTitle	Druidic Amulet
 Equipment/&Enchanted_Club_Acuteness_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
 Equipment/&Enchanted_Club_Acuteness_Title Club of Acuteness
 Equipment/&Enchanted_Club_Bearclaw_Description This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. The sharp spikes of the bear's claw shred armor to inflict additional damage � just as expected by Ildurial Stronghand, who designed the first weapon of this kind.
@@ -164,12 +175,18 @@ Equipment/&Enchanted_Warhammer_Power_Description This enchanted weapon was forge
 Equipment/&Enchanted_Warhammer_Power_Title Warhammer of Power
 Equipment/&Enchanted_Warhammer_Punisher_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. The combination of the best metal and Slavestone gave this axe incredible piercing power.
 Equipment/&Enchanted_Warhammer_Punisher_Title Punisher Warhammer
+Equipment/&LivewoodClubDescription	This club is composed of living wood complete with sprouting leaves and perhaps seasonal blooms. It can be used as a focus for Druidic spell casting.
+Equipment/&LivewoodClubTitle	Livewood Club
+Equipment/&LivewoodStaffDescription	This staff is composed of living wood complete with sprouting leaves and perhaps seasonal blooms. It can be used as a focus for Druidic spell casting.
+Equipment/&LivewoodStaffTitle	Livewood Staff
 Feat/&ChefConDescription You gain +1 to Constitution. Spend 1 hour to cook a meal to heal yourself and your companions 1d8. Once a day you may spend an hour to cook treats that provide temporary HP when eaten.
 Feat/&ChefConTitle Chef (Constitution)
 Feat/&ChefShortRestFeastDescription Spend 1 hour to prepare a meal that helps heal you and your companions 1d8.
 Feat/&ChefShortRestFeastTitle Short Rest Meal
 Feat/&ChefWisDescription You gain +1 to Wisdom. Spend 1 hour to cook a meal to heal yourself and your companions. Once a day you may spend an hour to cook treats that provide temporary HP when eaten.
 Feat/&ChefWisTitle Chef (Wisdom)
+Feat/&DualFlurryDescription	You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack.
+Feat/&DualFlurryTitle	Dual Flurry
 Feat/&FeatChefConIncrementDescription +1 Constitution
 Feat/&FeatChefConIncrementTitle Attribute Increase
 Feat/&FeatChefWisIncrementDescription +1 Wisdom
@@ -240,11 +257,11 @@ Feat/&FightingStyleTwoWeaponTitle Fighting Style: Two Weapon
 Feat/&HealerDescription You gain proficiency or expertise in Medicine checks. You gain the ability to stabilize a dying creature as well as to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 Feat/&HealerResuscitateDescription Use an action to revive a creature that died within the last 15 seconds.
 Feat/&HealerResuscitateTitle Resuscitate
+Feat/&HealerStabilizeDescription Use an action to stabilize a dying creature.
+Feat/&HealerStabilizeTitle Stabilize
 Feat/&HealerTitle Healer
 Feat/&HealerUseMedicineDescription You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 Feat/&HealerUseMedicineTitle Use Medicine
-Feat/&HealerStabilizeDescription Use an action to stabilize a dying creature.
-Feat/&HealerStabilizeTitle Stabilize
 Feat/&HeavyArmorMasterDescription Resistance to Bludgeoning, Slashing, and Piercing damage.
 Feat/&HeavyArmorMasterTitle Heavy Defense Mastery
 Feat/&InspiringLeaderDescription Spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier. Useable once per short rest.
@@ -285,6 +302,37 @@ Feat/&ProfMediumArmorDescription Gain proficiency with Medium Armor and Shields
 Feat/&ProfMediumArmorTitle Medium Armor
 Feat/&RecklessFuryFeatDescription You gain the ability to enter a rage for one minute once per day (note no armor restriction), and you can attack recklessly gaining advantage on your melee attacks while giving advantage to your attackers until your next turn.
 Feat/&RecklessFuryFeatTitle Reckless Fury
+Feat/&TorchbearerDescription	You are skilled in the use of a torch in battle. Once per turn, as a bonus action you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw or take 1d4 fire damage per turn for 1 minute or until extinguished. The DC of this save is based on your Dexterity and Proficiency Bonus.
+Feat/&TorchbearerTitle	Torchbearer
+Feature/&AdditionalActionDualFlurryDescription	You may make an additional off-hand attack.
+Feature/&AdditionalActionDualFlurryTitle	Dual Flurry!
+Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!
+Feature/&ArcaneDetonationDescription	When you hit a creature that has your Arcanist's Mark with a weapon attack, the mark detonates, dealing 1d6 force damage and destroying the mark.
+Feature/&ArcaneDetonationTitle	Arcane Detonation
+Feature/&ArcaneDetonationUpgradeDescription	Starting at 11th level, the damage from your Arcane Detonation increases to 2d6.
+Feature/&ArcaneDetonationUpgradeTitle	Greater Arcane Detonation
+Feature/&ArcanePulseDescription	Starting at 7th level, you can cause an eruption of arcane energy at a range of 30 feet. Hostile creatures within 15 feet of the point of impact take 4d8 damage and gain an Arcanist's Mark. You may use this ability a number of times equal to your wisdom modifier per long rest. At 15th level, the damage of your Arcane Pulse increases to 8d8.
+Feature/&ArcanePulseTitle	Arcane Pulse
+Feature/&ArcanistMarkDescription	Starting at 3rd level, you imbue your weapons with arcane power. Creatures that are hit by your attacks are afflicted by the Arcanist's Mark.
+Feature/&ArcanistMarkTitle	Arcanist's Mark
+Feature/&CounterStrikePowerDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
+Feature/&CounterStrikePowerTitle Counter Strike
+Feature/&DualFlurryDescription	You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack.
+Feature/&DualFlurryTitle	Dual Flurry
+Feature/&GambitResourcePoolAddDescription	Adds an additional gambit die.
+Feature/&GambitResourcePoolAddTitle	Additional Gambit die.
+Feature/&GambitResourcePoolDescription	Pool of gambit dice that can be spent on gambits.  Starts with 4 they recharge on short rest.
+Feature/&GambitResourcePoolTitle	Gambit dice pool.
+Feature/&IndomitableResistanceAddDescription	+1 Indomitable Resistance use between rests.
+Feature/&IndomitableResistanceAddTitle	Indomitable Resistance (increased)
+Feature/&IndomitableResistanceTitle	Indomitable Resistance
+Feature/&InspirePowerDescription	Spend a gambit die and inspire yourself or your ally to give 1d6+2 temp hp
+Feature/&InspirePowerTitle	Inspire
+Feature/&InspiringSurgePowerDescription Grant an ally an additional main action for 1 round. Does not stack with Action Surge.
+Feature/&InspiringSurgePowerTitle Inspiring Surge
+Feature/&InspiringSurgePowerTitleShort Inspiring Surge
+Feature/&KnockDownPowerDescription	Spend a gambit die and empower your attack to do an additional 1d6+2 bludgeoning damage and knock them down until the start of their next turn if they fail a Strength save vs. 8 + your Strength + proficiency
+Feature/&KnockDownPowerTitle	Knock down
 Feature/&PowerAttackAttackModifierOneHandedDescription Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
 Feature/&PowerAttackAttackModifierOneHandedTitle One handed power attack
 Feature/&PowerAttackConditionDescription Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
@@ -297,6 +345,20 @@ Feature/&PowerAttackTwoHandedConditionDescription Take a -{0} to hit penalty to 
 Feature/&PowerAttackTwoHandedConditionTitle Two Handed power attack
 Feature/&PowerAttackTwoHandedPowerDescription Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes.  Only to be used when attacking with two hands, melee or ranged.
 Feature/&PowerAttackTwoHandedPowerTitle Two Handed power attack
+Feature/&PowerPaladinAuraOfCourage18Description Grant a saving throw bonus to allies withing 30ft.
+Feature/&PowerPaladinAuraOfCourage18Title	Improved Aura of Courage
+Feature/&PowerPaladinAuraOfProtection18Description	You and your allies within 30ft cannot be frightened.
+Feature/&PowerPaladinAuraOfProtection18Title	Improved Aura of Protection
+Feature/&PowerTorchbearerDescription	Attempt to set a melee target on fire!
+Feature/&PowerTorchbearerTitle	Torchbearer
+Feature/&PrimalChampionConstitutionDescription At 20th level, you embody the power of the wilds. Your Constitution scores increase by 4
+Feature/&PrimalChampionConstitutionTitle Primal Champion (Constitution)
+Feature/&PrimalChampionStrengthDescription At 20th level, you embody the power of the wilds. Your Strength scores increase by 4
+Feature/&PrimalChampionStrengthTitle Primal Champion (Strength)
+Feature/&ProficiencyRogueBlindSenseDescription	Starting at 14th level, if you are able to hear, you are aware of the location of any hidden or invisible creature within 10 feet of you.
+Feature/&ProficiencyRogueBlindSenseTitle	Blindsense
+Feature/&ProficiencyRogueSlipperyMindDescription	By 15th level, you have acquired greater mental strength. You gain proficiency in Wisdom saving throws.
+Feature/&ProficiencyRogueSlipperyMindTitle	Slippery Mind
 Feature/&RageDamageBonusAttackModifierDescription Add +2 damage to your attacks while raging.
 Feature/&RageDamageBonusAttackModifierTitle Rage damage
 Feature/&RageFeatConditionDescription While in a rage you gain the following: Advantage on Strength checks and Strength saving throws, a bonus to damage rolls of +2, and resistance to bludgeoning, piercing, and slashing damage.
@@ -305,10 +367,33 @@ Feature/&RagePowerDescription As a bonus action you enter a rage for one minute 
 Feature/&RagePowerTitle Rage
 Feature/&RageStrengthSavingThrowAffinityDescription You get advantage on strength saves while raging
 Feature/&RageStrengthSavingThrowAffinityTitle Rage strength save advantage
+Feature/&RallyingCryPowerDescription Replaces Second Wind with a power to restore 4x Fighter Levels hit points to one or more allies within 6 cells, up to their hit point maximum.
+Feature/&RallyingCryPowerTitle Rallying Cry
+Feature/&RallyingCryPowerTitleShort Rallying Cry
+Feature/&RangerArcanistMagicDescription	Starting at 3rd level, you learn an additional spell when you reach certain levels in this class. Each spell counts as a ranger spell for you, but it doesn't count against the number of ranger spells you know. The spells are: Level 3: Shield, Level 5: Misty Step, Level 9: Haste, Level 13: Dimension Door, and Level 17: Hold Monster. Additionally, you are proficient at casting spells in battle, and may cast spells that require a somatic component even if both of your hands are holding a weapon or shield.
+Feature/&RangerArcanistMagicTitle	Ranger Arcanist Spellcasting
+Feature/&RangerFeatureSetFoeSlayerDescription	At 20th level, you become an unparalleled Hunter of your enemies. Once on each of your turns, you can add your Wisdom modifier to the Attack roll or the damage roll of an Attack you make against one of your Favored enemies.
+Feature/&RangerFeatureSetFoeSlayerTitle	Foe Slayer
+Feature/&RangerFeralSensesDescription	 You gain preternatural senses that help you fight creatures you can’t see. When you attack a creature you can’t see, your inability to see it doesn’t impose disadvantage on your attack rolls against it.
+Feature/&RangerFeralSensesTitle	Feral Senses
+Feature/&RangerVanishActionDescription	Starting at 14th level, you can use the Hide action as a bonus action on your turn.
+Feature/&RangerVanishActionTitle	Vanish
+Feature/&RoyalEnvoyFeatureDescription Add half of your proficiency bonus (round up) to any Charisma check you make that doesn't already use your proficiency bonus. In addition, you become proficient with Charisma saving throws.
+Feature/&RoyalEnvoyFeatureTitle Royal Envoy
 Feature/&ZSPowerPaladinCleansingTouchDescription Remove spell effects by touching an ally. You can do this a number of times per day equal to your Charisma modifier.
 Feature/&ZSPowerPaladinCleansingTouchTitle Cleansing Touch
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat Additional Damage from Magically Powered Attacks
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine Additional Damage from Magically Powered Attacks
+Feedback/&AdditionalDamageArcanistMarkFormat Arcanist's Mark!
+Feedback/&AdditionalDamageArcanistMarkLine	Arcanist's Mark detonates and deals extra damage to the target!
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat Illuminating Strike!
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	Illuminating Strike deals extra damage to the target!
+Feedback/&AdditionalDamagePugilistFormat Pugilist
+Feedback/&AdditionalDamagePugilistLine Additional Unarmed Damage from Pugilist
+FightingStyle/&BlindFightingDescription	You have blindsight with a range of 10 feet.
+FightingStyle/&BlindFightingTitle	Blind Fighting
+FightingStyle/&PugilistFightingDescription While you are completely unarmed, your unarmed strikes deal an additional d8 of damage and you can punch with your offhand as a bonus action.
+FightingStyle/&PugilistFightingTitle Pugilist
 FlexibleBackgrounds/&BackgroundSkillSelect2Description Select 2 skill proficiencies
 FlexibleBackgrounds/&BackgroundSkillSelect2Title Skills
 FlexibleBackgrounds/&BackgroundSkillSelect3Description Select 3 skill proficiencies
@@ -319,6 +404,13 @@ FlexibleRaces/&PointPoolAbilityScore3Description Use three boosts on ability sco
 FlexibleRaces/&PointPoolAbilityScore3Title Ability Score Increase
 FlexibleRaces/&PointPoolAbilityScore4Description Use four boosts on ability scores in any combination of your choosing.
 FlexibleRaces/&PointPoolAbilityScore4Title Ability Score Increase
+Message/&CharacterExportDuplicateNameErrorDescription	Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name.
+Message/&CharacterExportEmptyNameErrorDescription	Export Cancelled:\n\nPlease try a non empty name.
+Message/&CharacterExportModalContentDescription	Enter the hero name to export:
+Message/&CharacterExportModalTitleDescription	Character Export
+Message/&SpawnCustomEncounterDescription	Spawn encounter at coordinates ({0}, {1})?
+Message/&SpawnCustomEncounterTitle	Encounter
+Pugilist Pugilist Damage
 Race/&PointPoolSelect10FeatsDescription Select 10 additional feats for your character.
 Race/&PointPoolSelect10FeatsTitle 10 Bonus Feats
 Race/&PointPoolSelect11FeatsDescription Select 11 additional feats for your character.
@@ -339,10 +431,28 @@ Race/&PointPoolSelect8FeatsDescription Select 8 additional feats for your charac
 Race/&PointPoolSelect8FeatsTitle 8 Bonus Feats
 Race/&PointPoolSelect9FeatsDescription Select 9 additional feats for your character.
 Race/&PointPoolSelect9FeatsTitle 9 Bonus Feats
+Reaction/&SpendPowerCounterStrikePowerDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
+Reaction/&SpendPowerCounterStrikePowerReactDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
+Reaction/&SpendPowerCounterStrikePowerReactTitle	Counter Strike
+Reaction/&SpendPowerCounterStrikePowerTitle	Counter Strike
+Reaction/&SpendPowerInspirePowerDescription	Spend a gambit die and inspire or your ally to give 1d6+2 temp hp
+Reaction/&SpendPowerInspirePowerTitle	Inspire
+Reaction/&SpendPowerKnockDownPowerDescription	Spend a gambit die and empower your attack to do an additional 1d6+2 bludgeoning damage and knock them down until the start of their next turn if they fail a Strength save vs. 8 + your Strength + proficiency
+Reaction/&SpendPowerKnockDownPowerReactDescription	Spend a gambit die and empower your attack to do an additional 1d6+2 bludgeoning damage and knock them down until the start of their next turn if they fail a Strength save vs. 8 + your Strength + proficiency
+Reaction/&SpendPowerKnockDownPowerReactTitle	Knock down
+Reaction/&SpendPowerKnockDownPowerTitle	Knock down
+Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageDescription	Add your Wisdom modifier to your damage roll.
+Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageReactDescription	Add your Wisdom modifier to your damage roll.
+Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageReactTitle	Foe Slayer
+Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageTitle	Foe Slayer
+Reaction/&UseZSPowerRangerFoeSlayerAttackDescription	Add your Wisdom modifier to your attack roll.
+Reaction/&UseZSPowerRangerFoeSlayerAttackReactTitle	Foe Slayer
+Reaction/&UseZSPowerRangerFoeSlayerAttackTitle	Foe Slayer
+Reaction/&UseZSPowerRangerFoeSlayerDamageReactDescription	Add your Wisdom modifier to your attack roll.
 RestActivity/&ZSRespecDescription	Respec this Hero
 RestActivity/&ZSRespecTitle	Respec
-RestActivity/&ZSSorcerousRestorationTitle Sorcerous Restoration
 RestActivity/&ZSSorcerousRestorationDescription Regain 4 sorcery points during a short rest.
+RestActivity/&ZSSorcerousRestorationTitle Sorcerous Restoration
 Screen/&FeyTeleportSpellDescription This Fey spell is always prepared.
 Screen/&FeyTeleportSpellTitle Fey
 Screen/&ShadowTouchedSpellDescription This Shadow spell is always prepared.
@@ -375,8 +485,9 @@ SolastaCraftyFeats/&ToxicologistIntFeatDescription	+1 Intelligence, Proficiency 
 SolastaCraftyFeats/&ToxicologistIntFeatTitle	Toxicologist (Intelligence)
 SolastaCraftyFeats/&ToxicologistWisFeatDescription	+1 Wisdom, Proficiency or Expertise with Poisoner's Kit and Medicine
 SolastaCraftyFeats/&ToxicologistWisFeatTitle	Toxicologist (Wisdom)
-Sorceror/&ZSSorcerousRestorationTitle Sorcerous Restoration
 Sorceror/&ZSSorcerousRestorationDescription Regain 4 sorcery points during a short rest.
+Sorceror/&ZSSorcerousRestorationTitle Sorcerous Restoration
+Stage/&IdentityMorphotypeEyeHeader	Eye Style
 Subclass/&AbilityAffinityRogueConArtistDescription Advantage on ability checks using Persuasion, Deception, Performance, and Sleight of Hand.
 Subclass/&AbilityAffinityRogueConArtistTitle Manipulative
 Subclass/&ArcaneFighterAdditionalActionDescription You can cast a spell after defeating an enemy with your weapon attacks.
@@ -387,12 +498,36 @@ Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription Your attacks count as
 Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle Arcane Weapon
 Subclass/&AttributeModifierMeleeWizardExtraAttackDescription You gain an extra attack
 Subclass/&AttributeModifierMeleeWizardExtraAttackTitle Extra Attack
+Subclass/&BarbarianPathOfTheLightDescription	Barbarians who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.
+Subclass/&BarbarianPathOfTheLightEyesOfTruthDescription	You are always under the effects of a See Invisibility spell.
+Subclass/&BarbarianPathOfTheLightEyesOfTruthTitle	Eyes of Truth
+Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription	Distracted by Illuminating Strike.
+Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle	Illuminated
+Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription	Disadvantage on any attack roll that isn't against the Path of the Light barbarian.
+Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription	Cannot become invisible.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstDescription	On the turn that you enter your rage, you can choose to illuminate up to three enemies within 30 feet of you. They must succeed on a Constitution saving throw (DC equal to 8 + your proficiency bonus + your Constitution modifier) or take 4d6 radiant damage and be illuminated by your Illuminating Strike for 1 minute. A creature illuminated in this way makes another Constitution saving throw at the end of each of its turns. On a successful save, the effect ends for it.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription	Up to three enemies take 4d6 radiant damage and become illuminated by your Illuminating Strike. (Constitution saving throw negates.)
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle	Illuminating Burst
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstTitle	Illuminating Burst
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeDescription	While you're raging, the first creature you hit with an attack on your turn takes an additional 1d6 radiant damage and becomes magically illuminated until the start of your next turn. Additionally, the creature has disadvantage on any attack roll that isn't against you and cannot become invisible.
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementDescription	The additional damage dealt by Illuminating Strike increases to 2d6.
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementTitle	Illuminating Strike Improvement
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeTitle	Illuminating Strike
+Subclass/&BarbarianPathOfTheLightLightsProtectionDescription	You regain hit points equal to half your barbarian level when a hostile creature affected by your Illuminating Strike dies. Additionally, you no longer provoke opportunity attacks from creatures affected by your Illuminating Strike.
+Subclass/&BarbarianPathOfTheLightLightsProtectionTitle	Light's Protection
+Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription	You gain superior darkvision.
+Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle	Pierce the Darkness
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Can perceive invisible creatures.
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Invisibility Sight
+Subclass/&BarbarianPathOfTheLightTitle	Path of the Light
 Subclass/&ConditionSpellShieldArcaneDeflectionDescription You can use your arcane powers to shield yourself as a reaction. This gives you +{0} to your AC until your next turn.
 Subclass/&ConditionSpellShieldArcaneDeflectionTitle Arcane Deflection
 Subclass/&ConditionTransmuteConstitutionSaveDescription Temporary Constitution save proficiency granted by the Transmute Force power.
 Subclass/&ConditionTransmuteConstitutionSaveTitle Constitution Saves
 Subclass/&ConditionTransmutePoisonDescription Temporary Acid, Cold, Fire, Lightning, Necrotic, Thunder, and Poison Resistance granted by the Transmute Force power.
 Subclass/&ConditionTransmutePoisonTitle Elemental Resistance
+Subclass/&FighterRoyalKnightDescription A knight who inspires greatness in others by committing brave deeds in battle. A lone knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
+Subclass/&FighterRoyalKnightTitle Royal Knight
 Subclass/&FighterSpellShieldDescription Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
 Subclass/&FighterSpellShieldSpellcastingDescription Cast wizard spells and cantrips from the Abjuration, Illusion, Transmutation, and Necromancy schools.
 Subclass/&FighterSpellShieldSpellcastingTitle Spellcasting
@@ -458,6 +593,8 @@ Subclass/&PowerTransmuteHealDescription Use your Transmute Force to heal up to 6
 Subclass/&PowerTransmuteHealTitle Heal
 Subclass/&PowerTransmuteReviveDescription Use your Transmute Force to revive a character (within 1 minute of them dying).
 Subclass/&PowerTransmuteReviveTitle Revive
+Subclass/&RangerArcanistRangerSubclassDescription	The Ranger Arcanist melds their ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
+Subclass/&RangerArcanistRangerSubclassTitle	Ranger Arcanist
 Subclass/&RoguishConArtistDescription Con Artists are rogues that specialize in deception and tricking others. They use magic to aid their natural manipulative abilities.
 Subclass/&RoguishConArtistFeintConditionDescription Being tricked grants advantage on the next attack.
 Subclass/&RoguishConArtistFeintConditionTitle Tricked
@@ -470,6 +607,8 @@ Subclass/&RoguishConArtistSpellcastingTitle Spellcasting
 Subclass/&RoguishConArtistTitle Con Artist
 Subclass/&SpellShieldAdditionalActionDescription You can cast a spell after defeating an enemy with your weapon attacks.
 Subclass/&SpellShieldAdditionalActionTitle Spell Fighting
+Subclass/&TactitionFighterSubclassDescription The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed.  They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.  Mod note - This class re-uses channel divinity for these features.
+Subclass/&TactitionFighterSubclassTitle The Tactician 
 Subclass/&TraditionArcaneFighterDescription Channel your magic into weapon attacks.
 Subclass/&TraditionArcaneFighterTitle Arcane Fighter
 Subclass/&TraditionLifeTransmuterDescription Masters of manipulating both matter and life energy.
@@ -488,140 +627,3 @@ Subclass/&TraditionSpellMasterSpellResistanceTitle Spell Resistance
 Subclass/&TraditionSpellMasterTitle Spell Master
 Subclass/&WeaponProfArcaneFighterDescription Experience in combat has given the Arcane Fighter training in Simple and Martial Weapons.
 Subclass/&WeaponProfArcaneFighterTitle  Weapon Training
-Feature/&RangerVanishActionTitle	Vanish
-Feature/&RangerVanishActionDescription	Starting at 14th level, you can use the Hide action as a bonus action on your turn.
-Feature/&RangerFeatureSetFoeSlayerTitle	Foe Slayer
-Feature/&RangerFeatureSetFoeSlayerDescription	At 20th level, you become an unparalleled Hunter of your enemies. Once on each of your turns, you can add your Wisdom modifier to the Attack roll or the damage roll of an Attack you make against one of your Favored enemies.
-Feature/&PowerPaladinAuraOfProtection18Title	Improved Aura of Protection
-Feature/&PowerPaladinAuraOfProtection18Description	You and your allies within 30ft cannot be frightened.
-Feature/&PowerPaladinAuraOfCourage18Title	Improved Aura of Courage
-Feature/&PowerPaladinAuraOfCourage18Description Grant a saving throw bonus to allies withing 30ft.
-Feature/&PrimalChampionConstitutionDescription At 20th level, you embody the power of the wilds. Your Constitution scores increase by 4
-Feature/&PrimalChampionConstitutionTitle Primal Champion (Constitution)
-Feature/&PrimalChampionStrengthDescription At 20th level, you embody the power of the wilds. Your Strength scores increase by 4
-Feature/&PrimalChampionStrengthTitle Primal Champion (Strength)
-Feature/&ProficiencyRogueSlipperyMindTitle	Slippery Mind
-Feature/&ProficiencyRogueSlipperyMindDescription	By 15th level, you have acquired greater mental strength. You gain proficiency in Wisdom saving throws.
-Feature/&ProficiencyRogueBlindSenseTitle	Blindsense
-Feature/&ProficiencyRogueBlindSenseDescription	Starting at 14th level, if you are able to hear, you are aware of the location of any hidden or invisible creature within 10 feet of you.
-Feature/&IndomitableResistanceAddTitle	Indomitable Resistance (increased)
-Feature/&IndomitableResistanceAddDescription	+1 Indomitable Resistance use between rests.
-Feature/&IndomitableResistanceTitle	Indomitable Resistance
-Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageTitle	Foe Slayer
-Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageDescription	Add your Wisdom modifier to your damage roll.
-Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageReactTitle	Foe Slayer
-Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageReactDescription	Add your Wisdom modifier to your damage roll.
-Reaction/&UseZSPowerRangerFoeSlayerAttackTitle	Foe Slayer
-Reaction/&UseZSPowerRangerFoeSlayerAttackDescription	Add your Wisdom modifier to your attack roll.
-Reaction/&UseZSPowerRangerFoeSlayerAttackReactTitle	Foe Slayer
-Reaction/&UseZSPowerRangerFoeSlayerDamageReactDescription	Add your Wisdom modifier to your attack roll.
-Feat/&DualFlurryTitle	Dual Flurry
-Feat/&DualFlurryDescription	You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack.
-Feature/&DualFlurryTitle	Dual Flurry
-Feature/&DualFlurryDescription	You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack.
-Feature/&AdditionalActionDualFlurryTitle	Dual Flurry!
-Feature/&AdditionalActionDualFlurryDescription	You may make an additional off-hand attack.
-Condition/&ConditionDualFlurryApplyTitle	Dual Flurry!
-Condition/&ConditionDualFlurryApplyDescription	You are building momentum...
-Condition/&ConditionDualFlurryGrantTitle	Dual Flurry!
-Condition/&ConditionDualFlurryGrantDescription	Your foes are reeling!
-Feat/&TorchbearerTitle	Torchbearer
-Feat/&TorchbearerDescription	You are skilled in the use of a torch in battle. Once per turn, as a bonus action you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw or take 1d4 fire damage per turn for 1 minute or until extinguished. The DC of this save is based on your Dexterity and Proficiency Bonus.
-Feature/&PowerTorchbearerTitle	Torchbearer
-Feature/&PowerTorchbearerDescription	Attempt to set a melee target on fire!
-Pugilist Pugilist Damage
-Feedback/&AdditionalDamagePugilistFormat Pugilist
-Feedback/&AdditionalDamagePugilistLine Additional Unarmed Damage from Pugilist
-FightingStyle/&PugilistFightingDescription While you are completely unarmed, your unarmed strikes deal an additional d8 of damage and you can punch with your offhand as a bonus action.
-FightingStyle/&PugilistFightingTitle Pugilist
-FightingStyle/&BlindFightingTitle	Blind Fighting
-FightingStyle/&BlindFightingDescription	You have blindsight with a range of 10 feet.
-Subclass/&RangerArcanistRangerSubclassTitle	Ranger Arcanist
-Subclass/&RangerArcanistRangerSubclassDescription	The Ranger Arcanist melds their ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
-Feature/&RangerArcanistMagicTitle	Ranger Arcanist Spellcasting
-Feature/&RangerArcanistMagicDescription	Starting at 3rd level, you learn an additional spell when you reach certain levels in this class. Each spell counts as a ranger spell for you, but it doesn't count against the number of ranger spells you know. The spells are: Level 3: Shield, Level 5: Misty Step, Level 9: Haste, Level 13: Dimension Door, and Level 17: Hold Monster. Additionally, you are proficient at casting spells in battle, and may cast spells that require a somatic component even if both of your hands are holding a weapon or shield.
-Feature/&ArcanistMarkTitle	Arcanist's Mark
-Feature/&ArcanistMarkDescription	Starting at 3rd level, you imbue your weapons with arcane power. Creatures that are hit by your attacks are afflicted by the Arcanist's Mark.
-Feature/&ArcaneDetonationTitle	Arcane Detonation
-Feature/&ArcaneDetonationDescription	When you hit a creature that has your Arcanist's Mark with a weapon attack, the mark detonates, dealing 1d6 force damage and destroying the mark.
-Feature/&ArcaneDetonationUpgradeTitle	Greater Arcane Detonation
-Feature/&ArcaneDetonationUpgradeDescription	Starting at 11th level, the damage from your Arcane Detonation increases to 2d6.
-Feature/&ArcanePulseTitle	Arcane Pulse
-Feature/&ArcanePulseDescription	Starting at 7th level, you can cause an eruption of arcane energy at a range of 30 feet. Hostile creatures within 15 feet of the point of impact take 4d8 damage and gain an Arcanist's Mark. You may use this ability a number of times equal to your wisdom modifier per long rest. At 15th level, the damage of your Arcane Pulse increases to 8d8.
-Feedback/&AdditionalDamageArcanistMarkLine	Arcanist's Mark detonates and deals extra damage to the target!
-Feedback/&AdditionalDamageArcanistMarkFormat Arcanist's Mark!
-Condition/&ConditionMarkedByArcanistTitle	Arcanist's Mark
-Condition/&ConditionMarkedByArcanistDescription	Afflicted by Arcanist's Mark.
-Feature/&KnockDownPowerTitle	Knock down
-Feature/&KnockDownPowerDescription	Spend a gambit die and empower your attack to do an additional 1d6+2 bludgeoning damage and knock them down until the start of their next turn if they fail a Strength save vs. 8 + your Strength + proficiency
-Reaction/&SpendPowerKnockDownPowerTitle	Knock down
-Reaction/&SpendPowerKnockDownPowerDescription	Spend a gambit die and empower your attack to do an additional 1d6+2 bludgeoning damage and knock them down until the start of their next turn if they fail a Strength save vs. 8 + your Strength + proficiency
-Reaction/&SpendPowerKnockDownPowerReactTitle	Knock down
-Reaction/&SpendPowerKnockDownPowerReactDescription	Spend a gambit die and empower your attack to do an additional 1d6+2 bludgeoning damage and knock them down until the start of their next turn if they fail a Strength save vs. 8 + your Strength + proficiency
-Feature/&InspirePowerTitle	Inspire
-Feature/&InspirePowerDescription	Spend a gambit die and inspire yourself or your ally to give 1d6+2 temp hp
-Reaction/&SpendPowerInspirePowerTitle	Inspire
-Reaction/&SpendPowerInspirePowerDescription	Spend a gambit die and inspire or your ally to give 1d6+2 temp hp
-Feature/&CounterStrikePowerTitle Counter Strike
-Feature/&CounterStrikePowerDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
-Reaction/&SpendPowerCounterStrikePowerTitle	Counter Strike
-Reaction/&SpendPowerCounterStrikePowerDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
-Reaction/&SpendPowerCounterStrikePowerReactTitle	Counter Strike
-Reaction/&SpendPowerCounterStrikePowerReactDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
-Feature/&GambitResourcePoolTitle	Gambit dice pool.
-Feature/&GambitResourcePoolDescription	Pool of gambit dice that can be spent on gambits.  Starts with 4 they recharge on short rest.
-Feature/&GambitResourcePoolAddTitle	Additional Gambit die.
-Feature/&GambitResourcePoolAddDescription	Adds an additional gambit die.
-Subclass/&TactitionFighterSubclassTitle The Tactician 
-Subclass/&TactitionFighterSubclassDescription The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed.  They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.  Mod note - This class re-uses channel divinity for these features.
-Feature/&RallyingCryPowerTitle Rallying Cry
-Feature/&RallyingCryPowerTitleShort Rallying Cry
-Feature/&RallyingCryPowerDescription Replaces Second Wind with a power to restore 4x Fighter Levels hit points to one or more allies within 6 cells, up to their hit point maximum.
-Feature/&RoyalEnvoyFeatureTitle Royal Envoy
-Feature/&RoyalEnvoyFeatureDescription Add half of your proficiency bonus (round up) to any Charisma check you make that doesn't already use your proficiency bonus. In addition, you become proficient with Charisma saving throws.
-Feature/&InspiringSurgePowerTitle Inspiring Surge
-Feature/&InspiringSurgePowerTitleShort Inspiring Surge
-Feature/&InspiringSurgePowerDescription Grant an ally an additional main action for 1 round. Does not stack with Action Surge.
-Subclass/&FighterRoyalKnightTitle Royal Knight
-Subclass/&FighterRoyalKnightDescription A knight who inspires greatness in others by committing brave deeds in battle. A lone knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
-Feature/&RangerFeralSensesTitle	Feral Senses
-Feature/&RangerFeralSensesDescription	 You gain preternatural senses that help you fight creatures you can’t see. When you attack a creature you can’t see, your inability to see it doesn’t impose disadvantage on your attack rolls against it.
-Message/&CharacterExportEmptyNameErrorDescription	Export Cancelled:\n\nPlease try a non empty name.
-Message/&CharacterExportDuplicateNameErrorDescription	Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name.
-Message/&CharacterExportModalContentDescription	Enter the hero name to export:
-Message/&CharacterExportModalTitleDescription	Character Export
-Subclass/&BarbarianPathOfTheLightDescription	Barbarians who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.
-Subclass/&BarbarianPathOfTheLightTitle	Path of the Light
-Subclass/&BarbarianPathOfTheLightIlluminatingStrikeDescription	While you're raging, the first creature you hit with an attack on your turn takes an additional 1d6 radiant damage and becomes magically illuminated until the start of your next turn. Additionally, the creature has disadvantage on any attack roll that isn't against you and cannot become invisible.
-Subclass/&BarbarianPathOfTheLightIlluminatingStrikeTitle	Illuminating Strike
-Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription	Distracted by Illuminating Strike.
-Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle	Illuminated
-Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription	Disadvantage on any attack roll that isn't against the Path of the Light barbarian.
-Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription	Cannot become invisible.
-Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription	You gain superior darkvision.
-Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle	Pierce the Darkness
-Subclass/&BarbarianPathOfTheLightLightsProtectionDescription	You regain hit points equal to half your barbarian level when a hostile creature affected by your Illuminating Strike dies. Additionally, you no longer provoke opportunity attacks from creatures affected by your Illuminating Strike.
-Subclass/&BarbarianPathOfTheLightLightsProtectionTitle	Light's Protection
-Subclass/&BarbarianPathOfTheLightEyesOfTruthDescription	You are always under the effects of a See Invisibility spell.
-Subclass/&BarbarianPathOfTheLightEyesOfTruthTitle	Eyes of Truth
-Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Can perceive invisible creatures.
-Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Invisibility Sight
-Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementDescription	The additional damage dealt by Illuminating Strike increases to 2d6.
-Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementTitle	Illuminating Strike Improvement
-Subclass/&BarbarianPathOfTheLightIlluminatingBurstDescription	On the turn that you enter your rage, you can choose to illuminate up to three enemies within 30 feet of you. They must succeed on a Constitution saving throw (DC equal to 8 + your proficiency bonus + your Constitution modifier) or take 4d6 radiant damage and be illuminated by your Illuminating Strike for 1 minute. A creature illuminated in this way makes another Constitution saving throw at the end of each of its turns. On a successful save, the effect ends for it.
-Subclass/&BarbarianPathOfTheLightIlluminatingBurstTitle	Illuminating Burst
-Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription	Up to three enemies take 4d6 radiant damage and become illuminated by your Illuminating Strike. (Constitution saving throw negates.)
-Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle	Illuminating Burst
-Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	Illuminating Strike deals extra damage to the target!
-Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat Illuminating Strike!
-Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!
-Equipment/&ArcaneStaffTitle	Arcane Staff
-Equipment/&ArcaneStaffDescription	This staff is inscribed with magical writing and can be used as a focus for Arcane spell casting.
-Equipment/&DruidicAmuletTitle	Druidic Amulet
-Equipment/&DruidicAmuletDescription This totemic amulet can be used as a focus for Druidic spell casting.
-Equipment/&LivewoodStaffTitle	Livewood Staff
-Equipment/&LivewoodStaffDescription	This staff is composed of living wood complete with sprouting leaves and perhaps seasonal blooms. It can be used as a focus for Druidic spell casting.
-Equipment/&LivewoodClubTitle	Livewood Club
-Equipment/&LivewoodClubDescription	This club is composed of living wood complete with sprouting leaves and perhaps seasonal blooms. It can be used as a focus for Druidic spell casting.
-Stage/&IdentityMorphotypeEyeHeader	Eye Style
-Caption/&GadgetParametersCustomRemoveDescription	Remove:\n{0}

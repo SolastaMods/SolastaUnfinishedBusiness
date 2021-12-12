@@ -107,7 +107,8 @@ namespace SolastaCommunityExpansion.Models
 
             Gui.GuiService.ShowMessage(
                 MessageModal.Severity.Attention2,
-                "Encounter", $"Spawn encounter at coordinates ({position.x}, {position.z})?",
+                "Message/&SpawnCustomEncounterTitle", 
+                Gui.Format("Message/&SpawnCustomEncounterDescription", position.x.ToString(), position.x.ToString()),
                 "Message/&MessageYesTitle", "Message/&MessageNoTitle",
                 new MessageModal.MessageValidatedHandler(() => { StageEncounter(position); }), null);
         }
