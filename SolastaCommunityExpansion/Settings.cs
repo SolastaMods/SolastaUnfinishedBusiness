@@ -191,5 +191,13 @@ namespace SolastaCommunityExpansion
         public bool UnleashAllMonsters { get; set; }
         public bool UnleashAllNPCs { get; set; }
         public int maxBackupFiles { get; set; } = 10;
+
+
+        public const int MAX_ENCOUNTER_CHARACTERS = 16;
+        public const int DM_CONTROLLER_ID = 4242;
+
+        public const InputCommands.Id CTRL_SHIFT_E = (InputCommands.Id)44440005;
+
+        public bool EnableControllersOverride { get; set; }
     }
 }

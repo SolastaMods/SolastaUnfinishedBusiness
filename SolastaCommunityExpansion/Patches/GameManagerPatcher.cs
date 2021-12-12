@@ -41,6 +41,7 @@ namespace SolastaCommunityExpansion.Patches
                 ItemOptionsContext.Load();
                 DungeonMakerContext.Load();
                 TelemaCampaignContext.Load();
+                EncountersSpawnContext.Load();
 
                 Main.Enabled = true;
             }
