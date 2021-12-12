@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Patches
         {
             if (Main.Settings.EnableAdventureLogBanterLines)
             {
-                Models.AdventureLogContext.LogEntry("Conversation", new List<string> { line }, speaker.Name);
+                Models.AdventureLogContext.LogEntry(string.Empty, new List<string> { line }, speaker.Name, (speaker.RulesetCharacter as RulesetCharacterMonster).MonsterDefinition.GuiPresentation.SpriteReference);
             }
         }
     }

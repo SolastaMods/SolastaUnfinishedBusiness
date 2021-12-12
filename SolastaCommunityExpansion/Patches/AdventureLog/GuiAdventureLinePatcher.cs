@@ -21,10 +21,11 @@ namespace SolastaCommunityExpansion.Patches
         {
             if (entry is Models.AdventureLogContext.GameAdventureEntryDungeonMaker gameAdventureEntryLore)
             {
-                ___sectionHeaderGroup.gameObject.SetActive(true);
+                ___sectionHeaderGroup.gameObject.SetActive(gameAdventureEntryLore.Title != string.Empty);
                 ___sectionHeaderTitle.Text = gameAdventureEntryLore.Title;
-                ___conversationGroup.gameObject.SetActive(true);
+
                 ___conversationTitle.transform.parent.gameObject.SetActive(false);
+                ___conversationGroup.gameObject.SetActive(true);
                 ___totalFragments.Clear();
 
                 foreach (TextBreaker textBreaker in gameAdventureEntryLore.TextBreakers)

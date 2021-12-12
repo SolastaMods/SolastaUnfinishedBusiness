@@ -1,12 +1,13 @@
 ﻿using HarmonyLib;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Models
 {
     internal static class AdventureLogContext
     {
-        internal static void LogEntry(ItemDefinition itemDefinition)
+        internal static void LogEntry(ItemDefinition itemDefinition, AssetReferenceSprite assetReferenceSprite)
         {
             var isUserText = itemDefinition.Name.StartsWith("Custom") && itemDefinition.IsDocument;
 
@@ -14,11 +15,11 @@ namespace SolastaCommunityExpansion.Models
             {
                 var fragments = itemDefinition.DocumentDescription.ContentFragments.Select(x => x.Text).ToList();
 
-                LogEntry(itemDefinition.FormatTitle(), fragments);
+                LogEntry(itemDefinition.FormatTitle(), fragments, string.Empty, assetReferenceSprite);
             }
         }
 
-        internal static void LogEntry(string title, List<string> captions, string speakerName = "")
+        internal static void LogEntry(string title, List<string> captions, string speakerName = "", AssetReferenceSprite assetReferenceSprite = null)
         {
             var gameCampaign = Gui.GameCampaign;
 
@@ -26,14 +27,15 @@ namespace SolastaCommunityExpansion.Models
             {
                 var adventureLog = gameCampaign.AdventureLog;
                 var adventureLogDefinition = AccessTools.Field(adventureLog.GetType(), "adventureLogDefinition").GetValue(adventureLog) as AdventureLogDefinition;
-                var loreEntry = new GameAdventureEntryDungeonMaker(adventureLogDefinition, title, captions, speakerName);
+                var loreEntry = new GameAdventureEntryDungeonMaker(adventureLogDefinition, title, captions, speakerName, assetReferenceSprite);
 
-                adventureLog.AddEntry(loreEntry);
+                adventureLog.AddAdventureEntry(loreEntry);
             }
         }
 
         internal class GameAdventureEntryDungeonMaker : GameAdventureEntry
         {
+            private AssetReferenceSprite assetReferenceSprite;
             private List<GameAdventureConversationInfo> conversationInfos = new List<GameAdventureConversationInfo>();
             private readonly List<TextBreaker> textBreakers = new List<TextBreaker>();
             private string title;
@@ -43,8 +45,9 @@ namespace SolastaCommunityExpansion.Models
 
             }
 
-            public GameAdventureEntryDungeonMaker(AdventureLogDefinition adventureLogDefinition, string title, List<string> captions, string actorName = "") : base(adventureLogDefinition)
+            public GameAdventureEntryDungeonMaker(AdventureLogDefinition adventureLogDefinition, string title, List<string> captions, string actorName, AssetReferenceSprite assetReferenceSprite) : base(adventureLogDefinition)
             {
+                this.assetReferenceSprite = assetReferenceSprite;
                 this.title = title;
 
                 foreach (var caption in captions)
@@ -53,6 +56,18 @@ namespace SolastaCommunityExpansion.Models
                     this.textBreakers.Add(new TextBreaker());
                 }
             }
+
+            public override bool HasIllustration
+            {
+                get
+                {
+                    var illustrationReference = this.IllustrationReference;
+
+                    return illustrationReference != null && illustrationReference.RuntimeKeyIsValid();
+                }
+            }
+
+            public override AssetReference IllustrationReference => assetReferenceSprite;
 
             public List<TextBreaker> TextBreakers => this.textBreakers;
 
@@ -88,6 +103,7 @@ namespace SolastaCommunityExpansion.Models
             public override void SerializeAttributes(IAttributesSerializer serializer, IVersionProvider versionProvider)
             {
                 base.SerializeAttributes(serializer, versionProvider);
+                this.assetReferenceSprite = serializer.SerializeAttribute<AssetReferenceSprite>("AssetReferenceSprite", this.assetReferenceSprite);
                 this.title = serializer.SerializeAttribute<string>("SectionTitle", this.title);
             }
 

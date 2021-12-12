@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Patches
         {
             if (Main.Settings.EnableAdventureLogPopups)
             {
-                Models.AdventureLogContext.LogEntry("Popup Feedback", new List<string> { text });
+                Models.AdventureLogContext.LogEntry(string.Empty, new List<string> { text });
             }
         }
     }
@@ -25,7 +25,7 @@ namespace SolastaCommunityExpansion.Patches
         {
             if (Main.Settings.EnableAdventureLogPopups)
             {
-                Models.AdventureLogContext.LogEntry("Popup Feedback", new List<string> { text });
+                Models.AdventureLogContext.LogEntry(string.Empty, new List<string> { text });
             }
         }
     }
