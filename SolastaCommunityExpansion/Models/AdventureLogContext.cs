@@ -1,12 +1,15 @@
 ﻿using HarmonyLib;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Models
 {
     internal static class AdventureLogContext
     {
+        private static readonly List<int> captionHashes = new List<int>();
+
         internal static void LogEntry(ItemDefinition itemDefinition, AssetReferenceSprite assetReferenceSprite)
         {
             var isUserText = itemDefinition.Name.StartsWith("Custom") && itemDefinition.IsDocument;
@@ -26,15 +29,37 @@ namespace SolastaCommunityExpansion.Models
             if (gameCampaign != null && gameCampaign.CampaignDefinitionName == "UserCampaign")
             {
                 var adventureLog = gameCampaign.AdventureLog;
+                var gameDailyLog = adventureLog.DailyLog as GameDailyLog;
                 var adventureLogDefinition = AccessTools.Field(adventureLog.GetType(), "adventureLogDefinition").GetValue(adventureLog) as AdventureLogDefinition;
                 var loreEntry = new GameAdventureEntryDungeonMaker(adventureLogDefinition, title, captions, speakerName, assetReferenceSprite);
+                var found = false;
 
-                adventureLog.AddAdventureEntry(loreEntry);
+                //
+                // TODO: still debugging this
+                //
+                foreach (GameDailyIndex gameDailyIndex in gameDailyLog.Entries)
+                {
+                    foreach (var gameAdventureEntry in gameDailyIndex.DailyEntries)
+                    {
+                        if (gameAdventureEntry is GameAdventureEntryDungeonMaker gameAdventureEntryDungeonMaker && gameAdventureEntryDungeonMaker.CaptionsHash == loreEntry.CaptionsHash)
+                        {
+                            found = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!found && !captionHashes.Contains(loreEntry.CaptionsHash))
+                {
+                    captionHashes.Add(loreEntry.CaptionsHash);
+                    adventureLog.AddAdventureEntry(loreEntry);
+                }
             }
         }
 
         internal class GameAdventureEntryDungeonMaker : GameAdventureEntry
         {
+            private int captionsHash;
             private string assetGuid;
             private AssetReferenceSprite assetReferenceSprite;
             private List<GameAdventureConversationInfo> conversationInfos = new List<GameAdventureConversationInfo>();
@@ -48,21 +73,32 @@ namespace SolastaCommunityExpansion.Models
 
             public GameAdventureEntryDungeonMaker(AdventureLogDefinition adventureLogDefinition, string title, List<string> captions, string actorName, AssetReferenceSprite assetReferenceSprite) : base(adventureLogDefinition)
             {
-                this.assetGuid = assetReferenceSprite == null ? string.Empty : assetReferenceSprite.AssetGUID;
-                this.assetReferenceSprite = assetReferenceSprite;
-                this.title = title;
+                var builder = new StringBuilder();
 
                 foreach (var caption in captions)
                 {
+                    builder.Append(caption);
                     this.conversationInfos.Add(new GameAdventureConversationInfo(actorName, caption, actorName != ""));
                     this.textBreakers.Add(new TextBreaker());
                 }
+
+                this.assetGuid = assetReferenceSprite == null ? string.Empty : assetReferenceSprite.AssetGUID;
+                this.assetReferenceSprite = assetReferenceSprite;
+                this.captionsHash = builder.ToString().GetHashCode();
+                this.title = title;
             }
+
+            public int CaptionsHash => this.captionsHash;
 
             public override bool HasIllustration
             {
                 get
                 {
+                    //
+                    // TODO: revisit addressables
+                    //
+                    return false;
+
                     var illustrationReference = this.IllustrationReference;
 
                     return illustrationReference != null && illustrationReference.RuntimeKeyIsValid();
@@ -106,6 +142,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 base.SerializeAttributes(serializer, versionProvider);
                 this.assetGuid = serializer.SerializeAttribute<string>("AssetGuid", this.assetGuid);
+                this.captionsHash = serializer.SerializeAttribute<int>("CaptionsHash", this.captionsHash);
                 this.title = serializer.SerializeAttribute<string>("SectionTitle", this.title);
 
                 if (this.assetGuid != string.Empty)
