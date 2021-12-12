@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using TMPro;
 
-namespace SolastaCommunityExpansion.Patches
+namespace SolastaCommunityExpansion.Patches.GameUi
 {
     // allows extra characters on location names
     [HarmonyPatch(typeof(UserLocationSettingsModal), "RemoveUselessSpaces")]

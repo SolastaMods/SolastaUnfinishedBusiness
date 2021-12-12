@@ -2,7 +2,7 @@
 using HarmonyLib;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches
+namespace SolastaCommunityExpansion.Patches.PartySize
 {
     // this patch ensures all party members teleport to new locations
     [HarmonyPatch(typeof(FunctorParametersDescription), "PlayerPlacementMarkers", MethodType.Getter)]

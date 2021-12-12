@@ -3,7 +3,7 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches
+namespace SolastaCommunityExpansion.Patches.PartySize
 {
     // this patch scales down the rest sub panel whenever the party size is bigger than 4
     [HarmonyPatch(typeof(RestSubPanel), "OnBeginShow")]

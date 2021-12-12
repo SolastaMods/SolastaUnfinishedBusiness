@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches
+namespace SolastaCommunityExpansion.Patches.CampaignRequirements
 {
     // this patch changes the min/max requirements on campaigns
     [HarmonyPatch(typeof(NewAdventurePanel), "SelectCampaign")]
