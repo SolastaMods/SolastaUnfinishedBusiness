@@ -131,6 +131,18 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     Main.Settings.DontFollowCharacterInBattle = toggle;
                 }
 
+                if (Main.Settings.DontFollowCharacterInBattle)
+                {
+                    UI.Label("");
+                    intValue = Main.Settings.DontFollowMargin;
+                    if (UI.Slider("Unless character is off or within % of screen edge".italic().white(), ref intValue, 0, 15, 1, "%", UI.AutoWidth()))
+                    {
+                        Main.Settings.DontFollowMargin = intValue;
+                    }
+
+                    UI.Label("");
+                }
+
                 toggle = Main.Settings.AutoPauseOnVictory;
                 if (UI.Toggle("Pauses the UI when victorious in battle", ref toggle, UI.AutoWidth()))
                 {
@@ -141,15 +153,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (UI.Toggle("Permanently speeds battle up", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.PermanentSpeedUp = toggle;
-                }
-
-                if (Main.Settings.DontFollowCharacterInBattle)
-                {
-                    intValue = Main.Settings.DontFollowMargin;
-                    if (UI.Slider("Unless character is off or within % of screen edge".italic().white(), ref intValue, 0, 15, 1, "%", UI.AutoWidth()))
-                    {
-                        Main.Settings.DontFollowMargin = intValue;
-                    }
                 }
 
                 UI.Label("");

@@ -20,6 +20,7 @@ namespace SolastaCommunityExpansion.Patches
 
     // this patch changes the min/max requirements on locations
     [HarmonyPatch(typeof(NewAdventurePanel), "SelectUserLocation")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class NewAdventurePanel_SelectUserLocation
     {
         internal static void Prefix(UserLocation userLocation)
