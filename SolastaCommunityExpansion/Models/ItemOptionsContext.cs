@@ -86,7 +86,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
 
-        internal static readonly string[] EmpressGarbSkins = new string[] 
+        internal static readonly string[] EmpressGarbSkins = 
         { 
             "Normal", 
             "Plain Shirt", 

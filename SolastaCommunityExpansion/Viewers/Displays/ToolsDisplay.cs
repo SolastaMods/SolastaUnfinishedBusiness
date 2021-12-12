@@ -5,14 +5,37 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class ToolsDisplay
     {
-        private static bool enableDebugCamera = false;
-        private static bool enableDebugOverlay = false;
+        private static bool enableDebugCamera;
+        private static bool enableDebugOverlay;
 
         internal static void DisplayTools()
         {
+            bool toggle;
+            int intValue;
+
+            UI.Label("");
+            UI.Label("Custom dungeons:".yellow());
             UI.Label("");
 
-            bool toggle = Main.Settings.EnableCheatMenuDuringGameplay;
+            toggle = Main.Settings.EnableDungeonLevelBypass;
+            if (UI.Toggle("Overrides required min / max level", ref toggle))
+            {
+                Main.Settings.EnableDungeonLevelBypass = toggle;
+            }
+
+            UI.Label("");
+
+            intValue = Main.Settings.UserDungeonsPartySize;
+            if (UI.Slider("Overrides party size".white(), ref intValue, Settings.MIN_PARTY_SIZE, Settings.MAX_PARTY_SIZE, Settings.GAME_PARTY_SIZE, "", UI.AutoWidth()))
+            {
+                Main.Settings.UserDungeonsPartySize = intValue;
+            }
+
+            UI.Label("");
+            UI.Label("Debug:".yellow());
+            UI.Label("");
+
+            toggle = Main.Settings.EnableCheatMenuDuringGameplay;
             if (UI.Toggle("Enables the cheats menu", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableCheatMenuDuringGameplay = toggle;
@@ -39,6 +62,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             UI.Label("");
+            UI.Label("Experience:".yellow());
+            UI.Label("");
 
             toggle = Main.Settings.NoExperienceOnLevelUp;
             if (UI.Toggle("No experience is required to level up", ref toggle, UI.AutoWidth()))
@@ -46,15 +71,17 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.NoExperienceOnLevelUp = toggle;
             }
 
+            UI.Label("");
 
-            int intValue = Main.Settings.ExperienceModifier;
+            intValue = Main.Settings.ExperienceModifier;
             if (UI.Slider("Multiplies the experience gained by ".white() + "[%]".red(), ref intValue, 50, 200, 100, "", UI.Width(100)))
             {
                 Main.Settings.ExperienceModifier = intValue;
             }
 
             UI.Label("");
-            UI.Label("Faction Relations:");
+            UI.Label("Faction Relations:".yellow());
+            UI.Label("");
 
             bool flip = true;
             var gameService = ServiceRepository.GetService<IGameService>();
@@ -99,9 +126,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
             else
             {
-                UI.Label("");
                 UI.Label("Load an official campaign game to modify faction relations...".red());
             }
+
+            UI.Label("");
         }
     }
 }

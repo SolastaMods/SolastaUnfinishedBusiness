@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
         private const float DEFAULT_WIDTH = 250;
 
-        private static bool level20HelpToggle = false;
+        private static bool level20HelpToggle;
 
         private static void DisplayBarbarian(float width = DEFAULT_WIDTH)
         {
