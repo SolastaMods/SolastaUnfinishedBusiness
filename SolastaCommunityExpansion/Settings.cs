@@ -187,6 +187,7 @@ namespace SolastaCommunityExpansion
         public bool FlexibleGadgetsPlacement { get; set; }
         public bool FlexiblePropsPlacement { get; set; }
 
+        public bool DungeonMakerEditorBetterTooltips { get; set; }
         public bool UnleashAllMonsters { get; set; }
         public bool UnleashAllNPCs { get; set; }
         public int maxBackupFiles { get; set; } = 10;

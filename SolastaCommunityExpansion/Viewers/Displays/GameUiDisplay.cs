@@ -189,6 +189,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 UI.Label("");
 
                 toggle = Main.Settings.UnleashAllMonsters;
+                if (UI.Toggle("Enables better tooltip on dungeon maker editor " + "[selected items or monsters on gadget detail screen]".italic().yellow(), ref toggle))
+                {
+                    Main.Settings.UnleashAllMonsters = toggle;
+                }
+
+                UI.Label("");
+
+                toggle = Main.Settings.UnleashAllMonsters;
                 if (UI.Toggle("Unleashes NPCs as enemies " + "[press SHIFT while clicking Select on gadget panel]".italic().yellow(), ref toggle))
                 {
                     Main.Settings.UnleashAllMonsters = toggle;
