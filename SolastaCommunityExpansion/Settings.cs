@@ -130,6 +130,7 @@ namespace SolastaCommunityExpansion
         public bool RemoveBugVisualModels { get; set; }
 
         public bool FullyControlAlliedConjurations { get; set; }
+        public bool DismissControlledConjurationsWhenDeliberatelyDropConcentration { get; set; }
 
         public bool EnableFaceUnlockEyeStyles { get; set; }
         public bool EnableFaceUnlockGlowingEyes { get; set; }
@@ -158,5 +159,46 @@ namespace SolastaCommunityExpansion
 
         public bool DontFollowCharacterInBattle { get; set; }
         public int DontFollowMargin { get; set; } = 5;
+
+        public bool EnableAdventureLogBanterLines { get; set; }
+        public bool EnableAdventureLogDocuments { get; set; }
+        public bool EnableAdventureLogLore { get; set; }
+        public bool EnableAdventureLogTextFeedback { get; set; }
+        public bool EnableAdventureLogPopups { get; set; }
+
+        public const int DUNGEON_MIN_LEVEL = 1;
+        public const int DUNGEON_MAX_LEVEL = 20;
+
+        public const int GAME_PARTY_SIZE = 4;
+
+        public const int MIN_PARTY_SIZE = 1;
+        public const int MAX_PARTY_SIZE = 6;
+
+        public const float ADVENTURE_PANEL_DEFAULT_SCALE = 0.75f;
+        public const float REST_PANEL_DEFAULT_SCALE = 0.8f;
+        public const float PARTY_CONTROL_PANEL_DEFAULT_SCALE = 0.95f;
+        public const float VICTORY_MODAL_DEFAULT_SCALE = 0.85f;
+        public const float REVIVE_PARTY_CONTROL_PANEL_DEFAULT_SCALE = 0.85f;
+
+        public bool EnableDungeonLevelBypass { get; set; }
+        public int UserDungeonsPartySize { get; set; } = GAME_PARTY_SIZE;
+
+        public bool EnableTelemaCampaign { get; set; }
+
+        public bool FlexibleGadgetsPlacement { get; set; }
+        public bool FlexiblePropsPlacement { get; set; }
+
+        public bool DungeonMakerEditorBetterTooltips { get; set; }
+        public bool UnleashAllMonsters { get; set; }
+        public bool UnleashAllNPCs { get; set; }
+        public int maxBackupFiles { get; set; } = 10;
+
+        public const int MAX_ENCOUNTER_CHARACTERS = 16;
+        public const int PLAYER_CONTROLLER_ID = 1;
+        public const int DM_CONTROLLER_ID = 4242;
+
+        public const InputCommands.Id CTRL_SHIFT_E = (InputCommands.Id)44440005;
+
+        public bool EnableControllersOverride { get; set; }
     }
 }

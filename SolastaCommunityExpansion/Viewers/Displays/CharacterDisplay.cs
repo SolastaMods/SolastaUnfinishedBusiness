@@ -57,6 +57,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 InitialChoicesContext.RefreshAllRacesInitialFeats();
             }
 
+            toggle = Main.Settings.EnableFlexibleBackgrounds;
+            if (UI.Toggle("Enables flexible backgrounds " + "[select skill and tool proficiencies from backgrounds]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableFlexibleBackgrounds = toggle;
+                FlexibleBackgroundsContext.Switch(toggle);
+            }
+
             toggle = Main.Settings.EnableFlexibleRaces;
             if (UI.Toggle("Enables flexible races " + "[assign ability score points instead of the racial defaults]".italic().yellow() + "\ni.e.: High Elf has 3 points to assign instead of +2 Dex / +1 Int".italic(), ref toggle, UI.AutoWidth()))
             {
@@ -64,13 +71,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 FlexibleRacesContext.Switch(toggle);
             }
             UI.Label("");
-
-            toggle = Main.Settings.EnableFlexibleBackgrounds;
-            if (UI.Toggle("Enables flexible backgrounds " + "[select skill and tool proficiencies from backgrounds]".italic().yellow(), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableFlexibleBackgrounds = toggle;
-                FlexibleBackgroundsContext.Switch(toggle);
-            }
 
             UI.Label("");
 
@@ -88,7 +88,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             toggle = Main.Settings.EnableEpicArray;
-            if (UI.Toggle("Enables an epic [17,15,13,12,10,8] array instead of a standard [15,14,13,12,10,8]", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enables an epic " + "[17,15,13,12,10,8]".italic().yellow() + " array instead of a standard " + "[15,14,13,12,10,8]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableEpicArray = toggle;
                 EpicArrayContext.Load();
@@ -101,6 +101,20 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             {
                 Main.Settings.AllRacesInitialFeats = intValue;
                 InitialChoicesContext.RefreshAllRacesInitialFeats();
+            }
+
+            UI.Label("");
+
+            toggle = Main.Settings.AllowExtraKeyboardCharactersInNames;
+            if (UI.Toggle("Allows extra keyboard characters in names", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.AllowExtraKeyboardCharactersInNames = toggle;
+            }
+
+            toggle = Main.Settings.OfferAdditionalNames;
+            if (UI.Toggle("Offers additional lore friendly names on character creation " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.OfferAdditionalNames = toggle;
             }
 
             UI.Label("");
@@ -151,6 +165,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     Main.Settings.EnableFaceUnlockGlowingBodyDecorations = toggle;
                 }
             }
+
+            UI.Label("");
         }
     }
 }

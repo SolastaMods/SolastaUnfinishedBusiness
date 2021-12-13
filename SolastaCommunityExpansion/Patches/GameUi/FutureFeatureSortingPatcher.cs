@@ -3,7 +3,7 @@ using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
-namespace SolastaCommunityExpansion.Patches
+namespace SolastaCommunityExpansion.Patches.GameUi
 {
     internal static class FutureFeatureSortingPatcher
     {
