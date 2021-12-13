@@ -14,7 +14,9 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var deleteMethod = typeof(File).GetMethod("Delete");
+#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
             var backupAndDeleteMethod = typeof(Models.DungeonMakerContext).GetMethod("BackupAndDelete", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
+#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
 
             foreach (CodeInstruction instruction in instructions)
             {
