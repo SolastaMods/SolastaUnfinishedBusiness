@@ -1,16 +1,11 @@
-﻿using SolastaCommunityExpansion.Features;
-using SolastaModApi;
-using SolastaModApi.BuilderHelpers;
-using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
+﻿using SolastaModApi;
 using System;
-using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Subclasses.Witch
 {
     internal class BloodWitch : AbstractSubclass
     {
-        private static Guid SubclassNamespace = new Guid("7141b0af-cc97-4e66-9700-e91deede0640");
+        private static readonly Guid SubclassNamespace = new Guid("7141b0af-cc97-4e66-9700-e91deede0640");
         private readonly CharacterSubclassDefinition Subclass;
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
@@ -18,6 +13,7 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
             DatabaseRepository.GetDatabase<FeatureDefinitionSubclassChoice>().TryGetElement("SubclassChoiceWitchCovens", out FeatureDefinitionSubclassChoice featureDefinitionSubclassChoice);
             return featureDefinitionSubclassChoice;
         }
+
         internal override CharacterSubclassDefinition GetSubclass()
         {
             return Subclass;
@@ -36,6 +32,5 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
             // add subclass to db and add subclass to Witch class
             Subclass = bloodWitch.AddToDB();
         }
-
     }
 }
