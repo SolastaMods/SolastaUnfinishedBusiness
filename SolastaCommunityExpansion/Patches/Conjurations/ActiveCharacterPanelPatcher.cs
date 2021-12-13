@@ -45,7 +45,7 @@ namespace SolastaCommunityExpansion.Patches.Conjurations
                         {
                             Main.Log($"Monster={monster.Name}");
 
-                            // clear all conditions.  Tried targetting just the conjuration condition but didn't work.
+                            // clear all conditions.  Tried clearing just the conjuration condition but didn't work.
                             foreach (var rulesetCondition in monster.ConditionsByCategory.SelectMany(c => c.Value))
                             {
                                 rulesetCondition.Clear();
