@@ -82,38 +82,22 @@ namespace SolastaCommunityExpansion.Patches.Cheats
     }
 
     [HarmonyPatch(typeof(RulesetCharacterHero), "EnumerateUsableRitualSpells")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RestModuleHitDice_EnumerateUsableRitualSpells_Patch
     {
         internal static void Postfix(RulesetCharacterHero __instance, RuleDefinitions.RitualCasting ritualType, List<SpellDefinition> ritualSpells)
         {
-            var extended_ritual_type = (ExtraRitualCasting)ritualType;
-            switch (extended_ritual_type)
-            {
-                case ExtraRitualCasting.Known:
-                    RulesetSpellRepertoire rulesetSpellRepertoire1 = (RulesetSpellRepertoire)null;
-                    foreach (RulesetSpellRepertoire spellRepertoire in __instance.SpellRepertoires)
-                    {
-                        if (spellRepertoire.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.AllKnown && spellRepertoire.SpellCastingFeature.SpellKnowledge == RuleDefinitions.SpellKnowledge.Selection)
-                        {
-                            rulesetSpellRepertoire1 = spellRepertoire;
-                            break;
-                        }
-                    }
-                    if (rulesetSpellRepertoire1 == null)
-                        break;
-                    using (List<SpellDefinition>.Enumerator enumerator = rulesetSpellRepertoire1.KnownSpells.GetEnumerator())
-                    {
-                        while (enumerator.MoveNext())
-                        {
-                            SpellDefinition current = enumerator.Current;
-                            if (current.Ritual && rulesetSpellRepertoire1.MaxSpellLevelOfSpellCastingLevel >= current.SpellLevel)
-                                ritualSpells.Add(current);
-                        }
-                        break;
-                    }
-            }
+            if ((ExtraRitualCasting)ritualType != ExtraRitualCasting.Known) { return; }
+
+            var spellRepertoire = __instance.SpellRepertoires
+                .Where(r => r.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.AllKnown)
+                .FirstOrDefault(r => r.SpellCastingFeature.SpellKnowledge == RuleDefinitions.SpellKnowledge.Selection);
+
+            if (spellRepertoire == null) { return; }
+
+            ritualSpells.AddRange(spellRepertoire.KnownSpells
+                .Where(s => s.Ritual)
+                .Where(s => spellRepertoire.MaxSpellLevelOfSpellCastingLevel >= s.SpellLevel));
         }
     }
-
-
 }

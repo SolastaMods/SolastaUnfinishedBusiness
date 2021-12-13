@@ -22,11 +22,13 @@ namespace SolastaCommunityExpansion.Classes.Witch
             // Make Witch Class
             CharacterClassDefinitionBuilder witch = new CharacterClassDefinitionBuilder("Witch", GuidHelper.Create(ClassNamespace, "Witch").ToString());
 
-//            FeatureDefinitionSubclassChoiceBuilder witchFeatureDefinitionSubclassChoiceBuilder = new FeatureDefinitionSubclassChoiceBuilder("SubclassChoiceWitchCovens", GuidHelper.Create(ClassSubclassChoice, "SubclassChoiceWitchCovens").ToString());
+            //            FeatureDefinitionSubclassChoiceBuilder witchFeatureDefinitionSubclassChoiceBuilder = new FeatureDefinitionSubclassChoiceBuilder("SubclassChoiceWitchCovens", GuidHelper.Create(ClassSubclassChoice, "SubclassChoiceWitchCovens").ToString());
 
-            var subclassChoicesGuiPresentation = new GuiPresentation();
-            subclassChoicesGuiPresentation.Title = "Subclass/&WitchSubclassPathTitle";
-            subclassChoicesGuiPresentation.Description = "Subclass/&WitchSubclassPathDescription";
+            var subclassChoicesGuiPresentation = new GuiPresentation
+            {
+                Title = "Subclass/&WitchSubclassPathTitle",
+                Description = "Subclass/&WitchSubclassPathDescription"
+            };
             witch.BuildSubclassChoice(3, "Coven", false, "SubclassChoiceWitchCovens", subclassChoicesGuiPresentation, GuidHelper.Create(ClassNamespace, "SubclassChoiceWitchCovens").ToString());
 
             var sorcerer = DatabaseHelper.CharacterClassDefinitions.Sorcerer;
@@ -56,7 +58,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             witch.AddSkillPreference(DatabaseHelper.SkillDefinitions.Nature);
             witch.AddSkillPreference(DatabaseHelper.SkillDefinitions.Religion);
 
-            witch.AddEquipmentRow(  new List<CharacterClassDefinition.HeroEquipmentOption>
+            witch.AddEquipmentRow(new List<CharacterClassDefinition.HeroEquipmentOption>
                                     {
                                         EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.LightCrossbow, EquipmentDefinitions.OptionWeapon, 1),
                                         EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.Bolt, EquipmentDefinitions.OptionWeapon, 20),
@@ -66,7 +68,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                         EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.Quarterstaff, EquipmentDefinitions.OptionWeaponSimpleChoice, 1),
                                     }
             );
-            witch.AddEquipmentRow(  new List<CharacterClassDefinition.HeroEquipmentOption>
+            witch.AddEquipmentRow(new List<CharacterClassDefinition.HeroEquipmentOption>
                                     {
                                         EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.ComponentPouch, EquipmentDefinitions.OptionFocus, 1),
                                     },
@@ -75,7 +77,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                         EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.ArcaneFocusWand, EquipmentDefinitions.OptionArcaneFocusChoice, 1),
                                     }
             );
-            witch.AddEquipmentRow(  new List<CharacterClassDefinition.HeroEquipmentOption>
+            witch.AddEquipmentRow(new List<CharacterClassDefinition.HeroEquipmentOption>
                                     {
                                         EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.ScholarPack, EquipmentDefinitions.OptionStarterPack, 1),
                                     },
@@ -93,7 +95,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.Dagger, EquipmentDefinitions.OptionWeapon, 1),
             });
 
-            FeatureDefinitionProficiency savingThrowProficiencies = new FeatureDefinitionProficiencyBuilder("WitchSavingthrowProficiency", 
+            FeatureDefinitionProficiency savingThrowProficiencies = new FeatureDefinitionProficiencyBuilder("WitchSavingthrowProficiency",
                                                                                                             GuidHelper.Create(ClassNamespace, "WitchSavingthrowProficiency").ToString(),
                                                                                                             RuleDefinitions.ProficiencyType.SavingThrow,
                                                                                                             new List<string>() { AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom },
@@ -102,24 +104,24 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                                             "Class/&WitchSavingthrowProficiencyTitle").Build())
                                                                                                             .AddToDB();
 
-            FeatureDefinitionPointPool skillProficiencies = new FeatureDefinitionPointPoolBuilder(  "WitchSkillProficiency", 
+            FeatureDefinitionPointPool skillProficiencies = new FeatureDefinitionPointPoolBuilder("WitchSkillProficiency",
                                                                                                     GuidHelper.Create(ClassNamespace, "WitchSkillProficiency").ToString(),
                                                                                                     HeroDefinitions.PointsPoolType.Skill,
                                                                                                     2,
                                                                                                     new GuiPresentationBuilder(
                                                                                                         "Class/&WitchSkillProficiencyDescription",
                                                                                                         "Class/&WitchSkillProficiencyTitle").Build())
-                                                                                                    .RestrictChoices(new List<string>() { 
-                                                                                                        SkillDefinitions.Arcana, 
-                                                                                                        SkillDefinitions.Deception,    
-                                                                                                        SkillDefinitions.Insight,    
-                                                                                                        SkillDefinitions.Intimidation,    
-                                                                                                        SkillDefinitions.Persuasion,    
-                                                                                                        SkillDefinitions.Nature,    
+                                                                                                    .RestrictChoices(new List<string>() {
+                                                                                                        SkillDefinitions.Arcana,
+                                                                                                        SkillDefinitions.Deception,
+                                                                                                        SkillDefinitions.Insight,
+                                                                                                        SkillDefinitions.Intimidation,
+                                                                                                        SkillDefinitions.Persuasion,
+                                                                                                        SkillDefinitions.Nature,
                                                                                                         SkillDefinitions.Religion})
                                                                                                     .AddToDB();
 
-            FeatureDefinitionProficiency weaponProficiencies = new FeatureDefinitionProficiencyBuilder( "WitchWeaponProficiency", 
+            FeatureDefinitionProficiency weaponProficiencies = new FeatureDefinitionProficiencyBuilder("WitchWeaponProficiency",
                                                                                                         GuidHelper.Create(ClassNamespace, "WitchWeaponProficiency").ToString(),
                                                                                                         RuleDefinitions.ProficiencyType.Weapon,
                                                                                                         new List<string>() { EquipmentDefinitions.SimpleWeaponCategory },
@@ -128,7 +130,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                                         "Class/&WitchWeaponProficiencyTitle").Build())
                                                                                                         .AddToDB();
 
-            FeatureDefinitionProficiency armorProficiencies = new FeatureDefinitionProficiencyBuilder(  "WitchArmorProficiency", 
+            FeatureDefinitionProficiency armorProficiencies = new FeatureDefinitionProficiencyBuilder("WitchArmorProficiency",
                                                                                                         GuidHelper.Create(ClassNamespace, "WitchArmorProficiency").ToString(),
                                                                                                         RuleDefinitions.ProficiencyType.Armor,
                                                                                                         new List<string>() { EquipmentDefinitions.LightArmorCategory },
@@ -137,20 +139,20 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                                         "Class/&WitchArmorProficiencyTitle").Build())
                                                                                                         .AddToDB();
 
-            FeatureDefinitionPointPool toolProficiencies = new FeatureDefinitionPointPoolBuilder(  "WitchToolProficiency", 
+            FeatureDefinitionPointPool toolProficiencies = new FeatureDefinitionPointPoolBuilder("WitchToolProficiency",
                                                                                                     GuidHelper.Create(ClassNamespace, "WitchToolProficiency").ToString(),
                                                                                                     HeroDefinitions.PointsPoolType.Tool,
                                                                                                     1,
                                                                                                     new GuiPresentationBuilder(
                                                                                                         "Class/&WitchToolProficiencyDescription",
                                                                                                         "Class/&WitchToolProficiencyTitle").Build())
-                                                                                                    .RestrictChoices(new List<string>() { 
-                                                                                                        DatabaseHelper.ToolTypeDefinitions.HerbalismKitType.Name, 
+                                                                                                    .RestrictChoices(new List<string>() {
+                                                                                                        DatabaseHelper.ToolTypeDefinitions.HerbalismKitType.Name,
                                                                                                         DatabaseHelper.ToolTypeDefinitions.PoisonersKitType.Name})
                                                                                                     .AddToDB();
 
             // Keeping all spells listed here for ease to edit and see the big picture
-            SpellListDefinition spellList = SpellListBuilder.createSpellList(  "SpellListClassWitch", 
+            SpellListDefinition spellList = SpellListBuilder.createSpellList("SpellListClassWitch",
                                                                                 GuidHelper.Create(ClassNamespace, "SpellListClassWitch").ToString(),
                                                                                 "",
                                                                                 new List<SpellDefinition>
@@ -160,11 +162,11 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                     DatabaseHelper.SpellDefinitions.ChillTouch,
                                                                                     DatabaseHelper.SpellDefinitions.DancingLights,
 //?                                                                                    DatabaseHelper.SpellDefinitions.Dazzle,
-                                                                                    EldritchOrbSpellBuilder.AddToSpellList(),
+                                                                                    EldritchOrbSpellBuilder.EldritchOrbSpell,
 //                                                                                    DatabaseHelper.SpellDefinitions.FireBolt,
 //                                                                                    DatabaseHelper.SpellDefinitions.Guidance,
 //                                                                                    DatabaseHelper.SpellDefinitions.Light,
-                                                                                    MinorLifestealSpellBuilder.AddToSpellList(),
+                                                                                    MinorLifestealSpellBuilder.MinorLifestealSpell,
 //                                                                                    DatabaseHelper.SpellDefinitions.PoisonSpray,
                                                                                     DatabaseHelper.SpellDefinitions.ProduceFlame,
 //                                                                                    DatabaseHelper.SpellDefinitions.RayOfFrost,
@@ -200,7 +202,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                     DatabaseHelper.SpellDefinitions.FaerieFire,
 //                                                                                    DatabaseHelper.SpellDefinitions.FalseLife,
 //                                                                                    DatabaseHelper.SpellDefinitions.FeatherFall,
-                                                                                    FindFamiliarSpellBuilder.AddToSpellList(),
+                                                                                    FindFamiliarSpellBuilder.FindFamiliarSpell,
 //                                                                                    DatabaseHelper.SpellDefinitions.FogCloud,
 //                                                                                    DatabaseHelper.SpellDefinitions.Goodberry,
 //                                                                                    DatabaseHelper.SpellDefinitions.Grease,
@@ -248,10 +250,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                     DatabaseHelper.SpellDefinitions.MistyStep,
 //                                                                                    DatabaseHelper.SpellDefinitions.MoonBeam,
 //                                                                                    DatabaseHelper.SpellDefinitions.PassWithoutTrace,
-                                                                                    PetalStormSpellBuilder.AddToSpellList(),
+                                                                                    PetalStormSpellBuilder.PetalStormSpell,
 //                                                                                    DatabaseHelper.SpellDefinitions.PrayerOfHealing,
 //                                                                                    DatabaseHelper.SpellDefinitions.ProtectionFromPoison,
-                                                                                    ProtectThresholdSpellBuilder.AddToSpellList(),
+                                                                                    ProtectThresholdSpellBuilder.ProtectThresholdSpell,
                                                                                     DatabaseHelper.SpellDefinitions.RayOfEnfeeblement,
 //                                                                                    DatabaseHelper.SpellDefinitions.ScorchingRay,
                                                                                     DatabaseHelper.SpellDefinitions.SeeInvisibility,
@@ -340,7 +342,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 //                                                                                    DatabaseHelper.SpellDefinitions.Disintegrate,
                                                                                     DatabaseHelper.SpellDefinitions.Eyebite,
 //                                                                                    DatabaseHelper.SpellDefinitions.FreezingSphere,
-                                                                                    FrenzySpellBuilder.AddToSpellList(),
+                                                                                    FrenzySpellBuilder.FrenzySpell,
 //                                                                                    DatabaseHelper.SpellDefinitions.GlobeOfInvulnerability,
 //                                                                                    DatabaseHelper.SpellDefinitions.Harm,
 //                                                                                    DatabaseHelper.SpellDefinitions.Heal,
@@ -354,13 +356,13 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                     DatabaseHelper.SpellDefinitions.Resurrection
 */                                                                                });
 
-            FeatureDefinitionFeatureSet ritualCasting = new FeatureDefinitionFeatureSetBuilder(  DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
+            FeatureDefinitionFeatureSet ritualCasting = new FeatureDefinitionFeatureSetBuilder(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
                                                                                                 "WitchFeatureSetRitualCasting",
                                                                                                 GuidHelper.Create(ClassNamespace, "WitchFeatureSetRitualCasting").ToString(),
                                                                                                 new GuiPresentationBuilder(
                                                                                                     "Class/&WitchFeatureSetRitualCastingDescription",
                                                                                                     "Class/&WitchFeatureSetRitualCastingTitle").Build())
-                                                                                                .SetFeature(new FeatureDefinitionMagicAffinityBuilder(  "WitchRitualCastingMagicAffinity",
+                                                                                                .SetFeature(new FeatureDefinitionMagicAffinityBuilder("WitchRitualCastingMagicAffinity",
                                                                                                                                                         GuidHelper.Create(ClassNamespace, "WitchRitualCastingMagicAffinity").ToString(),
                                                                                                                                                         new GuiPresentationBuilder(
                                                                                                                                                             "Class/&WitchRitualCastingMagicAffinityDescription",
@@ -368,7 +370,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                                                                                         .SetRitualCasting((RuleDefinitions.RitualCasting)ExtraRitualCasting.Known).AddToDB())
                                                                                                 .AddToDB();
 
-            CastSpellBuilder spellCasting = new CastSpellBuilder(   "CastSpellClassWitch", 
+            CastSpellBuilder spellCasting = new CastSpellBuilder("CastSpellClassWitch",
                                                                     GuidHelper.Create(ClassNamespace, "CastSpellClassWitch").ToString())
                                                                     .SetSpellList(spellList)
                                                                     .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
@@ -380,7 +382,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                     .SetKnownCantrips(4, 1, CastSpellBuilder.CasterProgression.FULL_CASTER)
                                                                     .SetKnownSpells(2, 1, CastSpellBuilder.CasterProgression.FULL_CASTER)
                                                                     .SetSlotsPerLevel(1, CastSpellBuilder.CasterProgression.FULL_CASTER)
-                                                                    .SetGuiPresentation( new GuiPresentationBuilder(
+                                                                    .SetGuiPresentation(new GuiPresentationBuilder(
                                                                         "Class/&WitchSpellcastingDescription",
                                                                         "Class/&WitchSpellcastingTitle").Build());
 
@@ -418,7 +420,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             // BUG: this will not work if applied at level 1, since not all data structures are built before choosing features.
             // This seems like a limitation of the way character creation is handled :(
             // Workaround is to apply this at level 2
-            witch.AddFeatureAtLevel(WitchCurse(),2);
+            witch.AddFeatureAtLevel(WitchCurse(), 2);
 
             witch.AddFeatureAtLevel(maledictions, 2);
 
@@ -427,52 +429,52 @@ namespace SolastaCommunityExpansion.Classes.Witch
             witch.AddFeatureAtLevel(Familiar(spellList), 2);
             // TODO: unsure about this one...
             // Needs to refresh an existing Malediction, preventing the saving throw again I presume
-//            witch.AddFeatureAtLevel(Cackle,2);
+            //            witch.AddFeatureAtLevel(Cackle,2);
 
             witch.AddFeatureAtLevel(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 4);
 
             // TODO: Maledictions should now apply a debuff for disadvantage on saving throw like Force Of Law
-//            witch.AddFeatureAtLevel(InsidiousSpell,5);
+            //            witch.AddFeatureAtLevel(InsidiousSpell,5);
 
             witch.AddFeatureAtLevel(maledictions, 5);
 
             // TODO: Simply buff the familiar accordingly, i.e. offer more forms, and if that is too hard, 
             // apply proficiency bonus on hit, or
             // extra attack to the familiar
-//            witch.AddFeatureAtLevel(ImprovedFamiliar,7);
+            //            witch.AddFeatureAtLevel(ImprovedFamiliar,7);
 
             witch.AddFeatureAtLevel(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 8);
 
             // Maybe change this... not sure what to do... is there an OnDeath event or something?
-//            witch.AddFeatureAtLevel(DyingCurse,9);
+            //            witch.AddFeatureAtLevel(DyingCurse,9);
 
             witch.AddFeatureAtLevel(maledictions, 9);
 
             // TODO: Another set of Maledictions, but stronger, and again follow the Tinkerer infusions pattern
-//            witch.AddFeatureAtLevel(GreaterMalediction,11);
+            //            witch.AddFeatureAtLevel(GreaterMalediction,11);
 
             witch.AddFeatureAtLevel(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 12);
 
             // TODO: Another set of Maledictions, but stronger, and again follow the Tinkerer infusions pattern
-//            witch.AddFeatureAtLevel(GreaterMalediction,13);
+            //            witch.AddFeatureAtLevel(GreaterMalediction,13);
 
             witch.AddFeatureAtLevel(maledictions, 13);
 
             // TODO: Another set of Maledictions, but stronger, and again follow the Tinkerer infusions pattern
-//            witch.AddFeatureAtLevel(GreaterMalediction,15);
+            //            witch.AddFeatureAtLevel(GreaterMalediction,15);
 
             witch.AddFeatureAtLevel(maledictions, 17);
 
             // TODO: Another set of Maledictions, but stronger, and again follow the Tinkerer infusions pattern
-//            witch.AddFeatureAtLevel(GreaterMalediction,18);
+            //            witch.AddFeatureAtLevel(GreaterMalediction,18);
             // TODO: Another drop down list like Circle of the Land Druid
-//            witch.AddFeatureAtLevel(AbsoluteMalediction,20);
+            //            witch.AddFeatureAtLevel(AbsoluteMalediction,20);
 
             // add class to db
             Class = witch.AddToDB();
         }
 
-        FeatureDefinitionFeatureSet Maledictions()
+        private static FeatureDefinitionFeatureSet Maledictions()
         {
 
             // Maledictions are actions unless mentioned otherwise
@@ -531,7 +533,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             abateEffectDescription.SetTargetParameter(1);
             abateEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
 
-            FeatureDefinitionPower abate = new FeatureDefinitionPowerBuilder(  "WitchMaledictionAbate",
+            FeatureDefinitionPower abate = new FeatureDefinitionPowerBuilder("WitchMaledictionAbate",
                                                                                 GuidHelper.Create(ClassNamespace, "WitchMaledictionAbate").ToString(),
                                                                                 1,
                                                                                 RuleDefinitions.UsesDetermination.Fixed,
@@ -559,7 +561,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             apathyEffectDescription.SetTargetParameter(1);
             apathyEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
 
-            FeatureDefinitionPower apathy = new FeatureDefinitionPowerBuilder(  "WitchMaledictionApathy",
+            FeatureDefinitionPower apathy = new FeatureDefinitionPowerBuilder("WitchMaledictionApathy",
                                                                                 GuidHelper.Create(ClassNamespace, "WitchMaledictionApathy").ToString(),
                                                                                 1,
                                                                                 RuleDefinitions.UsesDetermination.Fixed,
@@ -587,7 +589,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             charmEffectDescription.SetTargetParameter(1);
             charmEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
 
-            FeatureDefinitionPower charm = new FeatureDefinitionPowerBuilder(  "WitchMaledictionCharm",
+            FeatureDefinitionPower charm = new FeatureDefinitionPowerBuilder("WitchMaledictionCharm",
                                                                                 GuidHelper.Create(ClassNamespace, "WitchMaledictionCharm").ToString(),
                                                                                 1,
                                                                                 RuleDefinitions.UsesDetermination.Fixed,
@@ -615,7 +617,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             evileyeEffectDescription.SetTargetParameter(1);
             evileyeEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
 
-            FeatureDefinitionPower evileye = new FeatureDefinitionPowerBuilder( "WitchMaledictionEvilEye",
+            FeatureDefinitionPower evileye = new FeatureDefinitionPowerBuilder("WitchMaledictionEvilEye",
                                                                                 GuidHelper.Create(ClassNamespace, "WitchMaledictionEvilEye").ToString(),
                                                                                 1,
                                                                                 RuleDefinitions.UsesDetermination.Fixed,
@@ -640,7 +642,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             obfuscateEffectDescription.SetRangeParameter(0);
             obfuscateEffectDescription.SetRangeType(RuleDefinitions.RangeType.Self);
 
-            FeatureDefinitionPower obfuscate = new FeatureDefinitionPowerBuilder(   "WitchMaledictionObfuscate",
+            FeatureDefinitionPower obfuscate = new FeatureDefinitionPowerBuilder("WitchMaledictionObfuscate",
                                                                                     GuidHelper.Create(ClassNamespace, "WitchMaledictionObfuscate").ToString(),
                                                                                     1,
                                                                                     RuleDefinitions.UsesDetermination.Fixed,
@@ -658,8 +660,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                     true)
                                                                                     .AddToDB();
 
-            EffectForm poxEffectForm = new EffectForm();
-            poxEffectForm.FormType = EffectForm.EffectFormType.Condition;
+            EffectForm poxEffectForm = new EffectForm
+            {
+                FormType = EffectForm.EffectFormType.Condition
+            };
             ConditionForm conditionForm = new ConditionForm();
             poxEffectForm.SetConditionForm(conditionForm);
             poxEffectForm.ConditionForm.SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionPoisoned);
@@ -675,7 +679,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             poxEffectDescription.EffectForms.Clear();
             poxEffectDescription.EffectForms.Add(poxEffectForm);
 
-            FeatureDefinitionPower pox = new FeatureDefinitionPowerBuilder( "WitchMaledictionPox",
+            FeatureDefinitionPower pox = new FeatureDefinitionPowerBuilder("WitchMaledictionPox",
                                                                             GuidHelper.Create(ClassNamespace, "WitchMaledictionPox").ToString(),
                                                                             1,
                                                                             RuleDefinitions.UsesDetermination.Fixed,
@@ -693,7 +697,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                             true)
                                                                             .AddToDB();
 
-            FeatureDefinitionFeatureSet maledictions = new FeatureDefinitionFeatureSetBuilder(  DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
+            FeatureDefinitionFeatureSet maledictions = new FeatureDefinitionFeatureSetBuilder(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
                                                                                                 "WitchFeatureSetMaledictions",
                                                                                                 GuidHelper.Create(ClassNamespace, "WitchFeatureSetMaledictions").ToString(),
                                                                                                 new GuiPresentationBuilder(
@@ -713,7 +717,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             return maledictions;
         }
 
-        FeatureDefinitionFeatureSet WitchCurse()
+        private static FeatureDefinitionFeatureSet WitchCurse()
         {
 
             // Legend: 
@@ -733,14 +737,14 @@ namespace SolastaCommunityExpansion.Classes.Witch
             //+ Visions: Add CHA to initiative, on top of DEX
             //- Whispers: can communicate telepathically 30 feet
 
-            FeatureDefinitionDamageAffinityBuilder burnedFireRes = new FeatureDefinitionDamageAffinityBuilder(  DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
+            FeatureDefinitionDamageAffinityBuilder burnedFireRes = new FeatureDefinitionDamageAffinityBuilder(DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
                                                                                                                 "WitchBurnedFireResistance",
                                                                                                                 GuidHelper.Create(ClassNamespace, "WitchBurnedFireResistance").ToString(),
                                                                                                                 new GuiPresentationBuilder(
                                                                                                                     "Class/&WitchBurnedFireResistanceDescription",
                                                                                                                     "Class/&WitchBurnedFireResistanceTitle").Build());
 
-            FeatureDefinitionBonusCantripsBuilder burnedProduceFlame = new FeatureDefinitionBonusCantripsBuilder(  DatabaseHelper.FeatureDefinitionBonusCantripss.BonusCantripsDomainElementaFire,
+            FeatureDefinitionBonusCantripsBuilder burnedProduceFlame = new FeatureDefinitionBonusCantripsBuilder(DatabaseHelper.FeatureDefinitionBonusCantripss.BonusCantripsDomainElementaFire,
                                                                                                                 "WitchBurnedProduceFlame",
                                                                                                                 GuidHelper.Create(ClassNamespace, "WitchBurnedProduceFlame").ToString(),
                                                                                                                 new GuiPresentationBuilder(
@@ -749,7 +753,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                                                 .ClearBonusCantrips()
                                                                                                                 .AddBonusCantrip(DatabaseHelper.SpellDefinitions.ProduceFlame);
 
-            FeatureDefinitionFeatureSet burnedCurse = new FeatureDefinitionFeatureSetBuilder(  DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
+            FeatureDefinitionFeatureSet burnedCurse = new FeatureDefinitionFeatureSetBuilder(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
                                                                                                 "WitchFeatureSetBurnedCurse",
                                                                                                 GuidHelper.Create(ClassNamespace, "WitchFeatureSetBurnedCurse").ToString(),
                                                                                                 new GuiPresentationBuilder(
@@ -760,14 +764,14 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                                 .AddFeature(burnedProduceFlame.AddToDB())
                                                                                                 .AddToDB();
 
-            FeatureDefinitionConditionAffinityBuilder lovelessCharmImmunity = new FeatureDefinitionConditionAffinityBuilder( DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
+            FeatureDefinitionConditionAffinityBuilder lovelessCharmImmunity = new FeatureDefinitionConditionAffinityBuilder(DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
                                                                                                                             "WitchLovelessCharmImmunity",
                                                                                                                             GuidHelper.Create(ClassNamespace, "WitchLovelessCharmImmunity").ToString(),
                                                                                                                             new GuiPresentationBuilder(
                                                                                                                                 "Class/&WitchLovelessCharmImmunityDescription",
                                                                                                                                 "Class/&WitchLovelessCharmImmunityTitle").Build());
 
-            FeatureDefinitionFeatureSet lovelessCurse = new FeatureDefinitionFeatureSetBuilder( DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
+            FeatureDefinitionFeatureSet lovelessCurse = new FeatureDefinitionFeatureSetBuilder(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
                                                                                                 "WitchFeatureSetLovelessCurse",
                                                                                                 GuidHelper.Create(ClassNamespace, "WitchFeatureSetLovelessCurse").ToString(),
                                                                                                 new GuiPresentationBuilder(
@@ -778,7 +782,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                                 .AddToDB();
 
             // NOTE: I have no idea how to apply a Charisma bonus, so setting the initiative bonus to 3. It seems like only the "Additive" operation works
-            FeatureDefinitionAttributeModifierBuilder visionsInitiative = new FeatureDefinitionAttributeModifierBuilder(    "WitchVisionsInitiative",
+            FeatureDefinitionAttributeModifierBuilder visionsInitiative = new FeatureDefinitionAttributeModifierBuilder("WitchVisionsInitiative",
                                                                                                                             GuidHelper.Create(ClassNamespace, "WitchVisionsInitiative").ToString(),
                                                                                                                             FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                                                                                                                             AttributeDefinitions.Initiative,
@@ -788,7 +792,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                                                                 "Class/&WitchVisionsInitiativeTitle").Build())
                                                                                                                             .SetModifierAbilityScore(AttributeDefinitions.Charisma);
 
-            FeatureDefinitionFeatureSet visionsCurse = new FeatureDefinitionFeatureSetBuilder( DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
+            FeatureDefinitionFeatureSet visionsCurse = new FeatureDefinitionFeatureSetBuilder(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
                                                                                                 "WitchFeatureSetVisionsCurse",
                                                                                                 GuidHelper.Create(ClassNamespace, "WitchFeatureSetVisionsCurse").ToString(),
                                                                                                 new GuiPresentationBuilder(
@@ -798,7 +802,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                                 .AddFeature(visionsInitiative.AddToDB())
                                                                                                 .AddToDB();
 
-            FeatureDefinitionFeatureSet witchCurse = new FeatureDefinitionFeatureSetBuilder(  DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
+            FeatureDefinitionFeatureSet witchCurse = new FeatureDefinitionFeatureSetBuilder(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
                                                                                                 "WitchFeatureSetWitchCurse",
                                                                                                 GuidHelper.Create(ClassNamespace, "WitchFeatureSetWitchCurse").ToString(),
                                                                                                 new GuiPresentationBuilder(
@@ -815,17 +819,18 @@ namespace SolastaCommunityExpansion.Classes.Witch
             return witchCurse;
         }
 
-        FeatureDefinition Familiar(SpellListDefinition spellListDefinition)
+        private static FeatureDefinition Familiar(SpellListDefinition spellListDefinition)
         {
-            var effectForm = new EffectForm();
-            effectForm.FormType = EffectForm.EffectFormType.Summon;
+            var effectForm = new EffectForm
+            {
+                FormType = EffectForm.EffectFormType.Summon
+            };
             effectForm.SetCreatedByCharacter(true);
 
             SummonForm summonForm = new SummonForm();
             effectForm.SetSummonForm(summonForm);
 
-            MonsterDefinition monsterDefinition = new MonsterDefinition();
-            monsterDefinition = FamiliarMonsterBuilder.AddToMonsterList();
+            var monsterDefinition = FamiliarMonsterBuilder.FamiliarMonster;
 
             effectForm.SummonForm.SetMonsterDefinitionName(monsterDefinition.Name);
             effectForm.SummonForm.SetDecisionPackage(null);
@@ -839,7 +844,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             effectDescription.EffectForms.Clear();
             effectDescription.EffectForms.Add(effectForm);
 
-            FeatureDefinitionPower familiar = new FeatureDefinitionPowerBuilder(    "WitchFamiliarPower",
+            FeatureDefinitionPower familiar = new FeatureDefinitionPowerBuilder("WitchFamiliarPower",
                                                                                     GuidHelper.Create(ClassNamespace, "WitchFamiliarPower").ToString(),
                                                                                     1,
                                                                                     RuleDefinitions.UsesDetermination.Fixed,
@@ -886,15 +891,16 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 Definition.SetRitualCastingTime(RuleDefinitions.ActivationTime.Hours1);
                 Definition.SetRequiresConcentration(false);
 
-                var effectForm = new EffectForm();
-                effectForm.FormType = EffectForm.EffectFormType.Summon;
+                var effectForm = new EffectForm
+                {
+                    FormType = EffectForm.EffectFormType.Summon
+                };
                 effectForm.SetCreatedByCharacter(true);
 
                 SummonForm summonForm = new SummonForm();
                 effectForm.SetSummonForm(summonForm);
 
-                MonsterDefinition monsterDefinition = new MonsterDefinition();
-                monsterDefinition = FamiliarMonsterBuilder.AddToMonsterList();
+                var monsterDefinition = FamiliarMonsterBuilder.FamiliarMonster;
 
                 effectForm.SummonForm.SetMonsterDefinitionName(monsterDefinition.Name);
                 effectForm.SummonForm.SetDecisionPackage(null);
@@ -903,7 +909,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 Definition.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
                 Definition.EffectDescription.SetRangeParameter(2);
                 Definition.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Permanent);
-//                Definition.EffectDescription.SetDurationType(RuleDefinitions.DurationType.UntilLongRest);
+                //                Definition.EffectDescription.SetDurationType(RuleDefinitions.DurationType.UntilLongRest);
                 Definition.EffectDescription.SetTargetSide(RuleDefinitions.Side.Ally);
                 Definition.EffectDescription.EffectForms.Clear();
                 Definition.EffectDescription.EffectForms.Add(effectForm);
@@ -913,13 +919,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             public static SpellDefinition CreateAndAddToDB(string name, string guid)
                 => new FindFamiliarSpellBuilder(name, guid).AddToDB();
 
-            public static SpellDefinition FindFamiliarSpell = CreateAndAddToDB(SpellName, SpellNameGuid);
-
-            public static SpellDefinition AddToSpellList()
-            {
-                var FindFamiliarSpell = FindFamiliarSpellBuilder.FindFamiliarSpell;//Instantiating it adds to the DB
-                return FindFamiliarSpell;
-            }
+            public static readonly SpellDefinition FindFamiliarSpell = CreateAndAddToDB(SpellName, SpellNameGuid);
         }
 
         internal class FamiliarMonsterBuilder : BaseDefinitionBuilder<MonsterDefinition>
@@ -946,7 +946,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 helpActionEffectDescription.EffectForms[0].ConditionForm.ConditionDefinition.GuiPresentation.SetDescription("Power/&FamiliarHelpActionDescription");
                 helpActionEffectDescription.EffectForms[0].ConditionForm.ConditionDefinition.GuiPresentation.SetTitle("Power/&FamiliarHelpActionTitle");
 
-                FeatureDefinitionPower helpAction = new FeatureDefinitionPowerBuilder(  "FamiliarHelpAction",
+                FeatureDefinitionPower helpAction = new FeatureDefinitionPowerBuilder("FamiliarHelpAction",
                                                                                         GuidHelper.Create(ClassNamespace, "FamiliarHelpAction").ToString(),
                                                                                         1,
                                                                                         RuleDefinitions.UsesDetermination.Fixed,
@@ -970,14 +970,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             public static MonsterDefinition CreateAndAddToDB(string name, string guid)
                 => new FamiliarMonsterBuilder(name, guid).AddToDB();
 
-            public static MonsterDefinition FamiliarMonster = CreateAndAddToDB(FamiliarMonsterName, FamiliarMonsterNameGuid);
-
-            public static MonsterDefinition AddToMonsterList()
-            {
-                var FamiliarMonster = FamiliarMonsterBuilder.FamiliarMonster;//Instantiating it adds to the DB
-                return FamiliarMonster;
-            }
-
+            public static readonly MonsterDefinition FamiliarMonster = CreateAndAddToDB(FamiliarMonsterName, FamiliarMonsterNameGuid);
         }
 
         internal class EldritchOrbSpellBuilder : BaseDefinitionBuilder<SpellDefinition>
@@ -1031,13 +1024,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             public static SpellDefinition CreateAndAddToDB(string name, string guid)
                 => new EldritchOrbSpellBuilder(name, guid).AddToDB();
 
-            public static SpellDefinition EldritchOrbSpell = CreateAndAddToDB(SpellName, SpellNameGuid);
-
-            public static SpellDefinition AddToSpellList()
-            {
-                var EldritchOrbSpell = EldritchOrbSpellBuilder.EldritchOrbSpell;//Instantiating it adds to the DB
-                return EldritchOrbSpell;
-            }
+            public static readonly SpellDefinition EldritchOrbSpell = CreateAndAddToDB(SpellName, SpellNameGuid);
         }
 
 
@@ -1086,13 +1073,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             public static SpellDefinition CreateAndAddToDB(string name, string guid)
                 => new MinorLifestealSpellBuilder(name, guid).AddToDB();
 
-            public static SpellDefinition MinorLifestealSpell = CreateAndAddToDB(SpellName, SpellNameGuid);
-
-            public static SpellDefinition AddToSpellList()
-            {
-                var MinorLifestealSpell = MinorLifestealSpellBuilder.MinorLifestealSpell;//Instantiating it adds to the DB
-                return MinorLifestealSpell;
-            }
+            public static readonly SpellDefinition MinorLifestealSpell = CreateAndAddToDB(SpellName, SpellNameGuid);
         }
 
         internal class PetalStormSpellBuilder : BaseDefinitionBuilder<SpellDefinition>
@@ -1126,7 +1107,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 Definition.EffectDescription.EffectAdvancement.SetAdditionalDicePerIncrement(2);
                 Definition.EffectDescription.EffectAdvancement.SetIncrementMultiplier(1);
                 Definition.EffectDescription.EffectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel);
-                Definition.EffectDescription.EffectForms[0].SetHasSavingThrow(true);                
+                Definition.EffectDescription.EffectForms[0].SetHasSavingThrow(true);
                 Definition.EffectDescription.EffectForms[0].SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
                 Definition.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(3);
                 Definition.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D4);
@@ -1135,13 +1116,13 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 Definition.EffectDescription.EffectForms[0].AlterationForm.SetMaximumIncrease(2);
                 Definition.EffectDescription.EffectForms[0].AlterationForm.SetValueIncrease(2);
 
-                EffectProxyDefinitionBuilder proxyDefinitionBuilder = new EffectProxyDefinitionBuilder( DatabaseHelper.EffectProxyDefinitions.ProxyInsectPlague,
+                EffectProxyDefinitionBuilder proxyDefinitionBuilder = new EffectProxyDefinitionBuilder(DatabaseHelper.EffectProxyDefinitions.ProxyInsectPlague,
                                                                                                         "ProxyPetalStorm",
                                                                                                         GuidHelper.Create(ClassNamespace, "ProxyPetalStorm").ToString());
                 EffectProxyDefinition proxyDefinition = proxyDefinitionBuilder.AddToDB();
                 proxyDefinition.SetActionId(ActionDefinitions.Id.ProxyFlamingSphere);
                 proxyDefinition.AdditionalFeatures.Add(DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6);
-                proxyDefinition.SetGuiPresentation(new GuiPresentationBuilder(  "PetalStormDescription",
+                proxyDefinition.SetGuiPresentation(new GuiPresentationBuilder("PetalStormDescription",
                                                                                 "PetalStormTitle").Build());
                 proxyDefinition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.WindWall.GuiPresentation.SpriteReference);
                 proxyDefinition.SetAttackMethod(RuleDefinitions.ProxyAttackMethod.ReproduceDamageForms);
@@ -1158,13 +1139,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             public static SpellDefinition CreateAndAddToDB(string name, string guid)
                 => new PetalStormSpellBuilder(name, guid).AddToDB();
 
-            public static SpellDefinition PetalStormSpell = CreateAndAddToDB(SpellName, SpellNameGuid);
-
-            public static SpellDefinition AddToSpellList()
-            {
-                var PetalStormSpell = PetalStormSpellBuilder.PetalStormSpell;//Instantiating it adds to the DB
-                return PetalStormSpell;
-            }
+            public static readonly SpellDefinition PetalStormSpell = CreateAndAddToDB(SpellName, SpellNameGuid);
         }
 
         internal class ProtectThresholdSpellBuilder : BaseDefinitionBuilder<SpellDefinition>
@@ -1199,7 +1174,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 Definition.EffectDescription.EffectAdvancement.SetAdditionalDicePerIncrement(1);
                 Definition.EffectDescription.EffectAdvancement.SetIncrementMultiplier(1);
                 Definition.EffectDescription.EffectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel);
-                Definition.EffectDescription.EffectForms[1].SetHasSavingThrow(true);                
+                Definition.EffectDescription.EffectForms[1].SetHasSavingThrow(true);
                 Definition.EffectDescription.EffectForms[1].SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.HalfDamage);
                 Definition.EffectDescription.EffectForms[1].DamageForm.SetDiceNumber(4);
                 Definition.EffectDescription.EffectForms[1].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
@@ -1213,13 +1188,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             public static SpellDefinition CreateAndAddToDB(string name, string guid)
                 => new ProtectThresholdSpellBuilder(name, guid).AddToDB();
 
-            public static SpellDefinition ProtectThresholdSpell = CreateAndAddToDB(SpellName, SpellNameGuid);
-
-            public static SpellDefinition AddToSpellList()
-            {
-                var ProtectThresholdSpell = ProtectThresholdSpellBuilder.ProtectThresholdSpell;//Instantiating it adds to the DB
-                return ProtectThresholdSpell;
-            }
+            public static readonly SpellDefinition ProtectThresholdSpell = CreateAndAddToDB(SpellName, SpellNameGuid);
         }
 
         internal class FrenzySpellBuilder : BaseDefinitionBuilder<SpellDefinition>
@@ -1258,13 +1227,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             public static SpellDefinition CreateAndAddToDB(string name, string guid)
                 => new FrenzySpellBuilder(name, guid).AddToDB();
 
-            public static SpellDefinition FrenzySpell = CreateAndAddToDB(SpellName, SpellNameGuid);
-
-            public static SpellDefinition AddToSpellList()
-            {
-                var FrenzySpell = FrenzySpellBuilder.FrenzySpell;//Instantiating it adds to the DB
-                return FrenzySpell;
-            }
+            public static readonly SpellDefinition FrenzySpell = CreateAndAddToDB(SpellName, SpellNameGuid);
         }
 
     }
