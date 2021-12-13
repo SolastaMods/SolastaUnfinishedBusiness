@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi
         {
             if (!Main.Settings.AutoPauseOnVictory) return;
 
-            if (Gui.Battle == null) { return; }
+            if (Gui.Battle != null) { return; }
 
             if (ServiceRepository.GetService<INarrativeDirectionService>()?.CurrentSequence != null)
             {
