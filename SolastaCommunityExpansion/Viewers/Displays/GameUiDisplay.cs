@@ -133,9 +133,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                 if (Main.Settings.DontFollowCharacterInBattle)
                 {
-                    UI.Label("");
                     intValue = Main.Settings.DontFollowMargin;
-                    if (UI.Slider("Unless character is off or within % of screen edge".italic().white(), ref intValue, 0, 15, 1, "%", UI.AutoWidth()))
+                    if (UI.Slider("+ unless character is off or within % of screen edge".italic().yellow(), ref intValue, 0, 20, 1, "%", UI.AutoWidth()))
                     {
                         Main.Settings.DontFollowMargin = intValue;
                     }
