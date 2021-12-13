@@ -71,7 +71,7 @@ namespace SolastaCommunityExpansion.Models
                 bool hasSurname = hero.RaceDefinition.RacePresentation.HasSurName;
 
                 HashSet<string> usedNames = Directory
-                    .EnumerateFiles(TacticalAdventuresApplication.GameCharactersDirectory, $"*.chr")
+                    .EnumerateFiles(TacticalAdventuresApplication.GameCharactersDirectory, "*.chr")
                     .Select(f => Path.GetFileNameWithoutExtension(f))
                     .ToHashSet(StringComparer.OrdinalIgnoreCase);
 

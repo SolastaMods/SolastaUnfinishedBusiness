@@ -13,6 +13,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi
             {
                 return;
             }
+
             if (tooltip.DataProvider is IItemDefinitionProvider)
             {
                 ItemDefinition item = (tooltip.DataProvider as IItemDefinitionProvider).ItemDefinition;

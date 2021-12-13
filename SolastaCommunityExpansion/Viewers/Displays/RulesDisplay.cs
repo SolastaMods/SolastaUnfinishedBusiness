@@ -37,6 +37,22 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
+            toggle = Main.Settings.FullyControlAlliedConjurations;
+            if (UI.Toggle("Fully control conjurations " + "[animals, elementals, etc]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.FullyControlAlliedConjurations = toggle;
+                ConjurationsContext.Load();
+            }
+
+            if (Main.Settings.FullyControlAlliedConjurations)
+            {
+                toggle = Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration;
+                if (UI.Toggle("+ Dismiss fully controlled conjurations when deliberately dropping concentration".italic().yellow(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration = toggle;
+                }
+            }
+
             toggle = Main.Settings.EnableConditionBlindedShouldNotAllowOpportunityAttack;
             if (UI.Toggle("Blinded".orange() + " condition doesn't allow attack of opportunity", ref toggle, UI.AutoWidth()))
             {
@@ -48,6 +64,29 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("House:".yellow());
             UI.Label("");
 
+            toggle = Main.Settings.EnableUniversalSylvanArmor;
+            if (UI.Toggle("Allows any class to wear sylvan armor", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableUniversalSylvanArmor = toggle;
+                ItemOptionsContext.SwitchUniversalSylvanArmor();
+            }
+
+            toggle = Main.Settings.DruidNoMetalRestriction;
+            if (UI.Toggle("Allows Druids to wear metal armor", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.DruidNoMetalRestriction = toggle;
+                DruidArmorContext.Switch(toggle);
+            }
+
+            toggle = Main.Settings.EnableMagicStaffFoci;
+            if (UI.Toggle("Makes all magic staves arcane foci " + "[except for Staff of Healing which is Universal]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableMagicStaffFoci = toggle;
+                ItemOptionsContext.SwitchMagicStaffFoci();
+            }
+
+            UI.Label("");
+
             toggle = Main.Settings.PickPocketEnabled;
             if (UI.Toggle("Adds pickpocketable loot [suggested if " + "Pickpocket".orange() + " feat is enabled]", ref toggle, UI.AutoWidth()))
             {
@@ -56,13 +95,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 {
                     PickPocketContext.Load();
                 }
-            }
-
-            toggle = Main.Settings.DruidNoMetalRestriction;
-            if (UI.Toggle("Allows Druids to wear metal armor", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.DruidNoMetalRestriction = toggle;
-                DruidArmorContext.Switch(toggle);
             }
 
             toggle = Main.Settings.DisableAutoEquip;
@@ -76,6 +108,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             {
                 Main.Settings.ExactMerchantCostScaling = toggle;
             }
+
+            UI.Label("");
         }
     }
 }

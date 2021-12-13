@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
-namespace SolastaCommunityExpansion.Patches.ConditionalPowers
+namespace SolastaCommunityExpansion.Patches.DynamicPowers
 {
     [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshAll")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.Feats
 {
     internal static class AcehighFeats
     {
-        private static bool initialized = false;
+        private static bool initialized;
 
         public static void CreateFeats(List<FeatDefinition> feats)
         {

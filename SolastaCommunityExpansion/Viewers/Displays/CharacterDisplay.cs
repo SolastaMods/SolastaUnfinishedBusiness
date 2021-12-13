@@ -6,6 +6,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class CharacterDisplay
     {
+        private static bool DisplayFaceUnlockSettings { get; set; }
+
         internal static void DisplayCharacter()
         {
             int intValue;
@@ -49,26 +51,26 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableAlternateHuman;
-            if (UI.Toggle("Enables the alternate human [+1 feat / +2 attribute choices / +1 skill]", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enables the alternate human " + "[+1 feat / +2 attribute choices / +1 skill]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableAlternateHuman = toggle;
                 InitialChoicesContext.RefreshAllRacesInitialFeats();
             }
 
+            toggle = Main.Settings.EnableFlexibleBackgrounds;
+            if (UI.Toggle("Enables flexible backgrounds " + "[select skill and tool proficiencies from backgrounds]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableFlexibleBackgrounds = toggle;
+                FlexibleBackgroundsContext.Switch(toggle);
+            }
+
             toggle = Main.Settings.EnableFlexibleRaces;
-            if (UI.Toggle("Enables flexible races [Assign ability score points instead of the racial defaults]\n" + "example: High Elf has 3 points to assign instead of +2 Dex / +1 Int".italic().yellow(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enables flexible races " + "[assign ability score points instead of the racial defaults]".italic().yellow() + "\ni.e.: High Elf has 3 points to assign instead of +2 Dex / +1 Int".italic(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableFlexibleRaces = toggle;
                 FlexibleRacesContext.Switch(toggle);
             }
             UI.Label("");
-
-            toggle = Main.Settings.EnableFlexibleBackgrounds;
-            if (UI.Toggle("Enables flexible backgrounds [Select skill and tool proficiencies from backgrounds]", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableFlexibleBackgrounds = toggle;
-                FlexibleBackgroundsContext.Switch(toggle);
-            }
 
             UI.Label("");
 
@@ -86,7 +88,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             toggle = Main.Settings.EnableEpicArray;
-            if (UI.Toggle("Enables an epic [17,15,13,12,10,8] array instead of a standard [15,14,13,12,10,8]", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enables an epic " + "[17,15,13,12,10,8]".italic().yellow() + " array instead of a standard " + "[15,14,13,12,10,8]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableEpicArray = toggle;
                 EpicArrayContext.Load();
@@ -100,6 +102,71 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.AllRacesInitialFeats = intValue;
                 InitialChoicesContext.RefreshAllRacesInitialFeats();
             }
+
+            UI.Label("");
+
+            toggle = Main.Settings.AllowExtraKeyboardCharactersInNames;
+            if (UI.Toggle("Allows extra keyboard characters in names", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.AllowExtraKeyboardCharactersInNames = toggle;
+            }
+
+            toggle = Main.Settings.OfferAdditionalNames;
+            if (UI.Toggle("Offers additional lore friendly names on character creation " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.OfferAdditionalNames = toggle;
+            }
+
+            UI.Label("");
+
+            toggle = DisplayFaceUnlockSettings;
+            if (UI.DisclosureToggle("Face unlocks: ".yellow() + RequiresRestart, ref toggle, 200)) 
+            {
+                DisplayFaceUnlockSettings = toggle;
+            }
+
+            if (DisplayFaceUnlockSettings)
+            {
+                UI.Label("");
+
+                toggle = Main.Settings.EnableFaceUnlockNpcs;
+                if (UI.Toggle("Unlocks all NPC faces", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableFaceUnlockNpcs = toggle;
+                }
+
+                toggle = Main.Settings.EnableFaceUnlockUnmarkedSorcerers;
+                if (UI.Toggle("Allows unmarked " + "Sorcerers".orange(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableFaceUnlockUnmarkedSorcerers = toggle;
+                }
+
+                toggle = Main.Settings.EnableFaceUnlockMarkingsForAll;
+                if (UI.Toggle("Unlocks markings and tattoos for all characters", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableFaceUnlockMarkingsForAll = toggle;
+                }
+
+                toggle = Main.Settings.EnableFaceUnlockEyeStyles;
+                if (UI.Toggle("Unlocks eye styles", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableFaceUnlockEyeStyles = toggle;
+                }
+
+                toggle = Main.Settings.EnableFaceUnlockGlowingEyes;
+                if (UI.Toggle("Unlocks glowing eye colors", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableFaceUnlockGlowingEyes = toggle;
+                }
+
+                toggle = Main.Settings.EnableFaceUnlockGlowingBodyDecorations;
+                if (UI.Toggle("Unlocks glowing colors for all markings and tattoos", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableFaceUnlockGlowingBodyDecorations = toggle;
+                }
+            }
+
+            UI.Label("");
         }
     }
 }

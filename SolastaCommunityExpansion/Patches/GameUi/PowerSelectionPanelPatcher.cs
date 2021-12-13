@@ -5,7 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SolastaCommunityExpansion.Patches
+namespace SolastaCommunityExpansion.Patches.GameUi
 {
     internal static class PowerSelectionPanelPatcher
     {

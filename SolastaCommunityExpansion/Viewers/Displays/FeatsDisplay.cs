@@ -29,10 +29,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             UI.Label("");
-            UI.Label("Feats: ".yellow() + RequiresRestart);
+            UI.Label("Feats: ".yellow());
             UI.Label("");
 
-            if (UI.Toggle("Select all", ref selectAll))
+            if (UI.Toggle("Select all " + RequiresRestart, ref selectAll))
             {
                 foreach (var keyValuePair in FeatsContext.Feats)
                 {
@@ -96,6 +96,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     }
                 }
             }
+
+            UI.Label("");
         }
     }
 }

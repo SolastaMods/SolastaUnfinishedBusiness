@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class ItemCraftingContext
     {
-        public static Dictionary<string, List<ItemDefinition>> RecipeBooks { get; private set; } = new Dictionary<string, List<ItemDefinition>>();
+        public static Dictionary<string, List<ItemDefinition>> RecipeBooks { get; } = new Dictionary<string, List<ItemDefinition>>();
 
         public static readonly Dictionary<string, string> RecipeTitles = new Dictionary<string, string>
         {

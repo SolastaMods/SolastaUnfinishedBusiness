@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion
         {
             var languageSourceData = LocalizationManager.Sources[0];
 
-            foreach (var path in Directory.EnumerateFiles(fromFolder, $"Translations-??.txt"))
+            foreach (var path in Directory.EnumerateFiles(fromFolder, "Translations-??.txt"))
             {
                 var filename = Path.GetFileName(path);
                 var code = filename.Substring(13, 2);
