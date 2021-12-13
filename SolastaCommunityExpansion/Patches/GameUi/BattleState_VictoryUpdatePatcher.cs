@@ -11,10 +11,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi
         {
             if (!Main.Settings.AutoPauseOnVictory) return;
 
-            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (battleService == null) return;
-            if (battleService.Battle != null) return;
+            if (Gui.Battle == null) { return; }
 
             INarrativeDirectionService narrativeService = ServiceRepository.GetService<INarrativeDirectionService>();
 
@@ -27,11 +24,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi
                 return;
             }
 
-            var campaign = ServiceRepository.GetService<IGameService>()?.Game?.GameCampaign;
-
-            if (campaign == null) return;
-
-            campaign.GameTime.Pause();
+            Gui.PauseGameAsNeeded();
         }
     }
 }
