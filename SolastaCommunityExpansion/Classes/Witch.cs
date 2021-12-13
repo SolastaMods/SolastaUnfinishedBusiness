@@ -55,7 +55,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             witch.AddSkillPreference(DatabaseHelper.SkillDefinitions.Persuasion);
             witch.AddSkillPreference(DatabaseHelper.SkillDefinitions.Nature);
             witch.AddSkillPreference(DatabaseHelper.SkillDefinitions.Religion);
-            
+
             witch.AddEquipmentRow(  new List<CharacterClassDefinition.HeroEquipmentOption>
                                     {
                                         EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.LightCrossbow, EquipmentDefinitions.OptionWeapon, 1),
@@ -63,25 +63,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                     },
                                     new List<CharacterClassDefinition.HeroEquipmentOption>
                                     {
-                                        EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.Quarterstaff, EquipmentDefinitions.OptionWeapon, 1),
-                                    }
-            );
-            witch.AddEquipmentRow(  new List<CharacterClassDefinition.HeroEquipmentOption>
-                                    {
-                                        EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.DungeoneerPack, EquipmentDefinitions.OptionStarterPack, 1),
-                                    },
-                                    new List<CharacterClassDefinition.HeroEquipmentOption>
-                                    {
-                                        EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.ScholarPack, EquipmentDefinitions.OptionStarterPack, 1),
-                                    }
-            );
-            witch.AddEquipmentRow(  new List<CharacterClassDefinition.HeroEquipmentOption>
-                                    {
-                                        EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.EnchantingTool, EquipmentDefinitions.OptionTool, 1),
-                                    },
-                                    new List<CharacterClassDefinition.HeroEquipmentOption>
-                                    {
-                                         EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.HerbalismKit, EquipmentDefinitions.OptionTool, 1),
+                                        EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.Quarterstaff, EquipmentDefinitions.OptionWeaponSimpleChoice, 1),
                                     }
             );
             witch.AddEquipmentRow(  new List<CharacterClassDefinition.HeroEquipmentOption>
@@ -90,14 +72,25 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                     },
                                     new List<CharacterClassDefinition.HeroEquipmentOption>
                                     {
-                                        EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.ArcaneFocusWand, EquipmentDefinitions.OptionFocus, 1),
+                                        EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.ArcaneFocusWand, EquipmentDefinitions.OptionArcaneFocusChoice, 1),
+                                    }
+            );
+            witch.AddEquipmentRow(  new List<CharacterClassDefinition.HeroEquipmentOption>
+                                    {
+                                        EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.ScholarPack, EquipmentDefinitions.OptionStarterPack, 1),
+                                    },
+                                    new List<CharacterClassDefinition.HeroEquipmentOption>
+                                    {
+                                        EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.DungeoneerPack, EquipmentDefinitions.OptionStarterPack, 1),
                                     }
             );
 
             witch.AddEquipmentRow(new List<CharacterClassDefinition.HeroEquipmentOption>
             {
                 EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.SorcererArmor, EquipmentDefinitions.OptionArmor, 1),
-                EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.Spellbook, EquipmentDefinitions.OptionGenericItem, 1),
+                EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.Leather, EquipmentDefinitions.OptionArmor, 1),
+                EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.Club, EquipmentDefinitions.OptionWeaponSimpleChoice, 1),
+                EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.Dagger, EquipmentDefinitions.OptionWeapon, 1),
             });
 
             FeatureDefinitionProficiency savingThrowProficiencies = new FeatureDefinitionProficiencyBuilder("WitchSavingthrowProficiency", 
