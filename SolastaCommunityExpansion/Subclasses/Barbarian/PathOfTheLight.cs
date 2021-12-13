@@ -9,7 +9,7 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Subclasses.Barbarian
 {
-    internal class PathOfTheLight : AbstractSubclass
+    internal class PathOfTheLight : ISubclass
     {
         private static readonly Guid SubclassNamespace = new Guid("c2067110-5086-45c0-b0c2-4c140599605c");
         private const string IlluminatedConditionName = "PathOfTheLightIlluminatedCondition";

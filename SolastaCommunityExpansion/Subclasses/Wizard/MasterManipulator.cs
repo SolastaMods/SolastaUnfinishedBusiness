@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard
 {
-    internal class MasterManipulator : AbstractSubclass
+    internal class MasterManipulator : ISubclass
     {
         private static readonly Guid SubclassNamespace = new Guid("af7255d2-8ce2-4398-8999-f1ef536001f6");
         private readonly CharacterSubclassDefinition Subclass;
@@ -23,11 +23,11 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         }
         #endregion
 
-        internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
+        FeatureDefinitionSubclassChoice ISubclass.GetSubclassChoiceList()
         {
             return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
         }
-        internal override CharacterSubclassDefinition GetSubclass()
+        CharacterSubclassDefinition ISubclass.GetSubclass()
         {
             return Subclass;
         }

@@ -8,7 +8,7 @@ using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Subclasses.Ranger
 {
-    internal class Arcanist : AbstractSubclass
+    internal class Arcanist : ISubclass
     {
         private CharacterSubclassDefinition Subclass;
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()

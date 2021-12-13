@@ -5,59 +5,17 @@ using SolastaModApi.Extensions;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static SolastaModApi.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard
 {
-    internal class SpellMaster : AbstractSubclass
+    internal static class SpellMaster
     {
         private static readonly Guid SubclassNamespace = new Guid("9f322734-1498-4f65-ace5-e6072b1d99be");
-        private readonly CharacterSubclassDefinition Subclass;
 
-        #region Spell recovery gui
-        private static GuiPresentation _spellRecoveryGui;
-        internal static GuiPresentation SpellRecoveryGui
-        {
-            get
-            {
-                return _spellRecoveryGui = _spellRecoveryGui ?? Build();
+        private static CharacterSubclassDefinition Subclass { get; } = Build();
 
-                GuiPresentation Build()
-                {
-                    var spellRecoveryGui = new GuiPresentationBuilder(
-                        "Subclass/&MagicAffinitySpellMasterRecoveryDescription",
-                        "Subclass/&MagicAffinitySpellMasterRecoveryTitle");
-                    spellRecoveryGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
-
-                    return spellRecoveryGui.Build();
-                }
-            }
-        }
-        #endregion
-
-        #region Bonus recovery
-        private static FeatureDefinitionPower _bonusRecovery;
-        internal static FeatureDefinitionPower BonusRecovery
-        {
-            get
-            {
-                return _bonusRecovery = _bonusRecovery ?? 
-                    BuildSpellFormPower(
-                        1 /* usePerRecharge */, RuleDefinitions.UsesDetermination.Fixed, RuleDefinitions.ActivationTime.Rest,
-                        1 /* cost */, RuleDefinitions.RechargeRate.LongRest, "PowerSpellMasterBonusRecovery", SpellRecoveryGui);
-            }
-        }
-        #endregion
-
-        internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-        {
-            return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
-        }
-        internal override CharacterSubclassDefinition GetSubclass()
-        {
-            return Subclass;
-        }
-
-        internal SpellMaster()
+        private static CharacterSubclassDefinition Build()
         {
             // Make Spell Master subclass
             CharacterSubclassDefinitionBuilder spellMaster = new CharacterSubclassDefinitionBuilder("SpellMaster", GuidHelper.Create(SubclassNamespace, "SpellMaster").ToString());
@@ -125,7 +83,47 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 }, RuleDefinitions.CharacterSavingThrowAffinity.Advantage, true, spellResistanceGui.Build()).AddToDB();
             spellMaster.AddFeatureAtLevel(spellResistance, 14);
 
-            Subclass = spellMaster.AddToDB();
+            return spellMaster.AddToDB();
+        }
+
+        #region Spell recovery gui
+        private static GuiPresentation _spellRecoveryGui;
+        internal static GuiPresentation SpellRecoveryGui
+        {
+            get
+            {
+                return _spellRecoveryGui = _spellRecoveryGui ?? Build();
+
+                GuiPresentation Build()
+                {
+                    var spellRecoveryGui = new GuiPresentationBuilder(
+                        "Subclass/&MagicAffinitySpellMasterRecoveryDescription",
+                        "Subclass/&MagicAffinitySpellMasterRecoveryTitle");
+                    spellRecoveryGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
+
+                    return spellRecoveryGui.Build();
+                }
+            }
+        }
+        #endregion
+
+        #region Bonus recovery
+        private static FeatureDefinitionPower _bonusRecovery;
+        internal static FeatureDefinitionPower BonusRecovery
+        {
+            get
+            {
+                return _bonusRecovery = _bonusRecovery ??
+                    BuildSpellFormPower(
+                        1 /* usePerRecharge */, RuleDefinitions.UsesDetermination.Fixed, RuleDefinitions.ActivationTime.Rest,
+                        1 /* cost */, RuleDefinitions.RechargeRate.LongRest, "PowerSpellMasterBonusRecovery", SpellRecoveryGui);
+            }
+        }
+        #endregion
+
+        internal static (FeatureDefinitionSubclassChoice choices, CharacterSubclassDefinition subclass) GetInfo()
+        {
+            return (FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions, Subclass);
         }
 
         public static FeatureDefinitionMagicAffinity PreparedSpellModifier(RuleDefinitions.PreparedSpellsModifier preparedModifier, string name, GuiPresentation guiPresentation)

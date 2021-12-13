@@ -7,16 +7,17 @@ using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard
 {
-    internal class ArcaneFighter : AbstractSubclass
+    internal class ArcaneFighter : ISubclass
     {
         private static Guid SubclassNamespace = new Guid("cab151dd-cc94-4c4c-bfba-a712b9a0b53d");
         private readonly CharacterSubclassDefinition Subclass;
 
-        internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
+        FeatureDefinitionSubclassChoice ISubclass.GetSubclassChoiceList()
         {
             return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
         }
-        internal override CharacterSubclassDefinition GetSubclass()
+
+        CharacterSubclassDefinition ISubclass.GetSubclass()
         {
             return Subclass;
         }

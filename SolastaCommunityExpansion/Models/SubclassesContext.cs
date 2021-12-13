@@ -4,6 +4,7 @@ using SolastaCommunityExpansion.Subclasses.Fighter;
 using SolastaCommunityExpansion.Subclasses.Ranger;
 using SolastaCommunityExpansion.Subclasses.Rogue;
 using SolastaCommunityExpansion.Subclasses.Wizard;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,14 +13,14 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class SubclassesContext
     {
-        public static Dictionary<string, AbstractSubclass> Subclasses { get; private set; } = new Dictionary<string, AbstractSubclass>();
+        public static Dictionary<string, ISubclass> Subclasses { get; private set; } = new Dictionary<string, ISubclass>();
 
         internal static void Load()
         {
             LoadSubclass(new SpellShield());
             LoadSubclass(new ConArtist());
             LoadSubclass(new MasterManipulator());
-            LoadSubclass(new SpellMaster());
+            LoadSubclass(SpellMaster.GetInfo);
             LoadSubclass(new ArcaneFighter());
             LoadSubclass(new LifeTransmuter());
             LoadSubclass(new Arcanist());
@@ -28,9 +29,26 @@ namespace SolastaCommunityExpansion.Models
             LoadSubclass(new PathOfTheLight());
         }
 
-        private static void LoadSubclass(AbstractSubclass subclassBuilder)
+        private static void LoadSubclass(Func<(FeatureDefinitionSubclassChoice choices, CharacterSubclassDefinition subclass)> getSubclassInfo)
+        {
+            var (choices, subclass) = getSubclassInfo();
+
+            if (!Subclasses.ContainsKey(subclass.Name))
+            {
+                //Subclasses.Add(subclass.Name, choices);
+                //or
+                //Subclasses.Add(subclass.Name, getSubclassInfo);
+            }
+
+            Subclasses = Subclasses.OrderBy(x => x.Value.GetSubclass().FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
+
+            UpdateSubclassVisibility(subclass.Name);
+        }
+
+        private static void LoadSubclass(ISubclass subclassBuilder)
         {
             CharacterSubclassDefinition subclass = subclassBuilder.GetSubclass();
+
             if (!Subclasses.ContainsKey(subclass.Name))
             {
                 Subclasses.Add(subclass.Name, subclassBuilder);

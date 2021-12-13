@@ -7,16 +7,16 @@ using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard
 {
-    internal class LifeTransmuter : AbstractSubclass
+    internal class LifeTransmuter : ISubclass
     {
         private static Guid SubclassNamespace = new Guid("81cdcf44-5f04-4aea-8232-b22a1c264065");
         private readonly CharacterSubclassDefinition Subclass;
 
-        internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
+        FeatureDefinitionSubclassChoice ISubclass.GetSubclassChoiceList()
         {
             return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
         }
-        internal override CharacterSubclassDefinition GetSubclass()
+        CharacterSubclassDefinition ISubclass.GetSubclass()
         {
             return Subclass;
         }
