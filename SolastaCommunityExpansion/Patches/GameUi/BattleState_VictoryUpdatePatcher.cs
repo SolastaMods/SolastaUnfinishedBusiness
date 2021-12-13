@@ -11,14 +11,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi
         {
             if (!Main.Settings.AutoPauseOnVictory) return;
 
-            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
+            if (Gui.Battle != null) { return; }
 
-            if (battleService == null) return;
-            if (battleService.Battle != null) return;
-
-            INarrativeDirectionService narrativeService = ServiceRepository.GetService<INarrativeDirectionService>();
-
-            if (narrativeService != null && narrativeService.CurrentSequence != null)
+            if (ServiceRepository.GetService<INarrativeDirectionService>()?.CurrentSequence != null)
             {
                 // Don't pause in the middle of a narrative sequence it hangs the game.
                 // For example during the tutorial shoving the rock to destroy the bridge transitions
@@ -27,11 +22,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi
                 return;
             }
 
-            var campaign = ServiceRepository.GetService<IGameService>()?.Game?.GameCampaign;
-
-            if (campaign == null) return;
-
-            campaign.GameTime.Pause();
+            Gui.PauseGameAsNeeded();
         }
     }
 }
