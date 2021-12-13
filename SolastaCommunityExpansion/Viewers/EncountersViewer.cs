@@ -233,29 +233,35 @@ namespace SolastaCommunityExpansion.Viewers
             UI.Label("Controllers:".yellow());
             UI.Label("");
 
-            toggle = Main.Settings.EnableControllersOverride;
-            if (UI.Toggle("Enables heroes controlled by AI", ref toggle))
+            toggle = Main.Settings.EnableEnemiesControlledByPlayer;
+            if (UI.Toggle("Enables enemies controlled by players", ref toggle))
             {
-                Main.Settings.EnableControllersOverride = toggle;
+                Main.Settings.EnableEnemiesControlledByPlayer = toggle;
             }
 
-            if (Main.Settings.EnableControllersOverride)
+            toggle = Main.Settings.EnableHeroesControlledByComputer;
+            if (UI.Toggle("Enables heroes controlled by computer", ref toggle))
+            {
+                Main.Settings.EnableHeroesControlledByComputer = toggle;
+            }
+
+            if (Main.Settings.EnableHeroesControlledByComputer)
             {
                 UI.Label("");
 
-                if (HeroControllerContext.IsOffGame)
+                if (PlayerControllerContext.IsOffGame)
                 {
                     UI.Label("Load a game to modify heroes AI...".bold().red(), UI.AutoWidth());
                 }
-                else if (HeroControllerContext.IsMultiplayer)
+                else if (PlayerControllerContext.IsMultiplayer)
                 {
                     UI.Label("You can only change controllers in a local session...".bold().red(), UI.AutoWidth());
                 }
                 else
                 {
-                    var controllers = HeroControllerContext.Controllers;
-                    var controllersChoices = HeroControllerContext.ControllersChoices;
-                    var partyCharacters = HeroControllerContext.PartyCharacters;
+                    var controllers = PlayerControllerContext.Controllers;
+                    var controllersChoices = PlayerControllerContext.ControllersChoices;
+                    var partyCharacters = PlayerControllerContext.PartyCharacters;
 
                     for (int i = 0; i < partyCharacters.Count; i++)
                     {

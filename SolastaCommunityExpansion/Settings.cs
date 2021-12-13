@@ -199,6 +199,8 @@ namespace SolastaCommunityExpansion
 
         public const InputCommands.Id CTRL_SHIFT_E = (InputCommands.Id)44440005;
 
-        public bool EnableControllersOverride { get; set; }
+        public bool EnableHeroesControlledByComputer { get; set; }
+
+        public bool EnableEnemiesControlledByPlayer { get; set; }
     }
 }
