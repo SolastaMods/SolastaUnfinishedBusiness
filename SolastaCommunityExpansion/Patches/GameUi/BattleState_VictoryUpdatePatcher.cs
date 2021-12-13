@@ -13,9 +13,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi
 
             if (Gui.Battle == null) { return; }
 
-            INarrativeDirectionService narrativeService = ServiceRepository.GetService<INarrativeDirectionService>();
-
-            if (narrativeService != null && narrativeService.CurrentSequence != null)
+            if (ServiceRepository.GetService<INarrativeDirectionService>()?.CurrentSequence != null)
             {
                 // Don't pause in the middle of a narrative sequence it hangs the game.
                 // For example during the tutorial shoving the rock to destroy the bridge transitions
