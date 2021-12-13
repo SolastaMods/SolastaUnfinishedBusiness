@@ -646,7 +646,7 @@ Class/&WitchFeatureSetRitualCastingDescription	You can cast any witch spell you 
 Class/&WitchFeatureSetWitchCurseTitle	Witch Curse
 Class/&WitchFeatureSetWitchCurseDescription	You are wracked by a terrible curse which infects your body and soul.
 Class/&WitchFeatureSetBurnedCurseTitle	Burned
-Class/&WitchFeatureSetBurnedCurseDescription	Almost all of your body has been scorched by arcane flames, leaving you with striking black scars and embers of magic that burn under the skin. As a result, you have resistance to fire damage, and you know the cantrip produce flame, which does not count against your total number of cantrips known.
+Class/&WitchFeatureSetBurnedCurseDescription	Almost all of your body has been scorched by arcane flames, leaving you with striking black scars and embers of magic that burn under the skin. As a result, you have resistance to fire damage, and you know the cantrip Produce Flame, which does not count against your total number of cantrips known.
 Class/&WitchFeatureSetLovelessCurseTitle	Loveless
 Class/&WitchFeatureSetLovelessCurseDescription	You are cursed to never find true love. Jaded and disaffected, not even magic can turn your heart; as a result, you are immune to being charmed.
 Class/&WitchFeatureSetVisionsCurseTitle	Visions

@@ -1,4 +1,4 @@
-﻿using SolastaCommunityExpansion.Features;
+using SolastaCommunityExpansion.Features;
 using SolastaModApi;
 using SolastaModApi.BuilderHelpers;
 using SolastaModApi.Extensions;
@@ -880,6 +880,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 Definition.SetSpecificMaterialComponentCostGp(10);
                 Definition.SetCastingTime(RuleDefinitions.ActivationTime.Hours1);
                 Definition.SetRitual(true);
+                Definition.SetUniqueInstance(true);
 
                 // BUG: Unable to have 70 minutes ritual casting time... if set to 10 minutes, it really only takes 10 minutes, isntead of 70
                 Definition.SetRitualCastingTime(RuleDefinitions.ActivationTime.Hours1);
