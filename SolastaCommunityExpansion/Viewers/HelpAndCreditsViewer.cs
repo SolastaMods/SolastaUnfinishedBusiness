@@ -94,7 +94,7 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("\n[*]Pause the UI when victorious in battle");
                 collectedString.Append("\n[*]Additional lore friendly names");
                 collectedString.Append("\n[*]Speed up battles");
-                collectedString.Append("\n[*]Prevent battle camera movement");
+                collectedString.Append("\n[*]Reduce battle camera movement");
                 collectedString.Append("\n[*]Multi line spell casting selection");
                 collectedString.Append("\n[*]Multi line power activation selection");
                 collectedString.Append("\n[*]Keep spell UI open when switching weapons");
