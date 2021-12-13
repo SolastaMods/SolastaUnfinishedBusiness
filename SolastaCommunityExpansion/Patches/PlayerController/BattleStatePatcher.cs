@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.HeroController
+namespace SolastaCommunityExpansion.Patches.PlayerController
 {
     // these patches init / shutdowns the Hero AI system
     [HarmonyPatch(typeof(BattleState_TurnInitialize), "Begin")]
@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Patches.HeroController
     {
         internal static void Prefix()
         {
-            Models.HeroControllerContext.Start();
+            Models.PlayerControllerContext.Start();
         }
     }
 
@@ -20,7 +20,7 @@ namespace SolastaCommunityExpansion.Patches.HeroController
     {
         internal static void Prefix()
         {
-            Models.HeroControllerContext.Stop();
+            Models.PlayerControllerContext.Stop();
         }
     }
 
@@ -30,7 +30,7 @@ namespace SolastaCommunityExpansion.Patches.HeroController
     {
         internal static void Prefix()
         {
-            Models.HeroControllerContext.Stop();
+            Models.PlayerControllerContext.Stop();
         }
     }
 }
