@@ -14,39 +14,36 @@ namespace SolastaCommunityExpansion.Viewers
 
         public int Priority => 15;
 
-        private static int selectedPane = 0;
-        private static bool showStats = false;
-        private static bool showAttributes = false;
+        private static int selectedPane;
+
+        private static bool showStats;
+
+        private static bool showAttributes;
+
         private static readonly Dictionary<MonsterDefinition, bool> currentFeaturesMonster = new Dictionary<MonsterDefinition, bool> { };
+
         private static readonly Dictionary<MonsterDefinition, bool> currentAttacksMonster = new Dictionary<MonsterDefinition, bool> { };
+
         private static readonly Dictionary<RulesetCharacterHero, bool> currentItemsHeroes = new Dictionary<RulesetCharacterHero, bool> { };
 
         private static string SplitCamelCase(string str)
         {
-            return Regex.Replace(
-                Regex.Replace(
-                    str,
-                    @"(\P{Ll})(\P{Ll}\p{Ll})",
-                    "$1 $2"
-                ),
-                @"(\p{Ll})(\P{Ll})",
-                "$1 $2"
-            );
+            return Regex.Replace(Regex.Replace(str, @"(\P{Ll})(\P{Ll}\p{Ll})", "$1 $2"), @"(\p{Ll})(\P{Ll})", "$1 $2");
         }
 
         private static void DisplayHeroStats(RulesetCharacterHero hero, string actionText, System.Action action)
         {
-            bool flip = false;
+            var flip = false;
             var inventory = hero.CharacterInventory.EnumerateAllSlots(false, true);
 
             using (UI.HorizontalScope())
             {
                 UI.ActionButton(actionText.bold().red(), action, UI.Width(30));
                 UI.Label($"{hero.Name} {hero.SurName}".orange().bold(), UI.Width(240));
-
                 UI.Label($"{hero.RaceDefinition.FormatTitle()} {hero.ClassesHistory[0].FormatTitle()}".white(), UI.Width(120));
 
-                string attributesLabel = showAttributes ? "" : "Atributes";
+                var attributesLabel = showAttributes ? "" : "Atributes";
+
                 UI.DisclosureToggle(attributesLabel, ref showAttributes, attributesLabel.Length * 12);
 
                 if (showAttributes)
@@ -59,7 +56,8 @@ namespace SolastaCommunityExpansion.Viewers
                     UI.Label($"Cha: {hero.GetAttribute("Charisma").CurrentValue:0#}".yellow(), UI.Width(48));
                 };
 
-                string statsLabel = showStats ? "" : "Stats";
+                var statsLabel = showStats ? "" : "Stats";
+
                 UI.DisclosureToggle(statsLabel, ref showStats, statsLabel.Length * 12);
 
                 if (showStats)
@@ -71,6 +69,7 @@ namespace SolastaCommunityExpansion.Viewers
                 }
 
                 currentItemsHeroes.TryGetValue(hero, out flip);
+
                 if (UI.DisclosureToggle($"Inventory", ref flip, 132))
                 {
                     currentItemsHeroes.AddOrReplace<RulesetCharacterHero, bool>(hero, flip);
@@ -78,6 +77,7 @@ namespace SolastaCommunityExpansion.Viewers
             }
 
             currentItemsHeroes.TryGetValue(hero, out flip);
+
             if (flip)
             {
                 using (UI.VerticalScope())
@@ -104,16 +104,16 @@ namespace SolastaCommunityExpansion.Viewers
 
         private static void DisplayMonsterStats(MonsterDefinition monsterDefinition, string actionText, System.Action action)
         {
-            bool flip = false;
+            var flip = false;
 
             using (UI.HorizontalScope())
             {
                 UI.ActionButton(actionText.bold().red(), action, UI.Width(30));
-
                 UI.Label($"{monsterDefinition.FormatTitle()}".orange().bold(), UI.Width(240));
                 UI.Label($"{SplitCamelCase(monsterDefinition.Alignment)}".white(), UI.Width(120));
 
-                string attributesLabel = showAttributes ? "" : "Atributes";
+                var attributesLabel = showAttributes ? "" : "Atributes";
+
                 UI.DisclosureToggle(attributesLabel, ref showAttributes, attributesLabel.Length * 12);
 
                 if (showAttributes)
@@ -126,7 +126,8 @@ namespace SolastaCommunityExpansion.Viewers
                     UI.Label($"Cha: {monsterDefinition.AbilityScores[5]:0#}".yellow(), UI.Width(48));
                 };
 
-                string statsLabel = showStats ? "" : "Stats";
+                var statsLabel = showStats ? "" : "Stats";
+
                 UI.DisclosureToggle(statsLabel, ref showStats, statsLabel.Length * 12);
 
                 if (showStats)
@@ -138,12 +139,14 @@ namespace SolastaCommunityExpansion.Viewers
 
 
                 currentAttacksMonster.TryGetValue(monsterDefinition, out flip);
+
                 if (UI.DisclosureToggle($"Attacks ({monsterDefinition.AttackIterations.Count:0#})", ref flip, 132))
                 {
                     currentAttacksMonster.AddOrReplace<MonsterDefinition, bool>(monsterDefinition, flip);
                 }
 
                 currentFeaturesMonster.TryGetValue(monsterDefinition, out flip);
+
                 if (UI.DisclosureToggle($"Features ({monsterDefinition.Features.Count:0#})", ref flip, 144))
                 {
                     currentFeaturesMonster.AddOrReplace<MonsterDefinition, bool>(monsterDefinition, flip);
@@ -164,7 +167,8 @@ namespace SolastaCommunityExpansion.Viewers
                     {
                         using (UI.HorizontalScope())
                         {
-                            string title = feature.FormatTitle();
+                            var title = feature.FormatTitle();
+
                             if (title == "None")
                             {
                                 title = SplitCamelCase(feature.Name);
@@ -191,7 +195,8 @@ namespace SolastaCommunityExpansion.Viewers
                     {
                         using (UI.HorizontalScope())
                         {
-                            string title = attackIteration.MonsterAttackDefinition.FormatTitle();
+                            var title = attackIteration.MonsterAttackDefinition.FormatTitle();
+
                             if (title == "None")
                             {
                                 title = SplitCamelCase(attackIteration.MonsterAttackDefinition.name);
@@ -220,7 +225,7 @@ namespace SolastaCommunityExpansion.Viewers
             }
         }
 
-        private static void DisplayEncounterTable()
+        private static void DisplayGeneral()
         {
             bool toggle;
 
@@ -236,27 +241,25 @@ namespace SolastaCommunityExpansion.Viewers
 
             if (Main.Settings.EnableControllersOverride)
             {
-                var controllers = HeroControllerContext.GetPlayersList().ToArray();
-                var partyCharacters = HeroControllerContext.GetCharactersList();
-
                 UI.Label("");
 
-                if (partyCharacters.Count == 0)
+                if (HeroControllerContext.IsOffGame)
                 {
                     UI.Label("Load a game to modify heroes AI...".bold().red(), UI.AutoWidth());
                 }
-                else if (!HeroControllerContext.IsLocalPlayer())
+                else if (HeroControllerContext.IsMultiplayer)
                 {
                     UI.Label("You can only change controllers in a local session...".bold().red(), UI.AutoWidth());
                 }
                 else
                 {
-                    for (int index = 0; index < partyCharacters.Count; index++)
+                    var controllers = HeroControllerContext.Controllers;
+                    var controllersChoices = HeroControllerContext.ControllersChoices;
+                    var partyCharacters = HeroControllerContext.PartyCharacters;
+
+                    for (int i = 0; i < partyCharacters.Count; i++)
                     {
-                        UI.HStack(partyCharacters[index].Name, 1, () =>
-                        {
-                            UI.SelectionGrid(ref Models.HeroControllerContext.CharacterPlayersChoices[index], controllers, controllers.Length, UI.AutoWidth());
-                        });
+                        UI.HStack(partyCharacters[i].Name, 1, () => UI.SelectionGrid(ref controllersChoices[i], controllers, controllers.Length, UI.Width(300)));
                     }
                 }
             }
@@ -322,7 +325,7 @@ namespace SolastaCommunityExpansion.Viewers
 
         private static readonly NamedAction[] actions = new NamedAction[]
         {
-            new NamedAction("General", DisplayEncounterTable),
+            new NamedAction("General", DisplayGeneral),
             new NamedAction("Bestiary", DisplayBestiary),
             new NamedAction("Characters Pool", DisplayNPCs)
         };
