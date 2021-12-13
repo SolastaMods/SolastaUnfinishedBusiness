@@ -59,6 +59,7 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("\n[*]Receive both ASI and Feat every 4 levels");
                 collectedString.Append("\n[*]Epic [17,15,13,12,10,8] array");
                 collectedString.Append("\n[*]Feats available at level 1");
+                collectedString.Append("\n[*]Face unlock");
                 collectedString.Append("\n[/list]");
                 collectedString.Append("\n[line]\n");
                 collectedString.Append(Models.FeatsContext.GenerateFeatsDescription());
@@ -69,6 +70,7 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("\n[line]\n");
                 collectedString.Append("[heading]Gameplay Options[/heading]\n[list]");
                 collectedString.Append("\n[*]Use official advantage/disadvantage rules");
+                collectedString.Append("\n[*]Use official surprise rules");
                 collectedString.Append("\n[*]Blinded condition doesn't allow attack of opportunity");
                 collectedString.Append("\n[*]Add pickpocketable loot");
                 collectedString.Append("\n[*]Allow Druids to wear metal armor");
@@ -76,11 +78,15 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("\n[*]Scale merchant prices correctly/exactly");
                 collectedString.Append("\n[*]Remove identification requirement from items");
                 collectedString.Append("\n[*]Remove attunement requirement from items");
+                collectedString.Append("\n[*]Improved handling of conjuration spells (dismiss conjuration doesn't trigger hostility, player control both in and out of combat)");
                 collectedString.Append("\n[/list]");
                 collectedString.Append("\n[line]\n");
                 collectedString.Append(Models.ItemCraftingContext.GenerateItemsDescription());
                 collectedString.Append("\n[line]\n");
                 collectedString.Append("[heading]UI Improvements and bug Fixes[/heading]\n[list]");
+                collectedString.Append("\n[*]Inventory filtering and sorting");
+                collectedString.Append("\n[*]Save by location");
+                collectedString.Append("\n[*]Replace bug monsters with other creatures");
                 collectedString.Append("\n[*]Allow extra keyboard characters in names");
                 collectedString.Append("\n[*]Monsters's health in steps of 25/50/75/100%");
                 collectedString.Append("\n[*]Invert ALT behavior on tooltips");
@@ -88,6 +94,7 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("\n[*]Pause the UI when victorious in battle");
                 collectedString.Append("\n[*]Additional lore friendly names");
                 collectedString.Append("\n[*]Speed up battles");
+                collectedString.Append("\n[*]Prevent battle camera movement");
                 collectedString.Append("\n[*]Multi line spell casting selection");
                 collectedString.Append("\n[*]Multi line power activation selection");
                 collectedString.Append("\n[*]Keep spell UI open when switching weapons");
@@ -117,7 +124,7 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("\n[*]Armor Feats");
                 collectedString.Append("\n[*]ASI and Feat");
                 collectedString.Append("\n[*]Caster Feats -Telekinetic - Fey Teleportation - Shadow Touched");
-                collectedString.Append("\n[*]Character Export [to-be imported by @impPhil]");
+                collectedString.Append("\n[*]Character Export");
                 collectedString.Append("\n[*]Crafty Feats");
                 collectedString.Append("\n[*]Custom Merchants");
                 collectedString.Append("\n[*]Darkvision");
@@ -147,11 +154,11 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("\n[*]Ranger Arcanist -Ranger Subclass");
                 collectedString.Append("\n[*]Respec");
                 collectedString.Append("\n[*]Rogue Con Artist");
-                collectedString.Append("\n[*]Save by Location [to-be imported by @impPhil]");
+                collectedString.Append("\n[*]Save by Location");
                 collectedString.Append("\n[*]Skip Tutorials");
                 collectedString.Append("\n[*]Solastanomicon");
                 collectedString.Append("\n[*]Telema Campaign");
-                collectedString.Append("\n[*]Tinkerer Subclass - Scout Sentinel [to-be imported by @dubhHerder]");
+                collectedString.Append("\n[*]Tinkerer Subclass - Scout Sentinel [in the Tinkerer Mod]");
                 collectedString.Append("\n[*]Two Feats - Power Attack and Reckless Fury");
                 collectedString.Append("\n[*]UI Updates");
                 collectedString.Append("\n[*]Unofficial Hotfixes");
