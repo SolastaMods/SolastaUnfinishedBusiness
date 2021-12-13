@@ -7,10 +7,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameLocationScreenExploration_HandleInput
     {
-        internal static bool Prefix(
+        internal static void Postfix(
             GameLocationScreenExploration __instance,
             InputCommands.Id command,
-            ref bool __result,
             PartyControlPanel ___partyControlPanel,
             CharacterControlPanelExploration ___characterControlPanelExploration,
             TimeAndNavigationPanel ___timeAndNavigationPanel)
@@ -34,8 +33,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi
                                 ___characterControlPanelExploration.Show();
                             }
                         }
-                        __result = true;
-                        return false;
+                        break;
 
                     case Settings.CTRL_L:
                         var guiConsoleScreen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
@@ -48,8 +46,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi
                         {
                             guiConsoleScreen.Show();
                         }
-                        __result = true;
-                        return false;
+                        break;
 
                     case Settings.CTRL_M:
                         if (___timeAndNavigationPanel.Visible)
@@ -60,8 +57,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi
                         {
                             ___timeAndNavigationPanel.Show();
                         }
-                        __result = true;
-                        return false;
+                        break;
 
                     case Settings.CTRL_P:
                         if (___partyControlPanel.Visible)
@@ -72,14 +68,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi
                         {
                             ___partyControlPanel.Show();
                         }
-                        __result = true;
-                        return false;
-
-                    default:
-                        return true;
+                        break;
                 }
             }
-            return true;
         }
     }
 }
