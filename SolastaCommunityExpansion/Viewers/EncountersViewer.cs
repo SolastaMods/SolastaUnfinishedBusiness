@@ -54,7 +54,7 @@ namespace SolastaCommunityExpansion.Viewers
                     UI.Label($"Int: {hero.GetAttribute("Intelligence").CurrentValue:0#}".yellow(), UI.Width(48));
                     UI.Label($"Wis: {hero.GetAttribute("Wisdom").CurrentValue:0#}".white(), UI.Width(48));
                     UI.Label($"Cha: {hero.GetAttribute("Charisma").CurrentValue:0#}".yellow(), UI.Width(48));
-                };
+                }
 
                 var statsLabel = showStats ? "" : "Stats";
 
@@ -124,7 +124,7 @@ namespace SolastaCommunityExpansion.Viewers
                     UI.Label($"Int: {monsterDefinition.AbilityScores[3]:0#}".yellow(), UI.Width(48));
                     UI.Label($"Wis: {monsterDefinition.AbilityScores[4]:0#}".white(), UI.Width(48));
                     UI.Label($"Cha: {monsterDefinition.AbilityScores[5]:0#}".yellow(), UI.Width(48));
-                };
+                }
 
                 var statsLabel = showStats ? "" : "Stats";
 
@@ -151,7 +151,7 @@ namespace SolastaCommunityExpansion.Viewers
                 {
                     currentFeaturesMonster.AddOrReplace<MonsterDefinition, bool>(monsterDefinition, flip);
                 }
-            };
+            }
 
             currentFeaturesMonster.TryGetValue(monsterDefinition, out flip);
             if (flip)
@@ -204,16 +204,16 @@ namespace SolastaCommunityExpansion.Viewers
 
                             UI.Space(60);
                             UI.Label(title, UI.Width(192));
-                            UI.Label($"action type: {attackIteration.MonsterAttackDefinition.ActionType.ToString()}".green(), UI.Width(120));
-                            UI.Label($"reach: {attackIteration.MonsterAttackDefinition.ReachRange.ToString()}".green(), UI.Width(108));
-                            UI.Label($"hit bonus: {attackIteration.MonsterAttackDefinition.ToHitBonus.ToString()}".green(), UI.Width(108));
+                            UI.Label($"action type: {attackIteration.MonsterAttackDefinition.ActionType}".green(), UI.Width(120));
+                            UI.Label($"reach: {attackIteration.MonsterAttackDefinition.ReachRange}".green(), UI.Width(108));
+                            UI.Label($"hit bonus: {attackIteration.MonsterAttackDefinition.ToHitBonus}".green(), UI.Width(108));
                             if (attackIteration.MonsterAttackDefinition.MaxUses < 0)
                             {
                                 UI.Label($"max uses: inf".green(), UI.Width(108));
                             }
                             else
                             {
-                                UI.Label($"max uses: {attackIteration.MonsterAttackDefinition.MaxUses.ToString()}".green(), UI.Width(108));
+                                UI.Label($"max uses: {attackIteration.MonsterAttackDefinition.MaxUses}".green(), UI.Width(108));
                             }
                             if (attackIteration.MonsterAttackDefinition.Magical)
                             {
