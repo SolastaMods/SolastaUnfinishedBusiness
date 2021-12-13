@@ -101,10 +101,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             bool flip = true;
-            var gameService = ServiceRepository.GetService<IGameService>();
+            var gameCampaign = Gui.GameCampaign;
             var gameFactionService = ServiceRepository.GetService<IGameFactionService>();
 
-            if (gameFactionService != null && gameService?.Game?.GameCampaign?.CampaignDefinitionName?.Contains("UserCampaign") == false)
+            if (gameFactionService != null && gameCampaign?.CampaignDefinitionName != "UserCampaign")
             {
                 foreach (FactionDefinition faction in gameFactionService.RegisteredFactions)
                 {
