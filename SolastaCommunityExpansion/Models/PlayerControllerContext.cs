@@ -24,7 +24,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static readonly List<GameLocationCharacter> Enemies = new List<GameLocationCharacter>();
 
-        private static bool ActiveContenderIsFriend
+        private static bool IsActiveContenderEnemy
         {
             get
             {
@@ -53,7 +53,7 @@ namespace SolastaCommunityExpansion.Models
                     }
                 }
 
-                return Friends.Exists(x => x == gameLocationBattleService.Battle.ActiveContender);
+                return Enemies.Exists(x => x == gameLocationBattleService.Battle.ActiveContender);
             }
         }
 
@@ -84,7 +84,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static void StartEnemyControlledByPlayer()
         {
-            if (!IsMultiplayer && Main.Settings.EnableEnemiesControlledByPlayer && !ActiveContenderIsFriend)
+            if (!IsMultiplayer && Main.Settings.EnableEnemiesControlledByPlayer && IsActiveContenderEnemy)
             {
                 PlayerInControlOfEnemy = true;
                 UpdatePlayerControllerControlledCharacters();
@@ -120,8 +120,8 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Start()
         {
-            StartEnemyControlledByPlayer();
             StartHeroControlledByComputer();
+            StartEnemyControlledByPlayer();
         }
 
         internal static void Stop()

@@ -233,16 +233,6 @@ namespace SolastaCommunityExpansion.Viewers
             UI.Label("Controllers:".yellow());
             UI.Label("");
 
-            //
-            // remove or uncomment after fully tested
-            //
-
-            //toggle = Main.Settings.AllowDeathInCustomDungeons;
-            //if (UI.Toggle("Allows heroes to die in custom dungeons", ref toggle))
-            //{
-            //    Main.Settings.AllowDeathInCustomDungeons = toggle;
-            //}
-
             toggle = Main.Settings.EnableEnemiesControlledByPlayer;
             if (UI.Toggle("Enables enemies controlled by players", ref toggle))
             {
