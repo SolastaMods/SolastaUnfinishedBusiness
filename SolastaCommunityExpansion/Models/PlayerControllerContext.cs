@@ -6,11 +6,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class PlayerControllerContext
     {
-        private static readonly List<GameLocationCharacter> friends = new List<GameLocationCharacter>();
-
-        private static readonly List<GameLocationCharacter> enemies = new List<GameLocationCharacter>();
-
-        private static bool PlayerInControlOfEnemy { get; set; }
+        internal static bool PlayerInControlOfEnemy { get; set; }
 
         internal static readonly string[] Controllers = new string[] { "Human", "Computer" };
 
@@ -23,6 +19,10 @@ namespace SolastaCommunityExpansion.Models
         internal static List<GameLocationCharacter> PartyCharacters => ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters;
 
         private static List<GameLocationCharacter> ValidCharacters => ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters;
+
+        private static readonly List<GameLocationCharacter> Friends = new List<GameLocationCharacter>();
+
+        private static readonly List<GameLocationCharacter> Enemies = new List<GameLocationCharacter>();
 
         private static bool ActiveContenderIsFriend
         {
@@ -37,23 +37,23 @@ namespace SolastaCommunityExpansion.Models
 
                 if (!PlayerInControlOfEnemy)
                 {
-                    friends.Clear();
-                    enemies.Clear();
+                    Friends.Clear();
+                    Enemies.Clear();
 
                     foreach (var validCharacter in ValidCharacters)
                     {
                         if (validCharacter.Side == RuleDefinitions.Side.Ally)
                         {
-                            friends.Add(validCharacter);
+                            Friends.Add(validCharacter);
                         }
                         else
                         {
-                            enemies.Add(validCharacter);
+                            Enemies.Add(validCharacter);
                         }
                     }
                 }
 
-                return friends.Exists(x => x == gameLocationBattleService.Battle.ActiveContender);
+                return Friends.Exists(x => x == gameLocationBattleService.Battle.ActiveContender);
             }
         }
 
@@ -61,7 +61,7 @@ namespace SolastaCommunityExpansion.Models
         {
             var activePlayerController = Gui.ActivePlayerController;
             var side = PlayerInControlOfEnemy ? RuleDefinitions.Side.Enemy : RuleDefinitions.Side.Ally;
-            var controlledCharacters = PlayerInControlOfEnemy ? enemies : friends;
+            var controlledCharacters = PlayerInControlOfEnemy ? Enemies : Friends;
 
             AccessTools.Field(activePlayerController.GetType(), "side").SetValue(activePlayerController, side);
             activePlayerController.ControlledCharacters.Clear();
