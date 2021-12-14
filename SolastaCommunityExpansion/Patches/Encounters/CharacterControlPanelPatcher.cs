@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.PlayerController
+namespace SolastaCommunityExpansion.Patches.Encounters
 {
-    // this patch allows the away party to use the inventory inspect button
+    // this patch allows an "enemy" hero to use the inventory inspect button
     [HarmonyPatch(typeof(CharacterControlPanel), "OnInspectCb")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterControlPanel_OnInspectCb
