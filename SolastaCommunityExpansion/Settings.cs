@@ -197,8 +197,9 @@ namespace SolastaCommunityExpansion
         public const int PLAYER_CONTROLLER_ID = 1;
 
         public const InputCommands.Id CTRL_SHIFT_E = (InputCommands.Id)44440005;
-
         public bool EnableHeroesControlledByComputer { get; set; }
         public bool EnableEnemiesControlledByPlayer { get; set; }
+
+        public bool ArcaneFighterEnchantWeaponRechargeShortRest { get; set; }
     }
 }

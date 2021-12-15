@@ -39,23 +39,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 "ProficiencyWeaponArcaneFighter", weaponProfPresentation.Build());
             meleeWizard.AddFeatureAtLevel(weaponProf, 2);
 
-            GuiPresentationBuilder attackModGui = new GuiPresentationBuilder(
-                "Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription",
-                "Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle");
-            attackModGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference);
-
-            GuiPresentationBuilder arcaneWeaponGui = new GuiPresentationBuilder(
-                "Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription",
-                "Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle");
-            arcaneWeaponGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference);
-            FeatureDefinitionAttackModifier weaponUseIntModifier = new FeatureDefinitionAttackModifierBuilder("AttackModifierMeleeWizard",
-                 GuidHelper.Create(SubclassNamespace, "AttackModifierMeleeWizard").ToString(),
-                 RuleDefinitions.AbilityScoreReplacement.SpellcastingAbility, TagsDefinitions.Magical, attackModGui.Build()).AddToDB();
-            FeatureDefinitionPower enchantWeapon = BuildActionItemPower(0 /* fixed uses*/, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence,
-                RuleDefinitions.ActivationTime.BonusAction, 1 /* use cost */, RuleDefinitions.RechargeRate.LongRest, RuleDefinitions.RangeType.Touch, 1 /* range */, ActionDefinitions.ItemSelectionType.Weapon,
-                RuleDefinitions.DurationType.Minute, 10 /* duration */, RuleDefinitions.TurnOccurenceType.EndOfTurn,
-                weaponUseIntModifier, "PowerMeleeWizardArcaneWeapon", arcaneWeaponGui.Build());
-            meleeWizard.AddFeatureAtLevel(enchantWeapon, 2);
+            meleeWizard.AddFeatureAtLevel(EnchantWeapon, 2);
 
             GuiPresentationBuilder concentrationAffinityGui = new GuiPresentationBuilder(
                 "Subclass/&MagicAffinityMeleeWizardConcentrationDescription",
@@ -97,6 +81,46 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             meleeWizard.AddFeatureAtLevel(bonusWeaponDamage, 14);
 
             Subclass = meleeWizard.AddToDB();
+        }
+
+        private static FeatureDefinitionPower _enchantWeapon;
+
+        private static FeatureDefinitionPower BuildEnchantWeapon()
+        {
+            GuiPresentationBuilder attackModGui = new GuiPresentationBuilder(
+                "Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription",
+                "Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle");
+            attackModGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference);
+            GuiPresentationBuilder arcaneWeaponGui = new GuiPresentationBuilder(
+                   "Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription",
+                   "Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle");
+            arcaneWeaponGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference);
+            FeatureDefinitionAttackModifier weaponUseIntModifier = new FeatureDefinitionAttackModifierBuilder("AttackModifierMeleeWizard",
+                 GuidHelper.Create(SubclassNamespace, "AttackModifierMeleeWizard").ToString(),
+                 RuleDefinitions.AbilityScoreReplacement.SpellcastingAbility, TagsDefinitions.Magical, attackModGui.Build()).AddToDB();
+            FeatureDefinitionPower enchantWeapon = BuildActionItemPower(0 /* fixed uses*/, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence,
+                RuleDefinitions.ActivationTime.BonusAction, 1 /* use cost */, RuleDefinitions.RechargeRate.LongRest, RuleDefinitions.RangeType.Touch, 1 /* range */, ActionDefinitions.ItemSelectionType.Weapon,
+                RuleDefinitions.DurationType.Minute, 10 /* duration */, RuleDefinitions.TurnOccurenceType.EndOfTurn,
+                weaponUseIntModifier, "PowerMeleeWizardArcaneWeapon", arcaneWeaponGui.Build());
+            return enchantWeapon;
+        }
+        internal static FeatureDefinitionPower EnchantWeapon
+        {
+            get {
+                return _enchantWeapon = _enchantWeapon ?? BuildEnchantWeapon();
+            }
+        }
+
+        public static void UpdateEnchantWeapon()
+        {
+            if (Main.Settings.ArcaneFighterEnchantWeaponRechargeShortRest)
+            {
+                EnchantWeapon.SetRechargeRate(RuleDefinitions.RechargeRate.ShortRest);
+            }
+            else
+            {
+                EnchantWeapon.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
+            }
         }
 
         private static FeatureDefinitionProficiency BuildProficiency(RuleDefinitions.ProficiencyType type,
