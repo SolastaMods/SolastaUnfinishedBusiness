@@ -17,6 +17,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("Campaigns and Locations:".yellow());
             UI.Label("");
 
+
+            toggle = Main.Settings.EnableSaveByLocation;
+            if (UI.Toggle("Enable save by campaigns / locations", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableSaveByLocation = toggle;
+            }
+
             toggle = Main.Settings.EnableTelemaCampaign;
             if (UI.Toggle("Enable the Telema Kickstarter demo location", ref toggle))
             {

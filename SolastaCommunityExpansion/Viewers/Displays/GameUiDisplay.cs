@@ -26,26 +26,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             float floatValue;
 
             UI.Label("");
+            UI.Label("General:".yellow());
+            UI.Label("");
 
             toggle = Main.Settings.EnableCharacterExport;
             if (UI.Toggle("Enable character export from inventory screen " + "[ctrl-(E)xport]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableCharacterExport = toggle;
             }
-
-            toggle = Main.Settings.EnableInventoryFilterAndSort;
-            if (UI.Toggle("Enable inventory filtering and sorting " + RequiresRestart, ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableInventoryFilterAndSort = toggle;
-            }
-
-            toggle = Main.Settings.EnableSaveByLocation;
-            if (UI.Toggle("Enable save by campaigns / locations", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableSaveByLocation = toggle;
-            }
-
-            UI.Label("");
 
             toggle = Main.Settings.EnableHudToggleElementsHotkeys;
             if (UI.Toggle("Enable hotkeys to toggle HUD components visibility " + "[ctrl-(C)ontrol Panel / ctrl-(L)og / ctrl-(M)ap / ctrl-(P)arty]".italic().yellow(), ref toggle, UI.AutoWidth()))
@@ -69,7 +57,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = DisplayAdventureLog;
-            if (UI.DisclosureToggle("Adventure Log settings: ".yellow(), ref toggle, 200))
+            if (UI.DisclosureToggle("Adventure Log: ".yellow(), ref toggle, 200))
             {
                 DisplayAdventureLog = toggle;
             }
@@ -116,7 +104,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = DisplayBattle;
-            if (UI.DisclosureToggle("Battle settings:".yellow(), ref toggle, 200))
+            if (UI.DisclosureToggle("Battle:".yellow(), ref toggle, 200))
             {
                 DisplayBattle = toggle;
             }
@@ -167,7 +155,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = DisplayDungeonMaker;
-            if (UI.DisclosureToggle("Dungeon Maker settings: ".yellow(), ref toggle, 200))
+            if (UI.DisclosureToggle("Dungeon Maker: ".yellow(), ref toggle, 200))
             {
                 DisplayDungeonMaker = toggle;
             }
@@ -216,7 +204,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = DisplayItem;
-            if (UI.DisclosureToggle("Item settings: ".yellow(), ref toggle, 200))
+            if (UI.DisclosureToggle("Items: ".yellow(), ref toggle, 200))
             {
                 DisplayItem = toggle;
             }
@@ -224,6 +212,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (DisplayItem)
             {
                 UI.Label("");
+
+                toggle = Main.Settings.EnableInventoryFilterAndSort;
+                if (UI.Toggle("Enable inventory filtering and sorting " + RequiresRestart, ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableInventoryFilterAndSort = toggle;
+                }
 
                 toggle = Main.Settings.EnableInvisibleCrownOfTheMagister;
                 if (UI.Toggle("Hide Crown of the Magister on game UI", ref toggle, UI.AutoWidth()))
@@ -252,7 +246,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = DisplayMonster;
-            if (UI.DisclosureToggle("Monster settings: ".yellow(), ref toggle, 200))
+            if (UI.DisclosureToggle("Monsters: ".yellow(), ref toggle, 200))
             {
                 DisplayMonster = toggle;
             }
@@ -279,7 +273,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = DisplaySpell;
-            if (UI.DisclosureToggle("Spell settings: ".yellow(), ref toggle, 200))
+            if (UI.DisclosureToggle("Spells: ".yellow(), ref toggle, 200))
             {
                 DisplaySpell = toggle;
             }
