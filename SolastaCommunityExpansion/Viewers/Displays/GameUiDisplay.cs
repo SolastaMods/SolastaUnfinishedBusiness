@@ -204,7 +204,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = DisplayItem;
-            if (UI.DisclosureToggle("Items: ".yellow(), ref toggle, 200))
+            if (UI.DisclosureToggle("Inventory and items: ".yellow(), ref toggle, 200))
             {
                 DisplayItem = toggle;
             }
