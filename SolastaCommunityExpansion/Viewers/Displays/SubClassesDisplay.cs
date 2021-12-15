@@ -22,7 +22,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
             toggle = Main.Settings.SpellMasterUnlimitedArcaneRecovery;
-            if (UI.Toggle("Enables unlimited ".white() + "Arcane Recovery".orange() + " on Wizard Spell Master\n".white() + "Must be enabled when the ability has available uses (or before character creation)".italic().yellow(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable unlimited ".white() + "Arcane Recovery".orange() + " on " + "Wizard".orange() + " Spell Master\n".white() + "Must be enabled when the ability has available uses (or before character creation)".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.SpellMasterUnlimitedArcaneRecovery = toggle;
                 SpellMaster.UpdateRecoveryLimited();
@@ -30,14 +30,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
             toggle = Main.Settings.ArcaneFighterEnchantWeaponRechargeShortRest;
-            if (UI.Toggle("Enables short rest recharge of ".white() + "Arcane Weapon".orange() + " on Wizard Arcane Fighter\n".white(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable short rest recharge of ".white() + "Arcane Weapon".orange() + " on " + "Wizard".orange() + " Arcane Fighter\n".white(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.ArcaneFighterEnchantWeaponRechargeShortRest = toggle;
                 ArcaneFighter.UpdateEnchantWeapon();
             }
 
             UI.Label("");
-            UI.Label("Overrides Rogue Con Artist ".white() + "Improved Manipulation".orange() + " Spell DC".white());
+            UI.Label("Override " + "Rogue".orange() + " Con Artist ".white() + "Improved Manipulation".orange() + " Spell DC".white());
             intValue = Main.Settings.RogueConArtistSpellDCBoost;
             if (UI.Slider("", ref intValue, 0, 5, 3, "", UI.AutoWidth()))
             {
@@ -46,7 +46,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             UI.Label("");
-            UI.Label("Overrides Wizard Master Manipulator ".white() + "Arcane Manipulation".orange() + " Spell DC".white());
+            UI.Label("Override " + "Wizard".orange() + " Master Manipulator ".white() + "Arcane Manipulation".orange() + " Spell DC".white());
             intValue = Main.Settings.MasterManipulatorSpellDCBoost;
             if (UI.Slider("", ref intValue, 0, 5, 2, "", UI.AutoWidth()))
             {

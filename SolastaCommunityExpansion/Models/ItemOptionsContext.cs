@@ -88,15 +88,15 @@ namespace SolastaCommunityExpansion.Models
 
         internal static readonly string[] EmpressGarbSkins = 
         { 
-            "Normal", 
-            "Plain Shirt", 
-            "Elven Chain",
-            "Sylvan Armor",
-            "Studded Leather", 
-            "Druid Leather",
+            "Normal",
             "Barbarian Clothes",
+            "Elven Chain",
+            "Plain Shirt", 
+            "Sorcerer's Armor",
+            "Studded Leather",
+            "Sylvan Armor",
             "Wizard Clothes",
-            "Sorcerer's Armor"
+
         };
 
         private static readonly List<ItemDefinition> Crowns = new List<ItemDefinition>

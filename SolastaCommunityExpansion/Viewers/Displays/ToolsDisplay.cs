@@ -17,14 +17,21 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("Campaigns and Locations:".yellow());
             UI.Label("");
 
+
+            toggle = Main.Settings.EnableSaveByLocation;
+            if (UI.Toggle("Enable save by campaigns / locations", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableSaveByLocation = toggle;
+            }
+
             toggle = Main.Settings.EnableTelemaCampaign;
-            if (UI.Toggle("Enables the Telema Kickstarter demo location", ref toggle))
+            if (UI.Toggle("Enable the Telema Kickstarter demo location", ref toggle))
             {
                 Main.Settings.EnableTelemaCampaign = toggle;
             }
 
             toggle = Main.Settings.EnableDungeonLevelBypass;
-            if (UI.Toggle("Overrides required min / max level " + "[only in custom dungeons]".italic().yellow(), ref toggle))
+            if (UI.Toggle("Override required min / max level " + "[only in custom dungeons]".italic().yellow(), ref toggle))
             {
                 Main.Settings.EnableDungeonLevelBypass = toggle;
             }
@@ -32,7 +39,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             intValue = Main.Settings.UserDungeonsPartySize;
-            if (UI.Slider("Overrides party size ".white() + "[only in custom dungeons]".italic().yellow(), ref intValue, Settings.MIN_PARTY_SIZE, Settings.MAX_PARTY_SIZE, Settings.GAME_PARTY_SIZE, "", UI.AutoWidth()))
+            if (UI.Slider("Override party size ".white() + "[only in custom dungeons]".italic().yellow(), ref intValue, Settings.MIN_PARTY_SIZE, Settings.MAX_PARTY_SIZE, Settings.GAME_PARTY_SIZE, "", UI.AutoWidth()))
             {
                 Main.Settings.UserDungeonsPartySize = intValue;
             }
@@ -53,12 +60,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableCheatMenuDuringGameplay;
-            if (UI.Toggle("Enables the cheats menu", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable the cheats menu", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableCheatMenuDuringGameplay = toggle;
             }
 
-            if (UI.Toggle("Enables the debug camera", ref enableDebugCamera, UI.AutoWidth()))
+            if (UI.Toggle("Enable the debug camera", ref enableDebugCamera, UI.AutoWidth()))
             {
                 IViewService viewService = ServiceRepository.GetService<IViewService>();
                 ICameraService cameraService = ServiceRepository.GetService<ICameraService>();
@@ -73,7 +80,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
             }
 
-            if (UI.Toggle("Enables the debug overlay", ref enableDebugOverlay, UI.AutoWidth()))
+            if (UI.Toggle("Enable the debug overlay", ref enableDebugOverlay, UI.AutoWidth()))
             {
                 ServiceRepository.GetService<IDebugOverlayService>().ToggleActivation();
             }
@@ -91,7 +98,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             intValue = Main.Settings.ExperienceModifier;
-            if (UI.Slider("Multiplies the experience gained by ".white() + "[%]".red(), ref intValue, 50, 200, 100, "", UI.Width(100)))
+            if (UI.Slider("Multiply the experience gained by ".white() + "[%]".red(), ref intValue, 50, 200, 100, "", UI.Width(100)))
             {
                 Main.Settings.ExperienceModifier = intValue;
             }
