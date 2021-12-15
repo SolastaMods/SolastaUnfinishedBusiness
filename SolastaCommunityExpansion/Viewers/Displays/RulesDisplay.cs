@@ -72,7 +72,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             toggle = Main.Settings.DruidNoMetalRestriction;
-            if (UI.Toggle("Allow Druids to wear metal armor", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Allow " + "Druid".orange() + " to wear metal armor", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.DruidNoMetalRestriction = toggle;
                 DruidArmorContext.Switch(toggle);

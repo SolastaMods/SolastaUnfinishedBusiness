@@ -220,7 +220,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.EnableInvisibleCrownOfTheMagister;
-                if (UI.Toggle("Hide Crown of the Magister on game UI", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Hide the " + "Crown of the Magister".orange() + " on game UI", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableInvisibleCrownOfTheMagister = toggle;
                     ItemOptionsContext.SwitchCrownOfTheMagister();

@@ -96,7 +96,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             intValue = Main.Settings.BeltOfDwarvenKindBeardChances;
-            if (UI.Slider("Set the chances of a beard appearing while using the Belt of Dwarvenkin".white(), ref intValue, 0, 100, 50, "%", UI.Width(500)))
+            if (UI.Slider("Set the chances of a beard appearing while using the ".white() + "Belt of Dwarvenkin".orange(), ref intValue, 0, 100, 50, "%", UI.Width(500)))
             {
                 Main.Settings.BeltOfDwarvenKindBeardChances = intValue;
                 ItemOptionsContext.SwitchBeltOfDwarvenKindBeardChances();
