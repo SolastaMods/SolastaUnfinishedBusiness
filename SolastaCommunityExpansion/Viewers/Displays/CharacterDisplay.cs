@@ -14,19 +14,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             bool toggle;
 
             UI.Label("");
-
-            toggle = Main.Settings.EnableLevel20;
-            if (UI.Toggle("Enable Level 20 " + RequiresRestart, ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableLevel20 = toggle;
-            }
-
-            toggle = Main.Settings.EnableRespec;
-            if (UI.Toggle("Enable RESPEC", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableRespec = toggle;
-            }
-
+            UI.Label("Initial choices:".yellow());
             UI.Label("");
 
             // TODO: vision changes only take effect when creating a character. not sure if new block label is clear enough on intentions or we need more explanation here.
@@ -40,12 +28,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (UI.Toggle("Disable " + "Superior Sense Dark Vision".orange() + " from all races " + RequiresRestart, ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces = toggle;
-            }
-
-            toggle = Main.Settings.IncreaseNormalVisionSenseRange;
-            if (UI.Toggle("Increase " + "Sense Normal Vision".orange() + " range to enable long range attacks " + RequiresRestart, ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.IncreaseNormalVisionSenseRange = toggle;
             }
 
             UI.Label("");
@@ -70,16 +52,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.EnableFlexibleRaces = toggle;
                 FlexibleRacesContext.Switch(toggle);
             }
-            UI.Label("");
 
             UI.Label("");
-
-            toggle = Main.Settings.EnablesAsiAndFeat;
-            if (UI.Toggle("Enable both ASI and feat", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnablesAsiAndFeat = toggle;
-                AsiAndFeatContext.Switch(toggle);
-            }
 
             toggle = Main.Settings.EnableEpicPoints;
             if (UI.Toggle("Enable an epic 35 points buy system " + RequiresRestart, ref toggle, UI.AutoWidth()))
@@ -103,6 +77,9 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 InitialChoicesContext.RefreshAllRacesInitialFeats();
             }
 
+
+            UI.Label("");
+            UI.Label("Miscellaneous:".yellow());
             UI.Label("");
 
             toggle = Main.Settings.AllowExtraKeyboardCharactersInNames;
@@ -118,9 +95,32 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             UI.Label("");
+            UI.Label("Progression:".yellow());
+            UI.Label("");
+
+            toggle = Main.Settings.EnablesAsiAndFeat;
+            if (UI.Toggle("Enable both ASI and feat", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnablesAsiAndFeat = toggle;
+                AsiAndFeatContext.Switch(toggle);
+            }
+
+            toggle = Main.Settings.EnableLevel20;
+            if (UI.Toggle("Enable Level 20 " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableLevel20 = toggle;
+            }
+
+            toggle = Main.Settings.EnableRespec;
+            if (UI.Toggle("Enable RESPEC", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableRespec = toggle;
+            }
+
+            UI.Label("");
 
             toggle = DisplayFaceUnlockSettings;
-            if (UI.DisclosureToggle("Face unlocks: ".yellow() + RequiresRestart, ref toggle, 200)) 
+            if (UI.DisclosureToggle("Visuals: ".yellow() + RequiresRestart, ref toggle, 200)) 
             {
                 DisplayFaceUnlockSettings = toggle;
             }

@@ -1,5 +1,6 @@
 ﻿using ModKit;
 using SolastaCommunityExpansion.Models;
+using static SolastaCommunityExpansion.Viewers.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
@@ -76,6 +77,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             {
                 Main.Settings.DruidNoMetalRestriction = toggle;
                 DruidArmorContext.Switch(toggle);
+            }
+
+            toggle = Main.Settings.IncreaseNormalVisionSenseRange;
+            if (UI.Toggle("Increase " + "Sense Normal Vision".orange() + " range to enable long range attacks " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.IncreaseNormalVisionSenseRange = toggle;
             }
 
             toggle = Main.Settings.EnableMagicStaffFoci;
