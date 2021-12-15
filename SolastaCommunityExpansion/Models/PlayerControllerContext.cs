@@ -1,133 +1,117 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Models
 {
     internal static class PlayerControllerContext
     {
-        internal static bool PlayerInControlOfEnemy { get; set; }
+        private static readonly Dictionary<GameLocationCharacter, PlayerController.ControllerType> ControllersChoices = new Dictionary<GameLocationCharacter, PlayerController.ControllerType>();
 
-        internal static readonly string[] Controllers = new string[] { "Human", "Computer" };
-
-        internal static readonly int[] ControllersChoices = new int[Settings.MAX_PARTY_SIZE];
+        internal static readonly string[] Controllers = new string[] { "Human", "AI" };
 
         internal static bool IsOffGame => Gui.Game == null;
 
         internal static bool IsMultiplayer => ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
 
-        internal static List<GameLocationCharacter> PartyCharacters => ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters;
-
-        private static List<GameLocationCharacter> ValidCharacters => ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters;
-
-        private static readonly List<GameLocationCharacter> Friends = new List<GameLocationCharacter>();
-
-        private static readonly List<GameLocationCharacter> Enemies = new List<GameLocationCharacter>();
-
-        private static bool IsActiveContenderEnemy
+        internal static List<GameLocationCharacter> PlayerCharacters
         {
             get
             {
-                var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+                var result = new List<GameLocationCharacter>();
+                var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
-                if (gameLocationBattleService == null || !gameLocationBattleService.IsBattleInProgress)
+                if (gameLocationCharacterService != null)
                 {
-                    return false;
+                    result.AddRange(gameLocationCharacterService.PartyCharacters);
+                    result.AddRange(gameLocationCharacterService.GuestCharacters);
                 }
 
-                if (!PlayerInControlOfEnemy)
-                {
-                    Friends.Clear();
-                    Enemies.Clear();
-
-                    foreach (var validCharacter in ValidCharacters)
-                    {
-                        if (validCharacter.Side == RuleDefinitions.Side.Ally)
-                        {
-                            Friends.Add(validCharacter);
-                        }
-                        else
-                        {
-                            Enemies.Add(validCharacter);
-                        }
-                    }
-                }
-
-                return Enemies.Exists(x => x == gameLocationBattleService.Battle.ActiveContender);
+                return result;
             }
         }
 
-        private static void UpdatePlayerControllerControlledCharacters()
-        {
-            var activePlayerController = Gui.ActivePlayerController;
-            var side = PlayerInControlOfEnemy ? RuleDefinitions.Side.Enemy : RuleDefinitions.Side.Ally;
-            var controlledCharacters = PlayerInControlOfEnemy ? Enemies : Friends;
+        internal static bool SideFlipped { get; private set; }
 
-            AccessTools.Field(activePlayerController.GetType(), "side").SetValue(activePlayerController, side);
-            activePlayerController.ControlledCharacters.Clear();
-            activePlayerController.ControlledCharacters.AddRange(controlledCharacters);
+        internal static int[] UiChoices 
+        {
+            get
+            {
+                var ControllersCharacters = ControllersChoices.Keys;
+
+                foreach (var controllersCharacter in ControllersCharacters)
+                {
+                    if (!PlayerCharacters.Contains(controllersCharacter))
+                    {
+                        ControllersChoices.Remove(controllersCharacter);
+                    }
+                }
+
+                PlayerCharacters.ForEach(x => ControllersChoices.TryAdd(x, PlayerController.ControllerType.Human));
+
+                return ControllersChoices.Values.Select(x => x == PlayerController.ControllerType.Human ? 0 : 1).ToArray();
+            } 
+            set
+            {
+                for (var i = 0; i < PlayerCharacters.Count; i++)
+                {
+                    var partyCharacter = PlayerCharacters[i];
+                    var controllerType = value[i] == 0 ? PlayerController.ControllerType.Human : PlayerController.ControllerType.AI;
+
+                    ControllersChoices.AddOrReplace<GameLocationCharacter, PlayerController.ControllerType>(partyCharacter, controllerType);
+                }
+            }
         }
 
-        private static void UpdateControlledCharactersControllerId(int[] controllers)
+        private static void UpdatePartyControllerIds(bool reset = false)
         {
             var activePlayerController = Gui.ActivePlayerController;
 
-            for (var i = 0; i < PartyCharacters.Count; i++)
+            for (var i = 0; i < PlayerCharacters.Count; i++)
             {
-                var controllerId = controllers[i] == 0 ? Settings.PLAYER_CONTROLLER_ID : Settings.DM_CONTROLLER_ID;
+                var controllerId = reset || UiChoices[i] == 0 ? Settings.PLAYER_CONTROLLER_ID : PlayerControllerManager.DmControllerId;
 
-                PartyCharacters[i].ControllerId = controllerId;
+                PlayerCharacters[i].ControllerId = controllerId;
             }
 
             activePlayerController.DirtyControlledCharacters();
         }
 
-        private static void StartEnemyControlledByPlayer()
+        internal static void Start(GameLocationBattle battle)
         {
-            if (!IsMultiplayer && Main.Settings.EnableEnemiesControlledByPlayer && IsActiveContenderEnemy)
+            var activeContender = battle.ActiveContender;
+            var enemies = battle.EnemyContenders;
+            var players = battle.PlayerContenders;
+
+            if (Main.Settings.EnableHeroesControlledByComputer && players.Contains(activeContender))
             {
-                PlayerInControlOfEnemy = true;
-                UpdatePlayerControllerControlledCharacters();
+                UpdatePartyControllerIds();
+            }
+
+            if (Main.Settings.EnableEnemiesControlledByPlayer && enemies.Contains(activeContender))
+            {
+                SideFlipped = true;
+                enemies.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Ally));
+                players.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Enemy));
+                Gui.ActivePlayerController.ControlledCharacters.Clear();
+                Gui.ActivePlayerController.ControlledCharacters.AddRange(enemies);
             }
         }
 
-        private static void StopEnemyControlledByPlayer()
+        internal static void Stop(GameLocationBattle battle)
         {
-            // no check for EnableEnemiesControlledByPlayer on purpose here otherwise users might get in trouble while changing this setting during a battle
-            if (!IsMultiplayer && PlayerInControlOfEnemy)
+            UpdatePartyControllerIds(true);
+
+            if (SideFlipped)
             {
-                PlayerInControlOfEnemy = false;
-                UpdatePlayerControllerControlledCharacters();
+                var enemies = battle.EnemyContenders;
+                var players = battle.PlayerContenders;
+
+                SideFlipped = false;
+                enemies.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Enemy));
+                players.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Ally));
+                Gui.ActivePlayerController.ControlledCharacters.Clear();
+                Gui.ActivePlayerController.ControlledCharacters.AddRange(players);
             }
-        }
-
-        private static void StartHeroControlledByComputer()
-        {
-            if (!IsMultiplayer && Main.Settings.EnableHeroesControlledByComputer)
-            {
-                UpdateControlledCharactersControllerId(ControllersChoices);
-            }
-        }
-
-        private static void StopHeroControlledByComputer()
-        {
-            // no check for EnableHeroesControlledByComputer on purpose here otherwise users might get in trouble while changing this setting during a battle
-            if (!IsMultiplayer) 
-            {
-                UpdateControlledCharactersControllerId(Enumerable.Repeat(0, Settings.MAX_PARTY_SIZE).ToArray());
-            }
-        }
-
-        internal static void Start()
-        {
-            StartHeroControlledByComputer();
-            StartEnemyControlledByPlayer();
-        }
-
-        internal static void Stop()
-        {
-            StopEnemyControlledByPlayer();
-            StopHeroControlledByComputer();
         }
     }
 }
