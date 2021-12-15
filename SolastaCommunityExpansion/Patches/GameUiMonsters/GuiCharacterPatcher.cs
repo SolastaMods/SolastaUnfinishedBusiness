@@ -1,51 +1,12 @@
 ﻿using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 using System.Diagnostics.CodeAnalysis;
-using System.Reflection;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SolastaCommunityExpansion.Patches.GameUi
+namespace SolastaCommunityExpansion.Patches.GameUiMonsters
 {
-    internal static class HideMonsterHitPoints
-    {
-        /// <summary>
-        /// Call 'HasHealthUpdated' which returns true/false but as a side effect updates the health state and dirty flags.
-        /// </summary>
-        internal static bool UpdateHealthStatus(this GuiCharacter __instance)
-        {
-            // call badly named method
-#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
-            var rb = typeof(GuiCharacter).GetMethod("HasHealthUpdated", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
-#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
-
-            bool retval = false;
-
-            if (rb != null)
-            {
-                retval = (bool)rb.Invoke(__instance, null);
-            }
-
-            return retval;
-        }
-
-        /// <summary>
-        /// Converts continuous ratio into series of stepped values.
-        /// </summary>
-        internal static float GetSteppedHealthRatio(float ratio)
-        {
-            // Green
-            if (ratio >= 1f) return 1f;
-            // Green
-            if (ratio >= 0.5f) return 0.75f;
-            // Orange
-            if (ratio >= 0.25f) return 0.5f;
-            // Red
-            if (ratio > 0f) return 0.25f;
-            return ratio;
-        }
-    }
-
     /// <summary>
     /// This mods the vertical gauge in the monster portrait.
     /// The gauge now shows health in steps instead of a continuous value.
@@ -78,7 +39,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi
             {
                 var ratio = Mathf.Clamp(__instance.CurrentHitPoints / (float)__instance.HitPoints, 0.0f, 1f);
 
-                ratio = HideMonsterHitPoints.GetSteppedHealthRatio(ratio);
+                ratio = HideMonsterHitPointsContext.GetSteppedHealthRatio(ratio);
 
                 healthGauge.rectTransform.offsetMax = new Vector2(healthGauge.rectTransform.offsetMax.x, (float)(-parentHeight * (1.0 - ratio)));
             }
@@ -162,29 +123,6 @@ namespace SolastaCommunityExpansion.Patches.GameUi
                 }
 
                 return true;
-            }
-        }
-    }
-
-    /// <summary>
-    /// This mods the horizontal gauge in the monster tooltip.
-    /// The gauge now shows health in steps instead of a continuous value.
-    /// </summary>
-    [HarmonyPatch(typeof(HealthGaugeGroup), "Refresh")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class HealthGaugeGroup_Refresh
-    {
-        internal static void Postfix(HealthGaugeGroup __instance, RectTransform ___gaugeRect, float ___gaugeMaxWidth)
-        {
-            if (!Main.Settings.HideMonsterHitPoints) return;
-
-            if (__instance.GuiCharacter.RulesetCharacterMonster != null) // Only change for monsters
-            {
-                float ratio = Mathf.Clamp(__instance.GuiCharacter.CurrentHitPoints / (float)__instance.GuiCharacter.HitPoints, 0.0f, 1f);
-
-                ratio = HideMonsterHitPoints.GetSteppedHealthRatio(ratio);
-
-                ___gaugeRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, ___gaugeMaxWidth * ratio);
             }
         }
     }

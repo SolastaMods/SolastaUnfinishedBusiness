@@ -17,8 +17,6 @@ namespace SolastaCommunityExpansion.Models
 
         internal static readonly List<RulesetCharacter> EncounterCharacters = new List<RulesetCharacter>();
 
-        internal static bool HasStagedHeroes { get; set; }
-
         internal static void Load()
         {
             ServiceRepository.GetService<IInputService>().RegisterCommand(Settings.CTRL_SHIFT_E, 101, 304, 306, -1, -1, -1);
@@ -99,7 +97,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void ConfirmStageEncounter(InputCommands.Id command)
         {
-            if (command == Settings.CTRL_SHIFT_E && Models.EncountersSpawnContext.EncounterCharacters.Count > 0)
+            if (command == Settings.CTRL_SHIFT_E && EncounterCharacters.Count > 0)
             {
                 var position = GetEncounterPosition();
 
@@ -140,11 +138,9 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
 
-            HasStagedHeroes = false;
-
             foreach (var character in EncounterCharacters)
             {
-                var gameLocationCharacter = gameLocationCharacterService.CreateCharacter(Settings.DM_CONTROLLER_ID, character, RuleDefinitions.Side.Enemy, new GameLocationBehaviourPackage
+                var gameLocationCharacter = gameLocationCharacterService.CreateCharacter(PlayerControllerManager.DmControllerId, character, RuleDefinitions.Side.Enemy, new GameLocationBehaviourPackage
                 {
                     BattleStartBehavior = GameLocationBehaviourPackage.BattleStartBehaviorType.DoNotRaiseAlarm,
                     DecisionPackageDefinition = IdleGuard_Default,
@@ -157,7 +153,6 @@ namespace SolastaCommunityExpansion.Models
                 gameLocationCharacter.RefreshActionPerformances();
                 gameLocationCharacter.RulesetCharacter.SetBaseFaction(HostileMonsters);
                 characters.Add(gameLocationCharacter);
-                HasStagedHeroes = character is RulesetCharacterHero || HasStagedHeroes;
             }
 
             gameLocationPositioningService.ComputeFormationPlacementPositions(
@@ -169,10 +164,10 @@ namespace SolastaCommunityExpansion.Models
                 gameLocationCharacterService.RevealCharacter(characters[index]);
             }
 
+            gameLocationCharacterService.RefreshAllCharacters();
             Heroes.Clear();
             Monsters.Clear();
             EncounterCharacters.Clear();
-            gameLocationCharacterService.RefreshAllCharacters();
         }
     }
 }

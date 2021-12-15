@@ -1,26 +1,15 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.PlayerController
+namespace SolastaCommunityExpansion.Patches.Encounters
 {
-    // these patches init / shutdowns the Hero AI system
-    [HarmonyPatch(typeof(BattleState_Intro), "Begin")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class BattleState_Intro_Begin
-    {
-        internal static void Prefix()
-        {
-            Models.PlayerControllerContext.PlayerInControlOfEnemy = false;
-        }
-    }
-
     [HarmonyPatch(typeof(BattleState_TurnInitialize), "Begin")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class BattleState_TurnInitialize_Begin
     {
-        internal static void Prefix()
+        internal static void Prefix(BattleState_TurnInitialize __instance)
         {
-            Models.PlayerControllerContext.Start();
+            Models.PlayerControllerContext.Start(__instance.Battle);
         }
     }
 
@@ -28,9 +17,9 @@ namespace SolastaCommunityExpansion.Patches.PlayerController
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class BattleState_TurnEnd_Begin
     {
-        internal static void Prefix()
+        internal static void Prefix(BattleState_TurnEnd __instance)
         {
-            Models.PlayerControllerContext.Stop();
+            Models.PlayerControllerContext.Stop(__instance.Battle);
         }
     }
 
@@ -38,9 +27,9 @@ namespace SolastaCommunityExpansion.Patches.PlayerController
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class BattleState_Victory_Begin
     {
-        internal static void Prefix()
+        internal static void Prefix(BattleState_Victory __instance)
         {
-            Models.PlayerControllerContext.Stop();
+            Models.PlayerControllerContext.Stop(__instance.Battle);
         }
     }
 }

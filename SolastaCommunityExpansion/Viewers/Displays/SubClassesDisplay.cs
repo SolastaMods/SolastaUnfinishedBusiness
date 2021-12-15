@@ -29,6 +29,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             UI.Label("");
+            toggle = Main.Settings.ArcaneFighterEnchantWeaponRechargeShortRest;
+            if (UI.Toggle("Enables short rest recharge of ".white() + "Arcane Weapon".orange() + " on Wizard Arcane Fighter\n".white(), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.ArcaneFighterEnchantWeaponRechargeShortRest = toggle;
+                ArcaneFighter.UpdateEnchantWeapon();
+            }
+
+            UI.Label("");
             UI.Label("Overrides Rogue Con Artist ".white() + "Improved Manipulation".orange() + " Spell DC".white());
             intValue = Main.Settings.RogueConArtistSpellDCBoost;
             if (UI.Slider("", ref intValue, 0, 5, 3, "", UI.AutoWidth()))

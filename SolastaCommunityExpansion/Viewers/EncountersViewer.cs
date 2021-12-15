@@ -260,12 +260,18 @@ namespace SolastaCommunityExpansion.Viewers
                 else
                 {
                     var controllers = PlayerControllerContext.Controllers;
-                    var controllersChoices = PlayerControllerContext.ControllersChoices;
-                    var partyCharacters = PlayerControllerContext.PartyCharacters;
+                    var controllersChoices = PlayerControllerContext.UiChoices;
+                    var partyCharacters = PlayerControllerContext.PlayerCharacters;
 
                     for (int i = 0; i < partyCharacters.Count; i++)
                     {
-                        UI.HStack(partyCharacters[i].Name, 1, () => UI.SelectionGrid(ref controllersChoices[i], controllers, controllers.Length, UI.Width(300)));
+                        UI.HStack(partyCharacters[i].Name, 1, () => 
+                        { 
+                            if (UI.SelectionGrid(ref controllersChoices[i], controllers, controllers.Length, UI.Width(300)))
+                            {
+                                PlayerControllerContext.UiChoices = controllersChoices;
+                            }
+                        });
                     }
                 }
             }
