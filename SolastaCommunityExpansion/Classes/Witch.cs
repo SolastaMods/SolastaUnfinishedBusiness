@@ -416,9 +416,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
             // This should actually be a bit refined, i.e. give the Find Familiar spell, and have a longer casting time/ritual tag
             // Beckon Familiar is actually a Malediction, i.e. instant cast familiar
             witch.AddFeatureAtLevel(Familiar(), 2);
+
             // TODO: unsure about this one...
             // Needs to refresh an existing Malediction, preventing the saving throw again I presume
-            //            witch.AddFeatureAtLevel(Cackle,2);
+            witch.AddFeatureAtLevel(Cackle(),2);
 
             witch.AddFeatureAtLevel(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 4);
 
@@ -506,7 +507,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             //+ Obfuscate: 20 feet radius Fog Cloud centered on you
             // Peacebond: no weapons in 30 feet radius, STR check to free -> incapacitated if weapon?
             //+ Pox: 5 feet CON save, poisoned on fail
-            // Ruin: 60 feet CON save, -3 to AC (minimum of 10)
+            //+ Ruin: 60 feet CON save, -3 to AC (minimum of 10)
             // Scurry: don't bother...
             // Shriek: BONUS action, Large or less creatures in a 5 foot radius around you are pushed 5 feet, no saving throw, instant duration
             // Slumber: 60 feet WIS save, unconscious if fail. Undead, charm immune, and creatures with current HP > 5x witch level are immune
@@ -517,6 +518,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             EffectDescription abateEffectDescription = new EffectDescription();
             abateEffectDescription.Copy(DatabaseHelper.SpellDefinitions.ShockingGrasp.EffectDescription);
             abateEffectDescription.EffectForms.RemoveAt(0);
+            abateEffectDescription.SetDurationParameter(1);
             abateEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
             abateEffectDescription.SetHasSavingThrow(true);
             abateEffectDescription.SetRangeParameter(12);
@@ -545,6 +547,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             EffectDescription apathyEffectDescription = new EffectDescription();
             apathyEffectDescription.Copy(DatabaseHelper.SpellDefinitions.CalmEmotionsOnEnemy.EffectDescription);
+            apathyEffectDescription.SetDurationParameter(1);
             apathyEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
             apathyEffectDescription.SetHasSavingThrow(true);
             apathyEffectDescription.SetRangeParameter(12);
@@ -573,6 +576,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             EffectDescription charmEffectDescription = new EffectDescription();
             charmEffectDescription.Copy(DatabaseHelper.SpellDefinitions.CharmPerson.EffectDescription);
+            charmEffectDescription.SetDurationParameter(1);
             charmEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
             charmEffectDescription.SetHasSavingThrow(true);
             charmEffectDescription.SetRangeParameter(12);
@@ -601,6 +605,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             EffectDescription evileyeEffectDescription = new EffectDescription();
             evileyeEffectDescription.Copy(DatabaseHelper.SpellDefinitions.Fear.EffectDescription);
+            evileyeEffectDescription.SetDurationParameter(1);
             evileyeEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
             evileyeEffectDescription.SetHasSavingThrow(true);
             evileyeEffectDescription.SetRangeParameter(12);
@@ -630,6 +635,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             EffectDescription obfuscateEffectDescription = new EffectDescription();
             obfuscateEffectDescription.Copy(DatabaseHelper.SpellDefinitions.FogCloud.EffectDescription);
             obfuscateEffectDescription.SetCanBePlacedOnCharacter(true);
+            obfuscateEffectDescription.SetDurationParameter(1);
             obfuscateEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
             obfuscateEffectDescription.SetRangeParameter(0);
             obfuscateEffectDescription.SetRangeType(RuleDefinitions.RangeType.Self);
@@ -656,11 +662,12 @@ namespace SolastaCommunityExpansion.Classes.Witch
             {
                 FormType = EffectForm.EffectFormType.Condition
             };
-            ConditionForm conditionForm = new ConditionForm();
-            poxEffectForm.SetConditionForm(conditionForm);
+            ConditionForm poxConditionForm = new ConditionForm();
+            poxEffectForm.SetConditionForm(poxConditionForm);
             poxEffectForm.ConditionForm.SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionPoisoned);
             EffectDescription poxEffectDescription = new EffectDescription();
             poxEffectDescription.Copy(DatabaseHelper.SpellDefinitions.PoisonSpray.EffectDescription);
+            poxEffectDescription.SetDurationParameter(1);
             poxEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
             poxEffectDescription.SetHasSavingThrow(true);
             poxEffectDescription.SetRangeParameter(1);
@@ -689,6 +696,71 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                             true)
                                                                             .AddToDB();
 
+            EffectForm ruinEffectForm = new EffectForm
+            {
+                FormType = EffectForm.EffectFormType.Condition
+            };
+            ConditionForm ruinConditionForm = new ConditionForm();
+            ruinEffectForm.SetConditionForm(ruinConditionForm);
+            ruinEffectForm.SetCreatedByCharacter(true);
+            ConditionDefinition ruinConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(DatabaseHelper.ConditionDefinitions.ConditionAcidArrowed,
+                                                                                                                "ConditionRuined",
+                                                                                                                GuidHelper.Create(ClassNamespace, "ConditionRuined").ToString(),
+                                                                                                                new GuiPresentationBuilder(
+                                                                                                                    "Condition/&RuinedDescription",
+                                                                                                                    "Condition/&RuinedTitle")
+                                                                                                                    .SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionAcidArrowed.GuiPresentation.SpriteReference)
+                                                                                                                    .Build())
+                                                                                                                .AddToDB();
+            ruinConditionDefinition.SetConditionType(RuleDefinitions.ConditionType.Detrimental);
+            ruinConditionDefinition.SetDurationParameter(1);
+            ruinConditionDefinition.SetDurationType(RuleDefinitions.DurationType.Round);
+            ruinConditionDefinition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            ruinConditionDefinition.Features.Clear();
+            ruinConditionDefinition.Features.Add(new FeatureDefinitionAttributeModifierBuilder("Ruined",
+                                                                                                GuidHelper.Create(ClassNamespace, "Ruined").ToString(),
+                                                                                                FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                                                                                                "ArmorClass",
+                                                                                                -3,
+                                                                                                new GuiPresentationBuilder(
+                                                                                                    "Modifier/&RuinedDescription",
+                                                                                                    "Modifier/&RuinedTitle")
+                                                                                                    .SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionAcidArrowed.GuiPresentation.SpriteReference)
+                                                                                                    .Build())
+                                                                                                .AddToDB());
+            ruinEffectForm.ConditionForm.SetConditionDefinition(ruinConditionDefinition);
+            EffectDescription ruinEffectDescription = new EffectDescription();
+            ruinEffectDescription.Copy(DatabaseHelper.SpellDefinitions.AcidArrow.EffectDescription);
+            ruinEffectDescription.SetDurationParameter(1);
+            ruinEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
+            ruinEffectDescription.SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            ruinEffectDescription.SetHasSavingThrow(true);
+            ruinEffectDescription.SetRangeParameter(12);
+            ruinEffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
+            ruinEffectDescription.SetSavingThrowAbility(AttributeDefinitions.Constitution);
+            ruinEffectDescription.SetTargetParameter(1);
+            ruinEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
+            ruinEffectDescription.EffectForms.Clear();
+            ruinEffectDescription.EffectForms.Add(ruinEffectForm);
+
+            FeatureDefinitionPower ruin = new FeatureDefinitionPowerBuilder("WitchMaledictionRuin",
+                                                                            GuidHelper.Create(ClassNamespace, "WitchMaledictionRuin").ToString(),
+                                                                            1,
+                                                                            RuleDefinitions.UsesDetermination.Fixed,
+                                                                            AttributeDefinitions.Charisma,
+                                                                            RuleDefinitions.ActivationTime.Action,
+                                                                            0,
+                                                                            RuleDefinitions.RechargeRate.AtWill,
+                                                                            false,
+                                                                            false,
+                                                                            AttributeDefinitions.Charisma,
+                                                                            ruinEffectDescription,
+                                                                            new GuiPresentationBuilder(
+                                                                                "Class/&WitchMaledictionRuinDescription",
+                                                                                "Class/&WitchMaledictionRuinTitle").Build(),
+                                                                            true)
+                                                                            .AddToDB();
+
             FeatureDefinitionFeatureSet maledictions = new FeatureDefinitionFeatureSetBuilder(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
                                                                                                 "WitchFeatureSetMaledictions",
                                                                                                 GuidHelper.Create(ClassNamespace, "WitchFeatureSetMaledictions").ToString(),
@@ -704,6 +776,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                                 .AddFeature(evileye)
                                                                                                 .AddFeature(obfuscate)
                                                                                                 .AddFeature(pox)
+                                                                                                .AddFeature(ruin)
                                                                                                 .AddToDB();
 
             return maledictions;
@@ -809,6 +882,63 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                                 .AddToDB();
 
             return witchCurse;
+        }
+
+        private static FeatureDefinition Cackle()
+        {
+
+            // At 2nd level, you can use your bonus action to cackle. 
+            // The duration of your Malediction extends by 1 round for each creature affected within 60 feet of you. 
+            // Not all witches laugh maniacally when they cackle, but all cackles require a verbal component, as a spell. 
+            // These range from mundane curses and insults, to the murmuring of dead languages and speaking backwards.
+
+            var effectForm = new EffectForm
+            {
+                FormType = EffectForm.EffectFormType.Condition
+            };
+            effectForm.SetCreatedByCharacter(true);
+
+            ConditionForm conditionForm = new ConditionForm();
+            conditionForm.SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionDeafened);
+            effectForm.SetConditionForm(conditionForm);
+
+            //Add to our new effect
+            var effectDescription = new EffectDescription();
+            effectDescription.Copy(DatabaseHelper.SpellDefinitions.HideousLaughter.EffectDescription);
+            effectDescription.SetDurationParameter(1);
+            effectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
+            effectDescription.SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            effectDescription.SetHasSavingThrow(false);
+            effectDescription.SetRangeType(RuleDefinitions.RangeType.Self);
+// Target by tag?
+//            effectDescription.SetTargetFilteringTag(RuleDefinitions.TargetFilteringTag.CursedByMalediction);
+            effectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
+            effectDescription.SetTargetParameter(12);
+            effectDescription.EffectForms.Clear();
+// Can we add a Condition dynamically? i.e. can we detect what kind of condition a creature has, and then add that condition here?
+// And/or can we add a new "CackleCondition" which gets evaluated at end of turn and would search for any 
+// RuleDefinitions.TargetFilteringTag.CursedByMalediction condition on the creature and reapply the condition?
+            effectDescription.EffectForms.Add(effectForm);
+
+            FeatureDefinitionPower cackle = new FeatureDefinitionPowerBuilder("WitchCacklePower",
+                                                                                GuidHelper.Create(ClassNamespace, "WitchCacklePower").ToString(),
+                                                                                1,
+                                                                                RuleDefinitions.UsesDetermination.Fixed,
+                                                                                AttributeDefinitions.Charisma,
+                                                                                RuleDefinitions.ActivationTime.BonusAction,
+                                                                                0,
+                                                                                RuleDefinitions.RechargeRate.AtWill,
+                                                                                false,
+                                                                                true,
+                                                                                AttributeDefinitions.Charisma,
+                                                                                effectDescription,
+                                                                                new GuiPresentationBuilder(
+                                                                                    "Class/&WitchCacklePowerDescription",
+                                                                                    "Class/&WitchCacklePowerTitle").Build(),
+                                                                                true)
+                                                                                .AddToDB();
+
+            return cackle;
         }
 
         private static FeatureDefinition Familiar()
