@@ -715,6 +715,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             ruinConditionDefinition.SetConditionType(RuleDefinitions.ConditionType.Detrimental);
             ruinConditionDefinition.SetDurationParameter(1);
             ruinConditionDefinition.SetDurationType(RuleDefinitions.DurationType.Round);
+            ruinConditionDefinition.RecurrentEffectForms.Clear();
             ruinConditionDefinition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
             ruinConditionDefinition.Features.Clear();
             ruinConditionDefinition.Features.Add(new FeatureDefinitionAttributeModifierBuilder("Ruined",
