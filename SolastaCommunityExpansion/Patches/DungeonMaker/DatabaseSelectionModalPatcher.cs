@@ -20,7 +20,9 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker
 
                 if (isShiftPressed)
                 {
-                    ___allMonsters.AddRange(DatabaseRepository.GetDatabase<MonsterDefinition>().Where(x => !x.GuiPresentation.Hidden).OrderBy(d => d));
+                    ___allMonsters.AddRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
+                        .Where(x => !x.GuiPresentation.Hidden)
+                        .OrderBy(d => Gui.Localize(d.GuiPresentation.Title)));
                 }
             }
         }
@@ -41,7 +43,9 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker
 
                 if (isShiftPressed)
                 {
-                    ___allNpcs.AddRange(DatabaseRepository.GetDatabase<MonsterDefinition>().Where(x => !x.GuiPresentation.Hidden).OrderBy(d => d));
+                    ___allNpcs.AddRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
+                        .Where(x => !x.GuiPresentation.Hidden)
+                        .OrderBy(d => Gui.Localize(d.GuiPresentation.Title)));
                 }
             }
         }
