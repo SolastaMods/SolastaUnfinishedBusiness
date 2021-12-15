@@ -9,9 +9,9 @@ namespace SolastaCommunityExpansion.Patches.Encounters
     {
         internal static void Postfix(GameLocationCharacter __instance, ref bool __result)
         {
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+            var isUserLocation = Gui.GameLocation.LocationDefinition.IsUserLocation;
 
-            if (gameLocationBattleService.IsBattleInProgress && !Models.PlayerControllerContext.PlayerCharacters.Contains(__instance))
+            if (isUserLocation && !Models.PlayerControllerContext.PlayerCharacters.Contains(__instance))
             {
                 __result = false;
             }
