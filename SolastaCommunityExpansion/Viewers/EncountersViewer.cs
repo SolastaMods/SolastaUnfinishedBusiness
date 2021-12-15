@@ -54,7 +54,7 @@ namespace SolastaCommunityExpansion.Viewers
                     UI.Label($"Int: {hero.GetAttribute("Intelligence").CurrentValue:0#}".yellow(), UI.Width(48));
                     UI.Label($"Wis: {hero.GetAttribute("Wisdom").CurrentValue:0#}".white(), UI.Width(48));
                     UI.Label($"Cha: {hero.GetAttribute("Charisma").CurrentValue:0#}".yellow(), UI.Width(48));
-                };
+                }
 
                 var statsLabel = showStats ? "" : "Stats";
 
@@ -124,7 +124,7 @@ namespace SolastaCommunityExpansion.Viewers
                     UI.Label($"Int: {monsterDefinition.AbilityScores[3]:0#}".yellow(), UI.Width(48));
                     UI.Label($"Wis: {monsterDefinition.AbilityScores[4]:0#}".white(), UI.Width(48));
                     UI.Label($"Cha: {monsterDefinition.AbilityScores[5]:0#}".yellow(), UI.Width(48));
-                };
+                }
 
                 var statsLabel = showStats ? "" : "Stats";
 
@@ -151,7 +151,7 @@ namespace SolastaCommunityExpansion.Viewers
                 {
                     currentFeaturesMonster.AddOrReplace<MonsterDefinition, bool>(monsterDefinition, flip);
                 }
-            };
+            }
 
             currentFeaturesMonster.TryGetValue(monsterDefinition, out flip);
             if (flip)
@@ -204,16 +204,16 @@ namespace SolastaCommunityExpansion.Viewers
 
                             UI.Space(60);
                             UI.Label(title, UI.Width(192));
-                            UI.Label($"action type: {attackIteration.MonsterAttackDefinition.ActionType.ToString()}".green(), UI.Width(120));
-                            UI.Label($"reach: {attackIteration.MonsterAttackDefinition.ReachRange.ToString()}".green(), UI.Width(108));
-                            UI.Label($"hit bonus: {attackIteration.MonsterAttackDefinition.ToHitBonus.ToString()}".green(), UI.Width(108));
+                            UI.Label($"action type: {attackIteration.MonsterAttackDefinition.ActionType}".green(), UI.Width(120));
+                            UI.Label($"reach: {attackIteration.MonsterAttackDefinition.ReachRange}".green(), UI.Width(108));
+                            UI.Label($"hit bonus: {attackIteration.MonsterAttackDefinition.ToHitBonus}".green(), UI.Width(108));
                             if (attackIteration.MonsterAttackDefinition.MaxUses < 0)
                             {
                                 UI.Label($"max uses: inf".green(), UI.Width(108));
                             }
                             else
                             {
-                                UI.Label($"max uses: {attackIteration.MonsterAttackDefinition.MaxUses.ToString()}".green(), UI.Width(108));
+                                UI.Label($"max uses: {attackIteration.MonsterAttackDefinition.MaxUses}".green(), UI.Width(108));
                             }
                             if (attackIteration.MonsterAttackDefinition.Magical)
                             {
@@ -233,29 +233,35 @@ namespace SolastaCommunityExpansion.Viewers
             UI.Label("Controllers:".yellow());
             UI.Label("");
 
-            toggle = Main.Settings.EnableControllersOverride;
-            if (UI.Toggle("Enables heroes controlled by AI", ref toggle))
+            toggle = Main.Settings.EnableEnemiesControlledByPlayer;
+            if (UI.Toggle("Enables enemies controlled by players", ref toggle))
             {
-                Main.Settings.EnableControllersOverride = toggle;
+                Main.Settings.EnableEnemiesControlledByPlayer = toggle;
             }
 
-            if (Main.Settings.EnableControllersOverride)
+            toggle = Main.Settings.EnableHeroesControlledByComputer;
+            if (UI.Toggle("Enables heroes controlled by computer", ref toggle))
+            {
+                Main.Settings.EnableHeroesControlledByComputer = toggle;
+            }
+
+            if (Main.Settings.EnableHeroesControlledByComputer)
             {
                 UI.Label("");
 
-                if (HeroControllerContext.IsOffGame)
+                if (PlayerControllerContext.IsOffGame)
                 {
                     UI.Label("Load a game to modify heroes AI...".bold().red(), UI.AutoWidth());
                 }
-                else if (HeroControllerContext.IsMultiplayer)
+                else if (PlayerControllerContext.IsMultiplayer)
                 {
                     UI.Label("You can only change controllers in a local session...".bold().red(), UI.AutoWidth());
                 }
                 else
                 {
-                    var controllers = HeroControllerContext.Controllers;
-                    var controllersChoices = HeroControllerContext.ControllersChoices;
-                    var partyCharacters = HeroControllerContext.PartyCharacters;
+                    var controllers = PlayerControllerContext.Controllers;
+                    var controllersChoices = PlayerControllerContext.ControllersChoices;
+                    var partyCharacters = PlayerControllerContext.PartyCharacters;
 
                     for (int i = 0; i < partyCharacters.Count; i++)
                     {
