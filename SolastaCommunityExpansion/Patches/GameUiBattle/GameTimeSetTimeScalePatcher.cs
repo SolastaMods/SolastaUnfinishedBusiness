@@ -2,7 +2,7 @@
 using HarmonyLib;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.GameUi
+namespace SolastaCommunityExpansion.Patches.GameUiBattle
 {
     [HarmonyPatch(typeof(GameTime), "SetTimeScale")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -10,7 +10,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi
     {
         internal static bool Prefix(ref float ___timeScale, ref bool ___fasterTimeMode)
         {
-            if (Main.Settings.PermanentSpeedUp)
+            var isBattleInProgress = ServiceRepository.GetService<IGameLocationBattleService>()?.IsBattleInProgress;
+
+            if (Main.Settings.PermanentSpeedUp && isBattleInProgress == true)
             {
                 Time.timeScale = ___timeScale * Main.Settings.CustomTimeScale;
             }
