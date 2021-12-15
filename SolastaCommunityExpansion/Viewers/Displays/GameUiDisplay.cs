@@ -28,19 +28,19 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableCharacterExport;
-            if (UI.Toggle("Enables character export from inventory screen " + "[ctrl-(E)xport]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable character export from inventory screen " + "[ctrl-(E)xport]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableCharacterExport = toggle;
             }
 
             toggle = Main.Settings.EnableInventoryFilterAndSort;
-            if (UI.Toggle("Enables inventory filtering and sorting " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable inventory filtering and sorting " + RequiresRestart, ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableInventoryFilterAndSort = toggle;
             }
 
             toggle = Main.Settings.EnableSaveByLocation;
-            if (UI.Toggle("Enables save by campaigns / locations", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable save by campaigns / locations", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableSaveByLocation = toggle;
             }
@@ -48,19 +48,19 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableHudToggleElementsHotkeys;
-            if (UI.Toggle("Enables hotkeys to toggle HUD components visibility " + "[ctrl-(C)ontrol Panel / ctrl-(L)og / ctrl-(M)ap / ctrl-(P)arty]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable hotkeys to toggle HUD components visibility " + "[ctrl-(C)ontrol Panel / ctrl-(L)og / ctrl-(M)ap / ctrl-(P)arty]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableHudToggleElementsHotkeys = toggle;
             }
 
             toggle = Main.Settings.InvertAltBehaviorOnTooltips;
-            if (UI.Toggle("Inverts ALT key behavior on tooltips", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Invert ALT key behavior on tooltips", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.InvertAltBehaviorOnTooltips = toggle;
             }
 
             toggle = Main.Settings.RecipeTooltipShowsRecipe;
-            if (UI.Toggle("Shows crafting recipe in detailed tooltips", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Show crafting recipe in detailed tooltips", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.RecipeTooltipShowsRecipe = toggle;
             }
@@ -81,31 +81,31 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 UI.Label("");
 
                 toggle = Main.Settings.EnableAdventureLogBanterLines;
-                if (UI.Toggle("Records NPCs banter lines", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Record NPCs banter lines", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableAdventureLogBanterLines = toggle;
                 }
 
                 toggle = Main.Settings.EnableAdventureLogDocuments;
-                if (UI.Toggle("Records read documents and notes", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Record read documents and notes", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableAdventureLogDocuments = toggle;
                 }
 
                 toggle = Main.Settings.EnableAdventureLogLore;
-                if (UI.Toggle("Records full screen lore", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Record full screen lore", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableAdventureLogLore = toggle;
                 }
 
                 toggle = Main.Settings.EnableAdventureLogTextFeedback;
-                if (UI.Toggle("Records text feedback", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Record text feedback", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableAdventureLogTextFeedback = toggle;
                 }
 
                 toggle = Main.Settings.EnableAdventureLogPopups;
-                if (UI.Toggle("Records bottom and header popups", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Record bottom and header popups", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableAdventureLogPopups = toggle;
                 }
@@ -143,7 +143,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.AutoPauseOnVictory;
-                if (UI.Toggle("Pauses the UI when victorious in battle", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Pause the UI when victorious in battle", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.AutoPauseOnVictory = toggle;
                 }
@@ -177,13 +177,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 UI.Label("");
 
                 toggle = Main.Settings.FlexibleGadgetsPlacement;
-                if (UI.Toggle("Allows gadgets to be placed anywhere on the map " + RequiresRestart, ref toggle))
+                if (UI.Toggle("Allow gadgets to be placed anywhere on the map " + RequiresRestart, ref toggle))
                 {
                     Main.Settings.FlexibleGadgetsPlacement = toggle;
                 }
 
                 toggle = Main.Settings.FlexiblePropsPlacement;
-                if (UI.Toggle("Allows props to be placed anywhere on the map " + RequiresRestart, ref toggle))
+                if (UI.Toggle("Allow props to be placed anywhere on the map " + RequiresRestart, ref toggle))
                 {
                     Main.Settings.FlexiblePropsPlacement = toggle;
                 }
@@ -191,7 +191,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 UI.Label("");
 
                 toggle = Main.Settings.UnleashAllMonsters;
-                if (UI.Toggle("Enables better tooltip on dungeon maker editor " + "[selected items or monsters on gadget detail screen]".italic().yellow(), ref toggle))
+                if (UI.Toggle("Enable better tooltip on dungeon maker editor " + "[selected items or monsters on gadget detail screen]".italic().yellow(), ref toggle))
                 {
                     Main.Settings.UnleashAllMonsters = toggle;
                 }
@@ -199,13 +199,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 UI.Label("");
 
                 toggle = Main.Settings.UnleashAllMonsters;
-                if (UI.Toggle("Unleashes NPCs as enemies " + "[press SHIFT while clicking Select on gadget panel]".italic().yellow(), ref toggle))
+                if (UI.Toggle("Unleash NPCs as enemies " + "[press SHIFT while clicking Select on gadget panel]".italic().yellow(), ref toggle))
                 {
                     Main.Settings.UnleashAllMonsters = toggle;
                 }
 
                 toggle = Main.Settings.UnleashAllNPCs;
-                if (UI.Toggle("Unleashes enemies as NPCs " + "[press SHIFT while clicking Select on gadget panel]".italic().yellow(), ref toggle))
+                if (UI.Toggle("Unleash enemies as NPCs " + "[press SHIFT while clicking Select on gadget panel]".italic().yellow(), ref toggle))
                 {
                     Main.Settings.UnleashAllNPCs = toggle;
                 }
@@ -226,7 +226,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 UI.Label("");
 
                 toggle = Main.Settings.EnableInvisibleCrownOfTheMagister;
-                if (UI.Toggle("Hides Crown of the Magister on game UI", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Hide Crown of the Magister on game UI", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableInvisibleCrownOfTheMagister = toggle;
                     ItemOptionsContext.SwitchCrownOfTheMagister();
@@ -262,13 +262,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 UI.Label("");
 
                 toggle = Main.Settings.HideMonsterHitPoints;
-                if (UI.Toggle("Displays Monsters's health in steps of 25% / 50% / 75% / 100% instead of exact hit points", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Display Monsters's health in steps of 25% / 50% / 75% / 100% instead of exact hit points", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.HideMonsterHitPoints = toggle;
                 }
 
                 toggle = Main.Settings.RemoveBugVisualModels;
-                if (UI.Toggle("Replaces bug-like models with alternative visuals in the game " + "[must be switched on before maps are loaded] ".italic().yellow() + RequiresRestart, ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Replace bug-like models with alternative visuals in the game " + "[must be switched on before maps are loaded] ".italic().yellow() + RequiresRestart, ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.RemoveBugVisualModels = toggle;
                 }

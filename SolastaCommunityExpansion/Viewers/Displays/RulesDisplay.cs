@@ -14,13 +14,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableSRDAdvantageRules;
-            if (UI.Toggle("Uses official advantage / disadvantage rules", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Use official advantage / disadvantage rules", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableSRDAdvantageRules = toggle;
             }
 
             toggle = Main.Settings.EnableSRDCombatSurpriseRules;
-            if (UI.Toggle("Uses official combat surprise rules", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Use official combat surprise rules", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableSRDCombatSurpriseRules = toggle;
                 Main.Settings.EnableSRDCombatSurpriseRulesManyRolls = toggle; // makes many rolls default
@@ -29,7 +29,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (Main.Settings.EnableSRDCombatSurpriseRules)
             {
                 toggle = Main.Settings.EnableSRDCombatSurpriseRulesManyRolls;
-                if (UI.Toggle("Rolls different " + "Stealth".orange() + " checks for each surprised / surprising character pairs", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Roll different " + "Stealth".orange() + " checks for each surprised / surprising character pairs", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableSRDCombatSurpriseRulesManyRolls = toggle;
                 }
@@ -65,21 +65,21 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableUniversalSylvanArmor;
-            if (UI.Toggle("Allows any class to wear sylvan armor", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Allow any class to wear sylvan armor", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableUniversalSylvanArmor = toggle;
                 ItemOptionsContext.SwitchUniversalSylvanArmor();
             }
 
             toggle = Main.Settings.DruidNoMetalRestriction;
-            if (UI.Toggle("Allows Druids to wear metal armor", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Allow Druids to wear metal armor", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.DruidNoMetalRestriction = toggle;
                 DruidArmorContext.Switch(toggle);
             }
 
             toggle = Main.Settings.EnableMagicStaffFoci;
-            if (UI.Toggle("Makes all magic staves arcane foci " + "[except for Staff of Healing which is Universal]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Make all magic staves arcane foci " + "[except for Staff of Healing which is Universal]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableMagicStaffFoci = toggle;
                 ItemOptionsContext.SwitchMagicStaffFoci();
@@ -88,7 +88,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.PickPocketEnabled;
-            if (UI.Toggle("Adds pickpocketable loot [suggested if " + "Pickpocket".orange() + " feat is enabled]", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Add pickpocketable loot [suggested if " + "Pickpocket".orange() + " feat is enabled]", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.PickPocketEnabled = toggle;
                 if (toggle)
@@ -98,13 +98,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             toggle = Main.Settings.DisableAutoEquip;
-            if (UI.Toggle("Disables auto-equip of items in inventory", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Disable auto-equip of items in inventory", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.DisableAutoEquip = toggle;
             }
 
             toggle = Main.Settings.ExactMerchantCostScaling;
-            if (UI.Toggle("Scales merchant prices correctly / exactly", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Scale merchant prices correctly / exactly", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.ExactMerchantCostScaling = toggle;
             }

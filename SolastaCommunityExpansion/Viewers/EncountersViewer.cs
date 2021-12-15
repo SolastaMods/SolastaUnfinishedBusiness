@@ -234,13 +234,13 @@ namespace SolastaCommunityExpansion.Viewers
             UI.Label("");
 
             toggle = Main.Settings.EnableEnemiesControlledByPlayer;
-            if (UI.Toggle("Enables enemies controlled by players", ref toggle))
+            if (UI.Toggle("Enable enemies controlled by players", ref toggle))
             {
                 Main.Settings.EnableEnemiesControlledByPlayer = toggle;
             }
 
             toggle = Main.Settings.EnableHeroesControlledByComputer;
-            if (UI.Toggle("Enables heroes controlled by computer", ref toggle))
+            if (UI.Toggle("Enable heroes controlled by computer", ref toggle))
             {
                 Main.Settings.EnableHeroesControlledByComputer = toggle;
             }
