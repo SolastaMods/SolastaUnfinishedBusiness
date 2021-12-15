@@ -79,10 +79,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 DruidArmorContext.Switch(toggle);
             }
 
-            toggle = Main.Settings.IncreaseNormalVisionSenseRange;
-            if (UI.Toggle("Increase " + "Sense Normal Vision".orange() + " range to enable long range attacks " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            toggle = Main.Settings.DisableAutoEquip;
+            if (UI.Toggle("Disable auto-equip of items in inventory", ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.IncreaseNormalVisionSenseRange = toggle;
+                Main.Settings.DisableAutoEquip = toggle;
             }
 
             toggle = Main.Settings.EnableMagicStaffFoci;
@@ -90,6 +90,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             {
                 Main.Settings.EnableMagicStaffFoci = toggle;
                 ItemOptionsContext.SwitchMagicStaffFoci();
+            }
+
+            UI.Label("");
+
+            toggle = Main.Settings.IncreaseNormalVisionSenseRange;
+            if (UI.Toggle("Increase " + "Sense Normal Vision".orange() + " range to enable long range attacks " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.IncreaseNormalVisionSenseRange = toggle;
             }
 
             UI.Label("");
@@ -102,12 +110,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 {
                     PickPocketContext.Load();
                 }
-            }
-
-            toggle = Main.Settings.DisableAutoEquip;
-            if (UI.Toggle("Disable auto-equip of items in inventory", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.DisableAutoEquip = toggle;
             }
 
             toggle = Main.Settings.ExactMerchantCostScaling;
