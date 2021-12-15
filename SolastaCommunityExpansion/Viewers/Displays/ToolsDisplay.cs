@@ -31,7 +31,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             toggle = Main.Settings.EnableDungeonLevelBypass;
-            if (UI.Toggle("Override required min / max level " + "[only in custom dungeons]".italic().yellow(), ref toggle))
+            if (UI.Toggle("Override required min / max level", ref toggle))
             {
                 Main.Settings.EnableDungeonLevelBypass = toggle;
             }
@@ -98,7 +98,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             intValue = Main.Settings.ExperienceModifier;
-            if (UI.Slider("Multiply the experience gained by ".white() + "[%]".red(), ref intValue, 50, 200, 100, "", UI.Width(100)))
+            if (UI.Slider("Multiply the experience gained by ".white() + "[%]".red(), ref intValue, 0, 200, 100, "", UI.Width(100)))
             {
                 Main.Settings.ExperienceModifier = intValue;
             }
