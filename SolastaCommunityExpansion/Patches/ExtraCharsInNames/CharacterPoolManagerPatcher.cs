@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.HeroName
+namespace SolastaCommunityExpansion.Patches.ExtraCharsInNames
 {
     internal static class CharacterPoolManagerPatcher
     {
