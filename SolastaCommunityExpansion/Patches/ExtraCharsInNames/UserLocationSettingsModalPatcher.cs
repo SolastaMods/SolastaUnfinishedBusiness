@@ -1,11 +1,11 @@
 ﻿using HarmonyLib;
 using TMPro;
 
-namespace SolastaCommunityExpansion.Patches.GameUi
+namespace SolastaCommunityExpansion.Patches.ExtraCharsInNames
 {
-    // allows extra characters on campaign names
-    [HarmonyPatch(typeof(UserCampaignEditorScreen), "RemoveUselessSpaces")]
-    internal static class UserCampaignEditorScreenRemoveUselessSpaces
+    // allows extra characters on location names
+    [HarmonyPatch(typeof(UserLocationSettingsModal), "RemoveUselessSpaces")]
+    internal static class UserLocationSettingsModalRemoveUselessSpaces
     {
         public static bool Prefix(TMP_InputField textField)
         {

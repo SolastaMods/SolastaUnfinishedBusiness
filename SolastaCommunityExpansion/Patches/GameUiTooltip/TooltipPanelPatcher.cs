@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using System.Diagnostics.CodeAnalysis;
 
-namespace SolastaCommunityExpansion.Patches.GameUi
+namespace SolastaCommunityExpansion.Patches.GameUiTooltip
 {
     // always alt
     [HarmonyPatch(typeof(TooltipPanel), "SetupFeatures")]

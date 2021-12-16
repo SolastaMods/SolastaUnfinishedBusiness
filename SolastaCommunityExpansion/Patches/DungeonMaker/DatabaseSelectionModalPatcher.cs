@@ -6,55 +6,46 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.DungeonMaker
 {
-    internal static class DatabaseSelectionModalPatcher
+    [HarmonyPatch(typeof(DatabaseSelectionModal), "SelectMonsterDefinition")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class DatabaseSelectionModal_BuildMonsters
     {
-        [HarmonyPatch(typeof(DatabaseSelectionModal), "SelectMonsterDefinition")]
-        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-        internal static class DatabaseSelectionModal_BuildMonsters
+        internal static void Prefix(DatabaseSelectionModal __instance, List<MonsterDefinition> ___allMonsters)
         {
-            internal static void Prefix(DatabaseSelectionModal __instance, List<MonsterDefinition> ___allMonsters)
+            bool isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+
+            if (Main.Settings.UnleashAllMonsters)
             {
-                bool isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+                ___allMonsters.Clear();
 
-                if (Main.Settings.UnleashAllMonsters)
+                if (isShiftPressed)
                 {
-                    ___allMonsters.Clear();
-
-                    if (isShiftPressed)
-                    {
-                        foreach (var allElement in DatabaseRepository.GetDatabase<MonsterDefinition>().Where(x => !x.GuiPresentation.Hidden))
-                        {
-                            ___allMonsters.Add(allElement);
-                        }
-
-                        ___allMonsters.Sort(__instance);
-                    }
+                    ___allMonsters.AddRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
+                        .Where(x => !x.GuiPresentation.Hidden)
+                        .OrderBy(d => Gui.Localize(d.GuiPresentation.Title)));
                 }
             }
         }
+    }
 
-        // this patch unleashes all monster definitions to be used as NPCs
-        [HarmonyPatch(typeof(DatabaseSelectionModal), "SelectNpcDefinition")]
-        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-        internal static class DatabaseSelectionModal_BuildNpcs
+    // this patch unleashes all monster definitions to be used as NPCs
+    [HarmonyPatch(typeof(DatabaseSelectionModal), "SelectNpcDefinition")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class DatabaseSelectionModal_BuildNpcs
+    {
+        internal static void Prefix(DatabaseSelectionModal __instance, List<MonsterDefinition> ___allNpcs)
         {
-            internal static void Prefix(DatabaseSelectionModal __instance, List<MonsterDefinition> ___allNpcs)
+            bool isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+
+            if (Main.Settings.UnleashAllNPCs)
             {
-                bool isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+                ___allNpcs.Clear();
 
-                if (Main.Settings.UnleashAllNPCs)
+                if (isShiftPressed)
                 {
-                    ___allNpcs.Clear();
-
-                    if (isShiftPressed)
-                    {
-                        foreach (var allElement in DatabaseRepository.GetDatabase<MonsterDefinition>().Where(x => !x.GuiPresentation.Hidden))
-                        {
-                            ___allNpcs.Add(allElement);
-                        }
-
-                        ___allNpcs.Sort(__instance);
-                    }
+                    ___allNpcs.AddRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
+                        .Where(x => !x.GuiPresentation.Hidden)
+                        .OrderBy(d => Gui.Localize(d.GuiPresentation.Title)));
                 }
             }
         }
