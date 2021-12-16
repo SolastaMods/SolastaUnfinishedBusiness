@@ -56,7 +56,7 @@ namespace SolastaCommunityExpansion.Models
                 var partyCharacter = PlayerCharacters[i];
                 var controllerType = choices[i] == 0 ? PlayerController.ControllerType.Human : PlayerController.ControllerType.AI;
 
-                ControllersChoices.AddOrReplace<GameLocationCharacter, PlayerController.ControllerType>(partyCharacter, controllerType);
+                ControllersChoices.AddOrReplace(partyCharacter, controllerType);
             }
         }
 
