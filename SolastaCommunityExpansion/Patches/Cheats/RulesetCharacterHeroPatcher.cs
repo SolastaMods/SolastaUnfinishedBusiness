@@ -98,6 +98,13 @@ namespace SolastaCommunityExpansion.Patches.Cheats
             ritualSpells.AddRange(spellRepertoire.KnownSpells
                 .Where(s => s.Ritual)
                 .Where(s => spellRepertoire.MaxSpellLevelOfSpellCastingLevel >= s.SpellLevel));
+
+            if (spellRepertoire.AutoPreparedSpells == null) { return; }
+
+            ritualSpells.AddRange(spellRepertoire.AutoPreparedSpells
+                .Where(s => s.Ritual)
+                .Where(s => spellRepertoire.MaxSpellLevelOfSpellCastingLevel >= s.SpellLevel));
+
         }
     }
 }

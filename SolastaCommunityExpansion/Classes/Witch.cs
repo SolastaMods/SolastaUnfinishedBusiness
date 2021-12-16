@@ -12,6 +12,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
     {
         private static Guid ClassNamespace = new Guid("ea7715dd-00cb-45a3-a8c4-458d0639d72c");
         private readonly CharacterClassDefinition Class;
+        private readonly FeatureDefinitionPower familiarHelpAction;
         internal override CharacterClassDefinition GetClass()
         {
             return Class;
@@ -202,7 +203,6 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                                                                     DatabaseHelper.SpellDefinitions.FaerieFire,
 //                                                                                    DatabaseHelper.SpellDefinitions.FalseLife,
 //                                                                                    DatabaseHelper.SpellDefinitions.FeatherFall,
-//                                                                                    FindFamiliarSpellBuilder.FindFamiliarSpell,
 //                                                                                    DatabaseHelper.SpellDefinitions.FogCloud,
 //                                                                                    DatabaseHelper.SpellDefinitions.Goodberry,
 //                                                                                    DatabaseHelper.SpellDefinitions.Grease,
@@ -415,7 +415,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             // This should actually be a bit refined, i.e. give the Find Familiar spell, and have a longer casting time/ritual tag
             // Beckon Familiar is actually a Malediction, i.e. instant cast familiar
-            witch.AddFeatureAtLevel(Familiar(), 2);
+//            witch.AddFeatureAtLevel(Familiar(), 2);
 
             // TODO: unsure about this one...
             // Needs to refresh an existing Malediction, preventing the saving throw again I presume
@@ -464,9 +464,42 @@ namespace SolastaCommunityExpansion.Classes.Witch
             Class = witch.AddToDB();
 
             // How to add an auto-prepared spell if the class has not been instanciated? the caster definition doesn't exist yet
-//            witch.AddFeatureAtLevel(Familiar(), 2);
+            familiarHelpAction = FamiliarHelpAction();
+            witch.AddFeatureAtLevel(Familiar(familiarHelpAction), 2);
         }
 
+        private static FeatureDefinitionPower FamiliarHelpAction()
+        {
+
+            EffectDescription helpActionEffectDescription = new EffectDescription();
+            helpActionEffectDescription.Copy(DatabaseHelper.SpellDefinitions.TrueStrike.EffectDescription);
+            helpActionEffectDescription.SetRangeType(RuleDefinitions.RangeType.Touch);
+            helpActionEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
+            helpActionEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
+            helpActionEffectDescription.EffectForms[0].ConditionForm.ConditionDefinition.GuiPresentation.SetDescription("Power/&FamiliarHelpActionDescription");
+            helpActionEffectDescription.EffectForms[0].ConditionForm.ConditionDefinition.GuiPresentation.SetTitle("Power/&FamiliarHelpActionTitle");
+
+            FeatureDefinitionPower helpAction = new FeatureDefinitionPowerBuilder("FamiliarHelpAction",
+                                                                                    GuidHelper.Create(ClassNamespace, "FamiliarHelpAction").ToString(),
+                                                                                    1,
+                                                                                    RuleDefinitions.UsesDetermination.Fixed,
+                                                                                    AttributeDefinitions.Charisma,
+                                                                                    RuleDefinitions.ActivationTime.Action,
+                                                                                    0,
+                                                                                    RuleDefinitions.RechargeRate.AtWill,
+                                                                                    false,
+                                                                                    false,
+                                                                                    AttributeDefinitions.Charisma,
+                                                                                    helpActionEffectDescription,
+                                                                                    new GuiPresentationBuilder(
+                                                                                        "Power/&FamiliarHelpActionDescription",
+                                                                                        "Power/&FamiliarHelpActionTitle").Build(),
+                                                                                    true)
+                                                                                    .AddToDB();
+
+            return helpAction;
+
+        }
         private static FeatureDefinitionFeatureSet Maledictions()
         {
 
@@ -942,138 +975,173 @@ namespace SolastaCommunityExpansion.Classes.Witch
             return cackle;
         }
 
-        private static FeatureDefinition Familiar()
+        private FeatureDefinitionAutoPreparedSpells Familiar(FeatureDefinitionPower helpAction)
         {
 
             // This should be the real place where the empowered version of find familiar gets learned. However,
             // how to add an auto-prepared spell if the class has not been instanciated? the caster definition doesn't exist yet
             // i.e. this doesn't work:                      .SetCharacterClass(this.Class)
-/*            FeatureDefinitionAutoPreparedSpells witchFamiliar = new FeatureDefinitionAutoPreparedSpellsBuilder("WitchFamiliar",
-                                                                                                                GuidHelper.Create(ClassNamespace, "WitchFamiliar").ToString(),
-                                                                                                                new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>{
-                                                                                                                    FeatureDefinitionAutoPreparedSpellsBuilder.BuildAutoPreparedSpellGroup(2,
-                                                                                                                                                                                            new List<SpellDefinition>{
-                                                                                                                                                                                                WitchFamiliarSpellBuilder.AddToSpellList()
-                                                                                                                                                                                            })
-                                                                                                                },
-                                                                                                                new GuiPresentationBuilder(
-                                                                                                                    "Class/&WitchFamiliarDescription",
-                                                                                                                    "Class/&WitchFamiliarTitle").Build())
-                                                                                                                .SetCharacterClass(this.Class)
-                                                                                                                .SetAutoTag("Witch")
-                                                                                                                .AddToDB();*/
 
-            var effectForm = new EffectForm
-            {
-                FormType = EffectForm.EffectFormType.Summon
-            };
-            effectForm.SetCreatedByCharacter(true);
+            MonsterAttackIteration witchFamiliarAttackIteration = new MonsterAttackIteration(DatabaseHelper.MonsterAttackDefinitions.Attack_EagleMatriarch_Talons, 1);
+            witchFamiliarAttackIteration.MonsterAttackDefinition.SetToHitBonus(3);
+            witchFamiliarAttackIteration.MonsterAttackDefinition.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(1);
+            witchFamiliarAttackIteration.MonsterAttackDefinition.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D1);
+            witchFamiliarAttackIteration.MonsterAttackDefinition.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(0);
 
-            SummonForm summonForm = new SummonForm();
-            effectForm.SetSummonForm(summonForm);
-
-            var monsterDefinition = FamiliarMonsterBuilder.FamiliarMonster;
-
-            effectForm.SummonForm.SetMonsterDefinitionName(monsterDefinition.Name);
-            effectForm.SummonForm.SetDecisionPackage(null);
-
-            //Add to our new effect
-            var effectDescription = new EffectDescription();
-            effectDescription.Copy(DatabaseHelper.SpellDefinitions.ConjureAnimalsOneBeast.EffectDescription);
-            effectDescription.DurationType = RuleDefinitions.DurationType.UntilLongRest;
-            effectDescription.SetTargetSide(RuleDefinitions.Side.Ally);
-            effectDescription.SetRangeParameter(24);
-            effectDescription.EffectForms.Clear();
-            effectDescription.EffectForms.Add(effectForm);
-
-            FeatureDefinitionPower witchFamiliar = new FeatureDefinitionPowerBuilder("WitchFamiliarPower",
-                                                                                        GuidHelper.Create(ClassNamespace, "WitchFamiliarPower").ToString(),
-                                                                                        1,
-                                                                                        RuleDefinitions.UsesDetermination.Fixed,
-                                                                                        AttributeDefinitions.Charisma,
-                                                                                        RuleDefinitions.ActivationTime.Action,
-                                                                                        0,
-                                                                                        RuleDefinitions.RechargeRate.AtWill,
-                                                                                        false,
-                                                                                        true,
-                                                                                        AttributeDefinitions.Charisma,
-                                                                                        effectDescription,
-                                                                                        new GuiPresentationBuilder(
-                                                                                            "Class/&WitchFamiliarPowerDescription",
-                                                                                            "Class/&WitchFamiliarPowerTitle").Build(),
-                                                                                        true)
+            MonsterDefinition witchFamiliarMonster = new WitchFamiliarMonsterBuilder(DatabaseHelper.MonsterDefinitions.Eagle_Matriarch,
+                                                                                        "Owl",
+                                                                                        GuidHelper.Create(ClassNamespace, "Owl").ToString(),
+                                                                                        DatabaseHelper.MonsterDefinitions.Eagle_Matriarch.GuiPresentation)
+                                                                                        .ClearFeatures()
+                                                                                        .AddFeature(DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision)
+                                                                                        .AddFeature(DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision24)
+                                                                                        .AddFeature(DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove2)
+                                                                                        .AddFeature(DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12)
+                                                                                        .AddFeature(DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenSight)
+                                                                                        .AddFeature(DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenHearing)
+                                                                                        .AddFeature(DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityFlyby)
+                                                                                        .AddFeature(DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb)
+                                                                                        .AddFeature(DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves)
+                                                                                        .AddFeature(DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity)
+                                                                                        .AddFeature(helpAction)
+                                                                                        .ClearAttackIterations()
+                                                                                        .AddAttackIterations(witchFamiliarAttackIteration)
+                                                                                        .ClearSkills()
+                                                                                        .AddSkills(new MonsterSkillProficiency(DatabaseHelper.SkillDefinitions.Perception.Name, 3))
+                                                                                        .AddSkills(new MonsterSkillProficiency(DatabaseHelper.SkillDefinitions.Stealth.Name, 3))
+                                                                                        .SetArmorClass(11)
+                                                                                        .SetAttributes(new int[] {3,13,8,2,12,7})
+                                                                                        .SetHP(1,RuleDefinitions.DieType.D4,-1,1)
+                                                                                        .SetSize(DatabaseHelper.CharacterSizeDefinitions.Tiny)
+                                                                                        .SetAlignment(DatabaseHelper.AlignmentDefinitions.Unaligned.Name)
+                                                                                        .SetChallengeRating(0)
+                                                                                        .SetDroppedLoot(null)
                                                                                         .AddToDB();
 
-            return witchFamiliar;
+            SpellDefinition witchFamiliarSpell = new WitchFamiliarSpellBuilder("WitchFamiliar",
+                                                                                GuidHelper.Create(ClassNamespace, "WitchFamiliar").ToString())
+                                                                                .ClearFamiliar()
+                                                                                .AddFamiliar(witchFamiliarMonster)
+                                                                                .AddToDB();
+
+            FeatureDefinitionAutoPreparedSpells witchFamiliarAutoPreparedSpell = new FeatureDefinitionAutoPreparedSpellsBuilder("WitchFamiliar",
+                                                                                                                                GuidHelper.Create(ClassNamespace, "WitchFamiliar").ToString(),
+                                                                                                                                new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>{
+                                                                                                                                    FeatureDefinitionAutoPreparedSpellsBuilder.BuildAutoPreparedSpellGroup(2,
+                                                                                                                                                                                                            new List<SpellDefinition>{
+                                                                                                                                                                                                                witchFamiliarSpell
+                                                                                                                                                                                                            })
+                                                                                                                                },
+                                                                                                                                new GuiPresentationBuilder(
+                                                                                                                                    "Spell/&WitchFamiliarDescription",
+                                                                                                                                    "Spell/&WitchFamiliarTitle").Build())
+                                                                                                                                .SetCharacterClass(this.Class)
+                                                                                                                                .SetAutoTag("Witch")
+                                                                                                                                .AddToDB();
+
+            return witchFamiliarAutoPreparedSpell;
         }
 
-        internal class FindFamiliarSpellBuilder : BaseDefinitionBuilder<SpellDefinition>
+        internal class WitchFamiliarMonsterBuilder : BaseDefinitionBuilder<MonsterDefinition>
         {
-            const string SpellName = "FindFamiliar";
-            const string SpellNameGuid = "c20743cd-a0f3-4cee-a653-a8caaa40cc37";
 
-            protected FindFamiliarSpellBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.Fireball, name, guid)
+            public WitchFamiliarMonsterBuilder(MonsterDefinition toCopy, string name, string guid, GuiPresentation guiPresentation) : base(toCopy, name, guid)
             {
-                Definition.GuiPresentation.Title = "Spell/&FindFamiliarTitle";
-                Definition.GuiPresentation.Description = "Spell/&FindFamiliarDescription";
-                Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Shine.GuiPresentation.SpriteReference);
+                Definition.SetGuiPresentation(guiPresentation);
 
-                Definition.SetSpellLevel(1);
-                Definition.SetSchoolOfMagic(RuleDefinitions.SchoolConjuration);
-                Definition.SetVerboseComponent(true);
-                Definition.SetSomaticComponent(true);
-                Definition.SetMaterialComponentType(RuleDefinitions.MaterialComponentType.Specific);
-                Definition.SetSpecificMaterialComponentConsumed(true);
-                Definition.SetSpecificMaterialComponentCostGp(10);
-                Definition.SetCastingTime(RuleDefinitions.ActivationTime.Hours1);
-                Definition.SetRitual(true);
-                Definition.SetUniqueInstance(true);
-
-                // BUG: Unable to have 70 minutes ritual casting time... if set to 10 minutes, it really only takes 10 minutes, isntead of 70
-                Definition.SetRitualCastingTime(RuleDefinitions.ActivationTime.Hours1);
-                Definition.SetRequiresConcentration(false);
-
-                var effectForm = new EffectForm
-                {
-                    FormType = EffectForm.EffectFormType.Summon
-                };
-                effectForm.SetCreatedByCharacter(true);
-
-                SummonForm summonForm = new SummonForm();
-                effectForm.SetSummonForm(summonForm);
-
-                var monsterDefinition = FamiliarMonsterBuilder.FamiliarMonster;
-
-                effectForm.SummonForm.SetMonsterDefinitionName(monsterDefinition.Name);
-                effectForm.SummonForm.SetDecisionPackage(null);
-
-                Definition.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.ConjureAnimalsOneBeast.EffectDescription);
-                Definition.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
-                Definition.EffectDescription.SetRangeParameter(2);
-                Definition.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Permanent);
-                //                Definition.EffectDescription.SetDurationType(RuleDefinitions.DurationType.UntilLongRest);
-                Definition.EffectDescription.SetTargetSide(RuleDefinitions.Side.Ally);
-                Definition.EffectDescription.EffectForms.Clear();
-                Definition.EffectDescription.EffectForms.Add(effectForm);
-
+                Definition.SetDefaultBattleDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions);
+                Definition.SetFullyControlledWhenAllied(true);
+                Definition.SetDefaultFaction("Party");
+            }
+            public WitchFamiliarMonsterBuilder ClearFeatures()
+            {
+                Definition.Features.Clear();
+                return this;
             }
 
-            public static SpellDefinition CreateAndAddToDB(string name, string guid)
-                => new FindFamiliarSpellBuilder(name, guid).AddToDB();
+            public WitchFamiliarMonsterBuilder AddFeature(FeatureDefinition feature)
+            {
+                Definition.Features.Add(feature);
+                return this;
+            }
 
-            public static readonly SpellDefinition FindFamiliarSpell = CreateAndAddToDB(SpellName, SpellNameGuid);
+            public WitchFamiliarMonsterBuilder ClearAttackIterations()
+            {
+                Definition.AttackIterations.Clear();
+                return this;
+            }
+
+            public WitchFamiliarMonsterBuilder AddAttackIterations(MonsterAttackIteration monsterAttack)
+            {
+                Definition.AttackIterations.Add(monsterAttack);
+                return this;
+            }
+
+            public WitchFamiliarMonsterBuilder ClearSkills()
+            {
+                Definition.SkillScores.Clear();
+                return this;
+            }
+
+            public WitchFamiliarMonsterBuilder AddSkills(MonsterSkillProficiency monsterSkill)
+            {
+                Definition.SkillScores.Add(monsterSkill);
+                return this;
+            }
+
+            public WitchFamiliarMonsterBuilder SetDroppedLoot(LootPackDefinition loot)
+            {
+                Definition.SetDroppedLootDefinition(loot);
+                return this;
+            }
+
+            public WitchFamiliarMonsterBuilder SetAttributes(int[] attributes)
+            {
+                Definition.SetAbilityScores(attributes);
+                return this;
+            }
+
+            public WitchFamiliarMonsterBuilder SetArmorClass(int armorClass)
+            {
+                Definition.SetArmorClass(armorClass);
+                return this;
+            }
+
+            public WitchFamiliarMonsterBuilder SetSize(CharacterSizeDefinition size)
+            {
+                Definition.SetSizeDefinition(size);
+                return this;
+            }
+
+            public WitchFamiliarMonsterBuilder SetAlignment(string alignment)
+            {
+                Definition.SetAlignment(alignment);
+                return this;
+            }
+
+            public WitchFamiliarMonsterBuilder SetChallengeRating(int cr)
+            {
+                Definition.SetChallengeRating(cr);
+                return this;
+            }
+
+            public WitchFamiliarMonsterBuilder SetHP(int hitDice, RuleDefinitions.DieType dieType, int hitPointBonus, int standardHitPoints)
+            {
+                Definition.SetHitDice(hitDice);
+                Definition.SetHitDiceType(dieType);
+                Definition.SetHitPointsBonus(hitPointBonus);
+                Definition.SetStandardHitPoints(standardHitPoints);
+                return this;
+            }
         }
 
         internal class WitchFamiliarSpellBuilder : BaseDefinitionBuilder<SpellDefinition>
         {
-            const string SpellName = "WitchFamiliar";
-            const string SpellNameGuid = "2e0a86e6-6540-4530-a617-d83ff16ed858";
-
-            protected WitchFamiliarSpellBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.Fireball, name, guid)
+            public WitchFamiliarSpellBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.Fireball, name, guid)
             {
                 Definition.GuiPresentation.Title = "Spell/&WitchFamiliarTitle";
                 Definition.GuiPresentation.Description = "Spell/&WitchFamiliarDescription";
-                Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Shine.GuiPresentation.SpriteReference);
+                Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.ConjureAnimals.GuiPresentation.SpriteReference);
 
                 Definition.SetSpellLevel(1);
                 Definition.SetSchoolOfMagic(RuleDefinitions.SchoolConjuration);
@@ -1088,146 +1156,34 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 Definition.SetRitualCastingTime(RuleDefinitions.ActivationTime.Hours1);
                 Definition.SetRequiresConcentration(false);
 
-                var effectForm = new EffectForm();
-                effectForm.FormType = EffectForm.EffectFormType.Summon;
-                effectForm.SetCreatedByCharacter(true);
-
-                SummonForm summonForm = new SummonForm();
-                effectForm.SetSummonForm(summonForm);
-
-                MonsterDefinition monsterDefinition = new MonsterDefinition();
-                monsterDefinition = WitchFamiliarMonsterBuilder.AddToMonsterList();
-
-                effectForm.SummonForm.SetMonsterDefinitionName(monsterDefinition.Name);
-                effectForm.SummonForm.SetDecisionPackage(null);
-
                 Definition.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.ConjureAnimalsOneBeast.EffectDescription);
                 Definition.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
                 Definition.EffectDescription.SetRangeParameter(2);
                 Definition.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Permanent);
                 Definition.EffectDescription.SetTargetSide(RuleDefinitions.Side.Ally);
+                
+            }
+
+            public WitchFamiliarSpellBuilder ClearFamiliar()
+            {
                 Definition.EffectDescription.EffectForms.Clear();
+                return this;
+            }
+
+            public WitchFamiliarSpellBuilder AddFamiliar(MonsterDefinition familiar)
+            {
+                var summonForm = new SummonForm();
+                summonForm.SetMonsterDefinitionName(familiar.name);
+                summonForm.SetDecisionPackage(null);
+
+                var effectForm = new EffectForm();
+                effectForm.SetFormType(EffectForm.EffectFormType.Summon);
+                effectForm.SetCreatedByCharacter(true);
+                effectForm.SetSummonForm(summonForm);
+
                 Definition.EffectDescription.EffectForms.Add(effectForm);
 
-            }
-
-            public static SpellDefinition CreateAndAddToDB(string name, string guid)
-                => new WitchFamiliarSpellBuilder(name, guid).AddToDB();
-
-            public static SpellDefinition WitchFamiliar = CreateAndAddToDB(SpellName, SpellNameGuid);
-
-            public static SpellDefinition AddToSpellList()
-            {
-                var witchFamiliar = WitchFamiliarSpellBuilder.WitchFamiliar;//Instantiating it adds to the DB
-                return witchFamiliar;
-            }
-        }
-
-        internal class FamiliarMonsterBuilder : BaseDefinitionBuilder<MonsterDefinition>
-        {
-            const string FamiliarMonsterName = "Familiar";
-            const string FamiliarMonsterNameGuid = "0a3e6a7d-4628-4189-b91d-d7146d771234";
-
-            protected FamiliarMonsterBuilder(string name, string guid) : base(DatabaseHelper.MonsterDefinitions.Flying_Snake, name, guid)
-            {
-                Definition.GuiPresentation.Title = "Familiar";
-                Definition.GuiPresentation.Description = "Fate has granted you a portion of its power through this construct.";
-
-                Definition.SetAlignment("neutral");
-                Definition.SetDefaultBattleDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions);
-                Definition.SetFullyControlledWhenAllied(true);
-                Definition.SetDefaultFaction("Party");
-                Definition.AttackIterations.Clear();
-
-                EffectDescription helpActionEffectDescription = new EffectDescription();
-                helpActionEffectDescription.Copy(DatabaseHelper.SpellDefinitions.TrueStrike.EffectDescription);
-                helpActionEffectDescription.SetRangeType(RuleDefinitions.RangeType.Touch);
-                helpActionEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
-                helpActionEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
-                helpActionEffectDescription.EffectForms[0].ConditionForm.ConditionDefinition.GuiPresentation.SetDescription("Power/&FamiliarHelpActionDescription");
-                helpActionEffectDescription.EffectForms[0].ConditionForm.ConditionDefinition.GuiPresentation.SetTitle("Power/&FamiliarHelpActionTitle");
-
-                FeatureDefinitionPower helpAction = new FeatureDefinitionPowerBuilder("FamiliarHelpAction",
-                                                                                        GuidHelper.Create(ClassNamespace, "FamiliarHelpAction").ToString(),
-                                                                                        1,
-                                                                                        RuleDefinitions.UsesDetermination.Fixed,
-                                                                                        AttributeDefinitions.Charisma,
-                                                                                        RuleDefinitions.ActivationTime.Action,
-                                                                                        0,
-                                                                                        RuleDefinitions.RechargeRate.AtWill,
-                                                                                        false,
-                                                                                        false,
-                                                                                        AttributeDefinitions.Charisma,
-                                                                                        helpActionEffectDescription,
-                                                                                        new GuiPresentationBuilder(
-                                                                                            "Power/&FamiliarHelpActionDescription",
-                                                                                            "Power/&FamiliarHelpActionTitle").Build(),
-                                                                                        true)
-                                                                                        .AddToDB();
-
-                Definition.Features.Add(helpAction);
-            }
-
-            public static MonsterDefinition CreateAndAddToDB(string name, string guid)
-                => new FamiliarMonsterBuilder(name, guid).AddToDB();
-
-            public static readonly MonsterDefinition FamiliarMonster = CreateAndAddToDB(FamiliarMonsterName, FamiliarMonsterNameGuid);
-        }
-
-        internal class WitchFamiliarMonsterBuilder : BaseDefinitionBuilder<MonsterDefinition>
-        {
-            const string WitchFamiliarMonsterName = "WitchFamiliar";
-            const string WitchFamiliarMonsterNameGuid = "8416fbb2-369b-4434-8976-d9e88ad1b69f";
-
-            protected WitchFamiliarMonsterBuilder(string name, string guid) : base(DatabaseHelper.MonsterDefinitions.Flying_Snake, name, guid)
-            {
-                Definition.GuiPresentation.Title = "Witch Familiar";
-                Definition.GuiPresentation.Description = "Fate has granted you a portion of its power through this construct.";
-
-                Definition.SetAlignment("neutral");
-                Definition.SetDefaultBattleDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions);
-                Definition.SetFullyControlledWhenAllied(true);
-                Definition.SetDefaultFaction("Party");
-
-                EffectDescription helpActionEffectDescription = new EffectDescription();
-                helpActionEffectDescription.Copy(DatabaseHelper.SpellDefinitions.TrueStrike.EffectDescription);
-                helpActionEffectDescription.SetRangeType(RuleDefinitions.RangeType.Touch);
-                helpActionEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
-                helpActionEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
-                helpActionEffectDescription.EffectForms[0].ConditionForm.ConditionDefinition.GuiPresentation.SetDescription("Power/&FamiliarHelpActionDescription");
-                helpActionEffectDescription.EffectForms[0].ConditionForm.ConditionDefinition.GuiPresentation.SetTitle("Power/&FamiliarHelpActionTitle");
-
-                // Will need to externalise this and use the same power as the one created for the regular Find Familiar spell
-/*                FeatureDefinitionPower helpAction = new FeatureDefinitionPowerBuilder(  "FamiliarHelpAction",
-                                                                                        GuidHelper.Create(ClassNamespace, "FamiliarHelpAction").ToString(),
-                                                                                        1,
-                                                                                        RuleDefinitions.UsesDetermination.Fixed,
-                                                                                        AttributeDefinitions.Charisma,
-                                                                                        RuleDefinitions.ActivationTime.Action,
-                                                                                        0,
-                                                                                        RuleDefinitions.RechargeRate.AtWill,
-                                                                                        false,
-                                                                                        false,
-                                                                                        AttributeDefinitions.Charisma,
-                                                                                        helpActionEffectDescription,
-                                                                                        new GuiPresentationBuilder(
-                                                                                            "Power/&FamiliarHelpActionDescription",
-                                                                                            "Power/&FamiliarHelpActionTitle").Build(),
-                                                                                        true)
-                                                                                        .AddToDB();
-
-                Definition.Features.Add(helpAction);*/
-            }
-
-            public static MonsterDefinition CreateAndAddToDB(string name, string guid)
-                => new WitchFamiliarMonsterBuilder(name, guid).AddToDB();
-
-            public static MonsterDefinition FamiliarMonster = CreateAndAddToDB(WitchFamiliarMonsterName, WitchFamiliarMonsterNameGuid);
-
-            public static MonsterDefinition AddToMonsterList()
-            {
-                var FamiliarMonster = FamiliarMonsterBuilder.FamiliarMonster;//Instantiating it adds to the DB
-                return FamiliarMonster;
+                return this;
             }
 
         }
@@ -1488,6 +1444,128 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             public static readonly SpellDefinition FrenzySpell = CreateAndAddToDB(SpellName, SpellNameGuid);
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        internal class FindFamiliarSpellBuilder : BaseDefinitionBuilder<SpellDefinition>
+        {
+            const string SpellName = "FindFamiliar";
+            const string SpellNameGuid = "c20743cd-a0f3-4cee-a653-a8caaa40cc37";
+
+            protected FindFamiliarSpellBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.Fireball, name, guid)
+            {
+                Definition.GuiPresentation.Title = "Spell/&FindFamiliarTitle";
+                Definition.GuiPresentation.Description = "Spell/&FindFamiliarDescription";
+                Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Shine.GuiPresentation.SpriteReference);
+
+                Definition.SetSpellLevel(1);
+                Definition.SetSchoolOfMagic(RuleDefinitions.SchoolConjuration);
+                Definition.SetVerboseComponent(true);
+                Definition.SetSomaticComponent(true);
+                Definition.SetMaterialComponentType(RuleDefinitions.MaterialComponentType.Specific);
+                Definition.SetSpecificMaterialComponentConsumed(true);
+                Definition.SetSpecificMaterialComponentCostGp(10);
+                Definition.SetCastingTime(RuleDefinitions.ActivationTime.Hours1);
+                Definition.SetRitual(true);
+                Definition.SetUniqueInstance(true);
+
+                // BUG: Unable to have 70 minutes ritual casting time... if set to 10 minutes, it really only takes 10 minutes, isntead of 70
+                Definition.SetRitualCastingTime(RuleDefinitions.ActivationTime.Hours1);
+                Definition.SetRequiresConcentration(false);
+
+                var effectForm = new EffectForm
+                {
+                    FormType = EffectForm.EffectFormType.Summon
+                };
+                effectForm.SetCreatedByCharacter(true);
+
+                SummonForm summonForm = new SummonForm();
+                effectForm.SetSummonForm(summonForm);
+
+                var monsterDefinition = FamiliarMonsterBuilder.FamiliarMonster;
+
+                effectForm.SummonForm.SetMonsterDefinitionName(monsterDefinition.Name);
+                effectForm.SummonForm.SetDecisionPackage(null);
+
+                Definition.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.ConjureAnimalsOneBeast.EffectDescription);
+                Definition.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
+                Definition.EffectDescription.SetRangeParameter(2);
+                Definition.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Permanent);
+                //                Definition.EffectDescription.SetDurationType(RuleDefinitions.DurationType.UntilLongRest);
+                Definition.EffectDescription.SetTargetSide(RuleDefinitions.Side.Ally);
+                Definition.EffectDescription.EffectForms.Clear();
+                Definition.EffectDescription.EffectForms.Add(effectForm);
+
+            }
+
+            public static SpellDefinition CreateAndAddToDB(string name, string guid)
+                => new FindFamiliarSpellBuilder(name, guid).AddToDB();
+
+            public static readonly SpellDefinition FindFamiliarSpell = CreateAndAddToDB(SpellName, SpellNameGuid);
+        }
+
+        internal class FamiliarMonsterBuilder : BaseDefinitionBuilder<MonsterDefinition>
+        {
+            const string FamiliarMonsterName = "Familiar";
+            const string FamiliarMonsterNameGuid = "0a3e6a7d-4628-4189-b91d-d7146d771234";
+
+            protected FamiliarMonsterBuilder(string name, string guid) : base(DatabaseHelper.MonsterDefinitions.Flying_Snake, name, guid)
+            {
+                Definition.GuiPresentation.Title = "Familiar";
+                Definition.GuiPresentation.Description = "Fate has granted you a portion of its power through this construct.";
+
+                Definition.SetAlignment("neutral");
+                Definition.SetDefaultBattleDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions);
+                Definition.SetFullyControlledWhenAllied(true);
+                Definition.SetDefaultFaction("Party");
+                Definition.AttackIterations.Clear();
+
+                EffectDescription helpActionEffectDescription = new EffectDescription();
+                helpActionEffectDescription.Copy(DatabaseHelper.SpellDefinitions.TrueStrike.EffectDescription);
+                helpActionEffectDescription.SetRangeType(RuleDefinitions.RangeType.Touch);
+                helpActionEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
+                helpActionEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
+                helpActionEffectDescription.EffectForms[0].ConditionForm.ConditionDefinition.GuiPresentation.SetDescription("Power/&FamiliarHelpActionDescription");
+                helpActionEffectDescription.EffectForms[0].ConditionForm.ConditionDefinition.GuiPresentation.SetTitle("Power/&FamiliarHelpActionTitle");
+/*
+                FeatureDefinitionPower helpAction = new FeatureDefinitionPowerBuilder("FamiliarHelpAction",
+                                                                                        GuidHelper.Create(ClassNamespace, "FamiliarHelpAction").ToString(),
+                                                                                        1,
+                                                                                        RuleDefinitions.UsesDetermination.Fixed,
+                                                                                        AttributeDefinitions.Charisma,
+                                                                                        RuleDefinitions.ActivationTime.Action,
+                                                                                        0,
+                                                                                        RuleDefinitions.RechargeRate.AtWill,
+                                                                                        false,
+                                                                                        false,
+                                                                                        AttributeDefinitions.Charisma,
+                                                                                        helpActionEffectDescription,
+                                                                                        new GuiPresentationBuilder(
+                                                                                            "Power/&FamiliarHelpActionDescription",
+                                                                                            "Power/&FamiliarHelpActionTitle").Build(),
+                                                                                        true)
+                                                                                        .AddToDB();
+
+                Definition.Features.Add(helpAction);*/
+            }
+
+            public static MonsterDefinition CreateAndAddToDB(string name, string guid)
+                => new FamiliarMonsterBuilder(name, guid).AddToDB();
+
+            public static readonly MonsterDefinition FamiliarMonster = CreateAndAddToDB(FamiliarMonsterName, FamiliarMonsterNameGuid);
+        }
+
 
     }
 }
