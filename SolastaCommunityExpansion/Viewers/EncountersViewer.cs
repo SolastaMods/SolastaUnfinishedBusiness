@@ -260,7 +260,7 @@ namespace SolastaCommunityExpansion.Viewers
                 else
                 {
                     var controllers = PlayerControllerContext.Controllers;
-                    var controllersChoices = PlayerControllerContext.GetUiChoices();
+                    var controllersChoices = PlayerControllerContext.GetChoices();
                     var partyCharacters = PlayerControllerContext.PlayerCharacters;
 
                     for (int i = 0; i < partyCharacters.Count; i++)
@@ -269,7 +269,7 @@ namespace SolastaCommunityExpansion.Viewers
                         { 
                             if (UI.SelectionGrid(ref controllersChoices[i], controllers, controllers.Length, UI.Width(300)))
                             {
-                                PlayerControllerContext.SetUiChoices(controllersChoices);
+                                PlayerControllerContext.SetChoices(controllersChoices);
                             }
                         });
                     }
