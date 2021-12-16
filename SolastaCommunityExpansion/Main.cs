@@ -33,6 +33,7 @@ namespace SolastaCommunityExpansion
                 Logger = modEntry.Logger;
                 Mod = new ModManager<Core, Settings>();
                 Mod.Enable(modEntry, assembly);
+                modEntry.OnShowGUI = OnShowGui;
 
                 Menu = new MenuManager();
                 Menu.Enable(modEntry, assembly);
@@ -46,6 +47,11 @@ namespace SolastaCommunityExpansion
             }
 
             return true;
+        }
+
+        internal static void OnShowGui(UnityModManager.ModEntry modEntry)
+        {
+            Models.PlayerControllerContext.RefreshGuiState();
         }
 
         internal static bool IsModHelpersLoaded()
