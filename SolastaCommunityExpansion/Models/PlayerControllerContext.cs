@@ -66,7 +66,7 @@ namespace SolastaCommunityExpansion.Models
         {
             var activePlayerController = Gui.ActivePlayerController;
 
-            PlayerCharacters.ForEach(x => x.ControllerId = ControllersChoices[x] == PlayerController.ControllerType.Human ? 0 : 1);
+            PlayerCharacters.ForEach(x => x.ControllerId = reset || ControllersChoices[x] == PlayerController.ControllerType.Human ? 0 : 1);
             activePlayerController.DirtyControlledCharacters();
         }
 
@@ -93,7 +93,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Stop(GameLocationBattle battle)
         {
-            UpdatePartyControllerIds(true);
+            UpdatePartyControllerIds(reset: true);
 
             if (SideFlipped)
             {
