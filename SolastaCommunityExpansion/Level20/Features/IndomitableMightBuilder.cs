@@ -29,12 +29,7 @@ namespace SolastaCommunityExpansion.Level20.Features
     {
         public int? MinimumStrengthAbilityCheckTotal(RulesetCharacter character, string proficiencyName)
         {
-            if (character == null)
-            {
-                return null;
-            }
-
-            return character.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
+            return character?.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
         }
     }
 }
