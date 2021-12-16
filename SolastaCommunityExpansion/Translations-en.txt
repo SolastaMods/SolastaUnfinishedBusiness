@@ -315,6 +315,8 @@ Feature/&ArcanePulseDescription	Starting at 7th level, you can cause an eruption
 Feature/&ArcanePulseTitle	Arcane Pulse
 Feature/&ArcanistMarkDescription	Starting at 3rd level, you imbue your weapons with arcane power. Creatures that are hit by your attacks are afflicted by the Arcanist's Mark.
 Feature/&ArcanistMarkTitle	Arcanist's Mark
+Feature/&BarbarianIndomitableMightDescription	If your total for a Strength check is less than your Strength score, you can use that score in place of the total.
+Feature/&BarbarianIndomitableMightTitle	Indomitable Might
 Feature/&CounterStrikePowerDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
 Feature/&CounterStrikePowerTitle Counter Strike
 Feature/&DualFlurryDescription	You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack.
