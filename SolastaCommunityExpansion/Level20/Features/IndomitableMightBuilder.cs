@@ -6,7 +6,7 @@ namespace SolastaCommunityExpansion.Level20.Features
 {
     internal class IndomitableMightBuilder : BaseDefinitionBuilder<IndomitableMight>
     {
-        private const string IndomitableMightName = "BarbarianIndomitableMight";
+        private const string IndomitableMightName = "ZSBarbarianIndomitableMight";
         private const string IndomitableMightGuid = "2a0e9082-c81d-4d02-800a-92f04fbe85dc";
 
         protected IndomitableMightBuilder(string name, string guid) : base(name, guid)
@@ -34,7 +34,7 @@ namespace SolastaCommunityExpansion.Level20.Features
                 return null;
             }
 
-            return character.GetAttribute("Strength").CurrentValue;
+            return character.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 namespace SolastaCommunityExpansion.Patches.Level20
 {
@@ -25,7 +25,7 @@ namespace SolastaCommunityExpansion.Patches.Level20
                     return;
                 }
 
-                if (abilityScoreName != "Strength")
+                if (abilityScoreName != AttributeDefinitions.Strength)
                 {
                     return;
                 }
@@ -63,7 +63,7 @@ namespace SolastaCommunityExpansion.Patches.Level20
                 // ResolveContestCheck calls RulesetActor.RollDie twice (once for you, once for your opponent).
                 // SetNextAbilityCheckMinimum below tells the RulesetActor.RollDie patch that the next call to RollDie (for the specified RulesetCharacter) must have a certain minimum value.
 
-                if (abilityScoreName == "Strength")
+                if (abilityScoreName == AttributeDefinitions.Strength)
                 {
                     int? instanceMinRoll = MinimumStrengthAbilityCheckDieRoll(__instance, baseBonus, rollModifier, proficiencyName);
 
@@ -73,7 +73,7 @@ namespace SolastaCommunityExpansion.Patches.Level20
                     }
                 }
 
-                if (opponentAbilityScoreName == "Strength")
+                if (opponentAbilityScoreName == AttributeDefinitions.Strength)
                 {
                     int? opponentMinRoll = MinimumStrengthAbilityCheckDieRoll(opponent, opponentBaseBonus, opponentRollModifier, opponentProficiencyName);
 
@@ -110,34 +110,10 @@ namespace SolastaCommunityExpansion.Patches.Level20
 
             character.EnumerateFeaturesToBrowse<IMinimumAbilityCheckTotal>(featuresToBrowse);
 
-            int? minimumTotal = null;
-
-            foreach (FeatureDefinition feature in featuresToBrowse)
-            {
-                IMinimumAbilityCheckTotal minimumAbilityCheckTotal = feature as IMinimumAbilityCheckTotal;
-
-                if (minimumAbilityCheckTotal == null)
-                {
-                    continue;
-                }
-
-                int? total = minimumAbilityCheckTotal.MinimumStrengthAbilityCheckTotal(character, proficiencyName);
-
-                if (!total.HasValue)
-                {
-                    continue;
-                }
-
-                if (!minimumTotal.HasValue)
-                {
-                    minimumTotal = total.Value;
-                    continue;
-                }
-
-                minimumTotal = Math.Max(minimumTotal.Value, total.Value);
-            }
-
-            return minimumTotal;
+            return featuresToBrowse
+                .OfType<IMinimumAbilityCheckTotal>()
+                .Select(feature => feature.MinimumStrengthAbilityCheckTotal(character, proficiencyName))
+                .Max();
         }
     }
 }
