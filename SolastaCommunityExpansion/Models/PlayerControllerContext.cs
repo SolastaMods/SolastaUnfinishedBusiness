@@ -36,17 +36,17 @@ namespace SolastaCommunityExpansion.Models
         {
             get
             {
-                var ControllersCharacters = ControllersChoices.Keys;
+                var controllersChoices = ControllersChoices.ToDictionary(x => x.Key, x => x.Value);
 
-                foreach (var controllersCharacter in ControllersCharacters)
+                ControllersChoices.Clear();
+
+                foreach (var playerCharacter in PlayerCharacters)
                 {
-                    if (!PlayerCharacters.Contains(controllersCharacter))
-                    {
-                        ControllersChoices.Remove(controllersCharacter);
-                    }
-                }
+                    var choice = PlayerController.ControllerType.Human;
 
-                PlayerCharacters.ForEach(x => ControllersChoices.TryAdd(x, PlayerController.ControllerType.Human));
+                    controllersChoices.TryGetValue(playerCharacter, out choice);
+                    ControllersChoices.Add(playerCharacter, choice);
+                }
 
                 return ControllersChoices.Values.Select(x => x == PlayerController.ControllerType.Human ? 0 : 1).ToArray();
             } 
