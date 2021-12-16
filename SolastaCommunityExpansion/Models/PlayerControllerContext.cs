@@ -40,10 +40,14 @@ namespace SolastaCommunityExpansion.Models
 
             foreach (var playerCharacter in PlayerCharacters)
             {
-                var choice = PlayerController.ControllerType.Human;
-
-                controllersChoices.TryGetValue(playerCharacter, out choice);
-                ControllersChoices.Add(playerCharacter, choice);
+                if (controllersChoices.TryGetValue(playerCharacter, out var choice))
+                {
+                    ControllersChoices.Add(playerCharacter, choice);
+                }
+                else
+                {
+                    ControllersChoices.Add(playerCharacter, PlayerController.ControllerType.Human);
+                }
             }
 
             return ControllersChoices.Values.Select(x => x == PlayerController.ControllerType.Human ? 0 : 1).ToArray();
