@@ -119,7 +119,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             toggle = Main.Settings.AllowStackedMaterialComponent;
-            if (UI.Toggle("Allow stacked material component (e.g. 2x500gp diamond = 1000gp diamond)", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Allow stacked material component " + "[e.g. 2x500gp diamond is equivalent to 1000gp diamond]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.AllowStackedMaterialComponent = toggle;
             }
