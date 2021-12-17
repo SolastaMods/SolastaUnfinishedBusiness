@@ -40,6 +40,7 @@ namespace SolastaCommunityExpansion.Patches
             DungeonMakerContext.Load();
             TelemaCampaignContext.Load();
             EncountersSpawnContext.Load();
+            SrdAndHouseRulesContext.Load();
 
             Main.Enabled = true;
         }

@@ -202,5 +202,6 @@ namespace SolastaCommunityExpansion
 
         public bool ArcaneFighterEnchantWeaponRechargeShortRest { get; set; }
         public bool FixItemFiltering { get; set; } = true;
+        public bool AdjustChainLightningSpell { get; set; }
     }
 }

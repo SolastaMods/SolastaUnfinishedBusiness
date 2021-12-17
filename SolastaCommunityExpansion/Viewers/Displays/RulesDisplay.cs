@@ -61,6 +61,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 SrdAndHouseRulesContext.ApplyConditionBlindedShouldNotAllowOpportunityAttack();
             }
 
+            toggle = Main.Settings.AdjustChainLightningSpell;
+            if (UI.Toggle("Chain lightning spell: allow target selection", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.AdjustChainLightningSpell = toggle;
+                SrdAndHouseRulesContext.AdjustChainLightningSpell();
+            }
+
             UI.Label("");
             UI.Label("House:".yellow());
             UI.Label("");
