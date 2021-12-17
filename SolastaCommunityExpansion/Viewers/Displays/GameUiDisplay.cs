@@ -186,14 +186,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                 UI.Label("");
 
-                toggle = Main.Settings.FixItemFiltering;
-                if (UI.Toggle("Fix item filter " + "(bug fix)".yellow(), ref toggle))
-                {
-                    Main.Settings.FixItemFiltering = toggle;
-                }
-
-                UI.Label("");
-
                 toggle = Main.Settings.UnleashAllMonsters;
                 if (UI.Toggle("Unleash NPCs as enemies " + "[press SHIFT while clicking Select on gadget panel]".italic().yellow(), ref toggle))
                 {

@@ -201,6 +201,6 @@ namespace SolastaCommunityExpansion
         public bool EnableEnemiesControlledByPlayer { get; set; }
 
         public bool ArcaneFighterEnchantWeaponRechargeShortRest { get; set; }
-        public bool FixItemFiltering { get; set; }
+        public bool FixItemFiltering { get; set; } = true;
     }
 }
