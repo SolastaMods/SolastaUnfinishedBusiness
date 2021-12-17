@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 UI.Label("15 - Persistent Rage" + PLANNED);
                 UI.Label("16 - Ability score or feat");
                 UI.Label("17 - Brutal Critical (3 dices)");
-                UI.Label("18 - Indomitable Might" + PLANNED);
+                UI.Label("18 - Indomitable Might");
                 UI.Label("19 - Ability score or feat");
                 UI.Label("20 - Primal Champion");
                 UI.Label("");
