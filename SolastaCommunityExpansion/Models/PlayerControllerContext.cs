@@ -5,68 +5,67 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class PlayerControllerContext
     {
-        private static readonly List<GameLocationCharacter> playerCharacters = new List<GameLocationCharacter>();
+        private static readonly Dictionary<GameLocationCharacter, int> controllersChoices = new Dictionary<GameLocationCharacter, int>();
 
-        private static Dictionary<GameLocationCharacter, PlayerController.ControllerType> ControllersChoices = new Dictionary<GameLocationCharacter, PlayerController.ControllerType>();
+        private static int[] playerCharactersChoices { get; set; }
 
         internal static readonly string[] Controllers = new string[] { "Human", "AI" };
 
-        internal static bool IsOffGame => Gui.Game == null;
-
         internal static bool IsMultiplayer => ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
 
-        internal static List<GameLocationCharacter> PlayerCharacters
+        internal static bool IsOffGame => Gui.Game == null;
+
+        internal static List<GameLocationCharacter> PlayerCharacters { get; private set; } = new List<GameLocationCharacter>();
+
+        internal static int[] PlayerCharactersChoices
         {
-            get
+            get => playerCharactersChoices;
+
+            set
             {
-                var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+                playerCharactersChoices = value;
 
-                playerCharacters.Clear();
-
-                if (gameLocationCharacterService != null)
+                for (var i = 0; i < value.Length; i++)
                 {
-                    playerCharacters.AddRange(gameLocationCharacterService.PartyCharacters);
-                    playerCharacters.AddRange(gameLocationCharacterService.GuestCharacters);
-                }
+                    var playerCharacter = PlayerCharacters[i];
 
-                return playerCharacters;
+                    controllersChoices[playerCharacter] = value[i];
+                }
             }
         }
 
         internal static bool SideFlipped { get; private set; }
 
-        internal static int[] GetUiChoices()
+        internal static void RefreshGuiState()
         {
-            ControllersChoices =
-                PlayerCharacters.ToDictionary(pc => pc, pc => ControllersChoices.TryGetValue(pc, out var choice)
-                        ? choice
-                        : PlayerController.ControllerType.Human);
+            var controllersChoicesCopy = controllersChoices.ToDictionary(x => x.Key, x => x.Value);
+            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
-            return ControllersChoices.Values.Select(x => x == PlayerController.ControllerType.Human ? 0 : 1).ToArray();
-        }
+            controllersChoices.Clear();
+            PlayerCharacters.Clear();
 
-        internal static void SetUiChoices(int[] choices)
-        {
-            if (choices.Length != PlayerCharacters.Count)
+            if (gameLocationCharacterService != null)
             {
-                Main.Warning("Encounters UI: choices and players are out of sync...");
-                return;
+                PlayerCharacters.AddRange(gameLocationCharacterService.PartyCharacters);
+                PlayerCharacters.AddRange(gameLocationCharacterService.GuestCharacters);
             }
 
-            for (var i = 0; i < PlayerCharacters.Count; i++)
-            {
-                var partyCharacter = PlayerCharacters[i];
-                var controllerType = choices[i] == 0 ? PlayerController.ControllerType.Human : PlayerController.ControllerType.AI;
-
-                ControllersChoices.AddOrReplace(partyCharacter, controllerType);
-            }
+            PlayerCharacters.ForEach(x => controllersChoices.Add(x, controllersChoicesCopy.TryGetValue(x, out var choice) ? choice : 0));
+            playerCharactersChoices = controllersChoices.Values.ToArray();
         }
 
         private static void UpdatePartyControllerIds(bool reset = false)
         {
             var activePlayerController = Gui.ActivePlayerController;
 
-            PlayerCharacters.ForEach(x => x.ControllerId = ControllersChoices[x] == PlayerController.ControllerType.Human ? 0 : 1);
+            for (var i = 0; i < PlayerCharacters.Count; i++)
+            {
+                var playerCharacter = PlayerCharacters[i];
+                var controllerId = reset || controllersChoices[playerCharacter] == 0 ? Settings.PLAYER_CONTROLLER_ID : PlayerControllerManager.DmControllerId;
+
+                playerCharacter.ControllerId = controllerId;
+            }
+
             activePlayerController.DirtyControlledCharacters();
         }
 
