@@ -118,6 +118,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.ExactMerchantCostScaling = toggle;
             }
 
+            toggle = Main.Settings.AllowStackedMaterialComponent;
+            if (UI.Toggle("Allow stacked material component (e.g. 2x500gp diamond = 1000gp diamond)", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.AllowStackedMaterialComponent = toggle;
+            }
+
             UI.Label("");
         }
     }
