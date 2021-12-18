@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.Patches
 {
@@ -8,18 +9,28 @@ namespace SolastaCommunityExpansion.Patches
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharactersPanel_OnBeginShow
     {
-        internal static void Postfix(CharactersPanel __instance)
+        internal static void Prefix(ScrollRect ___charactersScrollview, out float __state)
+        {
+            // Remember the current scroll position
+            __state = ___charactersScrollview.verticalNormalizedPosition;
+        }
+
+        internal static void Postfix(CharactersPanel __instance, 
+            ScrollRect ___charactersScrollview, List<CharacterPlateToggle> ___characterPlates, float __state)
         {
             if (CharacterEditionScreen_OnFinishCb.HeroName != null)
             {
-                var mainMenuScreen = __instance.OriginScreen as MainMenuScreen;
-                var charactersPanel = AccessTools.Field(mainMenuScreen.GetType(), "charactersPanel").GetValue(mainMenuScreen) as CharactersPanel;
-                var characterPlates = AccessTools.Field(charactersPanel.GetType(), "characterPlates").GetValue(charactersPanel) as List<CharacterPlateToggle>;
-                var characterPlate = characterPlates.Find(x => x.GuiCharacter.Name == CharacterEditionScreen_OnFinishCb.HeroName);
+                __instance.OnSelectPlate(___characterPlates.Find(x => x.GuiCharacter.Name == CharacterEditionScreen_OnFinishCb.HeroName));
 
                 CharacterEditionScreen_OnFinishCb.HeroName = null;
 
-                charactersPanel.OnSelectPlate(characterPlate);
+                Main.Log($"setting position to {__state}");
+
+                // Reset the scroll position because OnBeginShow sets it to 1.0f.
+                // This keeps the selected character in view unless the panel is sorted by level
+                // in which case the character will move.
+                // TODO: calculate the required character position.
+                ___charactersScrollview.verticalNormalizedPosition = __state;
             }
         }
     }
