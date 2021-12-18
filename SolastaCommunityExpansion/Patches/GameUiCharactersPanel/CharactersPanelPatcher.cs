@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine.UI;
 
-namespace SolastaCommunityExpansion.Patches.GameUiLevelUp
+namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
 {
     [HarmonyPatch(typeof(CharactersPanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

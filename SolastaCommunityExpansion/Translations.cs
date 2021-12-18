@@ -1,7 +1,9 @@
-using I2.Loc;
+﻿using I2.Loc;
 using System.IO;
 
+#pragma warning disable IDE0130 // Namespace does not match folder structure
 namespace SolastaCommunityExpansion
+#pragma warning restore IDE0130 // Namespace does not match folder structure
 {
     internal static class Translations
     {
