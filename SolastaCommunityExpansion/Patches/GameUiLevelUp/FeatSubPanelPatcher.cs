@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.FutureFeatureSorting
+namespace SolastaCommunityExpansion.Patches.GameUiLevelUp
 {
     [HarmonyPatch(typeof(FeatSubPanel), "RuntimeLoaded")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
