@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Patches.Respec
     {
         internal static void Postfix()
         {
-            Functors.FunctorRespec.AbortRespec();
+            Models.RespecContext.FunctorRespec.AbortRespec();
         }
     }
 }

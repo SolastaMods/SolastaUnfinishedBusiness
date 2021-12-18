@@ -38,6 +38,20 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
+            toggle = Main.Settings.AdjustChainLightningSpell;
+            if (UI.Toggle("Allow target selection when casting the " + "Chain Lightning".orange() + " spell: ", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.AdjustChainLightningSpell = toggle;
+                SrdAndHouseRulesContext.AdjustChainLightningSpell();
+            }
+
+            toggle = Main.Settings.EnableConditionBlindedShouldNotAllowOpportunityAttack;
+            if (UI.Toggle("Blinded".orange() + " condition doesn't allow attack of opportunity", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableConditionBlindedShouldNotAllowOpportunityAttack = toggle;
+                SrdAndHouseRulesContext.ApplyConditionBlindedShouldNotAllowOpportunityAttack();
+            }
+
             toggle = Main.Settings.FullyControlAlliedConjurations;
             if (UI.Toggle("Fully control conjurations " + "[animals, elementals, etc]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
@@ -52,20 +66,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 {
                     Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration = toggle;
                 }
-            }
-
-            toggle = Main.Settings.EnableConditionBlindedShouldNotAllowOpportunityAttack;
-            if (UI.Toggle("Blinded".orange() + " condition doesn't allow attack of opportunity", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableConditionBlindedShouldNotAllowOpportunityAttack = toggle;
-                SrdAndHouseRulesContext.ApplyConditionBlindedShouldNotAllowOpportunityAttack();
-            }
-
-            toggle = Main.Settings.AdjustChainLightningSpell;
-            if (UI.Toggle("Chain lightning spell: allow target selection", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.AdjustChainLightningSpell = toggle;
-                SrdAndHouseRulesContext.AdjustChainLightningSpell();
             }
 
             UI.Label("");
@@ -119,16 +119,16 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
             }
 
-            toggle = Main.Settings.ExactMerchantCostScaling;
-            if (UI.Toggle("Scale merchant prices correctly / exactly", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.ExactMerchantCostScaling = toggle;
-            }
-
             toggle = Main.Settings.AllowStackedMaterialComponent;
             if (UI.Toggle("Allow stacked material component " + "[e.g. 2x500gp diamond is equivalent to 1000gp diamond]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.AllowStackedMaterialComponent = toggle;
+            }
+
+            toggle = Main.Settings.ExactMerchantCostScaling;
+            if (UI.Toggle("Scale merchant prices correctly / exactly", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.ExactMerchantCostScaling = toggle;
             }
 
             UI.Label("");

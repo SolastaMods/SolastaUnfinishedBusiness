@@ -39,6 +39,7 @@ namespace SolastaCommunityExpansion
         public bool MultiLineSpellPanel { get; set; } = true;
         public bool MultiLinePowerPanel { get; set; } = true;
         public bool KeepSpellsOpenSwitchingEquipment { get; set; } = true;
+        public bool KeepCharactersPanelOpenAndHeroSelectedOnLevelUp { get; set; } = true;
         public bool BugFixExpandColorTables { get; set; } = true;
         public bool AllowDynamicPowers { get; set; } = true;
 
