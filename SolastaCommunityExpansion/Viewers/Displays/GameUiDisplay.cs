@@ -178,10 +178,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                 UI.Label("");
 
-                toggle = Main.Settings.UnleashAllMonsters;
+                toggle = Main.Settings.DungeonMakerEditorBetterTooltips;
                 if (UI.Toggle("Enable better tooltip on dungeon maker editor " + "[selected items or monsters on gadget detail screen]".italic().yellow(), ref toggle))
                 {
-                    Main.Settings.UnleashAllMonsters = toggle;
+                    Main.Settings.DungeonMakerEditorBetterTooltips = toggle;
                 }
 
                 UI.Label("");
