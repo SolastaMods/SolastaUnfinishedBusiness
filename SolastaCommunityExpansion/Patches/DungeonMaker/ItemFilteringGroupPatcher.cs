@@ -9,6 +9,10 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class ItemFilteringGroup_Refresh
     {
+        /// <summary>
+        /// Bug fix issue with item filtering.
+        /// Without the fix searching for say 'Diamond' fails, but searching for 'iamond' finds 'Diamond'.
+        /// </summary>
         public static bool Prefix(
             ItemFilteringGroup __instance, 
             List<ItemDefinition> ___itemsList,

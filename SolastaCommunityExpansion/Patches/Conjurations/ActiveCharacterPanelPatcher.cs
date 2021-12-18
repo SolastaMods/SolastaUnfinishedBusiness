@@ -8,6 +8,11 @@ namespace SolastaCommunityExpansion.Patches.Conjurations
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class ActiveCharacterPanel_OnStopConcentratingCb
     {
+        /// <summary>
+        /// Dismiss a summoned Elemental when deliberately dropping concentration (as per my understanding of SRD).
+        /// Elemental still turns hostile when concentration broken by enemy or when casting another concentration spell
+        /// without first dropping concentration.
+        /// </summary>
         internal static void Prefix(ActiveCharacterPanel __instance)
         {
             if(!Main.Settings.FullyControlAlliedConjurations || !Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration)
