@@ -139,7 +139,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             private static ActionDefinition CreateAndAddToDB(string name, string guid) 
                 => new RogueSubclassThugBrutalMethodsActionBuilder(name, guid).AddToDB();
 
-            public static ActionDefinition ThugBrutalMethodsAction 
+            internal static readonly ActionDefinition ThugBrutalMethodsAction 
                 = CreateAndAddToDB(RogueSubclassThugBrutalMethodsActionName, RogueSubclassThugBrutalMethodsActionGuid);
         }
 
@@ -163,7 +163,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             private static FeatureDefinitionAbilityCheckAffinity CreateAndAddToDB(string name, string guid)
                 => new RogueSubclassThugOvercomeCompetitionBuilder(name, guid).AddToDB();
 
-            internal static FeatureDefinitionAbilityCheckAffinity ThugOvercomeCompetition = 
+            internal static readonly FeatureDefinitionAbilityCheckAffinity ThugOvercomeCompetition = 
                 CreateAndAddToDB(RogueSubclassThugOvercomeCompetitionName, RogueSubclassThugOvercomeCompetitionGuid);
         }
     }
