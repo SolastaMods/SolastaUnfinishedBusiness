@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using System.Diagnostics.CodeAnalysis;
 
-namespace SolastaCommunityExpansion.Patches.FutureFeatureSorting
+namespace SolastaCommunityExpansion.Patches.GameUiLevelUp
 {
     [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "FillClassFeatures")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
