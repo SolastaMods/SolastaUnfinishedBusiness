@@ -65,10 +65,12 @@ namespace SolastaCommunityExpansion
         public List<string> FeatEnabled { get; private set; } = new List<string>();
         public List<string> SubclassEnabled { get; private set; } = new List<string>();
         public List<string> FightingStyleEnabled { get; private set; } = new List<string>();
+        public List<string> SpellEnabled { get; private set; } = new List<string>();
 
         public int FeatSliderPosition { get; set; } = 1;
         public int SubclassSliderPosition { get; set; } = 1;
         public int FightingStyleSliderPosition { get; set; } = 1;
+        public int SpellSliderPosition { get; set; } = 1;
 
         public int RogueConArtistSpellDCBoost { get; set; } = 3;
         public int MasterManipulatorSpellDCBoost { get; set; } = 2;

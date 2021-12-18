@@ -629,19 +629,19 @@ Subclass/&WeaponProfArcaneFighterDescription Experience in combat has given the 
 Subclass/&WeaponProfArcaneFighterTitle  Weapon Training
 Class/&WitchTitle	Witch
 Class/&WitchDescription	Afflicted by a sinister curse, witches can spin dark magic into Maledictions, which they use to debilitate foes. They are also accompanied by their familiars, loyal magical companions which they use to deal the killing blow.
-Class/&WitchSavingthrowProficiencyTitle	Saving Throw Proficiencies
+Class/&WitchSavingthrowProficiencyTitle	Witch Saving Throw Proficiencies
 Class/&WitchSavingthrowProficiencyDescription	Wisdom, Charisma
 Class/&WitchSkillProficiencyTitle	Witch Skills
 Class/&WitchSkillProficiencyDescription	Choose two from Arcana, Deception, Insight, Intimidation, Persuasion, Nature, and Religion
 Class/&WitchWeaponProficiencyTitle	Witch Weapon Proficiencies
-Class/&WitchWeaponProficiencyDescription	Simple weapons
+Class/&WitchWeaponProficiencyDescription	Simple Weapons
 Class/&WitchArmorProficiencyTitle	Witch Armor Proficiencies
 Class/&WitchArmorProficiencyDescription	Light Armor
 Class/&WitchToolProficiencyTitle	Witch Tool Proficiencies
 Class/&WitchToolProficiencyDescription	Choose one from Herbalist Kit and Poisoner's Kit
 Class/&WitchSpellcastingTitle	Witch Spellcasting
 Class/&WitchSpellcastingDescription	Can cast spells from the Witch spell list.
-Class/&WitchFeatureSetRitualCastingTitle	Ritual Casting
+Class/&WitchFeatureSetRitualCastingTitle	Witch Ritual Casting
 Class/&WitchFeatureSetRitualCastingDescription	You can cast any witch spell you know as a ritual if that spell has the ritual tag.
 Class/&WitchFeatureSetWitchCurseTitle	Witch Curse
 Class/&WitchFeatureSetWitchCurseDescription	You are wracked by a terrible curse which infects your body and soul.
@@ -679,9 +679,14 @@ Subclass/&GreenWitchTitle	Green Witch
 Subclass/&GreenWitchDescription	Plants, nature, and things that grow are the domain of green magic. Normally a type of arcana championed by druids, some witches have a close tie to the powers of green magic, and can coax plants and animals into their bidding.
 Subclass/&PurpleWitchTitle	Purple Witch
 Subclass/&PurpleWitchDescription	Purple magic holds sway over the domains of illusions and enchantments that take hold over people's minds, and anything that is not quite as it seems. Practitioners of this form of magic are puppet masters, shaping the apparent reality of those around them to their advantage.
+Subclass/&GreenWitchMagicTitle	Green Magic
+Subclass/&GreenWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel	Spells\n1st	Entangle, Goodberry\n2nd	Barkskin, Protection from Poison\n3rd	Conjure Animals, Create Food\n4th	Giant Insect, Stoneskin\n5th	Dispel Evil and Good, Insect Plague
 Stage/&SubclassSelectionStageCovenTitle	Coven
 Stage/&SubclassSelectionStageCovenDescription	Coven
 Stage/&SubclassSelectionStageCovenHeader	Select a Coven
+Stage/&SubclassSelectionStageCovenFeaturesTitle	Coven
+Stage/&SubclassSelectionStageCovenFeaturesDescription	Coven
+Stage/&SubclassSelectionStageCovenFeaturesHeader	Coven Features
 Spell/&WitchFamiliarTitle	Find Witch Familiar
 Spell/&WitchFamiliarDescription	You gain the service of a familiar.
 Spell/&EldritchOrbTitle	Eldritch Orb
@@ -691,11 +696,11 @@ Spell/&FindFamiliarDescription	You gain the service of a familiar.
 Spell/&MinorLifestealTitle	Minor Lifesteal
 Spell/&MinorLifestealDescription	You drain life energy from a hostile creature you can see within range. You then gain temporary hit points equal to the amount of damage dealt, which lasts until you finish a long rest. This spell has no effect on undead or constructs.
 Spell/&PetalStormTitle	Petal Storm
-Spell/&PetalStormDescription	Choose an unoccupied 15-foot cube of air that you can see within range. An elemental force of swirling winds appears in the cube and lasts for the spell’s duration. The cloud heavily obscures its area. Any creature that enters the storm for the first time on a turn or starts its turn there must make a Strength saving throw. On a failed save, the creature takes 3d4 slashing damage. As a bonus action, you can move the storm up to 30 feet in any direction.
+Spell/&PetalStormDescription	Choose an unoccupied 15-foot cube of air that you can see within range. An elemental force of swirling winds appears in the cube and lasts for the spell's duration. The cloud heavily obscures its area. Any creature that enters the storm for the first time on a turn or starts its turn there must make a Strength saving throw. On a failed save, the creature takes 3d4 slashing damage. As a bonus action, you can move the storm up to 30 feet in any direction.
 Spell/&ProtectThresholdTitle	Protect Threshold
 Spell/&ProtectThresholdDescription	Tracing arcane sigils along its boundary, you can ward a doorway, window, or other portal from entry. For the duration, an invisible eldritch creature stalks the warded portal. Any creature that attempts to pass through the portal must make a Wisdom saving throw or take 4d6 psychic damage, or half as much on a successful save.
 Spell/&FrenzyTitle	Frenzy
-Spell/&FrenzyDescription	With a gesture, you reduce a crowd to base instinct and violence. Choose a point you can see within range. Each creature within 20 feet of that point must make a Wisdom saving throw. On a failed save, a creature is frenzied for the duration. When a creature is frenzied, it draws a melee weapon, if it has one. A frenzied creature must use its action at the beginning of its turn to attack a creature within its reach. It uses a melee weapon, if it has one, or an improvised weapon or unarmed strike, if it doesn’t. If multiple targets are within the creature’s reach, it chooses its target randomly. If there is no target within the creature’s reach, it attacks itself, against its own AC, dealing damage as normal on a hit. At the end of its turn, a frenzied creature can repeat its saving throw, ending the effect on it early on a success.
+Spell/&FrenzyDescription	With a gesture, you reduce a crowd to base instinct and violence. Choose a point you can see within range. Each creature within 20 feet of that point must make a Wisdom saving throw. On a failed save, a creature is frenzied for the duration. When a creature is frenzied, it draws a melee weapon, if it has one. A frenzied creature must use its action at the beginning of its turn to attack a creature within its reach. It uses a melee weapon, if it has one, or an improvised weapon or unarmed strike, if it doesn't. If multiple targets are within the creature's reach, it chooses its target randomly. If there is no target within the creature's reach, it attacks itself, against its own AC, dealing damage as normal on a hit. At the end of its turn, a frenzied creature can repeat its saving throw, ending the effect on it early on a success.
 Power/&FamiliarHelpActionTitle	Help
 Power/&FamiliarHelpActionDescription	You can aid a friendly creature in attacking a creature within 5 feet of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage. 
 Condition/&RuinedDescription	This creature's defence is reduced.

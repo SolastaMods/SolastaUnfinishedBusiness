@@ -29,4 +29,11 @@ namespace SolastaCommunityExpansion.Helpers
         Known = 1337
     }
 
+    public enum ExtraTargetFilteringTags
+    {
+        No = RuleDefinitions.TargetFilteringTag.No,
+        Unarmored = RuleDefinitions.TargetFilteringTag.Unarmored,
+        MetalArmor = RuleDefinitions.TargetFilteringTag.MetalArmor,
+        CursedByMalediction = 1337
+    }
 }
