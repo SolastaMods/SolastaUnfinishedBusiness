@@ -431,13 +431,15 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     new GuiPresentationBuilder(
                         "Class/&WitchFeatureSetRitualCastingDescription",
                         "Class/&WitchFeatureSetRitualCastingTitle").Build())
-                    .SetFeature(new FeatureDefinitionMagicAffinityBuilder(
+                    .ClearFeatures()
+                    .AddFeature(new FeatureDefinitionMagicAffinityBuilder(
                             "WitchRitualCastingMagicAffinity",
                             GuidHelper.Create(WITCH_BASE_GUID, "WitchRitualCastingMagicAffinity").ToString(),
                             new GuiPresentationBuilder(
                                     "Class/&WitchRitualCastingMagicAffinityDescription",
                                     "Class/&WitchRitualCastingMagicAffinityTitle").Build())
-                    .SetRitualCasting((RuleDefinitions.RitualCasting)ExtraRitualCasting.Known).AddToDB())
+                            .SetRitualCasting((RuleDefinitions.RitualCasting)ExtraRitualCasting.Known).AddToDB())
+                    .AddFeature(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinityWizardRitualCasting)
                     .AddToDB();
 
         }
@@ -445,42 +447,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
         private static void BuildWitchCurses()
         {
 
-            FeatureDefinitionFeatureSetRitualCasting = new FeatureDefinitionFeatureSetBuilder(
-                    DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
-                    "WitchFeatureSetRitualCasting",
-                    GuidHelper.Create(WITCH_BASE_GUID, "WitchFeatureSetRitualCasting").ToString(),
-                    new GuiPresentationBuilder(
-                        "Class/&WitchFeatureSetRitualCastingDescription",
-                        "Class/&WitchFeatureSetRitualCastingTitle").Build())
-                    .SetFeature(new FeatureDefinitionMagicAffinityBuilder(
-                            "WitchRitualCastingMagicAffinity",
-                            GuidHelper.Create(WITCH_BASE_GUID, "WitchRitualCastingMagicAffinity").ToString(),
-                            new GuiPresentationBuilder(
-                                    "Class/&WitchRitualCastingMagicAffinityDescription",
-                                    "Class/&WitchRitualCastingMagicAffinityTitle").Build())
-                    .SetRitualCasting((RuleDefinitions.RitualCasting)ExtraRitualCasting.Known).AddToDB())
-                    .AddToDB();
-
         }
 
         private static void BuildMaledictions()
         {
-
-            FeatureDefinitionFeatureSetRitualCasting = new FeatureDefinitionFeatureSetBuilder(
-                    DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
-                    "WitchFeatureSetRitualCasting",
-                    GuidHelper.Create(WITCH_BASE_GUID, "WitchFeatureSetRitualCasting").ToString(),
-                    new GuiPresentationBuilder(
-                        "Class/&WitchFeatureSetRitualCastingDescription",
-                        "Class/&WitchFeatureSetRitualCastingTitle").Build())
-                    .SetFeature(new FeatureDefinitionMagicAffinityBuilder(
-                            "WitchRitualCastingMagicAffinity",
-                            GuidHelper.Create(WITCH_BASE_GUID, "WitchRitualCastingMagicAffinity").ToString(),
-                            new GuiPresentationBuilder(
-                                    "Class/&WitchRitualCastingMagicAffinityDescription",
-                                    "Class/&WitchRitualCastingMagicAffinityTitle").Build())
-                    .SetRitualCasting((RuleDefinitions.RitualCasting)ExtraRitualCasting.Known).AddToDB())
-                    .AddToDB();
 
         }
 
@@ -544,22 +514,6 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
         private static void BuildWitchFamiliar()
         {
-
-            FeatureDefinitionFeatureSetRitualCasting = new FeatureDefinitionFeatureSetBuilder(
-                    DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
-                    "WitchFeatureSetRitualCasting",
-                    GuidHelper.Create(WITCH_BASE_GUID, "WitchFeatureSetRitualCasting").ToString(),
-                    new GuiPresentationBuilder(
-                        "Class/&WitchFeatureSetRitualCastingDescription",
-                        "Class/&WitchFeatureSetRitualCastingTitle").Build())
-                    .SetFeature(new FeatureDefinitionMagicAffinityBuilder(
-                            "WitchRitualCastingMagicAffinity",
-                            GuidHelper.Create(WITCH_BASE_GUID, "WitchRitualCastingMagicAffinity").ToString(),
-                            new GuiPresentationBuilder(
-                                    "Class/&WitchRitualCastingMagicAffinityDescription",
-                                    "Class/&WitchRitualCastingMagicAffinityTitle").Build())
-                    .SetRitualCasting((RuleDefinitions.RitualCasting)ExtraRitualCasting.Known).AddToDB())
-                    .AddToDB();
 
         }
 
