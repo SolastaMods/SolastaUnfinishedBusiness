@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 using ModKit;
 using UnityModManagerNet;
 using static SolastaCommunityExpansion.Viewers.Displays.CreditsDisplay;
@@ -37,8 +37,8 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("\n\n[list=1]");
                 collectedString.Append("\n[*] [b]Solasta Mod API[/b] - Provides the basis for all other mods to work");
                 collectedString.Append("\n[*] [b]Solasta Community Expansion[/b] - About 40 mods from the community were consolidated here. 40 Feats, 10 Subclasses, Bug Fixes, etc.");
+                collectedString.Append("\n[*] [b]Solasta Community Expansion - Multiclass[/b] - Brings SRD official multiclassing rules into Solasta.");
                 collectedString.Append("\n[*] [b]Solasta Dungeon Maker PRO[/b] - Offers multiplayer with up to 4 users, additional design options for Dungeon Creators, Lua Scripting, etc.");
-                collectedString.Append("\n[*] [b]Solasta Unfinished Business[/b] - Brings SRD official multiclassing rules into Solasta.");
                 collectedString.Append("\n[/list]");
                 collectedString.Append("\n[heading] How to Report Bugs[/heading]");
                 collectedString.Append("\n[list]");
@@ -53,7 +53,6 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("\n[*]Set level cap to 20");
                 collectedString.Append("\n[*]Allow respecing characters");
                 collectedString.Append("\n[*]Disable sense and superior darkvision");
-                collectedString.Append("\n[*]Increase normal vision range");
                 collectedString.Append("\n[*]Alternate Human [+1 feat / +2 attribute choices / +1 skill]");
                 collectedString.Append("\n[*]Flexible races [Assign ability score points instead of the racial defaults (example: High Elf has 3 points to assign instead of +2 Dex/+1 Int)]");
                 collectedString.Append("\n[*]Flexible backgrounds [Select skill and tool proficiencies from backgrounds]");
@@ -87,15 +86,19 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("\n[line]\n");
                 collectedString.Append("[heading]Gameplay Rules[/heading]\n[list]");
                 collectedString.Append("\n[*]Use official advantage/disadvantage rules");
-                collectedString.Append("\n[*]Fully control conjurations");
-                collectedString.Append("\n[*]Improved handling of conjuration spells (dismiss conjuration doesn't trigger hostility, player control both in and out of combat)");
                 collectedString.Append("\n[*]Use official surprise rules");
+                collectedString.Append("\n[*]Roll different Stealth checks for each surprised / surprising pairs");
+                collectedString.Append("\n[*]Allow target selection when casting the Chain Lightning Spell");
+                collectedString.Append("\n[*]Fully control conjurations [animals, elementals, etc]");
+                collectedString.Append("\n[*]Improved handling of conjuration spells (dismiss conjuration doesn't trigger hostility, player control both in and out of combat)");
                 collectedString.Append("\n[*]Blinded condition doesn't allow attack of opportunity");
                 collectedString.Append("\n[*]Allow any class to wear sylvan armor");
-                collectedString.Append("\n[*]Make all magic staves arcane foci");
                 collectedString.Append("\n[*]Allow Druids to wear metal armor");
-                collectedString.Append("\n[*]Add pickpocketable loot");
                 collectedString.Append("\n[*]Disable auto-equip");
+                collectedString.Append("\n[*]Make all magic staves arcane foci");
+                collectedString.Append("\n[*]Increase normal vision range");
+                collectedString.Append("\n[*]Add pickpocketable loot");
+                collectedString.Append("\n[*]Allow stackable material components");
                 collectedString.Append("\n[*]Scale merchant prices correctly/exactly");
                 collectedString.Append("\n[/list]");
                 collectedString.Append("\n[line]\n");
