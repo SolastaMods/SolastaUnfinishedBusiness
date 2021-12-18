@@ -39,7 +39,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.AdjustChainLightningSpell;
-            if (UI.Toggle("Allow target selection when casting the " + "Chain Lightning".orange() + " spell: ", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Allow target selection when casting the " + "Chain Lightning".orange() + " spell", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.AdjustChainLightningSpell = toggle;
                 SrdAndHouseRulesContext.AdjustChainLightningSpell();
