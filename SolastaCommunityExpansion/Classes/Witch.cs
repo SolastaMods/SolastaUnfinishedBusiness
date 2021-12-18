@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using SolastaModApi;
 using SolastaModApi.BuilderHelpers;
@@ -875,7 +875,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     .AddToDB();
 
 
-            var maledictions = new FeatureDefinitionFeatureSetBuilder(
+            FeatureDefinitionFeatureSetMaledictions = new FeatureDefinitionFeatureSetBuilder(
                     DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
                     "WitchFeatureSetMaledictions",
                     GuidHelper.Create(WITCH_BASE_GUID, "WitchFeatureSetMaledictions").ToString(),
