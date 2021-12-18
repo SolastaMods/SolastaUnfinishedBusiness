@@ -142,7 +142,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         public static FeatureDefinitionMagicAffinity BuildMagicAffinityConcentration(RuleDefinitions.ConcentrationAffinity concentrationAffinity, int threshold, string name, GuiPresentation guiPresentation)
         {
             FeatureDefinitionMagicAffinityBuilder builder = new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
-                guiPresentation).SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, threshold);
+                guiPresentation).SetConcentrationModifiers(concentrationAffinity, threshold);
             return builder.AddToDB();
         }
 
