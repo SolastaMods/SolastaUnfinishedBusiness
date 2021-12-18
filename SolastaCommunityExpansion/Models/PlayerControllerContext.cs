@@ -5,61 +5,53 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class PlayerControllerContext
     {
-        private static readonly Dictionary<GameLocationCharacter, PlayerController.ControllerType> ControllersChoices = new Dictionary<GameLocationCharacter, PlayerController.ControllerType>();
+        private static readonly Dictionary<GameLocationCharacter, int> controllersChoices = new Dictionary<GameLocationCharacter, int>();
+
+        private static int[] playerCharactersChoices { get; set; }
 
         internal static readonly string[] Controllers = new string[] { "Human", "AI" };
 
-        internal static bool IsOffGame => Gui.Game == null;
-
         internal static bool IsMultiplayer => ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
 
-        internal static List<GameLocationCharacter> PlayerCharacters
+        internal static bool IsOffGame => Gui.Game == null;
+
+        internal static List<GameLocationCharacter> PlayerCharacters { get; private set; } = new List<GameLocationCharacter>();
+
+        internal static int[] PlayerCharactersChoices
         {
-            get
+            get => playerCharactersChoices;
+
+            set
             {
-                var result = new List<GameLocationCharacter>();
-                var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+                playerCharactersChoices = value;
 
-                if (gameLocationCharacterService != null)
+                for (var i = 0; i < value.Length; i++)
                 {
-                    result.AddRange(gameLocationCharacterService.PartyCharacters);
-                    result.AddRange(gameLocationCharacterService.GuestCharacters);
-                }
+                    var playerCharacter = PlayerCharacters[i];
 
-                return result;
+                    controllersChoices[playerCharacter] = value[i];
+                }
             }
         }
 
         internal static bool SideFlipped { get; private set; }
 
-        internal static int[] UiChoices 
+        internal static void RefreshGuiState()
         {
-            get
+            var controllersChoicesCopy = controllersChoices.ToDictionary(x => x.Key, x => x.Value);
+            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+
+            controllersChoices.Clear();
+            PlayerCharacters.Clear();
+
+            if (gameLocationCharacterService != null)
             {
-                var ControllersCharacters = ControllersChoices.Keys;
-
-                foreach (var controllersCharacter in ControllersCharacters)
-                {
-                    if (!PlayerCharacters.Contains(controllersCharacter))
-                    {
-                        ControllersChoices.Remove(controllersCharacter);
-                    }
-                }
-
-                PlayerCharacters.ForEach(x => ControllersChoices.TryAdd(x, PlayerController.ControllerType.Human));
-
-                return ControllersChoices.Values.Select(x => x == PlayerController.ControllerType.Human ? 0 : 1).ToArray();
-            } 
-            set
-            {
-                for (var i = 0; i < PlayerCharacters.Count; i++)
-                {
-                    var partyCharacter = PlayerCharacters[i];
-                    var controllerType = value[i] == 0 ? PlayerController.ControllerType.Human : PlayerController.ControllerType.AI;
-
-                    ControllersChoices.AddOrReplace<GameLocationCharacter, PlayerController.ControllerType>(partyCharacter, controllerType);
-                }
+                PlayerCharacters.AddRange(gameLocationCharacterService.PartyCharacters);
+                PlayerCharacters.AddRange(gameLocationCharacterService.GuestCharacters);
             }
+
+            PlayerCharacters.ForEach(x => controllersChoices.Add(x, controllersChoicesCopy.TryGetValue(x, out var choice) ? choice : 0));
+            playerCharactersChoices = controllersChoices.Values.ToArray();
         }
 
         private static void UpdatePartyControllerIds(bool reset = false)
@@ -68,9 +60,10 @@ namespace SolastaCommunityExpansion.Models
 
             for (var i = 0; i < PlayerCharacters.Count; i++)
             {
-                var controllerId = reset || UiChoices[i] == 0 ? Settings.PLAYER_CONTROLLER_ID : PlayerControllerManager.DmControllerId;
+                var playerCharacter = PlayerCharacters[i];
+                var controllerId = reset || controllersChoices[playerCharacter] == 0 ? Settings.PLAYER_CONTROLLER_ID : PlayerControllerManager.DmControllerId;
 
-                PlayerCharacters[i].ControllerId = controllerId;
+                playerCharacter.ControllerId = controllerId;
             }
 
             activePlayerController.DirtyControlledCharacters();

@@ -61,6 +61,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 SrdAndHouseRulesContext.ApplyConditionBlindedShouldNotAllowOpportunityAttack();
             }
 
+            toggle = Main.Settings.AdjustChainLightningSpell;
+            if (UI.Toggle("Chain lightning spell: allow target selection", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.AdjustChainLightningSpell = toggle;
+                SrdAndHouseRulesContext.AdjustChainLightningSpell();
+            }
+
             UI.Label("");
             UI.Label("House:".yellow());
             UI.Label("");
@@ -116,6 +123,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (UI.Toggle("Scale merchant prices correctly / exactly", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.ExactMerchantCostScaling = toggle;
+            }
+
+            toggle = Main.Settings.AllowStackedMaterialComponent;
+            if (UI.Toggle("Allow stacked material component " + "[e.g. 2x500gp diamond is equivalent to 1000gp diamond]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.AllowStackedMaterialComponent = toggle;
             }
 
             UI.Label("");
