@@ -629,3 +629,13 @@ Subclass/&TraditionSpellMasterSpellResistanceTitle Spell Resistance
 Subclass/&TraditionSpellMasterTitle Spell Master
 Subclass/&WeaponProfArcaneFighterDescription Experience in combat has given the Arcane Fighter training in Simple and Martial Weapons.
 Subclass/&WeaponProfArcaneFighterTitle  Weapon Training
+Subclass/&KSRogueSubclassThugTitle	Thug
+Subclass/&KSRogueSubclassThugDescription Thugs are sharp-minded combattants who seek the thrill of the fight and will make their enemies bite the dust by any means necessary. They benefit from an advanced martial training and learn to make use of their wit and brawn alike to triumph in battle.
+Feature/&KSRogueSubclassThugExploitVulnerabilitiesSneakAttackTitle Polyvalent Sneak Attack
+Feature/&KSRogueSubclassThugExploitVulnerabilitiesSneakAttackDescription You are able to use Sneak Attack with any kind of melee weapon, not restricted to finesse weapons.\n1d6 extra damage (+1d6 every 2 levels) to one creature you hit with the advantage, once per turn. No need for advantage if an active ally is next to the target.
+Feature/&KSRogueSubclassThugProficienciesTitle Heavy Gear
+Feature/&KSRogueSubclassThugProficienciesDescription Proficient with medium armors and shields.
+Feature/&KSRogueSubclassThugBrutalMethodsTitle Brutal Methods
+Feature/&KSRogueSubclassThugBrutalMethodsDescription You can shove as a bonus action.
+Feature/&KSRogueSubclassThugOvercomeCompetitionTitle Overcome Competition
+Feature/&KSRogueSubclassThugOvercomeCompetitionDescription You have advantage on your Athletics (Strength) checks.

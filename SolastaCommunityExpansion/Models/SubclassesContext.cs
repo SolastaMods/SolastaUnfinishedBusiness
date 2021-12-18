@@ -26,6 +26,7 @@ namespace SolastaCommunityExpansion.Models
             LoadSubclass(new Tactician());
             LoadSubclass(new RoyalKnight());
             LoadSubclass(new PathOfTheLight());
+            LoadSubclass(new Thug());
         }
 
         private static void LoadSubclass(AbstractSubclass subclassBuilder)
