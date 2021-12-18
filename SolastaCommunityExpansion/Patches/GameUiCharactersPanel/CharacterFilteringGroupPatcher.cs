@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.Sorting
+namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
 {
     // Modify sorting on characters panel.
     // The default sort is by character class, which actually sorts on class+path.
