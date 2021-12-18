@@ -206,5 +206,6 @@ namespace SolastaCommunityExpansion
         public bool AllowStackedMaterialComponent { get; set; }
         public bool FixItemFiltering { get; set; } = true;
         public bool AdjustChainLightningSpell { get; set; }
+        public bool BugFixOnCanSaveToggleChanged { get; set; } = true;
     }
 }
