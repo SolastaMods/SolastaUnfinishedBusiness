@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using static SolastaCommunityExpansion.Models.Level20Context;
 
-namespace SolastaCommunityExpansion.Patches
+namespace SolastaCommunityExpansion.Patches.Level20
 {
     // replaces the hard coded experience
     [HarmonyPatch(typeof(RulesetCharacterHero), "RegisterAttributes")]

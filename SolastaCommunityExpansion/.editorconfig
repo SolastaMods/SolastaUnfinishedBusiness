@@ -66,9 +66,14 @@ dotnet_naming_rule.constant_fields_should_be_pascal_case.style    = pascal_case_
 dotnet_naming_symbols.constant_fields.applicable_kinds            = field
 dotnet_naming_symbols.constant_fields.applicable_accessibilities  = *
 dotnet_naming_symbols.constant_fields.required_modifiers          = const
+dotnet_style_namespace_match_folder=true:warning
 ###############################
 # C# Coding Conventions       #
 ###############################
+
+# IDE0130: Namespace does not match folder structure
+dotnet_diagnostic.IDE0130.severity = warning
+
 [*.cs]
 # var preferences
 csharp_style_var_for_built_in_types = true:silent
