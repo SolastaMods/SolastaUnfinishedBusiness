@@ -18,8 +18,6 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
             }
 
             return true;
-        }
-
-       
+        }      
     }
 }
