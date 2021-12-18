@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class DatabaseSelectionModal_BuildMonsters
     {
-        internal static void Prefix(DatabaseSelectionModal __instance, List<MonsterDefinition> ___allMonsters)
+        internal static void Prefix(List<MonsterDefinition> ___allMonsters)
         {
             bool isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 
@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class DatabaseSelectionModal_BuildNpcs
     {
-        internal static void Prefix(DatabaseSelectionModal __instance, List<MonsterDefinition> ___allNpcs)
+        internal static void Prefix(List<MonsterDefinition> ___allNpcs)
         {
             bool isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 
