@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 namespace SolastaCommunityExpansion.Patches
 {
@@ -10,17 +11,13 @@ namespace SolastaCommunityExpansion.Patches
     {
         internal static void Prefix(CharacterBuildingManager __instance, List<FeatureDefinition> grantedFeatures)
         {
-            foreach (var grantedFeature in grantedFeatures)
+            foreach (var negativeFeatureDefinition in grantedFeatures.OfType<Subclasses.Rogue.Thug.NegativeFeatureDefinition>())
             {
-                if (grantedFeature is Subclasses.Rogue.Thug.NegativeFeatureDefinition negativeFeatureDefinition)
+                foreach (var activeFeature in __instance.HeroCharacter.ActiveFeatures)
                 {
-                    foreach (var activeFeature in __instance.HeroCharacter.ActiveFeatures)
-                    {
-                        activeFeature.Value.RemoveAll(feature => feature == negativeFeatureDefinition.FeatureToRemove);
-                    }
+                    activeFeature.Value.RemoveAll(x => x == negativeFeatureDefinition.FeatureToRemove);
                 }
             }
         }
     }
-
 }
