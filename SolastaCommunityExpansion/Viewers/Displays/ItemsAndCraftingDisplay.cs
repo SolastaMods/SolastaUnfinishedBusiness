@@ -198,7 +198,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.CreateAdditionalFoci;
-                if (UI.Toggle("Stocks Hugo's store with new foci items " + "[Arcane Staff / Druid Neck, Staff and Club]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Stocks Hugo's store with new foci items " + "[Arcane Staff, Druid Neck, Staff and Club]".italic().yellow(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.CreateAdditionalFoci = toggle;
                     ItemOptionsContext.SwitchFociItems();
