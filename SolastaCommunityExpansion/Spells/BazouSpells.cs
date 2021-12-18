@@ -14,6 +14,7 @@ namespace SolastaCommunityExpansion.Spells
         {
 
             spells.Add(BuildEldritchOrb());
+            spells.Add(BuildFindFamiliar());
             spells.Add(BuildFrenzy());
             spells.Add(BuildMinorLifesteal());
             spells.Add(BuildPetalStorm());
@@ -71,6 +72,96 @@ namespace SolastaCommunityExpansion.Spells
             effectForm.SetHasSavingThrow(true);
             effectForm.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
             effectForm.DamageForm.SetDieType(RuleDefinitions.DieType.D4);
+
+            spell.EffectDescription.EffectForms.Add(effectForm);
+
+            return spell;
+
+        }
+        private static SpellDefinition BuildFindFamiliar()
+        {
+
+            var familiarMonsterBuilder = new MonsterBuilder(
+                    "Owl",
+                    GuidHelper.Create(SPELLS_BASE_GUID, "Owl").ToString(),
+//                    DatabaseHelper.MonsterDefinitions.Eagle_Matriarch.GuiPresentation.Title,
+//                    DatabaseHelper.MonsterDefinitions.Eagle_Matriarch.GuiPresentation.Description,
+                    "Owl",
+                    "Owl",
+                    DatabaseHelper.MonsterDefinitions.Eagle_Matriarch)
+                    .ClearFeatures()
+                    .AddFeatures(new List<FeatureDefinition>{
+                            DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
+                            DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision24,
+                            DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove2,
+                            DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
+                            DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenSight,
+                            DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenHearing,
+                            DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityFlyby,
+                            DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
+                            DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
+                            DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity,
+                            })
+                    .ClearAttackIterations()
+                    .ClearSkillScores()
+                    .AddSkillScores(new List<MonsterSkillProficiency>{
+                            new MonsterSkillProficiency(DatabaseHelper.SkillDefinitions.Perception.Name, 3),
+                            new MonsterSkillProficiency(DatabaseHelper.SkillDefinitions.Stealth.Name, 3)
+                    })
+                    .SetArmorClass(11)
+                    .SetAbilityScores(3,13,8,2,12,7)
+                    .SetHitDiceNumber(1)
+                    .SetHitDiceType(RuleDefinitions.DieType.D4)
+                    .SetHitPointsBonus(-1)
+                    .SetStandardHitPoints(1)
+                    .SetSizeDefinition(DatabaseHelper.CharacterSizeDefinitions.Tiny)
+                    .SetAlignment(DatabaseHelper.AlignmentDefinitions.Unaligned.Name)
+                    .SetChallengeRating(0)
+                    .SetDroppedLootDefinition(null);
+
+            if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out FeatureDefinition help)){
+                    familiarMonsterBuilder.AddFeatures(new List<FeatureDefinition>{help});}
+
+            var familiarMonster = familiarMonsterBuilder.AddToDB();
+
+            var spellBuilder = new SpellBuilder(
+                    DatabaseHelper.SpellDefinitions.Fireball, 
+                    "FindFamiliar",
+                    GuidHelper.Create(SPELLS_BASE_GUID, "FindFamiliar").ToString());
+
+            spellBuilder.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolConjuration);
+            spellBuilder.SetMaterialComponent(RuleDefinitions.MaterialComponentType.Specific);
+            spellBuilder.SetSomaticComponent(true);
+            spellBuilder.SetVerboseComponent(true);
+            spellBuilder.SetSpellLevel(1);
+            spellBuilder.SetCastingTime(RuleDefinitions.ActivationTime.Hours1);
+            // BUG: Unable to have 70 minutes ritual casting time... if set to 10 minutes, it really only takes 10 minutes, instead of 70
+            spellBuilder.SetRitualCasting(RuleDefinitions.ActivationTime.Hours1);
+            spellBuilder.SetGuiPresentation(
+                    new GuiPresentationBuilder(
+                            "Spell/&FindFamiliarDescription",
+                            "Spell/&FindFamiliarTitle").Build()
+                            .SetSpriteReference(DatabaseHelper.SpellDefinitions.AnimalFriendship.GuiPresentation.SpriteReference));
+
+            var spell = spellBuilder.AddToDB();
+
+            spell.SetUniqueInstance(true);
+
+            spell.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.ConjureAnimalsOneBeast.EffectDescription);
+            spell.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
+            spell.EffectDescription.SetRangeParameter(2);
+            spell.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Permanent);
+            spell.EffectDescription.SetTargetSide(RuleDefinitions.Side.Ally);
+            spell.EffectDescription.EffectForms.Clear();
+
+            var summonForm = new SummonForm();
+            summonForm.SetMonsterDefinitionName(familiarMonster.name);
+            summonForm.SetDecisionPackage(null);
+
+            var effectForm = new EffectForm();
+            effectForm.SetFormType(EffectForm.EffectFormType.Summon);
+            effectForm.SetCreatedByCharacter(true);
+            effectForm.SetSummonForm(summonForm);
 
             spell.EffectDescription.EffectForms.Add(effectForm);
 

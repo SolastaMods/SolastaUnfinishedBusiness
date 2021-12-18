@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using SolastaModApi;
 using SolastaModApi.BuilderHelpers;
@@ -35,6 +35,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
         public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetWitchCurses { get; private set; }
         public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetMaledictions { get; private set; }
         public static FeatureDefinitionPower FeatureDefinitionPowerCackle { get; private set; }
+        public static FeatureDefinitionAutoPreparedSpells FeatureDefinitionAutoPreparedSpellsWitchFamiliar { get; private set; }
 
         internal override void BuildClassStats(CharacterClassDefinitionBuilder classBuilder)
         {
@@ -954,8 +955,115 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
         }
 
-        private static void BuildWitchFamiliar()
+        private void BuildWitchFamiliar()
         {
+
+            var witchFamiliarAttackIteration = new MonsterAttackIteration(DatabaseHelper.MonsterAttackDefinitions.Attack_EagleMatriarch_Talons, 1);
+            witchFamiliarAttackIteration.MonsterAttackDefinition.SetToHitBonus(3);
+            witchFamiliarAttackIteration.MonsterAttackDefinition.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(1);
+            witchFamiliarAttackIteration.MonsterAttackDefinition.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D1);
+            witchFamiliarAttackIteration.MonsterAttackDefinition.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(0);
+
+            var witchFamiliarMonsterBuilder = new MonsterBuilder(
+                    "WitchOwl",
+                    GuidHelper.Create(WITCH_BASE_GUID, "WitchOwl").ToString(),
+//                    DatabaseHelper.MonsterDefinitions.Eagle_Matriarch.GuiPresentation.Title,
+//                    DatabaseHelper.MonsterDefinitions.Eagle_Matriarch.GuiPresentation.Description,
+                    "Owl",
+                    "Owl",
+                    DatabaseHelper.MonsterDefinitions.Eagle_Matriarch)
+                    .ClearFeatures()
+                    .AddFeatures(new List<FeatureDefinition>{
+                            DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
+                            DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision24,
+                            DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove2,
+                            DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
+                            DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenSight,
+                            DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenHearing,
+                            DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityFlyby,
+                            DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
+                            DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
+                            DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity,
+                            })
+                    .ClearAttackIterations()
+                    .AddAttackIterations(new List<MonsterAttackIteration>{
+                            witchFamiliarAttackIteration})
+                    .ClearSkillScores()
+                    .AddSkillScores(new List<MonsterSkillProficiency>{
+                            new MonsterSkillProficiency(DatabaseHelper.SkillDefinitions.Perception.Name, 3),
+                            new MonsterSkillProficiency(DatabaseHelper.SkillDefinitions.Stealth.Name, 3)
+                    })
+                    .SetArmorClass(11)
+                    .SetAbilityScores(3,13,8,2,12,7)
+                    .SetHitDiceNumber(1)
+                    .SetHitDiceType(RuleDefinitions.DieType.D4)
+                    .SetHitPointsBonus(-1)
+                    .SetStandardHitPoints(1)
+                    .SetSizeDefinition(DatabaseHelper.CharacterSizeDefinitions.Tiny)
+                    .SetAlignment(DatabaseHelper.AlignmentDefinitions.Unaligned.Name)
+                    .SetChallengeRating(0)
+                    .SetDroppedLootDefinition(null);
+
+            if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out FeatureDefinition help)){
+                    witchFamiliarMonsterBuilder.AddFeatures(new List<FeatureDefinition>{help});}
+
+            var witchFamiliarMonster = witchFamiliarMonsterBuilder.AddToDB();
+
+            var spellBuilder = new SpellBuilder(
+                    DatabaseHelper.SpellDefinitions.Fireball, 
+                    "WitchFamiliar",
+                    GuidHelper.Create(WITCH_BASE_GUID, "WitchFamiliar").ToString());
+
+            spellBuilder.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolConjuration);
+            spellBuilder.SetMaterialComponent(RuleDefinitions.MaterialComponentType.None);
+            spellBuilder.SetSomaticComponent(true);
+            spellBuilder.SetVerboseComponent(true);
+            spellBuilder.SetSpellLevel(1);
+            spellBuilder.SetCastingTime(RuleDefinitions.ActivationTime.Hours1);
+            // BUG: Unable to have 70 minutes ritual casting time... if set to 10 minutes, it really only takes 10 minutes, instead of 70
+            spellBuilder.SetRitualCasting(RuleDefinitions.ActivationTime.Hours1);
+            spellBuilder.SetGuiPresentation(
+                    new GuiPresentationBuilder(
+                            "Spell/&WitchFamiliarDescription",
+                            "Spell/&WitchFamiliarTitle").Build()
+                            .SetSpriteReference(DatabaseHelper.SpellDefinitions.AnimalFriendship.GuiPresentation.SpriteReference));
+
+            var spell = spellBuilder.AddToDB();
+
+            spell.SetUniqueInstance(true);
+
+            spell.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.ConjureAnimalsOneBeast.EffectDescription);
+            spell.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
+            spell.EffectDescription.SetRangeParameter(2);
+            spell.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Permanent);
+            spell.EffectDescription.SetTargetSide(RuleDefinitions.Side.Ally);
+            spell.EffectDescription.EffectForms.Clear();
+
+            var summonForm = new SummonForm();
+            summonForm.SetMonsterDefinitionName(witchFamiliarMonster.name);
+            summonForm.SetDecisionPackage(null);
+
+            var effectForm = new EffectForm();
+            effectForm.SetFormType(EffectForm.EffectFormType.Summon);
+            effectForm.SetCreatedByCharacter(true);
+            effectForm.SetSummonForm(summonForm);
+
+            spell.EffectDescription.EffectForms.Add(effectForm);
+
+            FeatureDefinitionAutoPreparedSpellsWitchFamiliar = new FeatureDefinitionAutoPreparedSpellsBuilder(
+                    "WitchFamiliarAutoPreparedSpell",
+                    GuidHelper.Create(WITCH_BASE_GUID, "WitchFamiliarAutoPreparedSpell").ToString(),
+                    new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>{
+                            FeatureDefinitionAutoPreparedSpellsBuilder.BuildAutoPreparedSpellGroup(
+                                    2,
+                                    new List<SpellDefinition>{spell})},
+                    new GuiPresentationBuilder(
+                            "Class/&WitchFamiliarPowerDescription",
+                            "Class/&WitchFamiliarPowerTitle").Build()
+                            .SetSpriteReference(DatabaseHelper.SpellDefinitions.AnimalFriendship.GuiPresentation.SpriteReference))
+                    .SetCharacterClass(Class)
+                    .SetAutoTag("Witch")
+                    .AddToDB();
 
         }
 
@@ -991,7 +1099,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetMaledictions, 1);
             classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetMaledictions, 1);
             classBuilder.AddFeatureAtLevel(FeatureDefinitionPowerCackle, 2);
-//            classBuilder.AddFeatureAtLevel(WitchFamiliar, 2);
+            classBuilder.AddFeatureAtLevel(FeatureDefinitionAutoPreparedSpellsWitchFamiliar, 2);
             classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetMaledictions, 2);
             classBuilder.AddFeatureAtLevel(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 4);
             classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetMaledictions, 5);

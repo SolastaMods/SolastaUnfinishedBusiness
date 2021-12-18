@@ -689,7 +689,7 @@ Stage/&SubclassSelectionStageCovenHeader	Select a Coven
 Stage/&SubclassSelectionStageCovenFeaturesTitle	Coven
 Stage/&SubclassSelectionStageCovenFeaturesDescription	Coven
 Stage/&SubclassSelectionStageCovenFeaturesHeader	Coven Features
-Spell/&WitchFamiliarTitle	Find Witch Familiar
+Spell/&WitchFamiliarTitle	Witch Familiar
 Spell/&WitchFamiliarDescription	You gain the service of a familiar.
 Spell/&EldritchOrbTitle	Eldritch Orb
 Spell/&EldritchOrbDescription	You fling a ball of eldritch energy at a creature or object within range.
@@ -709,4 +709,6 @@ Condition/&RuinedDescription	This creature's defence is reduced.
 Condition/&RuinedTitle	Ruined
 Modifier/&RuinedDescription	-3 to Armor Class
 Modifier/&RuinedTitle	Ruined
-Screen/&WitchSpellDescription	Witch
+Screen/&WitchSpellTitle	Witch
+Screen/&WitchSpellDescription	Spell known as a Witch
+Screen/&WitchSpellHeader	Witch
