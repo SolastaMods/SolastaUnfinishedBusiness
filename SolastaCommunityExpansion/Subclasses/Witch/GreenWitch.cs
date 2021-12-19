@@ -63,13 +63,7 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
                     .SetCharacterClass(WitchClass)
                     .SetAutoTag("Coven")
                     .AddToDB();
-/*
-            var magicAffinity = new FeatureDefinitionMagicAffinityBuilder
-                    (DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityBattleMagic,
-                    "MagicAffinityGreenWitch",
-                    GuidHelper.Create(GW_BASE_GUID, "MagicAffinityGreenWitch").ToString(), 
-                    blank).AddToDB();
-*/
+
             FeatureDefinitionFeatureSetGreenMagic = new FeatureDefinitionFeatureSetBuilder(
                     DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHumanLanguages,
                     "FeatureSetGreenWitchMagic",
@@ -79,7 +73,6 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
                             "Subclass/&GreenWitchMagicTitle").Build())
                     .ClearFeatures()
                     .AddFeature(preparedSpells)
-//                    .AddFeature(magicAffinity)
                     .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                     .SetUniqueChoices(true)
                     .AddToDB();
