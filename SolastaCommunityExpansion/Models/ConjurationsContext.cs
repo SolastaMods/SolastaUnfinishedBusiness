@@ -5,6 +5,9 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class ConjurationsContext
     {
+        /// <summary>
+        /// Allow conjurations to fully controlled party members instead of AI controlled.
+        /// </summary>
         internal static void Load()
         {
             // NOTE: assumes monsters have FullyControlledWhenAllied=false by default

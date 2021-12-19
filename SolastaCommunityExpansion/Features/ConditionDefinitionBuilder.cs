@@ -24,10 +24,7 @@ namespace SolastaCommunityExpansion.Features
             Definition.SetField("recurrentEffectForms", new List<EffectForm>());
             Definition.SetField("cancellingConditions", new List<ConditionDefinition>());
 
-            if (modifyDefinition != null)
-            {
-                modifyDefinition(Definition);
-            }
+            modifyDefinition?.Invoke(Definition);
         }
 
         public ConditionDefinitionBuilder(TDefinition toCopy, string name, string guid,

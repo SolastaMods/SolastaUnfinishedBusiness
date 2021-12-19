@@ -1,4 +1,4 @@
-using I2.Loc;
+﻿using I2.Loc;
 using System.IO;
 
 namespace SolastaCommunityExpansion
