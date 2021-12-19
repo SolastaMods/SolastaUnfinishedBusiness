@@ -712,3 +712,6 @@ Modifier/&RuinedTitle	Ruined
 Screen/&WitchSpellTitle	Witch
 Screen/&WitchSpellDescription	Spell known as a Witch
 Screen/&WitchSpellHeader	Witch
+Screen/&CovenSpellTitle	Coven
+Screen/&CovenSpellDescription	Spell known because part of a Coven
+Screen/&CovenSpellHeader	Coven

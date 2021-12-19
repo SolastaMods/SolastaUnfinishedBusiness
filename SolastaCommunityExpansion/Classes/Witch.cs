@@ -15,14 +15,6 @@ namespace SolastaCommunityExpansion.Classes.Witch
     internal class Witch : AbstractClass
     {
 
-        internal override CharacterClassDefinition GetClass()
-        {
-            if (Class == null)
-            {
-                Class = BuildAndAddClass();
-            }
-            return Class;
-        }
         public static readonly Guid WITCH_BASE_GUID = new Guid("ea7715dd-00cb-45a3-a8c4-458d0639d72c");
         public CharacterClassDefinition Class;
         public static FeatureDefinitionProficiency FeatureDefinitionProficiencyArmor { get; private set; }
@@ -35,8 +27,17 @@ namespace SolastaCommunityExpansion.Classes.Witch
         public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetWitchCurses { get; private set; }
         public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetMaledictions { get; private set; }
         public static FeatureDefinitionPower FeatureDefinitionPowerCackle { get; private set; }
-        public static FeatureDefinitionAutoPreparedSpells FeatureDefinitionAutoPreparedSpellsWitchFamiliar { get; private set; }
+        public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetWitchFamiliar { get; private set; }
 
+        internal override CharacterClassDefinition GetClass()
+        {
+            if (Class == null)
+            {
+                Class = BuildAndAddClass();
+            }
+            return Class;
+        }
+        
         internal override void BuildClassStats(CharacterClassDefinitionBuilder classBuilder)
         {
             classBuilder.SetAnimationId(AnimationDefinitions.ClassAnimationId.Wizard);
@@ -958,6 +959,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
         private void BuildWitchFamiliar()
         {
 
+            GuiPresentation blank = new GuiPresentationBuilder("Feature/&NoContentTitle", "Feature/&NoContentTitle").Build();
+
             var witchFamiliarAttackIteration = new MonsterAttackIteration(DatabaseHelper.MonsterAttackDefinitions.Attack_EagleMatriarch_Talons, 1);
             witchFamiliarAttackIteration.MonsterAttackDefinition.SetToHitBonus(3);
             witchFamiliarAttackIteration.MonsterAttackDefinition.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(1);
@@ -967,8 +970,6 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var witchFamiliarMonsterBuilder = new MonsterBuilder(
                     "WitchOwl",
                     GuidHelper.Create(WITCH_BASE_GUID, "WitchOwl").ToString(),
-//                    DatabaseHelper.MonsterDefinitions.Eagle_Matriarch.GuiPresentation.Title,
-//                    DatabaseHelper.MonsterDefinitions.Eagle_Matriarch.GuiPresentation.Description,
                     "Owl",
                     "Owl",
                     DatabaseHelper.MonsterDefinitions.Eagle_Matriarch)
@@ -1000,9 +1001,12 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     .SetHitPointsBonus(-1)
                     .SetStandardHitPoints(1)
                     .SetSizeDefinition(DatabaseHelper.CharacterSizeDefinitions.Tiny)
-                    .SetAlignment(DatabaseHelper.AlignmentDefinitions.Unaligned.Name)
+                    .SetAlignment(DatabaseHelper.AlignmentDefinitions.Neutral.Name)
                     .SetChallengeRating(0)
-                    .SetDroppedLootDefinition(null);
+                    .SetDroppedLootDefinition(null)
+                    .SetDefaultBattleDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)
+                    .SetFullyControlledWhenAllied(true)
+                    .SetDefaultFaction("Party");
 
             if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out FeatureDefinition help)){
                     witchFamiliarMonsterBuilder.AddFeatures(new List<FeatureDefinition>{help});}
@@ -1050,7 +1054,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             spell.EffectDescription.EffectForms.Add(effectForm);
 
-            FeatureDefinitionAutoPreparedSpellsWitchFamiliar = new FeatureDefinitionAutoPreparedSpellsBuilder(
+            var preparedSpells = new FeatureDefinitionAutoPreparedSpellsBuilder(
                     "WitchFamiliarAutoPreparedSpell",
                     GuidHelper.Create(WITCH_BASE_GUID, "WitchFamiliarAutoPreparedSpell").ToString(),
                     new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>{
@@ -1063,6 +1067,19 @@ namespace SolastaCommunityExpansion.Classes.Witch
                             .SetSpriteReference(DatabaseHelper.SpellDefinitions.AnimalFriendship.GuiPresentation.SpriteReference))
                     .SetCharacterClass(Class)
                     .SetAutoTag("Witch")
+                    .AddToDB();
+
+            FeatureDefinitionFeatureSetWitchFamiliar = new FeatureDefinitionFeatureSetBuilder(
+                    DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHumanLanguages,
+                    "FeatureSetWitchFamiliar",
+                    GuidHelper.Create(WITCH_BASE_GUID, "FeatureSetWitchFamiliar").ToString(),
+                    new GuiPresentationBuilder(
+                            "Class/&WitchFamiliarDescription",
+                            "Class/&WitchFamiliarTitle").Build())
+                    .ClearFeatures()
+                    .AddFeature(preparedSpells)
+                    .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+                    .SetUniqueChoices(true)
                     .AddToDB();
 
         }
@@ -1099,7 +1116,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetMaledictions, 1);
             classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetMaledictions, 1);
             classBuilder.AddFeatureAtLevel(FeatureDefinitionPowerCackle, 2);
-            classBuilder.AddFeatureAtLevel(FeatureDefinitionAutoPreparedSpellsWitchFamiliar, 2);
+            classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetWitchFamiliar, 2);
             classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetMaledictions, 2);
             classBuilder.AddFeatureAtLevel(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 4);
             classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetMaledictions, 5);
@@ -1160,12 +1177,12 @@ namespace SolastaCommunityExpansion.Classes.Witch
             BuildWitchCurses();
             BuildMaledictions();
             BuildCackle();
-            BuildWitchFamiliar();
 
             Class = classBuilder.AddToDB();
 
             // I have not found another way to do it like this when trying to build
             // skills or powers that require a reference to the ClassDefinition
+            BuildWitchFamiliar();
             BuildSubclasses(classBuilder);
             BuildProgression(classBuilder);
 

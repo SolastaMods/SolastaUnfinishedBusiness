@@ -84,8 +84,6 @@ namespace SolastaCommunityExpansion.Spells
             var familiarMonsterBuilder = new MonsterBuilder(
                     "Owl",
                     GuidHelper.Create(SPELLS_BASE_GUID, "Owl").ToString(),
-//                    DatabaseHelper.MonsterDefinitions.Eagle_Matriarch.GuiPresentation.Title,
-//                    DatabaseHelper.MonsterDefinitions.Eagle_Matriarch.GuiPresentation.Description,
                     "Owl",
                     "Owl",
                     DatabaseHelper.MonsterDefinitions.Eagle_Matriarch)
@@ -115,9 +113,12 @@ namespace SolastaCommunityExpansion.Spells
                     .SetHitPointsBonus(-1)
                     .SetStandardHitPoints(1)
                     .SetSizeDefinition(DatabaseHelper.CharacterSizeDefinitions.Tiny)
-                    .SetAlignment(DatabaseHelper.AlignmentDefinitions.Unaligned.Name)
+                    .SetAlignment(DatabaseHelper.AlignmentDefinitions.Neutral.Name)
                     .SetChallengeRating(0)
-                    .SetDroppedLootDefinition(null);
+                    .SetDroppedLootDefinition(null)
+                    .SetDefaultBattleDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)
+                    .SetFullyControlledWhenAllied(true)
+                    .SetDefaultFaction("Party");
 
             if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out FeatureDefinition help)){
                     familiarMonsterBuilder.AddFeatures(new List<FeatureDefinition>{help});}
@@ -375,7 +376,6 @@ namespace SolastaCommunityExpansion.Spells
             spellBuilder.SetSomaticComponent(true);
             spellBuilder.SetVerboseComponent(true);
             spellBuilder.SetSpellLevel(2);
-            spellBuilder.SetConcentration();
             spellBuilder.SetRitualCasting(RuleDefinitions.ActivationTime.Minute10);
             spellBuilder.SetGuiPresentation(
                     new GuiPresentationBuilder(
