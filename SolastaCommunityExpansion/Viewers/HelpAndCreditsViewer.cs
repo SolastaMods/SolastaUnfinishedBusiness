@@ -1,4 +1,7 @@
-﻿using System.Text;
+﻿using System;
+using System.Linq;
+using System.Reflection;
+using System.Text;
 using ModKit;
 using UnityModManagerNet;
 using static SolastaCommunityExpansion.Viewers.Displays.CreditsDisplay;
@@ -19,16 +22,18 @@ namespace SolastaCommunityExpansion.Viewers
 
             DisplayLevel20Help();
             DisplayCredits();
-            //AddDumpDescriptionToLogButton();
+#if DEBUG
+            AddDumpDescriptionToLogButton();
+            AddSettingsDocumentationToLogButton();
+#endif
         }
 
-#pragma warning disable IDE0051 // Remove unused private members
-#pragma warning disable S1144 // Remove unused private members
         private static void AddDumpDescriptionToLogButton()
-#pragma warning restore IDE0051 // Remove unused private members
-#pragma warning restore S1144 // Remove unused private members
         {
-            UI.ActionButton("Dump Description to Logs", () =>
+            UI.ActionButton("Dump Description to Logs", AddDumpDescriptionToLogButtonImpl);
+            UI.AutoWidth();
+
+            void AddDumpDescriptionToLogButtonImpl()
             {
                 var collectedString = new StringBuilder();
                 collectedString.Append("[heading][size=5] [b] [i] Solasta Community Expansion[/i][/b][/size][/heading]");
@@ -148,7 +153,7 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("\n[line]\n");
                 collectedString.Append("[heading]Credits[/heading]\n[list]");
                 collectedString.Append("\n[*]Chris John Digital");
-                foreach (var kvp in Displays.CreditsDisplay.CreditsTable)
+                foreach (var kvp in CreditsTable)
                 {
                     collectedString.Append("\n[*]" + kvp.Key + ": " + kvp.Value);
                 }
@@ -206,8 +211,56 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("\n[/list]");
                 // items
                 Main.Error(collectedString.ToString());
-            },
-            UI.AutoWidth());
+            }
+        }
+
+        private static void AddSettingsDocumentationToLogButton()
+        {
+            UI.ActionButton("Dump settings documentation to Logs", AddSettingsDocumentationToLogButtonImpl);
+            UI.AutoWidth();
+
+            void AddSettingsDocumentationToLogButtonImpl()
+            {
+                Main.Log("AddSettingsDocumentationToLog-pressed");
+
+                // We could put SettingDocumentationAttribute in other places if sensible
+                var documentationAttributes = typeof(Settings)
+                    .GetMembers()
+                    .SelectMany(x => x.GetCustomAttributes())
+                    .OfType<SettingDocumentationAttribute>()
+                    .ToList();
+
+                // TODO: use StringBuilder
+
+                foreach (var attributesByCategory in documentationAttributes
+                    .GroupBy(a => a.Category)
+                    .Select(g => new { Category = g.Key, Attributes = g }))
+                {
+                    Main.Log(attributesByCategory.Category.ToString());
+                    Main.Log("-----");
+
+                    foreach (var attribute in attributesByCategory.Attributes
+                        .Where(a => !string.IsNullOrWhiteSpace(a.Description))
+                        .OrderBy(a => a.Description))
+                    {
+                        Main.Log(attribute.Description);
+                    }
+                }
+
+                Main.Log("Credits");
+                Main.Log("-----");
+
+                foreach (var attributesByAuthor in documentationAttributes.GroupBy(a => a.Author)
+                    .Select(g => new { Author = g.Key, Attributes = g }))
+                {
+                    var credits = attributesByAuthor.Attributes
+                        .Select(a => a.CreditTitle)
+                        .Where(a => !string.IsNullOrWhiteSpace(a))
+                        .OrderBy(t => t);
+
+                    Main.Log($"{attributesByAuthor.Author}: {string.Join(", ", credits)}");
+                }
+            }
         }
     }
 }

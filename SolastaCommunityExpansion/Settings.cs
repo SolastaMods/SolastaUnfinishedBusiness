@@ -108,6 +108,12 @@ namespace SolastaCommunityExpansion
 
         public bool DisableAutoEquip { get; set; }
         public bool ExactMerchantCostScaling { get; set; }
+
+        [SettingDocumentation(
+          Author = Authors.AceHigh,
+          Category = Category.ItemsAndMerchants,
+          CreditTitle = "no identification",
+          Description = "Remove identification requirement from items")]
         public bool NoIdentification { get; set; }
         public bool NoAttunement { get; set; }
 
@@ -203,9 +209,82 @@ namespace SolastaCommunityExpansion
 
         public bool ArcaneFighterEnchantWeaponRechargeShortRest { get; set; }
 
+        [SettingDocumentation(
+            Author = Authors.ImpPhil,
+            Category = Category.GameplayRuleHouse, 
+            CreditTitle = "consume stack of material",
+            Description = "Allow consumption of stack of material components in place of single item (e.g. 2x500gp diamond is equivalent to 1x1000gp diamond)")]
         public bool AllowStackedMaterialComponent { get; set; }
+
+        [SettingDocumentation(
+            Author = Authors.ImpPhil, 
+            Category = Category.BugFix, 
+            CreditTitle = "fix DM item filtering",
+            Description = "Fixes DM filtering of items.")]
         public bool FixItemFiltering { get; set; } = true;
+
+        [SettingDocumentation(
+            Author = Authors.ImpPhil, 
+            Category = Category.GameplayRuleSRD,
+            CreditTitle = "chain lightning target selection",
+            Description = "Allows selection of targets for the 'Chain Lightning' spell bring spell closer to SRD")]
         public bool AdjustChainLightningSpell { get; set; }
+
+
+        [SettingDocumentation(
+            Author = "ImpPhil", 
+            Category = Category.BugFix, 
+            CreditTitle = "DM custom monster form fix",
+            Description = "'can save' checkbox in DM custom monster form now persists correctly")]
         public bool BugFixOnCanSaveToggleChanged { get; set; } = true;
+    }
+
+    /// <summary>
+    /// TODO: rename if not specific to Setting class
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
+    internal class SettingDocumentationAttribute : Attribute
+    {
+        // ChrisJohn, Zappa, ... etc
+        public string Author { get; set; }
+
+        // Full (one line-ish) description
+        public string Description { get; set; }
+
+        // Short title for credits
+        public string CreditTitle { get; set; }
+
+        // Category - see below
+        public Category Category { get; set; }
+    }
+
+    /// <summary>
+    /// Enum mirroring Nexus web page
+    /// </summary>
+    internal enum Category
+    {
+        Character,
+        Feat,
+        SubClasses,
+        FightingStyle,
+        Encounter,
+        Bestiary,
+        CharacterPool,
+        GameplayRuleSRD,
+        GameplayRuleHouse,
+        ItemsAndMerchants,
+        CraftableItem,
+        Tool,
+        UIImprovement,
+        BugFix,
+    }
+
+    internal static class Authors
+    {
+        public const string AceHigh = "AceHigh";
+        public const string ImpPhil = "ImpPhil";
+        public const string ChrisJohn = "Chris John Digital";
+        public const string Zappa = "Zappastuff";
+        // .. etc
     }
 }
