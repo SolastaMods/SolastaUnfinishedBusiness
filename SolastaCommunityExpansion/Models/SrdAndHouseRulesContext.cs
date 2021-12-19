@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using SolastaModApi.Extensions;
 using System.Collections.Generic;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
@@ -7,6 +8,11 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class SrdAndHouseRulesContext
     {
+        internal static void Load()
+        {
+            AdjustChainLightningSpell();
+        }
+
         internal static void ApplyConditionBlindedShouldNotAllowOpportunityAttack()
         {
             // Use the shocked condition affinity which has the desired effect
@@ -105,6 +111,30 @@ namespace SolastaCommunityExpansion.Models
                 {
                     surprisedCharacter.StartBattle(false);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Allow the user to select targets when using 'Chain Lightning'.
+        /// </summary>
+        internal static void AdjustChainLightningSpell()
+        {
+            var spell = SolastaModApi.DatabaseHelper.SpellDefinitions.ChainLightning.EffectDescription;
+
+            if (Main.Settings.AdjustChainLightningSpell)
+            {
+                // This is half bug-fix, half houses rules since it's not completely SRD but better than implemented.
+                // Spell should arc from target (range 150ft) onto upto 3 extra selectable targets (range 30ft from first).
+                // Fix by allowing 4 selectable targets.
+                spell.TargetType = RuleDefinitions.TargetType.IndividualsUnique;
+                spell.SetTargetParameter(4);
+
+                // TODO: may need to tweak range parameters but it works as is.
+            }
+            else
+            {
+                spell.TargetType = RuleDefinitions.TargetType.ArcFromIndividual;
+                spell.SetTargetParameter(3);
             }
         }
     }

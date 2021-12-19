@@ -1,11 +1,11 @@
-using HarmonyLib;
+﻿using HarmonyLib;
 using System.Diagnostics.CodeAnalysis;
 
-namespace SolastaCommunityExpansion.Patches
+namespace SolastaCommunityExpansion.Patches.Level20
 {
     [HarmonyPatch(typeof(RulesetSpellRepertoire), "MaxSpellLevelOfSpellCastingLevel", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetSpellRepertoire_get_MaxSpellLevelOfSpellCastingLevel
+    internal static class RulesetSpellRepertoire_MaxSpellLevelOfSpellCastingLevel_Getter
     {
         internal static void Postfix(RulesetSpellRepertoire __instance, ref int __result)
         {

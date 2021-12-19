@@ -9,6 +9,11 @@ namespace SolastaCommunityExpansion.Patches.Camera
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CameraControllerLocation_FollowCharacterForBattle
     {
+        /// <summary>
+        /// Allows the user to prevent the battle camera always following the current character if that character is 
+        /// in view (on the monitor).
+        /// The battle camera will still move if the character is off screen or within x% (definable) of the screen edge.
+        /// </summary>
         internal static bool Prefix(CameraControllerLocation __instance, GameLocationCharacter character)
         {
             try

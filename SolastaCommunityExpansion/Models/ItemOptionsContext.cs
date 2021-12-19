@@ -88,15 +88,15 @@ namespace SolastaCommunityExpansion.Models
 
         internal static readonly string[] EmpressGarbSkins = 
         { 
-            "Normal", 
-            "Plain Shirt", 
-            "Elven Chain",
-            "Sylvan Armor",
-            "Studded Leather", 
-            "Druid Leather",
+            "Normal",
             "Barbarian Clothes",
-            "Wizard Clothes",
-            "Sorcerer's Armor"
+            "Druid Leather",
+            "Elven Chain",
+            "Plain Shirt", 
+            "Sorcerer's Armor",
+            "Studded Leather",
+            "Sylvan Armor",
+            "Wizard Clothes"
         };
 
         private static readonly List<ItemDefinition> Crowns = new List<ItemDefinition>
@@ -170,7 +170,18 @@ namespace SolastaCommunityExpansion.Models
             {
                 case "Normal":
                     Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(EmpressGarbOriginalItemPresentation);
-                    Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.SetUseCustomArmorMaterial(true);
+                    break;
+
+                case "Barbarian Clothes":
+                    Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(BarbarianClothes.ItemPresentation);
+                    break;
+
+                case "Druid Leather":
+                    Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(LeatherDruid.ItemPresentation);
+                    break;
+
+                case "Elven Chain":
+                    Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(ElvenChain.ItemPresentation);
                     break;
 
                 case "Plain Shirt":
@@ -178,49 +189,30 @@ namespace SolastaCommunityExpansion.Models
                     Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.SetUseCustomArmorMaterial(false);
                     break;
 
-                case "Elven Chain":
-                    Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(ElvenChain.ItemPresentation);
-                    Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.SetUseCustomArmorMaterial(true);
+                case "Studded Leather":
+                    Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(StuddedLeather.ItemPresentation);
                     break;
 
                 case "Sylvan Armor":
                     Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(GreenmageArmor.ItemPresentation);
-                    Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.SetUseCustomArmorMaterial(true);
-                    break;
-
-                case "Studded Leather":
-                    Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(StuddedLeather.ItemPresentation);
-                    Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.SetUseCustomArmorMaterial(true);
-                    break;
-
-                case "Druid Leather":
-                    Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(LeatherDruid.ItemPresentation);
-                    Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.SetUseCustomArmorMaterial(true);
-                    break;
-
-                case "Barbarian Clothes":
-                    Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(BarbarianClothes.ItemPresentation);
-                    Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.SetUseCustomArmorMaterial(true);
                     break;
 
                 case "Wizard Clothes":
                     Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(WizardClothes_Alternate.ItemPresentation);
-                    Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.SetUseCustomArmorMaterial(true);
                     break;
 
                 case "Sorcerer's Armor":
                     Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(SorcererArmor.ItemPresentation);
-                    Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.SetUseCustomArmorMaterial(true);
                     break;
             }
         }
 
         internal static void SwitchFociItems()
         {
-            FocusDefinitionBuilder.ArcaneStaff.GuiPresentation.SetHidden(Main.Settings.CreateAdditionalFoci);
-            FocusDefinitionBuilder.DruidicAmulet.GuiPresentation.SetHidden(Main.Settings.CreateAdditionalFoci);
-            FocusDefinitionBuilder.LivewoodClub.GuiPresentation.SetHidden(Main.Settings.CreateAdditionalFoci);
-            FocusDefinitionBuilder.LivewoodStaff.GuiPresentation.SetHidden(Main.Settings.CreateAdditionalFoci);
+            FocusDefinitionBuilder.ArcaneStaff.GuiPresentation.SetHidden(!Main.Settings.CreateAdditionalFoci);
+            FocusDefinitionBuilder.DruidicAmulet.GuiPresentation.SetHidden(!Main.Settings.CreateAdditionalFoci);
+            FocusDefinitionBuilder.LivewoodClub.GuiPresentation.SetHidden(!Main.Settings.CreateAdditionalFoci);
+            FocusDefinitionBuilder.LivewoodStaff.GuiPresentation.SetHidden(!Main.Settings.CreateAdditionalFoci);
         }
 
         internal static void SwitchFociItemsDungeonMaker()

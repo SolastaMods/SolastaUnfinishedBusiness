@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Patches.CharacterExport
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterInspectionScreen_HandleInput
     {
-        public static void Prefix(CharacterInspectionScreen __instance, InputCommands.Id command, ref bool __result)
+        public static void Postfix(CharacterInspectionScreen __instance, InputCommands.Id command)
         {
             if (Gui.Game != null && Main.Settings.EnableCharacterExport && !Models.CharacterExportContext.InputModalVisible && command == Settings.CTRL_E)
             {

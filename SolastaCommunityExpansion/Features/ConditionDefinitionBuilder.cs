@@ -24,10 +24,7 @@ namespace SolastaCommunityExpansion.Features
             Definition.SetField("recurrentEffectForms", new List<EffectForm>());
             Definition.SetField("cancellingConditions", new List<ConditionDefinition>());
 
-            if (modifyDefinition != null)
-            {
-                modifyDefinition(Definition);
-            }
+            modifyDefinition?.Invoke(Definition);
         }
 
         public static TDefinition Build(string name, string guid, Action<TDefinition> modifyDefinition = null)

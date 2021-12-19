@@ -1,10 +1,10 @@
-using SolastaModApi;
+﻿using SolastaModApi;
 using SolastaModApi.Extensions;
 using System;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 
-namespace SolastaCommunityExpansion
+namespace SolastaCommunityExpansion.Feats
 {
     public static class CraftyFeats
     {

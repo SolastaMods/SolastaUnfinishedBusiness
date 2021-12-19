@@ -13,11 +13,9 @@ namespace SolastaCommunityExpansion.Models
 
         private static readonly List<RulesetCharacterHero> Heroes = new List<RulesetCharacterHero>();
 
-        private static readonly List<MonsterDefinition> SolastaMonsters = new List<MonsterDefinition>();
+        private static readonly List<MonsterDefinition> Monsters = new List<MonsterDefinition>();
 
         internal static readonly List<RulesetCharacter> EncounterCharacters = new List<RulesetCharacter>();
-
-        internal static bool HasStagedHeroes { get; set; }
 
         internal static void Load()
         {
@@ -50,22 +48,18 @@ namespace SolastaCommunityExpansion.Models
 
         internal static List<MonsterDefinition> GetMonsters()
         {
-            if (SolastaMonsters.Count == 0)
+            if (Monsters.Count == 0)
             {
                 var monsterDefinitionDatabase = DatabaseRepository.GetDatabase<MonsterDefinition>();
 
                 if (monsterDefinitionDatabase != null)
                 {
-                    foreach (var monsterDefinition in monsterDefinitionDatabase.Where(x => x.DungeonMakerPresence == MonsterDefinition.DungeonMaker.Monster))
-                    {
-                        SolastaMonsters.Add(monsterDefinition);
-                    }
-
-                    SolastaMonsters.Sort((a, b) => a.FormatTitle().CompareTo(b.FormatTitle()));
+                    Monsters.AddRange(monsterDefinitionDatabase.Where(x => x.DungeonMakerPresence == MonsterDefinition.DungeonMaker.Monster));
+                    Monsters.Sort((a, b) => a.FormatTitle().CompareTo(b.FormatTitle()));
                 }
             }
 
-            return SolastaMonsters;
+            return Monsters;
         }
 
         internal static List<RulesetCharacterHero> GetHeroes()
@@ -101,16 +95,20 @@ namespace SolastaCommunityExpansion.Models
             return Heroes;
         }
 
-        internal static void ConfirmStageEncounter()
+        internal static void ConfirmStageEncounter(InputCommands.Id command)
         {
-            var position = GetEncounterPosition();
+            if (command == Settings.CTRL_SHIFT_E && EncounterCharacters.Count > 0)
+            {
+                var position = GetEncounterPosition();
 
-            Gui.GuiService.ShowMessage(
-                MessageModal.Severity.Attention2,
-                "Message/&SpawnCustomEncounterTitle", 
-                Gui.Format("Message/&SpawnCustomEncounterDescription", position.x.ToString(), position.x.ToString()),
-                "Message/&MessageYesTitle", "Message/&MessageNoTitle",
-                new MessageModal.MessageValidatedHandler(() => { StageEncounter(position); }), null);
+                Gui.GuiService.ShowMessage(
+                    MessageModal.Severity.Attention2,
+                    "Message/&SpawnCustomEncounterTitle",
+                    Gui.Format("Message/&SpawnCustomEncounterDescription", position.x.ToString(), position.x.ToString()),
+                    "Message/&MessageYesTitle", "Message/&MessageNoTitle",
+                    new MessageModal.MessageValidatedHandler(() => { StageEncounter(position); }),
+                    null);
+            }
         }
 
         private static int3 GetEncounterPosition()
@@ -140,11 +138,9 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
 
-            HasStagedHeroes = false;
-
             foreach (var character in EncounterCharacters)
             {
-                var gameLocationCharacter = gameLocationCharacterService.CreateCharacter(Settings.DM_CONTROLLER_ID, character, RuleDefinitions.Side.Enemy, new GameLocationBehaviourPackage
+                var gameLocationCharacter = gameLocationCharacterService.CreateCharacter(PlayerControllerManager.DmControllerId, character, RuleDefinitions.Side.Enemy, new GameLocationBehaviourPackage
                 {
                     BattleStartBehavior = GameLocationBehaviourPackage.BattleStartBehaviorType.DoNotRaiseAlarm,
                     DecisionPackageDefinition = IdleGuard_Default,
@@ -157,7 +153,6 @@ namespace SolastaCommunityExpansion.Models
                 gameLocationCharacter.RefreshActionPerformances();
                 gameLocationCharacter.RulesetCharacter.SetBaseFaction(HostileMonsters);
                 characters.Add(gameLocationCharacter);
-                HasStagedHeroes = character is RulesetCharacterHero || HasStagedHeroes;
             }
 
             gameLocationPositioningService.ComputeFormationPlacementPositions(
@@ -169,10 +164,10 @@ namespace SolastaCommunityExpansion.Models
                 gameLocationCharacterService.RevealCharacter(characters[index]);
             }
 
-            Heroes.Clear();
-            SolastaMonsters.Clear();
-            EncounterCharacters.Clear();
             gameLocationCharacterService.RefreshAllCharacters();
+            Heroes.Clear();
+            Monsters.Clear();
+            EncounterCharacters.Clear();
         }
     }
 }

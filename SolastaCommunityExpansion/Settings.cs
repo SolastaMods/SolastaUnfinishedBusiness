@@ -39,6 +39,7 @@ namespace SolastaCommunityExpansion
         public bool MultiLineSpellPanel { get; set; } = true;
         public bool MultiLinePowerPanel { get; set; } = true;
         public bool KeepSpellsOpenSwitchingEquipment { get; set; } = true;
+        public bool KeepCharactersPanelOpenAndHeroSelectedOnLevelUp { get; set; } = true;
         public bool BugFixExpandColorTables { get; set; } = true;
         public bool AllowDynamicPowers { get; set; } = true;
 
@@ -195,10 +196,16 @@ namespace SolastaCommunityExpansion
 
         public const int MAX_ENCOUNTER_CHARACTERS = 16;
         public const int PLAYER_CONTROLLER_ID = 1;
-        public const int DM_CONTROLLER_ID = 4242;
 
         public const InputCommands.Id CTRL_SHIFT_E = (InputCommands.Id)44440005;
+        public bool EnableHeroesControlledByComputer { get; set; }
+        public bool EnableEnemiesControlledByPlayer { get; set; }
 
-        public bool EnableControllersOverride { get; set; }
+        public bool ArcaneFighterEnchantWeaponRechargeShortRest { get; set; }
+
+        public bool AllowStackedMaterialComponent { get; set; }
+        public bool FixItemFiltering { get; set; } = true;
+        public bool AdjustChainLightningSpell { get; set; }
+        public bool BugFixOnCanSaveToggleChanged { get; set; } = true;
     }
 }

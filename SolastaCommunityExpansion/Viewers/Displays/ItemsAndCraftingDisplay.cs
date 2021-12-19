@@ -71,14 +71,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.NoAttunement;
-            if (UI.Toggle("Removes attunement requirements " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Remove attunement requirements " + RequiresRestart, ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.NoAttunement = toggle;
                 RemoveIdentificationContext.Load();
             }
 
             toggle = Main.Settings.NoIdentification;
-            if (UI.Toggle("Removes identification requirements " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Remove identification requirements " + RequiresRestart, ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.NoIdentification = toggle;
                 RemoveIdentificationContext.Load();
@@ -96,7 +96,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             intValue = Main.Settings.BeltOfDwarvenKindBeardChances;
-            if (UI.Slider("Sets the chances of a beard appearing while using the Belt of Dwarvenkin".white(), ref intValue, 0, 100, 50, "%", UI.Width(500)))
+            if (UI.Slider("Set the chances of a beard appearing while using the ".white() + "Belt of Dwarvenkin".orange(), ref intValue, 0, 100, 50, "%", UI.Width(500)))
             {
                 Main.Settings.BeltOfDwarvenKindBeardChances = intValue;
                 ItemOptionsContext.SwitchBeltOfDwarvenKindBeardChances();
@@ -198,7 +198,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.CreateAdditionalFoci;
-                if (UI.Toggle("Stocks Hugo's store with new foci items " + "[Arcane Staff / Druid Neck, Staff and Club]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Stocks Hugo's store with new foci items " + "[Arcane Staff, Druid Neck, Staff and Club]".italic().yellow(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.CreateAdditionalFoci = toggle;
                     ItemOptionsContext.SwitchFociItems();
@@ -207,7 +207,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (Main.Settings.CreateAdditionalFoci)
                 {
                     toggle = Main.Settings.EnableAdditionalFociDungeonMaker;
-                    if (UI.Toggle("Adds new foci items to Dungeon Maker ", ref toggle, UI.AutoWidth()))
+                    if (UI.Toggle("Add new foci items to Dungeon Maker ", ref toggle, UI.AutoWidth()))
                     {
                         Main.Settings.EnableAdditionalFociDungeonMaker = toggle;
                         ItemOptionsContext.SwitchFociItemsDungeonMaker();
@@ -219,28 +219,28 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 UI.Label("");
 
                 toggle = Main.Settings.EnableRestockAntiquarians;
-                if (UI.Toggle("Restocks Antiquarians " + "[Halman Summer]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Restock Antiquarians " + "[Halman Summer]".italic().yellow(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableRestockAntiquarians = toggle;
                     ItemOptionsContext.SwitchRestockAntiquarian();
                 }
 
                 toggle = Main.Settings.EnableRestockArcaneum;
-                if (UI.Toggle("Restocks Arcaneum " + "[Heddlon Surespell]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Restock Arcaneum " + "[Heddlon Surespell]".italic().yellow(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableRestockArcaneum = toggle;
                     ItemOptionsContext.SwitchRestockArcaneum();
                 }
 
                 toggle = Main.Settings.EnableRestockCircleOfDanantar;
-                if (UI.Toggle("Restocks Circle of Danantar " + "[Joriel Foxeye]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Restock Circle of Danantar " + "[Joriel Foxeye]".italic().yellow(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableRestockCircleOfDanantar = toggle;
                     ItemOptionsContext.SwitchRestockCircleOfDanantar();
                 }
 
                 toggle = Main.Settings.EnableRestockTowerOfKnowledge;
-                if (UI.Toggle("Restocks Tower of Knowledge " + "[Maddy Greenisle]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Restock Tower of Knowledge " + "[Maddy Greenisle]".italic().yellow(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableRestockTowerOfKnowledge = toggle;
                     ItemOptionsContext.SwitchRestockTowerOfKnowledge();
