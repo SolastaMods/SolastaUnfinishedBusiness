@@ -2,7 +2,7 @@
 using HarmonyLib;
 using SolastaModApi.Infrastructure;
 
-namespace SolastaCommunityExpansion.Patches.GameUi
+namespace SolastaCommunityExpansion.Patches.GameUiLocation
 {
     [HarmonyPatch(typeof(CharacterControlPanel), "OnConfigurationSwitchedHandler")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
