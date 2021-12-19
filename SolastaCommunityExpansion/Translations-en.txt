@@ -496,7 +496,7 @@ Subclass/&ArcaneFighterAdditionalActionDescription You can cast a spell after de
 Subclass/&ArcaneFighterAdditionalActionTitle Spell Fighting
 Subclass/&ArcaneFighterBonusWeaponDamageDescription Once per turn your weapon attacks deal an extra 1d8 damage.
 Subclass/&ArcaneFighterBonusWeaponDamageTitle Magically Powered Attacks
-Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription Your attacks count as Magical and you use your intelligence to your attack and damage rolls.
+Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription When active on a weapon, it's attacks count as Magical and you use your intelligence for your attack and damage rolls.
 Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle Arcane Weapon
 Subclass/&AttributeModifierMeleeWizardExtraAttackDescription You gain an extra attack
 Subclass/&AttributeModifierMeleeWizardExtraAttackTitle Extra Attack
