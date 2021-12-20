@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Spells
 {
     internal static class BazouSpells
     {
-        public static readonly Guid SPELLS_BASE_GUID = new Guid("91384db5-6659-4384-bf2c-3a41160343f4");
+        public static readonly Guid BAZOU_SPELLS_BASE_GUID = new Guid("91384db5-6659-4384-bf2c-3a41160343f4");
 
         public static void CreateSpells(List<SpellDefinition> spells)
         {
@@ -27,7 +27,7 @@ namespace SolastaCommunityExpansion.Spells
             var spellBuilder = new SpellBuilder(
                     DatabaseHelper.SpellDefinitions.Fireball, 
                     "EldritchOrb",
-                    GuidHelper.Create(SPELLS_BASE_GUID, "EldritchOrb").ToString());
+                    GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "EldritchOrb").ToString());
 
             spellBuilder.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation);
             spellBuilder.SetMaterialComponent(RuleDefinitions.MaterialComponentType.None);
@@ -83,7 +83,7 @@ namespace SolastaCommunityExpansion.Spells
 
             var familiarMonsterBuilder = new MonsterBuilder(
                     "Owl",
-                    GuidHelper.Create(SPELLS_BASE_GUID, "Owl").ToString(),
+                    GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "Owl").ToString(),
                     "Owl",
                     "Owl",
                     DatabaseHelper.MonsterDefinitions.Eagle_Matriarch)
@@ -128,7 +128,7 @@ namespace SolastaCommunityExpansion.Spells
             var spellBuilder = new SpellBuilder(
                     DatabaseHelper.SpellDefinitions.Fireball, 
                     "FindFamiliar",
-                    GuidHelper.Create(SPELLS_BASE_GUID, "FindFamiliar").ToString());
+                    GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "FindFamiliar").ToString());
 
             spellBuilder.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolConjuration);
             spellBuilder.SetMaterialComponent(RuleDefinitions.MaterialComponentType.Specific);
@@ -175,7 +175,7 @@ namespace SolastaCommunityExpansion.Spells
             var spellBuilder = new SpellBuilder(
                     DatabaseHelper.SpellDefinitions.Confusion, 
                     "Frenzy",
-                    GuidHelper.Create(SPELLS_BASE_GUID, "Frenzy").ToString());
+                    GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "Frenzy").ToString());
 
             spellBuilder.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEnchantment);
             spellBuilder.SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane);
@@ -214,7 +214,7 @@ namespace SolastaCommunityExpansion.Spells
             var spellBuilder = new SpellBuilder(
                     DatabaseHelper.SpellDefinitions.VampiricTouch, 
                     "MinorLifesteal",
-                    GuidHelper.Create(SPELLS_BASE_GUID, "MinorLifesteal").ToString());
+                    GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "MinorLifesteal").ToString());
 
             spellBuilder.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolNecromancy);
             spellBuilder.SetMaterialComponent(RuleDefinitions.MaterialComponentType.None);
@@ -262,7 +262,7 @@ namespace SolastaCommunityExpansion.Spells
             var spellBuilder = new SpellBuilder(
                     DatabaseHelper.SpellDefinitions.InsectPlague, 
                     "PetalStorm",
-                    GuidHelper.Create(SPELLS_BASE_GUID, "PetalStorm").ToString());
+                    GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "PetalStorm").ToString());
 
             spellBuilder.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolConjuration);
             spellBuilder.SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane);
@@ -305,7 +305,7 @@ namespace SolastaCommunityExpansion.Spells
             var effectProxyDefinitionBuilder = new EffectProxyDefinitionBuilder(
                     DatabaseHelper.EffectProxyDefinitions.ProxyInsectPlague,
                     "ProxyPetalStorm",
-                    GuidHelper.Create(SPELLS_BASE_GUID, "ProxyPetalStorm").ToString());
+                    GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "ProxyPetalStorm").ToString());
 
             effectProxyDefinitionBuilder.SetGuiPresentation(
                     new GuiPresentationBuilder(
@@ -327,41 +327,6 @@ namespace SolastaCommunityExpansion.Spells
 
             return spell;
 
-/*            var effectDescription = new EffectDescriptionBuilder();
-
-            effectDescription.SetTargetingData(
-                    RuleDefinitions.Side.Enemy,
-                    RuleDefinitions.RangeType.Distance,
-                    12,
-                    RuleDefinitions.TargetType.Cube,
-                    3,
-                    1, // wtf is this
-                    ActionDefinitions.ItemSelectionType.None);  // wtf is this
-            effectDescription.SetDurationData(
-                    RuleDefinitions.DurationType.Minute,
-                    1,
-                    RuleDefinitions.TurnOccurenceType.StartOfTurn); // wtf is this
-            effectDescription.SetSavingThrowData(
-                    true,
-                    false, // wtf is this
-                    AttributeDefinitions.Strength,
-                    true, // wtf is this
-                    RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency, // wtf is this
-                    AttributeDefinitions.Strength, // wtf is this
-                    15, // wtf is this
-                    false, // wtf is this
-                    null); // wtf is this
-            effectDescription.SetRecurrentEffect((RuleDefinitions.RecurrentEffect)20);
-
-            var effectAdvancement = new EffectAdvancement();
-
-            effectAdvancement.Copy(DatabaseHelper.SpellDefinitions.InsectPlague.EffectDescription.EffectAdvancement);
-            effectAdvancement.SetAdditionalDicePerIncrement(2);
-            effectAdvancement.SetIncrementMultiplier(1);
-            effectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel);
-*/
-           // return spellBuilder.AddToDB();
-
         }
         private static SpellDefinition BuildProtectThreshold()
         {
@@ -369,7 +334,7 @@ namespace SolastaCommunityExpansion.Spells
             var spellBuilder = new SpellBuilder(
                     DatabaseHelper.SpellDefinitions.SpikeGrowth, 
                     "ProtectThreshold",
-                    GuidHelper.Create(SPELLS_BASE_GUID, "ProtectThreshold").ToString());
+                    GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "ProtectThreshold").ToString());
 
             spellBuilder.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolAbjuration);
             spellBuilder.SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane);
