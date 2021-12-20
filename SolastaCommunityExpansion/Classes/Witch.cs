@@ -1098,9 +1098,12 @@ namespace SolastaCommunityExpansion.Classes.Witch
                             .Build(),
                     GuidHelper.Create(WITCH_BASE_GUID, "SubclassChoiceWitchCovens").ToString());
 
-//            subClassChoices.Subclasses.Add(new BloodWitch().GetSubclass().name);
+//            subClassChoices.Subclasses.Add(new BloodWitch().GetSubclass(Class).name);
             subClassChoices.Subclasses.Add(new GreenWitch().GetSubclass(Class).name);
-//            subClassChoices.Subclasses.Add(new PurpleWitch().GetSubclass().name);
+//            subClassChoices.Subclasses.Add(new PurpleWitch().GetSubclass(Class).name);
+            subClassChoices.Subclasses.Add(new RedWitch().GetSubclass(Class).name);
+            subClassChoices.Subclasses.Add(new WhiteWitch().GetSubclass(Class).name);
+
         }
 
         internal override void BuildProgression(CharacterClassDefinitionBuilder classBuilder)

@@ -691,8 +691,20 @@ Subclass/&GreenWitchTitle	Green Witch
 Subclass/&GreenWitchDescription	Plants, nature, and things that grow are the domain of green magic. Normally a type of arcana championed by druids, some witches have a close tie to the powers of green magic, and can coax plants and animals into their bidding.
 Subclass/&PurpleWitchTitle	Purple Witch
 Subclass/&PurpleWitchDescription	Purple magic holds sway over the domains of illusions and enchantments that take hold over people's minds, and anything that is not quite as it seems. Practitioners of this form of magic are puppet masters, shaping the apparent reality of those around them to their advantage.
+Subclass/&RedWitchTitle	Red Witch
+Subclass/&RedWitchDescription	Arcane magic tied to channeling the elements is deemed red magic, and is extremely hazardous when used. Witches that specialize in red magic are among the deadliest spellcasters in existence, channeling their curse into unhindered arcane wrath.
+Subclass/&WhiteWitchTitle	White Witch
+Subclass/&WhiteWitchDescription	White magic is fundamentally good and benevolent for all living things. Witches that adopt this craft, in spite of the hateful curse that infects them, often dedicate themselves to healing and caretaking, with the intent of bettering the world.
+Subclass/&BloodWitchMagicTitle	Blood Magic
+Subclass/&BloodWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel	Spells\n1st	Entangle, Goodberry\n2nd	Barkskin, Protection from Poison\n3rd	Conjure Animals, Create Food\n4th	Giant Insect, Stoneskin\n5th	Dispel Evil and Good, Insect Plague
 Subclass/&GreenWitchMagicTitle	Green Magic
 Subclass/&GreenWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel	Spells\n1st	Entangle, Goodberry\n2nd	Barkskin, Protection from Poison\n3rd	Conjure Animals, Create Food\n4th	Giant Insect, Stoneskin\n5th	Dispel Evil and Good, Insect Plague
+Subclass/&PurpleWitchMagicTitle	Purple Magic
+Subclass/&PurpleWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel	Spells\n1st	Entangle, Goodberry\n2nd	Barkskin, Protection from Poison\n3rd	Conjure Animals, Create Food\n4th	Giant Insect, Stoneskin\n5th	Dispel Evil and Good, Insect Plague
+Subclass/&RedWitchMagicTitle	Red Magic
+Subclass/&RedWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel	Spells\n1st	Burning Hands, Magic Missile\n2nd	Acid Arrow, Scorching Ray\n3rd	Fireball, Protection From Energy\n4th	Ice Storm, Wall of Fire\n5th	Cone of Cold, Mind Twist
+Subclass/&WhiteWitchMagicTitle	White Magic
+Subclass/&WhiteWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel	Spells\n1st	Bless, Cure Wounds\n2nd	Lesser Restoration, Prayer of Healing\n3rd	Beacon of Hope, Revivify\n4th	Death Ward, Guardian of Faith\n5th	Mass Cure Wounds, Raise Dead
 Stage/&SubclassSelectionStageCovenTitle	Coven
 Stage/&SubclassSelectionStageCovenDescription	Coven
 Stage/&SubclassSelectionStageCovenHeader	Select a Coven

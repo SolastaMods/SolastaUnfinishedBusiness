@@ -1,4 +1,4 @@
-﻿using SolastaCommunityExpansion.Features;
+using SolastaCommunityExpansion.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.BuilderHelpers;
@@ -9,7 +9,7 @@ using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Subclasses.Witch
 {
-    internal class GreenWitch : AbstractSubclass
+    internal class RedWitch : AbstractSubclass
     {
         private CharacterSubclassDefinition Subclass;
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
@@ -32,45 +32,45 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
             return Subclass;
         }
 
-        public static readonly Guid GW_BASE_GUID = new Guid("5d595308-bcf8-4a9f-a9a0-d2ae85c243e7");
+        public static readonly Guid RW_BASE_GUID = new Guid("3cc83deb-e681-4670-9340-33d08b61f599");
 
         private static CharacterClassDefinition WitchClass { get; set; }
-        public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetGreenMagic { get; private set; }
+        public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetRedMagic { get; private set; }
 
-        private static void BuildGreenMagic()
+        private static void BuildRedMagic()
         {
             GuiPresentation blank = new GuiPresentationBuilder("Feature/&NoContentTitle", "Feature/&NoContentTitle").Build();
 
             var preparedSpells = new FeatureDefinitionAutoPreparedSpellsBuilder(
-                    "GreenMagicAutoPreparedSpell",
-                    GuidHelper.Create(GW_BASE_GUID, "GreenMagicAutoPreparedSpell").ToString(),
+                    "RedMagicAutoPreparedSpell",
+                    GuidHelper.Create(RW_BASE_GUID, "RedMagicAutoPreparedSpell").ToString(),
                     new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>{
                             FeatureDefinitionAutoPreparedSpellsBuilder.BuildAutoPreparedSpellGroup(
                                     1,
                                     new List<SpellDefinition>{
-                                            DatabaseHelper.SpellDefinitions.Entangle, 
-                                            DatabaseHelper.SpellDefinitions.Goodberry, 
-                                            DatabaseHelper.SpellDefinitions.Barkskin, 
-                                            DatabaseHelper.SpellDefinitions.ProtectionFromPoison, // This should be Beast Sense
-                                            DatabaseHelper.SpellDefinitions.ConjureAnimals, 
-                                            DatabaseHelper.SpellDefinitions.CreateFood, // This should be Plant Growth
-                                            DatabaseHelper.SpellDefinitions.GiantInsect, // This should be Conjure Woodland Beings
-                                            DatabaseHelper.SpellDefinitions.Stoneskin, 
-                                            DatabaseHelper.SpellDefinitions.DispelEvilAndGood, // This should be Awaken
-                                            DatabaseHelper.SpellDefinitions.InsectPlague, // This should be Tree Stride
+                                            DatabaseHelper.SpellDefinitions.BurningHands, 
+                                            DatabaseHelper.SpellDefinitions.MagicMissile, 
+                                            DatabaseHelper.SpellDefinitions.AcidArrow, 
+                                            DatabaseHelper.SpellDefinitions.ScorchingRay, 
+                                            DatabaseHelper.SpellDefinitions.Fireball, 
+                                            DatabaseHelper.SpellDefinitions.ProtectionFromEnergy, 
+                                            DatabaseHelper.SpellDefinitions.IceStorm, 
+                                            DatabaseHelper.SpellDefinitions.WallOfFire, 
+                                            DatabaseHelper.SpellDefinitions.ConeOfCold, 
+                                            DatabaseHelper.SpellDefinitions.MindTwist, // This should be Telekinesis
                                             })},
                     blank)
                     .SetCharacterClass(WitchClass)
                     .SetAutoTag("Coven")
                     .AddToDB();
 
-            FeatureDefinitionFeatureSetGreenMagic = new FeatureDefinitionFeatureSetBuilder(
+            FeatureDefinitionFeatureSetRedMagic = new FeatureDefinitionFeatureSetBuilder(
                     DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHumanLanguages,
-                    "FeatureSetGreenWitchMagic",
-                    GuidHelper.Create(GW_BASE_GUID, "FeatureSetGreenWitchMagic").ToString(),
+                    "FeatureSetRedWitchMagic",
+                    GuidHelper.Create(RW_BASE_GUID, "FeatureSetRedWitchMagic").ToString(),
                     new GuiPresentationBuilder(
-                            "Subclass/&GreenWitchMagicDescription",
-                            "Subclass/&GreenWitchMagicTitle").Build())
+                            "Subclass/&RedWitchMagicDescription",
+                            "Subclass/&RedWitchMagicTitle").Build())
                     .ClearFeatures()
                     .AddFeature(preparedSpells)
                     .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
@@ -81,7 +81,7 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 
         private static void BuildProgression(CharacterSubclassDefinitionBuilder subclassBuilder)
         {
-            subclassBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetGreenMagic, 3);
+            subclassBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetRedMagic, 3);
         }
 
         public static CharacterSubclassDefinition BuildAndAddSubclass(CharacterClassDefinition witchClassDefinition)
@@ -90,17 +90,17 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
             WitchClass = witchClassDefinition;
 
             var subclassGuiPresentation = new GuiPresentationBuilder(
-                    "Subclass/&GreenWitchDescription",
-                    "Subclass/&GreenWitchTitle")
-                    .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.TraditionGreenmage.GuiPresentation.SpriteReference)
+                    "Subclass/&RedWitchDescription",
+                    "Subclass/&RedWitchTitle")
+                    .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.DomainElementalFire.GuiPresentation.SpriteReference)
                     .Build();
 
             var subclassBuilder = new CharacterSubclassDefinitionBuilder(
-                    "GreenWitch", 
-                    GuidHelper.Create(GW_BASE_GUID, "GreenWitch").ToString())
+                    "RedWitch", 
+                    GuidHelper.Create(RW_BASE_GUID, "RedWitch").ToString())
                     .SetGuiPresentation(subclassGuiPresentation);
 
-            BuildGreenMagic();
+            BuildRedMagic();
             BuildProgression(subclassBuilder);
 
             return subclassBuilder.AddToDB();
