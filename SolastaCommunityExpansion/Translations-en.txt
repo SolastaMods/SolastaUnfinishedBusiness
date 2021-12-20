@@ -729,6 +729,8 @@ Power/&HelpActionTitle	Help
 Power/&HelpActionDescription	You can aid a friendly creature in attacking a creature within 5 feet of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage. 
 Condition/&RuinedDescription	This creature's defence is reduced.
 Condition/&RuinedTitle	Ruined
+Condition/&HelpActionDescription	This creature has been distracted.
+Condition/&HelpActionTitle	Distracted
 Modifier/&RuinedDescription	-3 to Armor Class
 Modifier/&RuinedTitle	Ruined
 Screen/&WitchSpellTitle	Witch

@@ -20,13 +20,13 @@ namespace SolastaCommunityExpansion.Powers
         private static FeatureDefinitionPower BuildHelpAction()
         {
 
-            EffectDescription helpActionEffectDescription = new EffectDescription();
-            helpActionEffectDescription.Copy(DatabaseHelper.SpellDefinitions.TrueStrike.EffectDescription);
-            helpActionEffectDescription.SetRangeType(RuleDefinitions.RangeType.Touch);
-            helpActionEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
-            helpActionEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
-            helpActionEffectDescription.EffectForms[0].ConditionForm.ConditionDefinition.GuiPresentation.SetDescription("Power/&FamiliarHelpActionDescription");
-            helpActionEffectDescription.EffectForms[0].ConditionForm.ConditionDefinition.GuiPresentation.SetTitle("Power/&FamiliarHelpActionTitle");
+            var effectDescription = new EffectDescription();
+            effectDescription.Copy(DatabaseHelper.SpellDefinitions.TrueStrike.EffectDescription);
+            effectDescription.SetRangeType(RuleDefinitions.RangeType.Touch);
+            effectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
+            effectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
+            effectDescription.EffectForms[0].ConditionForm.ConditionDefinition.GuiPresentation.SetDescription("Condition/&HelpActionDescription");
+            effectDescription.EffectForms[0].ConditionForm.ConditionDefinition.GuiPresentation.SetTitle("Condition/&HelpActionTitle");
 
             var helpAction = new FeatureDefinitionPowerBuilder(
                     "HelpAction",
@@ -40,10 +40,11 @@ namespace SolastaCommunityExpansion.Powers
                     false,
                     false,
                     AttributeDefinitions.Charisma,
-                    helpActionEffectDescription,
+                    effectDescription,
                     new GuiPresentationBuilder(
                         "Power/&HelpActionDescription",
-                        "Power/&HelpActionTitle").Build(),
+                        "Power/&HelpActionTitle").Build()
+                        .SetSpriteReference(DatabaseHelper.SpellDefinitions.Aid.GuiPresentation.SpriteReference),
                     true)
                     .AddToDB();
 
