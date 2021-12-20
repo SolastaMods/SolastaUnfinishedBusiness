@@ -6,9 +6,8 @@ using SolastaModApi.Extensions;
 using SolastaCommunityExpansion.Features;
 using SolastaCommunityExpansion.Helpers;
 using SolastaCommunityExpansion.Subclasses.Witch;
-using UnityEngine;
 using static CharacterClassDefinition;
-using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
+using static FeatureDefinitionCastSpell;
 
 namespace SolastaCommunityExpansion.Classes.Witch
 {
@@ -409,9 +408,34 @@ namespace SolastaCommunityExpansion.Classes.Witch
                             "Class/&WitchSpellcastingDescription",
                             "Class/&WitchSpellcastingTitle")
                             .Build());
-            classSpellCast.SetKnownCantrips(4, 1, CastSpellBuilder.CasterProgression.FULL_CASTER);
-            classSpellCast.SetKnownSpells(2, 1, CastSpellBuilder.CasterProgression.FULL_CASTER);
-            classSpellCast.SetSlotsPerLevel(1, CastSpellBuilder.CasterProgression.FULL_CASTER);
+            classSpellCast.SetKnownCantrips(new List<int>{
+                    2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4});
+            classSpellCast.SetKnownSpells(new List<int>{
+                    2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 13, 13, 14, 14, 15, 15, 15, 15});
+
+            List<SlotsByLevelDuplet> witchCastingSlots = new List<SlotsByLevelDuplet>{
+                    new SlotsByLevelDuplet() { Slots = new List<int> {2,0,0,0,0,0,0,0,0,0}, Level = 01 },
+                    new SlotsByLevelDuplet() { Slots = new List<int> {3,0,0,0,0,0,0,0,0,0}, Level = 02 },
+                    new SlotsByLevelDuplet() { Slots = new List<int> {4,2,0,0,0,0,0,0,0,0}, Level = 03 },
+                    new SlotsByLevelDuplet() { Slots = new List<int> {4,3,0,0,0,0,0,0,0,0}, Level = 04 },
+                    new SlotsByLevelDuplet() { Slots = new List<int> {4,3,2,0,0,0,0,0,0,0}, Level = 05 },
+                    new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,0,0,0,0,0,0,0}, Level = 06 },
+                    new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,1,0,0,0,0,0,0}, Level = 07 },
+                    new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,2,0,0,0,0,0,0}, Level = 08 },
+                    new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,1,0,0,0,0,0}, Level = 09 },
+                    new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,0,0,0,0,0}, Level = 10 },
+                    new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,0,0,0,0}, Level = 11 },
+                    new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,0,0,0,0}, Level = 12 },
+                    new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,0,0,0}, Level = 13 },
+                    new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,0,0,0}, Level = 14 },
+                    new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,1,0,0}, Level = 15 },
+                    new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,1,0,0}, Level = 16 },
+                    new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,1,1,0}, Level = 17 },
+                    new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,3,1,1,1,1,0}, Level = 18 },
+                    new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,3,2,1,1,1,0}, Level = 19 },
+                    new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,3,2,2,1,1,0}, Level = 20 },};
+
+            classSpellCast.SetSlotsPerLevel(witchCastingSlots);
             classSpellCast.SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest);
             classSpellCast.SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class);
             classSpellCast.SetSpellCastingAbility(AttributeDefinitions.Charisma);
