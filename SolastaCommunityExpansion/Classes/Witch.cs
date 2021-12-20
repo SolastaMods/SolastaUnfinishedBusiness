@@ -1074,8 +1074,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     "FeatureSetWitchFamiliar",
                     GuidHelper.Create(WITCH_BASE_GUID, "FeatureSetWitchFamiliar").ToString(),
                     new GuiPresentationBuilder(
-                            "Class/&WitchFamiliarDescription",
-                            "Class/&WitchFamiliarTitle").Build())
+                            "Class/&WitchFamiliarPowerDescription",
+                            "Class/&WitchFamiliarPowerTitle").Build())
                     .ClearFeatures()
                     .AddFeature(preparedSpells)
                     .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
