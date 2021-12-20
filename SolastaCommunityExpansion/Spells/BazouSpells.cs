@@ -361,6 +361,11 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.SetHasSavingThrow(true);
             spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
             spell.EffectDescription.SetRecurrentEffect(RuleDefinitions.RecurrentEffect.OnEnter);
+
+// How can I get an Asset Reference if it is a GameObject loaded in the DB?
+//            spell.EffectDescription.EffectParticleParameters.SetTargetParticleReference(
+//                    (UnityEngine.AddressableAssets.AssetReference)DatabaseHelper.SpellDefinitions.ConjureAnimalsOneBeast.EffectDescription.EffectParticleParameters.TargetParticle);
+
             spell.EffectDescription.EffectAdvancement.SetAdditionalDicePerIncrement(1);
             spell.EffectDescription.EffectAdvancement.SetIncrementMultiplier(1);
             spell.EffectDescription.EffectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel);
