@@ -1108,6 +1108,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
         internal override void BuildProgression(CharacterClassDefinitionBuilder classBuilder)
         {
+
+            if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out FeatureDefinition help)){
+                    classBuilder.AddFeatureAtLevel(help, 1);}
+                    
             classBuilder.AddFeatureAtLevel(FeatureDefinitionProficiencyArmor, 1);
             classBuilder.AddFeatureAtLevel(FeatureDefinitionProficiencyWeapon, 1);
             classBuilder.AddFeatureAtLevel(FeatureDefinitionProficiencySavingThrow, 1);

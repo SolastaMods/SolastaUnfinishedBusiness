@@ -12,6 +12,7 @@ namespace SolastaCommunityExpansion.Patches
         {
             BugFixContext.Load();
 
+            PowersContext.Load();
             SpellsContext.Load();
             ClassesContext.Load();
             AdditionalNamesContext.Load();
