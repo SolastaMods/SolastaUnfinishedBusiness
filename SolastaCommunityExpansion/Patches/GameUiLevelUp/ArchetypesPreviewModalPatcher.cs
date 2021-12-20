@@ -15,11 +15,10 @@ namespace SolastaCommunityExpansion.Patches.GameUiLevelUp
             {
                 return;
             }
-            List<CharacterSubclassDefinition> subclasses = __instance.GetField<List<CharacterSubclassDefinition>>("subclasses");
-            foreach (CharacterSubclassDefinition subclassDefinition in subclasses)
-            {
-                subclassDefinition.FeatureUnlocks.Sort((a, b) => a.Level - b.Level);
-            }
+
+            var subclasses = __instance.GetField<List<CharacterSubclassDefinition>>("subclasses");
+
+            subclasses.ForEach(x => x.FeatureUnlocks.Sort((a, b) => a.Level - b.Level));
         }
     }
 }
