@@ -1,6 +1,7 @@
 using SolastaModApi;
 using SolastaModApi.BuilderHelpers;
 using SolastaModApi.Extensions;
+using SolastaCommunityExpansion.Features;
 using System;
 using System.Collections.Generic;
 
@@ -201,9 +202,39 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.SetTargetParameter(4);
             spell.EffectDescription.SetHasSavingThrow(true);
             spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
-            spell.EffectDescription.EffectForms[0].SetHasSavingThrow(true);
-            spell.EffectDescription.EffectForms[0].SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
-            spell.EffectDescription.EffectForms[0].ConditionForm.SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionConfusedAttack);
+
+            var conditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
+                    DatabaseHelper.ConditionDefinitions.ConditionConfused,
+                    "ConditionFrenzied",
+                    GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "ConditionFrenzied").ToString(),
+                    new GuiPresentationBuilder(
+                            "Condition/&FrenziedDescription",
+                            "Condition/&FrenziedTitle").Build()
+                            .SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionConfusedAttack.GuiPresentation.SpriteReference))
+                    .AddToDB();
+
+            conditionDefinition.Features.Clear();
+
+            // Some methods are missing like SetField or Copy
+            var actionAffinity = new FeatureDefinitionActionAffinityBuilder(
+                    DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinityConditionConfused,
+                    "ActionAffinityConditionFrenzied",
+                    GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "ActionAffinityConditionFrenzied").ToString())
+                    .AddToDB();
+
+            actionAffinity.RandomBehaviourOptions.Clear();
+
+            var behaviorMode = new BehaviorModeDescription();
+            behaviorMode.SetBehaviour(RuleDefinitions.RandomBehaviour.ConditionDuringTurn);
+            // This condition seems to only attack a creature adjacent to where it is. 
+            // It will not make the affected creature move towards another creature... :(
+            behaviorMode.SetCondition(DatabaseHelper.ConditionDefinitions.ConditionConfusedAttack);
+            behaviorMode.SetWeight(10);
+
+            actionAffinity.RandomBehaviourOptions.Add(behaviorMode);
+            conditionDefinition.Features.Add(actionAffinity);
+
+            spell.EffectDescription.EffectForms[0].ConditionForm.SetConditionDefinition(conditionDefinition);
 
             return spell;
 
