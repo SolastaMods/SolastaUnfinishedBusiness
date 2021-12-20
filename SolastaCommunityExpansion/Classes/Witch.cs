@@ -775,7 +775,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             poxEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
             poxEffectDescription.SetHasSavingThrow(true);
             poxEffectDescription.SetRangeParameter(1);
-            poxEffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
+            poxEffectDescription.SetRangeType(RuleDefinitions.RangeType.Touch);
             poxEffectDescription.SetSavingThrowAbility(AttributeDefinitions.Constitution);
             poxEffectDescription.SetTargetParameter(1);
             poxEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
@@ -1111,7 +1111,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out FeatureDefinition help)){
                     classBuilder.AddFeatureAtLevel(help, 1);}
-                    
+
             classBuilder.AddFeatureAtLevel(FeatureDefinitionProficiencyArmor, 1);
             classBuilder.AddFeatureAtLevel(FeatureDefinitionProficiencyWeapon, 1);
             classBuilder.AddFeatureAtLevel(FeatureDefinitionProficiencySavingThrow, 1);
