@@ -15,7 +15,8 @@ namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
         public static void Postfix(RulesetCharacterHero.Snapshot left, RulesetCharacterHero.Snapshot right,
             bool ___sortInverted, SortGroup.Category ___sortCategory, ref int __result)
         {
-            if (left == null || right == null)
+
+            if(left == null || right == null)
             {
                 return;
             }
@@ -24,8 +25,6 @@ namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
 
             switch (___sortCategory)
             {
-                default:
-                    break;
                 case SortGroup.Category.CharacterClass:
                     __result = num * left.Classes[0].CompareTo(right.Classes[0]);
                     __result = __result == 0 ? num * SortByName() : __result;
@@ -33,6 +32,9 @@ namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
                 case SortGroup.Category.CharacterLevel:
                 case SortGroup.Category.CharacterAncestry:
                     __result = __result == 0 ? num * SortByName() : __result;
+                    break;
+                default:
+                    // don't modify other categories
                     break;
             }
 

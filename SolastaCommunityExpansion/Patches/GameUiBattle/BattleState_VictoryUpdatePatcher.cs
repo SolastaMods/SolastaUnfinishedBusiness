@@ -9,9 +9,15 @@ namespace SolastaCommunityExpansion.Patches.GameUiBattle
     {
         public static void Postfix()
         {
-            if (!Main.Settings.AutoPauseOnVictory) return;
+            if (!Main.Settings.AutoPauseOnVictory)
+            {
+                return;
+            }
 
-            if (Gui.Battle != null) { return; }
+            if (Gui.Battle != null)
+            {
+                return;
+            }
 
             if (ServiceRepository.GetService<INarrativeDirectionService>()?.CurrentSequence != null)
             {
