@@ -25,50 +25,98 @@ namespace SolastaCommunityExpansion.Patches.GameUIBestiary
 
     /// <summary>
     /// Fix issue: 
-    /// sorting should put all monsters with knowledge level = 0 at the end of the list
-    /// sorting should sort by category and then by name
+    /// sorting should put all monsters with knowledge level = 0 at the end of the list since they have no useful info
+    /// sorting should sort by category and then by name to make it less of a jumble
     /// </summary>
     [HarmonyPatch(typeof(GameBestiary), "Compare")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameBestiary_Compare
     {
-        public static void Postfix(GameRecordEntry left, GameRecordEntry right,
+        public static bool Prefix(GameRecordEntry left, GameRecordEntry right,
             int ___sortSign, BestiaryDefinitions.SortCategory ___sortCategory, ref int __result)
         {
             if (left == null)
-                return;
-            if (right == null)
-                return;
-            var gameBestiaryEntry1 = left as GameBestiaryEntry;
-            var gameBestiaryEntry2 = right as GameBestiaryEntry;
-            var monsterDefinition1 = gameBestiaryEntry1.MonsterDefinition;
-            var monsterDefinition2 = gameBestiaryEntry2.MonsterDefinition;
-            if (monsterDefinition1 == null)
-                return;
-            if (monsterDefinition2 == null)
-                return;
+            {
+                __result = 1;
+                return false;
+            }
 
-            Main.Log($"{gameBestiaryEntry1.LastUpdateTimeCode}");
+            if (right == null)
+            {
+                __result = -1;
+                return false;
+            }
+
+            GameBestiaryEntry gameBestiaryEntry1 = left as GameBestiaryEntry;
+            GameBestiaryEntry gameBestiaryEntry2 = right as GameBestiaryEntry;
+            MonsterDefinition monsterDefinition1 = gameBestiaryEntry1.MonsterDefinition;
+            MonsterDefinition monsterDefinition2 = gameBestiaryEntry2.MonsterDefinition;
+
+            if (monsterDefinition1 == null)
+            {
+                __result = 1;
+                return false;
+            }
+
+            if (monsterDefinition2 == null)
+            {
+                __result = -1;
+                return false;
+            }
+
+            var level1 = gameBestiaryEntry1.KnowledgeLevelDefinition.Level;
+            var level2 = gameBestiaryEntry2.KnowledgeLevelDefinition.Level;
+
+            __result = SplitByUnknownVsKnown();
 
             switch (___sortCategory)
             {
                 case BestiaryDefinitions.SortCategory.Alphabetical:
+                    __result = __result == 0 ? SortByName(___sortSign) : __result;
                     break;
                 case BestiaryDefinitions.SortCategory.UpdateDate:
-                case BestiaryDefinitions.SortCategory.KnowledgeLevel:
-                case BestiaryDefinitions.SortCategory.Size:
-                case BestiaryDefinitions.SortCategory.ChallengeRating:
-                    __result = __result == 0 ? -___sortSign * SortByName() : __result;
+                    __result = __result == 0 ? SortByUpdateDate() : __result;
+                    __result = __result == 0 ? SortByName() : __result;
                     break;
+                case BestiaryDefinitions.SortCategory.KnowledgeLevel:
+                    __result = __result == 0 ? SortByKnowledgeLevel() : __result;
+                    __result = __result == 0 ? SortByName() : __result;
+                    break;
+                case BestiaryDefinitions.SortCategory.Size:
+                    __result = __result == 0 ? SortBySize() : __result;
+                    __result = __result == 0 ? SortByName() : __result;
+                    break;
+                case BestiaryDefinitions.SortCategory.ChallengeRating:
+                    __result = __result == 0 ? -___sortSign * monsterDefinition1.ChallengeRating.CompareTo(monsterDefinition2.ChallengeRating) : __result;
+                    __result = __result == 0 ? SortByName() : __result;
+                    break;
+            }
+
+            return false;
+
+           int SplitByUnknownVsKnown()
+            {
+                if (level1 == 0) { return 1; }
+                if (level2 == 0) { return -1; }
+                return 0;
+            }
+
+            int SortBySize()
+            {
+                return -___sortSign * monsterDefinition1.SizeDefinition.GuiPresentation.SortOrder.CompareTo(monsterDefinition2.SizeDefinition.GuiPresentation.SortOrder);
+            }
+
+            int SortByUpdateDate()
+            {
+                return -___sortSign * gameBestiaryEntry1.LastUpdateTimeCode.CompareTo(gameBestiaryEntry2.LastUpdateTimeCode);
             }
 
             int SortByKnowledgeLevel()
             {
-                // TODO: make kl=0 always last regardless of sort order
-                return -___sortSign * gameBestiaryEntry1.KnowledgeLevelDefinition.Level.CompareTo(gameBestiaryEntry2.KnowledgeLevelDefinition.Level);
+                return -___sortSign * level1.CompareTo(level2);
             }
 
-            int SortByName()
+            int SortByName(int sortSign = 1)
             {
                 if (string.IsNullOrEmpty(monsterDefinition1.GuiPresentation.Title))
                     return 1;
@@ -80,7 +128,7 @@ namespace SolastaCommunityExpansion.Patches.GameUIBestiary
                     return 1;
                 if (string.IsNullOrEmpty(strB))
                     return -1;
-                return ___sortSign * str.CompareTo(strB);
+                return sortSign * str.CompareTo(strB);
             }
         }
     }
