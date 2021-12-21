@@ -15,13 +15,13 @@ namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
             // Duplicate the logic of CharactersPanel.CharactersFiltered to fix mapping of filteredHeroesList to character plates
 
             var cpDict = ___characterPlates.ToDictionary(cp => Path.GetFileNameWithoutExtension(cp.Filename), cp => cp);
-            var numHeros = filteredHeroesList.Count;
+            var numHeroes = filteredHeroesList.Count;
 
             foreach (var h in filteredHeroesList.Select((h, i) => new { Hero = h, Index = i }))
             {
                 if (cpDict.TryGetValue(h.Hero.Name, out var characterPlateToggle))
                 {
-                    cpDict[h.Hero.Name].transform.SetSiblingIndex(numHeros - h.Index - 1);
+                    cpDict[h.Hero.Name].transform.SetSiblingIndex(numHeroes - h.Index - 1);
                 }
             }
 
