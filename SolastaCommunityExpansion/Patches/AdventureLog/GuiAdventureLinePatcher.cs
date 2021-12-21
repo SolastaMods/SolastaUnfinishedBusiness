@@ -19,6 +19,9 @@ namespace SolastaCommunityExpansion.Patches.AdventureLog
             List<TextBreaker.FragmentInfo> ___totalFragments,
             GameRecordEntry entry)
         {
+            //
+            // this patch shouldn't be protected to avoid game breaking on load
+            //
             if (entry is Models.AdventureLogContext.GameAdventureEntryDungeonMaker gameAdventureEntryLore)
             {
                 ___sectionHeaderGroup.gameObject.SetActive(gameAdventureEntryLore.Title != string.Empty);

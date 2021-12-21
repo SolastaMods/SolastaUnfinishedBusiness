@@ -8,6 +8,9 @@ namespace SolastaCommunityExpansion.Patches.ClassHoldingFeature
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacterHero_FindClassHoldingFeature
     {
+        //
+        // TODO @CHRIS: WE SHOULD PROTECT THIS PATCH
+        //
         internal static void Postfix(
             RulesetCharacterHero __instance,
             FeatureDefinition featureDefinition,
