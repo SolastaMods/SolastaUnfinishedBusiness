@@ -86,7 +86,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
 
-        internal static readonly string[] EmpressGarbSkins = 
+        internal static readonly string[] EmpressGarbAppearances = 
         { 
             "Normal",
             "Barbarian Clothes",
@@ -118,7 +118,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void LoadClothingGorimStock()
         {
-            if (!Main.Settings.EnableClothingGorimStock)
+            if (!Main.Settings.StockGorimStoreWithAllNonMagicalClothing)
             {
                 return;
             }
@@ -143,10 +143,10 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void SwitchBeltOfDwarvenKindBeardChances()
+        internal static void SwitchSetBeltOfDwarvenKindBeardChances()
         {
-            CharacterPresentationBeltOfDwarvenKind.SetOccurencePercentage(Main.Settings.BeltOfDwarvenKindBeardChances);
-            CharacterPresentationBeltOfDwarvenKind.GuiPresentation.SetDescription(Gui.Format("Feature/&AlwaysBeardDescription", Main.Settings.BeltOfDwarvenKindBeardChances.ToString()));
+            CharacterPresentationBeltOfDwarvenKind.SetOccurencePercentage(Main.Settings.SetBeltOfDwarvenKindBeardChances);
+            CharacterPresentationBeltOfDwarvenKind.GuiPresentation.SetDescription(Gui.Format("Feature/&AlwaysBeardDescription", Main.Settings.SetBeltOfDwarvenKindBeardChances.ToString()));
         }
 
         internal static void SwitchCrownOfTheMagister()
@@ -166,7 +166,7 @@ namespace SolastaCommunityExpansion.Models
                 EmpressGarbOriginalItemPresentation = Enchanted_ChainShirt_Empress_war_garb.ItemPresentation;
             }
 
-            switch (Main.Settings.EmpressGarbSkin)
+            switch (Main.Settings.EmpressGarbAppearance)
             {
                 case "Normal":
                     Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(EmpressGarbOriginalItemPresentation);
@@ -209,18 +209,18 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void SwitchFociItems()
         {
-            FocusDefinitionBuilder.ArcaneStaff.GuiPresentation.SetHidden(!Main.Settings.CreateAdditionalFoci);
-            FocusDefinitionBuilder.DruidicAmulet.GuiPresentation.SetHidden(!Main.Settings.CreateAdditionalFoci);
-            FocusDefinitionBuilder.LivewoodClub.GuiPresentation.SetHidden(!Main.Settings.CreateAdditionalFoci);
-            FocusDefinitionBuilder.LivewoodStaff.GuiPresentation.SetHidden(!Main.Settings.CreateAdditionalFoci);
+            FocusDefinitionBuilder.ArcaneStaff.GuiPresentation.SetHidden(!Main.Settings.StockHugoStoreWithAdditionalFoci);
+            FocusDefinitionBuilder.DruidicAmulet.GuiPresentation.SetHidden(!Main.Settings.StockHugoStoreWithAdditionalFoci);
+            FocusDefinitionBuilder.LivewoodClub.GuiPresentation.SetHidden(!Main.Settings.StockHugoStoreWithAdditionalFoci);
+            FocusDefinitionBuilder.LivewoodStaff.GuiPresentation.SetHidden(!Main.Settings.StockHugoStoreWithAdditionalFoci);
         }
 
         internal static void SwitchFociItemsDungeonMaker()
         {
-            FocusDefinitionBuilder.ArcaneStaff.SetInDungeonEditor(Main.Settings.EnableAdditionalFociDungeonMaker);
-            FocusDefinitionBuilder.DruidicAmulet.SetInDungeonEditor(Main.Settings.EnableAdditionalFociDungeonMaker);
-            FocusDefinitionBuilder.LivewoodClub.SetInDungeonEditor(Main.Settings.EnableAdditionalFociDungeonMaker);
-            FocusDefinitionBuilder.LivewoodStaff.SetInDungeonEditor(Main.Settings.EnableAdditionalFociDungeonMaker);
+            FocusDefinitionBuilder.ArcaneStaff.SetInDungeonEditor(Main.Settings.EnableAdditionalFociInDungeonMaker);
+            FocusDefinitionBuilder.DruidicAmulet.SetInDungeonEditor(Main.Settings.EnableAdditionalFociInDungeonMaker);
+            FocusDefinitionBuilder.LivewoodClub.SetInDungeonEditor(Main.Settings.EnableAdditionalFociInDungeonMaker);
+            FocusDefinitionBuilder.LivewoodStaff.SetInDungeonEditor(Main.Settings.EnableAdditionalFociInDungeonMaker);
         }
 
         internal static void SwitchMagicStaffFoci()
@@ -228,7 +228,7 @@ namespace SolastaCommunityExpansion.Models
             foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>()
                 .Where(x => x.WeaponDescription.WeaponType == EquipmentDefinitions.WeaponTypeQuarterstaff && x.Magical && !x.Name.Contains("OfHealing")))
             {
-                item.SetIsFocusItem(Main.Settings.EnableMagicStaffFoci);
+                item.SetIsFocusItem(Main.Settings.MakeAllMagicStaveArcaneFoci);
 
                 if (item.IsFocusItem)
                 {
@@ -242,8 +242,8 @@ namespace SolastaCommunityExpansion.Models
             foreach (var stock in DatabaseHelper.MerchantDefinitions.Store_Merchant_Antiquarians_Halman_Summer.StockUnitDescriptions.Where(
                 x => !x.ItemDefinition.Name.Contains("Manual") && !x.ItemDefinition.Name.Contains("Tome")))
             {
-                stock.SetReassortAmount(Main.Settings.EnableRestockAntiquarians ? 1 : 0);
-                stock.SetReassortRateValue(Main.Settings.EnableRestockAntiquarians ? 7 : 21);
+                stock.SetReassortAmount(Main.Settings.RestockAntiquarians ? 1 : 0);
+                stock.SetReassortRateValue(Main.Settings.RestockAntiquarians ? 7 : 21);
             }
         }
 
@@ -251,7 +251,7 @@ namespace SolastaCommunityExpansion.Models
         {
             foreach (StockUnitDescription stock in DatabaseHelper.MerchantDefinitions.Store_Merchant_Arcaneum_Heddlon_Surespell.StockUnitDescriptions)
             {
-                stock.SetReassortAmount(Main.Settings.EnableRestockArcaneum ? 1 : 0);
+                stock.SetReassortAmount(Main.Settings.RestockArcaneum ? 1 : 0);
             }
         }
 
@@ -259,7 +259,7 @@ namespace SolastaCommunityExpansion.Models
         {
             foreach (StockUnitDescription stock in DatabaseHelper.MerchantDefinitions.Store_Merchant_CircleOfDanantar_Joriel_Foxeye.StockUnitDescriptions)
             {
-                stock.SetReassortAmount(Main.Settings.EnableRestockCircleOfDanantar ? 1 : 0);
+                stock.SetReassortAmount(Main.Settings.RestockCircleOfDanantar ? 1 : 0);
             }
         }
 
@@ -267,7 +267,7 @@ namespace SolastaCommunityExpansion.Models
         {
             foreach (StockUnitDescription stock in DatabaseHelper.MerchantDefinitions.Store_Merchant_TowerOfKnowledge_Maddy_Greenisle.StockUnitDescriptions)
             {
-                stock.SetReassortAmount(Main.Settings.EnableRestockTowerOfKnowledge ? 1 : 0);
+                stock.SetReassortAmount(Main.Settings.RestockTowerOfKnowledge ? 1 : 0);
             }
         }
 
@@ -275,7 +275,7 @@ namespace SolastaCommunityExpansion.Models
         {
             GreenmageArmor.RequiredAttunementClasses.Clear();
 
-            if (!Main.Settings.EnableUniversalSylvanArmor)
+            if (!Main.Settings.AllowAnyClassToWearSylvanArmor)
             {
                 GreenmageArmor.RequiredAttunementClasses.Add(Wizard);
             }
@@ -284,7 +284,7 @@ namespace SolastaCommunityExpansion.Models
         internal static void Load()
         {
             LoadClothingGorimStock();
-            SwitchBeltOfDwarvenKindBeardChances();
+            SwitchSetBeltOfDwarvenKindBeardChances();
             SwitchCrownOfTheMagister();
             SwitchEmpressGarb();
             SwitchFociItems();

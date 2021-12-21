@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiTooltip
     {
         internal static void Postfix(TooltipFeatureDescription __instance, ITooltip tooltip)
         {
-            if (!Main.Settings.RecipeTooltipShowsRecipe)
+            if (!Main.Settings.ShowCraftingRecipeInDetailedTooltips)
             {
                 return;
             }

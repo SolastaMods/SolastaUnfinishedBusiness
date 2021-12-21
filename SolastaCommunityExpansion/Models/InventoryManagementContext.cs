@@ -26,7 +26,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
-            if (!Main.Settings.EnableInventoryFilterAndSort)
+            if (!Main.Settings.EnableInventoryFilteringAndSorting)
             {
                 return;
             }

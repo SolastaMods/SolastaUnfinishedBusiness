@@ -12,6 +12,9 @@ namespace SolastaCommunityExpansion.Patches.GameUIBestiary
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameBestiary_ApplyKnowledgeLevel
     {
+        //
+        // TODO @IMPPHIL: WE SHOULD PROTECT THIS PATCH
+        //
         public static void Postfix(MonsterDefinition monsterDefinition, GameTime gameTime,
             Dictionary<MonsterDefinition, GameBestiaryEntry> ___entriesByMonster, bool __result)
         {

@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
     {
         public static void Postfix(List<TrendInfo> trends, ref AdvantageType __result)
         {
-            if (Main.Settings.EnableSRDAdvantageRules)
+            if (Main.Settings.UseOfficialAdvantageDisadvantageRules)
             {
                 var hasAdvantage = trends.Any(t => t.value > 0);
                 var hasDisadvantage = trends.Any(t => t.value < 0);
@@ -39,7 +39,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
     {
         public static bool Prefix(ref int __result, List<TrendInfo> ___attackAdvantageTrends)
         {
-            if (Main.Settings.EnableSRDAdvantageRules)
+            if (Main.Settings.UseOfficialAdvantageDisadvantageRules)
             {
                 var advantage = ___attackAdvantageTrends.Any(t => t.value > 0) ? 1 : 0;
                 var disadvantage = ___attackAdvantageTrends.Any(t => t.value < 0) ? -1 : 0;

@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
     {
         internal static bool Prefix(GameLocationBattle __instance, bool partySurprised, bool enemySurprised)
         {
-            if (Main.Settings.EnableSRDCombatSurpriseRules && (partySurprised || enemySurprised))
+            if (Main.Settings.UseOfficialCombatSurpriseRules && (partySurprised || enemySurprised))
             {
                 Models.SrdAndHouseRulesContext.StartContenders(partySurprised, __instance.PlayerContenders, __instance.EnemyContenders);
                 Models.SrdAndHouseRulesContext.StartContenders(enemySurprised, __instance.EnemyContenders, __instance.PlayerContenders);

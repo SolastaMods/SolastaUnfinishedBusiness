@@ -16,6 +16,9 @@ namespace SolastaCommunityExpansion.Patches.Camera
         /// </summary>
         internal static bool Prefix(CameraControllerLocation __instance, GameLocationCharacter character)
         {
+            //
+            // TODO @IMPPHIL: FIX EXIT ROUTE
+            //
             try
             {
                 if (Main.Settings.DontFollowCharacterInBattle)

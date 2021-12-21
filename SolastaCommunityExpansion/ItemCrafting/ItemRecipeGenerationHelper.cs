@@ -43,7 +43,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
                     }
                     Models.ItemCraftingContext.RecipeBooks[baseItem.Name].Add(craftingManual);
 
-                    if (Main.Settings.InStore.Contains(baseItem.Name))
+                    if (Main.Settings.CraftingInStore.Contains(baseItem.Name))
                     {
                         StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Circe, craftingManual);
                         StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore, craftingManual);
@@ -87,7 +87,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
                     }
                     Models.ItemCraftingContext.RecipeBooks[baseItem.Name].Add(craftingManual);
 
-                    if (Main.Settings.InStore.Contains(baseItem.Name))
+                    if (Main.Settings.CraftingInStore.Contains(baseItem.Name))
                     {
                         StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Circe, craftingManual);
                         StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore, craftingManual);
@@ -158,7 +158,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
 
                 Models.ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
 
-                if (Main.Settings.InStore.Contains(groupKey))
+                if (Main.Settings.CraftingInStore.Contains(groupKey))
                 {
                     StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Circe, craftingManual);
                     StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore, craftingManual);
@@ -190,7 +190,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
 
                 Models.ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
 
-                if (Main.Settings.InStore.Contains(groupKey))
+                if (Main.Settings.CraftingInStore.Contains(groupKey))
                 {
                     StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Circe, craftingManual);
                     StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore, craftingManual);
@@ -252,7 +252,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
 
                 Models.ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
 
-                if (Main.Settings.InStore.Contains(groupKey))
+                if (Main.Settings.CraftingInStore.Contains(groupKey))
                 {
                     StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Circe, craftingManual);
                     StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore, craftingManual);

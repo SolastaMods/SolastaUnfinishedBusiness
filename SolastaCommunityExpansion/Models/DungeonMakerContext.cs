@@ -26,7 +26,7 @@ namespace SolastaCommunityExpansion.Models
             var destinationPath = Path.Combine(backupDirectory, compliantTitle) + "." + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
             var backupFiles = Directory.EnumerateFiles(backupDirectory, compliantTitle + "*").OrderBy(f => f).ToList();
 
-            for (int i = 0; i <= backupFiles.Count - Main.Settings.maxBackupFiles; i++)
+            for (int i = 0; i <= backupFiles.Count - Main.Settings.maxBackupFilesPerLocationCampaign; i++)
             {
                 File.Delete(backupFiles[i]);
             }
@@ -37,7 +37,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void UpdateGadgetsPlacement()
         {
-            if (Main.Settings.FlexibleGadgetsPlacement)
+            if (Main.Settings.AllowGadgetsToBePlacedAnywhere)
             {
                 var dbGadgetBlueprint = DatabaseRepository.GetDatabase<GadgetBlueprint>();
 
@@ -59,7 +59,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void UpdatePropsPlacement()
         {
-            if (Main.Settings.FlexiblePropsPlacement)
+            if (Main.Settings.AllowPropsToBePlacedAnywhere)
             {
                 var dbPropBlueprint = DatabaseRepository.GetDatabase<PropBlueprint>();
 

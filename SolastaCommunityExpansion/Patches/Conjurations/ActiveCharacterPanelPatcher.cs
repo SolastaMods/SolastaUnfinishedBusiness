@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Patches.Conjurations
         /// </summary>
         internal static void Prefix(ActiveCharacterPanel __instance)
         {
-            if(!Main.Settings.FullyControlAlliedConjurations || !Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration)
+            if(!Main.Settings.FullyControlConjurations || !Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration)
             {
                 return;
             }
