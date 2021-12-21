@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
         {
             if (!Main.Settings.FutureFeatureSorting)
             {
-                return;
+                return true;
             }
 
             // Duplicate the logic of CharactersPanel.CharactersFiltered to fix mapping of filteredHeroesList to character plates
