@@ -15,8 +15,12 @@ namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
         public static void Postfix(RulesetCharacterHero.Snapshot left, RulesetCharacterHero.Snapshot right,
             bool ___sortInverted, SortGroup.Category ___sortCategory, ref int __result)
         {
+            if (!Main.Settings.FixCharacterPanelSorting)
+            {
+                return;
+            }
 
-            if(left == null || right == null)
+            if (left == null || right == null)
             {
                 return;
             }
@@ -27,11 +31,11 @@ namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
             {
                 case SortGroup.Category.CharacterClass:
                     __result = num * left.Classes[0].CompareTo(right.Classes[0]);
-                    __result = __result == 0 ? num * SortByName() : __result;
+                    __result = __result == 0 ? SortByName() : __result;
                     break;
                 case SortGroup.Category.CharacterLevel:
                 case SortGroup.Category.CharacterAncestry:
-                    __result = __result == 0 ? num * SortByName() : __result;
+                    __result = __result == 0 ? SortByName() : __result;
                     break;
                 default:
                     // don't modify other categories
@@ -40,7 +44,8 @@ namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
 
             int SortByName()
             {
-                return num * left.Name.CompareTo(right.Name);
+                // TODO: seem to get different order on CharactersPanel vs Modal
+                return -left.Name.CompareTo(right.Name);
             }
         }
     }
