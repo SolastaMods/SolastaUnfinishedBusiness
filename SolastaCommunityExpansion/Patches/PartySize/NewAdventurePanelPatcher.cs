@@ -14,10 +14,10 @@ namespace SolastaCommunityExpansion.Patches.PartySize
         internal static void Prefix(RectTransform ___characterSessionPlatesTable)
         {
             // overrides campaign party size
-            DatabaseHelper.CampaignDefinitions.UserCampaign.SetPartySize<CampaignDefinition>(Main.Settings.UserDungeonsPartySize);
+            DatabaseHelper.CampaignDefinitions.UserCampaign.SetPartySize<CampaignDefinition>(Main.Settings.OverridePartySize);
 
             // adds new character plates if required
-            for (int i = Settings.GAME_PARTY_SIZE; i < Main.Settings.UserDungeonsPartySize; i++)
+            for (int i = Settings.GAME_PARTY_SIZE; i < Main.Settings.OverridePartySize; i++)
             {
                 var firstChild = ___characterSessionPlatesTable.GetChild(0);
 
@@ -25,9 +25,9 @@ namespace SolastaCommunityExpansion.Patches.PartySize
             }
 
             // scales down the plates table if required
-            if (Main.Settings.UserDungeonsPartySize > Settings.GAME_PARTY_SIZE)
+            if (Main.Settings.OverridePartySize > Settings.GAME_PARTY_SIZE)
             {
-                var scale = (float)System.Math.Pow(Settings.ADVENTURE_PANEL_DEFAULT_SCALE, Main.Settings.UserDungeonsPartySize - Settings.GAME_PARTY_SIZE);
+                var scale = (float)System.Math.Pow(Settings.ADVENTURE_PANEL_DEFAULT_SCALE, Main.Settings.OverridePartySize - Settings.GAME_PARTY_SIZE);
 
                 ___characterSessionPlatesTable.localScale = new Vector3(scale, scale, scale);
             }

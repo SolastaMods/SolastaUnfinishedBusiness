@@ -6,7 +6,7 @@ namespace SolastaCommunityExpansion.Models
     {
         internal static void Load()
         {
-            if (Main.Settings.NoIdentification)
+            if (Main.Settings.RemoveIdentifcationRequirements)
             {
                 foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>())
                 {
@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
 
-            if (Main.Settings.NoAttunement)
+            if (Main.Settings.RemoveAttunementRequirements)
             {
                 foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>())
                 {

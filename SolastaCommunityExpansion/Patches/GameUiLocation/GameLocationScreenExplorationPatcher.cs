@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
             CharacterControlPanelExploration ___characterControlPanelExploration,
             TimeAndNavigationPanel ___timeAndNavigationPanel)
         {
-            if (Main.Settings.EnableHudToggleElementsHotkeys)
+            if (Main.Settings.EnableHotkeysToToggleHud)
             {
                 switch (command)
                 {

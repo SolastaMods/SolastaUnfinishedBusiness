@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.Models
     {
         internal static void Load()
         {
-            if (Main.Settings.OfferAdditionalNames)
+            if (Main.Settings.OfferAdditionalLoreFriendlyNames)
             {
                 CharacterRaceDefinition dwarfNames = Dwarf;
                 CharacterRaceDefinition elfHighNames = ElfHigh;

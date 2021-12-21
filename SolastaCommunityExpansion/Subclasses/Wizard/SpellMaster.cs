@@ -183,7 +183,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 
         public static void UpdateRecoveryLimited()
         {
-            if (Main.Settings.SpellMasterUnlimitedArcaneRecovery)
+            if (Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster)
             {
                 GuiPresentationBuilder spellRecoveryGui = new GuiPresentationBuilder(
                     "Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedDescription",

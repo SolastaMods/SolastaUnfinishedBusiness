@@ -56,11 +56,11 @@ namespace SolastaCommunityExpansion
         public bool EnableFlexibleRaces { get; set; }
         public bool EnableEpicPoints { get; set; }
         public bool EnableEpicArray { get; set; }
-        public int AllRacesInitialFeats { get; set; }
+        public int TotalFeatsGrantedFistLevel { get; set; }
 
         // Miscellaneous
         public bool AllowExtraKeyboardCharactersInNames { get; set; }
-        public bool OfferAdditionalNames { get; set; }
+        public bool OfferAdditionalLoreFriendlyNames { get; set; }
 
         // Progression
         public const RestActivityDefinition.ActivityCondition ActivityConditionCanRespec = (RestActivityDefinition.ActivityCondition)(-1001);
@@ -70,12 +70,12 @@ namespace SolastaCommunityExpansion
         public bool EnableRespec { get; set; }
 
         // Visuals
-        public bool EnableFaceUnlockNpcs { get; set; }
-        public bool EnableFaceUnlockUnmarkedSorcerers { get; set; }
-        public bool EnableFaceUnlockMarkingsForAll { get; set; }
-        public bool EnableFaceUnlockEyeStyles { get; set; }
-        public bool EnableFaceUnlockGlowingEyes { get; set; }
-        public bool EnableFaceUnlockGlowingBodyDecorations { get; set; }
+        public bool UnlockAllNpcFaces { get; set; }
+        public bool AllowUnmarkedSorcerers { get; set; }
+        public bool UnlockMarkAndTatoosForAllCharacters { get; set; }
+        public bool UnlockEyeStyles { get; set; }
+        public bool UnlockGlowingEyeColors { get; set; }
+        public bool UnlockGlowingColorsForAllMarksAndTatoos { get; set; }
 
         //
         // Characters - Feats
@@ -89,10 +89,10 @@ namespace SolastaCommunityExpansion
         // Characters - Subclasses
         //
 
-        public bool SpellMasterUnlimitedArcaneRecovery { get; set; }
-        public bool ArcaneFighterEnchantWeaponRechargeShortRest { get; set; }
-        public int RogueConArtistSpellDCBoost { get; set; } = 3;
-        public int MasterManipulatorSpellDCBoost { get; set; } = 2;
+        public bool EnableUnlimitedArcaneRecoveryOnWizardSpellMaster { get; set; }
+        public bool EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter { get; set; }
+        public int OverrideRogueConArtistImprovedManipulationSpellDc { get; set; } = 3;
+        public int OverrideWizardMasterManipulatorArcaneManipulationSpellDc { get; set; } = 2;
         public List<string> SubclassEnabled { get; private set; } = new List<string>();
         public int SubclassSliderPosition { get; set; } = 1;
 
@@ -111,56 +111,56 @@ namespace SolastaCommunityExpansion
         public const int MAX_ENCOUNTER_CHARACTERS = 16;
         public const int PLAYER_CONTROLLER_ID = 1;
 
-        public bool EnableHeroesControlledByComputer { get; set; }
         public bool EnableEnemiesControlledByPlayer { get; set; }
+        public bool EnableHeroesControlledByComputer { get; set; }
 
         //
         // Gameplay - Rules
         //
 
         // SRD
-        public bool EnableSRDAdvantageRules { get; set; }
-        public bool EnableSRDCombatSurpriseRules { get; set; }
-        public bool EnableSRDCombatSurpriseRulesManyRolls { get; set; }
-        public bool AdjustChainLightningSpell { get; set; }
-        public bool EnableConditionBlindedShouldNotAllowOpportunityAttack { get; set; }
-        public bool FullyControlAlliedConjurations { get; set; }
+        public bool UseOfficialAdvantageDisadvantageRules { get; set; }
+        public bool UseOfficialCombatSurpriseRules { get; set; }
+        public bool RollDifferentStealthChecksForEachCharacterPair { get; set; }
+        public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
+        public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
+        public bool FullyControlConjurations { get; set; }
         public bool DismissControlledConjurationsWhenDeliberatelyDropConcentration { get; set; }
 
         // House
-        public bool EnableUniversalSylvanArmor { get; set; }
-        public bool DruidNoMetalRestriction { get; set; }
+        public bool AllowAnyClassToWearSylvanArmor { get; set; }
+        public bool AllowDruidToWearMetalArmor { get; set; }
         public bool DisableAutoEquip { get; set; }
-        public bool EnableMagicStaffFoci { get; set; }
-        public bool IncreaseNormalVisionSenseRange { get; set; }
-        public bool PickPocketEnabled { get; set; }
+        public bool MakeAllMagicStaveArcaneFoci { get; set; }
+        public bool IncreaseSenseNormalVision { get; set; }
+        public bool AddPickpocketableLoot { get; set; }
         public bool AllowStackedMaterialComponent { get; set; }
-        public bool ExactMerchantCostScaling { get; set; }
+        public bool ScaleMerchantPricesCorrectly { get; set; }
 
         //
         // Gameplay - Items, Crafting & Merchants
         //
 
         // General
-        public bool NoIdentification { get; set; }
-        public bool NoAttunement { get; set; }
+        public bool RemoveAttunementRequirements { get; set; }
+        public bool RemoveIdentifcationRequirements { get; set; }
         public int RecipeCost { get; set; } = 200;
 
-        public int BeltOfDwarvenKindBeardChances { get; set; } = 50;
+        public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
 
         // Crafting
-        public List<string> InStore { get; private set; } = new List<string>();
-        public List<string> ItemsInDM { get; private set; } = new List<string>();
-        public List<string> RecipesInDM { get; private set; } = new List<string>();
+        public List<string> CraftingInStore { get; private set; } = new List<string>();
+        public List<string> CraftingItemsInDM { get; private set; } = new List<string>();
+        public List<string> CraftingRecipesInDM { get; private set; } = new List<string>();
 
         // Merchants
-        public bool EnableClothingGorimStock { get; set; }
-        public bool CreateAdditionalFoci { get; set; }
-        public bool EnableAdditionalFociDungeonMaker { get; set; }
-        public bool EnableRestockAntiquarians { get; set; }
-        public bool EnableRestockArcaneum { get; set; }
-        public bool EnableRestockCircleOfDanantar { get; set; }
-        public bool EnableRestockTowerOfKnowledge { get; set; }
+        public bool StockGorimStoreWithAllNonMagicalClothing { get; set; }
+        public bool StockHugoStoreWithAdditionalFoci { get; set; }
+        public bool EnableAdditionalFociInDungeonMaker { get; set; }
+        public bool RestockAntiquarians { get; set; }
+        public bool RestockArcaneum { get; set; }
+        public bool RestockCircleOfDanantar { get; set; }
+        public bool RestockTowerOfKnowledge { get; set; }
 
         //
         // Gameplay - Tools
@@ -183,16 +183,16 @@ namespace SolastaCommunityExpansion
 
         public bool EnableSaveByLocation { get; set; }
         public bool EnableTelemaCampaign { get; set; }
-        public int UserDungeonsPartySize { get; set; } = GAME_PARTY_SIZE;
-        public bool EnableDungeonLevelBypass { get; set; }
-        public int maxBackupFiles { get; set; } = 10;
+        public bool OverrideMinMaxLevel { get; set; }
+        public int OverridePartySize { get; set; } = GAME_PARTY_SIZE;
+        public int maxBackupFilesPerLocationCampaign { get; set; } = 10;
 
         // Debug
-        public bool EnableCheatMenuDuringGameplay { get; set; }
+        public bool EnableCheatMenu { get; set; }
 
         // Experience
         public bool NoExperienceOnLevelUp { get; set; }
-        public int ExperienceModifier { get; set; } = 100;
+        public int MultiplyTheExperienceGainedBy { get; set; } = 100;
 
         // Faction Relations
 
@@ -211,9 +211,9 @@ namespace SolastaCommunityExpansion
 
         // General
         public bool EnableCharacterExport { get; set; }
-        public bool EnableHudToggleElementsHotkeys { get; set; }
+        public bool EnableHotkeysToToggleHud { get; set; }
         public bool InvertAltBehaviorOnTooltips { get; set; }
-        public bool RecipeTooltipShowsRecipe { get; set; }
+        public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
 
         // Adventure Log
         public bool EnableAdventureLogBanterLines { get; set; }
@@ -226,20 +226,20 @@ namespace SolastaCommunityExpansion
         public bool DontFollowCharacterInBattle { get; set; }
         public int DontFollowMargin { get; set; } = 5;
         public bool AutoPauseOnVictory { get; set; }
-        public float CustomTimeScale { get; set; } = 1.0f;
-        public bool PermanentSpeedUp { get; set; }
+        public bool PermanentlySpeedBattleUp { get; set; }
+        public float BattleCustomTimeScale { get; set; } = 1.0f;
+
 
         // Dungeon Maker
-        public bool FlexibleGadgetsPlacement { get; set; }
-        public bool FlexiblePropsPlacement { get; set; }
-        public bool DungeonMakerEditorBetterTooltips { get; set; }
-        public bool UnleashAllMonsters { get; set; }
-        public bool UnleashAllNPCs { get; set; }
+        public bool AllowGadgetsToBePlacedAnywhere { get; set; }
+        public bool AllowPropsToBePlacedAnywhere { get; set; }
+        public bool UnleashNpcAsEnemy { get; set; }
+        public bool UnleashEnemyAsNpc { get; set; }
 
         // Inventory and Items
-        public bool EnableInventoryFilterAndSort { get; set; } = true;
+        public bool EnableInventoryFilteringAndSorting { get; set; } = true;
         public bool EnableInvisibleCrownOfTheMagister { get; set; }
-        public string EmpressGarbSkin { get; set; } = "Normal";
+        public string EmpressGarbAppearance { get; set; } = "Normal";
 
         // Monsters
         public bool HideMonsterHitPoints { get; set; }

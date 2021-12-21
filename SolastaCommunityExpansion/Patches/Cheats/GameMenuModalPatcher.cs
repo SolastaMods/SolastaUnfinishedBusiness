@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.Cheats
     {
         internal static void Postfix(GameMenuModal.MenuButtonIndex index, CanvasGroup[] ___buttonCanvases)
         {
-            if (Main.Settings.EnableCheatMenuDuringGameplay && index == GameMenuModal.MenuButtonIndex.Cheats)
+            if (Main.Settings.EnableCheatMenu && index == GameMenuModal.MenuButtonIndex.Cheats)
             {
                 ___buttonCanvases[(int)index].gameObject.SetActive(true);
                 ___buttonCanvases[(int)index].interactable = true;

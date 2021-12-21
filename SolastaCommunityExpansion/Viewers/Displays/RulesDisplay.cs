@@ -14,52 +14,52 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("SRD:".yellow());
             UI.Label("");
 
-            toggle = Main.Settings.EnableSRDAdvantageRules;
+            toggle = Main.Settings.UseOfficialAdvantageDisadvantageRules;
             if (UI.Toggle("Use official advantage / disadvantage rules", ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.EnableSRDAdvantageRules = toggle;
+                Main.Settings.UseOfficialAdvantageDisadvantageRules = toggle;
             }
 
-            toggle = Main.Settings.EnableSRDCombatSurpriseRules;
+            toggle = Main.Settings.UseOfficialCombatSurpriseRules;
             if (UI.Toggle("Use official combat surprise rules", ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.EnableSRDCombatSurpriseRules = toggle;
-                Main.Settings.EnableSRDCombatSurpriseRulesManyRolls = toggle; // makes many rolls default
+                Main.Settings.UseOfficialCombatSurpriseRules = toggle;
+                Main.Settings.RollDifferentStealthChecksForEachCharacterPair = toggle; // makes many rolls default
             }
 
-            if (Main.Settings.EnableSRDCombatSurpriseRules)
+            if (Main.Settings.UseOfficialCombatSurpriseRules)
             {
-                toggle = Main.Settings.EnableSRDCombatSurpriseRulesManyRolls;
+                toggle = Main.Settings.RollDifferentStealthChecksForEachCharacterPair;
                 if (UI.Toggle("Roll different " + "Stealth".orange() + " checks for each surprised / surprising character pairs", ref toggle, UI.AutoWidth()))
                 {
-                    Main.Settings.EnableSRDCombatSurpriseRulesManyRolls = toggle;
+                    Main.Settings.RollDifferentStealthChecksForEachCharacterPair = toggle;
                 }
             }
 
             UI.Label("");
 
-            toggle = Main.Settings.AdjustChainLightningSpell;
+            toggle = Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell;
             if (UI.Toggle("Allow target selection when casting the " + "Chain Lightning".orange() + " spell", ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.AdjustChainLightningSpell = toggle;
-                SrdAndHouseRulesContext.AdjustChainLightningSpell();
+                Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell = toggle;
+                SrdAndHouseRulesContext.AllowTargetingSelectionWhenCastingChainLightningSpell();
             }
 
-            toggle = Main.Settings.EnableConditionBlindedShouldNotAllowOpportunityAttack;
+            toggle = Main.Settings.BlindedConditionDontAllowAttackOfOpportunity;
             if (UI.Toggle("Blinded".orange() + " condition doesn't allow attack of opportunity", ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.EnableConditionBlindedShouldNotAllowOpportunityAttack = toggle;
+                Main.Settings.BlindedConditionDontAllowAttackOfOpportunity = toggle;
                 SrdAndHouseRulesContext.ApplyConditionBlindedShouldNotAllowOpportunityAttack();
             }
 
-            toggle = Main.Settings.FullyControlAlliedConjurations;
+            toggle = Main.Settings.FullyControlConjurations;
             if (UI.Toggle("Fully control conjurations " + "[animals, elementals, etc]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.FullyControlAlliedConjurations = toggle;
+                Main.Settings.FullyControlConjurations = toggle;
                 ConjurationsContext.Load();
             }
 
-            if (Main.Settings.FullyControlAlliedConjurations)
+            if (Main.Settings.FullyControlConjurations)
             {
                 toggle = Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration;
                 if (UI.Toggle("+ Dismiss fully controlled conjurations when deliberately dropping concentration".italic().yellow(), ref toggle, UI.AutoWidth()))
@@ -72,17 +72,17 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("House:".yellow());
             UI.Label("");
 
-            toggle = Main.Settings.EnableUniversalSylvanArmor;
+            toggle = Main.Settings.AllowAnyClassToWearSylvanArmor;
             if (UI.Toggle("Allow any class to wear sylvan armor", ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.EnableUniversalSylvanArmor = toggle;
+                Main.Settings.AllowAnyClassToWearSylvanArmor = toggle;
                 ItemOptionsContext.SwitchUniversalSylvanArmor();
             }
 
-            toggle = Main.Settings.DruidNoMetalRestriction;
+            toggle = Main.Settings.AllowDruidToWearMetalArmor;
             if (UI.Toggle("Allow " + "Druid".orange() + " to wear metal armor", ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.DruidNoMetalRestriction = toggle;
+                Main.Settings.AllowDruidToWearMetalArmor = toggle;
                 DruidArmorContext.Switch(toggle);
             }
 
@@ -92,27 +92,27 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.DisableAutoEquip = toggle;
             }
 
-            toggle = Main.Settings.EnableMagicStaffFoci;
+            toggle = Main.Settings.MakeAllMagicStaveArcaneFoci;
             if (UI.Toggle("Make all magic staves arcane foci " + "[except for Staff of Healing which is Universal]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.EnableMagicStaffFoci = toggle;
+                Main.Settings.MakeAllMagicStaveArcaneFoci = toggle;
                 ItemOptionsContext.SwitchMagicStaffFoci();
             }
 
             UI.Label("");
 
-            toggle = Main.Settings.IncreaseNormalVisionSenseRange;
+            toggle = Main.Settings.IncreaseSenseNormalVision;
             if (UI.Toggle("Increase " + "Sense Normal Vision".orange() + " range to enable long range attacks " + RequiresRestart, ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.IncreaseNormalVisionSenseRange = toggle;
+                Main.Settings.IncreaseSenseNormalVision = toggle;
             }
 
             UI.Label("");
 
-            toggle = Main.Settings.PickPocketEnabled;
+            toggle = Main.Settings.AddPickpocketableLoot;
             if (UI.Toggle("Add pickpocketable loot [suggested if " + "Pickpocket".orange() + " feat is enabled]", ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.PickPocketEnabled = toggle;
+                Main.Settings.AddPickpocketableLoot = toggle;
                 if (toggle)
                 {
                     PickPocketContext.Load();
@@ -125,10 +125,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.AllowStackedMaterialComponent = toggle;
             }
 
-            toggle = Main.Settings.ExactMerchantCostScaling;
+            toggle = Main.Settings.ScaleMerchantPricesCorrectly;
             if (UI.Toggle("Scale merchant prices correctly / exactly", ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.ExactMerchantCostScaling = toggle;
+                Main.Settings.ScaleMerchantPricesCorrectly = toggle;
             }
 
             UI.Label("");

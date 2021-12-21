@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker
     {
         internal static void Prefix(List<MonsterDefinition> ___allMonsters)
         {
-            if (Main.Settings.UnleashAllMonsters)
+            if (Main.Settings.UnleashNpcAsEnemy)
             {
                 var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 
@@ -35,7 +35,7 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker
     {
         internal static void Prefix(List<MonsterDefinition> ___allNpcs)
         {
-            if (Main.Settings.UnleashAllNPCs)
+            if (Main.Settings.UnleashEnemyAsNpc)
             {
                 var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 

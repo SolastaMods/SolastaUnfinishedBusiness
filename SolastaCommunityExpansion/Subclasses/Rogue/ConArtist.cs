@@ -24,7 +24,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                         "MagicAffinityRoguishConArtistDC",
                         GuidHelper.Create(SubclassNamespace, "MagicAffinityRoguishConArtistDC").ToString(),
                         GetSpellDCPresentation().Build())
-                            .SetCastingModifiers(0, Main.Settings.RogueConArtistSpellDCBoost, false, false, false).AddToDB();
+                            .SetCastingModifiers(0, Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc, false, false, false).AddToDB();
             }
         }
         #endregion
@@ -133,7 +133,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
 
         private static GuiPresentationBuilder GetSpellDCPresentation()
         {
-            return new GuiPresentationBuilder("Subclass/&MagicAffinityRoguishConArtistDC" + Main.Settings.RogueConArtistSpellDCBoost + "Description", "Subclass/&MagicAffinityRoguishConArtistDCTitle");
+            return new GuiPresentationBuilder("Subclass/&MagicAffinityRoguishConArtistDC" + Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc + "Description", "Subclass/&MagicAffinityRoguishConArtistDCTitle");
         }
 
         public static FeatureDefinitionAbilityCheckAffinity BuildAbilityAffinity(List<(string abilityScoreName, string proficiencyName)> abilityProficiencyPairs,
@@ -148,7 +148,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
         {
             if (DcIncreaseAffinity)
             {
-                DcIncreaseAffinity.SetSaveDCModifier(Main.Settings.RogueConArtistSpellDCBoost);
+                DcIncreaseAffinity.SetSaveDCModifier(Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc);
                 DcIncreaseAffinity.SetGuiPresentation(GetSpellDCPresentation().Build());
             }
         }

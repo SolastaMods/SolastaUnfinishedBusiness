@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Models
         {
             var dbMorphotypeElementDefinition = DatabaseRepository.GetDatabase<MorphotypeElementDefinition>();
 
-            if (Main.Settings.EnableFaceUnlockGlowingBodyDecorations)
+            if (Main.Settings.UnlockGlowingColorsForAllMarksAndTatoos)
             {
                 foreach (var morphotype in dbMorphotypeElementDefinition.Where(
                     x => x.Category == MorphotypeElementDefinition.ElementCategory.BodyDecorationColor && x.SubclassFilterMask == GraphicsDefinitions.MorphotypeSubclassFilterTag.SorcererManaPainter))
@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
 
-            if (Main.Settings.EnableFaceUnlockGlowingEyes)
+            if (Main.Settings.UnlockGlowingEyeColors)
             {
                 foreach (var morphotype in dbMorphotypeElementDefinition.Where(x => x.Category == MorphotypeElementDefinition.ElementCategory.EyeColor))
                 {
@@ -29,7 +29,7 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
 
-            if (Main.Settings.EnableFaceUnlockEyeStyles)
+            if (Main.Settings.UnlockEyeStyles)
             {
                 foreach (var morphotype in dbMorphotypeElementDefinition.Where(x => x.Category == MorphotypeElementDefinition.ElementCategory.Eye))
                 {
@@ -37,7 +37,7 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
 
-            if (Main.Settings.EnableFaceUnlockNpcs)
+            if (Main.Settings.UnlockAllNpcFaces)
             {
                 FaceAndSkin_Defiler.SetPlayerSelectable(true);
                 FaceAndSkin_Neutral.SetPlayerSelectable(true);
@@ -53,7 +53,7 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
 
-            if (Main.Settings.EnableFaceUnlockMarkingsForAll)
+            if (Main.Settings.UnlockMarkAndTatoosForAllCharacters)
             {
                 foreach (var morphotype in dbMorphotypeElementDefinition.Where(x => x.Category == MorphotypeElementDefinition.ElementCategory.BodyDecoration))
                 {
@@ -61,7 +61,7 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
 
-            if (Main.Settings.EnableFaceUnlockUnmarkedSorcerers)
+            if (Main.Settings.AllowUnmarkedSorcerers)
             {
                 SorcerousDraconicBloodline.SetMorphotypeSubclassFilterTag(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default);
                 SorcerousManaPainter.SetMorphotypeSubclassFilterTag(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default);
