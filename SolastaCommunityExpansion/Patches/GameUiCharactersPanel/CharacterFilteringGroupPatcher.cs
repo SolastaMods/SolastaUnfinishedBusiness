@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
         public static void Postfix(RulesetCharacterHero.Snapshot left, RulesetCharacterHero.Snapshot right,
             bool ___sortInverted, SortGroup.Category ___sortCategory, ref int __result)
         {
-            if(left == null || right == null)
+            if (left == null || right == null)
             {
                 return;
             }
