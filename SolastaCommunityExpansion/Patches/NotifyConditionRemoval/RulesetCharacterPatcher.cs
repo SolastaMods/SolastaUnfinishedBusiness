@@ -11,13 +11,11 @@ namespace SolastaCommunityExpansion.Patches.NotifyConditionRemoval
     {
         internal static void Prefix(RulesetCharacter __instance)
         {
-            foreach (KeyValuePair<string, List<RulesetCondition>> keyValuePair in __instance.ConditionsByCategory)
+            foreach (var keyValuePair in __instance.ConditionsByCategory)
             {
                 foreach (RulesetCondition rulesetCondition in keyValuePair.Value)
                 {
-                    var notifiedDefinition = rulesetCondition?.ConditionDefinition as INotifyConditionRemoval;
-
-                    if (notifiedDefinition != null)
+                    if (rulesetCondition?.ConditionDefinition is INotifyConditionRemoval notifiedDefinition)
                     {
                         notifiedDefinition.BeforeDyingWithCondition(__instance, rulesetCondition);
                     }

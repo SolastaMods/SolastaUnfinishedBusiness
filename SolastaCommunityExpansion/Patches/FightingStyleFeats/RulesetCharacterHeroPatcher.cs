@@ -14,22 +14,24 @@ namespace SolastaCommunityExpansion.Patches.FightingStyleFeats
             {
                 foreach (FeatureDefinition featureDefinition in feat.Features)
                 {
-                    if (featureDefinition is FeatureDefinitionProficiency)
+                    if (!(featureDefinition is FeatureDefinitionProficiency featureDefinitionProficiency))
                     {
-                        FeatureDefinitionProficiency featureDefinitionProficiency = featureDefinition as FeatureDefinitionProficiency;
-                        if (featureDefinitionProficiency.ProficiencyType != RuleDefinitions.ProficiencyType.FightingStyle)
+                        continue;
+                    }
+
+                    if (featureDefinitionProficiency.ProficiencyType != RuleDefinitions.ProficiencyType.FightingStyle)
+                    {
+                        continue;
+                    }
+
+                    using (var enumerator = featureDefinitionProficiency.Proficiencies.GetEnumerator())
+                    {
+                        while (enumerator.MoveNext())
                         {
-                            continue;
-                        }
-                        using (List<string>.Enumerator enumerator3 = featureDefinitionProficiency.Proficiencies.GetEnumerator())
-                        {
-                            while (enumerator3.MoveNext())
-                            {
-                                string key = enumerator3.Current;
-                                FightingStyleDefinition element = DatabaseRepository.GetDatabase<FightingStyleDefinition>().GetElement(key, false);
-                                __instance.TrainedFightingStyles.Add(element);
-                            }
-                            continue;
+                            string key = enumerator.Current;
+                            var element = DatabaseRepository.GetDatabase<FightingStyleDefinition>().GetElement(key, false);
+
+                            __instance.TrainedFightingStyles.Add(element);
                         }
                     }
                 }

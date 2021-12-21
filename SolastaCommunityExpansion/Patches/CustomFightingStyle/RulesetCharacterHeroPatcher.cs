@@ -12,24 +12,26 @@ namespace SolastaCommunityExpansion.Patches.CustomFightingStyle
         {
             foreach (FightingStyleDefinition fightingStyleDefinition in __instance.TrainedFightingStyles)
             {
-                if (fightingStyleDefinition is ICustomFightingStyle)
+                if (!(fightingStyleDefinition is ICustomFightingStyle customFightingStyle))
                 {
-                    bool isActive = (fightingStyleDefinition as ICustomFightingStyle).IsActive(__instance);
-                    // We don't know what normal fighting style condition was used or if it was met.
-                    // The simplest thing to do is just make sure the active state of this fighting style is handled properly.
-                    if (isActive)
+                    continue;
+                }
+
+                bool isActive = customFightingStyle.IsActive(__instance);
+                // We don't know what normal fighting style condition was used or if it was met.
+                // The simplest thing to do is just make sure the active state of this fighting style is handled properly.
+                if (isActive)
+                {
+                    if (!__instance.ActiveFightingStyles.Contains(fightingStyleDefinition))
                     {
-                        if (!__instance.ActiveFightingStyles.Contains(fightingStyleDefinition))
-                        {
-                            __instance.ActiveFightingStyles.Add(fightingStyleDefinition);
-                        }
+                        __instance.ActiveFightingStyles.Add(fightingStyleDefinition);
                     }
-                    else
+                }
+                else
+                {
+                    if (__instance.ActiveFightingStyles.Contains(fightingStyleDefinition))
                     {
-                        if (__instance.ActiveFightingStyles.Contains(fightingStyleDefinition))
-                        {
-                            __instance.ActiveFightingStyles.Remove(fightingStyleDefinition);
-                        }
+                        __instance.ActiveFightingStyles.Remove(fightingStyleDefinition);
                     }
                 }
             }
