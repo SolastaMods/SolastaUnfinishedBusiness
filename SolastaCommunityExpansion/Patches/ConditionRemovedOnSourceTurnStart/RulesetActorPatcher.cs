@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 
@@ -24,13 +25,9 @@ namespace SolastaCommunityExpansion.Patches.ConditionRemovedOnSourceTurnStart
                 return;
             }
 
-            foreach (GameLocationCharacter contender in battleService.Battle.AllContenders)
+            foreach (GameLocationCharacter contender in battleService.Battle.AllContenders
+                .Where(x => x != null && x.Valid && x.RulesetActor != null))
             {
-                if (contender == null || !contender.Valid || contender.RulesetActor == null)
-                {
-                    continue;
-                }
-
                 var conditionsToRemove = new List<RulesetCondition>();
 
                 foreach (KeyValuePair<string, List<RulesetCondition>> keyValuePair in contender.RulesetActor.ConditionsByCategory)
