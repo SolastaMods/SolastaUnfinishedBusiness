@@ -194,7 +194,6 @@ namespace SolastaCommunityExpansion
 
         // Faction Relations
 
-
         //
         // Game UI
         //
@@ -239,7 +238,6 @@ namespace SolastaCommunityExpansion
         public bool EnableInventoryFilterAndSort { get; set; } = true;
         public bool EnableInvisibleCrownOfTheMagister { get; set; }
         public string EmpressGarbSkin { get; set; } = "Normal";
-
 
         // Monsters
         public bool HideMonsterHitPoints { get; set; }
