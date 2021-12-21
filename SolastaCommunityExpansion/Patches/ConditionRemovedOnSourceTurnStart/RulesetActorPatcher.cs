@@ -12,37 +12,41 @@ namespace SolastaCommunityExpansion.Patches.ConditionRemovedOnSourceTurnStart
     {
         internal static void Postfix(RulesetActor __instance, RuleDefinitions.TurnOccurenceType occurenceType)
         {
-            if (occurenceType == RuleDefinitions.TurnOccurenceType.StartOfTurn)
+            if (occurenceType != RuleDefinitions.TurnOccurenceType.StartOfTurn)
             {
-                var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
+                return;
+            }
 
-                if (battleService?.Battle != null)
+            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (battleService?.Battle == null)
+            {
+                return;
+            }
+
+            foreach (GameLocationCharacter contender in battleService.Battle.AllContenders)
+            {
+                if (contender == null || !contender.Valid || contender.RulesetActor == null)
                 {
-                    foreach (GameLocationCharacter contender in battleService.Battle.AllContenders)
+                    continue;
+                }
+
+                var conditionsToRemove = new List<RulesetCondition>();
+
+                foreach (KeyValuePair<string, List<RulesetCondition>> keyValuePair in contender.RulesetActor.ConditionsByCategory)
+                {
+                    foreach (RulesetCondition rulesetCondition in keyValuePair.Value)
                     {
-                        if (contender == null || !contender.Valid || contender.RulesetActor == null)
+                        if (rulesetCondition.SourceGuid == __instance.Guid && rulesetCondition.ConditionDefinition is IConditionRemovedOnSourceTurnStart)
                         {
-                            continue;
-                        }
-
-                        var conditionsToRemove = new List<RulesetCondition>();
-
-                        foreach (KeyValuePair<string, List<RulesetCondition>> keyValuePair in contender.RulesetActor.ConditionsByCategory)
-                        {
-                            foreach (RulesetCondition rulesetCondition in keyValuePair.Value)
-                            {
-                                if (rulesetCondition.SourceGuid == __instance.Guid && rulesetCondition.ConditionDefinition is IConditionRemovedOnSourceTurnStart)
-                                {
-                                    conditionsToRemove.Add(rulesetCondition);
-                                }
-                            }
-                        }
-
-                        foreach (RulesetCondition conditionToRemove in conditionsToRemove)
-                        {
-                            contender.RulesetActor.RemoveCondition(conditionToRemove);
+                            conditionsToRemove.Add(rulesetCondition);
                         }
                     }
+                }
+
+                foreach (RulesetCondition conditionToRemove in conditionsToRemove)
+                {
+                    contender.RulesetActor.RemoveCondition(conditionToRemove);
                 }
             }
         }
