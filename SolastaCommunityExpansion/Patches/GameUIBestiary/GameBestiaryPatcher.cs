@@ -35,6 +35,11 @@ namespace SolastaCommunityExpansion.Patches.GameUIBestiary
         public static bool Prefix(GameRecordEntry left, GameRecordEntry right,
             int ___sortSign, BestiaryDefinitions.SortCategory ___sortCategory, ref int __result)
         {
+            if (!Main.Settings.FixBestiarySorting)
+            {
+                return true;
+            }
+
             if (left == null)
             {
                 __result = 1;
@@ -94,7 +99,7 @@ namespace SolastaCommunityExpansion.Patches.GameUIBestiary
 
             return false;
 
-           int SplitByUnknownVsKnown()
+            int SplitByUnknownVsKnown()
             {
                 if (level1 == 0) { return 1; }
                 if (level2 == 0) { return -1; }
@@ -132,5 +137,4 @@ namespace SolastaCommunityExpansion.Patches.GameUIBestiary
             }
         }
     }
-
 }

@@ -32,6 +32,8 @@ namespace SolastaCommunityExpansion
         public bool MultiLinePowerPanel { get; set; } = true;
         public bool MultiLineSpellPanel { get; set; } = true;
         public bool ShowAllAutoPreparedSpells { get; set; } = true;
+        public bool FixCharacterPanelSorting { get; set; } = true;
+        public bool FixBestiarySorting { get; set; } = true;
 
         //
         // Character - General

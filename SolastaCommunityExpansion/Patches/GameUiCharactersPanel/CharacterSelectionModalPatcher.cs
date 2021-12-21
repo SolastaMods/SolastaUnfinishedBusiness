@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
     {
         public static bool Prefix(List<RulesetCharacterHero.Snapshot> filteredHeroesList, List<CharacterPlateToggle> ___characterPlates)
         {
-            if (!Main.Settings.FutureFeatureSorting)
+            if (!Main.Settings.FixCharacterPanelSorting)
             {
                 return true;
             }
@@ -30,7 +30,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
                 }
             }
 
-            foreach(var kvp in cpDict)
+            foreach (var kvp in cpDict)
             {
                 kvp.Value.gameObject.SetActive(filteredHeroesList.Any(h => h.Name == kvp.Key));
             }
