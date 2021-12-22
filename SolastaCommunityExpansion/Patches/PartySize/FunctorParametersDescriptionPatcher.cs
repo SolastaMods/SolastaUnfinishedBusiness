@@ -5,6 +5,9 @@ using UnityEngine;
 namespace SolastaCommunityExpansion.Patches.PartySize
 {
     // this patch ensures all party members teleport to new locations
+    //
+    // this patch is protected by partyCount result
+    //
     [HarmonyPatch(typeof(FunctorParametersDescription), "PlayerPlacementMarkers", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class FunctorParametersDescription_PlayerPlacementMarkers

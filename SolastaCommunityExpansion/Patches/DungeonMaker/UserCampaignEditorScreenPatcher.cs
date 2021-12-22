@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using TMPro;
 
-namespace SolastaCommunityExpansion.Patches.ExtraCharsInNames
+namespace SolastaCommunityExpansion.Patches.DungeonMaker
 {
     // allows extra characters on campaign names
     [HarmonyPatch(typeof(UserCampaignEditorScreen), "RemoveUselessSpaces")]
@@ -9,10 +9,7 @@ namespace SolastaCommunityExpansion.Patches.ExtraCharsInNames
     {
         public static bool Prefix(TMP_InputField textField)
         {
-            //
-            // TODO @ZAPPA: CHANGE SETTING
-            //
-            if (!Main.Settings.AllowExtraKeyboardCharactersInNames)
+            if (!Main.Settings.AllowExtraKeyboardCharactersInCampaignNames)
             {
                 return true;
             }

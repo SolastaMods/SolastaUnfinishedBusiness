@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
         {
             internal static void Postfix(PowerSelectionPanel __instance)
             {
-                if (!Main.Settings.MultiLinePowerPanel)
+                if (!Main.Settings.EnableMultiLinePowerPanel)
                 {
                     return;
                 }
@@ -72,7 +72,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
         {
             internal static void Postfix()
             {
-                if (!Main.Settings.MultiLinePowerPanel)
+                if (!Main.Settings.EnableMultiLinePowerPanel)
                 {
                     return;
                 }

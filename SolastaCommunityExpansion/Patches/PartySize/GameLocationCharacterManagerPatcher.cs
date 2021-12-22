@@ -5,6 +5,9 @@ using TA;
 namespace SolastaCommunityExpansion.Patches.PartySize
 {
     // use this patch to recalculate the additional party members positions
+    //
+    // this shouldn't be protected
+    //
     [HarmonyPatch(typeof(GameLocationCharacterManager), "UnlockCharactersForLoading")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameLocationCharacterManager_UnlockCharactersForLoading

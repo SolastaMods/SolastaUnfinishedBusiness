@@ -6,6 +6,9 @@ using UnityEngine;
 namespace SolastaCommunityExpansion.Patches.PartySize
 {
     // this patch scales down the party control panel whenever the party size is bigger than 4
+    //
+    // this patch is protected by partyCount result
+    //
     [HarmonyPatch(typeof(PartyControlPanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class PartyControlPanel_OnBeginShow

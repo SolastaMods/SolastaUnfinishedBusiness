@@ -4,6 +4,9 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace SolastaCommunityExpansion.Patches.FightingStyleFeats
 {
+    //
+    // this patch shouldn't be protected
+    //
     [HarmonyPatch(typeof(RulesetCharacterHero), "TrainFeats")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacterHero_TrainFeats

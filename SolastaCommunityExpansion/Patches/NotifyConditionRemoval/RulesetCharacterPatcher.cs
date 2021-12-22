@@ -5,6 +5,9 @@ using SolastaCommunityExpansion.CustomFeatureDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.NotifyConditionRemoval
 {
+    //
+    // this patch shouldn't be protected
+    //
     [HarmonyPatch(typeof(RulesetCharacter), "Kill")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacter_Kill

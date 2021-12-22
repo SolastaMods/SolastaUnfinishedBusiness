@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
         {
             internal static void Postfix(SpellSelectionPanel __instance, GameLocationCharacter caster, SpellsByLevelBox.SpellCastEngagedHandler spellCastEngaged, ActionDefinitions.ActionType actionType, bool cantripOnly)
             {
-                if (!Main.Settings.MultiLineSpellPanel)
+                if (!Main.Settings.EnableMultiLineSpellPanel)
                 {
                     return;
                 }
@@ -193,7 +193,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
         {
             internal static void Postfix()
             {
-                if (!Main.Settings.MultiLineSpellPanel)
+                if (!Main.Settings.EnableMultiLineSpellPanel)
                 {
                     return;
                 }

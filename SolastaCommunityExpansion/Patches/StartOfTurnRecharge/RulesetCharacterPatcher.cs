@@ -4,6 +4,9 @@ using SolastaCommunityExpansion.CustomFeatureDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.StartOfTurnRecharge
 {
+    //
+    // this patch shouldn't be protected
+    //
     [HarmonyPatch(typeof(RulesetCharacter), "RechargePowersForTurnStart")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacter_RechargePowersForTurnStart
@@ -12,8 +15,7 @@ namespace SolastaCommunityExpansion.Patches.StartOfTurnRecharge
         {
             foreach (RulesetUsablePower usablePower in __instance.UsablePowers)
             {
-                if (usablePower?.PowerDefinition is IStartOfTurnRecharge startOfTurnRecharge && 
-                    usablePower.RemainingUses < usablePower.MaxUses)
+                if (usablePower?.PowerDefinition is IStartOfTurnRecharge startOfTurnRecharge && usablePower.RemainingUses < usablePower.MaxUses)
                 {
                     usablePower.Recharge();
 

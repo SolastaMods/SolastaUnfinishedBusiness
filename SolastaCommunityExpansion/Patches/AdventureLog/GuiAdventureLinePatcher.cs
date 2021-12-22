@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.AdventureLog
 {
+    //
+    // this patch shouldn't be protected to avoid game breaking on load
+    //
     [HarmonyPatch(typeof(GuiAdventureLine), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GuiAdventureLine_Bind
@@ -19,9 +22,6 @@ namespace SolastaCommunityExpansion.Patches.AdventureLog
             List<TextBreaker.FragmentInfo> ___totalFragments,
             GameRecordEntry entry)
         {
-            //
-            // this patch shouldn't be protected to avoid game breaking on load
-            //
             if (entry is Models.AdventureLogContext.GameAdventureEntryDungeonMaker gameAdventureEntryLore)
             {
                 ___sectionHeaderGroup.gameObject.SetActive(gameAdventureEntryLore.Title != string.Empty);

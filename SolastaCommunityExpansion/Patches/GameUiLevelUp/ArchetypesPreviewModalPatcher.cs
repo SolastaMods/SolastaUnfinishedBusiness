@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiLevelUp
     {
         internal static void Postfix(ArchetypesPreviewModal __instance)
         {
-            if (!Main.Settings.FutureFeatureSorting)
+            if (!Main.Settings.EnableSortingFutureFeatures)
             {
                 return;
             }
