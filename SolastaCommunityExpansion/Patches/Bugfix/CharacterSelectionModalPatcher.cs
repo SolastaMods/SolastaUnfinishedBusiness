@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
+namespace SolastaCommunityExpansion.Patches.BugFix
 {
     [HarmonyPatch(typeof(CharacterSelectionModal), "CharactersFiltered")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -12,21 +12,19 @@ namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
     {
         public static bool Prefix(List<RulesetCharacterHero.Snapshot> filteredHeroesList, List<CharacterPlateToggle> ___characterPlates)
         {
-            if (!Main.Settings.FixCharacterPanelSorting)
+            if (!Main.Settings.BugFixCharacterPanelSorting)
             {
                 return true;
             }
 
             // Duplicate the logic of CharactersPanel.CharactersFiltered to fix mapping of filteredHeroesList to character plates
-
             var cpDict = ___characterPlates.ToDictionary(cp => Path.GetFileNameWithoutExtension(cp.Filename), cp => cp);
-            var numHeroes = filteredHeroesList.Count;
 
             foreach (var h in filteredHeroesList.Select((h, i) => new { Hero = h, Index = i }))
             {
                 if (cpDict.TryGetValue(h.Hero.Name, out var characterPlateToggle))
                 {
-                    cpDict[h.Hero.Name].transform.SetSiblingIndex(numHeroes - h.Index - 1);
+                    cpDict[h.Hero.Name].transform.SetSiblingIndex(h.Index);
                 }
             }
 

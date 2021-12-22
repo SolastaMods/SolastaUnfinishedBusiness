@@ -10,9 +10,14 @@ namespace SolastaCommunityExpansion.Patches.GameUiBattle
     {
         internal static bool Prefix(ref float ___timeScale, ref bool ___fasterTimeMode)
         {
+            if (!Main.Settings.PermanentlySpeedBattleUp)
+            {
+                return true;
+            }
+
             var isBattleInProgress = ServiceRepository.GetService<IGameLocationBattleService>()?.IsBattleInProgress;
 
-            if (Main.Settings.PermanentlySpeedBattleUp && isBattleInProgress == true)
+            if (isBattleInProgress == true)
             {
                 Time.timeScale = ___timeScale * Main.Settings.BattleCustomTimeScale;
             }

@@ -7,6 +7,9 @@ using UnityEngine;
 namespace SolastaCommunityExpansion.Patches.PartySize
 {
     // this patch tweaks the UI to allow less/more heroes to be selected on a campaign
+    //
+    // this shouldn't be protected
+    //
     [HarmonyPatch(typeof(NewAdventurePanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class NewAdventurePanel_OnBeginShow

@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
 {
+    //
+    // this patch shouldn't be protected
+    //
     [HarmonyPatch(typeof(CharactersPanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharactersPanel_OnBeginShow

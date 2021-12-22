@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
+namespace SolastaCommunityExpansion.Patches.BugFix
 {
     // Modify sorting on characters panel.
     // The default sort is by character class, which actually sorts on class+path.
@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
         public static void Postfix(RulesetCharacterHero.Snapshot left, RulesetCharacterHero.Snapshot right,
             bool ___sortInverted, SortGroup.Category ___sortCategory, ref int __result)
         {
-            if (!Main.Settings.FixCharacterPanelSorting)
+            if (!Main.Settings.BugFixCharacterPanelSorting)
             {
                 return;
             }
@@ -25,12 +25,12 @@ namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
                 return;
             }
 
-            int num = ___sortInverted ? -1 : 1;
+            int sortSign = ___sortInverted ? -1 : 1;
 
             switch (___sortCategory)
             {
                 case SortGroup.Category.CharacterClass:
-                    __result = num * left.Classes[0].CompareTo(right.Classes[0]);
+                    __result = sortSign * left.Classes[0].CompareTo(right.Classes[0]);
                     __result = __result == 0 ? SortByName() : __result;
                     break;
                 case SortGroup.Category.CharacterLevel:
@@ -44,8 +44,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
 
             int SortByName()
             {
-                // TODO: seem to get different order on CharactersPanel vs Modal
-                return -left.Name.CompareTo(right.Name);
+                return left.Name.CompareTo(right.Name);
             }
         }
     }

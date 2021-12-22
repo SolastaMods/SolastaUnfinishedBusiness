@@ -20,7 +20,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiLevelUp
             {
                 yield return instruction;
 
-                if (Main.Settings.EnableFeatsSorting && instruction.opcode == OpCodes.Pop)
+                if (Main.Settings.EnableSortingFeats && instruction.opcode == OpCodes.Pop)
                 {
 #pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
                     var relevantFeatsField = typeof(FeatSubPanel).GetField("relevantFeats", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);

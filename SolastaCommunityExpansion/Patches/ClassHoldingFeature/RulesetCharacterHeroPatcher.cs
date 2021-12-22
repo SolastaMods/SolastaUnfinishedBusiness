@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Patches.ClassHoldingFeature
     internal static class RulesetCharacterHero_FindClassHoldingFeature
     {
         //
-        // TODO @CHRIS: WE SHOULD PROTECT THIS PATCH
+        // TODO @CHRIS: should we protect this patch? What is the purpose?
         //
         internal static void Postfix(
             RulesetCharacterHero __instance,

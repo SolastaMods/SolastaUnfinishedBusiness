@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.DungeonMaker
+namespace SolastaCommunityExpansion.Patches.BugFix
 {
     [HarmonyPatch(typeof(ItemFilteringGroup), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -22,7 +22,7 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker
             bool ___showCustom,
             bool notify)
         {
-            if (!Main.Settings.FixItemFiltering)
+            if (!Main.Settings.BugFixItemFiltering)
             {
                 return true;
             }

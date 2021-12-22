@@ -3,7 +3,10 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace SolastaCommunityExpansion.Patches.LongActivationPowers
 {
-    // Yes the actual game typos this it is "OnPower" and not the expected "OnePower".
+    // Yes the actual game typos this it is "OnPower" and not the expected "OnePower"
+    //
+    // this patch shouldn't be protected
+    //
     [HarmonyPatch(typeof(GameLocationCharacter), "CanUseAtLeastOnPower")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameLocationCharacter_CanUseAtLeastOnPower
