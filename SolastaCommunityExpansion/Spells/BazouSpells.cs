@@ -115,6 +115,7 @@ namespace SolastaCommunityExpansion.Spells
                     .SetStandardHitPoints(1)
                     .SetSizeDefinition(DatabaseHelper.CharacterSizeDefinitions.Tiny)
                     .SetAlignment(DatabaseHelper.AlignmentDefinitions.Neutral.Name)
+                    .SetCharacterFamily(DatabaseHelper.CharacterFamilyDefinitions.Fey.name)
                     .SetChallengeRating(0)
                     .SetDroppedLootDefinition(null)
                     .SetDefaultBattleDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)
