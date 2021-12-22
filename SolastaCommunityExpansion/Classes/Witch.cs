@@ -1113,6 +1113,30 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     .AddToDB();
             acConditionDefinition.SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus);
 
+            var stConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
+                    DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondSavingThrows,
+                    "ConditionWitchFamiliarST",
+                    GuidHelper.Create(WITCH_BASE_GUID, "ConditionWitchFamiliarST").ToString(),
+                    blank)
+                    .AddToDB();
+            stConditionDefinition.SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus);
+
+            var damageConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
+                    DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondMeleeDamage,
+                    "ConditionWitchFamiliarDamage",
+                    GuidHelper.Create(WITCH_BASE_GUID, "ConditionWitchFamiliarDamage").ToString(),
+                    blank)
+                    .AddToDB();
+            damageConditionDefinition.SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus);
+
+            var hitConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
+                    DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondMeleeAttack,
+                    "ConditionWitchFamiliarHit",
+                    GuidHelper.Create(WITCH_BASE_GUID, "ConditionWitchFamiliarHit").ToString(),
+                    blank)
+                    .AddToDB();
+            hitConditionDefinition.SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceSpellAttack);
+
             var hpConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
                     DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondHP,
                     "ConditionWitchFamiliarHP",
@@ -1120,13 +1144,15 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     blank)
                     .AddToDB();
             hpConditionDefinition.SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel);
+            hpConditionDefinition.SetAllowMultipleInstances(true);
             
             // Find a better place to put this in?
             hpConditionDefinition.SetAdditionalDamageType("Witch");
 
-            hpConditionDefinition.SetAllowMultipleInstances(true);
-
             summoningAffinity.AddedConditions.Add(acConditionDefinition);
+            summoningAffinity.AddedConditions.Add(stConditionDefinition);
+            summoningAffinity.AddedConditions.Add(damageConditionDefinition);
+            summoningAffinity.AddedConditions.Add(hitConditionDefinition);
             summoningAffinity.AddedConditions.Add(hpConditionDefinition);
             summoningAffinity.AddedConditions.Add(hpConditionDefinition);
 
