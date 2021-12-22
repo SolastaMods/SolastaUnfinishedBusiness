@@ -3,6 +3,7 @@ using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.PowerSharedPool
@@ -82,14 +83,12 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
                 {
                     RechargeLinkedPowers(__instance, restType);
                 }
+
                 // The player isn't recharging the shared pool features, just the pool.
                 // Hide the features that use the pool from the UI.
-                foreach (FeatureDefinition feature in __instance.RecoveredFeatures.ToArray())
+                foreach (FeatureDefinition feature in __instance.RecoveredFeatures.Where(f => f is IPowerSharedPool).ToArray())
                 {
-                    if (feature is IPowerSharedPool)
-                    {
-                        __instance.RecoveredFeatures.Remove(feature);
-                    }
+                    __instance.RecoveredFeatures.Remove(feature);
                 }
             }
         }
@@ -102,16 +101,15 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
                 if (usablePower.PowerDefinition is IPowerSharedPool pool)
                 {
                     FeatureDefinitionPower pointPoolPower = pool.GetUsagePoolPower();
-                    if (!pointPoolPowerDefinitions.Contains(pointPoolPower))
-                    {
-                        // Only add to recharge here if it (recharges on a short rest and this is a short or long rest) or 
-                        // it recharges on a long rest and this is a long rest.
-                        if ((pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.ShortRest &&
+
+                    // Only add to recharge here if it (recharges on a short rest and this is a short or long rest) or 
+                    // it recharges on a long rest and this is a long rest.
+                    if (!pointPoolPowerDefinitions.Contains(pointPoolPower)
+                        && ((pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.ShortRest &&
                             (restType == RuleDefinitions.RestType.ShortRest || restType == RuleDefinitions.RestType.LongRest)) ||
-                            (pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.LongRest && restType == RuleDefinitions.RestType.LongRest))
-                        {
-                            pointPoolPowerDefinitions.Add(pointPoolPower);
-                        }
+                            (pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.LongRest && restType == RuleDefinitions.RestType.LongRest)))
+                    {
+                        pointPoolPowerDefinitions.Add(pointPoolPower);
                     }
                 }
             }

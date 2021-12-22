@@ -25,12 +25,12 @@ namespace SolastaCommunityExpansion.Patches.BugFix
                 return;
             }
 
-            int num = ___sortInverted ? -1 : 1;
+            int sortSign = ___sortInverted ? -1 : 1;
 
             switch (___sortCategory)
             {
                 case SortGroup.Category.CharacterClass:
-                    __result = num * left.Classes[0].CompareTo(right.Classes[0]);
+                    __result = sortSign * left.Classes[0].CompareTo(right.Classes[0]);
                     __result = __result == 0 ? SortByName() : __result;
                     break;
                 case SortGroup.Category.CharacterLevel:
@@ -44,8 +44,7 @@ namespace SolastaCommunityExpansion.Patches.BugFix
 
             int SortByName()
             {
-                // TODO: seem to get different order on CharactersPanel vs Modal
-                return -left.Name.CompareTo(right.Name);
+                return left.Name.CompareTo(right.Name);
             }
         }
     }
