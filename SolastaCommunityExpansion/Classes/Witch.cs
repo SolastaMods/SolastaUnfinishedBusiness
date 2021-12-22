@@ -409,7 +409,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                             "Class/&WitchSpellcastingTitle")
                             .Build());
             classSpellCast.SetKnownCantrips(new List<int>{
-                    2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4});
+                    4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6});
             classSpellCast.SetKnownSpells(new List<int>{
                     2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 13, 13, 14, 14, 15, 15, 15, 15});
 
