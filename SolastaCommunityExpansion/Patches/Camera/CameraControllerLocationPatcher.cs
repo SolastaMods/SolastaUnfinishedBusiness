@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using UnityEngine;
@@ -16,45 +16,46 @@ namespace SolastaCommunityExpansion.Patches.Camera
         /// </summary>
         internal static bool Prefix(CameraControllerLocation __instance, GameLocationCharacter character)
         {
-            if (!Main.Settings.DontFollowCharacterInBattle
-                || !__instance 
-                || character == null 
-                || !__instance.CurrentCameraMode 
+            if (!Main.Settings.DontFollowCharacterInBattle)
+            {
+                return true;
+            }
+
+            // Ensure all Unity objects are valid
+            if (!__instance
+                || character == null
+                || !__instance.CurrentCameraMode
                 || __instance.CurrentCameraMode.CameraService == null
                 || !__instance.CurrentCameraMode.CameraService.MainCamera)
             {
                 return true;
             }
 
-            try
+            // Get character's location in screen co-ords
+            var characterLocation = character.LocationPosition;
+
+            var screenPoint = __instance
+                .CurrentCameraMode.CameraService.MainCamera
+                .WorldToScreenPoint(new Vector3(characterLocation.x, characterLocation.y, characterLocation.z));
+
+            var width = Screen.width;
+            var height = Screen.height;
+            var margin = Main.Settings.DontFollowMargin / 100f;
+
+            var followCharacter = ShouldFollowCharacter();
+
+            Main.Log($"CameraControllerLocation_FollowCharacterForBattle {(followCharacter ? "(follow)" : "don't follow")}: {character.Name}");
+
+            // return true to allow follow character code to run/false to disable
+            return followCharacter;
+
+            bool ShouldFollowCharacter()
             {
-                var lp = character.LocationPosition;
-                var sp = __instance.CurrentCameraMode.CameraService.MainCamera.WorldToScreenPoint(new Vector3(lp.x, lp.y, lp.z));
-
-                Main.Log($"{character.Name}: ({sp.x},{sp.y},{sp.z})");
-
-                var w = Screen.width;
-                var h = Screen.height;
-
-                var margin = Main.Settings.DontFollowMargin / 100f;
-
-                if (sp.x < w * margin || sp.x > w * (1 - margin) || sp.y < h * margin || sp.y > h * (1 - margin))
-                {
-                    Main.Log($"CameraControllerLocation_FollowCharacterForBattle (off screen): {character.Name}");
-
-                    return true;
-                }
-
-                Main.Log($"CameraControllerLocation_FollowCharacterForBattle: {character.Name} - ignored.");
-
-                return false;
+                return screenPoint.x < width * margin
+                    || screenPoint.x > width * (1 - margin)
+                    || screenPoint.y < height * margin
+                    || screenPoint.y > height * (1 - margin);
             }
-            catch (Exception ex)
-            {
-                Main.Error(ex);
-            }
-
-            return true;
         }
     }
 }
