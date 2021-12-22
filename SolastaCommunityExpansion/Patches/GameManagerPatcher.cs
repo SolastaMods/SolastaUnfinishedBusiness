@@ -4,18 +4,12 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace SolastaCommunityExpansion.Patches
 {
-    [HarmonyPatch(typeof(MainMenuScreen), "OnEndShow")]
-    //[HarmonyPatch(typeof(GameManager), "BindPostDatabase")]
+    [HarmonyPatch(typeof(GameManager), "BindPostDatabase")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameManager_BindPostDatabase
     {
         internal static void Postfix()
         {
-            if (Main.Enabled)
-            {
-                return;
-            }
-
             BugFixContext.Load();
 
             AdditionalNamesContext.Load();
