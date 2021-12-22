@@ -119,7 +119,8 @@ namespace SolastaCommunityExpansion.Spells
                     .SetDroppedLootDefinition(null)
                     .SetDefaultBattleDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)
                     .SetFullyControlledWhenAllied(true)
-                    .SetDefaultFaction("Party");
+                    .SetDefaultFaction("Party")
+                    .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
 
             if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out FeatureDefinition help)){
                     familiarMonsterBuilder.AddFeatures(new List<FeatureDefinition>{help});}

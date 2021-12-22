@@ -36,4 +36,20 @@ namespace SolastaCommunityExpansion.Helpers
         MetalArmor = RuleDefinitions.TargetFilteringTag.MetalArmor,
         CursedByMalediction = 1337
     }
+
+    public enum ExtraOriginOfAmount
+    {
+        None = 0,
+        SourceDamage = 1,
+        SourceGain = 2,
+        AddDice = 3,
+        Fixed = 4,
+        SourceHalfHitPoints = 5,
+        SourceSpellCastingAbility = 6,
+        SourceSpellAttack = 7,
+        SourceProficiencyBonus = 1337,
+        SourceCharacterLevel = 1338,
+        SourceClassLevel = 1339
+    }
+
 }

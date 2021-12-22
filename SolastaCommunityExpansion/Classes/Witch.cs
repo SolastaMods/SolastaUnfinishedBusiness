@@ -1030,12 +1030,14 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     .SetDroppedLootDefinition(null)
                     .SetDefaultBattleDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)
                     .SetFullyControlledWhenAllied(true)
-                    .SetDefaultFaction("Party");
+                    .SetDefaultFaction("Party")
+                    .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
 
             if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out FeatureDefinition help)){
                     witchFamiliarMonsterBuilder.AddFeatures(new List<FeatureDefinition>{help});}
 
             var witchFamiliarMonster = witchFamiliarMonsterBuilder.AddToDB();
+            witchFamiliarMonster.CreatureTags.Add("WitchFamiliar");
 
             var spellBuilder = new SpellBuilder(
                     DatabaseHelper.SpellDefinitions.Fireball, 
@@ -1093,6 +1095,41 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     .SetAutoTag("Witch")
                     .AddToDB();
 
+            var summoningAffinity = new FeatureDefinitionSummoningAffinityBuilder(
+                    DatabaseHelper.FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritBond,
+                    "SummoningAffinityWitchFamiliar",
+                    GuidHelper.Create(WITCH_BASE_GUID, "SummoningAffinityWitchFamiliar").ToString())
+                    .AddToDB();
+
+            summoningAffinity.SetRequiredMonsterTag("WitchFamiliar");
+            summoningAffinity.EffectForms.Clear();
+            summoningAffinity.AddedConditions.Clear();
+
+            var acConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
+                    DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondAC,
+                    "ConditionWitchFamiliarAC",
+                    GuidHelper.Create(WITCH_BASE_GUID, "ConditionWitchFamiliarAC").ToString(),
+                    blank)
+                    .AddToDB();
+            acConditionDefinition.SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus);
+
+            var hpConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
+                    DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondHP,
+                    "ConditionWitchFamiliarHP",
+                    GuidHelper.Create(WITCH_BASE_GUID, "ConditionWitchFamiliarHP").ToString(),
+                    blank)
+                    .AddToDB();
+            hpConditionDefinition.SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel);
+            
+            // Find a better place to put this in?
+            hpConditionDefinition.SetAdditionalDamageType("Witch");
+
+            hpConditionDefinition.SetAllowMultipleInstances(true);
+
+            summoningAffinity.AddedConditions.Add(acConditionDefinition);
+            summoningAffinity.AddedConditions.Add(hpConditionDefinition);
+            summoningAffinity.AddedConditions.Add(hpConditionDefinition);
+
             FeatureDefinitionFeatureSetWitchFamiliar = new FeatureDefinitionFeatureSetBuilder(
                     DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHumanLanguages,
                     "FeatureSetWitchFamiliar",
@@ -1102,6 +1139,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                             "Class/&WitchFamiliarPowerTitle").Build())
                     .ClearFeatures()
                     .AddFeature(preparedSpells)
+                    .AddFeature(summoningAffinity)
                     .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                     .SetUniqueChoices(true)
                     .AddToDB();
