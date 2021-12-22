@@ -2,7 +2,7 @@
 using HarmonyLib;
 using UnityEngine.UI;
 
-namespace SolastaCommunityExpansion.Patches.Bugfix
+namespace SolastaCommunityExpansion.Patches.BugFix
 {
     [HarmonyPatch(typeof(UserEffectFormItem), "Initialize")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

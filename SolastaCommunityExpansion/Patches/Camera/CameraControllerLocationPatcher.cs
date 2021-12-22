@@ -16,41 +16,38 @@ namespace SolastaCommunityExpansion.Patches.Camera
         /// </summary>
         internal static bool Prefix(CameraControllerLocation __instance, GameLocationCharacter character)
         {
-            //
-            // TODO @IMPPHIL: FIX EXIT ROUTE
-            //
+            if (!Main.Settings.DontFollowCharacterInBattle
+                || !__instance 
+                || character == null 
+                || !__instance.CurrentCameraMode 
+                || __instance.CurrentCameraMode.CameraService == null
+                || !__instance.CurrentCameraMode.CameraService.MainCamera)
+            {
+                return true;
+            }
+
             try
             {
-                if (Main.Settings.DontFollowCharacterInBattle)
+                var lp = character.LocationPosition;
+                var sp = __instance.CurrentCameraMode.CameraService.MainCamera.WorldToScreenPoint(new Vector3(lp.x, lp.y, lp.z));
+
+                Main.Log($"{character.Name}: ({sp.x},{sp.y},{sp.z})");
+
+                var w = Screen.width;
+                var h = Screen.height;
+
+                var margin = Main.Settings.DontFollowMargin / 100f;
+
+                if (sp.x < w * margin || sp.x > w * (1 - margin) || sp.y < h * margin || sp.y > h * (1 - margin))
                 {
-                    if (!__instance 
-                        || character == null 
-                        || !__instance.CurrentCameraMode 
-                        || __instance.CurrentCameraMode.CameraService == null
-                        || !__instance.CurrentCameraMode.CameraService.MainCamera)
-                    {
-                        return true;
-                    }
+                    Main.Log($"CameraControllerLocation_FollowCharacterForBattle (off screen): {character.Name}");
 
-                    var lp = character.LocationPosition;
-                    var sp = __instance.CurrentCameraMode.CameraService.MainCamera.WorldToScreenPoint(new Vector3(lp.x, lp.y, lp.z));
-
-                    Main.Log($"{character.Name}: ({sp.x},{sp.y},{sp.z})");
-
-                    var w = Screen.width;
-                    var h = Screen.height;
-
-                    var margin = Main.Settings.DontFollowMargin / 100f;
-
-                    if (sp.x < w * margin || sp.x > w * (1 - margin) || sp.y < h * margin || sp.y > h * (1 - margin))
-                    {
-                        Main.Log($"CameraControllerLocation_FollowCharacterForBattle (off screen): {character.Name}");
-                        return true;
-                    }
-
-                    Main.Log($"CameraControllerLocation_FollowCharacterForBattle: {character.Name} - ignored.");
-                    return false;
+                    return true;
                 }
+
+                Main.Log($"CameraControllerLocation_FollowCharacterForBattle: {character.Name} - ignored.");
+
+                return false;
             }
             catch (Exception ex)
             {

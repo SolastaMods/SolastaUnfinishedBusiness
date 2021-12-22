@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiLevelUp
     {
         internal static void Prefix(CharacterSubclassDefinition currentSubclassDefinition)
         {
-            if (!Main.Settings.FutureFeatureSorting)
+            if (!Main.Settings.EnableSortingFutureFeatures)
             {
                 return;
             }
@@ -24,7 +24,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiLevelUp
     {
         internal static void Postfix(DeityDefinition left, DeityDefinition right, ref int __result)
         {
-            if (!Main.Settings.FutureFeatureSorting)
+            if (!Main.Settings.EnableSortingDeities)
             {
                 return;
             }
@@ -39,7 +39,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiLevelUp
     {
         internal static void Postfix(CharacterSubclassDefinition left, CharacterSubclassDefinition right, ref int __result)
         {
-            if (!Main.Settings.FutureFeatureSorting)
+            if (!Main.Settings.EnableSortingDeities)
             {
                 return;
             }

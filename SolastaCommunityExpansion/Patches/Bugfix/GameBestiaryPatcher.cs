@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.GameUIBestiary
+namespace SolastaCommunityExpansion.Patches.BugFix
 {
     /// <summary>
     /// Fix issue: GameBestiaryEntry.LastUpdateTimeCode is never set. 
@@ -12,12 +12,14 @@ namespace SolastaCommunityExpansion.Patches.GameUIBestiary
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameBestiary_ApplyKnowledgeLevel
     {
-        //
-        // TODO @IMPPHIL: WE SHOULD PROTECT THIS PATCH
-        //
         public static void Postfix(MonsterDefinition monsterDefinition, GameTime gameTime,
             Dictionary<MonsterDefinition, GameBestiaryEntry> ___entriesByMonster, bool __result)
         {
+            if (!Main.Settings.BugFixBestiarySorting)
+            {
+                return;
+            }
+
             if (__result && ___entriesByMonster.TryGetValue(monsterDefinition, out var gameBestiaryEntry))
             {
                 gameBestiaryEntry.LastUpdateTimeCode = gameTime.GetTimeCode();
@@ -38,7 +40,7 @@ namespace SolastaCommunityExpansion.Patches.GameUIBestiary
         public static bool Prefix(GameRecordEntry left, GameRecordEntry right,
             int ___sortSign, BestiaryDefinitions.SortCategory ___sortCategory, ref int __result)
         {
-            if (!Main.Settings.FixBestiarySorting)
+            if (!Main.Settings.BugFixBestiarySorting)
             {
                 return true;
             }

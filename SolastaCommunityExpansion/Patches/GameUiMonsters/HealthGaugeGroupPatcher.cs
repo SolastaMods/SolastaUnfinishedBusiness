@@ -15,7 +15,10 @@ namespace SolastaCommunityExpansion.Patches.GameUiMonsters
     {
         internal static void Postfix(HealthGaugeGroup __instance, RectTransform ___gaugeRect, float ___gaugeMaxWidth)
         {
-            if (!Main.Settings.HideMonsterHitPoints) return;
+            if (!Main.Settings.HideMonsterHitPoints) 
+            {
+                return;
+            }
 
             if (__instance.GuiCharacter.RulesetCharacterMonster != null) // Only change for monsters
             {

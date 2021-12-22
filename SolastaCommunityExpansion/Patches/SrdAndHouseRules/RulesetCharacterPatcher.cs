@@ -19,17 +19,24 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
     {
         public static void Postfix(RulesetCharacter __instance, SpellDefinition spellDefinition, ref string failure, ref bool __result)
         {
-            if (!Main.Settings.AllowStackedMaterialComponent) { return; }
+            if (!Main.Settings.AllowStackedMaterialComponent)
+            {
+                return;
+            }
 
-            if (__result) { return; }
+            if (__result)
+            { 
+                return; 
+            }
 
             // Repeats the last section of the original method but adds 'approximateCostInGold * item.StackCount'
             var items = new List<RulesetItem>();
+
             __instance.CharacterInventory.EnumerateAllItems(items);
 
             foreach (var item in items)
             {
-                int approximateCostInGold = EquipmentDefinitions.GetApproximateCostInGold(item.ItemDefinition.Costs);
+                var approximateCostInGold = EquipmentDefinitions.GetApproximateCostInGold(item.ItemDefinition.Costs);
 
                 if (item.ItemDefinition.ItemTags.Contains(spellDefinition.SpecificMaterialComponentTag)
                     // calculate value of stack
@@ -50,7 +57,10 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
         // Modify original code to spend enough of a stack to meet component cost
         public static bool Prefix(RulesetCharacter __instance, RulesetEffectSpell activeSpell)
         {
-            if (!Main.Settings.AllowStackedMaterialComponent) { return true; }
+            if (!Main.Settings.AllowStackedMaterialComponent) 
+            { 
+                return true;
+            }
 
             SpellDefinition spellDefinition = activeSpell.SpellDefinition;
             if (spellDefinition.MaterialComponentType != RuleDefinitions.MaterialComponentType.Specific
@@ -63,6 +73,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
             }
 
             var items = new List<RulesetItem>();
+
             __instance.CharacterInventory.EnumerateAllItems(items);
 
             var itemToUse = items
@@ -103,6 +114,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
             Main.Log($"Spending stack={itemToUse.StackCountRequired}, cost={itemToUse.TotalCost}");
 
             var componentConsumed = __instance.SpellComponentConsumed;
+
             if (componentConsumed != null)
             {
                 for (int i = 0; i < itemToUse.StackCountRequired; i++)
