@@ -9,6 +9,9 @@ namespace SolastaCommunityExpansion.Patches.ExtraCharsInNames
     {
         public static bool Prefix(TMP_InputField textField)
         {
+            //
+            // TODO @ZAPPA: CHANGE SETTING
+            //
             if (!Main.Settings.AllowExtraKeyboardCharactersInNames)
             {
                 return true;

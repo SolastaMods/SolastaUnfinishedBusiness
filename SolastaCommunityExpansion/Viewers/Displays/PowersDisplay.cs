@@ -1,5 +1,4 @@
 using ModKit;
-using SolastaCommunityExpansion.Powers;
 using SolastaCommunityExpansion.Models;
 using System.Linq;
 using static SolastaCommunityExpansion.Viewers.Displays.Shared;

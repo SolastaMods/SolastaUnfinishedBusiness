@@ -4,7 +4,6 @@ using SolastaCommunityExpansion.Subclasses.Fighter;
 using SolastaCommunityExpansion.Subclasses.Ranger;
 using SolastaCommunityExpansion.Subclasses.Rogue;
 using SolastaCommunityExpansion.Subclasses.Wizard;
-using SolastaCommunityExpansion.Subclasses.Witch;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

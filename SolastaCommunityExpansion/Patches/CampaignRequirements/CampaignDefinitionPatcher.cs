@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.CampaignRequirements
     {
         internal static void Postfix(ref int __result)
         {
-            if (Main.Settings.EnableDungeonLevelBypass)
+            if (Main.Settings.OverrideMinMaxLevel)
             {
                 __result = Settings.DUNGEON_MIN_LEVEL;
             }
@@ -25,7 +25,7 @@ namespace SolastaCommunityExpansion.Patches.CampaignRequirements
     {
         internal static void Postfix(ref int __result)
         {
-            if (Main.Settings.EnableDungeonLevelBypass)
+            if (Main.Settings.OverrideMinMaxLevel)
             {
                 __result = Settings.DUNGEON_MAX_LEVEL;
             }

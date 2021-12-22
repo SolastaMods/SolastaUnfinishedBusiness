@@ -113,7 +113,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 
         public static void UpdateEnchantWeapon()
         {
-            if (Main.Settings.ArcaneFighterEnchantWeaponRechargeShortRest)
+            if (Main.Settings.EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter)
             {
                 EnchantWeapon.SetRechargeRate(RuleDefinitions.RechargeRate.ShortRest);
             }

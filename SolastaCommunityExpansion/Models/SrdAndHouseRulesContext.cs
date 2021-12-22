@@ -10,13 +10,13 @@ namespace SolastaCommunityExpansion.Models
     {
         internal static void Load()
         {
-            AdjustChainLightningSpell();
+            AllowTargetingSelectionWhenCastingChainLightningSpell();
         }
 
         internal static void ApplyConditionBlindedShouldNotAllowOpportunityAttack()
         {
             // Use the shocked condition affinity which has the desired effect
-            if (Main.Settings.EnableConditionBlindedShouldNotAllowOpportunityAttack)
+            if (Main.Settings.BlindedConditionDontAllowAttackOfOpportunity)
             {
                 if (!ConditionBlinded.Features.Contains(ActionAffinityConditionShocked))
                 {
@@ -56,7 +56,7 @@ namespace SolastaCommunityExpansion.Models
                             perceptionOnTarget = surprisedCharacter.RulesetCharacter.ComputePassivePerception();
                         }
 
-                        if (Main.Settings.EnableSRDCombatSurpriseRulesManyRolls)
+                        if (Main.Settings.RollDifferentStealthChecksForEachCharacterPair)
                         {
                             stealthCheck = surprisingCharacter.RollAbilityCheck("Dexterity", "Stealth", perceptionOnTarget, RuleDefinitions.AdvantageType.None, new ActionModifier(), false, -1, out _, true);
                         }
@@ -78,7 +78,7 @@ namespace SolastaCommunityExpansion.Models
             if (surprised)
             {
                 // only calculates one single set of stealth checks when multiple rolls are disabled
-                if (!Main.Settings.EnableSRDCombatSurpriseRulesManyRolls)
+                if (!Main.Settings.RollDifferentStealthChecksForEachCharacterPair)
                 {
                     foreach (GameLocationCharacter surprisingCharacter in surprisingParty)
                     {
@@ -117,11 +117,11 @@ namespace SolastaCommunityExpansion.Models
         /// <summary>
         /// Allow the user to select targets when using 'Chain Lightning'.
         /// </summary>
-        internal static void AdjustChainLightningSpell()
+        internal static void AllowTargetingSelectionWhenCastingChainLightningSpell()
         {
             var spell = SolastaModApi.DatabaseHelper.SpellDefinitions.ChainLightning.EffectDescription;
 
-            if (Main.Settings.AdjustChainLightningSpell)
+            if (Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell)
             {
                 // This is half bug-fix, half houses rules since it's not completely SRD but better than implemented.
                 // Spell should arc from target (range 150ft) onto upto 3 extra selectable targets (range 30ft from first).

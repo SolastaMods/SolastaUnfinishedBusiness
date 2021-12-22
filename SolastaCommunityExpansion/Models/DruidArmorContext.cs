@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
-            Switch(Main.Settings.DruidNoMetalRestriction);
+            Switch(Main.Settings.AllowDruidToWearMetalArmor);
         }
     }
 }

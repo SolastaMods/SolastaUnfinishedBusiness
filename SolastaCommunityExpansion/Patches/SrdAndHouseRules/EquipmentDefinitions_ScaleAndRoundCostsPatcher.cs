@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
     {
         internal static bool Prefix(float priceMultiplier, int[] baseCosts, int[] scaledCosts)
         {
-            if (!Main.Settings.ExactMerchantCostScaling)
+            if (!Main.Settings.ScaleMerchantPricesCorrectly)
             {
                 return true;
             }

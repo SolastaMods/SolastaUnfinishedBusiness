@@ -35,10 +35,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.EnableCharacterExport = toggle;
             }
 
-            toggle = Main.Settings.EnableHudToggleElementsHotkeys;
+            toggle = Main.Settings.EnableHotkeysToToggleHud;
             if (UI.Toggle("Enable hotkeys to toggle HUD components visibility " + "[ctrl-(C)ontrol Panel / ctrl-(L)og / ctrl-(M)ap / ctrl-(P)arty]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.EnableHudToggleElementsHotkeys = toggle;
+                Main.Settings.EnableHotkeysToToggleHud = toggle;
             }
 
             toggle = Main.Settings.InvertAltBehaviorOnTooltips;
@@ -47,10 +47,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.InvertAltBehaviorOnTooltips = toggle;
             }
 
-            toggle = Main.Settings.RecipeTooltipShowsRecipe;
+            toggle = Main.Settings.ShowCraftingRecipeInDetailedTooltips;
             if (UI.Toggle("Show crafting recipe in detailed tooltips", ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.RecipeTooltipShowsRecipe = toggle;
+                Main.Settings.ShowCraftingRecipeInDetailedTooltips = toggle;
             }
 
             #region AdventureLog
@@ -136,17 +136,17 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     Main.Settings.AutoPauseOnVictory = toggle;
                 }
 
-                toggle = Main.Settings.PermanentSpeedUp;
+                toggle = Main.Settings.PermanentlySpeedBattleUp;
                 if (UI.Toggle("Permanently speeds battle up", ref toggle, UI.AutoWidth()))
                 {
-                    Main.Settings.PermanentSpeedUp = toggle;
+                    Main.Settings.PermanentlySpeedBattleUp = toggle;
                 }
 
                 UI.Label("");
-                floatValue = Main.Settings.CustomTimeScale;
+                floatValue = Main.Settings.BattleCustomTimeScale;
                 if (UI.Slider("Battle timescale modifier".white(), ref floatValue, 1f, 50f, 1f, 1, "", UI.AutoWidth()))
                 {
-                    Main.Settings.CustomTimeScale = floatValue;
+                    Main.Settings.BattleCustomTimeScale = floatValue;
                 }
             }
             #endregion
@@ -164,38 +164,30 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             {
                 UI.Label("");
 
-                toggle = Main.Settings.FlexibleGadgetsPlacement;
+                toggle = Main.Settings.AllowGadgetsToBePlacedAnywhere;
                 if (UI.Toggle("Allow gadgets to be placed anywhere on the map " + RequiresRestart, ref toggle))
                 {
-                    Main.Settings.FlexibleGadgetsPlacement = toggle;
+                    Main.Settings.AllowGadgetsToBePlacedAnywhere = toggle;
                 }
 
-                toggle = Main.Settings.FlexiblePropsPlacement;
+                toggle = Main.Settings.AllowPropsToBePlacedAnywhere;
                 if (UI.Toggle("Allow props to be placed anywhere on the map " + RequiresRestart, ref toggle))
                 {
-                    Main.Settings.FlexiblePropsPlacement = toggle;
+                    Main.Settings.AllowPropsToBePlacedAnywhere = toggle;
                 }
 
                 UI.Label("");
 
-                toggle = Main.Settings.DungeonMakerEditorBetterTooltips;
-                if (UI.Toggle("Enable better tooltip on dungeon maker editor " + "[selected items or monsters on gadget detail screen]".italic().yellow(), ref toggle))
-                {
-                    Main.Settings.DungeonMakerEditorBetterTooltips = toggle;
-                }
-
-                UI.Label("");
-
-                toggle = Main.Settings.UnleashAllMonsters;
+                toggle = Main.Settings.UnleashNpcAsEnemy;
                 if (UI.Toggle("Unleash NPCs as enemies " + "[press SHIFT while clicking Select on gadget panel]".italic().yellow(), ref toggle))
                 {
-                    Main.Settings.UnleashAllMonsters = toggle;
+                    Main.Settings.UnleashNpcAsEnemy = toggle;
                 }
 
-                toggle = Main.Settings.UnleashAllNPCs;
+                toggle = Main.Settings.UnleashEnemyAsNpc;
                 if (UI.Toggle("Unleash enemies as NPCs " + "[press SHIFT while clicking Select on gadget panel]".italic().yellow(), ref toggle))
                 {
-                    Main.Settings.UnleashAllNPCs = toggle;
+                    Main.Settings.UnleashEnemyAsNpc = toggle;
                 }
             }
             #endregion
@@ -213,10 +205,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             {
                 UI.Label("");
 
-                toggle = Main.Settings.EnableInventoryFilterAndSort;
+                toggle = Main.Settings.EnableInventoryFilteringAndSorting;
                 if (UI.Toggle("Enable inventory filtering and sorting " + RequiresRestart, ref toggle, UI.AutoWidth()))
                 {
-                    Main.Settings.EnableInventoryFilterAndSort = toggle;
+                    Main.Settings.EnableInventoryFilteringAndSorting = toggle;
                 }
 
                 toggle = Main.Settings.EnableInvisibleCrownOfTheMagister;
@@ -232,10 +224,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 {
                     UI.Label("Empress Garb".orange() + " appearance ".white(), UI.Width(325));
 
-                    intValue = Array.IndexOf(ItemOptionsContext.EmpressGarbSkins, Main.Settings.EmpressGarbSkin);
-                    if (UI.SelectionGrid(ref intValue, ItemOptionsContext.EmpressGarbSkins, ItemOptionsContext.EmpressGarbSkins.Length, UI.Width(600)))
+                    intValue = Array.IndexOf(ItemOptionsContext.EmpressGarbAppearances, Main.Settings.EmpressGarbAppearance);
+                    if (UI.SelectionGrid(ref intValue, ItemOptionsContext.EmpressGarbAppearances, ItemOptionsContext.EmpressGarbAppearances.Length, UI.Width(600)))
                     {
-                        Main.Settings.EmpressGarbSkin = ItemOptionsContext.EmpressGarbSkins[intValue];
+                        Main.Settings.EmpressGarbAppearance = ItemOptionsContext.EmpressGarbAppearances[intValue];
                         ItemOptionsContext.SwitchEmpressGarb();
                     }
                 }
