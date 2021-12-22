@@ -6,6 +6,9 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace SolastaCommunityExpansion.Patches.OnAttackEffects
 {
+    //
+    // this patch shouldn't be protected
+    //
     [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttackDamage")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameLocationBattleManager_HandleCharacterAttackDamage

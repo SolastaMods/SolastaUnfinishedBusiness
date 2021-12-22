@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
+namespace SolastaCommunityExpansion.Patches.BugFix
 {
     [HarmonyPatch(typeof(CharacterSelectionModal), "CharactersFiltered")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
     {
         public static bool Prefix(List<RulesetCharacterHero.Snapshot> filteredHeroesList, List<CharacterPlateToggle> ___characterPlates)
         {
-            if (!Main.Settings.FixCharacterPanelSorting)
+            if (!Main.Settings.BugFixCharacterPanelSorting)
             {
                 return true;
             }

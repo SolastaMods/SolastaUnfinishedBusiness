@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiLevelUp
     {
         internal static void Postfix(CharacterRaceDefinition left, CharacterRaceDefinition right, ref int __result)
         {
-            if (!Main.Settings.FutureFeatureSorting)
+            if (!Main.Settings.EnableSortingRaces)
             {
                 return;
             }

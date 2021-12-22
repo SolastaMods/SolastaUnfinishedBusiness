@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
+namespace SolastaCommunityExpansion.Patches.BugFix
 {
     // Modify sorting on characters panel.
     // The default sort is by character class, which actually sorts on class+path.
@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
         public static void Postfix(RulesetCharacterHero.Snapshot left, RulesetCharacterHero.Snapshot right,
             bool ___sortInverted, SortGroup.Category ___sortCategory, ref int __result)
         {
-            if (!Main.Settings.FixCharacterPanelSorting)
+            if (!Main.Settings.BugFixCharacterPanelSorting)
             {
                 return;
             }

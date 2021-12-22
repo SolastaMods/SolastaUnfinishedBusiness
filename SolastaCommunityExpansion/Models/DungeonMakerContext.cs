@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Models
             UpdatePropsPlacement();
         }
 
-        internal static void BackupAndDelete(string path, UserContent userContent)
+        public static void BackupAndDelete(string path, UserContent userContent)
         {
             var backupDirectory = Path.Combine(Main.MOD_FOLDER, BACKUP_FOLDER);
 

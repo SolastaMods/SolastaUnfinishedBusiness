@@ -21,19 +21,25 @@ namespace SolastaCommunityExpansion
         //
 
         public bool AllowDynamicPowers { get; set; } = true;
+        public bool AllowExtraKeyboardCharactersInCampaignNames { get; set; } = true;
+        public bool AllowExtraKeyboardCharactersInLocationNames { get; set; } = true;
+        public bool BugFixBestiarySorting { get; set; } = true;
+        public bool BugFixCharacterPanelSorting { get; set; } = true;
         public bool BugFixExpandColorTables { get; set; } = true;
+        public bool BugFixItemFiltering { get; set; } = true;
+        public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
         public bool BugFixOnCanSaveToggleChanged { get; set; } = true;
-        public bool EnableFeatsSorting { get; set; } = true;
         public bool EnableFirstLevelCasterFeats { get; set; } = true;
-        public bool FixItemFiltering { get; set; } = true;
-        public bool FutureFeatureSorting { get; set; } = true;
+        public bool EnableMultiLinePowerPanel { get; set; } = true;
+        public bool EnableMultiLineSpellPanel { get; set; } = true;
+        public bool EnableSortingClasses { get; set; } = true;
+        public bool EnableSortingDeities { get; set; } = true;
+        public bool EnableSortingFeats { get; set; } = true;
+        public bool EnableSortingFutureFeatures { get; set; } = true;
+        public bool EnableSortingRaces { get; set; } = true;
         public bool KeepCharactersPanelOpenAndHeroSelectedOnLevelUp { get; set; } = true;
         public bool KeepSpellsOpenSwitchingEquipment { get; set; } = true;
-        public bool MultiLinePowerPanel { get; set; } = true;
-        public bool MultiLineSpellPanel { get; set; } = true;
         public bool ShowAllAutoPreparedSpells { get; set; } = true;
-        public bool FixCharacterPanelSorting { get; set; } = true;
-        public bool FixBestiarySorting { get; set; } = true;
 
         //
         // Character - General

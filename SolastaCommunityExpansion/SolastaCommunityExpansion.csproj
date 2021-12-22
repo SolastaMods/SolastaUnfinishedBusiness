@@ -2,19 +2,19 @@
 
 	<PropertyGroup>
 		<TargetFramework>net472</TargetFramework>
-		<AssemblyVersion>1.2.5.0</AssemblyVersion>
-		<FileVersion>1.2.5.0</FileVersion>
+		<AssemblyVersion>1.2.15.5</AssemblyVersion>
+		<FileVersion>1.2.15.5</FileVersion>
 		<Description></Description>
 		<PackageProjectUrl>https://github.com/ChrisPJohn/SolastaCommunityExpansion</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/ChrisPJohn/SolastaCommunityExpansion</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<Configurations>Debug;Release;Debug Install;Release Install</Configurations>
-		<Authors>ChrisPJohn</Authors>
+		<Authors>ChrisPJohn;ZappaStuff;ImpPhil</Authors>
 		<Company />
 		<Product />
 		<Copyright>Copyright 2021</Copyright>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-		<Version>1.2.5.0</Version>
+		<Version>1.2.15.5</Version>
 		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
 		<EnableNETAnalyzers>True</EnableNETAnalyzers>
 		<AnalysisLevel>latest</AnalysisLevel>

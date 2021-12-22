@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.InventoryManagement
+namespace SolastaCommunityExpansion.Patches.GameUiInventory
 {
     [HarmonyPatch(typeof(InventoryPanel), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -9,7 +9,10 @@ namespace SolastaCommunityExpansion.Patches.InventoryManagement
     {
         internal static void Postfix(InventoryPanel __instance)
         {
-            Models.InventoryManagementContext.Refresh(__instance.MainContainerPanel);
+            if (Main.Settings.EnableInventoryFilteringAndSorting)
+            {
+                Models.InventoryManagementContext.Refresh(__instance.MainContainerPanel);
+            }
         }
     }
 
@@ -19,12 +22,18 @@ namespace SolastaCommunityExpansion.Patches.InventoryManagement
     {
         internal static void Prefix(InventoryPanel __instance)
         {
-            Models.InventoryManagementContext.Refresh(__instance.MainContainerPanel, clearState: true);
+            if (Main.Settings.EnableInventoryFilteringAndSorting)
+            {
+                Models.InventoryManagementContext.Refresh(__instance.MainContainerPanel, clearState: true);
+            }
         }
 
         internal static void Postfix()
         {
-            Models.InventoryManagementContext.MarkAsDirty();
+            if (Main.Settings.EnableInventoryFilteringAndSorting)
+            {
+                Models.InventoryManagementContext.MarkAsDirty();
+            }
         }
     }
 }
