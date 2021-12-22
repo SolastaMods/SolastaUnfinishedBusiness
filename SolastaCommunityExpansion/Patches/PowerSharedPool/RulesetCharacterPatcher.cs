@@ -102,16 +102,15 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
                 if (usablePower.PowerDefinition is IPowerSharedPool pool)
                 {
                     FeatureDefinitionPower pointPoolPower = pool.GetUsagePoolPower();
-                    if (!pointPoolPowerDefinitions.Contains(pointPoolPower))
-                    {
-                        // Only add to recharge here if it (recharges on a short rest and this is a short or long rest) or 
-                        // it recharges on a long rest and this is a long rest.
-                        if ((pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.ShortRest &&
+
+                    // Only add to recharge here if it (recharges on a short rest and this is a short or long rest) or 
+                    // it recharges on a long rest and this is a long rest.
+                    if (!pointPoolPowerDefinitions.Contains(pointPoolPower)
+                        && ((pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.ShortRest &&
                             (restType == RuleDefinitions.RestType.ShortRest || restType == RuleDefinitions.RestType.LongRest)) ||
-                            (pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.LongRest && restType == RuleDefinitions.RestType.LongRest))
-                        {
-                            pointPoolPowerDefinitions.Add(pointPoolPower);
-                        }
+                            (pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.LongRest && restType == RuleDefinitions.RestType.LongRest)))
+                    {
+                        pointPoolPowerDefinitions.Add(pointPoolPower);
                     }
                 }
             }
