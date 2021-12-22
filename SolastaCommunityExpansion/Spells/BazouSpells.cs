@@ -381,6 +381,7 @@ namespace SolastaCommunityExpansion.Spells
                             .SetSpriteReference(DatabaseHelper.SpellDefinitions.Bane.GuiPresentation.SpriteReference));
 
             var spell = spellBuilder.AddToDB();
+            spell.SetRequiresConcentration(false);
 
             // Not sure if I prefer copying and editing existing effect description
             // or creating one from scratch through API
