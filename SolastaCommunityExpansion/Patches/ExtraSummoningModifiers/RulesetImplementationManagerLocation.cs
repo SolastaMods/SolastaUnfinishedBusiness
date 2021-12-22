@@ -4,6 +4,7 @@ using SolastaCommunityExpansion.Helpers;
 using TA;
 using TA.AI;
 using HarmonyLib;
+using System.Runtime.CompilerServices;
 
 namespace SolastaCommunityExpansion.Patches.ExtraModifiers
 {
@@ -160,13 +161,90 @@ namespace SolastaCommunityExpansion.Patches.ExtraModifiers
             ServiceRepository.GetService<IGameLocationCharacterService>().CreateAndBindEffectProxy((RulesetActor) formsParams.sourceCharacter, formsParams.activeEffect, formsParams.position, element);
             }
             else
-            rulesetImplementationManager.ApplySummonForm(effectForm, formsParams);
-
+            RulesetImplementationManager_ApplySummonForm.BaseMethodDummy(__instance,effectForm,formsParams);
 
             return false;
 
         }
 
+    }
+
+
+    [HarmonyPatch(typeof(RulesetImplementationManager), "ApplySummonForm")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+
+//        [HarmonyPatch(typeof(Foo), "Test")]
+    internal static class RulesetImplementationManager_ApplySummonForm
+    {
+
+        [HarmonyReversePatch]
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        internal static void BaseMethodDummy(
+            RulesetImplementationManagerLocation instance,
+            EffectForm effectForm,
+            RulesetImplementationDefinitions.ApplyFormsParams formsParams)
+        {
+
+            SummonForm summonForm = effectForm.SummonForm;
+            if (summonForm.SummonType != SummonForm.Type.InventoryItem || !((BaseDefinition) summonForm.ItemDefinition != (BaseDefinition) null) || (summonForm.Number <= 0 || !(formsParams.sourceCharacter is RulesetCharacterHero)))
+            return;
+            IRulesetItemFactoryService service = ServiceRepository.GetService<IRulesetItemFactoryService>();
+            RulesetItem rulesetItem = (RulesetItem) null;
+            if (formsParams.targetType == RuleDefinitions.TargetType.FreeSlot && summonForm.Number == 1)
+            {
+            foreach (string slotType in formsParams.activeEffect.EffectDescription.SlotTypes)
+            {
+                RulesetInventory characterInventory = formsParams.sourceCharacter.CharacterInventory;
+                int num = characterInventory.CurrentConfiguration < 2 ? characterInventory.CurrentConfiguration : 0;
+                if (slotType == EquipmentDefinitions.SlotTypeMainHand || slotType == EquipmentDefinitions.SlotTypeOffHand)
+                {
+                RulesetWieldedConfiguration itemsConfiguration = characterInventory.WieldedItemsConfigurations[num];
+                if (slotType == EquipmentDefinitions.SlotTypeMainHand && itemsConfiguration.MainHandSlot.EquipedItem == null || slotType == EquipmentDefinitions.SlotTypeOffHand && itemsConfiguration.OffHandSlot.EquipedItem == null)
+                {
+                    rulesetItem = service.CreateStandardItem(summonForm.ItemDefinition);
+                    characterInventory.DefineWieldedItemsConfiguration(num, rulesetItem, slotType);
+                }
+                }
+                else if (characterInventory.InventorySlotsByName.ContainsKey(slotType) && characterInventory.InventorySlotsByName[slotType].EquipedItem == null)
+                {
+                rulesetItem = service.CreateStandardItem(summonForm.ItemDefinition);
+                characterInventory.InventorySlotsByName[slotType].EquipItem(rulesetItem);
+                }
+                if (rulesetItem != null)
+                {
+                formsParams.activeEffect?.TrackSummonedItem(rulesetItem);
+                formsParams.sourceCharacter.RefreshAll();
+                break;
+                }
+            }
+            }
+            else
+            {
+            for (int index = 0; index < summonForm.Number; ++index)
+            {
+                bool flag = false;
+                if (rulesetItem == null)
+                flag = true;
+                else if (summonForm.ItemDefinition.CanBeStacked)
+                {
+                if (rulesetItem.StackCount == summonForm.ItemDefinition.StackSize)
+                {
+                    formsParams.sourceCharacter.GrantItem(rulesetItem, false);
+                    flag = true;
+                }
+                else
+                    rulesetItem.IncreaseStack();
+                }
+                if (flag)
+                rulesetItem = service.CreateStandardItem(summonForm.ItemDefinition);
+            }
+            if (rulesetItem == null)
+                return;
+            formsParams.sourceCharacter.GrantItem(rulesetItem, false);
+            }
+            
+        }
+    
     }
 
 }
