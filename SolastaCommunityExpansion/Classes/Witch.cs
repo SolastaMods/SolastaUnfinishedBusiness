@@ -986,7 +986,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
             GuiPresentation blank = new GuiPresentationBuilder("Feature/&NoContentTitle", "Feature/&NoContentTitle").Build();
 
             var witchFamiliarAttackIteration = new MonsterAttackIteration(DatabaseHelper.MonsterAttackDefinitions.Attack_EagleMatriarch_Talons, 1);
-            witchFamiliarAttackIteration.MonsterAttackDefinition.SetToHitBonus(3);
+            // We remove the inherent bonus as we will be using the Witch's spell attack bonus
+            witchFamiliarAttackIteration.MonsterAttackDefinition.SetToHitBonus(0);
             witchFamiliarAttackIteration.MonsterAttackDefinition.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(1);
             witchFamiliarAttackIteration.MonsterAttackDefinition.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D1);
             witchFamiliarAttackIteration.MonsterAttackDefinition.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(0);
