@@ -3,6 +3,7 @@ using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.PowerSharedPool
@@ -82,14 +83,12 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
                 {
                     RechargeLinkedPowers(__instance, restType);
                 }
+
                 // The player isn't recharging the shared pool features, just the pool.
                 // Hide the features that use the pool from the UI.
-                foreach (FeatureDefinition feature in __instance.RecoveredFeatures.ToArray())
+                foreach (FeatureDefinition feature in __instance.RecoveredFeatures.Where(f => f is IPowerSharedPool).ToArray())
                 {
-                    if (feature is IPowerSharedPool)
-                    {
-                        __instance.RecoveredFeatures.Remove(feature);
-                    }
+                    __instance.RecoveredFeatures.Remove(feature);
                 }
             }
         }
