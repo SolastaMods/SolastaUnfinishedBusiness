@@ -29,10 +29,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("General:".yellow());
             UI.Label("");
 
-            toggle = Main.Settings.AdditionalIconsOnLevelMap;
-            if (UI.Toggle("Additional icons for camp and exit/entrance on level map", ref toggle, UI.AutoWidth()))
+            toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
+            if (UI.Toggle("Enable additional icons for camp and exit/entrance on level map", ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.AdditionalIconsOnLevelMap = toggle;
+                Main.Settings.EnableAdditionalIconsOnLevelMap = toggle;
             }
 
             toggle = Main.Settings.EnableCharacterExport;
