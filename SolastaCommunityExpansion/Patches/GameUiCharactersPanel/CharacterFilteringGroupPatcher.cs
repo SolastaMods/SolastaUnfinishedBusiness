@@ -15,11 +15,6 @@ namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
         [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class CharacterFilteringGroup_Compare
         {
-            public static int MyLevels(int[] levels)
-            {
-                return levels.Sum();
-            }
-
             internal static void Postfix(RulesetCharacterHero.Snapshot left, RulesetCharacterHero.Snapshot right, bool ___sortInverted, SortGroup.Category ___sortCategory, ref int __result)
             {
                 if (___sortCategory == SortGroup.Category.CharacterLevel)
