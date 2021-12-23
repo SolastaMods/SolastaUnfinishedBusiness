@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
 {
+    /// <summary>
+    /// Patches to display the location of campfires, entrances and exits on the game location screen map (level map).
+    /// </summary>
     [HarmonyPatch(typeof(GameLocationScreenMap), "BindGadgets")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameLocationScreenMap_BindGadgets
@@ -17,6 +20,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                 return true;
             }
 
+            // Copy entire method and add additional cases for camp and exit/entrance
             foreach (var gameSector in Gui.GameLocation.GameSectors)
             {
                 foreach (var gameGadget in gameSector.GameGadgets)
