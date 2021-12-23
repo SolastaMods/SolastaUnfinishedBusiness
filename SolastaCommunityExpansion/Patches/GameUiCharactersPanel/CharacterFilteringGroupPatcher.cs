@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
         [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class CharacterFilteringGroup_Compare
         {
-            public static int MyLevel(int[] levels)
+            public static int MyLevels(int[] levels)
             {
                 return levels.Sum();
             }
@@ -21,14 +21,13 @@ namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
             internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
                 var bypass = 0;
-                var MyLevelMethod = typeof(CharacterFilteringGroup_Compare).GetMethod("MyLevel");
+                var myLevelMethod = typeof(CharacterFilteringGroup_Compare).GetMethod("MyLevels");
                 var levelsField = typeof(RulesetCharacterHero.Snapshot).GetField("Levels");
 
                 foreach (var instruction in instructions)
                 {
-                    if (bypass > 0)
+                    if (bypass-- > 0)
                     {
-                        bypass--;
                         continue;
                     }
 
@@ -36,7 +35,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
 
                     if (instruction.LoadsField(levelsField))
                     {
-                        yield return new CodeInstruction(OpCodes.Call, MyLevelMethod);
+                        yield return new CodeInstruction(OpCodes.Call, myLevelMethod);
                         bypass = 2;
                     }
                 }
