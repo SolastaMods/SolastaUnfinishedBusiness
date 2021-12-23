@@ -29,6 +29,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("General:".yellow());
             UI.Label("");
 
+            toggle = Main.Settings.AdditionalIconsOnLevelMap;
+            if (UI.Toggle("Additional icons for camp and exit/entrance on level map", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.AdditionalIconsOnLevelMap = toggle;
+            }
+
             toggle = Main.Settings.EnableCharacterExport;
             if (UI.Toggle("Enable character export from inventory screen " + "[ctrl-(E)xport]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
