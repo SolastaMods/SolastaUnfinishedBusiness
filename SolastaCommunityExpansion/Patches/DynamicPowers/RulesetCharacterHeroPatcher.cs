@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
+using SolastaCommunityExpansion.Helpers;
 using SolastaCommunityExpansion.Patches.PowerSharedPool;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
@@ -30,14 +31,10 @@ namespace SolastaCommunityExpansion.Patches.DynamicPowers
             // to max available uses.
             List<RulesetUsablePower> curPowers = new List<RulesetUsablePower>();
             bool newPower = false;
-            hero.EnumerateFeaturesToBrowse<FeatureDefinitionPower>(hero.FeaturesToBrowse, null);
-            foreach (FeatureDefinitionPower featureDefinitionPower in hero.FeaturesToBrowse.Cast<FeatureDefinitionPower>())
+            foreach (var featureDefinitionPower in hero
+                .EnumerateFeaturesToBrowse<FeatureDefinitionPower>()
+                .Where(f => f is IConditionalPower p && !p.IsActive(hero)))
             {
-                if (featureDefinitionPower is IConditionalPower &&
-                    !(featureDefinitionPower as IConditionalPower).IsActive(hero))
-                {
-                    continue;
-                }
                 RulesetUsablePower rulesetUsablePower = hero.UsablePowers.FirstOrDefault(up => up.PowerDefinition == featureDefinitionPower);
                 if (rulesetUsablePower != null)
                 {
@@ -50,7 +47,6 @@ namespace SolastaCommunityExpansion.Patches.DynamicPowers
                     RulesetUsablePower power = BuildUsablePower(hero, featureDefinitionPower);
                     // If this new power is part of a shared pool, get it properly initialized for usage.
                     if (featureDefinitionPower is IPowerSharedPool)
-
                     {
                         hero.UpdateUsageForPowerPool(power, 0);
                     }
