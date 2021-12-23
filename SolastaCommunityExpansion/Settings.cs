@@ -235,6 +235,8 @@ namespace SolastaCommunityExpansion
         public bool EnableHotkeysToToggleHud { get; set; }
         public bool InvertAltBehaviorOnTooltips { get; set; }
         public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
+        public bool EnableAdditionalIconsOnLevelMap { get; set; }
+
 
         // Adventure Log
         public bool EnableAdventureLogBanterLines { get; set; }

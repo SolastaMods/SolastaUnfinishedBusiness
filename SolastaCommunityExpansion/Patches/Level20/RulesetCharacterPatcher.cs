@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using System.Collections.Generic;
+using SolastaCommunityExpansion.Helpers;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
@@ -106,12 +106,8 @@ namespace SolastaCommunityExpansion.Patches.Level20
 
         private static int? MinimumStrengthAbilityCheckTotal(RulesetCharacter character, string proficiencyName)
         {
-            var featuresToBrowse = new List<FeatureDefinition>();
-
-            character.EnumerateFeaturesToBrowse<IMinimumAbilityCheckTotal>(featuresToBrowse);
-
-            return featuresToBrowse
-                .OfType<IMinimumAbilityCheckTotal>()
+            return character
+                .EnumerateFeaturesToBrowse<IMinimumAbilityCheckTotal>()
                 .Select(feature => feature.MinimumStrengthAbilityCheckTotal(character, proficiencyName))
                 .Max();
         }
