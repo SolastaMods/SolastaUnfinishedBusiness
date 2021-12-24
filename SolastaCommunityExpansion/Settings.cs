@@ -235,8 +235,6 @@ namespace SolastaCommunityExpansion
         public bool EnableHotkeysToToggleHud { get; set; }
         public bool InvertAltBehaviorOnTooltips { get; set; }
         public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
-        public bool EnableAdditionalIconsOnLevelMap { get; set; }
-
 
         // Adventure Log
         public bool EnableAdventureLogBanterLines { get; set; }
@@ -252,10 +250,10 @@ namespace SolastaCommunityExpansion
         public bool PermanentlySpeedBattleUp { get; set; }
         public float BattleCustomTimeScale { get; set; } = 1.0f;
 
-
         // Dungeon Maker
         public bool AllowGadgetsToBePlacedAnywhere { get; set; }
         public bool AllowPropsToBePlacedAnywhere { get; set; }
+        public bool EnableAdditionalIconsOnLevelMap { get; set; }
         public bool UnleashNpcAsEnemy { get; set; }
         public bool UnleashEnemyAsNpc { get; set; }
 

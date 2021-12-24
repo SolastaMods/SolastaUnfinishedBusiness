@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
             Transform ___mapItemsTransform, 
             List<MapBaseItem> ___sortedItems)
         {
-            if (!Main.Settings.EnableAdditionalIconsOnLevelMap)
+            if (!Main.Settings.EnableAdditionalIconsOnLevelMap || Gui.GameLocation.UserLocation == null)
             {
                 return true;
             }
@@ -38,10 +38,9 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                         {
                             itemType = (MapGadgetItem.ItemType)(-1);
                         }
-                        else if (gameGadget.UniqueNameId.IndexOf("entrance", System.StringComparison.OrdinalIgnoreCase) >= 0
-                            || gameGadget.UniqueNameId.IndexOf("exit", System.StringComparison.OrdinalIgnoreCase) >= 0)
+                        else if (gameGadget.UniqueNameId.IndexOf("exit", System.StringComparison.OrdinalIgnoreCase) >= 0)
                         {
-                            // seems like exits and entrances are revealed by default
+                            // exits are revealed by default, so all are shown
                             itemType = (MapGadgetItem.ItemType)(-2);
                         }
                         else if (gameGadget.CheckIsLocked())
