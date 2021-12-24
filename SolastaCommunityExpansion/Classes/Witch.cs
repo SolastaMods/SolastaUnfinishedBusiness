@@ -37,7 +37,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             return Class;
         }
         
-        internal override void BuildClassStats(CharacterClassDefinitionBuilder classBuilder)
+        private static void BuildClassStats(CharacterClassDefinitionBuilder classBuilder)
         {
             classBuilder.SetAnimationId(AnimationDefinitions.ClassAnimationId.Wizard);
             classBuilder.SetPictogram(DatabaseHelper.CharacterClassDefinitions.Sorcerer.ClassPictogramReference);
@@ -67,7 +67,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             classBuilder.AddSkillPreference(DatabaseHelper.SkillDefinitions.Religion);
         }
 
-        internal override void BuildEquipment(CharacterClassDefinitionBuilder classBuilder)
+        private static void BuildEquipment(CharacterClassDefinitionBuilder classBuilder)
         {
             classBuilder.AddEquipmentRow(
                 new List<HeroEquipmentOption>
@@ -110,7 +110,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 });
         }
 
-        internal override void BuildProficiencies(CharacterClassDefinitionBuilder classBuilder)
+        private static void BuildProficiencies(CharacterClassDefinitionBuilder classBuilder)
         {
             FeatureDefinitionProficiencyArmor = new FeatureDefinitionProficiencyBuilder(
                     "ProficiencyWitchArmor",
@@ -193,11 +193,9 @@ namespace SolastaCommunityExpansion.Classes.Witch
                         DatabaseHelper.SpellDefinitions.ChillTouch,
                         DatabaseHelper.SpellDefinitions.DancingLights,
 //?                                                                                    DatabaseHelper.SpellDefinitions.Dazzle,
-                        //EldritchOrbSpellBuilder.EldritchOrbSpell,
 //                                                                                    DatabaseHelper.SpellDefinitions.FireBolt,
 //                                                                                    DatabaseHelper.SpellDefinitions.Guidance,
 //                                                                                    DatabaseHelper.SpellDefinitions.Light,
-                        //MinorLifestealSpellBuilder.MinorLifestealSpell,
 //                                                                                    DatabaseHelper.SpellDefinitions.PoisonSpray,
                         DatabaseHelper.SpellDefinitions.ProduceFlame,
 //                                                                                    DatabaseHelper.SpellDefinitions.RayOfFrost,
@@ -280,10 +278,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
                         DatabaseHelper.SpellDefinitions.MistyStep,
 //                                                                                    DatabaseHelper.SpellDefinitions.MoonBeam,
 //                                                                                    DatabaseHelper.SpellDefinitions.PassWithoutTrace,
-                        //PetalStormSpellBuilder.PetalStormSpell,
 //                                                                                    DatabaseHelper.SpellDefinitions.PrayerOfHealing,
 //                                                                                    DatabaseHelper.SpellDefinitions.ProtectionFromPoison,
-                        //ProtectThresholdSpellBuilder.ProtectThresholdSpell,
                         DatabaseHelper.SpellDefinitions.RayOfEnfeeblement,
 //                                                                                    DatabaseHelper.SpellDefinitions.ScorchingRay,
                         DatabaseHelper.SpellDefinitions.SeeInvisibility,
@@ -372,7 +368,6 @@ namespace SolastaCommunityExpansion.Classes.Witch
 //                                                                                    DatabaseHelper.SpellDefinitions.Disintegrate,
                         DatabaseHelper.SpellDefinitions.Eyebite,
 //                                                                                    DatabaseHelper.SpellDefinitions.FreezingSphere,
-                        //FrenzySpellBuilder.FrenzySpell,
 //                                                                                    DatabaseHelper.SpellDefinitions.GlobeOfInvulnerability,
 //                                                                                    DatabaseHelper.SpellDefinitions.Harm,
 //                                                                                    DatabaseHelper.SpellDefinitions.Heal,
@@ -1174,7 +1169,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
         }
 
-        internal override void BuildSubclasses(CharacterClassDefinitionBuilder classBuilder)
+        private static void BuildSubclasses(CharacterClassDefinitionBuilder classBuilder, CharacterClassDefinition classDef)
         {
 
             var subClassChoices = classBuilder.BuildSubclassChoice(
@@ -1188,15 +1183,15 @@ namespace SolastaCommunityExpansion.Classes.Witch
                             .Build(),
                     GuidHelper.Create(WITCH_BASE_GUID, "SubclassChoiceWitchCovens").ToString());
 
-//            subClassChoices.Subclasses.Add(new BloodWitch().GetSubclass(Class).name);
-            subClassChoices.Subclasses.Add(new GreenWitch().GetSubclass(Class).name);
-//            subClassChoices.Subclasses.Add(new PurpleWitch().GetSubclass(Class).name);
-            subClassChoices.Subclasses.Add(new RedWitch().GetSubclass(Class).name);
-            subClassChoices.Subclasses.Add(new WhiteWitch().GetSubclass(Class).name);
+//            subClassChoices.Subclasses.Add(new BloodWitch().GetSubclass(classDef).name);
+            subClassChoices.Subclasses.Add(new GreenWitch().GetSubclass(classDef).name);
+//            subClassChoices.Subclasses.Add(new PurpleWitch().GetSubclass(classDef).name);
+            subClassChoices.Subclasses.Add(new RedWitch().GetSubclass(classDef).name);
+            subClassChoices.Subclasses.Add(new WhiteWitch().GetSubclass(classDef).name);
 
         }
 
-        internal override void BuildProgression(CharacterClassDefinitionBuilder classBuilder)
+        private static void BuildProgression(CharacterClassDefinitionBuilder classBuilder)
         {
 
             if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out FeatureDefinition help)){
@@ -1280,7 +1275,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             // I have not found another way to do it like this when trying to build
             // skills or powers that require a reference to the ClassDefinition
             BuildWitchFamiliar();
-            BuildSubclasses(classBuilder);
+            BuildSubclasses(classBuilder, Class);
             BuildProgression(classBuilder);
 
             return Class;
