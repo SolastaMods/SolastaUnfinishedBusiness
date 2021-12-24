@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Patches
         {
             if (!Main.LateEnabled && Main.Enabled)
             {
-
+                return;
             }
 
             FightingStyleContext.Load(); // Fighting Styles should be loaded before feats in order to generate feats of new fighting styles
