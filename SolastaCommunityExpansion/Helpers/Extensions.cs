@@ -26,7 +26,7 @@ namespace SolastaCommunityExpansion.Helpers
         None = RuleDefinitions.RitualCasting.None,
         Prepared = RuleDefinitions.RitualCasting.Prepared,
         Spellbook = RuleDefinitions.RitualCasting.Spellbook,
-        Known = 1337
+        Known = 9000
     }
 
     public enum ExtraTargetFilteringTags
@@ -34,7 +34,7 @@ namespace SolastaCommunityExpansion.Helpers
         No = RuleDefinitions.TargetFilteringTag.No,
         Unarmored = RuleDefinitions.TargetFilteringTag.Unarmored,
         MetalArmor = RuleDefinitions.TargetFilteringTag.MetalArmor,
-        CursedByMalediction = 1337
+        CursedByMalediction = 9000
     }
 
     public enum ExtraOriginOfAmount
@@ -47,9 +47,9 @@ namespace SolastaCommunityExpansion.Helpers
         SourceHalfHitPoints = 5,
         SourceSpellCastingAbility = 6,
         SourceSpellAttack = 7,
-        SourceProficiencyBonus = 1337,
-        SourceCharacterLevel = 1338,
-        SourceClassLevel = 1339
+        SourceProficiencyBonus = 9000,
+        SourceCharacterLevel = 9001,
+        SourceClassLevel = 9002
     }
 
 }
