@@ -40,7 +40,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                 case -2:
                     ___backgroundImage.sprite = ___backgroundSprites[2];
                     ___iconImage.sprite = CreateSprite(Properties.Resources.Entry, 24);
-                    ___guiTooltip.Content = "Entrance or exit";
+                    ___guiTooltip.Content = "Exit";
                     break;
                 default:
                     return true;
