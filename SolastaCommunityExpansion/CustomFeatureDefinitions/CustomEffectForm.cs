@@ -6,7 +6,7 @@
      */
     class CustomEffectForm : EffectForm
     {
-        public delegate bool ApplyDelegate(EffectForm effectForm,
+        public delegate void ApplyDelegate(CustomEffectForm effectForm,
             RulesetImplementationDefinitions.ApplyFormsParams formsParams,
             bool retargeting,
             bool proxyOnly,
@@ -18,7 +18,7 @@
             Apply = del;
         }
 
-        public void ApplyForm(EffectForm effectForm,
+        public void ApplyForm(
             RulesetImplementationDefinitions.ApplyFormsParams formsParams,
             bool retargeting,
             bool proxyOnly,
@@ -26,7 +26,7 @@
         {
             if (Apply != null)
             {
-                Apply(effectForm, formsParams, retargeting, proxyOnly, forceSelfConditionOnly);
+                Apply(this, formsParams, retargeting, proxyOnly, forceSelfConditionOnly);
             }
         }
     }

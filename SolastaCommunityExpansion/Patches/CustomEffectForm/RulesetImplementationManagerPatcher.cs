@@ -1,6 +1,7 @@
 ﻿
 
 using System.Collections.Generic;
+using System.Linq;
 using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.CustomEffectForm
@@ -14,12 +15,9 @@ namespace SolastaCommunityExpansion.Patches.CustomEffectForm
             bool proxyOnly = false,
             bool forceSelfConditionOnly = false)
         {
-           foreach(EffectForm effectForm in effectForms)
+           foreach(CustomFeatureDefinitions.CustomEffectForm customEffect in effectForms.OfType<CustomFeatureDefinitions.CustomEffectForm>())
             {
-                if (effectForm is CustomFeatureDefinitions.CustomEffectForm customEffect)
-                {
-                    customEffect.ApplyForm(effectForm, formsParams, retargeting, proxyOnly, forceSelfConditionOnly);
-                }
+                customEffect.ApplyForm(formsParams, retargeting, proxyOnly, forceSelfConditionOnly);
             }
         }
     }
