@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.BugFix
@@ -34,6 +35,13 @@ namespace SolastaCommunityExpansion.Patches.BugFix
                     __result = __result == 0 ? SortByName() : __result;
                     break;
                 case SortGroup.Category.CharacterLevel:
+                    //
+                    // ATT: below isn't part of the bugfix but an enhancement to allow MC heroes to get correctly sorted by their total levels
+                    //
+                    __result = sortSign * left.Levels.Sum().CompareTo(right.Levels.Sum());
+                    __result = __result == 0 ? SortByName() : __result;
+                    break;
+
                 case SortGroup.Category.CharacterAncestry:
                     __result = __result == 0 ? SortByName() : __result;
                     break;
