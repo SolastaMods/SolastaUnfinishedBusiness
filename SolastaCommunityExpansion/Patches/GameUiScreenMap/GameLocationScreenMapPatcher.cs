@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
             Transform ___mapItemsTransform, 
             List<MapBaseItem> ___sortedItems)
         {
-            if (!Main.Settings.EnableAdditionalIconsOnLevelMap)
+            if (!Main.Settings.EnableAdditionalIconsOnLevelMap || Gui.GameLocation.UserLocation == null)
             {
                 return true;
             }
