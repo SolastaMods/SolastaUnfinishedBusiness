@@ -29,12 +29,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("General:".yellow());
             UI.Label("");
 
-            toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
-            if (UI.Toggle("Enable additional icons for camp and exit on level map", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableAdditionalIconsOnLevelMap = toggle;
-            }
-
             toggle = Main.Settings.EnableCharacterExport;
             if (UI.Toggle("Enable character export from inventory screen " + "[ctrl-(E)xport]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
@@ -180,6 +174,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (UI.Toggle("Allow props to be placed anywhere on the map " + RequiresRestart, ref toggle))
                 {
                     Main.Settings.AllowPropsToBePlacedAnywhere = toggle;
+                }
+
+                UI.Label("");
+
+                toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
+                if (UI.Toggle("Enable additional icons for camp and exit on level map", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableAdditionalIconsOnLevelMap = toggle;
                 }
 
                 UI.Label("");

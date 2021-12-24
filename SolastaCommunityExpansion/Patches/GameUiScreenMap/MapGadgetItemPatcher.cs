@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
             UnityEngine.UI.Image ___iconImage,
             Sprite[] ___backgroundSprites)
         {
-            if (!Main.Settings.EnableAdditionalIconsOnLevelMap)
+            if (!Main.Settings.EnableAdditionalIconsOnLevelMap || Gui.GameLocation.UserLocation == null)
             {
                 return true;
             }
