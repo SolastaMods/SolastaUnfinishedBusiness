@@ -1,7 +1,9 @@
-﻿
-
-namespace SolastaCommunityExpansion.CustomFeatureDefinitions
+﻿namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 {
+    /**
+     * This adds the ability to do fully custom EffectForms. If possible you should use the standard EffectForms.
+     * Damage and healing done through this CustomEffectForm will not trigger the proper events.
+     */
     class CustomEffectForm : EffectForm
     {
         public delegate bool ApplyDelegate(EffectForm effectForm,
