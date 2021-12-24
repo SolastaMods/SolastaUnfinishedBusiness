@@ -4,13 +4,13 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace SolastaCommunityExpansion.Patches
 {
-    [HarmonyPatch(typeof(MainMenuScreen), "OnEndShow")]
+    [HarmonyPatch(typeof(MainMenuScreen), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class MainMenuScreen_OnEndShow
+    internal static class MainMenuScreen_OnBeginShow
     {
         internal static void Postfix()
         {
-            if (!Main.LateEnabled && Main.Enabled)
+            if (Main.LateEnabled)
             {
                 return;
             }
@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Patches
             FeatsContext.Load();
             FlexibleBackgroundsContext.Load();
             FlexibleRacesContext.Load();
-            InitialChoicesContext.Load();
+            InitialChoicesContext.Load(); 
 
             Main.LateEnabled = true;
         }
