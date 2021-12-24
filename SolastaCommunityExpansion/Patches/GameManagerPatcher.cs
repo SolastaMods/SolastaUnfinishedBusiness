@@ -10,37 +10,34 @@ namespace SolastaCommunityExpansion.Patches
     {
         internal static void Postfix()
         {
-            BugFixContext.Load();
-
             AdditionalNamesContext.Load();
             AsiAndFeatContext.Load();
-            InitialChoicesContext.Load();
-            ItemCraftingContext.Load();
-            GameUiContext.Load();
-            // Fighting Styles should be loaded before feats in
-            // order to generate feats of new fighting styles.
-            FightingStyleContext.Load();
+            BugFixContext.Load();
+            CharacterExportContext.Load();
+            ConjurationsContext.Load();
+            DruidArmorContext.Load();
+            DungeonMakerContext.Load();
+            EncountersSpawnContext.Load();
+            EpicArrayContext.Load();
+            FaceUnlockContext.Load();
+            FightingStyleContext.Load(); // Fighting Styles should be loaded before feats in order to generate feats of new fighting styles
             FeatsContext.Load();
-            SubclassesContext.Load();
             FlexibleBackgroundsContext.Load();
             FlexibleRacesContext.Load();
-            VisionContext.Load();
-            PickPocketContext.Load();
-            EpicArrayContext.Load();
-            RespecContext.Load();
-            RemoveIdentificationContext.Load();
-            Level20Context.Load();
-            DruidArmorContext.Load();
-            CharacterExportContext.Load();
+            InitialChoicesContext.Load();
+            GameUiContext.Load();
             InventoryManagementContext.Load();
-            RemoveBugVisualModelsContext.Load();
-            FaceUnlockContext.Load();
-            ConjurationsContext.Load();
+            ItemCraftingContext.Load();
             ItemOptionsContext.Load();
-            DungeonMakerContext.Load();
-            TelemaCampaignContext.Load();
-            EncountersSpawnContext.Load();
+            Level20Context.Load();
+            PickPocketContext.Load();
+            RemoveBugVisualModelsContext.Load();
+            RemoveIdentificationContext.Load();
+            RespecContext.Load();
             SrdAndHouseRulesContext.Load();
+            SubclassesContext.Load();
+            TelemaCampaignContext.Load();
+            VisionContext.Load();
 
             Main.Enabled = true;
         }
