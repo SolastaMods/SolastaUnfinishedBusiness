@@ -30,7 +30,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
-            if (UI.Toggle("Enable additional icons for camp and exit/entrance on level map", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable additional icons for camp and exit on level map", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableAdditionalIconsOnLevelMap = toggle;
             }
