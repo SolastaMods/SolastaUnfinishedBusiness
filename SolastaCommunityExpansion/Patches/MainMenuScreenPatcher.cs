@@ -15,11 +15,7 @@ namespace SolastaCommunityExpansion.Patches
                 return;
             }
 
-            FightingStyleContext.Load(); // Fighting Styles should be loaded before feats in order to generate feats of new fighting styles
-            FeatsContext.Load();
-            FlexibleBackgroundsContext.Load();
-            FlexibleRacesContext.Load();
-            InitialChoicesContext.Load(); 
+            InitialChoicesContext.RefreshTotalFeatsGrantedFistLevel();
 
             Main.LateEnabled = true;
         }
