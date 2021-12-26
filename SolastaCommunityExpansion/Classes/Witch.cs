@@ -1257,8 +1257,8 @@ namespace SolastaCommunityExpansion.Classes
                     .Build();
 
             var classBuilder = new CharacterClassDefinitionBuilder(
-                    "Witch", 
-                    GuidHelper.Create(WITCH_BASE_GUID, "Witch").ToString())
+                    "ClassWitch", 
+                    GuidHelper.Create(WITCH_BASE_GUID, "ClassWitch").ToString())
                     .SetGuiPresentation(classGuiPresentation);
 
             BuildClassStats(classBuilder);
