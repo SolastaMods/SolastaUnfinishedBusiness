@@ -47,23 +47,25 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
 
         internal class NegativeFeatureDefinition : FeatureDefinition
         {
+            public string Tag;
             public FeatureDefinition FeatureToRemove;
         }
 
         private sealed class NegativeFeatureBuilder : BaseDefinitionBuilder<NegativeFeatureDefinition>
         {
-            private NegativeFeatureBuilder(FeatureDefinition featureToRemove)
+            private NegativeFeatureBuilder(string tag, FeatureDefinition featureToRemove)
                 : base(featureToRemove.Name + "Remove", GuidHelper.Create(Thug.SubclassNamespace, featureToRemove.Name + "Remove").ToString())
             {
+                Definition.Tag = tag;
                 Definition.FeatureToRemove = featureToRemove;
                 Definition.GuiPresentation.SetHidden(true);
             }
 
-            private static NegativeFeatureDefinition CreateAndAddToDB(FeatureDefinition featureToRemove)
-                => new NegativeFeatureBuilder(featureToRemove).AddToDB();
+            private static NegativeFeatureDefinition CreateAndAddToDB(string tag, FeatureDefinition featureToRemove)
+                => new NegativeFeatureBuilder(tag, featureToRemove).AddToDB();
 
             internal static readonly NegativeFeatureDefinition AdditionalDamageRogueSneakAttackRemove =
-                CreateAndAddToDB(AdditionalDamageRogueSneakAttack);
+                CreateAndAddToDB("03ClassRogue1", AdditionalDamageRogueSneakAttack);
         }
 
         private sealed class RogueSubclassThugExploitVulnerabilitiesSneakAttackBuilder : BaseDefinitionBuilder<FeatureDefinitionAdditionalDamage>
