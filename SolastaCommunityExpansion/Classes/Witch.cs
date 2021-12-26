@@ -146,8 +146,8 @@ namespace SolastaCommunityExpansion.Classes
                     .AddToDB();
 
             FeatureDefinitionPointPoolSkills = new FeatureDefinitionPointPoolBuilder(
-                    "ProficiencyWitchSkill",
-                    GuidHelper.Create(WITCH_BASE_GUID, "ProficiencyWitchSkill").ToString(),
+                    "PointPoolWitchSkillPoints",
+                    GuidHelper.Create(WITCH_BASE_GUID, "PointPoolWitchSkillPoints").ToString(),
                     HeroDefinitions.PointsPoolType.Skill,
                     2,
                     new GuiPresentationBuilder(
