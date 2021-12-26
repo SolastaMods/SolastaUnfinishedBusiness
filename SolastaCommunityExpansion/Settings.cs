@@ -29,6 +29,7 @@ namespace SolastaCommunityExpansion
         public bool BugFixItemFiltering { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
         public bool BugFixOnCanSaveToggleChanged { get; set; } = true;
+        public bool EnableBetaFeaturesInMod { get; set; }
         public bool EnableDungeonMakerRotationHotkeys { get; set; } = true;
         public bool EnableFirstLevelCasterFeats { get; set; } = true;
         public bool EnableMultiLinePowerPanel { get; set; } = true;
@@ -93,13 +94,15 @@ namespace SolastaCommunityExpansion
         public int FeatSliderPosition { get; set; } = 1;
 
         //
-        // Characters - Subclasses
+        // Characters - Classes & Subclasses
         //
 
         public bool EnableUnlimitedArcaneRecoveryOnWizardSpellMaster { get; set; }
         public bool EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter { get; set; }
         public int OverrideRogueConArtistImprovedManipulationSpellDc { get; set; } = 3;
         public int OverrideWizardMasterManipulatorArcaneManipulationSpellDc { get; set; } = 2;
+        public bool EnableTinkererClass { get; set; }
+        public bool EnableWitchClass { get; set; }
         public List<string> SubclassEnabled { get; private set; } = new List<string>();
         public int SubclassSliderPosition { get; set; } = 1;
 
