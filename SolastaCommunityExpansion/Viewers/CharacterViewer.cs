@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion.Viewers
         {
             new NamedAction("General", DisplayCharacter),
             new NamedAction("Feats", DisplayFeats),
-            new NamedAction("Subclasses", DisplaySubclasses),
+            new NamedAction("Classes & Subclasses", DisplaySubclasses),
             new NamedAction("Fighting Styles", DisplayFightingStyles),
         };
 
