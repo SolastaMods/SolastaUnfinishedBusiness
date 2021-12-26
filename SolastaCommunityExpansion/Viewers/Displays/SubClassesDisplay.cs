@@ -54,6 +54,39 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 MasterManipulator.UpdateSpellDCBoost();
             }
 
+            if (Main.Settings.EnableBetaFeaturesInMod)
+            {
+                //
+                // TODO: should we take same approach we do in subclasses? It isn't like we will have new classes every now and then...
+                //
+
+                UI.Label("");
+                UI.Label("Classes:".yellow());
+                UI.Label("");
+
+                using (UI.HorizontalScope())
+                {
+                    toggle = Main.Settings.EnableTinkererClass;
+                    if (UI.Toggle("Tinkerer".white(), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                    {
+                        Main.Settings.EnableTinkererClass = toggle;
+                    }
+
+                    UI.Label("Some Description"); // should call Gui.Format here on class description
+                }
+
+                using (UI.HorizontalScope())
+                {
+                    toggle = Main.Settings.EnableWitchClass;
+                    if (UI.Toggle("Witch".yellow(), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                    {
+                        Main.Settings.EnableWitchClass = toggle;
+                    }
+
+                    UI.Label("Some Description".yellow()); // should call Gui.Format here on class description
+                }
+            }
+
             UI.Label("");
             UI.Label("Subclasses:".yellow());
             UI.Label("");
