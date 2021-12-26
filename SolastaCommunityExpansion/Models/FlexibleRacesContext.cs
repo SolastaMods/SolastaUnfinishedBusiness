@@ -1,9 +1,6 @@
 ﻿using SolastaModApi;
 using SolastaModApi.BuilderHelpers;
 using System.Collections.Generic;
-using static SolastaModApi.DatabaseHelper.CharacterRaceDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -23,29 +20,34 @@ namespace SolastaCommunityExpansion.Models
         private static readonly FeatureUnlockByLevel attributeChoiceFour = new FeatureUnlockByLevel(new FeatureDefinitionPointPoolBuilder("PointPoolAbilityScore4",
             "dcdd35a8-f1ca-475a-b5a4-a0426292688c", HeroDefinitions.PointsPoolType.AbilityScore, 4, attributeFourGui.Build()).AddToDB(), 1);
 
-        private static readonly Dictionary<CharacterRaceDefinition, FeatureUnlockByLevel> addedFeatures = new Dictionary<CharacterRaceDefinition, FeatureUnlockByLevel>
+        private static readonly Dictionary<string, FeatureUnlockByLevel> addedFeatures = new Dictionary<string, FeatureUnlockByLevel>
         {
-            { Dwarf, attributeChoiceThree },
-            { Elf, attributeChoiceThree },
-            { Halfling, attributeChoiceThree },
-            { HalfElf, attributeChoiceFour },
-            { HalfOrc, attributeChoiceThree },
-            // TODO - look into support for user races (like Gnome)
+            { "Dwarf", attributeChoiceThree },
+            { "Elf", attributeChoiceThree },
+            { "Halfling", attributeChoiceThree },
+            { "HalfElf", attributeChoiceFour },
+            { "HalfOrc", attributeChoiceThree },
+            // unofficial races
+            { "FirbolgRace", attributeChoiceThree },
+            { "GnomeRace", attributeChoiceThree }
         };
 
-        private static readonly Dictionary<CharacterRaceDefinition, FeatureDefinition> removedFeatures = new Dictionary<CharacterRaceDefinition, FeatureDefinition>
+        private static readonly Dictionary<string, List<string>> removedFeatures = new Dictionary<string, List<string>>
         {
-            { Dwarf, AttributeModifierDwarfAbilityScoreIncrease },
-            { Elf, AttributeModifierElfAbilityScoreIncrease },
-            { Halfling, AttributeModifierHalflingAbilityScoreIncrease },
-            { HalfElf, FeatureSetHalfElfAbilityScoreIncrease },
-            { DwarfHill, AttributeModifierDwarfHillAbilityScoreIncrease },
-            { DwarfSnow, AttributeModifierDwarfSnowAbilityScoreIncrease },
-            { ElfHigh, AttributeModifierElfHighAbilityScoreIncrease },
-            { ElfSylvan, AttributeModifierElfSylvanAbilityScoreIncrease },
-            { HalflingIsland, AttributeModifierHalflingIslandAbilityScoreIncrease },
-            { HalflingMarsh, AttributeModifierHalflingMarshAbilityScoreIncrease },
-            { HalfOrc, FeatureSetHalfOrcAbilityScoreIncrease},
+            { "Dwarf", new List<string> { "AttributeModifierDwarfAbilityScoreIncrease" } },
+            { "Elf", new List<string> { "AttributeModifierElfAbilityScoreIncrease" } },
+            { "Halfling", new List<string> { "AttributeModifierHalflingAbilityScoreIncrease" } },
+            { "HalfElf", new List<string> { "FeatureSetHalfElfAbilityScoreIncrease" } },
+            { "DwarfHill", new List<string> { "AttributeModifierDwarfHillAbilityScoreIncrease" } },
+            { "DwarfSnow", new List<string> { "AttributeModifierDwarfSnowAbilityScoreIncrease" } },
+            { "ElfHigh", new List<string> { "AttributeModifierElfHighAbilityScoreIncrease" } },
+            { "ElfSylvan", new List<string> { "AttributeModifierElfSylvanAbilityScoreIncrease" } },
+            { "HalflingIsland", new List<string> { "AttributeModifierHalflingIslandAbilityScoreIncrease" } },
+            { "HalflingMarsh", new List<string> { "AttributeModifierHalflingMarshAbilityScoreIncrease" } },
+            { "HalfOrc", new List<string> { "FeatureSetHalfOrcAbilityScoreIncrease" } },
+            // unofficial races
+            { "FirbolgRace", new List<string> { "AttributeModifierFirbolgStrengthAbilityScoreIncrease", "AttributeModifierFirbolgWisdomAbilityScoreIncrease" } },
+            { "Gnome", new List<string> { "AttributeModifierGnomeAbilityScoreIncrease", "AttributeModifierForestGnomeAbilityScoreIncrease" } }
         };
 
         private static void RemoveMatchingFeature(List<FeatureUnlockByLevel> unlocks, FeatureDefinition toRemove)
@@ -59,40 +61,63 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void Switch(bool enabled)
+        internal static void SwitchFlexibleRaces()
         {
+            var enabled = Main.Settings.EnableFlexibleRaces;
+            var dbCharacterRaceDefinition = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
+            var dbFeatureDefinition = DatabaseRepository.GetDatabase<FeatureDefinition>();
+
             foreach (var keyValuePair in addedFeatures)
             {
-                var exists = keyValuePair.Key.FeatureUnlocks.Exists(x => x.FeatureDefinition == keyValuePair.Value.FeatureDefinition);
+                var characterClassDefinition = dbCharacterRaceDefinition.GetElement(keyValuePair.Key, true);
+
+                if (characterClassDefinition == null)
+                {
+                    continue;
+                }
+
+                var exists = characterClassDefinition.FeatureUnlocks.Exists(x => x.FeatureDefinition == keyValuePair.Value.FeatureDefinition);
 
                 if (!exists && enabled)
                 {
-                    keyValuePair.Key.FeatureUnlocks.Add(keyValuePair.Value);
+                    characterClassDefinition.FeatureUnlocks.Add(keyValuePair.Value);
                 }
                 else if (exists && !enabled)
                 {
-                    keyValuePair.Key.FeatureUnlocks.Remove(keyValuePair.Value);
+                    characterClassDefinition.FeatureUnlocks.Remove(keyValuePair.Value);
                 }
             }
 
             foreach (var keyValuePair in removedFeatures)
             {
-                var exists = keyValuePair.Key.FeatureUnlocks.Exists(x => x.FeatureDefinition == keyValuePair.Value);
+                var characterClassDefinition = dbCharacterRaceDefinition.GetElement(keyValuePair.Key, true);
 
-                if (exists && enabled)
+                if (characterClassDefinition == null)
                 {
-                    RemoveMatchingFeature(keyValuePair.Key.FeatureUnlocks, keyValuePair.Value);
+                    continue;
                 }
-                else if (!exists && !enabled)
+
+                foreach (var featureDefinitionName in keyValuePair.Value)
                 {
-                    keyValuePair.Key.FeatureUnlocks.Add(new FeatureUnlockByLevel(keyValuePair.Value, 1));
+                    var featureDefinition = dbFeatureDefinition.GetElement(featureDefinitionName, true);
+
+                    if (featureDefinition == null)
+                    {
+                        continue;
+                    }
+
+                    var exists = characterClassDefinition.FeatureUnlocks.Exists(x => x.FeatureDefinition == featureDefinition);
+
+                    if (exists && enabled)
+                    {
+                        RemoveMatchingFeature(characterClassDefinition.FeatureUnlocks, featureDefinition);
+                    }
+                    else if (!exists && !enabled)
+                    {
+                        characterClassDefinition.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureDefinition, 1));
+                    }
                 }
             }
-        }
-
-        internal static void Load()
-        {
-            Switch(Main.Settings.EnableFlexibleRaces);
         }
     }
 }
