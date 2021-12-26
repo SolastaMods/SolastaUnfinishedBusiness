@@ -1,41 +1,27 @@
 ﻿using SolastaCommunityExpansion.Features;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 using SolastaModApi.BuilderHelpers;
-using SolastaModApi.Infrastructure;
 using System;
 using System.Collections.Generic;
-using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Subclasses.Witch
 {
-    internal class GreenWitch : AbstractSubclass
+    internal class GreenWitch
     {
+
+        public static readonly Guid GW_BASE_GUID = new Guid("5d595308-bcf8-4a9f-a9a0-d2ae85c243e7");
         private CharacterSubclassDefinition Subclass;
-        internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-        {
-            DatabaseRepository.GetDatabase<FeatureDefinitionSubclassChoice>().TryGetElement("SubclassChoiceWitchCovens", out FeatureDefinitionSubclassChoice featureDefinitionSubclassChoice);
-            return featureDefinitionSubclassChoice;
-        }
+        public static CharacterClassDefinition WitchClass { get; private set; }
+        public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetGreenMagic { get; private set; }
 
-        internal override CharacterSubclassDefinition GetSubclass()
+        internal CharacterSubclassDefinition GetSubclass(CharacterClassDefinition witchClass)
         {
-            return Subclass;
-        }
-
-        public CharacterSubclassDefinition GetSubclass(CharacterClassDefinition witchClass)
-        {
-            if (GetSubclass() == null)
+            if (Subclass == null)
             {
                 Subclass = BuildAndAddSubclass(witchClass);
             }
             return Subclass;
         }
-
-        public static readonly Guid GW_BASE_GUID = new Guid("5d595308-bcf8-4a9f-a9a0-d2ae85c243e7");
-
-        private static CharacterClassDefinition WitchClass { get; set; }
-        public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetGreenMagic { get; private set; }
 
         private static void BuildGreenMagic()
         {

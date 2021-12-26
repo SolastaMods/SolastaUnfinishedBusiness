@@ -1,41 +1,27 @@
 using SolastaCommunityExpansion.Features;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 using SolastaModApi.BuilderHelpers;
-using SolastaModApi.Infrastructure;
 using System;
 using System.Collections.Generic;
-using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Subclasses.Witch
 {
-    internal class WhiteWitch : AbstractSubclass
+    internal class WhiteWitch
     {
+        
+        public static readonly Guid WW_BASE_GUID = new Guid("2d849694-5cc9-4333-944b-e40cc1e0d0fd");
         private CharacterSubclassDefinition Subclass;
-        internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-        {
-            DatabaseRepository.GetDatabase<FeatureDefinitionSubclassChoice>().TryGetElement("SubclassChoiceWitchCovens", out FeatureDefinitionSubclassChoice featureDefinitionSubclassChoice);
-            return featureDefinitionSubclassChoice;
-        }
+        public static CharacterClassDefinition WitchClass { get; private set; }
+        public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetWhiteMagic { get; private set; }
 
-        internal override CharacterSubclassDefinition GetSubclass()
+        internal CharacterSubclassDefinition GetSubclass(CharacterClassDefinition witchClass)
         {
-            return Subclass;
-        }
-
-        public CharacterSubclassDefinition GetSubclass(CharacterClassDefinition witchClass)
-        {
-            if (GetSubclass() == null)
+            if (Subclass == null)
             {
                 Subclass = BuildAndAddSubclass(witchClass);
             }
             return Subclass;
         }
-
-        public static readonly Guid WW_BASE_GUID = new Guid("2d849694-5cc9-4333-944b-e40cc1e0d0fd");
-
-        private static CharacterClassDefinition WitchClass { get; set; }
-        public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetWhiteMagic { get; private set; }
 
         private static void BuildWhiteMagic()
         {
@@ -84,7 +70,7 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
             subclassBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetWhiteMagic, 3);
         }
 
-        public static CharacterSubclassDefinition BuildAndAddSubclass(CharacterClassDefinition witchClassDefinition)
+        private static CharacterSubclassDefinition BuildAndAddSubclass(CharacterClassDefinition witchClassDefinition)
         {
 
             WitchClass = witchClassDefinition;

@@ -1248,7 +1248,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
         }
 
-        public CharacterClassDefinition BuildAndAddClass()
+        private CharacterClassDefinition BuildAndAddClass()
         {
             var classGuiPresentation = new GuiPresentationBuilder(
                     "Class/&WitchDescription",

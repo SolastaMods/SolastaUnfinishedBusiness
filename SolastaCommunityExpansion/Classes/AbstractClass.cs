@@ -1,5 +1,4 @@
-﻿using SolastaModApi;
-
+﻿
 namespace SolastaCommunityExpansion.Classes
 {
     internal abstract class AbstractClass

@@ -1,41 +1,27 @@
 using SolastaCommunityExpansion.Features;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 using SolastaModApi.BuilderHelpers;
-using SolastaModApi.Infrastructure;
 using System;
 using System.Collections.Generic;
-using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Subclasses.Witch
 {
-    internal class RedWitch : AbstractSubclass
+    internal class RedWitch
     {
+        
+        public static readonly Guid RW_BASE_GUID = new Guid("3cc83deb-e681-4670-9340-33d08b61f599");
         private CharacterSubclassDefinition Subclass;
-        internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-        {
-            DatabaseRepository.GetDatabase<FeatureDefinitionSubclassChoice>().TryGetElement("SubclassChoiceWitchCovens", out FeatureDefinitionSubclassChoice featureDefinitionSubclassChoice);
-            return featureDefinitionSubclassChoice;
-        }
+        public static CharacterClassDefinition WitchClass { get; private set; }
+        public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetRedMagic { get; private set; }
 
-        internal override CharacterSubclassDefinition GetSubclass()
+        internal CharacterSubclassDefinition GetSubclass(CharacterClassDefinition witchClass)
         {
-            return Subclass;
-        }
-
-        public CharacterSubclassDefinition GetSubclass(CharacterClassDefinition witchClass)
-        {
-            if (GetSubclass() == null)
+            if (Subclass == null)
             {
                 Subclass = BuildAndAddSubclass(witchClass);
             }
             return Subclass;
         }
-
-        public static readonly Guid RW_BASE_GUID = new Guid("3cc83deb-e681-4670-9340-33d08b61f599");
-
-        private static CharacterClassDefinition WitchClass { get; set; }
-        public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetRedMagic { get; private set; }
 
         private static void BuildRedMagic()
         {
