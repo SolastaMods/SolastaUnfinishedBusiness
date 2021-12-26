@@ -72,7 +72,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         Main.Settings.EnableTinkererClass = toggle;
                     }
 
-                    UI.Label("Some Description"); // should call Gui.Format here on class description
+                    // should call Gui.Format here on class description Class/&TinkererDescription once it gets merged
+                    UI.Label("Tinkerers are inventors, alchemists, and more. They bridge the space between magic and technology.", UI.Width(PIXELS_PER_COLUMN * 3));
                 }
 
                 using (UI.HorizontalScope())
@@ -83,7 +84,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         Main.Settings.EnableWitchClass = toggle;
                     }
 
-                    UI.Label("Some Description".yellow()); // should call Gui.Format here on class description
+                    // should call Gui.Format here on class description Class/&WitchDescription once it gets merged
+                    UI.Label("Afflicted by a sinister curse, witches can spin dark magic into Maledictions, which they use to debilitate foes. They are also accompanied by their familiars, loyal magical companions which they use to deal the killing blow.".yellow(), UI.Width(PIXELS_PER_COLUMN * 3));
                 }
             }
 
