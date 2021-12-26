@@ -73,8 +73,6 @@ namespace SolastaCommunityExpansion.Models
 
                 if (characterClassDefinition == null)
                 {
-                    Main.Log($"Race {keyValuePair.Key} not loaded.");
-
                     continue;
                 }
 
@@ -96,8 +94,6 @@ namespace SolastaCommunityExpansion.Models
 
                 if (characterClassDefinition == null)
                 {
-                    Main.Log($"Race {keyValuePair.Key} not loaded.");
-
                     continue;
                 }
 
@@ -107,8 +103,6 @@ namespace SolastaCommunityExpansion.Models
 
                     if (featureDefinition == null)
                     {
-                        Main.Log($"Feature {keyValuePair.Value} not loaded.");
-
                         continue;
                     }
 
