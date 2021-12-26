@@ -127,6 +127,7 @@ namespace SolastaCommunityExpansion.Models
             heroCharacter.CharacterInventory.EnumerateAllItems(inventoryItems);
 
             var attunedItems = inventoryItems.Select(i => new { Item = i, Name = i.AttunedToCharacter }).ToList();
+            var customItems = inventoryItems.FindAll(i => Gui.GameLocation?.UserCampaign?.UserItems?.Exists(ui => ui.ReferenceItemDefinition == i.ItemDefinition) == true).ToList();
             var heroItemGuids = heroCharacter.Items.Select(i => new { Item = i, i.Guid }).ToList();
             var inventoryItemGuids = inventoryItems.Select(i => new { Item = i, i.Guid }).ToList();
 
@@ -135,6 +136,8 @@ namespace SolastaCommunityExpansion.Models
                 heroCharacter.Name = newFirstName;
                 heroCharacter.SurName = newSurname;
                 heroCharacter.BuiltIn = false;
+
+                customItems.ForEach(x => inventoryItems.Remove(x));
 
                 heroCharacter.SetCurrentHitPoints(heroCharacter.GetAttribute("HitPoints").CurrentValue);
                 heroCharacter.Unregister();
@@ -149,6 +152,8 @@ namespace SolastaCommunityExpansion.Models
                 heroCharacter.Name = firstName;
                 heroCharacter.SurName = surName;
                 heroCharacter.BuiltIn = builtin;
+
+                customItems.ForEach(x => inventoryItems.Add(x));
 
                 // restore conditions
                 foreach (var kvp in conditions)
