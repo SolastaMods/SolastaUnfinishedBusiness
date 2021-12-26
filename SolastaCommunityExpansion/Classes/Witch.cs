@@ -9,7 +9,7 @@ using SolastaCommunityExpansion.Subclasses.Witch;
 using static CharacterClassDefinition;
 using static FeatureDefinitionCastSpell;
 
-namespace SolastaCommunityExpansion.Classes.Witch
+namespace SolastaCommunityExpansion.Classes
 {
     internal class Witch : AbstractClass
     {

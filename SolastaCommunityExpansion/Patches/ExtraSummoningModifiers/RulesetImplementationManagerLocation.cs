@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using SolastaCommunityExpansion.Helpers;
 using TA;
@@ -6,7 +6,7 @@ using TA.AI;
 using HarmonyLib;
 using System.Runtime.CompilerServices;
 
-namespace SolastaCommunityExpansion.Patches.ExtraModifiers
+namespace SolastaCommunityExpansion.Patches.ExtraSummoningModifiers
 {
     [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "ApplySummonForm")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
