@@ -27,24 +27,51 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
         {
             GuiPresentation blank = new GuiPresentationBuilder("Feature/&NoContentTitle", "Feature/&NoContentTitle").Build();
 
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup purpleMagicSpells1 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
+            {
+                ClassLevel = 1,
+                SpellsList = new List<SpellDefinition>() { 
+                        DatabaseHelper.SpellDefinitions.CharmPerson, 
+                        DatabaseHelper.SpellDefinitions.HideousLaughter, }   // This should be Silent Image
+            };
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup purpleMagicSpells2 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
+            {
+                ClassLevel = 3,
+                SpellsList = new List<SpellDefinition>() { 
+                        DatabaseHelper.SpellDefinitions.CalmEmotions, // This should be Enthrall
+                        DatabaseHelper.SpellDefinitions.Invisibility, }
+            };
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup purpleMagicSpells3 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
+            {
+                ClassLevel = 5,
+                SpellsList = new List<SpellDefinition>() { 
+                        DatabaseHelper.SpellDefinitions.HypnoticPattern, 
+                        DatabaseHelper.SpellDefinitions.Fear, } // This should be Major Image
+            };
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup purpleMagicSpells4 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
+            {
+                ClassLevel = 7,
+                SpellsList = new List<SpellDefinition>() { 
+                        DatabaseHelper.SpellDefinitions.Confusion, 
+                        DatabaseHelper.SpellDefinitions.PhantasmalKiller, }  // This should be Private Sanctum
+            };
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup purpleMagicSpells5 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
+            {
+                ClassLevel = 9,
+                SpellsList = new List<SpellDefinition>() { 
+                        DatabaseHelper.SpellDefinitions.DominatePerson, // This should be Modify Memory
+                        DatabaseHelper.SpellDefinitions.HoldMonster, }    // This should be Seeming
+            };
+
             var preparedSpells = new FeatureDefinitionAutoPreparedSpellsBuilder(
                     "PurpleMagicAutoPreparedSpell",
                     GuidHelper.Create(PW_BASE_GUID, "PurpleMagicAutoPreparedSpell").ToString(),
-                    new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>{
-                            FeatureDefinitionAutoPreparedSpellsBuilder.BuildAutoPreparedSpellGroup(
-                                    1,
-                                    new List<SpellDefinition>{
-                                            DatabaseHelper.SpellDefinitions.Entangle, 
-                                            DatabaseHelper.SpellDefinitions.Goodberry, 
-                                            DatabaseHelper.SpellDefinitions.Barkskin, 
-                                            DatabaseHelper.SpellDefinitions.ProtectionFromPoison, 
-                                            DatabaseHelper.SpellDefinitions.ConjureAnimals, 
-                                            DatabaseHelper.SpellDefinitions.CreateFood, 
-                                            DatabaseHelper.SpellDefinitions.GiantInsect, 
-                                            DatabaseHelper.SpellDefinitions.Stoneskin, 
-                                            DatabaseHelper.SpellDefinitions.DispelEvilAndGood, 
-                                            DatabaseHelper.SpellDefinitions.InsectPlague, 
-                                            })},
+                    new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>(){
+                            purpleMagicSpells1,
+                            purpleMagicSpells2,
+                            purpleMagicSpells3,
+                            purpleMagicSpells4,
+                            purpleMagicSpells5},
                     blank)
                     .SetCharacterClass(WitchClass)
                     .SetAutoTag("Coven")

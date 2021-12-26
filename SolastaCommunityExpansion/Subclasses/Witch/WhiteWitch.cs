@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 {
     internal class WhiteWitch
     {
-        
+
         public static readonly Guid WW_BASE_GUID = new Guid("2d849694-5cc9-4333-944b-e40cc1e0d0fd");
         private CharacterSubclassDefinition Subclass;
         public static CharacterClassDefinition WitchClass { get; private set; }
@@ -27,24 +27,51 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
         {
             GuiPresentation blank = new GuiPresentationBuilder("Feature/&NoContentTitle", "Feature/&NoContentTitle").Build();
 
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup whiteMagicSpells1 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
+            {
+                ClassLevel = 1,
+                SpellsList = new List<SpellDefinition>() { 
+                        DatabaseHelper.SpellDefinitions.Bless, 
+                        DatabaseHelper.SpellDefinitions.CureWounds, }
+            };
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup whiteMagicSpells2 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
+            {
+                ClassLevel = 3,
+                SpellsList = new List<SpellDefinition>() { 
+                        DatabaseHelper.SpellDefinitions.LesserRestoration, 
+                        DatabaseHelper.SpellDefinitions.PrayerOfHealing, }
+            };
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup whiteMagicSpells3 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
+            {
+                ClassLevel = 5,
+                SpellsList = new List<SpellDefinition>() { 
+                        DatabaseHelper.SpellDefinitions.BeaconOfHope, 
+                        DatabaseHelper.SpellDefinitions.Revivify, }
+            };
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup whiteMagicSpells4 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
+            {
+                ClassLevel = 7,
+                SpellsList = new List<SpellDefinition>() { 
+                        DatabaseHelper.SpellDefinitions.DeathWard, 
+                        DatabaseHelper.SpellDefinitions.GuardianOfFaith, }
+            };
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup whiteMagicSpells5 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
+            {
+                ClassLevel = 9,
+                SpellsList = new List<SpellDefinition>() { 
+                        DatabaseHelper.SpellDefinitions.MassCureWounds, 
+                        DatabaseHelper.SpellDefinitions.RaiseDead, }
+            };
+
             var preparedSpells = new FeatureDefinitionAutoPreparedSpellsBuilder(
                     "WhiteMagicAutoPreparedSpell",
                     GuidHelper.Create(WW_BASE_GUID, "WhiteMagicAutoPreparedSpell").ToString(),
-                    new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>{
-                            FeatureDefinitionAutoPreparedSpellsBuilder.BuildAutoPreparedSpellGroup(
-                                    1,
-                                    new List<SpellDefinition>{
-                                            DatabaseHelper.SpellDefinitions.Bless, 
-                                            DatabaseHelper.SpellDefinitions.CureWounds, 
-                                            DatabaseHelper.SpellDefinitions.LesserRestoration, 
-                                            DatabaseHelper.SpellDefinitions.PrayerOfHealing, 
-                                            DatabaseHelper.SpellDefinitions.BeaconOfHope, 
-                                            DatabaseHelper.SpellDefinitions.Revivify, 
-                                            DatabaseHelper.SpellDefinitions.DeathWard, 
-                                            DatabaseHelper.SpellDefinitions.GuardianOfFaith, 
-                                            DatabaseHelper.SpellDefinitions.MassCureWounds, 
-                                            DatabaseHelper.SpellDefinitions.RaiseDead, 
-                                            })},
+                    new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>(){
+                            whiteMagicSpells1,
+                            whiteMagicSpells2,
+                            whiteMagicSpells3,
+                            whiteMagicSpells4,
+                            whiteMagicSpells5},
                     blank)
                     .SetCharacterClass(WitchClass)
                     .SetAutoTag("Coven")

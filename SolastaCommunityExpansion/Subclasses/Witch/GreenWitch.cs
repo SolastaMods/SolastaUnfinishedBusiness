@@ -27,24 +27,51 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
         {
             GuiPresentation blank = new GuiPresentationBuilder("Feature/&NoContentTitle", "Feature/&NoContentTitle").Build();
 
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup greenMagicSpells1 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
+            {
+                ClassLevel = 1,
+                SpellsList = new List<SpellDefinition>() { 
+                        DatabaseHelper.SpellDefinitions.Entangle, 
+                        DatabaseHelper.SpellDefinitions.Goodberry, }
+            };
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup greenMagicSpells2 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
+            {
+                ClassLevel = 3,
+                SpellsList = new List<SpellDefinition>() { 
+                        DatabaseHelper.SpellDefinitions.Barkskin, 
+                        DatabaseHelper.SpellDefinitions.ProtectionFromPoison, } // This should be Beast Sense
+            };
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup greenMagicSpells3 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
+            {
+                ClassLevel = 5,
+                SpellsList = new List<SpellDefinition>() { 
+                        DatabaseHelper.SpellDefinitions.ConjureAnimals, 
+                        DatabaseHelper.SpellDefinitions.CreateFood, }   // This should be Plant Growth
+            };
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup greenMagicSpells4 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
+            {
+                ClassLevel = 7,
+                SpellsList = new List<SpellDefinition>() { 
+                        DatabaseHelper.SpellDefinitions.GiantInsect, // This should be Conjure Woodland Beings
+                        DatabaseHelper.SpellDefinitions.Stoneskin, }
+            };
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup greenMagicSpells5 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
+            {
+                ClassLevel = 9,
+                SpellsList = new List<SpellDefinition>() { 
+                        DatabaseHelper.SpellDefinitions.DispelEvilAndGood, // This should be Awaken
+                        DatabaseHelper.SpellDefinitions.InsectPlague, }    // This should be Tree Stride
+            };
+
             var preparedSpells = new FeatureDefinitionAutoPreparedSpellsBuilder(
                     "GreenMagicAutoPreparedSpell",
                     GuidHelper.Create(GW_BASE_GUID, "GreenMagicAutoPreparedSpell").ToString(),
-                    new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>{
-                            FeatureDefinitionAutoPreparedSpellsBuilder.BuildAutoPreparedSpellGroup(
-                                    1,
-                                    new List<SpellDefinition>{
-                                            DatabaseHelper.SpellDefinitions.Entangle, 
-                                            DatabaseHelper.SpellDefinitions.Goodberry, 
-                                            DatabaseHelper.SpellDefinitions.Barkskin, 
-                                            DatabaseHelper.SpellDefinitions.ProtectionFromPoison, // This should be Beast Sense
-                                            DatabaseHelper.SpellDefinitions.ConjureAnimals, 
-                                            DatabaseHelper.SpellDefinitions.CreateFood, // This should be Plant Growth
-                                            DatabaseHelper.SpellDefinitions.GiantInsect, // This should be Conjure Woodland Beings
-                                            DatabaseHelper.SpellDefinitions.Stoneskin, 
-                                            DatabaseHelper.SpellDefinitions.DispelEvilAndGood, // This should be Awaken
-                                            DatabaseHelper.SpellDefinitions.InsectPlague, // This should be Tree Stride
-                                            })},
+                    new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>(){
+                            greenMagicSpells1,
+                            greenMagicSpells2,
+                            greenMagicSpells3,
+                            greenMagicSpells4,
+                            greenMagicSpells5},
                     blank)
                     .SetCharacterClass(WitchClass)
                     .SetAutoTag("Coven")
