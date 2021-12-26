@@ -135,7 +135,7 @@ namespace SolastaCommunityExpansion.Classes
                     .AddToDB();
 
             FeatureDefinitionProficiencySavingThrow = new FeatureDefinitionProficiencyBuilder(
-                    "ProficiencyWitchSavinghrow",
+                    "ProficiencyWitchSavingthrow",
                     GuidHelper.Create(WITCH_BASE_GUID, "ProficiencyWitchSavingthrow").ToString(),
                     RuleDefinitions.ProficiencyType.SavingThrow,
                     new List<string>() { AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom },
