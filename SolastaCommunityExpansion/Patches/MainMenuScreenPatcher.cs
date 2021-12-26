@@ -15,6 +15,7 @@ namespace SolastaCommunityExpansion.Patches
                 return;
             }
 
+            FlexibleRacesContext.SwitchFlexibleRaces();
             InitialChoicesContext.RefreshTotalFeatsGrantedFistLevel();
 
             Main.LateEnabled = true;
