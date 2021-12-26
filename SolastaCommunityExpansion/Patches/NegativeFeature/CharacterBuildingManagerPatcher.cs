@@ -18,9 +18,9 @@ namespace SolastaCommunityExpansion.Patches.NegativeFeature
 
             foreach (Subclasses.Rogue.Thug.NegativeFeatureDefinition negativeFeature in negativeFeatures)
             {
-                if (activeFeatures.ContainsKey(negativeFeature.Tag))
+                if (activeFeatures.TryGetValue(negativeFeature.Tag, out var featureDefinitions))
                 {
-                    activeFeatures[negativeFeature.Tag].RemoveAll(x => x == negativeFeature.FeatureToRemove);
+                    featureDefinitions.RemoveAll(x => x == negativeFeature.FeatureToRemove);
                 }
             }
         }
