@@ -90,8 +90,8 @@ namespace SolastaCommunityExpansion
         //
 
         public int FeatPowerAttackModifier { get; set; } = 3;
-        public List<string> FeatEnabled { get; private set; } = new List<string>();
         public int FeatSliderPosition { get; set; } = 1;
+        public List<string> FeatEnabled { get; private set; } = new List<string>();
 
         //
         // Characters - Classes & Subclasses
@@ -101,17 +101,17 @@ namespace SolastaCommunityExpansion
         public bool EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter { get; set; }
         public int OverrideRogueConArtistImprovedManipulationSpellDc { get; set; } = 3;
         public int OverrideWizardMasterManipulatorArcaneManipulationSpellDc { get; set; } = 2;
-        public bool EnableTinkererClass { get; set; }
-        public bool EnableWitchClass { get; set; }
-        public List<string> SubclassEnabled { get; private set; } = new List<string>();
+        public int ClassSliderPosition { get; set; } = 1;
+        public List<string> ClassEnabled { get; private set; } = new List<string>();
         public int SubclassSliderPosition { get; set; } = 1;
+        public List<string> SubclassEnabled { get; private set; } = new List<string>();
 
         //
         // Characters - Fighting Styles
         //
 
-        public List<string> FightingStyleEnabled { get; private set; } = new List<string>();
         public int FightingStyleSliderPosition { get; set; } = 1;
+        public List<string> FightingStyleEnabled { get; private set; } = new List<string>();
 
         //
         // Encounters - General

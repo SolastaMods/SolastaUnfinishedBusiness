@@ -6,16 +6,15 @@ using System.Linq;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
-    internal static class SubClassesDisplay
+    internal static class ClassesAndSubclassesDisplay
     {
         private const int MAX_COLUMNS = 4;
         private const float PIXELS_PER_COLUMN = 225;
 
-        internal static void DisplaySubclasses()
+        internal static void DisplayGeneral()
         {
             bool toggle;
             int intValue;
-            bool selectAll = Main.Settings.SubclassEnabled.Count == SubclassesContext.Subclasses.Count;
 
             UI.Label("");
             UI.Label("General:".yellow());
@@ -53,41 +52,98 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc = intValue;
                 MasterManipulator.UpdateSpellDCBoost();
             }
+        }
 
-            if (Main.Settings.EnableBetaFeaturesInMod)
+        private static void DisplayClasses()
+        {
+            if (!Main.Settings.EnableBetaFeaturesInMod)
             {
-                //
-                // TODO: should we take same approach we do in subclasses? It isn't like we will have new classes every now and then...
-                //
+                return;
+            }
 
-                UI.Label("");
-                UI.Label("Classes:".yellow());
-                UI.Label("");
+            bool toggle;
+            int intValue;
+            bool selectAll = Main.Settings.ClassEnabled.Count == ClassesContext.Classes.Count;
 
-                using (UI.HorizontalScope())
+            UI.Label("");
+            UI.Label("Classes:".yellow());
+            UI.Label("");
+
+            if (UI.Toggle("Select all", ref selectAll))
+            {
+                foreach (var keyValuePair in ClassesContext.Classes)
                 {
-                    toggle = Main.Settings.EnableTinkererClass;
-                    if (UI.Toggle("Tinkerer".white(), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
-                    {
-                        Main.Settings.EnableTinkererClass = toggle;
-                    }
-
-                    // should call Gui.Format here on class description Class/&TinkererDescription once it gets merged
-                    UI.Label("Tinkerers are inventors, alchemists, and more. They bridge the space between magic and technology.", UI.Width(PIXELS_PER_COLUMN * 3));
-                }
-
-                using (UI.HorizontalScope())
-                {
-                    toggle = Main.Settings.EnableWitchClass;
-                    if (UI.Toggle("Witch".yellow(), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
-                    {
-                        Main.Settings.EnableWitchClass = toggle;
-                    }
-
-                    // should call Gui.Format here on class description Class/&WitchDescription once it gets merged
-                    UI.Label("Afflicted by a sinister curse, witches can spin dark magic into Maledictions, which they use to debilitate foes. They are also accompanied by their familiars, loyal magical companions which they use to deal the killing blow.".yellow(), UI.Width(PIXELS_PER_COLUMN * 3));
+                    ClassesContext.Switch(keyValuePair.Key, selectAll);
                 }
             }
+
+            intValue = Main.Settings.ClassSliderPosition;
+            if (UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
+            {
+                Main.Settings.ClassSliderPosition = intValue;
+            }
+
+            UI.Label("");
+
+            int columns;
+            var flip = false;
+            var current = 0;
+            var classesCount = ClassesContext.Classes.Count;
+
+            using (UI.VerticalScope())
+            {
+                while (current < classesCount)
+                {
+                    columns = Main.Settings.ClassSliderPosition;
+
+                    using (UI.HorizontalScope())
+                    {
+                        while (current < classesCount && columns-- > 0)
+                        {
+                            var keyValuePair = ClassesContext.Classes.ElementAt(current);
+                            var characterClass = keyValuePair.Value.GetClass();
+                            var title = characterClass.FormatTitle();
+
+                            if (flip)
+                            {
+                                title = title.yellow();
+                            }
+
+                            toggle = Main.Settings.ClassEnabled.Contains(keyValuePair.Key);
+                            if (UI.Toggle(title, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                            {
+                                ClassesContext.Switch(keyValuePair.Key, toggle);
+                            }
+
+                            if (Main.Settings.ClassSliderPosition == 1)
+                            {
+                                var description = characterClass.FormatDescription();
+
+                                if (flip)
+                                {
+                                    description = description.yellow();
+                                }
+
+                                UI.Label(description, UI.Width(PIXELS_PER_COLUMN * 3));
+
+                                flip = !flip;
+                            }
+
+                            current++;
+                        }
+                    }
+                }
+            }
+
+            UI.Label("");
+        }
+
+
+        internal static void DisplaySubclasses()
+        {
+            bool toggle;
+            int intValue;
+            bool selectAll = Main.Settings.SubclassEnabled.Count == SubclassesContext.Subclasses.Count;
 
             UI.Label("");
             UI.Label("Subclasses:".yellow());
@@ -162,5 +218,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
         }
+
+        internal static void DisplayClassesAndSubclasses()
+        {
+            DisplayGeneral();
+            DisplayClasses();
+            DisplaySubclasses();
+        }
     }
+
 }
