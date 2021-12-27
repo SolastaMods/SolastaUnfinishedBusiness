@@ -6,6 +6,7 @@ using SolastaModApi.Extensions;
 using SolastaCommunityExpansion.Features;
 using SolastaCommunityExpansion.Helpers;
 using SolastaCommunityExpansion.Subclasses.Witch;
+using SolastaCommunityExpansion.Level20;
 using static CharacterClassDefinition;
 using static FeatureDefinitionCastSpell;
 
@@ -440,6 +441,10 @@ namespace SolastaCommunityExpansion.Classes
             classSpellCast.SetSpellList(classSpellList);
 
             FeatureDefinitionCastSpellWitch = classSpellCast.AddToDB();
+
+            // Waiting for addition of the interface to change replaced spells. Until then, assign directly.
+            FeatureDefinitionCastSpellWitch.ReplacedSpells.Clear();
+            FeatureDefinitionCastSpellWitch.ReplacedSpells.AddRange(SpellsHelper.FullCasterReplacedSpells);
         }
 
         private static void BuildRitualCasting()
