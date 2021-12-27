@@ -67,6 +67,8 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("\n[line]\n");
                 collectedString.Append(Models.FeatsContext.GenerateFeatsDescription());
                 collectedString.Append("\n[line]\n");
+                collectedString.Append(Models.ClassesContext.GenerateClassDescription());
+                collectedString.Append("\n[line]\n");
                 collectedString.Append(Models.SubclassesContext.GenerateSubclassDescription());
                 collectedString.Append("\n[line]\n");
                 collectedString.Append(Models.FightingStyleContext.GenerateFightingStyleDescription());

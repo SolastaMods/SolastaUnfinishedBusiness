@@ -6,16 +6,15 @@ using System.Linq;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
-    internal static class SubClassesDisplay
+    internal static class ClassesAndSubclassesDisplay
     {
         private const int MAX_COLUMNS = 4;
         private const float PIXELS_PER_COLUMN = 225;
 
-        internal static void DisplaySubclasses()
+        internal static void DisplayGeneral()
         {
             bool toggle;
             int intValue;
-            bool selectAll = Main.Settings.SubclassEnabled.Count == SubclassesContext.Subclasses.Count;
 
             UI.Label("");
             UI.Label("General:".yellow());
@@ -53,6 +52,98 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc = intValue;
                 MasterManipulator.UpdateSpellDCBoost();
             }
+        }
+
+        private static void DisplayClasses()
+        {
+            if (!Main.Settings.EnableBetaFeaturesInMod)
+            {
+                return;
+            }
+
+            bool toggle;
+            int intValue;
+            bool selectAll = Main.Settings.ClassEnabled.Count == ClassesContext.Classes.Count;
+
+            UI.Label("");
+            UI.Label("Classes:".yellow());
+            UI.Label("");
+
+            if (UI.Toggle("Select all", ref selectAll))
+            {
+                foreach (var keyValuePair in ClassesContext.Classes)
+                {
+                    ClassesContext.Switch(keyValuePair.Key, selectAll);
+                }
+            }
+
+            intValue = Main.Settings.ClassSliderPosition;
+            if (UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
+            {
+                Main.Settings.ClassSliderPosition = intValue;
+            }
+
+            UI.Label("");
+
+            int columns;
+            var flip = false;
+            var current = 0;
+            var classesCount = ClassesContext.Classes.Count;
+
+            using (UI.VerticalScope())
+            {
+                while (current < classesCount)
+                {
+                    columns = Main.Settings.ClassSliderPosition;
+
+                    using (UI.HorizontalScope())
+                    {
+                        while (current < classesCount && columns-- > 0)
+                        {
+                            var keyValuePair = ClassesContext.Classes.ElementAt(current);
+                            var characterClass = keyValuePair.Value.GetClass();
+                            var title = characterClass.FormatTitle();
+
+                            if (flip)
+                            {
+                                title = title.yellow();
+                            }
+
+                            toggle = Main.Settings.ClassEnabled.Contains(keyValuePair.Key);
+                            if (UI.Toggle(title, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                            {
+                                ClassesContext.Switch(keyValuePair.Key, toggle);
+                            }
+
+                            if (Main.Settings.ClassSliderPosition == 1)
+                            {
+                                var description = characterClass.FormatDescription();
+
+                                if (flip)
+                                {
+                                    description = description.yellow();
+                                }
+
+                                UI.Label(description, UI.Width(PIXELS_PER_COLUMN * 3));
+
+                                flip = !flip;
+                            }
+
+                            current++;
+                        }
+                    }
+                }
+            }
+
+            UI.Label("");
+        }
+
+
+        internal static void DisplaySubclasses()
+        {
+            bool toggle;
+            int intValue;
+            bool selectAll = Main.Settings.SubclassEnabled.Count == SubclassesContext.Subclasses.Count;
 
             UI.Label("");
             UI.Label("Subclasses:".yellow());
@@ -127,5 +218,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
         }
+
+        internal static void DisplayClassesAndSubclasses()
+        {
+            DisplayGeneral();
+            DisplayClasses();
+            DisplaySubclasses();
+        }
     }
+
 }

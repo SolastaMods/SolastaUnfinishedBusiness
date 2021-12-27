@@ -29,6 +29,7 @@ namespace SolastaCommunityExpansion
         public bool BugFixItemFiltering { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
         public bool BugFixOnCanSaveToggleChanged { get; set; } = true;
+        public bool EnableBetaFeaturesInMod { get; set; }
         public bool EnableDungeonMakerRotationHotkeys { get; set; } = true;
         public bool EnableFirstLevelCasterFeats { get; set; } = true;
         public bool EnableMultiLinePowerPanel { get; set; } = true;
@@ -89,41 +90,42 @@ namespace SolastaCommunityExpansion
         //
 
         public int FeatPowerAttackModifier { get; set; } = 3;
-        public List<string> FeatEnabled { get; private set; } = new List<string>();
         public int FeatSliderPosition { get; set; } = 1;
+        public List<string> FeatEnabled { get; private set; } = new List<string>();
 
         //
         // Characters - Powers
         //
 
-        public List<string> PowerEnabled { get; private set; } = new List<string>();
         public int PowerSliderPosition { get; set; } = 1;
+        public List<string> PowerEnabled { get; private set; } = new List<string>();
 
         //
         // Characters - Spells
         //
 
-        public List<string> SpellEnabled { get; private set; } = new List<string>();
         public int SpellSliderPosition { get; set; } = 1;
-
+        public List<string> SpellEnabled { get; private set; } = new List<string>();
 
         //
-        // Characters - Subclasses
+        // Characters - Classes & Subclasses
         //
 
         public bool EnableUnlimitedArcaneRecoveryOnWizardSpellMaster { get; set; }
         public bool EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter { get; set; }
         public int OverrideRogueConArtistImprovedManipulationSpellDc { get; set; } = 3;
         public int OverrideWizardMasterManipulatorArcaneManipulationSpellDc { get; set; } = 2;
-        public List<string> SubclassEnabled { get; private set; } = new List<string>();
+        public int ClassSliderPosition { get; set; } = 1;
+        public List<string> ClassEnabled { get; private set; } = new List<string>();
         public int SubclassSliderPosition { get; set; } = 1;
+        public List<string> SubclassEnabled { get; private set; } = new List<string>();
 
         //
         // Characters - Fighting Styles
         //
 
-        public List<string> FightingStyleEnabled { get; private set; } = new List<string>();
         public int FightingStyleSliderPosition { get; set; } = 1;
+        public List<string> FightingStyleEnabled { get; private set; } = new List<string>();
 
         //
         // Encounters - General

@@ -5,7 +5,7 @@ using UnityModManagerNet;
 using static SolastaCommunityExpansion.Viewers.Displays.CharacterDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.FeatsDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.FightingStylesDisplay;
-using static SolastaCommunityExpansion.Viewers.Displays.SubClassesDisplay;
+using static SolastaCommunityExpansion.Viewers.Displays.ClassesAndSubclassesDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.SpellsDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.PowersDisplay;
 
@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion.Viewers
         {
             new NamedAction("General", DisplayCharacter),
             new NamedAction("Feats", DisplayFeats),
-            new NamedAction("Subclasses", DisplaySubclasses),
+            new NamedAction("Classes & Subclasses", DisplayClassesAndSubclasses),
             new NamedAction("Fighting Styles", DisplayFightingStyles),
             new NamedAction("Spells", DisplaySpells),
             new NamedAction("Powers", DisplayPowers),
