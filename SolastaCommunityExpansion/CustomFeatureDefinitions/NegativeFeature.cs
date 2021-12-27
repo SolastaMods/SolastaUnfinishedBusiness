@@ -3,23 +3,24 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 {
-    class NegativeFeature
-    {
-    }
-
     public class NegativeFeatureDefinition : FeatureDefinition
     {
-        public string Tag;
+        public int ClassLevel;
         public FeatureDefinition FeatureToRemove;
+        public CharacterClassDefinition CharacterClass;
+        public CharacterSubclassDefinition CharacterSubclass;
+        public string Tag => CharacterSubclass == null ? AttributeDefinitions.GetClassTag(CharacterClass, ClassLevel) : AttributeDefinitions.GetSubclassTag(CharacterClass, ClassLevel, CharacterSubclass);
     }
 
     public sealed class NegativeFeatureBuilder : BaseDefinitionBuilder<NegativeFeatureDefinition>
     {
-        public NegativeFeatureBuilder(string name, string guid, string tag, FeatureDefinition featureToRemove)
+        public NegativeFeatureBuilder(string name, string guid, FeatureDefinition featureToRemove, int classLevel, CharacterClassDefinition characterClass, CharacterSubclassDefinition characterSubclass = null)
             : base(name, guid)
         {
-            Definition.Tag = tag;
+            Definition.ClassLevel = classLevel;
             Definition.FeatureToRemove = featureToRemove;
+            Definition.CharacterClass = characterClass;
+            Definition.CharacterSubclass = characterSubclass;
             Definition.GuiPresentation.SetHidden(true);
         }
     }
