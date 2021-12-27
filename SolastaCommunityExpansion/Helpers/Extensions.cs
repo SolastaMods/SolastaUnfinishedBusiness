@@ -20,4 +20,36 @@ namespace SolastaCommunityExpansion.Helpers
             return features.OfType<T>().ToList();
         }
     }
+
+    public enum ExtraRitualCasting
+    {
+        None = RuleDefinitions.RitualCasting.None,
+        Prepared = RuleDefinitions.RitualCasting.Prepared,
+        Spellbook = RuleDefinitions.RitualCasting.Spellbook,
+        Known = 9000
+    }
+
+    public enum ExtraTargetFilteringTags
+    {
+        No = RuleDefinitions.TargetFilteringTag.No,
+        Unarmored = RuleDefinitions.TargetFilteringTag.Unarmored,
+        MetalArmor = RuleDefinitions.TargetFilteringTag.MetalArmor,
+        CursedByMalediction = 9000
+    }
+
+    public enum ExtraOriginOfAmount
+    {
+        None = 0,
+        SourceDamage = 1,
+        SourceGain = 2,
+        AddDice = 3,
+        Fixed = 4,
+        SourceHalfHitPoints = 5,
+        SourceSpellCastingAbility = 6,
+        SourceSpellAttack = 7,
+        SourceProficiencyBonus = 9000,
+        SourceCharacterLevel = 9001,
+        SourceClassLevel = 9002
+    }
+
 }

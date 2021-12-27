@@ -1,4 +1,3 @@
-﻿
 namespace SolastaCommunityExpansion.Classes
 {
     internal abstract class AbstractClass

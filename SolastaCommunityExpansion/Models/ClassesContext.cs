@@ -1,7 +1,5 @@
-﻿using SolastaCommunityExpansion.Classes;
+using SolastaCommunityExpansion.Classes;
 using SolastaModApi.Extensions;
-//using SolastaCommunityExpansion.Classes.Tinkerer;
-//using SolastaCommunityExpansion.Classes.Witch;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +13,7 @@ namespace SolastaCommunityExpansion.Models
         internal static void Load()
         {
             //LoadClass(new Tinkerer());
-            //LoadClass(new Witch());
+            LoadClass(new Witch());
         }
 
         private static void LoadClass(AbstractClass classBuilder)

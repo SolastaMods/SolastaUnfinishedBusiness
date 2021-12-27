@@ -94,6 +94,20 @@ namespace SolastaCommunityExpansion
         public List<string> FeatEnabled { get; private set; } = new List<string>();
 
         //
+        // Characters - Powers
+        //
+
+        public int PowerSliderPosition { get; set; } = 1;
+        public List<string> PowerEnabled { get; private set; } = new List<string>();
+
+        //
+        // Characters - Spells
+        //
+
+        public int SpellSliderPosition { get; set; } = 1;
+        public List<string> SpellEnabled { get; private set; } = new List<string>();
+
+        //
         // Characters - Classes & Subclasses
         //
 
