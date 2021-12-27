@@ -342,8 +342,8 @@ namespace SolastaCommunityExpansion.Spells
 
             effectProxyDefinitionBuilder.SetGuiPresentation(
                     new GuiPresentationBuilder(
-                            "PetalStormDescription",
-                            "PetalStormTitle").Build()
+                            "Spell/&PetalStormDescription",
+                            "Spell/&PetalStormTitle").Build()
                             .SetSpriteReference(DatabaseHelper.SpellDefinitions.WindWall.GuiPresentation.SpriteReference));
             effectProxyDefinitionBuilder.SetCanMove();
             effectProxyDefinitionBuilder.SetPortrait(DatabaseHelper.SpellDefinitions.WindWall.GuiPresentation.SpriteReference);
@@ -395,10 +395,6 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.SetHasSavingThrow(true);
             spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
             spell.EffectDescription.SetRecurrentEffect(RuleDefinitions.RecurrentEffect.OnEnter);
-
-// How can I get an Asset Reference if it is a GameObject loaded in the DB?
-//            spell.EffectDescription.EffectParticleParameters.SetTargetParticleReference(
-//                    (UnityEngine.AddressableAssets.AssetReference)DatabaseHelper.SpellDefinitions.ConjureAnimalsOneBeast.EffectDescription.EffectParticleParameters.TargetParticle);
 
             spell.EffectDescription.EffectAdvancement.SetAdditionalDicePerIncrement(1);
             spell.EffectDescription.EffectAdvancement.SetIncrementMultiplier(1);
