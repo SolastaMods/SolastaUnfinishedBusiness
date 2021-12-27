@@ -12,22 +12,33 @@ namespace SolastaCommunityExpansion.Patches.FirstLevelCasterFeats
     {
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            //Replace call to RulesetCharacterHero.SpellRepertores with list of FeatureCastSpell 
-            //which are registered before feat selection at lvl 1
             var codes = instructions.ToList();
             var callSpellRepertoiresIndex = codes.FindIndex(c => c.Calls(typeof(RulesetCharacter).GetMethod("get_SpellRepertoires")));
             codes[callSpellRepertoiresIndex] = new CodeInstruction(System.Reflection.Emit.OpCodes.Call, 
-                                                                   new Func<RulesetCharacterHero, List<FeatureDefinition>>(getFeaturesCastSpell).Method
+                                                                   new Func<RulesetCharacterHero, int>(canCastSpells).Method
                                                                    );
+            codes.RemoveAt(callSpellRepertoiresIndex + 1);
             return codes;
         }
 
 
-        static private List<FeatureDefinition> getFeaturesCastSpell(RulesetCharacterHero hero)
+        static private int canCastSpells(RulesetCharacterHero hero)
         {
-            var list = new List<FeatureDefinition>();
-            hero.EnumerateFeaturesToBrowse<FeatureDefinitionCastSpell>(list, null);
-            return list;
+            
+            if (Main.Settings.EnableFirstLevelCasterFeats)
+            {
+                //Replace call to RulesetCharacterHero.SpellRepertores.Count with Count list of FeatureCastSpell 
+                //which are registered before feat selection at lvl 1
+                var list = new List<FeatureDefinition>();
+                hero.EnumerateFeaturesToBrowse<FeatureDefinitionCastSpell>(list, null);
+                return list.Count;
+            }
+            else
+            {
+                return hero.SpellRepertoires.Count;
+            }
+               
+
         }
     }
 }
