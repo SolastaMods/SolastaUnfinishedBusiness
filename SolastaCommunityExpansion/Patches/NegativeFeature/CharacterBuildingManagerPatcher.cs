@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
@@ -14,9 +15,9 @@ namespace SolastaCommunityExpansion.Patches.NegativeFeature
         internal static void Prefix(CharacterBuildingManager __instance)
         {
             var activeFeatures = __instance.HeroCharacter.ActiveFeatures;
-            var negativeFeatures = activeFeatures.SelectMany(x => x.Value.FindAll(y => y is Subclasses.Rogue.Thug.NegativeFeatureDefinition));
+            var negativeFeatures = activeFeatures.SelectMany(x => x.Value.FindAll(y => y is NegativeFeatureDefinition));
 
-            foreach (Subclasses.Rogue.Thug.NegativeFeatureDefinition negativeFeature in negativeFeatures)
+            foreach (NegativeFeatureDefinition negativeFeature in negativeFeatures)
             {
                 if (activeFeatures.TryGetValue(negativeFeature.Tag, out var featureDefinitions))
                 {
