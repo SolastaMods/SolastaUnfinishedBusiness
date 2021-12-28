@@ -311,7 +311,7 @@ namespace SolastaCommunityExpansion.Viewers
         private static void DisplayBestiary()
         {
             UI.Label("");
-            UI.Label($". press + to add up to {Settings.MAX_ENCOUNTER_CHARACTERS} characters to the encounter list...");
+            UI.Label($". press + to add up to {EncountersSpawnContext.MAX_ENCOUNTER_CHARACTERS} characters to the encounter list...");
             UI.Label("");
 
             foreach (var monsterDefinition in EncountersSpawnContext.GetMonsters())
@@ -325,7 +325,7 @@ namespace SolastaCommunityExpansion.Viewers
             using (UI.VerticalScope(UI.AutoWidth(), UI.AutoHeight()))
             {
                 UI.Label("");
-                UI.Label($". press + to add up to {Settings.MAX_ENCOUNTER_CHARACTERS} characters to the encounter list...");
+                UI.Label($". press + to add up to {EncountersSpawnContext.MAX_ENCOUNTER_CHARACTERS} characters to the encounter list...");
                 UI.Label("");
 
                 foreach (var hero in EncountersSpawnContext.GetHeroes())

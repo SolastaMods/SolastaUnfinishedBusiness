@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 using TA;
 
 namespace SolastaCommunityExpansion.Patches.PartySize
@@ -16,9 +17,9 @@ namespace SolastaCommunityExpansion.Patches.PartySize
         {
             var partyCharacters = __instance.PartyCharacters;
 
-            for (int idx = Settings.GAME_PARTY_SIZE; idx < partyCharacters.Count; idx++)
+            for (int idx = DungeonMakerContext.GAME_PARTY_SIZE; idx < partyCharacters.Count; idx++)
             {
-                var position = partyCharacters[idx % Settings.GAME_PARTY_SIZE].LocationPosition;
+                var position = partyCharacters[idx % DungeonMakerContext.GAME_PARTY_SIZE].LocationPosition;
 
                 partyCharacters[idx].LocationPosition = new int3(position.x, position.y, position.z);
             }

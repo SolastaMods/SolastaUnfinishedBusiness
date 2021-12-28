@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.GameUiLocation
 {
@@ -21,7 +22,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
 
             switch (command)
             {
-                case Settings.CTRL_C:
+                case GameUiContext.CTRL_C:
                     if (___characterControlPanelExploration.Visible)
                     {
                         ___characterControlPanelExploration.Hide();
@@ -38,7 +39,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
                     }
                     break;
 
-                case Settings.CTRL_L:
+                case GameUiContext.CTRL_L:
                     var guiConsoleScreen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
 
                     if (guiConsoleScreen.Visible)
@@ -51,7 +52,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
                     }
                     break;
 
-                case Settings.CTRL_M:
+                case GameUiContext.CTRL_M:
                     if (___timeAndNavigationPanel.Visible)
                     {
                         ___timeAndNavigationPanel.Hide();
@@ -62,7 +63,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
                     }
                     break;
 
-                case Settings.CTRL_P:
+                case GameUiContext.CTRL_P:
                     if (___partyControlPanel.Visible)
                     {
                         ___partyControlPanel.Hide();

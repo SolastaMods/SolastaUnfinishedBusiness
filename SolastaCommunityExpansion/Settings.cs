@@ -29,6 +29,7 @@ namespace SolastaCommunityExpansion
         public bool BugFixItemFiltering { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
         public bool BugFixOnCanSaveToggleChanged { get; set; } = true;
+        public bool EnableBetaFeaturesInMod { get; set; }
         public bool EnableDungeonMakerRotationHotkeys { get; set; } = true;
         public bool EnableFirstLevelCasterFeats { get; set; } = true;
         public bool EnableMultiLinePowerPanel { get; set; } = true;
@@ -47,15 +48,6 @@ namespace SolastaCommunityExpansion
         //
 
         // Initial Choices
-        public const int MIN_INITIAL_FEATS = 0;
-        public const int MAX_INITIAL_FEATS = 10;
-
-        public const int GAME_MAX_ATTRIBUTE = 15;
-        public const int GAME_BUY_POINTS = 27;
-
-        public const int MOD_MAX_ATTRIBUTE = 17;
-        public const int MOD_BUY_POINTS = 35;
-
         public bool DisableSenseDarkVisionFromAllRaces { get; set; }
         public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
         public bool EnableAlternateHuman { get; set; }
@@ -70,8 +62,6 @@ namespace SolastaCommunityExpansion
         public bool OfferAdditionalLoreFriendlyNames { get; set; }
 
         // Progression
-        public const RestActivityDefinition.ActivityCondition ActivityConditionCanRespec = (RestActivityDefinition.ActivityCondition)(-1001);
-
         public bool EnablesAsiAndFeat { get; set; }
         public bool EnableLevel20 { get; set; }
         public bool EnableRespec { get; set; }
@@ -89,34 +79,32 @@ namespace SolastaCommunityExpansion
         //
 
         public int FeatPowerAttackModifier { get; set; } = 3;
-        public List<string> FeatEnabled { get; private set; } = new List<string>();
         public int FeatSliderPosition { get; set; } = 1;
+        public List<string> FeatEnabled { get; private set; } = new List<string>();
 
         //
-        // Characters - Subclasses
+        // Characters - Classes & Subclasses
         //
 
         public bool EnableUnlimitedArcaneRecoveryOnWizardSpellMaster { get; set; }
         public bool EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter { get; set; }
         public int OverrideRogueConArtistImprovedManipulationSpellDc { get; set; } = 3;
         public int OverrideWizardMasterManipulatorArcaneManipulationSpellDc { get; set; } = 2;
-        public List<string> SubclassEnabled { get; private set; } = new List<string>();
+        public int ClassSliderPosition { get; set; } = 1;
+        public List<string> ClassEnabled { get; private set; } = new List<string>();
         public int SubclassSliderPosition { get; set; } = 1;
+        public List<string> SubclassEnabled { get; private set; } = new List<string>();
 
         //
         // Characters - Fighting Styles
         //
 
-        public List<string> FightingStyleEnabled { get; private set; } = new List<string>();
         public int FightingStyleSliderPosition { get; set; } = 1;
+        public List<string> FightingStyleEnabled { get; private set; } = new List<string>();
 
         //
         // Encounters - General
         //
-
-        public const InputCommands.Id CTRL_SHIFT_E = (InputCommands.Id)44440005;
-        public const int MAX_ENCOUNTER_CHARACTERS = 16;
-        public const int PLAYER_CONTROLLER_ID = 1;
 
         public bool EnableEnemiesControlledByPlayer { get; set; }
         public bool EnableHeroesControlledByComputer { get; set; }
@@ -174,24 +162,10 @@ namespace SolastaCommunityExpansion
         //
 
         // Campaigns and Locations
-        public const int GAME_PARTY_SIZE = 4;
-
-        public const int MIN_PARTY_SIZE = 1;
-        public const int MAX_PARTY_SIZE = 6;
-
-        public const float ADVENTURE_PANEL_DEFAULT_SCALE = 0.75f;
-        public const float REST_PANEL_DEFAULT_SCALE = 0.8f;
-        public const float PARTY_CONTROL_PANEL_DEFAULT_SCALE = 0.95f;
-        public const float VICTORY_MODAL_DEFAULT_SCALE = 0.85f;
-        public const float REVIVE_PARTY_CONTROL_PANEL_DEFAULT_SCALE = 0.85f;
-
-        public const int DUNGEON_MIN_LEVEL = 1;
-        public const int DUNGEON_MAX_LEVEL = 20;
-
         public bool EnableSaveByLocation { get; set; }
         public bool EnableTelemaCampaign { get; set; }
         public bool OverrideMinMaxLevel { get; set; }
-        public int OverridePartySize { get; set; } = GAME_PARTY_SIZE;
+        public int OverridePartySize { get; set; } = Models.DungeonMakerContext.GAME_PARTY_SIZE;
         public int maxBackupFilesPerLocationCampaign { get; set; } = 10;
 
         // Debug
@@ -206,15 +180,6 @@ namespace SolastaCommunityExpansion
         //
         // Game UI
         //
-
-        /* Character Export hotkey */
-        public const InputCommands.Id CTRL_E = (InputCommands.Id)44440004;
-
-        /* Commands to allow the player to hide certain parts of the HUD */
-        public const InputCommands.Id CTRL_C = (InputCommands.Id)44440000;
-        public const InputCommands.Id CTRL_L = (InputCommands.Id)44440001;
-        public const InputCommands.Id CTRL_M = (InputCommands.Id)44440002;
-        public const InputCommands.Id CTRL_P = (InputCommands.Id)44440003;
 
         // General
         public bool EnableCharacterExport { get; set; }
