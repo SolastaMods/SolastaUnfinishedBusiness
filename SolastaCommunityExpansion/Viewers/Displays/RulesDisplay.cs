@@ -30,7 +30,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (Main.Settings.UseOfficialCombatSurpriseRules)
             {
                 toggle = Main.Settings.RollDifferentStealthChecksForEachCharacterPair;
-                if (UI.Toggle("+ Roll different " + "Stealth".orange() + " checks for each surprised / surprising character pairs".italic(), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("+ Roll different ".italic() + "Stealth".italic().orange() + " checks for each surprised / surprising character pairs".italic(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.RollDifferentStealthChecksForEachCharacterPair = toggle;
                 }
