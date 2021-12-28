@@ -1,6 +1,7 @@
-﻿using HarmonyLib;
-using System;
+﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.PartySize
@@ -17,9 +18,9 @@ namespace SolastaCommunityExpansion.Patches.PartySize
         {
             var partyCount = Gui.GameCampaign.Party.CharactersList.Count;
 
-            if (partyCount > Settings.GAME_PARTY_SIZE)
+            if (partyCount > DungeonMakerContext.GAME_PARTY_SIZE)
             {
-                float scale = (float)Math.Pow(Settings.REVIVE_PARTY_CONTROL_PANEL_DEFAULT_SCALE, partyCount - Settings.GAME_PARTY_SIZE);
+                float scale = (float)Math.Pow(DungeonMakerContext.REVIVE_PARTY_CONTROL_PANEL_DEFAULT_SCALE, partyCount - DungeonMakerContext.GAME_PARTY_SIZE);
 
                 ___partyPlatesTable.localScale = new Vector3(scale, 1, scale);
             }
