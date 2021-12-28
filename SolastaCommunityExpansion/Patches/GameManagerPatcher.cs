@@ -36,6 +36,7 @@ namespace SolastaCommunityExpansion.Patches
             SrdAndHouseRulesContext.Load();
             SubclassesContext.Load();
             TelemaCampaignContext.Load();
+            TeleporterContext.Load();
             VisionContext.Load();
 
             Main.Enabled = true;
