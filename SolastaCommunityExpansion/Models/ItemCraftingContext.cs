@@ -83,19 +83,17 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void UpdateCraftingItemsInDMState(string key)
         {
-            bool available = Main.Settings.CraftingItemsInDM.Contains(key);
             foreach (ItemDefinition recipeBookDefinition in RecipeBooks[key])
             {
-                recipeBookDefinition.DocumentDescription.RecipeDefinition.CraftedItem.SetInDungeonEditor(available);
+                recipeBookDefinition.DocumentDescription.RecipeDefinition.CraftedItem.SetInDungeonEditor(true);
             }
         }
 
         internal static void UpdateCraftingRecipesInDMState(string key)
         {
-            bool available = Main.Settings.CraftingRecipesInDM.Contains(key);
             foreach (ItemDefinition recipeBookDefinition in RecipeBooks[key])
             {
-                recipeBookDefinition.SetInDungeonEditor(available);
+                recipeBookDefinition.SetInDungeonEditor(true);
             }
         }
 
