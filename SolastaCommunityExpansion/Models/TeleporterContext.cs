@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
-            ServiceRepository.GetService<IInputService>().RegisterCommand(CTRL_SHIFT_T, (int)KeyCode.T, 304, 306, -1, -1, -1);
+            ServiceRepository.GetService<IInputService>().RegisterCommand(CTRL_SHIFT_T, (int)KeyCode.T, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
         }
 
         internal static void ConfirmTeleportParty(InputCommands.Id command)
