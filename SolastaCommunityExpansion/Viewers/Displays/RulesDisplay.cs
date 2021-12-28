@@ -30,7 +30,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (Main.Settings.UseOfficialCombatSurpriseRules)
             {
                 toggle = Main.Settings.RollDifferentStealthChecksForEachCharacterPair;
-                if (UI.Toggle("Roll different " + "Stealth".orange() + " checks for each surprised / surprising character pairs", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("+ Roll different " + "Stealth".orange() + " checks for each surprised / surprising character pairs".italic(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.RollDifferentStealthChecksForEachCharacterPair = toggle;
                 }
@@ -53,7 +53,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             toggle = Main.Settings.FullyControlConjurations;
-            if (UI.Toggle("Fully control conjurations " + "[animals, elementals, etc]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Fully control conjurations " + "[animals, elementals, etc]".italic(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.FullyControlConjurations = toggle;
                 ConjurationsContext.Load();
@@ -62,7 +62,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (Main.Settings.FullyControlConjurations)
             {
                 toggle = Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration;
-                if (UI.Toggle("+ Dismiss fully controlled conjurations when deliberately dropping concentration".italic().yellow(), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("+ Dismiss fully controlled conjurations when deliberately dropping concentration".italic(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration = toggle;
                 }

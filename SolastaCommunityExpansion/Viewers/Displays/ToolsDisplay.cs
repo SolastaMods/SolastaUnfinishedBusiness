@@ -30,6 +30,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.EnableTelemaCampaign = toggle;
             }
 
+            toggle = Main.Settings.EnableTeleportParty;
+            if (UI.Toggle("Enable the hotkey " + "ctrl-shift-(T)eleport".cyan() + " in game locations" + "\nYou might break quests or maps if you teleport to an undiscovered place".italic().yellow(), ref toggle))
+            {
+                Main.Settings.EnableTeleportParty = toggle;
+            }
+
+            UI.Label("");
+
             toggle = Main.Settings.OverrideMinMaxLevel;
             if (UI.Toggle("Override required min / max level", ref toggle))
             {

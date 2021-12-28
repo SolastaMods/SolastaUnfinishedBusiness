@@ -30,13 +30,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableCharacterExport;
-            if (UI.Toggle("Enable character export from inventory screen " + "[ctrl-(E)xport]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable character export from the inventory screen using " + "ctrl-(E)xport".cyan(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableCharacterExport = toggle;
             }
 
             toggle = Main.Settings.EnableHotkeysToToggleHud;
-            if (UI.Toggle("Enable hotkeys to toggle HUD components visibility " + "[ctrl-(C)ontrol Panel / ctrl-(L)og / ctrl-(M)ap / ctrl-(P)arty]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable the hotkeys " + "ctrl-(C)ontrol Panel, ctrl-(L)og, ctrl-(M)ap and ctrl-(P)arty ".cyan() +  "to toggle their visibility", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableHotkeysToToggleHud = toggle;
             }
@@ -122,7 +122,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (Main.Settings.DontFollowCharacterInBattle)
                 {
                     intValue = Main.Settings.DontFollowMargin;
-                    if (UI.Slider("+ unless character is off or within % of screen edge".italic().yellow(), ref intValue, 0, 20, 1, "%", UI.AutoWidth()))
+                    if (UI.Slider("+ Unless character is off or within % of screen edge".white().italic(), ref intValue, 0, 20, 1, "%", UI.AutoWidth()))
                     {
                         Main.Settings.DontFollowMargin = intValue;
                     }
@@ -144,7 +144,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                 UI.Label("");
                 floatValue = Main.Settings.BattleCustomTimeScale;
-                if (UI.Slider("Battle timescale modifier".white(), ref floatValue, 1f, 50f, 1f, 1, "", UI.AutoWidth()))
+                if (UI.Slider("Battle timescale modifier".white(), ref floatValue, 1f, 50f, 1f, 1, "M", UI.AutoWidth()))
                 {
                     Main.Settings.BattleCustomTimeScale = floatValue;
                 }
