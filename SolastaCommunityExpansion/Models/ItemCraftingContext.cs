@@ -85,7 +85,11 @@ namespace SolastaCommunityExpansion.Models
         {
             foreach (ItemDefinition recipeBookDefinition in RecipeBooks[key])
             {
-                recipeBookDefinition.DocumentDescription.RecipeDefinition.CraftedItem.SetInDungeonEditor(true);
+                var craftedItem = recipeBookDefinition.DocumentDescription.RecipeDefinition.CraftedItem;
+                var factionRelicDescription = new FactionRelicDescription();
+
+                craftedItem.SetFactionRelicDescription(factionRelicDescription);
+                craftedItem.SetInDungeonEditor(true);
             }
         }
 
@@ -93,6 +97,9 @@ namespace SolastaCommunityExpansion.Models
         {
             foreach (ItemDefinition recipeBookDefinition in RecipeBooks[key])
             {
+                var factionRelicDescription = new FactionRelicDescription();
+
+                recipeBookDefinition.SetFactionRelicDescription(factionRelicDescription);
                 recipeBookDefinition.SetInDungeonEditor(true);
             }
         }
