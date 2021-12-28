@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using HarmonyLib;
 using TA;
 using UnityEngine;
 
@@ -41,12 +42,12 @@ namespace SolastaCommunityExpansion.Models
 
         private static void TeleportParty(int3 position)
         {
+            var gameLocationActionService = ServiceRepository.GetService<IGameLocationActionService>();
             var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var formationPositions = new List<int3>();
             var partyAndGuests = new List<GameLocationCharacter>();
             var positions = new List<int3>();
-            var sizeList = new List<RulesetActor.SizeParameters>();
 
             for (var iy = 0; iy < 4; iy++)         
             {
@@ -59,12 +60,15 @@ namespace SolastaCommunityExpansion.Models
             partyAndGuests.AddRange(gameLocationCharacterService.PartyCharacters);
             partyAndGuests.AddRange(gameLocationCharacterService.GuestCharacters);
 
-            gameLocationPositioningService.ComputeFormationPlacementPositions(partyAndGuests, position, LocationDefinitions.Orientation.North, formationPositions, CellHelpers.PlacementMode.Station, positions, sizeList, 25);
+            gameLocationPositioningService.ComputeFormationPlacementPositions(partyAndGuests, position, LocationDefinitions.Orientation.North, formationPositions, CellHelpers.PlacementMode.Station, positions, new List<RulesetActor.SizeParameters>(), 25);
 
             for (var index = 0; index < positions.Count; index++)
             {
                 partyAndGuests[index].LocationPosition = positions[index];
-            }
+
+                // rotates the characters in position to force the game to redrawn them
+                gameLocationActionService.MoveCharacter(partyAndGuests[index], positions[(index + 1) % positions.Count], LocationDefinitions.Orientation.North, 0, ActionDefinitions.MoveStance.Walk);
+            }              
         }
     }
 }
