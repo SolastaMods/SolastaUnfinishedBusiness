@@ -30,7 +30,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
 
         internal Thug()
         {
-            var featureName = AdditionalDamageRogueSneakAttack.Name + "ThugRemove";
+            var featureName = AdditionalDamageRogueSneakAttack.Name + "Remove";
             var guiPresentation = new GuiPresentationBuilder(
                 "Subclass/&KSRogueSubclassThugDescription",
                 "Subclass/&KSRogueSubclassThugTitle")
@@ -39,7 +39,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
 
             Subclass = new CharacterSubclassDefinitionBuilder(RogueSubclassThugName, RogueSubclassThugNameGuid)
                 .SetGuiPresentation(guiPresentation)
-                .AddFeatureAtLevel(new NegativeFeatureBuilder(
+                .AddFeatureAtLevel(new RemoveGrantedFeatureBuilder(
                     featureName,
                     GuidHelper.Create(Thug.SubclassNamespace, featureName).ToString(),
                     AdditionalDamageRogueSneakAttack,
