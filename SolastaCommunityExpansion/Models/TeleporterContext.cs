@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void ConfirmTeleportParty(InputCommands.Id command)
         {
-            if (command == CTRL_SHIFT_T)
+            if (Main.Settings.EnableTeleportParty && command == CTRL_SHIFT_T)
             {
                 var position = GetEncounterPosition();
 

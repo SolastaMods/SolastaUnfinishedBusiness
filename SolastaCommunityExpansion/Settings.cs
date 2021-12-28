@@ -164,6 +164,7 @@ namespace SolastaCommunityExpansion
         // Campaigns and Locations
         public bool EnableSaveByLocation { get; set; }
         public bool EnableTelemaCampaign { get; set; }
+        public bool EnableTeleportParty { get; set; }
         public bool OverrideMinMaxLevel { get; set; }
         public int OverridePartySize { get; set; } = Models.DungeonMakerContext.GAME_PARTY_SIZE;
         public int maxBackupFilesPerLocationCampaign { get; set; } = 10;

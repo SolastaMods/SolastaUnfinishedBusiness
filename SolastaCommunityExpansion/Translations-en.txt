@@ -412,7 +412,7 @@ Message/&CharacterExportModalContentDescription	Enter the hero name to export:
 Message/&CharacterExportModalTitleDescription	Character Export
 Message/&SpawnCustomEncounterDescription	Spawn encounter at coordinates ({0}, {1})?
 Message/&SpawnCustomEncounterTitle	Encounter
-Message/&TeleportPartyDescription	Teleport party at coordinates ({0}, {1})?
+Message/&TeleportPartyDescription	Teleport party to coordinates ({0}, {1})?\nYou might break quests or maps if you teleport to an undiscovered place
 Message/&TeleportPartyTitle	Teleport
 Pugilist Pugilist Damage
 Race/&PointPoolSelect10FeatsDescription Select 10 additional feats for your character.
