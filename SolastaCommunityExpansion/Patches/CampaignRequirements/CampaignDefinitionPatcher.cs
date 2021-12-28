@@ -1,5 +1,4 @@
-﻿using SolastaModApi.Extensions;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.CampaignRequirements
@@ -13,7 +12,7 @@ namespace SolastaCommunityExpansion.Patches.CampaignRequirements
         {
             if (Main.Settings.OverrideMinMaxLevel)
             {
-                __result = Settings.DUNGEON_MIN_LEVEL;
+                __result = Models.DungeonMakerContext.DUNGEON_MIN_LEVEL;
             }
         }
     }
@@ -27,7 +26,7 @@ namespace SolastaCommunityExpansion.Patches.CampaignRequirements
         {
             if (Main.Settings.OverrideMinMaxLevel)
             {
-                __result = Settings.DUNGEON_MAX_LEVEL;
+                __result = Models.DungeonMakerContext.DUNGEON_MAX_LEVEL;
             }
         }
     }

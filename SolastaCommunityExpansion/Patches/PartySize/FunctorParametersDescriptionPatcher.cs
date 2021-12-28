@@ -22,7 +22,7 @@ namespace SolastaCommunityExpansion.Patches.PartySize
 
                 for (var idx = 0; idx < partyCount; idx++)
                 {
-                    result[idx] = __result[idx % Settings.GAME_PARTY_SIZE];
+                    result[idx] = __result[idx % Models.DungeonMakerContext.GAME_PARTY_SIZE];
                 }
 
                 __result = result;

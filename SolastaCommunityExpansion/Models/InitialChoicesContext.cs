@@ -6,6 +6,9 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class InitialChoicesContext
     {
+        internal const int MIN_INITIAL_FEATS = 0;
+        internal const int MAX_INITIAL_FEATS = 10;
+
         internal static int PreviousTotalFeatsGrantedFistLevel { get; set; } = -1;
         internal static bool PreviousAlternateHuman { get; set; }
 

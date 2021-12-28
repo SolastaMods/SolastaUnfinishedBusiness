@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Patches.Respec
             {
                 foreach (var restActivityDefinition in DatabaseRepository.GetDatabase<RestActivityDefinition>().GetAllElements())
                 {
-                    if (restActivityDefinition.Condition == Settings.ActivityConditionCanRespec)
+                    if (restActivityDefinition.Condition == Models.RespecContext.ActivityConditionCanRespec)
                     {
                         ___afterRestActions.Add(restActivityDefinition);
                     }

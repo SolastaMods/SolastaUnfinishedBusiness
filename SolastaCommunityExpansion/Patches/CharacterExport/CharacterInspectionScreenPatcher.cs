@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Patches.CharacterExport
     {
         public static void Postfix(CharacterInspectionScreen __instance, InputCommands.Id command)
         {
-            if (Gui.Game != null && Main.Settings.EnableCharacterExport && !Models.CharacterExportContext.InputModalVisible && command == Settings.CTRL_E)
+            if (Gui.Game != null && Main.Settings.EnableCharacterExport && !Models.CharacterExportContext.InputModalVisible && command == Models.CharacterExportContext.CTRL_E)
             {
                 Models.CharacterExportContext.ExportInspectedCharacter(__instance.InspectedCharacter.RulesetCharacterHero);
             }
