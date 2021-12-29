@@ -269,7 +269,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.RemoveBugVisualModels;
-                if (UI.Toggle("Replace bug-like models with alternative visuals in the game " + "[must be switched on before maps are loaded] ".italic().yellow() + RequiresRestart, ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Replace bug-like models with alternative visuals in the game " + RequiresRestart, ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.RemoveBugVisualModels = toggle;
                 }
