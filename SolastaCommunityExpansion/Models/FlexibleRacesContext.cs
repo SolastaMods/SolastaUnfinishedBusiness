@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Models
             "FlexibleRaces/&PointPoolAbilityScore4Description",
             "FlexibleRaces/&PointPoolAbilityScore4Title");
 
-        private static readonly FeatureUnlockByLevel _ = new FeatureUnlockByLevel(new FeatureDefinitionPointPoolBuilder("PointPoolAbilityScore4",
+        private static readonly FeatureUnlockByLevel attributeChoiceFour = new FeatureUnlockByLevel(new FeatureDefinitionPointPoolBuilder("PointPoolAbilityScore4",
             "dcdd35a8-f1ca-475a-b5a4-a0426292688c", HeroDefinitions.PointsPoolType.AbilityScore, 4, attributeFourGui.Build()).AddToDB(), 1);
 
         private static readonly Dictionary<string, FeatureUnlockByLevel> addedFeatures = new Dictionary<string, FeatureUnlockByLevel>
@@ -25,7 +25,7 @@ namespace SolastaCommunityExpansion.Models
             { "Dwarf", attributeChoiceThree },
             { "Elf", attributeChoiceThree },
             { "Halfling", attributeChoiceThree },
-            { "HalfElf", attributeChoiceThree },
+            { "HalfElf", attributeChoiceFour },
             { "HalfOrc", attributeChoiceThree },
             // unofficial races
             { "FirbolgRace", attributeChoiceThree },
