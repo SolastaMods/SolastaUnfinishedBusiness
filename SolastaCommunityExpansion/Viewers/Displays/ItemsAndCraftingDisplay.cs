@@ -60,6 +60,9 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         }
                         ItemCraftingContext.UpdateCraftingItemsInDMState(key);
                     }
+                } else
+                {
+                    UI.Space(125f);
                 }
             }
         }
@@ -143,17 +146,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         }
                     }
 
-                    toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingItemsInDM.Count;
-                    if (UI.Toggle("All items in DM", ref toggle, UI.Width(125)))
-                    {
-                        Main.Settings.CraftingItemsInDM.Clear();
-
-                        if (toggle)
-                        {
-                            Main.Settings.CraftingItemsInDM.AddRange(ItemCraftingContext.RecipeBooks.Keys);
-                        }
-                    }
-
                     toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingRecipesInDM.Count;
                     if (UI.Toggle("All recipes in DM", ref toggle, UI.Width(125)))
                     {
@@ -162,6 +154,17 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         if (toggle)
                         {
                             Main.Settings.CraftingRecipesInDM.AddRange(ItemCraftingContext.RecipeBooks.Keys);
+                        }
+                    }
+
+                    toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingItemsInDM.Count;
+                    if (UI.Toggle("All items in DM", ref toggle, UI.Width(125)))
+                    {
+                        Main.Settings.CraftingItemsInDM.Clear();
+
+                        if (toggle)
+                        {
+                            Main.Settings.CraftingItemsInDM.AddRange(ItemCraftingContext.RecipeBooks.Keys);
                         }
                     }
                 }
