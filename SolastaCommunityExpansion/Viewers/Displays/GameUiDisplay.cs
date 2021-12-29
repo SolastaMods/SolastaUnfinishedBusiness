@@ -160,6 +160,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                 UI.Label("");
 
+                toggle = Main.Settings.FollowCharactersOnTeleport;
+                if (UI.Toggle("Follow character(s) when teleported", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.FollowCharactersOnTeleport = toggle;
+                }
+
+                UI.Label("");
+
                 toggle = Main.Settings.UnleashNpcAsEnemy;
                 if (UI.Toggle("Unleash NPCs as enemies " + "[press SHIFT while clicking Select on gadget panel]".italic().yellow(), ref toggle))
                 {
