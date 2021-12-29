@@ -282,7 +282,7 @@ namespace SolastaCommunityExpansion.Viewers
 
             UI.Label(". use the Bestiary tab to add monsters to the challenge", UI.AutoWidth());
             UI.Label(". use the Characters Pool tab to add heroes as enemies to the challenge", UI.AutoWidth());
-            UI.Label(". press - to remove participants from the group");
+            UI.Label(". click - to remove participants from the group");
             UI.Label(". pan the camera to the desired encounter location and press " + "ctrl-shift-(E)ncounter".cyan() + " to spawn the group", UI.AutoWidth());
             UI.Label("");
 
@@ -311,7 +311,7 @@ namespace SolastaCommunityExpansion.Viewers
         private static void DisplayBestiary()
         {
             UI.Label("");
-            UI.Label($". press + to add up to {EncountersSpawnContext.MAX_ENCOUNTER_CHARACTERS} characters to the encounter list...");
+            UI.Label($". Click + to add up to {EncountersSpawnContext.MAX_ENCOUNTER_CHARACTERS} characters to the encounter list");
             UI.Label("");
 
             foreach (var monsterDefinition in EncountersSpawnContext.GetMonsters())
@@ -325,7 +325,7 @@ namespace SolastaCommunityExpansion.Viewers
             using (UI.VerticalScope(UI.AutoWidth(), UI.AutoHeight()))
             {
                 UI.Label("");
-                UI.Label($". press + to add up to {EncountersSpawnContext.MAX_ENCOUNTER_CHARACTERS} characters to the encounter list...");
+                UI.Label($". Click + to add up to {EncountersSpawnContext.MAX_ENCOUNTER_CHARACTERS} characters to the encounter list");
                 UI.Label("");
 
                 foreach (var hero in EncountersSpawnContext.GetHeroes())
