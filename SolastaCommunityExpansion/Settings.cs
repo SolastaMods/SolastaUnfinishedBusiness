@@ -201,6 +201,7 @@ namespace SolastaCommunityExpansion
         public bool AllowGadgetsToBePlacedAnywhere { get; set; }
         public bool AllowPropsToBePlacedAnywhere { get; set; }
         public bool EnableAdditionalIconsOnLevelMap { get; set; }
+        public bool FollowCharactersOnTeleport { get; set; }
         public bool UnleashNpcAsEnemy { get; set; }
         public bool UnleashEnemyAsNpc { get; set; }
 
@@ -221,6 +222,5 @@ namespace SolastaCommunityExpansion
         // Spells
         public int MaxSpellLevelsPerLine { get; set; } = 5;
         public float SpellPanelGapBetweenLines { get; set; } = 30f;
-        public bool FollowCharactersOnTeleport { get; set; }
     }
 }
