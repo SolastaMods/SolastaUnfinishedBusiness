@@ -134,9 +134,9 @@ namespace SolastaCommunityExpansion.Models
             var sizeList = new List<RulesetActor.SizeParameters>();
             var characters = new List<GameLocationCharacter>();
 
-            for (var ix = 0; ix < 4; ix++)
+            for (var iy = 0; iy < 4; iy++)
             {
-                for (var iy = 0; iy < 4; iy++)
+                for (var ix = 0; ix < 4; ix++)
                 {
                     formationPositions.Add(new int3(ix, 0, iy));
                 }
@@ -152,7 +152,6 @@ namespace SolastaCommunityExpansion.Models
                     FormationDefinition = EncounterCharacters.Count > 1 ? Squad4 : SingleCreature
                 });
 
-                sizeList.Add(character.SizeParams);
                 gameLocationCharacter.CollectExistingLightSources(true);
                 gameLocationCharacter.RefreshActionPerformances();
                 gameLocationCharacter.RulesetCharacter.SetBaseFaction(HostileMonsters);
@@ -168,7 +167,6 @@ namespace SolastaCommunityExpansion.Models
                 gameLocationCharacterService.RevealCharacter(characters[index]);
             }
 
-            gameLocationCharacterService.RefreshAllCharacters();
             Heroes.Clear();
             Monsters.Clear();
             EncounterCharacters.Clear();

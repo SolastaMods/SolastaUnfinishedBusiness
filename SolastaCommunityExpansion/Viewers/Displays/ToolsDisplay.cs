@@ -17,7 +17,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("Campaigns and Locations:".yellow());
             UI.Label("");
 
-
             toggle = Main.Settings.EnableSaveByLocation;
             if (UI.Toggle("Enable save by campaigns / locations", ref toggle, UI.AutoWidth()))
             {
@@ -29,6 +28,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             {
                 Main.Settings.EnableTelemaCampaign = toggle;
             }
+
+            toggle = Main.Settings.EnableTeleportParty;
+            if (UI.Toggle("Enable the hotkey " + "ctrl-shift-(T)eleport".cyan() + " in game locations" + "\nYou might break quests or maps if you teleport to an undiscovered place".italic().yellow(), ref toggle))
+            {
+                Main.Settings.EnableTeleportParty = toggle;
+            }
+
+            UI.Label("");
 
             toggle = Main.Settings.OverrideMinMaxLevel;
             if (UI.Toggle("Override required min / max level", ref toggle))
@@ -44,7 +51,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.OverridePartySize = intValue;
             }
 
-
             UI.Label("");
 
             intValue = Main.Settings.maxBackupFilesPerLocationCampaign;
@@ -54,7 +60,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             UI.Label("");
-            UI.Label(". backup files are saved under " + "GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups".italic().bold());
+            UI.Label(". Backup files are saved under " + "GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups".italic().yellow());
             UI.Label("");
             UI.Label("Debug:".yellow());
             UI.Label("");
