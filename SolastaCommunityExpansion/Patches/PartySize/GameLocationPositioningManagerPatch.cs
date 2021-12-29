@@ -47,7 +47,11 @@ namespace SolastaCommunityExpansion.Patches.PartySize
         /// </summary>
         internal static void Postfix(GameLocationCharacter character)
         {
-            if (!GameGadget_Update.InUpdate)
+            if (!Main.Settings.FollowCharactersOnTeleport
+                // Only follow in DM
+                || Gui.GameLocation.UserLocation == null
+                // Only follow if teleport initiated by teleport game gadget (not a perfect check but better than nothing)
+                || !GameGadget_Update.InUpdate)
             {
                 return;
             }
