@@ -90,6 +90,7 @@ namespace SolastaCommunityExpansion.Models
 
                 craftedItem.SetFactionRelicDescription(factionRelicDescription);
                 craftedItem.SetInDungeonEditor(true);
+                craftedItem.GuiPresentation.SetHidden(!Main.Settings.CraftingItemsInDM.Contains(key));
             }
         }
 
@@ -101,6 +102,7 @@ namespace SolastaCommunityExpansion.Models
 
                 recipeBookDefinition.SetFactionRelicDescription(factionRelicDescription);
                 recipeBookDefinition.SetInDungeonEditor(true);
+                recipeBookDefinition.GuiPresentation.SetHidden(!Main.Settings.CraftingRecipesInDM.Contains(key));
             }
         }
 
