@@ -52,13 +52,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static void RemoveMatchingFeature(List<FeatureUnlockByLevel> unlocks, FeatureDefinition toRemove)
         {
-            for (int i = 0; i < unlocks.Count; i++)
-            {
-                if (unlocks[i].FeatureDefinition.GUID == toRemove.GUID)
-                {
-                    unlocks.RemoveAt(i);
-                }
-            }
+            unlocks.RemoveAll(u => u.FeatureDefinition.GUID == toRemove.GUID);
         }
 
         internal static void SwitchFlexibleRaces()
