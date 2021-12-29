@@ -62,7 +62,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     }
                 } else
                 {
-                    UI.Space(125f);
+                    UI.Space(128f);
                 }
             }
         }
