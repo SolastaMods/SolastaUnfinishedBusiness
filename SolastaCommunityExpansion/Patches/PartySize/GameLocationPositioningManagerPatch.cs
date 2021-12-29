@@ -93,5 +93,4 @@ namespace SolastaCommunityExpansion.Patches.PartySize
             InUpdate = false;
         }
     }
-
 }
