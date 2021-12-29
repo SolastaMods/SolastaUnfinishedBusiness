@@ -17,7 +17,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("Campaigns and Locations:".yellow());
             UI.Label("");
 
-
             toggle = Main.Settings.EnableSaveByLocation;
             if (UI.Toggle("Enable save by campaigns / locations", ref toggle, UI.AutoWidth()))
             {
@@ -30,39 +29,46 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.EnableTelemaCampaign = toggle;
             }
 
-            toggle = Main.Settings.EnableDungeonLevelBypass;
+            toggle = Main.Settings.EnableTeleportParty;
+            if (UI.Toggle("Enable the hotkey " + "ctrl-shift-(T)eleport".cyan() + " in game locations" + "\nYou might break quests or maps if you teleport to an undiscovered place".italic().yellow(), ref toggle))
+            {
+                Main.Settings.EnableTeleportParty = toggle;
+            }
+
+            UI.Label("");
+
+            toggle = Main.Settings.OverrideMinMaxLevel;
             if (UI.Toggle("Override required min / max level", ref toggle))
             {
-                Main.Settings.EnableDungeonLevelBypass = toggle;
+                Main.Settings.OverrideMinMaxLevel = toggle;
             }
 
             UI.Label("");
 
-            intValue = Main.Settings.UserDungeonsPartySize;
-            if (UI.Slider("Override party size ".white() + "[only in custom dungeons]".italic().yellow(), ref intValue, Settings.MIN_PARTY_SIZE, Settings.MAX_PARTY_SIZE, Settings.GAME_PARTY_SIZE, "", UI.AutoWidth()))
+            intValue = Main.Settings.OverridePartySize;
+            if (UI.Slider("Override party size ".white() + "[only in custom dungeons]".italic().yellow(), ref intValue, DungeonMakerContext.MIN_PARTY_SIZE, DungeonMakerContext.MAX_PARTY_SIZE, DungeonMakerContext.GAME_PARTY_SIZE, "", UI.AutoWidth()))
             {
-                Main.Settings.UserDungeonsPartySize = intValue;
+                Main.Settings.OverridePartySize = intValue;
             }
-
 
             UI.Label("");
 
-            intValue = Main.Settings.maxBackupFiles;
+            intValue = Main.Settings.maxBackupFilesPerLocationCampaign;
             if (UI.Slider("Max. backup files per location or campaign".white(), ref intValue, 0, 20, 10))
             {
-                Main.Settings.maxBackupFiles = intValue;
+                Main.Settings.maxBackupFilesPerLocationCampaign = intValue;
             }
 
             UI.Label("");
-            UI.Label(". backup files are saved under " + "GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups".italic().bold());
+            UI.Label(". Backup files are saved under " + "GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups".italic().yellow());
             UI.Label("");
             UI.Label("Debug:".yellow());
             UI.Label("");
 
-            toggle = Main.Settings.EnableCheatMenuDuringGameplay;
+            toggle = Main.Settings.EnableCheatMenu;
             if (UI.Toggle("Enable the cheats menu", ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.EnableCheatMenuDuringGameplay = toggle;
+                Main.Settings.EnableCheatMenu = toggle;
             }
 
             if (UI.Toggle("Enable the debug camera", ref enableDebugCamera, UI.AutoWidth()))
@@ -97,10 +103,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            intValue = Main.Settings.ExperienceModifier;
+            intValue = Main.Settings.MultiplyTheExperienceGainedBy;
             if (UI.Slider("Multiply the experience gained by ".white() + "[%]".red(), ref intValue, 0, 200, 100, "", UI.Width(100)))
             {
-                Main.Settings.ExperienceModifier = intValue;
+                Main.Settings.MultiplyTheExperienceGainedBy = intValue;
             }
 
             UI.Label("");

@@ -11,15 +11,14 @@ namespace SolastaCommunityExpansion.Patches.GameUiLevelUp
     {
         internal static void Postfix(ArchetypesPreviewModal __instance)
         {
-            if (!Main.Settings.FutureFeatureSorting)
+            if (!Main.Settings.EnableSortingFutureFeatures)
             {
                 return;
             }
-            List<CharacterSubclassDefinition> subclasses = __instance.GetField<List<CharacterSubclassDefinition>>("subclasses");
-            foreach (CharacterSubclassDefinition subclassDefinition in subclasses)
-            {
-                subclassDefinition.FeatureUnlocks.Sort((a, b) => a.Level - b.Level);
-            }
+
+            var subclasses = __instance.GetField<List<CharacterSubclassDefinition>>("subclasses");
+
+            subclasses.ForEach(x => x.FeatureUnlocks.Sort((a, b) => a.Level - b.Level));
         }
     }
 }

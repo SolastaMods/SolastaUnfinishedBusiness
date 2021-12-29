@@ -12,13 +12,18 @@ namespace SolastaCommunityExpansion.Patches.GameUiBattle
         {
             var isBattleInProgress = ServiceRepository.GetService<IGameLocationBattleService>()?.IsBattleInProgress;
 
-            if (Main.Settings.PermanentSpeedUp && isBattleInProgress == true)
+            if (isBattleInProgress == false)
             {
-                Time.timeScale = ___timeScale * Main.Settings.CustomTimeScale;
+                return true;
+            }
+
+            if (Main.Settings.PermanentlySpeedBattleUp)
+            {
+                Time.timeScale = ___timeScale * Main.Settings.BattleCustomTimeScale;
             }
             else
             {
-                Time.timeScale = ___timeScale * (___fasterTimeMode ? Main.Settings.CustomTimeScale : 1f);
+                Time.timeScale = ___timeScale * (___fasterTimeMode ? Main.Settings.BattleCustomTimeScale : 1f);
             }
 
             return false;

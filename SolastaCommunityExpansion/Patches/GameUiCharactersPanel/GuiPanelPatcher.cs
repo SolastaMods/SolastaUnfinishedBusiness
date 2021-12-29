@@ -3,6 +3,9 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
 {
+    //
+    // this patch is protected by HeroName
+    //
     [HarmonyPatch(typeof(GuiPanel), "Show")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GuiPanel_Show

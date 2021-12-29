@@ -1,8 +1,11 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.LoadFixers
+namespace SolastaCommunityExpansion.Patches.BugFix
 {
+    //
+    // TODO @IMPPHIL: should we protect
+    //
     [HarmonyPatch(typeof(GameLoreManager), "SerializeElements")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameLoreManager_SerializeElements
@@ -13,6 +16,11 @@ namespace SolastaCommunityExpansion.Patches.LoadFixers
         // from the list of known recipes.
         internal static void Postfix(GameLoreManager __instance)
         {
+            if (!Main.Settings.BugFixNullRecipesOnGameSerialization)
+            {
+                return;
+            }
+
             __instance.KnownRecipes.RemoveAll(item => item == null);
         }
     }

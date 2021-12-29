@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.CampaignRequirements
 {
@@ -10,10 +11,10 @@ namespace SolastaCommunityExpansion.Patches.CampaignRequirements
     {
         internal static void Prefix(UserCampaign userCampaign)
         {
-            if (userCampaign != null && Main.Settings.EnableDungeonLevelBypass)
+            if (userCampaign != null && Main.Settings.OverrideMinMaxLevel)
             {
-                userCampaign.StartLevelMin = Settings.DUNGEON_MIN_LEVEL;
-                userCampaign.StartLevelMax = Settings.DUNGEON_MAX_LEVEL;
+                userCampaign.StartLevelMin = DungeonMakerContext.DUNGEON_MIN_LEVEL;
+                userCampaign.StartLevelMax = DungeonMakerContext.DUNGEON_MAX_LEVEL;
             }
         }
     }
@@ -25,10 +26,10 @@ namespace SolastaCommunityExpansion.Patches.CampaignRequirements
     {
         internal static void Prefix(UserLocation userLocation)
         {
-            if (userLocation != null && Main.Settings.EnableDungeonLevelBypass)
+            if (userLocation != null && Main.Settings.OverrideMinMaxLevel)
             {
-                userLocation.StartLevelMin = Settings.DUNGEON_MIN_LEVEL;
-                userLocation.StartLevelMax = Settings.DUNGEON_MAX_LEVEL;
+                userLocation.StartLevelMin = DungeonMakerContext.DUNGEON_MIN_LEVEL;
+                userLocation.StartLevelMax = DungeonMakerContext.DUNGEON_MAX_LEVEL;
             }
         }
     }

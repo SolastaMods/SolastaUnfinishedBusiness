@@ -11,6 +11,13 @@ namespace SolastaCommunityExpansion.Models
     {
         public static Dictionary<string, List<ItemDefinition>> RecipeBooks { get; } = new Dictionary<string, List<ItemDefinition>>();
 
+        public static List<string> BASE_GAME_ITEMS_CATEGORIES = new List<string>()
+        {
+            "PrimedItems",
+            "EnchantingIngredients",
+            "RelicForgeries",
+        };
+
         public static readonly Dictionary<string, string> RecipeTitles = new Dictionary<string, string>
         {
             { "PrimedItems", "Primed Items" },
@@ -53,8 +60,8 @@ namespace SolastaCommunityExpansion.Models
 
             foreach (string key in RecipeBooks.Keys)
             {
-                UpdateItemsInDMState(key);
-                UpdateRecipesInDMState(key);
+                UpdateCraftingItemsInDMState(key);
+                UpdateCraftingRecipesInDMState(key);
             }
         }
 
@@ -71,7 +78,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void AddToStore(string key)
         {
-            if (Main.Settings.InStore.Contains(key))
+            if (Main.Settings.CraftingInStore.Contains(key))
             {
                 foreach (ItemDefinition item in RecipeBooks[key])
                 {
@@ -81,18 +88,23 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void UpdateItemsInDMState(string key)
+        internal static void UpdateCraftingItemsInDMState(string key)
         {
-            bool available = Main.Settings.ItemsInDM.Contains(key);
+            if (BASE_GAME_ITEMS_CATEGORIES.Contains(key))
+            {
+                // Don't touch the in dungeon state of base game items.
+                return;
+            }
+            bool available = Main.Settings.CraftingItemsInDM.Contains(key);
             foreach (ItemDefinition recipeBookDefinition in RecipeBooks[key])
             {
                 recipeBookDefinition.DocumentDescription.RecipeDefinition.CraftedItem.SetInDungeonEditor(available);
             }
         }
 
-        internal static void UpdateRecipesInDMState(string key)
+        internal static void UpdateCraftingRecipesInDMState(string key)
         {
-            bool available = Main.Settings.RecipesInDM.Contains(key);
+            bool available = Main.Settings.CraftingRecipesInDM.Contains(key);
             foreach (ItemDefinition recipeBookDefinition in RecipeBooks[key])
             {
                 recipeBookDefinition.SetInDungeonEditor(available);

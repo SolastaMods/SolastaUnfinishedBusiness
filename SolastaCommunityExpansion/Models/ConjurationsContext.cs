@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Models
         {
             // NOTE: assumes monsters have FullyControlledWhenAllied=false by default
 
-            var controlled = Main.Settings.FullyControlAlliedConjurations;
+            var controlled = Main.Settings.FullyControlConjurations;
 
             // Conjure animals (3)
             ConjuredOneBeastTiger_Drake.SetFullyControlledWhenAllied(controlled);

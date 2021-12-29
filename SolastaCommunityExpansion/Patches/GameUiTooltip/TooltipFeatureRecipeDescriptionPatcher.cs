@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.GameUiTooltip
@@ -9,30 +10,35 @@ namespace SolastaCommunityExpansion.Patches.GameUiTooltip
     {
         internal static void Postfix(TooltipFeatureDescription __instance, ITooltip tooltip)
         {
-            if (!Main.Settings.RecipeTooltipShowsRecipe)
+            if (!Main.Settings.ShowCraftingRecipeInDetailedTooltips)
             {
                 return;
             }
 
-            if (tooltip.DataProvider is IItemDefinitionProvider)
+            if (!(tooltip.DataProvider is IItemDefinitionProvider itemDefinitionProvider))
             {
-                ItemDefinition item = (tooltip.DataProvider as IItemDefinitionProvider).ItemDefinition;
-                if (item.IsDocument && item.DocumentDescription.LoreType == RuleDefinitions.LoreType.CraftingRecipe)
-                {
-                    foreach (ContentFragmentDescription contentFragmentDescription in item.DocumentDescription.ContentFragments)
-                    {
-                        if (contentFragmentDescription.Type == ContentFragmentDescription.FragmentType.Body)
-                        {
-                            GuiRecipeDefinition guiRecipeDefinition = ServiceRepository.GetService<IGuiWrapperService>().GetGuiRecipeDefinition(item.DocumentDescription.RecipeDefinition.Name);
+                return;
+            }
 
-                            __instance.DescriptionLabel.Text = Gui.Format(contentFragmentDescription.Text, new string[]
-                            {
-                                guiRecipeDefinition.Title,
-                                guiRecipeDefinition.IngredientsText
-                            });
-                        }
-                    }
-                }
+            var item = itemDefinitionProvider.ItemDefinition;
+
+            if (!item.IsDocument || item.DocumentDescription.LoreType != RuleDefinitions.LoreType.CraftingRecipe)
+            {
+                return;
+            }
+
+            var guiWrapperService = ServiceRepository.GetService<IGuiWrapperService>();
+
+            foreach (ContentFragmentDescription contentFragmentDescription in item.DocumentDescription.ContentFragments
+                .Where(x => x.Type == ContentFragmentDescription.FragmentType.Body))
+            {
+                var guiRecipeDefinition = guiWrapperService.GetGuiRecipeDefinition(item.DocumentDescription.RecipeDefinition.Name);
+
+                __instance.DescriptionLabel.Text = Gui.Format(contentFragmentDescription.Text, new string[]
+                {
+                    guiRecipeDefinition.Title,
+                    guiRecipeDefinition.IngredientsText
+                });
             }
         }
     }

@@ -1,7 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
+namespace SolastaCommunityExpansion.Patches.BugFix
 {
     // Modify sorting on characters panel.
     // The default sort is by character class, which actually sorts on class+path.
@@ -15,30 +16,43 @@ namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
         public static void Postfix(RulesetCharacterHero.Snapshot left, RulesetCharacterHero.Snapshot right,
             bool ___sortInverted, SortGroup.Category ___sortCategory, ref int __result)
         {
-            if(left == null || right == null)
+            if (!Main.Settings.BugFixCharacterPanelSorting)
             {
                 return;
             }
 
-            int num = ___sortInverted ? -1 : 1;
+            if (left == null || right == null)
+            {
+                return;
+            }
+
+            int sortSign = ___sortInverted ? -1 : 1;
 
             switch (___sortCategory)
             {
-                default:
-                    break;
                 case SortGroup.Category.CharacterClass:
-                    __result = num * left.Classes[0].CompareTo(right.Classes[0]);
-                    __result = __result == 0 ? num * SortByName() : __result;
+                    __result = sortSign * left.Classes[0].CompareTo(right.Classes[0]);
+                    __result = __result == 0 ? SortByName() : __result;
                     break;
                 case SortGroup.Category.CharacterLevel:
+                    //
+                    // ATT: below isn't part of the bugfix but an enhancement to allow MC heroes to get correctly sorted by their total levels
+                    //
+                    __result = sortSign * left.Levels.Sum().CompareTo(right.Levels.Sum());
+                    __result = __result == 0 ? SortByName() : __result;
+                    break;
+
                 case SortGroup.Category.CharacterAncestry:
-                    __result = __result == 0 ? num * SortByName() : __result;
+                    __result = __result == 0 ? SortByName() : __result;
+                    break;
+                default:
+                    // don't modify other categories
                     break;
             }
 
             int SortByName()
             {
-                return num * left.Name.CompareTo(right.Name);
+                return left.Name.CompareTo(right.Name);
             }
         }
     }

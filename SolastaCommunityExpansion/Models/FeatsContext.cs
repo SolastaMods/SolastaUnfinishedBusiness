@@ -74,7 +74,7 @@ namespace SolastaCommunityExpansion.Models
                 outString.Append("\n[*][b]");
                 outString.Append(feat.FormatTitle());
                 outString.Append("[/b]: ");
-                outString.Append(feat.FormatTitle());
+                outString.Append(feat.FormatDescription());
             }
 
             outString.Append("\n[/list]");

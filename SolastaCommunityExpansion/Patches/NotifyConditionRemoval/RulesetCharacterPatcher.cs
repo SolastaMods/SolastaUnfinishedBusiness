@@ -5,19 +5,20 @@ using SolastaCommunityExpansion.CustomFeatureDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.NotifyConditionRemoval
 {
+    //
+    // this patch shouldn't be protected
+    //
     [HarmonyPatch(typeof(RulesetCharacter), "Kill")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacter_Kill
     {
         internal static void Prefix(RulesetCharacter __instance)
         {
-            foreach (KeyValuePair<string, List<RulesetCondition>> keyValuePair in __instance.ConditionsByCategory)
+            foreach (var keyValuePair in __instance.ConditionsByCategory)
             {
                 foreach (RulesetCondition rulesetCondition in keyValuePair.Value)
                 {
-                    var notifiedDefinition = rulesetCondition?.ConditionDefinition as INotifyConditionRemoval;
-
-                    if (notifiedDefinition != null)
+                    if (rulesetCondition?.ConditionDefinition is INotifyConditionRemoval notifiedDefinition)
                     {
                         notifiedDefinition.BeforeDyingWithCondition(__instance, rulesetCondition);
                     }

@@ -6,7 +6,10 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class InitialChoicesContext
     {
-        internal static int PreviousAllRacesInitialFeats { get; set; } = -1;
+        internal const int MIN_INITIAL_FEATS = 0;
+        internal const int MAX_INITIAL_FEATS = 10;
+
+        internal static int PreviousTotalFeatsGrantedFistLevel { get; set; } = -1;
         internal static bool PreviousAlternateHuman { get; set; }
 
         internal static void Load()
@@ -24,19 +27,17 @@ namespace SolastaCommunityExpansion.Models
                 _ = new FeatureDefinitionPointPoolBuilder(name, guid, HeroDefinitions.PointsPoolType.Feat, i,
                         new GuiPresentationBuilder($"Race/&PointPoolSelect{i}FeatsDescription", $"Race/&PointPoolSelect{i}FeatsTitle").Build()).AddToDB(true);
             }
-
-            RefreshAllRacesInitialFeats();
         }
 
-        internal static void RefreshAllRacesInitialFeats()
+        internal static void RefreshTotalFeatsGrantedFistLevel()
         {
-            if (PreviousAllRacesInitialFeats > -1)
+            if (PreviousTotalFeatsGrantedFistLevel > -1)
             {
-                UnloadRacesLevel1Feats(PreviousAllRacesInitialFeats, PreviousAlternateHuman);
+                UnloadRacesLevel1Feats(PreviousTotalFeatsGrantedFistLevel, PreviousAlternateHuman);
             }
-            PreviousAllRacesInitialFeats = Main.Settings.AllRacesInitialFeats;
+            PreviousTotalFeatsGrantedFistLevel = Main.Settings.TotalFeatsGrantedFistLevel;
             PreviousAlternateHuman = Main.Settings.EnableAlternateHuman;
-            LoadRacesLevel1Feats(Main.Settings.AllRacesInitialFeats, Main.Settings.EnableAlternateHuman);
+            LoadRacesLevel1Feats(Main.Settings.TotalFeatsGrantedFistLevel, Main.Settings.EnableAlternateHuman);
         }
 
         internal static void BuildFeatureUnlocks(int initialFeats, bool alternateHuman, out FeatureUnlockByLevel featureUnlockByLevelNonHuman, out FeatureUnlockByLevel featureUnlockByLevelHuman)

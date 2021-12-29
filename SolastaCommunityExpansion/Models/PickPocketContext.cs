@@ -71,7 +71,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
-            if (!Main.Settings.PickPocketEnabled || initialized)
+            if (!Main.Settings.AddPickpocketableLoot || initialized)
             {
                 return;
             }

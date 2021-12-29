@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.GameUiLocation
 {
@@ -14,62 +15,64 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
             CharacterControlPanelExploration ___characterControlPanelExploration,
             TimeAndNavigationPanel ___timeAndNavigationPanel)
         {
-            if (Main.Settings.EnableHudToggleElementsHotkeys)
+            if (!Main.Settings.EnableHotkeysToToggleHud)
             {
-                switch (command)
-                {
-                    case Settings.CTRL_C:
-                        if (___characterControlPanelExploration.Visible)
-                        {
-                            ___characterControlPanelExploration.Hide();
-                        }
-                        else
-                        {
-                            var gameLocationSelectionService = ServiceRepository.GetService<IGameLocationSelectionService>();
+                return;
+            }
 
-                            if (gameLocationSelectionService.SelectedCharacters.Count > 0)
-                            {
-                                ___characterControlPanelExploration.Bind(gameLocationSelectionService.SelectedCharacters[0], __instance.ActionTooltipDock);
-                                ___characterControlPanelExploration.Show();
-                            }
-                        }
-                        break;
+            switch (command)
+            {
+                case GameUiContext.CTRL_C:
+                    if (___characterControlPanelExploration.Visible)
+                    {
+                        ___characterControlPanelExploration.Hide();
+                    }
+                    else
+                    {
+                        var gameLocationSelectionService = ServiceRepository.GetService<IGameLocationSelectionService>();
 
-                    case Settings.CTRL_L:
-                        var guiConsoleScreen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
+                        if (gameLocationSelectionService.SelectedCharacters.Count > 0)
+                        {
+                            ___characterControlPanelExploration.Bind(gameLocationSelectionService.SelectedCharacters[0], __instance.ActionTooltipDock);
+                            ___characterControlPanelExploration.Show();
+                        }
+                    }
+                    break;
 
-                        if (guiConsoleScreen.Visible)
-                        {
-                            guiConsoleScreen.Hide();
-                        }
-                        else
-                        {
-                            guiConsoleScreen.Show();
-                        }
-                        break;
+                case GameUiContext.CTRL_L:
+                    var guiConsoleScreen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
 
-                    case Settings.CTRL_M:
-                        if (___timeAndNavigationPanel.Visible)
-                        {
-                            ___timeAndNavigationPanel.Hide();
-                        }
-                        else
-                        {
-                            ___timeAndNavigationPanel.Show();
-                        }
-                        break;
+                    if (guiConsoleScreen.Visible)
+                    {
+                        guiConsoleScreen.Hide();
+                    }
+                    else
+                    {
+                        guiConsoleScreen.Show();
+                    }
+                    break;
 
-                    case Settings.CTRL_P:
-                        if (___partyControlPanel.Visible)
-                        {
-                            ___partyControlPanel.Hide();
-                        }
-                        else
-                        {
-                            ___partyControlPanel.Show();
-                        }
-                        break;
-                }
+                case GameUiContext.CTRL_M:
+                    if (___timeAndNavigationPanel.Visible)
+                    {
+                        ___timeAndNavigationPanel.Hide();
+                    }
+                    else
+                    {
+                        ___timeAndNavigationPanel.Show();
+                    }
+                    break;
+
+                case GameUiContext.CTRL_P:
+                    if (___partyControlPanel.Visible)
+                    {
+                        ___partyControlPanel.Hide();
+                    }
+                    else
+                    {
+                        ___partyControlPanel.Show();
+                    }
+                    break;
             }
         }
     }

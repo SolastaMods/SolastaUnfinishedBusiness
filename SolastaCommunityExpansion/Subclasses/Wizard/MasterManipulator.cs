@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             get
             {
                 return _dcIncreaseAffinity = _dcIncreaseAffinity ??
-                    BuildMagicAffinityModifiers(0, Main.Settings.MasterManipulatorSpellDCBoost, "MagicAffinityMasterManipulatorDC", GetSpellDCPresentation().Build());
+                    BuildMagicAffinityModifiers(0, Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc, "MagicAffinityMasterManipulatorDC", GetSpellDCPresentation().Build());
             }
         }
         #endregion
@@ -86,14 +86,14 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 
         private static GuiPresentationBuilder GetSpellDCPresentation()
         {
-            return new GuiPresentationBuilder("Subclass/&MagicAffinityMasterManipulatorDC" + Main.Settings.MasterManipulatorSpellDCBoost + "Description", "Subclass/&MagicAffinityMasterManipulatorDCTitle");
+            return new GuiPresentationBuilder("Subclass/&MagicAffinityMasterManipulatorDC" + Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc + "Description", "Subclass/&MagicAffinityMasterManipulatorDCTitle");
         }
 
         public static void UpdateSpellDCBoost()
         {
             if (DcIncreaseAffinity)
             {
-                DcIncreaseAffinity.SetSaveDCModifier(Main.Settings.MasterManipulatorSpellDCBoost);
+                DcIncreaseAffinity.SetSaveDCModifier(Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc);
                 DcIncreaseAffinity.SetGuiPresentation(GetSpellDCPresentation().Build());
             }
         }

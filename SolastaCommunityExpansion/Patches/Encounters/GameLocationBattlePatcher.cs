@@ -10,15 +10,14 @@ namespace SolastaCommunityExpansion.Patches.Encounters
     {
         internal static void Postfix(GameLocationBattle __instance, ref List<GameLocationCharacter> __result)
         {
-            if (__instance == null)
+            if (!Main.Settings.EnableEnemiesControlledByPlayer || __instance == null)
             {
                 return;
             }
 
             var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
-            if (Main.Settings.EnableEnemiesControlledByPlayer 
-                && !gameLocationCharacterService.PartyCharacters.Contains(__instance.ActiveContender)
+            if (!gameLocationCharacterService.PartyCharacters.Contains(__instance.ActiveContender)
                 && !gameLocationCharacterService.GuestCharacters.Contains(__instance.ActiveContender))
             {
                 __result = __instance.EnemyContenders;
@@ -32,15 +31,14 @@ namespace SolastaCommunityExpansion.Patches.Encounters
     {
         internal static void Postfix(GameLocationBattle __instance, ref List<GameLocationCharacter> __result)
         {
-            if (__instance == null)
+            if (!Main.Settings.EnableEnemiesControlledByPlayer || __instance == null)
             {
                 return;
             }
 
             var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
-            if (Main.Settings.EnableEnemiesControlledByPlayer
-                && !gameLocationCharacterService.PartyCharacters.Contains(__instance.ActiveContender)
+            if (!gameLocationCharacterService.PartyCharacters.Contains(__instance.ActiveContender)
                 && !gameLocationCharacterService.GuestCharacters.Contains(__instance.ActiveContender))
             {
                 __result = __instance.PlayerContenders;

@@ -17,57 +17,73 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
             {
                 return;
             }
+
             bool foundActivePanel = false;
+
             if (__instance.Visible && __instance.SpellSelectionPanel != null && __instance.SpellSelectionPanel.Visible)
             {
                 foundActivePanel = true;
+
                 switch (__instance.SpellSelectionPanel.ActionType)
                 {
                     case ActionDefinitions.ActionType.Main:
                         actionId = ActionDefinitions.Id.CastMain;
                         break;
+
                     case ActionDefinitions.ActionType.Bonus:
                         actionId = ActionDefinitions.Id.CastBonus;
                         break;
+
                     case ActionDefinitions.ActionType.Reaction:
                         actionId = ActionDefinitions.Id.CastReaction;
                         break;
+
                     case ActionDefinitions.ActionType.NoCost:
                         actionId = ActionDefinitions.Id.CastNoCost;
                         break;
+
                     default:
                         actionId = ActionDefinitions.Id.CastMain;
                         break;
                 }
+
                 __instance.SpellSelectionPanel.Hide(true);
             }
+
             if (__instance.Visible && __instance.RitualSelectionPanel != null && __instance.RitualSelectionPanel.Visible)
             {
                 foundActivePanel = true;
                 actionId = ActionDefinitions.Id.CastRitual;
                 __instance.RitualSelectionPanel.Hide(true);
             }
+
             if (__instance.Visible && __instance.PowerSelectionPanel != null && __instance.PowerSelectionPanel.Visible)
             {
                 foundActivePanel = true;
+
                 switch (__instance.PowerSelectionPanel.ActionType)
                 {
                     case ActionDefinitions.ActionType.Main:
                         actionId = ActionDefinitions.Id.PowerMain;
                         break;
+
                     case ActionDefinitions.ActionType.Bonus:
                         actionId = ActionDefinitions.Id.PowerBonus;
                         break;
+
                     case ActionDefinitions.ActionType.Reaction:
                         actionId = ActionDefinitions.Id.PowerReaction;
                         break;
+
                     case ActionDefinitions.ActionType.NoCost:
                         actionId = ActionDefinitions.Id.PowerNoCost;
                         break;
+
                     default:
                         actionId = ActionDefinitions.Id.PowerMain;
                         break;
                 }
+
                 __instance.PowerSelectionPanel.Hide(true);
             }
 
@@ -174,11 +190,13 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
             {
                 return;
             }
+
             // Re transition to current state?
             if (panelToActivate != null)
             {
                 panelToActivate.OnActivateAction(actionId);
             }
+
             panelToActivate = null;
         }
     }

@@ -3,12 +3,16 @@ using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.PowerSharedPool
 {
     internal static class RulesetCharacterPatcher
     {
+        //
+        // this patch shouldn't be protected
+        //
         [HarmonyPatch(typeof(RulesetCharacter), "UsePower")]
         [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class RulesetCharacter_UsePower
@@ -19,6 +23,9 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
             }
         }
 
+        //
+        // this patch shouldn't be protected
+        //
         [HarmonyPatch(typeof(RulesetCharacter), "RepayPowerUse")]
         [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class RulesetCharacter_RepayPowerUse
@@ -49,6 +56,9 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
             }
         }
 
+        //
+        // this patch shouldn't be protected
+        //
         [HarmonyPatch(typeof(RulesetCharacter), "GrantPowers")]
         [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class RulesetCharacter_GrantPowers
@@ -59,6 +69,9 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
             }
         }
 
+        //
+        // this patch shouldn't be protected
+        //
         [HarmonyPatch(typeof(RulesetCharacter), "ApplyRest")]
         [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class RulesetCharacter_ApplyRest
@@ -70,14 +83,12 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
                 {
                     RechargeLinkedPowers(__instance, restType);
                 }
+
                 // The player isn't recharging the shared pool features, just the pool.
                 // Hide the features that use the pool from the UI.
-                foreach (FeatureDefinition feature in __instance.RecoveredFeatures.ToArray())
+                foreach (FeatureDefinition feature in __instance.RecoveredFeatures.Where(f => f is IPowerSharedPool).ToArray())
                 {
-                    if (feature is IPowerSharedPool)
-                    {
-                        __instance.RecoveredFeatures.Remove(feature);
-                    }
+                    __instance.RecoveredFeatures.Remove(feature);
                 }
             }
         }
@@ -90,18 +101,15 @@ namespace SolastaCommunityExpansion.Patches.PowerSharedPool
                 if (usablePower.PowerDefinition is IPowerSharedPool pool)
                 {
                     FeatureDefinitionPower pointPoolPower = pool.GetUsagePoolPower();
-                    if (!pointPoolPowerDefinitions.Contains(pointPoolPower))
-                    {
-                        // Only add to recharge here if it (recharges on a short rest and this is a short or long rest) or 
-                        // it recharges on a long rest and this is a long rest.
-#pragma warning disable S1066 // Collapsible "if" statements should be merged
-                        if ((pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.ShortRest &&
+
+                    // Only add to recharge here if it (recharges on a short rest and this is a short or long rest) or 
+                    // it recharges on a long rest and this is a long rest.
+                    if (!pointPoolPowerDefinitions.Contains(pointPoolPower)
+                        && ((pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.ShortRest &&
                             (restType == RuleDefinitions.RestType.ShortRest || restType == RuleDefinitions.RestType.LongRest)) ||
-                            (pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.LongRest && restType == RuleDefinitions.RestType.LongRest))
-                        {
-                            pointPoolPowerDefinitions.Add(pointPoolPower);
-                        }
-#pragma warning restore S1066 // Collapsible "if" statements should be merged
+                            (pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.LongRest && restType == RuleDefinitions.RestType.LongRest)))
+                    {
+                        pointPoolPowerDefinitions.Add(pointPoolPower);
                     }
                 }
             }

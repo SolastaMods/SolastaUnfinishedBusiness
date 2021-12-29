@@ -36,7 +36,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (UI.Toggle("Enable the alternate human " + "[+1 feat / +2 attribute choices / +1 skill]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableAlternateHuman = toggle;
-                InitialChoicesContext.RefreshAllRacesInitialFeats();
+                InitialChoicesContext.RefreshTotalFeatsGrantedFistLevel();
             }
 
             toggle = Main.Settings.EnableFlexibleBackgrounds;
@@ -50,7 +50,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (UI.Toggle("Enable flexible races " + "[assign ability score points instead of the racial defaults]".italic().yellow() + "\ni.e.: High Elf has 3 points to assign instead of +2 Dex / +1 Int".italic(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableFlexibleRaces = toggle;
-                FlexibleRacesContext.Switch(toggle);
+                FlexibleRacesContext.SwitchFlexibleRaces();
             }
 
             UI.Label("");
@@ -70,11 +70,11 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            intValue = Main.Settings.AllRacesInitialFeats;
-            if (UI.Slider("Total feats granted at first level".white(), ref intValue, Settings.MIN_INITIAL_FEATS, Settings.MAX_INITIAL_FEATS, 0, "", UI.AutoWidth()))
+            intValue = Main.Settings.TotalFeatsGrantedFistLevel;
+            if (UI.Slider("Total feats granted at first level".white(), ref intValue, InitialChoicesContext.MIN_INITIAL_FEATS, InitialChoicesContext.MAX_INITIAL_FEATS, 0, "", UI.AutoWidth()))
             {
-                Main.Settings.AllRacesInitialFeats = intValue;
-                InitialChoicesContext.RefreshAllRacesInitialFeats();
+                Main.Settings.TotalFeatsGrantedFistLevel = intValue;
+                InitialChoicesContext.RefreshTotalFeatsGrantedFistLevel();
             }
 
 
@@ -88,10 +88,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.AllowExtraKeyboardCharactersInNames = toggle;
             }
 
-            toggle = Main.Settings.OfferAdditionalNames;
+            toggle = Main.Settings.OfferAdditionalLoreFriendlyNames;
             if (UI.Toggle("Offer additional lore friendly names on character creation " + RequiresRestart, ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.OfferAdditionalNames = toggle;
+                Main.Settings.OfferAdditionalLoreFriendlyNames = toggle;
             }
 
             UI.Label("");
@@ -129,40 +129,40 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             {
                 UI.Label("");
 
-                toggle = Main.Settings.EnableFaceUnlockNpcs;
+                toggle = Main.Settings.UnlockAllNpcFaces;
                 if (UI.Toggle("Unlock all NPC faces", ref toggle, UI.AutoWidth()))
                 {
-                    Main.Settings.EnableFaceUnlockNpcs = toggle;
+                    Main.Settings.UnlockAllNpcFaces = toggle;
                 }
 
-                toggle = Main.Settings.EnableFaceUnlockUnmarkedSorcerers;
+                toggle = Main.Settings.AllowUnmarkedSorcerers;
                 if (UI.Toggle("Allow unmarked " + "Sorcerers".orange(), ref toggle, UI.AutoWidth()))
                 {
-                    Main.Settings.EnableFaceUnlockUnmarkedSorcerers = toggle;
+                    Main.Settings.AllowUnmarkedSorcerers = toggle;
                 }
 
-                toggle = Main.Settings.EnableFaceUnlockMarkingsForAll;
+                toggle = Main.Settings.UnlockMarkAndTatoosForAllCharacters;
                 if (UI.Toggle("Unlock markings and tattoos for all characters", ref toggle, UI.AutoWidth()))
                 {
-                    Main.Settings.EnableFaceUnlockMarkingsForAll = toggle;
+                    Main.Settings.UnlockMarkAndTatoosForAllCharacters = toggle;
                 }
 
-                toggle = Main.Settings.EnableFaceUnlockEyeStyles;
+                toggle = Main.Settings.UnlockEyeStyles;
                 if (UI.Toggle("Unlock eye styles", ref toggle, UI.AutoWidth()))
                 {
-                    Main.Settings.EnableFaceUnlockEyeStyles = toggle;
+                    Main.Settings.UnlockEyeStyles = toggle;
                 }
 
-                toggle = Main.Settings.EnableFaceUnlockGlowingEyes;
+                toggle = Main.Settings.UnlockGlowingEyeColors;
                 if (UI.Toggle("Unlock glowing eye colors", ref toggle, UI.AutoWidth()))
                 {
-                    Main.Settings.EnableFaceUnlockGlowingEyes = toggle;
+                    Main.Settings.UnlockGlowingEyeColors = toggle;
                 }
 
-                toggle = Main.Settings.EnableFaceUnlockGlowingBodyDecorations;
+                toggle = Main.Settings.UnlockGlowingColorsForAllMarksAndTatoos;
                 if (UI.Toggle("Unlock glowing colors for all markings and tattoos", ref toggle, UI.AutoWidth()))
                 {
-                    Main.Settings.EnableFaceUnlockGlowingBodyDecorations = toggle;
+                    Main.Settings.UnlockGlowingColorsForAllMarksAndTatoos = toggle;
                 }
             }
 
