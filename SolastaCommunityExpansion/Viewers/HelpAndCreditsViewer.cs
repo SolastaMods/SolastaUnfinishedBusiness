@@ -107,6 +107,7 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("[heading]Items & Merchants[/heading]\n[list]");
                 collectedString.Append("\n[*]Remove identification requirement from items");
                 collectedString.Append("\n[*]Remove attunement requirement from items");
+                collectedString.Append("\n[*]Show crafting recipe in detailed tooltips");
                 collectedString.Append("\n[*]Set the chances of a beard appearing on belt of dwarvenkin");
                 collectedString.Append("\n[*]Stock Hugo with all clothing");
                 collectedString.Append("\n[*]Stock Hugo with new foci items");
@@ -135,7 +136,6 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("\n[*]Enable Save by location");
                 collectedString.Append("\n[*]Enable hotkeys to toggle HUG elements");
                 collectedString.Append("\n[*]Invert ALT behavior on tooltips");
-                collectedString.Append("\n[*]Show crafting recipe in detailed tooltips");
                 collectedString.Append("\n[*]Enable adventure log on custom dungeons");
                 collectedString.Append("\n[*]Reduce battle camera movement");
                 collectedString.Append("\n[*]Pause the UI when victorious in battle");
