@@ -33,4 +33,61 @@ namespace SolastaCommunityExpansion.Patches.PartySize
             }
         }
     }
+
+    [HarmonyPatch(typeof(GameLocationPositioningManager), "TeleportCharacter")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class GameLocationPositioningManager_TeleportCharacter
+    {
+        /// <summary>
+        /// Currently when a character is teleported off screen the camera doesn't follow.
+        /// This patch will attempt to follow the character if initiated by a teleport game gadget
+        /// by following but only if Teleport is called from GameGadet.Update().
+        /// The don't follow character in battle patch will interact with this patch to cancel 
+        /// following if we're in battle and the character is on screen.
+        /// </summary>
+        internal static void Postfix(GameLocationCharacter character)
+        {
+            if (!GameGadget_Update.InUpdate)
+            {
+                return;
+            }
+
+            var camera = ServiceRepository.GetService<ICameraService>().CurrentCameraController as CameraControllerLocation;
+
+            if (camera != null)
+            {
+                if (Gui.Battle == null)
+                {
+                    camera.FollowCharacterForExploration(character);
+                }
+                else
+                {
+                    camera.FollowCharacterForBattle(character);
+                }
+            }
+
+            Main.Log($"Teleported: {character.Name}");
+        }
+    }
+
+    /// <summary>
+    /// Required by GameLocationPositioningManager_TeleportCharacter to detect if being called from game gadget. 
+    /// </summary>
+    [HarmonyPatch(typeof(GameGadget), "Update")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class GameGadget_Update
+    {
+        internal static bool InUpdate { get; private set; }
+
+        internal static void Prefix()
+        {
+            InUpdate = true;
+        }
+
+        internal static void Postfix()
+        {
+            InUpdate = false;
+        }
+    }
+
 }
