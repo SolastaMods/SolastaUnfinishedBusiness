@@ -17,7 +17,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("Campaigns and Locations:".yellow());
             UI.Label("");
 
-
             toggle = Main.Settings.EnableSaveByLocation;
             if (UI.Toggle("Enable save by campaigns / locations", ref toggle, UI.AutoWidth()))
             {
@@ -52,7 +51,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.OverridePartySize = intValue;
             }
 
-
             UI.Label("");
 
             intValue = Main.Settings.maxBackupFilesPerLocationCampaign;
@@ -62,7 +60,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             UI.Label("");
-            UI.Label(". backup files are saved under " + "GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups".italic().bold());
+            UI.Label(". Backup files are saved under " + "GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups".italic().yellow());
             UI.Label("");
             UI.Label("Debug:".yellow());
             UI.Label("");

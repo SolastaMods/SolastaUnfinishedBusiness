@@ -96,7 +96,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (Main.Settings.DontFollowCharacterInBattle)
                 {
                     intValue = Main.Settings.DontFollowMargin;
-                    if (UI.Slider("+ Unless character is off or within % of screen edge".white().italic(), ref intValue, 0, 20, 1, "%", UI.AutoWidth()))
+                    if (UI.Slider("+ Unless hero is off or within % of screen edge".white().italic(), ref intValue, 0, 20, 1, "%", UI.AutoWidth()))
                     {
                         Main.Settings.DontFollowMargin = intValue;
                     }
@@ -175,6 +175,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             #endregion
 
             #region Hotkeys
+            UI.Label("");
+
             toggle = DisplayHotkeys;
             if (UI.DisclosureToggle("Hotkey:".yellow(), ref toggle, 200))
             {
@@ -192,7 +194,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.EnableHotkeysToToggleHud;
-                if (UI.Toggle("Enable the hotkeys " + "ctrl-(C)ontrol Panel, ctrl-(L)og, ctrl-(M)ap and ctrl-(P)arty ".cyan() + "to toggle their visibility", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Enable the hotkeys " + "ctrl-(C)ontrol Panel, ctrl-(L)og, ctrl-(M)ap and ctrl-(P)arty ".cyan() + "to toggle the HUD visibility", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableHotkeysToToggleHud = toggle;
                 }
