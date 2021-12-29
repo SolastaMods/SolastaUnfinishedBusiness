@@ -117,6 +117,7 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("\n[line]\n");
                 collectedString.Append("[heading]Tools[/heading]\n[list]");
                 collectedString.Append("\n[*]Enable the Telema Kickstarter demo");
+                collectedString.Append("\n[*]Enable the hothey ctrl-shit-T to teleport the party to the cursor location");
                 collectedString.Append("\n[*]Overrides party size from 1 to 6");
                 collectedString.Append("\n[*]Removes dungeons min/max levels prereqs");
                 collectedString.Append("\n[*]Automatically create backup files for content created by user");
