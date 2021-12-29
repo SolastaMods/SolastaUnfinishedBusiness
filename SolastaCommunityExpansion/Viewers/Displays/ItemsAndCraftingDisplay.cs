@@ -86,6 +86,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
+            toggle = Main.Settings.ShowCraftingRecipeInDetailedTooltips;
+            if (UI.Toggle("Show crafting recipe in detailed tooltips", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.ShowCraftingRecipeInDetailedTooltips = toggle;
+            }
+
+            UI.Label("");
+
             intValue = Main.Settings.RecipeCost;
             if (UI.Slider("Recipes' cost".white(), ref intValue, 1, 500, 200, "G", UI.AutoWidth()))
             {
