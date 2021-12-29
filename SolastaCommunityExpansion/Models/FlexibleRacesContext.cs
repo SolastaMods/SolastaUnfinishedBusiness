@@ -47,7 +47,7 @@ namespace SolastaCommunityExpansion.Models
             { "HalfOrc", new List<string> { "FeatureSetHalfOrcAbilityScoreIncrease" } },
             // unofficial races
             { "FirbolgRace", new List<string> { "AttributeModifierFirbolgStrengthAbilityScoreIncrease", "AttributeModifierFirbolgWisdomAbilityScoreIncrease" } },
-            { "Gnome", new List<string> { "AttributeModifierGnomeAbilityScoreIncrease", "AttributeModifierForestGnomeAbilityScoreIncrease" } }
+            { "GnomeRace", new List<string> { "AttributeModifierGnomeAbilityScoreIncrease", "AttributeModifierForestGnomeAbilityScoreIncrease" } }
         };
 
         private static void RemoveMatchingFeature(List<FeatureUnlockByLevel> unlocks, FeatureDefinition toRemove)
