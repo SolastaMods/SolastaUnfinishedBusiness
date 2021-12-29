@@ -15,6 +15,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
         private static bool DisplayItem { get; set; }
 
+        private static bool DisplayHotkeys { get; set; }
+
         private static bool DisplayMonster { get; set; }
 
         private static bool DisplaySpell { get; set; }
@@ -24,34 +26,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             bool toggle;
             int intValue;
             float floatValue;
-
-            UI.Label("");
-            UI.Label("General:".yellow());
-            UI.Label("");
-
-            toggle = Main.Settings.EnableCharacterExport;
-            if (UI.Toggle("Enable character export from inventory screen " + "[ctrl-(E)xport]".italic().yellow(), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableCharacterExport = toggle;
-            }
-
-            toggle = Main.Settings.EnableHotkeysToToggleHud;
-            if (UI.Toggle("Enable hotkeys to toggle HUD components visibility " + "[ctrl-(C)ontrol Panel / ctrl-(L)og / ctrl-(M)ap / ctrl-(P)arty]".italic().yellow(), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableHotkeysToToggleHud = toggle;
-            }
-
-            toggle = Main.Settings.InvertAltBehaviorOnTooltips;
-            if (UI.Toggle("Invert ALT key behavior on tooltips", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.InvertAltBehaviorOnTooltips = toggle;
-            }
-
-            toggle = Main.Settings.ShowCraftingRecipeInDetailedTooltips;
-            if (UI.Toggle("Show crafting recipe in detailed tooltips", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.ShowCraftingRecipeInDetailedTooltips = toggle;
-            }
 
             #region AdventureLog
             UI.Label("");
@@ -122,7 +96,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (Main.Settings.DontFollowCharacterInBattle)
                 {
                     intValue = Main.Settings.DontFollowMargin;
-                    if (UI.Slider("+ unless character is off or within % of screen edge".italic().yellow(), ref intValue, 0, 20, 1, "%", UI.AutoWidth()))
+                    if (UI.Slider("+ Unless hero is off or within % of screen edge".white().italic(), ref intValue, 0, 20, 1, "%", UI.AutoWidth()))
                     {
                         Main.Settings.DontFollowMargin = intValue;
                     }
@@ -144,7 +118,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                 UI.Label("");
                 floatValue = Main.Settings.BattleCustomTimeScale;
-                if (UI.Slider("Battle timescale modifier".white(), ref floatValue, 1f, 50f, 1f, 1, "", UI.AutoWidth()))
+                if (UI.Slider("Battle timescale modifier".white(), ref floatValue, 1f, 50f, 1f, 1, "M", UI.AutoWidth()))
                 {
                     Main.Settings.BattleCustomTimeScale = floatValue;
                 }
@@ -196,6 +170,39 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (UI.Toggle("Unleash enemies as NPCs " + "[press SHIFT while clicking Select on gadget panel]".italic().yellow(), ref toggle))
                 {
                     Main.Settings.UnleashEnemyAsNpc = toggle;
+                }
+            }
+            #endregion
+
+            #region Hotkeys
+            UI.Label("");
+
+            toggle = DisplayHotkeys;
+            if (UI.DisclosureToggle("Hotkey:".yellow(), ref toggle, 200))
+            {
+                DisplayHotkeys = toggle;
+            }
+
+            if (DisplayHotkeys)
+            {
+                UI.Label("");
+
+                toggle = Main.Settings.EnableCharacterExport;
+                if (UI.Toggle("Enable character export from the inventory screen using " + "ctrl-(E)xport".cyan(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableCharacterExport = toggle;
+                }
+
+                toggle = Main.Settings.EnableHotkeysToToggleHud;
+                if (UI.Toggle("Enable the hotkeys " + "ctrl-(C)ontrol Panel, ctrl-(L)og, ctrl-(M)ap and ctrl-(P)arty ".cyan() + "to toggle the HUD visibility", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableHotkeysToToggleHud = toggle;
+                }
+
+                toggle = Main.Settings.InvertAltBehaviorOnTooltips;
+                if (UI.Toggle("Invert ALT key behavior on tooltips", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.InvertAltBehaviorOnTooltips = toggle;
                 }
             }
             #endregion

@@ -139,6 +139,7 @@ namespace SolastaCommunityExpansion
         // General
         public bool RemoveAttunementRequirements { get; set; }
         public bool RemoveIdentifcationRequirements { get; set; }
+        public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
         public int RecipeCost { get; set; } = 200;
 
         public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
@@ -164,6 +165,7 @@ namespace SolastaCommunityExpansion
         // Campaigns and Locations
         public bool EnableSaveByLocation { get; set; }
         public bool EnableTelemaCampaign { get; set; }
+        public bool EnableTeleportParty { get; set; }
         public bool OverrideMinMaxLevel { get; set; }
         public int OverridePartySize { get; set; } = Models.DungeonMakerContext.GAME_PARTY_SIZE;
         public int maxBackupFilesPerLocationCampaign { get; set; } = 10;
@@ -180,12 +182,6 @@ namespace SolastaCommunityExpansion
         //
         // Game UI
         //
-
-        // General
-        public bool EnableCharacterExport { get; set; }
-        public bool EnableHotkeysToToggleHud { get; set; }
-        public bool InvertAltBehaviorOnTooltips { get; set; }
-        public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
 
         // Adventure Log
         public bool EnableAdventureLogBanterLines { get; set; }
@@ -212,6 +208,11 @@ namespace SolastaCommunityExpansion
         public bool EnableInventoryFilteringAndSorting { get; set; } = true;
         public bool EnableInvisibleCrownOfTheMagister { get; set; }
         public string EmpressGarbAppearance { get; set; } = "Normal";
+
+        // Hotkeys
+        public bool EnableCharacterExport { get; set; }
+        public bool EnableHotkeysToToggleHud { get; set; }
+        public bool InvertAltBehaviorOnTooltips { get; set; }
 
         // Monsters
         public bool HideMonsterHitPoints { get; set; }
