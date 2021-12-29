@@ -83,19 +83,24 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void UpdateCraftingItemsInDMState(string key)
         {
-            bool available = Main.Settings.CraftingItemsInDM.Contains(key);
             foreach (ItemDefinition recipeBookDefinition in RecipeBooks[key])
             {
-                recipeBookDefinition.DocumentDescription.RecipeDefinition.CraftedItem.SetInDungeonEditor(available);
+                var craftedItem = recipeBookDefinition.DocumentDescription.RecipeDefinition.CraftedItem;
+                var factionRelicDescription = new FactionRelicDescription();
+
+                craftedItem.SetFactionRelicDescription(factionRelicDescription);
+                craftedItem.SetInDungeonEditor(true);
             }
         }
 
         internal static void UpdateCraftingRecipesInDMState(string key)
         {
-            bool available = Main.Settings.CraftingRecipesInDM.Contains(key);
             foreach (ItemDefinition recipeBookDefinition in RecipeBooks[key])
             {
-                recipeBookDefinition.SetInDungeonEditor(available);
+                var factionRelicDescription = new FactionRelicDescription();
+
+                recipeBookDefinition.SetFactionRelicDescription(factionRelicDescription);
+                recipeBookDefinition.SetInDungeonEditor(true);
             }
         }
 

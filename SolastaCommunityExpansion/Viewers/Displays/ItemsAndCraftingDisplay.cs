@@ -31,33 +31,37 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     ItemCraftingContext.AddToStore(key);
                 }
 
-                toggle = Main.Settings.CraftingItemsInDM.Contains(key);
-                if (UI.Toggle("Items in DM", ref toggle, UI.Width(125)))
-                {
-                    if (toggle)
-                    {
-                        Main.Settings.CraftingItemsInDM.Add(key);
-                    }
-                    else
-                    {
-                        Main.Settings.CraftingItemsInDM.Remove(key);
-                    }
-                    ItemCraftingContext.UpdateCraftingItemsInDMState(key);
-                }
+                //
+                // BUG: crafting items and recipes must always be added to DM
+                //
 
-                toggle = Main.Settings.CraftingRecipesInDM.Contains(key);
-                if (UI.Toggle("Recipes in DM", ref toggle, UI.Width(125)))
-                {
-                    if (toggle)
-                    {
-                        Main.Settings.CraftingRecipesInDM.Add(key);
-                    }
-                    else
-                    {
-                        Main.Settings.CraftingRecipesInDM.Remove(key);
-                    }
-                    ItemCraftingContext.UpdateCraftingRecipesInDMState(key);
-                }
+                //toggle = Main.Settings.CraftingItemsInDM.Contains(key);
+                //if (UI.Toggle("Items in DM", ref toggle, UI.Width(125)))
+                //{
+                //    if (toggle)
+                //    {
+                //        Main.Settings.CraftingItemsInDM.Add(key);
+                //    }
+                //    else
+                //    {
+                //        Main.Settings.CraftingItemsInDM.Remove(key);
+                //    }
+                //    ItemCraftingContext.UpdateCraftingItemsInDMState(key);
+                //}
+
+                //toggle = Main.Settings.CraftingRecipesInDM.Contains(key);
+                //if (UI.Toggle("Recipes in DM", ref toggle, UI.Width(125)))
+                //{
+                //    if (toggle)
+                //    {
+                //        Main.Settings.CraftingRecipesInDM.Add(key);
+                //    }
+                //    else
+                //    {
+                //        Main.Settings.CraftingRecipesInDM.Remove(key);
+                //    }
+                //    ItemCraftingContext.UpdateCraftingRecipesInDMState(key);
+                //}
             }
         }
 
@@ -132,27 +136,31 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         }
                     }
 
-                    toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingItemsInDM.Count;
-                    if (UI.Toggle("All items in DM", ref toggle, UI.Width(125)))
-                    {
-                        Main.Settings.CraftingItemsInDM.Clear();
+                    //
+                    // BUG: crafting items and recipes must always be added to DM
+                    //
 
-                        if (toggle)
-                        {
-                            Main.Settings.CraftingItemsInDM.AddRange(ItemCraftingContext.RecipeBooks.Keys);
-                        }
-                    }
+                    //toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingItemsInDM.Count;
+                    //if (UI.Toggle("All items in DM", ref toggle, UI.Width(125)))
+                    //{
+                    //    Main.Settings.CraftingItemsInDM.Clear();
 
-                    toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingRecipesInDM.Count;
-                    if (UI.Toggle("All recipes in DM", ref toggle, UI.Width(125)))
-                    {
-                        Main.Settings.CraftingRecipesInDM.Clear();
+                    //    if (toggle)
+                    //    {
+                    //        Main.Settings.CraftingItemsInDM.AddRange(ItemCraftingContext.RecipeBooks.Keys);
+                    //    }
+                    //}
 
-                        if (toggle)
-                        {
-                            Main.Settings.CraftingRecipesInDM.AddRange(ItemCraftingContext.RecipeBooks.Keys);
-                        }
-                    }
+                    //toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingRecipesInDM.Count;
+                    //if (UI.Toggle("All recipes in DM", ref toggle, UI.Width(125)))
+                    //{
+                    //    Main.Settings.CraftingRecipesInDM.Clear();
+
+                    //    if (toggle)
+                    //    {
+                    //        Main.Settings.CraftingRecipesInDM.AddRange(ItemCraftingContext.RecipeBooks.Keys);
+                    //    }
+                    //}
                 }
 
                 UI.Label("");
