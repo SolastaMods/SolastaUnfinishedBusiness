@@ -42,7 +42,7 @@ namespace SolastaCommunityExpansion.Level20.Features
             hero.RefreshAll();
         }
 
-        private void ModifyAttributeAndMax(RulesetCharacterHero hero, string attributeName, int amount)
+        private static void ModifyAttributeAndMax(RulesetCharacterHero hero, string attributeName, int amount)
         {
             RulesetAttribute attribute = hero.GetAttribute(attributeName);
             attribute.BaseValue += amount;
@@ -50,11 +50,7 @@ namespace SolastaCommunityExpansion.Level20.Features
             attribute.MaxEditableValue += amount;
             attribute.Refresh();
 
-            RulesetActor.AbilityScoreIncreasedHandler abilityScoreIncreased = hero.AbilityScoreIncreased;
-            if (abilityScoreIncreased != null)
-            {
-                abilityScoreIncreased((RulesetActor)hero, attributeName, amount, amount);
-            }
+            hero.AbilityScoreIncreased?.Invoke(hero, attributeName, amount, amount);
         }
     }
 }

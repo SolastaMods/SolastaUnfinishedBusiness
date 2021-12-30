@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using TA;
 using static SolastaModApi.DatabaseHelper.GadgetBlueprints;
@@ -11,15 +13,14 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameGadget_ComputeIsRevealed
     {
-        //
-        // TODO: @ImpPhil, tweak this array per your needs on the map feature
-        //
         private static readonly GadgetBlueprint[] gadgetBlueprintsToRevealAfterDiscovery = new GadgetBlueprint[]
         {
             Exit,
-            Node,
+            ExitMultiple,
             TeleporterIndividual,
-            TeleporterParty
+            TeleporterParty,
+            VirtualExit,
+            VirtualExitMultiple,
         };
 
         internal static void Postfix(GameGadget __instance, ref bool __result)
@@ -29,9 +30,11 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                 return;
             }
 
-            var gadgetBlueprint = Gui.GameLocation.UserLocation.GadgetsByName[__instance.UniqueNameId].GadgetBlueprint;
+            var userGadget = Gui.GameLocation.UserLocation.UserRooms
+                .SelectMany(a => a.UserGadgets)
+                .FirstOrDefault(b => b.UniqueName == __instance.UniqueNameId);        
 
-            if (Array.IndexOf(gadgetBlueprintsToRevealAfterDiscovery, gadgetBlueprint) == -1)
+            if (userGadget == null || Array.IndexOf(gadgetBlueprintsToRevealAfterDiscovery, userGadget.GadgetBlueprint) < 0)
             {
                 return;
             }
@@ -47,13 +50,27 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
 
             var feedbackPosition = new int3(x, 0, y);
             var referenceBoundingBox = new BoxInt(feedbackPosition, feedbackPosition);
-
+              
             var gridAccessor = GridAccessor.Default;
 
             foreach (var position in referenceBoundingBox.EnumerateAllPositionsWithin())
             {
                 if (gridAccessor.Visited(position))
                 {
+                    var gameLocationService = ServiceRepository.GetService<IGameLocationService>();
+                    var worldGadgets = gameLocationService.WorldLocation.WorldSectors.SelectMany(ws => ws.WorldGadgets);
+                    var worldGadget = worldGadgets.FirstOrDefault(wg => wg.GameGadget == __instance);
+
+                    var conditionNames = AccessTools.Field(__instance.GetType(), "conditionNames").GetValue(__instance) as List<string>;
+
+                    var invisibleIndex = conditionNames.IndexOf("Invisible");
+                    var isInvisible = invisibleIndex >= 0 && __instance.CurrentConditionStates[invisibleIndex];
+
+                    var enabledIndex = conditionNames.IndexOf("Enabled");
+                    var isEnabled = invisibleIndex >= 0 && __instance.CurrentConditionStates[enabledIndex];
+
+                    GameLocationManager_ReadyLocation.SetGadgetVisibility(worldGadget, isEnabled && !isInvisible);
+
                     revealedField.SetValue(__instance, true);
                     __result = true;
 

@@ -15,10 +15,10 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 
     public class FeatureDefinitionRemoveGrantedFeature : FeatureDefinition
     {
-        public int ClassLevel;
-        public FeatureDefinition FeatureToRemove;
-        public CharacterClassDefinition CharacterClass;
-        public CharacterSubclassDefinition CharacterSubclass;
+        public int ClassLevel { get; set; }
+        public FeatureDefinition FeatureToRemove { get; set; }
+        public CharacterClassDefinition CharacterClass { get; set; }
+        public CharacterSubclassDefinition CharacterSubclass { get; set; }
         public string Tag => CharacterSubclass == null ? AttributeDefinitions.GetClassTag(CharacterClass, ClassLevel) : AttributeDefinitions.GetSubclassTag(CharacterClass, ClassLevel, CharacterSubclass);
     }
 

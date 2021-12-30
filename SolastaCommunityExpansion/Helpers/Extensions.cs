@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 namespace SolastaCommunityExpansion.Helpers
 {
@@ -21,6 +22,25 @@ namespace SolastaCommunityExpansion.Helpers
             actor.EnumerateFeaturesToBrowse<T>(features, featuresOrigin);
             return features.OfType<T>().ToList();
         }
+
+        /// <summary>
+        /// CheckIsInvisible extension matching CheckIsEnabled() etc GameGadget methods
+        /// </summary>
+        /// <param name="gadget"></param>
+        /// <returns></returns>
+        public static bool CheckIsInvisible(this GameGadget gadget)
+        {
+            var result = (bool)CheckConditionName.Invoke(gadget, new object[] { "Invisible", true, false });
+
+            Main.Log($"{gadget.UniqueNameId}, Invisible={result}");
+
+            return result;
+        }
+
+#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
+        private static readonly MethodInfo CheckConditionName
+            = typeof(GameGadget).GetMethod("CheckConditionName", BindingFlags.Instance | BindingFlags.NonPublic);
+#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
     }
 
     public enum ExtraRitualCasting

@@ -152,22 +152,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                 UI.Label("");
 
-                toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
-                if (UI.Toggle("Enable additional icons for camp and exit on level map", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableAdditionalIconsOnLevelMap = toggle;
-                }
-
-                UI.Label("");
-
-                toggle = Main.Settings.FollowCharactersOnTeleport;
-                if (UI.Toggle("Follow character(s) when teleported", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.FollowCharactersOnTeleport = toggle;
-                }
-
-                UI.Label("");
-
                 toggle = Main.Settings.UnleashNpcAsEnemy;
                 if (UI.Toggle("Unleash NPCs as enemies " + "[press SHIFT while clicking Select on gadget panel]".italic().yellow(), ref toggle))
                 {
