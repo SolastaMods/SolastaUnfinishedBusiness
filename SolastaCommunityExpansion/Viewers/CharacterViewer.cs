@@ -6,8 +6,6 @@ using static SolastaCommunityExpansion.Viewers.Displays.CharacterDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.FeatsDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.FightingStylesDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.ClassesAndSubclassesDisplay;
-using static SolastaCommunityExpansion.Viewers.Displays.SpellsDisplay;
-using static SolastaCommunityExpansion.Viewers.Displays.PowersDisplay;
 
 namespace SolastaCommunityExpansion.Viewers
 {
@@ -22,11 +20,9 @@ namespace SolastaCommunityExpansion.Viewers
         private static readonly NamedAction[] actions = 
         {
             new NamedAction("General", DisplayCharacter),
-            new NamedAction("Feats", DisplayFeats),
             new NamedAction("Classes & Subclasses", DisplayClassesAndSubclasses),
-            new NamedAction("Fighting Styles", DisplayFightingStyles),
-            new NamedAction("Spells", DisplaySpells),
-            new NamedAction("Powers", DisplayPowers),
+            new NamedAction("Feats", DisplayFeats),
+            new NamedAction("Fighting Styles", DisplayFightingStyles)
         };
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
