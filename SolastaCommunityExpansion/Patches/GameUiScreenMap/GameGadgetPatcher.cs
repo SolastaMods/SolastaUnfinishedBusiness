@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using TA;
 using static SolastaModApi.DatabaseHelper.GadgetBlueprints;
@@ -15,11 +16,10 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
         {
             Exit,
             ExitMultiple,
-            Node,
+            TeleporterIndividual,
+            TeleporterParty,
             VirtualExit,
             VirtualExitMultiple,
-            TeleporterIndividual,
-            TeleporterParty
         };
 
         internal static void Postfix(GameGadget __instance, ref bool __result)
@@ -29,14 +29,11 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                 return;
             }
 
-            if(!Gui.GameLocation.UserLocation.GadgetsByName.TryGetValue(__instance.UniqueNameId, out var gadget))
-            {
-                return;
-            }
+            var userGadget = Gui.GameLocation.UserLocation.UserRooms
+                .SelectMany(a => a.UserGadgets)
+                .FirstOrDefault(b => b.UniqueName == __instance.UniqueNameId);        
 
-            var gadgetBlueprint = gadget.GadgetBlueprint;
-
-            if (Array.IndexOf(gadgetBlueprintsToRevealAfterDiscovery, gadgetBlueprint) == -1)
+            if (Array.IndexOf(gadgetBlueprintsToRevealAfterDiscovery, userGadget.GadgetBlueprint) < 0)
             {
                 return;
             }
@@ -52,13 +49,19 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
 
             var feedbackPosition = new int3(x, 0, y);
             var referenceBoundingBox = new BoxInt(feedbackPosition, feedbackPosition);
-
+              
             var gridAccessor = GridAccessor.Default;
 
             foreach (var position in referenceBoundingBox.EnumerateAllPositionsWithin())
             {
                 if (gridAccessor.Visited(position))
                 {
+                    var gameLocationService = ServiceRepository.GetService<IGameLocationService>();
+                    var worldGadgets = gameLocationService.WorldLocation.WorldSectors.SelectMany(ws => ws.WorldGadgets);
+                    var worldGadget = worldGadgets.FirstOrDefault(wg => wg.GameGadget == __instance);
+
+                    GameLocationManager_ReadyLocation.SetGadgetVisibility(worldGadget, true);
+
                     revealedField.SetValue(__instance, true);
                     __result = true;
 
