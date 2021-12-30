@@ -38,10 +38,17 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                         {
                             itemType = (MapGadgetItem.ItemType)(-1);
                         }
-                        else if (gameGadget.UniqueNameId.IndexOf("exit", System.StringComparison.OrdinalIgnoreCase) >= 0)
+                        else if (gameGadget.UniqueNameId.StartsWith("Exit"))
                         {
-                            // exits are revealed by default, so all are shown
                             itemType = (MapGadgetItem.ItemType)(-2);
+                        }
+                        else if (gameGadget.UniqueNameId.StartsWith("Teleporter"))
+                        {
+                            itemType = (MapGadgetItem.ItemType)(-3);
+                        }
+                        else if (gameGadget.UniqueNameId.StartsWith("Node"))
+                        {
+                            itemType = (MapGadgetItem.ItemType)(-4);
                         }
                         else if (gameGadget.CheckIsLocked())
                         {
