@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using SolastaCommunityExpansion.Helpers;
 using TA;
 using static SolastaModApi.DatabaseHelper.GadgetBlueprints;
 
@@ -23,16 +23,16 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
             VirtualExitMultiple,
         };
 
-        internal static void Postfix(GameGadget __instance, ref bool __result)
+        internal static void Postfix(GameGadget __instance, ref bool ___revealed, ref bool __result)
         {
-            if (!__instance.Revealed || Gui.GameLocation.UserLocation == null || !Main.Settings.EnableAdditionalIconsOnLevelMap )
+            if (!__instance.Revealed || Gui.GameLocation.UserLocation == null || !Main.Settings.EnableAdditionalIconsOnLevelMap)
             {
                 return;
             }
 
             var userGadget = Gui.GameLocation.UserLocation.UserRooms
                 .SelectMany(a => a.UserGadgets)
-                .FirstOrDefault(b => b.UniqueName == __instance.UniqueNameId);        
+                .FirstOrDefault(b => b.UniqueName == __instance.UniqueNameId);
 
             if (userGadget == null || Array.IndexOf(gadgetBlueprintsToRevealAfterDiscovery, userGadget.GadgetBlueprint) < 0)
             {
@@ -40,9 +40,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
             }
 
             // reverts the revealed state and recalculates it
-            var revealedField = AccessTools.Field(__instance.GetType(), "revealed");
-
-            revealedField.SetValue(__instance, false);
+            ___revealed = false;
             __result = false;
 
             var x = (int)__instance.FeedbackPosition.x;
@@ -50,7 +48,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
 
             var feedbackPosition = new int3(x, 0, y);
             var referenceBoundingBox = new BoxInt(feedbackPosition, feedbackPosition);
-              
+
             var gridAccessor = GridAccessor.Default;
 
             foreach (var position in referenceBoundingBox.EnumerateAllPositionsWithin())
@@ -61,17 +59,12 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                     var worldGadgets = gameLocationService.WorldLocation.WorldSectors.SelectMany(ws => ws.WorldGadgets);
                     var worldGadget = worldGadgets.FirstOrDefault(wg => wg.GameGadget == __instance);
 
-                    var conditionNames = AccessTools.Field(__instance.GetType(), "conditionNames").GetValue(__instance) as List<string>;
-
-                    var invisibleIndex = conditionNames.IndexOf("Invisible");
-                    var isInvisible = invisibleIndex >= 0 && __instance.CurrentConditionStates[invisibleIndex];
-
-                    var enabledIndex = conditionNames.IndexOf("Enabled");
-                    var isEnabled = invisibleIndex >= 0 && __instance.CurrentConditionStates[enabledIndex];
+                    var isInvisible = __instance.IsInvisible();
+                    var isEnabled = __instance.IsEnabled();
 
                     GameLocationManager_ReadyLocation.SetGadgetVisibility(worldGadget, isEnabled && !isInvisible);
 
-                    revealedField.SetValue(__instance, true);
+                    ___revealed = true;
                     __result = true;
 
                     break;
