@@ -27,12 +27,6 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker
                 return;
             }
 
-            // get extents
-            var minx = rooms.Min(ur => (int?)ur.Position.x) ?? 0;
-            var maxx = rooms.Max(ur => (int?)(ur.Position.x + ur.OrientedWidth)) ?? 0;
-            var miny = rooms.Min(ur => (int?)ur.Position.y) ?? 0;
-            var maxy = rooms.Max(ur => (int?)(ur.Position.y + ur.OrientedHeight)) ?? 0;
-
             switch (command)
             {
                 case InputCommands.Id.RotateCCW:
@@ -86,7 +80,9 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker
                 // NOTE: NotifyBeforeModification
                 // sets anythingModified = true, calls RefreshButtons() and stores current dungeon in undo manager
 
+#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
                 var rb = typeof(UserLocationEditorScreen).GetMethod("NotifyBeforeModification", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
 
                 rb?.Invoke(__instance, null);
             }
