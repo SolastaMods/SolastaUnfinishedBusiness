@@ -163,9 +163,11 @@ namespace SolastaCommunityExpansion
         //
 
         // Campaigns and Locations
+        public bool EnableAdditionalIconsOnLevelMap { get; set; }
         public bool EnableSaveByLocation { get; set; }
         public bool EnableTelemaCampaign { get; set; }
         public bool EnableTeleportParty { get; set; }
+        public bool FollowCharactersOnTeleport { get; set; }
         public bool OverrideMinMaxLevel { get; set; }
         public int OverridePartySize { get; set; } = Models.DungeonMakerContext.GAME_PARTY_SIZE;
         public int maxBackupFilesPerLocationCampaign { get; set; } = 10;
@@ -200,8 +202,6 @@ namespace SolastaCommunityExpansion
         // Dungeon Maker
         public bool AllowGadgetsToBePlacedAnywhere { get; set; }
         public bool AllowPropsToBePlacedAnywhere { get; set; }
-        public bool EnableAdditionalIconsOnLevelMap { get; set; }
-        public bool FollowCharactersOnTeleport { get; set; }
         public bool UnleashNpcAsEnemy { get; set; }
         public bool UnleashEnemyAsNpc { get; set; }
 
