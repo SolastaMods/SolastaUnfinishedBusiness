@@ -1,8 +1,9 @@
 ﻿using HarmonyLib;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
-namespace SolastaCommunityExpansion.Patches.NegativeFeature
+namespace SolastaCommunityExpansion.Patches.RemoveGrantedFeature
 {
     //
     // this patch shouldn't be protected
@@ -14,13 +15,13 @@ namespace SolastaCommunityExpansion.Patches.NegativeFeature
         internal static void Prefix(CharacterBuildingManager __instance)
         {
             var activeFeatures = __instance.HeroCharacter.ActiveFeatures;
-            var negativeFeatures = activeFeatures.SelectMany(x => x.Value.FindAll(y => y is Subclasses.Rogue.Thug.NegativeFeatureDefinition));
+            var removeGrantedFeatures = activeFeatures.SelectMany(x => x.Value.FindAll(y => y is FeatureDefinitionRemoveGrantedFeature));
 
-            foreach (Subclasses.Rogue.Thug.NegativeFeatureDefinition negativeFeature in negativeFeatures)
+            foreach (FeatureDefinitionRemoveGrantedFeature removeGrantedFeature in removeGrantedFeatures)
             {
-                if (activeFeatures.TryGetValue(negativeFeature.Tag, out var featureDefinitions))
+                if (activeFeatures.TryGetValue(removeGrantedFeature.Tag, out var featureDefinitions))
                 {
-                    featureDefinitions.RemoveAll(x => x == negativeFeature.FeatureToRemove);
+                    featureDefinitions.RemoveAll(x => x == removeGrantedFeature.FeatureToRemove);
                 }
             }
         }

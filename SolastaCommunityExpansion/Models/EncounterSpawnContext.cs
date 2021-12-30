@@ -9,6 +9,10 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class EncountersSpawnContext
     {
+        private const InputCommands.Id CTRL_SHIFT_E = (InputCommands.Id)44440005;
+        
+        internal const int MAX_ENCOUNTER_CHARACTERS = 16;
+
         private static ulong EncounterId { get; set; } = 10000;
 
         private static readonly List<RulesetCharacterHero> Heroes = new List<RulesetCharacterHero>();
@@ -19,12 +23,12 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
-            ServiceRepository.GetService<IInputService>().RegisterCommand(Settings.CTRL_SHIFT_E, 101, 304, 306, -1, -1, -1);
+            ServiceRepository.GetService<IInputService>().RegisterCommand(CTRL_SHIFT_E, 101, 304, 306, -1, -1, -1);
         }
 
         internal static void AddToEncounter(RulesetCharacterHero hero)
         {
-            if (EncounterCharacters.Count < Settings.MAX_ENCOUNTER_CHARACTERS)
+            if (EncounterCharacters.Count < MAX_ENCOUNTER_CHARACTERS)
             {
                 EncounterCharacters.Add(hero);
             }
@@ -32,7 +36,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void AddToEncounter(MonsterDefinition monsterDefinition)
         {
-            if (EncounterCharacters.Count < Settings.MAX_ENCOUNTER_CHARACTERS)
+            if (EncounterCharacters.Count < MAX_ENCOUNTER_CHARACTERS)
             {
                 EncounterCharacters.Add(new RulesetCharacterMonster(monsterDefinition, 0, new RuleDefinitions.SpawnOverrides(), GadgetDefinitions.CreatureSex.Male));
             }
@@ -97,7 +101,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void ConfirmStageEncounter(InputCommands.Id command)
         {
-            if (command == Settings.CTRL_SHIFT_E && EncounterCharacters.Count > 0)
+            if (command == CTRL_SHIFT_E && EncounterCharacters.Count > 0)
             {
                 var position = GetEncounterPosition();
 
@@ -130,9 +134,9 @@ namespace SolastaCommunityExpansion.Models
             var sizeList = new List<RulesetActor.SizeParameters>();
             var characters = new List<GameLocationCharacter>();
 
-            for (var ix = 0; ix < 4; ix++)
+            for (var iy = 0; iy < 4; iy++)
             {
-                for (var iy = 0; iy < 4; iy++)
+                for (var ix = 0; ix < 4; ix++)
                 {
                     formationPositions.Add(new int3(ix, 0, iy));
                 }
@@ -148,7 +152,6 @@ namespace SolastaCommunityExpansion.Models
                     FormationDefinition = EncounterCharacters.Count > 1 ? Squad4 : SingleCreature
                 });
 
-                sizeList.Add(character.SizeParams);
                 gameLocationCharacter.CollectExistingLightSources(true);
                 gameLocationCharacter.RefreshActionPerformances();
                 gameLocationCharacter.RulesetCharacter.SetBaseFaction(HostileMonsters);
@@ -164,7 +167,6 @@ namespace SolastaCommunityExpansion.Models
                 gameLocationCharacterService.RevealCharacter(characters[index]);
             }
 
-            gameLocationCharacterService.RefreshAllCharacters();
             Heroes.Clear();
             Monsters.Clear();
             EncounterCharacters.Clear();

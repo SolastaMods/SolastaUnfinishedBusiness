@@ -5,6 +5,8 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class PlayerControllerContext
     {
+        private const int PLAYER_CONTROLLER_ID = 1;
+
         private static readonly Dictionary<GameLocationCharacter, int> controllersChoices = new Dictionary<GameLocationCharacter, int>();
 
         private static int[] playerCharactersChoices { get; set; }
@@ -61,7 +63,7 @@ namespace SolastaCommunityExpansion.Models
             for (var i = 0; i < PlayerCharacters.Count; i++)
             {
                 var playerCharacter = PlayerCharacters[i];
-                var controllerId = reset || controllersChoices[playerCharacter] == 0 ? Settings.PLAYER_CONTROLLER_ID : PlayerControllerManager.DmControllerId;
+                var controllerId = reset || controllersChoices[playerCharacter] == 0 ? PLAYER_CONTROLLER_ID : PlayerControllerManager.DmControllerId;
 
                 playerCharacter.ControllerId = controllerId;
             }

@@ -1,4 +1,5 @@
-﻿using SolastaModApi;
+﻿using SolastaCommunityExpansion.CustomFeatureDefinitions;
+using SolastaModApi;
 using SolastaModApi.Extensions;
 using System;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalDamages;
@@ -29,6 +30,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
 
         internal Thug()
         {
+            var featureName = AdditionalDamageRogueSneakAttack.Name + "Remove";
             var guiPresentation = new GuiPresentationBuilder(
                 "Subclass/&KSRogueSubclassThugDescription",
                 "Subclass/&KSRogueSubclassThugTitle")
@@ -37,35 +39,17 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
 
             Subclass = new CharacterSubclassDefinitionBuilder(RogueSubclassThugName, RogueSubclassThugNameGuid)
                 .SetGuiPresentation(guiPresentation)
-                .AddFeatureAtLevel(NegativeFeatureBuilder.AdditionalDamageRogueSneakAttackRemove, 3)
+                .AddFeatureAtLevel(new RemoveGrantedFeatureBuilder(
+                    featureName,
+                    GuidHelper.Create(Thug.SubclassNamespace, featureName).ToString(),
+                    AdditionalDamageRogueSneakAttack,
+                    1,
+                    DatabaseHelper.CharacterClassDefinitions.Rogue).AddToDB(), 3)
                 .AddFeatureAtLevel(RogueSubclassThugExploitVulnerabilitiesSneakAttackBuilder.ExploitVulnerabilities, 3)
                 .AddFeatureAtLevel(RogueSubclassThugProficienciesBuilder.ThugProficiencies, 3)
                 .AddFeatureAtLevel(RogueSubclassThugBrutalMethodsBuilder.ThugBrutalMethods, 9)
                 .AddFeatureAtLevel(RogueSubclassThugOvercomeCompetitionBuilder.ThugOvercomeCompetition, 13)
                 .AddToDB();
-        }
-
-        internal class NegativeFeatureDefinition : FeatureDefinition
-        {
-            public string Tag;
-            public FeatureDefinition FeatureToRemove;
-        }
-
-        private sealed class NegativeFeatureBuilder : BaseDefinitionBuilder<NegativeFeatureDefinition>
-        {
-            private NegativeFeatureBuilder(string tag, FeatureDefinition featureToRemove)
-                : base(featureToRemove.Name + "Remove", GuidHelper.Create(Thug.SubclassNamespace, featureToRemove.Name + "Remove").ToString())
-            {
-                Definition.Tag = tag;
-                Definition.FeatureToRemove = featureToRemove;
-                Definition.GuiPresentation.SetHidden(true);
-            }
-
-            private static NegativeFeatureDefinition CreateAndAddToDB(string tag, FeatureDefinition featureToRemove)
-                => new NegativeFeatureBuilder(tag, featureToRemove).AddToDB();
-
-            internal static readonly NegativeFeatureDefinition AdditionalDamageRogueSneakAttackRemove =
-                CreateAndAddToDB("03ClassRogue1", AdditionalDamageRogueSneakAttack);
         }
 
         private sealed class RogueSubclassThugExploitVulnerabilitiesSneakAttackBuilder : BaseDefinitionBuilder<FeatureDefinitionAdditionalDamage>
