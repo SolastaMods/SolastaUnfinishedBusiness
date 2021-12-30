@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
             ExitMultiple,
             Node,
             TeleporterIndividual,
-            TeleporterParty
+            TeleporterParty,
             VirtualExit,
             VirtualExitMultiple,
         };
