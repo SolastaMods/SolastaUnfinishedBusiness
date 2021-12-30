@@ -38,7 +38,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                         {
                             itemType = (MapGadgetItem.ItemType)(-1);
                         }
-                        else if (gameGadget.UniqueNameId.StartsWith("Exit"))
+                        else if (gameGadget.UniqueNameId.StartsWith("Exit") || gameGadget.UniqueNameId.StartsWith("VirtualExit"))
                         {
                             itemType = (MapGadgetItem.ItemType)(-2);
                         }

@@ -11,13 +11,13 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameGadget_ComputeIsRevealed
     {
-        //
-        // TODO: @ImpPhil, tweak this array per your needs on the map feature
-        //
         private static readonly GadgetBlueprint[] gadgetBlueprintsToRevealAfterDiscovery = new GadgetBlueprint[]
         {
             Exit,
+            ExitMultiple,
             Node,
+            VirtualExit,
+            VirtualExitMultiple,
             TeleporterIndividual,
             TeleporterParty
         };
@@ -29,7 +29,12 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                 return;
             }
 
-            var gadgetBlueprint = Gui.GameLocation.UserLocation.GadgetsByName[__instance.UniqueNameId].GadgetBlueprint;
+            if(!Gui.GameLocation.UserLocation.GadgetsByName.TryGetValue(__instance.UniqueNameId, out var gadget))
+            {
+                return;
+            }
+
+            var gadgetBlueprint = gadget.GadgetBlueprint;
 
             if (Array.IndexOf(gadgetBlueprintsToRevealAfterDiscovery, gadgetBlueprint) == -1)
             {
