@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
+using SolastaCommunityExpansion.Helpers;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Reflection;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
@@ -43,12 +43,9 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                         {
                             itemType = (MapGadgetItem.ItemType)(-2);
                         }
-                        else if (gameGadget.UniqueNameId.StartsWith("Teleporter"))
+                        else if (gameGadget.UniqueNameId.StartsWith("Teleporter") && !gameGadget.CheckIsInvisible())
                         {
-                            if (!IsInvisible(gameGadget))
-                            {
-                                itemType = (MapGadgetItem.ItemType)(-3);
-                            }
+                            itemType = (MapGadgetItem.ItemType)(-3);
                         }
                         else if (gameGadget.CheckIsLocked())
                         {
@@ -86,20 +83,6 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                 ___sortedItems.Add(___mapGadgetItems[index]);
 
             return false;
-
-            bool IsInvisible(GameGadget gadget)
-            {
-                var result = (bool)CheckConditionName.Invoke(gadget, new object[] { "Invisible", true, false });
-
-                Main.Log($"{gadget.UniqueNameId}, Invisible={result}");
-
-                return result;
-            }
         }
-
-        private static readonly MethodInfo CheckConditionName
-#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
-            = typeof(GameGadget).GetMethod("CheckConditionName", BindingFlags.Instance | BindingFlags.NonPublic);
-#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
     }
 }
