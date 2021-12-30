@@ -49,18 +49,20 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
 
             var feedbackPosition = new int3(x, 0, y);
             var referenceBoundingBox = new BoxInt(feedbackPosition, feedbackPosition);
-            var gameLocationService = ServiceRepository.GetService<IGameLocationService>();
-            var worldGadgets = gameLocationService.WorldLocation.WorldSectors.SelectMany(ws => ws.WorldGadgets);
+              
             var gridAccessor = GridAccessor.Default;
 
             foreach (var position in referenceBoundingBox.EnumerateAllPositionsWithin())
             {
                 if (gridAccessor.Visited(position))
                 {
+                    var gameLocationService = ServiceRepository.GetService<IGameLocationService>();
+                    var worldGadgets = gameLocationService.WorldLocation.WorldSectors.SelectMany(ws => ws.WorldGadgets);
                     var worldGadget = worldGadgets.FirstOrDefault(wg => wg.GameGadget == __instance);
 
                     GameLocationManager_ReadyLocation.SetGadgetVisibility(worldGadget, true);
 
+                    revealedField.SetValue(__instance, true);
                     __result = true;
 
                     break;
