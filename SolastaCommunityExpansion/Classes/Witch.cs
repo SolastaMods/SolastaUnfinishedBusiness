@@ -1149,7 +1149,7 @@ namespace SolastaCommunityExpansion.Classes
             hpConditionDefinition.SetAllowMultipleInstances(true);
             
             // Find a better place to put this in?
-            hpConditionDefinition.SetAdditionalDamageType("Witch");
+            hpConditionDefinition.SetAdditionalDamageType("ClassWitch");
 
             summoningAffinity.AddedConditions.Add(acConditionDefinition);
             summoningAffinity.AddedConditions.Add(stConditionDefinition);
