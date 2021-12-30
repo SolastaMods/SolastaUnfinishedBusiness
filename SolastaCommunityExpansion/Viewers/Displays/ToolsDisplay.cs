@@ -17,6 +17,16 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("Campaigns and Locations:".yellow());
             UI.Label("");
 
+            UI.Label("");
+
+            toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
+            if (UI.Toggle("Enable additional icons for camp and exit on level map", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableAdditionalIconsOnLevelMap = toggle;
+            }
+
+            UI.Label("");
+
             toggle = Main.Settings.EnableSaveByLocation;
             if (UI.Toggle("Enable save by campaigns / locations", ref toggle, UI.AutoWidth()))
             {
@@ -33,6 +43,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (UI.Toggle("Enable the hotkey " + "ctrl-shift-(T)eleport".cyan() + " in game locations" + "\nYou might break quests or maps if you teleport to an undiscovered place".italic().yellow(), ref toggle))
             {
                 Main.Settings.EnableTeleportParty = toggle;
+            }
+
+            UI.Label("");
+
+            toggle = Main.Settings.FollowCharactersOnTeleport;
+            if (UI.Toggle("Follow character(s) when teleported", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.FollowCharactersOnTeleport = toggle;
             }
 
             UI.Label("");
