@@ -34,11 +34,11 @@ namespace SolastaCommunityExpansion.Patches.ExtraSummoningModifiers
                                 {
                                     case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus:
                                         sourceAmount = formsParams.sourceCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-                                        conditionToAmount.Add(addedCondition.Name, sourceAmount);
+                                        conditionToAmount.AddOrReplace(addedCondition.Name, sourceAmount);
                                         break;
                                     case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceCharacterLevel:
                                         sourceAmount = formsParams.sourceCharacter.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
-                                        conditionToAmount.Add(addedCondition.Name, sourceAmount);
+                                        conditionToAmount.AddOrReplace(addedCondition.Name, sourceAmount);
                                         break;
                                     case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel:
                                         var sourceCharacter = (RulesetCharacterHero)formsParams.sourceCharacter;
@@ -49,7 +49,7 @@ namespace SolastaCommunityExpansion.Patches.ExtraSummoningModifiers
                                             if (sourceCharacter.ClassesAndLevels != null)
                                                 if (sourceCharacter.ClassesAndLevels.TryGetValue(classDef, out int classLevel))
                                                     sourceAmount = classLevel;
-                                            conditionToAmount.Add(addedCondition.Name, sourceAmount);
+                                            conditionToAmount.AddOrReplace(addedCondition.Name, sourceAmount);
                                         }
                                         break;
 
