@@ -44,12 +44,12 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                     break;
                 case -3:
                     ___backgroundImage.sprite = ___backgroundSprites[2];
-                    ___iconImage.sprite = CreateSprite(Properties.Resources.Entry, 24); // TODO: @ImpPhil, change to teleporter icon
+                    ___iconImage.sprite = CreateSprite(Properties.Resources.Teleport, 24);
                     ___guiTooltip.Content = "Teleporter";
                     break;
                 case -4:
                     ___backgroundImage.sprite = ___backgroundSprites[2];
-                    ___iconImage.sprite = CreateSprite(Properties.Resources.Entry, 24); // TODO: @ImpPhil, change to teleportation destination icon
+                    ___iconImage.sprite = CreateSprite(Properties.Resources.Destination, 24);
                     ___guiTooltip.Content = "Teleportation Destination";
                     break;
                 default:
