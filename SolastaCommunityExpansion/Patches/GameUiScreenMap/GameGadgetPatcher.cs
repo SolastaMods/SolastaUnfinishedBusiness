@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using TA;
 using static SolastaModApi.DatabaseHelper.GadgetBlueprints;
@@ -17,6 +18,8 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
         private static readonly GadgetBlueprint[] gadgetBlueprintsToRevealAfterDiscovery = new GadgetBlueprint[]
         {
             Exit,
+            VirtualExit,
+            VirtualExitMultiple,
             Node,
             TeleporterIndividual,
             TeleporterParty
@@ -29,9 +32,11 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                 return;
             }
 
-            var gadgetBlueprint = Gui.GameLocation.UserLocation.GadgetsByName[__instance.UniqueNameId].GadgetBlueprint;
+            var userGadget = Gui.GameLocation.UserLocation.UserRooms
+                .SelectMany(a => a.UserGadgets)
+                .FirstOrDefault(b => b.UniqueName == __instance.UniqueNameId);        
 
-            if (Array.IndexOf(gadgetBlueprintsToRevealAfterDiscovery, gadgetBlueprint) == -1)
+            if (Array.IndexOf(gadgetBlueprintsToRevealAfterDiscovery, userGadget.GadgetBlueprint) < 0)
             {
                 return;
             }
