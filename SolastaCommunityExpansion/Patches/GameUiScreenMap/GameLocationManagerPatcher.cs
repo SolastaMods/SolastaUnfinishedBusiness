@@ -11,6 +11,11 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
     {
         internal static void SetGadgetVisibility(WorldGadget worldGadget, bool visibility = false)
         {
+            if (worldGadget?.UserGadget == null)
+            {
+                return;
+            }
+
             if (worldGadget.UserGadget.GadgetBlueprint == TeleporterIndividual)
             {
                 var visualEffect = worldGadget.transform.FindChildRecursive("Vfx_Teleporter_Individual_Idle_01");

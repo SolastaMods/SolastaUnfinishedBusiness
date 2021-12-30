@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                 .SelectMany(a => a.UserGadgets)
                 .FirstOrDefault(b => b.UniqueName == __instance.UniqueNameId);        
 
-            if (Array.IndexOf(gadgetBlueprintsToRevealAfterDiscovery, userGadget.GadgetBlueprint) < 0)
+            if (userGadget == null || Array.IndexOf(gadgetBlueprintsToRevealAfterDiscovery, userGadget.GadgetBlueprint) < 0)
             {
                 return;
             }
