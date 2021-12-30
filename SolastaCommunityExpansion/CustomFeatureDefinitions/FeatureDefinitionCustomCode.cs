@@ -2,8 +2,10 @@
 namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 {
     /**
-     * This adds the ability to do fully custom EffectForms. If possible you should use the standard EffectForms.
-     * Damage and healing done through this CustomEffectForm will not trigger the proper events.
+     * This adds the ability to do fully custom code when a feature is granted. Where possible you should use more targeted features,
+     * but some things just need more flexibility.
+     * 
+     * Currently this supports features granted through Class, Subclass, Race, and Feats.
      */
     public abstract class FeatureDefinitionCustomCode : FeatureDefinition
     {
