@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
@@ -12,10 +13,10 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameLocationScreenMap_BindGadgets
     {
-        internal static bool Prefix(List<MapGadgetItem> ___mapGadgetItems, 
-            ref int ___activeMapGadgetItems, 
-            GameObject ___mapGadgetItemPrefab, 
-            Transform ___mapItemsTransform, 
+        internal static bool Prefix(List<MapGadgetItem> ___mapGadgetItems,
+            ref int ___activeMapGadgetItems,
+            GameObject ___mapGadgetItemPrefab,
+            Transform ___mapItemsTransform,
             List<MapBaseItem> ___sortedItems)
         {
             if (!Main.Settings.EnableAdditionalIconsOnLevelMap || Gui.GameLocation.UserLocation == null)
@@ -32,7 +33,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
 
                     if (gameGadget.Revealed && gameGadget.CheckIsEnabled())
                     {
-                        MapGadgetItem.ItemType itemType;
+                        MapGadgetItem.ItemType itemType = (MapGadgetItem.ItemType)int.MinValue;
 
                         if (gameGadget.UniqueNameId.StartsWith("Camp"))
                         {
@@ -44,7 +45,10 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                         }
                         else if (gameGadget.UniqueNameId.StartsWith("Teleporter"))
                         {
-                            itemType = (MapGadgetItem.ItemType)(-3);
+                            if (!IsInvisible(gameGadget))
+                            {
+                                itemType = (MapGadgetItem.ItemType)(-3);
+                            }
                         }
                         else if (gameGadget.CheckIsLocked())
                         {
@@ -58,23 +62,22 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                         {
                             itemType = MapGadgetItem.ItemType.Container;
                         }
-                        else
-                        {
-                            continue;
-                        }
 
-                        ++___activeMapGadgetItems;
-                        for (var index = ___mapGadgetItems.Count - 1; index < ___activeMapGadgetItems; ++index)
+                        if ((int)itemType > int.MinValue)
                         {
-                            var gameObject = Object.Instantiate(___mapGadgetItemPrefab, ___mapItemsTransform);
-
-                            if (gameObject.TryGetComponent<MapGadgetItem>(out var mapGadgetItem))
+                            ++___activeMapGadgetItems;
+                            for (var index = ___mapGadgetItems.Count - 1; index < ___activeMapGadgetItems; ++index)
                             {
-                                mapGadgetItem.Unbind();
-                                ___mapGadgetItems.Add(mapGadgetItem);
+                                var gameObject = Object.Instantiate(___mapGadgetItemPrefab, ___mapItemsTransform);
+
+                                if (gameObject.TryGetComponent<MapGadgetItem>(out var mapGadgetItem))
+                                {
+                                    mapGadgetItem.Unbind();
+                                    ___mapGadgetItems.Add(mapGadgetItem);
+                                }
                             }
+                            ___mapGadgetItems[___activeMapGadgetItems - 1].Bind(gameGadget, itemType);
                         }
-                        ___mapGadgetItems[___activeMapGadgetItems - 1].Bind(gameGadget, itemType);
                     }
                 }
             }
@@ -83,6 +86,20 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                 ___sortedItems.Add(___mapGadgetItems[index]);
 
             return false;
+
+            bool IsInvisible(GameGadget gadget)
+            {
+                var result = (bool)CheckConditionName.Invoke(gadget, new object[] { "Invisible", true, false });
+
+                Main.Log($"{gadget.UniqueNameId}, Invisible={result}");
+
+                return result;
+            }
         }
+
+        private static readonly MethodInfo CheckConditionName
+#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
+            = typeof(GameGadget).GetMethod("CheckConditionName", BindingFlags.Instance | BindingFlags.NonPublic);
+#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
     }
 }
