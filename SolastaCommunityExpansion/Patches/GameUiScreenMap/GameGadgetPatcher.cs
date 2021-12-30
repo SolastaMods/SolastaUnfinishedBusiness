@@ -22,54 +22,44 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
             TeleporterParty
         };
 
-        internal static bool Prefix(GameGadget __instance, ref bool __result)
+        internal static void Postfix(GameGadget __instance, ref bool __result)
         {
-            if (!Main.Settings.EnableAdditionalIconsOnLevelMap || Gui.GameLocation.UserLocation == null)
+            if (!__instance.Revealed || Gui.GameLocation.UserLocation == null || !Main.Settings.EnableAdditionalIconsOnLevelMap )
             {
-                return true;
+                return;
             }
 
-            if (!__instance.Revealed)
+            var gadgetBlueprint = Gui.GameLocation.UserLocation.GadgetsByName[__instance.UniqueNameId].GadgetBlueprint;
+
+            if (Array.IndexOf(gadgetBlueprintsToRevealAfterDiscovery, gadgetBlueprint) == -1)
             {
-                BoxInt referenceBoundingBox;
-                var gadgetBlueprint = Gui.GameLocation.UserLocation.GadgetsByName[__instance.UniqueNameId].GadgetBlueprint;
-
-                if (Array.IndexOf(gadgetBlueprintsToRevealAfterDiscovery, gadgetBlueprint) != -1)
-                {
-                    var x = (int)__instance.FeedbackPosition.x;
-                    var y = (int)__instance.FeedbackPosition.z;
-                    var position = new int3(x, 0, y);
-
-                    referenceBoundingBox = new BoxInt(position, position);
-                }
-                else
-                {
-                    referenceBoundingBox = __instance.ReferenceBoundingBox;
-                }
-
-                if (referenceBoundingBox.IsValid)
-                {
-                    var gridAccessor = GridAccessor.Default;
-
-                    foreach (var position in referenceBoundingBox.EnumerateAllPositionsWithin())
-                    {
-                        if (gridAccessor.Visited(position))
-                        {
-                            AccessTools.Field(__instance.GetType(), "revealed").SetValue(__instance, true);
-
-                            break;
-                        }
-                    }
-                }
-                else
-                {
-                    AccessTools.Field(__instance.GetType(), "revealed").SetValue(__instance, true);
-                }
+                return;
             }
 
-            __result = __instance.Revealed;
+            // reverts the revealed state and recalculates it
+            var revealedField = AccessTools.Field(__instance.GetType(), "revealed");
 
-            return false;
+            revealedField.SetValue(__instance, false);
+            __result = false;
+
+            var x = (int)__instance.FeedbackPosition.x;
+            var y = (int)__instance.FeedbackPosition.z;
+
+            var feedbackPosition = new int3(x, 0, y);
+            var referenceBoundingBox = new BoxInt(feedbackPosition, feedbackPosition);
+
+            var gridAccessor = GridAccessor.Default;
+
+            foreach (var position in referenceBoundingBox.EnumerateAllPositionsWithin())
+            {
+                if (gridAccessor.Visited(position))
+                {
+                    revealedField.SetValue(__instance, true);
+                    __result = true;
+
+                    break;
+                }
+            }
         }
     }
 }
