@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
@@ -60,7 +61,15 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                     var worldGadgets = gameLocationService.WorldLocation.WorldSectors.SelectMany(ws => ws.WorldGadgets);
                     var worldGadget = worldGadgets.FirstOrDefault(wg => wg.GameGadget == __instance);
 
-                    GameLocationManager_ReadyLocation.SetGadgetVisibility(worldGadget, true);
+                    var conditionNames = AccessTools.Field(__instance.GetType(), "conditionNames").GetValue(__instance) as List<string>;
+
+                    var invisibleIndex = conditionNames.IndexOf("Invisible");
+                    var isInvisible = invisibleIndex >= 0 && __instance.CurrentConditionStates[invisibleIndex];
+
+                    var enabledIndex = conditionNames.IndexOf("Enabled");
+                    var isEnabled = invisibleIndex >= 0 && __instance.CurrentConditionStates[enabledIndex];
+
+                    GameLocationManager_ReadyLocation.SetGadgetVisibility(worldGadget, isEnabled && !isInvisible);
 
                     revealedField.SetValue(__instance, true);
                     __result = true;
