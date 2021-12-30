@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
         {
             Exit,
             ExitMultiple,
-            Node,
+            // Node,
             TeleporterIndividual,
             TeleporterParty,
             VirtualExit,
@@ -50,6 +50,8 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
 
             var feedbackPosition = new int3(x, 0, y);
             var referenceBoundingBox = new BoxInt(feedbackPosition, feedbackPosition);
+
+            AccessTools.Field(__instance.GetType(), "referenceBoundingBox").SetValue(__instance, referenceBoundingBox);
 
             var gridAccessor = GridAccessor.Default;
 

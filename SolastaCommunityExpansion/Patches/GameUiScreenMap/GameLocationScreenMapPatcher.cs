@@ -46,10 +46,10 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                         {
                             itemType = (MapGadgetItem.ItemType)(-3);
                         }
-                        else if (gameGadget.UniqueNameId.StartsWith("Node"))
-                        {
-                            itemType = (MapGadgetItem.ItemType)(-4);
-                        }
+                        //else if (gameGadget.UniqueNameId.StartsWith("Node"))
+                        //{
+                        //    itemType = (MapGadgetItem.ItemType)(-4);
+                        //}
                         else if (gameGadget.CheckIsLocked())
                         {
                             itemType = MapGadgetItem.ItemType.Lock;
