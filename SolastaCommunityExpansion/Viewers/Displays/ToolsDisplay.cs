@@ -44,14 +44,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (Main.Settings.EnableAdditionalIconsOnLevelMap)
                 {
                     toggle = Main.Settings.MarkInvisibleTeleportersOnLevelMap;
-                    if (UI.Toggle("+ Also mark the location of invisible teleporters after discovery".italic(), ref toggle, UI.AutoWidth()))
+                    if (UI.Toggle("+ Also mark the location of invisible teleporters on level map after discovery".italic(), ref toggle, UI.AutoWidth()))
                     {
                         Main.Settings.MarkInvisibleTeleportersOnLevelMap = toggle;
                     }
                 }
 
                 toggle = Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered;
-                if (UI.Toggle("Hide exits and teleporters visual effects if not discovered", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Hide exits and teleporters visual effects if not discovered yet", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered = toggle;
                 }
