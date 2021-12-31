@@ -29,9 +29,9 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
             {
                 foreach (var gameGadget in gameSector.GameGadgets)
                 {
-                    Main.Log($"{gameGadget.UniqueNameId}, {gameGadget.Revealed}");
+                    Main.Log($"{gameGadget.UniqueNameId}, Revealed={gameGadget.Revealed}, Enabled={gameGadget.IsEnabled()}, Invisible={gameGadget.IsInvisible()}");
 
-                    if (gameGadget.Revealed && gameGadget.CheckIsEnabled())
+                    if (gameGadget.Revealed && gameGadget.IsEnabled())
                     {
                         MapGadgetItem.ItemType itemType = (MapGadgetItem.ItemType)int.MinValue;
 
@@ -43,7 +43,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                         {
                             itemType = (MapGadgetItem.ItemType)(-2);
                         }
-                        else if (gameGadget.UniqueNameId.StartsWith("Teleporter") && !gameGadget.CheckIsInvisible())
+                        else if (gameGadget.UniqueNameId.StartsWith("Teleporter") && !gameGadget.IsInvisible())
                         {
                             itemType = (MapGadgetItem.ItemType)(-3);
                         }
