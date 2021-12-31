@@ -1,33 +1,25 @@
-﻿namespace SolastaCommunityExpansion.CustomFeatureDefinitions
+﻿using System.Collections.Generic;
+using SolastaCommunityExpansion.Helpers;
+
+namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 {
     /**
      * This adds the ability to do fully custom EffectForms. If possible you should use the standard EffectForms.
      * Damage and healing done through this CustomEffectForm will not trigger the proper events.
      */
-    class CustomEffectForm : EffectForm
+    public abstract class CustomEffectForm : EffectForm
     {
-        public delegate void ApplyDelegate(CustomEffectForm effectForm,
+        public CustomEffectForm()
+        {
+            this.FormType = (EffectFormType)ExtraEffectFormType.Custom;
+        }
+
+        public abstract void ApplyForm(
             RulesetImplementationDefinitions.ApplyFormsParams formsParams,
             bool retargeting,
             bool proxyOnly,
             bool forceSelfConditionOnly);
-        private ApplyDelegate Apply;
 
-        internal void SetApplyDelegate(ApplyDelegate del)
-        {
-            Apply = del;
-        }
-
-        public void ApplyForm(
-            RulesetImplementationDefinitions.ApplyFormsParams formsParams,
-            bool retargeting,
-            bool proxyOnly,
-            bool forceSelfConditionOnly)
-        {
-            if (Apply != null)
-            {
-                Apply(this, formsParams, retargeting, proxyOnly, forceSelfConditionOnly);
-            }
-        }
+        public abstract void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap);
     }
 }

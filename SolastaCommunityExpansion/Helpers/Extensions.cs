@@ -48,4 +48,25 @@ namespace SolastaCommunityExpansion.Helpers
             = typeof(GameGadget).GetMethod("CheckConditionName", BindingFlags.Instance | BindingFlags.NonPublic);
 #pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
     }
+
+    public enum ExtraEffectFormType
+    {
+        Damage = EffectForm.EffectFormType.Damage,
+        Healing = EffectForm.EffectFormType.Healing,
+        Condition = EffectForm.EffectFormType.Condition,
+        LightSource = EffectForm.EffectFormType.LightSource,
+        Summon = EffectForm.EffectFormType.Summon,
+        Counter = EffectForm.EffectFormType.Counter,
+        TemporaryHitPoints = EffectForm.EffectFormType.TemporaryHitPoints,
+        Motion = EffectForm.EffectFormType.Motion,
+        SpellSlots = EffectForm.EffectFormType.SpellSlots,
+        Divination = EffectForm.EffectFormType.Divination,
+        ItemProperty = EffectForm.EffectFormType.ItemProperty,
+        Alteration = EffectForm.EffectFormType.Alteration,
+        Topology = EffectForm.EffectFormType.Topology,
+        Revive = EffectForm.EffectFormType.Revive,
+        Kill = EffectForm.EffectFormType.Kill,
+        ShapeChange = EffectForm.EffectFormType.ShapeChange,
+        Custom = 9000,
+    }
 }
