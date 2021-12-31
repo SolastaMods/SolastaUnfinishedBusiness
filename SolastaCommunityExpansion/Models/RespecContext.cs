@@ -11,6 +11,8 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class RespecContext
     {
+        internal const RestActivityDefinition.ActivityCondition ActivityConditionCanRespec = (RestActivityDefinition.ActivityCondition)(-1001);
+
         public class RestActivityRespecBuilder : BaseDefinitionBuilder<RestActivityDefinition>
         {
             private const string RespecName = "ZSRespec";
@@ -20,7 +22,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 Definition.GuiPresentation.Title = "RestActivity/&ZSRespecTitle";
                 Definition.GuiPresentation.Description = "RestActivity/&ZSRespecDescription";
-                Definition.SetCondition(Settings.ActivityConditionCanRespec);
+                Definition.SetCondition(ActivityConditionCanRespec);
                 Definition.SetFunctor(RespecName);
                 ServiceRepository.GetService<IFunctorService>().RegisterFunctor(RespecName, new FunctorRespec());
             }

@@ -31,20 +31,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     ItemCraftingContext.AddToStore(key);
                 }
 
-                toggle = Main.Settings.CraftingItemsInDM.Contains(key);
-                if (UI.Toggle("Items in DM", ref toggle, UI.Width(125)))
-                {
-                    if (toggle)
-                    {
-                        Main.Settings.CraftingItemsInDM.Add(key);
-                    }
-                    else
-                    {
-                        Main.Settings.CraftingItemsInDM.Remove(key);
-                    }
-                    ItemCraftingContext.UpdateCraftingItemsInDMState(key);
-                }
-
                 toggle = Main.Settings.CraftingRecipesInDM.Contains(key);
                 if (UI.Toggle("Recipes in DM", ref toggle, UI.Width(125)))
                 {
@@ -57,6 +43,26 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         Main.Settings.CraftingRecipesInDM.Remove(key);
                     }
                     ItemCraftingContext.UpdateCraftingRecipesInDMState(key);
+                }
+
+                if (!ItemCraftingContext.BASE_GAME_ITEMS_CATEGORIES.Contains(key))
+                {
+                    toggle = Main.Settings.CraftingItemsInDM.Contains(key);
+                    if (UI.Toggle("Items in DM", ref toggle, UI.Width(125)))
+                    {
+                        if (toggle)
+                        {
+                            Main.Settings.CraftingItemsInDM.Add(key);
+                        }
+                        else
+                        {
+                            Main.Settings.CraftingItemsInDM.Remove(key);
+                        }
+                        ItemCraftingContext.UpdateCraftingItemsInDMState(key);
+                    }
+                } else
+                {
+                    UI.Space(128f);
                 }
             }
         }
@@ -82,6 +88,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             {
                 Main.Settings.RemoveIdentifcationRequirements = toggle;
                 RemoveIdentificationContext.Load();
+            }
+
+            UI.Label("");
+
+            toggle = Main.Settings.ShowCraftingRecipeInDetailedTooltips;
+            if (UI.Toggle("Show crafting recipe in detailed tooltips", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.ShowCraftingRecipeInDetailedTooltips = toggle;
             }
 
             UI.Label("");
@@ -132,17 +146,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         }
                     }
 
-                    toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingItemsInDM.Count;
-                    if (UI.Toggle("All items in DM", ref toggle, UI.Width(125)))
-                    {
-                        Main.Settings.CraftingItemsInDM.Clear();
-
-                        if (toggle)
-                        {
-                            Main.Settings.CraftingItemsInDM.AddRange(ItemCraftingContext.RecipeBooks.Keys);
-                        }
-                    }
-
                     toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingRecipesInDM.Count;
                     if (UI.Toggle("All recipes in DM", ref toggle, UI.Width(125)))
                     {
@@ -151,6 +154,17 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         if (toggle)
                         {
                             Main.Settings.CraftingRecipesInDM.AddRange(ItemCraftingContext.RecipeBooks.Keys);
+                        }
+                    }
+
+                    toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingItemsInDM.Count;
+                    if (UI.Toggle("All items in DM", ref toggle, UI.Width(125)))
+                    {
+                        Main.Settings.CraftingItemsInDM.Clear();
+
+                        if (toggle)
+                        {
+                            Main.Settings.CraftingItemsInDM.AddRange(ItemCraftingContext.RecipeBooks.Keys);
                         }
                     }
                 }
@@ -201,13 +215,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (UI.Toggle("Stocks Hugo's store with new foci items " + "[Arcane Staff, Druid Neck, Staff and Club]".italic().yellow(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.StockHugoStoreWithAdditionalFoci = toggle;
+                    Main.Settings.EnableAdditionalFociInDungeonMaker = toggle;
                     ItemOptionsContext.SwitchFociItems();
                 }
 
                 if (Main.Settings.StockHugoStoreWithAdditionalFoci)
                 {
                     toggle = Main.Settings.EnableAdditionalFociInDungeonMaker;
-                    if (UI.Toggle("Add new foci items to Dungeon Maker ", ref toggle, UI.AutoWidth()))
+                    if (UI.Toggle("+ Add new foci items to Dungeon Maker ".italic(), ref toggle, UI.AutoWidth()))
                     {
                         Main.Settings.EnableAdditionalFociInDungeonMaker = toggle;
                         ItemOptionsContext.SwitchFociItemsDungeonMaker();

@@ -3,9 +3,6 @@ using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.BugFix
 {
-    //
-    // TODO @IMPPHIL: should we protect
-    //
     [HarmonyPatch(typeof(GameLoreManager), "SerializeElements")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameLoreManager_SerializeElements

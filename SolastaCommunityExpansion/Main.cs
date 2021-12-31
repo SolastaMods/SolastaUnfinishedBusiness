@@ -8,11 +8,13 @@ using UnityModManagerNet;
 
 namespace SolastaCommunityExpansion
 {
-    public static class Main
+    internal static class Main
     {
-        public static bool Enabled { get; set; } = false;
+        internal static bool Enabled { get; set; }
 
-        public static readonly string MOD_FOLDER = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        internal static bool LateEnabled { get; set; }
+
+        internal static readonly string MOD_FOLDER = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
         [Conditional("DEBUG")]
         internal static void Log(string msg) => Logger.Log(msg);

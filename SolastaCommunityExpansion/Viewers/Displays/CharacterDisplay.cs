@@ -50,7 +50,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (UI.Toggle("Enable flexible races " + "[assign ability score points instead of the racial defaults]".italic().yellow() + "\ni.e.: High Elf has 3 points to assign instead of +2 Dex / +1 Int".italic(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableFlexibleRaces = toggle;
-                FlexibleRacesContext.Switch(toggle);
+                FlexibleRacesContext.SwitchFlexibleRaces();
             }
 
             UI.Label("");
@@ -71,7 +71,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             intValue = Main.Settings.TotalFeatsGrantedFistLevel;
-            if (UI.Slider("Total feats granted at first level".white(), ref intValue, Settings.MIN_INITIAL_FEATS, Settings.MAX_INITIAL_FEATS, 0, "", UI.AutoWidth()))
+            if (UI.Slider("Total feats granted at first level".white(), ref intValue, InitialChoicesContext.MIN_INITIAL_FEATS, InitialChoicesContext.MAX_INITIAL_FEATS, 0, "", UI.AutoWidth()))
             {
                 Main.Settings.TotalFeatsGrantedFistLevel = intValue;
                 InitialChoicesContext.RefreshTotalFeatsGrantedFistLevel();

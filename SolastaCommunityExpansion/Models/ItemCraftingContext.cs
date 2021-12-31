@@ -11,6 +11,13 @@ namespace SolastaCommunityExpansion.Models
     {
         public static Dictionary<string, List<ItemDefinition>> RecipeBooks { get; } = new Dictionary<string, List<ItemDefinition>>();
 
+        public static readonly List<string> BASE_GAME_ITEMS_CATEGORIES = new List<string>()
+        {
+            "PrimedItems",
+            "EnchantingIngredients",
+            "RelicForgeries",
+        };
+
         public static readonly Dictionary<string, string> RecipeTitles = new Dictionary<string, string>
         {
             { "PrimedItems", "Primed Items" },
@@ -83,6 +90,11 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void UpdateCraftingItemsInDMState(string key)
         {
+            if (BASE_GAME_ITEMS_CATEGORIES.Contains(key))
+            {
+                // Don't touch the in dungeon state of base game items.
+                return;
+            }
             bool available = Main.Settings.CraftingItemsInDM.Contains(key);
             foreach (ItemDefinition recipeBookDefinition in RecipeBooks[key])
             {

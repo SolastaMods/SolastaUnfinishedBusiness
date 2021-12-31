@@ -6,6 +6,9 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class InitialChoicesContext
     {
+        internal const int MIN_INITIAL_FEATS = 0;
+        internal const int MAX_INITIAL_FEATS = 10;
+
         internal static int PreviousTotalFeatsGrantedFistLevel { get; set; } = -1;
         internal static bool PreviousAlternateHuman { get; set; }
 
@@ -24,8 +27,6 @@ namespace SolastaCommunityExpansion.Models
                 _ = new FeatureDefinitionPointPoolBuilder(name, guid, HeroDefinitions.PointsPoolType.Feat, i,
                         new GuiPresentationBuilder($"Race/&PointPoolSelect{i}FeatsDescription", $"Race/&PointPoolSelect{i}FeatsTitle").Build()).AddToDB(true);
             }
-
-            RefreshTotalFeatsGrantedFistLevel();
         }
 
         internal static void RefreshTotalFeatsGrantedFistLevel()

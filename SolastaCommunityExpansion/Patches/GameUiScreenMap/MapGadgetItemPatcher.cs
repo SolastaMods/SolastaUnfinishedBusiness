@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
             UnityEngine.UI.Image ___iconImage,
             Sprite[] ___backgroundSprites)
         {
-            if (!Main.Settings.EnableAdditionalIconsOnLevelMap)
+            if (!Main.Settings.EnableAdditionalIconsOnLevelMap || Gui.GameLocation.UserLocation == null)
             {
                 return true;
             }
@@ -40,7 +40,12 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                 case -2:
                     ___backgroundImage.sprite = ___backgroundSprites[2];
                     ___iconImage.sprite = CreateSprite(Properties.Resources.Entry, 24);
-                    ___guiTooltip.Content = "Entrance or exit";
+                    ___guiTooltip.Content = "Exit";
+                    break;
+                case -3:
+                    ___backgroundImage.sprite = ___backgroundSprites[2];
+                    ___iconImage.sprite = CreateSprite(Properties.Resources.Teleport, 24);
+                    ___guiTooltip.Content = "Teleporter";
                     break;
                 default:
                     return true;

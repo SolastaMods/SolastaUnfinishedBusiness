@@ -67,6 +67,8 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("\n[line]\n");
                 collectedString.Append(Models.FeatsContext.GenerateFeatsDescription());
                 collectedString.Append("\n[line]\n");
+                collectedString.Append(Models.ClassesContext.GenerateClassDescription());
+                collectedString.Append("\n[line]\n");
                 collectedString.Append(Models.SubclassesContext.GenerateSubclassDescription());
                 collectedString.Append("\n[line]\n");
                 collectedString.Append(Models.FightingStyleContext.GenerateFightingStyleDescription());
@@ -105,6 +107,7 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("[heading]Items & Merchants[/heading]\n[list]");
                 collectedString.Append("\n[*]Remove identification requirement from items");
                 collectedString.Append("\n[*]Remove attunement requirement from items");
+                collectedString.Append("\n[*]Show crafting recipe in detailed tooltips");
                 collectedString.Append("\n[*]Set the chances of a beard appearing on belt of dwarvenkin");
                 collectedString.Append("\n[*]Stock Hugo with all clothing");
                 collectedString.Append("\n[*]Stock Hugo with new foci items");
@@ -115,6 +118,7 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("\n[line]\n");
                 collectedString.Append("[heading]Tools[/heading]\n[list]");
                 collectedString.Append("\n[*]Enable the Telema Kickstarter demo");
+                collectedString.Append("\n[*]Enable the hothey ctrl-shit-T to teleport the party to the cursor location");
                 collectedString.Append("\n[*]Overrides party size from 1 to 6");
                 collectedString.Append("\n[*]Removes dungeons min/max levels prereqs");
                 collectedString.Append("\n[*]Automatically create backup files for content created by user");
@@ -132,7 +136,6 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("\n[*]Enable Save by location");
                 collectedString.Append("\n[*]Enable hotkeys to toggle HUG elements");
                 collectedString.Append("\n[*]Invert ALT behavior on tooltips");
-                collectedString.Append("\n[*]Show crafting recipe in detailed tooltips");
                 collectedString.Append("\n[*]Enable adventure log on custom dungeons");
                 collectedString.Append("\n[*]Reduce battle camera movement");
                 collectedString.Append("\n[*]Pause the UI when victorious in battle");

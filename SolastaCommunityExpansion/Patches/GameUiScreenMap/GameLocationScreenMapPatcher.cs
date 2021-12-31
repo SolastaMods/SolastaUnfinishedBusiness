@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using SolastaCommunityExpansion.Helpers;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
@@ -12,13 +13,13 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameLocationScreenMap_BindGadgets
     {
-        internal static bool Prefix(List<MapGadgetItem> ___mapGadgetItems, 
-            ref int ___activeMapGadgetItems, 
-            GameObject ___mapGadgetItemPrefab, 
-            Transform ___mapItemsTransform, 
+        internal static bool Prefix(List<MapGadgetItem> ___mapGadgetItems,
+            ref int ___activeMapGadgetItems,
+            GameObject ___mapGadgetItemPrefab,
+            Transform ___mapItemsTransform,
             List<MapBaseItem> ___sortedItems)
         {
-            if (!Main.Settings.EnableAdditionalIconsOnLevelMap)
+            if (!Main.Settings.EnableAdditionalIconsOnLevelMap || Gui.GameLocation.UserLocation == null)
             {
                 return true;
             }
@@ -28,21 +29,23 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
             {
                 foreach (var gameGadget in gameSector.GameGadgets)
                 {
-                    Main.Log($"{gameGadget.UniqueNameId}, {gameGadget.Revealed}");
+                    Main.Log($"{gameGadget.UniqueNameId}, Revealed={gameGadget.Revealed}, Enabled={gameGadget.IsEnabled()}, Invisible={gameGadget.IsInvisible()}");
 
-                    if (gameGadget.Revealed && gameGadget.CheckIsEnabled())
+                    if (gameGadget.Revealed && gameGadget.IsEnabled())
                     {
-                        MapGadgetItem.ItemType itemType;
+                        MapGadgetItem.ItemType itemType = (MapGadgetItem.ItemType)int.MinValue;
 
                         if (gameGadget.UniqueNameId.StartsWith("Camp"))
                         {
                             itemType = (MapGadgetItem.ItemType)(-1);
                         }
-                        else if (gameGadget.UniqueNameId.IndexOf("entrance", System.StringComparison.OrdinalIgnoreCase) >= 0
-                            || gameGadget.UniqueNameId.IndexOf("exit", System.StringComparison.OrdinalIgnoreCase) >= 0)
+                        else if (gameGadget.UniqueNameId.StartsWith("Exit") || gameGadget.UniqueNameId.StartsWith("VirtualExit"))
                         {
-                            // seems like exits and entrances are revealed by default
                             itemType = (MapGadgetItem.ItemType)(-2);
+                        }
+                        else if (gameGadget.UniqueNameId.StartsWith("Teleporter") && !gameGadget.IsInvisible())
+                        {
+                            itemType = (MapGadgetItem.ItemType)(-3);
                         }
                         else if (gameGadget.CheckIsLocked())
                         {
@@ -56,23 +59,22 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                         {
                             itemType = MapGadgetItem.ItemType.Container;
                         }
-                        else
-                        {
-                            continue;
-                        }
 
-                        ++___activeMapGadgetItems;
-                        for (var index = ___mapGadgetItems.Count - 1; index < ___activeMapGadgetItems; ++index)
+                        if ((int)itemType > int.MinValue)
                         {
-                            var gameObject = Object.Instantiate(___mapGadgetItemPrefab, ___mapItemsTransform);
-
-                            if (gameObject.TryGetComponent<MapGadgetItem>(out var mapGadgetItem))
+                            ++___activeMapGadgetItems;
+                            for (var index = ___mapGadgetItems.Count - 1; index < ___activeMapGadgetItems; ++index)
                             {
-                                mapGadgetItem.Unbind();
-                                ___mapGadgetItems.Add(mapGadgetItem);
+                                var gameObject = Object.Instantiate(___mapGadgetItemPrefab, ___mapItemsTransform);
+
+                                if (gameObject.TryGetComponent<MapGadgetItem>(out var mapGadgetItem))
+                                {
+                                    mapGadgetItem.Unbind();
+                                    ___mapGadgetItems.Add(mapGadgetItem);
+                                }
                             }
+                            ___mapGadgetItems[___activeMapGadgetItems - 1].Bind(gameGadget, itemType);
                         }
-                        ___mapGadgetItems[___activeMapGadgetItems - 1].Bind(gameGadget, itemType);
                     }
                 }
             }
