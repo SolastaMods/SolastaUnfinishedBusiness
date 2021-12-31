@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace SolastaCommunityExpansion.Helpers
 {
-    internal static class Extensions
+    internal static class RulesetActorExtensions
     {
         /// <summary>
         /// Makes using RulesetActor.EnumerateFeaturesToBrowse simpler
@@ -22,19 +22,25 @@ namespace SolastaCommunityExpansion.Helpers
             actor.EnumerateFeaturesToBrowse<T>(features, featuresOrigin);
             return features.OfType<T>().ToList();
         }
+    }
+
+    internal static class GameGadgetExtensions
+    {
+        /// <summary>
+        /// Returns state of Invisible parameter, or false if not present
+        /// </summary>
+        public static bool IsInvisible(this GameGadget gadget)
+        {
+            return (bool)CheckConditionName.Invoke(gadget, new object[] { "Invisible", true, false });
+        }
 
         /// <summary>
-        /// CheckIsInvisible extension matching CheckIsEnabled() etc GameGadget methods
+        /// Replacement for buggy GameGadget.CheckIsEnabled().
         /// </summary>
-        /// <param name="gadget"></param>
-        /// <returns></returns>
-        public static bool CheckIsInvisible(this GameGadget gadget)
+        public static bool IsEnabled(this GameGadget gadget)
         {
-            var result = (bool)CheckConditionName.Invoke(gadget, new object[] { "Invisible", true, false });
-
-            Main.Log($"{gadget.UniqueNameId}, Invisible={result}");
-
-            return result;
+            return (bool)CheckConditionName.Invoke(gadget, new object[] { "Param_Enabled", true, false })
+                || (bool)CheckConditionName.Invoke(gadget, new object[] { "Enabled", true, false });
         }
 
 #pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
