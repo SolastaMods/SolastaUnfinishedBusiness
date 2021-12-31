@@ -61,7 +61,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                     var worldGadget = worldGadgets.FirstOrDefault(wg => wg.GameGadget == __instance);
 
                     var isInvisible = __instance.IsInvisible();
-                    var isEnabled = __instance.IsEnabled();
+                    var isEnabled = __instance.CheckIsEnabled();
 
                     GameLocationManager_ReadyLocation.SetTeleporterGadgetVisibility(worldGadget, isEnabled && !isInvisible);
 
@@ -92,7 +92,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                 var param = ___conditionNames[conditionIndex];
                 if (param == GameGadgetExtensions.Enabled || param == GameGadgetExtensions.ParamEnabled)
                 {
-                    __state = __instance.IsEnabled();
+                    __state = __instance.CheckIsEnabled();
                 }
             }
         }
@@ -110,7 +110,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
 
                 if (param == GameGadgetExtensions.Enabled || param == GameGadgetExtensions.ParamEnabled)
                 {
-                    var newState = __instance.IsEnabled();
+                    var newState = __instance.CheckIsEnabled();
 
                     if (newState != __state)
                     {

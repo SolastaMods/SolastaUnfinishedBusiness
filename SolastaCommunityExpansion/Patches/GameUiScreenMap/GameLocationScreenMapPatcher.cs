@@ -29,9 +29,9 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
             {
                 foreach (var gameGadget in gameSector.GameGadgets)
                 {
-                    Main.Log($"{gameGadget.UniqueNameId}, Revealed={gameGadget.Revealed}, Enabled={gameGadget.IsEnabled()}, Invisible={gameGadget.IsInvisible()}");
+                    Main.Log($"{gameGadget.UniqueNameId}, Revealed={gameGadget.Revealed}, Enabled={gameGadget.CheckIsEnabled()}, Invisible={gameGadget.IsInvisible()}");
 
-                    if (gameGadget.Revealed && gameGadget.IsEnabled())
+                    if (gameGadget.Revealed && gameGadget.CheckIsEnabled())
                     {
                         MapGadgetItem.ItemType itemType = (MapGadgetItem.ItemType)int.MinValue;
 
