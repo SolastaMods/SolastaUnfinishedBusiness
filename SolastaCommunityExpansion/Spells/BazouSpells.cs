@@ -57,9 +57,12 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.EffectAdvancement.SetIncrementMultiplier(5);
             spell.EffectDescription.EffectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod.CasterLevelTable);
 
+            // Changing to a single damage effect with d4, as I am unsure how to implement 2 different effectDescriptions within the same spell
+            // First one should be single target attack roll, d8 damage
+            // Second one should be adjacent aoe to first target, half of damage of first effect, no damage on saving throw negates
             spell.EffectDescription.EffectForms[0].SetHasSavingThrow(false);
             spell.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(1);
-            spell.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
+            spell.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D4);
             spell.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeForce);
             spell.EffectDescription.EffectForms[0].SetLevelMultiplier(1);
             spell.EffectDescription.EffectForms[0].AlterationForm.SetMaximumIncrease(2);
@@ -67,14 +70,14 @@ namespace SolastaCommunityExpansion.Spells
 
             // Not sure if I prefer copying and editing existing effect forms
             // or creating one from scratch through API
-            var effectForm = new EffectFormBuilder().Build();
+//            var effectForm = new EffectFormBuilder().Build();
 
-            effectForm.Copy(spell.EffectDescription.EffectForms[0]);
-            effectForm.SetHasSavingThrow(true);
-            effectForm.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
-            effectForm.DamageForm.SetDieType(RuleDefinitions.DieType.D4);
+//            effectForm.Copy(spell.EffectDescription.EffectForms[0]);
+//            effectForm.SetHasSavingThrow(true);
+//            effectForm.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
+//            effectForm.DamageForm.SetDieType(RuleDefinitions.DieType.D4);
 
-            spell.EffectDescription.EffectForms.Add(effectForm);
+//            spell.EffectDescription.EffectForms.Add(effectForm);
 
             return spell;
 
