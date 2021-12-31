@@ -30,7 +30,6 @@ namespace SolastaCommunityExpansion
         public bool BugFixItemFiltering { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
         public bool BugFixOnCanSaveToggleChanged { get; set; } = true;
-        public bool EnableBetaFeaturesInMod { get; set; }
         public bool EnableDungeonMakerRotationHotkeys { get; set; } = true;
         public bool EnableFirstLevelCasterFeats { get; set; } = true;
         public bool EnableMultiLinePowerPanel { get; set; } = true;
