@@ -43,7 +43,8 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                         {
                             itemType = (MapGadgetItem.ItemType)(-2);
                         }
-                        else if (gameGadget.UniqueNameId.StartsWith("Teleporter") && !gameGadget.IsInvisible())
+                        else if (gameGadget.UniqueNameId.StartsWith("Teleporter") 
+                            && (Main.Settings.MarkInvisibleTeleportersOnLevelMap || !gameGadget.IsInvisible()))
                         {
                             itemType = (MapGadgetItem.ItemType)(-3);
                         }

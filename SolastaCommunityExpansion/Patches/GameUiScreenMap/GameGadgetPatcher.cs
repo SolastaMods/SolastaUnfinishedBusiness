@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
@@ -62,12 +63,70 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                     var isInvisible = __instance.IsInvisible();
                     var isEnabled = __instance.IsEnabled();
 
-                    GameLocationManager_ReadyLocation.SetGadgetVisibility(worldGadget, isEnabled && !isInvisible);
+                    GameLocationManager_ReadyLocation.SetTeleporterGadgetVisibility(worldGadget, isEnabled && !isInvisible);
 
                     ___revealed = true;
                     __result = true;
 
                     break;
+                }
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(GameGadget), "SetCondition")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class GameGadget_SetCondition
+    {
+        internal static void Prefix(GameGadget __instance, int conditionIndex, List<string> ___conditionNames, out bool __state)
+        {
+            __state = false;
+
+            if (!Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered)
+            {
+                return;
+            }
+
+            if(conditionIndex >= 0 && conditionIndex < ___conditionNames.Count)
+            {
+                var param = ___conditionNames[conditionIndex];
+                if (param == GameGadgetExtensions.Enabled || param == GameGadgetExtensions.ParamEnabled)
+                {
+                    __state = __instance.IsEnabled();
+                }
+            }
+        }
+
+        internal static void Postfix(GameGadget __instance, int conditionIndex, List<string> ___conditionNames, bool __state)
+        {
+            if (!Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered)
+            {
+                return;
+            }
+
+            if (conditionIndex >= 0 && conditionIndex < ___conditionNames.Count)
+            {
+                var param = ___conditionNames[conditionIndex];
+
+                if (param == GameGadgetExtensions.Enabled || param == GameGadgetExtensions.ParamEnabled)
+                {
+                    var newState = __instance.IsEnabled();
+
+                    if (newState != __state)
+                    {
+                        var service = ServiceRepository.GetService<IGameLocationService>();
+                        if (service != null)
+                        {
+                            var worldGadget = service.WorldLocation.WorldSectors
+                                .SelectMany(ws => ws.WorldGadgets)
+                                .FirstOrDefault(wg => wg.GameGadget == __instance);
+
+                            if (worldGadget != null)
+                            {
+                                GameLocationManager_ReadyLocation.SetTeleporterGadgetVisibility(worldGadget, newState);
+                            }
+                        }
+                    }
                 }
             }
         }

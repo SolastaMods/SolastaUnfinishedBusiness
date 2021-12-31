@@ -26,6 +26,7 @@ namespace SolastaCommunityExpansion
         public bool BugFixBestiarySorting { get; set; } = true;
         public bool BugFixCharacterPanelSorting { get; set; } = true;
         public bool BugFixExpandColorTables { get; set; } = true;
+        public bool BugFixGameGadgetCheckIsEnabled { get; set; } = true;
         public bool BugFixItemFiltering { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
         public bool BugFixOnCanSaveToggleChanged { get; set; } = true;
@@ -177,6 +178,8 @@ namespace SolastaCommunityExpansion
 
         // Campaigns and Locations
         public bool EnableAdditionalIconsOnLevelMap { get; set; }
+        public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
+        public bool HideExitAndTeleporterGizmosIfNotDiscovered{ get; set; }
         public bool EnableSaveByLocation { get; set; }
         public bool EnableTelemaCampaign { get; set; }
         public bool EnableTeleportParty { get; set; }

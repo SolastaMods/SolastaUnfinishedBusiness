@@ -26,12 +26,16 @@ namespace SolastaCommunityExpansion.Helpers
 
     internal static class GameGadgetExtensions
     {
+        public const string Enabled = "Enabled";
+        public const string ParamEnabled = "Param_Enabled";
+        public const string Invisible = "Invisible";
+
         /// <summary>
         /// Returns state of Invisible parameter, or false if not present
         /// </summary>
         public static bool IsInvisible(this GameGadget gadget)
         {
-            return (bool)CheckConditionName.Invoke(gadget, new object[] { "Invisible", true, false });
+            return (bool)CheckConditionName.Invoke(gadget, new object[] { Invisible, true, false });
         }
 
         /// <summary>
@@ -39,8 +43,8 @@ namespace SolastaCommunityExpansion.Helpers
         /// </summary>
         public static bool IsEnabled(this GameGadget gadget)
         {
-            return (bool)CheckConditionName.Invoke(gadget, new object[] { "Param_Enabled", true, false })
-                || (bool)CheckConditionName.Invoke(gadget, new object[] { "Enabled", true, false });
+            return (bool)CheckConditionName.Invoke(gadget, new object[] { ParamEnabled, true, false })
+                || (bool)CheckConditionName.Invoke(gadget, new object[] { Enabled, true, false });
         }
 
 #pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
