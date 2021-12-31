@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
     {
         internal static void SetGadgetVisibility(WorldGadget worldGadget, bool visibility = false)
         {
-            if (worldGadget?.UserGadget == null)
+            if (!Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered || worldGadget?.UserGadget == null)
             {
                 return;
             }

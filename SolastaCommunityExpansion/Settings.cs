@@ -164,6 +164,8 @@ namespace SolastaCommunityExpansion
 
         // Campaigns and Locations
         public bool EnableAdditionalIconsOnLevelMap { get; set; }
+        public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
+        public bool HideExitAndTeleporterGizmosIfNotDiscovered{ get; set; }
         public bool EnableSaveByLocation { get; set; }
         public bool EnableTelemaCampaign { get; set; }
         public bool EnableTeleportParty { get; set; }
