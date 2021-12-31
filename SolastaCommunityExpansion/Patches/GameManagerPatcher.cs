@@ -14,6 +14,7 @@ namespace SolastaCommunityExpansion.Patches
             AsiAndFeatContext.Load();
             BugFixContext.Load();
             CharacterExportContext.Load();
+            ClassesContext.Load();
             ConjurationsContext.Load();
             DruidArmorContext.Load();
             DungeonMakerContext.Load();
