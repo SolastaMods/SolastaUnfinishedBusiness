@@ -1211,7 +1211,6 @@ namespace SolastaCommunityExpansion.Classes
             classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetRitualCasting, 1);
             classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetWitchCurses, 1);
             classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetMaledictions, 1);
-            classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetMaledictions, 1);
             classBuilder.AddFeatureAtLevel(FeatureDefinitionPowerCackle, 2);
             classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetWitchFamiliar, 2);
             classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetMaledictions, 2);
