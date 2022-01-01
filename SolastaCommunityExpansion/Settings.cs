@@ -48,6 +48,7 @@ namespace SolastaCommunityExpansion
         //
 
         // Initial Choices
+        public bool AddHelpActionToAllClasses { get; set; }
         public bool DisableSenseDarkVisionFromAllRaces { get; set; }
         public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
         public bool EnableAlternateHuman { get; set; }

@@ -10,8 +10,6 @@ namespace SolastaCommunityExpansion.Patches
     {
         internal static void Postfix()
         {
-            PowersContext.Load();
-            SpellsContext.Load();
             AdditionalNamesContext.Load();
             AsiAndFeatContext.Load();
             BugFixContext.Load();

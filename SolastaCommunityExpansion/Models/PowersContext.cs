@@ -1,77 +1,80 @@
-using SolastaCommunityExpansion.Powers;
+﻿using SolastaModApi;
 using SolastaModApi.Extensions;
-using System.Collections.Generic;
+using SolastaCommunityExpansion.Features;
+using System;
 using System.Linq;
-using System.Text;
 
 namespace SolastaCommunityExpansion.Models
 {
     internal static class PowersContext
     {
-        public static Dictionary<string, FeatureDefinitionPower> Powers { get; private set; } = new Dictionary<string, FeatureDefinitionPower>();
+        private static readonly Guid BAZOU_POWERS_BASE_GUID = new Guid("99cee84d-6187-4d7f-a36e-1bd96d3f2deb");
+
+        private static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; set; }
 
         internal static void Load()
         {
-            // Generate Powers here and fill the list
-            List<FeatureDefinitionPower> powers = new List<FeatureDefinitionPower>();
-
-            // Build Powers
-            BazouPowers.CreatePowers(powers);
-
-            // Use the list of Powers to get the settings and ui set up.
-
-            foreach (FeatureDefinitionPower power in powers)
-            {
-                if (!Powers.ContainsKey(power.Name))
-                {
-                    Powers.Add(power.Name, power);
-                }
-
-                power.GuiPresentation.SetHidden(!Main.Settings.PowerEnabled.Contains(power.Name));
-            }
-
-            Powers = Powers.OrderBy(x => x.Value.FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
+            LoadHelpPower();
         }
 
-        internal static void Switch(string powerName, bool active)
+        internal static void Switch()
         {
-            if (!Powers.ContainsKey(powerName))
-            {
-                return;
-            }
+            SwitchHelpPower();
+        }
 
-            Powers[powerName].GuiPresentation.SetHidden(!active);
+        internal static void SwitchHelpPower()
+        {
+            var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
 
-            if (active)
+            if (Main.Settings.AddHelpActionToAllClasses)
             {
-                if (!Main.Settings.PowerEnabled.Contains(powerName))
+                foreach (var characterClassDefinition in dbCharacterClassDefinition
+                    .Where(a => !a.FeatureUnlocks.Exists(x => x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction)))
                 {
-                    Main.Settings.PowerEnabled.Add(powerName);
+                    characterClassDefinition.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureDefinitionPowerHelpAction, 1));
                 }
             }
             else
             {
-                Main.Settings.PowerEnabled.Remove(powerName);
+                foreach (var characterClassDefinition in dbCharacterClassDefinition
+                    .Where(a => a.FeatureUnlocks.Exists(x => x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction)))
+                {
+                    characterClassDefinition.FeatureUnlocks.RemoveAll(x => x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction);
+                }
             }
         }
 
-        public static string GeneratePowersDescription()
+        private static void LoadHelpPower()
         {
-            var outString = new StringBuilder("[heading]Powers[/heading]");
+            var effectDescription = new EffectDescription();
 
-            outString.Append("\n[list]");
+            effectDescription.Copy(DatabaseHelper.SpellDefinitions.TrueStrike.EffectDescription);
+            effectDescription.SetRangeType(RuleDefinitions.RangeType.Touch);
+            effectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
+            effectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
+            effectDescription.EffectForms[0].ConditionForm.ConditionDefinition.GuiPresentation.SetDescription("Condition/&HelpActionDescription");
+            effectDescription.EffectForms[0].ConditionForm.ConditionDefinition.GuiPresentation.SetTitle("Condition/&HelpActionTitle");
 
-            foreach (var feat in Powers.Values)
-            {
-                outString.Append("\n[*][b]");
-                outString.Append(feat.FormatTitle());
-                outString.Append("[/b]: ");
-                outString.Append(feat.FormatTitle());
-            }
-
-            outString.Append("\n[/list]");
-
-            return outString.ToString();
+            FeatureDefinitionPowerHelpAction = new FeatureDefinitionPowerBuilder(
+                "HelpAction",
+                GuidHelper.Create(BAZOU_POWERS_BASE_GUID, "HelpAction").ToString(),
+                1,
+                RuleDefinitions.UsesDetermination.Fixed,
+                AttributeDefinitions.Charisma,
+                RuleDefinitions.ActivationTime.Action,
+                0,
+                RuleDefinitions.RechargeRate.AtWill,
+                false,
+                false,
+                AttributeDefinitions.Charisma,
+                effectDescription,
+                new GuiPresentationBuilder(
+                    "Power/&HelpActionDescription",
+                    "Power/&HelpActionTitle")
+                    .Build()
+                    .SetSpriteReference(DatabaseHelper.SpellDefinitions.Aid.GuiPresentation.SpriteReference),
+                true)
+                .AddToDB();
         }
     }
 }
