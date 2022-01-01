@@ -117,11 +117,11 @@ namespace SolastaCommunityExpansion.Models
             SwitchSpell(spellListDefinition, spellDefinition, enabled);
         }
 
-        internal static void RegisterSpell(SpellDefinition spellDefinition, List<string> suggestedClasses = null)
+        internal static void RegisterSpell(SpellDefinition spellDefinition, params string[] suggestedClasses)
         {
             if (!RegisteredSpells.ContainsKey(spellDefinition))
             {
-                RegisteredSpells.Add(spellDefinition, suggestedClasses);
+                RegisteredSpells.Add(spellDefinition, suggestedClasses.ToList());
             }
         }
 
