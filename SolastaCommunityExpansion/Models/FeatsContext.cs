@@ -39,6 +39,8 @@ namespace SolastaCommunityExpansion.Models
             }
 
             Feats = Feats.OrderBy(x => x.Value.FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
+
+            GuiWrapperContext.RecacheFeats();
         }
 
         internal static void Switch(string featName, bool active)

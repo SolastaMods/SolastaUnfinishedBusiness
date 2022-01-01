@@ -22,7 +22,6 @@ namespace SolastaCommunityExpansion.Patches
             EpicArrayContext.Load();
             FaceUnlockContext.Load();
             FightingStyleContext.Load(); // Fighting Styles should be loaded before feats in order to generate feats of new fighting styles
-            FeatsContext.Load();
             FlexibleBackgroundsContext.Load();
             InitialChoicesContext.Load();
             GameUiContext.Load();
@@ -39,7 +38,7 @@ namespace SolastaCommunityExpansion.Patches
             TelemaCampaignContext.Load();
             TeleporterContext.Load();
             VisionContext.Load();
-            SpellsContext.Load(); // Spells should be loaded after classes and subclasses
+
             Main.Enabled = true;
         }
     }
