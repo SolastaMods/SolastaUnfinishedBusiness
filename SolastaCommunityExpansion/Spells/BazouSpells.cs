@@ -17,12 +17,12 @@ namespace SolastaCommunityExpansion.Spells
         //
         public static void Load()
         {
-            SpellsContext.RegisterSpell(BuildEldritchOrb());
-            SpellsContext.RegisterSpell(BuildFindFamiliar());
-            SpellsContext.RegisterSpell(BuildFrenzy());
-            SpellsContext.RegisterSpell(BuildMinorLifesteal());
-            SpellsContext.RegisterSpell(BuildPetalStorm());
-            SpellsContext.RegisterSpell(BuildProtectThreshold());
+            SpellsContext.RegisterSpell(BuildEldritchOrb(), new List<string> { "WarlockClass" });
+            SpellsContext.RegisterSpell(BuildFindFamiliar(), new List<string> { "Wizard" });
+            SpellsContext.RegisterSpell(BuildFrenzy(), new List<string> { "Bard", "Wizard" });
+            SpellsContext.RegisterSpell(BuildMinorLifesteal(), new List<string> { "Sorcerer", "Wizard" });
+            SpellsContext.RegisterSpell(BuildPetalStorm(), new List<string> { "Druid" });
+            SpellsContext.RegisterSpell(BuildProtectThreshold(), new List<string> { "Sorcerer", "Wizard" });
         }
 
         private static SpellDefinition BuildEldritchOrb()
