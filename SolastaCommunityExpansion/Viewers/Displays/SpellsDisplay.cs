@@ -8,11 +8,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
     internal static class SpellsDisplay
     {
         private const int MAX_COLUMNS = 4;
+
         private const float PIXELS_PER_COLUMN = 225;
 
         private static bool Initialized { get; set; }
 
-        private static readonly SortedDictionary<string, bool> SpellNamesToggle = new SortedDictionary<string, bool>();
+        private static readonly List<SpellDefinition> SortedRegisteredSpells = new List<SpellDefinition>();
+
+        private static readonly Dictionary<string, bool> SpellNamesToggle = new Dictionary<string, bool>();
 
         internal static void DisplaySpells()
         {
@@ -20,25 +23,32 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             if (!Initialized)
             {
-                SpellsContext.RegisteredSpells.Values.ToList().ForEach(x => SpellNamesToggle.Add(x.SpellDefinition.FormatTitle(), false));
+                SpellsContext.RegisteredSpells.Values
+                    .Select(x => x.SpellDefinition.Name)
+                    .ToList()
+                    .ForEach(x => SpellNamesToggle.Add(x, false));
+
+                SortedRegisteredSpells.AddRange(SpellsContext.RegisteredSpells
+                    .Select(x => x.Value.SpellDefinition)
+                    .OrderBy(x => $"{x.SpellLevel} - {x.FormatTitle()}"));
 
                 Initialized = true;
             }
 
             UI.Label("");
 
-            foreach (var spellRecord in SpellsContext.RegisteredSpells)
+            foreach (var spellDefinition in SortedRegisteredSpells)
             {
-                var spellDefinition = spellRecord.Value.SpellDefinition;
-                var spellTitle = spellDefinition.FormatTitle();
+                var spellName = spellDefinition.Name;
+                var spellTitle = $"{spellDefinition.SpellLevel} - {spellDefinition.FormatTitle()}";
 
-                toggle = SpellNamesToggle[spellTitle];
+                toggle = SpellNamesToggle[spellName];
                 if (UI.DisclosureToggle(spellTitle.yellow(), ref toggle, 200))
                 {
-                    SpellNamesToggle[spellTitle] = toggle;
+                    SpellNamesToggle[spellName] = toggle;
                 }
 
-                if (SpellNamesToggle[spellTitle])
+                if (SpellNamesToggle[spellName])
                 {
                     DisplaySpell(spellDefinition);
                 }
@@ -50,7 +60,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         internal static void DisplaySpell(SpellDefinition spellDefinition)
         {
             UI.Label("");
-            UI.Label(spellDefinition.FormatDescription());
+            UI.Label($"{spellDefinition.FormatDescription()}");
 
             using (UI.HorizontalScope())
             {
@@ -79,21 +89,25 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             bool toggle;
             int columns;
             var current = 0;
-            var classes = SpellsContext.GetCasterClasses.ToList();
+            var classes = SpellsContext.GetCasterClasses;
             var classesCount = classes.Count;
 
             UI.Label("");
             UI.Label("Classes:".yellow());
             UI.Label("");
 
-            var xx = Main.Settings.ClassSpellEnabled;
-
-            toggle = Main.Settings.ClassSpellEnabled[spellName].Count == classesCount;
-            if (UI.Toggle("Select All", ref toggle, UI.AutoWidth()))
+            using (UI.HorizontalScope())
             {
-                if (toggle)
+                toggle = Main.Settings.ClassSpellEnabled[spellName].Count == classesCount;
+                if (UI.Toggle("Select All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
-                    SpellsContext.SelectAllClasses(spellDefinition);
+                    SpellsContext.SelectAllClasses(spellDefinition, toggle);
+                }
+
+                toggle = SpellsContext.AreSuggestedClassesSelected(spellDefinition);
+                if (UI.Toggle("Select Suggested", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                {
+                    SpellsContext.SelectSuggestedClasses(spellDefinition, toggle);
                 }
             }
 
@@ -101,7 +115,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             while (current < classesCount)
             {
-                columns = 4;
+                columns = MAX_COLUMNS;
 
                 using (UI.HorizontalScope())
                 {
@@ -136,19 +150,25 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             bool toggle;
             int columns;
             var current = 0;
-            var subclasses = SpellsContext.GetCasterSubclasses.ToList();
+            var subclasses = SpellsContext.GetCasterSubclasses;
             var subclassesCount = subclasses.Count;
 
             UI.Label("");
             UI.Label("Subclasses:".yellow());
             UI.Label("");
 
-            toggle = Main.Settings.SubclassSpellEnabled[spellName].Count == subclassesCount;
-            if (UI.Toggle("Select All", ref toggle, UI.AutoWidth()))
+            using (UI.HorizontalScope())
             {
-                if (toggle)
+                toggle = Main.Settings.SubclassSpellEnabled[spellName].Count == subclassesCount;
+                if (UI.Toggle("Select All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
-                    SpellsContext.SelectAllSubclasses(spellDefinition);
+                    SpellsContext.SelectAllSubclasses(spellDefinition, toggle);
+                }
+
+                toggle = SpellsContext.AreSuggestedSubclassesSelected(spellDefinition);
+                if (UI.Toggle("Select Suggested", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                {
+                    SpellsContext.SelectSuggestedSubclasses(spellDefinition, toggle);
                 }
             }
 
@@ -156,7 +176,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             while (current < subclassesCount)
             {
-                columns = 4;
+                columns = MAX_COLUMNS;
 
                 using (UI.HorizontalScope())
                 {

@@ -40,7 +40,9 @@ namespace SolastaCommunityExpansion.Models
                 if (casterClasses == null)
                 {
                     casterClasses = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
-                        .Where(x => x.FeatureUnlocks.Exists(y => y.FeatureDefinition is FeatureDefinitionCastSpell)).ToList();
+                        .Where(x => x.FeatureUnlocks.Exists(y => y.FeatureDefinition is FeatureDefinitionCastSpell))
+                        .OrderBy(x => x.FormatTitle())
+                        .ToList();
                 }
 
                 return casterClasses;
@@ -56,7 +58,9 @@ namespace SolastaCommunityExpansion.Models
                 if (casterSubclasses == null)
                 {
                     casterSubclasses = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
-                        .Where(x => x.FeatureUnlocks.Exists(y => y.FeatureDefinition is FeatureDefinitionCastSpell)).ToList();
+                        .Where(x => x.FeatureUnlocks.Exists(y => y.FeatureDefinition is FeatureDefinitionCastSpell))
+                        .OrderBy(x => x.FormatTitle())
+                        .ToList();
                 }
 
                 return casterSubclasses;
@@ -91,28 +95,70 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void SelectAllClasses(SpellDefinition spellDefinition)
+        internal static void SelectAllClasses(SpellDefinition spellDefinition, bool select = true)
         {
             Main.Settings.ClassSpellEnabled[spellDefinition.Name].Clear();
-            Main.Settings.ClassSpellEnabled[spellDefinition.Name].AddRange(GetCasterClasses.Select(x => x.Name).ToList());
+
+            if (select)
+            {
+                Main.Settings.ClassSpellEnabled[spellDefinition.Name].AddRange(GetCasterClasses.Select(x => x.Name));
+            }
         }
 
-        internal static void SelectAllSubclasses(SpellDefinition spellDefinition)
+        internal static void SelectAllSubclasses(SpellDefinition spellDefinition, bool select = true)
         {
             Main.Settings.SubclassSpellEnabled[spellDefinition.Name].Clear();
-            Main.Settings.SubclassSpellEnabled[spellDefinition.Name].AddRange(GetCasterSubclasses.Select(x => x.Name).ToList());
+
+            if (select)
+            {
+                Main.Settings.SubclassSpellEnabled[spellDefinition.Name].AddRange(GetCasterSubclasses.Select(x => x.Name));
+            }
         }
 
-        internal static void SelectToSuggested()
+        internal static void SelectSuggestedClasses(SpellDefinition spellDefinition, bool select = true)
         {
-            Main.Settings.ClassSpellEnabled.Clear();
-            Main.Settings.SubclassSpellEnabled.Clear();
+            Main.Settings.ClassSpellEnabled[spellDefinition.Name].Clear();
 
-            foreach (var registeredSpell in RegisteredSpells)
+            if (select)
             {
-                Main.Settings.ClassSpellEnabled.Add(registeredSpell.Key, registeredSpell.Value.SuggestedClasses);
-                Main.Settings.SubclassSpellEnabled.Add(registeredSpell.Key, registeredSpell.Value.SuggestedSubclasses);
+                Main.Settings.ClassSpellEnabled[spellDefinition.Name].AddRange(RegisteredSpells[spellDefinition.Name].SuggestedClasses);
             }
+        }
+
+        internal static bool AreSuggestedClassesSelected(SpellDefinition spellDefinition)
+        {
+            var suggestedClasses = RegisteredSpells[spellDefinition.Name].SuggestedClasses;
+            var selectedClasses = Main.Settings.ClassSpellEnabled[spellDefinition.Name];
+
+            if (suggestedClasses.Count != selectedClasses.Count)
+            {
+                return false;
+            }
+
+            return !suggestedClasses.Where(x => !selectedClasses.Contains(x)).Any();
+        }
+
+        internal static void SelectSuggestedSubclasses(SpellDefinition spellDefinition, bool select = true)
+        {
+            Main.Settings.SubclassSpellEnabled[spellDefinition.Name].Clear();
+
+            if (select)
+            {
+                Main.Settings.SubclassSpellEnabled[spellDefinition.Name].AddRange(RegisteredSpells[spellDefinition.Name].SuggestedSubclasses);
+            }
+        }
+
+        internal static bool AreSuggestedSubclassesSelected(SpellDefinition spellDefinition)
+        {
+            var suggestedSubclasses = RegisteredSpells[spellDefinition.Name].SuggestedSubclasses;
+            var selectedSubClasses = Main.Settings.SubclassSpellEnabled[spellDefinition.Name];
+
+            if (suggestedSubclasses.Count != selectedSubClasses.Count)
+            {
+                return false;
+            }
+
+            return !suggestedSubclasses.Where(x => !selectedSubClasses.Contains(x)).Any();
         }
 
         public static string GenerateSpellsDescription()
