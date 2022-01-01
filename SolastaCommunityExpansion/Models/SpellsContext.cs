@@ -110,14 +110,24 @@ namespace SolastaCommunityExpansion.Models
             }
 
             var enabled = Main.Settings.ClassSpellEnabled[spellDefinition.Name].Contains(characterClassDefinition.Name);
+            var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
+            var featureDefinitionCastSpell = characterClassDefinition.FeatureUnlocks
+                .FirstOrDefault(x => x.FeatureDefinition is FeatureDefinitionCastSpell).FeatureDefinition as FeatureDefinitionCastSpell;
+            var spellListDefinition = featureDefinitionCastSpell.SpellListDefinition;
 
             if (enabled)
             {
-                // TODO: Add to class CastSpellFeature
+                if (!spellListDefinition.ContainsSpell(spellDefinition))
+                {
+                    // TODO: Add to class spellListDefinition
+                }
             }
             else
             {
-                // TODO: Remove from class CastSpellFeature
+                if (spellListDefinition.ContainsSpell(spellDefinition))
+                {
+                    // TODO: Remove from class spellListDefinition
+                }
             }
         }
 
@@ -141,14 +151,24 @@ namespace SolastaCommunityExpansion.Models
             }
 
             var enabled = Main.Settings.SubclassSpellEnabled[spellDefinition.Name].Contains(characterSubclassDefinition.Name);
+            var dbCharacterSubclassDefinition = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>();
+            var featureDefinitionCastSpell = characterSubclassDefinition.FeatureUnlocks
+                .FirstOrDefault(x => x.FeatureDefinition is FeatureDefinitionCastSpell).FeatureDefinition as FeatureDefinitionCastSpell;
+            var spellListDefinition = featureDefinitionCastSpell.SpellListDefinition;
 
             if (enabled)
             {
-                // TODO: Add to subclass CastSpellFeature
+                if (!spellListDefinition.ContainsSpell(spellDefinition))
+                {
+                    // TODO: Add to subclass spellListDefinition
+                }
             }
             else
             {
-                // TODO: Remove from subclass CastSpellFeature
+                if (spellListDefinition.ContainsSpell(spellDefinition))
+                {
+                    // TODO: Remove from subclass spellListDefinition
+                }
             }
         }
 
