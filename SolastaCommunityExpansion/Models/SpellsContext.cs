@@ -90,6 +90,68 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
+        internal static void SwitchClass(SpellDefinition spellDefinition = null, CharacterClassDefinition characterClassDefinition = null)
+        {
+            if (spellDefinition == null)
+            {
+                foreach (var sd in RegisteredSpells.Values.Select(x => x.SpellDefinition))
+                {
+                    SwitchClass(sd, null);
+                }
+
+                return;
+            }
+
+            if (characterClassDefinition == null)
+            {
+                GetCasterClasses.ForEach(x => SwitchClass(spellDefinition, x));
+
+                return;
+            }
+
+            var enabled = Main.Settings.ClassSpellEnabled[spellDefinition.Name].Contains(characterClassDefinition.Name);
+
+            if (enabled)
+            {
+                // TODO: Add to class CastSpellFeature
+            }
+            else
+            {
+                // TODO: Remove from class CastSpellFeature
+            }
+        }
+
+        internal static void SwitchSubclass(SpellDefinition spellDefinition = null, CharacterSubclassDefinition characterSubclassDefinition = null)
+        {
+            if (spellDefinition == null)
+            {
+                foreach (var sd in RegisteredSpells.Values.Select(x => x.SpellDefinition))
+                {
+                    SwitchSubclass(sd, null);
+                }
+
+                return;
+            }
+
+            if (characterSubclassDefinition == null)
+            {
+                GetCasterSubclasses.ForEach(x => SwitchSubclass(spellDefinition, x));
+
+                return;
+            }
+
+            var enabled = Main.Settings.SubclassSpellEnabled[spellDefinition.Name].Contains(characterSubclassDefinition.Name);
+
+            if (enabled)
+            {
+                // TODO: Add to subclass CastSpellFeature
+            }
+            else
+            {
+                // TODO: Remove from subclass CastSpellFeature
+            }
+        }
+
         internal static void RegisterSpell(SpellDefinition spellDefinition, List<string> suggestedClasses = null, List<string> suggestedSubclasses = null)
         {
             var spellName = spellDefinition.Name;

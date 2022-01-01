@@ -53,6 +53,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 {
                     SpellsContext.SelectAllClasses(toggle);
                     SpellsContext.SelectAllSubclasses(toggle);
+                    SpellsContext.SwitchClass();
+                    SpellsContext.SwitchSubclass();
                 }
 
                 toggle = SpellsContext.AreSuggestedClassesSelected() && SpellsContext.AreSuggestedSubclassesSelected();
@@ -60,6 +62,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 {
                     SpellsContext.SelectSuggestedClasses(toggle);
                     SpellsContext.SelectSuggestedSubclasses(toggle);
+                    SpellsContext.SwitchClass();
+                    SpellsContext.SwitchSubclass();
                 }
 
                 ExpandAllToggle = SpellNamesToggle.Count == SpellNamesToggle.Count(x => x.Value);
@@ -138,12 +142,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (UI.Toggle("Select All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
                     SpellsContext.SelectAllClasses(spellDefinition, toggle);
+                    SpellsContext.SwitchClass(spellDefinition);
                 }
 
                 toggle = SpellsContext.AreSuggestedClassesSelected(spellDefinition);
                 if (UI.Toggle("Select Suggested", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
                     SpellsContext.SelectSuggestedClasses(spellDefinition, toggle);
+                    SpellsContext.SwitchClass(spellDefinition);
                 }
             }
 
@@ -172,6 +178,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                             {
                                 Main.Settings.ClassSpellEnabled[spellName].Remove(className);
                             }
+
+                            SpellsContext.SwitchClass(spellDefinition, classDefinition);
                         }
 
                         current++;
@@ -199,12 +207,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (UI.Toggle("Select All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
                     SpellsContext.SelectAllSubclasses(spellDefinition, toggle);
+                    SpellsContext.SwitchSubclass(spellDefinition);
                 }
 
                 toggle = SpellsContext.AreSuggestedSubclassesSelected(spellDefinition);
                 if (UI.Toggle("Select Suggested", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
                     SpellsContext.SelectSuggestedSubclasses(spellDefinition, toggle);
+                    SpellsContext.SwitchSubclass(spellDefinition);
                 }
             }
 
@@ -233,6 +243,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                             {
                                 Main.Settings.SubclassSpellEnabled[spellName].Remove(subclassName);
                             }
+
+                            SpellsContext.SwitchSubclass(spellDefinition, subclassDefinition);
                         }
 
                         current++;
