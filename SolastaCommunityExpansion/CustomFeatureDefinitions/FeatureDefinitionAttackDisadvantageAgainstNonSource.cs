@@ -5,7 +5,7 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
     /// <summary>
     /// Imposes disadvantage when attacking anyone but the source of the specified condition.
     /// </summary>
-    public class AttackDisadvantageAgainstNonSource : FeatureDefinition, ICombatAffinityProvider
+    public class FeatureDefinitionAttackDisadvantageAgainstNonSource : FeatureDefinition, ICombatAffinityProvider
     {
         public string ConditionName { get; set; }
 

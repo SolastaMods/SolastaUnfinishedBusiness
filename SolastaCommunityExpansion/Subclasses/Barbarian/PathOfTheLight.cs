@@ -401,9 +401,9 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             return illuminatedCondition;
         }
 
-        private static AttackDisadvantageAgainstNonSource CreateDisadvantageAgainstNonSource()
+        private static FeatureDefinitionAttackDisadvantageAgainstNonSource CreateDisadvantageAgainstNonSource()
         {
-            var disadvantageAgainstNonSource = FeatureDefinitionBuilder<AttackDisadvantageAgainstNonSource>.Build(
+            var disadvantageAgainstNonSource = FeatureDefinitionBuilder<FeatureDefinitionAttackDisadvantageAgainstNonSource>.Build(
                 "PathOfTheLightIlluminatedDisadvantage",
                 CreateNamespacedGuid("PathOfTheLightIlluminatedDisadvantage"),
                 "Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription",
