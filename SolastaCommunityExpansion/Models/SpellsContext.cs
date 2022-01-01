@@ -1,5 +1,4 @@
-using SolastaCommunityExpansion.Spells;
-using SolastaModApi.Extensions;
+﻿using SolastaCommunityExpansion.Spells;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,50 +7,28 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class SpellsContext
     {
-        public static Dictionary<string, SpellDefinition> Spells { get; private set; } = new Dictionary<string, SpellDefinition>();
+        private static List<SpellDefinition> Spells { get; set; } = new List<SpellDefinition>();
+
+        private static IEnumerable<CharacterClassDefinition> GetCasterClasses =>
+            DatabaseRepository.GetDatabase<CharacterClassDefinition>().Where(x => x.FeatureUnlocks.Exists(y => y.FeatureDefinition is FeatureDefinitionCastSpell));
+
+        private static IEnumerable<CharacterSubclassDefinition> GetCasterSubclasses =>
+            DatabaseRepository.GetDatabase<CharacterSubclassDefinition>().Where(x => x.FeatureUnlocks.Exists(y => y.FeatureDefinition is FeatureDefinitionCastSpell));
 
         internal static void Load()
         {
-            // Generate Spells here and fill the list
-            List<SpellDefinition> spells = new List<SpellDefinition>();
+            BazouSpells.CreateSpells(Spells);
 
-            // Build Spells
-            BazouSpells.CreateSpells(spells);
+            var spellNames = Spells.Select(x => x.Name);
 
-            // Use the list of Spells to get the settings and ui set up.
-
-            foreach (SpellDefinition spell in spells)
+            foreach (var casterClass in GetCasterClasses.Where(x => !Main.Settings.ClassSpellEnabled.ContainsKey(x.Name)))
             {
-                if (!Spells.ContainsKey(spell.Name))
-                {
-                    Spells.Add(spell.Name, spell);
-                }
-
-                spell.GuiPresentation.SetHidden(!Main.Settings.SpellEnabled.Contains(spell.Name));
+                Main.Settings.ClassSpellEnabled.Add(casterClass.Name, spellNames.ToList());
             }
 
-            Spells = Spells.OrderBy(x => x.Value.FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
-        }
-
-        internal static void Switch(string spellName, bool active)
-        {
-            if (!Spells.ContainsKey(spellName))
+            foreach (var casterSubclass in GetCasterSubclasses.Where(x => !Main.Settings.SubclassSpellEnabled.ContainsKey(x.Name)))
             {
-                return;
-            }
-
-            Spells[spellName].GuiPresentation.SetHidden(!active);
-
-            if (active)
-            {
-                if (!Main.Settings.SpellEnabled.Contains(spellName))
-                {
-                    Main.Settings.SpellEnabled.Add(spellName);
-                }
-            }
-            else
-            {
-                Main.Settings.SpellEnabled.Remove(spellName);
+                Main.Settings.SubclassSpellEnabled.Add(casterSubclass.Name, spellNames.ToList());
             }
         }
 
@@ -61,12 +38,12 @@ namespace SolastaCommunityExpansion.Models
 
             outString.Append("\n[list]");
 
-            foreach (var feat in Spells.Values)
+            foreach (var spell in Spells)
             {
                 outString.Append("\n[*][b]");
-                outString.Append(feat.FormatTitle());
+                outString.Append(spell.FormatTitle());
                 outString.Append("[/b]: ");
-                outString.Append(feat.FormatTitle());
+                outString.Append(spell.FormatTitle());
             }
 
             outString.Append("\n[/list]");
