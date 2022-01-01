@@ -39,7 +39,7 @@ namespace SolastaCommunityExpansion.Patches
             TelemaCampaignContext.Load();
             TeleporterContext.Load();
             VisionContext.Load();
-
+            SpellsContext.Load(); // Spells should be loaded after classes and subclasses
             Main.Enabled = true;
         }
     }
