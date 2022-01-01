@@ -18,12 +18,14 @@ namespace SolastaCommunityExpansion.Models
                 
                 if (suggestedClasses != null)
                 {
-                    SuggestedClasses.AddRange(suggestedClasses.Where(x => dbCharacterClassDefinition.TryGetElement(x, out _)));
+                    SuggestedClasses.AddRange(suggestedClasses
+                        .Where(x => dbCharacterClassDefinition.TryGetElement(x, out var c) && GetCasterClasses.Contains(c)));
                 }
 
                 if (suggestedSubclasses != null)
                 {
-                    SuggestedSubclasses.AddRange(suggestedSubclasses.Where(x => dbCharacterSubclassDefinition.TryGetElement(x, out _)));
+                    SuggestedSubclasses.AddRange(suggestedSubclasses
+                        .Where(x => dbCharacterSubclassDefinition.TryGetElement(x, out var sc) && GetCasterSubclasses.Contains(sc)));
                 }
             }
 
