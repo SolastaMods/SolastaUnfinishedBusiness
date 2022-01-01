@@ -36,36 +36,34 @@ namespace SolastaCommunityExpansion.Models
 
         internal static readonly Dictionary<string, SpellRecord> RegisteredSpells = new Dictionary<string, SpellRecord>();
 
-        private static List<CharacterClassDefinition> casterClasses;
+        private static readonly List<CharacterClassDefinition> casterClasses = new List<CharacterClassDefinition>();
 
         internal static List<CharacterClassDefinition> GetCasterClasses
         {
             get
             {
-                if (casterClasses == null)
+                if (casterClasses.Count == 0)
                 {
-                    casterClasses = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
+                    casterClasses.AddRange(DatabaseRepository.GetDatabase<CharacterClassDefinition>()
                         .Where(x => x.FeatureUnlocks.Exists(y => y.FeatureDefinition is FeatureDefinitionCastSpell))
-                        .OrderBy(x => x.FormatTitle())
-                        .ToList();
+                        .OrderBy(x => x.FormatTitle()));
                 }
 
                 return casterClasses;
             }
         }
 
-        private static List<CharacterSubclassDefinition> casterSubclasses;
+        private static readonly List<CharacterSubclassDefinition> casterSubclasses = new List<CharacterSubclassDefinition>();
 
         internal static List<CharacterSubclassDefinition> GetCasterSubclasses
         {
             get
             {
-                if (casterSubclasses == null)
+                if (casterSubclasses.Count == 0)
                 {
-                    casterSubclasses = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+                    casterSubclasses.AddRange(DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
                         .Where(x => x.FeatureUnlocks.Exists(y => y.FeatureDefinition is FeatureDefinitionCastSpell))
-                        .OrderBy(x => x.FormatTitle())
-                        .ToList();
+                        .OrderBy(x => x.FormatTitle()));
                 }
 
                 return casterSubclasses;
@@ -78,14 +76,16 @@ namespace SolastaCommunityExpansion.Models
 
             foreach (var registeredSpell in RegisteredSpells)
             {
-                if (!Main.Settings.ClassSpellEnabled.ContainsKey(registeredSpell.Key))
+                var spellName = registeredSpell.Key;
+
+                if (!Main.Settings.ClassSpellEnabled.ContainsKey(spellName))
                 {
-                    Main.Settings.ClassSpellEnabled.Add(registeredSpell.Key, registeredSpell.Value.SuggestedClasses);
+                    Main.Settings.ClassSpellEnabled.Add(spellName, registeredSpell.Value.SuggestedClasses);
                 }
                 
-                if (!Main.Settings.SubclassSpellEnabled.ContainsKey(registeredSpell.Key))
+                if (!Main.Settings.SubclassSpellEnabled.ContainsKey(spellName))
                 {
-                    Main.Settings.SubclassSpellEnabled.Add(registeredSpell.Key, registeredSpell.Value.SuggestedSubclasses);
+                    Main.Settings.SubclassSpellEnabled.Add(spellName, registeredSpell.Value.SuggestedSubclasses);
                 }
             }
         }
