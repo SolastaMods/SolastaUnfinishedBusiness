@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using HarmonyLib;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -14,7 +14,9 @@ namespace SolastaCommunityExpansion.Models
                 return;
             }
 
-            var spellDefinitionsMap = AccessTools.Field(guiWrapperService.GetType(), "spellDefinitionsMap").GetValue(guiWrapperService) as Dictionary<string, GuiSpellDefinition>;
+            guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiSpellDefinition>>("spellDefinitionsMap");
+
+            var spellDefinitionsMap = guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiSpellDefinition>>("spellDefinitionsMap");
 
             spellDefinitionsMap.Clear();
 
@@ -33,7 +35,7 @@ namespace SolastaCommunityExpansion.Models
                 return;
             }
 
-            var featDefinitionsMap = AccessTools.Field(guiWrapperService.GetType(), "featDefinitionsMap").GetValue(guiWrapperService) as Dictionary<string, GuiFeatDefinition>;
+            var featDefinitionsMap = guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiFeatDefinition>>("featDefinitionsMap");
 
             featDefinitionsMap.Clear();
 
