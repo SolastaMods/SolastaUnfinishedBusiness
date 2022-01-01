@@ -10,6 +10,8 @@ namespace SolastaCommunityExpansion.Patches
     {
         internal static void Postfix()
         {
+            PowersContext.Load();
+            SpellsContext.Load();
             AdditionalNamesContext.Load();
             AsiAndFeatContext.Load();
             BugFixContext.Load();
@@ -38,6 +40,7 @@ namespace SolastaCommunityExpansion.Patches
             TelemaCampaignContext.Load();
             TeleporterContext.Load();
             VisionContext.Load();
+            ClassesContext.Load();
 
             Main.Enabled = true;
         }

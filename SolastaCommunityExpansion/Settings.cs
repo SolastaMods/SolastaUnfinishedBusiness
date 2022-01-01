@@ -76,14 +76,6 @@ namespace SolastaCommunityExpansion
         public bool UnlockGlowingColorsForAllMarksAndTatoos { get; set; }
 
         //
-        // Characters - Feats
-        //
-
-        public int FeatPowerAttackModifier { get; set; } = 3;
-        public int FeatSliderPosition { get; set; } = 1;
-        public List<string> FeatEnabled { get; private set; } = new List<string>();
-
-        //
         // Characters - Classes & Subclasses
         //
 
@@ -97,11 +89,31 @@ namespace SolastaCommunityExpansion
         public List<string> SubclassEnabled { get; private set; } = new List<string>();
 
         //
+        // Characters - Feats
+        //
+
+        public int FeatPowerAttackModifier { get; set; } = 3;
+        public int FeatSliderPosition { get; set; } = 1;
+        public List<string> FeatEnabled { get; private set; } = new List<string>();
+
+        //
         // Characters - Fighting Styles
         //
 
         public int FightingStyleSliderPosition { get; set; } = 1;
         public List<string> FightingStyleEnabled { get; private set; } = new List<string>();
+
+        //
+        // Characters - Powers
+        //
+
+        public List<string> PowerEnabled { get; private set; } = new List<string>();
+
+        //
+        // Characters - Spells
+        //
+
+        public List<string> SpellEnabled { get; private set; } = new List<string>();
 
         //
         // Encounters - General
@@ -118,6 +130,7 @@ namespace SolastaCommunityExpansion
         public bool UseOfficialAdvantageDisadvantageRules { get; set; }
         public bool UseOfficialCombatSurpriseRules { get; set; }
         public bool RollDifferentStealthChecksForEachCharacterPair { get; set; }
+        public bool EnablePowerAid { get; set; }
         public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
         public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
         public bool FullyControlConjurations { get; set; }
