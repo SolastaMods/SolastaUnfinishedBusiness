@@ -62,6 +62,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     SpellsContext.SelectSuggestedSubclasses(toggle);
                 }
 
+                ExpandAllToggle = SpellNamesToggle.Count == SpellNamesToggle.Count(x => x.Value);
                 toggle = ExpandAllToggle;
                 if (UI.Toggle("Expand All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
