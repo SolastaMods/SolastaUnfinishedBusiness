@@ -15,6 +15,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
         private static readonly List<SpellDefinition> SortedRegisteredSpells = new List<SpellDefinition>();
 
+        private static bool ExpandAllToggle { get; set; }
+
         private static readonly Dictionary<string, bool> SpellNamesToggle = new Dictionary<string, bool>();
 
         internal static void DisplaySpells()
@@ -33,6 +35,39 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     .OrderBy(x => $"{x.SpellLevel} - {x.FormatTitle()}"));
 
                 Initialized = true;
+            }
+
+            UI.Label("");
+
+            using (UI.HorizontalScope())
+            {
+                var expanded = SpellNamesToggle.Select(x => x.Value).Count();
+                var total = SpellNamesToggle.Count;
+
+                UI.Space(20);
+
+                toggle = ExpandAllToggle;
+                if (UI.Toggle("Expand All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                {
+                    ExpandAllToggle = toggle;
+                    SpellNamesToggle.Keys.ToList().ForEach(x => SpellNamesToggle[x] = toggle);
+                }
+
+                toggle = Main.Settings.ClassSpellEnabled.Sum(x => x.Value.Count) == SpellsContext.GetCasterClasses.Count * SpellsContext.RegisteredSpells.Count
+                    && Main.Settings.SubclassSpellEnabled.Sum(x => x.Value.Count) == SpellsContext.GetCasterSubclasses.Count * SpellsContext.RegisteredSpells.Count;
+
+                if (UI.Toggle("Select All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                {
+                    SpellsContext.SelectAllClasses(toggle);
+                    SpellsContext.SelectAllSubclasses(toggle);
+                }
+
+                toggle = SpellsContext.AreSuggestedClassesSelected() && SpellsContext.AreSuggestedSubclassesSelected();
+                if (UI.Toggle("Select Suggested", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                {
+                    SpellsContext.SelectSuggestedClasses(toggle);
+                    SpellsContext.SelectSuggestedSubclasses(toggle);
+                }
             }
 
             UI.Label("");

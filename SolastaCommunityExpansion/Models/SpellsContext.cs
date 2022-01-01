@@ -95,6 +95,16 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
+        internal static void SelectAllClasses(bool select = true)
+        {
+            var spellList = RegisteredSpells.Select(x => x.Value.SpellDefinition);
+
+            foreach (var spell in spellList)
+            {
+                SelectAllClasses(spell, select);
+            }
+        }
+
         internal static void SelectAllClasses(SpellDefinition spellDefinition, bool select = true)
         {
             Main.Settings.ClassSpellEnabled[spellDefinition.Name].Clear();
@@ -102,6 +112,16 @@ namespace SolastaCommunityExpansion.Models
             if (select)
             {
                 Main.Settings.ClassSpellEnabled[spellDefinition.Name].AddRange(GetCasterClasses.Select(x => x.Name));
+            }
+        }
+
+        internal static void SelectAllSubclasses(bool select = true)
+        {
+            var spellList = RegisteredSpells.Select(x => x.Value.SpellDefinition);
+
+            foreach (var spell in spellList)
+            {
+                SelectAllSubclasses(spell, select);
             }
         }
 
@@ -115,6 +135,16 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
+        internal static void SelectSuggestedClasses(bool select = true)
+        {
+            var spellList = RegisteredSpells.Select(x => x.Value.SpellDefinition);
+
+            foreach (var spell in spellList)
+            {
+                SelectSuggestedClasses(spell, select);
+            }
+        }
+
         internal static void SelectSuggestedClasses(SpellDefinition spellDefinition, bool select = true)
         {
             Main.Settings.ClassSpellEnabled[spellDefinition.Name].Clear();
@@ -123,6 +153,23 @@ namespace SolastaCommunityExpansion.Models
             {
                 Main.Settings.ClassSpellEnabled[spellDefinition.Name].AddRange(RegisteredSpells[spellDefinition.Name].SuggestedClasses);
             }
+        }
+
+        internal static bool AreSuggestedClassesSelected()
+        {
+            var spellList = RegisteredSpells.Select(x => x.Value.SpellDefinition);
+
+            foreach (var spellDefinition in spellList)
+            {
+                var result = AreSuggestedClassesSelected(spellDefinition);
+
+                if (!result)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         internal static bool AreSuggestedClassesSelected(SpellDefinition spellDefinition)
@@ -138,6 +185,16 @@ namespace SolastaCommunityExpansion.Models
             return !suggestedClasses.Where(x => !selectedClasses.Contains(x)).Any();
         }
 
+        internal static void SelectSuggestedSubclasses(bool select = true)
+        {
+            var spellList = RegisteredSpells.Select(x => x.Value.SpellDefinition);
+
+            foreach (var spell in spellList)
+            {
+                SelectSuggestedSubclasses(spell, select);
+            }
+        }
+
         internal static void SelectSuggestedSubclasses(SpellDefinition spellDefinition, bool select = true)
         {
             Main.Settings.SubclassSpellEnabled[spellDefinition.Name].Clear();
@@ -146,6 +203,23 @@ namespace SolastaCommunityExpansion.Models
             {
                 Main.Settings.SubclassSpellEnabled[spellDefinition.Name].AddRange(RegisteredSpells[spellDefinition.Name].SuggestedSubclasses);
             }
+        }
+
+        internal static bool AreSuggestedSubclassesSelected()
+        {
+            var spellList = RegisteredSpells.Select(x => x.Value.SpellDefinition);
+
+            foreach (var spellDefinition in spellList)
+            {
+                var result = AreSuggestedSubclassesSelected(spellDefinition);
+
+                if (!result)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         internal static bool AreSuggestedSubclassesSelected(SpellDefinition spellDefinition)
