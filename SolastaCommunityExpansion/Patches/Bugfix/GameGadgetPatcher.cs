@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Helpers;
 
@@ -10,7 +8,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameGadget_CheckIsEnabled
     {
-        public static bool Prefix(GameGadget __instance, List<string> ___conditionNames, ref bool __result)
+        public static bool Prefix(GameGadget __instance, ref bool __result)
         {
             if (!Main.Settings.BugFixGameGadgetCheckIsEnabled)
             {
@@ -19,22 +17,13 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
 
             var result = __result;
 
-            // If neither Enabled or Param_Enabled exist then return 'true'
-            __result = !___conditionNames.Any(c => c == GameGadgetExtensions.Enabled || c == GameGadgetExtensions.ParamEnabled);
+            // To agree with the game code, if neither Enabled or Param_Enabled are present then return true.
+            // This ensures CheckIsEnabled returns true for gadgets without an Enabled state, which is expected in GameLocationScreenMap.BindGadgets().
+            __result = __instance.IsEnabled(true);
 
-#if DEBUG
-            if(___conditionNames.Count(c => c == GameGadgetExtensions.Enabled || c == GameGadgetExtensions.ParamEnabled) > 1) 
-            {
-                Main.Log("GameGadget_CheckIsEnabled: More than one enable parameter");
-            }
-#endif
-
-            if (!__result)
-            {
-                // If at least one param exists return the truest
-                __result = __instance.CheckConditionName(GameGadgetExtensions.ParamEnabled, true, false)
-                        || __instance.CheckConditionName(GameGadgetExtensions.Enabled, true, false);
-            }
+            // The bug being fixed is that if:
+            // 'Param_Enabled' is present and set to 'false' and 'Enabled' is not present, then the game code returns 'true'.
+            // The fix changes that to 'false'.
 
             Main.Log($"CheckIsEnabled: {__instance.UniqueNameId}, orig={result}, new={__result}");
 

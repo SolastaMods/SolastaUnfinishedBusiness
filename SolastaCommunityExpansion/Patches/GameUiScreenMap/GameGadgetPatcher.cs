@@ -61,9 +61,9 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                     var worldGadget = worldGadgets.FirstOrDefault(wg => wg.GameGadget == __instance);
 
                     var isInvisible = __instance.IsInvisible();
-                    var isEnabled = __instance.CheckIsEnabled();
+                    var isEnabled = __instance.IsEnabled();
 
-                    GameLocationManager_ReadyLocation.SetTeleporterGadgetVisibility(worldGadget, isEnabled && !isInvisible);
+                    GameLocationManager_ReadyLocation.SetTeleporterGadgetActiveAnimation(worldGadget, isEnabled && !isInvisible);
 
                     ___revealed = true;
                     __result = true;
@@ -78,26 +78,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameGadget_SetCondition
     {
-        internal static void Prefix(GameGadget __instance, int conditionIndex, List<string> ___conditionNames, out bool __state)
-        {
-            __state = false;
-
-            if (!Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered)
-            {
-                return;
-            }
-
-            if(conditionIndex >= 0 && conditionIndex < ___conditionNames.Count)
-            {
-                var param = ___conditionNames[conditionIndex];
-                if (param == GameGadgetExtensions.Enabled || param == GameGadgetExtensions.ParamEnabled)
-                {
-                    __state = __instance.CheckIsEnabled();
-                }
-            }
-        }
-
-        internal static void Postfix(GameGadget __instance, int conditionIndex, List<string> ___conditionNames, bool __state)
+        internal static void Postfix(GameGadget __instance, int conditionIndex, bool state, List<string> ___conditionNames)
         {
             if (!Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered)
             {
@@ -108,26 +89,38 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
             {
                 var param = ___conditionNames[conditionIndex];
 
-                if (param == GameGadgetExtensions.Enabled || param == GameGadgetExtensions.ParamEnabled)
+                Main.Log($"GameGadget_SetCondition {__instance.UniqueNameId}: {param} state = {state}");
+
+                // NOTE: not convinced this is correct thing to do.  Activators can be chained (I think).
+                if(param == GameGadgetExtensions.Triggered && !state && __instance.UniqueNameId.StartsWith("ActivatorButton")) // TODO: check other activators
                 {
-                    var newState = __instance.CheckIsEnabled();
+                    // Always reset 'Triggered' to true otherwise we have to press the activator twice
+                    __instance.SetCondition(conditionIndex, true, new List<GameLocationCharacter>());
+                }
 
-                    if (newState != __state)
+                if ((param == GameGadgetExtensions.Enabled || param == GameGadgetExtensions.ParamEnabled) 
+                    && __instance.UniqueNameId.StartsWith("Teleport"))
+                {
+                    var service = ServiceRepository.GetService<IGameLocationService>();
+
+                    if (service != null)
                     {
-                        var service = ServiceRepository.GetService<IGameLocationService>();
-                        if (service != null)
-                        {
-                            var worldGadget = service.WorldLocation.WorldSectors
-                                .SelectMany(ws => ws.WorldGadgets)
-                                .FirstOrDefault(wg => wg.GameGadget == __instance);
+                        var worldGadget = service.WorldLocation.WorldSectors
+                            .SelectMany(ws => ws.WorldGadgets)
+                            .FirstOrDefault(wg => wg.GameGadget == __instance);
 
-                            if (worldGadget != null)
-                            {
-                                GameLocationManager_ReadyLocation.SetTeleporterGadgetVisibility(worldGadget, newState);
-                            }
+                        if (worldGadget != null)
+                        {
+                            Main.Log($"GameGadget_SetCondition-setting-animation {__instance.UniqueNameId}: {state}");
+
+                            GameLocationManager_ReadyLocation.SetTeleporterGadgetActiveAnimation(worldGadget, state);
                         }
                     }
                 }
+            }
+            else
+            {
+                Main.Log($"GameGadget_SetCondition {__instance.UniqueNameId}: condition index out of range.");
             }
         }
     }
