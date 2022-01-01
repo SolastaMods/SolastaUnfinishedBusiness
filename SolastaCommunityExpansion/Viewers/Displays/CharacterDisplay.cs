@@ -21,12 +21,16 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            toggle = Main.Settings.AddHelpActionToAllClasses;
-            if (UI.Toggle("Add the " + "Help".orange() + " action to all classes", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.AddHelpActionToAllClasses = toggle;
-                Models.PowersContext.Switch();
-            }
+            //
+            // TODO: Test the help power...
+            //
+
+            //toggle = Main.Settings.AddHelpActionToAllClasses;
+            //if (UI.Toggle("Add the " + "Help".orange() + " action to all classes", ref toggle, UI.AutoWidth()))
+            //{
+            //    Main.Settings.AddHelpActionToAllClasses = toggle;
+            //    PowersContext.Switch();
+            //}
 
             // TODO: vision changes only take effect when creating a character. not sure if new block label is clear enough on intentions or we need more explanation here.
             toggle = Main.Settings.DisableSenseDarkVisionFromAllRaces;
