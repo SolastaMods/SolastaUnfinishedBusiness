@@ -1,9 +1,10 @@
+﻿using System;
+using System.Collections.Generic;
 using SolastaModApi;
 using SolastaModApi.BuilderHelpers;
 using SolastaModApi.Extensions;
 using SolastaCommunityExpansion.Features;
-using System;
-using System.Collections.Generic;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Spells
 {
@@ -11,17 +12,19 @@ namespace SolastaCommunityExpansion.Spells
     {
         public static readonly Guid BAZOU_SPELLS_BASE_GUID = new Guid("91384db5-6659-4384-bf2c-3a41160343f4");
 
-        public static void CreateSpells(List<SpellDefinition> spells)
+        //
+        // TODO: add suggested classes and subclasses names list here
+        //
+        public static void Load()
         {
-
-            spells.Add(BuildEldritchOrb());
-            spells.Add(BuildFindFamiliar());
-            spells.Add(BuildFrenzy());
-            spells.Add(BuildMinorLifesteal());
-            spells.Add(BuildPetalStorm());
-            spells.Add(BuildProtectThreshold());
-
+            SpellsContext.RegisterSpell(BuildEldritchOrb());
+            SpellsContext.RegisterSpell(BuildFindFamiliar());
+            SpellsContext.RegisterSpell(BuildFrenzy());
+            SpellsContext.RegisterSpell(BuildMinorLifesteal());
+            SpellsContext.RegisterSpell(BuildPetalStorm());
+            SpellsContext.RegisterSpell(BuildProtectThreshold());
         }
+
         private static SpellDefinition BuildEldritchOrb()
         {
 

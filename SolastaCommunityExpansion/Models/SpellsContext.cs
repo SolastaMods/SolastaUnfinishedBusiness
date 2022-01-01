@@ -7,28 +7,111 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class SpellsContext
     {
-        private static List<SpellDefinition> Spells { get; set; } = new List<SpellDefinition>();
+        internal class SpellRecord
+        {
+            internal SpellRecord(SpellDefinition spellDefinition, List<string> suggestedClasses, List<string> suggestedSubclasses)
+            {
+                SpellDefinition = spellDefinition;
+                
+                if (suggestedClasses != null)
+                {
+                    SuggestedClasses.AddRange(suggestedClasses);
+                }
 
-        private static IEnumerable<CharacterClassDefinition> GetCasterClasses =>
-            DatabaseRepository.GetDatabase<CharacterClassDefinition>().Where(x => x.FeatureUnlocks.Exists(y => y.FeatureDefinition is FeatureDefinitionCastSpell));
+                if (suggestedSubclasses != null)
+                {
+                    suggestedSubclasses.AddRange(suggestedSubclasses);
+                }
+            }
 
-        private static IEnumerable<CharacterSubclassDefinition> GetCasterSubclasses =>
-            DatabaseRepository.GetDatabase<CharacterSubclassDefinition>().Where(x => x.FeatureUnlocks.Exists(y => y.FeatureDefinition is FeatureDefinitionCastSpell));
+            internal SpellDefinition SpellDefinition { get; private set; }
+            internal readonly List<string> SuggestedClasses = new List<string>();
+            internal readonly List<string> SuggestedSubclasses = new List<string>();
+        }
+
+        private static readonly Dictionary<string, SpellRecord> RegisteredSpells = new Dictionary<string, SpellRecord>();
+
+        private static IEnumerable<CharacterClassDefinition> casterClasses;
+
+        internal static IEnumerable<CharacterClassDefinition> GetCasterClasses
+        {
+            get
+            {
+                if (casterClasses == null)
+                {
+                    casterClasses = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
+                        .Where(x => x.FeatureUnlocks.Exists(y => y.FeatureDefinition is FeatureDefinitionCastSpell));
+                }
+
+                return casterClasses;
+            }
+        }
+
+        private static IEnumerable<CharacterSubclassDefinition> casterSubclasses;
+
+        internal static IEnumerable<CharacterSubclassDefinition> GetCasterSubclasses
+        {
+            get
+            {
+                if (casterSubclasses == null)
+                {
+                    casterSubclasses = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+                        .Where(x => x.FeatureUnlocks.Exists(y => y.FeatureDefinition is FeatureDefinitionCastSpell));
+                }
+
+                return casterSubclasses;
+            }
+        }
 
         internal static void Load()
         {
-            BazouSpells.CreateSpells(Spells);
+            BazouSpells.Load();
 
-            var spellNames = Spells.Select(x => x.Name);
-
-            foreach (var casterClass in GetCasterClasses.Where(x => !Main.Settings.ClassSpellEnabled.ContainsKey(x.Name)))
+            foreach (var registeredSpell in RegisteredSpells)
             {
-                Main.Settings.ClassSpellEnabled.Add(casterClass.Name, spellNames.ToList());
+                if (!Main.Settings.ClassSpellEnabled.ContainsKey(registeredSpell.Key))
+                {
+                    Main.Settings.ClassSpellEnabled.Add(registeredSpell.Key, registeredSpell.Value.SuggestedClasses);
+                }
+                
+                if (!Main.Settings.SubclassSpellEnabled.ContainsKey(registeredSpell.Key))
+                {
+                    Main.Settings.SubclassSpellEnabled.Add(registeredSpell.Key, registeredSpell.Value.SuggestedSubclasses);
+                }
             }
+        }
 
-            foreach (var casterSubclass in GetCasterSubclasses.Where(x => !Main.Settings.SubclassSpellEnabled.ContainsKey(x.Name)))
+        internal static void RegisterSpell(SpellDefinition spellDefinition, List<string> suggestedClasses = null, List<string> suggestedSubclasses = null)
+        {
+            var spellName = spellDefinition.Name;
+
+            if (!RegisteredSpells.ContainsKey(spellName))
             {
-                Main.Settings.SubclassSpellEnabled.Add(casterSubclass.Name, spellNames.ToList());
+                RegisteredSpells.Add(spellName, new SpellRecord(spellDefinition, suggestedClasses, suggestedSubclasses));
+            }
+        }
+
+        internal static void SelectAll()
+        {
+            Main.Settings.ClassEnabled.Clear();
+            Main.Settings.SubclassEnabled.Clear();
+
+            foreach (var registeredSpell in RegisteredSpells)
+            {
+                Main.Settings.ClassSpellEnabled.Add(registeredSpell.Key, GetCasterClasses.Select(x => x.Name).ToList());
+                Main.Settings.SubclassSpellEnabled.Add(registeredSpell.Key, GetCasterSubclasses.Select(x => x.Name).ToList());
+            }
+        }
+
+        internal static void SelectToSuggested()
+        {
+            Main.Settings.ClassEnabled.Clear();
+            Main.Settings.SubclassEnabled.Clear();
+
+            foreach (var registeredSpell in RegisteredSpells)
+            {
+                Main.Settings.ClassSpellEnabled.Add(registeredSpell.Key, registeredSpell.Value.SuggestedClasses);
+                Main.Settings.SubclassSpellEnabled.Add(registeredSpell.Key, registeredSpell.Value.SuggestedSubclasses);
             }
         }
 
@@ -38,12 +121,12 @@ namespace SolastaCommunityExpansion.Models
 
             outString.Append("\n[list]");
 
-            foreach (var spell in Spells)
+            foreach (var spell in RegisteredSpells.Values)
             {
                 outString.Append("\n[*][b]");
-                outString.Append(spell.FormatTitle());
+                outString.Append(spell.SpellDefinition.FormatTitle());
                 outString.Append("[/b]: ");
-                outString.Append(spell.FormatTitle());
+                outString.Append(spell.SpellDefinition.FormatTitle());
             }
 
             outString.Append("\n[/list]");
