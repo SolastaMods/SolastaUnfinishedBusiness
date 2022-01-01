@@ -11,16 +11,19 @@ namespace SolastaCommunityExpansion.Models
         {
             internal SpellRecord(SpellDefinition spellDefinition, List<string> suggestedClasses, List<string> suggestedSubclasses)
             {
+                var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
+                var dbCharacterSubclassDefinition = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>();
+
                 SpellDefinition = spellDefinition;
                 
                 if (suggestedClasses != null)
                 {
-                    SuggestedClasses.AddRange(suggestedClasses);
+                    SuggestedClasses.AddRange(suggestedClasses.Where(x => dbCharacterClassDefinition.TryGetElement(x, out _)));
                 }
 
                 if (suggestedSubclasses != null)
                 {
-                    suggestedSubclasses.AddRange(suggestedSubclasses);
+                    SuggestedSubclasses.AddRange(suggestedSubclasses.Where(x => dbCharacterSubclassDefinition.TryGetElement(x, out _)));
                 }
             }
 
