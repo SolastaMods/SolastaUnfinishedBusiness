@@ -90,6 +90,35 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
+        private static void SwitchSpell(SpellListDefinition spellListDefinition, SpellDefinition spellDefinition, bool enabled)
+        {
+            var spellsByLevel = spellListDefinition.SpellsByLevel;
+
+            if (enabled)
+            {
+                if (!spellListDefinition.ContainsSpell(spellDefinition))
+                {
+                    if (!spellsByLevel.Any(x => x.Level == spellDefinition.SpellLevel))
+                    {
+                        spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
+                        {
+                            Level = spellDefinition.SpellLevel,
+                            Spells = new List<SpellDefinition>()
+                        });
+                    }
+
+                    spellListDefinition.SpellsByLevel.First(x => x.Level == spellDefinition.SpellLevel).Spells.Add(spellDefinition);
+                }
+            }
+            else
+            {
+                if (spellListDefinition.ContainsSpell(spellDefinition))
+                {
+                    spellListDefinition.SpellsByLevel.First(x => x.Level == spellDefinition.SpellLevel).Spells.Remove(spellDefinition);
+                }
+            }
+        }
+
         internal static void SwitchClass(SpellDefinition spellDefinition = null, CharacterClassDefinition characterClassDefinition = null)
         {
             if (spellDefinition == null)
@@ -115,20 +144,7 @@ namespace SolastaCommunityExpansion.Models
                 .FirstOrDefault(x => x.FeatureDefinition is FeatureDefinitionCastSpell).FeatureDefinition as FeatureDefinitionCastSpell;
             var spellListDefinition = featureDefinitionCastSpell.SpellListDefinition;
 
-            if (enabled)
-            {
-                if (!spellListDefinition.ContainsSpell(spellDefinition))
-                {
-                    // TODO: Add to class spellListDefinition
-                }
-            }
-            else
-            {
-                if (spellListDefinition.ContainsSpell(spellDefinition))
-                {
-                    // TODO: Remove from class spellListDefinition
-                }
-            }
+            SwitchSpell(spellListDefinition, spellDefinition, enabled);
         }
 
         internal static void SwitchSubclass(SpellDefinition spellDefinition = null, CharacterSubclassDefinition characterSubclassDefinition = null)
@@ -156,20 +172,7 @@ namespace SolastaCommunityExpansion.Models
                 .FirstOrDefault(x => x.FeatureDefinition is FeatureDefinitionCastSpell).FeatureDefinition as FeatureDefinitionCastSpell;
             var spellListDefinition = featureDefinitionCastSpell.SpellListDefinition;
 
-            if (enabled)
-            {
-                if (!spellListDefinition.ContainsSpell(spellDefinition))
-                {
-                    // TODO: Add to subclass spellListDefinition
-                }
-            }
-            else
-            {
-                if (spellListDefinition.ContainsSpell(spellDefinition))
-                {
-                    // TODO: Remove from subclass spellListDefinition
-                }
-            }
+            SwitchSpell(spellListDefinition, spellDefinition, enabled);
         }
 
         internal static void RegisterSpell(SpellDefinition spellDefinition, List<string> suggestedClasses = null, List<string> suggestedSubclasses = null)
