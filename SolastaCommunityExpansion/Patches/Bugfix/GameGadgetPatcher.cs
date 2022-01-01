@@ -8,14 +8,14 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameGadget_CheckIsEnabled
     {
-        public static bool Prefix(GameGadget __instance, ref bool __result)
+        public static void Postfix(GameGadget __instance, ref bool __result)
         {
             if (!Main.Settings.BugFixGameGadgetCheckIsEnabled)
             {
-                return true;
+                return;
             }
 
-            var result = __result;
+            var original = __result;
 
             // To agree with the game code, if neither Enabled or Param_Enabled are present then return true.
             // This ensures CheckIsEnabled returns true for gadgets without an Enabled state, which is expected in GameLocationScreenMap.BindGadgets().
@@ -25,9 +25,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
             // 'Param_Enabled' is present and set to 'false' and 'Enabled' is not present, then the game code returns 'true'.
             // The fix changes that to 'false'.
 
-            Main.Log($"CheckIsEnabled: {__instance.UniqueNameId}, orig={result}, new={__result}");
-
-            return false;
+            Main.Log($"CheckIsEnabled: {__instance.UniqueNameId}, original={original}, new={__result}");
         }
     }
 }
