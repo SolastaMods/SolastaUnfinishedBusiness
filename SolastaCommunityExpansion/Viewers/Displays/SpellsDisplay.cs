@@ -46,13 +46,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                 UI.Space(20);
 
-                toggle = ExpandAllToggle;
-                if (UI.Toggle("Expand All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
-                {
-                    ExpandAllToggle = toggle;
-                    SpellNamesToggle.Keys.ToList().ForEach(x => SpellNamesToggle[x] = toggle);
-                }
-
                 toggle = Main.Settings.ClassSpellEnabled.Sum(x => x.Value.Count) == SpellsContext.GetCasterClasses.Count * SpellsContext.RegisteredSpells.Count
                     && Main.Settings.SubclassSpellEnabled.Sum(x => x.Value.Count) == SpellsContext.GetCasterSubclasses.Count * SpellsContext.RegisteredSpells.Count;
 
@@ -67,6 +60,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 {
                     SpellsContext.SelectSuggestedClasses(toggle);
                     SpellsContext.SelectSuggestedSubclasses(toggle);
+                }
+
+                toggle = ExpandAllToggle;
+                if (UI.Toggle("Expand All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                {
+                    ExpandAllToggle = toggle;
+                    SpellNamesToggle.Keys.ToList().ForEach(x => SpellNamesToggle[x] = toggle);
                 }
             }
 
