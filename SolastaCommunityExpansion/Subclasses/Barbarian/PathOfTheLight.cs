@@ -167,7 +167,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
                     featureSetDefinition.SetField("featureSet", new List<FeatureDefinition>());
 
-                    var conditionalOpportunityAttackImmunity = FeatureDefinitionBuilder<OpportunityAttackImmunityIfAttackerHasCondition>.Build(
+                    var conditionalOpportunityAttackImmunity = FeatureDefinitionBuilder<FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition>.Build(
                         "PathOfTheLightLightsProtectionOpportunityAttackImmunity",
                         CreateNamespacedGuid("PathOfTheLightLightsProtectionOpportunityAttackImmunity"),
                         "Feature/&NoContentTitle",

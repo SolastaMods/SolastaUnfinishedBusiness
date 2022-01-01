@@ -5,7 +5,7 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
     /// <summary>
     /// Grants you immunity to opportunity attacks when the attacker has the specified condition (inflicted by you).
     /// </summary>
-    public class OpportunityAttackImmunityIfAttackerHasCondition : FeatureDefinition, ICombatAffinityProvider
+    public class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition : FeatureDefinition, ICombatAffinityProvider
     {
         public string ConditionName { get; set; }
 
