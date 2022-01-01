@@ -9,10 +9,9 @@ namespace SolastaCommunityExpansion.Models
     {
         internal class SpellRecord
         {
-            internal SpellRecord(SpellDefinition spellDefinition, List<string> suggestedClasses, List<string> suggestedSubclasses)
+            internal SpellRecord(SpellDefinition spellDefinition, List<string> suggestedClasses)
             {
                 var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
-                var dbCharacterSubclassDefinition = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>();
 
                 SpellDefinition = spellDefinition;
                 
@@ -21,20 +20,13 @@ namespace SolastaCommunityExpansion.Models
                     SuggestedClasses.AddRange(suggestedClasses
                         .Where(x => dbCharacterClassDefinition.TryGetElement(x, out var c) && GetCasterClasses.Contains(c)));
                 }
-
-                if (suggestedSubclasses != null)
-                {
-                    SuggestedSubclasses.AddRange(suggestedSubclasses
-                        .Where(x => dbCharacterSubclassDefinition.TryGetElement(x, out var sc) && GetCasterSubclasses.Contains(sc)));
-                }
             }
 
             internal SpellDefinition SpellDefinition { get; private set; }
             internal readonly List<string> SuggestedClasses = new List<string>();
-            internal readonly List<string> SuggestedSubclasses = new List<string>();
         }
 
-        internal static readonly Dictionary<string, SpellRecord> RegisteredSpells = new Dictionary<string, SpellRecord>();
+        internal static readonly Dictionary<SpellDefinition, List<string>> RegisteredSpells = new Dictionary<SpellDefinition, List<string>>();
 
         private static readonly List<CharacterClassDefinition> casterClasses = new List<CharacterClassDefinition>();
 
@@ -53,44 +45,21 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        private static readonly List<CharacterSubclassDefinition> casterSubclasses = new List<CharacterSubclassDefinition>();
-
-        internal static List<CharacterSubclassDefinition> GetCasterSubclasses
-        {
-            get
-            {
-                if (casterSubclasses.Count == 0)
-                {
-                    casterSubclasses.AddRange(DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
-                        .Where(x => x.FeatureUnlocks.Exists(y => y.FeatureDefinition is FeatureDefinitionCastSpell))
-                        .OrderBy(x => x.FormatTitle()));
-                }
-
-                return casterSubclasses;
-            }
-        }
-
         internal static void Load()
         {
             BazouSpells.Load();
 
             foreach (var registeredSpell in RegisteredSpells)
             {
-                var spellName = registeredSpell.Key;
+                var spellName = registeredSpell.Key.Name;
 
                 if (!Main.Settings.ClassSpellEnabled.ContainsKey(spellName))
                 {
-                    Main.Settings.ClassSpellEnabled.Add(spellName, registeredSpell.Value.SuggestedClasses);
-                }
-                
-                if (!Main.Settings.SubclassSpellEnabled.ContainsKey(spellName))
-                {
-                    Main.Settings.SubclassSpellEnabled.Add(spellName, registeredSpell.Value.SuggestedSubclasses);
+                    Main.Settings.ClassSpellEnabled.Add(spellName, registeredSpell.Value);
                 }
             }
 
             SwitchClass();
-            SwitchSubclass();
 
             GuiWrapperContext.RecacheSpells();
         }
@@ -128,10 +97,7 @@ namespace SolastaCommunityExpansion.Models
         {
             if (spellDefinition == null)
             {
-                foreach (var sd in RegisteredSpells.Values.Select(x => x.SpellDefinition))
-                {
-                    SwitchClass(sd, null);
-                }
+                RegisteredSpells.Keys.ToList().ForEach(x => SwitchClass(x, null));
 
                 return;
             }
@@ -145,60 +111,21 @@ namespace SolastaCommunityExpansion.Models
 
             var enabled = Main.Settings.ClassSpellEnabled[spellDefinition.Name].Contains(characterClassDefinition.Name);
             var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
-            var featureDefinitionCastSpell = characterClassDefinition.FeatureUnlocks
-                .FirstOrDefault(x => x.FeatureDefinition is FeatureDefinitionCastSpell).FeatureDefinition as FeatureDefinitionCastSpell;
+            var featureDefinitionCastSpell = characterClassDefinition.FeatureUnlocks.FirstOrDefault(x => x.FeatureDefinition is FeatureDefinitionCastSpell).FeatureDefinition as FeatureDefinitionCastSpell;
             var spellListDefinition = featureDefinitionCastSpell.SpellListDefinition;
 
             SwitchSpell(spellListDefinition, spellDefinition, enabled);
         }
 
-        internal static void SwitchSubclass(SpellDefinition spellDefinition = null, CharacterSubclassDefinition characterSubclassDefinition = null)
+        internal static void RegisterSpell(SpellDefinition spellDefinition, List<string> suggestedClasses = null)
         {
-            if (spellDefinition == null)
+            if (!RegisteredSpells.ContainsKey(spellDefinition))
             {
-                foreach (var sd in RegisteredSpells.Values.Select(x => x.SpellDefinition))
-                {
-                    SwitchSubclass(sd, null);
-                }
-
-                return;
-            }
-
-            if (characterSubclassDefinition == null)
-            {
-                GetCasterSubclasses.ForEach(x => SwitchSubclass(spellDefinition, x));
-
-                return;
-            }
-
-            var enabled = Main.Settings.SubclassSpellEnabled[spellDefinition.Name].Contains(characterSubclassDefinition.Name);
-            var dbCharacterSubclassDefinition = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>();
-            var featureDefinitionCastSpell = characterSubclassDefinition.FeatureUnlocks
-                .FirstOrDefault(x => x.FeatureDefinition is FeatureDefinitionCastSpell).FeatureDefinition as FeatureDefinitionCastSpell;
-            var spellListDefinition = featureDefinitionCastSpell.SpellListDefinition;
-
-            SwitchSpell(spellListDefinition, spellDefinition, enabled);
-        }
-
-        internal static void RegisterSpell(SpellDefinition spellDefinition, List<string> suggestedClasses = null, List<string> suggestedSubclasses = null)
-        {
-            var spellName = spellDefinition.Name;
-
-            if (!RegisteredSpells.ContainsKey(spellName))
-            {
-                RegisteredSpells.Add(spellName, new SpellRecord(spellDefinition, suggestedClasses, suggestedSubclasses));
+                RegisteredSpells.Add(spellDefinition, suggestedClasses);
             }
         }
 
-        internal static void SelectAllClasses(bool select = true)
-        {
-            var spellList = RegisteredSpells.Select(x => x.Value.SpellDefinition);
-
-            foreach (var spell in spellList)
-            {
-                SelectAllClasses(spell, select);
-            }
-        }
+        internal static void SelectAllClasses(bool select = true) => RegisteredSpells.Keys.ToList().ForEach(x => SelectAllClasses(x, select));
 
         internal static void SelectAllClasses(SpellDefinition spellDefinition, bool select = true)
         {
@@ -210,35 +137,7 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void SelectAllSubclasses(bool select = true)
-        {
-            var spellList = RegisteredSpells.Select(x => x.Value.SpellDefinition);
-
-            foreach (var spell in spellList)
-            {
-                SelectAllSubclasses(spell, select);
-            }
-        }
-
-        internal static void SelectAllSubclasses(SpellDefinition spellDefinition, bool select = true)
-        {
-            Main.Settings.SubclassSpellEnabled[spellDefinition.Name].Clear();
-
-            if (select)
-            {
-                Main.Settings.SubclassSpellEnabled[spellDefinition.Name].AddRange(GetCasterSubclasses.Select(x => x.Name));
-            }
-        }
-
-        internal static void SelectSuggestedClasses(bool select = true)
-        {
-            var spellList = RegisteredSpells.Select(x => x.Value.SpellDefinition);
-
-            foreach (var spell in spellList)
-            {
-                SelectSuggestedClasses(spell, select);
-            }
-        }
+        internal static void SelectSuggestedClasses(bool select = true) => RegisteredSpells.Keys.ToList().ForEach(x => SelectSuggestedClasses(x, select));
 
         internal static void SelectSuggestedClasses(SpellDefinition spellDefinition, bool select = true)
         {
@@ -246,128 +145,27 @@ namespace SolastaCommunityExpansion.Models
 
             if (select)
             {
-                Main.Settings.ClassSpellEnabled[spellDefinition.Name].AddRange(RegisteredSpells[spellDefinition.Name].SuggestedClasses);
+                Main.Settings.ClassSpellEnabled[spellDefinition.Name].AddRange(RegisteredSpells[spellDefinition]);
             }
         }
 
-        internal static bool AreAllClassesSelected()
-        {
-            var spellList = RegisteredSpells.Select(x => x.Value.SpellDefinition);
+        internal static bool AreAllClassesSelected() => !RegisteredSpells.Keys.Any(x => !AreAllClassesSelected(x));
 
-            foreach (var spellDefinition in spellList)
-            {
-                var result = AreAllClassesSelected(spellDefinition);
+        internal static bool AreAllClassesSelected(SpellDefinition spellDefinition) => Main.Settings.ClassSpellEnabled[spellDefinition.Name].Count == SpellsContext.GetCasterClasses.Count;
 
-                if (!result)
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
-        internal static bool AreAllClassesSelected(SpellDefinition spellDefinition) => 
-            Main.Settings.ClassSpellEnabled[spellDefinition.Name].Count == SpellsContext.GetCasterClasses.Count;
-
-        internal static bool AreSuggestedClassesSelected()
-        {
-            var spellList = RegisteredSpells.Select(x => x.Value.SpellDefinition);
-
-            foreach (var spellDefinition in spellList)
-            {
-                var result = AreSuggestedClassesSelected(spellDefinition);
-
-                if (!result)
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
+        internal static bool AreSuggestedClassesSelected() => !RegisteredSpells.Keys.Any(x => !AreSuggestedClassesSelected(x));
 
         internal static bool AreSuggestedClassesSelected(SpellDefinition spellDefinition)
         {
-            var suggestedClasses = RegisteredSpells[spellDefinition.Name].SuggestedClasses;
+            var suggestedClasses = RegisteredSpells[spellDefinition];
             var selectedClasses = Main.Settings.ClassSpellEnabled[spellDefinition.Name];
 
-            if (suggestedClasses.Count != selectedClasses.Count)
+            if (suggestedClasses.Count != selectedClasses.Count || suggestedClasses.Count == 0 || selectedClasses.Count == 0)
             {
                 return false;
             }
 
             return !suggestedClasses.Where(x => !selectedClasses.Contains(x)).Any();
-        }
-
-        internal static void SelectSuggestedSubclasses(bool select = true)
-        {
-            var spellList = RegisteredSpells.Select(x => x.Value.SpellDefinition);
-
-            foreach (var spell in spellList)
-            {
-                SelectSuggestedSubclasses(spell, select);
-            }
-        }
-
-        internal static void SelectSuggestedSubclasses(SpellDefinition spellDefinition, bool select = true)
-        {
-            Main.Settings.SubclassSpellEnabled[spellDefinition.Name].Clear();
-
-            if (select)
-            {
-                Main.Settings.SubclassSpellEnabled[spellDefinition.Name].AddRange(RegisteredSpells[spellDefinition.Name].SuggestedSubclasses);
-            }
-        }
-
-        internal static bool AreAllSubclassesSelected()
-        {
-            var spellList = RegisteredSpells.Select(x => x.Value.SpellDefinition);
-
-            foreach (var spellDefinition in spellList)
-            {
-                var result = AreAllSubclassesSelected(spellDefinition);
-
-                if (!result)
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
-        internal static bool AreAllSubclassesSelected(SpellDefinition spellDefinition) =>
-            Main.Settings.SubclassSpellEnabled[spellDefinition.Name].Count == SpellsContext.GetCasterSubclasses.Count;
-
-        internal static bool AreSuggestedSubclassesSelected()
-        {
-            var spellList = RegisteredSpells.Select(x => x.Value.SpellDefinition);
-
-            foreach (var spellDefinition in spellList)
-            {
-                var result = AreSuggestedSubclassesSelected(spellDefinition);
-
-                if (!result)
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
-        internal static bool AreSuggestedSubclassesSelected(SpellDefinition spellDefinition)
-        {
-            var suggestedSubclasses = RegisteredSpells[spellDefinition.Name].SuggestedSubclasses;
-            var selectedSubClasses = Main.Settings.SubclassSpellEnabled[spellDefinition.Name];
-
-            if (suggestedSubclasses.Count != selectedSubClasses.Count)
-            {
-                return false;
-            }
-
-            return !suggestedSubclasses.Where(x => !selectedSubClasses.Contains(x)).Any();
         }
 
         public static string GenerateSpellsDescription()
@@ -376,12 +174,12 @@ namespace SolastaCommunityExpansion.Models
 
             outString.Append("\n[list]");
 
-            foreach (var spell in RegisteredSpells.Values)
+            foreach (var spell in RegisteredSpells.Keys)
             {
                 outString.Append("\n[*][b]");
-                outString.Append(spell.SpellDefinition.FormatTitle());
+                outString.Append(spell.FormatTitle());
                 outString.Append("[/b]: ");
-                outString.Append(spell.SpellDefinition.FormatTitle());
+                outString.Append(spell.FormatTitle());
             }
 
             outString.Append("\n[/list]");

@@ -25,13 +25,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             if (!Initialized)
             {
-                SpellsContext.RegisteredSpells.Values
-                    .Select(x => x.SpellDefinition.Name)
+                SpellsContext.RegisteredSpells.Keys
+                    .Select(x => x.Name)
                     .ToList()
                     .ForEach(x => SpellNamesToggle.Add(x, false));
 
                 SortedRegisteredSpells.AddRange(SpellsContext.RegisteredSpells
-                    .Select(x => x.Value.SpellDefinition)
+                    .Select(x => x.Key)
                     .OrderBy(x => $"{x.SpellLevel} - {x.FormatTitle()}"));
 
                 Initialized = true;
@@ -46,23 +46,19 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                 UI.Space(20);
 
-                toggle = SpellsContext.AreAllClassesSelected() && SpellsContext.AreAllSubclassesSelected();
+                toggle = SpellsContext.AreAllClassesSelected();
 
                 if (UI.Toggle("Select All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
                     SpellsContext.SelectAllClasses(toggle);
-                    SpellsContext.SelectAllSubclasses(toggle);
                     SpellsContext.SwitchClass();
-                    SpellsContext.SwitchSubclass();
                 }
 
-                toggle = SpellsContext.AreSuggestedClassesSelected() && SpellsContext.AreSuggestedSubclassesSelected();
+                toggle = SpellsContext.AreSuggestedClassesSelected();
                 if (UI.Toggle("Select Suggested", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
                     SpellsContext.SelectSuggestedClasses(toggle);
-                    SpellsContext.SelectSuggestedSubclasses(toggle);
                     SpellsContext.SwitchClass();
-                    SpellsContext.SwitchSubclass();
                 }
 
                 ExpandAllToggle = SpellNamesToggle.Count == SpellNamesToggle.Count(x => x.Value);
@@ -110,16 +106,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     DisplaySpellClassSelection(spellDefinition);
                 }
             }
-
-            using (UI.HorizontalScope())
-            {
-                UI.Space(20);
-
-                using (UI.VerticalScope())
-                {
-                    DisplaySpellSubclassSelection(spellDefinition);
-                }
-            }
         }
 
         internal static void DisplaySpellClassSelection(SpellDefinition spellDefinition)
@@ -131,8 +117,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             var classes = SpellsContext.GetCasterClasses;
             var classesCount = classes.Count;
 
-            UI.Label("");
-            UI.Label("Classes:".yellow());
             UI.Label("");
 
             using (UI.HorizontalScope())
@@ -179,71 +163,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                             }
 
                             SpellsContext.SwitchClass(spellDefinition, classDefinition);
-                        }
-
-                        current++;
-                    }
-                }
-            }
-        }
-
-        internal static void DisplaySpellSubclassSelection(SpellDefinition spellDefinition)
-        {
-            var spellName = spellDefinition.Name;
-            bool toggle;
-            int columns;
-            var current = 0;
-            var subclasses = SpellsContext.GetCasterSubclasses;
-            var subclassesCount = subclasses.Count;
-
-            UI.Label("");
-            UI.Label("Subclasses:".yellow());
-            UI.Label("");
-
-            using (UI.HorizontalScope())
-            {
-                toggle = SpellsContext.AreAllSubclassesSelected(spellDefinition);
-                if (UI.Toggle("Select All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
-                {
-                    SpellsContext.SelectAllSubclasses(spellDefinition, toggle);
-                    SpellsContext.SwitchSubclass(spellDefinition);
-                }
-
-                toggle = SpellsContext.AreSuggestedSubclassesSelected(spellDefinition);
-                if (UI.Toggle("Select Suggested", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
-                {
-                    SpellsContext.SelectSuggestedSubclasses(spellDefinition, toggle);
-                    SpellsContext.SwitchSubclass(spellDefinition);
-                }
-            }
-
-            UI.Label("");
-
-            while (current < subclassesCount)
-            {
-                columns = MAX_COLUMNS;
-
-                using (UI.HorizontalScope())
-                {
-                    while (current < subclassesCount && columns-- > 0)
-                    {
-                        var subclassDefinition = subclasses.ElementAt(current);
-                        var subclassName = subclassDefinition.Name;
-                        var subclassTitle = subclassDefinition.FormatTitle();
-
-                        toggle = Main.Settings.SubclassSpellEnabled[spellName].Contains(subclassName);
-                        if (UI.Toggle(subclassTitle, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
-                        {
-                            if (toggle)
-                            {
-                                Main.Settings.SubclassSpellEnabled[spellName].Add(subclassName);
-                            }
-                            else
-                            {
-                                Main.Settings.SubclassSpellEnabled[spellName].Remove(subclassName);
-                            }
-
-                            SpellsContext.SwitchSubclass(spellDefinition, subclassDefinition);
                         }
 
                         current++;

@@ -114,7 +114,6 @@ namespace SolastaCommunityExpansion
         //
 
         public SerializableDictionary<string, List<string>> ClassSpellEnabled { get; set; } = new SerializableDictionary<string, List<string>>();
-        public SerializableDictionary<string, List<string>> SubclassSpellEnabled { get; set; } = new SerializableDictionary<string, List<string>>();
 
         //
         // Encounters - General
