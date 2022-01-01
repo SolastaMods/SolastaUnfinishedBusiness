@@ -46,8 +46,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                 UI.Space(20);
 
-                toggle = Main.Settings.ClassSpellEnabled.Sum(x => x.Value.Count) == SpellsContext.GetCasterClasses.Count * SpellsContext.RegisteredSpells.Count
-                    && Main.Settings.SubclassSpellEnabled.Sum(x => x.Value.Count) == SpellsContext.GetCasterSubclasses.Count * SpellsContext.RegisteredSpells.Count;
+                toggle = SpellsContext.AreAllClassesSelected() && SpellsContext.AreAllSubclassesSelected();
 
                 if (UI.Toggle("Select All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
@@ -138,7 +137,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             using (UI.HorizontalScope())
             {
-                toggle = Main.Settings.ClassSpellEnabled[spellName].Count == classesCount;
+                toggle = SpellsContext.AreAllClassesSelected(spellDefinition);
                 if (UI.Toggle("Select All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
                     SpellsContext.SelectAllClasses(spellDefinition, toggle);
@@ -203,7 +202,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             using (UI.HorizontalScope())
             {
-                toggle = Main.Settings.SubclassSpellEnabled[spellName].Count == subclassesCount;
+                toggle = SpellsContext.AreAllSubclassesSelected(spellDefinition);
                 if (UI.Toggle("Select All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
                     SpellsContext.SelectAllSubclasses(spellDefinition, toggle);
