@@ -27,6 +27,12 @@ namespace SolastaCommunityExpansion.Features
             modifyDefinition?.Invoke(Definition);
         }
 
+        public ConditionDefinitionBuilder(TDefinition toCopy, string name, string guid,
+            GuiPresentation guiPresentation) : base(toCopy, name, guid)
+        {
+            Definition.SetGuiPresentation(guiPresentation);
+        }
+
         public static TDefinition Build(string name, string guid, Action<TDefinition> modifyDefinition = null)
         {
             var conditionDefinitionBuilder = new ConditionDefinitionBuilder<TDefinition>(name, guid, modifyDefinition);

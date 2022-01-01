@@ -20,9 +20,9 @@ namespace SolastaCommunityExpansion.Viewers
         private static readonly NamedAction[] actions = 
         {
             new NamedAction("General", DisplayCharacter),
-            new NamedAction("Feats", DisplayFeats),
             new NamedAction("Classes & Subclasses", DisplayClassesAndSubclasses),
-            new NamedAction("Fighting Styles", DisplayFightingStyles),
+            new NamedAction("Feats", DisplayFeats),
+            new NamedAction("Fighting Styles", DisplayFightingStyles)
         };
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
