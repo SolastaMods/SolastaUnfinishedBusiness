@@ -88,6 +88,9 @@ namespace SolastaCommunityExpansion.Models
                     Main.Settings.SubclassSpellEnabled.Add(spellName, registeredSpell.Value.SuggestedSubclasses);
                 }
             }
+
+            SwitchClass();
+            SwitchSubclass();
         }
 
         private static void SwitchSpell(SpellListDefinition spellListDefinition, SpellDefinition spellDefinition, bool enabled)
