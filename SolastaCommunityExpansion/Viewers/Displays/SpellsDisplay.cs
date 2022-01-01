@@ -1,5 +1,6 @@
 ﻿using ModKit;
 using SolastaCommunityExpansion.Models;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
@@ -9,82 +10,179 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         private const int MAX_COLUMNS = 4;
         private const float PIXELS_PER_COLUMN = 225;
 
-        internal static void DisplayFightingStyles()
+        private static bool Initialized { get; set; }
+
+        private static readonly SortedDictionary<string, bool> SpellNamesToggle = new SortedDictionary<string, bool>();
+
+        internal static void DisplaySpells()
         {
             bool toggle;
-            int intValue;
-            bool selectAll = Main.Settings.FightingStyleEnabled.Count == FightingStyleContext.Styles.Count;
 
-            UI.Label("");
-            UI.Label("Fighting Styles: ".yellow());
-            UI.Label("");
-
-            if (UI.Toggle("Select all", ref selectAll))
+            if (!Initialized)
             {
-                foreach (var keyValuePair in FightingStyleContext.Styles)
+                SpellsContext.RegisteredSpells.Values.ToList().ForEach(x => SpellNamesToggle.Add(x.SpellDefinition.FormatTitle(), false));
+
+                Initialized = true;
+            }
+
+            UI.Label("");
+
+            foreach (var spellRecord in SpellsContext.RegisteredSpells)
+            {
+                var spellDefinition = spellRecord.Value.SpellDefinition;
+                var spellTitle = spellDefinition.FormatTitle();
+
+                toggle = SpellNamesToggle[spellTitle];
+                if (UI.DisclosureToggle(spellTitle.yellow(), ref toggle, 200))
                 {
-                    FightingStyleContext.Switch(keyValuePair.Key, selectAll);
+                    SpellNamesToggle[spellTitle] = toggle;
+                }
+
+                if (SpellNamesToggle[spellTitle])
+                {
+                    DisplaySpell(spellDefinition);
+                }
+
+                UI.Label("");
+            }
+        }
+
+        internal static void DisplaySpell(SpellDefinition spellDefinition)
+        {
+            UI.Label("");
+            UI.Label(spellDefinition.FormatDescription());
+
+            using (UI.HorizontalScope())
+            {
+                UI.Space(20);
+
+                using (UI.VerticalScope())
+                {
+                    DisplaySpellClassSelection(spellDefinition);
                 }
             }
 
-            intValue = Main.Settings.FightingStyleSliderPosition;
-            if (UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
+            using (UI.HorizontalScope())
             {
-                Main.Settings.FightingStyleSliderPosition = intValue;
+                UI.Space(20);
+
+                using (UI.VerticalScope())
+                {
+                    DisplaySpellSubclassSelection(spellDefinition);
+                }
+            }
+        }
+
+        internal static void DisplaySpellClassSelection(SpellDefinition spellDefinition)
+        {
+            var spellName = spellDefinition.Name;
+            bool toggle;
+            int columns;
+            var current = 0;
+            var classes = SpellsContext.GetCasterClasses.ToList();
+            var classesCount = classes.Count;
+
+            UI.Label("");
+            UI.Label("Classes:".yellow());
+            UI.Label("");
+
+            var xx = Main.Settings.ClassSpellEnabled;
+
+            toggle = Main.Settings.ClassSpellEnabled[spellName].Count == classesCount;
+            if (UI.Toggle("Select All", ref toggle, UI.AutoWidth()))
+            {
+                if (toggle)
+                {
+                    SpellsContext.SelectAllClasses(spellDefinition);
+                }
             }
 
             UI.Label("");
 
-            int columns;
-            var flip = false;
-            var current = 0;
-            var stylesCount = FightingStyleContext.Styles.Count;
-
-            using (UI.VerticalScope())
+            while (current < classesCount)
             {
-                while (current < stylesCount)
+                columns = 4;
+
+                using (UI.HorizontalScope())
                 {
-                    columns = Main.Settings.FightingStyleSliderPosition;
-
-                    using (UI.HorizontalScope())
+                    while (current < classesCount && columns-- > 0)
                     {
-                        while (current < stylesCount && columns-- > 0)
+                        var classDefinition = classes.ElementAt(current);
+                        var className = classDefinition.Name;
+                        var classTitle = classDefinition.FormatTitle();
+
+                        toggle = Main.Settings.ClassSpellEnabled[spellName].Contains(className);
+                        if (UI.Toggle(classTitle, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                         {
-                            var keyValuePair = FightingStyleContext.Styles.ElementAt(current);
-                            var title = keyValuePair.Value.GetStyle().FormatTitle();
-
-                            if (flip)
+                            if (toggle)
                             {
-                                title = title.yellow();
+                                Main.Settings.ClassSpellEnabled[spellName].Add(className);
                             }
-
-                            toggle = Main.Settings.FightingStyleEnabled.Contains(keyValuePair.Key);
-                            if (UI.Toggle(title, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                            else
                             {
-                                FightingStyleContext.Switch(keyValuePair.Key, toggle);
+                                Main.Settings.ClassSpellEnabled[spellName].Remove(className);
                             }
-
-                            if (Main.Settings.FightingStyleSliderPosition == 1)
-                            {
-                                var description = keyValuePair.Value.GetStyle().FormatDescription();
-
-                                if (flip)
-                                {
-                                    description = description.yellow();
-                                }
-
-                                UI.Label(description, UI.Width(PIXELS_PER_COLUMN * 3));
-
-                                flip = !flip;
-                            }
-
-                            current++;
                         }
+
+                        current++;
                     }
                 }
             }
+        }
+
+        internal static void DisplaySpellSubclassSelection(SpellDefinition spellDefinition)
+        {
+            var spellName = spellDefinition.Name;
+            bool toggle;
+            int columns;
+            var current = 0;
+            var subclasses = SpellsContext.GetCasterSubclasses.ToList();
+            var subclassesCount = subclasses.Count;
 
             UI.Label("");
+            UI.Label("Subclasses:".yellow());
+            UI.Label("");
+
+            toggle = Main.Settings.SubclassSpellEnabled[spellName].Count == subclassesCount;
+            if (UI.Toggle("Select All", ref toggle, UI.AutoWidth()))
+            {
+                if (toggle)
+                {
+                    SpellsContext.SelectAllSubclasses(spellDefinition);
+                }
+            }
+
+            UI.Label("");
+
+            while (current < subclassesCount)
+            {
+                columns = 4;
+
+                using (UI.HorizontalScope())
+                {
+                    while (current < subclassesCount && columns-- > 0)
+                    {
+                        var subclassDefinition = subclasses.ElementAt(current);
+                        var subclassName = subclassDefinition.Name;
+                        var subclassTitle = subclassDefinition.FormatTitle();
+
+                        toggle = Main.Settings.SubclassSpellEnabled[spellName].Contains(subclassName);
+                        if (UI.Toggle(subclassTitle, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                        {
+                            if (toggle)
+                            {
+                                Main.Settings.SubclassSpellEnabled[spellName].Add(subclassName);
+                            }
+                            else
+                            {
+                                Main.Settings.SubclassSpellEnabled[spellName].Remove(subclassName);
+                            }
+                        }
+
+                        current++;
+                    }
+                }
+            }
         }
     }
 }

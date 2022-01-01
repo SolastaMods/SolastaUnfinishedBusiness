@@ -29,34 +29,34 @@ namespace SolastaCommunityExpansion.Models
             internal readonly List<string> SuggestedSubclasses = new List<string>();
         }
 
-        private static readonly Dictionary<string, SpellRecord> RegisteredSpells = new Dictionary<string, SpellRecord>();
+        internal static readonly Dictionary<string, SpellRecord> RegisteredSpells = new Dictionary<string, SpellRecord>();
 
-        private static IEnumerable<CharacterClassDefinition> casterClasses;
+        private static List<CharacterClassDefinition> casterClasses;
 
-        internal static IEnumerable<CharacterClassDefinition> GetCasterClasses
+        internal static List<CharacterClassDefinition> GetCasterClasses
         {
             get
             {
                 if (casterClasses == null)
                 {
                     casterClasses = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
-                        .Where(x => x.FeatureUnlocks.Exists(y => y.FeatureDefinition is FeatureDefinitionCastSpell));
+                        .Where(x => x.FeatureUnlocks.Exists(y => y.FeatureDefinition is FeatureDefinitionCastSpell)).ToList();
                 }
 
                 return casterClasses;
             }
         }
 
-        private static IEnumerable<CharacterSubclassDefinition> casterSubclasses;
+        private static List<CharacterSubclassDefinition> casterSubclasses;
 
-        internal static IEnumerable<CharacterSubclassDefinition> GetCasterSubclasses
+        internal static List<CharacterSubclassDefinition> GetCasterSubclasses
         {
             get
             {
                 if (casterSubclasses == null)
                 {
                     casterSubclasses = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
-                        .Where(x => x.FeatureUnlocks.Exists(y => y.FeatureDefinition is FeatureDefinitionCastSpell));
+                        .Where(x => x.FeatureUnlocks.Exists(y => y.FeatureDefinition is FeatureDefinitionCastSpell)).ToList();
                 }
 
                 return casterSubclasses;
@@ -91,22 +91,22 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void SelectAll()
+        internal static void SelectAllClasses(SpellDefinition spellDefinition)
         {
-            Main.Settings.ClassEnabled.Clear();
-            Main.Settings.SubclassEnabled.Clear();
+            Main.Settings.ClassSpellEnabled[spellDefinition.Name].Clear();
+            Main.Settings.ClassSpellEnabled[spellDefinition.Name].AddRange(GetCasterClasses.Select(x => x.Name).ToList());
+        }
 
-            foreach (var registeredSpell in RegisteredSpells)
-            {
-                Main.Settings.ClassSpellEnabled.Add(registeredSpell.Key, GetCasterClasses.Select(x => x.Name).ToList());
-                Main.Settings.SubclassSpellEnabled.Add(registeredSpell.Key, GetCasterSubclasses.Select(x => x.Name).ToList());
-            }
+        internal static void SelectAllSubclasses(SpellDefinition spellDefinition)
+        {
+            Main.Settings.SubclassSpellEnabled[spellDefinition.Name].Clear();
+            Main.Settings.SubclassSpellEnabled[spellDefinition.Name].AddRange(GetCasterSubclasses.Select(x => x.Name).ToList());
         }
 
         internal static void SelectToSuggested()
         {
-            Main.Settings.ClassEnabled.Clear();
-            Main.Settings.SubclassEnabled.Clear();
+            Main.Settings.ClassSpellEnabled.Clear();
+            Main.Settings.SubclassSpellEnabled.Clear();
 
             foreach (var registeredSpell in RegisteredSpells)
             {
