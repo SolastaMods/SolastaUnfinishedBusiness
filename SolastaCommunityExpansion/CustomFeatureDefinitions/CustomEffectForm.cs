@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
      */
     public abstract class CustomEffectForm : EffectForm
     {
-        public CustomEffectForm()
+        protected CustomEffectForm()
         {
             this.FormType = (EffectFormType)ExtraEffectFormType.Custom;
         }
