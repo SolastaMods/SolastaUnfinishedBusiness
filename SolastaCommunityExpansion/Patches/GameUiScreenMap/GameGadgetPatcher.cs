@@ -91,15 +91,8 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
 
                 Main.Log($"GameGadget_SetCondition {__instance.UniqueNameId}: {param} state = {state}");
 
-                // BugFix? NOTE: not convinced this is correct thing to do.  
-                if (param == GameGadgetExtensions.Triggered && !state && __instance.UniqueNameId.StartsWith("ActivatorButton")) // TODO: check other activators for same issue
-                {
-                    // Always reset 'Triggered' to true otherwise we have to press the activator twice
-                    __instance.SetCondition(conditionIndex, true, new List<GameLocationCharacter>());
-                }
-
 #if DEBUG
-                // Main.Log("GameGadget_SetCondition " + string.Join(",", ___conditionNames.Select(n => $"{n}:{__instance.CheckConditionName(n, true, false)}")));
+                //Main.Log("GameGadget_SetCondition: " + string.Join(",", ___conditionNames.Select(n => $"{n}={__instance.CheckConditionName(n, true, false)}")));
 #endif
 
                 if ((param == GameGadgetExtensions.Enabled || param == GameGadgetExtensions.ParamEnabled) 
