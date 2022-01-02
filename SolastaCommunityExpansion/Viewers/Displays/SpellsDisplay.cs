@@ -1,5 +1,6 @@
 ﻿using ModKit;
 using SolastaCommunityExpansion.Models;
+using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -19,17 +20,25 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
         private static readonly List<SpellDefinition> SortedRegisteredSpells = new List<SpellDefinition>();
 
+        private static readonly List<bool> IsFromOtherModList = new List<bool>();
+
         private static bool ExpandAllToggle { get; set; }
 
         private static readonly Dictionary<string, bool> SpellNamesToggle = new Dictionary<string, bool>();
 
+        private static string WarningMessage => Main.Settings.AllowDisplayAllUnofficialContent ? ". Spells in " + "orange".orange() + " were not created by this mod" : string.Empty;
+
         private static void RecacheSortedRegisteredSpells()
         {
-            SortedRegisteredSpells.Clear();
-            SortedRegisteredSpells.AddRange(SpellsContext.RegisteredSpells
+            SortedRegisteredSpells.SetRange(SpellsContext.RegisteredSpells
                 .Select(x => x.Key)
                 .Where(x => SpellLevelFilter == SHOW_ALL || x.SpellLevel == SpellLevelFilter)
                 .OrderBy(x => $"{x.SpellLevel} - {x.FormatTitle()}"));
+
+            IsFromOtherModList.SetRange(SpellsContext.RegisteredSpells
+                .Where(x => SpellLevelFilter == SHOW_ALL || x.Key.SpellLevel == SpellLevelFilter)
+                .OrderBy(x => $"{x.Key.SpellLevel} - {x.Key.FormatTitle()}")
+                .Select(x => x.Value.IsFromOtherMod));
         }
 
         internal static void DisplaySpells()
@@ -50,7 +59,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             UI.Label("");
-            UI.Label(". You can individually assign each spell to any caster spell list or simply select the suggested set");
+            UI.Label($". You can individually assign each spell to any caster spell list or simply select the suggested set{WarningMessage}");
             UI.Label("");
 
             using (UI.HorizontalScope())
@@ -109,10 +118,16 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            foreach (var spellDefinition in SortedRegisteredSpells)
+            for (var i = 0; i < SortedRegisteredSpells.Count; i++) 
             {
+                var spellDefinition = SortedRegisteredSpells[i];
                 var spellName = spellDefinition.Name;
                 var spellTitle = $"{spellDefinition.SpellLevel} - {spellDefinition.FormatTitle()}";
+
+                if (IsFromOtherModList.ElementAt(i))
+                {
+                    spellTitle = spellTitle.orange();
+                }
 
                 toggle = SpellNamesToggle[spellName];
                 if (UI.DisclosureToggle(spellTitle.yellow(), ref toggle, 200))

@@ -14,12 +14,12 @@ namespace SolastaCommunityExpansion.Spells
 
         public static void Load()
         {
-            SpellsContext.RegisterSpell(BuildEldritchOrb(), "WarlockClassSpelllist", "WitchSpellList");
-            SpellsContext.RegisterSpell(BuildFindFamiliar(), "SpellListWizard");
-            SpellsContext.RegisterSpell(BuildFrenzy(), "BardClassSpelllist", "SpellListWizard", "WitchSpellList");
-            SpellsContext.RegisterSpell(BuildMinorLifesteal(), "SpellListSorcerer", "SpellListWizard", "WitchSpellList");
-            SpellsContext.RegisterSpell(BuildPetalStorm(), "SpellListDruid", "WitchSpellList");
-            SpellsContext.RegisterSpell(BuildProtectThreshold(), "SpellListSorcerer", "SpellListWizard", "WitchSpellList");
+            SpellsContext.RegisterSpell(BuildEldritchOrb(), isFromOtherMod: false, "WarlockClassSpelllist", "WitchSpellList");
+            SpellsContext.RegisterSpell(BuildFindFamiliar(), isFromOtherMod: false, "SpellListWizard");
+            SpellsContext.RegisterSpell(BuildFrenzy(), isFromOtherMod: false, "BardClassSpelllist", "SpellListWizard", "WitchSpellList");
+            SpellsContext.RegisterSpell(BuildMinorLifesteal(), isFromOtherMod: false, "SpellListSorcerer", "SpellListWizard", "WitchSpellList");
+            SpellsContext.RegisterSpell(BuildPetalStorm(), isFromOtherMod: false, "SpellListDruid", "WitchSpellList");
+            SpellsContext.RegisterSpell(BuildProtectThreshold(), isFromOtherMod: false, "SpellListSorcerer", "SpellListWizard", "WitchSpellList");
         }
 
         private static SpellDefinition BuildEldritchOrb()
