@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Spells
     {
         public static void Load()
         {
-            SpellsContext.RegisterSpell(BuildDivineWord(), "SpellListCleric");
+            SpellsContext.RegisterSpell(BuildDivineWord(), isFromOtherMod: false, "SpellListCleric");
         }
 
         private static SpellDefinition BuildDivineWord()
