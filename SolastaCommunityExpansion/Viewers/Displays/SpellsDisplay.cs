@@ -43,9 +43,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             using (UI.HorizontalScope())
             {
-                var expanded = SpellNamesToggle.Select(x => x.Value).Count();
-                var total = SpellNamesToggle.Count;
-
                 UI.Space(20);
 
                 toggle = SpellsContext.AreAllSpellListsSelected();
