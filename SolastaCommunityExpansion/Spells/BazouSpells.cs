@@ -12,9 +12,6 @@ namespace SolastaCommunityExpansion.Spells
     {
         public static readonly Guid BAZOU_SPELLS_BASE_GUID = new Guid("91384db5-6659-4384-bf2c-3a41160343f4");
 
-        //
-        // TODO: add suggested classes and subclasses names list here
-        //
         public static void Load()
         {
             SpellsContext.RegisterSpell(BuildEldritchOrb(), "WarlockClassSpelllist", "WitchSpellList");

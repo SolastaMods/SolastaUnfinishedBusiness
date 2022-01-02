@@ -71,6 +71,7 @@ namespace SolastaCommunityExpansion.Models
         internal static void Load()
         {
             BazouSpells.Load();
+            SRDSpells.Load();
 
             foreach (var registeredSpell in RegisteredSpells.Where(x => !Main.Settings.SpellSpellListEnabled.ContainsKey(x.Key.Name)))
             {
