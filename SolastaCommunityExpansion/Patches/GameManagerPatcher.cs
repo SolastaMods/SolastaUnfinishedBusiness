@@ -10,12 +10,11 @@ namespace SolastaCommunityExpansion.Patches
     {
         internal static void Postfix()
         {
-            PowersContext.Load();
-            SpellsContext.Load();
             AdditionalNamesContext.Load();
             AsiAndFeatContext.Load();
             BugFixContext.Load();
             CharacterExportContext.Load();
+            ClassesContext.Load();
             ConjurationsContext.Load();
             DruidArmorContext.Load();
             DungeonMakerContext.Load();
@@ -23,7 +22,6 @@ namespace SolastaCommunityExpansion.Patches
             EpicArrayContext.Load();
             FaceUnlockContext.Load();
             FightingStyleContext.Load(); // Fighting Styles should be loaded before feats in order to generate feats of new fighting styles
-            FeatsContext.Load();
             FlexibleBackgroundsContext.Load();
             InitialChoicesContext.Load();
             GameUiContext.Load();
@@ -40,7 +38,6 @@ namespace SolastaCommunityExpansion.Patches
             TelemaCampaignContext.Load();
             TeleporterContext.Load();
             VisionContext.Load();
-            ClassesContext.Load();
 
             Main.Enabled = true;
         }

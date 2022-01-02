@@ -75,8 +75,6 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("\n[line]\n");
                 collectedString.Append(Models.ClassesContext.GenerateClassDescription());
                 collectedString.Append("\n[line]\n");
-                collectedString.Append(Models.PowersContext.GeneratePowersDescription());
-                collectedString.Append("\n[line]\n");
                 collectedString.Append(Models.SpellsContext.GenerateSpellsDescription());
                 collectedString.Append("\n[line]\n");
                 collectedString.Append("[heading]Encounters General[/heading]\n[list]");

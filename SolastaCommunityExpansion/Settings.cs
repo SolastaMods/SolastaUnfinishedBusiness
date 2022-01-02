@@ -30,7 +30,6 @@ namespace SolastaCommunityExpansion
         public bool BugFixItemFiltering { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
         public bool BugFixOnCanSaveToggleChanged { get; set; } = true;
-        public bool EnableBetaFeaturesInMod { get; set; }
         public bool EnableDungeonMakerRotationHotkeys { get; set; } = true;
         public bool EnableFirstLevelCasterFeats { get; set; } = true;
         public bool EnableMultiLinePowerPanel { get; set; } = true;
@@ -49,6 +48,7 @@ namespace SolastaCommunityExpansion
         //
 
         // Initial Choices
+        public bool AddHelpActionToAllClasses { get; set; }
         public bool DisableSenseDarkVisionFromAllRaces { get; set; }
         public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
         public bool EnableAlternateHuman { get; set; }
@@ -113,7 +113,7 @@ namespace SolastaCommunityExpansion
         // Characters - Spells
         //
 
-        public List<string> SpellEnabled { get; private set; } = new List<string>();
+        public Utils.SerializableDictionary<string, List<string>> SpellSpellListEnabled { get; set; } = new Utils.SerializableDictionary<string, List<string>>();
 
         //
         // Encounters - General

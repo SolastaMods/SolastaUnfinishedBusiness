@@ -396,8 +396,8 @@ namespace SolastaCommunityExpansion.Classes
 
             // Build our spellCast object containing previously created spell list
             var classSpellCast = new CastSpellBuilder(
-                    "WitchSpellCast", 
-                    GuidHelper.Create(WITCH_BASE_GUID, "WitchSpellCast").ToString());
+                    "CastSpellWitch", 
+                    GuidHelper.Create(WITCH_BASE_GUID, "CastSpellWitch").ToString());
 
             classSpellCast.SetGuiPresentation(
                     new GuiPresentationBuilder(

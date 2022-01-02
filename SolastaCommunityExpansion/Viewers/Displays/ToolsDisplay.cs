@@ -79,7 +79,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 UI.Label("");
 
                 toggle = Main.Settings.FollowCharactersOnTeleport;
-                if (UI.Toggle("Follow character(s) when teleported", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Camera follows teleported character(s)", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.FollowCharactersOnTeleport = toggle;
                 }

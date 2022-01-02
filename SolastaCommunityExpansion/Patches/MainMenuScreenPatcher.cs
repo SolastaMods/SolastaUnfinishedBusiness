@@ -15,8 +15,12 @@ namespace SolastaCommunityExpansion.Patches
                 return;
             }
 
+
             FlexibleRacesContext.SwitchFlexibleRaces();
             InitialChoicesContext.RefreshTotalFeatsGrantedFistLevel();
+            FeatsContext.Load();
+            PowersContext.Load();
+            SpellsContext.Load();
 
             Main.LateEnabled = true;
         }
