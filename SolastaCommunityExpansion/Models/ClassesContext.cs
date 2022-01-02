@@ -13,22 +13,22 @@ namespace SolastaCommunityExpansion.Models
         internal static void Load()
         {
             //LoadClass(new Tinkerer());
-            //LoadClass(new Witch());
+            LoadClass(new Witch());
         }
 
-        //private static void LoadClass(AbstractClass classBuilder)
-        //{
-        //    CharacterClassDefinition characterClass = classBuilder.GetClass();
+        private static void LoadClass(AbstractClass classBuilder)
+        {
+            CharacterClassDefinition characterClass = classBuilder.GetClass();
 
-        //    if (!Classes.ContainsKey(characterClass.Name))
-        //    {
-        //        Classes.Add(characterClass.Name, classBuilder);
-        //    }
+            if (!Classes.ContainsKey(characterClass.Name))
+            {
+                Classes.Add(characterClass.Name, classBuilder);
+            }
 
-        //    Classes = Classes.OrderBy(x => x.Value.GetClass().FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
+            Classes = Classes.OrderBy(x => x.Value.GetClass().FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
 
-        //    UpdateClassVisibility(characterClass.Name);
-        //}
+            UpdateClassVisibility(characterClass.Name);
+        }
 
         private static void UpdateClassVisibility(string className)
         {

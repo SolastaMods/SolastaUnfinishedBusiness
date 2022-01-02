@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
@@ -62,13 +63,68 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                     var isInvisible = __instance.IsInvisible();
                     var isEnabled = __instance.IsEnabled();
 
-                    GameLocationManager_ReadyLocation.SetGadgetVisibility(worldGadget, isEnabled && !isInvisible);
+                    GameLocationManager_ReadyLocation.SetTeleporterGadgetActiveAnimation(worldGadget, isEnabled && !isInvisible);
 
                     ___revealed = true;
                     __result = true;
 
                     break;
                 }
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(GameGadget), "SetCondition")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class GameGadget_SetCondition
+    {
+        internal static void Postfix(GameGadget __instance, int conditionIndex, bool state, List<string> ___conditionNames)
+        {
+            if (!Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered)
+            {
+                return;
+            }
+
+            if (conditionIndex >= 0 && conditionIndex < ___conditionNames.Count)
+            {
+                var param = ___conditionNames[conditionIndex];
+
+                Main.Log($"GameGadget_SetCondition {__instance.UniqueNameId}: {param} state = {state}");
+
+                // BugFix? NOTE: not convinced this is correct thing to do.  
+                if (param == GameGadgetExtensions.Triggered && !state && __instance.UniqueNameId.StartsWith("ActivatorButton")) // TODO: check other activators for same issue
+                {
+                    // Always reset 'Triggered' to true otherwise we have to press the activator twice
+                    __instance.SetCondition(conditionIndex, true, new List<GameLocationCharacter>());
+                }
+
+#if DEBUG
+                // Main.Log("GameGadget_SetCondition " + string.Join(",", ___conditionNames.Select(n => $"{n}:{__instance.CheckConditionName(n, true, false)}")));
+#endif
+
+                if ((param == GameGadgetExtensions.Enabled || param == GameGadgetExtensions.ParamEnabled) 
+                    && __instance.UniqueNameId.StartsWith("Teleport"))
+                {
+                    var service = ServiceRepository.GetService<IGameLocationService>();
+
+                    if (service != null)
+                    {
+                        var worldGadget = service.WorldLocation.WorldSectors
+                            .SelectMany(ws => ws.WorldGadgets)
+                            .FirstOrDefault(wg => wg.GameGadget == __instance);
+
+                        if (worldGadget != null)
+                        {
+                            Main.Log($"GameGadget_SetCondition-setting-animation {__instance.UniqueNameId}: {state}");
+
+                            GameLocationManager_ReadyLocation.SetTeleporterGadgetActiveAnimation(worldGadget, state);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                Main.Log($"GameGadget_SetCondition {__instance.UniqueNameId}: condition index out of range.");
             }
         }
     }

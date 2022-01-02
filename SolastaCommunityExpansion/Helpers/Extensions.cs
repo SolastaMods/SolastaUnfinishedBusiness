@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Helpers
 {
@@ -26,25 +27,47 @@ namespace SolastaCommunityExpansion.Helpers
 
     internal static class GameGadgetExtensions
     {
+        public const string Enabled = "Enabled";
+        public const string Triggered = "Triggered";
+        public const string RemoteEnabled = "RemoteEnabled";
+        public const string ParamEnabled = "Param_Enabled";
+        public const string Invisible = "Invisible";
+
         /// <summary>
         /// Returns state of Invisible parameter, or false if not present
         /// </summary>
         public static bool IsInvisible(this GameGadget gadget)
         {
-            return (bool)CheckConditionName.Invoke(gadget, new object[] { "Invisible", true, false });
+            return gadget.CheckConditionName(Invisible, true, false);
         }
 
-        /// <summary>
-        /// Replacement for buggy GameGadget.CheckIsEnabled().
-        /// </summary>
-        public static bool IsEnabled(this GameGadget gadget)
+        public static bool IsEnabled(this GameGadget gadget, bool valueIfParamsNotPresent = false)
         {
-            return (bool)CheckConditionName.Invoke(gadget, new object[] { "Param_Enabled", true, false })
-                || (bool)CheckConditionName.Invoke(gadget, new object[] { "Enabled", true, false });
+            // We need to know if both Enabled and ParamEnabled are missing
+            var names = gadget.GetField<GameGadget, List<string>>("conditionNames");
+
+            if (!names.Any(n => n == Enabled || n == ParamEnabled))
+            {
+                // if not present return supplied default value
+                return valueIfParamsNotPresent;
+            }
+
+            // if at least one is present then return if either is true
+            var enabled = gadget.CheckConditionName(Enabled, true, false);
+            var paramEnabled = gadget.CheckConditionName(ParamEnabled, true, false);
+
+            Main.Log($"{gadget.UniqueNameId}, Enabled={enabled}, ParamEnabled={paramEnabled}");
+
+            return enabled || paramEnabled;
+        }
+
+        public static bool CheckConditionName(this GameGadget gadget, string name, bool value, bool valueIfMissing)
+        {
+            return (bool)CheckConditionNameMethod.Invoke(gadget, new object[] { name, value, valueIfMissing });
         }
 
 #pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
-        private static readonly MethodInfo CheckConditionName
+        private static readonly MethodInfo CheckConditionNameMethod
             = typeof(GameGadget).GetMethod("CheckConditionName", BindingFlags.Instance | BindingFlags.NonPublic);
 #pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
     }
@@ -68,5 +91,36 @@ namespace SolastaCommunityExpansion.Helpers
         Kill = EffectForm.EffectFormType.Kill,
         ShapeChange = EffectForm.EffectFormType.ShapeChange,
         Custom = 9000,
+    }
+
+    public enum ExtraRitualCasting
+    {
+        None = RuleDefinitions.RitualCasting.None,
+        Prepared = RuleDefinitions.RitualCasting.Prepared,
+        Spellbook = RuleDefinitions.RitualCasting.Spellbook,
+        Known = 9000
+    }
+
+    public enum ExtraTargetFilteringTags
+    {
+        No = RuleDefinitions.TargetFilteringTag.No,
+        Unarmored = RuleDefinitions.TargetFilteringTag.Unarmored,
+        MetalArmor = RuleDefinitions.TargetFilteringTag.MetalArmor,
+        CursedByMalediction = 9000
+    }
+
+    public enum ExtraOriginOfAmount
+    {
+        None = 0,
+        SourceDamage = 1,
+        SourceGain = 2,
+        AddDice = 3,
+        Fixed = 4,
+        SourceHalfHitPoints = 5,
+        SourceSpellCastingAbility = 6,
+        SourceSpellAttack = 7,
+        SourceProficiencyBonus = 9000,
+        SourceCharacterLevel = 9001,
+        SourceClassLevel = 9002
     }
 }

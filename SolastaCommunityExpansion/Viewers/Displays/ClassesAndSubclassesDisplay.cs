@@ -32,7 +32,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             if (DisplayClassesToggle)
             {
-                if (!Main.Settings.EnableBetaFeaturesInMod && ClassesContext.Classes.Count == 0)
+                if (ClassesContext.Classes.Count == 0)
                 {
                     UI.Label("");
                     UI.Label("No unofficial classes available on this mod yet...".bold().red());

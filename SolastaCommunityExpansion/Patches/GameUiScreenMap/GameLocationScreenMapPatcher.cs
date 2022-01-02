@@ -24,14 +24,16 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                 return true;
             }
 
-            // Copy entire method and add additional cases for camp and exit/entrance
+            // Add additional cases for camp and exit/entrance, and change behaviour to account for
+            // 1) Exits have Enable and Param_Enabled states
+            // 2) Teleporters have an Invisible state
             foreach (var gameSector in Gui.GameLocation.GameSectors)
             {
                 foreach (var gameGadget in gameSector.GameGadgets)
                 {
                     Main.Log($"{gameGadget.UniqueNameId}, Revealed={gameGadget.Revealed}, Enabled={gameGadget.IsEnabled()}, Invisible={gameGadget.IsInvisible()}");
 
-                    if (gameGadget.Revealed && gameGadget.IsEnabled())
+                    if (gameGadget.Revealed) // Not checking for Enabled here unlike game code
                     {
                         MapGadgetItem.ItemType itemType = (MapGadgetItem.ItemType)int.MinValue;
 
@@ -39,11 +41,12 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                         {
                             itemType = (MapGadgetItem.ItemType)(-1);
                         }
-                        else if (gameGadget.UniqueNameId.StartsWith("Exit") || gameGadget.UniqueNameId.StartsWith("VirtualExit"))
+                        else if ((gameGadget.UniqueNameId.StartsWith("Exit") || gameGadget.UniqueNameId.StartsWith("VirtualExit")) && gameGadget.IsEnabled())
                         {
                             itemType = (MapGadgetItem.ItemType)(-2);
                         }
-                        else if (gameGadget.UniqueNameId.StartsWith("Teleporter") && !gameGadget.IsInvisible())
+                        else if (gameGadget.UniqueNameId.StartsWith("Teleporter") 
+                            && (Main.Settings.MarkInvisibleTeleportersOnLevelMap || !gameGadget.IsInvisible()))
                         {
                             itemType = (MapGadgetItem.ItemType)(-3);
                         }

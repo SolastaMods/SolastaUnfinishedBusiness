@@ -26,10 +26,10 @@ namespace SolastaCommunityExpansion
         public bool BugFixBestiarySorting { get; set; } = true;
         public bool BugFixCharacterPanelSorting { get; set; } = true;
         public bool BugFixExpandColorTables { get; set; } = true;
+        public bool BugFixGameGadgetCheckIsEnabled { get; set; } = true;
         public bool BugFixItemFiltering { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
         public bool BugFixOnCanSaveToggleChanged { get; set; } = true;
-        public bool EnableBetaFeaturesInMod { get; set; }
         public bool EnableDungeonMakerRotationHotkeys { get; set; } = true;
         public bool EnableFirstLevelCasterFeats { get; set; } = true;
         public bool EnableMultiLinePowerPanel { get; set; } = true;
@@ -48,6 +48,7 @@ namespace SolastaCommunityExpansion
         //
 
         // Initial Choices
+        public bool AddHelpActionToAllClasses { get; set; }
         public bool DisableSenseDarkVisionFromAllRaces { get; set; }
         public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
         public bool EnableAlternateHuman { get; set; }
@@ -75,14 +76,6 @@ namespace SolastaCommunityExpansion
         public bool UnlockGlowingColorsForAllMarksAndTatoos { get; set; }
 
         //
-        // Characters - Feats
-        //
-
-        public int FeatPowerAttackModifier { get; set; } = 3;
-        public int FeatSliderPosition { get; set; } = 1;
-        public List<string> FeatEnabled { get; private set; } = new List<string>();
-
-        //
         // Characters - Classes & Subclasses
         //
 
@@ -96,11 +89,31 @@ namespace SolastaCommunityExpansion
         public List<string> SubclassEnabled { get; private set; } = new List<string>();
 
         //
+        // Characters - Feats
+        //
+
+        public int FeatPowerAttackModifier { get; set; } = 3;
+        public int FeatSliderPosition { get; set; } = 1;
+        public List<string> FeatEnabled { get; private set; } = new List<string>();
+
+        //
         // Characters - Fighting Styles
         //
 
         public int FightingStyleSliderPosition { get; set; } = 1;
         public List<string> FightingStyleEnabled { get; private set; } = new List<string>();
+
+        //
+        // Characters - Powers
+        //
+
+        public List<string> PowerEnabled { get; private set; } = new List<string>();
+
+        //
+        // Characters - Spells
+        //
+
+        public Utils.SerializableDictionary<string, List<string>> SpellSpellListEnabled { get; set; } = new Utils.SerializableDictionary<string, List<string>>();
 
         //
         // Encounters - General
@@ -117,6 +130,7 @@ namespace SolastaCommunityExpansion
         public bool UseOfficialAdvantageDisadvantageRules { get; set; }
         public bool UseOfficialCombatSurpriseRules { get; set; }
         public bool RollDifferentStealthChecksForEachCharacterPair { get; set; }
+        public bool EnablePowerAid { get; set; }
         public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
         public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
         public bool FullyControlConjurations { get; set; }
@@ -164,6 +178,8 @@ namespace SolastaCommunityExpansion
 
         // Campaigns and Locations
         public bool EnableAdditionalIconsOnLevelMap { get; set; }
+        public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
+        public bool HideExitAndTeleporterGizmosIfNotDiscovered{ get; set; }
         public bool EnableSaveByLocation { get; set; }
         public bool EnableTelemaCampaign { get; set; }
         public bool EnableTeleportParty { get; set; }
