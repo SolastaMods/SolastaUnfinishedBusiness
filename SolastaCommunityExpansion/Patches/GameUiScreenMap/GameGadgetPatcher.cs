@@ -95,7 +95,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                 //Main.Log("GameGadget_SetCondition: " + string.Join(",", ___conditionNames.Select(n => $"{n}={__instance.CheckConditionName(n, true, false)}")));
 #endif
 
-                if ((param == GameGadgetExtensions.Enabled || param == GameGadgetExtensions.ParamEnabled) 
+                if ((param == GameGadgetExtensions.Enabled || param == GameGadgetExtensions.ParamEnabled)
                     && __instance.UniqueNameId.StartsWith("Teleport"))
                 {
                     var service = ServiceRepository.GetService<IGameLocationService>();

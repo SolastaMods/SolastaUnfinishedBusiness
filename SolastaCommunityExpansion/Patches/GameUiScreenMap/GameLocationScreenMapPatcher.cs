@@ -45,7 +45,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                         {
                             itemType = (MapGadgetItem.ItemType)(-2);
                         }
-                        else if (gameGadget.UniqueNameId.StartsWith("Teleporter") 
+                        else if (gameGadget.UniqueNameId.StartsWith("Teleporter")
                             && (Main.Settings.MarkInvisibleTeleportersOnLevelMap || !gameGadget.IsInvisible()))
                         {
                             itemType = (MapGadgetItem.ItemType)(-3);
@@ -83,7 +83,9 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
             }
 
             for (var index = 0; index < ___activeMapGadgetItems; ++index)
+            {
                 ___sortedItems.Add(___mapGadgetItems[index]);
+            }
 
             return false;
         }

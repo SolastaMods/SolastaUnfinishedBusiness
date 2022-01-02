@@ -1,6 +1,4 @@
 ﻿using SolastaModApi;
-using SolastaModApi.Extensions;
-using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Features
 {

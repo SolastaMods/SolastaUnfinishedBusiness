@@ -30,36 +30,36 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup bloodMagicSpells1 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 1,
-                SpellsList = new List<SpellDefinition>() { 
+                SpellsList = new List<SpellDefinition>() {
                         DatabaseHelper.SpellDefinitions.FalseLife, // This should be Hellish Rebuke
                         DatabaseHelper.SpellDefinitions.InflictWounds, }   // This should be Hollowing Curse
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup bloodMagicSpells2 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 3,
-                SpellsList = new List<SpellDefinition>() { 
-                        DatabaseHelper.SpellDefinitions.AcidArrow, 
+                SpellsList = new List<SpellDefinition>() {
+                        DatabaseHelper.SpellDefinitions.AcidArrow,
                         DatabaseHelper.SpellDefinitions.HoldPerson, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup bloodMagicSpells3 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 5,
-                SpellsList = new List<SpellDefinition>() { 
+                SpellsList = new List<SpellDefinition>() {
                         DatabaseHelper.SpellDefinitions.BestowCurse, // This should be Rube-Eye Curse
                         DatabaseHelper.SpellDefinitions.VampiricTouch, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup bloodMagicSpells4 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 7,
-                SpellsList = new List<SpellDefinition>() { 
-                        DatabaseHelper.SpellDefinitions.Blight, 
+                SpellsList = new List<SpellDefinition>() {
+                        DatabaseHelper.SpellDefinitions.Blight,
                         DatabaseHelper.SpellDefinitions.DominateBeast, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup bloodMagicSpells5 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 9,
-                SpellsList = new List<SpellDefinition>() { 
-                        DatabaseHelper.SpellDefinitions.CloudKill, 
+                SpellsList = new List<SpellDefinition>() {
+                        DatabaseHelper.SpellDefinitions.CloudKill,
                         DatabaseHelper.SpellDefinitions.DominatePerson, }
             };
 
@@ -109,7 +109,7 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
                     .Build();
 
             var subclassBuilder = new CharacterSubclassDefinitionBuilder(
-                    "BloodWitch", 
+                    "BloodWitch",
                     GuidHelper.Create(BLOODW_BASE_GUID, "BloodWitch").ToString())
                     .SetGuiPresentation(subclassGuiPresentation);
 
@@ -118,6 +118,6 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 
             return subclassBuilder.AddToDB();
         }
-        
+
     }
 }

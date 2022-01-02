@@ -30,35 +30,35 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup greenMagicSpells1 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 1,
-                SpellsList = new List<SpellDefinition>() { 
-                        DatabaseHelper.SpellDefinitions.Entangle, 
+                SpellsList = new List<SpellDefinition>() {
+                        DatabaseHelper.SpellDefinitions.Entangle,
                         DatabaseHelper.SpellDefinitions.Goodberry, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup greenMagicSpells2 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 3,
-                SpellsList = new List<SpellDefinition>() { 
-                        DatabaseHelper.SpellDefinitions.Barkskin, 
+                SpellsList = new List<SpellDefinition>() {
+                        DatabaseHelper.SpellDefinitions.Barkskin,
                         DatabaseHelper.SpellDefinitions.ProtectionFromPoison, } // This should be Beast Sense
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup greenMagicSpells3 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 5,
-                SpellsList = new List<SpellDefinition>() { 
-                        DatabaseHelper.SpellDefinitions.ConjureAnimals, 
+                SpellsList = new List<SpellDefinition>() {
+                        DatabaseHelper.SpellDefinitions.ConjureAnimals,
                         DatabaseHelper.SpellDefinitions.CreateFood, }   // This should be Plant Growth
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup greenMagicSpells4 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 7,
-                SpellsList = new List<SpellDefinition>() { 
+                SpellsList = new List<SpellDefinition>() {
                         DatabaseHelper.SpellDefinitions.GiantInsect, // This should be Conjure Woodland Beings
                         DatabaseHelper.SpellDefinitions.Stoneskin, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup greenMagicSpells5 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 9,
-                SpellsList = new List<SpellDefinition>() { 
+                SpellsList = new List<SpellDefinition>() {
                         DatabaseHelper.SpellDefinitions.DispelEvilAndGood, // This should be Awaken
                         DatabaseHelper.SpellDefinitions.InsectPlague, }    // This should be Tree Stride
             };
@@ -109,7 +109,7 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
                     .Build();
 
             var subclassBuilder = new CharacterSubclassDefinitionBuilder(
-                    "GreenWitch", 
+                    "GreenWitch",
                     GuidHelper.Create(GW_BASE_GUID, "GreenWitch").ToString())
                     .SetGuiPresentation(subclassGuiPresentation);
 
@@ -118,6 +118,6 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 
             return subclassBuilder.AddToDB();
         }
-        
+
     }
 }

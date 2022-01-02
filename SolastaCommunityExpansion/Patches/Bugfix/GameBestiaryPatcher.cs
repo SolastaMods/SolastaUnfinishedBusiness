@@ -129,15 +129,27 @@ namespace SolastaCommunityExpansion.Patches.BugFix
             int SortByName(int sortSign = 1)
             {
                 if (string.IsNullOrEmpty(monsterDefinition1.GuiPresentation.Title))
+                {
                     return 1;
+                }
+
                 if (string.IsNullOrEmpty(monsterDefinition2.GuiPresentation.Title))
+                {
                     return -1;
+                }
+
                 var str = Gui.Localize(monsterDefinition1.GuiPresentation.Title);
                 var strB = Gui.Localize(monsterDefinition2.GuiPresentation.Title);
                 if (string.IsNullOrEmpty(str))
+                {
                     return 1;
+                }
+
                 if (string.IsNullOrEmpty(strB))
+                {
                     return -1;
+                }
+
                 return sortSign * str.CompareTo(strB);
             }
         }

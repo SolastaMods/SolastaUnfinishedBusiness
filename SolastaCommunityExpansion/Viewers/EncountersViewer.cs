@@ -265,8 +265,8 @@ namespace SolastaCommunityExpansion.Viewers
 
                     for (int i = 0; i < playerCharacters.Count; i++)
                     {
-                        UI.HStack(playerCharacters[i].Name, 1, () => 
-                        { 
+                        UI.HStack(playerCharacters[i].Name, 1, () =>
+                        {
                             if (UI.SelectionGrid(ref playerCharactersChoices[i], controllers, controllers.Length, UI.Width(300)))
                             {
                                 PlayerControllerContext.PlayerCharactersChoices = playerCharactersChoices;

@@ -1,6 +1,5 @@
 ﻿using SolastaModApi;
 using SolastaModApi.Extensions;
-using System;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 
@@ -261,7 +260,7 @@ namespace SolastaCommunityExpansion.Feats
             return unit;
         }
 
-        public static FeatureDefinitionProficiency BuildNewProficiency(string name, string guid, string title, string description, AssetReferenceSprite sprite_reference, FeatureDefinitionProficiency baseProficiency, RuleDefinitions.ProficiencyType ProficiencyType, List<String> Proficiencies)
+        public static FeatureDefinitionProficiency BuildNewProficiency(string name, string guid, string title, string description, AssetReferenceSprite sprite_reference, FeatureDefinitionProficiency baseProficiency, RuleDefinitions.ProficiencyType ProficiencyType, List<string> Proficiencies)
         {
             var unit = CopyAndCreateNewBlueprint<FeatureDefinitionProficiency>.CreateCopy(
                 name,

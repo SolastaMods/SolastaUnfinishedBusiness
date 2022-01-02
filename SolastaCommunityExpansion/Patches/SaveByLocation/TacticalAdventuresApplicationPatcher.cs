@@ -1,6 +1,5 @@
 ﻿using HarmonyLib;
 using System.Diagnostics.CodeAnalysis;
-using System.IO;
 using static SolastaCommunityExpansion.Models.SaveByLocationContext;
 
 namespace SolastaCommunityExpansion.Patches.SaveByLocation

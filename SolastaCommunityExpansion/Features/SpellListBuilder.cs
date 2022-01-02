@@ -1,4 +1,4 @@
-using SolastaModApi;
+﻿using SolastaModApi;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -28,7 +28,7 @@ namespace SolastaCommunityExpansion.Features
         public static SpellListDefinition createSpellList(string name, string guid, string title_string, params List<SpellDefinition>[] spells_by_level)
         {
             return new SpellListBuilder(name, guid, title_string, DatabaseHelper.SpellListDefinitions.SpellListWizard, spells_by_level).AddToDB();
-        }    
+        }
 
     }
 }

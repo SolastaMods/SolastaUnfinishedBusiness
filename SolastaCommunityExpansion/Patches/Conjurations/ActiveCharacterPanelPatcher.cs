@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Patches.Conjurations
         /// </summary>
         internal static void Prefix(ActiveCharacterPanel __instance)
         {
-            if(!Main.Settings.FullyControlConjurations || !Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration)
+            if (!Main.Settings.FullyControlConjurations || !Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration)
             {
                 return;
             }
@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Patches.Conjurations
             var spellDefinition = spell.SpellDefinition;
 
             // Only interested in specific summoning spells
-            if(spellDefinition.Name.StartsWith("ConjureElemental") // TODO: ConjureFey
+            if (spellDefinition.Name.StartsWith("ConjureElemental") // TODO: ConjureFey
                 && spellDefinition.SpellLevel >= 5
                 && spellDefinition.EffectDescription.EffectForms
                     .SingleOrDefault(ef => ef.FormType == EffectForm.EffectFormType.Summon)

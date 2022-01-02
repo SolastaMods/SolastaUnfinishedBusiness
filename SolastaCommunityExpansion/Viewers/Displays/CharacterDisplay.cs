@@ -135,7 +135,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = DisplayFaceUnlockSettings;
-            if (UI.DisclosureToggle("Visuals: ".yellow() + RequiresRestart, ref toggle, 200)) 
+            if (UI.DisclosureToggle("Visuals: ".yellow() + RequiresRestart, ref toggle, 200))
             {
                 DisplayFaceUnlockSettings = toggle;
             }

@@ -157,7 +157,7 @@ namespace SolastaCommunityExpansion.Models
 
             for (var i = 0; i < characterRaceDefinition.FeatureUnlocks.Count; i++)
             {
-                if (characterRaceDefinition.FeatureUnlocks[i].Level == 1 && 
+                if (characterRaceDefinition.FeatureUnlocks[i].Level == 1 &&
                     characterRaceDefinition.FeatureUnlocks[i].FeatureDefinition == toRemove)
                 {
                     ndx = i;

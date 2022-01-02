@@ -62,7 +62,7 @@ namespace SolastaCommunityExpansion.Models
             var outString = new StringBuilder("[heading]Classes[/heading]");
 
             outString.Append("\n[list]");
-            
+
             foreach (var characterClass in Classes.Values)
             {
                 outString.Append("\n[*][b]");

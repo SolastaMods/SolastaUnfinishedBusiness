@@ -30,36 +30,36 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup redMagicSpells1 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 1,
-                SpellsList = new List<SpellDefinition>() { 
-                        DatabaseHelper.SpellDefinitions.BurningHands, 
+                SpellsList = new List<SpellDefinition>() {
+                        DatabaseHelper.SpellDefinitions.BurningHands,
                         DatabaseHelper.SpellDefinitions.MagicMissile, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup redMagicSpells2 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 3,
-                SpellsList = new List<SpellDefinition>() { 
-                        DatabaseHelper.SpellDefinitions.AcidArrow, 
+                SpellsList = new List<SpellDefinition>() {
+                        DatabaseHelper.SpellDefinitions.AcidArrow,
                         DatabaseHelper.SpellDefinitions.ScorchingRay, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup redMagicSpells3 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 5,
-                SpellsList = new List<SpellDefinition>() { 
-                        DatabaseHelper.SpellDefinitions.Fireball, 
+                SpellsList = new List<SpellDefinition>() {
+                        DatabaseHelper.SpellDefinitions.Fireball,
                         DatabaseHelper.SpellDefinitions.ProtectionFromEnergy, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup redMagicSpells4 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 7,
-                SpellsList = new List<SpellDefinition>() { 
-                        DatabaseHelper.SpellDefinitions.IceStorm, 
+                SpellsList = new List<SpellDefinition>() {
+                        DatabaseHelper.SpellDefinitions.IceStorm,
                         DatabaseHelper.SpellDefinitions.WallOfFire, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup redMagicSpells5 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 9,
-                SpellsList = new List<SpellDefinition>() { 
-                        DatabaseHelper.SpellDefinitions.ConeOfCold, 
+                SpellsList = new List<SpellDefinition>() {
+                        DatabaseHelper.SpellDefinitions.ConeOfCold,
                         DatabaseHelper.SpellDefinitions.MindTwist, }    // This should be Telekinesis
             };
 
@@ -109,7 +109,7 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
                     .Build();
 
             var subclassBuilder = new CharacterSubclassDefinitionBuilder(
-                    "RedWitch", 
+                    "RedWitch",
                     GuidHelper.Create(RW_BASE_GUID, "RedWitch").ToString())
                     .SetGuiPresentation(subclassGuiPresentation);
 
@@ -118,6 +118,6 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 
             return subclassBuilder.AddToDB();
         }
-        
+
     }
 }
