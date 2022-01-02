@@ -17,6 +17,30 @@ namespace SolastaCommunityExpansion
         public const string GUID = "b1ffaca74824486ea74a68d45e6b1925";
 
         //
+        // SETTINGS UI TOGGLES
+        //
+
+        public bool DisplayInitialChoicesToggle { get; set; }
+        public bool DisplayMiscellaneousToggle { get; set; }
+        public bool DisplayProgressionToggle { get; set; }
+        public bool DisplayFaceUnlockSettings { get; set; }
+        public bool DisplayClassesToggle { get; set; }
+        public bool DisplaySubclassesToggle { get; set; }
+        public bool DisplayFeatsToggle { get; set; }
+        public bool DisplayFightingStylesToggle { get; set; }
+        public bool DisplayAdventureLogToggle { get; set; }
+        public bool DisplayBattleToggle { get; set; }
+        public bool DisplayDungeonMakerToggle { get; set; }
+        public bool DisplayItemToggle { get; set; }
+        public bool DisplayHotkeysToggle { get; set; }
+        public bool DisplayMonsterToggle { get; set; }
+        public bool DisplaySpellToggle { get; set; }
+        public bool DisplayCraftingToggle { get; set; }
+        public bool DisplayMerchantsToggle { get; set; }
+        public bool DisplayCampaignsAndLocationsToggle { get; set; }
+        public bool DisplayDebugToggle { get; set; }
+
+        //
         // SETTINGS HIDDEN ON UI
         //
 

@@ -7,8 +7,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class ItemsAndCraftingDisplay
     {
-        private static bool DisplayCrafting { get; set; }
-        private static bool DisplayMerchants { get; set; }
+
 
         private static void AddUIForWeaponKey(string key)
         {
@@ -119,13 +118,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            toggle = DisplayCrafting;
+            toggle = Main.Settings.DisplayCraftingToggle;
             if (UI.DisclosureToggle("Crafting:".yellow(), ref toggle, 200))
             {
-                DisplayCrafting = toggle;
+                Main.Settings.DisplayCraftingToggle = toggle;
             }
 
-            if (DisplayCrafting)
+            if (Main.Settings.DisplayCraftingToggle)
             {
                 UI.Label("");
                 UI.Label(". Press the button to learn recipes instantly on the active party");
@@ -196,13 +195,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            toggle = DisplayMerchants;
+            toggle = Main.Settings.DisplayMerchantsToggle;
             if (UI.DisclosureToggle("Merchants:".yellow(), ref toggle, 200))
             {
-                DisplayMerchants = toggle;
+                Main.Settings.DisplayMerchantsToggle = toggle;
             }
 
-            if (DisplayMerchants)
+            if (Main.Settings.DisplayMerchantsToggle)
             {
                 UI.Label("");
 

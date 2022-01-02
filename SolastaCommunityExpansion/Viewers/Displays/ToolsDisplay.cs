@@ -5,10 +5,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class ToolsDisplay
     {
-        private static bool DisplayCampaignsAndLocations { get; set; }
-
-        private static bool DisplayDebug { get; set; }
-
         private static bool enableDebugCamera;
 
         private static bool enableDebugOverlay;
@@ -20,13 +16,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            toggle = DisplayCampaignsAndLocations;
+            toggle = Main.Settings.DisplayCampaignsAndLocationsToggle;
             if (UI.DisclosureToggle("Campaigns and Locations:".yellow(), ref toggle, 200))
             {
-                DisplayCampaignsAndLocations = toggle;
+                Main.Settings.DisplayCampaignsAndLocationsToggle = toggle;
             }
 
-            if (DisplayCampaignsAndLocations)
+            if (Main.Settings.DisplayCampaignsAndLocationsToggle)
             {
                 UI.Label("");
 
@@ -114,13 +110,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            toggle = DisplayDebug;
+            toggle = Main.Settings.DisplayDebugToggle;
             if (UI.DisclosureToggle("Debug:".yellow(), ref toggle, 200))
             {
-                DisplayDebug = toggle;
+                Main.Settings.DisplayDebugToggle = toggle;
             }
 
-            if (DisplayDebug)
+            if (Main.Settings.DisplayDebugToggle)
             {
                 UI.Label("");
 

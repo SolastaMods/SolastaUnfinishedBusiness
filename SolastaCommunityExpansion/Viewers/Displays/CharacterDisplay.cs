@@ -6,13 +6,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class CharacterDisplay
     {
-        private static bool DisplayInitialChoices { get; set; }
 
-        private static bool DisplayMiscellaneous { get; set; }
-
-        private static bool DisplayProgression { get; set; }
-
-        private static bool DisplayFaceUnlockSettings { get; set; }
 
         internal static void DisplayCharacter()
         {
@@ -28,13 +22,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            toggle = DisplayInitialChoices;
+            toggle = Main.Settings.DisplayInitialChoicesToggle;
             if (UI.DisclosureToggle("Initial choices:".yellow(), ref toggle, 200))
             {
-                DisplayInitialChoices = toggle;
+                Main.Settings.DisplayInitialChoicesToggle = toggle;
             }
 
-            if (DisplayInitialChoices)
+            if (Main.Settings.DisplayInitialChoicesToggle)
             {
                 UI.Label("");
                 UI.Label(". All these settings only apply when creating a new hero as they get embed in the hero save file");
@@ -114,13 +108,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            toggle = DisplayMiscellaneous;
+            toggle = Main.Settings.DisplayMiscellaneousToggle;
             if (UI.DisclosureToggle("Miscellaneous:".yellow(), ref toggle, 200))
             {
-                DisplayMiscellaneous = toggle;
+                Main.Settings.DisplayMiscellaneousToggle = toggle;
             }
 
-            if (DisplayMiscellaneous)
+            if (Main.Settings.DisplayMiscellaneousToggle)
             {
                 UI.Label("");
 
@@ -139,13 +133,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            toggle = DisplayProgression;
+            toggle = Main.Settings.DisplayProgressionToggle;
             if (UI.DisclosureToggle("Progression:".yellow(), ref toggle, 200))
             {
-                DisplayProgression = toggle;
+                Main.Settings.DisplayProgressionToggle = toggle;
             }
 
-            if (DisplayProgression)
+            if (Main.Settings.DisplayProgressionToggle)
             {
                 UI.Label("");
 
@@ -172,13 +166,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            toggle = DisplayFaceUnlockSettings;
+            toggle = Main.Settings.DisplayFaceUnlockSettings;
             if (UI.DisclosureToggle("Visuals: ".yellow() + RequiresRestart, ref toggle, 200))
             {
-                DisplayFaceUnlockSettings = toggle;
+                Main.Settings.DisplayFaceUnlockSettings = toggle;
             }
 
-            if (DisplayFaceUnlockSettings)
+            if (Main.Settings.DisplayFaceUnlockSettings)
             {
                 UI.Label("");
 

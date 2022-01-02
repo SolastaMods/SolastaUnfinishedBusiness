@@ -7,20 +7,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class GameUiDisplay
     {
-        private static bool DisplayAdventureLog { get; set; }
-
-        private static bool DisplayBattle { get; set; }
-
-        private static bool DisplayDungeonMaker { get; set; }
-
-        private static bool DisplayItem { get; set; }
-
-        private static bool DisplayHotkeys { get; set; }
-
-        private static bool DisplayMonster { get; set; }
-
-        private static bool DisplaySpell { get; set; }
-
         internal static void DisplayGameUi()
         {
             bool toggle;
@@ -30,13 +16,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             #region AdventureLog
             UI.Label("");
 
-            toggle = DisplayAdventureLog;
+            toggle = Main.Settings.DisplayAdventureLogToggle;
             if (UI.DisclosureToggle("Adventure Log: ".yellow(), ref toggle, 200))
             {
-                DisplayAdventureLog = toggle;
+                Main.Settings.DisplayAdventureLogToggle = toggle;
             }
 
-            if (DisplayAdventureLog)
+            if (Main.Settings.DisplayAdventureLogToggle)
             {
                 UI.Label("");
                 UI.Label(". The settings below only work in custom campaigns or locations");
@@ -77,13 +63,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             #region Battle
             UI.Label("");
 
-            toggle = DisplayBattle;
+            toggle = Main.Settings.DisplayBattleToggle;
             if (UI.DisclosureToggle("Battle:".yellow(), ref toggle, 200))
             {
-                DisplayBattle = toggle;
+                Main.Settings.DisplayBattleToggle = toggle;
             }
 
-            if (DisplayBattle)
+            if (Main.Settings.DisplayBattleToggle)
             {
                 UI.Label("");
 
@@ -128,13 +114,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             #region DungeonMaker
             UI.Label("");
 
-            toggle = DisplayDungeonMaker;
+            toggle = Main.Settings.DisplayDungeonMakerToggle;
             if (UI.DisclosureToggle("Dungeon Maker: ".yellow(), ref toggle, 200))
             {
-                DisplayDungeonMaker = toggle;
+                Main.Settings.DisplayDungeonMakerToggle = toggle;
             }
 
-            if (DisplayDungeonMaker)
+            if (Main.Settings.DisplayDungeonMakerToggle)
             {
                 UI.Label("");
 
@@ -169,13 +155,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             #region Hotkeys
             UI.Label("");
 
-            toggle = DisplayHotkeys;
+            toggle = Main.Settings.DisplayHotkeysToggle;
             if (UI.DisclosureToggle("Hotkey:".yellow(), ref toggle, 200))
             {
-                DisplayHotkeys = toggle;
+                Main.Settings.DisplayHotkeysToggle = toggle;
             }
 
-            if (DisplayHotkeys)
+            if (Main.Settings.DisplayHotkeysToggle)
             {
                 UI.Label("");
 
@@ -202,13 +188,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             #region Item
             UI.Label("");
 
-            toggle = DisplayItem;
+            toggle = Main.Settings.DisplayItemToggle;
             if (UI.DisclosureToggle("Inventory and items: ".yellow(), ref toggle, 200))
             {
-                DisplayItem = toggle;
+                Main.Settings.DisplayItemToggle = toggle;
             }
 
-            if (DisplayItem)
+            if (Main.Settings.DisplayItemToggle)
             {
                 UI.Label("");
 
@@ -244,13 +230,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             #region Monster
             UI.Label("");
 
-            toggle = DisplayMonster;
+            toggle = Main.Settings.DisplayMonsterToggle;
             if (UI.DisclosureToggle("Monsters: ".yellow(), ref toggle, 200))
             {
-                DisplayMonster = toggle;
+                Main.Settings.DisplayMonsterToggle = toggle;
             }
 
-            if (DisplayMonster)
+            if (Main.Settings.DisplayMonsterToggle)
             {
                 UI.Label("");
 
@@ -271,13 +257,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             #region Spell
             UI.Label("");
 
-            toggle = DisplaySpell;
+            toggle = Main.Settings.DisplaySpellToggle;
             if (UI.DisclosureToggle("Spells: ".yellow(), ref toggle, 200))
             {
-                DisplaySpell = toggle;
+                Main.Settings.DisplaySpellToggle = toggle;
             }
 
-            if (DisplaySpell)
+            if (Main.Settings.DisplaySpellToggle)
             {
                 UI.Label("");
 

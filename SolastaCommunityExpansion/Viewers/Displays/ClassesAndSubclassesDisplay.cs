@@ -4,6 +4,7 @@ using SolastaCommunityExpansion.Subclasses.Rogue;
 using SolastaCommunityExpansion.Subclasses.Wizard;
 using System.Linq;
 
+
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class ClassesAndSubclassesDisplay
@@ -11,10 +12,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         private const int MAX_COLUMNS = 4;
 
         private const float PIXELS_PER_COLUMN = 225;
-
-        private static bool DisplayClassesToggle { get; set; }
-
-        private static bool DisplaySubclassesToggle { get; set; }
 
         private static void DisplayClasses()
         {
@@ -24,13 +21,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            toggle = DisplayClassesToggle;
+            toggle = Main.Settings.DisplayClassesToggle;
             if (UI.DisclosureToggle("Classes:".yellow(), ref toggle, 200))
             {
-                DisplayClassesToggle = toggle;
+                Main.Settings.DisplayClassesToggle = toggle;
             }
 
-            if (DisplayClassesToggle)
+            if (Main.Settings.DisplayClassesToggle)
             {
                 if (ClassesContext.Classes.Count == 0)
                 {
@@ -109,7 +106,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
         }
 
-        internal static void DisplaySubclasses()
+        private static void DisplaySubclasses()
         {
             bool toggle;
             int intValue;
@@ -117,13 +114,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            toggle = DisplaySubclassesToggle;
+            toggle = Main.Settings.DisplaySubclassesToggle;
             if (UI.DisclosureToggle("Subclasses:".yellow(), ref toggle, 200))
             {
-                DisplaySubclassesToggle = toggle;
+                Main.Settings.DisplaySubclassesToggle = toggle;
             }
 
-            if (DisplaySubclassesToggle)
+            if (Main.Settings.DisplaySubclassesToggle)
             {
                 UI.Label("");
                 toggle = Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster;
