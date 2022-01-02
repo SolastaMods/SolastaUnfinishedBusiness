@@ -187,6 +187,7 @@ namespace SolastaCommunityExpansion.Classes
                     "WitchSpellList",
                     GuidHelper.Create(WITCH_BASE_GUID, "WitchSpellList").ToString(),
                     "",
+                    DatabaseHelper.SpellListDefinitions.SpellListWizard,
                     new List<SpellDefinition>
                     {
                         DatabaseHelper.SpellDefinitions.AcidSplash,
