@@ -6,6 +6,8 @@ using SolastaModApi.Infrastructure;
 using SolastaModApi.BuilderHelpers;
 using System;
 using System.Collections.Generic;
+using static SolastaModApi.DatabaseHelper.SpellDefinitions;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Subclasses.Druid
 {
@@ -66,27 +68,27 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup ForestGuardianSpells1 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 2,
-                SpellsList = new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.Shield, DatabaseHelper.SpellDefinitions.FogCloud, }
+                SpellsList = new List<SpellDefinition>() { Shield, FogCloud, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup ForestGuardianSpells2 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 3,
-                SpellsList = new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.Blur, DatabaseHelper.SpellDefinitions.FlameBlade, }
+                SpellsList = new List<SpellDefinition>() { Blur, FlameBlade, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup ForestGuardianSpells3 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 5,
-                SpellsList = new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.ProtectionFromEnergy, DatabaseHelper.SpellDefinitions.DispelMagic, }
+                SpellsList = new List<SpellDefinition>() { ProtectionFromEnergy, DispelMagic, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup ForestGuardianSpells4 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 7,
-                SpellsList = new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.FireShield, DatabaseHelper.SpellDefinitions.DeathWard, }
+                SpellsList = new List<SpellDefinition>() { FireShield, DeathWard, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup ForestGuardianSpells5 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 9,
-                SpellsList = new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.HoldMonster, DatabaseHelper.SpellDefinitions.GreaterRestoration, }
+                SpellsList = new List<SpellDefinition>() { HoldMonster, GreaterRestoration, }
             };
 
 
@@ -132,17 +134,17 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             GuiPresentationBuilder barkWardGui = new GuiPresentationBuilder(
                "Feature/&DruidForestGuardianBarkWardDescription",
                "Feature/&DruidForestGuardianBarkWardTitle")
-                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDruidWildShape.GuiPresentation.SpriteReference);
+                .SetSpriteReference(PowerDruidWildShape.GuiPresentation.SpriteReference);
 
             GuiPresentationBuilder improvedBarkWardGui = new GuiPresentationBuilder(
                "Feature/&DruidForestGuardianImprovedBarkWardDescription",
                "Feature/&DruidForestGuardianImprovedBarkWardTitle")
-                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDruidWildShape.GuiPresentation.SpriteReference);
+                .SetSpriteReference(PowerDruidWildShape.GuiPresentation.SpriteReference);
 
             GuiPresentationBuilder superiorBarkWardGui = new GuiPresentationBuilder(
                "Feature/&DruidForestGuardianSuperiorBarkWardDescription",
                "Feature/&DruidForestGuardianSuperiorBarkWardTitle")
-                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDruidWildShape.GuiPresentation.SpriteReference);
+                .SetSpriteReference(PowerDruidWildShape.GuiPresentation.SpriteReference);
 
             EffectFormBuilder tempHPEffect = new EffectFormBuilder();
             tempHPEffect.SetTempHPForm(4, RuleDefinitions.DieType.D1, 0);
@@ -188,7 +190,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             var barkWard = new FeatureDefinitionPowerSharedPoolBuilder(
                 "DruidForestGuardianBarkWard",
                 GuidHelper.Create(DFG_BASE_GUID, "DruidForestGuardianBarkWard").ToString(),
-                DatabaseHelper.FeatureDefinitionPowers.PowerDruidWildShape,
+                PowerDruidWildShape,
                 RuleDefinitions.RechargeRate.ShortRest,
                 RuleDefinitions.ActivationTime.BonusAction,
                 1,
@@ -202,7 +204,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             var improvedBarkWard = new FeatureDefinitionPowerSharedPoolBuilder(
                 "DruidForestGuardianImprovedBarkWard",
                 GuidHelper.Create(DFG_BASE_GUID, "DruidForestGuardianImprovedBarkWard").ToString(),
-                DatabaseHelper.FeatureDefinitionPowers.PowerDruidWildShape,
+                PowerDruidWildShape,
                 RuleDefinitions.RechargeRate.ShortRest,
                 RuleDefinitions.ActivationTime.BonusAction,
                 1,
@@ -217,7 +219,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             var superiorBarkWard = new FeatureDefinitionPowerSharedPoolBuilder(
                 "DruidForestGuardianSuperiorBarkWard",
                 GuidHelper.Create(DFG_BASE_GUID, "DruidForestGuardianSuperiorBarkWard").ToString(),
-                DatabaseHelper.FeatureDefinitionPowers.PowerDruidWildShape,
+                PowerDruidWildShape,
                 RuleDefinitions.RechargeRate.ShortRest,
                 RuleDefinitions.ActivationTime.BonusAction,
                 1,
