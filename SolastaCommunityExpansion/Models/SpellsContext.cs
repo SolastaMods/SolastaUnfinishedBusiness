@@ -37,14 +37,20 @@ namespace SolastaCommunityExpansion.Models
                     foreach (var characterSubclass in dbCharacterSubclassDefinition)
                     {
                         var title = characterSubclass.FormatTitle();
-                        var characterSubclassCastSpell = characterSubclass.FeatureUnlocks
+                        var featureDefinitions = characterSubclass.FeatureUnlocks
                             .Select(x => x.FeatureDefinition)
-                            .Where(x => x is FeatureDefinitionMagicAffinity)
-                            .FirstOrDefault();
+                            .Where(x => x is FeatureDefinitionCastSpell || x is FeatureDefinitionMagicAffinity);
 
-                        if (characterSubclassCastSpell is FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity && featureDefinitionMagicAffinity.ExtendedSpellList != null)
+                        foreach (var featureDefinition in featureDefinitions)
                         {
-                            spellLists.Add(title, featureDefinitionMagicAffinity.ExtendedSpellList);
+                            if (featureDefinition is FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity && featureDefinitionMagicAffinity.ExtendedSpellList != null)
+                            {
+                                spellLists.Add(title, featureDefinitionMagicAffinity.ExtendedSpellList);
+                            }
+                            else if (featureDefinition is FeatureDefinitionCastSpell featureDefinitionCastSpell && !spellLists.ContainsKey(title))
+                            {
+                                spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
+                            }
                         }
                     }
                 }
