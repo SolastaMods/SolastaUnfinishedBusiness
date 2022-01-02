@@ -183,7 +183,7 @@ namespace SolastaCommunityExpansion.Classes
         private static void BuildSpells()
         {
             // Keeping all spells listed here for ease to edit and see the big picture
-            var classSpellList = SpellListBuilder.createSpellList(
+            var classSpellList = SpellListBuilder.CreateSpellList(
                     "WitchSpellList",
                     GuidHelper.Create(WITCH_BASE_GUID, "WitchSpellList").ToString(),
                     "",
