@@ -103,7 +103,7 @@ namespace SolastaCommunityExpansion.Models
         internal static void Load()
         {
             BazouSpells.Load();
-            SRDSpells.Load();
+            SrdSpells.Load();
 
             if (Main.Settings.AllowDisplayAllUnofficialContent)
             {
