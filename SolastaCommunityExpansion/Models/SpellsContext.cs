@@ -37,20 +37,21 @@ namespace SolastaCommunityExpansion.Models
                     foreach (var characterSubclass in dbCharacterSubclassDefinition)
                     {
                         var title = characterSubclass.FormatTitle();
-                        var featureDefinitions = characterSubclass.FeatureUnlocks
+                        var featureDefinition = characterSubclass.FeatureUnlocks
                             .Select(x => x.FeatureDefinition)
-                            .Where(x => x is FeatureDefinitionCastSpell || x is FeatureDefinitionMagicAffinity);
+                            .Where(x => x is FeatureDefinitionCastSpell || x is FeatureDefinitionMagicAffinity)
+                            .FirstOrDefault();
 
-                        foreach (var featureDefinition in featureDefinitions)
+                        if (featureDefinition is FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity 
+                            && featureDefinitionMagicAffinity.ExtendedSpellList != null
+                            && !spellLists.Values.Contains(featureDefinitionMagicAffinity.ExtendedSpellList))
                         {
-                            if (featureDefinition is FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity && featureDefinitionMagicAffinity.ExtendedSpellList != null)
-                            {
-                                spellLists.Add(title, featureDefinitionMagicAffinity.ExtendedSpellList);
-                            }
-                            else if (featureDefinition is FeatureDefinitionCastSpell featureDefinitionCastSpell && !spellLists.ContainsKey(title))
-                            {
-                                spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
-                            }
+                            spellLists.Add(title, featureDefinitionMagicAffinity.ExtendedSpellList);
+                        }
+                        else if (featureDefinition is FeatureDefinitionCastSpell featureDefinitionCastSpell
+                            && !spellLists.Values.Contains(featureDefinitionCastSpell.SpellListDefinition))//&& !spellLists.ContainsKey(title))
+                        {
+                            spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
                         }
                     }
                 }
