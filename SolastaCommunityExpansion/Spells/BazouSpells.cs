@@ -29,7 +29,7 @@ namespace SolastaCommunityExpansion.Spells
         {
 
             var spellBuilder = new SpellBuilder(
-                    DatabaseHelper.SpellDefinitions.Fireball, 
+                    DatabaseHelper.SpellDefinitions.Fireball,
                     "EldritchOrb",
                     GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "EldritchOrb").ToString());
 
@@ -73,14 +73,14 @@ namespace SolastaCommunityExpansion.Spells
 
             // Not sure if I prefer copying and editing existing effect forms
             // or creating one from scratch through API
-//            var effectForm = new EffectFormBuilder().Build();
+            //            var effectForm = new EffectFormBuilder().Build();
 
-//            effectForm.Copy(spell.EffectDescription.EffectForms[0]);
-//            effectForm.SetHasSavingThrow(true);
-//            effectForm.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
-//            effectForm.DamageForm.SetDieType(RuleDefinitions.DieType.D4);
+            //            effectForm.Copy(spell.EffectDescription.EffectForms[0]);
+            //            effectForm.SetHasSavingThrow(true);
+            //            effectForm.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
+            //            effectForm.DamageForm.SetDieType(RuleDefinitions.DieType.D4);
 
-//            spell.EffectDescription.EffectForms.Add(effectForm);
+            //            spell.EffectDescription.EffectForms.Add(effectForm);
 
             return spell;
 
@@ -114,7 +114,7 @@ namespace SolastaCommunityExpansion.Spells
                             new MonsterSkillProficiency(DatabaseHelper.SkillDefinitions.Stealth.Name, 3)
                     })
                     .SetArmorClass(11)
-                    .SetAbilityScores(3,13,8,2,12,7)
+                    .SetAbilityScores(3, 13, 8, 2, 12, 7)
                     .SetHitDiceNumber(1)
                     .SetHitDiceType(RuleDefinitions.DieType.D4)
                     .SetHitPointsBonus(-1)
@@ -129,13 +129,15 @@ namespace SolastaCommunityExpansion.Spells
                     .SetDefaultFaction("Party")
                     .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
 
-            if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out FeatureDefinition help)){
-                    familiarMonsterBuilder.AddFeatures(new List<FeatureDefinition>{help});}
+            if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out FeatureDefinition help))
+            {
+                familiarMonsterBuilder.AddFeatures(new List<FeatureDefinition> { help });
+            }
 
             var familiarMonster = familiarMonsterBuilder.AddToDB();
 
             var spellBuilder = new SpellBuilder(
-                    DatabaseHelper.SpellDefinitions.Fireball, 
+                    DatabaseHelper.SpellDefinitions.Fireball,
                     "FindFamiliar",
                     GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "FindFamiliar").ToString());
 
@@ -182,7 +184,7 @@ namespace SolastaCommunityExpansion.Spells
         {
 
             var spellBuilder = new SpellBuilder(
-                    DatabaseHelper.SpellDefinitions.Confusion, 
+                    DatabaseHelper.SpellDefinitions.Confusion,
                     "Frenzy",
                     GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "Frenzy").ToString());
 
@@ -251,7 +253,7 @@ namespace SolastaCommunityExpansion.Spells
         {
 
             var spellBuilder = new SpellBuilder(
-                    DatabaseHelper.SpellDefinitions.VampiricTouch, 
+                    DatabaseHelper.SpellDefinitions.VampiricTouch,
                     "MinorLifesteal",
                     GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "MinorLifesteal").ToString());
 
@@ -299,7 +301,7 @@ namespace SolastaCommunityExpansion.Spells
         {
 
             var spellBuilder = new SpellBuilder(
-                    DatabaseHelper.SpellDefinitions.InsectPlague, 
+                    DatabaseHelper.SpellDefinitions.InsectPlague,
                     "PetalStorm",
                     GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "PetalStorm").ToString());
 
@@ -371,7 +373,7 @@ namespace SolastaCommunityExpansion.Spells
         {
 
             var spellBuilder = new SpellBuilder(
-                    DatabaseHelper.SpellDefinitions.SpikeGrowth, 
+                    DatabaseHelper.SpellDefinitions.SpikeGrowth,
                     "ProtectThreshold",
                     GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "ProtectThreshold").ToString());
 

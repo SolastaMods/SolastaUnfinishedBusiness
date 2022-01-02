@@ -141,7 +141,10 @@ namespace SolastaCommunityExpansion.Models
                 characterCreationScreen.OriginScreen = restModalScreen;
                 characterCreationScreen.Show();
 
-                while (characterCreationScreen.isActiveAndEnabled) yield return null;
+                while (characterCreationScreen.isActiveAndEnabled)
+                {
+                    yield return null;
+                }
             }
 
             internal static void FinalizeRespec(RulesetCharacterHero oldHero, RulesetCharacterHero newHero)

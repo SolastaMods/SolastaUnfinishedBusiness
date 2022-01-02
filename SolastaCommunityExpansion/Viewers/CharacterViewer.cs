@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion.Viewers
 
         private static int selectedPane;
 
-        private static readonly NamedAction[] actions = 
+        private static readonly NamedAction[] actions =
         {
             new NamedAction("General", DisplayCharacter),
             new NamedAction("Classes & Subclasses", DisplayClassesAndSubclasses),

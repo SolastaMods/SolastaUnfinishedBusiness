@@ -60,7 +60,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         }
                         ItemCraftingContext.UpdateCraftingItemsInDMState(key);
                     }
-                } else
+                }
+                else
                 {
                     UI.Space(128f);
                 }

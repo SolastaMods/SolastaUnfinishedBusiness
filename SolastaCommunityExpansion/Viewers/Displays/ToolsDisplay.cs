@@ -34,7 +34,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (UI.Toggle("Enable additional icons for camps, exits and teleporters on level map", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableAdditionalIconsOnLevelMap = toggle;
-                    
+
                     if (toggle)
                     {
                         Main.Settings.MarkInvisibleTeleportersOnLevelMap = false;

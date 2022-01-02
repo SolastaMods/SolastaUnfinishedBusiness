@@ -47,7 +47,7 @@ namespace SolastaCommunityExpansion.Patches.ExtraSummoningModifiers
                                         string classType = addedCondition.AdditionalDamageType;
                                         if (DatabaseRepository.GetDatabase<CharacterClassDefinition>().TryGetElement(classType, out CharacterClassDefinition classDef))
                                         {
-                                            if (sourceCharacter.ClassesAndLevels != null 
+                                            if (sourceCharacter.ClassesAndLevels != null
                                                 && sourceCharacter.ClassesAndLevels.TryGetValue(classDef, out int classLevel))
                                             {
                                                 sourceAmount = classLevel;

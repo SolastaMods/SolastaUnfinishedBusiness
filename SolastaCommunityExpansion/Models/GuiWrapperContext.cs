@@ -5,7 +5,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class GuiWrapperContext
     {
-        internal static void RecacheSpells() 
+        internal static void RecacheSpells()
         {
             var guiWrapperService = ServiceRepository.GetService<IGuiWrapperService>();
 
@@ -20,10 +20,10 @@ namespace SolastaCommunityExpansion.Models
 
             spellDefinitionsMap.Clear();
 
-            foreach (var spellDefinition in DatabaseRepository.GetDatabase<SpellDefinition>()) 
+            foreach (var spellDefinition in DatabaseRepository.GetDatabase<SpellDefinition>())
             {
                 spellDefinitionsMap.Add(spellDefinition.Name, new GuiSpellDefinition(spellDefinition));
-            }     
+            }
         }
 
         internal static void RecacheFeats()

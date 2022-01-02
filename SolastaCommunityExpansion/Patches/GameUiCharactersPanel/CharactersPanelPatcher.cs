@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
             __state = ___charactersScrollview.verticalNormalizedPosition;
         }
 
-        internal static void Postfix(CharactersPanel __instance, 
+        internal static void Postfix(CharactersPanel __instance,
             ScrollRect ___charactersScrollview, List<CharacterPlateToggle> ___characterPlates, float __state)
         {
             if (CharacterEditionScreen_OnFinishCb.HeroName != null)

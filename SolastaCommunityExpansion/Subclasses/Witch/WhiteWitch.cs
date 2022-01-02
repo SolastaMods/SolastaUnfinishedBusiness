@@ -30,36 +30,36 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup whiteMagicSpells1 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 1,
-                SpellsList = new List<SpellDefinition>() { 
-                        DatabaseHelper.SpellDefinitions.Bless, 
+                SpellsList = new List<SpellDefinition>() {
+                        DatabaseHelper.SpellDefinitions.Bless,
                         DatabaseHelper.SpellDefinitions.CureWounds, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup whiteMagicSpells2 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 3,
-                SpellsList = new List<SpellDefinition>() { 
-                        DatabaseHelper.SpellDefinitions.LesserRestoration, 
+                SpellsList = new List<SpellDefinition>() {
+                        DatabaseHelper.SpellDefinitions.LesserRestoration,
                         DatabaseHelper.SpellDefinitions.PrayerOfHealing, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup whiteMagicSpells3 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 5,
-                SpellsList = new List<SpellDefinition>() { 
-                        DatabaseHelper.SpellDefinitions.BeaconOfHope, 
+                SpellsList = new List<SpellDefinition>() {
+                        DatabaseHelper.SpellDefinitions.BeaconOfHope,
                         DatabaseHelper.SpellDefinitions.Revivify, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup whiteMagicSpells4 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 7,
-                SpellsList = new List<SpellDefinition>() { 
-                        DatabaseHelper.SpellDefinitions.DeathWard, 
+                SpellsList = new List<SpellDefinition>() {
+                        DatabaseHelper.SpellDefinitions.DeathWard,
                         DatabaseHelper.SpellDefinitions.GuardianOfFaith, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup whiteMagicSpells5 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 9,
-                SpellsList = new List<SpellDefinition>() { 
-                        DatabaseHelper.SpellDefinitions.MassCureWounds, 
+                SpellsList = new List<SpellDefinition>() {
+                        DatabaseHelper.SpellDefinitions.MassCureWounds,
                         DatabaseHelper.SpellDefinitions.RaiseDead, }
             };
 
@@ -109,7 +109,7 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
                     .Build();
 
             var subclassBuilder = new CharacterSubclassDefinitionBuilder(
-                    "WhiteWitch", 
+                    "WhiteWitch",
                     GuidHelper.Create(WW_BASE_GUID, "WhiteWitch").ToString())
                     .SetGuiPresentation(subclassGuiPresentation);
 
@@ -118,6 +118,6 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 
             return subclassBuilder.AddToDB();
         }
-        
+
     }
 }

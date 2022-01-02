@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Patches.BugFix
         /// </summary>
         public static void Postfix(UserEffectFormItem __instance, Toggle ___canSaveToCancelToggle)
         {
-            if(!Main.Settings.BugFixOnCanSaveToggleChanged)
+            if (!Main.Settings.BugFixOnCanSaveToggleChanged)
             {
                 return;
             }

@@ -37,7 +37,7 @@ namespace SolastaCommunityExpansion.Classes
             }
             return Class;
         }
-        
+
         private static void BuildClassStats(CharacterClassDefinitionBuilder classBuilder)
         {
             classBuilder.SetAnimationId(AnimationDefinitions.ClassAnimationId.Wizard);
@@ -383,20 +383,30 @@ namespace SolastaCommunityExpansion.Classes
                     });
 
             // How to check if additional spells are enabled? For now, I check if it exists in the DB
-            if (DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("EldritchOrb", out SpellDefinition eldritchOrb)){
-                    classSpellList.SpellsByLevel[eldritchOrb.SpellLevel].Spells.Add(eldritchOrb);}
-            if (DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("Frenzy", out SpellDefinition frenzy)){
-                    classSpellList.SpellsByLevel[frenzy.SpellLevel].Spells.Add(frenzy);}
-            if (DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("MinorLifesteal", out SpellDefinition minorLifesteal)){
-                    classSpellList.SpellsByLevel[minorLifesteal.SpellLevel].Spells.Add(minorLifesteal);}
-            if (DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("PetalStorm", out SpellDefinition petalStorm)){
-                    classSpellList.SpellsByLevel[petalStorm.SpellLevel].Spells.Add(petalStorm);}
-            if (DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("ProtectThreshold", out SpellDefinition protectThreshold)){
-                    classSpellList.SpellsByLevel[protectThreshold.SpellLevel].Spells.Add(protectThreshold);}
+            if (DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("EldritchOrb", out SpellDefinition eldritchOrb))
+            {
+                classSpellList.SpellsByLevel[eldritchOrb.SpellLevel].Spells.Add(eldritchOrb);
+            }
+            if (DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("Frenzy", out SpellDefinition frenzy))
+            {
+                classSpellList.SpellsByLevel[frenzy.SpellLevel].Spells.Add(frenzy);
+            }
+            if (DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("MinorLifesteal", out SpellDefinition minorLifesteal))
+            {
+                classSpellList.SpellsByLevel[minorLifesteal.SpellLevel].Spells.Add(minorLifesteal);
+            }
+            if (DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("PetalStorm", out SpellDefinition petalStorm))
+            {
+                classSpellList.SpellsByLevel[petalStorm.SpellLevel].Spells.Add(petalStorm);
+            }
+            if (DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("ProtectThreshold", out SpellDefinition protectThreshold))
+            {
+                classSpellList.SpellsByLevel[protectThreshold.SpellLevel].Spells.Add(protectThreshold);
+            }
 
             // Build our spellCast object containing previously created spell list
             var classSpellCast = new CastSpellBuilder(
-                    "CastSpellWitch", 
+                    "CastSpellWitch",
                     GuidHelper.Create(WITCH_BASE_GUID, "CastSpellWitch").ToString());
 
             classSpellCast.SetGuiPresentation(
@@ -948,14 +958,14 @@ namespace SolastaCommunityExpansion.Classes
             effectDescription.SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectDescription.SetHasSavingThrow(false);
             effectDescription.SetRangeType(RuleDefinitions.RangeType.Self);
-// Target by tag?
-//            effectDescription.SetTargetFilteringTag(RuleDefinitions.TargetFilteringTag.CursedByMalediction);
+            // Target by tag?
+            //            effectDescription.SetTargetFilteringTag(RuleDefinitions.TargetFilteringTag.CursedByMalediction);
             effectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
             effectDescription.SetTargetParameter(12);
             effectDescription.EffectForms.Clear();
-// Can we add a Condition dynamically? i.e. can we detect what kind of condition a creature has, and then add that condition here?
-// And/or can we add a new "CackleCondition" which gets evaluated at end of turn and would search for any 
-// RuleDefinitions.TargetFilteringTag.CursedByMalediction condition on the creature and reapply the condition?
+            // Can we add a Condition dynamically? i.e. can we detect what kind of condition a creature has, and then add that condition here?
+            // And/or can we add a new "CackleCondition" which gets evaluated at end of turn and would search for any 
+            // RuleDefinitions.TargetFilteringTag.CursedByMalediction condition on the creature and reapply the condition?
             effectDescription.EffectForms.Add(effectForm);
 
             FeatureDefinitionPowerCackle = new FeatureDefinitionPowerBuilder(
@@ -1020,7 +1030,7 @@ namespace SolastaCommunityExpansion.Classes
                             new MonsterSkillProficiency(DatabaseHelper.SkillDefinitions.Stealth.Name, 3)
                     })
                     .SetArmorClass(11)
-                    .SetAbilityScores(3,13,8,2,12,7)
+                    .SetAbilityScores(3, 13, 8, 2, 12, 7)
                     .SetHitDiceNumber(1)
                     .SetHitDiceType(RuleDefinitions.DieType.D4)
                     .SetHitPointsBonus(-1)
@@ -1035,14 +1045,16 @@ namespace SolastaCommunityExpansion.Classes
                     .SetDefaultFaction("Party")
                     .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
 
-            if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out FeatureDefinition help)){
-                    witchFamiliarMonsterBuilder.AddFeatures(new List<FeatureDefinition>{help});}
+            if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out FeatureDefinition help))
+            {
+                witchFamiliarMonsterBuilder.AddFeatures(new List<FeatureDefinition> { help });
+            }
 
             var witchFamiliarMonster = witchFamiliarMonsterBuilder.AddToDB();
             witchFamiliarMonster.CreatureTags.Add("WitchFamiliar");
 
             var spellBuilder = new SpellBuilder(
-                    DatabaseHelper.SpellDefinitions.Fireball, 
+                    DatabaseHelper.SpellDefinitions.Fireball,
                     "WitchFamiliar",
                     GuidHelper.Create(WITCH_BASE_GUID, "WitchFamiliar").ToString());
 
@@ -1147,7 +1159,7 @@ namespace SolastaCommunityExpansion.Classes
                     .AddToDB();
             hpConditionDefinition.SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel);
             hpConditionDefinition.SetAllowMultipleInstances(true);
-            
+
             // Find a better place to put this in?
             hpConditionDefinition.SetAdditionalDamageType("ClassWitch");
 
@@ -1179,18 +1191,18 @@ namespace SolastaCommunityExpansion.Classes
 
             var subClassChoices = classBuilder.BuildSubclassChoice(
                     3,
-                    "Coven", 
-                    false, 
-                    "SubclassChoiceWitchCovens", 
+                    "Coven",
+                    false,
+                    "SubclassChoiceWitchCovens",
                     new GuiPresentationBuilder(
                             "Subclass/&WitchSubclassPathDescription",
                             "Subclass/&WitchSubclassPathTitle")
                             .Build(),
                     GuidHelper.Create(WITCH_BASE_GUID, "SubclassChoiceWitchCovens").ToString());
 
-//            subClassChoices.Subclasses.Add(new BloodWitch().GetSubclass(classDef).name);
+            //            subClassChoices.Subclasses.Add(new BloodWitch().GetSubclass(classDef).name);
             subClassChoices.Subclasses.Add(new GreenWitch().GetSubclass(classDef).name);
-//            subClassChoices.Subclasses.Add(new PurpleWitch().GetSubclass(classDef).name);
+            //            subClassChoices.Subclasses.Add(new PurpleWitch().GetSubclass(classDef).name);
             subClassChoices.Subclasses.Add(new RedWitch().GetSubclass(classDef).name);
             subClassChoices.Subclasses.Add(new WhiteWitch().GetSubclass(classDef).name);
 
@@ -1199,8 +1211,10 @@ namespace SolastaCommunityExpansion.Classes
         private static void BuildProgression(CharacterClassDefinitionBuilder classBuilder)
         {
 
-            if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out FeatureDefinition help)){
-                    classBuilder.AddFeatureAtLevel(help, 1);}
+            if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out FeatureDefinition help))
+            {
+                classBuilder.AddFeatureAtLevel(help, 1);
+            }
 
             classBuilder.AddFeatureAtLevel(FeatureDefinitionProficiencyArmor, 1);
             classBuilder.AddFeatureAtLevel(FeatureDefinitionProficiencyWeapon, 1);
@@ -1262,7 +1276,7 @@ namespace SolastaCommunityExpansion.Classes
                     .Build();
 
             var classBuilder = new CharacterClassDefinitionBuilder(
-                    "ClassWitch", 
+                    "ClassWitch",
                     GuidHelper.Create(WITCH_BASE_GUID, "ClassWitch").ToString())
                     .SetGuiPresentation(classGuiPresentation);
 

@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Patches.AdventureLog
         internal static void Postfix(
             RectTransform ___sectionHeaderGroup,
             GuiLabel ___sectionHeaderTitle,
-            RectTransform ___conversationGroup, 
+            RectTransform ___conversationGroup,
             GuiLabel ___conversationTitle,
             RectTransform ___conversationFragmentsContainer,
             GameObject ___fragmentPrefab,

@@ -30,13 +30,26 @@ namespace SolastaCommunityExpansion.Models
         internal static float GetSteppedHealthRatio(float ratio)
         {
             // Green
-            if (ratio >= 1f) return 1f;
+            if (ratio >= 1f)
+            {
+                return 1f;
+            }
             // Green
-            if (ratio >= 0.5f) return 0.75f;
+            if (ratio >= 0.5f)
+            {
+                return 0.75f;
+            }
             // Orange
-            if (ratio >= 0.25f) return 0.5f;
+            if (ratio >= 0.25f)
+            {
+                return 0.5f;
+            }
             // Red
-            if (ratio > 0f) return 0.25f;
+            if (ratio > 0f)
+            {
+                return 0.25f;
+            }
+
             return ratio;
         }
     }

@@ -59,7 +59,7 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
             {
                 Main.Log($"Most recent folder={mostRecent.Path}");
 
-                switch(mostRecent.LocationType)
+                switch (mostRecent.LocationType)
                 {
                     default:
                         selectedCampaignService.SetCampaignLocation(MAIN_CAMPAIGN, string.Empty);

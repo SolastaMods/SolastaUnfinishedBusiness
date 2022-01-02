@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion
         internal static void Warning(string msg) => Logger?.Warning(msg);
         internal static UnityModManager.ModEntry.ModLogger Logger { get; private set; }
         internal static ModManager<Core, Settings> Mod { get; private set; }
-        internal static MenuManager Menu { get; private set; }  
+        internal static MenuManager Menu { get; private set; }
         internal static Settings Settings { get { return Mod.Settings; } }
 
         internal static bool Load(UnityModManager.ModEntry modEntry)

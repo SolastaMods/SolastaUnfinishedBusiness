@@ -30,7 +30,9 @@ namespace SolastaCommunityExpansion.Utils
         public void ReadXml(XmlReader reader)
         {
             if (reader.IsEmptyElement)
+            {
                 return;
+            }
 
             var keySerializer = new XmlSerializer(typeof(TKey));
             var valueSerializer = new XmlSerializer(typeof(TValue));

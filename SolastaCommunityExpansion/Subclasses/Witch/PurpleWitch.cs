@@ -30,35 +30,35 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup purpleMagicSpells1 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 1,
-                SpellsList = new List<SpellDefinition>() { 
-                        DatabaseHelper.SpellDefinitions.CharmPerson, 
+                SpellsList = new List<SpellDefinition>() {
+                        DatabaseHelper.SpellDefinitions.CharmPerson,
                         DatabaseHelper.SpellDefinitions.HideousLaughter, }   // This should be Silent Image
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup purpleMagicSpells2 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 3,
-                SpellsList = new List<SpellDefinition>() { 
+                SpellsList = new List<SpellDefinition>() {
                         DatabaseHelper.SpellDefinitions.CalmEmotions, // This should be Enthrall
                         DatabaseHelper.SpellDefinitions.Invisibility, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup purpleMagicSpells3 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 5,
-                SpellsList = new List<SpellDefinition>() { 
-                        DatabaseHelper.SpellDefinitions.HypnoticPattern, 
+                SpellsList = new List<SpellDefinition>() {
+                        DatabaseHelper.SpellDefinitions.HypnoticPattern,
                         DatabaseHelper.SpellDefinitions.Fear, } // This should be Major Image
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup purpleMagicSpells4 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 7,
-                SpellsList = new List<SpellDefinition>() { 
-                        DatabaseHelper.SpellDefinitions.Confusion, 
+                SpellsList = new List<SpellDefinition>() {
+                        DatabaseHelper.SpellDefinitions.Confusion,
                         DatabaseHelper.SpellDefinitions.PhantasmalKiller, }  // This should be Private Sanctum
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup purpleMagicSpells5 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 9,
-                SpellsList = new List<SpellDefinition>() { 
+                SpellsList = new List<SpellDefinition>() {
                         DatabaseHelper.SpellDefinitions.DominatePerson, // This should be Modify Memory
                         DatabaseHelper.SpellDefinitions.HoldMonster, }    // This should be Seeming
             };
@@ -109,7 +109,7 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
                     .Build();
 
             var subclassBuilder = new CharacterSubclassDefinitionBuilder(
-                    "PurpleWitch", 
+                    "PurpleWitch",
                     GuidHelper.Create(PW_BASE_GUID, "PurpleWitch").ToString())
                     .SetGuiPresentation(subclassGuiPresentation);
 
@@ -118,6 +118,6 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 
             return subclassBuilder.AddToDB();
         }
-        
+
     }
 }

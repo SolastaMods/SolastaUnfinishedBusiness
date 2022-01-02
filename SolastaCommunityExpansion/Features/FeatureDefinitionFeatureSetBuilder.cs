@@ -1,7 +1,5 @@
 using SolastaModApi;
 using SolastaModApi.Extensions;
-using System.Collections.Generic;
-using SolastaCommunityExpansion.Helpers;
 
 namespace SolastaCommunityExpansion.Features
 {
@@ -22,21 +20,21 @@ namespace SolastaCommunityExpansion.Features
 
         public FeatureDefinitionFeatureSetBuilder AddFeature(FeatureDefinition featureDefinition)
         {
-            
+
             Definition.FeatureSet.Add(featureDefinition);
             return this;
         }
 
         public FeatureDefinitionFeatureSetBuilder SetMode(FeatureDefinitionFeatureSet.FeatureSetMode mode)
         {
-            
+
             Definition.SetMode(mode);
             return this;
         }
 
         public FeatureDefinitionFeatureSetBuilder SetUniqueChoices(bool uniqueChoice)
         {
-            
+
             Definition.SetUniqueChoices(uniqueChoice);
             return this;
         }

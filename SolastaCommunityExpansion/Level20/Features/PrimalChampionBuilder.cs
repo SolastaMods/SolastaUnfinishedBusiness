@@ -1,7 +1,5 @@
 ﻿using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
-using SolastaModApi.Extensions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
@@ -24,7 +22,7 @@ namespace SolastaCommunityExpansion.Level20.Features
             CreateAndAddToDB(PrimalChampionName, PrimalChampionGuid);
     }
 
-    class PrimalChampion : FeatureDefinitionCustomCode
+    internal class PrimalChampion : FeatureDefinitionCustomCode
     {
         public override void ApplyFeature(RulesetCharacterHero hero)
         {

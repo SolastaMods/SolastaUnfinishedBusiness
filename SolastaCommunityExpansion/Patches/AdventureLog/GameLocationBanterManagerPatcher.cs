@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Patches.AdventureLog
                 if (rulesetCharacterMonster.HumanoidMonsterPresentationDefinition != null)
                 {
                     assetReferenceSprite = rulesetCharacterMonster.HumanoidMonsterPresentationDefinition.GuiPresentation.SpriteReference;
-                }             
+                }
                 else if (rulesetCharacterMonster.MonsterDefinition != null)
                 {
                     assetReferenceSprite = rulesetCharacterMonster.MonsterDefinition.GuiPresentation.SpriteReference;

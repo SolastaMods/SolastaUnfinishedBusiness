@@ -1,8 +1,5 @@
 ﻿using SolastaModApi;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
-using System.Collections.Generic;
-using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Features
 {
@@ -22,7 +19,7 @@ namespace SolastaCommunityExpansion.Features
 
         public FeatureDefinitionBonusCantripsBuilder AddBonusCantrip(SpellDefinition spellDefinition)
         {
-            
+
             Definition.BonusCantrips.Add(spellDefinition);
             return this;
         }

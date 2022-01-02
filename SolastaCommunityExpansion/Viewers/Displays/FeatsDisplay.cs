@@ -64,7 +64,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         while (current < featsCount && columns-- > 0)
                         {
                             var keyValuePair = FeatsContext.Feats.ElementAt(current);
-                            var title = keyValuePair.Value.FormatTitle();                          
+                            var title = keyValuePair.Value.FormatTitle();
 
                             if (flip)
                             {

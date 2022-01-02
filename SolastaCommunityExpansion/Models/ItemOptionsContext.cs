@@ -57,11 +57,11 @@ namespace SolastaCommunityExpansion.Models
                 QuarterstaffPlus1.GuiPresentation.SpriteReference);
 
             internal static readonly ItemDefinition DruidicAmulet = FocusDefinitionBuilder.CreateAndAddToDB(
-                "DruidicAmulet", 
-                "3487d3b2-1058-4c0f-8009-9e4f525cb0e0", 
-                "Equipment/&DruidicAmuletTitle", 
-                "Equipment/&DruidicAmuletDescription", 
-                ComponentPouch_ArcaneAmulet, 
+                "DruidicAmulet",
+                "3487d3b2-1058-4c0f-8009-9e4f525cb0e0",
+                "Equipment/&DruidicAmuletTitle",
+                "Equipment/&DruidicAmuletDescription",
+                ComponentPouch_ArcaneAmulet,
                 EquipmentDefinitions.FocusType.Druidic,
                 BeltOfGiantHillStrength.GuiPresentation.SpriteReference);
 
@@ -86,13 +86,13 @@ namespace SolastaCommunityExpansion.Models
 
         private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
 
-        internal static readonly string[] EmpressGarbAppearances = 
-        { 
+        internal static readonly string[] EmpressGarbAppearances =
+        {
             "Normal",
             "Barbarian Clothes",
             "Druid Leather",
             "Elven Chain",
-            "Plain Shirt", 
+            "Plain Shirt",
             "Sorcerer's Armor",
             "Studded Leather",
             "Sylvan Armor",
@@ -122,7 +122,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 return;
             }
-            
+
             foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>().Where(
                 x => x.ArmorDescription.ArmorType == "ClothesType" && !x.Magical && !x.SlotsWhereActive.Contains("TabardSlot") && x != ClothesCommon_Tattoo && x != ClothesWizard_B))
             {

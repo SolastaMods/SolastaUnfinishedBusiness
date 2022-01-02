@@ -31,9 +31,15 @@ namespace SolastaCommunityExpansion.Patches.GameUiMonsters
 
         internal static void Postfix(GuiCharacter __instance, Image healthGauge, float parentHeight, bool __state)
         {
-            if (!Main.Settings.HideMonsterHitPoints) return;
+            if (!Main.Settings.HideMonsterHitPoints)
+            {
+                return;
+            }
 
-            if (!__state) return;  // health wasn't dirty so healthGauge hasn't been updated
+            if (!__state)
+            {
+                return;  // health wasn't dirty so healthGauge hasn't been updated
+            }
 
             if (__instance.RulesetCharacterMonster != null) // only change for monsters
             {
@@ -71,9 +77,15 @@ namespace SolastaCommunityExpansion.Patches.GameUiMonsters
 
         internal static void Postfix(GuiCharacter __instance, GuiLabel healthLabel, bool __state)
         {
-            if (!Main.Settings.HideMonsterHitPoints) return;
+            if (!Main.Settings.HideMonsterHitPoints)
+            {
+                return;
+            }
 
-            if (!__state) return;  // health wasn't dirty so healthLabel hasn't been updated
+            if (!__state)
+            {
+                return;  // health wasn't dirty so healthLabel hasn't been updated
+            }
 
             // A monster has __instance.RulesetCharacterMonster != null and __instance.RulesetCharacter != null
             // A hero has __instance.RulesetCharacterHero != null and __instance.RulesetCharacter != null
