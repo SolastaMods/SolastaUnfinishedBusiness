@@ -1,13 +1,13 @@
-﻿
-
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.CustomEffectForm
 {
     [HarmonyPatch(typeof(RulesetImplementationManager), "ApplyEffectForms")]
-    internal static class RulesetImplementationManagerApplyCustomEffectForm
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetImplementationManager_ApplyEffectForms
     {
         public static void Postfix(List<EffectForm> effectForms,
             RulesetImplementationDefinitions.ApplyFormsParams formsParams,
