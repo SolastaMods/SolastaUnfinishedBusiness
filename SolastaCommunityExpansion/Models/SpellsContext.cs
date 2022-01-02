@@ -1,4 +1,5 @@
-﻿using SolastaCommunityExpansion.Spells;
+﻿using ModKit;
+using SolastaCommunityExpansion.Spells;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -53,13 +54,13 @@ namespace SolastaCommunityExpansion.Models
                         && featureDefinitionMagicAffinity.ExtendedSpellList != null
                         && !spellLists.Values.Contains(featureDefinitionMagicAffinity.ExtendedSpellList))
                     {
-                        spellLists.Add(title, featureDefinitionMagicAffinity.ExtendedSpellList);
+                        spellLists.Add(title.grey().italic(), featureDefinitionMagicAffinity.ExtendedSpellList);
                     }
                     else if (featureDefinition is FeatureDefinitionCastSpell featureDefinitionCastSpell
                         && featureDefinitionCastSpell.SpellListDefinition != null
                         && !spellLists.Values.Contains(featureDefinitionCastSpell.SpellListDefinition))
                     {
-                        spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
+                        spellLists.Add(title.grey().italic(), featureDefinitionCastSpell.SpellListDefinition);
                     }
                 }
 
