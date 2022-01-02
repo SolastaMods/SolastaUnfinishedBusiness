@@ -7,9 +7,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class SpellsDisplay
     {
+        private const int SHOW_ALL = -1;
+
         private const int MAX_COLUMNS = 4;
 
         private const float PIXELS_PER_COLUMN = 225;
+
+        private static int SpellLevelFilter { get; set; } = SHOW_ALL;
 
         private static bool Initialized { get; set; }
 
@@ -19,8 +23,18 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
         private static readonly Dictionary<string, bool> SpellNamesToggle = new Dictionary<string, bool>();
 
+        private static void RecacheSortedRegisteredSpells()
+        {
+            SortedRegisteredSpells.Clear();
+            SortedRegisteredSpells.AddRange(SpellsContext.RegisteredSpells
+                .Select(x => x.Key)
+                .Where(x => SpellLevelFilter == SHOW_ALL || x.SpellLevel == SpellLevelFilter)
+                .OrderBy(x => $"{x.SpellLevel} - {x.FormatTitle()}"));
+        }
+
         internal static void DisplaySpells()
         {
+            int intValue;
             bool toggle;
 
             if (!Initialized)
@@ -30,9 +44,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     .ToList()
                     .ForEach(x => SpellNamesToggle.Add(x, false));
 
-                SortedRegisteredSpells.AddRange(SpellsContext.RegisteredSpells
-                    .Select(x => x.Key)
-                    .OrderBy(x => $"{x.SpellLevel} - {x.FormatTitle()}"));
+                RecacheSortedRegisteredSpells();
 
                 Initialized = true;
             }
@@ -57,14 +69,42 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 {
                     SpellsContext.SwitchSuggestedSpellLists(toggle);
                 }
+            }
 
-                ExpandAllToggle = SpellNamesToggle.Count == SpellNamesToggle.Count(x => x.Value);
-                toggle = ExpandAllToggle;
-                if (UI.Toggle("Expand All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+            UI.Label("");
+
+            using (UI.HorizontalScope())
+            {
+                UI.Space(20);
+
+                intValue = SpellLevelFilter;
+                if (UI.Slider("Spell level filter ".white() + "[-1 to display all spells]".italic().yellow(), ref intValue, SHOW_ALL, 9, SHOW_ALL, "L", UI.AutoWidth()))
                 {
-                    ExpandAllToggle = toggle;
-                    SpellNamesToggle.Keys.ToList().ForEach(x => SpellNamesToggle[x] = toggle);
+                    SpellLevelFilter = intValue;
+                    RecacheSortedRegisteredSpells();
                 }
+            }
+
+            UI.Label("");
+
+            if (SortedRegisteredSpells.Count > 0)
+            {
+                using (UI.HorizontalScope())
+                {
+                    UI.Space(20);
+
+                    ExpandAllToggle = SpellNamesToggle.Count == SpellNamesToggle.Count(x => x.Value);
+                    toggle = ExpandAllToggle;
+                    if (UI.Toggle("Expand All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                    {
+                        ExpandAllToggle = toggle;
+                        SpellNamesToggle.Keys.ToList().ForEach(x => SpellNamesToggle[x] = toggle);
+                    }
+                }
+            }
+            else
+            {
+                UI.Label($". No unofficial level {SpellLevelFilter} spells available".red().bold());
             }
 
             UI.Label("");
