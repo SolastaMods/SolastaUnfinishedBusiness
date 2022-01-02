@@ -1,13 +1,13 @@
-﻿
-
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.CustomEffectForm
 {
     [HarmonyPatch(typeof(EffectDescription), "FillTags")]
-    internal static class EffectDescriptionFillTags
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class EffectDescription_FillTags
     {
         public static void Postfix(EffectDescription __instance, Dictionary<string, TagsDefinitions.Criticity> tagsMap)
         {
