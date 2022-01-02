@@ -44,7 +44,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
         /// <param name="___conditionNames"></param>
         public static void Postfix(GameGadget __instance, int conditionIndex, bool state, List<string> ___conditionNames)
         {
-            if (!Main.Settings.BugFixButtonActivatorDoubleClick)
+            if (!Main.Settings.BugFixButtonActivatorTriggerIssue)
             {
                 return;
             }

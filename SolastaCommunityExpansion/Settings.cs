@@ -24,7 +24,7 @@ namespace SolastaCommunityExpansion
         public bool AllowExtraKeyboardCharactersInCampaignNames { get; set; } = true;
         public bool AllowExtraKeyboardCharactersInLocationNames { get; set; } = true;
         public bool BugFixBestiarySorting { get; set; } = true;
-        public bool BugFixButtonActivatorDoubleClick { get; set; } = true;
+        public bool BugFixButtonActivatorTriggerIssue { get; set; } = true;
         public bool BugFixCharacterPanelSorting { get; set; } = true;
         public bool BugFixExpandColorTables { get; set; } = true;
         public bool BugFixGameGadgetCheckIsEnabled { get; set; } = true;
