@@ -3,77 +3,77 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
-/// <summary>
-/// Base on https://weblogs.asp.net/pwelter34/444961
-/// </summary>
-/// <typeparam name="TKey"></typeparam>
-/// <typeparam name="TValue"></typeparam>
-[XmlRoot("dictionary")]
-public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IXmlSerializable
+namespace SolastaCommunityExpansion.Utils
 {
-    // XmlSerializer.Deserialize() will create a new Object, and then call ReadXml()
-    // So cannot use instance field, use class field.
-
-    public static string itemTag = "item";
-    public static string keyTag = "key";
-    public static string valueTag = "value";
-
-    public XmlSchema GetSchema()
+    /// <summary>
+    /// Base on https://weblogs.asp.net/pwelter34/444961
+    /// </summary>
+    /// <typeparam name="TKey"></typeparam>
+    /// <typeparam name="TValue"></typeparam>
+    [XmlRoot("dictionary")]
+    public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IXmlSerializable
     {
-        return null;
-    }
+        // XmlSerializer.Deserialize() will create a new Object, and then call ReadXml()
+        // So cannot use instance field, use class field
 
-    public void ReadXml(XmlReader reader)
-    {
-        if (reader.IsEmptyElement)
-            return;
+        public static string ItemTag = "item";
+        public static string KeyTag = "key";
+        public static string ValueTag = "value";
 
-        var keySerializer = new XmlSerializer(typeof(TKey));
-        var valueSerializer = new XmlSerializer(typeof(TValue));
-
-        reader.ReadStartElement();
-
-        // IsStartElement() will call MoveToContent()
-        // reader.MoveToContent();
-        while (reader.IsStartElement(itemTag))
+        public XmlSchema GetSchema()
         {
-            reader.ReadStartElement(itemTag);
+            return null;
+        }
 
-            reader.ReadStartElement(keyTag);
-            TKey key = (TKey)keySerializer.Deserialize(reader);
-            reader.ReadEndElement();
+        public void ReadXml(XmlReader reader)
+        {
+            if (reader.IsEmptyElement)
+                return;
 
-            reader.ReadStartElement(valueTag);
-            TValue value = (TValue)valueSerializer.Deserialize(reader);
-            reader.ReadEndElement();
+            var keySerializer = new XmlSerializer(typeof(TKey));
+            var valueSerializer = new XmlSerializer(typeof(TValue));
 
-            reader.ReadEndElement();
-            this.Add(key, value);
+            reader.ReadStartElement();
 
             // IsStartElement() will call MoveToContent()
-            // reader.MoveToContent();
+            while (reader.IsStartElement(ItemTag))
+            {
+                reader.ReadStartElement(ItemTag);
+
+                reader.ReadStartElement(KeyTag);
+                TKey key = (TKey)keySerializer.Deserialize(reader);
+                reader.ReadEndElement();
+
+                reader.ReadStartElement(ValueTag);
+                TValue value = (TValue)valueSerializer.Deserialize(reader);
+                reader.ReadEndElement();
+
+                reader.ReadEndElement();
+                this.Add(key, value);
+            }
+
+            reader.ReadEndElement();
         }
-        reader.ReadEndElement();
-    }
 
-    public void WriteXml(XmlWriter writer)
-    {
-        var keySerializer = new XmlSerializer(typeof(TKey));
-        var valueSerializer = new XmlSerializer(typeof(TValue));
-
-        foreach (var kvp in this)
+        public void WriteXml(XmlWriter writer)
         {
-            writer.WriteStartElement(itemTag);
+            var keySerializer = new XmlSerializer(typeof(TKey));
+            var valueSerializer = new XmlSerializer(typeof(TValue));
 
-            writer.WriteStartElement(keyTag);
-            keySerializer.Serialize(writer, kvp.Key);
-            writer.WriteEndElement();
+            foreach (var kvp in this)
+            {
+                writer.WriteStartElement(ItemTag);
 
-            writer.WriteStartElement(valueTag);
-            valueSerializer.Serialize(writer, kvp.Value);
-            writer.WriteEndElement();
+                writer.WriteStartElement(KeyTag);
+                keySerializer.Serialize(writer, kvp.Key);
+                writer.WriteEndElement();
 
-            writer.WriteEndElement();
+                writer.WriteStartElement(ValueTag);
+                valueSerializer.Serialize(writer, kvp.Value);
+                writer.WriteEndElement();
+
+                writer.WriteEndElement();
+            }
         }
     }
 }
