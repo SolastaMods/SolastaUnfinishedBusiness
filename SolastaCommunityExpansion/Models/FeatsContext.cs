@@ -40,7 +40,7 @@ namespace SolastaCommunityExpansion.Models
             CraftyFeats.CreateFeats(feats);
             ElAntoniousFeats.CreateFeats(feats);
 
-            if (Main.Settings.DisplayAnyUnofficialFeat)
+            if (Main.Settings.AllowDisplayAllUnofficialContent)
             {
                 feats = GetAllUnofficialFeats();
             }
