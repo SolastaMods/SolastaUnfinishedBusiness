@@ -50,15 +50,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                 if (UI.Toggle("Select All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
-                    SpellsContext.SelectAllSpellLists(toggle);
-                    SpellsContext.SwitchSpellList();
+                    SpellsContext.SwitchAllSpellLists(toggle);
                 }
 
                 toggle = SpellsContext.AreSuggestedSpellListsSelected();
                 if (UI.Toggle("Select Suggested", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
-                    SpellsContext.SelectSuggestedSpellLists(toggle);
-                    SpellsContext.SwitchSpellList();
+                    SpellsContext.SwitchSuggestedSpellLists(toggle);
                 }
 
                 ExpandAllToggle = SpellNamesToggle.Count == SpellNamesToggle.Count(x => x.Value);
@@ -125,15 +123,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 toggle = SpellsContext.AreAllSpellListsSelected(spellDefinition);
                 if (UI.Toggle("Select All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
-                    SpellsContext.SelectAllSpellLists(spellDefinition, toggle);
-                    SpellsContext.SwitchSpellList(spellDefinition);
+                    SpellsContext.SwitchAllSpellLists(toggle, spellDefinition);
                 }
 
                 toggle = SpellsContext.AreSuggestedSpellListsSelected(spellDefinition);
                 if (UI.Toggle("Select Suggested", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
-                    SpellsContext.SelectSuggestedSpellLists(spellDefinition, toggle);
-                    SpellsContext.SwitchSpellList(spellDefinition);
+                    SpellsContext.SwitchSuggestedSpellLists(toggle, spellDefinition);
                 }
             }
 

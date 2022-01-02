@@ -136,28 +136,42 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void SelectAllSpellLists(bool select = true) => RegisteredSpellsList.ForEach(x => SelectAllSpellLists(x, select));
-
-        internal static void SelectAllSpellLists(SpellDefinition spellDefinition, bool select = true)
+        internal static void SwitchAllSpellLists(bool select = true, SpellDefinition spellDefinition = null)
         {
+            if (spellDefinition == null)
+            {
+                RegisteredSpellsList.ForEach(x => SwitchAllSpellLists(select, x));
+
+                return;
+            }
+
             Main.Settings.SpellSpellListEnabled[spellDefinition.Name].Clear();
 
             if (select)
             {
                 Main.Settings.SpellSpellListEnabled[spellDefinition.Name].AddRange(GetSpellLists.Values.Select(x => x.Name));
             }
+
+            SwitchSpellList(spellDefinition);
         }
 
-        internal static void SelectSuggestedSpellLists(bool select = true) => RegisteredSpellsList.ForEach(x => SelectSuggestedSpellLists(x, select));
-
-        internal static void SelectSuggestedSpellLists(SpellDefinition spellDefinition, bool select = true)
+        internal static void SwitchSuggestedSpellLists(bool select = true, SpellDefinition spellDefinition = null)
         {
+            if (spellDefinition == null)
+            {
+                RegisteredSpellsList.ForEach(x => SwitchSuggestedSpellLists(select, x));
+
+                return;
+            }
+
             Main.Settings.SpellSpellListEnabled[spellDefinition.Name].Clear();
 
             if (select)
             {
                 Main.Settings.SpellSpellListEnabled[spellDefinition.Name].AddRange(RegisteredSpells[spellDefinition]);
             }
+
+            SwitchSpellList(spellDefinition);
         }
 
         internal static bool AreAllSpellListsSelected() => !RegisteredSpellsList.Any(x => !AreAllSpellListsSelected(x));
