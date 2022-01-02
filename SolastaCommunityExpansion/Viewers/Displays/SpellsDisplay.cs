@@ -38,7 +38,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             UI.Label("");
-            UI.Label(". You can individually assign each spell to any caster spell list as you like or simply select the suggested set");
+            UI.Label(". You can individually assign each spell to any caster spell list or simply select the suggested set");
             UI.Label("");
 
             using (UI.HorizontalScope())
