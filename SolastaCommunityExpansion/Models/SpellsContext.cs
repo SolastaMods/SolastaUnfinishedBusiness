@@ -49,7 +49,8 @@ namespace SolastaCommunityExpansion.Models
                             spellLists.Add(title, featureDefinitionMagicAffinity.ExtendedSpellList);
                         }
                         else if (featureDefinition is FeatureDefinitionCastSpell featureDefinitionCastSpell
-                            && !spellLists.Values.Contains(featureDefinitionCastSpell.SpellListDefinition))//&& !spellLists.ContainsKey(title))
+                            && featureDefinitionCastSpell.SpellListDefinition != null
+                            && !spellLists.Values.Contains(featureDefinitionCastSpell.SpellListDefinition))
                         {
                             spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
                         }
