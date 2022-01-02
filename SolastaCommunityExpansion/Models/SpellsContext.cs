@@ -110,8 +110,6 @@ namespace SolastaCommunityExpansion.Models
             }
 
             SwitchSpellList();
-
-            GuiWrapperContext.RecacheSpells();
         }
 
         private static void SwitchSpell(SpellListDefinition spellListDefinition, SpellDefinition spellDefinition, bool enabled)
