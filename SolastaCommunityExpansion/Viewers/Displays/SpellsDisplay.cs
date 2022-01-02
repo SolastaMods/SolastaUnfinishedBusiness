@@ -166,8 +166,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             bool toggle;
             int columns;
             var current = 0;
-            var spellListsTitles = SpellsContext.GetSpellLists.Keys;
-            var spellLists = SpellsContext.GetSpellLists.Values;
+            var spellListsTitles = SpellsContext.SpellLists.Keys;
+            var spellLists = SpellsContext.SpellLists.Values;
             var spellListsCount = spellLists.Count;
 
             UI.Label("");

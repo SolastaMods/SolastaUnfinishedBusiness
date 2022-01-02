@@ -22,7 +22,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static readonly SortedDictionary<string, SpellListDefinition> spellLists = new SortedDictionary<string, SpellListDefinition>();
 
-        internal static SortedDictionary<string, SpellListDefinition> GetSpellLists
+        internal static SortedDictionary<string, SpellListDefinition> SpellLists
         {
             get
             {
@@ -90,9 +90,8 @@ namespace SolastaCommunityExpansion.Models
         private static void LoadAllUnofficialSpells()
         {
             var unofficialSpells = GetAllUnofficialSpells();
-            var spellLists = GetSpellLists;
 
-            foreach (var spellList in spellLists.Values)
+            foreach (var spellList in SpellLists.Values)
             {
                 foreach (var unofficialSpell in unofficialSpells.Where(x => spellList.ContainsSpell(x)))
                 {
@@ -117,8 +116,6 @@ namespace SolastaCommunityExpansion.Models
             }
 
             SwitchSpellList();
-
-            GuiWrapperContext.RecacheSpells();
         }
 
         private static void SwitchSpell(SpellListDefinition spellListDefinition, SpellDefinition spellDefinition, bool enabled)
@@ -155,7 +152,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (spellListDefinition == null)
             {
-                GetSpellLists.Values.ToList().ForEach(x => SwitchSpellList(spellDefinition, x));
+                SpellLists.Values.ToList().ForEach(x => SwitchSpellList(spellDefinition, x));
 
                 return;
             }
@@ -194,7 +191,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (select)
             {
-                Main.Settings.SpellSpellListEnabled[spellDefinition.Name].AddRange(GetSpellLists.Values.Select(x => x.Name));
+                Main.Settings.SpellSpellListEnabled[spellDefinition.Name].AddRange(SpellLists.Values.Select(x => x.Name));
             }
 
             SwitchSpellList(spellDefinition);
@@ -221,7 +218,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static bool AreAllSpellListsSelected() => !RegisteredSpellsList.Any(x => !AreAllSpellListsSelected(x));
 
-        internal static bool AreAllSpellListsSelected(SpellDefinition spellDefinition) => Main.Settings.SpellSpellListEnabled[spellDefinition.Name].Count == SpellsContext.GetSpellLists.Count;
+        internal static bool AreAllSpellListsSelected(SpellDefinition spellDefinition) => Main.Settings.SpellSpellListEnabled[spellDefinition.Name].Count == SpellsContext.SpellLists.Count;
 
         internal static bool AreSuggestedSpellListsSelected() => !RegisteredSpellsList.Any(x => !AreSuggestedSpellListsSelected(x));
 

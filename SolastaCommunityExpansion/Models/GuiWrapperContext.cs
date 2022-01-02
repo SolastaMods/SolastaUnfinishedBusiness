@@ -1,48 +1,38 @@
 ﻿using System.Collections.Generic;
+using HarmonyLib;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Models
 {
     internal static class GuiWrapperContext
     {
-        internal static void RecacheSpells()
+        internal static void Recache()
         {
             var guiWrapperService = ServiceRepository.GetService<IGuiWrapperService>();
+            var runtimeService = ServiceRepository.GetService<IRuntimeService>();
 
-            if (guiWrapperService == null)
+            if (guiWrapperService == null || runtimeService?.Runtime == null)
             {
                 return;
             }
 
-            guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiSpellDefinition>>("spellDefinitionsMap");
+            guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiCharacterClassDefinition>>("classDefinitionsMap").Clear();
+            guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiCharacterRaceDefinition>>("raceDefinitionsMap").Clear();
+            guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiFeatDefinition>>("featDefinitionsMap").Clear();
+            guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiMonsterDefinition>>("monsterDefinitionsMap").Clear();
+            guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiMerchantDefinition>>("merchantDefinitionsMap").Clear();
+            guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiItemDefinition>>("itemDefinitionsMap").Clear();
+            guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiSpellDefinition>>("spellDefinitionsMap").Clear();
+            guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiEffectProxyDefinition>>("effectProxyDefinitionsMap").Clear();
+            guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiPowerDefinition>>("powerDefinitionsMap").Clear();
+            guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiToolTypeDefinition>>("toolTypeDefinitionsMap").Clear();
+            guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiRecipeDefinition>>("recipeDefinitionsMap").Clear();
+            guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiFactionDefinition>>("factionDefinitionsMap").Clear();
+            guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiEnvironmentEffectDefinition>>("environmentEffectDefinitionsMap").Clear();
 
-            var spellDefinitionsMap = guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiSpellDefinition>>("spellDefinitionsMap");
+            var methodRuntimeLoaded = AccessTools.Method(guiWrapperService.GetType(), "RuntimeLoaded");
 
-            spellDefinitionsMap.Clear();
-
-            foreach (var spellDefinition in DatabaseRepository.GetDatabase<SpellDefinition>())
-            {
-                spellDefinitionsMap.Add(spellDefinition.Name, new GuiSpellDefinition(spellDefinition));
-            }
-        }
-
-        internal static void RecacheFeats()
-        {
-            var guiWrapperService = ServiceRepository.GetService<IGuiWrapperService>();
-
-            if (guiWrapperService == null)
-            {
-                return;
-            }
-
-            var featDefinitionsMap = guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiFeatDefinition>>("featDefinitionsMap");
-
-            featDefinitionsMap.Clear();
-
-            foreach (FeatDefinition featDefinition in DatabaseRepository.GetDatabase<FeatDefinition>())
-            {
-                featDefinitionsMap.Add(featDefinition.Name, new GuiFeatDefinition(featDefinition));
-            }
+            methodRuntimeLoaded.Invoke(guiWrapperService, new object[] { runtimeService.Runtime });
         }
     }
 }
