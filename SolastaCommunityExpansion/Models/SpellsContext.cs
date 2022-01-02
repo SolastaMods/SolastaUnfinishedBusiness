@@ -2,6 +2,7 @@
 using SolastaCommunityExpansion.Spells;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace SolastaCommunityExpansion.Models
@@ -68,17 +69,56 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
+        private static List<SpellDefinition> GetAllUnofficialSpells()
+        {
+            var officialSpellNames = typeof(SolastaModApi.DatabaseHelper.SpellDefinitions)
+                .GetProperties(BindingFlags.Public | BindingFlags.Static)
+                .Where(f => f.PropertyType == typeof(SpellDefinition))
+                .Select(f => f.Name).ToHashSet();
+
+            return DatabaseRepository.GetDatabase<SpellDefinition>()
+                .Where(f => !officialSpellNames.Contains(f.Name)).ToList();
+        }
+
+        private static void LoadAllUnofficialSpells()
+        {
+            var unofficialSpells = GetAllUnofficialSpells();
+            var spellLists = GetSpellLists;
+
+            RegisteredSpells.Clear();
+            RegisteredSpellsList.Clear();
+
+            foreach (var spellList in spellLists.Values)
+            {
+                foreach (var unofficialSpell in unofficialSpells.Where(x => spellList.ContainsSpell(x)))
+                {
+                    RegisterSpell(unofficialSpell, spellList.Name);
+                }
+            }
+        }
+
         internal static void Load()
         {
+            void Sync()
+            {
+                foreach (var registeredSpell in RegisteredSpells.Where(x => !Main.Settings.SpellSpellListEnabled.ContainsKey(x.Key.Name)))
+                {
+                    Main.Settings.SpellSpellListEnabled.Add(registeredSpell.Key.Name, registeredSpell.Value);
+                }
+            }
+
             BazouSpells.Load();
             SRDSpells.Load();
 
-            foreach (var registeredSpell in RegisteredSpells.Where(x => !Main.Settings.SpellSpellListEnabled.ContainsKey(x.Key.Name)))
+            Sync();
+            SwitchSpellList();
+
+            if (Main.Settings.AllowDisplayAllUnofficialContent)
             {
-                Main.Settings.SpellSpellListEnabled.Add(registeredSpell.Key.Name, registeredSpell.Value);
+                LoadAllUnofficialSpells();
+                Sync();
             }
 
-            SwitchSpellList();
             GuiWrapperContext.RecacheSpells();
         }
 
@@ -129,11 +169,16 @@ namespace SolastaCommunityExpansion.Models
         internal static void RegisterSpell(SpellDefinition spellDefinition, params string[] suggestedSpellLists)
         {
             var dbSpellListDefinition = DatabaseRepository.GetDatabase<SpellListDefinition>();
+            var validateSpellLists = suggestedSpellLists.Where(x => dbSpellListDefinition.TryGetElement(x, out _)).ToList();
 
             if (!RegisteredSpells.ContainsKey(spellDefinition))
             {
-                RegisteredSpells.Add(spellDefinition, suggestedSpellLists.Where(x => dbSpellListDefinition.TryGetElement(x, out _)).ToList());
+                RegisteredSpells.Add(spellDefinition, validateSpellLists);
                 RegisteredSpellsList.Add(spellDefinition);
+            }
+            else
+            {
+                RegisteredSpells[spellDefinition].AddRange(validateSpellLists.Where(x => !RegisteredSpells[spellDefinition].Contains(x)));
             }
         }
 
