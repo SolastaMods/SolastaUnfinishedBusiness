@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameLocationManager_ReadyLocation
     {
-        internal static void SetTeleporterGadgetVisibility(WorldGadget worldGadget, bool visibility = false)
+        internal static void SetTeleporterGadgetActiveAnimation(WorldGadget worldGadget, bool visibility = false)
         {
             if (!Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered || worldGadget?.UserGadget == null)
             {
@@ -41,7 +41,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
 
             foreach (var worldGadget in worldGadgets)
             {
-                SetTeleporterGadgetVisibility(worldGadget);
+                SetTeleporterGadgetActiveAnimation(worldGadget);
             }
         }
     }
