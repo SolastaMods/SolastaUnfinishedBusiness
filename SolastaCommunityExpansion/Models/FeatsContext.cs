@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion.Models
             var officialFeatNames = typeof(SolastaModApi.DatabaseHelper.FeatDefinitions)
                 .GetProperties(BindingFlags.Public | BindingFlags.Static)
                 .Where(f => f.PropertyType == typeof(FeatDefinition))
-                .Select(f => f.Name);
+                .Select(f => f.Name).ToList();
 
             return DatabaseRepository.GetDatabase<FeatDefinition>()
                 .Where(f => !officialFeatNames.Contains(f.Name)).ToList();
