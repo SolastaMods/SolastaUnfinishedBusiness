@@ -1,6 +1,8 @@
-﻿using SolastaCommunityExpansion.Features;
+﻿using SolastaCommunityExpansion.CustomFeatureDefinitions;
+using SolastaCommunityExpansion.Features;
 using SolastaModApi;
 using SolastaModApi.BuilderHelpers;
+using SolastaModApi.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -143,9 +145,8 @@ namespace SolastaCommunityExpansion.Feats
             // Power that mimics misty step once per short rest
             // DatabaseHelper.LanguageDefinitions.Language_Tirmarian
             // restrict to elf??
-
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup mistyStepGroup = BuildAutoPreparedSpellGroup(0,
-                new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.MistyStep });
+                new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.MistyStep});
 
             CharacterClassDefinition[] classes = DatabaseRepository.GetDatabase<CharacterClassDefinition>().GetAllElements();
 
