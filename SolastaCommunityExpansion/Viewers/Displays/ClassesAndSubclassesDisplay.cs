@@ -3,7 +3,7 @@ using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Subclasses.Rogue;
 using SolastaCommunityExpansion.Subclasses.Wizard;
 using System.Linq;
-using static SolastaCommunityExpansion.Settings;
+
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {

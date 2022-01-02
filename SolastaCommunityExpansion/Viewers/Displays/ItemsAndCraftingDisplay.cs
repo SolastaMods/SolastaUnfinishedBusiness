@@ -2,7 +2,6 @@
 using SolastaCommunityExpansion.Models;
 using System.Linq;
 using static SolastaCommunityExpansion.Viewers.Displays.Shared;
-using static SolastaCommunityExpansion.Settings;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
