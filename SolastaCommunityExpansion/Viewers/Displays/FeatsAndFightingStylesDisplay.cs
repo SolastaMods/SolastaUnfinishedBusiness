@@ -3,6 +3,7 @@ using ModKit;
 using SolastaCommunityExpansion.Feats;
 using SolastaCommunityExpansion.Models;
 using static SolastaCommunityExpansion.Viewers.Displays.Shared;
+using static SolastaCommunityExpansion.Settings;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
@@ -12,10 +13,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
         private const float PIXELS_PER_COLUMN = 225;
 
-        private static bool DisplayFeatsToggle { get; set; }
-
-        private static bool DisplayFightingStylesToggle { get; set; }
-
         private static void DisplayFeats()
         {
             bool toggle;
@@ -24,13 +21,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            toggle = DisplayFeatsToggle;
+            toggle = Main.Settings.DisplayFeatsToggle;
             if (UI.DisclosureToggle("Feats:".yellow(), ref toggle, 200))
             {
-                DisplayFeatsToggle = toggle;
+                Main.Settings.DisplayFeatsToggle = toggle;
             }
 
-            if (DisplayFeatsToggle)
+            if (Main.Settings.DisplayFeatsToggle)
             {
                 UI.Label("");
 
@@ -118,13 +115,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            toggle = DisplayFightingStylesToggle;
+            toggle = Main.Settings.DisplayFightingStylesToggle;
             if (UI.DisclosureToggle("Fighting Styles:".yellow(), ref toggle, 200))
             {
-                DisplayFightingStylesToggle = toggle;
+                Main.Settings.DisplayFightingStylesToggle = toggle;
             }
 
-            if (DisplayFightingStylesToggle)
+            if (Main.Settings.DisplayFightingStylesToggle)
             {
                 UI.Label("");
 

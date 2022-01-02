@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
         private const float DEFAULT_WIDTH = 250;
 
-        private static bool level20HelpToggle;
+        private static bool DisplayLevel20HelpToggle;
 
         private static void DisplayBarbarian(float width = DEFAULT_WIDTH)
         {
@@ -141,8 +141,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         {
             UI.Label("");
 
-            UI.DisclosureToggle("Level 20".orange().bold(), ref level20HelpToggle);
-            if (level20HelpToggle)
+            UI.DisclosureToggle("Level 20".orange().bold(), ref DisplayLevel20HelpToggle);
+            if (DisplayLevel20HelpToggle)
             {
                 UI.Label("");
 
