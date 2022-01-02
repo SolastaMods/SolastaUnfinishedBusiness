@@ -11,14 +11,16 @@ namespace SolastaCommunityExpansion.Utils
     /// <typeparam name="TKey"></typeparam>
     /// <typeparam name="TValue"></typeparam>
     [XmlRoot("dictionary")]
+#pragma warning disable S3925 // "ISerializable" should be implemented correctly
     public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IXmlSerializable
+#pragma warning restore S3925 // "ISerializable" should be implemented correctly
     {
         // XmlSerializer.Deserialize() will create a new Object, and then call ReadXml()
         // So cannot use instance field, use class field
 
-        public static string ItemTag = "item";
-        public static string KeyTag = "key";
-        public static string ValueTag = "value";
+        public const string ItemTag = "item";
+        public const string KeyTag = "key";
+        public const string ValueTag = "value";
 
         public XmlSchema GetSchema()
         {

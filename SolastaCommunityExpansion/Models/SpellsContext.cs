@@ -29,14 +29,14 @@ namespace SolastaCommunityExpansion.Models
                 foreach (var characterClass in dbCharacterClassDefinition)
                 {
                     var title = characterClass.FormatTitle();
-                    var featureDefinition = characterClass.FeatureUnlocks
+
+                    var featureDefinitionCastSpell = characterClass.FeatureUnlocks
                         .Select(x => x.FeatureDefinition)
-                        .Where(x => x is FeatureDefinitionCastSpell)
+                        .OfType<FeatureDefinitionCastSpell>()
                         .FirstOrDefault();
 
-                    if (featureDefinition is FeatureDefinitionCastSpell featureDefinitionCastSpell
-                        && featureDefinitionCastSpell.SpellListDefinition != null
-                        && !spellLists.Values.Contains(featureDefinitionCastSpell.SpellListDefinition))
+                    if (featureDefinitionCastSpell?.SpellListDefinition != null
+                        && !spellLists.ContainsValue(featureDefinitionCastSpell.SpellListDefinition))
                     {
                         spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
                     }
@@ -45,20 +45,20 @@ namespace SolastaCommunityExpansion.Models
                 foreach (var characterSubclass in dbCharacterSubclassDefinition)
                 {
                     var title = characterSubclass.FormatTitle();
+
                     var featureDefinition = characterSubclass.FeatureUnlocks
                         .Select(x => x.FeatureDefinition)
-                        .Where(x => x is FeatureDefinitionCastSpell || x is FeatureDefinitionMagicAffinity)
-                        .FirstOrDefault();
+                        .FirstOrDefault(x => x is FeatureDefinitionCastSpell || x is FeatureDefinitionMagicAffinity);
 
                     if (featureDefinition is FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity
                         && featureDefinitionMagicAffinity.ExtendedSpellList != null
-                        && !spellLists.Values.Contains(featureDefinitionMagicAffinity.ExtendedSpellList))
+                        && !spellLists.ContainsValue(featureDefinitionMagicAffinity.ExtendedSpellList))
                     {
                         spellLists.Add(title.grey().italic(), featureDefinitionMagicAffinity.ExtendedSpellList);
                     }
                     else if (featureDefinition is FeatureDefinitionCastSpell featureDefinitionCastSpell
                         && featureDefinitionCastSpell.SpellListDefinition != null
-                        && !spellLists.Values.Contains(featureDefinitionCastSpell.SpellListDefinition))
+                        && !spellLists.ContainsValue(featureDefinitionCastSpell.SpellListDefinition))
                     {
                         spellLists.Add(title.grey().italic(), featureDefinitionCastSpell.SpellListDefinition);
                     }
@@ -102,7 +102,6 @@ namespace SolastaCommunityExpansion.Models
             {
                 spellListDefinition.SpellsByLevel.First(x => x.Level == spellDefinition.SpellLevel).Spells.Remove(spellDefinition);
             }
-
         }
 
         internal static void SwitchSpellList(SpellDefinition spellDefinition = null, SpellListDefinition spellListDefinition = null)
@@ -191,7 +190,7 @@ namespace SolastaCommunityExpansion.Models
                 return false;
             }
 
-            return !suggestedSpellLists.Where(x => !selectedSpellLists.Contains(x)).Any();
+            return !suggestedSpellLists.Any(x => !selectedSpellLists.Contains(x));
         }
 
         public static string GenerateSpellsDescription()

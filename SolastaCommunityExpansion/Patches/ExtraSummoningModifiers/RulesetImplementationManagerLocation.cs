@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using SolastaCommunityExpansion.Helpers;
 using HarmonyLib;
+using System.Linq;
 
 namespace SolastaCommunityExpansion.Patches.ExtraSummoningModifiers
 {
@@ -10,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.ExtraSummoningModifiers
 
     internal static class RulesetImplementationManagerLocation_ApplySummonForm
     {
-        internal static Dictionary<string, int> conditionToAmount = new Dictionary<string, int>();
+        internal static Dictionary<string, int> ConditionToAmount { get; private set; } = new Dictionary<string, int>();
 
         internal static void Prefix(
             EffectForm effectForm,
@@ -23,7 +24,7 @@ namespace SolastaCommunityExpansion.Patches.ExtraSummoningModifiers
                 for (int index = 0; index < summonForm.Number; ++index)
                 {
                     formsParams.sourceCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionSummoningAffinity>(formsParams.sourceCharacter.FeaturesToBrowse);
-                    foreach (FeatureDefinitionSummoningAffinity summoningAffinity in formsParams.sourceCharacter.FeaturesToBrowse)
+                    foreach (FeatureDefinitionSummoningAffinity summoningAffinity in formsParams.sourceCharacter.FeaturesToBrowse.OfType<FeatureDefinitionSummoningAffinity>())
                     {
                         if (string.IsNullOrEmpty(summoningAffinity.RequiredMonsterTag) || element.CreatureTags.Contains(summoningAffinity.RequiredMonsterTag))
                         {
@@ -34,11 +35,11 @@ namespace SolastaCommunityExpansion.Patches.ExtraSummoningModifiers
                                 {
                                     case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus:
                                         sourceAmount = formsParams.sourceCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-                                        conditionToAmount.AddOrReplace(addedCondition.Name, sourceAmount);
+                                        ConditionToAmount.AddOrReplace(addedCondition.Name, sourceAmount);
                                         break;
                                     case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceCharacterLevel:
                                         sourceAmount = formsParams.sourceCharacter.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
-                                        conditionToAmount.AddOrReplace(addedCondition.Name, sourceAmount);
+                                        ConditionToAmount.AddOrReplace(addedCondition.Name, sourceAmount);
                                         break;
                                     case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel:
                                         var sourceCharacter = (RulesetCharacterHero)formsParams.sourceCharacter;
@@ -46,10 +47,13 @@ namespace SolastaCommunityExpansion.Patches.ExtraSummoningModifiers
                                         string classType = addedCondition.AdditionalDamageType;
                                         if (DatabaseRepository.GetDatabase<CharacterClassDefinition>().TryGetElement(classType, out CharacterClassDefinition classDef))
                                         {
-                                            if (sourceCharacter.ClassesAndLevels != null)
-                                                if (sourceCharacter.ClassesAndLevels.TryGetValue(classDef, out int classLevel))
-                                                    sourceAmount = classLevel;
-                                            conditionToAmount.AddOrReplace(addedCondition.Name, sourceAmount);
+                                            if (sourceCharacter.ClassesAndLevels != null 
+                                                && sourceCharacter.ClassesAndLevels.TryGetValue(classDef, out int classLevel))
+                                            {
+                                                sourceAmount = classLevel;
+                                            }
+
+                                            ConditionToAmount.AddOrReplace(addedCondition.Name, sourceAmount);
                                         }
                                         break;
 
@@ -63,7 +67,7 @@ namespace SolastaCommunityExpansion.Patches.ExtraSummoningModifiers
 
         internal static void Postfix()
         {
-            conditionToAmount.Clear();
+            ConditionToAmount.Clear();
         }
     }
 
@@ -76,9 +80,9 @@ namespace SolastaCommunityExpansion.Patches.ExtraSummoningModifiers
         internal static void Prefix(string conditionDefinitionName,
             ref int sourceAmount)
         {
-            if (RulesetImplementationManagerLocation_ApplySummonForm.conditionToAmount.ContainsKey(conditionDefinitionName))
+            if (RulesetImplementationManagerLocation_ApplySummonForm.ConditionToAmount.ContainsKey(conditionDefinitionName))
             {
-                sourceAmount = RulesetImplementationManagerLocation_ApplySummonForm.conditionToAmount[conditionDefinitionName];
+                sourceAmount = RulesetImplementationManagerLocation_ApplySummonForm.ConditionToAmount[conditionDefinitionName];
             }
         }
     }

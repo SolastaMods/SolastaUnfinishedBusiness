@@ -111,7 +111,7 @@ namespace SolastaCommunityExpansion.Classes
                 });
         }
 
-        private static void BuildProficiencies(CharacterClassDefinitionBuilder classBuilder)
+        private static void BuildProficiencies()
         {
             FeatureDefinitionProficiencyArmor = new FeatureDefinitionProficiencyBuilder(
                     "ProficiencyWitchArmor",
@@ -1268,7 +1268,7 @@ namespace SolastaCommunityExpansion.Classes
 
             BuildClassStats(classBuilder);
             BuildEquipment(classBuilder);
-            BuildProficiencies(classBuilder);
+            BuildProficiencies();
             BuildSpells();
             BuildRitualCasting();
             BuildWitchCurses();
