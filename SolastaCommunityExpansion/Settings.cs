@@ -113,7 +113,7 @@ namespace SolastaCommunityExpansion
         // Characters - Spells
         //
 
-        public SerializableDictionary<string, List<string>> ClassSpellEnabled { get; set; } = new SerializableDictionary<string, List<string>>();
+        public SerializableDictionary<string, List<string>> SpellSpellListEnabled { get; set; } = new SerializableDictionary<string, List<string>>();
 
         //
         // Encounters - General

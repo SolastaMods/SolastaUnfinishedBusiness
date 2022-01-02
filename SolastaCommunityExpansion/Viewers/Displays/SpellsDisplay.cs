@@ -46,19 +46,19 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                 UI.Space(20);
 
-                toggle = SpellsContext.AreAllClassesSelected();
+                toggle = SpellsContext.AreAllSpellListsSelected();
 
                 if (UI.Toggle("Select All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
-                    SpellsContext.SelectAllClasses(toggle);
-                    SpellsContext.SwitchClass();
+                    SpellsContext.SelectAllSpellLists(toggle);
+                    SpellsContext.SwitchSpellList();
                 }
 
-                toggle = SpellsContext.AreSuggestedClassesSelected();
+                toggle = SpellsContext.AreSuggestedSpellListsSelected();
                 if (UI.Toggle("Select Suggested", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
-                    SpellsContext.SelectSuggestedClasses(toggle);
-                    SpellsContext.SwitchClass();
+                    SpellsContext.SelectSuggestedSpellLists(toggle);
+                    SpellsContext.SwitchSpellList();
                 }
 
                 ExpandAllToggle = SpellNamesToggle.Count == SpellNamesToggle.Count(x => x.Value);
@@ -103,66 +103,67 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                 using (UI.VerticalScope())
                 {
-                    DisplaySpellClassSelection(spellDefinition);
+                    DisplaySpellListSelection(spellDefinition);
                 }
             }
         }
 
-        internal static void DisplaySpellClassSelection(SpellDefinition spellDefinition)
+        internal static void DisplaySpellListSelection(SpellDefinition spellDefinition)
         {
             var spellName = spellDefinition.Name;
             bool toggle;
             int columns;
             var current = 0;
-            var classes = SpellsContext.GetCasterClasses;
-            var classesCount = classes.Count;
+            var spellListsTitles = SpellsContext.GetSpellLists.Keys;
+            var spellLists = SpellsContext.GetSpellLists.Values;
+            var spellListsCount = spellLists.Count;
 
             UI.Label("");
 
             using (UI.HorizontalScope())
             {
-                toggle = SpellsContext.AreAllClassesSelected(spellDefinition);
+                toggle = SpellsContext.AreAllSpellListsSelected(spellDefinition);
                 if (UI.Toggle("Select All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
-                    SpellsContext.SelectAllClasses(spellDefinition, toggle);
-                    SpellsContext.SwitchClass(spellDefinition);
+                    SpellsContext.SelectAllSpellLists(spellDefinition, toggle);
+                    SpellsContext.SwitchSpellList(spellDefinition);
                 }
 
-                toggle = SpellsContext.AreSuggestedClassesSelected(spellDefinition);
+                toggle = SpellsContext.AreSuggestedSpellListsSelected(spellDefinition);
                 if (UI.Toggle("Select Suggested", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
-                    SpellsContext.SelectSuggestedClasses(spellDefinition, toggle);
-                    SpellsContext.SwitchClass(spellDefinition);
+                    SpellsContext.SelectSuggestedSpellLists(spellDefinition, toggle);
+                    SpellsContext.SwitchSpellList(spellDefinition);
                 }
             }
 
             UI.Label("");
 
-            while (current < classesCount)
+            while (current < spellListsCount)
             {
                 columns = MAX_COLUMNS;
 
                 using (UI.HorizontalScope())
                 {
-                    while (current < classesCount && columns-- > 0)
+                    while (current < spellListsCount && columns-- > 0)
                     {
-                        var classDefinition = classes.ElementAt(current);
-                        var className = classDefinition.Name;
-                        var classTitle = classDefinition.FormatTitle();
+                        var spellListDefinition = spellLists.ElementAt(current);
+                        var spellListName = spellListDefinition.Name;
+                        var spellListTitle = spellListsTitles.ElementAt(current);
 
-                        toggle = Main.Settings.ClassSpellEnabled[spellName].Contains(className);
-                        if (UI.Toggle(classTitle, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                        toggle = Main.Settings.SpellSpellListEnabled[spellName].Contains(spellListName);
+                        if (UI.Toggle(spellListTitle, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                         {
                             if (toggle)
                             {
-                                Main.Settings.ClassSpellEnabled[spellName].Add(className);
+                                Main.Settings.SpellSpellListEnabled[spellName].Add(spellListName);
                             }
                             else
                             {
-                                Main.Settings.ClassSpellEnabled[spellName].Remove(className);
+                                Main.Settings.SpellSpellListEnabled[spellName].Remove(spellListName);
                             }
 
-                            SpellsContext.SwitchClass(spellDefinition, classDefinition);
+                            SpellsContext.SwitchSpellList(spellDefinition, spellListDefinition);
                         }
 
                         current++;
