@@ -2,13 +2,27 @@
 using SolastaModApi.Extensions;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+
+using static SolastaModApi.DatabaseHelper.FeatDefinitions;
 
 namespace SolastaCommunityExpansion.Models
 {
     internal static class FeatsContext
     {
         public static Dictionary<string, FeatDefinition> Feats { get; private set; } = new Dictionary<string, FeatDefinition>();
+
+        internal static List<FeatDefinition> GetAllUnofficialFeats()
+        {
+            var officialFeatNames = typeof(SolastaModApi.DatabaseHelper.FeatDefinitions)
+                .GetProperties(BindingFlags.Public | BindingFlags.Static)
+                .Where(f => f.PropertyType == typeof(FeatDefinition))
+                .Select(f => f.Name);
+
+            return DatabaseRepository.GetDatabase<FeatDefinition>()
+                .Where(f => !officialFeatNames.Contains(f.Name)).ToList();
+        }
 
         internal static void Load()
         {
@@ -25,6 +39,11 @@ namespace SolastaCommunityExpansion.Models
             PickPocketContext.CreateFeats(feats);
             CraftyFeats.CreateFeats(feats);
             ElAntoniousFeats.CreateFeats(feats);
+
+            if (Main.Settings.DisplayAnyUnofficialFeat)
+            {
+                feats = GetAllUnofficialFeats();
+            }
 
             // Use the list of feats to get the settings and ui set up.
 

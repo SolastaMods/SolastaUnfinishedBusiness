@@ -30,6 +30,7 @@ namespace SolastaCommunityExpansion
         public bool BugFixItemFiltering { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
         public bool BugFixOnCanSaveToggleChanged { get; set; } = true;
+        public bool DisplayAnyUnofficialFeat { get; set; }
         public bool EnableDungeonMakerRotationHotkeys { get; set; } = true;
         public bool EnableFirstLevelCasterFeats { get; set; } = true;
         public bool EnableMultiLinePowerPanel { get; set; } = true;
@@ -46,7 +47,7 @@ namespace SolastaCommunityExpansion
         //
         // Character - General
         //
-
+        
         // Initial Choices
         public bool AddHelpActionToAllClasses { get; set; }
         public bool DisableSenseDarkVisionFromAllRaces { get; set; }
