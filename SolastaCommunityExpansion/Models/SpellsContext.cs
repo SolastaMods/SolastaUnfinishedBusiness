@@ -85,9 +85,6 @@ namespace SolastaCommunityExpansion.Models
             var unofficialSpells = GetAllUnofficialSpells();
             var spellLists = GetSpellLists;
 
-            RegisteredSpells.Clear();
-            RegisteredSpellsList.Clear();
-
             foreach (var spellList in spellLists.Values)
             {
                 foreach (var unofficialSpell in unofficialSpells.Where(x => spellList.ContainsSpell(x)))
@@ -99,25 +96,20 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
-            void Sync()
+            if (Main.Settings.AllowDisplayAllUnofficialContent)
             {
-                foreach (var registeredSpell in RegisteredSpells.Where(x => !Main.Settings.SpellSpellListEnabled.ContainsKey(x.Key.Name)))
-                {
-                    Main.Settings.SpellSpellListEnabled.Add(registeredSpell.Key.Name, registeredSpell.Value);
-                }
+                LoadAllUnofficialSpells();
             }
 
             BazouSpells.Load();
             SRDSpells.Load();
 
-            Sync();
-            SwitchSpellList();
-
-            if (Main.Settings.AllowDisplayAllUnofficialContent)
+            foreach (var registeredSpell in RegisteredSpells.Where(x => !Main.Settings.SpellSpellListEnabled.ContainsKey(x.Key.Name)))
             {
-                LoadAllUnofficialSpells();
-                Sync();
+                Main.Settings.SpellSpellListEnabled.Add(registeredSpell.Key.Name, registeredSpell.Value);
             }
+
+            SwitchSpellList();
 
             GuiWrapperContext.RecacheSpells();
         }
