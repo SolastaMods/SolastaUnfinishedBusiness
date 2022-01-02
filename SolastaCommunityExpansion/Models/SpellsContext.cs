@@ -168,15 +168,15 @@ namespace SolastaCommunityExpansion.Models
 
         internal static bool AreSuggestedSpellListsSelected(SpellDefinition spellDefinition)
         {
-            var suggestedClasses = RegisteredSpells[spellDefinition];
-            var selectedClasses = Main.Settings.SpellSpellListEnabled[spellDefinition.Name];
+            var suggestedSpellLists = RegisteredSpells[spellDefinition];
+            var selectedSpellLists = Main.Settings.SpellSpellListEnabled[spellDefinition.Name];
 
-            if (suggestedClasses.Count != selectedClasses.Count || suggestedClasses.Count == 0 || selectedClasses.Count == 0)
+            if (suggestedSpellLists.Count != selectedSpellLists.Count || suggestedSpellLists.Count == 0 || selectedSpellLists.Count == 0)
             {
                 return false;
             }
 
-            return !suggestedClasses.Where(x => !selectedClasses.Contains(x)).Any();
+            return !suggestedSpellLists.Where(x => !selectedSpellLists.Contains(x)).Any();
         }
 
         public static string GenerateSpellsDescription()
