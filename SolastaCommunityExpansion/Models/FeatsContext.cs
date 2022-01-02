@@ -5,8 +5,6 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-using static SolastaModApi.DatabaseHelper.FeatDefinitions;
-
 namespace SolastaCommunityExpansion.Models
 {
     internal static class FeatsContext

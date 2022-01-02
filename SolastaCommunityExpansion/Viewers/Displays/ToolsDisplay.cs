@@ -98,10 +98,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                 UI.Label("");
 
-                intValue = Main.Settings.maxBackupFilesPerLocationCampaign;
+                intValue = Main.Settings.MaxBackupFilesPerLocationCampaign;
                 if (UI.Slider("Max. backup files per location or campaign".white(), ref intValue, 0, 20, 10))
                 {
-                    Main.Settings.maxBackupFilesPerLocationCampaign = intValue;
+                    Main.Settings.MaxBackupFilesPerLocationCampaign = intValue;
                 }
 
                 UI.Label("");
