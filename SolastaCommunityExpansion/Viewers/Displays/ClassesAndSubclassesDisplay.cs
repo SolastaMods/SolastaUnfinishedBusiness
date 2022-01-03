@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
     {
         private const int MAX_COLUMNS = 4;
 
-        private const float PIXELS_PER_COLUMN = 225;
+        private const float PIXELS_PER_COLUMN = 240;
 
         private static void DisplayClasses()
         {
