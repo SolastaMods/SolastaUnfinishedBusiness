@@ -45,7 +45,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                 UI.Label("");
 
-                if (UI.Toggle("Select all " + RequiresRestart, ref selectAll))
+                if (UI.Toggle("Select all", ref selectAll))
                 {
                     foreach (var keyValuePair in FeatsContext.Feats)
                     {
