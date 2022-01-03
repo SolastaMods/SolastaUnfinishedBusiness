@@ -22,6 +22,7 @@ namespace SolastaCommunityExpansion.Patches
             EpicArrayContext.Load();
             FaceUnlockContext.Load();
             FightingStyleContext.Load(); // Fighting Styles should be loaded before feats in order to generate feats of new fighting styles
+            FeatsContext.Load();
             FlexibleBackgroundsContext.Load();
             InitialChoicesContext.Load();
             GameUiContext.Load();
