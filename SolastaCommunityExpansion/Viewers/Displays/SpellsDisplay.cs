@@ -118,7 +118,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            for (var i = 0; i < SortedRegisteredSpells.Count; i++) 
+            for (var i = 0; i < SortedRegisteredSpells.Count; i++)
             {
                 var spellDefinition = SortedRegisteredSpells[i];
                 var spellName = spellDefinition.Name;
@@ -195,7 +195,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                 using (UI.HorizontalScope())
                 {
-                    while (current < spellListsCount && columns-- > 0)
+                    while (current < spellListsCount && columns > 0)
                     {
                         var spellListDefinition = spellLists.ElementAt(current);
                         var spellListName = spellListDefinition.Name;
@@ -216,7 +216,9 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                                 }
 
                                 SpellsContext.SwitchSpellList(spellDefinition, spellListDefinition);
-                            }
+                            };
+
+                            columns--;
                         }
 
                         current++;
