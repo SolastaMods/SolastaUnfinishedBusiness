@@ -71,7 +71,7 @@ namespace SolastaCommunityExpansion
         //
         // Character - General
         //
-        
+
         // Initial Choices
         public bool AllowDisplayAllUnofficialContent { get; set; }
         public bool AddHelpActionToAllClasses { get; set; }
@@ -212,7 +212,7 @@ namespace SolastaCommunityExpansion
         public bool FollowCharactersOnTeleport { get; set; }
         public bool OverrideMinMaxLevel { get; set; }
         public int OverridePartySize { get; set; } = Models.DungeonMakerContext.GAME_PARTY_SIZE;
-        public int maxBackupFilesPerLocationCampaign { get; set; } = 10;
+        public int MaxBackupFilesPerLocationCampaign { get; set; } = 10;
 
         // Debug
         public bool EnableCheatMenu { get; set; }

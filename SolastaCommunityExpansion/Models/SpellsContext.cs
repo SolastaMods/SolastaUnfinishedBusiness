@@ -9,13 +9,20 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class SpellsContext
     {
-        internal static readonly Dictionary<SpellDefinition, List<string>> RegisteredSpells = new Dictionary<SpellDefinition, List<string>>();
+        internal class SpellRecord
+        {
+            public List<string> SuggestedSpellLists { get; set; }
+
+            public bool IsFromOtherMod { get; set; }
+        }
+
+        internal static readonly Dictionary<SpellDefinition, SpellRecord> RegisteredSpells = new Dictionary<SpellDefinition, SpellRecord>();
 
         private static readonly List<SpellDefinition> RegisteredSpellsList = new List<SpellDefinition>();
 
         private static readonly SortedDictionary<string, SpellListDefinition> spellLists = new SortedDictionary<string, SpellListDefinition>();
 
-        internal static SortedDictionary<string, SpellListDefinition> GetSpellLists
+        internal static SortedDictionary<string, SpellListDefinition> SpellLists
         {
             get
             {
@@ -83,35 +90,32 @@ namespace SolastaCommunityExpansion.Models
         private static void LoadAllUnofficialSpells()
         {
             var unofficialSpells = GetAllUnofficialSpells();
-            var spellLists = GetSpellLists;
 
-            foreach (var spellList in spellLists.Values)
+            foreach (var spellList in SpellLists.Values)
             {
                 foreach (var unofficialSpell in unofficialSpells.Where(x => spellList.ContainsSpell(x)))
                 {
-                    RegisterSpell(unofficialSpell, spellList.Name);
+                    RegisterSpell(unofficialSpell, isFromOtherMod: true, spellList.Name);
                 }
             }
         }
 
         internal static void Load()
         {
+            BazouSpells.Load();
+            SrdSpells.Load();
+
             if (Main.Settings.AllowDisplayAllUnofficialContent)
             {
                 LoadAllUnofficialSpells();
             }
 
-            BazouSpells.Load();
-            SRDSpells.Load();
-
             foreach (var registeredSpell in RegisteredSpells.Where(x => !Main.Settings.SpellSpellListEnabled.ContainsKey(x.Key.Name)))
             {
-                Main.Settings.SpellSpellListEnabled.Add(registeredSpell.Key.Name, registeredSpell.Value);
+                Main.Settings.SpellSpellListEnabled.Add(registeredSpell.Key.Name, registeredSpell.Value.SuggestedSpellLists);
             }
 
             SwitchSpellList();
-
-            GuiWrapperContext.RecacheSpells();
         }
 
         private static void SwitchSpell(SpellListDefinition spellListDefinition, SpellDefinition spellDefinition, bool enabled)
@@ -148,7 +152,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (spellListDefinition == null)
             {
-                GetSpellLists.Values.ToList().ForEach(x => SwitchSpellList(spellDefinition, x));
+                SpellLists.Values.ToList().ForEach(x => SwitchSpellList(spellDefinition, x));
 
                 return;
             }
@@ -158,19 +162,19 @@ namespace SolastaCommunityExpansion.Models
             SwitchSpell(spellListDefinition, spellDefinition, enabled);
         }
 
-        internal static void RegisterSpell(SpellDefinition spellDefinition, params string[] suggestedSpellLists)
+        internal static void RegisterSpell(SpellDefinition spellDefinition, bool isFromOtherMod = false, params string[] suggestedSpellLists)
         {
             var dbSpellListDefinition = DatabaseRepository.GetDatabase<SpellListDefinition>();
             var validateSpellLists = suggestedSpellLists.Where(x => dbSpellListDefinition.TryGetElement(x, out _)).ToList();
 
             if (!RegisteredSpells.ContainsKey(spellDefinition))
             {
-                RegisteredSpells.Add(spellDefinition, validateSpellLists);
+                RegisteredSpells.Add(spellDefinition, new SpellRecord() { IsFromOtherMod = isFromOtherMod, SuggestedSpellLists = validateSpellLists });
                 RegisteredSpellsList.Add(spellDefinition);
             }
             else
             {
-                RegisteredSpells[spellDefinition].AddRange(validateSpellLists.Where(x => !RegisteredSpells[spellDefinition].Contains(x)));
+                RegisteredSpells[spellDefinition].SuggestedSpellLists.AddRange(validateSpellLists.Where(x => !RegisteredSpells[spellDefinition].SuggestedSpellLists.Contains(x)));
             }
         }
 
@@ -187,7 +191,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (select)
             {
-                Main.Settings.SpellSpellListEnabled[spellDefinition.Name].AddRange(GetSpellLists.Values.Select(x => x.Name));
+                Main.Settings.SpellSpellListEnabled[spellDefinition.Name].AddRange(SpellLists.Values.Select(x => x.Name));
             }
 
             SwitchSpellList(spellDefinition);
@@ -206,7 +210,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (select)
             {
-                Main.Settings.SpellSpellListEnabled[spellDefinition.Name].AddRange(RegisteredSpells[spellDefinition]);
+                Main.Settings.SpellSpellListEnabled[spellDefinition.Name].AddRange(RegisteredSpells[spellDefinition].SuggestedSpellLists);
             }
 
             SwitchSpellList(spellDefinition);
@@ -214,13 +218,13 @@ namespace SolastaCommunityExpansion.Models
 
         internal static bool AreAllSpellListsSelected() => !RegisteredSpellsList.Any(x => !AreAllSpellListsSelected(x));
 
-        internal static bool AreAllSpellListsSelected(SpellDefinition spellDefinition) => Main.Settings.SpellSpellListEnabled[spellDefinition.Name].Count == SpellsContext.GetSpellLists.Count;
+        internal static bool AreAllSpellListsSelected(SpellDefinition spellDefinition) => Main.Settings.SpellSpellListEnabled[spellDefinition.Name].Count == SpellsContext.SpellLists.Count;
 
         internal static bool AreSuggestedSpellListsSelected() => !RegisteredSpellsList.Any(x => !AreSuggestedSpellListsSelected(x));
 
         internal static bool AreSuggestedSpellListsSelected(SpellDefinition spellDefinition)
         {
-            var suggestedSpellLists = RegisteredSpells[spellDefinition];
+            var suggestedSpellLists = RegisteredSpells[spellDefinition].SuggestedSpellLists;
             var selectedSpellLists = Main.Settings.SpellSpellListEnabled[spellDefinition.Name];
 
             if (suggestedSpellLists.Count != selectedSpellLists.Count || suggestedSpellLists.Count == 0 || selectedSpellLists.Count == 0)
