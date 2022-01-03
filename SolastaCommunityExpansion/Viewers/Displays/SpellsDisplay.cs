@@ -201,19 +201,22 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         var spellListName = spellListDefinition.Name;
                         var spellListTitle = spellListsTitles.ElementAt(current);
 
-                        toggle = Main.Settings.SpellSpellListEnabled[spellName].Contains(spellListName);
-                        if (UI.Toggle(spellListTitle, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                        if (spellDefinition.SpellLevel != 0 || spellListDefinition.HasCantrips)
                         {
-                            if (toggle)
+                            toggle = Main.Settings.SpellSpellListEnabled[spellName].Contains(spellListName);
+                            if (UI.Toggle(spellListTitle, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                             {
-                                Main.Settings.SpellSpellListEnabled[spellName].Add(spellListName);
-                            }
-                            else
-                            {
-                                Main.Settings.SpellSpellListEnabled[spellName].Remove(spellListName);
-                            }
+                                if (toggle)
+                                {
+                                    Main.Settings.SpellSpellListEnabled[spellName].Add(spellListName);
+                                }
+                                else
+                                {
+                                    Main.Settings.SpellSpellListEnabled[spellName].Remove(spellListName);
+                                }
 
-                            SpellsContext.SwitchSpellList(spellDefinition, spellListDefinition);
+                                SpellsContext.SwitchSpellList(spellDefinition, spellListDefinition);
+                            };
                         }
 
                         current++;
