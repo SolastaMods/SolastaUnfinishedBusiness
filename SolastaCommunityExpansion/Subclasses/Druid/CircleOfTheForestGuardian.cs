@@ -2,7 +2,6 @@
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 using SolastaModApi.BuilderHelpers;
 using System;
 using System.Collections.Generic;
@@ -91,13 +90,14 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
                 SpellsList = new List<SpellDefinition>() { HoldMonster, GreaterRestoration, }
             };
 
-
-            return new FeatureDefinitionAutoPreparedSpellsBuilder("ForestGuardianAutoPreparedSpells",
+            var ForestGuardianSpells = new FeatureDefinitionAutoPreparedSpellsBuilder("ForestGuardianAutoPreparedSpells",
                 GuidHelper.Create(DFG_BASE_GUID, "ForestGuardianAutoPreparedSpells").ToString(),
                 new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>() {
                     ForestGuardianSpells1, ForestGuardianSpells2, ForestGuardianSpells3, ForestGuardianSpells4, ForestGuardianSpells5 },
-                DatabaseHelper.CharacterClassDefinitions.Druid,
                 forestGuardianMagicGui.Build()).AddToDB();
+            ForestGuardianSpells.SetSpellcastingClass(DatabaseHelper.CharacterClassDefinitions.Druid);
+
+            return ForestGuardianSpells;
         }
 
         // Create Sylvan War Magic
@@ -254,8 +254,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
                 extraAttackGui.Build()).AddToDB();
         }
 
-        // Two builders to help us A) build a custom damage affinity for our bark ward conditions, and 
-        // B) to allow us to cast spells from outside of the druid list (which the normal AutoPreparedSpellsBuilder doesn't allow).
+        // A builder to help us build a custom damage affinity for our Bark Ward conditions
         public class FeatureDefinitionDamageAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionDamageAffinity>
         {
             public FeatureDefinitionDamageAffinityBuilder(string name, string guid, bool retaliateWhenHit, int retaliationRange,
@@ -269,17 +268,6 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
                 Definition.SetRetaliatePower(retaliationPower);
                 Definition.SetGuiPresentation(guiPresentation);
                 Definition.SetAncestryDefinesDamageType(false);
-            }
-        }
-
-        private sealed class FeatureDefinitionAutoPreparedSpellsBuilder : BaseDefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
-        {
-            public FeatureDefinitionAutoPreparedSpellsBuilder(string name, string guid, List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> autospelllists,
-            CharacterClassDefinition characterclass, GuiPresentation guiPresentation) : base(name, guid)
-            {
-                Definition.SetField("autoPreparedSpellsGroups", autospelllists);
-                Definition.SetSpellcastingClass(characterclass);
-                Definition.SetGuiPresentation(guiPresentation);
             }
         }
     }
