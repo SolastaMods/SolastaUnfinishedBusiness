@@ -30,6 +30,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             {
                 UI.Label("");
 
+                if (FeatsContext.HasFeatsFromOtherMods)
+                {
+                    UI.Label(". Feats in " + "lime".color(RGBA.lime) + " were not created by this mod");
+                    UI.Label("");
+                }
+
                 intValue = Main.Settings.FeatPowerAttackModifier;
                 if (UI.Slider("Power Attack".orange() + " modifier ".white() + RequiresRestart, ref intValue, 1, 6, 3, ""))
                 {
@@ -71,14 +77,19 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                             while (current < featsCount && columns-- > 0)
                             {
                                 var keyValuePair = FeatsContext.Feats.ElementAt(current);
-                                var title = keyValuePair.Value.FormatTitle();
+                                var title = keyValuePair.Key.FormatTitle();
+
+                                if (keyValuePair.Value)
+                                {
+                                    title = title.color(RGBA.lime);
+                                }
 
                                 if (flip)
                                 {
                                     title = title.yellow();
                                 }
 
-                                toggle = Main.Settings.FeatEnabled.Contains(keyValuePair.Key);
+                                toggle = Main.Settings.FeatEnabled.Contains(keyValuePair.Key.Name);
                                 if (UI.Toggle(title, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                                 {
                                     FeatsContext.Switch(keyValuePair.Key, toggle);
@@ -86,7 +97,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                                 if (Main.Settings.FeatSliderPosition == 1)
                                 {
-                                    var description = keyValuePair.Value.FormatDescription();
+                                    var description = keyValuePair.Key.FormatDescription();
 
                                     if (flip)
                                     {
