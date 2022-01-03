@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Patches
 
             FlexibleRacesContext.SwitchFlexibleRaces();
             InitialChoicesContext.RefreshTotalFeatsGrantedFistLevel();
-            FeatsContext.Load();
+
             PowersContext.Load();
             SpellsContext.Load();
 
