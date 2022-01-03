@@ -26,7 +26,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
         private static readonly Dictionary<string, bool> SpellNamesToggle = new Dictionary<string, bool>();
 
-        private static string WarningMessage => Main.Settings.AllowDisplayAllUnofficialContent ? ". Spells in " + "orange".orange() + " were not created by this mod" : string.Empty;
+        private static string WarningMessage => Main.Settings.AllowDisplayAllUnofficialContent ? ". Spells in " + "brown".color(RGBA.brown) + " were not created by this mod" : string.Empty;
 
         private static void RecacheSortedRegisteredSpells()
         {
@@ -126,7 +126,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                 if (IsFromOtherModList.ElementAt(i))
                 {
-                    spellTitle = spellTitle.orange();
+                    spellTitle = spellTitle.color(RGBA.brown);
                 }
 
                 toggle = SpellNamesToggle[spellName];
@@ -201,19 +201,22 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         var spellListName = spellListDefinition.Name;
                         var spellListTitle = spellListsTitles.ElementAt(current);
 
-                        toggle = Main.Settings.SpellSpellListEnabled[spellName].Contains(spellListName);
-                        if (UI.Toggle(spellListTitle, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                        if (spellDefinition.SpellLevel != 0 || spellListDefinition.HasCantrips)
                         {
-                            if (toggle)
+                            toggle = Main.Settings.SpellSpellListEnabled[spellName].Contains(spellListName);
+                            if (UI.Toggle(spellListTitle, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                             {
-                                Main.Settings.SpellSpellListEnabled[spellName].Add(spellListName);
-                            }
-                            else
-                            {
-                                Main.Settings.SpellSpellListEnabled[spellName].Remove(spellListName);
-                            }
+                                if (toggle)
+                                {
+                                    Main.Settings.SpellSpellListEnabled[spellName].Add(spellListName);
+                                }
+                                else
+                                {
+                                    Main.Settings.SpellSpellListEnabled[spellName].Remove(spellListName);
+                                }
 
-                            SpellsContext.SwitchSpellList(spellDefinition, spellListDefinition);
+                                SpellsContext.SwitchSpellList(spellDefinition, spellListDefinition);
+                            };
                         }
 
                         current++;
