@@ -26,7 +26,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
         private static readonly Dictionary<string, bool> SpellNamesToggle = new Dictionary<string, bool>();
 
-        private static string WarningMessage => Main.Settings.AllowDisplayAllUnofficialContent ? ". Spells in " + "orange".orange() + " were not created by this mod" : string.Empty;
+        private static string WarningMessage => Main.Settings.AllowDisplayAllUnofficialContent ? ". Spells in " + "lime".color(RGBA.lime) + " were not created by this mod" : string.Empty;
 
         private static void RecacheSortedRegisteredSpells()
         {
@@ -126,7 +126,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                 if (IsFromOtherModList.ElementAt(i))
                 {
-                    spellTitle = spellTitle.orange();
+                    spellTitle = spellTitle.color(RGBA.lime);
                 }
 
                 toggle = SpellNamesToggle[spellName];
