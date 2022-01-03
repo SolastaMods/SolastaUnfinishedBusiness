@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiLevelUp
 
             if (Main.Settings.EnableSortingFeats)
             {
-                ___relevantFeats?.Sort((a, b) => a.FormatTitle().CompareTo(b.FormatTitle()));
+                ___relevantFeats.Sort((a, b) => a.FormatTitle().CompareTo(b.FormatTitle()));
             }
 
             while (___table.childCount < ___relevantFeats.Count)
