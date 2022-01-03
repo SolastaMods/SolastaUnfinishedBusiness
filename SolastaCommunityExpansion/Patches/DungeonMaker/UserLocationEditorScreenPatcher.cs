@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class UserLocationEditorScreen_HandleInput
     {
-        public static void Postfix(UserLocationEditorScreen __instance, InputCommands.Id command)
+        public static void Postfix(UserLocationEditorScreen __instance, SelectedGadgetPanel ___selectedGadgetPanel, InputCommands.Id command)
         {
             if (!Main.Settings.EnableDungeonMakerRotationHotkeys || __instance == null)
             {
@@ -29,11 +29,17 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker
             switch (command)
             {
                 case InputCommands.Id.RotateCCW:
-                    Rotate(-90f);
+                    if (!(___selectedGadgetPanel?.IsTextFieldFocused() ?? false))
+                    {
+                        Rotate(-90f);
+                    }
                     break;
 
                 case InputCommands.Id.RotateCW:
-                    Rotate(90f);
+                    if (!(___selectedGadgetPanel?.IsTextFieldFocused() ?? false))
+                    {
+                        Rotate(90f);
+                    }
                     break;
             }
 

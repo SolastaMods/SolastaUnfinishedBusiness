@@ -216,7 +216,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                                 }
 
                                 SpellsContext.SwitchSpellList(spellDefinition, spellListDefinition);
-                            };
+                            }
                         }
 
                         current++;
