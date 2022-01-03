@@ -1,5 +1,6 @@
 ﻿using ModKit;
 using SolastaCommunityExpansion.Models;
+using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,20 +8,42 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class SpellsDisplay
     {
+        private const int SHOW_ALL = -1;
+
         private const int MAX_COLUMNS = 4;
 
         private const float PIXELS_PER_COLUMN = 225;
+
+        private static int SpellLevelFilter { get; set; } = SHOW_ALL;
 
         private static bool Initialized { get; set; }
 
         private static readonly List<SpellDefinition> SortedRegisteredSpells = new List<SpellDefinition>();
 
+        private static readonly List<bool> IsFromOtherModList = new List<bool>();
+
         private static bool ExpandAllToggle { get; set; }
 
         private static readonly Dictionary<string, bool> SpellNamesToggle = new Dictionary<string, bool>();
 
+        private static string WarningMessage => Main.Settings.AllowDisplayAllUnofficialContent ? ". Spells in " + "brown".color(RGBA.brown) + " were not created by this mod" : string.Empty;
+
+        private static void RecacheSortedRegisteredSpells()
+        {
+            SortedRegisteredSpells.SetRange(SpellsContext.RegisteredSpells
+                .Select(x => x.Key)
+                .Where(x => SpellLevelFilter == SHOW_ALL || x.SpellLevel == SpellLevelFilter)
+                .OrderBy(x => $"{x.SpellLevel} - {x.FormatTitle()}"));
+
+            IsFromOtherModList.SetRange(SpellsContext.RegisteredSpells
+                .Where(x => SpellLevelFilter == SHOW_ALL || x.Key.SpellLevel == SpellLevelFilter)
+                .OrderBy(x => $"{x.Key.SpellLevel} - {x.Key.FormatTitle()}")
+                .Select(x => x.Value.IsFromOtherMod));
+        }
+
         internal static void DisplaySpells()
         {
+            int intValue;
             bool toggle;
 
             if (!Initialized)
@@ -30,15 +53,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     .ToList()
                     .ForEach(x => SpellNamesToggle.Add(x, false));
 
-                SortedRegisteredSpells.AddRange(SpellsContext.RegisteredSpells
-                    .Select(x => x.Key)
-                    .OrderBy(x => $"{x.SpellLevel} - {x.FormatTitle()}"));
+                RecacheSortedRegisteredSpells();
 
                 Initialized = true;
             }
 
             UI.Label("");
-            UI.Label(". You can individually assign each spell to any caster spell list or simply select the suggested set");
+            UI.Label($". You can individually assign each spell to any caster spell list or simply select the suggested set{WarningMessage}");
             UI.Label("");
 
             using (UI.HorizontalScope())
@@ -57,22 +78,56 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 {
                     SpellsContext.SwitchSuggestedSpellLists(toggle);
                 }
+            }
 
-                ExpandAllToggle = SpellNamesToggle.Count == SpellNamesToggle.Count(x => x.Value);
-                toggle = ExpandAllToggle;
-                if (UI.Toggle("Expand All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+            UI.Label("");
+
+            using (UI.HorizontalScope())
+            {
+                UI.Space(20);
+
+                intValue = SpellLevelFilter;
+                if (UI.Slider("Spell level filter ".white() + "[-1 to display all spells]".italic().yellow(), ref intValue, SHOW_ALL, 9, SHOW_ALL, "L", UI.AutoWidth()))
                 {
-                    ExpandAllToggle = toggle;
-                    SpellNamesToggle.Keys.ToList().ForEach(x => SpellNamesToggle[x] = toggle);
+                    SpellLevelFilter = intValue;
+                    RecacheSortedRegisteredSpells();
                 }
             }
 
             UI.Label("");
 
-            foreach (var spellDefinition in SortedRegisteredSpells)
+            if (SortedRegisteredSpells.Count > 0)
             {
+                using (UI.HorizontalScope())
+                {
+                    UI.Space(20);
+
+                    ExpandAllToggle = SpellNamesToggle.Count == SpellNamesToggle.Count(x => x.Value);
+                    toggle = ExpandAllToggle;
+                    if (UI.Toggle("Expand All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                    {
+                        ExpandAllToggle = toggle;
+                        SpellNamesToggle.Keys.ToList().ForEach(x => SpellNamesToggle[x] = toggle);
+                    }
+                }
+            }
+            else
+            {
+                UI.Label($". No unofficial level {SpellLevelFilter} spells available".red().bold());
+            }
+
+            UI.Label("");
+
+            for (var i = 0; i < SortedRegisteredSpells.Count; i++) 
+            {
+                var spellDefinition = SortedRegisteredSpells[i];
                 var spellName = spellDefinition.Name;
                 var spellTitle = $"{spellDefinition.SpellLevel} - {spellDefinition.FormatTitle()}";
+
+                if (IsFromOtherModList.ElementAt(i))
+                {
+                    spellTitle = spellTitle.color(RGBA.brown);
+                }
 
                 toggle = SpellNamesToggle[spellName];
                 if (UI.DisclosureToggle(spellTitle.yellow(), ref toggle, 200))
@@ -111,8 +166,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             bool toggle;
             int columns;
             var current = 0;
-            var spellListsTitles = SpellsContext.GetSpellLists.Keys;
-            var spellLists = SpellsContext.GetSpellLists.Values;
+            var spellListsTitles = SpellsContext.SpellLists.Keys;
+            var spellLists = SpellsContext.SpellLists.Values;
             var spellListsCount = spellLists.Count;
 
             UI.Label("");
@@ -146,19 +201,22 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         var spellListName = spellListDefinition.Name;
                         var spellListTitle = spellListsTitles.ElementAt(current);
 
-                        toggle = Main.Settings.SpellSpellListEnabled[spellName].Contains(spellListName);
-                        if (UI.Toggle(spellListTitle, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                        if (spellDefinition.SpellLevel != 0 || spellListDefinition.HasCantrips)
                         {
-                            if (toggle)
+                            toggle = Main.Settings.SpellSpellListEnabled[spellName].Contains(spellListName);
+                            if (UI.Toggle(spellListTitle, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                             {
-                                Main.Settings.SpellSpellListEnabled[spellName].Add(spellListName);
-                            }
-                            else
-                            {
-                                Main.Settings.SpellSpellListEnabled[spellName].Remove(spellListName);
-                            }
+                                if (toggle)
+                                {
+                                    Main.Settings.SpellSpellListEnabled[spellName].Add(spellListName);
+                                }
+                                else
+                                {
+                                    Main.Settings.SpellSpellListEnabled[spellName].Remove(spellListName);
+                                }
 
-                            SpellsContext.SwitchSpellList(spellDefinition, spellListDefinition);
+                                SpellsContext.SwitchSpellList(spellDefinition, spellListDefinition);
+                            }
                         }
 
                         current++;

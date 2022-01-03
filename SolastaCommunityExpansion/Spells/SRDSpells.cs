@@ -6,11 +6,11 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Spells
 {
-    class SRDSpells
+    internal class SrdSpells
     {
         public static void Load()
         {
-            SpellsContext.RegisterSpell(BuildDivineWord(), "SpellListCleric");
+            SpellsContext.RegisterSpell(BuildDivineWord(), isFromOtherMod: false, "SpellListCleric");
         }
 
         private static SpellDefinition BuildDivineWord()
@@ -43,9 +43,9 @@ namespace SolastaCommunityExpansion.Spells
             return spell;
         }
 
-        private class DivineWordEffectForm : CustomEffectForm
+        private sealed class DivineWordEffectForm : CustomEffectForm
         {
-            List<string> monsterFamilyPlaneshiftList = new List<string>()
+            private readonly List<string> monsterFamilyPlaneshiftList = new List<string>()
             {
                 "Celestial",
                 "Elemental",
@@ -104,7 +104,7 @@ namespace SolastaCommunityExpansion.Spells
                 DatabaseHelper.ConditionDefinitions.ConditionBanished.FillTags(tagsMap);
             }
 
-            private void ApplyCondition(RulesetImplementationDefinitions.ApplyFormsParams formsParams, ConditionDefinition condition, RuleDefinitions.DurationType durationType, int durationParam)
+            private static void ApplyCondition(RulesetImplementationDefinitions.ApplyFormsParams formsParams, ConditionDefinition condition, RuleDefinitions.DurationType durationType, int durationParam)
             {
                 // Prepare params for inflicting conditions
                 ulong sourceGuid = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.Guid : 0L;
