@@ -34,5 +34,20 @@ namespace SolastaCommunityExpansion.Models
 
             methodRuntimeLoaded.Invoke(guiWrapperService, new object[] { runtimeService.Runtime });
         }
+
+        internal static void RecacheFeats()
+        {
+            var guiWrapperService = ServiceRepository.GetService<IGuiWrapperService>();
+
+            if (guiWrapperService == null)
+            {
+                return;
+            }
+
+            var methodRuntimeLoaded = AccessTools.Method(guiWrapperService.GetType(), "LoadFeatDefinitions");
+
+            guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiFeatDefinition>>("featDefinitionsMap").Clear();
+            methodRuntimeLoaded.Invoke(guiWrapperService, System.Array.Empty<object>());
+        }
     }
 }

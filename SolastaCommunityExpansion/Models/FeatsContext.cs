@@ -82,6 +82,8 @@ namespace SolastaCommunityExpansion.Models
             {
                 Main.Settings.FeatEnabled.Remove(feat.Name);
             }
+
+            GuiWrapperContext.RecacheFeats();
         }
 
         public static string GenerateFeatsDescription()
