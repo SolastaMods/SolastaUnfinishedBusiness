@@ -48,12 +48,18 @@ Condition/&ConditionDualFlurryApplyDescription	You are building momentum...
 Condition/&ConditionDualFlurryApplyTitle	Dual Flurry!
 Condition/&ConditionDualFlurryGrantDescription	Your foes are reeling!
 Condition/&ConditionDualFlurryGrantTitle	Dual Flurry!
+Condition/&ConditionBarkWardTitle Bark Ward
+Condition/&ConditionBarkWardDescription Protected by the spirits of the forest.
 Condition/&ConditionMarkedByArcanistDescription	Afflicted by Arcanist's Mark.
 Condition/&ConditionMarkedByArcanistTitle	Arcanist's Mark
 Condition/&Frenzied	This creature is frenzied and will attack the closest creature.
 Condition/&FrenziedTitle	Frenzied
 Condition/&HelpActionDescription	This creature has been distracted.
 Condition/&HelpActionTitle	Distracted
+Condition/&ConditionImprovedBarkWardTitle Improved Bark Ward
+Condition/&ConditionImprovedBarkWardDescription The spirits of the forest cause 2d8 piercing damage to melee attackers.
+Condition/&ConditionSuperiorBarkWardTitle Superior Bark Ward
+Condition/&ConditionSuperiorBarkWardDescription The spirits of the forest grant you poison immunity, and cause 3d8 piercing damage to melee attackers.
 Condition/&RuinedDescription	This creature's defence is reduced.
 Condition/&RuinedTitle	Ruined
 Equipment/&ArcaneStaffDescription	This staff is inscribed with magical writing and can be used as a focus for Arcane spell casting.
@@ -371,6 +377,20 @@ Feature/&CounterStrikePowerDescription	Spend a gambit die and Counter Strike the
 Feature/&CounterStrikePowerTitle Counter Strike
 Feature/&DualFlurryDescription	You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack.
 Feature/&DualFlurryTitle	Dual Flurry
+Feature/&DruidForestGuardianBarkWardDescription You gain the ability to summon a Bark Ward to protect you. As a bonus action, you can expend a use of your Wild Shape to gain 5 temporary hit points for each level you have in this class. These temporary hit points last for 10 minutes, or until you use your Wild Shape again.
+Feature/&DruidForestGuardianBarkWardTitle Bark Ward
+Feature/&DruidForestGuardianExtraAttackDescription Starting at 6th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.
+Feature/&DruidForestGuardianExtraAttackTitle Extra Attack
+Feature/&DruidForestGuardianImprovedBarkWardDescription Your Bark Ward now grows thorns, which damages melee attackers. Enemies who successfully hit you with a melee attack suffer 2d8 piercing damage.
+Feature/&DruidForestGuardianImprovedBarkWardTitle Improved Bark Ward
+Feature/&DruidForestGuardianMagicDescription Starting at the 2nd level when you choose this circle, you gain access to an expanded spell list that is always prepared:\nLevel 2: Shield, Fog Cloud\nLevel 3: Blur, Flame Blade\nLevel 5: Protection From Energy, Dispel Magic\nLevel 7: Flame Shield, Death Ward\nLevel 9: Hold Monster, Greater Restoration 
+Feature/&DruidForestGuardianMagicTitle Circle Spells
+Feature/&DruidForestGuardianSuperiorBarkWardDescription Your Bark Ward ability now reflects 3d8 piercing damage onto melee attackers. Additionally, Bark Ward now grants you immunity to poison while it's active.
+Feature/&DruidForestGuardianSuperiorBarkWardTitle Superior Bark Ward
+Feature/&DruidForestGuardianSylvanDurabilityDescription Forest Guardians naturally gain the resilience of a mighty oak. At 2nd level, your hit point maximum increases by 2 and increases by 1 whenever you gain a level in this class.
+Feature/&DruidForestGuardianSylvanDurabilityTitle Sylvan Durability
+Feature/&DruidForestGuardianSylvanWarMagicDescription You are used to wielding druidic magic in harmony with martial prowess. At 2nd level, you may cast spells that require a somatic component even if both of your hands are holding a weapon or shield.
+Feature/&DruidForestGuardianSylvanWarMagicTitle Sylvan War Magic
 Feature/&GambitResourcePoolAddDescription	Adds an additional gambit die.
 Feature/&GambitResourcePoolAddTitle	Additional Gambit die.
 Feature/&GambitResourcePoolDescription	Pool of gambit dice that can be spent on gambits.  Starts with 4 they recharge on short rest.
@@ -630,6 +650,8 @@ Subclass/&ConditionTransmuteConstitutionSaveDescription Temporary Constitution s
 Subclass/&ConditionTransmuteConstitutionSaveTitle Constitution Saves
 Subclass/&ConditionTransmutePoisonDescription Temporary Acid, Cold, Fire, Lightning, Necrotic, Thunder, and Poison Resistance granted by the Transmute Force power.
 Subclass/&ConditionTransmutePoisonTitle Elemental Resistance
+Subclass/&DruidForestGuardianDruidSubclassDescription Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
+Subclass/&DruidForestGuardianSubclassTitle Circle of the Forest Guardian
 Subclass/&FighterRoyalKnightDescription A knight who inspires greatness in others by committing brave deeds in battle. A lone knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 Subclass/&FighterRoyalKnightTitle Royal Knight
 Subclass/&FighterSpellShieldDescription Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
