@@ -32,7 +32,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                 if (FeatsContext.HasFeatsFromOtherMods)
                 {
-                    UI.Label(". Feats in " + "lime".color(RGBA.lime) + " were not created by this mod");
+                    UI.Label(". Feats in " + "brown".color(RGBA.brown) + " were not created by this mod");
                     UI.Label("");
                 }
 
@@ -81,7 +81,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                                 if (keyValuePair.Value)
                                 {
-                                    title = title.color(RGBA.lime);
+                                    title = title.color(RGBA.brown);
                                 }
 
                                 if (flip)
