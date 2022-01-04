@@ -37,6 +37,7 @@ namespace SolastaCommunityExpansion.Patches
             SubclassesContext.Load();
             TelemaCampaignContext.Load();
             TeleporterContext.Load();
+            UpcastSummonsContext.Load();
             VisionContext.Load();
 
             Main.Enabled = true;

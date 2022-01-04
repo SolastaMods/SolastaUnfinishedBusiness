@@ -162,6 +162,7 @@ namespace SolastaCommunityExpansion
         public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
         public bool FullyControlConjurations { get; set; }
         public bool DismissControlledConjurationsWhenDeliberatelyDropConcentration { get; set; }
+        public bool EnableUpcastConjureElemental { get; set; } = true;
 
         // House
         public bool AllowAnyClassToWearSylvanArmor { get; set; }
