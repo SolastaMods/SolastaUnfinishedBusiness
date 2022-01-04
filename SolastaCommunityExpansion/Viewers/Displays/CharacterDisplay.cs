@@ -64,7 +64,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (UI.Toggle("Enable the alternate human " + "[+1 feat / +2 attribute choices / +1 skill]".italic().yellow(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableAlternateHuman = toggle;
-                    InitialChoicesContext.RefreshTotalFeatsGrantedFistLevel();
+                    InitialChoicesContext.RefreshFirstLevelTotalFeats();
                 }
 
                 toggle = Main.Settings.EnableFlexibleBackgrounds;
@@ -102,7 +102,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (UI.Slider("Total feats granted at first level".white(), ref intValue, InitialChoicesContext.MIN_INITIAL_FEATS, InitialChoicesContext.MAX_INITIAL_FEATS, 0, "", UI.AutoWidth()))
                 {
                     Main.Settings.TotalFeatsGrantedFistLevel = intValue;
-                    InitialChoicesContext.RefreshTotalFeatsGrantedFistLevel();
+                    InitialChoicesContext.RefreshFirstLevelTotalFeats();
                 }
             }
 

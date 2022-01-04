@@ -10,42 +10,45 @@ namespace SolastaCommunityExpansion.Patches
     {
         internal static void Postfix()
         {
+            AdditionalNamesContext.Load();
+            AsiAndFeatContext.Load();
+            BugFixContext.Load();
+            CharacterExportContext.Load();
+            ClassesContext.Load();
+            ConjurationsContext.Load();
+            DruidArmorContext.Load();
+            DungeonMakerContext.Load();
+            EncountersSpawnContext.Load();
+            EpicArrayContext.Load();
+            FaceUnlockContext.Load();
+            // fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones
+            FightingStyleContext.Load();
+            FlexibleBackgroundsContext.Switch();
+            InitialChoicesContext.Load();
+            GameUiContext.Load();
+            InventoryManagementContext.Load();
+            ItemCraftingContext.Load();
+            ItemOptionsContext.Load();
+            Level20Context.Load();
+            PickPocketContext.Load();
+            RemoveBugVisualModelsContext.Load();
+            RemoveIdentificationContext.Load();
+            RespecContext.Load();
+            SrdAndHouseRulesContext.Load();
+            SubclassesContext.Load();
+            TelemaCampaignContext.Load();
+            TeleporterContext.Load();
+            VisionContext.Load();
+
             ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (runtime) =>
             {
-                AdditionalNamesContext.Load();
-                AsiAndFeatContext.Load();
-                BugFixContext.Load();
-                CharacterExportContext.Load();
-                ClassesContext.Load();
-                ConjurationsContext.Load();
-                DruidArmorContext.Load();
-                DungeonMakerContext.Load();
-                EncountersSpawnContext.Load();
-                EpicArrayContext.Load();
-                FaceUnlockContext.Load();
-                // fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones
-                FightingStyleContext.Load(); 
-                FeatsContext.Load();
-                FlexibleBackgroundsContext.Switch();
                 FlexibleRacesContext.Switch();
-                InitialChoicesContext.Load();
-                GameUiContext.Load();
-                InventoryManagementContext.Load();
-                ItemCraftingContext.Load();
-                ItemOptionsContext.Load();
-                Level20Context.Load();
-                PickPocketContext.Load();
+                InitialChoicesContext.RefreshFirstLevelTotalFeats();
+
+                FeatsContext.Load();
                 PowersContext.Load();
-                RemoveBugVisualModelsContext.Load();
-                RemoveIdentificationContext.Load();
-                RespecContext.Load();
-                SrdAndHouseRulesContext.Load();
                 SpellsContext.Load();
-                SubclassesContext.Load();
-                TelemaCampaignContext.Load();
-                TeleporterContext.Load();
-                VisionContext.Load();
-                // recache must be loaded at the very last step
+
                 GuiWrapperContext.Recache();
 
                 Main.Enabled = true;
