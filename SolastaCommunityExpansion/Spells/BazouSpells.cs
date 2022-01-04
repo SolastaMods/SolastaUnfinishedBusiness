@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using SolastaModApi;
 using SolastaModApi.BuilderHelpers;
 using SolastaModApi.Extensions;
-using SolastaCommunityExpansion.Features;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Spells
@@ -210,7 +210,7 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.SetHasSavingThrow(true);
             spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
 
-            var conditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
+            var conditionDefinition = new Builders.ConditionDefinitionBuilder<ConditionDefinition>(
                     DatabaseHelper.ConditionDefinitions.ConditionConfused,
                     "ConditionFrenzied",
                     GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "ConditionFrenzied").ToString(),

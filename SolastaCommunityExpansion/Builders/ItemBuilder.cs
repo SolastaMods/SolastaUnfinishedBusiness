@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SolastaCommunityExpansion.Features
+namespace SolastaCommunityExpansion.Builders
 {
     internal static class ItemBuilder
     {

@@ -1,4 +1,4 @@
-﻿using SolastaCommunityExpansion.Features;
+﻿using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
 using SolastaModApi.Extensions;

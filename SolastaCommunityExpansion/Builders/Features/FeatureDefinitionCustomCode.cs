@@ -1,5 +1,5 @@
 ﻿
-namespace SolastaCommunityExpansion.CustomFeatureDefinitions
+namespace SolastaCommunityExpansion.Builders.Features
 {
     /**
      * This adds the ability to do fully custom code when a feature is granted. Where possible you should use more targeted features,

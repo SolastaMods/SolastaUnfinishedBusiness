@@ -2,7 +2,7 @@
 using SolastaModApi.Extensions;
 using System.Collections.Generic;
 
-namespace SolastaCommunityExpansion.CustomFeatureDefinitions
+namespace SolastaCommunityExpansion.Builders.Features
 {
     public interface IOnAttackHitEffect
     {
