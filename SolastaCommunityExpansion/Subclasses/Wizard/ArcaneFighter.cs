@@ -106,7 +106,8 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         }
         internal static FeatureDefinitionPower EnchantWeapon
         {
-            get {
+            get
+            {
                 return _enchantWeapon = _enchantWeapon ?? BuildEnchantWeapon();
             }
         }

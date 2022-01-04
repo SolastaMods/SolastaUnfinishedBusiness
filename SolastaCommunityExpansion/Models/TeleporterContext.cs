@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using HarmonyLib;
 using TA;
 using UnityEngine;
 
@@ -49,7 +48,7 @@ namespace SolastaCommunityExpansion.Models
             var partyAndGuests = new List<GameLocationCharacter>();
             var positions = new List<int3>();
 
-            for (var iy = 0; iy < 4; iy++)         
+            for (var iy = 0; iy < 4; iy++)
             {
                 for (var ix = 0; ix < 2; ix++)
                 {
@@ -68,7 +67,7 @@ namespace SolastaCommunityExpansion.Models
 
                 // rotates the characters in position to force the game to redrawn them
                 gameLocationActionService.MoveCharacter(partyAndGuests[index], positions[(index + 1) % positions.Count], LocationDefinitions.Orientation.North, 0, ActionDefinitions.MoveStance.Walk);
-            }              
+            }
         }
     }
 }

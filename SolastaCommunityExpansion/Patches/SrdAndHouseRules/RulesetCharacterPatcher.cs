@@ -25,8 +25,8 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
             }
 
             if (__result)
-            { 
-                return; 
+            {
+                return;
             }
 
             // Repeats the last section of the original method but adds 'approximateCostInGold * item.StackCount'
@@ -57,8 +57,8 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
         // Modify original code to spend enough of a stack to meet component cost
         public static bool Prefix(RulesetCharacter __instance, RulesetEffectSpell activeSpell)
         {
-            if (!Main.Settings.AllowStackedMaterialComponent) 
-            { 
+            if (!Main.Settings.AllowStackedMaterialComponent)
+            {
                 return true;
             }
 

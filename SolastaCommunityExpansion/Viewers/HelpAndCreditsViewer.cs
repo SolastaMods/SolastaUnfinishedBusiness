@@ -73,6 +73,10 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("\n[line]\n");
                 collectedString.Append(Models.FightingStyleContext.GenerateFightingStyleDescription());
                 collectedString.Append("\n[line]\n");
+                collectedString.Append(Models.ClassesContext.GenerateClassDescription());
+                collectedString.Append("\n[line]\n");
+                collectedString.Append(Models.SpellsContext.GenerateSpellsDescription());
+                collectedString.Append("\n[line]\n");
                 collectedString.Append("[heading]Encounters General[/heading]\n[list]");
                 collectedString.Append("\n[*]Switch party AI from human to computer");
                 collectedString.Append("\n[*]Provide a custom ad-hoc encounter tool");

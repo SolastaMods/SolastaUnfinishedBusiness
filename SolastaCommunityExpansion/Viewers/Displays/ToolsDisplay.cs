@@ -6,6 +6,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
     internal static class ToolsDisplay
     {
         private static bool enableDebugCamera;
+
         private static bool enableDebugOverlay;
 
         internal static void DisplayTools()
@@ -14,81 +15,136 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             int intValue;
 
             UI.Label("");
-            UI.Label("Campaigns and Locations:".yellow());
-            UI.Label("");
 
-            toggle = Main.Settings.EnableSaveByLocation;
-            if (UI.Toggle("Enable save by campaigns / locations", ref toggle, UI.AutoWidth()))
+            toggle = Main.Settings.DisplayCampaignsAndLocationsToggle;
+            if (UI.DisclosureToggle("Campaigns and Locations:".yellow(), ref toggle, 200))
             {
-                Main.Settings.EnableSaveByLocation = toggle;
+                Main.Settings.DisplayCampaignsAndLocationsToggle = toggle;
             }
 
-            toggle = Main.Settings.EnableTelemaCampaign;
-            if (UI.Toggle("Enable the Telema Kickstarter demo location", ref toggle))
+            if (Main.Settings.DisplayCampaignsAndLocationsToggle)
             {
-                Main.Settings.EnableTelemaCampaign = toggle;
-            }
+                UI.Label("");
 
-            toggle = Main.Settings.EnableTeleportParty;
-            if (UI.Toggle("Enable the hotkey " + "ctrl-shift-(T)eleport".cyan() + " in game locations" + "\nYou might break quests or maps if you teleport to an undiscovered place".italic().yellow(), ref toggle))
-            {
-                Main.Settings.EnableTeleportParty = toggle;
-            }
-
-            UI.Label("");
-
-            toggle = Main.Settings.OverrideMinMaxLevel;
-            if (UI.Toggle("Override required min / max level", ref toggle))
-            {
-                Main.Settings.OverrideMinMaxLevel = toggle;
-            }
-
-            UI.Label("");
-
-            intValue = Main.Settings.OverridePartySize;
-            if (UI.Slider("Override party size ".white() + "[only in custom dungeons]".italic().yellow(), ref intValue, DungeonMakerContext.MIN_PARTY_SIZE, DungeonMakerContext.MAX_PARTY_SIZE, DungeonMakerContext.GAME_PARTY_SIZE, "", UI.AutoWidth()))
-            {
-                Main.Settings.OverridePartySize = intValue;
-            }
-
-            UI.Label("");
-
-            intValue = Main.Settings.maxBackupFilesPerLocationCampaign;
-            if (UI.Slider("Max. backup files per location or campaign".white(), ref intValue, 0, 20, 10))
-            {
-                Main.Settings.maxBackupFilesPerLocationCampaign = intValue;
-            }
-
-            UI.Label("");
-            UI.Label(". Backup files are saved under " + "GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups".italic().yellow());
-            UI.Label("");
-            UI.Label("Debug:".yellow());
-            UI.Label("");
-
-            toggle = Main.Settings.EnableCheatMenu;
-            if (UI.Toggle("Enable the cheats menu", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableCheatMenu = toggle;
-            }
-
-            if (UI.Toggle("Enable the debug camera", ref enableDebugCamera, UI.AutoWidth()))
-            {
-                IViewService viewService = ServiceRepository.GetService<IViewService>();
-                ICameraService cameraService = ServiceRepository.GetService<ICameraService>();
-
-                if (viewService == null || cameraService == null)
+                toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
+                if (UI.Toggle("Enable additional icons for camps, exits and teleporters on level map", ref toggle, UI.AutoWidth()))
                 {
-                    enableDebugCamera = false;
+                    Main.Settings.EnableAdditionalIconsOnLevelMap = toggle;
+
+                    if (toggle)
+                    {
+                        Main.Settings.MarkInvisibleTeleportersOnLevelMap = false;
+                    }
                 }
-                else
+
+                if (Main.Settings.EnableAdditionalIconsOnLevelMap)
                 {
-                    cameraService.DebugCameraEnabled = enableDebugCamera;
+                    toggle = Main.Settings.MarkInvisibleTeleportersOnLevelMap;
+                    if (UI.Toggle("+ Also mark the location of invisible teleporters on level map after discovery".italic(), ref toggle, UI.AutoWidth()))
+                    {
+                        Main.Settings.MarkInvisibleTeleportersOnLevelMap = toggle;
+                    }
                 }
+
+                toggle = Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered;
+                if (UI.Toggle("Hide exits and teleporters visual effects if not discovered yet", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered = toggle;
+                }
+
+                UI.Label("");
+
+                toggle = Main.Settings.EnableSaveByLocation;
+                if (UI.Toggle("Enable save by campaigns / locations", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableSaveByLocation = toggle;
+                }
+
+                toggle = Main.Settings.EnableTelemaCampaign;
+                if (UI.Toggle("Enable the Telema Kickstarter demo location", ref toggle))
+                {
+                    Main.Settings.EnableTelemaCampaign = toggle;
+                }
+
+                toggle = Main.Settings.EnableTeleportParty;
+                if (UI.Toggle("Enable the hotkey " + "ctrl-shift-(T)eleport".cyan() + " in game locations" + "\nYou might break quests or maps if you teleport to an undiscovered place".italic().yellow(), ref toggle))
+                {
+                    Main.Settings.EnableTeleportParty = toggle;
+                }
+
+                UI.Label("");
+
+                toggle = Main.Settings.FollowCharactersOnTeleport;
+                if (UI.Toggle("Camera follows teleported character(s)", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.FollowCharactersOnTeleport = toggle;
+                }
+
+                UI.Label("");
+
+                toggle = Main.Settings.OverrideMinMaxLevel;
+                if (UI.Toggle("Override required min / max level", ref toggle))
+                {
+                    Main.Settings.OverrideMinMaxLevel = toggle;
+                }
+
+                UI.Label("");
+
+                intValue = Main.Settings.OverridePartySize;
+                if (UI.Slider("Override party size ".white() + "[only in custom dungeons]".italic().yellow(), ref intValue, DungeonMakerContext.MIN_PARTY_SIZE, DungeonMakerContext.MAX_PARTY_SIZE, DungeonMakerContext.GAME_PARTY_SIZE, "", UI.AutoWidth()))
+                {
+                    Main.Settings.OverridePartySize = intValue;
+                }
+
+                UI.Label("");
+
+                intValue = Main.Settings.MaxBackupFilesPerLocationCampaign;
+                if (UI.Slider("Max. backup files per location or campaign".white(), ref intValue, 0, 20, 10))
+                {
+                    Main.Settings.MaxBackupFilesPerLocationCampaign = intValue;
+                }
+
+                UI.Label("");
+                UI.Label(". Backup files are saved under " + "GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups".italic().yellow());
             }
 
-            if (UI.Toggle("Enable the debug overlay", ref enableDebugOverlay, UI.AutoWidth()))
+            UI.Label("");
+
+            toggle = Main.Settings.DisplayDebugToggle;
+            if (UI.DisclosureToggle("Debug:".yellow(), ref toggle, 200))
             {
-                ServiceRepository.GetService<IDebugOverlayService>().ToggleActivation();
+                Main.Settings.DisplayDebugToggle = toggle;
+            }
+
+            if (Main.Settings.DisplayDebugToggle)
+            {
+                UI.Label("");
+
+                toggle = Main.Settings.EnableCheatMenu;
+                if (UI.Toggle("Enable the cheats menu", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableCheatMenu = toggle;
+                }
+
+                if (UI.Toggle("Enable the debug camera", ref enableDebugCamera, UI.AutoWidth()))
+                {
+                    IViewService viewService = ServiceRepository.GetService<IViewService>();
+                    ICameraService cameraService = ServiceRepository.GetService<ICameraService>();
+
+                    if (viewService == null || cameraService == null)
+                    {
+                        enableDebugCamera = false;
+                    }
+                    else
+                    {
+                        cameraService.DebugCameraEnabled = enableDebugCamera;
+                    }
+                }
+
+                if (UI.Toggle("Enable the debug overlay", ref enableDebugOverlay, UI.AutoWidth()))
+                {
+                    ServiceRepository.GetService<IDebugOverlayService>().ToggleActivation();
+                }
             }
 
             UI.Label("");

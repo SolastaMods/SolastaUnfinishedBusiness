@@ -2,13 +2,27 @@
 using SolastaModApi.Extensions;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace SolastaCommunityExpansion.Models
 {
     internal static class FeatsContext
     {
-        public static Dictionary<string, FeatDefinition> Feats { get; private set; } = new Dictionary<string, FeatDefinition>();
+        internal static bool HasFeatsFromOtherMods { get; private set; }
+
+        internal static Dictionary<FeatDefinition, bool> Feats { get; private set; } = new Dictionary<FeatDefinition, bool>();
+
+        internal static List<FeatDefinition> GetAllUnofficialFeats()
+        {
+            var officialFeatNames = typeof(SolastaModApi.DatabaseHelper.FeatDefinitions)
+                .GetProperties(BindingFlags.Public | BindingFlags.Static)
+                .Where(f => f.PropertyType == typeof(FeatDefinition))
+                .Select(f => f.Name).ToList();
+
+            return DatabaseRepository.GetDatabase<FeatDefinition>()
+                .Where(f => !officialFeatNames.Contains(f.Name)).ToList();
+        }
 
         internal static void Load()
         {
@@ -26,41 +40,50 @@ namespace SolastaCommunityExpansion.Models
             CraftyFeats.CreateFeats(feats);
             ElAntoniousFeats.CreateFeats(feats);
 
-            // Use the list of feats to get the settings and ui set up.
-
-            foreach (FeatDefinition feat in feats)
+            // Use the list of all unofficial feats to get the settings and ui set up
+            foreach (FeatDefinition feat in GetAllUnofficialFeats())
             {
-                if (!Feats.ContainsKey(feat.Name))
+                var isFromOtherMod = !feats.Contains(feat);
+
+                if (isFromOtherMod && !Main.Settings.AllowDisplayAllUnofficialContent)
                 {
-                    Feats.Add(feat.Name, feat);
+                    continue;
+                }
+
+                if (!Feats.ContainsKey(feat))
+                {
+                    Feats.Add(feat, isFromOtherMod);
                 }
 
                 feat.GuiPresentation.SetHidden(!Main.Settings.FeatEnabled.Contains(feat.Name));
             }
 
-            Feats = Feats.OrderBy(x => x.Value.FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
+            Feats = Feats.OrderBy(x => x.Key.FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
+            HasFeatsFromOtherMods = Feats.Any(x => x.Value);
         }
 
-        internal static void Switch(string featName, bool active)
+        internal static void Switch(FeatDefinition feat, bool active)
         {
-            if (!Feats.ContainsKey(featName))
+            if (!Feats.ContainsKey(feat))
             {
                 return;
             }
 
-            Feats[featName].GuiPresentation.SetHidden(!active);
+            feat.GuiPresentation.SetHidden(!active);
 
             if (active)
             {
-                if (!Main.Settings.FeatEnabled.Contains(featName))
+                if (!Main.Settings.FeatEnabled.Contains(feat.Name))
                 {
-                    Main.Settings.FeatEnabled.Add(featName);
+                    Main.Settings.FeatEnabled.Add(feat.Name);
                 }
             }
             else
             {
-                Main.Settings.FeatEnabled.Remove(featName);
+                Main.Settings.FeatEnabled.Remove(feat.Name);
             }
+
+            GuiWrapperContext.RecacheFeats();
         }
 
         public static string GenerateFeatsDescription()
@@ -69,7 +92,7 @@ namespace SolastaCommunityExpansion.Models
 
             outString.Append("\n[list]");
 
-            foreach (var feat in Feats.Values)
+            foreach (var feat in Feats.Keys)
             {
                 outString.Append("\n[*][b]");
                 outString.Append(feat.FormatTitle());

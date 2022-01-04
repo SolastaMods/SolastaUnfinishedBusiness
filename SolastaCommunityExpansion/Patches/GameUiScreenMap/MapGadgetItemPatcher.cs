@@ -42,6 +42,11 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                     ___iconImage.sprite = CreateSprite(Properties.Resources.Entry, 24);
                     ___guiTooltip.Content = "Exit";
                     break;
+                case -3:
+                    ___backgroundImage.sprite = ___backgroundSprites[2];
+                    ___iconImage.sprite = CreateSprite(Properties.Resources.Teleport, 24);
+                    ___guiTooltip.Content = "Teleporter";
+                    break;
                 default:
                     return true;
             }

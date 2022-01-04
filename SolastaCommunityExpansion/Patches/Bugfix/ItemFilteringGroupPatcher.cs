@@ -14,11 +14,11 @@ namespace SolastaCommunityExpansion.Patches.BugFix
         /// Without the fix searching for say 'Diamond' fails, but searching for 'iamond' finds 'Diamond'.
         /// </summary>
         public static bool Prefix(
-            ItemFilteringGroup __instance, 
+            ItemFilteringGroup __instance,
             List<ItemDefinition> ___itemsList,
-            List<GuiItemDefinition> ___guiItemDefinitions, 
+            List<GuiItemDefinition> ___guiItemDefinitions,
             string ___keyword, string ___currentCategory,
-            ref bool ___refreshing, 
+            ref bool ___refreshing,
             bool ___showCustom,
             bool notify)
         {
@@ -34,7 +34,7 @@ namespace SolastaCommunityExpansion.Patches.BugFix
 
             ___refreshing = true;
             __instance.FilteredItemsList.Clear();
-            
+
             for (int index = 0; index < ___itemsList.Count; ++index)
             {
                 ItemDefinition items = ___itemsList[index];
@@ -42,16 +42,22 @@ namespace SolastaCommunityExpansion.Patches.BugFix
 
                 // The only change from original code is to use '>-1' not '>0'
                 if (
-                    (string.IsNullOrEmpty(___keyword) || 
-                     guiItemDefinition.Title.IndexOf(___keyword, StringComparison.OrdinalIgnoreCase) > -1) 
+                    (string.IsNullOrEmpty(___keyword) ||
+                     guiItemDefinition.Title.IndexOf(___keyword, StringComparison.OrdinalIgnoreCase) > -1)
                      && (___showCustom || !items.UserItem))
                 {
                     if (___currentCategory == "All")
+                    {
                         __instance.FilteredItemsList.Add(items);
+                    }
                     else if (___currentCategory == "Custom" && items.UserItem)
+                    {
                         __instance.FilteredItemsList.Add(items);
+                    }
                     else if (items.MerchantCategory == ___currentCategory)
+                    {
                         __instance.FilteredItemsList.Add(items);
+                    }
                 }
             }
 

@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Patches.CharacterExport
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetInventory_SerializeElements
     {
-        static readonly object Locker = new object();
+        private static readonly object Locker = new object();
 
         internal static void Prefix()
         {

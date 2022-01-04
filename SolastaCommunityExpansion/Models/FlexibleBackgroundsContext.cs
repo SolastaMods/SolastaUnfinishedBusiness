@@ -55,8 +55,10 @@ namespace SolastaCommunityExpansion.Models
             { Wanderer, new List<FeatureDefinition> { ProficiencyWandererSkills, ProficiencyWandererTools } },
         };
 
-        internal static void Switch(bool enabled)
+        internal static void Switch()
         {
+            var enabled = Main.Settings.EnableFlexibleBackgrounds;
+
             foreach (var keyValuePair in addedFeatures)
             {
                 foreach (var featureDefinition in keyValuePair.Value)
@@ -86,11 +88,6 @@ namespace SolastaCommunityExpansion.Models
                     }
                 }
             }
-        }
-
-        internal static void Load()
-        {
-            Switch(Main.Settings.EnableFlexibleBackgrounds);
         }
     }
 }

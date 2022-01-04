@@ -20,6 +20,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             { "Scarlex", "Royal Knight subclass" },
             { "RedOrca", "Path of the Light subclass, Indomitable Might" },
             { "Krisys", "Thug subclass" },
+            { "Dreadmaker", "Circle of the Forest Guardian subclass" },
             { "Narria", "modKit creator, developer" }
         };
 

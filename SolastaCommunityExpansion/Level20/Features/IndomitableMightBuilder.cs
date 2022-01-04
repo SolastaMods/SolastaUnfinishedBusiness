@@ -24,7 +24,7 @@ namespace SolastaCommunityExpansion.Level20.Features
         internal static readonly FeatureDefinition IndomitableMight =
             CreateAndAddToDB(IndomitableMightName, IndomitableMightGuid);
     }
-    
+
     internal class IndomitableMight : FeatureDefinition, IMinimumAbilityCheckTotal
     {
         public int? MinimumStrengthAbilityCheckTotal(RulesetCharacter character, string proficiencyName)

@@ -88,7 +88,7 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
                 .Where(opt => opt.LocationType == selectedCampaign.LocationType)
                 .FirstOrDefault(o => o.CampaignOrLocation == selectedCampaign.CampaignOrLocationName);
 
-            foreach (var o in guiDropdown.options.Cast<LocationOptionData>().Select((od, i) => new {od, i}))
+            foreach (var o in guiDropdown.options.Cast<LocationOptionData>().Select((od, i) => new { od, i }))
             {
                 Main.Log($"{o.od.LocationType}, {o.od.CampaignOrLocation}, {o.i}");
             }

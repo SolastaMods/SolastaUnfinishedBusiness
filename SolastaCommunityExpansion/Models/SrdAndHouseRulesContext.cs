@@ -87,7 +87,7 @@ namespace SolastaCommunityExpansion.Models
                         stealthRolls.Add(surprisingCharacter, stealthRoll);
                     }
                 }
-           
+
                 foreach (GameLocationCharacter surprisedCharacter in surprisedParty)
                 {
                     // revalidates the surprise

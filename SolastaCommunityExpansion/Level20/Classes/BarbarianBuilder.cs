@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using static SolastaCommunityExpansion.Level20.Features.IndomitableMightBuilder;
-using static SolastaCommunityExpansion.Level20.Features.PrimalChampionConstitutionBuilder;
-using static SolastaCommunityExpansion.Level20.Features.PrimalChampionStrengthBuilder;
+using static SolastaCommunityExpansion.Level20.Features.PrimalChampionBuilder;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
@@ -18,8 +17,7 @@ namespace SolastaCommunityExpansion.Level20.Classes
                 new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 17),
                 new FeatureUnlockByLevel(IndomitableMight, 18),
                 new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19),
-                new FeatureUnlockByLevel(PrimalChampionStrength, 20),
-                new FeatureUnlockByLevel(PrimalChampionConstitution, 20),
+                new FeatureUnlockByLevel(PrimalChampion, 20),
             });
         }
     }

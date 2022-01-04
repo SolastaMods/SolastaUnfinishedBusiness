@@ -40,7 +40,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         {
             get
             {
-                return _bonusRecovery = _bonusRecovery ?? 
+                return _bonusRecovery = _bonusRecovery ??
                     BuildSpellFormPower(
                         1 /* usePerRecharge */, RuleDefinitions.UsesDetermination.Fixed, RuleDefinitions.ActivationTime.Rest,
                         1 /* cost */, RuleDefinitions.RechargeRate.LongRest, "PowerSpellMasterBonusRecovery", SpellRecoveryGui);

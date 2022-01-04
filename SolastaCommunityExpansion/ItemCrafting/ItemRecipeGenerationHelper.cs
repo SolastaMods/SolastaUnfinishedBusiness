@@ -273,14 +273,14 @@ namespace SolastaCommunityExpansion.ItemCrafting
                 {
                     continue;
                 }
-                if (primed.IsWeapon && 
-                    item.IsWeapon && 
+                if (primed.IsWeapon &&
+                    item.IsWeapon &&
                     primed.WeaponDescription.WeaponType == item.WeaponDescription.WeaponType)
                 {
                     match = item;
                 }
-                if (primed.IsArmor && 
-                    item.IsArmor && 
+                if (primed.IsArmor &&
+                    item.IsArmor &&
                     primed.ArmorDescription.ArmorType == item.ArmorDescription.ArmorType)
                 {
                     match = item;

@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Models
     internal static class EncountersSpawnContext
     {
         private const InputCommands.Id CTRL_SHIFT_E = (InputCommands.Id)44440005;
-        
+
         internal const int MAX_ENCOUNTER_CHARACTERS = 16;
 
         private static ulong EncounterId { get; set; } = 10000;
@@ -68,7 +68,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static List<RulesetCharacterHero> GetHeroes()
         {
-            if (Heroes.Count == 0) 
+            if (Heroes.Count == 0)
             {
                 var characterPoolService = ServiceRepository.GetService<ICharacterPoolService>();
 

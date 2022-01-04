@@ -3,9 +3,9 @@ using System.Linq;
 using UnityEngine;
 using UnityModManagerNet;
 using static SolastaCommunityExpansion.Viewers.Displays.CharacterDisplay;
-using static SolastaCommunityExpansion.Viewers.Displays.FeatsDisplay;
-using static SolastaCommunityExpansion.Viewers.Displays.FightingStylesDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.ClassesAndSubclassesDisplay;
+using static SolastaCommunityExpansion.Viewers.Displays.FeatsAndFightingStylesDisplay;
+using static SolastaCommunityExpansion.Viewers.Displays.SpellsDisplay;
 
 namespace SolastaCommunityExpansion.Viewers
 {
@@ -17,12 +17,12 @@ namespace SolastaCommunityExpansion.Viewers
 
         private static int selectedPane;
 
-        private static readonly NamedAction[] actions = 
+        private static readonly NamedAction[] actions =
         {
             new NamedAction("General", DisplayCharacter),
-            new NamedAction("Feats", DisplayFeats),
             new NamedAction("Classes & Subclasses", DisplayClassesAndSubclasses),
-            new NamedAction("Fighting Styles", DisplayFightingStyles),
+            new NamedAction("Feats & Fighting Styles", DisplayFeatsAndFightingStyles),
+            new NamedAction("Spells", DisplaySpells)
         };
 
         public void OnGUI(UnityModManager.ModEntry modEntry)

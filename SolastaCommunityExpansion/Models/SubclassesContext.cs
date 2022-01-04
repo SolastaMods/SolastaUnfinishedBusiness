@@ -1,5 +1,6 @@
 ﻿using SolastaCommunityExpansion.Subclasses;
 using SolastaCommunityExpansion.Subclasses.Barbarian;
+using SolastaCommunityExpansion.Subclasses.Druid;
 using SolastaCommunityExpansion.Subclasses.Fighter;
 using SolastaCommunityExpansion.Subclasses.Ranger;
 using SolastaCommunityExpansion.Subclasses.Rogue;
@@ -27,6 +28,7 @@ namespace SolastaCommunityExpansion.Models
             LoadSubclass(new RoyalKnight());
             LoadSubclass(new PathOfTheLight());
             LoadSubclass(new Thug());
+            LoadSubclass(new CircleOfTheForestGuardian());
         }
 
         private static void LoadSubclass(AbstractSubclass subclassBuilder)
@@ -88,7 +90,7 @@ namespace SolastaCommunityExpansion.Models
             var outString = new StringBuilder("[heading]Subclasses[/heading]");
 
             outString.Append("\n[list]");
-            
+
             foreach (var subclass in Subclasses.Values)
             {
                 outString.Append("\n[*][b]");

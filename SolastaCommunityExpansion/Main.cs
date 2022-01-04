@@ -12,8 +12,6 @@ namespace SolastaCommunityExpansion
     {
         internal static bool Enabled { get; set; }
 
-        internal static bool LateEnabled { get; set; }
-
         internal static readonly string MOD_FOLDER = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
         [Conditional("DEBUG")]
@@ -23,7 +21,7 @@ namespace SolastaCommunityExpansion
         internal static void Warning(string msg) => Logger?.Warning(msg);
         internal static UnityModManager.ModEntry.ModLogger Logger { get; private set; }
         internal static ModManager<Core, Settings> Mod { get; private set; }
-        internal static MenuManager Menu { get; private set; }  
+        internal static MenuManager Menu { get; private set; }
         internal static Settings Settings { get { return Mod.Settings; } }
 
         internal static bool Load(UnityModManager.ModEntry modEntry)
@@ -54,11 +52,6 @@ namespace SolastaCommunityExpansion
         internal static void OnShowGui(UnityModManager.ModEntry modEntry)
         {
             Models.PlayerControllerContext.RefreshGuiState();
-        }
-
-        internal static bool IsModHelpersLoaded()
-        {
-            return AppDomain.CurrentDomain.GetAssemblies().Any(assembly => assembly.FullName.Contains("SolastaModHelpers"));
         }
     }
 }

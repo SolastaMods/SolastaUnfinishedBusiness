@@ -47,21 +47,15 @@ namespace SolastaCommunityExpansion.Models
             { "HalfOrc", new List<string> { "FeatureSetHalfOrcAbilityScoreIncrease" } },
             // unofficial races
             { "FirbolgRace", new List<string> { "AttributeModifierFirbolgStrengthAbilityScoreIncrease", "AttributeModifierFirbolgWisdomAbilityScoreIncrease" } },
-            { "Gnome", new List<string> { "AttributeModifierGnomeAbilityScoreIncrease", "AttributeModifierForestGnomeAbilityScoreIncrease" } }
+            { "GnomeRace", new List<string> { "AttributeModifierGnomeAbilityScoreIncrease", "AttributeModifierForestGnomeAbilityScoreIncrease" } }
         };
 
         private static void RemoveMatchingFeature(List<FeatureUnlockByLevel> unlocks, FeatureDefinition toRemove)
         {
-            for (int i = 0; i < unlocks.Count; i++)
-            {
-                if (unlocks[i].FeatureDefinition.GUID == toRemove.GUID)
-                {
-                    unlocks.RemoveAt(i);
-                }
-            }
+            unlocks.RemoveAll(u => u.FeatureDefinition.GUID == toRemove.GUID);
         }
 
-        internal static void SwitchFlexibleRaces()
+        internal static void Switch()
         {
             var enabled = Main.Settings.EnableFlexibleRaces;
             var dbCharacterRaceDefinition = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();

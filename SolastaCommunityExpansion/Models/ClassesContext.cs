@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Models
         internal static void Load()
         {
             //LoadClass(new Tinkerer());
-            //LoadClass(new Witch());
+            LoadClass(new Witch());
         }
 
         private static void LoadClass(AbstractClass classBuilder)
@@ -62,7 +62,7 @@ namespace SolastaCommunityExpansion.Models
             var outString = new StringBuilder("[heading]Classes[/heading]");
 
             outString.Append("\n[list]");
-            
+
             foreach (var characterClass in Classes.Values)
             {
                 outString.Append("\n[*][b]");

@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Models
     {
         public static Dictionary<string, List<ItemDefinition>> RecipeBooks { get; } = new Dictionary<string, List<ItemDefinition>>();
 
-        public static List<string> BASE_GAME_ITEMS_CATEGORIES = new List<string>()
+        public static readonly List<string> BASE_GAME_ITEMS_CATEGORIES = new List<string>()
         {
             "PrimedItems",
             "EnchantingIngredients",

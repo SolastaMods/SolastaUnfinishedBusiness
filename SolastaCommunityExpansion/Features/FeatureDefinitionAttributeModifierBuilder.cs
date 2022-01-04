@@ -13,5 +13,11 @@ namespace SolastaCommunityExpansion.Features
             Definition.SetModifierValue(amount);
             Definition.SetGuiPresentation(guiPresentation);
         }
+        public FeatureDefinitionAttributeModifierBuilder SetModifierAbilityScore(string abilityScore)
+        {
+            Definition.SetModifierAbilityScore(abilityScore);
+            return this;
+        }
     }
+
 }
