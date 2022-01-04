@@ -4,7 +4,7 @@ using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 using static SolastaModApi.DatabaseHelper.SchoolOfMagicDefinitions;
 
-namespace SolastaCommunityExpansion.Features
+namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionSavingThrowAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionSavingThrowAffinity>
     {

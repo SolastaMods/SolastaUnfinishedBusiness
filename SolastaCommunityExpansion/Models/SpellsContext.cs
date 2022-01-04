@@ -246,7 +246,7 @@ namespace SolastaCommunityExpansion.Models
                 outString.Append("\n[*][b]");
                 outString.Append(spell.FormatTitle());
                 outString.Append("[/b]: ");
-                outString.Append(spell.FormatTitle());
+                outString.Append(spell.FormatDescription());
             }
 
             outString.Append("\n[/list]");

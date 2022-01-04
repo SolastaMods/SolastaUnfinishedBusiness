@@ -55,7 +55,7 @@ namespace SolastaCommunityExpansion.Models
             unlocks.RemoveAll(u => u.FeatureDefinition.GUID == toRemove.GUID);
         }
 
-        internal static void SwitchFlexibleRaces()
+        internal static void Switch()
         {
             var enabled = Main.Settings.EnableFlexibleRaces;
             var dbCharacterRaceDefinition = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();

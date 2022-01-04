@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using SolastaCommunityExpansion.Features;
+using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;

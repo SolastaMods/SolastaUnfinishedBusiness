@@ -21,8 +21,9 @@ namespace SolastaCommunityExpansion.Patches
             EncountersSpawnContext.Load();
             EpicArrayContext.Load();
             FaceUnlockContext.Load();
-            FightingStyleContext.Load(); // Fighting Styles should be loaded before feats in order to generate feats of new fighting styles
-            FlexibleBackgroundsContext.Load();
+            // fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones
+            FightingStyleContext.Load();
+            FlexibleBackgroundsContext.Switch();
             InitialChoicesContext.Load();
             GameUiContext.Load();
             InventoryManagementContext.Load();
@@ -40,7 +41,19 @@ namespace SolastaCommunityExpansion.Patches
             UpcastSummonsContext.Load();
             VisionContext.Load();
 
-            Main.Enabled = true;
+            ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (runtime) =>
+            {
+                FlexibleRacesContext.Switch();
+                InitialChoicesContext.RefreshFirstLevelTotalFeats();
+
+                FeatsContext.Load();
+                PowersContext.Load();
+                SpellsContext.Load();
+
+                GuiWrapperContext.Recache();
+
+                Main.Enabled = true;
+            };
         }
     }
 }

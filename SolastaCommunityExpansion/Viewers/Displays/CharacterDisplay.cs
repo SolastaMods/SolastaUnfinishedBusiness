@@ -64,21 +64,21 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (UI.Toggle("Enable the alternate human " + "[+1 feat / +2 attribute choices / +1 skill]".italic().yellow(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableAlternateHuman = toggle;
-                    InitialChoicesContext.RefreshTotalFeatsGrantedFistLevel();
+                    InitialChoicesContext.RefreshFirstLevelTotalFeats();
                 }
 
                 toggle = Main.Settings.EnableFlexibleBackgrounds;
                 if (UI.Toggle("Enable flexible backgrounds " + "[select skill and tool proficiencies from backgrounds]".italic().yellow(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableFlexibleBackgrounds = toggle;
-                    FlexibleBackgroundsContext.Switch(toggle);
+                    FlexibleBackgroundsContext.Switch();
                 }
 
                 toggle = Main.Settings.EnableFlexibleRaces;
                 if (UI.Toggle("Enable flexible races " + "[assign ability score points instead of the racial defaults]".italic().yellow() + "\ni.e.: High Elf has 3 points to assign instead of +2 Dex / +1 Int".italic(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableFlexibleRaces = toggle;
-                    FlexibleRacesContext.SwitchFlexibleRaces();
+                    FlexibleRacesContext.Switch();
                 }
 
                 UI.Label("");
@@ -102,7 +102,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (UI.Slider("Total feats granted at first level".white(), ref intValue, InitialChoicesContext.MIN_INITIAL_FEATS, InitialChoicesContext.MAX_INITIAL_FEATS, 0, "", UI.AutoWidth()))
                 {
                     Main.Settings.TotalFeatsGrantedFistLevel = intValue;
-                    InitialChoicesContext.RefreshTotalFeatsGrantedFistLevel();
+                    InitialChoicesContext.RefreshFirstLevelTotalFeats();
                 }
             }
 

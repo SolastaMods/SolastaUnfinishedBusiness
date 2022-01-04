@@ -212,7 +212,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.StockHugoStoreWithAdditionalFoci;
-                if (UI.Toggle("Stocks Hugo's store with new foci items " + "[Arcane Staff, Druid Neck, Staff and Club]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Stocks Hugo's store with " + "Wand of Identify".orange() + " and new foci items " + "[Arcane Staff, Druid Neck, Staff and Club]".italic().yellow(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.StockHugoStoreWithAdditionalFoci = toggle;
                     Main.Settings.EnableAdditionalFociInDungeonMaker = toggle;

@@ -29,7 +29,7 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void RefreshTotalFeatsGrantedFistLevel()
+        internal static void RefreshFirstLevelTotalFeats()
         {
             if (PreviousTotalFeatsGrantedFistLevel > -1)
             {

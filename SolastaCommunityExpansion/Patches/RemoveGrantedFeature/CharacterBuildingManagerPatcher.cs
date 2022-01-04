@@ -1,5 +1,5 @@
 ﻿using HarmonyLib;
-using SolastaCommunityExpansion.CustomFeatureDefinitions;
+using SolastaCommunityExpansion.Builders.Features;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
