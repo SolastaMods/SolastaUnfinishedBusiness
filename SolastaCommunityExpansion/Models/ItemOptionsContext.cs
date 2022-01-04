@@ -7,11 +7,47 @@ using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionCharacterPresentations;
 using static SolastaModApi.DatabaseHelper.ItemDefinitions;
 using static SolastaModApi.DatabaseHelper.MerchantDefinitions;
+using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Models
 {
     internal static class ItemOptionsContext
     {
+        private sealed class WandIdentifyBuilder : BaseDefinitionBuilder<ItemDefinition>
+        {
+            private WandIdentifyBuilder(string name, string guid, string title, string description, ItemDefinition original) : base(original, name, guid)
+            {
+                Definition.GuiPresentation.Title = title;
+                Definition.GuiPresentation.Description = description;
+                Definition.UsableDeviceDescription.DeviceFunctions[0].SetSpellDefinition(Identify);
+
+                var stockFocus = new StockUnitDescription();
+
+                stockFocus.SetItemDefinition(Definition);
+                stockFocus.SetInitialAmount(1);
+                stockFocus.SetInitialized(true);
+                stockFocus.SetFactionStatus("Indifference");
+                stockFocus.SetMaxAmount(2);
+                stockFocus.SetMinAmount(1);
+                stockFocus.SetStackCount(1);
+                stockFocus.SetReassortAmount(1);
+                stockFocus.SetReassortRateValue(1);
+                stockFocus.SetReassortRateType(RuleDefinitions.DurationType.Day);
+
+                Store_Merchant_Hugo_Requer_Cyflen_Potions.StockUnitDescriptions.Add(stockFocus);
+            }
+
+            private static ItemDefinition CreateAndAddToDB(string name, string guid, string title, string description, ItemDefinition original) =>
+                new WandIdentifyBuilder(name, guid, title, description, original).AddToDB();
+
+            internal static readonly ItemDefinition WandIdentify = WandIdentifyBuilder.CreateAndAddToDB(
+                "WandIdentify",
+                "46ae7624-4d24-455a-98f9-d41403b0ae19",
+                "Equipment/&WandIdentifyTitle",
+                "Equipment/&WandIdentifyDescription",
+                WandMagicMissile);
+        }
+
         private sealed class FocusDefinitionBuilder : BaseDefinitionBuilder<ItemDefinition>
         {
             private FocusDefinitionBuilder(string name, string guid, string title, string description, ItemDefinition original, EquipmentDefinitions.FocusType type, AssetReferenceSprite assetReferenceSprite) : base(original, name, guid)
@@ -209,6 +245,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void SwitchFociItems()
         {
+            WandIdentifyBuilder.WandIdentify.GuiPresentation.SetHidden(!Main.Settings.StockHugoStoreWithAdditionalFoci);
             FocusDefinitionBuilder.ArcaneStaff.GuiPresentation.SetHidden(!Main.Settings.StockHugoStoreWithAdditionalFoci);
             FocusDefinitionBuilder.DruidicAmulet.GuiPresentation.SetHidden(!Main.Settings.StockHugoStoreWithAdditionalFoci);
             FocusDefinitionBuilder.LivewoodClub.GuiPresentation.SetHidden(!Main.Settings.StockHugoStoreWithAdditionalFoci);
