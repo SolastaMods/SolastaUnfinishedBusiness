@@ -71,14 +71,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (UI.Toggle("Enable flexible backgrounds " + "[select skill and tool proficiencies from backgrounds]".italic().yellow(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableFlexibleBackgrounds = toggle;
-                    FlexibleBackgroundsContext.Switch(toggle);
+                    FlexibleBackgroundsContext.Switch();
                 }
 
                 toggle = Main.Settings.EnableFlexibleRaces;
                 if (UI.Toggle("Enable flexible races " + "[assign ability score points instead of the racial defaults]".italic().yellow() + "\ni.e.: High Elf has 3 points to assign instead of +2 Dex / +1 Int".italic(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableFlexibleRaces = toggle;
-                    FlexibleRacesContext.SwitchFlexibleRaces();
+                    FlexibleRacesContext.Switch();
                 }
 
                 UI.Label("");
