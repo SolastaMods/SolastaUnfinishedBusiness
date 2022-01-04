@@ -11,18 +11,12 @@ namespace SolastaCommunityExpansion.Patches.Conjurations
     {
         internal static void Prefix(EffectForm effectForm, ApplyFormsParams formsParams)
         {
-            if (effectForm is UpcastSummonEffectForm upcastForm)
-            {
-                upcastForm.ApplySpellLevel(formsParams.effectLevel);
-            }
+            UpcastSummonsContext.ApplyUpcastSummon(effectForm, formsParams.effectLevel);
         }
 
         internal static void Postfix(EffectForm effectForm)
         {
-            if (effectForm is UpcastSummonEffectForm upcastForm)
-            {
-                upcastForm.Restore();
-            }
+            UpcastSummonsContext.RestoreStandardSummon(effectForm);
         }
     }
 }
