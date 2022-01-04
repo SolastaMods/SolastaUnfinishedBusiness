@@ -27,11 +27,9 @@ namespace SolastaCommunityExpansion.Models
                 _ = new FeatureDefinitionPointPoolBuilder(name, guid, HeroDefinitions.PointsPoolType.Feat, i,
                         new GuiPresentationBuilder($"Race/&PointPoolSelect{i}FeatsDescription", $"Race/&PointPoolSelect{i}FeatsTitle").Build()).AddToDB(true);
             }
-
-            RefreshTotalFeatsGrantedFistLevel();
         }
 
-        internal static void RefreshTotalFeatsGrantedFistLevel()
+        internal static void RefreshFirstLevelTotalFeats()
         {
             if (PreviousTotalFeatsGrantedFistLevel > -1)
             {
