@@ -1,9 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using SolastaModApi;
+using SolastaModApi.BuilderHelpers;
 using SolastaModApi.Diagnostics;
 using SolastaModApi.Extensions;
 using static EffectForm;
 using static RuleDefinitions;
+using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Models
@@ -12,14 +16,23 @@ namespace SolastaCommunityExpansion.Models
     {
         private static Dictionary<SummonForm, UpcastSummonInfo> UpcastInfo { get; } = new Dictionary<SummonForm, UpcastSummonInfo>();
 
+        private static readonly Guid Namespace = new Guid("de4539b8e0194684b1d0585100dd94e5");
+
+        private const string FireElementalCR6Name = "FireElementalCE_CR6";
+        private const string FireElementalCR7Name = "FireElementalCE_CR7";
+
+        private const string AirElementalCR6Name = "AirElementalCE_CR6";
+        private const string AirElementalCR7Name = "AirElementalCE_CR7";
+
+        private const string EarthElementalCR6Name = "EarthElementalCE_CR6";
+        private const string EarthElementalCR7Name = "EarthElementalCE_CR7";
+
         public static void Load()
         {
             if (!Main.Settings.EnableUpcastConjureElemental)
             {
                 ResetAdvancement(ConjureElemental);
-
                 UpcastInfo.Keys.ToList().ForEach(RestoreStandardSummon);
-
                 UpcastInfo.Clear();
                 return;
             }
@@ -27,15 +40,12 @@ namespace SolastaCommunityExpansion.Models
             /////////////////////////////////////////////////////////////////////////////////////////////////////
             // Conjure Elemental
             ConfigureAdvancement(ConjureElemental);
-            // TODO: ConfigureAdvancement(ConjureFey);
 
-            // TODO: Add CR 6/7 versions of Earth/Fire/Air elementals
-            // e.g. "Fire_Elemental_CE_Large", "Fire_Elemental_CE_Huge"
-            // TODO: once we have those, make them FullyControlledWhenAllied 
+            CreateHigherLevelSummons();
 
-            AddUpcastSummons(ConjureElementalAir, "Giant_Frost", "Young_GreenDragon");
-            AddUpcastSummons(ConjureElementalEarth, "Giant_Hill", "Giant_Stone");
-            AddUpcastSummons(ConjureElementalFire, "Giant_Fire", "Young_BlackDragon");
+            AddUpcastSummons(ConjureElementalAir, AirElementalCR6Name, AirElementalCR7Name);
+            AddUpcastSummons(ConjureElementalEarth, EarthElementalCR6Name, EarthElementalCR7Name);
+            AddUpcastSummons(ConjureElementalFire, FireElementalCR6Name, FireElementalCR7Name);
 
             // TODO: same for Fey
 
@@ -49,6 +59,7 @@ namespace SolastaCommunityExpansion.Models
 
             void ResetAdvancement(SpellDefinition definition)
             {
+                // NOTE: this assumes that default spell doesn't support advancement
                 var advancement = definition.EffectDescription.EffectAdvancement;
                 advancement.SetEffectIncrementMethod(EffectIncrementMethod.None);
                 advancement.SetAdditionalSpellLevelPerIncrement(0);
@@ -81,6 +92,137 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
+        internal static void CreateHigherLevelSummons()
+        {
+            // Quick and dirty :)
+            // Not in DM, not in bestiary.  Purely for summons purposes.
+
+            // TODO: localization, a description, refine (increase attack bonus, more attacks etc)
+
+            // Fire
+
+            if (!DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(FireElementalCR6Name, out var _))
+            {
+                var builder = GetBuilder(FireElementalCR6Name,
+                    "Large Fire Elemental", "description", MonsterDefinitions.Fire_Elemental);
+
+                builder
+                    .SetHitDiceNumber(14)
+                    .SetHitPointsBonus(42)
+                    .SetStandardHitPoints(77 + 42)
+                    .SetAbilityScores(12, 17, 16, 6, 10, 7)
+                    .SetModelScale(0.75f)
+                    .SetChallengeRating(6)
+                    .SetInDungeonEditor(false)
+                    .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
+                    .AddToDB();
+            }
+
+            if (!DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(FireElementalCR7Name, out var _))
+            {
+                var builder = GetBuilder(FireElementalCR7Name,
+                    "Huge Fire Elemental", "description", MonsterDefinitions.Fire_Elemental);
+
+                // TODO: 3 attacks?
+
+                builder
+                    .SetHitDiceNumber(16)
+                    .SetHitPointsBonus(48)
+                    .SetStandardHitPoints(88 + 48)
+                    .SetAbilityScores(14, 17, 16, 6, 10, 7)
+                    .SetModelScale(0.9f)
+                    .SetChallengeRating(7)
+                    .SetInDungeonEditor(false)
+                    .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
+                    .AddToDB();
+            }
+
+            // Air
+
+            if (!DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(AirElementalCR6Name, out var _))
+            {
+                var builder = GetBuilder(AirElementalCR6Name,
+                    "Large Air Elemental", "description", MonsterDefinitions.Air_Elemental);
+
+                builder
+                    .SetHitDiceNumber(14)
+                    .SetHitPointsBonus(28)
+                    .SetStandardHitPoints(77 + 28)
+                    .SetAbilityScores(16, 20, 14, 6, 10, 6)
+                    .SetModelScale(0.75f)
+                    .SetChallengeRating(6)
+                    .SetInDungeonEditor(false)
+                    .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
+                    .AddToDB();
+            }
+
+            if (!DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(AirElementalCR7Name, out var _))
+            {
+                var builder = GetBuilder(AirElementalCR7Name,
+                    "Huge Air Elemental", "description", MonsterDefinitions.Air_Elemental);
+
+                // TODO: 3 attacks?
+
+                builder
+                    .SetHitDiceNumber(16)
+                    .SetHitPointsBonus(32)
+                    .SetStandardHitPoints(88 + 32)
+                    .SetAbilityScores(18, 20, 14, 6, 10, 6)
+                    .SetModelScale(0.9f)
+                    .SetChallengeRating(7)
+                    .SetInDungeonEditor(false)
+                    .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
+                    .AddToDB();
+            }
+
+            // Earth
+
+            if (!DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(EarthElementalCR6Name, out var _))
+            {
+                var builder = GetBuilder(EarthElementalCR6Name,
+                    "Large Earth Elemental", "description", MonsterDefinitions.Earth_Elemental);
+
+                builder
+                    .SetHitDiceNumber(14)
+                    .SetHitPointsBonus(60)
+                    .SetStandardHitPoints(77 + 60)
+                    .SetAbilityScores(22, 8, 20, 5, 10, 5)
+                    .SetModelScale(0.75f)
+                    .SetChallengeRating(6)
+                    .SetInDungeonEditor(false)
+                    .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
+                    .AddToDB();
+            }
+
+            if (!DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(EarthElementalCR7Name, out var _))
+            {
+                var builder = GetBuilder(EarthElementalCR7Name,
+                    "Huge Earth Elemental", "description", MonsterDefinitions.Earth_Elemental);
+
+                // TODO: 3 attacks?
+
+                builder
+                    .SetHitDiceNumber(16)
+                    .SetHitPointsBonus(60)
+                    .SetStandardHitPoints(88 + 60)
+                    .SetAbilityScores(24, 8, 20, 5, 10, 5)
+                    .SetModelScale(0.9f)
+                    .SetChallengeRating(7)
+                    .SetInDungeonEditor(false)
+                    .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
+                    .AddToDB();
+            }
+
+            // Helpers
+
+            MonsterBuilder GetBuilder(string name, string title, string description, MonsterDefinition baseMonster)
+            {
+                return new MonsterBuilder(name, CreateGuid(name), title, description, baseMonster);
+            }
+
+            string CreateGuid(string name) => GuidHelper.Create(Namespace, name).ToString("N");
+        }
+
         internal static void ApplyUpcastSummon(EffectForm effectForm, int effectiveLevel)
         {
             if (!Main.Settings.EnableUpcastConjureElemental
@@ -93,6 +235,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (UpcastInfo.TryGetValue(summonForm, out var upcastSummonInfo))
             {
+                #region Preconditions
                 if (string.IsNullOrEmpty(upcastSummonInfo.OriginalMonsterDefinitionName))
                 {
                     Main.Log($"UpcastSummon-ApplySpellLevel: not initialized - ignoring");
@@ -110,6 +253,7 @@ namespace SolastaCommunityExpansion.Models
                     Main.Log($"UpcastSummon-ApplySpellLevel: {effectiveLevel}, no suitable upcast - ignoring");
                     return;
                 }
+                #endregion
 
                 var upcastMonsterName = upcastSummonInfo.UpcastMonsterDefinitionNames[effectiveLevel - upcastSummonInfo.OriginalSpellLevel - 1];
 
@@ -136,7 +280,7 @@ namespace SolastaCommunityExpansion.Models
         }
 
         private static void RestoreStandardSummon(SummonForm summonForm)
-        { 
+        {
             if (UpcastInfo.TryGetValue(summonForm, out var upcastSummonInfo)
                 && !string.IsNullOrEmpty(upcastSummonInfo.OriginalMonsterDefinitionName))
             {
