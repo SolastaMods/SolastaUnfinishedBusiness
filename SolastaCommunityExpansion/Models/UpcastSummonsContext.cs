@@ -104,7 +104,7 @@ namespace SolastaCommunityExpansion.Models
             if (!DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(FireElementalCR6Name, out var _))
             {
                 var builder = GetBuilder(FireElementalCR6Name,
-                    "Large Fire Elemental", "description", MonsterDefinitions.Fire_Elemental);
+                    "CR6 Fire Elemental", "description", MonsterDefinitions.Fire_Elemental);
 
                 builder
                     .SetHitDiceNumber(14)
@@ -121,7 +121,7 @@ namespace SolastaCommunityExpansion.Models
             if (!DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(FireElementalCR7Name, out var _))
             {
                 var builder = GetBuilder(FireElementalCR7Name,
-                    "Huge Fire Elemental", "description", MonsterDefinitions.Fire_Elemental);
+                    "CR7 Fire Elemental", "description", MonsterDefinitions.Fire_Elemental);
 
                 // TODO: 3 attacks?
 
@@ -142,7 +142,7 @@ namespace SolastaCommunityExpansion.Models
             if (!DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(AirElementalCR6Name, out var _))
             {
                 var builder = GetBuilder(AirElementalCR6Name,
-                    "Large Air Elemental", "description", MonsterDefinitions.Air_Elemental);
+                    "CR6 Air Elemental", "description", MonsterDefinitions.Air_Elemental);
 
                 builder
                     .SetHitDiceNumber(14)
@@ -159,7 +159,7 @@ namespace SolastaCommunityExpansion.Models
             if (!DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(AirElementalCR7Name, out var _))
             {
                 var builder = GetBuilder(AirElementalCR7Name,
-                    "Huge Air Elemental", "description", MonsterDefinitions.Air_Elemental);
+                    "CR7 Air Elemental", "description", MonsterDefinitions.Air_Elemental);
 
                 // TODO: 3 attacks?
 
@@ -180,7 +180,7 @@ namespace SolastaCommunityExpansion.Models
             if (!DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(EarthElementalCR6Name, out var _))
             {
                 var builder = GetBuilder(EarthElementalCR6Name,
-                    "Large Earth Elemental", "description", MonsterDefinitions.Earth_Elemental);
+                    "CR6 Earth Elemental", "description", MonsterDefinitions.Earth_Elemental);
 
                 builder
                     .SetHitDiceNumber(14)
@@ -197,7 +197,7 @@ namespace SolastaCommunityExpansion.Models
             if (!DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(EarthElementalCR7Name, out var _))
             {
                 var builder = GetBuilder(EarthElementalCR7Name,
-                    "Huge Earth Elemental", "description", MonsterDefinitions.Earth_Elemental);
+                    "CR7 Earth Elemental", "description", MonsterDefinitions.Earth_Elemental);
 
                 // TODO: 3 attacks?
 
