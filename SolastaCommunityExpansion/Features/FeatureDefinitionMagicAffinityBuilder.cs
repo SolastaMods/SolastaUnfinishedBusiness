@@ -2,7 +2,7 @@
 using SolastaModApi.Extensions;
 using System.Collections.Generic;
 
-namespace SolastaCommunityExpansion.Builders.Features
+namespace SolastaCommunityExpansion.Features
 {
     public class FeatureDefinitionMagicAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionMagicAffinity>
     {

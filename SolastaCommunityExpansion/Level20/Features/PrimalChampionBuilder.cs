@@ -1,4 +1,4 @@
-﻿using SolastaCommunityExpansion.Builders.Features;
+﻿using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Level20.Features

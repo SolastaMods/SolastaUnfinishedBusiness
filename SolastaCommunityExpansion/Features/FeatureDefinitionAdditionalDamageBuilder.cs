@@ -4,7 +4,7 @@ using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 
-namespace SolastaCommunityExpansion.Builders.Features
+namespace SolastaCommunityExpansion.Features
 {
     public class FeatureDefinitionAdditionalDamageBuilder : BaseDefinitionBuilder<FeatureDefinitionAdditionalDamage>
     {

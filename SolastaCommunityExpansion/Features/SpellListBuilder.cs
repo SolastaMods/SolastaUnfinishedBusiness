@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SolastaCommunityExpansion.Builders
+namespace SolastaCommunityExpansion.Features
 {
     public class SpellListBuilder : BaseDefinitionBuilder<SpellListDefinition>
     {

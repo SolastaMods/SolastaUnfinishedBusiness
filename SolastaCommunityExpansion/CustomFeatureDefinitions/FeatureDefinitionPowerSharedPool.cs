@@ -2,7 +2,7 @@
 using SolastaModApi;
 using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.Builders.Features
+namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 {
     public interface IPowerSharedPool
     {

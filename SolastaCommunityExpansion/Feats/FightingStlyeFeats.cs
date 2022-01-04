@@ -1,4 +1,4 @@
-﻿using SolastaCommunityExpansion.Builders.Features;
+﻿using SolastaCommunityExpansion.Features;
 using SolastaCommunityExpansion.FightingStyles;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi;

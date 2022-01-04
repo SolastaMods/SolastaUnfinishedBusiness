@@ -1,7 +1,7 @@
 ﻿using SolastaModApi;
 using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.Builders.Features
+namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 {
     //
     // RemoveGrantedFeature allows you to remove a previously granted feature from a hero character
