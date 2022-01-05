@@ -40,17 +40,7 @@ namespace SolastaCommunityExpansion.Models
             InputField.transform.localPosition = new Vector3(0, contentText.transform.parent.localPosition.y - contentText.fontSize, 0);
         }
 
-        private static string ParseText(string text)
-        {
-            if (Main.Settings.AllowExtraKeyboardCharactersInNames)
-            {
-                return new string(text.Where(n => !HeroNameContext.InvalidFilenameChars.Contains(n)).ToArray()).Trim();
-            }
-            else
-            {
-                return Gui.TrimInvalidCharacterNameSymbols(text).Trim();
-            }
-        }
+        private static string ParseText(string text) => Gui.TrimInvalidCharacterNameSymbols(text).Trim();
 
         internal static void ExportInspectedCharacter(RulesetCharacterHero hero)
         {
