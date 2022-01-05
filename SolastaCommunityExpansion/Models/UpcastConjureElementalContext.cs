@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
 using SolastaModApi.BuilderHelpers;
 using SolastaModApi.Diagnostics;
@@ -16,8 +17,6 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class UpcastConjureElementalContext
     {
-        private static Dictionary<SummonForm, UpcastSummonInfo> UpcastInfo { get; } = new Dictionary<SummonForm, UpcastSummonInfo>();
-
         private static readonly Guid Namespace = new Guid("de4539b8e0194684b1d0585100dd94e5");
 
         private const string FireElementalCR6Name = "FireElementalCE_CR6";
@@ -29,8 +28,6 @@ namespace SolastaCommunityExpansion.Models
             if (!Main.Settings.EnableUpcastConjureElemental)
             {
                 ResetAdvancement(ConjureElemental);
-                UpcastInfo.Keys.ToList().ForEach(RestoreStandardSummon);
-                UpcastInfo.Clear();
                 return;
             }
 
@@ -64,26 +61,20 @@ namespace SolastaCommunityExpansion.Models
             {
                 var description = definition.EffectDescription;
 
-                var effectForm = description.EffectForms[0];
-
-                var summonForm = effectForm.SummonForm;
-
-                if (!UpcastInfo.ContainsKey(summonForm))
+                if (description.EffectForms.Count != 1)
                 {
-                    if (effectForm.FormType != EffectFormType.Summon)
-                    {
-                        Main.Log($"{effectForm.FormType} is not supported.");
-                        throw new SolastaModApiException($"UpcastSummonsContext: {effectForm.FormType} is not supported.");
-                    }
-
-                    if (upcastMonsterDefinitionNames.Length == 0)
-                    {
-                        Main.Log($"At least one higher level monster definition name required.");
-                        throw new SolastaModApiException($"UpcastSummonsContext: At least one higher level monster definition name required.");
-                    }
-
-                    UpcastInfo[summonForm] = new UpcastSummonInfo(summonForm, definition.SpellLevel, upcastMonsterDefinitionNames);
+                    throw new SolastaModApiException($"The supplied spellDefinition does not have exactly one effect form.");
                 }
+
+                if (description.EffectForms[0].FormType != EffectFormType.Summon)
+                {
+                    throw new SolastaModApiException($"The supplied spellDefinition effect form is not EffectFormType.Summon.");
+                }
+
+                var originalEffectForm = definition.EffectDescription.EffectForms[0];
+
+                description.EffectForms[0] = new UpcastConjureElementalEffectForm(
+                    definition.SpellLevel, originalEffectForm.SummonForm, upcastMonsterDefinitionNames);
             }
         }
 
@@ -181,89 +172,66 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void ApplyUpcastSummon(EffectForm effectForm, int effectiveLevel)
+        private sealed class UpcastConjureElementalEffectForm : CustomEffectForm
         {
-            if (!Main.Settings.EnableUpcastConjureElemental
-                || effectForm.FormType != EffectFormType.Summon)
-            {
-                return;
-            }
-
-            var summonForm = effectForm.SummonForm;
-
-            if (UpcastInfo.TryGetValue(summonForm, out var upcastSummonInfo))
-            {
-                #region Preconditions
-                if (string.IsNullOrEmpty(upcastSummonInfo.OriginalMonsterDefinitionName))
-                {
-                    Main.Log($"UpcastSummon-ApplySpellLevel: not initialized - ignoring");
-                    return;
-                }
-
-                if (effectiveLevel <= upcastSummonInfo.OriginalSpellLevel)
-                {
-                    Main.Log($"UpcastSummon-ApplySpellLevel: {effectiveLevel} <= {upcastSummonInfo.OriginalSpellLevel} - ignoring");
-                    return;
-                }
-                #endregion
-
-                var upcastMonsterName = upcastSummonInfo.OriginalMonsterDefinitionName;
-
-                if (effectiveLevel > upcastSummonInfo.OriginalSpellLevel)
-                {
-                    if (effectiveLevel - upcastSummonInfo.OriginalSpellLevel > upcastSummonInfo.UpcastMonsterDefinitionNames.Length)
-                    {
-                        Main.Log($"UpcastSummon-ApplySpellLevel: {effectiveLevel} no suitable monster - using highest available.");
-                        upcastMonsterName = upcastSummonInfo.UpcastMonsterDefinitionNames.Last();
-                    }
-                    else
-                    {
-                        upcastMonsterName = upcastSummonInfo.UpcastMonsterDefinitionNames[effectiveLevel - upcastSummonInfo.OriginalSpellLevel - 1];
-                    }
-                }
-
-                if (DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(upcastMonsterName, out var _))
-                {
-                    summonForm.SetMonsterDefinitionName(upcastMonsterName);
-                }
-                else
-                {
-                    Main.Log($"UpcastSummon-ApplySpellLevel: {upcastMonsterName}, not found - ignoring");
-                }
-            }
-        }
-
-        internal static void RestoreStandardSummon(EffectForm effectForm)
-        {
-            if (!Main.Settings.EnableUpcastConjureElemental
-                || effectForm.FormType != EffectFormType.Summon)
-            {
-                return;
-            }
-
-            RestoreStandardSummon(effectForm.SummonForm);
-        }
-
-        private static void RestoreStandardSummon(SummonForm summonForm)
-        {
-            if (UpcastInfo.TryGetValue(summonForm, out var upcastSummonInfo)
-                && !string.IsNullOrEmpty(upcastSummonInfo.OriginalMonsterDefinitionName))
-            {
-                summonForm.SetMonsterDefinitionName(upcastSummonInfo.OriginalMonsterDefinitionName);
-            }
-        }
-
-        private sealed class UpcastSummonInfo
-        {
-            public string OriginalMonsterDefinitionName { get; }
             public int OriginalSpellLevel { get; }
-            public string[] UpcastMonsterDefinitionNames { get; }
+            public List<string> MonsterDefinitionNames { get; }
 
-            internal UpcastSummonInfo(SummonForm summonForm, int originalSpellLevel, params string[] upcastMonsterDefinitionNames)
+            internal UpcastConjureElementalEffectForm(int originalSpellLevel, SummonForm summonForm, IEnumerable<string> upcastMonsterDefinitionNames)
             {
-                OriginalMonsterDefinitionName = summonForm.MonsterDefinitionName;
                 OriginalSpellLevel = originalSpellLevel;
-                UpcastMonsterDefinitionNames = upcastMonsterDefinitionNames;
+
+                FormType = (EffectFormType)(-1);
+
+                var sf = new SummonForm();
+                summonForm.Copy(sf);
+                this.SetSummonForm(sf);
+
+                MonsterDefinitionNames = Enumerable.Repeat(summonForm.MonsterDefinitionName, 1).Concat(upcastMonsterDefinitionNames).ToList();
+            }
+
+            public override void ApplyForm(RulesetImplementationDefinitions.ApplyFormsParams formsParams, bool retargeting, bool proxyOnly, bool forceSelfConditionOnly)
+            {
+                var service = ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManagerLocation;
+
+                if(service == null)
+                {
+                    return;
+                }
+
+                try
+                {
+                    FormType = EffectFormType.Summon;
+
+                    var monsterName = MonsterDefinitionNames[0];
+                    var effectLevel = formsParams.effectLevel;
+
+                    if (effectLevel > OriginalSpellLevel)
+                    {
+                        if (effectLevel - OriginalSpellLevel >= MonsterDefinitionNames.Count)
+                        {
+                            Main.Log($"ApplyForm: {formsParams.effectLevel} no suitable monster - using highest available.");
+                            monsterName = MonsterDefinitionNames.Last();
+                        }
+                        else
+                        {
+                            monsterName = MonsterDefinitionNames[effectLevel - OriginalSpellLevel];
+                        }
+                    }
+
+                    SummonForm.SetMonsterDefinitionName(monsterName);
+
+                    service.ApplySummonForm(this, formsParams);
+                }
+                finally
+                {
+                    FormType = (EffectFormType)(-1);
+                }
+            }
+
+            public override void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap)
+            {
+                // empty
             }
         }
     }
