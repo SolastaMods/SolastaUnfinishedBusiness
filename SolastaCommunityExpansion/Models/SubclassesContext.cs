@@ -17,6 +17,8 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
+            //return;
+
             LoadSubclass(new SpellShield());
             LoadSubclass(new ConArtist());
             LoadSubclass(new MasterManipulator());
