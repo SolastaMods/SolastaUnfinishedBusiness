@@ -44,7 +44,7 @@ namespace SolastaCommunityExpansion.Models
         {
             ItemRecipeGenerationHelper.StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore, DatabaseHelper.ItemDefinitions.Maul);
 
-            ItemRecipeGenerationHelper.AddPrimingRecipes();
+            //ItemRecipeGenerationHelper.AddPrimingRecipes();
             ItemRecipeGenerationHelper.AddIngredientEnchanting();
             ItemRecipeGenerationHelper.AddFactionItems();
 

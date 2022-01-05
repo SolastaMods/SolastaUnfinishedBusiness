@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
         public bool CanRageToOvercomeSurprise => false;
         public bool AutoCritical => false;
         public bool CriticalHitImmunity => false;
-        public ConditionDefinition RequiredTargetCondition => null;
+        public ConditionDefinition RequiredCondition => null;
         public bool IgnoreCover => false;
 
         public void ComputeAttackModifier(RulesetCharacter myself, RulesetCharacter defender, RulesetAttackMode attackMode, ActionModifier attackModifier, RuleDefinitions.FeatureOrigin featureOrigin)
