@@ -1,5 +1,5 @@
 ﻿using HarmonyLib;
-using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaCommunityExpansion.Patches.PowerSharedPool;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
