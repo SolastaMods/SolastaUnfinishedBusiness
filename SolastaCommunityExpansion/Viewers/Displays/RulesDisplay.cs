@@ -69,10 +69,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             toggle = Main.Settings.EnableUpcastConjureElemental;
-            if (UI.Toggle("Enable upcasting " + "Conjure Elemental".orange() + " to summon a CR6 or CR7 elemental ", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable upcasting " + "Conjure Elemental".orange() + " to summon a CR6 elemental", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableUpcastConjureElemental = toggle;
-                UpcastSummonsContext.Load();
+                UpcastConjureElementalContext.Load();
             }
 
             UI.Label("");

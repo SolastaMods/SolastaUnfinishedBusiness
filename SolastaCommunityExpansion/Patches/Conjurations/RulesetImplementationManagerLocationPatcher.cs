@@ -11,12 +11,12 @@ namespace SolastaCommunityExpansion.Patches.Conjurations
     {
         internal static void Prefix(EffectForm effectForm, ApplyFormsParams formsParams)
         {
-            UpcastSummonsContext.ApplyUpcastSummon(effectForm, formsParams.effectLevel);
+            UpcastConjureElementalContext.ApplyUpcastSummon(effectForm, formsParams.effectLevel);
         }
 
         internal static void Postfix(EffectForm effectForm)
         {
-            UpcastSummonsContext.RestoreStandardSummon(effectForm);
+            UpcastConjureElementalContext.RestoreStandardSummon(effectForm);
         }
     }
 }

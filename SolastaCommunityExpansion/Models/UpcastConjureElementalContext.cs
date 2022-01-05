@@ -12,20 +12,15 @@ using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Models
 {
-    internal static class UpcastSummonsContext
+    internal static class UpcastConjureElementalContext
     {
         private static Dictionary<SummonForm, UpcastSummonInfo> UpcastInfo { get; } = new Dictionary<SummonForm, UpcastSummonInfo>();
 
         private static readonly Guid Namespace = new Guid("de4539b8e0194684b1d0585100dd94e5");
 
         private const string FireElementalCR6Name = "FireElementalCE_CR6";
-        private const string FireElementalCR7Name = "FireElementalCE_CR7";
-
         private const string AirElementalCR6Name = "AirElementalCE_CR6";
-        private const string AirElementalCR7Name = "AirElementalCE_CR7";
-
         private const string EarthElementalCR6Name = "EarthElementalCE_CR6";
-        private const string EarthElementalCR7Name = "EarthElementalCE_CR7";
 
         public static void Load()
         {
@@ -43,11 +38,9 @@ namespace SolastaCommunityExpansion.Models
 
             CreateHigherLevelSummons();
 
-            AddUpcastSummons(ConjureElementalAir, AirElementalCR6Name, AirElementalCR7Name);
-            AddUpcastSummons(ConjureElementalEarth, EarthElementalCR6Name, EarthElementalCR7Name);
-            AddUpcastSummons(ConjureElementalFire, FireElementalCR6Name, FireElementalCR7Name);
-
-            // TODO: same for Fey
+            AddUpcastSummons(ConjureElementalAir, AirElementalCR6Name);
+            AddUpcastSummons(ConjureElementalEarth, EarthElementalCR6Name);
+            AddUpcastSummons(ConjureElementalFire, FireElementalCR6Name);
 
             // Set advancement at spell level,not sub-spell
             void ConfigureAdvancement(SpellDefinition definition)
@@ -94,7 +87,6 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void CreateHigherLevelSummons()
         {
-            // Quick and dirty :)
             // Not in DM, not in bestiary.  Purely for summons purposes.
 
             // TODO: localization, a description, refine (increase attack bonus, more attacks etc)
@@ -113,25 +105,6 @@ namespace SolastaCommunityExpansion.Models
                     .SetAbilityScores(12, 17, 16, 6, 10, 7)
                     .SetModelScale(0.75f)
                     .SetChallengeRating(6)
-                    .SetInDungeonEditor(false)
-                    .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
-                    .AddToDB();
-            }
-
-            if (!DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(FireElementalCR7Name, out var _))
-            {
-                var builder = GetBuilder(FireElementalCR7Name,
-                    "CR7 Fire Elemental", "description", MonsterDefinitions.Fire_Elemental);
-
-                // TODO: 3 attacks?
-
-                builder
-                    .SetHitDiceNumber(16)
-                    .SetHitPointsBonus(48)
-                    .SetStandardHitPoints(88 + 48)
-                    .SetAbilityScores(14, 17, 16, 6, 10, 7)
-                    .SetModelScale(0.9f)
-                    .SetChallengeRating(7)
                     .SetInDungeonEditor(false)
                     .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
                     .AddToDB();
@@ -156,25 +129,6 @@ namespace SolastaCommunityExpansion.Models
                     .AddToDB();
             }
 
-            if (!DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(AirElementalCR7Name, out var _))
-            {
-                var builder = GetBuilder(AirElementalCR7Name,
-                    "CR7 Air Elemental", "description", MonsterDefinitions.Air_Elemental);
-
-                // TODO: 3 attacks?
-
-                builder
-                    .SetHitDiceNumber(16)
-                    .SetHitPointsBonus(32)
-                    .SetStandardHitPoints(88 + 32)
-                    .SetAbilityScores(18, 20, 14, 6, 10, 6)
-                    .SetModelScale(0.9f)
-                    .SetChallengeRating(7)
-                    .SetInDungeonEditor(false)
-                    .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
-                    .AddToDB();
-            }
-
             // Earth
 
             if (!DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(EarthElementalCR6Name, out var _))
@@ -189,25 +143,6 @@ namespace SolastaCommunityExpansion.Models
                     .SetAbilityScores(22, 8, 20, 5, 10, 5)
                     .SetModelScale(0.75f)
                     .SetChallengeRating(6)
-                    .SetInDungeonEditor(false)
-                    .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
-                    .AddToDB();
-            }
-
-            if (!DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(EarthElementalCR7Name, out var _))
-            {
-                var builder = GetBuilder(EarthElementalCR7Name,
-                    "CR7 Earth Elemental", "description", MonsterDefinitions.Earth_Elemental);
-
-                // TODO: 3 attacks?
-
-                builder
-                    .SetHitDiceNumber(16)
-                    .SetHitPointsBonus(60)
-                    .SetStandardHitPoints(88 + 60)
-                    .SetAbilityScores(24, 8, 20, 5, 10, 5)
-                    .SetModelScale(0.9f)
-                    .SetChallengeRating(7)
                     .SetInDungeonEditor(false)
                     .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
                     .AddToDB();
@@ -247,15 +182,22 @@ namespace SolastaCommunityExpansion.Models
                     Main.Log($"UpcastSummon-ApplySpellLevel: {effectiveLevel} <= {upcastSummonInfo.OriginalSpellLevel} - ignoring");
                     return;
                 }
-
-                if (effectiveLevel - upcastSummonInfo.OriginalSpellLevel > upcastSummonInfo.UpcastMonsterDefinitionNames.Length)
-                {
-                    Main.Log($"UpcastSummon-ApplySpellLevel: {effectiveLevel}, no suitable upcast - ignoring");
-                    return;
-                }
                 #endregion
 
-                var upcastMonsterName = upcastSummonInfo.UpcastMonsterDefinitionNames[effectiveLevel - upcastSummonInfo.OriginalSpellLevel - 1];
+                var upcastMonsterName = upcastSummonInfo.OriginalMonsterDefinitionName;
+
+                if (effectiveLevel > upcastSummonInfo.OriginalSpellLevel)
+                {
+                    if (effectiveLevel - upcastSummonInfo.OriginalSpellLevel > upcastSummonInfo.UpcastMonsterDefinitionNames.Length)
+                    {
+                        Main.Log($"UpcastSummon-ApplySpellLevel: {effectiveLevel} no suitable monster - using highest available.");
+                        upcastMonsterName = upcastSummonInfo.UpcastMonsterDefinitionNames.Last(); 
+                    }
+                    else
+                    {
+                        upcastMonsterName = upcastSummonInfo.UpcastMonsterDefinitionNames[effectiveLevel - upcastSummonInfo.OriginalSpellLevel - 1];
+                    }
+                }
 
                 if (DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(upcastMonsterName, out var _))
                 {
