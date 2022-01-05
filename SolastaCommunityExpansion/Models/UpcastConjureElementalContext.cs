@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaModApi.BuilderHelpers;
 using SolastaModApi.Diagnostics;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using static EffectForm;
 using static RuleDefinitions;
 using static SolastaModApi.DatabaseHelper;
@@ -89,16 +91,13 @@ namespace SolastaCommunityExpansion.Models
         {
             // Not in DM, not in bestiary.  Purely for summons purposes.
 
-            // TODO: localization, a description, refine (increase attack bonus, more attacks etc)
-
             // Fire
-
             if (!DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(FireElementalCR6Name, out var _))
             {
-                var builder = GetBuilder(FireElementalCR6Name,
-                    "CR6 Fire Elemental", "description", MonsterDefinitions.Fire_Elemental);
+                var builder = GetMonsterBuilder(FireElementalCR6Name,
+                    "Fire Elemental (CR6)", MonsterDefinitions.Fire_Elemental);
 
-                builder
+                var definition = builder
                     .SetHitDiceNumber(14)
                     .SetHitPointsBonus(42)
                     .SetStandardHitPoints(77 + 42)
@@ -108,16 +107,17 @@ namespace SolastaCommunityExpansion.Models
                     .SetInDungeonEditor(false)
                     .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
                     .AddToDB();
+
+                definition.AttackIterations.SetRange(CreateAttackIteration(definition.AttackIterations[0], "CE_CR6"));
             }
 
             // Air
-
             if (!DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(AirElementalCR6Name, out var _))
             {
-                var builder = GetBuilder(AirElementalCR6Name,
-                    "CR6 Air Elemental", "description", MonsterDefinitions.Air_Elemental);
+                var builder = GetMonsterBuilder(AirElementalCR6Name,
+                    "Air Elemental (CR6)", MonsterDefinitions.Air_Elemental);
 
-                builder
+                var definition = builder
                     .SetHitDiceNumber(14)
                     .SetHitPointsBonus(28)
                     .SetStandardHitPoints(77 + 28)
@@ -127,16 +127,17 @@ namespace SolastaCommunityExpansion.Models
                     .SetInDungeonEditor(false)
                     .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
                     .AddToDB();
+
+                definition.AttackIterations.SetRange(CreateAttackIteration(definition.AttackIterations[0], "CE_CR6"));
             }
 
             // Earth
-
             if (!DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(EarthElementalCR6Name, out var _))
             {
-                var builder = GetBuilder(EarthElementalCR6Name,
-                    "CR6 Earth Elemental", "description", MonsterDefinitions.Earth_Elemental);
+                var builder = GetMonsterBuilder(EarthElementalCR6Name,
+                    "Earth Elemental (CR6)", MonsterDefinitions.Earth_Elemental);
 
-                builder
+                var definition = builder
                     .SetHitDiceNumber(14)
                     .SetHitPointsBonus(60)
                     .SetStandardHitPoints(77 + 60)
@@ -146,16 +147,38 @@ namespace SolastaCommunityExpansion.Models
                     .SetInDungeonEditor(false)
                     .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
                     .AddToDB();
+
+                definition.AttackIterations.SetRange(CreateAttackIteration(definition.AttackIterations[0], "CE_CR6"));
             }
 
             // Helpers
 
-            MonsterBuilder GetBuilder(string name, string title, string description, MonsterDefinition baseMonster)
+            MonsterBuilder GetMonsterBuilder(string name, string title, MonsterDefinition baseMonster)
             {
-                return new MonsterBuilder(name, CreateGuid(name), title, description, baseMonster);
+                return new MonsterBuilder(name, CreateGuid(name), title, baseMonster.GuiPresentation.Description, baseMonster);
             }
 
             string CreateGuid(string name) => GuidHelper.Create(Namespace, name).ToString("N");
+
+            MonsterAttackIteration CreateAttackIteration(MonsterAttackIteration attackIteration, string namePrefix, int attacks = 2)
+            {
+                // copy existing attack iteration and bump up ToHitBonus and DamageBonus by 1
+                var attackDefinition = CreateAttackDefinition(attackIteration.MonsterAttackDefinition, namePrefix);
+
+                return new MonsterAttackIteration(attackDefinition, attacks);
+            }
+
+            MonsterAttackDefinition CreateAttackDefinition(MonsterAttackDefinition attackDefinition, string namePrefix)
+            {
+                var name = $"{namePrefix}_{attackDefinition.Name}";
+
+                var builder = new MonsterAttackDefinitionBuilder(name, CreateGuid(name), attackDefinition);
+
+                builder.SetDamageBonus(4);
+                builder.SetToHitBonus(7);
+
+                return builder.AddToDB();
+            }
         }
 
         internal static void ApplyUpcastSummon(EffectForm effectForm, int effectiveLevel)
@@ -191,7 +214,7 @@ namespace SolastaCommunityExpansion.Models
                     if (effectiveLevel - upcastSummonInfo.OriginalSpellLevel > upcastSummonInfo.UpcastMonsterDefinitionNames.Length)
                     {
                         Main.Log($"UpcastSummon-ApplySpellLevel: {effectiveLevel} no suitable monster - using highest available.");
-                        upcastMonsterName = upcastSummonInfo.UpcastMonsterDefinitionNames.Last(); 
+                        upcastMonsterName = upcastSummonInfo.UpcastMonsterDefinitionNames.Last();
                     }
                     else
                     {
