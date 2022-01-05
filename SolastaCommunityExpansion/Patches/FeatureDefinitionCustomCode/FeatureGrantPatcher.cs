@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Patches.FeatureDefinitionCustomCode
                 {
                     RecursiveGrantCustomFeatures(hero, set.FeatureSet);
                 }
-                if (grantedFeature is Builders.Features.FeatureDefinitionCustomCode customFeature)
+                if (grantedFeature is CustomFeatureDefinitions.FeatureDefinitionCustomCode customFeature)
                 {
                     customFeature.ApplyFeature(hero);
                 }

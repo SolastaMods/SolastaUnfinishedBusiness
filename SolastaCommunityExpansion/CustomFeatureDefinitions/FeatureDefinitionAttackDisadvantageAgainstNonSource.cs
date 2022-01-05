@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SolastaCommunityExpansion.Builders.Features
+namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 {
     /// <summary>
     /// Imposes disadvantage when attacking anyone but the source of the specified condition.

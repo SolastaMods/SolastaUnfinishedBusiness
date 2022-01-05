@@ -1,5 +1,5 @@
 ﻿using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.Features;
 using SolastaModApi;
 using SolastaModApi.BuilderHelpers;
 using SolastaModApi.Extensions;
