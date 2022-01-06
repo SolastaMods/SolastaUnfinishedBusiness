@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Builders
         public MonsterAttackDefinitionBuilder SetDamageBonusOfFirstDamageForm(int value)
         {
             var form = Definition.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Damage);
-            form.DamageForm.SetBonusDamage(value);
+            form?.DamageForm.SetBonusDamage(value);
             return this;
         }
     }
