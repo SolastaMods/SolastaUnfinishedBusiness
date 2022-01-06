@@ -168,16 +168,42 @@ namespace SolastaCommunityExpansion.ItemCrafting
 
         public static void AddPrimingRecipes()
         {
-            ItemDefinition[] allItems = DatabaseRepository.GetDatabase<ItemDefinition>().GetAllElements();
-            List<RecipeDefinition> recipes = new List<RecipeDefinition>();
             Guid baseGuid = new Guid("cad103e4-6226-4ba0-a9ed-2fee8886f6b9");
-            foreach (ItemDefinition item in allItems)
+
+            Dictionary<ItemDefinition, ItemDefinition> PrimedToBase = new Dictionary<ItemDefinition, ItemDefinition>()
             {
-                if (item.ItemPresentation != null && item.ItemPresentation.ItemFlags != null &&
-                    item.ItemPresentation.ItemFlags.Contains(DatabaseHelper.ItemFlagDefinitions.ItemFlagPrimed))
-                {
-                    recipes.Add(CreatePrimingRecipe(baseGuid, FindMatchingBase(allItems, item), item));
-                }
+                {DatabaseHelper.ItemDefinitions.Primed_Battleaxe, DatabaseHelper.ItemDefinitions.Battleaxe},
+                {DatabaseHelper.ItemDefinitions.Primed_Breastplate, DatabaseHelper.ItemDefinitions.Breastplate},
+                {DatabaseHelper.ItemDefinitions.Primed_ChainMail, DatabaseHelper.ItemDefinitions.ChainMail },
+                {DatabaseHelper.ItemDefinitions.Primed_ChainShirt, DatabaseHelper.ItemDefinitions.ChainShirt},
+                {DatabaseHelper.ItemDefinitions.Primed_Dagger, DatabaseHelper.ItemDefinitions.Dagger},
+                {DatabaseHelper.ItemDefinitions.Primed_Greataxe, DatabaseHelper.ItemDefinitions.Greataxe },
+                {DatabaseHelper.ItemDefinitions.Primed_Greatsword, DatabaseHelper.ItemDefinitions.Greatsword},
+                {DatabaseHelper.ItemDefinitions.Primed_HalfPlate, DatabaseHelper.ItemDefinitions.HalfPlate},
+                {DatabaseHelper.ItemDefinitions.Primed_HeavyCrossbow, DatabaseHelper.ItemDefinitions.HeavyCrossbow},
+                {DatabaseHelper.ItemDefinitions.Primed_HideArmor, DatabaseHelper.ItemDefinitions.HideArmor},
+                {DatabaseHelper.ItemDefinitions.Primed_LeatherDruid, DatabaseHelper.ItemDefinitions.LeatherDruid},
+                {DatabaseHelper.ItemDefinitions.Primed_Leather_Armor, DatabaseHelper.ItemDefinitions.Leather},
+                {DatabaseHelper.ItemDefinitions.Primed_LightCrossbow, DatabaseHelper.ItemDefinitions.LightCrossbow},
+                {DatabaseHelper.ItemDefinitions.Primed_Longbow, DatabaseHelper.ItemDefinitions.Longbow},
+                {DatabaseHelper.ItemDefinitions.Primed_Longsword, DatabaseHelper.ItemDefinitions.Longsword},
+                {DatabaseHelper.ItemDefinitions.Primed_Mace, DatabaseHelper.ItemDefinitions.Mace},
+                {DatabaseHelper.ItemDefinitions.Primed_Maul, DatabaseHelper.ItemDefinitions.Maul},
+                {DatabaseHelper.ItemDefinitions.Primed_Morningstar, DatabaseHelper.ItemDefinitions.Morningstar},
+                {DatabaseHelper.ItemDefinitions.Primed_Plate, DatabaseHelper.ItemDefinitions.Plate},
+                {DatabaseHelper.ItemDefinitions.Primed_Rapier, DatabaseHelper.ItemDefinitions.Rapier},
+                {DatabaseHelper.ItemDefinitions.Primed_ScaleMail, DatabaseHelper.ItemDefinitions.ScaleMail},
+                {DatabaseHelper.ItemDefinitions.Primed_Scimitar, DatabaseHelper.ItemDefinitions.Scimitar},
+                {DatabaseHelper.ItemDefinitions.Primed_Shortbow, DatabaseHelper.ItemDefinitions.Shortbow},
+                {DatabaseHelper.ItemDefinitions.Primed_Shortsword, DatabaseHelper.ItemDefinitions.Shortsword},
+                {DatabaseHelper.ItemDefinitions.Primed_Spear, DatabaseHelper.ItemDefinitions.Spear},
+                {DatabaseHelper.ItemDefinitions.Primed_StuddedLeather, DatabaseHelper.ItemDefinitions.StuddedLeather},
+                {DatabaseHelper.ItemDefinitions.Primed_Warhammer, DatabaseHelper.ItemDefinitions.Warhammer},
+            };
+            List<RecipeDefinition> recipes = new List<RecipeDefinition>();
+            foreach (ItemDefinition item in PrimedToBase.Keys)
+            {
+                recipes.Add(CreatePrimingRecipe(baseGuid, PrimedToBase[item], item));
             }
 
             string groupKey = "PrimedItems";
@@ -258,35 +284,6 @@ namespace SolastaCommunityExpansion.ItemCrafting
                     StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore, craftingManual);
                 }
             }
-        }
-
-        private static ItemDefinition FindMatchingBase(ItemDefinition[] allItems, ItemDefinition primed)
-        {
-            ItemDefinition match = null;
-            foreach (ItemDefinition item in allItems)
-            {
-                if (item.Magical ||
-                    (item.ItemPresentation != null && item.ItemPresentation.ItemFlags != null && item.ItemPresentation.ItemFlags.Count > 0) ||
-                    (item.ItemTags != null && (item.ItemTags.Contains("Quest") || !item.ItemTags.Contains("Standard"))) ||
-                    item == DatabaseHelper.ItemDefinitions.ScaleMailCleric || item == DatabaseHelper.ItemDefinitions.Shortsword_Duel_Autoequip ||
-                    item == DatabaseHelper.ItemDefinitions.ScaleMail_VigdisOnly || item == DatabaseHelper.ItemDefinitions.LeatherDruid)
-                {
-                    continue;
-                }
-                if (primed.IsWeapon &&
-                    item.IsWeapon &&
-                    primed.WeaponDescription.WeaponType == item.WeaponDescription.WeaponType)
-                {
-                    match = item;
-                }
-                if (primed.IsArmor &&
-                    item.IsArmor &&
-                    primed.ArmorDescription.ArmorType == item.ArmorDescription.ArmorType)
-                {
-                    match = item;
-                }
-            }
-            return match;
         }
 
         private static RecipeDefinition CreatePrimingRecipe(Guid baseGuid, ItemDefinition baseItem, ItemDefinition primed)
