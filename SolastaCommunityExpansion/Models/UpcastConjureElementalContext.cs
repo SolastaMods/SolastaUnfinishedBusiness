@@ -183,9 +183,7 @@ namespace SolastaCommunityExpansion.Models
 
                 FormType = (EffectFormType)(-1);
 
-                var sf = new SummonForm();
-                summonForm.Copy(sf);
-                this.SetSummonForm(sf);
+                this.SetSummonForm(SummonForm.GetCopy(summonForm));
 
                 MonsterDefinitionNames = Enumerable.Repeat(summonForm.MonsterDefinitionName, 1).Concat(upcastMonsterDefinitionNames).ToList();
             }
