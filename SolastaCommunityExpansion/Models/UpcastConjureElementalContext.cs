@@ -174,7 +174,7 @@ namespace SolastaCommunityExpansion.Models
 
                 var builder = new MonsterAttackDefinitionBuilder(name, CreateGuid(name), attackDefinition);
 
-                builder.SetDamageBonus(4);
+                builder.SetDamageBonusOfFirstDamageForm(4);
                 builder.SetToHitBonus(7);
 
                 return builder.AddToDB();
