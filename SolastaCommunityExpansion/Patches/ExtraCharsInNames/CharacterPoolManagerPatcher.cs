@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.ExtraCharsInNames
         {
             public static void Prefix(RulesetCharacterHero heroCharacter, [HarmonyArgument("addToPool")] bool _ = false)
             {
-                if (Main.Settings.AllowExtraKeyboardCharactersInNames && heroCharacter != null)
+                if (Main.Settings.AllowExtraKeyboardCharactersInAllNames && heroCharacter != null)
                 {
                     heroCharacter.SurName = heroCharacter.SurName?.Trim();
                     heroCharacter.Name = heroCharacter.Name?.Trim();
