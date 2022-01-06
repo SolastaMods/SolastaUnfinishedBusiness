@@ -1,10 +1,9 @@
 {
-	"Releases":
-	[
-		{
-			"Id": "SolastaCommunityExpansion",
-			"Version": "1.3.4.0",
-			"DownloadUrl": "https://github.com/ChrisPJohn/SolastaCommunityExpansion/releases/download/1.3.4.0/SolastaCommunityExpansion.zip"
-		}
-	]
+  "Releases": [
+    {
+      "Id": "SolastaCommunityExpansion",
+      "Version": "1.3.4.0",
+      "DownloadUrl": "https://github.com/ChrisPJohn/SolastaCommunityExpansion/releases/download/1.3.4.0/SolastaCommunityExpansion.zip"
+    }
+  ]
 }
