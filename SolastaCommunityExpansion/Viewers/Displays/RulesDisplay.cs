@@ -68,6 +68,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
             }
 
+            toggle = Main.Settings.EnableUpcastConjureElementalAndFey;
+            if (UI.Toggle("Enable upcast of " + "Conjure Elemental, Conjure Fey".orange(), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableUpcastConjureElementalAndFey = toggle;
+                ConjurationsContext.Load();
+            }
+
             UI.Label("");
             UI.Label("House:".yellow());
             UI.Label("");
