@@ -4,6 +4,7 @@ using SolastaModApi.BuilderHelpers;
 using SolastaModApi.Extensions;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SolastaCommunityExpansion.ItemCrafting
 {
@@ -170,7 +171,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
         {
             Guid baseGuid = new Guid("cad103e4-6226-4ba0-a9ed-2fee8886f6b9");
 
-            Dictionary<ItemDefinition, ItemDefinition> PrimedToBase = new Dictionary<ItemDefinition, ItemDefinition>()
+            Dictionary<ItemDefinition, ItemDefinition> primedToBase = new Dictionary<ItemDefinition, ItemDefinition>()
             {
                 {DatabaseHelper.ItemDefinitions.Primed_Battleaxe, DatabaseHelper.ItemDefinitions.Battleaxe},
                 {DatabaseHelper.ItemDefinitions.Primed_Breastplate, DatabaseHelper.ItemDefinitions.Breastplate},
@@ -200,11 +201,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
                 {DatabaseHelper.ItemDefinitions.Primed_StuddedLeather, DatabaseHelper.ItemDefinitions.StuddedLeather},
                 {DatabaseHelper.ItemDefinitions.Primed_Warhammer, DatabaseHelper.ItemDefinitions.Warhammer},
             };
-            List<RecipeDefinition> recipes = new List<RecipeDefinition>();
-            foreach (ItemDefinition item in PrimedToBase.Keys)
-            {
-                recipes.Add(CreatePrimingRecipe(baseGuid, PrimedToBase[item], item));
-            }
+            IEnumerable<RecipeDefinition> recipes = primedToBase.Keys.Select(item => CreatePrimingRecipe(baseGuid, primedToBase[item], item));
 
             string groupKey = "PrimedItems";
             Models.ItemCraftingContext.RecipeBooks.Add(groupKey, new List<ItemDefinition>());
