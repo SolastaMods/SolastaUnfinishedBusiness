@@ -6,6 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using static GuiDropdown;
 using static SolastaCommunityExpansion.Models.SaveByLocationContext;
 using static TMPro.TMP_Dropdown;
 
@@ -65,15 +66,21 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
             guiDropdown.AddOptions(
                 Enumerable.Repeat(new { LocationType = LocationType.MainCampaign, Title = "Main campaign" }, 1)
                 .Union(userContentList)
+                .Select(opt => new
+                {
+                    opt.LocationType,
+                    opt.Title,
+                    SaveFileCount = SaveFileCount(opt.LocationType, opt.Title)
+                })
                 .Select(opt => new LocationOptionData
                 {
                     text = GetTitle(opt.LocationType, opt.Title),
                     CampaignOrLocation = opt.Title,
                     image = GetSprite(opt.LocationType, opt.Title), // TODO
-                    LocationType = opt.LocationType,
-                    HasSaves = HasSaves(opt.LocationType, opt.Title)
+                    TooltipContent = $"{opt.SaveFileCount} save{(opt.SaveFileCount == 1 ? "" : "s")}",
+                    ShowInDropdown = opt.SaveFileCount > 0 || opt.LocationType == LocationType.MainCampaign
                 })
-                .Where(opt => opt.HasSaves) // Only show locations that have saves
+                .Where(opt => opt.ShowInDropdown) // Only show locations that have saves
                 .Cast<OptionData>()
                 .ToList());
 
@@ -186,10 +193,10 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
         }
     }
 
-    internal class LocationOptionData : OptionData
+    internal class LocationOptionData : OptionDataAdvanced
     {
         public string CampaignOrLocation { get; set; }
         public LocationType LocationType { get; set; }
-        public bool HasSaves { get; set; }
+        public bool ShowInDropdown { get; set; }
     }
 }

@@ -84,7 +84,7 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        public static bool HasSaves(LocationType locationType, string folder)
+        public static int SaveFileCount(LocationType locationType, string folder)
         {
             switch (locationType)
             {
@@ -92,18 +92,23 @@ namespace SolastaCommunityExpansion.Models
                     {
                         var saveFolder = Path.Combine(LocationSaveGameDirectory, folder);
 
-                        return Directory.Exists(saveFolder) && Directory.EnumerateFiles(saveFolder, "*.sav").Any();
+                        return Directory.Exists(saveFolder) ? Directory.EnumerateFiles(saveFolder, "*.sav").Count() : 0;
                     }
                 case LocationType.CustomCampaign:
                     {
                         var saveFolder = Path.Combine(CampaignSaveGameDirectory, folder);
 
-                        return Directory.Exists(saveFolder) && Directory.EnumerateFiles(saveFolder, "*.sav").Any();
+                        return Directory.Exists(saveFolder) ? Directory.EnumerateFiles(saveFolder, "*.sav").Count() : 0;
+                    }
+                case LocationType.MainCampaign:
+                    {
+                        var saveFolder = DefaultSaveGameDirectory;
+
+                        return Directory.Exists(saveFolder) ? Directory.EnumerateFiles(saveFolder, "*.sav").Count() : 0;
                     }
             }
 
-            // assume there are saves for the main campaign
-            return true;
+            return 0;
         }
     }
 }
