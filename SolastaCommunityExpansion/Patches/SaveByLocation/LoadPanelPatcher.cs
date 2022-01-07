@@ -19,10 +19,8 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
     {
         internal static GameObject Dropdown { get; private set; }
 
-        public static void Postfix(LoadPanel __instance, [HarmonyArgument("instant")] bool _ = false)
+        public static bool Prefix(LoadPanel __instance, ScrollRect ___loadSaveLinesScrollview, [HarmonyArgument("instant")] bool _ = false)
         {
-            var canvas = __instance.gameObject;
-
             if (!Main.Settings.EnableSaveByLocation)
             {
                 if (Dropdown != null)
@@ -30,8 +28,15 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
                     Dropdown.SetActive(false);
                 }
 
-                return;
+                return true;
             }
+
+            // From OnBeginShow
+            __instance.StartAllModifiers(true);
+            ___loadSaveLinesScrollview.normalizedPosition = new Vector2(0.0f, 1f);
+            AccessTools
+                .Method(typeof(LoadPanel), "Reset")
+                .Invoke(__instance, Array.Empty<object>());
 
             // The Load Panel is being shown.
             // 1) create/activate a dropdown next to the load save button
@@ -68,7 +73,7 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
                 Enumerable.Repeat(new
                 { 
                     LocationType = LocationType.MainCampaign, 
-                    Title = "Main campaign" 
+                    Title = "Standard campaigns" 
                 }, 1)
                 .Union(userContentList)
                 .Select(opt => new
@@ -109,6 +114,8 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
 
             ValueChanged(guiDropdown);
 
+            return false;
+
             string GetTitle(LocationType locationType, string title)
             {
                 switch (locationType)
@@ -145,13 +152,11 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
                         break;
                 }
 
-                // reload the save list
+                // From OnBeginShow
+
+                // reload the save file list
                 var method = AccessTools.Method(typeof(LoadPanel), "EnumerateSaveLines");
                 __instance.StartCoroutine((IEnumerator)method.Invoke(__instance, Array.Empty<object>()));
-
-                // reset the load button
-                method = AccessTools.Method(typeof(LoadPanel), "Reset");
-                method.Invoke(__instance, Array.Empty<object>());
             }
 
             GuiDropdown CreateOrActivateDropdown()
@@ -169,7 +174,9 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
                     dd = Dropdown.GetComponent<GuiDropdown>();
                     dd.onValueChanged.AddListener(delegate { ValueChanged(dd); });
 
-                    var buttonBar = canvas.GetComponentsInChildren<RectTransform>().SingleOrDefault(c => c.gameObject.name == "ButtonsBar")?.gameObject;
+                    var buttonBar = __instance.gameObject
+                        .GetComponentsInChildren<RectTransform>()
+                        .SingleOrDefault(c => c.gameObject.name == "ButtonsBar")?.gameObject;
 
                     if (buttonBar != null)
                     {
