@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using ModKit;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -64,7 +65,11 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
                 .ToList();
 
             guiDropdown.AddOptions(
-                Enumerable.Repeat(new { LocationType = LocationType.MainCampaign, Title = "Main campaign" }, 1)
+                Enumerable.Repeat(new
+                { 
+                    LocationType = LocationType.MainCampaign, 
+                    Title = "Main campaign" 
+                }, 1)
                 .Union(userContentList)
                 .Select(opt => new
                 {
@@ -74,9 +79,9 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
                 })
                 .Select(opt => new LocationOptionData
                 {
+                    LocationType = opt.LocationType,
                     text = GetTitle(opt.LocationType, opt.Title),
                     CampaignOrLocation = opt.Title,
-                    image = GetSprite(opt.LocationType, opt.Title), // TODO
                     TooltipContent = $"{opt.SaveFileCount} save{(opt.SaveFileCount == 1 ? "" : "s")}",
                     ShowInDropdown = opt.SaveFileCount > 0 || opt.LocationType == LocationType.MainCampaign
                 })
@@ -104,14 +109,6 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
 
             ValueChanged(guiDropdown);
 
-#pragma warning disable S1172 // Unused method parameters should be removed
-            Sprite GetSprite(LocationType locationType, string title)
-            {
-                // TODO: get suitable sprites - anyone?
-                return null;
-            }
-#pragma warning restore S1172 // Unused method parameters should be removed
-
             string GetTitle(LocationType locationType, string title)
             {
                 switch (locationType)
@@ -133,6 +130,8 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
 
                 var selected = dropdown.options.Skip(dropdown.value).FirstOrDefault() as LocationOptionData;
 
+                Main.Log($"ValueChanged: {dropdown.value}, selected={selected.LocationType}, {selected.text}, {selected.CampaignOrLocation}");
+
                 switch (selected.LocationType)
                 {
                     case LocationType.MainCampaign:
@@ -148,11 +147,11 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
 
                 // reload the save list
                 var method = AccessTools.Method(typeof(LoadPanel), "EnumerateSaveLines");
-                __instance.StartCoroutine((IEnumerator)method.Invoke(__instance, null));
+                __instance.StartCoroutine((IEnumerator)method.Invoke(__instance, Array.Empty<object>()));
 
                 // reset the load button
                 method = AccessTools.Method(typeof(LoadPanel), "Reset");
-                method.Invoke(__instance, null);
+                method.Invoke(__instance, Array.Empty<object>());
             }
 
             GuiDropdown CreateOrActivateDropdown()
@@ -164,7 +163,7 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
                 {
                     var dropdownPrefab = Resources.Load<GameObject>("GUI/Prefabs/Component/Dropdown");
 
-                    Dropdown = Object.Instantiate(dropdownPrefab);
+                    Dropdown = UnityEngine.Object.Instantiate(dropdownPrefab);
                     Dropdown.name = "LoadMenuDropDown";
 
                     dd = Dropdown.GetComponent<GuiDropdown>();

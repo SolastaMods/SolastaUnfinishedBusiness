@@ -80,7 +80,7 @@ namespace SolastaCommunityExpansion.Models
                     CampaignOrLocationName = string.Empty;
                 }
 
-                Main.Log($"Campaign='{camp}', Location='{loc}', Folder='{SaveGameDirectory}'");
+                Main.Log($"SelectedCampaignService: Campaign='{camp}', Location='{loc}', Folder='{SaveGameDirectory}'");
             }
         }
 
