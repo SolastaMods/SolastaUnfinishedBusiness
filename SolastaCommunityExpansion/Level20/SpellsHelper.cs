@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using static FeatureDefinitionCastSpell;
 using static SolastaCommunityExpansion.Models.Level20Context;
 
@@ -8,52 +9,49 @@ namespace SolastaCommunityExpansion.Level20
     {
         internal static void FixCastSpellTables()
         {
-            var featureDefinitionCastSpellDB = DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>();
+            var dbFeatureDefinitionCastSpell = DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>();
 
-            foreach (var featureDefinitionCastSpell in featureDefinitionCastSpellDB)
+            foreach (var featureDefinitionCastSpell in dbFeatureDefinitionCastSpell
+                .Where(x => x.SpellCastingOrigin != FeatureDefinitionCastSpell.CastingOrigin.Monster))
             {
-                if (featureDefinitionCastSpell.SpellCastingOrigin != FeatureDefinitionCastSpell.CastingOrigin.Monster)
+                while (featureDefinitionCastSpell.KnownCantrips.Count < MOD_MAX_LEVEL + 1)
                 {
-                    while (featureDefinitionCastSpell.KnownCantrips.Count < MOD_MAX_LEVEL + 1)
-                    {
-                        featureDefinitionCastSpell.KnownCantrips.Add(0);
-                    }
-                    while (featureDefinitionCastSpell.KnownSpells.Count < MOD_MAX_LEVEL + 1)
-                    {
-                        featureDefinitionCastSpell.KnownSpells.Add(0);
-                    }
-                    while (featureDefinitionCastSpell.ScribedSpells.Count < MOD_MAX_LEVEL + 1)
-                    {
-                        featureDefinitionCastSpell.ScribedSpells.Add(0);
-                    }
-                    while (featureDefinitionCastSpell.ReplacedSpells.Count < MOD_MAX_LEVEL + 1)
-                    {
-                        featureDefinitionCastSpell.ReplacedSpells.Add(0);
-                    }
+                    featureDefinitionCastSpell.KnownCantrips.Add(0);
+                }
+                while (featureDefinitionCastSpell.KnownSpells.Count < MOD_MAX_LEVEL + 1)
+                {
+                    featureDefinitionCastSpell.KnownSpells.Add(0);
+                }
+                while (featureDefinitionCastSpell.ScribedSpells.Count < MOD_MAX_LEVEL + 1)
+                {
+                    featureDefinitionCastSpell.ScribedSpells.Add(0);
+                }
+                while (featureDefinitionCastSpell.ReplacedSpells.Count < MOD_MAX_LEVEL + 1)
+                {
+                    featureDefinitionCastSpell.ReplacedSpells.Add(0);
                 }
             }
         }
 
         internal static void UpdateSpellLists()
         {
+            var dbSpellListDefinition = DatabaseRepository.GetDatabase<SpellListDefinition>();
+
             foreach (var spellListDefinitionName in SpellListDefinitionList)
             {
-                DatabaseRepository.GetDatabase<SpellListDefinition>().TryGetElement(spellListDefinitionName, out SpellListDefinition spellListDefinition);
-
-                if (spellListDefinition != null)
+                if (dbSpellListDefinition.TryGetElement(spellListDefinitionName, out SpellListDefinition spellListDefinition))
                 {
                     var accountForCantrips = spellListDefinition.HasCantrips ? 1 : 0;
 
                     while (spellListDefinition.SpellsByLevel.Count < MAX_SPELL_LEVEL + accountForCantrips)
                     {
                         spellListDefinition.SpellsByLevel.Add(
-                            new SpellListDefinition.SpellsByLevelDuplet() { Level = spellListDefinition.SpellsByLevel.Count, Spells = new List<SpellDefinition>() });
+                            new SpellListDefinition.SpellsByLevelDuplet
+                            { 
+                                Level = spellListDefinition.SpellsByLevel.Count, 
+                                Spells = new List<SpellDefinition>() 
+                            });
                     }
-                    Main.Log($"spell list {spellListDefinitionName} updated.");
-                }
-                else
-                {
-                    Main.Log($"spell list {spellListDefinitionName} not found.");
                 }
             }
         }
