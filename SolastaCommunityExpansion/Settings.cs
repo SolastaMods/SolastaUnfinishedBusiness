@@ -47,6 +47,7 @@ namespace SolastaCommunityExpansion
         public bool AllowDynamicPowers { get; set; } = true;
         public bool AllowExtraKeyboardCharactersInCampaignNames { get; set; } = true;
         public bool AllowExtraKeyboardCharactersInLocationNames { get; set; } = true;
+        public bool BugFixAttunementUnknownCharacter { get; set; } = true;
         public bool BugFixBestiarySorting { get; set; } = true;
         public bool BugFixButtonActivatorTriggerIssue { get; set; } = true;
         public bool BugFixCharacterPanelSorting { get; set; } = true;
