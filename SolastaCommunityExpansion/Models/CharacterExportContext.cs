@@ -140,6 +140,15 @@ namespace SolastaCommunityExpansion.Models
 
                 customItems.ForEach(x => inventoryItems.Remove(x));
 
+                // change attunement to the new character name
+                foreach (var item in attunedItems)
+                {
+                    if (!string.IsNullOrWhiteSpace(item.Item.AttunedToCharacter))
+                    {
+                        item.Item.AttunedToCharacter = newFirstName;
+                    } 
+                }
+
                 heroCharacter.SetCurrentHitPoints(heroCharacter.GetAttribute("HitPoints").CurrentValue);
                 heroCharacter.Unregister();
                 heroCharacter.ResetForOutgame();
