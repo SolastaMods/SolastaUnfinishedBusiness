@@ -157,6 +157,8 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
                         break;
                 }
 
+                dropdown.UpdateTooltip();
+
                 // From OnBeginShow
 
                 // reload the save file list
