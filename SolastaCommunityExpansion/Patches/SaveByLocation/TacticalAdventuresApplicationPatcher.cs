@@ -22,7 +22,7 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
 
             __result = selectedCampaignService?.SaveGameDirectory ?? DefaultSaveGameDirectory;
 
-            Main.Log($"SaveFolder changed from {DefaultSaveGameDirectory} to {__result}");
+            Main.Log($"SaveGameDirectory_get: changed from {DefaultSaveGameDirectory} to {__result}");
 
             return false;
         }

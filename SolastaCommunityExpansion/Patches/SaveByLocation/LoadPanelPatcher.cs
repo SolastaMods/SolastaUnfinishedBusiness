@@ -1,11 +1,13 @@
 ﻿using HarmonyLib;
 using ModKit;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using static GuiDropdown;
 using static SolastaCommunityExpansion.Models.SaveByLocationContext;
 using static TMPro.TMP_Dropdown;
 
@@ -17,10 +19,8 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
     {
         internal static GameObject Dropdown { get; private set; }
 
-        public static void Postfix(LoadPanel __instance, [HarmonyArgument("instant")] bool _ = false)
+        public static bool Prefix(LoadPanel __instance, ScrollRect ___loadSaveLinesScrollview, [HarmonyArgument("instant")] bool _ = false)
         {
-            var canvas = __instance.gameObject;
-
             if (!Main.Settings.EnableSaveByLocation)
             {
                 if (Dropdown != null)
@@ -28,8 +28,15 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
                     Dropdown.SetActive(false);
                 }
 
-                return;
+                return true;
             }
+
+            // From OnBeginShow
+            __instance.StartAllModifiers(true);
+            ___loadSaveLinesScrollview.normalizedPosition = new Vector2(0.0f, 1f);
+            AccessTools
+                .Method(typeof(LoadPanel), "Reset")
+                .Invoke(__instance, Array.Empty<object>());
 
             // The Load Panel is being shown.
             // 1) create/activate a dropdown next to the load save button
@@ -63,17 +70,27 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
                 .ToList();
 
             guiDropdown.AddOptions(
-                Enumerable.Repeat(new { LocationType = LocationType.MainCampaign, Title = "Main campaign" }, 1)
+                Enumerable.Repeat(new
+                {
+                    LocationType = LocationType.StandardCampaign,
+                    Title = "Standard campaigns"
+                }, 1)
                 .Union(userContentList)
+                .Select(opt => new
+                {
+                    opt.LocationType,
+                    opt.Title,
+                    SaveFileCount = SaveFileCount(opt.LocationType, opt.Title)
+                })
                 .Select(opt => new LocationOptionData
                 {
+                    LocationType = opt.LocationType,
                     text = GetTitle(opt.LocationType, opt.Title),
                     CampaignOrLocation = opt.Title,
-                    image = GetSprite(opt.LocationType, opt.Title), // TODO
-                    LocationType = opt.LocationType,
-                    HasSaves = HasSaves(opt.LocationType, opt.Title)
+                    TooltipContent = $"{opt.SaveFileCount} save{(opt.SaveFileCount == 1 ? "" : "s")}",
+                    ShowInDropdown = opt.SaveFileCount > 0 || opt.LocationType == LocationType.StandardCampaign
                 })
-                .Where(opt => opt.HasSaves) // Only show locations that have saves
+                .Where(opt => opt.ShowInDropdown) // Only show locations that have saves
                 .Cast<OptionData>()
                 .ToList());
 
@@ -97,20 +114,16 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
 
             ValueChanged(guiDropdown);
 
-#pragma warning disable S1172 // Unused method parameters should be removed
-            Sprite GetSprite(LocationType locationType, string title)
-            {
-                // TODO: get suitable sprites - anyone?
-                return null;
-            }
-#pragma warning restore S1172 // Unused method parameters should be removed
+            return false;
 
             string GetTitle(LocationType locationType, string title)
             {
                 switch (locationType)
                 {
                     default:
-                    case LocationType.MainCampaign:
+                        Main.Error($"Unknown LocationType: {locationType}");
+                        return title.red();
+                    case LocationType.StandardCampaign:
                         return title;
                     case LocationType.CustomCampaign:
                         return title.yellow();
@@ -126,10 +139,15 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
 
                 var selected = dropdown.options.Skip(dropdown.value).FirstOrDefault() as LocationOptionData;
 
+                Main.Log($"ValueChanged: {dropdown.value}, selected={selected.LocationType}, {selected.text}, {selected.CampaignOrLocation}");
+
                 switch (selected.LocationType)
                 {
-                    case LocationType.MainCampaign:
-                        selectedCampaignService.SetCampaignLocation(MAIN_CAMPAIGN, string.Empty);
+                    default:
+                        Main.Error($"Unknown LocationType: {selected.LocationType}");
+                        break;
+                    case LocationType.StandardCampaign:
+                        selectedCampaignService.SetStandardCampaignLocation();
                         break;
                     case LocationType.UserLocation: // location (campaign=USER_CAMPAIGN + location)
                         selectedCampaignService.SetCampaignLocation(USER_CAMPAIGN, selected.CampaignOrLocation);
@@ -139,13 +157,13 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
                         break;
                 }
 
-                // reload the save list
-                var method = AccessTools.Method(typeof(LoadPanel), "EnumerateSaveLines");
-                __instance.StartCoroutine((IEnumerator)method.Invoke(__instance, null));
+                dropdown.UpdateTooltip();
 
-                // reset the load button
-                method = AccessTools.Method(typeof(LoadPanel), "Reset");
-                method.Invoke(__instance, null);
+                // From OnBeginShow
+
+                // reload the save file list
+                var method = AccessTools.Method(typeof(LoadPanel), "EnumerateSaveLines");
+                __instance.StartCoroutine((IEnumerator)method.Invoke(__instance, Array.Empty<object>()));
             }
 
             GuiDropdown CreateOrActivateDropdown()
@@ -157,13 +175,15 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
                 {
                     var dropdownPrefab = Resources.Load<GameObject>("GUI/Prefabs/Component/Dropdown");
 
-                    Dropdown = Object.Instantiate(dropdownPrefab);
+                    Dropdown = UnityEngine.Object.Instantiate(dropdownPrefab);
                     Dropdown.name = "LoadMenuDropDown";
 
                     dd = Dropdown.GetComponent<GuiDropdown>();
                     dd.onValueChanged.AddListener(delegate { ValueChanged(dd); });
 
-                    var buttonBar = canvas.GetComponentsInChildren<RectTransform>().SingleOrDefault(c => c.gameObject.name == "ButtonsBar")?.gameObject;
+                    var buttonBar = __instance.gameObject
+                        .GetComponentsInChildren<RectTransform>()
+                        .SingleOrDefault(c => c.gameObject.name == "ButtonsBar")?.gameObject;
 
                     if (buttonBar != null)
                     {
@@ -172,6 +192,16 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
                         if (horizontalLayoutGroup != null)
                         {
                             Dropdown.transform.SetParent(horizontalLayoutGroup.transform, false);
+
+                            horizontalLayoutGroup.childForceExpandWidth = true;
+                            horizontalLayoutGroup.childForceExpandHeight = true;
+                            horizontalLayoutGroup.childControlWidth = true;
+                            horizontalLayoutGroup.childControlHeight = true;
+                            horizontalLayoutGroup.childAlignment = TextAnchor.MiddleLeft;
+
+                            var dropDownLayout = dd.gameObject.AddComponent<LayoutElement>();
+                            // any large flexible width will do
+                            dropDownLayout.flexibleWidth = 3;
                         }
                     }
                 }
@@ -186,10 +216,10 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
         }
     }
 
-    internal class LocationOptionData : OptionData
+    internal class LocationOptionData : OptionDataAdvanced
     {
         public string CampaignOrLocation { get; set; }
         public LocationType LocationType { get; set; }
-        public bool HasSaves { get; set; }
+        public bool ShowInDropdown { get; set; }
     }
 }
