@@ -1,5 +1,6 @@
 ﻿using ModKit;
 using SolastaCommunityExpansion.Spells;
+using SolastaModApi.Extensions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -169,8 +170,19 @@ namespace SolastaCommunityExpansion.Models
 
             if (!RegisteredSpells.ContainsKey(spellDefinition))
             {
-                RegisteredSpells.Add(spellDefinition, new SpellRecord() { IsFromOtherMod = isFromOtherMod, SuggestedSpellLists = validateSpellLists });
-                RegisteredSpellsList.Add(spellDefinition);
+                if (spellDefinition.SpellLevel <= 6 || Main.Settings.EnableLevel20)
+                {
+                    RegisteredSpellsList.Add(spellDefinition);
+                    RegisteredSpells.Add(spellDefinition, new SpellRecord 
+                    { 
+                        IsFromOtherMod = isFromOtherMod,
+                        SuggestedSpellLists = validateSpellLists
+                    });
+                }
+                else
+                {
+                    spellDefinition.GuiPresentation.SetHidden(true);
+                }
             }
             else
             {
