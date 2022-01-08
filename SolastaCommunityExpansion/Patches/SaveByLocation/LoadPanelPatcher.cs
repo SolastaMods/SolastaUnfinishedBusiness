@@ -71,9 +71,9 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
 
             guiDropdown.AddOptions(
                 Enumerable.Repeat(new
-                { 
-                    LocationType = LocationType.StandardCampaign, 
-                    Title = "Standard campaigns" 
+                {
+                    LocationType = LocationType.StandardCampaign,
+                    Title = "Standard campaigns"
                 }, 1)
                 .Union(userContentList)
                 .Select(opt => new
@@ -192,6 +192,16 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
                         if (horizontalLayoutGroup != null)
                         {
                             Dropdown.transform.SetParent(horizontalLayoutGroup.transform, false);
+
+                            horizontalLayoutGroup.childForceExpandWidth = true;
+                            horizontalLayoutGroup.childForceExpandHeight = true;
+                            horizontalLayoutGroup.childControlWidth = true;
+                            horizontalLayoutGroup.childControlHeight = true;
+                            horizontalLayoutGroup.childAlignment = TextAnchor.MiddleLeft;
+
+                            var dropDownLayout = dd.gameObject.AddComponent<LayoutElement>();
+                            // any large flexible width will do
+                            dropDownLayout.flexibleWidth = 3;
                         }
                     }
                 }
