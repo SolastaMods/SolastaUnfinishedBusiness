@@ -72,7 +72,7 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
             guiDropdown.AddOptions(
                 Enumerable.Repeat(new
                 { 
-                    LocationType = LocationType.MainCampaign, 
+                    LocationType = LocationType.StandardCampaign, 
                     Title = "Standard campaigns" 
                 }, 1)
                 .Union(userContentList)
@@ -88,7 +88,7 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
                     text = GetTitle(opt.LocationType, opt.Title),
                     CampaignOrLocation = opt.Title,
                     TooltipContent = $"{opt.SaveFileCount} save{(opt.SaveFileCount == 1 ? "" : "s")}",
-                    ShowInDropdown = opt.SaveFileCount > 0 || opt.LocationType == LocationType.MainCampaign
+                    ShowInDropdown = opt.SaveFileCount > 0 || opt.LocationType == LocationType.StandardCampaign
                 })
                 .Where(opt => opt.ShowInDropdown) // Only show locations that have saves
                 .Cast<OptionData>()
@@ -121,7 +121,9 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
                 switch (locationType)
                 {
                     default:
-                    case LocationType.MainCampaign:
+                        Main.Error($"Unknown LocationType: {locationType}");
+                        return title.red();
+                    case LocationType.StandardCampaign:
                         return title;
                     case LocationType.CustomCampaign:
                         return title.yellow();
@@ -141,8 +143,11 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
 
                 switch (selected.LocationType)
                 {
-                    case LocationType.MainCampaign:
-                        selectedCampaignService.SetCampaignLocation(MAIN_CAMPAIGN, string.Empty);
+                    default:
+                        Main.Error($"Unknown LocationType: {selected.LocationType}");
+                        break;
+                    case LocationType.StandardCampaign:
+                        selectedCampaignService.SetStandardCampaignLocation();
                         break;
                     case LocationType.UserLocation: // location (campaign=USER_CAMPAIGN + location)
                         selectedCampaignService.SetCampaignLocation(USER_CAMPAIGN, selected.CampaignOrLocation);

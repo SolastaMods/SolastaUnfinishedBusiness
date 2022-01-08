@@ -5,7 +5,8 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class SaveByLocationContext
     {
-        internal const string MAIN_CAMPAIGN = "CrownOfTheMagister";
+        internal const string COTM_CAMPAIGN = "CrownOfTheMagister";
+        internal const string VOTP_CAMPAIGN = "DLC1_ValleyOfThePast_Campaign";
         internal const string USER_CAMPAIGN = "UserCampaign";
 
         internal static readonly string DefaultSaveGameDirectory = Path.Combine(TacticalAdventuresApplication.GameDirectory, "Saves");
@@ -42,7 +43,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal enum LocationType
         {
-            MainCampaign,
+            StandardCampaign,
             UserLocation,
             CustomCampaign
         }
@@ -53,8 +54,15 @@ namespace SolastaCommunityExpansion.Models
             public LocationType LocationType { get; private set; }
             public string SaveGameDirectory { get; private set; }
 
+            public void SetStandardCampaignLocation()
+            {
+                SetCampaignLocation(string.Empty, string.Empty);
+            }
+
             public void SetCampaignLocation(string campaign, string location)
             {
+                Main.Log($"SetCampaignLocation: Campaign='{campaign}', Location='{location}'");
+
                 var camp = campaign?.Trim() ?? string.Empty;
                 var loc = location?.Trim() ?? string.Empty;
 
@@ -65,7 +73,8 @@ namespace SolastaCommunityExpansion.Models
                     LocationType = LocationType.UserLocation;
                     CampaignOrLocationName = location;
                 }
-                else if (camp != MAIN_CAMPAIGN && !string.IsNullOrWhiteSpace(camp))
+                // this check not really needed, could just be !string.IsNullOrWhiteSpace(camp)
+                else if (camp != COTM_CAMPAIGN && camp != VOTP_CAMPAIGN && !string.IsNullOrWhiteSpace(camp))
                 {
                     // User campaign
                     SaveGameDirectory = Path.Combine(CampaignSaveGameDirectory, camp);
@@ -74,9 +83,9 @@ namespace SolastaCommunityExpansion.Models
                 }
                 else
                 {
-                    // Crown of the magister
+                    // Crown of the Magister or Lost Valley
                     SaveGameDirectory = DefaultSaveGameDirectory;
-                    LocationType = LocationType.MainCampaign;
+                    LocationType = LocationType.StandardCampaign;
                     CampaignOrLocationName = string.Empty;
                 }
 
@@ -100,12 +109,15 @@ namespace SolastaCommunityExpansion.Models
 
                         return Directory.Exists(saveFolder) ? Directory.EnumerateFiles(saveFolder, "*.sav").Count() : 0;
                     }
-                case LocationType.MainCampaign:
+                case LocationType.StandardCampaign:
                     {
                         var saveFolder = DefaultSaveGameDirectory;
 
                         return Directory.Exists(saveFolder) ? Directory.EnumerateFiles(saveFolder, "*.sav").Count() : 0;
                     }
+                default:
+                    Main.Error($"Unknown LocationType: {locationType}");
+                    break;
             }
 
             return 0;
