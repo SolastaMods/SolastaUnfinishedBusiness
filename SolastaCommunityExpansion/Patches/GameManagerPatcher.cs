@@ -14,7 +14,6 @@ namespace SolastaCommunityExpansion.Patches
             AsiAndFeatContext.Load();
             BugFixContext.Load();
             CharacterExportContext.Load();
-            ClassesContext.Load();
             ConjurationsContext.Load();
             DruidArmorContext.Load();
             DungeonMakerContext.Load();
@@ -31,22 +30,30 @@ namespace SolastaCommunityExpansion.Patches
             ItemOptionsContext.Load();
             Level20Context.Load();
             PickPocketContext.Load();
+            PowersContext.AddToDB();
             RemoveBugVisualModelsContext.Load();
             RemoveIdentificationContext.Load();
             RespecContext.Load();
+            SpellsContext.AddToDB();
             SrdAndHouseRulesContext.Load();
-            SubclassesContext.Load();
             TelemaCampaignContext.Load();
             TeleporterContext.Load();
             VisionContext.Load();
+
+            // Classes may rely on spells and powers being in the DB before they can properly load.
+            ClassesContext.Load();
+            // Subclasses may rely on classes being loaded in order to properly refer back to the class.
+            SubclassesContext.Load();
 
             ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (runtime) =>
             {
                 FlexibleRacesContext.Switch();
                 InitialChoicesContext.RefreshFirstLevelTotalFeats();
 
+                // There are feats that need all character classes loaded before they can properly be setup.
                 FeatsContext.Load();
-                PowersContext.Load();
+                // Generally available powers need all clases in the db before they are initialized here.
+                PowersContext.Switch();
                 SpellsContext.Load();
 
                 GuiWrapperContext.Recache();

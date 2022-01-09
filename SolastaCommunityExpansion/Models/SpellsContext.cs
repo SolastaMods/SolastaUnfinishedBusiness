@@ -100,11 +100,14 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void Load()
+        internal static void AddToDB()
         {
             BazouSpells.Load();
             SrdSpells.Load();
+        }
 
+        internal static void Load()
+        {
             if (Main.Settings.AllowDisplayAllUnofficialContent)
             {
                 LoadAllUnofficialSpells();

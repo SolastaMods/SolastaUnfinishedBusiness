@@ -12,17 +12,16 @@ namespace SolastaCommunityExpansion.Models
 
         private static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; set; }
 
-        //
-        // TODO: Test Help Power before adding to classes...
-        //
-
-        internal static void Load()
+        internal static void AddToDB()
         {
-            //LoadHelpPower();
+            LoadHelpPower();
         }
 
         internal static void Switch()
         {
+            //
+            // TODO: Test Help Power before adding to classes...
+            //
             //SwitchHelpPower();
         }
 
