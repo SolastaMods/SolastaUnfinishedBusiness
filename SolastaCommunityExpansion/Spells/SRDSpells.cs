@@ -156,33 +156,37 @@ namespace SolastaCommunityExpansion.Spells
             }
         }
 
-        private const string BaseGuid = "05c1b1dbae144731b4505c1232fdc37e";
-        private const string BaseString = "DH";
+        //
+        // DubbHerder SRD Spells
+        //
 
-        private static string GetSpellTitleTerm(string text) => $"Spell/&{BaseString}{text}_Title";
-        private static string GetSpellDescriptionTerm(string text) => $"Spell/&{BaseString}{text}_Description";
+        private const string DhBaseGuid = "05c1b1dbae144731b4505c1232fdc37e";
+
+        private const string DhBaseString = "DH";
+
+        private static string GetSpellTitleTerm(string text) => $"Spell/&{DhBaseString}{text}_Title";
+
+        private static string GetSpellDescriptionTerm(string text) => $"Spell/&{DhBaseString}{text}_Description";
 
         private static SpellDefinition BuildFingerOfDeath()
         {
             string text = "FingerOfDeathSpell";
 
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder();
-            effectDescription.SetDurationData
-                (
+            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+
+            .SetDurationData(
                 RuleDefinitions.DurationType.Instantaneous,
                 1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn
-                );
-            effectDescription.SetTargetingData
-                (
+                RuleDefinitions.TurnOccurenceType.EndOfTurn)
+            .SetTargetingData(
                 RuleDefinitions.Side.Enemy,
                 RuleDefinitions.RangeType.Distance,
                 12,
                 RuleDefinitions.TargetType.Individuals,
                 1,
                 1,
-                ActionDefinitions.ItemSelectionType.None
-                );
+                ActionDefinitions.ItemSelectionType.None)
+
             //    effectDescription.AddEffectForm(new EffectFormBuilder()
             //        .SetSummonForm
             //        (
@@ -197,23 +201,23 @@ namespace SolastaCommunityExpansion.Spells
             //        )
             //        .Build()
             //        );
-            effectDescription.AddEffectForm(new EffectFormBuilder()
-                .SetDamageForm
-                (
-                false,
-                RuleDefinitions.DieType.D8,
-                RuleDefinitions.DamageTypeNecrotic,
-                30,
-                RuleDefinitions.DieType.D8,
-                7,
-                RuleDefinitions.HealFromInflictedDamage.Never,
-                new List<RuleDefinitions.TrendInfo>())
+
+            .AddEffectForm(new EffectFormBuilder()
+                .SetDamageForm(
+                    false,
+                    RuleDefinitions.DieType.D8,
+                    RuleDefinitions.DamageTypeNecrotic,
+                    30,
+                    RuleDefinitions.DieType.D8,
+                    7,
+                    RuleDefinitions.HealFromInflictedDamage.Never,
+                    new List<RuleDefinitions.TrendInfo>())
                 .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
-                .Build()
-                );
+                .Build())
+
             //  effectDescription.AddEffectForm(
             //  new EffectFormBuilder().SetConditionForm(
-            //      SummonZombieCondition_Builder.SummonZombieCondition,
+            //      SummonZombieConditionBuilder.SummonZombieCondition,
             //      ConditionForm.ConditionOperation.Add,
             //      true,
             //      true,
@@ -221,8 +225,8 @@ namespace SolastaCommunityExpansion.Spells
             //      )
             //    //  .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.Negates)
             //  .Build());
-            effectDescription.SetSavingThrowData
-                (
+
+            .SetSavingThrowData(
                 true,
                 false,
                 DatabaseHelper.SmartAttributeDefinitions.Constitution.name,
@@ -231,9 +235,7 @@ namespace SolastaCommunityExpansion.Spells
                 DatabaseHelper.SmartAttributeDefinitions.Constitution.name,
                 20,
                 false,
-                new List<SaveAffinityBySenseDescription> { }
-                );
-            effectDescription.Build();
+                new List<SaveAffinityBySenseDescription>());
 
             GuiPresentation guiPresentationSpell = new GuiPresentation()
                 .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
@@ -242,7 +244,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.SpellDefinitions.RayOfEnfeeblement.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder FingerOfDeathSpell = new SpellBuilder(BaseString + text, GuidHelper.Create(new System.Guid(BaseGuid), BaseString + text).ToString())
+            SpellBuilder FingerOfDeathSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(7)
@@ -255,13 +257,13 @@ namespace SolastaCommunityExpansion.Spells
             return FingerOfDeathSpell.AddToDB();
         }
 
-        //   internal class SummonZombieCondition_Builder : BaseDefinitionBuilder<ConditionDefinition>
+        //   internal class SummonZombieConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
         //   {
         //       const string Name = "DHSummonZombieSpellcondition";
         //       const string Guid = "a4d94551-efd3-4987-918c-a35b24d607a6";
-        //       const string TitleString = "Condition/&DHSummonZombieSpell_Title";
-        //       const string DescriptionString = "Condition/&DHSummonZombieSpell_Description";
-        //       protected SummonZombieCondition_Builder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionDummy, name, guid)
+        //       const string TitleString = "Condition/&DHSummonZombieSpellTitle";
+        //       const string DescriptionString = "Condition/&DHSummonZombieSpellDescription";
+        //       protected SummonZombieConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionDummy, name, guid)
         //       {
         //           Definition.GuiPresentation.Title = TitleString;
         //           Definition.GuiPresentation.Description = DescriptionString;
@@ -299,7 +301,7 @@ namespace SolastaCommunityExpansion.Spells
         //
         //       }
         //       internal static ConditionDefinition CreateAndAddToDB(string name, string guid)
-        //           => new SummonZombieCondition_Builder(name, guid).AddToDB();
+        //           => new SummonZombieConditionBuilder(name, guid).AddToDB();
         //       internal static ConditionDefinition SummonZombieCondition = CreateAndAddToDB(Name, Guid);
         //   }
 
@@ -307,21 +309,21 @@ namespace SolastaCommunityExpansion.Spells
         {
             string text = "ReverseGravitySpell";
 
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder();
-            effectDescription.SetDurationData(
+            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+
+            .SetDurationData(
                  RuleDefinitions.DurationType.Minute,
                  1,
-                 RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            effectDescription.SetTargetingData(
+                 RuleDefinitions.TurnOccurenceType.EndOfTurn)
+            .SetTargetingData(
                 RuleDefinitions.Side.All,
                 RuleDefinitions.RangeType.Distance,
                 12,
                 RuleDefinitions.TargetType.Cylinder,
                 10,
                 10,
-                ActionDefinitions.ItemSelectionType.None);
-
-            effectDescription.SetSavingThrowData(
+                ActionDefinitions.ItemSelectionType.None)
+            .SetSavingThrowData(
                 true,
                 false,
                 DatabaseHelper.SmartAttributeDefinitions.Dexterity.name,
@@ -330,31 +332,23 @@ namespace SolastaCommunityExpansion.Spells
                 DatabaseHelper.SmartAttributeDefinitions.Dexterity.name,
                 20,
                 false,
-                new List<SaveAffinityBySenseDescription> { }
-                );
-            effectDescription.AddEffectForm(
-                new EffectFormBuilder().SetConditionForm(
-                    ReverseGravityCondition_Builder.ReverseGravityCondition,
-                    // DatabaseHelper.ConditionDefinitions.ConditionLevitate,
+                new List<SaveAffinityBySenseDescription>())
+            .AddEffectForm(new EffectFormBuilder()
+                .SetConditionForm(
+                    ReverseGravityConditionBuilder.ReverseGravityCondition,
                     ConditionForm.ConditionOperation.Add,
                     false,
                     false,
-                    new List<ConditionDefinition>()
-                    )
+                    new List<ConditionDefinition>())
                     .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.Negates)
-                .Build());
-            effectDescription.AddEffectForm(
-                new EffectFormBuilder().SetMotionForm(
+                .Build())
+            .AddEffectForm(new EffectFormBuilder()
+                .SetMotionForm(
                     MotionForm.MotionType.Levitate,
-                    10
-                    )
-                //     .CreatedByCharacter()
+                    10)
                 .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.Negates)
-                .Build());
-
-            effectDescription.SetRecurrentEffect(DatabaseHelper.SpellDefinitions.Entangle.EffectDescription.RecurrentEffect);
-            effectDescription.Build();
-
+                .Build())
+            .SetRecurrentEffect(DatabaseHelper.SpellDefinitions.Entangle.EffectDescription.RecurrentEffect);
 
             GuiPresentation guiPresentationSpell = new GuiPresentation()
                 .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
@@ -363,7 +357,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.SpellDefinitions.Thunderwave.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder ReverseGravitySpell = new SpellBuilder(BaseString + text, GuidHelper.Create(new System.Guid(BaseGuid), BaseString + text).ToString())
+            SpellBuilder ReverseGravitySpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(7)
@@ -377,15 +371,15 @@ namespace SolastaCommunityExpansion.Spells
             return ReverseGravitySpell.AddToDB();
         }
 
-        internal class ReverseGravityCondition_Builder : BaseDefinitionBuilder<ConditionDefinition>
+        internal class ReverseGravityConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
         {
             const string Name = "DHReverseGravitySpellcondition";
             const string Guid = "809f1cef-6bdc-4b5a-93bf-275af8ab0b36";
 
-            const string TitleString = "Condition/&DHReverseGravitySpell_Title";
-            const string DescriptionString = "Condition/&DHReverseGravitySpell_Description";
+            const string TitleString = "Condition/&DHReverseGravitySpellTitle";
+            const string DescriptionString = "Condition/&DHReverseGravitySpellDescription";
 
-            protected ReverseGravityCondition_Builder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionLevitate, name, guid)
+            protected ReverseGravityConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionLevitate, name, guid)
             {
                 Definition.GuiPresentation.Title = TitleString;
                 Definition.GuiPresentation.Description = DescriptionString;
@@ -403,8 +397,8 @@ namespace SolastaCommunityExpansion.Spells
                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly2
                 );
             }
-            internal static ConditionDefinition CreateAndAddToDB(string name, string guid)
-                => new ReverseGravityCondition_Builder(name, guid).AddToDB();
+            private static ConditionDefinition CreateAndAddToDB(string name, string guid)
+                => new ReverseGravityConditionBuilder(name, guid).AddToDB();
 
             internal static readonly ConditionDefinition ReverseGravityCondition = CreateAndAddToDB(Name, Guid);
         }
@@ -412,8 +406,8 @@ namespace SolastaCommunityExpansion.Spells
         private static SpellDefinition BuildConjureCelestial()
         {
             SpellListDefinition CouatlSpellList = SpellListBuilder.CreateSpellList(
-                 BaseString + "CouatlSpellList",
-                 GuidHelper.Create(new System.Guid(BaseGuid), BaseString + "CouatlSpellList").ToString(),
+                 DhBaseString + "CouatlSpellList",
+                 GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + "CouatlSpellList").ToString(),
                  "",
                  DatabaseHelper.SpellListDefinitions.SpellListCleric,
                  new List<SpellDefinition>
@@ -449,8 +443,8 @@ namespace SolastaCommunityExpansion.Spells
 
             FeatureDefinitionCastSpell CastSpellCouatl = new CastSpellBuilder
                 (
-                BaseString + "CastSpellCouatl",
-                GuidHelper.Create(new System.Guid(BaseGuid), BaseString + "CastSpellCouatl").ToString()
+                DhBaseString + "CastSpellCouatl",
+                GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + "CastSpellCouatl").ToString()
                  )
                 .AddToDB();
 
@@ -472,31 +466,30 @@ namespace SolastaCommunityExpansion.Spells
 
             CastSpellCouatl.KnownSpells.Clear();
             CastSpellCouatl.KnownSpells.AddRange(arr);
-
             CastSpellCouatl.SlotsPerLevels.Clear();
-            CastSpellCouatl.SlotsPerLevels.AddRange(new List<FeatureDefinitionCastSpell.SlotsByLevelDuplet>()
-           {
-            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 01 },
-            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 02 },
-            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 03 },
-            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 04 },
-            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 05 },
-            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 06 },
-            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 07 },
-            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 08 },
-            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 09 },
-            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 10 },
-            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 11 },
-            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 12 },
-            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 13 },
-            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 14 },
-            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 15 },
-            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 16 },
-            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 17 },
-            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 18 },
-            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 19 },
-            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 20 },
-           });
+            CastSpellCouatl.SlotsPerLevels.AddRange(new List<FeatureDefinitionCastSpell.SlotsByLevelDuplet>
+            {
+                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 01 },
+                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 02 },
+                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 03 },
+                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 04 },
+                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 05 },
+                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 06 },
+                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 07 },
+                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 08 },
+                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 09 },
+                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 10 },
+                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 11 },
+                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 12 },
+                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 13 },
+                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 14 },
+                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 15 },
+                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 16 },
+                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 17 },
+                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 18 },
+                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 19 },
+                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 20 },
+            });
 
 
             string text = "ConjureCelestialSpell";
@@ -556,7 +549,7 @@ namespace SolastaCommunityExpansion.Spells
                         MonsterAttackDefinition CouatlBite_Attack = MonsterAttackDefinitionBuilder(
                                  "DH_Custom_" + text,
                                  DatabaseHelper.MonsterAttackDefinitions.Attack_TigerDrake_Bite,
-                                 GuidHelper.Create(new System.Guid(BaseGuid), BaseString + "CouatlBite_Attack").ToString(),
+                                 GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + "CouatlBite_Attack").ToString(),
                                 "MonsterAttack/&DH_CouatlBite_Attack_Title",
                                  "MonsterAttack/&DH_CouatlBite_Attack_Description"
                                   );
@@ -736,7 +729,7 @@ namespace SolastaCommunityExpansion.Spells
             guiPresentationSpell.SetSpriteReference(DatabaseHelper.SpellDefinitions.Bless.GuiPresentation.SpriteReference);
             guiPresentationSpell.SetSymbolChar("221E");
 
-            SpellBuilder ConjureCelestialSpell = new SpellBuilder(BaseString + text, GuidHelper.Create(new System.Guid(BaseGuid), BaseString + text).ToString());
+            SpellBuilder ConjureCelestialSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString());
             ConjureCelestialSpell.SetGuiPresentation(guiPresentationSpell);
             ConjureCelestialSpell.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation);
             ConjureCelestialSpell.SetSpellLevel(7);
@@ -818,7 +811,7 @@ namespace SolastaCommunityExpansion.Spells
                     guiPresentationSpell.SetSpriteReference(DatabaseHelper.SpellDefinitions.ConjureFey.GuiPresentation.SpriteReference);
                     guiPresentationSpell.SetSymbolChar("221E");
 
-                    SpellBuilder AnimalShapesSpell = new SpellBuilder(BaseString + text, GuidHelper.Create(new System.Guid(BaseGuid), BaseString + text).ToString());
+                    SpellBuilder AnimalShapesSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString());
                     AnimalShapesSpell.SetGuiPresentation(guiPresentationSpell);
                     AnimalShapesSpell.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation);
                     AnimalShapesSpell.SetSpellLevel(8);
@@ -851,7 +844,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.SpellDefinitions.DominatePerson.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder DominateMonsterSpell = new SpellBuilder(BaseString + text, GuidHelper.Create(new System.Guid(BaseGuid), BaseString + text).ToString())
+            SpellBuilder DominateMonsterSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(8)
@@ -894,7 +887,7 @@ namespace SolastaCommunityExpansion.Spells
                 );
             effectDescription.AddEffectForm(
                 new EffectFormBuilder().SetConditionForm(
-                    FeeblemindCondition_Builder.FeeblemindCondition,
+                    FeeblemindConditionBuilder.FeeblemindCondition,
                     ConditionForm.ConditionOperation.Add,
                     false,
                     false,
@@ -916,73 +909,66 @@ namespace SolastaCommunityExpansion.Spells
             effectDescription.Build();
 
             GuiPresentation guiPresentationSpell = new GuiPresentation()
-            .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
-            .SetDescription(GetSpellDescriptionTerm(text))
-            .SetTitle(GetSpellTitleTerm(text))
-            .SetSpriteReference(DatabaseHelper.SpellDefinitions.BestowCurse.GuiPresentation.SpriteReference)
-            .SetSymbolChar("221E");
+                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
+                .SetDescription(GetSpellDescriptionTerm(text))
+                .SetTitle(GetSpellTitleTerm(text))
+                .SetSpriteReference(DatabaseHelper.SpellDefinitions.BestowCurse.GuiPresentation.SpriteReference)
+                .SetSymbolChar("221E");
 
-            SpellBuilder FeeblemindSpell = new SpellBuilder(BaseString + text, GuidHelper.Create(new System.Guid(BaseGuid), BaseString + text).ToString())
-            .SetGuiPresentation(guiPresentationSpell)
-            .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
-            .SetSpellLevel(8)
-            .SetCastingTime(RuleDefinitions.ActivationTime.Action)
-            .SetVerboseComponent(true)
-            .SetSomaticComponent(false)
-            .SetEffectDescription(effectDescription.Build())
-            .SetAiParameters(new SpellAIParameters());
+            SpellBuilder FeeblemindSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+                .SetGuiPresentation(guiPresentationSpell)
+                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
+                .SetSpellLevel(8)
+                .SetCastingTime(RuleDefinitions.ActivationTime.Action)
+                .SetVerboseComponent(true)
+                .SetSomaticComponent(false)
+                .SetEffectDescription(effectDescription.Build())
+                .SetAiParameters(new SpellAIParameters());
 
-            DatabaseHelper.SpellDefinitions.GreaterRestoration.EffectDescription.EffectForms[0].ConditionForm.ConditionsList.Add(FeeblemindCondition_Builder.FeeblemindCondition);
+            DatabaseHelper.SpellDefinitions.GreaterRestoration.EffectDescription.EffectForms[0].ConditionForm.ConditionsList.Add(FeeblemindConditionBuilder.FeeblemindCondition);
 
             return FeeblemindSpell.AddToDB();
         }
 
-        internal class FeeblemindCondition_Builder : BaseDefinitionBuilder<ConditionDefinition>
+        internal class FeeblemindConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
         {
             const string Name = "DHFeeblemindSpellcondition";
             const string Guid = "965a09b2-cb22-452b-b93c-2bccdcda4871";
 
-            const string TitleString = "Condition/&DHFeeblemindSpell_Title";
-            const string DescriptionString = "Condition/&DHFeeblemindSpell_Description";
+            const string TitleString = "Condition/&DHFeeblemindSpellTitle";
+            const string DescriptionString = "Condition/&DHFeeblemindSpellDescription";
 
-            protected FeeblemindCondition_Builder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionBearsEndurance, name, guid)
+            protected FeeblemindConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionBearsEndurance, name, guid)
             {
                 Definition.GuiPresentation.Title = TitleString;
                 Definition.GuiPresentation.Description = DescriptionString;
-
                 Definition.SetConditionType(RuleDefinitions.ConditionType.Detrimental);
-
-                Definition.Features.Clear();
-                Definition.Features.Empty();
-                Definition.Features.AddRange
-                (
+                Definition.Features.SetRange(
                     DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinitySilenced,
                     DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityConditionRaging,
-                    FeeblemindIntAttributeModifier_Builder.FeeblemindIntAttributeModifier,
-                    Feeblemind_Cha_AttributeModifier_Builder.Feeblemind_Cha_AttributeModifier,
-                    FeeblemindActionAffinity_Builder.FeeblemindActionAffinity
-                );
+                    FeeblemindIntAttributeModifierBuilder.FeeblemindIntAttributeModifier,
+                    FeeblemindCha_AttributeModifierBuilder.FeeblemindCha_AttributeModifier,
+                    FeeblemindActionAffinityBuilder.FeeblemindActionAffinity);
             }
 
             internal static ConditionDefinition CreateAndAddToDB(string name, string guid)
-                => new FeeblemindCondition_Builder(name, guid).AddToDB();
+                => new FeeblemindConditionBuilder(name, guid).AddToDB();
 
             internal static readonly ConditionDefinition FeeblemindCondition = CreateAndAddToDB(Name, Guid);
         }
 
-        internal class FeeblemindIntAttributeModifier_Builder : BaseDefinitionBuilder<FeatureDefinitionAttributeModifier>
+        internal class FeeblemindIntAttributeModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttributeModifier>
         {
-            const string Name = "DHFeeblemind_IntSpellAttributeModifier";
+            const string Name = "DHFeeblemindIntSpellAttributeModifier";
             const string Guid = "a2a16bda-e7b1-4a87-9f0e-3e4c21870fd8";
 
-            const string TitleString = "AttributeModifier/&DHFeeblemind_IntSpell_Title";
-            const string DescriptionString = "AttributeModifier/&DHFeeblemind_IntSpell_Description";
+            const string TitleString = "AttributeModifier/&DHFeeblemindIntSpellTitle";
+            const string DescriptionString = "AttributeModifier/&DHFeeblemindIntSpellDescription";
 
-            protected FeeblemindIntAttributeModifier_Builder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierHeadbandOfIntellect, name, guid)
+            protected FeeblemindIntAttributeModifierBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierHeadbandOfIntellect, name, guid)
             {
                 Definition.GuiPresentation.Title = TitleString;
                 Definition.GuiPresentation.Description = DescriptionString;
-
                 Definition.SetModifiedAttribute(DatabaseHelper.SmartAttributeDefinitions.Intelligence.name);
                 Definition.SetModifierAbilityScore(DatabaseHelper.SmartAttributeDefinitions.Intelligence.name);
                 Definition.SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Force);
@@ -990,25 +976,24 @@ namespace SolastaCommunityExpansion.Spells
                 Definition.SetSituationalContext(RuleDefinitions.SituationalContext.None);
 
             }
-            internal static FeatureDefinitionAttributeModifier CreateAndAddToDB(string name, string guid)
-                => new FeeblemindIntAttributeModifier_Builder(name, guid).AddToDB();
+            private static FeatureDefinitionAttributeModifier CreateAndAddToDB(string name, string guid)
+                => new FeeblemindIntAttributeModifierBuilder(name, guid).AddToDB();
 
             internal static readonly FeatureDefinitionAttributeModifier FeeblemindIntAttributeModifier = CreateAndAddToDB(Name, Guid);
         }
 
-        internal class Feeblemind_Cha_AttributeModifier_Builder : BaseDefinitionBuilder<FeatureDefinitionAttributeModifier>
+        internal class FeeblemindCha_AttributeModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttributeModifier>
         {
-            const string Name = "DHFeeblemind_ChaSpellAttributeModifier";
+            const string Name = "DHFeeblemindChaSpellAttributeModifier";
             const string Guid = "6721abe1-19eb-4a8c-9702-2fdea2070464";
 
-            const string TitleString = "AttributeModifier/&DHFeeblemind_ChaSpell_Title";
-            const string DescriptionString = "AttributeModifier/&DHFeeblemind_ChaSpell_Description";
+            const string TitleString = "AttributeModifier/&DHFeeblemindChaSpellTitle";
+            const string DescriptionString = "AttributeModifier/&DHFeeblemindChaSpellDescription";
 
-            protected Feeblemind_Cha_AttributeModifier_Builder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierHeadbandOfIntellect, name, guid)
+            protected FeeblemindCha_AttributeModifierBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierHeadbandOfIntellect, name, guid)
             {
                 Definition.GuiPresentation.Title = TitleString;
                 Definition.GuiPresentation.Description = DescriptionString;
-
                 Definition.SetModifiedAttribute(DatabaseHelper.SmartAttributeDefinitions.Charisma.name);
                 Definition.SetModifierAbilityScore(DatabaseHelper.SmartAttributeDefinitions.Charisma.name);
                 Definition.SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Force);
@@ -1017,21 +1002,21 @@ namespace SolastaCommunityExpansion.Spells
 
             }
 
-            internal static FeatureDefinitionAttributeModifier CreateAndAddToDB(string name, string guid)
-                => new Feeblemind_Cha_AttributeModifier_Builder(name, guid).AddToDB();
+            private static FeatureDefinitionAttributeModifier CreateAndAddToDB(string name, string guid)
+                => new FeeblemindCha_AttributeModifierBuilder(name, guid).AddToDB();
 
-            internal static readonly FeatureDefinitionAttributeModifier Feeblemind_Cha_AttributeModifier = CreateAndAddToDB(Name, Guid);
+            internal static readonly FeatureDefinitionAttributeModifier FeeblemindCha_AttributeModifier = CreateAndAddToDB(Name, Guid);
         }
 
-        internal class FeeblemindActionAffinity_Builder : BaseDefinitionBuilder<FeatureDefinitionActionAffinity>
+        internal class FeeblemindActionAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionActionAffinity>
         {
             const string Name = "DHFeeblemindSpellActionAffinity";
             const string Guid = "749a9572-07f6-4678-9458-904c04b9ab22";
 
-            const string TitleString = "ActionAffinity/&DHFeeblemindSpell_Title";
-            const string DescriptionString = "ActionAffinity/&DHFeeblemindSpell_Description";
+            const string TitleString = "ActionAffinity/&DHFeeblemindSpellTitle";
+            const string DescriptionString = "ActionAffinity/&DHFeeblemindSpellDescription";
 
-            protected FeeblemindActionAffinity_Builder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinityConditionRaging, name, guid)
+            protected FeeblemindActionAffinityBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinityConditionRaging, name, guid)
             {
                 Definition.GuiPresentation.Title = TitleString;
                 Definition.GuiPresentation.Description = DescriptionString;
@@ -1048,8 +1033,8 @@ namespace SolastaCommunityExpansion.Spells
                 );
             }
 
-            internal static FeatureDefinitionActionAffinity CreateAndAddToDB(string name, string guid)
-                => new FeeblemindActionAffinity_Builder(name, guid).AddToDB();
+            private static FeatureDefinitionActionAffinity CreateAndAddToDB(string name, string guid)
+                => new FeeblemindActionAffinityBuilder(name, guid).AddToDB();
 
             internal static readonly FeatureDefinitionActionAffinity FeeblemindActionAffinity = CreateAndAddToDB(Name, Guid);
         }
@@ -1073,7 +1058,7 @@ namespace SolastaCommunityExpansion.Spells
                 ActionDefinitions.ItemSelectionType.None);
             effectDescription.AddEffectForm(
                 new EffectFormBuilder().SetConditionForm(
-                    HolyAuraCondition_Builder.HolyAuraCondition,
+                    HolyAuraConditionBuilder.HolyAuraCondition,
                     ConditionForm.ConditionOperation.Add,
                     false,
                     false,
@@ -1091,7 +1076,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLifePreserveLife.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder HolyAuraSpell = new SpellBuilder(BaseString + text, GuidHelper.Create(new System.Guid(BaseGuid), BaseString + text).ToString())
+            SpellBuilder HolyAuraSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(8)
@@ -1106,45 +1091,42 @@ namespace SolastaCommunityExpansion.Spells
         }
 
 
-        internal class HolyAuraCondition_Builder : BaseDefinitionBuilder<ConditionDefinition>
+        internal class HolyAuraConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
         {
             const string Name = "DHHolyAuraSpellcondition";
             const string Guid = "1808ca4b-8f46-41bf-a59c-0bcbd4f60248";
 
-            const string TitleString = "Condition/&DHHolyAuraSpell_Title";
-            const string DescriptionString = "Condition/&DHHolyAuraSpell_Description";
+            const string TitleString = "Condition/&DHHolyAuraSpellTitle";
+            const string DescriptionString = "Condition/&DHHolyAuraSpellDescription";
 
-            protected HolyAuraCondition_Builder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionBearsEndurance, name, guid)
+            protected HolyAuraConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionBearsEndurance, name, guid)
             {
                 Definition.GuiPresentation.Title = TitleString;
                 Definition.GuiPresentation.Description = DescriptionString;
-
                 Definition.SetConditionType(RuleDefinitions.ConditionType.Beneficial);
-
-                Definition.Features.Clear();
-                Definition.Features.Empty();
-                Definition.Features.AddRange
+                Definition.Features.SetRange
                 (
                     DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityDodging,
                     DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityShelteringBreeze,
-                    HolyAuraDamageAffinity_Builder.HolyAuraDamageAffinity
+                    HolyAuraDamageAffinityBuilder.HolyAuraDamageAffinity
                 );
             }
-            internal static ConditionDefinition CreateAndAddToDB(string name, string guid)
-                => new HolyAuraCondition_Builder(name, guid).AddToDB();
+
+            private static ConditionDefinition CreateAndAddToDB(string name, string guid)
+                => new HolyAuraConditionBuilder(name, guid).AddToDB();
 
             internal static readonly ConditionDefinition HolyAuraCondition = CreateAndAddToDB(Name, Guid);
         }
 
-        internal class HolyAuraDamageAffinity_Builder : BaseDefinitionBuilder<FeatureDefinitionDamageAffinity>
+        internal class HolyAuraDamageAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionDamageAffinity>
         {
             const string Name = "DHHolyAuraSpellDamageAffinity";
             const string Guid = "c83aceae-e4c4-4a9c-a83d-58ffebe92007";
 
-            const string TitleString = "DamageAffinity/&DHHolyAuraSpell_Title";
-            const string DescriptionString = "DamageAffinity/&DHHolyAuraSpell_Description";
+            const string TitleString = "DamageAffinity/&DHHolyAuraSpellTitle";
+            const string DescriptionString = "DamageAffinity/&DHHolyAuraSpellDescription";
 
-            protected HolyAuraDamageAffinity_Builder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonAdvantage, name, guid)
+            protected HolyAuraDamageAffinityBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonAdvantage, name, guid)
             {
                 Definition.GuiPresentation.Title = TitleString;
                 Definition.GuiPresentation.Description = DescriptionString;
@@ -1154,16 +1136,16 @@ namespace SolastaCommunityExpansion.Spells
                 Definition.SetRetaliateWhenHit(true);
                 Definition.SetRetaliateProximity(RuleDefinitions.AttackProximity.Melee);
                 Definition.SetRetaliateRangeCells(1);
-                Definition.SetRetaliatePower(HolyAuraBlindingPower_Builder.HolyAuraBlindingPower);
+                Definition.SetRetaliatePower(HolyAuraBlindingPowerBuilder.HolyAuraBlindingPower);
             }
 
             internal static FeatureDefinitionDamageAffinity CreateAndAddToDB(string name, string guid)
-                => new HolyAuraDamageAffinity_Builder(name, guid).AddToDB();
+                => new HolyAuraDamageAffinityBuilder(name, guid).AddToDB();
 
             internal static readonly FeatureDefinitionDamageAffinity HolyAuraDamageAffinity = CreateAndAddToDB(Name, Guid);
         }
 
-        internal class HolyAuraBlindingPower_Builder : BaseDefinitionBuilder<FeatureDefinitionPower>
+        internal class HolyAuraBlindingPowerBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
         {
             const string Name = "DHHolyAuraSpellBlindingPower";
             const string Guid = "40366ca2-00a0-471a-b370-8c81f6283ce1";
@@ -1171,7 +1153,7 @@ namespace SolastaCommunityExpansion.Spells
             const string TitleString = "Feature/&DHHolyAura_BlindingPower_Title";
             const string DescriptionString = "Feataure/&DHHolyAura_BlindingPower_Description";
 
-            protected HolyAuraBlindingPower_Builder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionPowers.PowerOathOfMotherlandFieryPresence, name, guid)
+            protected HolyAuraBlindingPowerBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionPowers.PowerOathOfMotherlandFieryPresence, name, guid)
             {
                 Definition.GuiPresentation.Title = TitleString;
                 Definition.GuiPresentation.Description = DescriptionString;
@@ -1206,7 +1188,7 @@ namespace SolastaCommunityExpansion.Spells
                 Definition.SetEffectDescription(effectDescription.Build());
             }
             internal static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-                => new HolyAuraBlindingPower_Builder(name, guid).AddToDB();
+                => new HolyAuraBlindingPowerBuilder(name, guid).AddToDB();
 
             internal static readonly FeatureDefinitionPower HolyAuraBlindingPower = CreateAndAddToDB(Name, Guid);
         }
@@ -1305,7 +1287,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalFireBurst.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder IncendiaryCloudSpell = new SpellBuilder(BaseString + text, GuidHelper.Create(new System.Guid(BaseGuid), BaseString + text).ToString())
+            SpellBuilder IncendiaryCloudSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
             .SetGuiPresentation(guiPresentationSpell)
             .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(8)
@@ -1374,7 +1356,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.SpellDefinitions.IdentifyCreatures.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder MazeSpell = new SpellBuilder(BaseString + text, GuidHelper.Create(new System.Guid(BaseGuid), BaseString + text).ToString())
+            SpellBuilder MazeSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(8)
@@ -1411,7 +1393,7 @@ namespace SolastaCommunityExpansion.Spells
                 );
             effectDescription.AddEffectForm(
                 new EffectFormBuilder().SetConditionForm(
-                    MindBlankCondition_Builder.MindBlankCondition,
+                    MindBlankConditionBuilder.MindBlankCondition,
                     ConditionForm.ConditionOperation.Add,
                     false,
                     false,
@@ -1429,121 +1411,111 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.SpellDefinitions.MindTwist.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder MindBlankSpell = new SpellBuilder(BaseString + text, GuidHelper.Create(new System.Guid(BaseGuid), BaseString + text).ToString())
-            .SetGuiPresentation(guiPresentationSpell)
-            .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
-            .SetSpellLevel(8)
-            .SetCastingTime(RuleDefinitions.ActivationTime.Action)
-            .SetVerboseComponent(true)
-            .SetSomaticComponent(false)
-            .SetEffectDescription(effectDescription.Build())
-            .SetAiParameters(new SpellAIParameters());
+            SpellBuilder MindBlankSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+                .SetGuiPresentation(guiPresentationSpell)
+                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
+                .SetSpellLevel(8)
+                .SetCastingTime(RuleDefinitions.ActivationTime.Action)
+                .SetVerboseComponent(true)
+                .SetSomaticComponent(false)
+                .SetEffectDescription(effectDescription.Build())
+                .SetAiParameters(new SpellAIParameters());
 
             return MindBlankSpell.AddToDB();
 
         }
 
-        internal class MindBlankCondition_Builder : BaseDefinitionBuilder<ConditionDefinition>
+        internal class MindBlankConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
         {
             const string Name = "DHMindBlankSpellcondition";
             const string Guid = "74f77a4c-b5cb-45d6-ac6d-d9fa2ebe3869";
 
-            const string TitleString = "Condition/&DHMindBlankSpell_Title";
-            const string DescriptionString = "Condition/&DHMindBlankSpell_Description";
+            const string TitleString = "Condition/&DHMindBlankSpellTitle";
+            const string DescriptionString = "Condition/&DHMindBlankSpellDescription";
 
-            protected MindBlankCondition_Builder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionBearsEndurance, name, guid)
+            protected MindBlankConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionBearsEndurance, name, guid)
             {
                 Definition.GuiPresentation.Title = TitleString;
                 Definition.GuiPresentation.Description = DescriptionString;
-
-                Definition.Features.Clear();
-                Definition.Features.Empty();
-                Definition.Features.AddRange
-                    (
+                Definition.Features.SetRange(
                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunityHypnoticPattern,
                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCalmEmotionCharmedImmunity,
-                    DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPsychicImmunity
-                    );
+                    DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPsychicImmunity);
             }
-            internal static ConditionDefinition CreateAndAddToDB(string name, string guid)
-                => new MindBlankCondition_Builder(name, guid).AddToDB();
+            private static ConditionDefinition CreateAndAddToDB(string name, string guid)
+                => new MindBlankConditionBuilder(name, guid).AddToDB();
 
             internal static readonly ConditionDefinition MindBlankCondition = CreateAndAddToDB(Name, Guid);
         }
 
         private static SpellDefinition BuildPowerWordStun()
         {
-
             string text = "PowerWordStunSpell";
 
-            ConditionForm conditionForm = new ConditionForm();
-            conditionForm.SetApplyToSelf(false);
-            conditionForm.SetForceOnSelf(false);
-            conditionForm.Operation = ConditionForm.ConditionOperation.Add;
-            conditionForm.SetConditionDefinitionName(DatabaseHelper.ConditionDefinitions.ConditionStunned.Name);
-            conditionForm.ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionStunned;
+            ConditionForm conditionForm = new ConditionForm()
+                .SetApplyToSelf(false)
+                .SetForceOnSelf(false)
+                .SetOperation(ConditionForm.ConditionOperation.Add)
+                .SetConditionDefinitionName(DatabaseHelper.ConditionDefinitions.ConditionStunned.Name)
+                .SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionStunned);
 
-            EffectForm effectForm = new EffectForm();
-            effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
-            effectForm.SetLevelMultiplier(1);
-            effectForm.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-            effectForm.SetCreatedByCharacter(true);
-            effectForm.FormType = EffectForm.EffectFormType.Condition;
-            effectForm.SetConditionForm(conditionForm);
-            effectForm.SetCanSaveToCancel(true);
-            effectForm.SetSaveOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            EffectForm effectForm = new EffectForm()
+                .SetApplyLevel(EffectForm.LevelApplianceType.No)
+                .SetLevelMultiplier(1)
+                .SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel)
+                .SetCreatedByCharacter(true)
+                .SetFormType(EffectForm.EffectFormType.Condition)
+                .SetConditionForm(conditionForm)
+                .SetCanSaveToCancel(true)
+                .SetSaveOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
 
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder();
-            effectDescription.SetDurationData(
-                RuleDefinitions.DurationType.Dispelled,
-                1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            effectDescription.SetTargetingData(
-                RuleDefinitions.Side.Enemy,
-                RuleDefinitions.RangeType.Distance,
-                12,
-                RuleDefinitions.TargetType.Individuals,
-                1,
-                1,
-                ActionDefinitions.ItemSelectionType.None);
-            effectDescription.AddEffectForm(effectForm);
-            effectDescription.SetTargetFiltering(
-                RuleDefinitions.TargetFilteringMethod.CharacterIncreasingHitPointsFromPool,
-                RuleDefinitions.TargetFilteringTag.No,
-                150,
-                RuleDefinitions.DieType.D1
-                );
-            effectDescription.SetSavingThrowData(
-                true,
-                false,
-                DatabaseHelper.SmartAttributeDefinitions.Constitution.name,
-                false,
-                RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                DatabaseHelper.SmartAttributeDefinitions.Constitution.name,
-                15,
-                false,
-                new List<SaveAffinityBySenseDescription> { }
-                );
-            effectDescription.Build();
+            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+                .SetDurationData(
+                    RuleDefinitions.DurationType.Dispelled,
+                    1,
+                    RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .SetTargetingData(
+                    RuleDefinitions.Side.Enemy,
+                    RuleDefinitions.RangeType.Distance,
+                    12,
+                    RuleDefinitions.TargetType.Individuals,
+                    1,
+                    1,
+                    ActionDefinitions.ItemSelectionType.None)
+                .AddEffectForm(effectForm)
+                .SetTargetFiltering(
+                    RuleDefinitions.TargetFilteringMethod.CharacterIncreasingHitPointsFromPool,
+                    RuleDefinitions.TargetFilteringTag.No,
+                    150,
+                    RuleDefinitions.DieType.D1)
+                .SetSavingThrowData(
+                    true,
+                    false,
+                    DatabaseHelper.SmartAttributeDefinitions.Constitution.name,
+                    false,
+                    RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    DatabaseHelper.SmartAttributeDefinitions.Constitution.name,
+                    15,
+                    false,
+                    new List<SaveAffinityBySenseDescription>());
 
+            GuiPresentation guiPresentationSpell = new GuiPresentation()
+                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
+                .SetDescription(GetSpellDescriptionTerm(text))
+                .SetTitle(GetSpellTitleTerm(text))
+                .SetSpriteReference(DatabaseHelper.SpellDefinitions.Contagion.GuiPresentation.SpriteReference)
+                .SetSymbolChar("221E");
 
-            GuiPresentation guiPresentationSpell = new GuiPresentation();
-            guiPresentationSpell.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
-            guiPresentationSpell.SetDescription(GetSpellDescriptionTerm(text));
-            guiPresentationSpell.SetTitle(GetSpellTitleTerm(text));
-            guiPresentationSpell.SetSpriteReference(DatabaseHelper.SpellDefinitions.Contagion.GuiPresentation.SpriteReference);
-            guiPresentationSpell.SetSymbolChar("221E");
-
-            SpellBuilder PowerWordStunSpell = new SpellBuilder(BaseString + text, GuidHelper.Create(new System.Guid(BaseGuid), BaseString + text).ToString());
-            PowerWordStunSpell.SetGuiPresentation(guiPresentationSpell);
-            PowerWordStunSpell.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation);
-            PowerWordStunSpell.SetSpellLevel(8);
-            PowerWordStunSpell.SetCastingTime(RuleDefinitions.ActivationTime.Action);
-            PowerWordStunSpell.SetVerboseComponent(true);
-            PowerWordStunSpell.SetSomaticComponent(false);
-            PowerWordStunSpell.SetEffectDescription(effectDescription.Build());
-            PowerWordStunSpell.SetAiParameters(new SpellAIParameters());
+            SpellBuilder PowerWordStunSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+                .SetGuiPresentation(guiPresentationSpell)
+                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
+                .SetSpellLevel(8)
+                .SetCastingTime(RuleDefinitions.ActivationTime.Action)
+                .SetVerboseComponent(true)
+                .SetSomaticComponent(false)
+                .SetEffectDescription(effectDescription.Build())
+                .SetAiParameters(new SpellAIParameters());
 
             return PowerWordStunSpell.AddToDB();
         }
@@ -1551,38 +1523,33 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildSunBurst()
         {
-
             string text = "SunBurstSpell";
 
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder();
-            effectDescription.SetDurationData(
-                RuleDefinitions.DurationType.Minute,
-                1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            effectDescription.SetTargetingData(
-                RuleDefinitions.Side.All,
-                RuleDefinitions.RangeType.Distance,
-                30,
-                RuleDefinitions.TargetType.Sphere,
-                12,
-                1,
-                ActionDefinitions.ItemSelectionType.None);
-            effectDescription.SetSavingThrowData(
-                true,
-                false,
-                DatabaseHelper.SmartAttributeDefinitions.Constitution.name,
-                false,
-                RuleDefinitions.EffectDifficultyClassComputation.FixedValue,
-                DatabaseHelper.SmartAttributeDefinitions.Constitution.name,
-                20,
-                false,
-                new List<SaveAffinityBySenseDescription> { }
-                );
-            effectDescription.AddEffectForm
-                (
-                new EffectFormBuilder()
-                    .SetDamageForm
-                    (
+            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+                .SetDurationData(
+                    RuleDefinitions.DurationType.Minute,
+                    1,
+                    RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .SetTargetingData(
+                    RuleDefinitions.Side.All,
+                    RuleDefinitions.RangeType.Distance,
+                    30,
+                    RuleDefinitions.TargetType.Sphere,
+                    12,
+                    1,
+                    ActionDefinitions.ItemSelectionType.None)
+                .SetSavingThrowData(
+                    true,
+                    false,
+                    DatabaseHelper.SmartAttributeDefinitions.Constitution.name,
+                    false,
+                    RuleDefinitions.EffectDifficultyClassComputation.FixedValue,
+                    DatabaseHelper.SmartAttributeDefinitions.Constitution.name,
+                    20,
+                    false,
+                    new List<SaveAffinityBySenseDescription>())
+                .AddEffectForm(new EffectFormBuilder()
+                    .SetDamageForm(
                         false,
                         RuleDefinitions.DieType.D6,
                         RuleDefinitions.DamageTypeRadiant,
@@ -1590,55 +1557,50 @@ namespace SolastaCommunityExpansion.Spells
                         RuleDefinitions.DieType.D6,
                         12,
                         RuleDefinitions.HealFromInflictedDamage.Never,
-                        new List<RuleDefinitions.TrendInfo>()
-                    )
+                        new List<RuleDefinitions.TrendInfo>())
                     .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
-
-                   .Build());
-            effectDescription.AddEffectForm(
-              new EffectFormBuilder().SetConditionForm
-                    (
+                    .Build())
+                .AddEffectForm(new EffectFormBuilder()
+                    .SetConditionForm(
                         DatabaseHelper.ConditionDefinitions.ConditionBlinded,
                         ConditionForm.ConditionOperation.Add,
                         false,
                         false,
-                        new List<ConditionDefinition>()
-                    )
+                        new List<ConditionDefinition>())
                     .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.Negates)
                     .CanSaveToCancel(RuleDefinitions.TurnOccurenceType.EndOfTurn)
-                    .Build()
-                );
-
+                    .Build());
 
             EffectDescription effect = effectDescription.Build();
 
             effect.EffectParticleParameters.SetImpactParticleReference(new AssetReference("96018e15e8eba4b40a9a5bd637d7ae91"));
 
-            SaveAffinityByFamilyDescription SaveAffinityByFamilyDescription = new SaveAffinityByFamilyDescription();
-            SaveAffinityByFamilyDescription.SetAdvantageType(RuleDefinitions.AdvantageType.Disadvantage);
-            SaveAffinityByFamilyDescription.SetFamily(DatabaseHelper.CharacterFamilyDefinitions.Ooze.name);
-            SaveAffinityByFamilyDescription SaveAffinityByFamilyDescription_Undead = new SaveAffinityByFamilyDescription();
-            SaveAffinityByFamilyDescription_Undead.SetAdvantageType(RuleDefinitions.AdvantageType.Disadvantage);
-            SaveAffinityByFamilyDescription_Undead.SetFamily(DatabaseHelper.CharacterFamilyDefinitions.Undead.name);
+            SaveAffinityByFamilyDescription SaveAffinityByFamilyDescription = new SaveAffinityByFamilyDescription()
+                .SetAdvantageType(RuleDefinitions.AdvantageType.Disadvantage)
+                .SetFamily(DatabaseHelper.CharacterFamilyDefinitions.Ooze.name);
 
-            effect.SavingThrowAffinitiesByFamily.AddRange(SaveAffinityByFamilyDescription, SaveAffinityByFamilyDescription_Undead);
+            SaveAffinityByFamilyDescription SaveAffinityByFamilyDescriptionUndead = new SaveAffinityByFamilyDescription()
+                .SetAdvantageType(RuleDefinitions.AdvantageType.Disadvantage)
+                .SetFamily(DatabaseHelper.CharacterFamilyDefinitions.Undead.name);
 
-            GuiPresentation guiPresentationSpell = new GuiPresentation();
-            guiPresentationSpell.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
-            guiPresentationSpell.SetDescription(GetSpellDescriptionTerm(text));
-            guiPresentationSpell.SetTitle(GetSpellTitleTerm(text));
-            guiPresentationSpell.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainSunIndomitableLight.GuiPresentation.SpriteReference);
-            guiPresentationSpell.SetSymbolChar("221E");
+            effect.SavingThrowAffinitiesByFamily.AddRange(SaveAffinityByFamilyDescription, SaveAffinityByFamilyDescriptionUndead);
 
-            SpellBuilder SunBurstSpell = new SpellBuilder(BaseString + text, GuidHelper.Create(new System.Guid(BaseGuid), BaseString + text).ToString());
-            SunBurstSpell.SetGuiPresentation(guiPresentationSpell);
-            SunBurstSpell.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation);
-            SunBurstSpell.SetSpellLevel(8);
-            SunBurstSpell.SetCastingTime(RuleDefinitions.ActivationTime.Action);
-            SunBurstSpell.SetVerboseComponent(true);
-            SunBurstSpell.SetSomaticComponent(false);
-            SunBurstSpell.SetEffectDescription(effect);
-            SunBurstSpell.SetAiParameters(new SpellAIParameters());
+            GuiPresentation guiPresentationSpell = new GuiPresentation()
+                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
+                .SetDescription(GetSpellDescriptionTerm(text))
+                .SetTitle(GetSpellTitleTerm(text))
+                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainSunIndomitableLight.GuiPresentation.SpriteReference)
+                .SetSymbolChar("221E");
+
+            SpellBuilder SunBurstSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+                .SetGuiPresentation(guiPresentationSpell)
+                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
+                .SetSpellLevel(8)
+                .SetCastingTime(RuleDefinitions.ActivationTime.Action)
+                .SetVerboseComponent(true)
+                .SetSomaticComponent(false)
+                .SetEffectDescription(effect)
+                .SetAiParameters(new SpellAIParameters());
 
             return SunBurstSpell.AddToDB();
         }
@@ -1647,63 +1609,57 @@ namespace SolastaCommunityExpansion.Spells
         {
             string text = "ForesightSpell";
 
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder();
-            effectDescription.SetDurationData(
-                RuleDefinitions.DurationType.Hour,
-                8,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn
-                );
-            effectDescription.SetTargetingData(
-                RuleDefinitions.Side.Ally,
-                RuleDefinitions.RangeType.Touch,
-                1,
-                RuleDefinitions.TargetType.Individuals,
-                1,
-                1,
-                ActionDefinitions.ItemSelectionType.None
-                );
-            effectDescription.AddEffectForm(
-                new EffectFormBuilder().SetConditionForm(
-                    ForesightCondition_Builder.ForesightCondition,
-                    ConditionForm.ConditionOperation.Add,
-                    false,
-                    false,
-                    new List<ConditionDefinition>()
-                    )
-                .Build()
-                );
+            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+                .SetDurationData(
+                    RuleDefinitions.DurationType.Hour,
+                    8,
+                    RuleDefinitions.TurnOccurenceType.EndOfTurn)
+               .SetTargetingData(
+                    RuleDefinitions.Side.Ally,
+                    RuleDefinitions.RangeType.Touch,
+                    1,
+                    RuleDefinitions.TargetType.Individuals,
+                    1,
+                    1,
+                    ActionDefinitions.ItemSelectionType.None)
+                .AddEffectForm(new EffectFormBuilder()
+                    .SetConditionForm(
+                        ForesightConditionBuilder.ForesightCondition,
+                        ConditionForm.ConditionOperation.Add,
+                        false,
+                        false,
+                        new List<ConditionDefinition>())
+                    .Build());
 
-            effectDescription.Build();
+            GuiPresentation guiPresentationSpell = new GuiPresentation()
+                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
+                .SetDescription(GetSpellDescriptionTerm(text))
+                .SetTitle(GetSpellTitleTerm(text))
+                .SetSpriteReference(DatabaseHelper.SpellDefinitions.TrueSeeing.GuiPresentation.SpriteReference)
+                .SetSymbolChar("221E");
 
-            GuiPresentation guiPresentationSpell = new GuiPresentation();
-            guiPresentationSpell.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
-            guiPresentationSpell.SetDescription(GetSpellDescriptionTerm(text));
-            guiPresentationSpell.SetTitle(GetSpellTitleTerm(text));
-            guiPresentationSpell.SetSpriteReference(DatabaseHelper.SpellDefinitions.TrueSeeing.GuiPresentation.SpriteReference);
-            guiPresentationSpell.SetSymbolChar("221E");
-
-            SpellBuilder ForesightSpell = new SpellBuilder(BaseString + text, GuidHelper.Create(new System.Guid(BaseGuid), BaseString + text).ToString());
-            ForesightSpell.SetGuiPresentation(guiPresentationSpell);
-            ForesightSpell.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation);
-            ForesightSpell.SetSpellLevel(9);
-            ForesightSpell.SetCastingTime(RuleDefinitions.ActivationTime.Minute1);
-            ForesightSpell.SetVerboseComponent(true);
-            ForesightSpell.SetSomaticComponent(false);
-            ForesightSpell.SetEffectDescription(effectDescription.Build());
-            ForesightSpell.SetAiParameters(new SpellAIParameters());
+            SpellBuilder ForesightSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+                .SetGuiPresentation(guiPresentationSpell)
+                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
+                .SetSpellLevel(9)
+                .SetCastingTime(RuleDefinitions.ActivationTime.Minute1)
+                .SetVerboseComponent(true)
+                .SetSomaticComponent(false)
+                .SetEffectDescription(effectDescription.Build())
+                .SetAiParameters(new SpellAIParameters());
 
             return ForesightSpell.AddToDB();
         }
 
-        internal class ForesightCondition_Builder : BaseDefinitionBuilder<ConditionDefinition>
+        internal class ForesightConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
         {
             const string Name = "DHForesightSpellcondition";
             const string Guid = "4615c639-95f2-4c04-b904-e79f5b916b68";
 
-            const string TitleString = "Condition/&DHForesightSpell_Title";
-            const string DescriptionString = "Condition/&DHForesightSpell_Description";
+            const string TitleString = "Condition/&DHForesightSpellTitle";
+            const string DescriptionString = "Condition/&DHForesightSpellDescription";
 
-            protected ForesightCondition_Builder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionBearsEndurance, name, guid)
+            protected ForesightConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionBearsEndurance, name, guid)
             {
                 Definition.GuiPresentation.Title = TitleString;
                 Definition.GuiPresentation.Description = DescriptionString;
@@ -1720,284 +1676,261 @@ namespace SolastaCommunityExpansion.Spells
                 );
             }
 
-            internal static ConditionDefinition CreateAndAddToDB(string name, string guid)
-                => new ForesightCondition_Builder(name, guid).AddToDB();
+            private static ConditionDefinition CreateAndAddToDB(string name, string guid)
+                => new ForesightConditionBuilder(name, guid).AddToDB();
 
             internal static readonly ConditionDefinition ForesightCondition = CreateAndAddToDB(Name, Guid);
         }
 
         private static SpellDefinition BuildMassHeal()
         {
-
             string text = "MassHealSpell";
 
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder();
-            effectDescription.SetDurationData(
-                RuleDefinitions.DurationType.Instantaneous,
-                1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            effectDescription.SetTargetingData(
-                RuleDefinitions.Side.All,
-                RuleDefinitions.RangeType.Distance,
-                12,
-                RuleDefinitions.TargetType.Individuals,
-                14,
-                1,
-                ActionDefinitions.ItemSelectionType.None);
-            effectDescription.AddEffectForm(new EffectFormBuilder().SetHealingForm(
-                RuleDefinitions.HealingComputation.Dice,
-                50,
-                RuleDefinitions.DieType.D1,
-                0,
-                false,
-                RuleDefinitions.HealingCap.MaximumHitPoints)
-                .Build());
-            effectDescription.Build();
+            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+                .SetDurationData(
+                    RuleDefinitions.DurationType.Instantaneous,
+                    1,
+                    RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .SetTargetingData(
+                    RuleDefinitions.Side.All,
+                    RuleDefinitions.RangeType.Distance,
+                    12,
+                    RuleDefinitions.TargetType.Individuals,
+                    14,
+                    1,
+                    ActionDefinitions.ItemSelectionType.None)
+                .AddEffectForm(new EffectFormBuilder()
+                    .SetHealingForm(
+                        RuleDefinitions.HealingComputation.Dice,
+                        50,
+                        RuleDefinitions.DieType.D1,
+                        0,
+                        false,
+                        RuleDefinitions.HealingCap.MaximumHitPoints)
+                    .Build());
 
+            GuiPresentation guiPresentationSpell = new GuiPresentation()
+                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
+                .SetDescription(GetSpellDescriptionTerm(text))
+                .SetTitle(GetSpellTitleTerm(text))
+                .SetSpriteReference(DatabaseHelper.SpellDefinitions.Heal.GuiPresentation.SpriteReference)
+                .SetSymbolChar("221E");
 
-            GuiPresentation guiPresentationSpell = new GuiPresentation();
-            guiPresentationSpell.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
-            guiPresentationSpell.SetDescription(GetSpellDescriptionTerm(text));
-            guiPresentationSpell.SetTitle(GetSpellTitleTerm(text));
-            guiPresentationSpell.SetSpriteReference(DatabaseHelper.SpellDefinitions.Heal.GuiPresentation.SpriteReference);
-            guiPresentationSpell.SetSymbolChar("221E");
-
-            SpellBuilder MassHealSpell = new SpellBuilder(BaseString + text, GuidHelper.Create(new System.Guid(BaseGuid), BaseString + text).ToString());
-            MassHealSpell.SetGuiPresentation(guiPresentationSpell);
-            MassHealSpell.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation);
-            MassHealSpell.SetSpellLevel(9);
-            MassHealSpell.SetCastingTime(RuleDefinitions.ActivationTime.Action);
-            MassHealSpell.SetVerboseComponent(true);
-            MassHealSpell.SetSomaticComponent(false);
-            MassHealSpell.SetEffectDescription(effectDescription.Build());
-            MassHealSpell.SetAiParameters(new SpellAIParameters());
+            SpellBuilder MassHealSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+                .SetGuiPresentation(guiPresentationSpell)
+                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
+                .SetSpellLevel(9)
+                .SetCastingTime(RuleDefinitions.ActivationTime.Action)
+                .SetVerboseComponent(true)
+                .SetSomaticComponent(false)
+                .SetEffectDescription(effectDescription.Build())
+                .SetAiParameters(new SpellAIParameters());
 
             return MassHealSpell.AddToDB();
         }
-
 
         private static SpellDefinition BuildMeteorSwarmSingleTarget()
         {
             string text = "MeteorSwarmSingleTargetSpell";
 
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder();
-            effectDescription.SetDurationData(
-                RuleDefinitions.DurationType.Instantaneous,
-                1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            effectDescription.SetTargetingData(
-                RuleDefinitions.Side.All,
-                RuleDefinitions.RangeType.Distance,
-                200,
-                RuleDefinitions.TargetType.Sphere,
-                8,
-                8,
-                ActionDefinitions.ItemSelectionType.None);
-            effectDescription.AddEffectForm(
-                 new EffectFormBuilder().SetDamageForm(
-                     false,
-                     RuleDefinitions.DieType.D6,
-                     RuleDefinitions.DamageTypeFire,
-                     0,
-                     RuleDefinitions.DieType.D6,
-                     20,                                          // 20 because hits dont stack even on single target
-                     RuleDefinitions.HealFromInflictedDamage.Never,
-                     new List<RuleDefinitions.TrendInfo>()
-                     )
-                 .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
-                 .Build());
-            effectDescription.AddEffectForm(
-                 new EffectFormBuilder().SetDamageForm(
-                     false,
-                     RuleDefinitions.DieType.D6,
-                     RuleDefinitions.DamageTypeBludgeoning,
-                     0,
-                     RuleDefinitions.DieType.D6,
-                     20,                                          // 20 because hits dont stack even on single target
-                     RuleDefinitions.HealFromInflictedDamage.Never,
-                     new List<RuleDefinitions.TrendInfo>()
-                     )
-                 .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
-                 .Build());
-            effectDescription.SetSavingThrowData(
-                true,
-                false,
-                DatabaseHelper.SmartAttributeDefinitions.Dexterity.name,
-                true,
-                RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                DatabaseHelper.SmartAttributeDefinitions.Dexterity.name,
-                20,
-                false,
-                new List<SaveAffinityBySenseDescription> { }
-                );
-            effectDescription.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.FlameStrike.EffectDescription.EffectParticleParameters);
-            effectDescription.Build();
+            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+                .SetDurationData(
+                    RuleDefinitions.DurationType.Instantaneous,
+                    1,
+                    RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .SetTargetingData(
+                    RuleDefinitions.Side.All,
+                    RuleDefinitions.RangeType.Distance,
+                    200,
+                    RuleDefinitions.TargetType.Sphere,
+                    8,
+                    8,
+                    ActionDefinitions.ItemSelectionType.None)
+                .AddEffectForm(
+                     new EffectFormBuilder().SetDamageForm(
+                         false,
+                         RuleDefinitions.DieType.D6,
+                         RuleDefinitions.DamageTypeFire,
+                         0,
+                         RuleDefinitions.DieType.D6,
+                         20,                                          // 20 because hits dont stack even on single target
+                         RuleDefinitions.HealFromInflictedDamage.Never,
+                         new List<RuleDefinitions.TrendInfo>())
+                     .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
+                     .Build())
+                .AddEffectForm(new EffectFormBuilder()
+                    .SetDamageForm(
+                        false,
+                        RuleDefinitions.DieType.D6,
+                        RuleDefinitions.DamageTypeBludgeoning,
+                        0,
+                        RuleDefinitions.DieType.D6,
+                        20,                                          // 20 because hits dont stack even on single target
+                        RuleDefinitions.HealFromInflictedDamage.Never,
+                        new List<RuleDefinitions.TrendInfo>())
+                    .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
+                    .Build())
+                .SetSavingThrowData(
+                    true,
+                    false,
+                    DatabaseHelper.SmartAttributeDefinitions.Dexterity.name,
+                    true,
+                    RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    DatabaseHelper.SmartAttributeDefinitions.Dexterity.name,
+                    20,
+                    false,
+                    new List<SaveAffinityBySenseDescription>())
+                .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.FlameStrike.EffectDescription.EffectParticleParameters);
 
-            GuiPresentation guiPresentationSpell = new GuiPresentation();
-            guiPresentationSpell.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
-            guiPresentationSpell.SetDescription(GetSpellDescriptionTerm(text));
-            guiPresentationSpell.SetTitle(GetSpellTitleTerm(text));
-            guiPresentationSpell.SetSpriteReference(DatabaseHelper.SpellDefinitions.FlamingSphere.GuiPresentation.SpriteReference);
-            guiPresentationSpell.SetSymbolChar("221E");
+            GuiPresentation guiPresentationSpell = new GuiPresentation()
+                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
+                .SetDescription(GetSpellDescriptionTerm(text))
+                .SetTitle(GetSpellTitleTerm(text))
+                .SetSpriteReference(DatabaseHelper.SpellDefinitions.FlamingSphere.GuiPresentation.SpriteReference)
+                .SetSymbolChar("221E");
 
-            SpellBuilder MeteorSwarmSingleTargetSpell = new SpellBuilder(BaseString + text, GuidHelper.Create(new System.Guid(BaseGuid), BaseString + text).ToString());
-            MeteorSwarmSingleTargetSpell.SetGuiPresentation(guiPresentationSpell);
-            MeteorSwarmSingleTargetSpell.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation);
-            MeteorSwarmSingleTargetSpell.SetSpellLevel(9);
-            MeteorSwarmSingleTargetSpell.SetCastingTime(RuleDefinitions.ActivationTime.Action);
-            MeteorSwarmSingleTargetSpell.SetVerboseComponent(true);
-            MeteorSwarmSingleTargetSpell.SetSomaticComponent(false);
-            MeteorSwarmSingleTargetSpell.SetEffectDescription(effectDescription.Build());
-            MeteorSwarmSingleTargetSpell.SetAiParameters(new SpellAIParameters());
+            SpellBuilder MeteorSwarmSingleTargetSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+                .SetGuiPresentation(guiPresentationSpell)
+                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
+                .SetSpellLevel(9)
+                .SetCastingTime(RuleDefinitions.ActivationTime.Action)
+                .SetVerboseComponent(true)
+                .SetSomaticComponent(false)
+                .SetEffectDescription(effectDescription.Build())
+                .SetAiParameters(new SpellAIParameters());
 
             return MeteorSwarmSingleTargetSpell.AddToDB();
         }
 
         private static SpellDefinition BuildPowerWordHeal()
         {
-
             string text = "PowerWordHealSpell";
 
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder();
-            effectDescription.SetDurationData(
+            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+            .SetDurationData(
                 RuleDefinitions.DurationType.Instantaneous,
                 1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            effectDescription.SetTargetingData(
+                RuleDefinitions.TurnOccurenceType.EndOfTurn)
+            .SetTargetingData(
                 RuleDefinitions.Side.Ally,
                 RuleDefinitions.RangeType.Distance,
                 12,
                 RuleDefinitions.TargetType.Individuals,
                 1,
                 1,
-                ActionDefinitions.ItemSelectionType.None);
-            effectDescription.AddEffectForm(new EffectFormBuilder().SetHealingForm(
+                ActionDefinitions.ItemSelectionType.None)
+            .AddEffectForm(new EffectFormBuilder().SetHealingForm(
                 RuleDefinitions.HealingComputation.Dice,
                 700,
                 RuleDefinitions.DieType.D1,
                 0,
                 false,
                 RuleDefinitions.HealingCap.MaximumHitPoints)
-                .Build());
-            effectDescription.AddEffectForm(new EffectFormBuilder().SetConditionForm(
-                DatabaseHelper.ConditionDefinitions.ConditionParalyzed,
-                ConditionForm.ConditionOperation.RemoveDetrimentalAll,
-                false,
-                false,
-                new List<ConditionDefinition>()
-                    {
-                    DatabaseHelper.ConditionDefinitions.ConditionCharmed,
-                    DatabaseHelper.ConditionDefinitions.ConditionCharmedByHypnoticPattern,
-                    DatabaseHelper.ConditionDefinitions.ConditionFrightened,
-                    DatabaseHelper.ConditionDefinitions.ConditionFrightenedFear,
-                    DatabaseHelper.ConditionDefinitions.ConditionFrightenedPhantasmalKiller,
+                .Build())
+            .AddEffectForm(new EffectFormBuilder()
+                .SetConditionForm(
                     DatabaseHelper.ConditionDefinitions.ConditionParalyzed,
-                    DatabaseHelper.ConditionDefinitions.ConditionParalyzed_CrimsonSpiderVenom,
-                    DatabaseHelper.ConditionDefinitions.ConditionParalyzed_GhoulsCaress,
-                    DatabaseHelper.ConditionDefinitions.ConditionStunned,
-                    DatabaseHelper.ConditionDefinitions.ConditionStunned_MutantApeSlam,
-                    DatabaseHelper.ConditionDefinitions.ConditionStunnedConjuredDeath,
-                    DatabaseHelper.ConditionDefinitions.ConditionProne
-                    }
-                ).Build());
-            effectDescription.Build();
+                    ConditionForm.ConditionOperation.RemoveDetrimentalAll,
+                    false,
+                    false,
+                    new List<ConditionDefinition>
+                    {
+                        DatabaseHelper.ConditionDefinitions.ConditionCharmed,
+                        DatabaseHelper.ConditionDefinitions.ConditionCharmedByHypnoticPattern,
+                        DatabaseHelper.ConditionDefinitions.ConditionFrightened,
+                        DatabaseHelper.ConditionDefinitions.ConditionFrightenedFear,
+                        DatabaseHelper.ConditionDefinitions.ConditionFrightenedPhantasmalKiller,
+                        DatabaseHelper.ConditionDefinitions.ConditionParalyzed,
+                        DatabaseHelper.ConditionDefinitions.ConditionParalyzed_CrimsonSpiderVenom,
+                        DatabaseHelper.ConditionDefinitions.ConditionParalyzed_GhoulsCaress,
+                        DatabaseHelper.ConditionDefinitions.ConditionStunned,
+                        DatabaseHelper.ConditionDefinitions.ConditionStunned_MutantApeSlam,
+                        DatabaseHelper.ConditionDefinitions.ConditionStunnedConjuredDeath,
+                        DatabaseHelper.ConditionDefinitions.ConditionProne
+                    })
+                .Build());
 
-            GuiPresentation guiPresentationSpell = new GuiPresentation();
-            guiPresentationSpell.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
-            guiPresentationSpell.SetDescription(GetSpellDescriptionTerm(text));
-            guiPresentationSpell.SetTitle(GetSpellTitleTerm(text));
-            guiPresentationSpell.SetSpriteReference(DatabaseHelper.SpellDefinitions.HealingWord.GuiPresentation.SpriteReference);
-            guiPresentationSpell.SetSymbolChar("221E");
 
-            SpellBuilder PowerWordHealSpell = new SpellBuilder(BaseString + text, GuidHelper.Create(new System.Guid(BaseGuid), BaseString + text).ToString());
-            PowerWordHealSpell.SetGuiPresentation(guiPresentationSpell);
-            PowerWordHealSpell.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation);
-            PowerWordHealSpell.SetSpellLevel(9);
-            PowerWordHealSpell.SetCastingTime(RuleDefinitions.ActivationTime.Action);
-            PowerWordHealSpell.SetVerboseComponent(true);
-            PowerWordHealSpell.SetSomaticComponent(false);
-            PowerWordHealSpell.SetEffectDescription(effectDescription.Build());
-            PowerWordHealSpell.SetAiParameters(new SpellAIParameters());
+            GuiPresentation guiPresentationSpell = new GuiPresentation()
+                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
+                .SetDescription(GetSpellDescriptionTerm(text))
+                .SetTitle(GetSpellTitleTerm(text))
+                .SetSpriteReference(DatabaseHelper.SpellDefinitions.HealingWord.GuiPresentation.SpriteReference)
+                .SetSymbolChar("221E");
+
+            SpellBuilder PowerWordHealSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+                .SetGuiPresentation(guiPresentationSpell)
+                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
+                .SetSpellLevel(9)
+                .SetCastingTime(RuleDefinitions.ActivationTime.Action)
+                .SetVerboseComponent(true)
+                .SetSomaticComponent(false)
+                .SetEffectDescription(effectDescription.Build())
+                .SetAiParameters(new SpellAIParameters());
 
             return PowerWordHealSpell.AddToDB();
         }
 
         private static SpellDefinition BuildPowerWordKill()
         {
-
             string text = "PowerWordKillSpell";
 
-            KillForm killForm = new KillForm();
-            killForm.SetKillCondition(RuleDefinitions.KillCondition.UnderHitPoints);
-            killForm.SetHitPoints(100);
+            KillForm killForm = new KillForm()
+                .SetKillCondition(RuleDefinitions.KillCondition.UnderHitPoints)
+                .SetHitPoints(100);
 
-            EffectForm effectForm = new EffectForm();
-            effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
-            effectForm.SetLevelMultiplier(1);
-            effectForm.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-            effectForm.SetCreatedByCharacter(true);
-            effectForm.FormType = EffectForm.EffectFormType.Kill;
-            effectForm.SetKillForm(killForm);
+            EffectForm effectForm = new EffectForm()
+                .SetApplyLevel(EffectForm.LevelApplianceType.No)
+                .SetLevelMultiplier(1)
+                .SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel)
+                .SetCreatedByCharacter(true)
+                .SetFormType(EffectForm.EffectFormType.Kill)
+                .SetKillForm(killForm);
 
-
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder();
-            effectDescription.SetDurationData(
+            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+            .SetDurationData(
                 RuleDefinitions.DurationType.Instantaneous,
                 1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            effectDescription.SetTargetingData(
+                RuleDefinitions.TurnOccurenceType.EndOfTurn)
+            .SetTargetingData(
                 RuleDefinitions.Side.Enemy,
                 RuleDefinitions.RangeType.Distance,
                 12,
                 RuleDefinitions.TargetType.Individuals,
                 1,
                 1,
-                ActionDefinitions.ItemSelectionType.None);
-            effectDescription.AddEffectForm(effectForm);
-            effectDescription.Build();
+                ActionDefinitions.ItemSelectionType.None)
+            .AddEffectForm(effectForm);
 
+            GuiPresentation guiPresentationSpell = new GuiPresentation()
+                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
+                .SetDescription(GetSpellDescriptionTerm(text))
+                .SetTitle(GetSpellTitleTerm(text))
+                .SetSpriteReference(DatabaseHelper.SpellDefinitions.Disintegrate.GuiPresentation.SpriteReference)
+                .SetSymbolChar("221E");
 
-            GuiPresentation guiPresentationSpell = new GuiPresentation();
-            guiPresentationSpell.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
-            guiPresentationSpell.SetDescription(GetSpellDescriptionTerm(text));
-            guiPresentationSpell.SetTitle(GetSpellTitleTerm(text));
-            guiPresentationSpell.SetSpriteReference(DatabaseHelper.SpellDefinitions.Disintegrate.GuiPresentation.SpriteReference);
-            guiPresentationSpell.SetSymbolChar("221E");
-
-            SpellBuilder PowerWordKillSpell = new SpellBuilder(BaseString + text, GuidHelper.Create(new System.Guid(BaseGuid), BaseString + text).ToString());
-            PowerWordKillSpell.SetGuiPresentation(guiPresentationSpell);
-            PowerWordKillSpell.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation);
-            PowerWordKillSpell.SetSpellLevel(9);
-            PowerWordKillSpell.SetCastingTime(RuleDefinitions.ActivationTime.Action);
-            PowerWordKillSpell.SetVerboseComponent(true);
-            PowerWordKillSpell.SetSomaticComponent(false);
-            PowerWordKillSpell.SetEffectDescription(effectDescription.Build());
-            PowerWordKillSpell.SetAiParameters(new SpellAIParameters());
+            SpellBuilder PowerWordKillSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+                .SetGuiPresentation(guiPresentationSpell)
+                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
+                .SetSpellLevel(9)
+                .SetCastingTime(RuleDefinitions.ActivationTime.Action)
+                .SetVerboseComponent(true)
+                .SetSomaticComponent(false)
+                .SetEffectDescription(effectDescription.Build())
+                .SetAiParameters(new SpellAIParameters());
 
             return PowerWordKillSpell.AddToDB();
         }
 
         private static SpellDefinition BuildShapechange()
         {
-
             string text = "ShapechangeSpell";
 
-            // GoldDragon_AerElai
-            // Divine_Avatar
-            // Sorr-Akkath_Tshar_Boss
-            // GreenDragon_MasterOfConjuration
-            // BlackDragon_MasterOfNecromancy
-            // Remorhaz
-            // -
-            // Emperor_Laethar
-            // Giant_Ape
-            // Spider_Queen
-            // Sorr-Akkath_Shikkath
+            ShapeChangeForm shapeChangeForm = new ShapeChangeForm()
+                .SetKeepMentalAbilityScores(true)
+                .SetShapeChangeType(ShapeChangeForm.Type.FreeListSelection)
+                .SetSpecialSubstituteCondition(DatabaseHelper.ConditionDefinitions.ConditionWildShapeSubstituteForm);
 
-            ShapeChangeForm shapeChangeForm = new ShapeChangeForm();
-            shapeChangeForm.SetKeepMentalAbilityScores(true);
-            shapeChangeForm.SetShapeChangeType(ShapeChangeForm.Type.FreeListSelection);
-            shapeChangeForm.SetSpecialSubstituteCondition(DatabaseHelper.ConditionDefinitions.ConditionWildShapeSubstituteForm);
             shapeChangeForm.ShapeOptions.AddRange
             (
                 new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.GoldDragon_AerElai),
@@ -2012,120 +1945,112 @@ namespace SolastaCommunityExpansion.Spells
                 new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Shikkath)
             );
 
-            EffectForm effectForm = new EffectForm();
-            effectForm.SetAddBonusMode(RuleDefinitions.AddBonusMode.None);
-            effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
-            effectForm.SetCanSaveToCancel(false);
-            effectForm.SetCreatedByCharacter(true);
-            effectForm.SetFormType(EffectForm.EffectFormType.ShapeChange);
-            effectForm.SetShapeChangeForm(shapeChangeForm);
+            EffectForm effectForm = new EffectForm()
+                .SetAddBonusMode(RuleDefinitions.AddBonusMode.None)
+                .SetApplyLevel(EffectForm.LevelApplianceType.No)
+                .SetCanSaveToCancel(false)
+                .SetCreatedByCharacter(true)
+                .SetFormType(EffectForm.EffectFormType.ShapeChange)
+                .SetShapeChangeForm(shapeChangeForm);
 
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder();
-            effectDescription.SetDurationData(
-                RuleDefinitions.DurationType.Hour,
-                1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            effectDescription.SetTargetingData(
-                RuleDefinitions.Side.Ally,
-                RuleDefinitions.RangeType.Distance,
-                12,
-                RuleDefinitions.TargetType.Self,
-                1,
-                1,
-                ActionDefinitions.ItemSelectionType.None);
-            effectDescription.AddEffectForm(effectForm);
-            effectDescription.SetCreatedByCharacter();
-            effectDescription.SetParticleEffectParameters(DatabaseHelper.FeatureDefinitionPowers.PowerDruidWildShape.EffectDescription.EffectParticleParameters);
-            effectDescription.Build();
+            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+                .SetDurationData(
+                    RuleDefinitions.DurationType.Hour,
+                    1,
+                    RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .SetTargetingData(
+                    RuleDefinitions.Side.Ally,
+                    RuleDefinitions.RangeType.Distance,
+                    12,
+                    RuleDefinitions.TargetType.Self,
+                    1,
+                    1,
+                    ActionDefinitions.ItemSelectionType.None)
+                .AddEffectForm(effectForm)
+                .SetCreatedByCharacter()
+                .SetParticleEffectParameters(DatabaseHelper.FeatureDefinitionPowers.PowerDruidWildShape.EffectDescription.EffectParticleParameters);
 
-            GuiPresentation guiPresentationSpell = new GuiPresentation();
-            guiPresentationSpell.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
-            guiPresentationSpell.SetDescription(GetSpellDescriptionTerm(text));
-            guiPresentationSpell.SetTitle(GetSpellTitleTerm(text));
-            guiPresentationSpell.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDruidWildShape.GuiPresentation.SpriteReference);
-            guiPresentationSpell.SetSymbolChar("221E");
+            GuiPresentation guiPresentationSpell = new GuiPresentation()
+                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
+                .SetDescription(GetSpellDescriptionTerm(text))
+                .SetTitle(GetSpellTitleTerm(text))
+                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDruidWildShape.GuiPresentation.SpriteReference)
+                .SetSymbolChar("221E");
 
-            SpellBuilder ShapechangeSpell = new SpellBuilder(BaseString + text, GuidHelper.Create(new System.Guid(BaseGuid), BaseString + text).ToString());
-            ShapechangeSpell.SetGuiPresentation(guiPresentationSpell);
-            ShapechangeSpell.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation);
-            ShapechangeSpell.SetSpellLevel(9);
-            ShapechangeSpell.SetCastingTime(RuleDefinitions.ActivationTime.Action);
-            ShapechangeSpell.SetVerboseComponent(true);
-            ShapechangeSpell.SetSomaticComponent(false);
-            ShapechangeSpell.SetEffectDescription(effectDescription.Build());
-            ShapechangeSpell.SetAiParameters(new SpellAIParameters());
-            //    ShapechangeSpell
-            ShapechangeSpell.SetConcentration();
-            SpellDefinition Shapechange = ShapechangeSpell.AddToDB();
-            Shapechange.SetRequiresConcentration(true);
+            SpellBuilder ShapechangeSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+                .SetGuiPresentation(guiPresentationSpell)
+                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
+                .SetSpellLevel(9)
+                .SetCastingTime(RuleDefinitions.ActivationTime.Action)
+                .SetVerboseComponent(true)
+                .SetSomaticComponent(false)
+                .SetEffectDescription(effectDescription.Build())
+                .SetAiParameters(new SpellAIParameters())
+                .SetConcentration();
 
-            return Shapechange;
+            return ShapechangeSpell.AddToDB().SetRequiresConcentration(true);
         }
 
         private static SpellDefinition BuildTimeStop()
         {
-
             string text = "TimeStopSpell";
 
-            ConditionDefinition TimeStopped_Condition = TimeStopCondition_Builder.TimeStopCondition;
+            ConditionDefinition TimeStoppedCondition = TimeStopConditionBuilder.TimeStopCondition;
 
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder();
-            effectDescription.SetDurationData(
+            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+            .SetDurationData(
                 RuleDefinitions.DurationType.Round,
                 3,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            effectDescription.SetTargetingData(
+                RuleDefinitions.TurnOccurenceType.EndOfTurn)
+            .SetTargetingData(
                 RuleDefinitions.Side.All,
                 RuleDefinitions.RangeType.Self,
                 0,
                 RuleDefinitions.TargetType.Cylinder,
                 20,
                 10,
-                ActionDefinitions.ItemSelectionType.None);
-            effectDescription.AddEffectForm(
-                new EffectFormBuilder().SetConditionForm(
-                    TimeStopped_Condition,
+                ActionDefinitions.ItemSelectionType.None)
+            .AddEffectForm(new EffectFormBuilder()
+                .SetConditionForm(
+                    TimeStoppedCondition,
                     ConditionForm.ConditionOperation.Add,
                     false,
                     false,
-                    new List<ConditionDefinition>()).Build()
-                    );
-            effectDescription.ExcludeCaster();
-            effectDescription.Build();
+                    new List<ConditionDefinition>()).Build())
+            .ExcludeCaster();
 
-            GuiPresentation guiPresentationSpell = new GuiPresentation();
-            guiPresentationSpell.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
-            guiPresentationSpell.SetDescription(GetSpellDescriptionTerm(text));
-            guiPresentationSpell.SetTitle(GetSpellTitleTerm(text));
-            guiPresentationSpell.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLawWordOfLaw.GuiPresentation.SpriteReference);
-            guiPresentationSpell.SetSymbolChar("221E");
+            GuiPresentation guiPresentationSpell = new GuiPresentation()
+                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
+                .SetDescription(GetSpellDescriptionTerm(text))
+                .SetTitle(GetSpellTitleTerm(text))
+                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLawWordOfLaw.GuiPresentation.SpriteReference)
+                .SetSymbolChar("221E");
 
-            SpellBuilder TimeStopSpell = new SpellBuilder(BaseString + text, GuidHelper.Create(new System.Guid(BaseGuid), BaseString + text).ToString());
-            TimeStopSpell.SetGuiPresentation(guiPresentationSpell);
-            TimeStopSpell.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation);
-            TimeStopSpell.SetSpellLevel(9);
-            TimeStopSpell.SetCastingTime(RuleDefinitions.ActivationTime.Action);
-            TimeStopSpell.SetVerboseComponent(true);
-            TimeStopSpell.SetSomaticComponent(false);
-            TimeStopSpell.SetEffectDescription(effectDescription.Build());
-            TimeStopSpell.SetAiParameters(new SpellAIParameters());
+            SpellBuilder TimeStopSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+                .SetGuiPresentation(guiPresentationSpell)
+                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
+                .SetSpellLevel(9)
+                .SetCastingTime(RuleDefinitions.ActivationTime.Action)
+                .SetVerboseComponent(true)
+                .SetSomaticComponent(false)
+                .SetEffectDescription(effectDescription.Build())
+                .SetAiParameters(new SpellAIParameters());
 
             return TimeStopSpell.AddToDB();
         }
 
-        internal class TimeStopCondition_Builder : BaseDefinitionBuilder<ConditionDefinition>
+        internal class TimeStopConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
         {
             const string Name = "DHTimeStopSpellcondition";
             const string Guid = "f00e592f-61c3-4cbf-a800-97596e83028d";
 
-            const string TitleString = "Condition/&DHTimeStopSpell_Title";
-            const string DescriptionString = "Condition/&DHTimeStopSpell_Description";
+            const string TitleString = "Condition/&DHTimeStopSpellTitle";
+            const string DescriptionString = "Condition/&DHTimeStopSpellDescription";
 
-            protected TimeStopCondition_Builder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionIncapacitated, name, guid)
+            protected TimeStopConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionIncapacitated, name, guid)
             {
                 Definition.GuiPresentation.Title = TitleString;
                 Definition.GuiPresentation.Description = DescriptionString;
-
                 Definition.HasSpecialInterruptionOfType(RuleDefinitions.ConditionInterruption.Attacked);
                 Definition.HasSpecialInterruptionOfType(RuleDefinitions.ConditionInterruption.Damaged);
                 Definition.SpecialInterruptions.Add(RuleDefinitions.ConditionInterruption.Attacked);
@@ -2134,101 +2059,88 @@ namespace SolastaCommunityExpansion.Spells
                 Definition.SetInterruptionRequiresSavingThrow(false);
             }
 
-            internal static ConditionDefinition CreateAndAddToDB(string name, string guid)
-                => new TimeStopCondition_Builder(name, guid).AddToDB();
+            private static ConditionDefinition CreateAndAddToDB(string name, string guid)
+                => new TimeStopConditionBuilder(name, guid).AddToDB();
 
             internal static readonly ConditionDefinition TimeStopCondition = CreateAndAddToDB(Name, Guid);
         }
 
         private static SpellDefinition BuildWeird()
         {
-
             string text = "WeirdSpell";
 
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder();
-            effectDescription.SetDurationData(
-                RuleDefinitions.DurationType.Minute,
-                1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn
-                );
-            effectDescription.SetTargetingData(
-                RuleDefinitions.Side.Enemy,
-                RuleDefinitions.RangeType.Distance,
-                12,
-                RuleDefinitions.TargetType.Sphere,
-                6,
-                6,
-                ActionDefinitions.ItemSelectionType.None
-                );
-            effectDescription.SetSavingThrowData
-                (
-                true,
-                false,
-                DatabaseHelper.SmartAttributeDefinitions.Wisdom.name,
-                true,
-                RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                DatabaseHelper.SmartAttributeDefinitions.Constitution.name,
-                20,
-                false,
-                new List<SaveAffinityBySenseDescription> { }
-                );
-            effectDescription.AddEffectForm(
-                new EffectFormBuilder().SetConditionForm(
-                    //DatabaseHelper.ConditionDefinitions.ConditionFrightenedPhantasmalKiller,
-                    WeirdCondition_Builder.WeirdCondition,
-                    ConditionForm.ConditionOperation.Add,
+            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+                .SetDurationData(
+                    RuleDefinitions.DurationType.Minute,
+                    1,
+                    RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .SetTargetingData(
+                    RuleDefinitions.Side.Enemy,
+                    RuleDefinitions.RangeType.Distance,
+                    12,
+                    RuleDefinitions.TargetType.Sphere,
+                    6,
+                    6,
+                    ActionDefinitions.ItemSelectionType.None)
+                .SetSavingThrowData(
+                    true,
                     false,
+                    DatabaseHelper.SmartAttributeDefinitions.Wisdom.name,
+                    true,
+                    RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    DatabaseHelper.SmartAttributeDefinitions.Constitution.name,
+                    20,
                     false,
-                    new List<ConditionDefinition>()
-                    )
+                    new List<SaveAffinityBySenseDescription>())
+                .AddEffectForm(new EffectFormBuilder()
+                    .SetConditionForm(
+                        WeirdConditionBuilder.WeirdCondition,
+                        ConditionForm.ConditionOperation.Add,
+                        false,
+                        false,
+                        new List<ConditionDefinition>())
                     .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.Negates)
                     .CanSaveToCancel(RuleDefinitions.TurnOccurenceType.EndOfTurn)
-                    .Build()
-                );
+                    .Build());
 
-            effectDescription.Build();
+            GuiPresentation guiPresentationSpell = new GuiPresentation()
+                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
+                .SetDescription(GetSpellDescriptionTerm(text))
+                .SetTitle(GetSpellTitleTerm(text))
+                .SetSpriteReference(DatabaseHelper.SpellDefinitions.PhantasmalKiller.GuiPresentation.SpriteReference)
+                .SetSymbolChar("221E");
 
-            GuiPresentation guiPresentationSpell = new GuiPresentation();
-            guiPresentationSpell.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
-            guiPresentationSpell.SetDescription(GetSpellDescriptionTerm(text));
-            guiPresentationSpell.SetTitle(GetSpellTitleTerm(text));
-            guiPresentationSpell.SetSpriteReference(DatabaseHelper.SpellDefinitions.PhantasmalKiller.GuiPresentation.SpriteReference);
-            guiPresentationSpell.SetSymbolChar("221E");
-
-            SpellBuilder WeirdSpell = new SpellBuilder(BaseString + text, GuidHelper.Create(new System.Guid(BaseGuid), BaseString + text).ToString());
-            WeirdSpell.SetGuiPresentation(guiPresentationSpell);
-            WeirdSpell.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation);
-            WeirdSpell.SetSpellLevel(9);
-            WeirdSpell.SetCastingTime(RuleDefinitions.ActivationTime.Action);
-            WeirdSpell.SetVerboseComponent(true);
-            WeirdSpell.SetSomaticComponent(false);
-            WeirdSpell.SetEffectDescription(effectDescription.Build());
-            WeirdSpell.SetAiParameters(new SpellAIParameters());
-            WeirdSpell.SetConcentration();
+            SpellBuilder WeirdSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+                .SetGuiPresentation(guiPresentationSpell)
+                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
+                .SetSpellLevel(9)
+                .SetCastingTime(RuleDefinitions.ActivationTime.Action)
+                .SetVerboseComponent(true)
+                .SetSomaticComponent(false)
+                .SetEffectDescription(effectDescription.Build())
+                .SetAiParameters(new SpellAIParameters())
+                .SetConcentration();
 
             return WeirdSpell.AddToDB();
         }
 
-
-
-
-        internal class WeirdCondition_Builder : BaseDefinitionBuilder<ConditionDefinition>
+        internal class WeirdConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
         {
             const string Name = "DHWeirdSpellcondition";
             const string Guid = "0f76e7e1-4490-4ee8-a13f-a4a967ba1c08";
 
-            const string TitleString = "Condition/&DHWeirdSpell_Title";
-            const string DescriptionString = "Condition/&DHWeirdSpell_Description";
+            const string TitleString = "Condition/&DHWeirdSpellTitle";
+            const string DescriptionString = "Condition/&DHWeirdSpellDescription";
 
-            protected WeirdCondition_Builder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionFrightenedPhantasmalKiller, name, guid)
+            protected WeirdConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionFrightenedPhantasmalKiller, name, guid)
             {
                 Definition.GuiPresentation.Title = TitleString;
                 Definition.GuiPresentation.Description = DescriptionString;
 
-                // weird condition is the same as phantasma killer condition , just for more people
+                // weird condition is the same as phantasma killer condition, just for more people
             }
-            internal static ConditionDefinition CreateAndAddToDB(string name, string guid)
-                => new WeirdCondition_Builder(name, guid).AddToDB();
+            private static ConditionDefinition CreateAndAddToDB(string name, string guid)
+                => new WeirdConditionBuilder(name, guid).AddToDB();
 
             internal static readonly ConditionDefinition WeirdCondition = CreateAndAddToDB(Name, Guid);
         }
@@ -2264,7 +2176,7 @@ namespace SolastaCommunityExpansion.Spells
                     guiPresentationSpell.SetSpriteReference(DatabaseHelper.SpellDefinitions.Banishment.GuiPresentation.SpriteReference);
                     guiPresentationSpell.SetSymbolChar("221E");
 
-                    SpellBuilder Wish_overallSpell = new SpellBuilder(BaseString + text, GuidHelper.Create(new System.Guid(BaseGuid), BaseString + text).ToString());
+                    SpellBuilder Wish_overallSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString());
                     Wish_overallSpell.SetGuiPresentation(guiPresentationSpell);
                     Wish_overallSpell.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation);
                     Wish_overallSpell.SetSpellLevel(9);
