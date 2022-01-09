@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.Attunement
+namespace SolastaCommunityExpansion.Patches.Bugfix
 {
     [HarmonyPatch(typeof(AttunementModal), "DoAttuneItemAndSwap")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
