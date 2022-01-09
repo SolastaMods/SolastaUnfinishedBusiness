@@ -63,30 +63,30 @@ namespace SolastaCommunityExpansion.Models
 
             foreach (var keyValuePair in addedFeatures)
             {
-                var characterClassDefinition = dbCharacterRaceDefinition.GetElement(keyValuePair.Key, true);
+                var characterRaceDefinition = dbCharacterRaceDefinition.GetElement(keyValuePair.Key, true);
 
-                if (characterClassDefinition == null)
+                if (characterRaceDefinition == null)
                 {
                     continue;
                 }
 
-                var exists = characterClassDefinition.FeatureUnlocks.Exists(x => x.FeatureDefinition == keyValuePair.Value.FeatureDefinition);
+                var exists = characterRaceDefinition.FeatureUnlocks.Exists(x => x.FeatureDefinition == keyValuePair.Value.FeatureDefinition);
 
                 if (!exists && enabled)
                 {
-                    characterClassDefinition.FeatureUnlocks.Add(keyValuePair.Value);
+                    characterRaceDefinition.FeatureUnlocks.Add(keyValuePair.Value);
                 }
                 else if (exists && !enabled)
                 {
-                    characterClassDefinition.FeatureUnlocks.Remove(keyValuePair.Value);
+                    characterRaceDefinition.FeatureUnlocks.Remove(keyValuePair.Value);
                 }
             }
 
             foreach (var keyValuePair in removedFeatures)
             {
-                var characterClassDefinition = dbCharacterRaceDefinition.GetElement(keyValuePair.Key, true);
+                var characterRaceDefinition = dbCharacterRaceDefinition.GetElement(keyValuePair.Key, true);
 
-                if (characterClassDefinition == null)
+                if (characterRaceDefinition == null)
                 {
                     continue;
                 }
@@ -100,15 +100,15 @@ namespace SolastaCommunityExpansion.Models
                         continue;
                     }
 
-                    var exists = characterClassDefinition.FeatureUnlocks.Exists(x => x.FeatureDefinition == featureDefinition);
+                    var exists = characterRaceDefinition.FeatureUnlocks.Exists(x => x.FeatureDefinition == featureDefinition);
 
                     if (exists && enabled)
                     {
-                        RemoveMatchingFeature(characterClassDefinition.FeatureUnlocks, featureDefinition);
+                        RemoveMatchingFeature(characterRaceDefinition.FeatureUnlocks, featureDefinition);
                     }
                     else if (!exists && !enabled)
                     {
-                        characterClassDefinition.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureDefinition, 1));
+                        characterRaceDefinition.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureDefinition, 1));
                     }
                 }
             }
