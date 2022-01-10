@@ -73,6 +73,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     SpellsContext.SwitchAllSpellLists(toggle);
                 }
 
+                toggle = SpellsContext.AreMinimumSpellListsSelected();
+                if (UI.Toggle("Select Minimum", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                {
+                    SpellsContext.SwitchMinimumSpellLists(toggle);
+                }
+
                 toggle = SpellsContext.AreSuggestedSpellListsSelected();
                 if (UI.Toggle("Select Suggested", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
@@ -178,6 +184,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (UI.Toggle("Select All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
                     SpellsContext.SwitchAllSpellLists(toggle, spellDefinition);
+                }
+
+                toggle = SpellsContext.AreMinimumSpellListsSelected(spellDefinition);
+                if (UI.Toggle("Select Minimum", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                {
+                    SpellsContext.SwitchMinimumSpellLists(toggle, spellDefinition);
                 }
 
                 toggle = SpellsContext.AreSuggestedSpellListsSelected(spellDefinition);
