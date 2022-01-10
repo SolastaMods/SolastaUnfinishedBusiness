@@ -802,10 +802,10 @@ DamageAffinity/&DHHolyAuraSpellDescription When a fiend or an undead hits an aff
 DamageAffinity/&DHHolyAuraSpellTitle Holy Aura Retaliation
 Feataure/&DHHolyAura_BlindingPower_Description When a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends
 Feature/&DHHolyAura_BlindingPower_Title Holy Aura Retaliation
-Monster/&DH_Custom_Couatl_Title Couatl
-Monster/&DH_Custom_Couatl_Description Couatls are benevolent serpentine beings of great intellect and insight. Their brilliantly colored wings and gentle manner speak to their celestial origins.
-MonsterAttack/&DH_CouatlBite_Attack_Title Bite
-MonsterAttack/&DH_CouatlBite_Attack_Description Piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 24 hours. Until this poison ends, the target is unconscious.
+Monster/&DHCustomCouatlTitle Couatl
+Monster/&DHCustomCouatlDescription Couatls are benevolent serpentine beings of great intellect and insight. Their brilliantly colored wings and gentle manner speak to their celestial origins.
+MonsterAttack/&DHCouatlBiteAttackTitle Bite
+MonsterAttack/&DHCouatlBiteAttackDescription Piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 24 hours. Until this poison ends, the target is unconscious.
 Spell/&DHAnimalShapesSpellDescription Choose any number of willing creatures that you can see within range. You transform each target into the form of a Large or smaller beast with a challenge rating of 4 or lower.
 Spell/&DHAnimalShapesSpellTitle Animal shapes
 Spell/&DHConjureCelestialSpellDescription You summon a celestial of challenge rating 4 or lower, which appears in an unoccupied space that you can see within range. The celestial disappears when it drops to 0 hit points or when the spell ends. The celestial is friendly to you and your companions for the duration.
