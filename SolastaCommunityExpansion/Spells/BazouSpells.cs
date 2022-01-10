@@ -18,6 +18,7 @@ namespace SolastaCommunityExpansion.Spells
         private static readonly SpellDefinition MinorLifesteal = BuildMinorLifesteal();
         private static readonly SpellDefinition PetalStorm = BuildPetalStorm();
         private static readonly SpellDefinition ProtectThreshold = BuildProtectThreshold();
+
         public static void AddToDB()
         {
             _ = EldritchOrb;
@@ -40,7 +41,6 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildEldritchOrb()
         {
-
             var spellBuilder = new SpellBuilder(
                     DatabaseHelper.SpellDefinitions.Fireball,
                     "EldritchOrb",
@@ -98,9 +98,9 @@ namespace SolastaCommunityExpansion.Spells
             return spell;
 
         }
+
         private static SpellDefinition BuildFindFamiliar()
         {
-
             var familiarMonsterBuilder = new MonsterBuilder(
                     "Owl",
                     GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "Owl").ToString(),
@@ -191,11 +191,10 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.EffectForms.Add(effectForm);
 
             return spell;
-
         }
+
         private static SpellDefinition BuildFrenzy()
         {
-
             var spellBuilder = new SpellBuilder(
                     DatabaseHelper.SpellDefinitions.Confusion,
                     "Frenzy",
@@ -260,11 +259,10 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.EffectForms[0].ConditionForm.SetConditionDefinition(conditionDefinition);
 
             return spell;
-
         }
+
         private static SpellDefinition BuildMinorLifesteal()
         {
-
             var spellBuilder = new SpellBuilder(
                     DatabaseHelper.SpellDefinitions.VampiricTouch,
                     "MinorLifesteal",
@@ -308,11 +306,10 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.EffectForms[1].AlterationForm.SetValueIncrease(2);
 
             return spell;
-
         }
+
         private static SpellDefinition BuildPetalStorm()
         {
-
             var spellBuilder = new SpellBuilder(
                     DatabaseHelper.SpellDefinitions.InsectPlague,
                     "PetalStorm",
@@ -380,11 +377,10 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.EffectForms[2].SummonForm.SetEffectProxyDefinitionName("ProxyPetalStorm");
 
             return spell;
-
         }
+
         private static SpellDefinition BuildProtectThreshold()
         {
-
             var spellBuilder = new SpellBuilder(
                     DatabaseHelper.SpellDefinitions.SpikeGrowth,
                     "ProtectThreshold",
@@ -431,8 +427,6 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.EffectForms[1].AlterationForm.SetValueIncrease(2);
 
             return spell;
-
         }
-
     }
 }

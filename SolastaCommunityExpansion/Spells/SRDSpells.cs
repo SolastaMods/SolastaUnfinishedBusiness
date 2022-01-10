@@ -92,7 +92,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildDivineWord()
         {
-            SpellBuilder spellBuilder = new SpellBuilder("CJDivineWord","18ecba41-a8ac-4048-979e-2139e66934a7")
+            SpellBuilder spellBuilder = new SpellBuilder("CJDivineWord", "18ecba41-a8ac-4048-979e-2139e66934a7")
 
             .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
             .SetMaterialComponent(RuleDefinitions.MaterialComponentType.None)
@@ -105,24 +105,24 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.SpellDefinitions.DivineFavor.GuiPresentation.SpriteReference))
             .SetEffectDescription(new EffectDescriptionBuilder()
                 .SetTargetingData(
-                    RuleDefinitions.Side.All, 
-                    RuleDefinitions.RangeType.Distance, 
-                    6, 
-                    RuleDefinitions.TargetType.IndividualsUnique, 
-                    20, 
-                    1, 
+                    RuleDefinitions.Side.All,
+                    RuleDefinitions.RangeType.Distance,
+                    6,
+                    RuleDefinitions.TargetType.IndividualsUnique,
+                    20,
+                    1,
                     ActionDefinitions.ItemSelectionType.None)
                 .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MassHealingWord.EffectDescription.EffectParticleParameters)
                 .SetDurationData(RuleDefinitions.DurationType.Instantaneous, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetSavingThrowData(
-                    true, 
-                    false, 
-                    AttributeDefinitions.Charisma, 
-                    true, 
-                    RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature, 
-                    AttributeDefinitions.Wisdom, 
-                    15, 
-                    false, 
+                    true,
+                    false,
+                    AttributeDefinitions.Charisma,
+                    true,
+                    RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature,
+                    AttributeDefinitions.Wisdom,
+                    15,
+                    false,
                     new List<SaveAffinityBySenseDescription>())
                 .AddEffectForm(new DivineWordEffectForm())
                 .Build());
@@ -431,11 +431,10 @@ namespace SolastaCommunityExpansion.Spells
 
         internal class ReverseGravityConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
         {
-            const string Name = "DHReverseGravitySpellcondition";
-            const string Guid = "809f1cef-6bdc-4b5a-93bf-275af8ab0b36";
-
-            const string TitleString = "Condition/&DHReverseGravitySpellTitle";
-            const string DescriptionString = "Condition/&DHReverseGravitySpellDescription";
+            private const string Name = "DHReverseGravitySpellcondition";
+            private const string Guid = "809f1cef-6bdc-4b5a-93bf-275af8ab0b36";
+            private const string TitleString = "Condition/&DHReverseGravitySpellTitle";
+            private const string DescriptionString = "Condition/&DHReverseGravitySpellDescription";
 
             protected ReverseGravityConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionLevitate, name, guid)
             {
@@ -967,11 +966,10 @@ namespace SolastaCommunityExpansion.Spells
 
         internal class FeeblemindConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
         {
-            const string Name = "DHFeeblemindSpellcondition";
-            const string Guid = "965a09b2-cb22-452b-b93c-2bccdcda4871";
-
-            const string TitleString = "Condition/&DHFeeblemindSpellTitle";
-            const string DescriptionString = "Condition/&DHFeeblemindSpellDescription";
+            private const string Name = "DHFeeblemindSpellcondition";
+            private const string Guid = "965a09b2-cb22-452b-b93c-2bccdcda4871";
+            private const string TitleString = "Condition/&DHFeeblemindSpellTitle";
+            private const string DescriptionString = "Condition/&DHFeeblemindSpellDescription";
 
             protected FeeblemindConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionBearsEndurance, name, guid)
             {
@@ -982,7 +980,7 @@ namespace SolastaCommunityExpansion.Spells
                     DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinitySilenced,
                     DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityConditionRaging,
                     FeeblemindIntAttributeModifierBuilder.FeeblemindIntAttributeModifier,
-                    FeeblemindCha_AttributeModifierBuilder.FeeblemindCha_AttributeModifier,
+                    FeeblemindChaAttributeModifierBuilder.FeeblemindCha_AttributeModifier,
                     FeeblemindActionAffinityBuilder.FeeblemindActionAffinity);
             }
 
@@ -994,11 +992,10 @@ namespace SolastaCommunityExpansion.Spells
 
         internal class FeeblemindIntAttributeModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttributeModifier>
         {
-            const string Name = "DHFeeblemindIntSpellAttributeModifier";
-            const string Guid = "a2a16bda-e7b1-4a87-9f0e-3e4c21870fd8";
-
-            const string TitleString = "AttributeModifier/&DHFeeblemindIntSpellTitle";
-            const string DescriptionString = "AttributeModifier/&DHFeeblemindIntSpellDescription";
+            private const string Name = "DHFeeblemindIntSpellAttributeModifier";
+            private const string Guid = "a2a16bda-e7b1-4a87-9f0e-3e4c21870fd8";
+            private const string TitleString = "AttributeModifier/&DHFeeblemindIntSpellTitle";
+            private const string DescriptionString = "AttributeModifier/&DHFeeblemindIntSpellDescription";
 
             protected FeeblemindIntAttributeModifierBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierHeadbandOfIntellect, name, guid)
             {
@@ -1017,15 +1014,14 @@ namespace SolastaCommunityExpansion.Spells
             internal static readonly FeatureDefinitionAttributeModifier FeeblemindIntAttributeModifier = CreateAndAddToDB(Name, Guid);
         }
 
-        internal class FeeblemindCha_AttributeModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttributeModifier>
+        internal class FeeblemindChaAttributeModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttributeModifier>
         {
-            const string Name = "DHFeeblemindChaSpellAttributeModifier";
-            const string Guid = "6721abe1-19eb-4a8c-9702-2fdea2070464";
+            private const string Name = "DHFeeblemindChaSpellAttributeModifier";
+            private const string Guid = "6721abe1-19eb-4a8c-9702-2fdea2070464";
+            private const string TitleString = "AttributeModifier/&DHFeeblemindChaSpellTitle";
+            private const string DescriptionString = "AttributeModifier/&DHFeeblemindChaSpellDescription";
 
-            const string TitleString = "AttributeModifier/&DHFeeblemindChaSpellTitle";
-            const string DescriptionString = "AttributeModifier/&DHFeeblemindChaSpellDescription";
-
-            protected FeeblemindCha_AttributeModifierBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierHeadbandOfIntellect, name, guid)
+            protected FeeblemindChaAttributeModifierBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierHeadbandOfIntellect, name, guid)
             {
                 Definition.GuiPresentation.Title = TitleString;
                 Definition.GuiPresentation.Description = DescriptionString;
@@ -1037,18 +1033,17 @@ namespace SolastaCommunityExpansion.Spells
             }
 
             private static FeatureDefinitionAttributeModifier CreateAndAddToDB(string name, string guid)
-                => new FeeblemindCha_AttributeModifierBuilder(name, guid).AddToDB();
+                => new FeeblemindChaAttributeModifierBuilder(name, guid).AddToDB();
 
             internal static readonly FeatureDefinitionAttributeModifier FeeblemindCha_AttributeModifier = CreateAndAddToDB(Name, Guid);
         }
 
         internal class FeeblemindActionAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionActionAffinity>
         {
-            const string Name = "DHFeeblemindSpellActionAffinity";
-            const string Guid = "749a9572-07f6-4678-9458-904c04b9ab22";
-
-            const string TitleString = "ActionAffinity/&DHFeeblemindSpellTitle";
-            const string DescriptionString = "ActionAffinity/&DHFeeblemindSpellDescription";
+            private const string Name = "DHFeeblemindSpellActionAffinity";
+            private const string Guid = "749a9572-07f6-4678-9458-904c04b9ab22";
+            private const string TitleString = "ActionAffinity/&DHFeeblemindSpellTitle";
+            private const string DescriptionString = "ActionAffinity/&DHFeeblemindSpellDescription";
 
             protected FeeblemindActionAffinityBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinityConditionRaging, name, guid)
             {
@@ -1093,7 +1088,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetParticleEffectParameters(
                     DatabaseHelper.SpellDefinitions.BeaconOfHope.
                     EffectDescription.EffectParticleParameters)
-                .AddEffectForm( new EffectFormBuilder()
+                .AddEffectForm(new EffectFormBuilder()
                     .SetConditionForm(
                         HolyAuraConditionBuilder.HolyAuraCondition,
                         ConditionForm.ConditionOperation.Add,
@@ -1126,11 +1121,10 @@ namespace SolastaCommunityExpansion.Spells
 
         internal class HolyAuraConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
         {
-            const string Name = "DHHolyAuraSpellcondition";
-            const string Guid = "1808ca4b-8f46-41bf-a59c-0bcbd4f60248";
-
-            const string TitleString = "Condition/&DHHolyAuraSpellTitle";
-            const string DescriptionString = "Condition/&DHHolyAuraSpellDescription";
+            private const string Name = "DHHolyAuraSpellcondition";
+            private const string Guid = "1808ca4b-8f46-41bf-a59c-0bcbd4f60248";
+            private const string TitleString = "Condition/&DHHolyAuraSpellTitle";
+            private const string DescriptionString = "Condition/&DHHolyAuraSpellDescription";
 
             protected HolyAuraConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionBearsEndurance, name, guid)
             {
@@ -1153,11 +1147,10 @@ namespace SolastaCommunityExpansion.Spells
 
         internal class HolyAuraDamageAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionDamageAffinity>
         {
-            const string Name = "DHHolyAuraSpellDamageAffinity";
-            const string Guid = "c83aceae-e4c4-4a9c-a83d-58ffebe92007";
-
-            const string TitleString = "DamageAffinity/&DHHolyAuraSpellTitle";
-            const string DescriptionString = "DamageAffinity/&DHHolyAuraSpellDescription";
+            private const string Name = "DHHolyAuraSpellDamageAffinity";
+            private const string Guid = "c83aceae-e4c4-4a9c-a83d-58ffebe92007";
+            private const string TitleString = "DamageAffinity/&DHHolyAuraSpellTitle";
+            private const string DescriptionString = "DamageAffinity/&DHHolyAuraSpellDescription";
 
             protected HolyAuraDamageAffinityBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonAdvantage, name, guid)
             {
@@ -1180,11 +1173,10 @@ namespace SolastaCommunityExpansion.Spells
 
         internal class HolyAuraBlindingPowerBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
         {
-            const string Name = "DHHolyAuraSpellBlindingPower";
-            const string Guid = "40366ca2-00a0-471a-b370-8c81f6283ce1";
-
-            const string TitleString = "Feature/&DHHolyAura_BlindingPower_Title";
-            const string DescriptionString = "Feataure/&DHHolyAura_BlindingPower_Description";
+            private const string Name = "DHHolyAuraSpellBlindingPower";
+            private const string Guid = "40366ca2-00a0-471a-b370-8c81f6283ce1";
+            private const string TitleString = "Feature/&DHHolyAura_BlindingPower_Title";
+            private const string DescriptionString = "Feataure/&DHHolyAura_BlindingPower_Description";
 
             protected HolyAuraBlindingPowerBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionPowers.PowerOathOfMotherlandFieryPresence, name, guid)
             {
@@ -1358,7 +1350,7 @@ namespace SolastaCommunityExpansion.Spells
                 20,
                 false,
                 new List<SaveAffinityBySenseDescription>())
-            .AddEffectForm( new EffectFormBuilder()
+            .AddEffectForm(new EffectFormBuilder()
                 .SetConditionForm(
                     DatabaseHelper.ConditionDefinitions.ConditionBanished,
                     ConditionForm.ConditionOperation.Add,
@@ -1445,11 +1437,10 @@ namespace SolastaCommunityExpansion.Spells
 
         internal class MindBlankConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
         {
-            const string Name = "DHMindBlankSpellcondition";
-            const string Guid = "74f77a4c-b5cb-45d6-ac6d-d9fa2ebe3869";
-
-            const string TitleString = "Condition/&DHMindBlankSpellTitle";
-            const string DescriptionString = "Condition/&DHMindBlankSpellDescription";
+            private const string Name = "DHMindBlankSpellcondition";
+            private const string Guid = "74f77a4c-b5cb-45d6-ac6d-d9fa2ebe3869";
+            private const string TitleString = "Condition/&DHMindBlankSpellTitle";
+            private const string DescriptionString = "Condition/&DHMindBlankSpellDescription";
 
             protected MindBlankConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionBearsEndurance, name, guid)
             {
@@ -1671,11 +1662,10 @@ namespace SolastaCommunityExpansion.Spells
 
         internal class ForesightConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
         {
-            const string Name = "DHForesightSpellcondition";
-            const string Guid = "4615c639-95f2-4c04-b904-e79f5b916b68";
-
-            const string TitleString = "Condition/&DHForesightSpellTitle";
-            const string DescriptionString = "Condition/&DHForesightSpellDescription";
+            private const string Name = "DHForesightSpellcondition";
+            private const string Guid = "4615c639-95f2-4c04-b904-e79f5b916b68";
+            private const string TitleString = "Condition/&DHForesightSpellTitle";
+            private const string DescriptionString = "Condition/&DHForesightSpellDescription";
 
             protected ForesightConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionBearsEndurance, name, guid)
             {
@@ -2057,11 +2047,10 @@ namespace SolastaCommunityExpansion.Spells
 
         internal class TimeStopConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
         {
-            const string Name = "DHTimeStopSpellCondition";
-            const string Guid = "f00e592f-61c3-4cbf-a800-97596e83028d";
-
-            const string TitleString = "Condition/&DHTimeStopSpellTitle";
-            const string DescriptionString = "Condition/&DHTimeStopSpellDescription";
+            private const string Name = "DHTimeStopSpellCondition";
+            private const string Guid = "f00e592f-61c3-4cbf-a800-97596e83028d";
+            private const string TitleString = "Condition/&DHTimeStopSpellTitle";
+            private const string DescriptionString = "Condition/&DHTimeStopSpellDescription";
 
             protected TimeStopConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionIncapacitated, name, guid)
             {
@@ -2142,11 +2131,10 @@ namespace SolastaCommunityExpansion.Spells
 
         internal class WeirdConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
         {
-            const string Name = "DHWeirdSpellCondition";
-            const string Guid = "0f76e7e1-4490-4ee8-a13f-a4a967ba1c08";
-
-            const string TitleString = "Condition/&DHWeirdSpellTitle";
-            const string DescriptionString = "Condition/&DHWeirdSpellDescription";
+            private const string Name = "DHWeirdSpellCondition";
+            private const string Guid = "0f76e7e1-4490-4ee8-a13f-a4a967ba1c08";
+            private const string TitleString = "Condition/&DHWeirdSpellTitle";
+            private const string DescriptionString = "Condition/&DHWeirdSpellDescription";
 
             protected WeirdConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionFrightenedPhantasmalKiller, name, guid)
             {
