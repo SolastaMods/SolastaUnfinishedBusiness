@@ -146,7 +146,7 @@ namespace SolastaCommunityExpansion.Models
                     if (!string.IsNullOrWhiteSpace(item.Item.AttunedToCharacter))
                     {
                         item.Item.AttunedToCharacter = newFirstName;
-                    } 
+                    }
                 }
 
                 heroCharacter.SetCurrentHitPoints(heroCharacter.GetAttribute("HitPoints").CurrentValue);
