@@ -12,14 +12,30 @@ namespace SolastaCommunityExpansion.Spells
     {
         public static readonly Guid BAZOU_SPELLS_BASE_GUID = new Guid("91384db5-6659-4384-bf2c-3a41160343f4");
 
-        public static void Load()
+        private static readonly SpellDefinition EldritchOrb = BuildEldritchOrb();
+        private static readonly SpellDefinition FindFamiliar = BuildFindFamiliar();
+        private static readonly SpellDefinition Frenzy = BuildFrenzy();
+        private static readonly SpellDefinition MinorLifesteal = BuildMinorLifesteal();
+        private static readonly SpellDefinition PetalStorm = BuildPetalStorm();
+        private static readonly SpellDefinition ProtectThreshold = BuildProtectThreshold();
+        public static void AddToDB()
         {
-            SpellsContext.RegisterSpell(BuildEldritchOrb(), isFromOtherMod: false, "WitchSpellList", "WarlockClassSpelllist");
-            SpellsContext.RegisterSpell(BuildFindFamiliar(), isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListWizard");
-            SpellsContext.RegisterSpell(BuildFrenzy(), isFromOtherMod: false, "WitchSpellList", "BardClassSpelllist", "SpellListWizard");
-            SpellsContext.RegisterSpell(BuildMinorLifesteal(), isFromOtherMod: false, "WitchSpellList", "SpellListSorcerer", "SpellListWizard");
-            SpellsContext.RegisterSpell(BuildPetalStorm(), isFromOtherMod: false, "WitchSpellList", "SpellListDruid");
-            SpellsContext.RegisterSpell(BuildProtectThreshold(), isFromOtherMod: false, "WitchSpellList", "SpellListSorcerer", "SpellListWizard");
+            _ = EldritchOrb;
+            _ = FindFamiliar;
+            _ = Frenzy;
+            _ = MinorLifesteal;
+            _ = PetalStorm;
+            _ = ProtectThreshold;
+        }
+
+        public static void Register()
+        {
+            SpellsContext.RegisterSpell(EldritchOrb, isFromOtherMod: false, "WitchSpellList", "WarlockClassSpelllist");
+            SpellsContext.RegisterSpell(FindFamiliar, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListWizard");
+            SpellsContext.RegisterSpell(Frenzy, isFromOtherMod: false, "WitchSpellList", "BardClassSpelllist", "SpellListWizard");
+            SpellsContext.RegisterSpell(MinorLifesteal, isFromOtherMod: false, "WitchSpellList", "SpellListSorcerer", "SpellListWizard");
+            SpellsContext.RegisterSpell(PetalStorm, isFromOtherMod: false, "WitchSpellList", "SpellListDruid");
+            SpellsContext.RegisterSpell(ProtectThreshold, isFromOtherMod: false, "WitchSpellList", "SpellListSorcerer", "SpellListWizard");
         }
 
         private static SpellDefinition BuildEldritchOrb()

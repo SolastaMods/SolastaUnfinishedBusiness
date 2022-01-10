@@ -1,6 +1,7 @@
 ﻿using ModKit;
 using SolastaCommunityExpansion.Spells;
 using SolastaModApi.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -107,12 +108,14 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void AddToDB()
         {
-            BazouSpells.Load();
-            SrdSpells.Load();
+            BazouSpells.AddToDB();
+            SrdSpells.AddToDB();
         }
 
         internal static void Load()
         {
+            BazouSpells.Register();
+            SrdSpells.Register();
             if (Main.Settings.AllowDisplayAllUnofficialContent)
             {
                 LoadAllUnofficialSpells();
