@@ -68,6 +68,22 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
             }
 
+            toggle = Main.Settings.EnableUpcastConjureElementalAndFey;
+            if (UI.Toggle("Enable upcast of " + "Conjure Elemental, Conjure Fey".orange(), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableUpcastConjureElementalAndFey = toggle;
+                ConjurationsContext.Load();
+            }
+
+            if (Main.Settings.EnableUpcastConjureElementalAndFey)
+            {
+                toggle = Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey;
+                if (UI.Toggle("+ Only show the most powerful creature in the conjuration list".italic(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey = toggle;
+                }
+            }
+
             UI.Label("");
             UI.Label("House:".yellow());
             UI.Label("");
