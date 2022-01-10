@@ -426,6 +426,20 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.EffectForms[1].AlterationForm.SetMaximumIncrease(2);
             spell.EffectDescription.EffectForms[1].AlterationForm.SetValueIncrease(2);
 
+            const string proxyProtectThreshold = "ProxyProtectThreshold";
+
+            var effectProxyDefinitionBuilder = new EffectProxyDefinitionBuilder(
+                    DatabaseHelper.EffectProxyDefinitions.ProxySpikeGrowth,
+                    proxyProtectThreshold,
+                    GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, proxyProtectThreshold).ToString());
+            var definition = effectProxyDefinitionBuilder.AddToDB();
+
+            // TODO: add optional title/description to constructors
+            definition.GuiPresentation.Title = "Spell/&ProtectThresholdTitle";
+            definition.GuiPresentation.Description = "Spell/&ProtectThresholdDescription";
+
+            spell.EffectDescription.EffectForms[0].SummonForm.SetEffectProxyDefinitionName(proxyProtectThreshold);
+
             return spell;
         }
     }
