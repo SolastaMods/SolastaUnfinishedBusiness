@@ -434,7 +434,6 @@ namespace SolastaCommunityExpansion.Spells
                     GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, proxyProtectThreshold).ToString());
             var definition = effectProxyDefinitionBuilder.AddToDB();
 
-            // TODO: add optional title/description to constructors
             definition.GuiPresentation.Title = "Spell/&ProtectThresholdTitle";
             definition.GuiPresentation.Description = "Spell/&ProtectThresholdDescription";
 
