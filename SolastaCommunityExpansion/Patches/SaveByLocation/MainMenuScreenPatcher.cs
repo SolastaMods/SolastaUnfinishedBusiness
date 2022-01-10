@@ -45,7 +45,7 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
                         {
                             Path = DefaultSaveGameDirectory,
                             LastWriteTime = Directory.EnumerateFiles(DefaultSaveGameDirectory, "*.sav").Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
-                            LocationType = LocationType.MainCampaign
+                            LocationType = LocationType.StandardCampaign
                         }
                     , 1)
                 )
@@ -62,7 +62,7 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
                 switch (mostRecent.LocationType)
                 {
                     default:
-                        selectedCampaignService.SetCampaignLocation(MAIN_CAMPAIGN, string.Empty);
+                        selectedCampaignService.SetStandardCampaignLocation();
                         break;
                     case LocationType.UserLocation:
                         selectedCampaignService.SetCampaignLocation(USER_CAMPAIGN, Path.GetFileName(mostRecent.Path));

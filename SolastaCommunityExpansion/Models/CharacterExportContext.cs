@@ -42,14 +42,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static string ParseText(string text)
         {
-            if (Main.Settings.AllowExtraKeyboardCharactersInNames)
-            {
-                return new string(text.Where(n => !HeroNameContext.InvalidFilenameChars.Contains(n)).ToArray()).Trim();
-            }
-            else
-            {
-                return Gui.TrimInvalidCharacterNameSymbols(text).Trim();
-            }
+            return Gui.TrimInvalidCharacterNameSymbols(text).Trim();
         }
 
         internal static void ExportInspectedCharacter(RulesetCharacterHero hero)

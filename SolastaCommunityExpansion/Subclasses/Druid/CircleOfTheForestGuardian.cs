@@ -148,7 +148,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
 
             EffectFormBuilder tempHPEffect = new EffectFormBuilder();
             tempHPEffect.SetTempHPForm(4, RuleDefinitions.DieType.D1, 0);
-            tempHPEffect.SetLevelAdvancement(EffectForm.LevelApplianceType.Multiply, RuleDefinitions.LevelSourceType.ClassLevel, 1);
+            tempHPEffect.SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyBonus, RuleDefinitions.LevelSourceType.ClassLevel, 1);
             tempHPEffect.CreatedByCharacter();
 
             EffectFormBuilder barkWardBuff = new EffectFormBuilder();

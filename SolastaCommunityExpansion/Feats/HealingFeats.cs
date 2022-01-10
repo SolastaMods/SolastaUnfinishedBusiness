@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion.Feats
 
             EffectDescription inspriringEffect = BuildEffectDescriptionTempHPForm(RuleDefinitions.RangeType.Distance, 10,
                 RuleDefinitions.TargetType.Individuals, 6, RuleDefinitions.DurationType.Permanent, 0, RuleDefinitions.TurnOccurenceType.EndOfTurn,
-                EffectForm.LevelApplianceType.Add, RuleDefinitions.LevelSourceType.CharacterLevel, true, 0, RuleDefinitions.DieType.D1, 0, 1);
+                EffectForm.LevelApplianceType.AddBonus, RuleDefinitions.LevelSourceType.CharacterLevel, true, 0, RuleDefinitions.DieType.D1, 0, 1);
 
             FeatureDefinitionPower inspiringPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
                 AttributeDefinitions.Charisma, RuleDefinitions.ActivationTime.Minute10, 1, RuleDefinitions.RechargeRate.ShortRest,
@@ -50,7 +50,7 @@ namespace SolastaCommunityExpansion.Feats
 
             EffectDescription medKitEffect = BuildEffectDescriptionHealingForm(RuleDefinitions.RangeType.Touch, 1,
                 RuleDefinitions.TargetType.Individuals, 1, RuleDefinitions.DurationType.Permanent, 0, RuleDefinitions.TurnOccurenceType.EndOfTurn,
-                EffectForm.LevelApplianceType.Add, RuleDefinitions.LevelSourceType.CharacterLevel, false, 4, RuleDefinitions.DieType.D6, 1, 1);
+                EffectForm.LevelApplianceType.AddBonus, RuleDefinitions.LevelSourceType.CharacterLevel, false, 4, RuleDefinitions.DieType.D6, 1, 1);
 
             FeatureDefinitionPower medKitPower = BuildPowerFromEffectDescription(0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
                 AttributeDefinitions.Wisdom, RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.ShortRest,
