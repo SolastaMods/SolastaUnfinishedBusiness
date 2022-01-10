@@ -60,6 +60,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
             UI.Label($". You can individually assign each spell to any caster spell list or simply select the suggested set{WarningMessage}");
+
+            if (!Main.Settings.EnableLevel20)
+            {
+                UI.Label(". Level 20 feature isn't enabled under Character > General. Spells above level 6 won't be offered in game");
+            }
+
             UI.Label("");
 
             using (UI.HorizontalScope())
