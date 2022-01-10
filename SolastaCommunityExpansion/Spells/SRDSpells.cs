@@ -915,7 +915,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetEffectDescription(effectDescription.Build())
                 .SetAiParameters(new SpellAIParameters());
 
-            DatabaseHelper.SpellDefinitions.GreaterRestoration.EffectDescription.EffectForms[0].ConditionForm.DetrimentalConditions.Add(FeeblemindConditionBuilder.FeeblemindCondition);
+            DatabaseHelper.SpellDefinitions.GreaterRestoration.EffectDescription.EffectForms[0].ConditionForm.ConditionsList.Add(FeeblemindConditionBuilder.FeeblemindCondition);
 
             return feeblemindSpell.AddToDB();
         }
