@@ -123,7 +123,7 @@ namespace SolastaCommunityExpansion.Models
 
             foreach (var registeredSpell in RegisteredSpells.Where(x => !Main.Settings.SpellSpellListEnabled.ContainsKey(x.Key.Name)))
             {
-                Main.Settings.SpellSpellListEnabled.Add(registeredSpell.Key.Name, registeredSpell.Value.SuggestedSpellLists);
+                Main.Settings.SpellSpellListEnabled.Add(registeredSpell.Key.Name, registeredSpell.Value.MinimumSpellLists);
             }
 
             SwitchSpellList();
