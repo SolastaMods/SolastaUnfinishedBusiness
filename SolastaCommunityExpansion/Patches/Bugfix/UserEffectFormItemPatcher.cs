@@ -22,7 +22,7 @@ namespace SolastaCommunityExpansion.Patches.BugFix
 
             ___canSaveToCancelToggle.onValueChanged.AddListener(delegate
             {
-                __instance.OnCanSaveToggleChanedCb(___canSaveToCancelToggle);
+                __instance.OnCanSaveToggleChangedCb(___canSaveToCancelToggle);
                 __instance.ContentChanged?.Invoke();
             });
         }
