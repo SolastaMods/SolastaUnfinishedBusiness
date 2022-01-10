@@ -78,7 +78,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (Main.Settings.EnableUpcastConjureElementalAndFey)
             {
                 toggle = Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey;
-                if (UI.Toggle("+ Only show the most powerful creature in the conjuration list".italic(), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("+ Only show the most powerful creatures in the conjuration list".italic(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey = toggle;
                 }
