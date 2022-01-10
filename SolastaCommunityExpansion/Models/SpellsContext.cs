@@ -1,5 +1,6 @@
 ﻿using ModKit;
 using SolastaCommunityExpansion.Spells;
+using SolastaModApi.Extensions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -9,8 +10,12 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class SpellsContext
     {
+        internal const string NOT_IN_MIN_SET = null;
+
         internal class SpellRecord
         {
+            public List<string> MinimumSpellLists { get; set; }
+
             public List<string> SuggestedSpellLists { get; set; }
 
             public bool IsFromOtherMod { get; set; }
@@ -95,7 +100,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 foreach (var unofficialSpell in unofficialSpells.Where(x => spellList.ContainsSpell(x)))
                 {
-                    RegisterSpell(unofficialSpell, isFromOtherMod: true, spellList.Name);
+                    RegisterSpell(unofficialSpell, isFromOtherMod: true, spellList.Name); 
                 }
             }
         }
@@ -165,19 +170,28 @@ namespace SolastaCommunityExpansion.Models
             SwitchSpell(spellListDefinition, spellDefinition, enabled);
         }
 
-        internal static void RegisterSpell(SpellDefinition spellDefinition, bool isFromOtherMod = false, params string[] suggestedSpellLists)
+        internal static void RegisterSpell(SpellDefinition spellDefinition, bool isFromOtherMod, string minimumSpellList, params string[] suggestedSpellLists)
         {
             var dbSpellListDefinition = DatabaseRepository.GetDatabase<SpellListDefinition>();
-            var validateSpellLists = suggestedSpellLists.Where(x => dbSpellListDefinition.TryGetElement(x, out _)).ToList();
+            var cleansedMinimumSpellLists = (new List<string> { minimumSpellList }).Where(x => dbSpellListDefinition.TryGetElement(x, out _)).ToList();
+            var cleansedSuggestedSpellLists = suggestedSpellLists.Where(x => dbSpellListDefinition.TryGetElement(x, out _)).ToList();
+
+            cleansedMinimumSpellLists.ForEach(x => cleansedSuggestedSpellLists.TryAdd(x));
 
             if (!RegisteredSpells.ContainsKey(spellDefinition))
             {
-                RegisteredSpells.Add(spellDefinition, new SpellRecord() { IsFromOtherMod = isFromOtherMod, SuggestedSpellLists = validateSpellLists });
                 RegisteredSpellsList.Add(spellDefinition);
+                RegisteredSpells.Add(spellDefinition, new SpellRecord
+                {
+                    IsFromOtherMod = isFromOtherMod,
+                    MinimumSpellLists = cleansedMinimumSpellLists,
+                    SuggestedSpellLists = cleansedSuggestedSpellLists
+                });
             }
             else
             {
-                RegisteredSpells[spellDefinition].SuggestedSpellLists.AddRange(validateSpellLists.Where(x => !RegisteredSpells[spellDefinition].SuggestedSpellLists.Contains(x)));
+                cleansedMinimumSpellLists.ForEach(x => RegisteredSpells[spellDefinition].MinimumSpellLists.TryAdd(x));
+                cleansedSuggestedSpellLists.ForEach(x => RegisteredSpells[spellDefinition].SuggestedSpellLists.TryAdd(x));
             }
         }
 
@@ -195,6 +209,25 @@ namespace SolastaCommunityExpansion.Models
             if (select)
             {
                 Main.Settings.SpellSpellListEnabled[spellDefinition.Name].AddRange(SpellLists.Values.Select(x => x.Name));
+            }
+
+            SwitchSpellList(spellDefinition);
+        }
+
+        internal static void SwitchMinimumSpellLists(bool select = true, SpellDefinition spellDefinition = null)
+        {
+            if (spellDefinition == null)
+            {
+                RegisteredSpellsList.ForEach(x => SwitchMinimumSpellLists(select, x));
+
+                return;
+            }
+
+            Main.Settings.SpellSpellListEnabled[spellDefinition.Name].Clear();
+
+            if (select)
+            {
+                Main.Settings.SpellSpellListEnabled[spellDefinition.Name].AddRange(RegisteredSpells[spellDefinition].MinimumSpellLists);
             }
 
             SwitchSpellList(spellDefinition);
@@ -223,6 +256,21 @@ namespace SolastaCommunityExpansion.Models
 
         internal static bool AreAllSpellListsSelected(SpellDefinition spellDefinition) => Main.Settings.SpellSpellListEnabled[spellDefinition.Name].Count == SpellsContext.SpellLists.Count;
 
+        internal static bool AreMinimumSpellListsSelected() => !RegisteredSpellsList.Any(x => !AreMinimumSpellListsSelected(x));
+
+        internal static bool AreMinimumSpellListsSelected(SpellDefinition spellDefinition)
+        {
+            var minimumSpellLists = RegisteredSpells[spellDefinition].MinimumSpellLists;
+            var selectedSpellLists = Main.Settings.SpellSpellListEnabled[spellDefinition.Name];
+
+            if (minimumSpellLists.Count != selectedSpellLists.Count)
+            {
+                return false;
+            }
+
+            return !minimumSpellLists.Any(x => !selectedSpellLists.Contains(x));
+        }
+
         internal static bool AreSuggestedSpellListsSelected() => !RegisteredSpellsList.Any(x => !AreSuggestedSpellListsSelected(x));
 
         internal static bool AreSuggestedSpellListsSelected(SpellDefinition spellDefinition)
@@ -230,7 +278,7 @@ namespace SolastaCommunityExpansion.Models
             var suggestedSpellLists = RegisteredSpells[spellDefinition].SuggestedSpellLists;
             var selectedSpellLists = Main.Settings.SpellSpellListEnabled[spellDefinition.Name];
 
-            if (suggestedSpellLists.Count != selectedSpellLists.Count || suggestedSpellLists.Count == 0 || selectedSpellLists.Count == 0)
+            if (suggestedSpellLists.Count != selectedSpellLists.Count)
             {
                 return false;
             }
