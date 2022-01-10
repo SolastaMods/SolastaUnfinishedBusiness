@@ -20,7 +20,7 @@ namespace SolastaCommunityExpansion.Patches
             EncountersSpawnContext.Load();
             EpicArrayContext.Load();
             FaceUnlockContext.Load();
-            // fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones
+            // Fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones
             FightingStyleContext.Load();
             FlexibleBackgroundsContext.Switch();
             InitialChoicesContext.Load();
@@ -34,6 +34,7 @@ namespace SolastaCommunityExpansion.Patches
             RemoveBugVisualModelsContext.Load();
             RemoveIdentificationContext.Load();
             RespecContext.Load();
+            // There are spells that rely on new monster definitions with powers loaded during the PowersContex. So spells should get added to db after powers.
             SpellsContext.AddToDB();
             SrdAndHouseRulesContext.Load();
             TelemaCampaignContext.Load();
