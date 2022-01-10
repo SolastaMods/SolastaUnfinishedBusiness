@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using SolastaModApi;
+using SolastaModApi.BuilderHelpers;
+using UnityEngine;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -33,6 +35,31 @@ namespace SolastaCommunityExpansion.Models
                 Gui.CheckModifierColors.Add(30, new Color32(0, 36, 77, byte.MaxValue));
                 Gui.CheckModifierColors.Add(31, new Color32(0, 36, 77, byte.MaxValue));
                 Gui.CheckModifierColors.Add(32, new Color32(0, 36, 77, byte.MaxValue));
+            }
+
+            FixUpMissingMonsters();
+        }
+
+        private static void FixUpMissingMonsters()
+        {
+            if (Main.Settings.BugFixDlcWorkaroundMutantBrownBear)
+            {
+                // DLC
+                // Mutant_Bear.91d56b92ad5316c458307a5d4fbf43f3
+
+                // 1.12.15
+                // Mutant_BlackBear.91d56b92ad5316c458307a5d4fbf43f3
+                // Mutant_BrownBear.51da196630a0e42499010e87c9da44d3
+
+                var db = DatabaseRepository.GetDatabase<MonsterDefinition>();
+
+                if (!db.HasElement("Mutant_BrownBear"))
+                {
+                    var builder = new MonsterBuilder("Mutant_BrownBear", "51da196630a0e42499010e87c9da44d3",
+                        "Mutant Brown Bear", "DLC work around", DatabaseHelper.MonsterDefinitions.BrownBear);
+
+                    builder.AddToDB();
+                }
             }
         }
     }

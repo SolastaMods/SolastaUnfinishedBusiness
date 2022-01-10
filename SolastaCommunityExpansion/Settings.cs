@@ -54,6 +54,7 @@ namespace SolastaCommunityExpansion
         public bool BugFixItemFiltering { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
         public bool BugFixOnCanSaveToggleChanged { get; set; } = true;
+        public bool BugFixDlcWorkaroundMutantBrownBear { get; set; } = true;
         public bool EnableCancelEditOnRightMouseClick { get; set; } = true;
         public bool EnableDungeonMakerRotationHotkeys { get; set; } = true;
         public bool EnableFirstLevelCasterFeats { get; set; } = true;
