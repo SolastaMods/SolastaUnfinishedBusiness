@@ -1,6 +1,5 @@
 ﻿using ModKit;
 using SolastaCommunityExpansion.Spells;
-using SolastaModApi.Extensions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -100,15 +99,21 @@ namespace SolastaCommunityExpansion.Models
             {
                 foreach (var unofficialSpell in unofficialSpells.Where(x => spellList.ContainsSpell(x)))
                 {
-                    RegisterSpell(unofficialSpell, isFromOtherMod: true, spellList.Name); 
+                    RegisterSpell(unofficialSpell, isFromOtherMod: true, spellList.Name);
                 }
             }
         }
 
+        internal static void AddToDB()
+        {
+            BazouSpells.AddToDB();
+            SrdSpells.AddToDB();
+        }
+
         internal static void Load()
         {
-            BazouSpells.Load();
-            SrdSpells.Load();
+            BazouSpells.Register();
+            SrdSpells.Register();
 
             if (Main.Settings.AllowDisplayAllUnofficialContent)
             {
@@ -117,7 +122,7 @@ namespace SolastaCommunityExpansion.Models
 
             foreach (var registeredSpell in RegisteredSpells.Where(x => !Main.Settings.SpellSpellListEnabled.ContainsKey(x.Key.Name)))
             {
-                Main.Settings.SpellSpellListEnabled.Add(registeredSpell.Key.Name, registeredSpell.Value.SuggestedSpellLists);
+                Main.Settings.SpellSpellListEnabled.Add(registeredSpell.Key.Name, registeredSpell.Value.MinimumSpellLists);
             }
 
             SwitchSpellList();
@@ -170,7 +175,8 @@ namespace SolastaCommunityExpansion.Models
         internal static void RegisterSpell(SpellDefinition spellDefinition, bool isFromOtherMod, string minimumSpellList, params string[] suggestedSpellLists)
         {
             var dbSpellListDefinition = DatabaseRepository.GetDatabase<SpellListDefinition>();
-            var cleansedMinimumSpellLists = (new List<string> { minimumSpellList }).Where(x => dbSpellListDefinition.TryGetElement(x, out _)).ToList();
+
+            var cleansedMinimumSpellLists = new List<string> { minimumSpellList }.Where(x => dbSpellListDefinition.TryGetElement(x, out _)).ToList();
             var cleansedSuggestedSpellLists = suggestedSpellLists.Where(x => dbSpellListDefinition.TryGetElement(x, out _)).ToList();
 
             cleansedMinimumSpellLists.ForEach(x => cleansedSuggestedSpellLists.TryAdd(x));
