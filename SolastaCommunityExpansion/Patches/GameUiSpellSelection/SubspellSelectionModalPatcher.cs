@@ -53,10 +53,9 @@ namespace SolastaCommunityExpansion.Patches.GameUiSpellSelection
             if (subspells.Count > index)
             {
                 if (___spellCastEngaged != null)
-                    ___spellCastEngaged(
-                        ___spellRepertoire,
-                        SpellDefinition_SubspellsList.FilteredSubspells[index],
-                        ___slotLevel);
+                {
+                    ___spellCastEngaged(___spellRepertoire, SpellDefinition_SubspellsList.FilteredSubspells[index], ___slotLevel);
+                }
 
                 // If a device had the summon function, implement here
 
