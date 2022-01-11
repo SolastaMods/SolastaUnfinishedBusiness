@@ -1,5 +1,6 @@
 ﻿using ModKit;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Spells;
 using static SolastaCommunityExpansion.Viewers.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
@@ -50,6 +51,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             {
                 Main.Settings.BlindedConditionDontAllowAttackOfOpportunity = toggle;
                 SrdAndHouseRulesContext.ApplyConditionBlindedShouldNotAllowOpportunityAttack();
+            }
+
+            toggle = Main.Settings.AddBleedingToLesserRestoration;
+            if (UI.Toggle("Add the " + "Bleeding".orange() + " condition to the conditions removed by "+ "Lesser Conjuration".orange(), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.AddBleedingToLesserRestoration = toggle;
+                HouseSpellTweaks.AddBleedingToLesserConjuration();
             }
 
             toggle = Main.Settings.FullyControlConjurations;
