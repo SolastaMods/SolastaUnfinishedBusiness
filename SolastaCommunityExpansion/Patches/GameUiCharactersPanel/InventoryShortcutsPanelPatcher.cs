@@ -31,7 +31,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiCharactersPanel
             targetItem = null;
             __result = false;
 
-            if (!Main.Settings.QuickCastLightCantripOnWornItemsFirst)
+            if (!Main.Settings.QuickCastLightCantripOnWornItemsFirst || !InventoryShortcutsPanel_OnCastLightCb.InOnCastLightCb)
             {
                 return true;
             }
