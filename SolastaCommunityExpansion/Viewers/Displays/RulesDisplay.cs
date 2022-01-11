@@ -92,6 +92,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.DisableAutoEquip = toggle;
             }
 
+            toggle = Main.Settings.QuickCastLightCantripOnWornItemsFirst;
+            if (UI.Toggle("Quick cast light cantrip uses head or torso worn items first", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.QuickCastLightCantripOnWornItemsFirst = toggle;
+            }
+
             toggle = Main.Settings.MakeAllMagicStaveArcaneFoci;
             if (UI.Toggle("Make all magic staves arcane foci " + "[except for Staff of Healing which is Universal]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {

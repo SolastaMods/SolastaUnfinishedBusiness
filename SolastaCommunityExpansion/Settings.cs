@@ -173,6 +173,7 @@ namespace SolastaCommunityExpansion
         public bool AddPickpocketableLoot { get; set; }
         public bool AllowStackedMaterialComponent { get; set; }
         public bool ScaleMerchantPricesCorrectly { get; set; }
+        public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
 
         //
         // Gameplay - Items, Crafting & Merchants
