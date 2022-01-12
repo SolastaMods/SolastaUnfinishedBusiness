@@ -1,5 +1,6 @@
 ﻿using ModKit;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Spells;
 using static SolastaCommunityExpansion.Viewers.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
@@ -50,6 +51,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             {
                 Main.Settings.BlindedConditionDontAllowAttackOfOpportunity = toggle;
                 SrdAndHouseRulesContext.ApplyConditionBlindedShouldNotAllowOpportunityAttack();
+            }
+
+            toggle = Main.Settings.AddBleedingToLesserRestoration;
+            if (UI.Toggle("Add the " + "Bleeding".orange() + " condition to the conditions removed by "+ "Lesser Conjuration".orange(), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.AddBleedingToLesserRestoration = toggle;
+                HouseSpellTweaks.AddBleedingToLesserConjuration();
             }
 
             toggle = Main.Settings.FullyControlConjurations;
@@ -106,6 +114,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (UI.Toggle("Disable auto-equip of items in inventory", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.DisableAutoEquip = toggle;
+            }
+
+            toggle = Main.Settings.QuickCastLightCantripOnWornItemsFirst;
+            if (UI.Toggle("Quick cast light cantrip uses head or torso worn items first", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.QuickCastLightCantripOnWornItemsFirst = toggle;
             }
 
             toggle = Main.Settings.MakeAllMagicStaveArcaneFoci;

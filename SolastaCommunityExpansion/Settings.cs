@@ -64,6 +64,7 @@ namespace SolastaCommunityExpansion
         public bool EnableSortingFeats { get; set; } = true;
         public bool EnableSortingFutureFeatures { get; set; } = true;
         public bool EnableSortingRaces { get; set; } = true;
+        public bool EnableSortingSubclasses { get; set; } = true;
         public bool KeepCharactersPanelOpenAndHeroSelectedOnLevelUp { get; set; } = true;
         public bool KeepSpellsOpenSwitchingEquipment { get; set; } = true;
         public bool ShowAllAutoPreparedSpells { get; set; } = true;
@@ -173,6 +174,10 @@ namespace SolastaCommunityExpansion
         public bool AddPickpocketableLoot { get; set; }
         public bool AllowStackedMaterialComponent { get; set; }
         public bool ScaleMerchantPricesCorrectly { get; set; }
+
+        public bool AddBleedingToLesserRestoration { get; set; }
+        public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
+
 
         //
         // Gameplay - Items, Crafting & Merchants

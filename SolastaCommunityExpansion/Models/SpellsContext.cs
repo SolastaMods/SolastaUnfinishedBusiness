@@ -114,6 +114,7 @@ namespace SolastaCommunityExpansion.Models
         {
             BazouSpells.Register();
             SrdSpells.Register();
+            HouseSpellTweaks.Register();
 
             if (Main.Settings.AllowDisplayAllUnofficialContent)
             {
