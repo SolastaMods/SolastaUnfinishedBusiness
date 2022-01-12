@@ -7,10 +7,10 @@ namespace SolastaCommunityExpansion.Spells
     {
         public static void Register()
         {
-            AddBleedingToLesserConjuration();
+            AddBleedingToLesserRestoration();
         }
 
-        public static void AddBleedingToLesserConjuration()
+        public static void AddBleedingToLesserRestoration()
         {
             var cf = LesserRestoration.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Condition);
 
