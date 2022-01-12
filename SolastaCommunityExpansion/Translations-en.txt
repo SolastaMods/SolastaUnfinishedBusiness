@@ -671,8 +671,6 @@ Subclass/&HealingPoolLifeTransmuterBonusTitle Additional Transmute Force
 Subclass/&HealingPoolLifeTransmuterListDescription 2 times per day enact your will on reality with special abilities.
 Subclass/&HealingPoolLifeTransmuterListTitle Transmute Force
 Subclass/&KSRogueSubclassThugDescription Thugs are sharp-minded combattants who seek the thrill of the fight and will make their enemies bite the dust by any means necessary. They benefit from an advanced martial training and learn to make use of their wit and brawn alike to triumph in battle.
-Subclass/&KSRogueSubclassThugDescription Thugs are sharp-minded combattants who seek the thrill of the fight and will make their enemies bite the dust by any means necessary. They benefit from an advanced martial training and learn to make use of their wit and brawn alike to triumph in battle.
-Subclass/&KSRogueSubclassThugTitle	Thug
 Subclass/&KSRogueSubclassThugTitle	Thug
 Subclass/&MagicAffinityFighterSpellShieldDescription Advantage on concentration checks as well as the ability to perform somatic components of spells while holding items.
 Subclass/&MagicAffinityFighterSpellShieldTitle Combat Casting
