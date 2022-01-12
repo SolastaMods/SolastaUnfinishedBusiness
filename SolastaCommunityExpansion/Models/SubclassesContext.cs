@@ -13,7 +13,27 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class SubclassesContext
     {
-        public static Dictionary<string, AbstractSubclass> Subclasses { get; private set; } = new Dictionary<string, AbstractSubclass>();
+        internal static Dictionary<string, AbstractSubclass> Subclasses { get; private set; } = new Dictionary<string, AbstractSubclass>();
+
+        private static void SortSubclassesFeatures()
+        {
+            var dbCharacterSubclassDefinition = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>();
+
+            foreach (var characterSubclassDefinition in dbCharacterSubclassDefinition)
+            {
+                characterSubclassDefinition.FeatureUnlocks.Sort((a, b) =>
+                {
+                    var result = a.Level - b.Level;
+
+                    if (result == 0)
+                    {
+                        result = a.FeatureDefinition.FormatTitle().CompareTo(b.FeatureDefinition.FormatTitle());
+                    }
+
+                    return result;
+                });
+            }
+        }
 
         internal static void Load()
         {
@@ -29,6 +49,11 @@ namespace SolastaCommunityExpansion.Models
             LoadSubclass(new PathOfTheLight());
             LoadSubclass(new Thug());
             LoadSubclass(new CircleOfTheForestGuardian());
+
+            if (Main.Settings.EnableSortingFutureFeatures)
+            {
+                SortSubclassesFeatures();
+            }
         }
 
         private static void LoadSubclass(AbstractSubclass subclassBuilder)
