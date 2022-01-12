@@ -18,11 +18,11 @@ namespace SolastaCommunityExpansion.Spells
             {
                 if (Main.Settings.AddBleedingToLesserRestoration)
                 {
-                    cf.ConditionForm.DetrimentalConditions.TryAdd(ConditionBleeding);
+                    cf.ConditionForm.ConditionsList.TryAdd(ConditionBleeding);
                 }
                 else
                 {
-                    cf.ConditionForm.DetrimentalConditions.Remove(ConditionBleeding);
+                    cf.ConditionForm.ConditionsList.Remove(ConditionBleeding);
                 }
             }
             else
