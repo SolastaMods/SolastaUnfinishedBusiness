@@ -14,7 +14,6 @@ namespace SolastaCommunityExpansion.Patches.GameUiBattle
             if (isBattleInProgress == false)
             {
                 return;
-                
             }
 
             ___timeScale = ___networkTimeScale != 1.0 
