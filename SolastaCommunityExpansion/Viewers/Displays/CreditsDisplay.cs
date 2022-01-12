@@ -13,6 +13,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             { "DubhHerder", "Crafty Feats migration, bug models replacement" },
             { "View619", "Darkvision, Superior Dark Vision" },
             { "SilverGriffon", "PickPocket, lore friendly names, crafty feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants" },
+            { "Bazou", "Witch class" },
             { "Boofat", "alwaysAlt" },
             { "Myztikrice", "combat faster time scale" },
             { "AceHigh", "Tactician subclass, Power Attack and Reckless Fury feats, no identification" },
