@@ -8,12 +8,37 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class ClassesContext
     {
-        public static Dictionary<string, AbstractClass> Classes { get; private set; } = new Dictionary<string, AbstractClass>();
+        internal static Dictionary<string, AbstractClass> Classes { get; private set; } = new Dictionary<string, AbstractClass>();
+
+        internal static void SortClassesFeatures()
+        {
+            var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
+
+            foreach (var characterClassDefinition in dbCharacterClassDefinition)
+            {
+                characterClassDefinition.FeatureUnlocks.Sort((a, b) =>
+                {
+                    var result = a.Level - b.Level;
+
+                    if (result == 0)
+                    {
+                        result = a.FeatureDefinition.FormatTitle().CompareTo(b.FeatureDefinition.FormatTitle());
+                    }
+
+                    return result;
+                });
+            }
+        }
 
         internal static void Load()
         {
             //LoadClass(new Tinkerer());
             LoadClass(new Witch());
+
+            if (Main.Settings.EnableSortingFutureFeatures)
+            {
+                SortClassesFeatures();
+            }
         }
 
         private static void LoadClass(AbstractClass classBuilder)
