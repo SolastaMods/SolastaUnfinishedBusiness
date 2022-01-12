@@ -54,10 +54,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             toggle = Main.Settings.AddBleedingToLesserRestoration;
-            if (UI.Toggle("Add the " + "Bleeding".orange() + " condition to the conditions removed by "+ "Lesser Conjuration".orange(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Add the " + "Bleeding".orange() + " condition to the conditions removed by "+ "Lesser Restoration".orange(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.AddBleedingToLesserRestoration = toggle;
-                HouseSpellTweaks.AddBleedingToLesserConjuration();
+                HouseSpellTweaks.AddBleedingToLesserRestoration();
             }
 
             toggle = Main.Settings.FullyControlConjurations;
