@@ -66,7 +66,7 @@ namespace SolastaCommunityExpansion.Models
 
             // adds the filter dropdown
 
-            var filterOptions = new List<TMP_Dropdown.OptionData>();
+            var filterOptions = new List<GuiDropdown.OptionDataAdvanced>();
 
             filter.name = "FilterDropdown";
             filter.transform.localPosition = new Vector3(-422f, 370f, 0f);
@@ -80,9 +80,9 @@ namespace SolastaCommunityExpansion.Models
                 Refresh(containerPanel);
             });
 
-            FilterCategories.ForEach(x => filterOptions.Add(new TMP_Dropdown.OptionData() { text = x.FormatTitle() }));
+            FilterCategories.ForEach(x => filterOptions.Add(new GuiDropdown.OptionDataAdvanced() { text = x.FormatTitle() }));
 
-            filterGuiDropdown.AddOptions(filterOptions);
+            filterGuiDropdown.AddOptions(filterOptions.Cast<TMP_Dropdown.OptionData>().ToList());
             filterGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);
 
             // adds the sort direction toggle
@@ -120,16 +120,19 @@ namespace SolastaCommunityExpansion.Models
             //
             // TODO: move hard-coded texts to translations-en
             //
-
-            sortGuiDropdown.AddOptions(new List<TMP_Dropdown.OptionData>()
+            var options = new List<GuiDropdown.OptionDataAdvanced>()
             {
-                new TMP_Dropdown.OptionData() { text = "Default" },
-                new TMP_Dropdown.OptionData() { text = "Category" },
-                new TMP_Dropdown.OptionData() { text = "Name" },
-                new TMP_Dropdown.OptionData() { text = "Cost" },
-                new TMP_Dropdown.OptionData() { text = "Weight" },
-                new TMP_Dropdown.OptionData() { text = "Cost per Weight" },
-            });
+                new GuiDropdown.OptionDataAdvanced() { text = "Default" },
+                new GuiDropdown.OptionDataAdvanced() { text = "Category" },
+                new GuiDropdown.OptionDataAdvanced() { text = "Name" },
+                new GuiDropdown.OptionDataAdvanced() { text = "Cost" },
+                new GuiDropdown.OptionDataAdvanced() { text = "Weight" },
+                new GuiDropdown.OptionDataAdvanced() { text = "Cost per Weight" },
+            }
+            .Cast<TMP_Dropdown.OptionData>()
+            .ToList();
+
+            sortGuiDropdown.AddOptions(options);
 
             // captures and changes the reorder button behavior
             reorder.localPosition = new Vector3(-32f, 358f, 0f);
