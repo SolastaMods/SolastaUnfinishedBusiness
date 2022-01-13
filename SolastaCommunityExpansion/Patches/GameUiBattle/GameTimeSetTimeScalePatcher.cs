@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiBattle
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameTime_SetTimeScale
     {
-        internal static bool Prefix(ref float ___timeScale, float ___networkTimeScale, bool ___fasterTimeMode)
+        internal static bool Prefix(float ___timeScale, float ___networkTimeScale, bool ___fasterTimeMode)
         {
             var isBattleInProgress = ServiceRepository.GetService<IGameLocationBattleService>()?.IsBattleInProgress;
 
