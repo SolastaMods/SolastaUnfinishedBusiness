@@ -31,6 +31,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
         internal Thug()
         {
             var featureName = AdditionalDamageRogueSneakAttack.Name + "Remove";
+
             var guiPresentation = new GuiPresentationBuilder(
                 "Subclass/&KSRogueSubclassThugDescription",
                 "Subclass/&KSRogueSubclassThugTitle")
