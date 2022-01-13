@@ -105,7 +105,23 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
                 .Where(opt => opt.LocationType == selectedCampaign.LocationType)
                 .FirstOrDefault(o => o.CampaignOrLocation == selectedCampaign.CampaignOrLocationName);
 
-            guiDropdown.value = option?.Index ?? 0;
+            int newValue = option?.Index ?? 0;
+
+            if(guiDropdown.value == newValue)
+            {
+                if (newValue == 0)
+                {
+                    // I think we only want to do this on first open
+                    // or we refresh the list when we don't need to.
+                    // May need to change slightly.
+                    ValueChanged(guiDropdown);
+                }
+            }
+            else
+            {
+                // This will trigger a ValueChanged
+                guiDropdown.value = newValue;
+            }
 
             return false;
 
