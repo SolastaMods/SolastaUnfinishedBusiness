@@ -136,10 +136,9 @@ namespace SolastaCommunityExpansion.Models
                 // change attunement to the new character name
                 foreach (var item in attunedItems)
                 {
-                    if (!string.IsNullOrWhiteSpace(item.Item.AttunedToCharacter))
-                    {
-                        item.Item.AttunedToCharacter = newFirstName;
-                    }
+                    // change items attuned to this character name to the new name
+                    // unattune items attuned to another character in this characters inventory
+                    item.Item.AttunedToCharacter = item.Item.AttunedToCharacter == firstName ? newFirstName : string.Empty;
                 }
 
                 heroCharacter.SetCurrentHitPoints(heroCharacter.GetAttribute("HitPoints").CurrentValue);
