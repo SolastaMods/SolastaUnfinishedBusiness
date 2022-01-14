@@ -7,9 +7,9 @@ using static SolastaCommunityExpansion.Models.Level20Context;
 
 namespace SolastaCommunityExpansion.Patches.Level20
 {
-    [HarmonyPatch(typeof(UserLocationSettingsModal), "OnMinLevelEndEdit")]
+    [HarmonyPatch(typeof(UserCampaignEditorScreen), "OnMinLevelEndEdit")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    public static class UserLocationSettingsModal_OnMinLevelEndEdit
+    public static class UserCampaignEditorScreen_OnMinLevelEndEdit
     {
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
@@ -26,9 +26,9 @@ namespace SolastaCommunityExpansion.Patches.Level20
         }
     }
 
-    [HarmonyPatch(typeof(UserLocationSettingsModal), "OnMaxLevelEndEdit")]
+    [HarmonyPatch(typeof(UserCampaignEditorScreen), "OnMaxLevelEndEdit")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    public static class UserLocationSettingsModal_OnMaxLevelEndEdit
+    public static class UserCampaignEditorScreen_OnMaxLevelEndEdit
     {
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
