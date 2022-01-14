@@ -1,5 +1,5 @@
-﻿using I2.Loc;
-using System.IO;
+﻿using System.IO;
+using I2.Loc;
 
 namespace SolastaCommunityExpansion
 {
@@ -23,17 +23,34 @@ namespace SolastaCommunityExpansion
 
                 foreach (var line in File.ReadLines(path))
                 {
+                    string term;
+                    string text;
+
                     try
                     {
                         var splitted = line.Split(new[] { '\t', ' ' }, 2);
-                        var term = splitted[0];
-                        var text = splitted[1];
 
-                        languageSourceData.AddTerm(term).Languages[languageIndex] = text;
+                        term = splitted[0];
+                        text = splitted[1];
                     }
                     catch
                     {
                         Main.Error($"invalid translation line \"{line}\".");
+
+                        continue;
+                    }
+
+                    var termData = languageSourceData.GetTermData(term);
+
+                    if (termData?.Languages[languageIndex] != null)
+                    {
+                        Main.Warning($"term {term} overwritten with {code} text {text}");
+
+                        termData.Languages[languageIndex] = term;
+                    }
+                    else
+                    {
+                        languageSourceData.AddTerm(term).Languages[languageIndex] = text;
                     }
                 }
             }
