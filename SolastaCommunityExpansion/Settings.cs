@@ -45,12 +45,14 @@ namespace SolastaCommunityExpansion
         //
 
         public bool AllowDynamicPowers { get; set; } = true;
-
+        public bool AllowExtraKeyboardCharactersInCampaignNames { get; set; } = true;
+        public bool AllowExtraKeyboardCharactersInLocationNames { get; set; } = true;
         public bool BugFixAttunementUnknownCharacter { get; set; } = true;
         public bool BugFixBestiarySorting { get; set; } = true;
         public bool BugFixButtonActivatorTriggerIssue { get; set; } = true;
         public bool BugFixCharacterPanelSorting { get; set; } = true;
         public bool BugFixExpandColorTables { get; set; } = true;
+        public bool BugFixGameGadgetCheckIsEnabled { get; set; } = true;
         public bool BugFixItemFiltering { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
         public bool BugFixOnCanSaveToggleChanged { get; set; } = true;
@@ -86,7 +88,7 @@ namespace SolastaCommunityExpansion
         public int TotalFeatsGrantedFistLevel { get; set; }
 
         // Miscellaneous
-        public bool AllowExtraKeyboardCharactersInAllNames { get; set; }
+        public bool AllowExtraKeyboardCharactersInNames { get; set; }
         public bool OfferAdditionalLoreFriendlyNames { get; set; }
 
         // Progression
@@ -162,8 +164,6 @@ namespace SolastaCommunityExpansion
         public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
         public bool FullyControlConjurations { get; set; }
         public bool DismissControlledConjurationsWhenDeliberatelyDropConcentration { get; set; }
-        public bool EnableUpcastConjureElementalAndFey { get; set; }
-        public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
 
         // House
         public bool AllowAnyClassToWearSylvanArmor { get; set; }
