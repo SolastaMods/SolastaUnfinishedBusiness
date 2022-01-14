@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Reflection.Emit;
 using static SolastaCommunityExpansion.Models.Level20Context;
 
 namespace SolastaCommunityExpansion.Patches.Level20
@@ -16,12 +17,9 @@ namespace SolastaCommunityExpansion.Patches.Level20
 
             if (Main.Settings.EnableLevel20)
             {
-                var opcodes = code.FindAll(x => x.opcode.Name == "ldc.i4.s" && Convert.ToInt32(x.operand) == GAME_MAX_LEVEL);
-
-                foreach (var opcode in opcodes)
-                {
-                    opcode.operand = MOD_MAX_LEVEL;
-                }
+                code
+                    .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GAME_MAX_LEVEL)
+                    .ForEach(x => x.operand = MOD_MAX_LEVEL);
             }
 
             return code;
@@ -38,12 +36,9 @@ namespace SolastaCommunityExpansion.Patches.Level20
 
             if (Main.Settings.EnableLevel20)
             {
-                var opcodes = code.FindAll(x => x.opcode.Name == "ldc.i4.s" && Convert.ToInt32(x.operand) == GAME_MAX_LEVEL);
-
-                foreach (var opcode in opcodes)
-                {
-                    opcode.operand = MOD_MAX_LEVEL;
-                }
+                code
+                    .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GAME_MAX_LEVEL)
+                    .ForEach(x => x.operand = MOD_MAX_LEVEL);
             }
 
             return code;
