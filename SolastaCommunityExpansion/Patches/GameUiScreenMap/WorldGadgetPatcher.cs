@@ -20,11 +20,16 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
             var gameLocationVisibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
             var position = new int3((int)__instance.GameGadget.FeedbackPosition.x, 0, (int)__instance.GameGadget.FeedbackPosition.z);
 
-            visible = false;
-
             foreach (var gameLocationCharacter in gameLocationCharacterService.PartyCharacters)
             {
-                visible |= gameLocationVisibilityService.IsCellPerceivedByCharacter(position, gameLocationCharacter);
+                var distance = TA.int3.Distance(position, gameLocationCharacter.LocationPosition);
+
+                visible = distance < 6 || gameLocationVisibilityService.IsCellPerceivedByCharacter(position, gameLocationCharacter);
+
+                if (visible)
+                {
+                    return;
+                }
             }
         }
     }
