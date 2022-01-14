@@ -52,6 +52,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered = toggle;
                 }
 
+                toggle = Main.Settings.HideGadgetsInFogOfWar;
+                if (UI.Toggle("Hide gadgets in fog of war", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.HideGadgetsInFogOfWar = toggle;
+                }
+
                 UI.Label("");
 
                 toggle = Main.Settings.EnableSaveByLocation;
