@@ -42,7 +42,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
             {
                 for (var z = -1; z <= 1; z++)
                 {
-                    // gadget cell was already scanned
+                    // jump original position
                     if (x == 0 && z == 0)
                     {
                         continue;
