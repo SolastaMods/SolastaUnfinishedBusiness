@@ -53,7 +53,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.HideGadgetsInFogOfWar;
-                if (UI.Toggle("Hide gadgets in fog of war", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Don't highlight gadgets in fog of war when pressing ALT", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.HideGadgetsInFogOfWar = toggle;
                 }
