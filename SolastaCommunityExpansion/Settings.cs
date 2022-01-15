@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityModManagerNet;
 
+#pragma warning disable IDE0130 // Namespace does not match folder structure
 namespace SolastaCommunityExpansion
+#pragma warning restore IDE0130 // Namespace does not match folder structure
 {
     public class Core
     {

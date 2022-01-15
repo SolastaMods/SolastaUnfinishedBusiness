@@ -32,7 +32,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
 
         internal static void Postfix(GameLocationManager __instance)
         {
-            if (!Main.Settings.EnableAdditionalIconsOnLevelMap || Gui.GameLocation.UserLocation == null)
+            if (Gui.GameLocation.UserLocation == null)
             {
                 return;
             }
