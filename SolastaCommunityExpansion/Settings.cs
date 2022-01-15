@@ -210,6 +210,7 @@ namespace SolastaCommunityExpansion
         //
 
         // Campaigns and Locations
+        public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
         public bool EnableAdditionalIconsOnLevelMap { get; set; }
         public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
         public bool HideExitAndTeleporterGizmosIfNotDiscovered { get; set; }
