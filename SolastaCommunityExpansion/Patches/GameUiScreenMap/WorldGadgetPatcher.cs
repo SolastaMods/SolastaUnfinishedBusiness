@@ -10,7 +10,8 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
     {
         internal static void Prefix(WorldGadget __instance, ref bool visible)
         {
-            if (!Main.Settings.HideGadgetsInFogOfWar || !visible || !__instance.IsUserGadget)
+            // IsCellPerceivedByCharacter returns false for any wall cell so ignoring wall placeable gadgets as well
+            if (!Main.Settings.HideGadgetsInFogOfWar || !visible || !__instance.IsUserGadget || __instance.UserGadget.GadgetBlueprint.WallPlacement)
             {
                 return;
             }
