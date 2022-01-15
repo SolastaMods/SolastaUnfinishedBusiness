@@ -42,9 +42,10 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
             TA.int3 position;
             var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var gameLocationVisibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
+            var feedbackPosition = __instance.GameGadget.FeedbackPosition;
 
             // scan the gadget cell
-            position = new TA.int3((int)__instance.GameGadget.FeedbackPosition.x, (int)__instance.GameGadget.FeedbackPosition.y, (int)__instance.GameGadget.FeedbackPosition.z);
+            position = new TA.int3((int)feedbackPosition.x, (int)feedbackPosition.y, (int)feedbackPosition.z);
 
             foreach (var gameLocationCharacter in gameLocationCharacterService.PartyCharacters)
             {
@@ -57,7 +58,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
             }
 
             // doors and wall gadgets need some special treatment as they aren't perceived in their original positions
-            if (!__instance.GadgetDefinition == Door || !__instance.GadgetDefinition == Activator)
+            if (!__instance.GadgetDefinition == Door || !__instance.UserGadget.GadgetBlueprint.WallPlacement)
             {
                 return;
             }
@@ -73,7 +74,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                         continue;
                     }
 
-                    position = new TA.int3((int)__instance.GameGadget.FeedbackPosition.x + x, (int)__instance.GameGadget.FeedbackPosition.y, (int)__instance.GameGadget.FeedbackPosition.z + z);
+                    position = new TA.int3((int)feedbackPosition.x + x, (int)feedbackPosition.y, (int)feedbackPosition.z + z);
 
                     foreach (var gameLocationCharacter in gameLocationCharacterService.PartyCharacters)
                     {
