@@ -261,8 +261,8 @@ Feat/&FeatIntIncrementDescription +1 Wisdom
 Feat/&FeatIntIncrementTitle Attribute Increase
 Feat/&FeatIntIncrementTitle Attribute Increase
 Feat/&FeatIntIncrementTitle Attribute Increase
-Feat/&FeatSavageAttackerDescription Reroll damage dice when they roll a 1.
-Feat/&FeatSavageAttackerReroll Rerolling damage due to Savage Attacker.
+Feat/&FeatSavageAttackerDescription Reroll weapon and spell damage dice when they roll a 1 (does not reroll all damage sources, for example excludes Sneak Attack and Smite).
+Feat/&FeatSavageAttackerReroll Due to being a Savage Attacker {0} rerolls the {1} die from a {2} to a {3}
 Feat/&FeatSavageAttackerTitle Savage Attacker
 Feat/&FeatShadowTouchedChaDescription Increase Charisma attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
 Feat/&FeatShadowTouchedChaTitle Shadow Touched (Charisma)
@@ -339,8 +339,6 @@ Feat/&PowerInflictWoundsFromFeatTitle Inflict Wounds
 Feat/&PowerInvisibilityFromFeatDescription A creature you touch becomes Invisible until the spell ends. Anything the target is wearing or carrying is Invisible as long as it is on the target's person. The spell ends for a target that attacks or casts a spell.
 Feat/&PowerInvisibilityFromFeatTitle Invisibility
 Feat/&PowerMistyStepFromFeatDescription Briefly surrounded by silvery mist, you teleport up to 30 feet to an unoccupied space that you can see.
-Feat/&PowerMistyStepFromFeatDescription Learn to cast the spell Misty Step.
-Feat/&PowerMistyStepFromFeatTitle Learn Misty Step
 Feat/&PowerMistyStepFromFeatTitle Misty Step
 Feat/&PowerShadowTouchedFromFeatDescription Learn to cast the spells Invisibility, False Life, and Inflict Wounds.
 Feat/&PowerShadowTouchedFromFeatTitle Learn Invisibility, False Life, and Inflict Wounds
@@ -383,7 +381,7 @@ Feature/&DruidForestGuardianExtraAttackDescription Starting at 6th level, you ca
 Feature/&DruidForestGuardianExtraAttackTitle Extra Attack
 Feature/&DruidForestGuardianImprovedBarkWardDescription Your Bark Ward now grows thorns, which damages melee attackers. Enemies who successfully hit you with a melee attack suffer 2d8 piercing damage.
 Feature/&DruidForestGuardianImprovedBarkWardTitle Improved Bark Ward
-Feature/&DruidForestGuardianMagicDescription Starting at the 2nd level when you choose this circle, you gain access to an expanded spell list that is always prepared:\nLevel 2: Shield, Fog Cloud\nLevel 3: Blur, Flame Blade\nLevel 5: Protection From Energy, Dispel Magic\nLevel 7: Flame Shield, Death Ward\nLevel 9: Hold Monster, Greater Restoration 
+Feature/&DruidForestGuardianMagicDescription Starting at the 2nd level when you choose this circle, you gain access to an expanded spell list that is always prepared:\nLevel 2: Shield, Fog Cloud\nLevel 3: Blur, Flame Blade\nLevel 5: Protection From Energy, Dispel Magic\nLevel 7: Flame Shield, Death Ward\nLevel 9: Hold Monster, Greater Restoration
 Feature/&DruidForestGuardianMagicTitle Circle Spells
 Feature/&DruidForestGuardianSuperiorBarkWardDescription Your Bark Ward ability now reflects 3d8 piercing damage onto melee attackers. Additionally, Bark Ward now grants you immunity to poison while it's active.
 Feature/&DruidForestGuardianSuperiorBarkWardTitle Superior Bark Ward
@@ -500,7 +498,7 @@ Message/&TeleportPartyDescription	Teleport party to coordinates ({0}, {1})?\nYou
 Message/&TeleportPartyTitle	Teleport
 Modifier/&RuinedDescription	-3 to Armor Class
 Modifier/&RuinedTitle	Ruined
-Power/&HelpActionDescription	You can aid a friendly creature in attacking a creature within 5 feet of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage. 
+Power/&HelpActionDescription	You can aid a friendly creature in attacking a creature within 5 feet of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
 Power/&HelpActionTitle	Help
 Pugilist Pugilist Damage
 Race/&PointPoolSelect10FeatsDescription Select 10 additional feats for your character.
@@ -671,8 +669,6 @@ Subclass/&HealingPoolLifeTransmuterBonusTitle Additional Transmute Force
 Subclass/&HealingPoolLifeTransmuterListDescription 2 times per day enact your will on reality with special abilities.
 Subclass/&HealingPoolLifeTransmuterListTitle Transmute Force
 Subclass/&KSRogueSubclassThugDescription Thugs are sharp-minded combattants who seek the thrill of the fight and will make their enemies bite the dust by any means necessary. They benefit from an advanced martial training and learn to make use of their wit and brawn alike to triumph in battle.
-Subclass/&KSRogueSubclassThugDescription Thugs are sharp-minded combattants who seek the thrill of the fight and will make their enemies bite the dust by any means necessary. They benefit from an advanced martial training and learn to make use of their wit and brawn alike to triumph in battle.
-Subclass/&KSRogueSubclassThugTitle	Thug
 Subclass/&KSRogueSubclassThugTitle	Thug
 Subclass/&MagicAffinityFighterSpellShieldDescription Advantage on concentration checks as well as the ability to perform somatic components of spells while holding items.
 Subclass/&MagicAffinityFighterSpellShieldTitle Combat Casting
@@ -750,7 +746,7 @@ Subclass/&RoguishConArtistTitle Con Artist
 Subclass/&SpellShieldAdditionalActionDescription You can cast a spell after defeating an enemy with your weapon attacks.
 Subclass/&SpellShieldAdditionalActionTitle Spell Fighting
 Subclass/&TactitionFighterSubclassDescription The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed.  They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.  Mod note - This class re-uses channel divinity for these features.
-Subclass/&TactitionFighterSubclassTitle The Tactician 
+Subclass/&TactitionFighterSubclassTitle The Tactician
 Subclass/&TraditionArcaneFighterDescription Channel your magic into weapon attacks.
 Subclass/&TraditionArcaneFighterTitle Arcane Fighter
 Subclass/&TraditionLifeTransmuterDescription Masters of manipulating both matter and life energy.
@@ -778,3 +774,71 @@ Subclass/&WitchSubclassPathTitle	Witch Covens
 Tooltip/&Tag9000Title Custom Effect
 Equipment/&WandIdentifyDescription	Text	Casts the spell identify by expending one charge. The wand has 3 charges and regains 1d3 charges each dawn.
 Equipment/&WandIdentifyTitle	Text	Wand of Identify
+ActionAffinity/&DHFeeblemindSpellDescription unable to cast spells
+ActionAffinity/&DHFeeblemindSpellTitle Feeble spellcasting
+AttributeModifier/&DHFeeblemindChaSpellDescription Charisma score equals 1
+AttributeModifier/&DHFeeblemindChaSpellTitle Feeble Charisma
+AttributeModifier/&DHFeeblemindIntSpellDescription Intelligence score equals 1
+AttributeModifier/&DHFeeblemindIntSpellTitle Feeble intelligence
+Condition/&DHFeeblemindSpellDescription The creature's Intelligence and Charisma scores become 1. The creature can't cast spells, activate magic items, understand language, or communicate in any intelligible way
+Condition/&DHFeeblemindSpellTitle Feeblemind
+Condition/&DHForesightSpellDescription advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls
+Condition/&DHForesightSpellTitle Foresight
+Condition/&DHHolyAuraSpellDescription you cast this spell shed dim light in a 5-foot radius and have advantage on all saving throws, and other creatures have disadvantage on attack rolls against them until the spell ends. In addition, when a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends.
+Condition/&DHHolyAuraSpellTitle Protected by Holy Aura
+Condition/&DHMindBlankSpellDescription  Immune to psychic damage and the charmed condition
+Condition/&DHMindBlankSpellTitle Mind Blank
+Condition/&DHReverseGravitySpellDescription can't move
+Condition/&DHReverseGravitySpellTitle Caught by reverse gravity
+Condition/&DHTimeStopSpellDescription Frozen by Time Stop
+Condition/&DHTimeStopSpellTitle Frozen by Time Stop
+Condition/&DHWeirdSpellDescription The illusion calls on the creature's deepest fears, manifesting its worst nightmares as an implacable threat. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take 4d10 psychic damage. On a successful save, the spell ends for that creature.
+Condition/&DHWeirdSpellTitle Weirded
+DamageAffinity/&DHHolyAuraSpellDescription When a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends
+DamageAffinity/&DHHolyAuraSpellTitle Holy Aura Retaliation
+Feataure/&DHHolyAura_BlindingPower_Description When a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends
+Feature/&DHHolyAura_BlindingPower_Title Holy Aura Retaliation
+Monster/&DHCustomCouatlTitle Couatl
+Monster/&DHCustomCouatlDescription Couatls are benevolent serpentine beings of great intellect and insight. Their brilliantly colored wings and gentle manner speak to their celestial origins.
+MonsterAttack/&DHCouatlBiteAttackTitle Bite
+MonsterAttack/&DHCouatlBiteAttackDescription Piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 24 hours. Until this poison ends, the target is unconscious.
+Spell/&DHAnimalShapesSpellDescription Choose any number of willing creatures that you can see within range. You transform each target into the form of a Large or smaller beast with a challenge rating of 4 or lower.
+Spell/&DHAnimalShapesSpellTitle Animal shapes
+Spell/&DHConjureCelestialSpellDescription You summon a celestial of challenge rating 4 or lower, which appears in an unoccupied space that you can see within range. The celestial disappears when it drops to 0 hit points or when the spell ends. The celestial is friendly to you and your companions for the duration.
+Spell/&DHConjureCelestialSpellTitle Conjure Celestial (Couatl)
+Spell/&DHDominateMonsterSpellDescription You attempt to beguile a creature that you can see within range. It must succeed on a Wisdom saving throw or be charmed by you for the duration.
+Spell/&DHDominateMonsterSpellTitle Dominate Monster
+Spell/&DHFeeblemindSpellDescription You blast the mind of a creature that you can see within range, attempting to shatter its intellect and personality. The target takes 4d6 psychic damage and must make an Intelligence saving throw.On a failed save, the creature's Intelligence and Charisma scores become 1. The creature can't cast spells, activate magic items, understand language, or communicate in any intelligible way.
+Spell/&DHFeeblemindSpellTitle Feeblemind
+Spell/&DHFingerOfDeathSpellDescription The target must make a Constitution saving throw. It takes 7d8 + 30 necrotic damage on a failed save, or half as much damage on a successful one.
+Spell/&DHFingerOfDeathSpellTitle Finger of Death (No Zombie)
+Spell/&DHForesightSpellDescription You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be surprised and has advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against the target for the duration.
+Spell/&DHForesightSpellTitle Foresight
+Spell/&DHHolyAuraSpellDescription Divine light washes out from you and coalesces in a soft radiance in a 30-foot radius around you. Creatures of your choice in that radius when you cast this spell shed dim light in a 5-foot radius and have advantage on all saving throws, and other creatures have disadvantage on attack rolls against them until the spell ends.
+Spell/&DHHolyAuraSpellTitle Holy Aura
+Spell/&DHIncendiaryCloudSpellDescription A swirling cloud of smoke shot through with white-hot embers appears in a 20-foot-radius sphere centered on a point within range. The cloud spreads around corners and is heavily obscured. It lasts for the duration or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it.When the cloud appears, each creature in it must make a Dexterity saving throw. A creature takes 10d8 fire damage on a failed save, or half as much damage on a successful one. A creature must also make this saving throw when it enters the spell's area for the first time on a turn or ends its turn there.The cloud moves 10 feet directly away from you in a direction that you choose at the start of each of your turns.
+Spell/&DHIncendiaryCloudSpellTitle Incendiary Cloud
+Spell/&DHMassHealSpellDescription A flood of healing energy flows from you into injured creatures around you. You restore up to 700 hit points, divided as you choose among any number of creatures that you can see within range. Creatures healed by this spell are also cured of all diseases and any effect making them blinded or deafened. This spell has no effect on undead or constructs.
+Spell/&DHMassHealSpellTitle Mass Heal
+Spell/&DHMazeSpellDescription You banish a creature that you can see within range into a labyrinthine demiplane. The target remains there for the duration or until it escapes the maze. /nThe target can use its action to attempt to escape. When it does so, it makes a DC 20 Intelligence check.
+Spell/&DHMazeSpellTitle Maze
+Spell/&DHMeteorSwarmSingleTargetSpellDescription Blazing orbs of fire plummet to the ground at a single point you can see within range. Each creature in a 40-foot-radius sphere centered on the point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once..
+Spell/&DHMeteorSwarmSingleTargetSpellTitle Meteor Swarm (Single Target)
+Spell/&DHMindBlankSpellDescription Until the spell ends, one willing creature you touch is immune to psychic damage, any effect that would sense its emotions or read its thoughts, divination spells, and the charmed condition.
+Spell/&DHMindBlankSpellTitle Mind Blank
+Spell/&DHPowerWordHealSpellDescription A wave of healing energy washes over the creature you touch. The target regains all its hit points. If the creature is charmed, frightened, paralyzed, or stunned, the condition ends. If the creature is prone, it can use its reaction to stand up. This spell has no effect on undead or constructs.
+Spell/&DHPowerWordHealSpellTitle Power Word Heal
+Spell/&DHPowerWordKillSpellDescription You utter a word of power that can compel one creature you can see within range to die instantly. If the creature you choose has 100 hit points or fewer, it dies. Otherwise, the spell has no effect.
+Spell/&DHPowerWordKillSpellTitle Power Word Kill
+Spell/&DHPowerWordStunSpellDescription You speak a word of power that can overwhelm the mind of one creature you can see within range, leaving it dumbfounded. If the target has 150 hit points or fewer, it is stunned. Otherwise, the spell has no effect.
+Spell/&DHPowerWordStunSpellTitle Power Word Stun
+Spell/&DHReverseGravitySpellDescription This spell reverses gravity in a 50-foot-radius, 100-foot-high cylinder centered on a point within range.
+Spell/&DHReverseGravitySpellTitle Reverse Gravity
+Spell/&DHShapechangeSpellDescription You assume the form of a different creature for the duration. The new form can be of any creature with a challenge rating equal to your level or lower.
+Spell/&DHShapechangeSpellTitle Shapechange
+Spell/&DHSunBurstSpellDescription Brilliant sunlight flashes in a 60-foot radius centered on a point you choose within range. Each creature in that light must make a Constitution saving throw. On a failed save, a creature takes 12d6 radiant damage and is blinded for 1 minute. On a successful save, it takes half as much damage and isn't blinded by this spell. Undead and oozes have disadvantage on this saving throw.A creature blinded by this spell makes another Constitution saving throw at the end of each of its turns. On a successful save, it is no longer blinded.This spell dispels any darkness in its area that was created by a spell.
+Spell/&DHSunBurstSpellTitle Sunburst
+Spell/&DHTimeStopSpellDescription You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
+Spell/&DHTimeStopSpellTitle Time Stop
+Spell/&DHWeirdSpellDescription Drawing on the deepest fears of a group of creatures, you create illusory creatures in their minds, visible only to them. Each creature in a 30-foot-radius sphere centered on a point of your choice within range must make a Wisdom saving throw. On a failed save, a creature becomes frightened for the duration. The illusion calls on the creature's deepest fears, manifesting its worst nightmares as an implacable threat. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take 4d10 psychic damage. On a successful save, the spell ends for that creature.
+Spell/&DHWeirdSpellTitle Weird

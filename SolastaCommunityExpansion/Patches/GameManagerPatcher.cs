@@ -14,14 +14,13 @@ namespace SolastaCommunityExpansion.Patches
             AsiAndFeatContext.Load();
             BugFixContext.Load();
             CharacterExportContext.Load();
-            ClassesContext.Load();
             ConjurationsContext.Load();
             DruidArmorContext.Load();
             DungeonMakerContext.Load();
             EncountersSpawnContext.Load();
             EpicArrayContext.Load();
             FaceUnlockContext.Load();
-            // fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones
+            // Fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones.
             FightingStyleContext.Load();
             FlexibleBackgroundsContext.Switch();
             InitialChoicesContext.Load();
@@ -31,22 +30,33 @@ namespace SolastaCommunityExpansion.Patches
             ItemOptionsContext.Load();
             Level20Context.Load();
             PickPocketContext.Load();
+            // Powers needs to be added to db before spells because of summoned creatures that have new powers defined here.
+            PowersContext.AddToDB();
             RemoveBugVisualModelsContext.Load();
             RemoveIdentificationContext.Load();
             RespecContext.Load();
+            // There are spells that rely on new monster definitions with powers loaded during the PowersContext. So spells should get added to db after powers.
+            SpellsContext.AddToDB();
             SrdAndHouseRulesContext.Load();
-            SubclassesContext.Load();
             TelemaCampaignContext.Load();
             TeleporterContext.Load();
             VisionContext.Load();
+
+            // Classes may rely on spells and powers being in the DB before they can properly load.
+            ClassesContext.Load();
+            // Subclasses may rely on classes being loaded (as well as spells and powers) in order to properly refer back to the class.
+            SubclassesContext.Load();
 
             ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (runtime) =>
             {
                 FlexibleRacesContext.Switch();
                 InitialChoicesContext.RefreshFirstLevelTotalFeats();
 
+                // There are feats that need all character classes loaded before they can properly be setup.
                 FeatsContext.Load();
-                PowersContext.Load();
+                // Generally available powers need all classes in the db before they are initialized here.
+                PowersContext.Switch();
+                // Spells context needs character classes (specifically spell lists) in the db in order to do it's work.
                 SpellsContext.Load();
 
                 GuiWrapperContext.Recache();

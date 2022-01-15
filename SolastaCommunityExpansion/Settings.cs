@@ -47,6 +47,7 @@ namespace SolastaCommunityExpansion
         public bool AllowDynamicPowers { get; set; } = true;
         public bool AllowExtraKeyboardCharactersInCampaignNames { get; set; } = true;
         public bool AllowExtraKeyboardCharactersInLocationNames { get; set; } = true;
+        public bool BugFixAttunementUnknownCharacter { get; set; } = true;
         public bool BugFixBestiarySorting { get; set; } = true;
         public bool BugFixButtonActivatorTriggerIssue { get; set; } = true;
         public bool BugFixCharacterPanelSorting { get; set; } = true;
@@ -65,6 +66,7 @@ namespace SolastaCommunityExpansion
         public bool EnableSortingFeats { get; set; } = true;
         public bool EnableSortingFutureFeatures { get; set; } = true;
         public bool EnableSortingRaces { get; set; } = true;
+        public bool EnableSortingSubclasses { get; set; } = true;
         public bool KeepCharactersPanelOpenAndHeroSelectedOnLevelUp { get; set; } = true;
         public bool KeepSpellsOpenSwitchingEquipment { get; set; } = true;
         public bool ShowAllAutoPreparedSpells { get; set; } = true;
@@ -173,6 +175,10 @@ namespace SolastaCommunityExpansion
         public bool AllowStackedMaterialComponent { get; set; }
         public bool ScaleMerchantPricesCorrectly { get; set; }
 
+        public bool AddBleedingToLesserRestoration { get; set; }
+        public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
+
+
         //
         // Gameplay - Items, Crafting & Merchants
         //
@@ -204,6 +210,7 @@ namespace SolastaCommunityExpansion
         //
 
         // Campaigns and Locations
+        public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
         public bool EnableAdditionalIconsOnLevelMap { get; set; }
         public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
         public bool HideExitAndTeleporterGizmosIfNotDiscovered { get; set; }
