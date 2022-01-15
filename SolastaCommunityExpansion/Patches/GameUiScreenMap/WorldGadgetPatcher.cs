@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
@@ -11,6 +12,11 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
         internal static void Prefix(WorldGadget __instance, ref bool visible)
         {
             if (!Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView || !visible || !__instance.IsUserGadget)
+            {
+                return;
+            }
+
+            if (Array.IndexOf(Models.GameUiContext.GadgetBlueprintsWithGizmos, __instance.UserGadget.GadgetBlueprint) >= 0)
             {
                 return;
             }

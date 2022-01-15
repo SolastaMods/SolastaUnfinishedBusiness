@@ -2,11 +2,22 @@
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using static SolastaModApi.DatabaseHelper.GadgetBlueprints;
 
 namespace SolastaCommunityExpansion.Models
 {
     internal static class GameUiContext
     {
+        internal static readonly GadgetBlueprint[] GadgetBlueprintsWithGizmos = new GadgetBlueprint[]
+        {
+            Exit,
+            ExitMultiple,
+            TeleporterIndividual,
+            TeleporterParty,
+            VirtualExit,
+            VirtualExitMultiple,
+        };
+
         public const InputCommands.Id CTRL_C = (InputCommands.Id)44440000;
         public const InputCommands.Id CTRL_L = (InputCommands.Id)44440001;
         public const InputCommands.Id CTRL_M = (InputCommands.Id)44440002;
