@@ -53,7 +53,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.HideGadgetsInFogOfWar;
-                if (UI.Toggle("Don't highlight gadgets in fog of war when pressing ALT", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("ALT key only highlight gadgets in party field of view " + "[only in custom dungeons]".italic().yellow(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.HideGadgetsInFogOfWar = toggle;
                 }
