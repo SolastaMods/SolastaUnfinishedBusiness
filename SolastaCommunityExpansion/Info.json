@@ -2,7 +2,7 @@
 	"Id": "SolastaCommunityExpansion",
 	"DisplayName": "Community Expansion",
 	"Author": "ChrisJohnDigital",
-	"Version": "1.2.15.7",
+	"Version": "1.2.15.8",
 	"ManagerVersion": "0.23.4",
 	"Requirements": [ "SolastaModApi" ],
 	"LoadAfter": [ "SolastaModApi" ],
