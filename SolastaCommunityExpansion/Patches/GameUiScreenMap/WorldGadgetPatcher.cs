@@ -3,14 +3,14 @@ using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
 {
-    // hides item highlights in fog of war areas
+    // disables item highlights not in party field of view
     [HarmonyPatch(typeof(WorldGadget), "SetHighlightVisibility")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class WorldGadget_SetHighlightVisibility
     {
         internal static void Prefix(WorldGadget __instance, ref bool visible)
         {
-            if (!Main.Settings.HideGadgetsInFogOfWar || !visible || !__instance.IsUserGadget)
+            if (!Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView || !visible || !__instance.IsUserGadget)
             {
                 return;
             }
