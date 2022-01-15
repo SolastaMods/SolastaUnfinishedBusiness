@@ -2,8 +2,8 @@
 
 	<PropertyGroup>
 		<TargetFramework>net472</TargetFramework>
-		<AssemblyVersion>1.2.15.5</AssemblyVersion>
-		<FileVersion>1.2.15.5</FileVersion>
+		<AssemblyVersion>1.2.15.8</AssemblyVersion>
+		<FileVersion>1.2.15.8</FileVersion>
 		<Description></Description>
 		<PackageProjectUrl>https://github.com/ChrisPJohn/SolastaCommunityExpansion</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/ChrisPJohn/SolastaCommunityExpansion</RepositoryUrl>
@@ -14,7 +14,7 @@
 		<Product />
 		<Copyright>Copyright 2021</Copyright>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-		<Version>1.2.15.5</Version>
+		<Version>1.2.15.8</Version>
 		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
 		<EnableNETAnalyzers>True</EnableNETAnalyzers>
 		<AnalysisLevel>latest</AnalysisLevel>
@@ -41,6 +41,26 @@
 		<Optimize>true</Optimize>
 		<DefineConstants>TRACE</DefineConstants>
 		<PlatformTarget>x64</PlatformTarget>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <WarningLevel>5</WarningLevel>
+	  <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <WarningLevel>5</WarningLevel>
+	  <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Install|AnyCPU'">
+	  <WarningLevel>5</WarningLevel>
+	  <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Install|AnyCPU'">
+	  <WarningLevel>5</WarningLevel>
+	  <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
 	</PropertyGroup>
 
 	<ItemGroup>
