@@ -26,6 +26,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             {
                 UI.Label("");
 
+                toggle = Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView;
+                if (UI.Toggle("ALT key only highlight gadgets in party field of view " + "[only in custom dungeons]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView = toggle;
+                }
+
                 toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
                 if (UI.Toggle("Enable additional icons for camps, exits and teleporters on level map", ref toggle, UI.AutoWidth()))
                 {
