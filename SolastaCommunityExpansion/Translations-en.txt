@@ -204,7 +204,6 @@ Equipment/&Enchanted_Spear_Doomblade_Title Doom Tipped Spear
 Equipment/&Enchanted_Spear_Lightbringer_Description This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
 Equipment/&Enchanted_Spear_Lightbringer_Title Lightbringer Spear
 Equipment/&Enchanted_Spear_Sharpness_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
-Equipment/&Enchanted_Spear_Sharpness_Description This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. Kenaloth Darkmind devised the Doomblades as a tool of punishment for those who resisted the magic of the Empire.
 Equipment/&Enchanted_Spear_Sharpness_Title Spear of Sharpness
 Equipment/&Enchanted_Spear_Stormblade_Title Stormblade Spear
 Equipment/&Enchanted_Spear_Whiteburn_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
@@ -255,14 +254,14 @@ Feat/&FeatFeyTeleportationIntDescription Increase Intelligence attribute by 1. G
 Feat/&FeatFeyTeleportationIntTitle Fey Teleportation (Intelligence)
 Feat/&FeatFeyTeleportationWisDescription Increase Wisdom attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell.  Gain proficiency in Tirmarian.
 Feat/&FeatFeyTeleportationWisTitle Fey Teleportation (Wisdom)
-Feat/&FeatIntIncrementDescription +1 Charisma
+Feat/&FeatChaIncrementDescription +1 Charisma
 Feat/&FeatIntIncrementDescription +1 Intelligence
-Feat/&FeatIntIncrementDescription +1 Wisdom
-Feat/&FeatIntIncrementTitle Attribute Increase
-Feat/&FeatIntIncrementTitle Attribute Increase
-Feat/&FeatIntIncrementTitle Attribute Increase
-Feat/&FeatSavageAttackerDescription Reroll weapon and spell damage dice when they roll a 1 (does not reroll all damage sources, for example excludes Sneak Attack and Smite).
-Feat/&FeatSavageAttackerReroll Due to being a Savage Attacker {0} rerolls the {1} die from a {2} to a {3}
+Feat/&FeatWisIncrementDescription +1 Wisdom
+Feat/&FeatChaIncrementTitle Charisma Attribute Increase
+Feat/&FeatIntIncrementTitle Intelligence Attribute Increase
+Feat/&FeatWisIncrementTitle Wisdom Attribute Increase
+Feat/&FeatSavageAttackerDescription Reroll damage dice when they roll a 1.
+Feat/&FeatSavageAttackerReroll Rerolling damage due to Savage Attacker.
 Feat/&FeatSavageAttackerTitle Savage Attacker
 Feat/&FeatShadowTouchedChaDescription Increase Charisma attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
 Feat/&FeatShadowTouchedChaTitle Shadow Touched (Charisma)
@@ -339,7 +338,7 @@ Feat/&PowerInflictWoundsFromFeatTitle Inflict Wounds
 Feat/&PowerInvisibilityFromFeatDescription A creature you touch becomes Invisible until the spell ends. Anything the target is wearing or carrying is Invisible as long as it is on the target's person. The spell ends for a target that attacks or casts a spell.
 Feat/&PowerInvisibilityFromFeatTitle Invisibility
 Feat/&PowerMistyStepFromFeatDescription Briefly surrounded by silvery mist, you teleport up to 30 feet to an unoccupied space that you can see.
-Feat/&PowerMistyStepFromFeatTitle Misty Step
+Feat/&PowerMistyStepFromFeatTitle Learn Misty Step
 Feat/&PowerShadowTouchedFromFeatDescription Learn to cast the spells Invisibility, False Life, and Inflict Wounds.
 Feat/&PowerShadowTouchedFromFeatTitle Learn Invisibility, False Life, and Inflict Wounds
 Feat/&ProfChefTreatActionDescription Eat a treat as a bonus action and gain 5 temporary hit points.
@@ -404,20 +403,12 @@ Feature/&InspiringSurgePowerTitleShort Inspiring Surge
 Feature/&KnockDownPowerDescription	Spend a gambit die and empower your attack to do an additional 1d6+2 bludgeoning damage and knock them down until the start of their next turn if they fail a Strength save vs. 8 + your Strength + proficiency
 Feature/&KnockDownPowerTitle	Knock down
 Feature/&KSRogueSubclassThugBrutalMethodsDescription You can shove as a bonus action.
-Feature/&KSRogueSubclassThugBrutalMethodsDescription You can shove as a bonus action.
-Feature/&KSRogueSubclassThugBrutalMethodsTitle Brutal Methods
 Feature/&KSRogueSubclassThugBrutalMethodsTitle Brutal Methods
 Feature/&KSRogueSubclassThugExploitVulnerabilitiesSneakAttackDescription You are able to use Sneak Attack with any kind of melee weapon, not restricted to finesse weapons.\n1d6 extra damage (+1d6 every 2 levels) to one creature you hit with the advantage, once per turn. No need for advantage if an active ally is next to the target.
-Feature/&KSRogueSubclassThugExploitVulnerabilitiesSneakAttackDescription You are able to use Sneak Attack with any kind of melee weapon, not restricted to finesse weapons.\n1d6 extra damage (+1d6 every 2 levels) to one creature you hit with the advantage, once per turn. No need for advantage if an active ally is next to the target.
-Feature/&KSRogueSubclassThugExploitVulnerabilitiesSneakAttackTitle Polyvalent Sneak Attack
 Feature/&KSRogueSubclassThugExploitVulnerabilitiesSneakAttackTitle Polyvalent Sneak Attack
 Feature/&KSRogueSubclassThugOvercomeCompetitionDescription You have advantage on your Athletics (Strength) checks.
-Feature/&KSRogueSubclassThugOvercomeCompetitionDescription You have advantage on your Athletics (Strength) checks.
-Feature/&KSRogueSubclassThugOvercomeCompetitionTitle Overcome Competition
 Feature/&KSRogueSubclassThugOvercomeCompetitionTitle Overcome Competition
 Feature/&KSRogueSubclassThugProficienciesDescription Proficient with medium armors and shields.
-Feature/&KSRogueSubclassThugProficienciesDescription Proficient with medium armors and shields.
-Feature/&KSRogueSubclassThugProficienciesTitle Heavy Gear
 Feature/&KSRogueSubclassThugProficienciesTitle Heavy Gear
 Feature/&PowerAttackAttackModifierOneHandedDescription Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
 Feature/&PowerAttackAttackModifierOneHandedTitle One handed power attack
@@ -711,9 +702,7 @@ Subclass/&PowerSpellShieldRangedDeflectionDescription When an attacker that you 
 Subclass/&PowerSpellShieldRangedDeflectionTitle Ranged Deflection
 Subclass/&PowerTransmuteConstitutionDescription Use your Transmute Force to grant proficiency with Constitution Saves until the next long rest.
 Subclass/&PowerTransmuteConstitutionTitle Constitution Saves
-Subclass/&PowerTransmuteDarkvisionDescription Temporary Superior Darkvision granted by the Transmute Force power.
 Subclass/&PowerTransmuteDarkvisionDescription Use your Transmute Force to grant Superior Darkvision until the next long rest.
-Subclass/&PowerTransmuteDarkvisionTitle Superior Darkvision
 Subclass/&PowerTransmuteDarkvisionTitle Superior Darkvision
 Subclass/&PowerTransmuteElementalResistanceDescription Use your Transmute Force to grant resistance to Acid, Cold, Fire, Lightning, Necrotic, Thunder, and Poison until the next long rest.
 Subclass/&PowerTransmuteElemnetalResistanceTitle Elemental Resistance
@@ -842,3 +831,4 @@ Spell/&DHTimeStopSpellDescription You briefly stop the flow of time for everyone
 Spell/&DHTimeStopSpellTitle Time Stop
 Spell/&DHWeirdSpellDescription Drawing on the deepest fears of a group of creatures, you create illusory creatures in their minds, visible only to them. Each creature in a 30-foot-radius sphere centered on a point of your choice within range must make a Wisdom saving throw. On a failed save, a creature becomes frightened for the duration. The illusion calls on the creature's deepest fears, manifesting its worst nightmares as an implacable threat. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take 4d10 psychic damage. On a successful save, the spell ends for that creature.
 Spell/&DHWeirdSpellTitle Weird
+Spell/&IPConjureInvisibleStalker Conjure Invisible Stalker
