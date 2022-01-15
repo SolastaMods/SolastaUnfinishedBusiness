@@ -1,10 +1,9 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using TA;
 
 namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
 {
-    // hides certain element from the map on custom dungeons unless already discovered
+    // hides item highlights in fog of war areas
     [HarmonyPatch(typeof(WorldGadget), "SetHighlightVisibility")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class WorldGadget_SetHighlightVisibility
@@ -18,13 +17,11 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
 
             var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var gameLocationVisibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
-            var position = new int3((int)__instance.GameGadget.FeedbackPosition.x, 0, (int)__instance.GameGadget.FeedbackPosition.z);
+            var position = new TA.int3((int)__instance.GameGadget.FeedbackPosition.x, (int)__instance.GameGadget.FeedbackPosition.y, (int)__instance.GameGadget.FeedbackPosition.z);
 
             foreach (var gameLocationCharacter in gameLocationCharacterService.PartyCharacters)
             {
-                var distance = TA.int3.Distance(position, gameLocationCharacter.LocationPosition);
-
-                visible = distance < 6 || gameLocationVisibilityService.IsCellPerceivedByCharacter(position, gameLocationCharacter);
+                visible = gameLocationVisibilityService.IsCellPerceivedByCharacter(position, gameLocationCharacter);
 
                 if (visible)
                 {
