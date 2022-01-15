@@ -261,8 +261,8 @@ Feat/&FeatIntIncrementDescription +1 Wisdom
 Feat/&FeatIntIncrementTitle Attribute Increase
 Feat/&FeatIntIncrementTitle Attribute Increase
 Feat/&FeatIntIncrementTitle Attribute Increase
-Feat/&FeatSavageAttackerDescription Reroll damage dice when they roll a 1.
-Feat/&FeatSavageAttackerReroll Rerolling damage due to Savage Attacker.
+Feat/&FeatSavageAttackerDescription Reroll weapon and spell damage dice when they roll a 1 (does not reroll all damage sources, for example excludes Sneak Attack and Smite).
+Feat/&FeatSavageAttackerReroll Due to being a Savage Attacker {0} rerolls the {1} die from a {2} to a {3}
 Feat/&FeatSavageAttackerTitle Savage Attacker
 Feat/&FeatShadowTouchedChaDescription Increase Charisma attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
 Feat/&FeatShadowTouchedChaTitle Shadow Touched (Charisma)
@@ -339,8 +339,6 @@ Feat/&PowerInflictWoundsFromFeatTitle Inflict Wounds
 Feat/&PowerInvisibilityFromFeatDescription A creature you touch becomes Invisible until the spell ends. Anything the target is wearing or carrying is Invisible as long as it is on the target's person. The spell ends for a target that attacks or casts a spell.
 Feat/&PowerInvisibilityFromFeatTitle Invisibility
 Feat/&PowerMistyStepFromFeatDescription Briefly surrounded by silvery mist, you teleport up to 30 feet to an unoccupied space that you can see.
-Feat/&PowerMistyStepFromFeatDescription Learn to cast the spell Misty Step.
-Feat/&PowerMistyStepFromFeatTitle Learn Misty Step
 Feat/&PowerMistyStepFromFeatTitle Misty Step
 Feat/&PowerShadowTouchedFromFeatDescription Learn to cast the spells Invisibility, False Life, and Inflict Wounds.
 Feat/&PowerShadowTouchedFromFeatTitle Learn Invisibility, False Life, and Inflict Wounds
