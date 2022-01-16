@@ -255,25 +255,29 @@ namespace SolastaCommunityExpansion.Models
             containerPanel.Bind(container, inspectedCharacter, dropAreaClicked, visibleSlotsRefreshed);
             rulesetCharacterHero.CharacterRefreshed?.Invoke(rulesetCharacterHero);
 
-            // use red background for non proficient items
             foreach (var inventorySlotBox in containerPanel.BoundSlotBoxes)
             {
                 var itemDefinition = inventorySlotBox.InventorySlot.EquipedItem?.ItemDefinition;
                 var slotBackgroundImage = inventorySlotBox.transform.Find("SlotBackgroundImage").GetComponent<Image>();
 
-                //
-                // TODO: we could tweak the image frame color instead but this was a bit buggy...
-                //
-
-                // var EquippedFrameImage = inventorySlotBox.transform.parent.FindChildRecursive("EquipedFrame").GetComponent<Image>();
-
-                if (itemDefinition != null && !rulesetCharacterHero.IsProficientWithItem(itemDefinition))
+                if (itemDefinition != null)
                 {
-                    slotBackgroundImage.color = new Color(1, 0, 0, 1);
+                    var equippedItemImage = inventorySlotBox.transform.Find("EquipedItemImage (PoolElement)").GetComponent<Image>();
+
+                    if (rulesetCharacterHero.IsProficientWithItem(itemDefinition))
+                    {
+                        equippedItemImage.color = Color.white;
+                        slotBackgroundImage.color = Color.white;
+                    }
+                    else
+                    {
+                        equippedItemImage.color = Color.red;
+                        slotBackgroundImage.color = Color.red;
+                    }
                 }
                 else
                 {
-                    slotBackgroundImage.color = new Color(1, 1, 1, 1);
+                    slotBackgroundImage.color = Color.white;
                 }
             }
         }
