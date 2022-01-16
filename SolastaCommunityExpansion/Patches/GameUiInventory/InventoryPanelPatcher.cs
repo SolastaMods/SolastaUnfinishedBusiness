@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiInventory
         {
             if (Main.Settings.EnableInventoryFilteringAndSorting)
             {
-                Models.InventoryManagementContext.Refresh(__instance.MainContainerPanel, forceRefresh: true);
+                Models.InventoryManagementContext.Refresh(__instance.MainContainerPanel);
             }
         }
     }
@@ -24,7 +24,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiInventory
         {
             if (Main.Settings.EnableInventoryFilteringAndSorting)
             {
-                Models.InventoryManagementContext.Refresh(__instance.MainContainerPanel, forceRefresh: true, clearFilteredOutItems: true);
+                Models.InventoryManagementContext.Refresh(__instance.MainContainerPanel, drainFilter: true);
             }
         }
     }

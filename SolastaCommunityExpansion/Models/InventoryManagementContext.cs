@@ -10,21 +10,15 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class InventoryManagementContext
     {
-        private static int previousFilterDropDownValue;
+        private static readonly List<RulesetItem> FilteredItems = new List<RulesetItem>();
 
-        private static bool previousSortAscending = true;
+        private static readonly List<MerchantCategoryDefinition> ItemCategories = new List<MerchantCategoryDefinition>();
 
-        private static int previousSortDropDownValue;
+        private static GuiDropdown FilterGuiDropdown { get; set; }
 
-        private static int currentFilterDropDownValue;
+        private static SortGroup BySortGroup { get; set; }
 
-        private static bool currentSortAscending = true;
-
-        private static int currentSortDropDownValue;
-
-        private static readonly List<RulesetItem> FilteredOutItems = new List<RulesetItem>();
-
-        private static readonly List<MerchantCategoryDefinition> FilterCategories = new List<MerchantCategoryDefinition>();
+        private static GuiDropdown SortGuiDropdown { get; set; }
 
         internal static void Load()
         {
@@ -42,18 +36,21 @@ namespace SolastaCommunityExpansion.Models
 
             var filter = Object.Instantiate(dropdownPrefab, rightGroup);
             var filterRect = filter.GetComponent<RectTransform>();
-            var filterGuiDropdown = filter.GetComponent<GuiDropdown>();
+            
+            FilterGuiDropdown = filter.GetComponent<GuiDropdown>();
 
             var by = Object.Instantiate(sortGroupPrefab, rightGroup);
             var byTextMesh = by.GetComponentInChildren<TextMeshProUGUI>();
-            var bySortGroup = by.GetComponent<SortGroup>();
+            
+            BySortGroup = by.GetComponent<SortGroup>();
 
             var sort = Object.Instantiate(dropdownPrefab, rightGroup);
             var sortRect = sort.GetComponent<RectTransform>();
-            var sortGuiDropdown = sort.GetComponent<GuiDropdown>();
+            
+            SortGuiDropdown = sort.GetComponent<GuiDropdown>();
 
             var reorder = rightGroup.transform.Find("ReorderPersonalContainerButton");
-            var reorderButton = reorder.GetComponent<UnityEngine.UI.Button>();
+            var reorderButton = reorder.GetComponent<Button>();
             var reorderTextMesh = reorder.GetComponentInChildren<TextMeshProUGUI>();
 
             // caches categories
@@ -63,8 +60,8 @@ namespace SolastaCommunityExpansion.Models
 
             filteredCategoryDefinitions.Sort((a, b) => a.FormatTitle().CompareTo(b.FormatTitle()));
 
-            FilterCategories.Add(MerchantCategoryDefinitions.All);
-            FilterCategories.AddRange(filteredCategoryDefinitions);
+            ItemCategories.Add(MerchantCategoryDefinitions.All);
+            ItemCategories.AddRange(filteredCategoryDefinitions);
 
             // adds the filter dropdown
 
@@ -75,31 +72,25 @@ namespace SolastaCommunityExpansion.Models
 
             filterRect.sizeDelta = new Vector2(150f, 28f);
 
-            filterGuiDropdown.ClearOptions();
-            filterGuiDropdown.onValueChanged.AddListener(delegate
-            {
-                currentFilterDropDownValue = filterGuiDropdown.value;
-                Refresh(containerPanel);
-            });
+            FilterGuiDropdown.ClearOptions();
+            FilterGuiDropdown.onValueChanged.AddListener(delegate { Refresh(containerPanel); });
 
-            FilterCategories.ForEach(x => filterOptions.Add(new TMP_Dropdown.OptionData() { text = x.FormatTitle() }));
+            ItemCategories.ForEach(x => filterOptions.Add(new TMP_Dropdown.OptionData() { text = x.FormatTitle() }));
 
-            filterGuiDropdown.AddOptions(filterOptions);
-            filterGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);
+            FilterGuiDropdown.AddOptions(filterOptions);
+            FilterGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);
 
             // adds the sort direction toggle
 
             by.name = "SortGroup";
             by.transform.localPosition = new Vector3(-302f, 370f, 0f);
 
-            bySortGroup.Inverted = !currentSortAscending;
-            bySortGroup.Selected = true;
-            bySortGroup.SortRequested = new SortGroup.SortRequestedHandler((sortCategory, inverted) =>
+            BySortGroup.Inverted = false;
+            BySortGroup.Selected = true;
+            BySortGroup.SortRequested = new SortGroup.SortRequestedHandler((sortCategory, inverted) =>
             {
-                bySortGroup.Inverted = inverted;
-                bySortGroup.Refresh();
-
-                currentSortAscending = !inverted;
+                BySortGroup.Inverted = inverted;
+                BySortGroup.Refresh();
                 Refresh(containerPanel);
             });
 
@@ -112,18 +103,10 @@ namespace SolastaCommunityExpansion.Models
 
             sortRect.sizeDelta = new Vector2(150f, 28f);
 
-            sortGuiDropdown.ClearOptions();
-            sortGuiDropdown.onValueChanged.AddListener(delegate
-            {
-                currentSortDropDownValue = sortGuiDropdown.value;
-                Refresh(containerPanel);
-            });
+            SortGuiDropdown.ClearOptions();
+            SortGuiDropdown.onValueChanged.AddListener(delegate { Refresh(containerPanel); });
 
-            //
-            // TODO: move hard-coded texts to translations-en
-            //
-
-            sortGuiDropdown.AddOptions(new List<TMP_Dropdown.OptionData>()
+            SortGuiDropdown.AddOptions(new List<TMP_Dropdown.OptionData>()
             {
                 new TMP_Dropdown.OptionData() { text = "Default" },
                 new TMP_Dropdown.OptionData() { text = "Category" },
@@ -133,36 +116,26 @@ namespace SolastaCommunityExpansion.Models
                 new TMP_Dropdown.OptionData() { text = "Cost per Weight" },
             });
 
-            // captures and changes the reorder button behavior
+            // changes the reorder button behavior
+
             reorder.localPosition = new Vector3(-32f, 358f, 0f);
             reorderButton.onClick.RemoveAllListeners();
             reorderButton.onClick.AddListener(delegate
             {
-                previousFilterDropDownValue = 0;
-                previousSortAscending = true;
-                previousSortDropDownValue = 0;
-
-                currentFilterDropDownValue = 0;
-                currentSortAscending = true;
-                currentSortDropDownValue = 0;
-
-                filterGuiDropdown.value = 0;
-                bySortGroup.Inverted = false;
-                sortGuiDropdown.value = 0;
-
-                bySortGroup.Refresh();
-
-                Refresh(containerPanel, forceRefresh: true);
+                FilterGuiDropdown.value = 0;
+                SortGuiDropdown.value = 0;
+                BySortGroup.Inverted = false;
+                BySortGroup.Refresh();
+                Refresh(containerPanel);
             });
-
             reorderTextMesh.text = "Reset";
         }
 
         private static void Sort(List<RulesetItem> items)
         {
-            int SortOrder() => currentSortAscending ? 1 : -1;
+            int SortOrder() => BySortGroup.Inverted ? -1 : 1;
 
-            switch (currentSortDropDownValue)
+            switch (SortGuiDropdown.value)
             {
                 case 0: // Default
                     items.Sort((a, b) =>
@@ -244,60 +217,58 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void Refresh(ContainerPanel containerPanel, bool forceRefresh = false, bool clearFilteredOutItems = false)
+        internal static void Refresh(ContainerPanel containerPanel, bool drainFilter = false)
         {
-            var clean = previousFilterDropDownValue == currentFilterDropDownValue && previousSortAscending == currentSortAscending && previousSortDropDownValue == currentSortDropDownValue;
-            var container = containerPanel.Container;
+            var container = containerPanel?.Container;
 
-            if (!forceRefresh && clean || container == null)
+            if (container == null)
             {
                 return;
             }
 
             var items = new List<RulesetItem>();
             var inspectedCharacter = containerPanel.InspectedCharacter;
+            var rulesetCharacterHero = inspectedCharacter.RulesetCharacterHero;
             var dropAreaClicked = containerPanel.DropAreaClicked;
             var visibleSlotsRefreshed = containerPanel.VisibleSlotsRefreshed;
 
-            containerPanel.Unbind();
             container.EnumerateAllItems(items);
             container.InventorySlots.ForEach(x => x.UnequipItem(silent: true));
+            containerPanel.Unbind();
 
-            items.AddRange(FilteredOutItems);
-            FilteredOutItems.Clear();
+            items.AddRange(FilteredItems);
+            FilteredItems.Clear();
             Sort(items);
 
             foreach (var item in items)
             {
-                if (clearFilteredOutItems || currentFilterDropDownValue == 0 || item.ItemDefinition.MerchantCategory == FilterCategories[currentFilterDropDownValue].Name)
+                if (drainFilter || FilterGuiDropdown.value == 0 || item.ItemDefinition.MerchantCategory == ItemCategories[FilterGuiDropdown.value].Name)
                 {
                     container.AddSubItem(item, silent: true);
                 }
                 else
                 {
-                    FilteredOutItems.Add(item);
+                    FilteredItems.Add(item);
                 }
             }
 
-            previousFilterDropDownValue = currentFilterDropDownValue;
-            previousSortAscending = currentSortAscending;
-            previousSortDropDownValue = currentSortDropDownValue;
-
-            var hero = inspectedCharacter.RulesetCharacterHero;
-
             containerPanel.Bind(container, inspectedCharacter, dropAreaClicked, visibleSlotsRefreshed);
-            hero.CharacterRefreshed?.Invoke(hero);
+            rulesetCharacterHero.CharacterRefreshed?.Invoke(rulesetCharacterHero);
 
-            //
-            // TODO: colors only display correctly under All filter. need to check why
-            //
-            foreach (var inventorySlotBox in containerPanel.BoundSlotBoxes
-                .Where(x => x.InventorySlot.EquipedItem != null && !hero.IsProficientWithItem(x.InventorySlot.EquipedItem.ItemDefinition)))
+            // use red background for non proficient items
+            foreach (var inventorySlotBox in containerPanel.BoundSlotBoxes)
             {
-                var equipedItemImage = inventorySlotBox.GetField<InventorySlotBox, Image>("equipedItemImage");
-                var equipedItemImageFrame = equipedItemImage.transform.GetChild(0).GetComponent<Image>();
+                var itemDefinition = inventorySlotBox.InventorySlot.EquipedItem?.ItemDefinition;
+                var slotBackgroundImage = inventorySlotBox.transform.Find("SlotBackgroundImage").GetComponent<Image>();
 
-                equipedItemImageFrame.color = Color.red;
+                if (itemDefinition != null && !rulesetCharacterHero.IsProficientWithItem(itemDefinition))
+                {
+                    slotBackgroundImage.color = new Color(1, 0, 0, 1);
+                }
+                else
+                {
+                    slotBackgroundImage.color = new Color(1, 1, 1, 1);
+                }
             }
         }
     }
