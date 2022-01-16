@@ -133,6 +133,7 @@ namespace SolastaCommunityExpansion.Models
 
             // captures and changes the reorder button behavior
             reorder.localPosition = new Vector3(-32f, 358f, 0f);
+            reorderButton.onClick.RemoveAllListeners();
             reorderButton.onClick.AddListener(delegate
             {
                 previousFilterDropDownValue = 0;
@@ -253,18 +254,20 @@ namespace SolastaCommunityExpansion.Models
                 var items = new List<RulesetItem>();
 
                 container.EnumerateAllItems(items);
-                container.InventorySlots.ForEach(x => x.UnequipItem(silent: true));
+                containerPanel.BoundSlotBoxes.ForEach(x => x.UnequipItem());
 
                 items.AddRange(FilteredOutItems);
                 FilteredOutItems.Clear();
 
                 Sort(items);
 
+                var index = 0;
+
                 foreach (var item in items)
                 {
                     if (clearState || currentFilterDropDownValue == 0 || item.ItemDefinition.MerchantCategory == FilterCategories[currentFilterDropDownValue].Name)
                     {
-                        container.AddSubItem(item, true);
+                        containerPanel.BoundSlotBoxes[index++].EquipItem(item);
                     }
                     else
                     {
