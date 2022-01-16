@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiInventory
         {
             if (Main.Settings.EnableInventoryFilteringAndSorting)
             {
-                Models.InventoryManagementContext.Refresh(__instance.MainContainerPanel);
+                Models.InventoryManagementContext.Refresh(__instance.MainContainerPanel, forceRefresh: true);
             }
         }
     }
@@ -24,15 +24,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiInventory
         {
             if (Main.Settings.EnableInventoryFilteringAndSorting)
             {
-                Models.InventoryManagementContext.Refresh(__instance.MainContainerPanel, clearState: true);
-            }
-        }
-
-        internal static void Postfix()
-        {
-            if (Main.Settings.EnableInventoryFilteringAndSorting)
-            {
-                Models.InventoryManagementContext.MarkAsDirty();
+                Models.InventoryManagementContext.Refresh(__instance.MainContainerPanel, forceRefresh: true, clearFilteredOutItems: true);
             }
         }
     }

@@ -150,13 +150,11 @@ namespace SolastaCommunityExpansion.Models
 
                 bySortGroup.Refresh();
 
-                Refresh(containerPanel, clearState: true);
+                Refresh(containerPanel, forceRefresh: true);
             });
 
             reorderTextMesh.text = "Reset";
         }
-
-        internal static void MarkAsDirty() => previousSortAscending = !previousSortAscending;
 
         private static void Sort(List<RulesetItem> items)
         {
@@ -244,43 +242,44 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void Refresh(ContainerPanel containerPanel, bool clearState = false)
+        internal static void Refresh(ContainerPanel containerPanel, bool forceRefresh = false, bool clearFilteredOutItems = false)
         {
             var clean = previousFilterDropDownValue == currentFilterDropDownValue && previousSortAscending == currentSortAscending && previousSortDropDownValue == currentSortDropDownValue;
             var container = containerPanel.Container;
 
-            if ((clearState || !clean) && container != null)
+            if (!forceRefresh && clean || container == null)
             {
-                var items = new List<RulesetItem>();
-
-                container.EnumerateAllItems(items);
-                containerPanel.BoundSlotBoxes.ForEach(x => x.UnequipItem());
-
-                items.AddRange(FilteredOutItems);
-                FilteredOutItems.Clear();
-
-                Sort(items);
-
-                var index = 0;
-
-                foreach (var item in items)
-                {
-                    if (clearState || currentFilterDropDownValue == 0 || item.ItemDefinition.MerchantCategory == FilterCategories[currentFilterDropDownValue].Name)
-                    {
-                        containerPanel.BoundSlotBoxes[index++].EquipItem(item);
-                    }
-                    else
-                    {
-                        FilteredOutItems.Add(item);
-                    }
-                }
-
-                previousFilterDropDownValue = currentFilterDropDownValue;
-                previousSortAscending = clearState ? !currentSortAscending : currentSortAscending; // bypass here forces a refresh on next bind as it creates an unclean state. this is required when swaping heroes
-                previousSortDropDownValue = currentSortDropDownValue;
-
-                containerPanel.InspectedCharacter?.RulesetCharacterHero?.CharacterRefreshed?.Invoke(containerPanel.InspectedCharacter.RulesetCharacterHero);
+                return;
             }
+
+            var items = new List<RulesetItem>();
+
+            containerPanel.Unbind();
+            container.EnumerateAllItems(items);
+            container.InventorySlots.ForEach(x => x.UnequipItem(silent: true));
+
+            items.AddRange(FilteredOutItems);
+            FilteredOutItems.Clear();
+            Sort(items);
+
+            foreach (var item in items)
+            {
+                if (clearFilteredOutItems || currentFilterDropDownValue == 0 || item.ItemDefinition.MerchantCategory == FilterCategories[currentFilterDropDownValue].Name)
+                {
+                    container.AddSubItem(item, silent: true);
+                }
+                else
+                {
+                    FilteredOutItems.Add(item);
+                }
+            }
+
+            previousFilterDropDownValue = currentFilterDropDownValue;
+            previousSortAscending = currentSortAscending;
+            previousSortDropDownValue = currentSortDropDownValue;
+
+            containerPanel.Bind(container, containerPanel.InspectedCharacter, containerPanel.DropAreaClicked, containerPanel.VisibleSlotsRefreshed);
+            containerPanel.InspectedCharacter?.RulesetCharacterHero?.CharacterRefreshed?.Invoke(containerPanel.InspectedCharacter.RulesetCharacterHero);
         }
     }
 }
