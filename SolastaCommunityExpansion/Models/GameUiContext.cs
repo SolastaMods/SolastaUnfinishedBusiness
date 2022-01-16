@@ -15,8 +15,6 @@ namespace SolastaCommunityExpansion.Models
             ExitMultiple,
             TeleporterIndividual,
             TeleporterParty,
-            VirtualExit,
-            VirtualExitMultiple,
         };
 
         public const InputCommands.Id CTRL_C = (InputCommands.Id)44440000;
