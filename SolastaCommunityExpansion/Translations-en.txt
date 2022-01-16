@@ -1,4 +1,4 @@
-ArcaneFighterBonusWeaponDamage Magically Powered Attacks
+ArcaneFighterBonusWeaponDamage	Magically Powered Attacks
 Caption/&GadgetParametersCustomRemoveDescription	Remove:\n{0}
 Class/&WitchArmorProficiencyDescription	Light Armor
 Class/&WitchArmorProficiencyTitle	Witch Armor Proficiencies
@@ -48,313 +48,313 @@ Condition/&ConditionDualFlurryApplyDescription	You are building momentum...
 Condition/&ConditionDualFlurryApplyTitle	Dual Flurry!
 Condition/&ConditionDualFlurryGrantDescription	Your foes are reeling!
 Condition/&ConditionDualFlurryGrantTitle	Dual Flurry!
-Condition/&ConditionBarkWardTitle Bark Ward
-Condition/&ConditionBarkWardDescription Protected by the spirits of the forest.
+Condition/&ConditionBarkWardTitle	Bark Ward
+Condition/&ConditionBarkWardDescription	Protected by the spirits of the forest.
 Condition/&ConditionMarkedByArcanistDescription	Afflicted by Arcanist's Mark.
 Condition/&ConditionMarkedByArcanistTitle	Arcanist's Mark
 Condition/&Frenzied	This creature is frenzied and will attack the closest creature.
 Condition/&FrenziedTitle	Frenzied
 Condition/&HelpActionDescription	This creature has been distracted.
 Condition/&HelpActionTitle	Distracted
-Condition/&ConditionImprovedBarkWardTitle Improved Bark Ward
-Condition/&ConditionImprovedBarkWardDescription The spirits of the forest cause 2d8 piercing damage to melee attackers.
-Condition/&ConditionSuperiorBarkWardTitle Superior Bark Ward
-Condition/&ConditionSuperiorBarkWardDescription The spirits of the forest grant you poison immunity, and cause 3d8 piercing damage to melee attackers.
+Condition/&ConditionImprovedBarkWardTitle	Improved Bark Ward
+Condition/&ConditionImprovedBarkWardDescription	The spirits of the forest cause 2d8 piercing damage to melee attackers.
+Condition/&ConditionSuperiorBarkWardTitle	Superior Bark Ward
+Condition/&ConditionSuperiorBarkWardDescription	The spirits of the forest grant you poison immunity, and cause 3d8 piercing damage to melee attackers.
 Condition/&RuinedDescription	This creature's defence is reduced.
 Condition/&RuinedTitle	Ruined
 Equipment/&ArcaneStaffDescription	This staff is inscribed with magical writing and can be used as a focus for Arcane spell casting.
 Equipment/&ArcaneStaffTitle	Arcane Staff
-Equipment/&DruidicAmuletDescription This totemic amulet can be used as a focus for Druidic spell casting.
+Equipment/&DruidicAmuletDescription	This totemic amulet can be used as a focus for Druidic spell casting.
 Equipment/&DruidicAmuletTitle	Druidic Amulet
-Equipment/&Enchanted_Club_Acuteness_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
-Equipment/&Enchanted_Club_Acuteness_Title Club of Acuteness
-Equipment/&Enchanted_Club_Bearclaw_Description This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. The sharp spikes of the bear's claw shred armor to inflict additional damage � just as expected by Ildurial Stronghand, who designed the first weapon of this kind.
-Equipment/&Enchanted_Club_Bearclaw_Title Bearclaw Club
-Equipment/&Enchanted_Club_Lightbringer_Description This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
-Equipment/&Enchanted_Club_Lightbringer_Title Lightbringer Club
-Equipment/&Enchanted_Club_Power_Description This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. Some creatures only respect physical strengths. Manacalon arcanists created this club to give champions of the Iron Legions the strength their elven bodies didn't provide.
-Equipment/&Enchanted_Club_Power_Title Club of Power
-Equipment/&Enchanted_Club_Punisher_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. The combination of the best metal and Slavestone gave this axe incredible piercing power.
-Equipment/&Enchanted_Club_Punisher_Title Punisher Club
-Equipment/&Enchanted_Dart_Acuteness_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
-Equipment/&Enchanted_Dart_Acuteness_Title Dart of Acuteness
-Equipment/&Enchanted_Dart_Frostburn_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Keliandir Moltenheart, who forged this weapon to fight salamanders after an exploration of the elemental planes went awry.
-Equipment/&Enchanted_Dart_Frostburn_Title Frostburn Dart
-Equipment/&Enchanted_Dart_Sharpness_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
-Equipment/&Enchanted_Dart_Sharpness_Title Dart of Sharpness
-Equipment/&Enchanted_Dart_Souldrinker_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
-Equipment/&Enchanted_Dart_Souldrinker_Title Souldrinker Dart
-Equipment/&Enchanted_Handaxe_Acuteness_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
-Equipment/&Enchanted_Handaxe_Acuteness_Title Handaxe of Acuteness
-Equipment/&Enchanted_Handaxe_Frostburn_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Keliandir Moltenheart, who forged this weapon to fight salamanders after an exploration of the elemental planes went awry.
-Equipment/&Enchanted_Handaxe_Frostburn_Title Frostburn Handaxe
-Equipment/&Enchanted_Handaxe_Sharpness_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
-Equipment/&Enchanted_Handaxe_Sharpness_Title Handaxe of Sharpness
-Equipment/&Enchanted_Handaxe_Souldrinker_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
-Equipment/&Enchanted_Handaxe_Souldrinker_Title Souldrinker Handaxe
-Equipment/&Enchanted_HeavyCrossbow_Accuracy_Description This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. Its original design bore the sigil of Defineth Sharpsight, a renowned sylvan elf enchanter.
-Equipment/&Enchanted_HeavyCrossbow_Accuracy_Title Heavy Crossbow of Accuracy
-Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Description This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
-Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Title Lightbringer Heavy Crossbow
-Equipment/&Enchanted_HeavyCrossbow_Medusa_Description This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. Magic melded medusa coral and hardwood to create a deadly bow, favored by the boarding parties of island halflings.
-Equipment/&Enchanted_HeavyCrossbow_Medusa_Title Medusa Heavy Crossbow
-Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Description This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. The Coedymwarth preferred to deal with Manacalon's arcanists physically rather than magically. Its best archers were given crossbows, the creation of Defineth Sharpsight.
-Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Title Heavy Crossbow of Sharpshooting
-Equipment/&Enchanted_HeavyCrossbow_Stormbow_Description This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!
-Equipment/&Enchanted_HeavyCrossbow_Stormbow_Title Heavy Stormcrossbow
-Equipment/&Enchanted_HideArmor_Deflection_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_HideArmor_Deflection_Title Hide Armor of Deflection
-Equipment/&Enchanted_HideArmor_FlameDancing_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_HideArmor_FlameDancing_Title Hide Armor of Flame Dancing
-Equipment/&Enchanted_HideArmor_FrostWalking_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_HideArmor_FrostWalking_Title Hide Armor of Frost Walking
-Equipment/&Enchanted_HideArmor_Robustness_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_HideArmor_Robustness_Title Hide Armor of Robustness
-Equipment/&Enchanted_HideArmor_Sturdiness_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_HideArmor_Sturdiness_Title Hide Armor of Sturdiness
-Equipment/&Enchanted_HideArmor_Survival_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_HideArmor_Survival_Title Hide Armor of Survival
-Equipment/&Enchanted_Javelin_Acuteness_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
-Equipment/&Enchanted_Javelin_Acuteness_Title Javelin of Acuteness
-Equipment/&Enchanted_Javelin_Frostburn_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Keliandir Moltenheart, who forged this weapon to fight salamanders after an exploration of the elemental planes went awry.
-Equipment/&Enchanted_Javelin_Frostburn_Title Frostburn Javelin
-Equipment/&Enchanted_Javelin_Sharpness_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
-Equipment/&Enchanted_Javelin_Sharpness_Title Javelin of Sharpness
-Equipment/&Enchanted_Javelin_Souldrinker_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
-Equipment/&Enchanted_Javelin_Souldrinker_Title Souldrinker Javelin
-Equipment/&Enchanted_LightCrossbow_Accuracy_Description This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. Its original design bore the sigil of Defineth Sharpsight, a renowned sylvan elf enchanter.
-Equipment/&Enchanted_LightCrossbow_Accuracy_Title Light Crossbow of Accuracy
-Equipment/&Enchanted_LightCrossbow_Lightbringer_Description This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
-Equipment/&Enchanted_LightCrossbow_Lightbringer_Title Lightbringer Light Crossbow
-Equipment/&Enchanted_LightCrossbow_Medusa_Description This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. Magic melded medusa coral and hardwood to create a deadly bow, favored by the boarding parties of island halflings.
-Equipment/&Enchanted_LightCrossbow_Medusa_Title Medusa Light Crossbow
-Equipment/&Enchanted_LightCrossbow_Sharpshooting_Description This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. The Coedymwarth preferred to deal with Manacalon's arcanists physically rather than magically. Its best archers were given crossbows, the creation of Defineth Sharpsight.
-Equipment/&Enchanted_LightCrossbow_Sharpshooting_Title Light Crossbow of Sharpshooting
-Equipment/&Enchanted_LightCrossbow_Stormbow_Description This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!
-Equipment/&Enchanted_LightCrossbow_Stormbow_Title Light Stormcrossbow
-Equipment/&Enchanted_Maul_Acuteness_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
-Equipment/&Enchanted_Maul_Acuteness_Title Maul of Acuteness
-Equipment/&Enchanted_Maul_Bearclaw_Description This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. The sharp spikes of the bear's claw shred armor to inflict additional damage � just as expected by Ildurial Stronghand, who designed the first weapon of this kind.
-Equipment/&Enchanted_Maul_Bearclaw_Title Bearclaw Maul
-Equipment/&Enchanted_Maul_Lightbringer_Description This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
-Equipment/&Enchanted_Maul_Lightbringer_Title Lightbringer Maul
-Equipment/&Enchanted_Maul_Power_Description This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. Some creatures only respect physical strengths. Manacalon arcanists created this Maul to give champions of the Iron Legions the strength their elven bodies didn't provide.
-Equipment/&Enchanted_Maul_Power_Title Maul of Power
-Equipment/&Enchanted_Maul_Punisher_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. The combination of the best metal and Slavestone gave this axe incredible piercing power.
-Equipment/&Enchanted_Maul_Punisher_Title Punisher Maul
-Equipment/&Enchanted_Quarterstaff_Acuteness_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
-Equipment/&Enchanted_Quarterstaff_Acuteness_Title Quarterstaff of Acuteness
-Equipment/&Enchanted_Quarterstaff_Dragonblade_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Lestoreth Steelarm to fight in the frozen North of the Empire.
-Equipment/&Enchanted_Quarterstaff_Dragonblade_Title Dragonblade Quarterstaff
-Equipment/&Enchanted_Quarterstaff_Frostburn_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Keliandir Moltenheart, who forged this weapon to fight salamanders after an exploration of the elemental planes went awry.
-Equipment/&Enchanted_Quarterstaff_Frostburn_Title Frostburn Quarterstaff
-Equipment/&Enchanted_Quarterstaff_Lightbringer_Description This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
-Equipment/&Enchanted_Quarterstaff_Lightbringer_Title Lightbringer Quarterstaff
-Equipment/&Enchanted_Quarterstaff_Souldrinker_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
-Equipment/&Enchanted_Quarterstaff_Souldrinker_Title Souldrinker Quarterstaff
-Equipment/&Enchanted_Quarterstaff_Stormblade_Description This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!
-Equipment/&Enchanted_Quarterstaff_Stormblade_Title Stormblade Quarterstaff
-Equipment/&Enchanted_Quarterstaff_Warden_Description This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Warden, was offered to the commander of the Euraidd.
-Equipment/&Enchanted_Quarterstaff_Warden_Title Warden Quarterstaff
-Equipment/&Enchanted_Quarterstaff_Whiteburn_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
-Equipment/&Enchanted_Quarterstaff_Whiteburn_Title Whiteburn Quarterstaff
-Equipment/&Enchanted_Scimitar_Dragonblade_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Lestoreth Steelarm to fight in the frozen North of the Empire.
-Equipment/&Enchanted_Scimitar_Dragonblade_Title Dragonblade Scimitar
-Equipment/&Enchanted_Scimitar_Frostburn_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Keliandir Moltenheart, who forged this weapon to fight salamanders after an exploration of the elemental planes went awry.
-Equipment/&Enchanted_Scimitar_Frostburn_Title Frostburn Scimitar
-Equipment/&Enchanted_Scimitar_Lightbringer_Description This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
-Equipment/&Enchanted_Scimitar_Lightbringer_Title Lightbringer Scimitar
-Equipment/&Enchanted_Scimitar_Souldrinker_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
-Equipment/&Enchanted_Scimitar_Souldrinker_Title Souldrinker Scimitar
-Equipment/&Enchanted_Scimitar_Stormblade_Description This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!
-Equipment/&Enchanted_Scimitar_Stormblade_Title Stormblade Scimitar
-Equipment/&Enchanted_Scimitar_Warden_Description This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Warden, was offered to the commander of the Euraidd.
-Equipment/&Enchanted_Scimitar_Warden_Title Warden Scimitar
-Equipment/&Enchanted_Scimitar_Whiteburn_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
-Equipment/&Enchanted_Scimitar_Whiteburn_Title Whiteburn Scimitar
-Equipment/&Enchanted_Shield_Deflection_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_Shield_Deflection_Title Shield of Deflection
-Equipment/&Enchanted_Shield_FlameDancing_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_Shield_FlameDancing_Title Shield of Flame Dancing
-Equipment/&Enchanted_Shield_FrostWalking_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_Shield_FrostWalking_Title Shield of Frost Walking
-Equipment/&Enchanted_Shield_Robustness_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_Shield_Robustness_Title Shield of Robustness
-Equipment/&Enchanted_Shield_Sturdiness_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_Shield_Sturdiness_Title Shield of Sturdiness
-Equipment/&Enchanted_Shield_Survival_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_Shield_Survival_Title Shield of Survival
-Equipment/&Enchanted_Shield_Wooden_Deflection_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_Shield_Wooden_Deflection_Title Wooden Shield of Deflection
-Equipment/&Enchanted_Shield_Wooden_FlameDancing_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_Shield_Wooden_FlameDancing_Title Wooden Shield of Flame Dancing
-Equipment/&Enchanted_Shield_Wooden_FrostWalking_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_Shield_Wooden_FrostWalking_Title Wooden Shield of Frost Walking
-Equipment/&Enchanted_Shield_Wooden_Robustness_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_Shield_Wooden_Robustness_Title Wooden Shield of Robustness
-Equipment/&Enchanted_Shield_Wooden_Sturdiness_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_Shield_Wooden_Sturdiness_Title Wooden Shield of Sturdiness
-Equipment/&Enchanted_Shield_Wooden_Survival_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_Shield_Wooden_Survival_Title Wooden Shield of Survival
-Equipment/&Enchanted_Spear_Acuteness_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
-Equipment/&Enchanted_Spear_Acuteness_Title Spear of Acuteness
-Equipment/&Enchanted_Spear_BlackViper_Description This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths, using a spear and the venom of a legendary spider from Solasta's depths. The blade's designer was Grigg Blackheart, a notorious Marsh halfling smith working in the forges of the Aer Elai.
-Equipment/&Enchanted_Spear_BlackViper_Title Black Viper Spear
-Equipment/&Enchanted_Spear_Doomblade_Title Doom Tipped Spear
-Equipment/&Enchanted_Spear_Lightbringer_Description This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
-Equipment/&Enchanted_Spear_Lightbringer_Title Lightbringer Spear
-Equipment/&Enchanted_Spear_Sharpness_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
-Equipment/&Enchanted_Spear_Sharpness_Title Spear of Sharpness
-Equipment/&Enchanted_Spear_Stormblade_Title Stormblade Spear
-Equipment/&Enchanted_Spear_Whiteburn_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
-Equipment/&Enchanted_Spear_Whiteburn_Title Whiteburn Spear
-Equipment/&Enchanted_StuddedLeather_Deflection_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_StuddedLeather_Deflection_Title Studded Leather of Deflection
-Equipment/&Enchanted_StuddedLeather_FlameDancing_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_StuddedLeather_FlameDancing_Title Studded Leather of Flame Dancing
-Equipment/&Enchanted_StuddedLeather_FrostWalking_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_StuddedLeather_FrostWalking_Title Studded Leather of Frost Walking
-Equipment/&Enchanted_StuddedLeather_Robustness_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_StuddedLeather_Robustness_Title Studded Leather of Robustness
-Equipment/&Enchanted_StuddedLeather_Sturdiness_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_StuddedLeather_Sturdiness_Title Studded Leather of Sturdiness
-Equipment/&Enchanted_StuddedLeather_Survival_Description This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-Equipment/&Enchanted_StuddedLeather_Survival_Title Studded Leather of Survival
-Equipment/&Enchanted_Warhammer_Acuteness_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
-Equipment/&Enchanted_Warhammer_Acuteness_Title Warhammer of Acuteness
-Equipment/&Enchanted_Warhammer_Bearclaw_Description This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. The sharp spikes of the bear's claw shred armor to inflict additional damage � just as expected by Ildurial Stronghand, who designed the first weapon of this kind.
-Equipment/&Enchanted_Warhammer_Bearclaw_Title Bearclaw Warhammer
-Equipment/&Enchanted_Warhammer_Lightbringer_Description This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
-Equipment/&Enchanted_Warhammer_Lightbringer_Title Lightbringer Warhammer
-Equipment/&Enchanted_Warhammer_Power_Description This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. Some creatures only respect physical strengths. Manacalon arcanists created this Warhammer to give champions of the Iron Legions the strength their elven bodies didn't provide.
-Equipment/&Enchanted_Warhammer_Power_Title Warhammer of Power
-Equipment/&Enchanted_Warhammer_Punisher_Description This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. The combination of the best metal and Slavestone gave this axe incredible piercing power.
-Equipment/&Enchanted_Warhammer_Punisher_Title Punisher Warhammer
+Equipment/&Enchanted_Club_Acuteness_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Club_Acuteness_Title	Club of Acuteness
+Equipment/&Enchanted_Club_Bearclaw_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. The sharp spikes of the bear's claw shred armor to inflict additional damage � just as expected by Ildurial Stronghand, who designed the first weapon of this kind.
+Equipment/&Enchanted_Club_Bearclaw_Title	Bearclaw Club
+Equipment/&Enchanted_Club_Lightbringer_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
+Equipment/&Enchanted_Club_Lightbringer_Title	Lightbringer Club
+Equipment/&Enchanted_Club_Power_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. Some creatures only respect physical strengths. Manacalon arcanists created this club to give champions of the Iron Legions the strength their elven bodies didn't provide.
+Equipment/&Enchanted_Club_Power_Title	Club of Power
+Equipment/&Enchanted_Club_Punisher_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. The combination of the best metal and Slavestone gave this axe incredible piercing power.
+Equipment/&Enchanted_Club_Punisher_Title	Punisher Club
+Equipment/&Enchanted_Dart_Acuteness_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Dart_Acuteness_Title	Dart of Acuteness
+Equipment/&Enchanted_Dart_Frostburn_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Keliandir Moltenheart, who forged this weapon to fight salamanders after an exploration of the elemental planes went awry.
+Equipment/&Enchanted_Dart_Frostburn_Title	Frostburn Dart
+Equipment/&Enchanted_Dart_Sharpness_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Dart_Sharpness_Title	Dart of Sharpness
+Equipment/&Enchanted_Dart_Souldrinker_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
+Equipment/&Enchanted_Dart_Souldrinker_Title	Souldrinker Dart
+Equipment/&Enchanted_Handaxe_Acuteness_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Handaxe_Acuteness_Title	Handaxe of Acuteness
+Equipment/&Enchanted_Handaxe_Frostburn_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Keliandir Moltenheart, who forged this weapon to fight salamanders after an exploration of the elemental planes went awry.
+Equipment/&Enchanted_Handaxe_Frostburn_Title	Frostburn Handaxe
+Equipment/&Enchanted_Handaxe_Sharpness_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Handaxe_Sharpness_Title	Handaxe of Sharpness
+Equipment/&Enchanted_Handaxe_Souldrinker_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
+Equipment/&Enchanted_Handaxe_Souldrinker_Title	Souldrinker Handaxe
+Equipment/&Enchanted_HeavyCrossbow_Accuracy_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. Its original design bore the sigil of Defineth Sharpsight, a renowned sylvan elf enchanter.
+Equipment/&Enchanted_HeavyCrossbow_Accuracy_Title	Heavy Crossbow of Accuracy
+Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
+Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Title	Lightbringer Heavy Crossbow
+Equipment/&Enchanted_HeavyCrossbow_Medusa_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. Magic melded medusa coral and hardwood to create a deadly bow, favored by the boarding parties of island halflings.
+Equipment/&Enchanted_HeavyCrossbow_Medusa_Title	Medusa Heavy Crossbow
+Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. The Coedymwarth preferred to deal with Manacalon's arcanists physically rather than magically. Its best archers were given crossbows, the creation of Defineth Sharpsight.
+Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Title	Heavy Crossbow of Sharpshooting
+Equipment/&Enchanted_HeavyCrossbow_Stormbow_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!
+Equipment/&Enchanted_HeavyCrossbow_Stormbow_Title	Heavy Stormcrossbow
+Equipment/&Enchanted_HideArmor_Deflection_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Equipment/&Enchanted_HideArmor_Deflection_Title	Hide Armor of Deflection
+Equipment/&Enchanted_HideArmor_FlameDancing_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Equipment/&Enchanted_HideArmor_FlameDancing_Title	Hide Armor of Flame Dancing
+Equipment/&Enchanted_HideArmor_FrostWalking_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Equipment/&Enchanted_HideArmor_FrostWalking_Title	Hide Armor of Frost Walking
+Equipment/&Enchanted_HideArmor_Robustness_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Equipment/&Enchanted_HideArmor_Robustness_Title	Hide Armor of Robustness
+Equipment/&Enchanted_HideArmor_Sturdiness_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Equipment/&Enchanted_HideArmor_Sturdiness_Title	Hide Armor of Sturdiness
+Equipment/&Enchanted_HideArmor_Survival_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Equipment/&Enchanted_HideArmor_Survival_Title	Hide Armor of Survival
+Equipment/&Enchanted_Javelin_Acuteness_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Javelin_Acuteness_Title	Javelin of Acuteness
+Equipment/&Enchanted_Javelin_Frostburn_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Keliandir Moltenheart, who forged this weapon to fight salamanders after an exploration of the elemental planes went awry.
+Equipment/&Enchanted_Javelin_Frostburn_Title	Frostburn Javelin
+Equipment/&Enchanted_Javelin_Sharpness_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Javelin_Sharpness_Title	Javelin of Sharpness
+Equipment/&Enchanted_Javelin_Souldrinker_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
+Equipment/&Enchanted_Javelin_Souldrinker_Title	Souldrinker Javelin
+Equipment/&Enchanted_LightCrossbow_Accuracy_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. Its original design bore the sigil of Defineth Sharpsight, a renowned sylvan elf enchanter.
+Equipment/&Enchanted_LightCrossbow_Accuracy_Title	Light Crossbow of Accuracy
+Equipment/&Enchanted_LightCrossbow_Lightbringer_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
+Equipment/&Enchanted_LightCrossbow_Lightbringer_Title	Lightbringer Light Crossbow
+Equipment/&Enchanted_LightCrossbow_Medusa_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. Magic melded medusa coral and hardwood to create a deadly bow, favored by the boarding parties of island halflings.
+Equipment/&Enchanted_LightCrossbow_Medusa_Title	Medusa Light Crossbow
+Equipment/&Enchanted_LightCrossbow_Sharpshooting_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. The Coedymwarth preferred to deal with Manacalon's arcanists physically rather than magically. Its best archers were given crossbows, the creation of Defineth Sharpsight.
+Equipment/&Enchanted_LightCrossbow_Sharpshooting_Title	Light Crossbow of Sharpshooting
+Equipment/&Enchanted_LightCrossbow_Stormbow_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!
+Equipment/&Enchanted_LightCrossbow_Stormbow_Title	Light Stormcrossbow
+Equipment/&Enchanted_Maul_Acuteness_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Maul_Acuteness_Title	Maul of Acuteness
+Equipment/&Enchanted_Maul_Bearclaw_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. The sharp spikes of the bear's claw shred armor to inflict additional damage � just as expected by Ildurial Stronghand, who designed the first weapon of this kind.
+Equipment/&Enchanted_Maul_Bearclaw_Title	Bearclaw Maul
+Equipment/&Enchanted_Maul_Lightbringer_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
+Equipment/&Enchanted_Maul_Lightbringer_Title	Lightbringer Maul
+Equipment/&Enchanted_Maul_Power_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. Some creatures only respect physical strengths. Manacalon arcanists created this Maul to give champions of the Iron Legions the strength their elven bodies didn't provide.
+Equipment/&Enchanted_Maul_Power_Title	Maul of Power
+Equipment/&Enchanted_Maul_Punisher_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. The combination of the best metal and Slavestone gave this axe incredible piercing power.
+Equipment/&Enchanted_Maul_Punisher_Title	Punisher Maul
+Equipment/&Enchanted_Quarterstaff_Acuteness_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Quarterstaff_Acuteness_Title	Quarterstaff of Acuteness
+Equipment/&Enchanted_Quarterstaff_Dragonblade_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Lestoreth Steelarm to fight in the frozen North of the Empire.
+Equipment/&Enchanted_Quarterstaff_Dragonblade_Title	Dragonblade Quarterstaff
+Equipment/&Enchanted_Quarterstaff_Frostburn_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Keliandir Moltenheart, who forged this weapon to fight salamanders after an exploration of the elemental planes went awry.
+Equipment/&Enchanted_Quarterstaff_Frostburn_Title	Frostburn Quarterstaff
+Equipment/&Enchanted_Quarterstaff_Lightbringer_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
+Equipment/&Enchanted_Quarterstaff_Lightbringer_Title	Lightbringer Quarterstaff
+Equipment/&Enchanted_Quarterstaff_Souldrinker_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
+Equipment/&Enchanted_Quarterstaff_Souldrinker_Title	Souldrinker Quarterstaff
+Equipment/&Enchanted_Quarterstaff_Stormblade_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!
+Equipment/&Enchanted_Quarterstaff_Stormblade_Title	Stormblade Quarterstaff
+Equipment/&Enchanted_Quarterstaff_Warden_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Warden, was offered to the commander of the Euraidd.
+Equipment/&Enchanted_Quarterstaff_Warden_Title	Warden Quarterstaff
+Equipment/&Enchanted_Quarterstaff_Whiteburn_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
+Equipment/&Enchanted_Quarterstaff_Whiteburn_Title	Whiteburn Quarterstaff
+Equipment/&Enchanted_Scimitar_Dragonblade_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Lestoreth Steelarm to fight in the frozen North of the Empire.
+Equipment/&Enchanted_Scimitar_Dragonblade_Title	Dragonblade Scimitar
+Equipment/&Enchanted_Scimitar_Frostburn_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Keliandir Moltenheart, who forged this weapon to fight salamanders after an exploration of the elemental planes went awry.
+Equipment/&Enchanted_Scimitar_Frostburn_Title	Frostburn Scimitar
+Equipment/&Enchanted_Scimitar_Lightbringer_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
+Equipment/&Enchanted_Scimitar_Lightbringer_Title	Lightbringer Scimitar
+Equipment/&Enchanted_Scimitar_Souldrinker_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
+Equipment/&Enchanted_Scimitar_Souldrinker_Title	Souldrinker Scimitar
+Equipment/&Enchanted_Scimitar_Stormblade_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!
+Equipment/&Enchanted_Scimitar_Stormblade_Title	Stormblade Scimitar
+Equipment/&Enchanted_Scimitar_Warden_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Warden, was offered to the commander of the Euraidd.
+Equipment/&Enchanted_Scimitar_Warden_Title	Warden Scimitar
+Equipment/&Enchanted_Scimitar_Whiteburn_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
+Equipment/&Enchanted_Scimitar_Whiteburn_Title	Whiteburn Scimitar
+Equipment/&Enchanted_Shield_Deflection_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Equipment/&Enchanted_Shield_Deflection_Title	Shield of Deflection
+Equipment/&Enchanted_Shield_FlameDancing_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Equipment/&Enchanted_Shield_FlameDancing_Title	Shield of Flame Dancing
+Equipment/&Enchanted_Shield_FrostWalking_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Equipment/&Enchanted_Shield_FrostWalking_Title	Shield of Frost Walking
+Equipment/&Enchanted_Shield_Robustness_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Equipment/&Enchanted_Shield_Robustness_Title	Shield of Robustness
+Equipment/&Enchanted_Shield_Sturdiness_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Equipment/&Enchanted_Shield_Sturdiness_Title	Shield of Sturdiness
+Equipment/&Enchanted_Shield_Survival_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Equipment/&Enchanted_Shield_Survival_Title	Shield of Survival
+Equipment/&Enchanted_Shield_Wooden_Deflection_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Equipment/&Enchanted_Shield_Wooden_Deflection_Title	Wooden Shield of Deflection
+Equipment/&Enchanted_Shield_Wooden_FlameDancing_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Equipment/&Enchanted_Shield_Wooden_FlameDancing_Title	Wooden Shield of Flame Dancing
+Equipment/&Enchanted_Shield_Wooden_FrostWalking_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Equipment/&Enchanted_Shield_Wooden_FrostWalking_Title	Wooden Shield of Frost Walking
+Equipment/&Enchanted_Shield_Wooden_Robustness_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Equipment/&Enchanted_Shield_Wooden_Robustness_Title	Wooden Shield of Robustness
+Equipment/&Enchanted_Shield_Wooden_Sturdiness_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Equipment/&Enchanted_Shield_Wooden_Sturdiness_Title	Wooden Shield of Sturdiness
+Equipment/&Enchanted_Shield_Wooden_Survival_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Equipment/&Enchanted_Shield_Wooden_Survival_Title	Wooden Shield of Survival
+Equipment/&Enchanted_Spear_Acuteness_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Spear_Acuteness_Title	Spear of Acuteness
+Equipment/&Enchanted_Spear_BlackViper_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths, using a spear and the venom of a legendary spider from Solasta's depths. The blade's designer was Grigg Blackheart, a notorious Marsh halfling smith working in the forges of the Aer Elai.
+Equipment/&Enchanted_Spear_BlackViper_Title	Black Viper Spear
+Equipment/&Enchanted_Spear_Doomblade_Title	Doom Tipped Spear
+Equipment/&Enchanted_Spear_Lightbringer_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
+Equipment/&Enchanted_Spear_Lightbringer_Title	Lightbringer Spear
+Equipment/&Enchanted_Spear_Sharpness_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Spear_Sharpness_Title	Spear of Sharpness
+Equipment/&Enchanted_Spear_Stormblade_Title	Stormblade Spear
+Equipment/&Enchanted_Spear_Whiteburn_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
+Equipment/&Enchanted_Spear_Whiteburn_Title	Whiteburn Spear
+Equipment/&Enchanted_StuddedLeather_Deflection_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Equipment/&Enchanted_StuddedLeather_Deflection_Title	Studded Leather of Deflection
+Equipment/&Enchanted_StuddedLeather_FlameDancing_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Equipment/&Enchanted_StuddedLeather_FlameDancing_Title	Studded Leather of Flame Dancing
+Equipment/&Enchanted_StuddedLeather_FrostWalking_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Equipment/&Enchanted_StuddedLeather_FrostWalking_Title	Studded Leather of Frost Walking
+Equipment/&Enchanted_StuddedLeather_Robustness_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Equipment/&Enchanted_StuddedLeather_Robustness_Title	Studded Leather of Robustness
+Equipment/&Enchanted_StuddedLeather_Sturdiness_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Equipment/&Enchanted_StuddedLeather_Sturdiness_Title	Studded Leather of Sturdiness
+Equipment/&Enchanted_StuddedLeather_Survival_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
+Equipment/&Enchanted_StuddedLeather_Survival_Title	Studded Leather of Survival
+Equipment/&Enchanted_Warhammer_Acuteness_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Warhammer_Acuteness_Title	Warhammer of Acuteness
+Equipment/&Enchanted_Warhammer_Bearclaw_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. The sharp spikes of the bear's claw shred armor to inflict additional damage � just as expected by Ildurial Stronghand, who designed the first weapon of this kind.
+Equipment/&Enchanted_Warhammer_Bearclaw_Title	Bearclaw Warhammer
+Equipment/&Enchanted_Warhammer_Lightbringer_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
+Equipment/&Enchanted_Warhammer_Lightbringer_Title	Lightbringer Warhammer
+Equipment/&Enchanted_Warhammer_Power_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. Some creatures only respect physical strengths. Manacalon arcanists created this Warhammer to give champions of the Iron Legions the strength their elven bodies didn't provide.
+Equipment/&Enchanted_Warhammer_Power_Title	Warhammer of Power
+Equipment/&Enchanted_Warhammer_Punisher_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. The combination of the best metal and Slavestone gave this axe incredible piercing power.
+Equipment/&Enchanted_Warhammer_Punisher_Title	Punisher Warhammer
 Equipment/&LivewoodClubDescription	This club is composed of living wood complete with sprouting leaves and perhaps seasonal blooms. It can be used as a focus for Druidic spell casting.
 Equipment/&LivewoodClubTitle	Livewood Club
 Equipment/&LivewoodStaffDescription	This staff is composed of living wood complete with sprouting leaves and perhaps seasonal blooms. It can be used as a focus for Druidic spell casting.
 Equipment/&LivewoodStaffTitle	Livewood Staff
-Feat/&ChefConDescription You gain +1 to Constitution. Spend 1 hour to cook a meal to heal yourself and your companions 1d8. Once a day you may spend an hour to cook treats that provide temporary HP when eaten.
-Feat/&ChefConTitle Chef (Constitution)
-Feat/&ChefShortRestFeastDescription Spend 1 hour to prepare a meal that helps heal you and your companions 1d8.
-Feat/&ChefShortRestFeastTitle Short Rest Meal
-Feat/&ChefWisDescription You gain +1 to Wisdom. Spend 1 hour to cook a meal to heal yourself and your companions. Once a day you may spend an hour to cook treats that provide temporary HP when eaten.
-Feat/&ChefWisTitle Chef (Wisdom)
+Feat/&ChefConDescription	You gain +1 to Constitution. Spend 1 hour to cook a meal to heal yourself and your companions 1d8. Once a day you may spend an hour to cook treats that provide temporary HP when eaten.
+Feat/&ChefConTitle	Chef (Constitution)
+Feat/&ChefShortRestFeastDescription	Spend 1 hour to prepare a meal that helps heal you and your companions 1d8.
+Feat/&ChefShortRestFeastTitle	Short Rest Meal
+Feat/&ChefWisDescription	You gain +1 to Wisdom. Spend 1 hour to cook a meal to heal yourself and your companions. Once a day you may spend an hour to cook treats that provide temporary HP when eaten.
+Feat/&ChefWisTitle	Chef (Wisdom)
 Feat/&DualFlurryDescription	You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack.
 Feat/&DualFlurryTitle	Dual Flurry
-Feat/&FeatChefConIncrementDescription +1 Constitution
-Feat/&FeatChefConIncrementTitle Attribute Increase
-Feat/&FeatChefWisIncrementDescription +1 Wisdom
-Feat/&FeatChefWisIncrementTitle Attribute Increase
-Feat/&FeatDexIncrementDescription +1 Dexterity
-Feat/&FeatDexIncrementTitle Attribute Increase
-Feat/&FeatFeyTeleportationChaDescription Increase Charisma attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell.  Gain proficiency in Tirmarian.
-Feat/&FeatFeyTeleportationChaTitle Fey Teleportation (Charisma)
-Feat/&FeatFeyTeleportationIntDescription Increase Intelligence attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell. Gain proficiency in Tirmarian.
-Feat/&FeatFeyTeleportationIntTitle Fey Teleportation (Intelligence)
-Feat/&FeatFeyTeleportationWisDescription Increase Wisdom attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell.  Gain proficiency in Tirmarian.
-Feat/&FeatFeyTeleportationWisTitle Fey Teleportation (Wisdom)
-Feat/&FeatChaIncrementDescription +1 Charisma
-Feat/&FeatIntIncrementDescription +1 Intelligence
-Feat/&FeatWisIncrementDescription +1 Wisdom
-Feat/&FeatChaIncrementTitle Charisma Attribute Increase
-Feat/&FeatIntIncrementTitle Intelligence Attribute Increase
-Feat/&FeatWisIncrementTitle Wisdom Attribute Increase
-Feat/&FeatSavageAttackerDescription Reroll weapon and spell damage dice when they roll a 1 (does not reroll all damage sources, for example excludes Sneak Attack and Smite).
-Feat/&FeatSavageAttackerReroll Due to being a Savage Attacker {0} rerolls the {1} die from a {2} to a {3}
-Feat/&FeatSavageAttackerTitle Savage Attacker
-Feat/&FeatShadowTouchedChaDescription Increase Charisma attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
-Feat/&FeatShadowTouchedChaTitle Shadow Touched (Charisma)
-Feat/&FeatShadowTouchedIntDescription Increase Intelligence attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
-Feat/&FeatShadowTouchedIntTitle Shadow Touched (Intelligence)
-Feat/&FeatShadowTouchedWisDescription Increase Wisdom attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
-Feat/&FeatShadowTouchedWisTitle Shadow Touched (Wisdom)
-Feat/&FeatStrengthIncrementDescription +1 Strength
-Feat/&FeatStrengthIncrementTitle Attribute Increase
-Feat/&FeatTelekineticChaDescription Increase Charisma attribute by 1. Gain a bonus action ability to shove or pull creatures.
-Feat/&FeatTelekineticChaPullDescription Telekinetically pull a creature toward you.
-Feat/&FeatTelekineticChaPushDescription Telekinetically shove a creature away from you.
-Feat/&FeatTelekineticIntDescription Increase Intelligence attribute by 1. Gain a bonus action ability to shove or pull creatures.
-Feat/&FeatTelekineticIntPullDescription Telekinetically pull a creature toward you.
-Feat/&FeatTelekineticIntPushDescription Telekinetically shove a creature away from you.
-Feat/&FeatTelekineticWisDescription Increase Wisdom attribute by 1. Gain a bonus action ability to shove or pull creatures.
-Feat/&FeatTelekineticWisPullDescription Telekinetically pull a creature toward you.
-Feat/&FeatTelekineticWisPushDescription Telekinetically shove a creature away from you.
-Feat/&FeatTelkineticChaPullTitle Telekinetic Pull
-Feat/&FeatTelkineticChaPushTitle Telekinetic Push
-Feat/&FeatTelkineticChaTitle Telekinetic (Charisma)
-Feat/&FeatTelkineticIntPullTitle Telekinetic Pull
-Feat/&FeatTelkineticIntPushTitle Telekinetic Push
-Feat/&FeatTelkineticIntTitle Telekinetic (Intelligence)
-Feat/&FeatTelkineticWisPullTitle Telekinetic Pull
-Feat/&FeatTelkineticWisPushTitle Telekinetic Push
-Feat/&FeatTelkineticWisTitle Telekinetic (Wisdom)
-Feat/&FeatToughDescription Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.
-Feat/&FeatToughTitle Tough
-Feat/&FeatWarCasterDescription You gain advantage on checks to maintain concentration. You gain the ability to perform the somatic component of spells even with full hands. You gain +2 on spell attack rolls.
-Feat/&FeatWarCasterTitle War Caster
-Feat/&FeyTeleportationLanguageTirmarianDescription Gain proficiency in Tirmarian.
-Feat/&FeyTeleportationLanguageTirmarianTitle Tirmarian
-Feat/&FightingStyleArcheryDescription You gain a +2 bonus to attack rolls with ranged weapons.
-Feat/&FightingStyleArcheryTitle Fighting Style: Archery
-Feat/&FightingStyleDefenseDescription While you are wearing armor you gain a +1 bonus to AC.
-Feat/&FightingStyleDefenseTitle Fighting Style: Defense
-Feat/&FightingStyleDuelingDescription When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.
-Feat/&FightingStyleDuelingTitle Fighting Style: Dueling
-Feat/&FightingStyleGeneralFeatDescription You can select a fighting style.
-Feat/&FightingStyleGeneralFeatitle Fighting Style
-Feat/&FightingStyleGreatWeaponDescription When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die. You must use the new roll, even if it is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.
-Feat/&FightingStyleGreatWeaponTitle Fighting Style: Great Weapon
-Feat/&FightingStyleProtectionDescription When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
-Feat/&FightingStyleProtectionTitle Fighting Style: Protection
-Feat/&FightingStyleTwoWeaponDescription When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
-Feat/&FightingStyleTwoWeaponTitle Fighting Style: Two Weapon
-Feat/&HealerDescription You gain proficiency or expertise in Medicine checks. You gain the ability to stabilize a dying creature as well as to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
-Feat/&HealerResuscitateDescription Use an action to revive a creature that died within the last 15 seconds.
-Feat/&HealerResuscitateTitle Resuscitate
-Feat/&HealerStabilizeDescription Use an action to stabilize a dying creature.
-Feat/&HealerStabilizeTitle Stabilize
-Feat/&HealerTitle Healer
-Feat/&HealerUseMedicineDescription You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
-Feat/&HealerUseMedicineTitle Use Medicine
-Feat/&HeavyArmorMasterDescription Resistance to Bludgeoning, Slashing, and Piercing damage.
-Feat/&HeavyArmorMasterTitle Heavy Defense Mastery
-Feat/&InspiringLeaderDescription Spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier. Useable once per short rest.
-Feat/&InspiringLeaderTitle Inspiring Leader
-Feat/&LightArmorDescription Gain proficiency with Light Armor and +1 Dexterity
-Feat/&LightArmorTitle Light Armor
-Feat/&MediumDexArmorDescription Gain proficiency with Medium Armor and Shields and +1 Dexterity
-Feat/&MediumDexArmorTitle Medium Armor (Dexterity)
-Feat/&MediumStrengthArmorDescription Gain proficiency with Medium Armor and Shields and +1 Strength
-Feat/&MediumStrengthArmorTitle Medium Armor (Strength)
+Feat/&FeatChefConIncrementDescription	+1 Constitution
+Feat/&FeatChefConIncrementTitle	Attribute Increase
+Feat/&FeatChefWisIncrementDescription	+1 Wisdom
+Feat/&FeatChefWisIncrementTitle	Attribute Increase
+Feat/&FeatDexIncrementDescription	+1 Dexterity
+Feat/&FeatDexIncrementTitle	Attribute Increase
+Feat/&FeatFeyTeleportationChaDescription	Increase Charisma attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell.  Gain proficiency in Tirmarian.
+Feat/&FeatFeyTeleportationChaTitle	Fey Teleportation (Charisma)
+Feat/&FeatFeyTeleportationIntDescription	Increase Intelligence attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell. Gain proficiency in Tirmarian.
+Feat/&FeatFeyTeleportationIntTitle	Fey Teleportation (Intelligence)
+Feat/&FeatFeyTeleportationWisDescription	Increase Wisdom attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell.  Gain proficiency in Tirmarian.
+Feat/&FeatFeyTeleportationWisTitle	Fey Teleportation (Wisdom)
+Feat/&FeatChaIncrementDescription	+1 Charisma
+Feat/&FeatIntIncrementDescription	+1 Intelligence
+Feat/&FeatWisIncrementDescription	+1 Wisdom
+Feat/&FeatChaIncrementTitle	Charisma Attribute Increase
+Feat/&FeatIntIncrementTitle	Intelligence Attribute Increase
+Feat/&FeatWisIncrementTitle	Wisdom Attribute Increase
+Feat/&FeatSavageAttackerDescription	Reroll weapon and spell damage dice when they roll a 1 (does not reroll all damage sources, for example excludes Sneak Attack and Smite).
+Feat/&FeatSavageAttackerReroll	Due to being a Savage Attacker {0} rerolls the {1} die from a {2} to a {3}
+Feat/&FeatSavageAttackerTitle	Savage Attacker
+Feat/&FeatShadowTouchedChaDescription	Increase Charisma attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
+Feat/&FeatShadowTouchedChaTitle	Shadow Touched (Charisma)
+Feat/&FeatShadowTouchedIntDescription	Increase Intelligence attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
+Feat/&FeatShadowTouchedIntTitle	Shadow Touched (Intelligence)
+Feat/&FeatShadowTouchedWisDescription	Increase Wisdom attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
+Feat/&FeatShadowTouchedWisTitle	Shadow Touched (Wisdom)
+Feat/&FeatStrengthIncrementDescription	+1 Strength
+Feat/&FeatStrengthIncrementTitle	Attribute Increase
+Feat/&FeatTelekineticChaDescription	Increase Charisma attribute by 1. Gain a bonus action ability to shove or pull creatures.
+Feat/&FeatTelekineticChaPullDescription	Telekinetically pull a creature toward you.
+Feat/&FeatTelekineticChaPushDescription	Telekinetically shove a creature away from you.
+Feat/&FeatTelekineticIntDescription	Increase Intelligence attribute by 1. Gain a bonus action ability to shove or pull creatures.
+Feat/&FeatTelekineticIntPullDescription	Telekinetically pull a creature toward you.
+Feat/&FeatTelekineticIntPushDescription	Telekinetically shove a creature away from you.
+Feat/&FeatTelekineticWisDescription	Increase Wisdom attribute by 1. Gain a bonus action ability to shove or pull creatures.
+Feat/&FeatTelekineticWisPullDescription	Telekinetically pull a creature toward you.
+Feat/&FeatTelekineticWisPushDescription	Telekinetically shove a creature away from you.
+Feat/&FeatTelkineticChaPullTitle	Telekinetic Pull
+Feat/&FeatTelkineticChaPushTitle	Telekinetic Push
+Feat/&FeatTelkineticChaTitle	Telekinetic (Charisma)
+Feat/&FeatTelkineticIntPullTitle	Telekinetic Pull
+Feat/&FeatTelkineticIntPushTitle	Telekinetic Push
+Feat/&FeatTelkineticIntTitle	Telekinetic (Intelligence)
+Feat/&FeatTelkineticWisPullTitle	Telekinetic Pull
+Feat/&FeatTelkineticWisPushTitle	Telekinetic Push
+Feat/&FeatTelkineticWisTitle	Telekinetic (Wisdom)
+Feat/&FeatToughDescription	Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.
+Feat/&FeatToughTitle	Tough
+Feat/&FeatWarCasterDescription	You gain advantage on checks to maintain concentration. You gain the ability to perform the somatic component of spells even with full hands. You gain +2 on spell attack rolls.
+Feat/&FeatWarCasterTitle	War Caster
+Feat/&FeyTeleportationLanguageTirmarianDescription	Gain proficiency in Tirmarian.
+Feat/&FeyTeleportationLanguageTirmarianTitle	Tirmarian
+Feat/&FightingStyleArcheryDescription	You gain a +2 bonus to attack rolls with ranged weapons.
+Feat/&FightingStyleArcheryTitle	Fighting Style: Archery
+Feat/&FightingStyleDefenseDescription	While you are wearing armor you gain a +1 bonus to AC.
+Feat/&FightingStyleDefenseTitle	Fighting Style: Defense
+Feat/&FightingStyleDuelingDescription	When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.
+Feat/&FightingStyleDuelingTitle	Fighting Style: Dueling
+Feat/&FightingStyleGeneralFeatDescription	You can select a fighting style.
+Feat/&FightingStyleGeneralFeatitle	Fighting Style
+Feat/&FightingStyleGreatWeaponDescription	When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die. You must use the new roll, even if it is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.
+Feat/&FightingStyleGreatWeaponTitle	Fighting Style: Great Weapon
+Feat/&FightingStyleProtectionDescription	When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
+Feat/&FightingStyleProtectionTitle	Fighting Style: Protection
+Feat/&FightingStyleTwoWeaponDescription	When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
+Feat/&FightingStyleTwoWeaponTitle	Fighting Style: Two Weapon
+Feat/&HealerDescription	You gain proficiency or expertise in Medicine checks. You gain the ability to stabilize a dying creature as well as to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
+Feat/&HealerResuscitateDescription	Use an action to revive a creature that died within the last 15 seconds.
+Feat/&HealerResuscitateTitle	Resuscitate
+Feat/&HealerStabilizeDescription	Use an action to stabilize a dying creature.
+Feat/&HealerStabilizeTitle	Stabilize
+Feat/&HealerTitle	Healer
+Feat/&HealerUseMedicineDescription	You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
+Feat/&HealerUseMedicineTitle	Use Medicine
+Feat/&HeavyArmorMasterDescription	Resistance to Bludgeoning, Slashing, and Piercing damage.
+Feat/&HeavyArmorMasterTitle	Heavy Defense Mastery
+Feat/&InspiringLeaderDescription	Spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier. Useable once per short rest.
+Feat/&InspiringLeaderTitle	Inspiring Leader
+Feat/&LightArmorDescription	Gain proficiency with Light Armor and +1 Dexterity
+Feat/&LightArmorTitle	Light Armor
+Feat/&MediumDexArmorDescription	Gain proficiency with Medium Armor and Shields and +1 Dexterity
+Feat/&MediumDexArmorTitle	Medium Armor (Dexterity)
+Feat/&MediumStrengthArmorDescription	Gain proficiency with Medium Armor and Shields and +1 Strength
+Feat/&MediumStrengthArmorTitle	Medium Armor (Strength)
 Feat/&PickPocketFeatDescription	You gain proficiency with Sleight Of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
 Feat/&PickPocketFeatTitle	Pickpocket
-Feat/&PowerAttackFeatDescription You learned to trade accuracy to lander deadlier/harder blows.  You can choose to take a -{0} penalty to your to hit in order to do more damage (+{0} damage for one handed weapons, +{1} damage for two handed weapons).  Lasts for the whole turn once activated.  Works with melee and ranged weapons.
-Feat/&PowerAttackFeatTitle Power attack
-Feat/&PowerFalseLifeFromFeatDescription Bolstering yourself with a necromantic facsimile of life, you gain 1d4+4 Temporary Hit Points for the Duration.
-Feat/&PowerFalseLifeFromFeatTitle False Life
-Feat/&PowerInflictWoundsFromFeatDescription Make a melee spell Attack against a creature you can reach. On a hit, the target takes 3d10 necrotic damage.
-Feat/&PowerInflictWoundsFromFeatTitle Inflict Wounds
-Feat/&PowerInvisibilityFromFeatDescription A creature you touch becomes Invisible until the spell ends. Anything the target is wearing or carrying is Invisible as long as it is on the target's person. The spell ends for a target that attacks or casts a spell.
-Feat/&PowerInvisibilityFromFeatTitle Invisibility
-Feat/&PowerMistyStepFromFeatDescription Briefly surrounded by silvery mist, you teleport up to 30 feet to an unoccupied space that you can see.
-Feat/&PowerMistyStepFromFeatTitle Misty Step
-Feat/&PowerShadowTouchedFromFeatDescription Learn to cast the spells Invisibility, False Life, and Inflict Wounds.
-Feat/&PowerShadowTouchedFromFeatTitle Learn Invisibility, False Life, and Inflict Wounds
-Feat/&ProfChefTreatActionDescription Eat a treat as a bonus action and gain 5 temporary hit points.
-Feat/&ProfChefTreatActionTitle Eat Chef's Treat
-Feat/&ProfChefTreatCookDescription Spend one hour to cook treats that when eaten provide 5 temporary hit points.
-Feat/&ProfChefTreatCookTitle Cook Chef's Treat
-Feat/&ProfChefTreatDescription Eat as a bonus action and gain 5 temporary hit points.
-Feat/&ProfChefTreatTitle Chef's Treat
-Feat/&ProfHealerMedicineDescription Gain Proficiency in Medicine, or Expertise if you are already proficient.
-Feat/&ProfHealerMedicineTitle Medicine Knowledge
-Feat/&ProfLightArmorDescription Gain proficiency with Light Armor
-Feat/&ProfLightArmorTitle Light Armor
-Feat/&ProfMediumArmorDescription Gain proficiency with Medium Armor and Shields
-Feat/&ProfMediumArmorTitle Medium Armor
-Feat/&RecklessFuryFeatDescription You gain the ability to enter a rage for one minute once per day (note no armor restriction), and you can attack recklessly gaining advantage on your melee attacks while giving advantage to your attackers until your next turn.
-Feat/&RecklessFuryFeatTitle Reckless Fury
+Feat/&PowerAttackFeatDescription	You learned to trade accuracy to lander deadlier/harder blows.  You can choose to take a -{0} penalty to your to hit in order to do more damage (+{0} damage for one handed weapons, +{1} damage for two handed weapons).  Lasts for the whole turn once activated.  Works with melee and ranged weapons.
+Feat/&PowerAttackFeatTitle	Power attack
+Feat/&PowerFalseLifeFromFeatDescription	Bolstering yourself with a necromantic facsimile of life, you gain 1d4+4 Temporary Hit Points for the Duration.
+Feat/&PowerFalseLifeFromFeatTitle	False Life
+Feat/&PowerInflictWoundsFromFeatDescription	Make a melee spell Attack against a creature you can reach. On a hit, the target takes 3d10 necrotic damage.
+Feat/&PowerInflictWoundsFromFeatTitle	Inflict Wounds
+Feat/&PowerInvisibilityFromFeatDescription	A creature you touch becomes Invisible until the spell ends. Anything the target is wearing or carrying is Invisible as long as it is on the target's person. The spell ends for a target that attacks or casts a spell.
+Feat/&PowerInvisibilityFromFeatTitle	Invisibility
+Feat/&PowerMistyStepFromFeatDescription	Briefly surrounded by silvery mist, you teleport up to 30 feet to an unoccupied space that you can see.
+Feat/&PowerMistyStepFromFeatTitle	Misty Step
+Feat/&PowerShadowTouchedFromFeatDescription	Learn to cast the spells Invisibility, False Life, and Inflict Wounds.
+Feat/&PowerShadowTouchedFromFeatTitle	Learn Invisibility, False Life, and Inflict Wounds
+Feat/&ProfChefTreatActionDescription	Eat a treat as a bonus action and gain 5 temporary hit points.
+Feat/&ProfChefTreatActionTitle	Eat Chef's Treat
+Feat/&ProfChefTreatCookDescription	Spend one hour to cook treats that when eaten provide 5 temporary hit points.
+Feat/&ProfChefTreatCookTitle	Cook Chef's Treat
+Feat/&ProfChefTreatDescription	Eat as a bonus action and gain 5 temporary hit points.
+Feat/&ProfChefTreatTitle	Chef's Treat
+Feat/&ProfHealerMedicineDescription	Gain Proficiency in Medicine, or Expertise if you are already proficient.
+Feat/&ProfHealerMedicineTitle	Medicine Knowledge
+Feat/&ProfLightArmorDescription	Gain proficiency with Light Armor
+Feat/&ProfLightArmorTitle	Light Armor
+Feat/&ProfMediumArmorDescription	Gain proficiency with Medium Armor and Shields
+Feat/&ProfMediumArmorTitle	Medium Armor
+Feat/&RecklessFuryFeatDescription	You gain the ability to enter a rage for one minute once per day (note no armor restriction), and you can attack recklessly gaining advantage on your melee attacks while giving advantage to your attackers until your next turn.
+Feat/&RecklessFuryFeatTitle	Reckless Fury
 Feat/&TorchbearerDescription	You are skilled in the use of a torch in battle. Once per turn, as a bonus action you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw or take 1d4 fire damage per turn for 1 minute or until extinguished. The DC of this save is based on your Dexterity and Proficiency Bonus.
 Feat/&TorchbearerTitle	Torchbearer
 Feature/&AdditionalActionDualFlurryDescription	You may make an additional off-hand attack.
@@ -371,23 +371,23 @@ Feature/&ArcanistMarkTitle	Arcanist's Mark
 Feature/&BarbarianIndomitableMightDescription	If your total for a Strength check is less than your Strength score, you can use that score in place of the total.
 Feature/&BarbarianIndomitableMightTitle	Indomitable Might
 Feature/&CounterStrikePowerDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
-Feature/&CounterStrikePowerTitle Counter Strike
+Feature/&CounterStrikePowerTitle	Counter Strike
 Feature/&DualFlurryDescription	You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack.
 Feature/&DualFlurryTitle	Dual Flurry
-Feature/&DruidForestGuardianBarkWardDescription You gain the ability to summon a Bark Ward to protect you. As a bonus action, you can expend a use of your Wild Shape to gain 5 temporary hit points for each level you have in this class. These temporary hit points last for 10 minutes, or until you use your Wild Shape again.
-Feature/&DruidForestGuardianBarkWardTitle Bark Ward
-Feature/&DruidForestGuardianExtraAttackDescription Starting at 6th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.
-Feature/&DruidForestGuardianExtraAttackTitle Extra Attack
-Feature/&DruidForestGuardianImprovedBarkWardDescription Your Bark Ward now grows thorns, which damages melee attackers. Enemies who successfully hit you with a melee attack suffer 2d8 piercing damage.
-Feature/&DruidForestGuardianImprovedBarkWardTitle Improved Bark Ward
-Feature/&DruidForestGuardianMagicDescription Starting at the 2nd level when you choose this circle, you gain access to an expanded spell list that is always prepared:\nLevel 2: Shield, Fog Cloud\nLevel 3: Blur, Flame Blade\nLevel 5: Protection From Energy, Dispel Magic\nLevel 7: Flame Shield, Death Ward\nLevel 9: Hold Monster, Greater Restoration
-Feature/&DruidForestGuardianMagicTitle Circle Spells
-Feature/&DruidForestGuardianSuperiorBarkWardDescription Your Bark Ward ability now reflects 3d8 piercing damage onto melee attackers. Additionally, Bark Ward now grants you immunity to poison while it's active.
-Feature/&DruidForestGuardianSuperiorBarkWardTitle Superior Bark Ward
-Feature/&DruidForestGuardianSylvanDurabilityDescription Forest Guardians naturally gain the resilience of a mighty oak. At 2nd level, your hit point maximum increases by 2 and increases by 1 whenever you gain a level in this class.
-Feature/&DruidForestGuardianSylvanDurabilityTitle Sylvan Durability
-Feature/&DruidForestGuardianSylvanWarMagicDescription You are used to wielding druidic magic in harmony with martial prowess. At 2nd level, you may cast spells that require a somatic component even if both of your hands are holding a weapon or shield.
-Feature/&DruidForestGuardianSylvanWarMagicTitle Sylvan War Magic
+Feature/&DruidForestGuardianBarkWardDescription	You gain the ability to summon a Bark Ward to protect you. As a bonus action, you can expend a use of your Wild Shape to gain 5 temporary hit points for each level you have in this class. These temporary hit points last for 10 minutes, or until you use your Wild Shape again.
+Feature/&DruidForestGuardianBarkWardTitle	Bark Ward
+Feature/&DruidForestGuardianExtraAttackDescription	Starting at 6th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.
+Feature/&DruidForestGuardianExtraAttackTitle	Extra Attack
+Feature/&DruidForestGuardianImprovedBarkWardDescription	Your Bark Ward now grows thorns, which damages melee attackers. Enemies who successfully hit you with a melee attack suffer 2d8 piercing damage.
+Feature/&DruidForestGuardianImprovedBarkWardTitle	Improved Bark Ward
+Feature/&DruidForestGuardianMagicDescription	Starting at the 2nd level when you choose this circle, you gain access to an expanded spell list that is always prepared:\nLevel 2: Shield, Fog Cloud\nLevel 3: Blur, Flame Blade\nLevel 5: Protection From Energy, Dispel Magic\nLevel 7: Flame Shield, Death Ward\nLevel 9: Hold Monster, Greater Restoration
+Feature/&DruidForestGuardianMagicTitle	Circle Spells
+Feature/&DruidForestGuardianSuperiorBarkWardDescription	Your Bark Ward ability now reflects 3d8 piercing damage onto melee attackers. Additionally, Bark Ward now grants you immunity to poison while it's active.
+Feature/&DruidForestGuardianSuperiorBarkWardTitle	Superior Bark Ward
+Feature/&DruidForestGuardianSylvanDurabilityDescription	Forest Guardians naturally gain the resilience of a mighty oak. At 2nd level, your hit point maximum increases by 2 and increases by 1 whenever you gain a level in this class.
+Feature/&DruidForestGuardianSylvanDurabilityTitle	Sylvan Durability
+Feature/&DruidForestGuardianSylvanWarMagicDescription	You are used to wielding druidic magic in harmony with martial prowess. At 2nd level, you may cast spells that require a somatic component even if both of your hands are holding a weapon or shield.
+Feature/&DruidForestGuardianSylvanWarMagicTitle	Sylvan War Magic
 Feature/&GambitResourcePoolAddDescription	Adds an additional gambit die.
 Feature/&GambitResourcePoolAddTitle	Additional Gambit die.
 Feature/&GambitResourcePoolDescription	Pool of gambit dice that can be spent on gambits.  Starts with 4 they recharge on short rest.
@@ -397,54 +397,54 @@ Feature/&IndomitableResistanceAddTitle	Indomitable Resistance (increased)
 Feature/&IndomitableResistanceTitle	Indomitable Resistance
 Feature/&InspirePowerDescription	Spend a gambit die and inspire yourself or your ally to give 1d6+2 temp hp
 Feature/&InspirePowerTitle	Inspire
-Feature/&InspiringSurgePowerDescription Grant an ally an additional main action for 1 round. Does not stack with Action Surge.
-Feature/&InspiringSurgePowerTitle Inspiring Surge
-Feature/&InspiringSurgePowerTitleShort Inspiring Surge
+Feature/&InspiringSurgePowerDescription	Grant an ally an additional main action for 1 round. Does not stack with Action Surge.
+Feature/&InspiringSurgePowerTitle	Inspiring Surge
+Feature/&InspiringSurgePowerTitleShort	Inspiring Surge
 Feature/&KnockDownPowerDescription	Spend a gambit die and empower your attack to do an additional 1d6+2 bludgeoning damage and knock them down until the start of their next turn if they fail a Strength save vs. 8 + your Strength + proficiency
 Feature/&KnockDownPowerTitle	Knock down
-Feature/&KSRogueSubclassThugBrutalMethodsDescription You can shove as a bonus action.
-Feature/&KSRogueSubclassThugBrutalMethodsTitle Brutal Methods
-Feature/&KSRogueSubclassThugExploitVulnerabilitiesSneakAttackDescription You are able to use Sneak Attack with any kind of melee weapon, not restricted to finesse weapons.\n1d6 extra damage (+1d6 every 2 levels) to one creature you hit with the advantage, once per turn. No need for advantage if an active ally is next to the target.
-Feature/&KSRogueSubclassThugExploitVulnerabilitiesSneakAttackTitle Polyvalent Sneak Attack
-Feature/&KSRogueSubclassThugOvercomeCompetitionDescription You have advantage on your Athletics (Strength) checks.
-Feature/&KSRogueSubclassThugOvercomeCompetitionTitle Overcome Competition
-Feature/&KSRogueSubclassThugProficienciesDescription Proficient with medium armors and shields.
-Feature/&KSRogueSubclassThugProficienciesTitle Heavy Gear
-Feature/&PowerAttackAttackModifierOneHandedDescription Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
-Feature/&PowerAttackAttackModifierOneHandedTitle One handed power attack
-Feature/&PowerAttackConditionDescription Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
-Feature/&PowerAttackConditionTitle One handed power attack
-Feature/&PowerAttackPowerDescription Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
-Feature/&PowerAttackPowerTitle One handed power attack
-Feature/&PowerAttackTwoHandedAttackModifierDescription Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes.  Only to be used when attacking with two hands, melee or ranged.
-Feature/&PowerAttackTwoHandedAttackModifierTitle Two Handed power attack
-Feature/&PowerAttackTwoHandedConditionDescription Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes.  Only to be used when attacking with two hands, melee or ranged.
-Feature/&PowerAttackTwoHandedConditionTitle Two Handed power attack
-Feature/&PowerAttackTwoHandedPowerDescription Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes.  Only to be used when attacking with two hands, melee or ranged.
-Feature/&PowerAttackTwoHandedPowerTitle Two Handed power attack
-Feature/&PowerPaladinAuraOfCourage18Description Grant a saving throw bonus to allies withing 30ft.
+Feature/&KSRogueSubclassThugBrutalMethodsDescription	You can shove as a bonus action.
+Feature/&KSRogueSubclassThugBrutalMethodsTitle	Brutal Methods
+Feature/&KSRogueSubclassThugExploitVulnerabilitiesSneakAttackDescription	You are able to use Sneak Attack with any kind of melee weapon, not restricted to finesse weapons.\n1d6 extra damage (+1d6 every 2 levels) to one creature you hit with the advantage, once per turn. No need for advantage if an active ally is next to the target.
+Feature/&KSRogueSubclassThugExploitVulnerabilitiesSneakAttackTitle	Polyvalent Sneak Attack
+Feature/&KSRogueSubclassThugOvercomeCompetitionDescription	You have advantage on your Athletics (Strength) checks.
+Feature/&KSRogueSubclassThugOvercomeCompetitionTitle	Overcome Competition
+Feature/&KSRogueSubclassThugProficienciesDescription	Proficient with medium armors and shields.
+Feature/&KSRogueSubclassThugProficienciesTitle	Heavy Gear
+Feature/&PowerAttackAttackModifierOneHandedDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
+Feature/&PowerAttackAttackModifierOneHandedTitle	One handed power attack
+Feature/&PowerAttackConditionDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
+Feature/&PowerAttackConditionTitle	One handed power attack
+Feature/&PowerAttackPowerDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
+Feature/&PowerAttackPowerTitle	One handed power attack
+Feature/&PowerAttackTwoHandedAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes.  Only to be used when attacking with two hands, melee or ranged.
+Feature/&PowerAttackTwoHandedAttackModifierTitle	Two Handed power attack
+Feature/&PowerAttackTwoHandedConditionDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes.  Only to be used when attacking with two hands, melee or ranged.
+Feature/&PowerAttackTwoHandedConditionTitle	Two Handed power attack
+Feature/&PowerAttackTwoHandedPowerDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes.  Only to be used when attacking with two hands, melee or ranged.
+Feature/&PowerAttackTwoHandedPowerTitle	Two Handed power attack
+Feature/&PowerPaladinAuraOfCourage18Description	Grant a saving throw bonus to allies withing 30ft.
 Feature/&PowerPaladinAuraOfCourage18Title	Improved Aura of Courage
 Feature/&PowerPaladinAuraOfProtection18Description	You and your allies within 30ft cannot be frightened.
 Feature/&PowerPaladinAuraOfProtection18Title	Improved Aura of Protection
 Feature/&PowerTorchbearerDescription	Attempt to set a melee target on fire!
 Feature/&PowerTorchbearerTitle	Torchbearer
-Feature/&PrimalChampionDescription At 20th level, you embody the power of the wilds. Your Strength and Constitution scores increase by 4
-Feature/&PrimalChampionTitle Primal Champion
+Feature/&PrimalChampionDescription	At 20th level, you embody the power of the wilds. Your Strength and Constitution scores increase by 4
+Feature/&PrimalChampionTitle	Primal Champion
 Feature/&ProficiencyRogueBlindSenseDescription	Starting at 14th level, if you are able to hear, you are aware of the location of any hidden or invisible creature within 10 feet of you.
 Feature/&ProficiencyRogueBlindSenseTitle	Blindsense
 Feature/&ProficiencyRogueSlipperyMindDescription	By 15th level, you have acquired greater mental strength. You gain proficiency in Wisdom saving throws.
 Feature/&ProficiencyRogueSlipperyMindTitle	Slippery Mind
-Feature/&RageDamageBonusAttackModifierDescription Add +2 damage to your attacks while raging.
-Feature/&RageDamageBonusAttackModifierTitle Rage damage
-Feature/&RageFeatConditionDescription While in a rage you gain the following: Advantage on Strength checks and Strength saving throws, a bonus to damage rolls of +2, and resistance to bludgeoning, piercing, and slashing damage.
+Feature/&RageDamageBonusAttackModifierDescription	Add +2 damage to your attacks while raging.
+Feature/&RageDamageBonusAttackModifierTitle	Rage damage
+Feature/&RageFeatConditionDescription	While in a rage you gain the following: Advantage on Strength checks and Strength saving throws, a bonus to damage rolls of +2, and resistance to bludgeoning, piercing, and slashing damage.
 Feature/&RageFeatConditionTitle	Raging
-Feature/&RagePowerDescription As a bonus action you enter a rage for one minute and gain the following: Advantage on Strength checks and Strength saving throws, a bonus to damage rolls of +2, and resistance to bludgeoning, piercing, and slashing damage.
-Feature/&RagePowerTitle Rage
-Feature/&RageStrengthSavingThrowAffinityDescription You get advantage on strength saves while raging
-Feature/&RageStrengthSavingThrowAffinityTitle Rage strength save advantage
-Feature/&RallyingCryPowerDescription Replaces Second Wind with a power to restore 4x Fighter Levels hit points to one or more allies within 6 cells, up to their hit point maximum.
-Feature/&RallyingCryPowerTitle Rallying Cry
-Feature/&RallyingCryPowerTitleShort Rallying Cry
+Feature/&RagePowerDescription	As a bonus action you enter a rage for one minute and gain the following: Advantage on Strength checks and Strength saving throws, a bonus to damage rolls of +2, and resistance to bludgeoning, piercing, and slashing damage.
+Feature/&RagePowerTitle	Rage
+Feature/&RageStrengthSavingThrowAffinityDescription	You get advantage on strength saves while raging
+Feature/&RageStrengthSavingThrowAffinityTitle	Rage strength save advantage
+Feature/&RallyingCryPowerDescription	Replaces Second Wind with a power to restore 4x Fighter Levels hit points to one or more allies within 6 cells, up to their hit point maximum.
+Feature/&RallyingCryPowerTitle	Rallying Cry
+Feature/&RallyingCryPowerTitleShort	Rallying Cry
 Feature/&RangerArcanistMagicDescription	Starting at 3rd level, you learn an additional spell when you reach certain levels in this class. Each spell counts as a ranger spell for you, but it doesn't count against the number of ranger spells you know. The spells are: Level 3: Shield, Level 5: Misty Step, Level 9: Haste, Level 13: Dimension Door, and Level 17: Hold Monster. Additionally, you are proficient at casting spells in battle, and may cast spells that require a somatic component even if both of your hands are holding a weapon or shield.
 Feature/&RangerArcanistMagicTitle	Ranger Arcanist Spellcasting
 Feature/&RangerFeatureSetFoeSlayerDescription	At 20th level, you become an unparalleled Hunter of your enemies. Once on each of your turns, you can add your Wisdom modifier to the Attack roll or the damage roll of an Attack you make against one of your Favored enemies.
@@ -453,32 +453,32 @@ Feature/&RangerFeralSensesDescription	 You gain preternatural senses that help y
 Feature/&RangerFeralSensesTitle	Feral Senses
 Feature/&RangerVanishActionDescription	Starting at 14th level, you can use the Hide action as a bonus action on your turn.
 Feature/&RangerVanishActionTitle	Vanish
-Feature/&RoyalEnvoyFeatureDescription Add half of your proficiency bonus (round up) to any Charisma check you make that doesn't already use your proficiency bonus. In addition, you become proficient with Charisma saving throws.
-Feature/&RoyalEnvoyFeatureTitle Royal Envoy
-Feature/&ZSPowerPaladinCleansingTouchDescription Remove spell effects by touching an ally. You can do this a number of times per day equal to your Charisma modifier.
-Feature/&ZSPowerPaladinCleansingTouchTitle Cleansing Touch
-Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat Additional Damage from Magically Powered Attacks
-Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine Additional Damage from Magically Powered Attacks
-Feedback/&AdditionalDamageArcanistMarkFormat Arcanist's Mark!
+Feature/&RoyalEnvoyFeatureDescription	Add half of your proficiency bonus (round up) to any Charisma check you make that doesn't already use your proficiency bonus. In addition, you become proficient with Charisma saving throws.
+Feature/&RoyalEnvoyFeatureTitle	Royal Envoy
+Feature/&ZSPowerPaladinCleansingTouchDescription	Remove spell effects by touching an ally. You can do this a number of times per day equal to your Charisma modifier.
+Feature/&ZSPowerPaladinCleansingTouchTitle	Cleansing Touch
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat	Additional Damage from Magically Powered Attacks
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine	Additional Damage from Magically Powered Attacks
+Feedback/&AdditionalDamageArcanistMarkFormat	Arcanist's Mark!
 Feedback/&AdditionalDamageArcanistMarkLine	Arcanist's Mark detonates and deals extra damage to the target!
-Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat Illuminating Strike!
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat	Illuminating Strike!
 Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	Illuminating Strike deals extra damage to the target!
-Feedback/&AdditionalDamagePugilistFormat Pugilist
-Feedback/&AdditionalDamagePugilistLine Additional Unarmed Damage from Pugilist
+Feedback/&AdditionalDamagePugilistFormat	Pugilist
+Feedback/&AdditionalDamagePugilistLine	Additional Unarmed Damage from Pugilist
 FightingStyle/&BlindFightingDescription	You have blindsight with a range of 10 feet.
 FightingStyle/&BlindFightingTitle	Blind Fighting
-FightingStyle/&PugilistFightingDescription While you are completely unarmed, your unarmed strikes deal an additional d8 of damage and you can punch with your offhand as a bonus action.
-FightingStyle/&PugilistFightingTitle Pugilist
-FlexibleBackgrounds/&BackgroundSkillSelect2Description Select 2 skill proficiencies
-FlexibleBackgrounds/&BackgroundSkillSelect2Title Skills
-FlexibleBackgrounds/&BackgroundSkillSelect3Description Select 3 skill proficiencies
-FlexibleBackgrounds/&BackgroundSkillSelect3Title Skills
-FlexibleBackgrounds/&BackgroundToolSelectDescription Select a tool proficiency
-FlexibleBackgrounds/&BackgroundToolSelectTitle Tool
-FlexibleRaces/&PointPoolAbilityScore3Description Use three boosts on ability scores in any combination of your choosing.
-FlexibleRaces/&PointPoolAbilityScore3Title Ability Score Increase
-FlexibleRaces/&PointPoolAbilityScore4Description Use four boosts on ability scores in any combination of your choosing.
-FlexibleRaces/&PointPoolAbilityScore4Title Ability Score Increase
+FightingStyle/&PugilistFightingDescription	While you are completely unarmed, your unarmed strikes deal an additional d8 of damage and you can punch with your offhand as a bonus action.
+FightingStyle/&PugilistFightingTitle	Pugilist
+FlexibleBackgrounds/&BackgroundSkillSelect2Description	Select 2 skill proficiencies
+FlexibleBackgrounds/&BackgroundSkillSelect2Title	Skills
+FlexibleBackgrounds/&BackgroundSkillSelect3Description	Select 3 skill proficiencies
+FlexibleBackgrounds/&BackgroundSkillSelect3Title	Skills
+FlexibleBackgrounds/&BackgroundToolSelectDescription	Select a tool proficiency
+FlexibleBackgrounds/&BackgroundToolSelectTitle	Tool
+FlexibleRaces/&PointPoolAbilityScore3Description	Use three boosts on ability scores in any combination of your choosing.
+FlexibleRaces/&PointPoolAbilityScore3Title	Ability Score Increase
+FlexibleRaces/&PointPoolAbilityScore4Description	Use four boosts on ability scores in any combination of your choosing.
+FlexibleRaces/&PointPoolAbilityScore4Title	Ability Score Increase
 Message/&CharacterExportDuplicateNameErrorDescription	Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name.
 Message/&CharacterExportEmptyNameErrorDescription	Export Cancelled:\n\nPlease try a non empty name.
 Message/&CharacterExportModalContentDescription	Enter the hero name to export:
@@ -491,27 +491,27 @@ Modifier/&RuinedDescription	-3 to Armor Class
 Modifier/&RuinedTitle	Ruined
 Power/&HelpActionDescription	You can aid a friendly creature in attacking a creature within 5 feet of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
 Power/&HelpActionTitle	Help
-Pugilist Pugilist Damage
-Race/&PointPoolSelect10FeatsDescription Select 10 additional feats for your character.
-Race/&PointPoolSelect10FeatsTitle 10 Bonus Feats
-Race/&PointPoolSelect11FeatsDescription Select 11 additional feats for your character.
-Race/&PointPoolSelect11FeatsTitle 11 Bonus Feats
-Race/&PointPoolSelect2FeatsDescription Select 2 additional feats for your character.
-Race/&PointPoolSelect2FeatsTitle 2 Bonus Feats
-Race/&PointPoolSelect3FeatsDescription Select 3 additional feats for your character.
-Race/&PointPoolSelect3FeatsTitle 3 Bonus Feats
-Race/&PointPoolSelect4FeatsDescription Select 4 additional feats for your character.
-Race/&PointPoolSelect4FeatsTitle 4 Bonus Feats
-Race/&PointPoolSelect5FeatsDescription Select 5 additional feats for your character.
-Race/&PointPoolSelect5FeatsTitle 5 Bonus Feats
-Race/&PointPoolSelect6FeatsDescription Select 6 additional feats for your character.
-Race/&PointPoolSelect6FeatsTitle 6 Bonus Feats
-Race/&PointPoolSelect7FeatsDescription Select 7 additional feats for your character.
-Race/&PointPoolSelect7FeatsTitle 7 Bonus Feats
-Race/&PointPoolSelect8FeatsDescription Select 8 additional feats for your character.
-Race/&PointPoolSelect8FeatsTitle 8 Bonus Feats
-Race/&PointPoolSelect9FeatsDescription Select 9 additional feats for your character.
-Race/&PointPoolSelect9FeatsTitle 9 Bonus Feats
+Pugilist	Pugilist Damage
+Race/&PointPoolSelect10FeatsDescription	Select 10 additional feats for your character.
+Race/&PointPoolSelect10FeatsTitle	10 Bonus Feats
+Race/&PointPoolSelect11FeatsDescription	Select 11 additional feats for your character.
+Race/&PointPoolSelect11FeatsTitle	11 Bonus Feats
+Race/&PointPoolSelect2FeatsDescription	Select 2 additional feats for your character.
+Race/&PointPoolSelect2FeatsTitle	2 Bonus Feats
+Race/&PointPoolSelect3FeatsDescription	Select 3 additional feats for your character.
+Race/&PointPoolSelect3FeatsTitle	3 Bonus Feats
+Race/&PointPoolSelect4FeatsDescription	Select 4 additional feats for your character.
+Race/&PointPoolSelect4FeatsTitle	4 Bonus Feats
+Race/&PointPoolSelect5FeatsDescription	Select 5 additional feats for your character.
+Race/&PointPoolSelect5FeatsTitle	5 Bonus Feats
+Race/&PointPoolSelect6FeatsDescription	Select 6 additional feats for your character.
+Race/&PointPoolSelect6FeatsTitle	6 Bonus Feats
+Race/&PointPoolSelect7FeatsDescription	Select 7 additional feats for your character.
+Race/&PointPoolSelect7FeatsTitle	7 Bonus Feats
+Race/&PointPoolSelect8FeatsDescription	Select 8 additional feats for your character.
+Race/&PointPoolSelect8FeatsTitle	8 Bonus Feats
+Race/&PointPoolSelect9FeatsDescription	Select 9 additional feats for your character.
+Race/&PointPoolSelect9FeatsTitle	9 Bonus Feats
 Reaction/&SpendPowerCounterStrikePowerDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
 Reaction/&SpendPowerCounterStrikePowerReactDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
 Reaction/&SpendPowerCounterStrikePowerReactTitle	Counter Strike
@@ -532,15 +532,15 @@ Reaction/&UseZSPowerRangerFoeSlayerAttackTitle	Foe Slayer
 Reaction/&UseZSPowerRangerFoeSlayerDamageReactDescription	Add your Wisdom modifier to your attack roll.
 RestActivity/&ZSRespecDescription	Respec this Hero
 RestActivity/&ZSRespecTitle	Respec
-RestActivity/&ZSSorcerousRestorationDescription Regain 4 sorcery points during a short rest.
-RestActivity/&ZSSorcerousRestorationTitle Sorcerous Restoration
+RestActivity/&ZSSorcerousRestorationDescription	Regain 4 sorcery points during a short rest.
+RestActivity/&ZSSorcerousRestorationTitle	Sorcerous Restoration
 Screen/&CovenSpellDescription	Spell known because part of a Coven
 Screen/&CovenSpellHeader	Coven
 Screen/&CovenSpellTitle	Coven
-Screen/&FeyTeleportSpellDescription This Fey spell is always prepared.
-Screen/&FeyTeleportSpellTitle Fey
-Screen/&ShadowTouchedSpellDescription This Shadow spell is always prepared.
-Screen/&ShadowTouchedSpellTitle Shadow
+Screen/&FeyTeleportSpellDescription	This Fey spell is always prepared.
+Screen/&FeyTeleportSpellTitle	Fey
+Screen/&ShadowTouchedSpellDescription	This Shadow spell is always prepared.
+Screen/&ShadowTouchedSpellTitle	Shadow
 Screen/&WitchSpellDescription	Spell known as a Witch
 Screen/&WitchSpellHeader	Witch
 Screen/&WitchSpellTitle	Witch
@@ -572,10 +572,10 @@ SolastaCraftyFeats/&ToxicologistIntFeatDescription	+1 Intelligence, Proficiency 
 SolastaCraftyFeats/&ToxicologistIntFeatTitle	Toxicologist (Intelligence)
 SolastaCraftyFeats/&ToxicologistWisFeatDescription	+1 Wisdom, Proficiency or Expertise with Poisoner's Kit and Medicine
 SolastaCraftyFeats/&ToxicologistWisFeatTitle	Toxicologist (Wisdom)
-Sorceror/&ZSSorcerousRestorationDescription Regain 4 sorcery points during a short rest.
-Sorceror/&ZSSorcerousRestorationTitle Sorcerous Restoration
-Spell/&CJDivineWordDescription You utter a divine word, imbued with the power that shaped the world at the dawn of creation. Choose any number of creatures you can see within range. Each creature that can hear you must make a Charisma saving throw. On a failed save, a creature suffers an effect based on its current hit points:\n50 hit points or fewer: deafened for 1 minute\n40 hit points or fewer: deafened and blinded for 10 minutes\n30 hit points or fewer: blinded, deafened, and stunned for 1 hour\n20 hit points or fewer: killed instantly\nRegardless of its current hit points, a celestial, an elemental, a fey, or a fiend that fails its save is forced back to its plane of origin (if it isn’t there already) and can’t return to your current plane for 24 hours by any means short of a wish spell.\n
-Spell/&CJDivineWordTitle Divine Word
+Sorceror/&ZSSorcerousRestorationDescription	Regain 4 sorcery points during a short rest.
+Sorceror/&ZSSorcerousRestorationTitle	Sorcerous Restoration
+Spell/&CJDivineWordDescription	You utter a divine word, imbued with the power that shaped the world at the dawn of creation. Choose any number of creatures you can see within range. Each creature that can hear you must make a Charisma saving throw. On a failed save, a creature suffers an effect based on its current hit points:\n50 hit points or fewer: deafened for 1 minute\n40 hit points or fewer: deafened and blinded for 10 minutes\n30 hit points or fewer: blinded, deafened, and stunned for 1 hour\n20 hit points or fewer: killed instantly\nRegardless of its current hit points, a celestial, an elemental, a fey, or a fiend that fails its save is forced back to its plane of origin (if it isn’t there already) and can’t return to your current plane for 24 hours by any means short of a wish spell.\n
+Spell/&CJDivineWordTitle	Divine Word
 Spell/&EldritchOrbDescription	You fling a ball of eldritch energy at a creature or object within range.
 Spell/&EldritchOrbTitle	Eldritch Orb
 Spell/&FindFamiliarDescription	You gain the service of a familiar.
@@ -597,16 +597,16 @@ Stage/&SubclassSelectionStageCovenFeaturesHeader	Coven Features
 Stage/&SubclassSelectionStageCovenFeaturesTitle	Coven
 Stage/&SubclassSelectionStageCovenHeader	Select a Coven
 Stage/&SubclassSelectionStageCovenTitle	Coven
-Subclass/&AbilityAffinityRogueConArtistDescription Advantage on ability checks using Persuasion, Deception, Performance, and Sleight of Hand.
-Subclass/&AbilityAffinityRogueConArtistTitle Manipulative
-Subclass/&ArcaneFighterAdditionalActionDescription You can cast a spell after defeating an enemy with your weapon attacks.
-Subclass/&ArcaneFighterAdditionalActionTitle Spell Fighting
-Subclass/&ArcaneFighterBonusWeaponDamageDescription Once per turn your weapon attacks deal an extra 1d8 damage.
-Subclass/&ArcaneFighterBonusWeaponDamageTitle Magically Powered Attacks
-Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription When active on a weapon, it's attacks count as Magical and you use your intelligence for your attack and damage rolls.
-Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle Arcane Weapon
-Subclass/&AttributeModifierMeleeWizardExtraAttackDescription You gain an extra attack
-Subclass/&AttributeModifierMeleeWizardExtraAttackTitle Extra Attack
+Subclass/&AbilityAffinityRogueConArtistDescription	Advantage on ability checks using Persuasion, Deception, Performance, and Sleight of Hand.
+Subclass/&AbilityAffinityRogueConArtistTitle	Manipulative
+Subclass/&ArcaneFighterAdditionalActionDescription	You can cast a spell after defeating an enemy with your weapon attacks.
+Subclass/&ArcaneFighterAdditionalActionTitle	Spell Fighting
+Subclass/&ArcaneFighterBonusWeaponDamageDescription	Once per turn your weapon attacks deal an extra 1d8 damage.
+Subclass/&ArcaneFighterBonusWeaponDamageTitle	Magically Powered Attacks
+Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription	When active on a weapon, it's attacks count as Magical and you use your intelligence for your attack and damage rolls.
+Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle	Arcane Weapon
+Subclass/&AttributeModifierMeleeWizardExtraAttackDescription	You gain an extra attack
+Subclass/&AttributeModifierMeleeWizardExtraAttackTitle	Extra Attack
 Subclass/&BarbarianPathOfTheLightDescription	Barbarians who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.
 Subclass/&BarbarianPathOfTheLightEyesOfTruthDescription	You are always under the effects of a See Invisibility spell.
 Subclass/&BarbarianPathOfTheLightEyesOfTruthTitle	Eyes of Truth
@@ -633,85 +633,85 @@ Subclass/&BloodWitchDescription	Forbidden by most witch covens, blood magic cent
 Subclass/&BloodWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel	Spells\n1st	Entangle, Goodberry\n2nd	Barkskin, Protection from Poison\n3rd	Conjure Animals, Create Food\n4th	Giant Insect, Stoneskin\n5th	Dispel Evil and Good, Insect Plague
 Subclass/&BloodWitchMagicTitle	Blood Magic
 Subclass/&BloodWitchTitle	Blood Witch
-Subclass/&ConditionSpellShieldArcaneDeflectionDescription You can use your arcane powers to shield yourself as a reaction. This gives you +{0} to your AC until your next turn.
-Subclass/&ConditionSpellShieldArcaneDeflectionTitle Arcane Deflection
-Subclass/&ConditionTransmuteConstitutionSaveDescription Temporary Constitution save proficiency granted by the Transmute Force power.
-Subclass/&ConditionTransmuteConstitutionSaveTitle Constitution Saves
-Subclass/&ConditionTransmutePoisonDescription Temporary Acid, Cold, Fire, Lightning, Necrotic, Thunder, and Poison Resistance granted by the Transmute Force power.
-Subclass/&ConditionTransmutePoisonTitle Elemental Resistance
-Subclass/&DruidForestGuardianDruidSubclassDescription Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
-Subclass/&DruidForestGuardianSubclassTitle Circle of the Forest Guardian
-Subclass/&FighterRoyalKnightDescription A knight who inspires greatness in others by committing brave deeds in battle. A lone knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
-Subclass/&FighterRoyalKnightTitle Royal Knight
-Subclass/&FighterSpellShieldDescription Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
-Subclass/&FighterSpellShieldSpellcastingDescription Cast wizard spells and cantrips from the Abjuration, Illusion, Transmutation, and Necromancy schools.
-Subclass/&FighterSpellShieldSpellcastingTitle Spellcasting
-Subclass/&FighterSpellShieldSpellResistanceDescription Your experience with spells and Abjuration magic in particular has made you resistant to spells cast against you.
-Subclass/&FighterSpellShieldSpellResistanceTitle Spell Resistance
-Subclass/&FighterSpellShieldTitle Spell Shield
+Subclass/&ConditionSpellShieldArcaneDeflectionDescription	You can use your arcane powers to shield yourself as a reaction. This gives you +{0} to your AC until your next turn.
+Subclass/&ConditionSpellShieldArcaneDeflectionTitle	Arcane Deflection
+Subclass/&ConditionTransmuteConstitutionSaveDescription	Temporary Constitution save proficiency granted by the Transmute Force power.
+Subclass/&ConditionTransmuteConstitutionSaveTitle	Constitution Saves
+Subclass/&ConditionTransmutePoisonDescription	Temporary Acid, Cold, Fire, Lightning, Necrotic, Thunder, and Poison Resistance granted by the Transmute Force power.
+Subclass/&ConditionTransmutePoisonTitle	Elemental Resistance
+Subclass/&DruidForestGuardianDruidSubclassDescription	Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
+Subclass/&DruidForestGuardianSubclassTitle	Circle of the Forest Guardian
+Subclass/&FighterRoyalKnightDescription	A knight who inspires greatness in others by committing brave deeds in battle. A lone knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
+Subclass/&FighterRoyalKnightTitle	Royal Knight
+Subclass/&FighterSpellShieldDescription	Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
+Subclass/&FighterSpellShieldSpellcastingDescription	Cast wizard spells and cantrips from the Abjuration, Illusion, Transmutation, and Necromancy schools.
+Subclass/&FighterSpellShieldSpellcastingTitle	Spellcasting
+Subclass/&FighterSpellShieldSpellResistanceDescription	Your experience with spells and Abjuration magic in particular has made you resistant to spells cast against you.
+Subclass/&FighterSpellShieldSpellResistanceTitle	Spell Resistance
+Subclass/&FighterSpellShieldTitle	Spell Shield
 Subclass/&GreenWitchDescription	Plants, nature, and things that grow are the domain of green magic. Normally a type of arcana championed by druids, some witches have a close tie to the powers of green magic, and can coax plants and animals into their bidding.
 Subclass/&GreenWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel	Spells\n1st	Entangle, Goodberry\n2nd	Barkskin, Protection from Poison\n3rd	Conjure Animals, Create Food\n4th	Giant Insect, Stoneskin\n5th	Dispel Evil and Good, Insect Plague
 Subclass/&GreenWitchMagicTitle	Green Magic
 Subclass/&GreenWitchTitle	Green Witch
-Subclass/&HealingPoolLifeTransmuterBonusDescription 2 additional times per day you can force your will on reality.
-Subclass/&HealingPoolLifeTransmuterBonusExtraDescription 4 additional times per day you can force your will on reality.
-Subclass/&HealingPoolLifeTransmuterBonusExtraTitle Additional Transmute Force
-Subclass/&HealingPoolLifeTransmuterBonusTitle Additional Transmute Force
-Subclass/&HealingPoolLifeTransmuterListDescription 2 times per day enact your will on reality with special abilities.
-Subclass/&HealingPoolLifeTransmuterListTitle Transmute Force
-Subclass/&KSRogueSubclassThugDescription Thugs are sharp-minded combattants who seek the thrill of the fight and will make their enemies bite the dust by any means necessary. They benefit from an advanced martial training and learn to make use of their wit and brawn alike to triumph in battle.
+Subclass/&HealingPoolLifeTransmuterBonusDescription	2 additional times per day you can force your will on reality.
+Subclass/&HealingPoolLifeTransmuterBonusExtraDescription	4 additional times per day you can force your will on reality.
+Subclass/&HealingPoolLifeTransmuterBonusExtraTitle	Additional Transmute Force
+Subclass/&HealingPoolLifeTransmuterBonusTitle	Additional Transmute Force
+Subclass/&HealingPoolLifeTransmuterListDescription	2 times per day enact your will on reality with special abilities.
+Subclass/&HealingPoolLifeTransmuterListTitle	Transmute Force
+Subclass/&KSRogueSubclassThugDescription	Thugs are sharp-minded combattants who seek the thrill of the fight and will make their enemies bite the dust by any means necessary. They benefit from an advanced martial training and learn to make use of their wit and brawn alike to triumph in battle.
 Subclass/&KSRogueSubclassThugTitle	Thug
-Subclass/&MagicAffinityFighterSpellShieldDescription Advantage on concentration checks as well as the ability to perform somatic components of spells while holding items.
-Subclass/&MagicAffinityFighterSpellShieldTitle Combat Casting
-Subclass/&MagicAffinityLifeTransmuterListDescription When casting some Transmutation and Necromancy spells they are cast at a spell slot 2 levels higher than the one used. Improved spells include: False Life, Blindness, Fly, Bestow Curse, Vampiric Touch, Blight, and Cloud Kill. -- Note Intention is to have Magic Weapon benefit as well, but currently increasing the spell level this way on Magic Weapon has no effect.
-Subclass/&MagicAffinityLifeTransmuterListTitle Reality Bending
-Subclass/&MagicAffinityMasterManipulatorDC0Description It is harder for opponents to resist your spells. The save DC increases by 0.
-Subclass/&MagicAffinityMasterManipulatorDC1Description It is harder for opponents to resist your spells. The save DC increases by 1.
-Subclass/&MagicAffinityMasterManipulatorDC2Description It is harder for opponents to resist your spells. The save DC increases by 2.
-Subclass/&MagicAffinityMasterManipulatorDC3Description It is harder for opponents to resist your spells. The save DC increases by 3.
-Subclass/&MagicAffinityMasterManipulatorDC4Description It is harder for opponents to resist your spells. The save DC increases by 4.
-Subclass/&MagicAffinityMasterManipulatorDC5Description It is harder for opponents to resist your spells. The save DC increases by 5.
-Subclass/&MagicAffinityMasterManipulatorDCDescription It is harder for opponents to resist your spells. The save DC increases by 3.
-Subclass/&MagicAffinityMasterManipulatorDCTitle Arcane Force
-Subclass/&MagicAffinityMasterManipulatorListDescription When casting some Enchantment, Abjuration, and Illusion spells they are cast at a spell slot 1 level higher than the one used. Improved spells include: Charm Person, Sleep, Color Spray, Hold Person, Invisibility, Counterspell, Dispel Magic, Banishment, Confusion, Phantasmal Killer, Dominate Person, and Hold Monster.
-Subclass/&MagicAffinityMasterManipulatorListTitle Arcane Manipulation
-Subclass/&MagicAffinityMeleeWizardConcentrationDescription Due to experience in the chaos of combat, gain advantage on concentration checks.
-Subclass/&MagicAffinityMeleeWizardConcentrationTitle Improved Concentration
-Subclass/&MagicAffinityRoguishConArtistDC0Description Your spell save DC increases by 0.
-Subclass/&MagicAffinityRoguishConArtistDC1Description Your spell save DC increases by 1.
-Subclass/&MagicAffinityRoguishConArtistDC2Description Your spell save DC increases by 2.
-Subclass/&MagicAffinityRoguishConArtistDC3Description Your spell save DC increases by 3.
-Subclass/&MagicAffinityRoguishConArtistDC4Description Your spell save DC increases by 4.
-Subclass/&MagicAffinityRoguishConArtistDC5Description Your spell save DC increases by 5.
-Subclass/&MagicAffinityRoguishConArtistDCTitle Improved Manipulation
-Subclass/&MagicAffinitySpellMasterBonusScribingDescription Scribe an additional spell at each level up.
-Subclass/&MagicAffinitySpellMasterBonusScribingTitle Breadth of Knowledge
-Subclass/&MagicAffinitySpellMasterRecoveryDescription Once per long rest you can recover spell slots (in addition to Arcane Recovery).
-Subclass/&MagicAffinitySpellMasterRecoveryTitle Arcane Depth
-Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedDescription Unlimited times you can recover spell slots (in addition to Arcane Recovery).
-Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedTitle Arcane Depth
-Subclass/&MagicAffinitySpellMasterScribingDescription Scribing spells takes 1/4 the time and cost, and you have advantage.
-Subclass/&MagicAffinitySpellMasterScribingTitle Master Scriber
-Subclass/&ManipulatorMentalSavingThrowsDescription Gain proficiency in saving throws with Constitution and Charisma.
-Subclass/&ManipulatorMentalSavingThrowsTitle Mental Resistance
-Subclass/&PowerManipulatorDominatePersonDescription You can use Dominate Person a number of times per long rest equal to your intelligence modifier.
-Subclass/&PowerManipulatorDominatePersonTitle Dominate Person
-Subclass/&PowerSpellShieldArcaneDeflectionDescription You can use your arcane powers to shield yourself as a reaction. This gives you +{0} to your AC until your next turn.
-Subclass/&PowerSpellShieldArcaneDeflectionTitle Arcane Deflection
-Subclass/&PowerSpellShieldRangedDeflectionDescription When an attacker that you can see hits you with a ranged attack or spell, you can use your reaction to halve the attack's damage against you.
-Subclass/&PowerSpellShieldRangedDeflectionTitle Ranged Deflection
-Subclass/&PowerTransmuteConstitutionDescription Use your Transmute Force to grant proficiency with Constitution Saves until the next long rest.
-Subclass/&PowerTransmuteConstitutionTitle Constitution Saves
-Subclass/&PowerTransmuteDarkvisionDescription Use your Transmute Force to grant Superior Darkvision until the next long rest.
-Subclass/&PowerTransmuteDarkvisionTitle Superior Darkvision
-Subclass/&PowerTransmuteElementalResistanceDescription Use your Transmute Force to grant resistance to Acid, Cold, Fire, Lightning, Necrotic, Thunder, and Poison until the next long rest.
-Subclass/&PowerTransmuteElemnetalResistanceTitle Elemental Resistance
-Subclass/&PowerTransmuteFlyDescription Use your Transmute Force to grant the ability of flight.
-Subclass/&PowerTransmuteFlyTitle Fly
-Subclass/&PowerTransmuteHealDescription Use your Transmute Force to heal up to 6 targets.
-Subclass/&PowerTransmuteHealTitle Heal
-Subclass/&PowerTransmuteReviveDescription Use your Transmute Force to revive a character (within 1 minute of them dying).
-Subclass/&PowerTransmuteReviveTitle Revive
+Subclass/&MagicAffinityFighterSpellShieldDescription	Advantage on concentration checks as well as the ability to perform somatic components of spells while holding items.
+Subclass/&MagicAffinityFighterSpellShieldTitle	Combat Casting
+Subclass/&MagicAffinityLifeTransmuterListDescription	When casting some Transmutation and Necromancy spells they are cast at a spell slot 2 levels higher than the one used. Improved spells include: False Life, Blindness, Fly, Bestow Curse, Vampiric Touch, Blight, and Cloud Kill. -- Note Intention is to have Magic Weapon benefit as well, but currently increasing the spell level this way on Magic Weapon has no effect.
+Subclass/&MagicAffinityLifeTransmuterListTitle	Reality Bending
+Subclass/&MagicAffinityMasterManipulatorDC0Description	It is harder for opponents to resist your spells. The save DC increases by 0.
+Subclass/&MagicAffinityMasterManipulatorDC1Description	It is harder for opponents to resist your spells. The save DC increases by 1.
+Subclass/&MagicAffinityMasterManipulatorDC2Description	It is harder for opponents to resist your spells. The save DC increases by 2.
+Subclass/&MagicAffinityMasterManipulatorDC3Description	It is harder for opponents to resist your spells. The save DC increases by 3.
+Subclass/&MagicAffinityMasterManipulatorDC4Description	It is harder for opponents to resist your spells. The save DC increases by 4.
+Subclass/&MagicAffinityMasterManipulatorDC5Description	It is harder for opponents to resist your spells. The save DC increases by 5.
+Subclass/&MagicAffinityMasterManipulatorDCDescription	It is harder for opponents to resist your spells. The save DC increases by 3.
+Subclass/&MagicAffinityMasterManipulatorDCTitle	Arcane Force
+Subclass/&MagicAffinityMasterManipulatorListDescription	When casting some Enchantment, Abjuration, and Illusion spells they are cast at a spell slot 1 level higher than the one used. Improved spells include: Charm Person, Sleep, Color Spray, Hold Person, Invisibility, Counterspell, Dispel Magic, Banishment, Confusion, Phantasmal Killer, Dominate Person, and Hold Monster.
+Subclass/&MagicAffinityMasterManipulatorListTitle	Arcane Manipulation
+Subclass/&MagicAffinityMeleeWizardConcentrationDescription	Due to experience in the chaos of combat, gain advantage on concentration checks.
+Subclass/&MagicAffinityMeleeWizardConcentrationTitle	Improved Concentration
+Subclass/&MagicAffinityRoguishConArtistDC0Description	Your spell save DC increases by 0.
+Subclass/&MagicAffinityRoguishConArtistDC1Description	Your spell save DC increases by 1.
+Subclass/&MagicAffinityRoguishConArtistDC2Description	Your spell save DC increases by 2.
+Subclass/&MagicAffinityRoguishConArtistDC3Description	Your spell save DC increases by 3.
+Subclass/&MagicAffinityRoguishConArtistDC4Description	Your spell save DC increases by 4.
+Subclass/&MagicAffinityRoguishConArtistDC5Description	Your spell save DC increases by 5.
+Subclass/&MagicAffinityRoguishConArtistDCTitle	Improved Manipulation
+Subclass/&MagicAffinitySpellMasterBonusScribingDescription	Scribe an additional spell at each level up.
+Subclass/&MagicAffinitySpellMasterBonusScribingTitle	Breadth of Knowledge
+Subclass/&MagicAffinitySpellMasterRecoveryDescription	Once per long rest you can recover spell slots (in addition to Arcane Recovery).
+Subclass/&MagicAffinitySpellMasterRecoveryTitle	Arcane Depth
+Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedDescription	Unlimited times you can recover spell slots (in addition to Arcane Recovery).
+Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedTitle	Arcane Depth
+Subclass/&MagicAffinitySpellMasterScribingDescription	Scribing spells takes 1/4 the time and cost, and you have advantage.
+Subclass/&MagicAffinitySpellMasterScribingTitle	Master Scriber
+Subclass/&ManipulatorMentalSavingThrowsDescription	Gain proficiency in saving throws with Constitution and Charisma.
+Subclass/&ManipulatorMentalSavingThrowsTitle	Mental Resistance
+Subclass/&PowerManipulatorDominatePersonDescription	You can use Dominate Person a number of times per long rest equal to your intelligence modifier.
+Subclass/&PowerManipulatorDominatePersonTitle	Dominate Person
+Subclass/&PowerSpellShieldArcaneDeflectionDescription	You can use your arcane powers to shield yourself as a reaction. This gives you +{0} to your AC until your next turn.
+Subclass/&PowerSpellShieldArcaneDeflectionTitle	Arcane Deflection
+Subclass/&PowerSpellShieldRangedDeflectionDescription	When an attacker that you can see hits you with a ranged attack or spell, you can use your reaction to halve the attack's damage against you.
+Subclass/&PowerSpellShieldRangedDeflectionTitle	Ranged Deflection
+Subclass/&PowerTransmuteConstitutionDescription	Use your Transmute Force to grant proficiency with Constitution Saves until the next long rest.
+Subclass/&PowerTransmuteConstitutionTitle	Constitution Saves
+Subclass/&PowerTransmuteDarkvisionDescription	Use your Transmute Force to grant Superior Darkvision until the next long rest.
+Subclass/&PowerTransmuteDarkvisionTitle	Superior Darkvision
+Subclass/&PowerTransmuteElementalResistanceDescription	Use your Transmute Force to grant resistance to Acid, Cold, Fire, Lightning, Necrotic, Thunder, and Poison until the next long rest.
+Subclass/&PowerTransmuteElemnetalResistanceTitle	Elemental Resistance
+Subclass/&PowerTransmuteFlyDescription	Use your Transmute Force to grant the ability of flight.
+Subclass/&PowerTransmuteFlyTitle	Fly
+Subclass/&PowerTransmuteHealDescription	Use your Transmute Force to heal up to 6 targets.
+Subclass/&PowerTransmuteHealTitle	Heal
+Subclass/&PowerTransmuteReviveDescription	Use your Transmute Force to revive a character (within 1 minute of them dying).
+Subclass/&PowerTransmuteReviveTitle	Revive
 Subclass/&PurpleWitchDescription	Purple magic holds sway over the domains of illusions and enchantments that take hold over people's minds, and anything that is not quite as it seems. Practitioners of this form of magic are puppet masters, shaping the apparent reality of those around them to their advantage.
 Subclass/&PurpleWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel	Spells\n1st	Entangle, Goodberry\n2nd	Barkskin, Protection from Poison\n3rd	Conjure Animals, Create Food\n4th	Giant Insect, Stoneskin\n5th	Dispel Evil and Good, Insect Plague
 Subclass/&PurpleWitchMagicTitle	Purple Magic
@@ -722,113 +722,113 @@ Subclass/&RedWitchDescription	Arcane magic tied to channeling the elements is de
 Subclass/&RedWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel	Spells\n1st	Burning Hands, Magic Missile\n2nd	Acid Arrow, Scorching Ray\n3rd	Fireball, Protection From Energy\n4th	Ice Storm, Wall of Fire\n5th	Cone of Cold, Mind Twist
 Subclass/&RedWitchMagicTitle	Red Magic
 Subclass/&RedWitchTitle	Red Witch
-Subclass/&RoguishConArtistDescription Con Artists are rogues that specialize in deception and tricking others. They use magic to aid their natural manipulative abilities.
-Subclass/&RoguishConArtistFeintConditionDescription Being tricked grants advantage on the next attack.
-Subclass/&RoguishConArtistFeintConditionTitle Tricked
-Subclass/&RoguishConArtistFeintDescription Gain the ability to feint in combat as a bonus action. If the target fails their saving throw, this grants advantage on the next attack against the target.
-Subclass/&RoguishConArtistFeintTitle Feint
-Subclass/&RoguishConArtistMentalSavingThrowsDescription You gain proficiency in Wisdom and Charisma saving throws.
-Subclass/&RoguishConArtistMentalSavingThrowsTitle Mental Strength
-Subclass/&RoguishConArtistSpellcastingDescription Cast wizard spells and cantrips from the Conjuration, Enchantment, Illusion, and Transmutation schools. The Con Artist uses Charisma to cast their spells.
-Subclass/&RoguishConArtistSpellcastingTitle Spellcasting
-Subclass/&RoguishConArtistTitle Con Artist
-Subclass/&SpellShieldAdditionalActionDescription You can cast a spell after defeating an enemy with your weapon attacks.
-Subclass/&SpellShieldAdditionalActionTitle Spell Fighting
-Subclass/&TactitionFighterSubclassDescription The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed.  They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.  Mod note - This class re-uses channel divinity for these features.
-Subclass/&TactitionFighterSubclassTitle The Tactician
-Subclass/&TraditionArcaneFighterDescription Channel your magic into weapon attacks.
-Subclass/&TraditionArcaneFighterTitle Arcane Fighter
-Subclass/&TraditionLifeTransmuterDescription Masters of manipulating both matter and life energy.
-Subclass/&TraditionLifeTransmuterTitle Life Transmuter
-Subclass/&TraditionMasterManipulatorDescription Master Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
-Subclass/&TraditionMasterManipulatorTitle Master Manipulator
-Subclass/&TraditionSpellMasterBonusCantripsDescription Gain 2 extra cantrips known.
-Subclass/&TraditionSpellMasterBonusCantripsTitle Bonus Cantrips
-Subclass/&TraditionSpellMasterDescription Spell masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
-Subclass/&TraditionSpellMasterExtraPreparedDescription Prepare intelligence modifier additional spells so you always have what you need.
-Subclass/&TraditionSpellMasterExtraPreparedTitle Extra Prepared
-Subclass/&TraditionSpellMasterPreparedDescription Prepare proficiency bonus additional spells so you always have what you need.
-Subclass/&TraditionSpellMasterPreparedTitle Be Prepared
-Subclass/&TraditionSpellMasterSpellResistanceDescription Your training with magic gives you advantage on saving throws against spells.
-Subclass/&TraditionSpellMasterSpellResistanceTitle Spell Resistance
-Subclass/&TraditionSpellMasterTitle Spell Master
-Subclass/&WeaponProfArcaneFighterDescription Experience in combat has given the Arcane Fighter training in Simple and Martial Weapons.
-Subclass/&WeaponProfArcaneFighterTitle  Weapon Training
+Subclass/&RoguishConArtistDescription	Con Artists are rogues that specialize in deception and tricking others. They use magic to aid their natural manipulative abilities.
+Subclass/&RoguishConArtistFeintConditionDescription	Being tricked grants advantage on the next attack.
+Subclass/&RoguishConArtistFeintConditionTitle	Tricked
+Subclass/&RoguishConArtistFeintDescription	Gain the ability to feint in combat as a bonus action. If the target fails their saving throw, this grants advantage on the next attack against the target.
+Subclass/&RoguishConArtistFeintTitle	Feint
+Subclass/&RoguishConArtistMentalSavingThrowsDescription	You gain proficiency in Wisdom and Charisma saving throws.
+Subclass/&RoguishConArtistMentalSavingThrowsTitle	Mental Strength
+Subclass/&RoguishConArtistSpellcastingDescription	Cast wizard spells and cantrips from the Conjuration, Enchantment, Illusion, and Transmutation schools. The Con Artist uses Charisma to cast their spells.
+Subclass/&RoguishConArtistSpellcastingTitle	Spellcasting
+Subclass/&RoguishConArtistTitle	Con Artist
+Subclass/&SpellShieldAdditionalActionDescription	You can cast a spell after defeating an enemy with your weapon attacks.
+Subclass/&SpellShieldAdditionalActionTitle	Spell Fighting
+Subclass/&TactitionFighterSubclassDescription	The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed.  They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.  Mod note - This class re-uses channel divinity for these features.
+Subclass/&TactitionFighterSubclassTitle	The Tactician
+Subclass/&TraditionArcaneFighterDescription	Channel your magic into weapon attacks.
+Subclass/&TraditionArcaneFighterTitle	Arcane Fighter
+Subclass/&TraditionLifeTransmuterDescription	Masters of manipulating both matter and life energy.
+Subclass/&TraditionLifeTransmuterTitle	Life Transmuter
+Subclass/&TraditionMasterManipulatorDescription	Master Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
+Subclass/&TraditionMasterManipulatorTitle	Master Manipulator
+Subclass/&TraditionSpellMasterBonusCantripsDescription	Gain 2 extra cantrips known.
+Subclass/&TraditionSpellMasterBonusCantripsTitle	Bonus Cantrips
+Subclass/&TraditionSpellMasterDescription	Spell masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
+Subclass/&TraditionSpellMasterExtraPreparedDescription	Prepare intelligence modifier additional spells so you always have what you need.
+Subclass/&TraditionSpellMasterExtraPreparedTitle	Extra Prepared
+Subclass/&TraditionSpellMasterPreparedDescription	Prepare proficiency bonus additional spells so you always have what you need.
+Subclass/&TraditionSpellMasterPreparedTitle	Be Prepared
+Subclass/&TraditionSpellMasterSpellResistanceDescription	Your training with magic gives you advantage on saving throws against spells.
+Subclass/&TraditionSpellMasterSpellResistanceTitle	Spell Resistance
+Subclass/&TraditionSpellMasterTitle	Spell Master
+Subclass/&WeaponProfArcaneFighterDescription	Experience in combat has given the Arcane Fighter training in Simple and Martial Weapons.
+Subclass/&WeaponProfArcaneFighterTitle	 Weapon Training
 Subclass/&WhiteWitchDescription	White magic is fundamentally good and benevolent for all living things. Witches that adopt this craft, in spite of the hateful curse that infects them, often dedicate themselves to healing and caretaking, with the intent of bettering the world.
 Subclass/&WhiteWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel	Spells\n1st	Bless, Cure Wounds\n2nd	Lesser Restoration, Prayer of Healing\n3rd	Beacon of Hope, Revivify\n4th	Death Ward, Guardian of Faith\n5th	Mass Cure Wounds, Raise Dead
 Subclass/&WhiteWitchMagicTitle	White Magic
 Subclass/&WhiteWitchTitle	White Witch
 Subclass/&WitchSubclassPathDescription	Your knowledge of magic has culminated in joining a Coven, an innate circle of Witches who delve down a specific path of witchdom and curses.
 Subclass/&WitchSubclassPathTitle	Witch Covens
-Tooltip/&Tag9000Title Custom Effect
+Tooltip/&Tag9000Title	Custom Effect
 Equipment/&WandIdentifyDescription	Text	Casts the spell identify by expending one charge. The wand has 3 charges and regains 1d3 charges each dawn.
 Equipment/&WandIdentifyTitle	Text	Wand of Identify
-ActionAffinity/&DHFeeblemindSpellDescription unable to cast spells
-ActionAffinity/&DHFeeblemindSpellTitle Feeble spellcasting
-AttributeModifier/&DHFeeblemindChaSpellDescription Charisma score equals 1
-AttributeModifier/&DHFeeblemindChaSpellTitle Feeble Charisma
-AttributeModifier/&DHFeeblemindIntSpellDescription Intelligence score equals 1
-AttributeModifier/&DHFeeblemindIntSpellTitle Feeble intelligence
-Condition/&DHFeeblemindSpellDescription The creature's Intelligence and Charisma scores become 1. The creature can't cast spells, activate magic items, understand language, or communicate in any intelligible way
-Condition/&DHFeeblemindSpellTitle Feeblemind
-Condition/&DHForesightSpellDescription advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls
-Condition/&DHForesightSpellTitle Foresight
-Condition/&DHHolyAuraSpellDescription you cast this spell shed dim light in a 5-foot radius and have advantage on all saving throws, and other creatures have disadvantage on attack rolls against them until the spell ends. In addition, when a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends.
-Condition/&DHHolyAuraSpellTitle Protected by Holy Aura
-Condition/&DHMindBlankSpellDescription  Immune to psychic damage and the charmed condition
-Condition/&DHMindBlankSpellTitle Mind Blank
-Condition/&DHReverseGravitySpellDescription can't move
-Condition/&DHReverseGravitySpellTitle Caught by reverse gravity
-Condition/&DHTimeStopSpellDescription Frozen by Time Stop
-Condition/&DHTimeStopSpellTitle Frozen by Time Stop
-Condition/&DHWeirdSpellDescription The illusion calls on the creature's deepest fears, manifesting its worst nightmares as an implacable threat. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take 4d10 psychic damage. On a successful save, the spell ends for that creature.
-Condition/&DHWeirdSpellTitle Weirded
-DamageAffinity/&DHHolyAuraSpellDescription When a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends
-DamageAffinity/&DHHolyAuraSpellTitle Holy Aura Retaliation
-Feataure/&DHHolyAura_BlindingPower_Description When a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends
-Feature/&DHHolyAura_BlindingPower_Title Holy Aura Retaliation
-Monster/&DHCustomCouatlTitle Couatl
-Monster/&DHCustomCouatlDescription Couatls are benevolent serpentine beings of great intellect and insight. Their brilliantly colored wings and gentle manner speak to their celestial origins.
-MonsterAttack/&DHCouatlBiteAttackTitle Bite
-MonsterAttack/&DHCouatlBiteAttackDescription Piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 24 hours. Until this poison ends, the target is unconscious.
-Spell/&DHAnimalShapesSpellDescription Choose any number of willing creatures that you can see within range. You transform each target into the form of a Large or smaller beast with a challenge rating of 4 or lower.
-Spell/&DHAnimalShapesSpellTitle Animal shapes
-Spell/&DHConjureCelestialSpellDescription You summon a celestial of challenge rating 4 or lower, which appears in an unoccupied space that you can see within range. The celestial disappears when it drops to 0 hit points or when the spell ends. The celestial is friendly to you and your companions for the duration.
-Spell/&DHConjureCelestialSpellTitle Conjure Celestial (Couatl)
-Spell/&DHDominateMonsterSpellDescription You attempt to beguile a creature that you can see within range. It must succeed on a Wisdom saving throw or be charmed by you for the duration.
-Spell/&DHDominateMonsterSpellTitle Dominate Monster
-Spell/&DHFeeblemindSpellDescription You blast the mind of a creature that you can see within range, attempting to shatter its intellect and personality. The target takes 4d6 psychic damage and must make an Intelligence saving throw.On a failed save, the creature's Intelligence and Charisma scores become 1. The creature can't cast spells, activate magic items, understand language, or communicate in any intelligible way.
-Spell/&DHFeeblemindSpellTitle Feeblemind
-Spell/&DHFingerOfDeathSpellDescription The target must make a Constitution saving throw. It takes 7d8 + 30 necrotic damage on a failed save, or half as much damage on a successful one.
-Spell/&DHFingerOfDeathSpellTitle Finger of Death (No Zombie)
-Spell/&DHForesightSpellDescription You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be surprised and has advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against the target for the duration.
-Spell/&DHForesightSpellTitle Foresight
-Spell/&DHHolyAuraSpellDescription Divine light washes out from you and coalesces in a soft radiance in a 30-foot radius around you. Creatures of your choice in that radius when you cast this spell shed dim light in a 5-foot radius and have advantage on all saving throws, and other creatures have disadvantage on attack rolls against them until the spell ends.
-Spell/&DHHolyAuraSpellTitle Holy Aura
-Spell/&DHIncendiaryCloudSpellDescription A swirling cloud of smoke shot through with white-hot embers appears in a 20-foot-radius sphere centered on a point within range. The cloud spreads around corners and is heavily obscured. It lasts for the duration or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it.When the cloud appears, each creature in it must make a Dexterity saving throw. A creature takes 10d8 fire damage on a failed save, or half as much damage on a successful one. A creature must also make this saving throw when it enters the spell's area for the first time on a turn or ends its turn there.The cloud moves 10 feet directly away from you in a direction that you choose at the start of each of your turns.
-Spell/&DHIncendiaryCloudSpellTitle Incendiary Cloud
-Spell/&DHMassHealSpellDescription A flood of healing energy flows from you into injured creatures around you. You restore up to 700 hit points, divided as you choose among any number of creatures that you can see within range. Creatures healed by this spell are also cured of all diseases and any effect making them blinded or deafened. This spell has no effect on undead or constructs.
-Spell/&DHMassHealSpellTitle Mass Heal
-Spell/&DHMazeSpellDescription You banish a creature that you can see within range into a labyrinthine demiplane. The target remains there for the duration or until it escapes the maze. /nThe target can use its action to attempt to escape. When it does so, it makes a DC 20 Intelligence check.
-Spell/&DHMazeSpellTitle Maze
-Spell/&DHMeteorSwarmSingleTargetSpellDescription Blazing orbs of fire plummet to the ground at a single point you can see within range. Each creature in a 40-foot-radius sphere centered on the point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once..
-Spell/&DHMeteorSwarmSingleTargetSpellTitle Meteor Swarm (Single Target)
-Spell/&DHMindBlankSpellDescription Until the spell ends, one willing creature you touch is immune to psychic damage, any effect that would sense its emotions or read its thoughts, divination spells, and the charmed condition.
-Spell/&DHMindBlankSpellTitle Mind Blank
-Spell/&DHPowerWordHealSpellDescription A wave of healing energy washes over the creature you touch. The target regains all its hit points. If the creature is charmed, frightened, paralyzed, or stunned, the condition ends. If the creature is prone, it can use its reaction to stand up. This spell has no effect on undead or constructs.
-Spell/&DHPowerWordHealSpellTitle Power Word Heal
-Spell/&DHPowerWordKillSpellDescription You utter a word of power that can compel one creature you can see within range to die instantly. If the creature you choose has 100 hit points or fewer, it dies. Otherwise, the spell has no effect.
-Spell/&DHPowerWordKillSpellTitle Power Word Kill
-Spell/&DHPowerWordStunSpellDescription You speak a word of power that can overwhelm the mind of one creature you can see within range, leaving it dumbfounded. If the target has 150 hit points or fewer, it is stunned. Otherwise, the spell has no effect.
-Spell/&DHPowerWordStunSpellTitle Power Word Stun
-Spell/&DHReverseGravitySpellDescription This spell reverses gravity in a 50-foot-radius, 100-foot-high cylinder centered on a point within range.
-Spell/&DHReverseGravitySpellTitle Reverse Gravity
-Spell/&DHShapechangeSpellDescription You assume the form of a different creature for the duration. The new form can be of any creature with a challenge rating equal to your level or lower.
-Spell/&DHShapechangeSpellTitle Shapechange
-Spell/&DHSunBurstSpellDescription Brilliant sunlight flashes in a 60-foot radius centered on a point you choose within range. Each creature in that light must make a Constitution saving throw. On a failed save, a creature takes 12d6 radiant damage and is blinded for 1 minute. On a successful save, it takes half as much damage and isn't blinded by this spell. Undead and oozes have disadvantage on this saving throw.A creature blinded by this spell makes another Constitution saving throw at the end of each of its turns. On a successful save, it is no longer blinded.This spell dispels any darkness in its area that was created by a spell.
-Spell/&DHSunBurstSpellTitle Sunburst
-Spell/&DHTimeStopSpellDescription You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
-Spell/&DHTimeStopSpellTitle Time Stop
-Spell/&DHWeirdSpellDescription Drawing on the deepest fears of a group of creatures, you create illusory creatures in their minds, visible only to them. Each creature in a 30-foot-radius sphere centered on a point of your choice within range must make a Wisdom saving throw. On a failed save, a creature becomes frightened for the duration. The illusion calls on the creature's deepest fears, manifesting its worst nightmares as an implacable threat. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take 4d10 psychic damage. On a successful save, the spell ends for that creature.
-Spell/&DHWeirdSpellTitle Weird
-Spell/&IPConjureInvisibleStalker Conjure Invisible Stalker
+ActionAffinity/&DHFeeblemindSpellDescription	unable to cast spells
+ActionAffinity/&DHFeeblemindSpellTitle	Feeble spellcasting
+AttributeModifier/&DHFeeblemindChaSpellDescription	Charisma score equals 1
+AttributeModifier/&DHFeeblemindChaSpellTitle	Feeble Charisma
+AttributeModifier/&DHFeeblemindIntSpellDescription	Intelligence score equals 1
+AttributeModifier/&DHFeeblemindIntSpellTitle	Feeble intelligence
+Condition/&DHFeeblemindSpellDescription	The creature's Intelligence and Charisma scores become 1. The creature can't cast spells, activate magic items, understand language, or communicate in any intelligible way
+Condition/&DHFeeblemindSpellTitle	Feeblemind
+Condition/&DHForesightSpellDescription	advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls
+Condition/&DHForesightSpellTitle	Foresight
+Condition/&DHHolyAuraSpellDescription	you cast this spell shed dim light in a 5-foot radius and have advantage on all saving throws, and other creatures have disadvantage on attack rolls against them until the spell ends. In addition, when a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends.
+Condition/&DHHolyAuraSpellTitle	Protected by Holy Aura
+Condition/&DHMindBlankSpellDescription	 Immune to psychic damage and the charmed condition
+Condition/&DHMindBlankSpellTitle	Mind Blank
+Condition/&DHReverseGravitySpellDescription	can't move
+Condition/&DHReverseGravitySpellTitle	Caught by reverse gravity
+Condition/&DHTimeStopSpellDescription	Frozen by Time Stop
+Condition/&DHTimeStopSpellTitle	Frozen by Time Stop
+Condition/&DHWeirdSpellDescription	The illusion calls on the creature's deepest fears, manifesting its worst nightmares as an implacable threat. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take 4d10 psychic damage. On a successful save, the spell ends for that creature.
+Condition/&DHWeirdSpellTitle	Weirded
+DamageAffinity/&DHHolyAuraSpellDescription	When a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends
+DamageAffinity/&DHHolyAuraSpellTitle	Holy Aura Retaliation
+Feataure/&DHHolyAura_BlindingPower_Description	When a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends
+Feature/&DHHolyAura_BlindingPower_Title	Holy Aura Retaliation
+Monster/&DHCustomCouatlTitle	Couatl
+Monster/&DHCustomCouatlDescription	Couatls are benevolent serpentine beings of great intellect and insight. Their brilliantly colored wings and gentle manner speak to their celestial origins.
+MonsterAttack/&DHCouatlBiteAttackTitle	Bite
+MonsterAttack/&DHCouatlBiteAttackDescription	Piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 24 hours. Until this poison ends, the target is unconscious.
+Spell/&DHAnimalShapesSpellDescription	Choose any number of willing creatures that you can see within range. You transform each target into the form of a Large or smaller beast with a challenge rating of 4 or lower.
+Spell/&DHAnimalShapesSpellTitle	Animal shapes
+Spell/&DHConjureCelestialSpellDescription	You summon a celestial of challenge rating 4 or lower, which appears in an unoccupied space that you can see within range. The celestial disappears when it drops to 0 hit points or when the spell ends. The celestial is friendly to you and your companions for the duration.
+Spell/&DHConjureCelestialSpellTitle	Conjure Celestial (Couatl)
+Spell/&DHDominateMonsterSpellDescription	You attempt to beguile a creature that you can see within range. It must succeed on a Wisdom saving throw or be charmed by you for the duration.
+Spell/&DHDominateMonsterSpellTitle	Dominate Monster
+Spell/&DHFeeblemindSpellDescription	You blast the mind of a creature that you can see within range, attempting to shatter its intellect and personality. The target takes 4d6 psychic damage and must make an Intelligence saving throw.On a failed save, the creature's Intelligence and Charisma scores become 1. The creature can't cast spells, activate magic items, understand language, or communicate in any intelligible way.
+Spell/&DHFeeblemindSpellTitle	Feeblemind
+Spell/&DHFingerOfDeathSpellDescription	The target must make a Constitution saving throw. It takes 7d8 + 30 necrotic damage on a failed save, or half as much damage on a successful one.
+Spell/&DHFingerOfDeathSpellTitle	Finger of Death (No Zombie)
+Spell/&DHForesightSpellDescription	You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be surprised and has advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against the target for the duration.
+Spell/&DHForesightSpellTitle	Foresight
+Spell/&DHHolyAuraSpellDescription	Divine light washes out from you and coalesces in a soft radiance in a 30-foot radius around you. Creatures of your choice in that radius when you cast this spell shed dim light in a 5-foot radius and have advantage on all saving throws, and other creatures have disadvantage on attack rolls against them until the spell ends.
+Spell/&DHHolyAuraSpellTitle	Holy Aura
+Spell/&DHIncendiaryCloudSpellDescription	A swirling cloud of smoke shot through with white-hot embers appears in a 20-foot-radius sphere centered on a point within range. The cloud spreads around corners and is heavily obscured. It lasts for the duration or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it.When the cloud appears, each creature in it must make a Dexterity saving throw. A creature takes 10d8 fire damage on a failed save, or half as much damage on a successful one. A creature must also make this saving throw when it enters the spell's area for the first time on a turn or ends its turn there.The cloud moves 10 feet directly away from you in a direction that you choose at the start of each of your turns.
+Spell/&DHIncendiaryCloudSpellTitle	Incendiary Cloud
+Spell/&DHMassHealSpellDescription	A flood of healing energy flows from you into injured creatures around you. You restore up to 700 hit points, divided as you choose among any number of creatures that you can see within range. Creatures healed by this spell are also cured of all diseases and any effect making them blinded or deafened. This spell has no effect on undead or constructs.
+Spell/&DHMassHealSpellTitle	Mass Heal
+Spell/&DHMazeSpellDescription	You banish a creature that you can see within range into a labyrinthine demiplane. The target remains there for the duration or until it escapes the maze. /nThe target can use its action to attempt to escape. When it does so, it makes a DC 20 Intelligence check.
+Spell/&DHMazeSpellTitle	Maze
+Spell/&DHMeteorSwarmSingleTargetSpellDescription	Blazing orbs of fire plummet to the ground at a single point you can see within range. Each creature in a 40-foot-radius sphere centered on the point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once..
+Spell/&DHMeteorSwarmSingleTargetSpellTitle	Meteor Swarm (Single Target)
+Spell/&DHMindBlankSpellDescription	Until the spell ends, one willing creature you touch is immune to psychic damage, any effect that would sense its emotions or read its thoughts, divination spells, and the charmed condition.
+Spell/&DHMindBlankSpellTitle	Mind Blank
+Spell/&DHPowerWordHealSpellDescription	A wave of healing energy washes over the creature you touch. The target regains all its hit points. If the creature is charmed, frightened, paralyzed, or stunned, the condition ends. If the creature is prone, it can use its reaction to stand up. This spell has no effect on undead or constructs.
+Spell/&DHPowerWordHealSpellTitle	Power Word Heal
+Spell/&DHPowerWordKillSpellDescription	You utter a word of power that can compel one creature you can see within range to die instantly. If the creature you choose has 100 hit points or fewer, it dies. Otherwise, the spell has no effect.
+Spell/&DHPowerWordKillSpellTitle	Power Word Kill
+Spell/&DHPowerWordStunSpellDescription	You speak a word of power that can overwhelm the mind of one creature you can see within range, leaving it dumbfounded. If the target has 150 hit points or fewer, it is stunned. Otherwise, the spell has no effect.
+Spell/&DHPowerWordStunSpellTitle	Power Word Stun
+Spell/&DHReverseGravitySpellDescription	This spell reverses gravity in a 50-foot-radius, 100-foot-high cylinder centered on a point within range.
+Spell/&DHReverseGravitySpellTitle	Reverse Gravity
+Spell/&DHShapechangeSpellDescription	You assume the form of a different creature for the duration. The new form can be of any creature with a challenge rating equal to your level or lower.
+Spell/&DHShapechangeSpellTitle	Shapechange
+Spell/&DHSunBurstSpellDescription	Brilliant sunlight flashes in a 60-foot radius centered on a point you choose within range. Each creature in that light must make a Constitution saving throw. On a failed save, a creature takes 12d6 radiant damage and is blinded for 1 minute. On a successful save, it takes half as much damage and isn't blinded by this spell. Undead and oozes have disadvantage on this saving throw.A creature blinded by this spell makes another Constitution saving throw at the end of each of its turns. On a successful save, it is no longer blinded.This spell dispels any darkness in its area that was created by a spell.
+Spell/&DHSunBurstSpellTitle	Sunburst
+Spell/&DHTimeStopSpellDescription	You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
+Spell/&DHTimeStopSpellTitle	Time Stop
+Spell/&DHWeirdSpellDescription	Drawing on the deepest fears of a group of creatures, you create illusory creatures in their minds, visible only to them. Each creature in a 30-foot-radius sphere centered on a point of your choice within range must make a Wisdom saving throw. On a failed save, a creature becomes frightened for the duration. The illusion calls on the creature's deepest fears, manifesting its worst nightmares as an implacable threat. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take 4d10 psychic damage. On a successful save, the spell ends for that creature.
+Spell/&DHWeirdSpellTitle	Weird
+Spell/&IPConjureInvisibleStalker	Conjure Invisible Stalker
