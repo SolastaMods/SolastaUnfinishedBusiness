@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaModApi.Infrastructure;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using static SolastaModApi.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Models
@@ -253,6 +255,9 @@ namespace SolastaCommunityExpansion.Models
             }
 
             var items = new List<RulesetItem>();
+            var inspectedCharacter = containerPanel.InspectedCharacter;
+            var dropAreaClicked = containerPanel.DropAreaClicked;
+            var visibleSlotsRefreshed = containerPanel.VisibleSlotsRefreshed;
 
             containerPanel.Unbind();
             container.EnumerateAllItems(items);
@@ -278,8 +283,22 @@ namespace SolastaCommunityExpansion.Models
             previousSortAscending = currentSortAscending;
             previousSortDropDownValue = currentSortDropDownValue;
 
-            containerPanel.Bind(container, containerPanel.InspectedCharacter, containerPanel.DropAreaClicked, containerPanel.VisibleSlotsRefreshed);
-            containerPanel.InspectedCharacter?.RulesetCharacterHero?.CharacterRefreshed?.Invoke(containerPanel.InspectedCharacter.RulesetCharacterHero);
+            var hero = inspectedCharacter.RulesetCharacterHero;
+
+            containerPanel.Bind(container, inspectedCharacter, dropAreaClicked, visibleSlotsRefreshed);
+            hero.CharacterRefreshed?.Invoke(hero);
+
+            //
+            // TODO: colors only display correctly under All filter. need to check why
+            //
+            foreach (var inventorySlotBox in containerPanel.BoundSlotBoxes
+                .Where(x => x.InventorySlot.EquipedItem != null && !hero.IsProficientWithItem(x.InventorySlot.EquipedItem.ItemDefinition)))
+            {
+                var equipedItemImage = inventorySlotBox.GetField<InventorySlotBox, Image>("equipedItemImage");
+                var equipedItemImageFrame = equipedItemImage.transform.GetChild(0).GetComponent<Image>();
+
+                equipedItemImageFrame.color = Color.red;
+            }
         }
     }
 }
