@@ -261,6 +261,12 @@ namespace SolastaCommunityExpansion.Models
                 var itemDefinition = inventorySlotBox.InventorySlot.EquipedItem?.ItemDefinition;
                 var slotBackgroundImage = inventorySlotBox.transform.Find("SlotBackgroundImage").GetComponent<Image>();
 
+                //
+                // TODO: we could tweak the image frame color instead but this was a bit buggy...
+                //
+
+                // var EquippedFrameImage = inventorySlotBox.transform.parent.FindChildRecursive("EquipedFrame").GetComponent<Image>();
+
                 if (itemDefinition != null && !rulesetCharacterHero.IsProficientWithItem(itemDefinition))
                 {
                     slotBackgroundImage.color = new Color(1, 0, 0, 1);
