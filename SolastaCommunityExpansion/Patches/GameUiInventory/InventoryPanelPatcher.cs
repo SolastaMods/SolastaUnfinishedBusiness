@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiInventory
 
     [HarmonyPatch(typeof(InventoryPanel), "Unbind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ContainerPanel_Unbind
+    internal static class InventoryPanel_Unbind
     {
         internal static void Prefix(InventoryPanel __instance)
         {
