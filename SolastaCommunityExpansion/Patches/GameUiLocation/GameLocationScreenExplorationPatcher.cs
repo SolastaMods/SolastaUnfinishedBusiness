@@ -23,56 +23,88 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
             switch (command)
             {
                 case GameUiContext.CTRL_C:
-                    if (___characterControlPanelExploration.Visible)
-                    {
-                        ___characterControlPanelExploration.Hide();
-                    }
-                    else
-                    {
-                        var gameLocationSelectionService = ServiceRepository.GetService<IGameLocationSelectionService>();
-
-                        if (gameLocationSelectionService.SelectedCharacters.Count > 0)
-                        {
-                            ___characterControlPanelExploration.Bind(gameLocationSelectionService.SelectedCharacters[0], __instance.ActionTooltipDock);
-                            ___characterControlPanelExploration.Show();
-                        }
-                    }
+                    ShowCharacterControlPanelExploration();
                     break;
 
                 case GameUiContext.CTRL_L:
-                    var guiConsoleScreen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
-
-                    if (guiConsoleScreen.Visible)
-                    {
-                        guiConsoleScreen.Hide();
-                    }
-                    else
-                    {
-                        guiConsoleScreen.Show();
-                    }
+                    ShowGuiConsoleScreen();
                     break;
 
                 case GameUiContext.CTRL_M:
-                    if (___timeAndNavigationPanel.Visible)
-                    {
-                        ___timeAndNavigationPanel.Hide();
-                    }
-                    else
-                    {
-                        ___timeAndNavigationPanel.Show();
-                    }
+                    ShowTimeAndNavigationPanel();
                     break;
 
                 case GameUiContext.CTRL_P:
-                    if (___partyControlPanel.Visible)
-                    {
-                        ___partyControlPanel.Hide();
-                    }
-                    else
-                    {
-                        ___partyControlPanel.Show();
-                    }
+                    ShowPartyControlPanel();
                     break;
+
+                case GameUiContext.CTRL_H:
+                    ShowAll();
+                    break;
+            }
+
+            void ShowAll()
+            {
+                ShowCharacterControlPanelExploration();
+                ShowGuiConsoleScreen();
+                ShowTimeAndNavigationPanel();
+                ShowPartyControlPanel();
+            }
+
+            void ShowCharacterControlPanelExploration()
+            {
+                if (___characterControlPanelExploration.Visible)
+                {
+                    ___characterControlPanelExploration.Hide();
+                }
+                else
+                {
+                    var gameLocationSelectionService = ServiceRepository.GetService<IGameLocationSelectionService>();
+
+                    if (gameLocationSelectionService.SelectedCharacters.Count > 0)
+                    {
+                        ___characterControlPanelExploration.Bind(gameLocationSelectionService.SelectedCharacters[0], __instance.ActionTooltipDock);
+                        ___characterControlPanelExploration.Show();
+                    }
+                }
+            }
+
+            void ShowGuiConsoleScreen()
+            {
+                var guiConsoleScreen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
+
+                if (guiConsoleScreen.Visible)
+                {
+                    guiConsoleScreen.Hide();
+                }
+                else
+                {
+                    guiConsoleScreen.Show();
+                }
+            }
+
+            void ShowTimeAndNavigationPanel()
+            {
+                if (___timeAndNavigationPanel.Visible)
+                {
+                    ___timeAndNavigationPanel.Hide();
+                }
+                else
+                {
+                    ___timeAndNavigationPanel.Show();
+                }
+            }
+
+            void ShowPartyControlPanel()
+            {
+                if (___partyControlPanel.Visible)
+                {
+                    ___partyControlPanel.Hide();
+                }
+                else
+                {
+                    ___partyControlPanel.Show();
+                }
             }
         }
     }
