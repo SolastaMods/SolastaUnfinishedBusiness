@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.CharacterExport
 {
@@ -10,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.CharacterExport
     {
         public static void Postfix(CharacterInspectionScreen __instance, InputCommands.Id command)
         {
-            if (Gui.Game != null && Main.Settings.EnableCharacterExport && !Models.CharacterExportContext.InputModalVisible && command == Models.CharacterExportContext.CTRL_E)
+            if (Gui.Game != null && Main.Settings.EnableCharacterExport && !CharacterExportContext.InputModalVisible && command == GameUiContext.CTRL_E)
             {
                 Models.CharacterExportContext.ExportInspectedCharacter(__instance.InspectedCharacter.RulesetCharacterHero);
             }
