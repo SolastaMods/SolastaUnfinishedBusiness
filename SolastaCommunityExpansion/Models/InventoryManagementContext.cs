@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Infrastructure;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -73,7 +72,7 @@ namespace SolastaCommunityExpansion.Models
             filterRect.sizeDelta = new Vector2(150f, 28f);
 
             FilterGuiDropdown.ClearOptions();
-            FilterGuiDropdown.onValueChanged.AddListener(delegate { Refresh(containerPanel); });
+            FilterGuiDropdown.onValueChanged.AddListener(delegate { Refresh(containerPanel, rebind: true); });
 
             ItemCategories.ForEach(x => filterOptions.Add(new TMP_Dropdown.OptionData() { text = x.FormatTitle() }));
 
@@ -91,7 +90,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 BySortGroup.Inverted = inverted;
                 BySortGroup.Refresh();
-                Refresh(containerPanel);
+                Refresh(containerPanel, rebind: true);
             });
 
             byTextMesh.SetText("by");
@@ -104,13 +103,12 @@ namespace SolastaCommunityExpansion.Models
             sortRect.sizeDelta = new Vector2(150f, 28f);
 
             SortGuiDropdown.ClearOptions();
-            SortGuiDropdown.onValueChanged.AddListener(delegate { Refresh(containerPanel); });
+            SortGuiDropdown.onValueChanged.AddListener(delegate { Refresh(containerPanel, rebind: true); });
 
             SortGuiDropdown.AddOptions(new List<TMP_Dropdown.OptionData>()
             {
-                new TMP_Dropdown.OptionData() { text = "Default" },
-                new TMP_Dropdown.OptionData() { text = "Category" },
                 new TMP_Dropdown.OptionData() { text = "Name" },
+                new TMP_Dropdown.OptionData() { text = "Category" },
                 new TMP_Dropdown.OptionData() { text = "Cost" },
                 new TMP_Dropdown.OptionData() { text = "Weight" },
                 new TMP_Dropdown.OptionData() { text = "Cost per Weight" },
@@ -120,57 +118,63 @@ namespace SolastaCommunityExpansion.Models
 
             reorder.localPosition = new Vector3(-32f, 358f, 0f);
             reorderButton.onClick.RemoveAllListeners();
-            reorderButton.onClick.AddListener(delegate
-            {
-                FilterGuiDropdown.value = 0;
-                SortGuiDropdown.value = 0;
-                BySortGroup.Inverted = false;
-                BySortGroup.Refresh();
-                Refresh(containerPanel);
+            reorderButton.onClick.AddListener(delegate 
+            { 
+                Reset();
+                Refresh(containerPanel, rebind: true);
             });
             reorderTextMesh.text = "Reset";
         }
 
+        internal static void Reset()
+        {
+            FilterGuiDropdown.value = 0;
+            SortGuiDropdown.value = 0;
+            BySortGroup.Inverted = false;
+            BySortGroup.Refresh();
+        }
+
         private static void Sort(List<RulesetItem> items)
         {
-            int SortOrder() => BySortGroup.Inverted ? -1 : 1;
+            var sortOrder = BySortGroup.Inverted ? -1 : 1;
+
+            int SortByName(RulesetItem a, RulesetItem b)
+            {
+                var at = Gui.Format(a.ItemDefinition.GuiPresentation.Title);
+                var bt = Gui.Format(b.ItemDefinition.GuiPresentation.Title);
+
+                if (at == bt)
+                {
+                    return sortOrder * (a.StackCount - b.StackCount);
+                }
+
+                return sortOrder * at.CompareTo(bt);
+            }
 
             switch (SortGuiDropdown.value)
             {
-                case 0: // Default
-                    items.Sort((a, b) =>
-                    {
-                        int asi = a.ItemDefinition.SortingIndex;
-                        int bsi = b.ItemDefinition.SortingIndex;
-                        return SortOrder() * (asi == bsi ? Gui.Localize(a.ItemDefinition.FormatTitle()).CompareTo(Gui.Localize(a.ItemDefinition.FormatTitle())) : asi.CompareTo(bsi));
-                    });
+                case 0: // Name
+                    items.Sort(SortByName);
                     break;
 
-                case 1: // Name
+                case 1: // Category
                     items.Sort((a, b) =>
                     {
-                        return SortOrder() * a.ItemDefinition.FormatTitle().CompareTo(b.ItemDefinition.FormatTitle());
-                    });
-                    break;
+                    var merchantCategoryDefinitions = DatabaseRepository.GetDatabase<MerchantCategoryDefinition>();
 
-                case 2: // Category
-                    items.Sort((a, b) =>
-                    {
-                        var merchantCategoryDefinitions = DatabaseRepository.GetDatabase<MerchantCategoryDefinition>();
+                    var amct = Gui.Format(merchantCategoryDefinitions.GetElement(a.ItemDefinition.MerchantCategory).GuiPresentation.Title);
+                    var bmct = Gui.Format(merchantCategoryDefinitions.GetElement(b.ItemDefinition.MerchantCategory).GuiPresentation.Title);
 
-                        var amc = merchantCategoryDefinitions.GetElement(a.ItemDefinition.MerchantCategory).FormatTitle();
-                        var bmc = merchantCategoryDefinitions.GetElement(b.ItemDefinition.MerchantCategory).FormatTitle();
-
-                        if (amc == bmc)
+                        if (amct == bmct)
                         {
-                            return SortOrder() * a.ItemDefinition.FormatTitle().CompareTo(b.ItemDefinition.FormatTitle());
+                            return SortByName(a, b);
                         }
 
-                        return SortOrder() * amc.CompareTo(bmc);
+                        return sortOrder * bmct.CompareTo(bmct);
                     });
                     break;
 
-                case 3: // Cost
+                case 2: // Cost
                     items.Sort((a, b) =>
                     {
                         var ac = a.ComputeCost();
@@ -178,14 +182,14 @@ namespace SolastaCommunityExpansion.Models
 
                         if (ac == bc)
                         {
-                            return SortOrder() * a.ItemDefinition.FormatTitle().CompareTo(b.ItemDefinition.FormatTitle());
+                            return SortByName(a, b);
                         }
 
-                        return SortOrder() * EquipmentDefinitions.CompareCosts(ac, bc);
+                        return sortOrder * EquipmentDefinitions.CompareCosts(ac, bc);
                     });
                     break;
 
-                case 4: // Weight
+                case 3: // Weight
                     items.Sort((a, b) =>
                     {
                         var aw = a.ComputeWeight();
@@ -193,33 +197,48 @@ namespace SolastaCommunityExpansion.Models
 
                         if (Mathf.Abs(aw - bw) < .0E-5f)
                         {
-                            return SortOrder() * a.ItemDefinition.FormatTitle().CompareTo(b.ItemDefinition.FormatTitle());
+                            return SortByName(a, b);
                         }
 
-                        return SortOrder() * aw.CompareTo(bw);
+                        return sortOrder * aw.CompareTo(bw);
                     });
                     break;
 
-                case 5: // Cost per Weight
+                case 4: // Cost per Weight
                     items.Sort((a, b) =>
                     {
                         var acpw = EquipmentDefinitions.GetApproximateCostInGold(a.ItemDefinition.Costs) / a.ComputeWeight();
                         var bcpw = EquipmentDefinitions.GetApproximateCostInGold(b.ItemDefinition.Costs) / b.ComputeWeight();
 
-                        if (Mathf.Abs(acpw - bcpw) < .0E-4f)
+                        if (Mathf.Abs(acpw - bcpw) < .0E-5f)
                         {
-                            return SortOrder() * a.ItemDefinition.FormatTitle().CompareTo(b.ItemDefinition.FormatTitle());
+                            return SortByName(a, b);
                         }
 
-                        return SortOrder() * acpw.CompareTo(bcpw);
+                        return sortOrder * acpw.CompareTo(bcpw);
                     });
                     break;
             }
         }
 
-        internal static void Refresh(ContainerPanel containerPanel, bool drainFilter = false)
+        internal static void Flush(ContainerPanel containerPanel)
         {
-            var container = containerPanel?.Container;
+            var container = containerPanel.Container;
+
+            if (container == null)
+            {
+                return;
+            }
+
+            foreach (var filteredItem in FilteredItems)
+            {
+                container.AddSubItem(filteredItem, silent: true);
+            }
+        }
+
+        internal static void Refresh(ContainerPanel containerPanel, bool rebind = false)
+        {
+            var container = containerPanel.Container;
 
             if (container == null)
             {
@@ -227,22 +246,21 @@ namespace SolastaCommunityExpansion.Models
             }
 
             var items = new List<RulesetItem>();
-            var inspectedCharacter = containerPanel.InspectedCharacter;
-            var rulesetCharacterHero = inspectedCharacter.RulesetCharacterHero;
-            var dropAreaClicked = containerPanel.DropAreaClicked;
-            var visibleSlotsRefreshed = containerPanel.VisibleSlotsRefreshed;
 
             container.EnumerateAllItems(items);
             container.InventorySlots.ForEach(x => x.UnequipItem(silent: true));
-            containerPanel.Unbind();
 
-            items.AddRange(FilteredItems);
-            FilteredItems.Clear();
+            if (FilteredItems.Count > 0)
+            {
+                items.AddRange(FilteredItems);
+                FilteredItems.Clear();
+            }
+
             Sort(items);
 
             foreach (var item in items)
             {
-                if (drainFilter || FilterGuiDropdown.value == 0 || item.ItemDefinition.MerchantCategory == ItemCategories[FilterGuiDropdown.value].Name)
+                if (FilterGuiDropdown.value == 0 || item.ItemDefinition.MerchantCategory == ItemCategories[FilterGuiDropdown.value].Name)
                 {
                     container.AddSubItem(item, silent: true);
                 }
@@ -252,33 +270,10 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
 
-            containerPanel.Bind(container, inspectedCharacter, dropAreaClicked, visibleSlotsRefreshed);
-            rulesetCharacterHero.CharacterRefreshed?.Invoke(rulesetCharacterHero);
-
-            foreach (var inventorySlotBox in containerPanel.BoundSlotBoxes)
+            if (rebind)
             {
-                var itemDefinition = inventorySlotBox.InventorySlot.EquipedItem?.ItemDefinition;
-                var slotBackgroundImage = inventorySlotBox.transform.Find("SlotBackgroundImage").GetComponent<Image>();
-
-                if (itemDefinition != null)
-                {
-                    var equippedItemImage = inventorySlotBox.transform.Find("EquipedItemImage (PoolElement)").GetComponent<Image>();
-
-                    if (rulesetCharacterHero.IsProficientWithItem(itemDefinition))
-                    {
-                        equippedItemImage.color = Color.white;
-                        slotBackgroundImage.color = Color.white;
-                    }
-                    else
-                    {
-                        equippedItemImage.color = Color.red;
-                        slotBackgroundImage.color = Color.red;
-                    }
-                }
-                else
-                {
-                    slotBackgroundImage.color = Color.white;
-                }
+                containerPanel.Unbind();
+                containerPanel.Bind(container, containerPanel.InspectedCharacter, containerPanel.DropAreaClicked, containerPanel.VisibleSlotsRefreshed);
             }
         }
     }
