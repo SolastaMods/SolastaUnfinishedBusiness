@@ -27,26 +27,11 @@ namespace SolastaCommunityExpansion.Models
 
         private static GuiDropdown SortGuiDropdown { get; set; }
 
-        private static Transform Reorder;
-
         internal static void Load()
         {
-            if (!Main.Settings.EnableInventoryFilteringAndSorting)
-            {
-                return;
-            }
-
             var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
             var rightGroup = characterInspectionScreen.transform.FindChildRecursive("RightGroup");
             var containerPanel = rightGroup.GetComponentInChildren<ContainerPanel>();
-
-            void SelectionChanged()
-            {
-                var container = containerPanel.Container;
-
-                containerPanel.Unbind();
-                containerPanel.Bind(container, containerPanel.InspectedCharacter, containerPanel.DropAreaClicked, containerPanel.VisibleSlotsRefreshed);
-            }
 
             var dropdownPrefab = Resources.Load<GameObject>("GUI/Prefabs/Component/Dropdown");
             var sortGroupPrefab = Gui.GuiService.GetScreen<MainMenuScreen>().transform.FindChildRecursive("SortGroupAlphabetical");
@@ -66,14 +51,50 @@ namespace SolastaCommunityExpansion.Models
             
             SortGuiDropdown = sort.GetComponent<GuiDropdown>();
 
-            Reorder = rightGroup.transform.Find("ReorderPersonalContainerButton");
+            //
+            // on any control change we need to unbind / bind the entire panel to refresh all the additional items gizmos
+            //
 
-            // caches categories
+            void SelectionChanged()
+            {
+                var container = containerPanel.Container;
+                var inspectedCharacter = containerPanel.InspectedCharacter;
+                var dropAreaClicked = containerPanel.DropAreaClicked;
+                var visibleSlotsRefreshed = containerPanel.VisibleSlotsRefreshed;
+
+                containerPanel.Unbind();
+                containerPanel.Bind(container, inspectedCharacter, dropAreaClicked, visibleSlotsRefreshed);
+            }
+
+            // changes the reorder button label and refactor the listener
+
+            var reorder = rightGroup.transform.Find("ReorderPersonalContainerButton");
+            var reorderButton = reorder.GetComponent<UnityEngine.UI.Button>();
+            var reorderTextMesh = reorder.GetComponentInChildren<TextMeshProUGUI>();
+
+            reorder.localPosition = new Vector3(-32f, 358f, 0f);
+            reorderTextMesh.text = "Reset";
+            reorderButton.onClick.RemoveAllListeners();
+            reorderButton.onClick.AddListener(delegate
+            {
+                if (Main.Settings.EnableInventoryFilteringAndSorting)
+                {
+                    FilterGuiDropdown.value = 0;
+                    SortGuiDropdown.value = 0;
+                    BySortGroup.Inverted = false;
+                    BySortGroup.Refresh();
+                    SelectionChanged();
+                }
+                else
+                {
+                    containerPanel.OnReorderCb();
+                }
+            });
+
+            // creates the categories in alphabetical sort order
 
             var merchantCategoryDefinitions = DatabaseRepository.GetDatabase<MerchantCategoryDefinition>();
-            var filteredCategoryDefinitions = merchantCategoryDefinitions.Where(x => x != MerchantCategoryDefinitions.All).ToList();
-
-            filteredCategoryDefinitions.Sort((a, b) => a.FormatTitle().CompareTo(b.FormatTitle()));
+            var filteredCategoryDefinitions = merchantCategoryDefinitions.Where(x => x != MerchantCategoryDefinitions.All).OrderBy(x => x.FormatTitle());
 
             ItemCategories.Add(MerchantCategoryDefinitions.All);
             ItemCategories.AddRange(filteredCategoryDefinitions);
@@ -95,7 +116,7 @@ namespace SolastaCommunityExpansion.Models
             FilterGuiDropdown.AddOptions(filterOptions);
             FilterGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);
 
-            // adds the sort direction toggle
+            // adds the by sort group
 
             by.name = "SortGroup";
             by.transform.localPosition = new Vector3(-302f, 370f, 0f);
@@ -136,7 +157,6 @@ namespace SolastaCommunityExpansion.Models
             FilterGuiDropdown.gameObject.SetActive(active);
             BySortGroup.gameObject.SetActive(active);
             SortGuiDropdown.gameObject.SetActive(active);
-            Reorder.gameObject.SetActive(!active);
         }
 
         private static void Sort(List<RulesetItem> items)
@@ -246,6 +266,7 @@ namespace SolastaCommunityExpansion.Models
             container.InventorySlots.ForEach(slot => slot.UnequipItem(silent: true));
 
             Sort(allItems);
+
             allItems.ForEach(item =>
             {
                 if (FilterGuiDropdown.value == 0 || item.ItemDefinition.MerchantCategory == ItemCategories[FilterGuiDropdown.value].Name)
