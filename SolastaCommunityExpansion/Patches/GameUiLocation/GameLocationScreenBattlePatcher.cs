@@ -4,15 +4,15 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.GameUiLocation
 {
-    [HarmonyPatch(typeof(GameLocationScreenExploration), "HandleInput")]
+    [HarmonyPatch(typeof(GameLocationScreenBattle), "HandleInput")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GameLocationScreenExploration_HandleInput
+    internal static class GameLocationScreenBattle_HandleInput
     {
         internal static void Postfix(
-            GameLocationScreenExploration __instance,
+            GameLocationScreenBattle __instance,
             InputCommands.Id command,
-            PartyControlPanel ___partyControlPanel,
-            CharacterControlPanelExploration ___characterControlPanelExploration,
+            BattleInitiativeTable ___initiativeTable,
+            CharacterControlPanelBattle ___characterControlPanelBattle,
             TimeAndNavigationPanel ___timeAndNavigationPanel)
         {
             if (!Main.Settings.EnableHotkeysToToggleHud)
@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
             switch (command)
             {
                 case GameUiContext.CTRL_C:
-                    ShowCharacterControlPanelExploration();
+                    ShowCharacterControlPanelBattle();
                     break;
 
                 case GameUiContext.CTRL_L:
@@ -45,18 +45,18 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
 
             void ShowAll()
             {
-                ShowCharacterControlPanelExploration();
+                ShowCharacterControlPanelBattle();
                 ShowGuiConsoleScreen();
                 ShowTimeAndNavigationPanel();
                 ShowPartyControlPanel();
             }
 
-            void ShowCharacterControlPanelExploration()
+            void ShowCharacterControlPanelBattle()
             {
-                if (___characterControlPanelExploration.Visible)
+                if (___characterControlPanelBattle.Visible)
                 {
-                    ___characterControlPanelExploration.Hide();
-                    ___characterControlPanelExploration.Unbind();
+                    ___characterControlPanelBattle.Hide();
+                    ___characterControlPanelBattle.Unbind();
                 }
                 else
                 {
@@ -64,8 +64,8 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
 
                     if (gameLocationSelectionService.SelectedCharacters.Count > 0)
                     {
-                        ___characterControlPanelExploration.Bind(gameLocationSelectionService.SelectedCharacters[0], __instance.ActionTooltipDock);
-                        ___characterControlPanelExploration.Show();
+                        ___characterControlPanelBattle.Bind(gameLocationSelectionService.SelectedCharacters[0], __instance.ActionTooltipDock);
+                        ___characterControlPanelBattle.Show();
                     }
                 }
             }
@@ -98,13 +98,13 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
 
             void ShowPartyControlPanel()
             {
-                if (___partyControlPanel.Visible)
+                if (___initiativeTable.Visible)
                 {
-                    ___partyControlPanel.Hide();
+                    ___initiativeTable.Hide();
                 }
                 else
                 {
-                    ___partyControlPanel.Show();
+                    ___initiativeTable.Show();
                 }
             }
         }
