@@ -269,7 +269,9 @@ namespace SolastaCommunityExpansion.Models
 
             allItems.ForEach(item =>
             {
-                if (FilterGuiDropdown.value == 0 || item.ItemDefinition.MerchantCategory == ItemCategories[FilterGuiDropdown.value].Name)
+                var value = FilterGuiDropdown.value;
+
+                if (value == 0 || item.ItemDefinition.MerchantCategory == ItemCategories[value].Name)
                 {
                     container.AddSubItem(item, silent: true);
                 }
