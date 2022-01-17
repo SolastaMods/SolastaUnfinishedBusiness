@@ -70,7 +70,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                             while (current < classesCount && columns-- > 0)
                             {
                                 var keyValuePair = ClassesContext.Classes.ElementAt(current);
-                                var characterClass = keyValuePair.Value.GetClass();
+                                var characterClass = keyValuePair.Value;
                                 var title = characterClass.FormatTitle();
 
                                 if (flip)
