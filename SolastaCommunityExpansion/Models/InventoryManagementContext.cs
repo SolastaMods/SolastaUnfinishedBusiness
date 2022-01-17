@@ -2,35 +2,34 @@
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using static GuiDropdown;
 using static SolastaModApi.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Models
 {
     internal static class InventoryManagementContext
     {
-        private static int previousFilterDropDownValue;
+        private static readonly List<string> SortCategories = new List<string>
+        {
+            "Name",
+            "Category",
+            "Cost",
+            "Weight",
+            "Cost per Weight",
+        };
 
-        private static bool previousSortAscending = true;
+        private static readonly List<RulesetItem> FilteredItems = new List<RulesetItem>();
 
-        private static int previousSortDropDownValue;
+        private static readonly List<MerchantCategoryDefinition> ItemCategories = new List<MerchantCategoryDefinition>();
 
-        private static int currentFilterDropDownValue;
+        private static GuiDropdown FilterGuiDropdown { get; set; }
 
-        private static bool currentSortAscending = true;
+        private static SortGroup BySortGroup { get; set; }
 
-        private static int currentSortDropDownValue;
-
-        private static readonly List<RulesetItem> FilteredOutItems = new List<RulesetItem>();
-
-        private static readonly List<MerchantCategoryDefinition> FilterCategories = new List<MerchantCategoryDefinition>();
+        private static GuiDropdown SortGuiDropdown { get; set; }
 
         internal static void Load()
         {
-            if (!Main.Settings.EnableInventoryFilteringAndSorting)
-            {
-                return;
-            }
-
             var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
             var rightGroup = characterInspectionScreen.transform.FindChildRecursive("RightGroup");
             var containerPanel = rightGroup.GetComponentInChildren<ContainerPanel>();
@@ -40,166 +39,170 @@ namespace SolastaCommunityExpansion.Models
 
             var filter = Object.Instantiate(dropdownPrefab, rightGroup);
             var filterRect = filter.GetComponent<RectTransform>();
-            var filterGuiDropdown = filter.GetComponent<GuiDropdown>();
+            
+            FilterGuiDropdown = filter.GetComponent<GuiDropdown>();
 
             var by = Object.Instantiate(sortGroupPrefab, rightGroup);
             var byTextMesh = by.GetComponentInChildren<TextMeshProUGUI>();
-            var bySortGroup = by.GetComponent<SortGroup>();
+            
+            BySortGroup = by.GetComponent<SortGroup>();
 
             var sort = Object.Instantiate(dropdownPrefab, rightGroup);
             var sortRect = sort.GetComponent<RectTransform>();
-            var sortGuiDropdown = sort.GetComponent<GuiDropdown>();
+            
+            SortGuiDropdown = sort.GetComponent<GuiDropdown>();
+
+            //
+            // on any control change we need to unbind / bind the entire panel to refresh all the additional items gizmos
+            //
+
+            void SelectionChanged()
+            {
+                var container = containerPanel.Container;
+                var inspectedCharacter = containerPanel.InspectedCharacter;
+                var dropAreaClicked = containerPanel.DropAreaClicked;
+                var visibleSlotsRefreshed = containerPanel.VisibleSlotsRefreshed;
+
+                containerPanel.Unbind();
+                containerPanel.Bind(container, inspectedCharacter, dropAreaClicked, visibleSlotsRefreshed);
+            }
+
+            // changes the reorder button label and refactor the listener
 
             var reorder = rightGroup.transform.Find("ReorderPersonalContainerButton");
             var reorderButton = reorder.GetComponent<UnityEngine.UI.Button>();
             var reorderTextMesh = reorder.GetComponentInChildren<TextMeshProUGUI>();
 
-            // caches categories
+            reorder.localPosition = new Vector3(-32f, 358f, 0f);
+            reorderTextMesh.text = "Reset";
+            reorderButton.onClick.RemoveAllListeners();
+            reorderButton.onClick.AddListener(delegate
+            {
+                if (Main.Settings.EnableInventoryFilteringAndSorting)
+                {
+                    FilterGuiDropdown.value = 0;
+                    SortGuiDropdown.value = 0;
+                    BySortGroup.Inverted = false;
+                    BySortGroup.Refresh();
+                    SelectionChanged();
+                }
+                else
+                {
+                    containerPanel.OnReorderCb();
+                }
+            });
+
+            // creates the categories in alphabetical sort order
 
             var merchantCategoryDefinitions = DatabaseRepository.GetDatabase<MerchantCategoryDefinition>();
-            var filteredCategoryDefinitions = merchantCategoryDefinitions.Where(x => x != MerchantCategoryDefinitions.All).ToList();
+            var filteredCategoryDefinitions = merchantCategoryDefinitions.Where(x => x != MerchantCategoryDefinitions.All).OrderBy(x => x.FormatTitle());
 
-            filteredCategoryDefinitions.Sort((a, b) => a.FormatTitle().CompareTo(b.FormatTitle()));
-
-            FilterCategories.Add(MerchantCategoryDefinitions.All);
-            FilterCategories.AddRange(filteredCategoryDefinitions);
+            ItemCategories.Add(MerchantCategoryDefinitions.All);
+            ItemCategories.AddRange(filteredCategoryDefinitions);
 
             // adds the filter dropdown
 
-            var filterOptions = new List<GuiDropdown.OptionDataAdvanced>();
+            var filterOptions = new List<TMP_Dropdown.OptionData>();
 
             filter.name = "FilterDropdown";
             filter.transform.localPosition = new Vector3(-422f, 370f, 0f);
 
             filterRect.sizeDelta = new Vector2(150f, 28f);
 
-            filterGuiDropdown.ClearOptions();
-            filterGuiDropdown.onValueChanged.AddListener(delegate
-            {
-                currentFilterDropDownValue = filterGuiDropdown.value;
-                Refresh(containerPanel);
-            });
+            FilterGuiDropdown.ClearOptions();
+            FilterGuiDropdown.onValueChanged.AddListener(delegate { SelectionChanged(); });
 
-            FilterCategories.ForEach(x => filterOptions.Add(new GuiDropdown.OptionDataAdvanced() { text = x.FormatTitle() }));
+            ItemCategories.ForEach(x => filterOptions.Add(new OptionDataAdvanced { text = x.FormatTitle() }));
 
-            filterGuiDropdown.AddOptions(filterOptions.Cast<TMP_Dropdown.OptionData>().ToList());
-            filterGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);
+            FilterGuiDropdown.AddOptions(filterOptions);
+            FilterGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);
 
-            // adds the sort direction toggle
+            // adds the by sort group
 
             by.name = "SortGroup";
             by.transform.localPosition = new Vector3(-302f, 370f, 0f);
 
-            bySortGroup.Inverted = !currentSortAscending;
-            bySortGroup.Selected = true;
-            bySortGroup.SortRequested = new SortGroup.SortRequestedHandler((sortCategory, inverted) =>
+            BySortGroup.Inverted = false;
+            BySortGroup.Selected = true;
+            BySortGroup.SortRequested = new SortGroup.SortRequestedHandler((sortCategory, inverted) =>
             {
-                bySortGroup.Inverted = inverted;
-                bySortGroup.Refresh();
-
-                currentSortAscending = !inverted;
-                Refresh(containerPanel);
+                BySortGroup.Inverted = inverted;
+                BySortGroup.Refresh();
+                SelectionChanged();
             });
 
             byTextMesh.SetText("by");
 
             // adds the sort dropdown
 
+            var sortOptions = new List<TMP_Dropdown.OptionData>();
+
             sort.name = "SortDropdown";
             sort.transform.localPosition = new Vector3(-205f, 370f, 0f);
 
             sortRect.sizeDelta = new Vector2(150f, 28f);
 
-            sortGuiDropdown.ClearOptions();
-            sortGuiDropdown.onValueChanged.AddListener(delegate
-            {
-                currentSortDropDownValue = sortGuiDropdown.value;
-                Refresh(containerPanel);
-            });
+            SortGuiDropdown.ClearOptions();
+            SortGuiDropdown.onValueChanged.AddListener(delegate { SelectionChanged(); });
 
-            //
-            // TODO: move hard-coded texts to translations-en
-            //
-            var options = new List<GuiDropdown.OptionDataAdvanced>()
-            {
-                new GuiDropdown.OptionDataAdvanced() { text = "Default" },
-                new GuiDropdown.OptionDataAdvanced() { text = "Category" },
-                new GuiDropdown.OptionDataAdvanced() { text = "Name" },
-                new GuiDropdown.OptionDataAdvanced() { text = "Cost" },
-                new GuiDropdown.OptionDataAdvanced() { text = "Weight" },
-                new GuiDropdown.OptionDataAdvanced() { text = "Cost per Weight" },
-            }
-            .Cast<TMP_Dropdown.OptionData>()
-            .ToList();
+            SortCategories.ForEach(x => sortOptions.Add(new OptionDataAdvanced { text = x }));
 
-            sortGuiDropdown.AddOptions(options);
-
-            // captures and changes the reorder button behavior
-            reorder.localPosition = new Vector3(-32f, 358f, 0f);
-            reorderButton.onClick.AddListener(delegate
-            {
-                previousFilterDropDownValue = 0;
-                previousSortAscending = true;
-                previousSortDropDownValue = 0;
-
-                currentFilterDropDownValue = 0;
-                currentSortAscending = true;
-                currentSortDropDownValue = 0;
-
-                filterGuiDropdown.value = 0;
-                bySortGroup.Inverted = false;
-                sortGuiDropdown.value = 0;
-
-                bySortGroup.Refresh();
-
-                Refresh(containerPanel, clearState: true);
-            });
-
-            reorderTextMesh.text = "Reset";
+            SortGuiDropdown.AddOptions(sortOptions);
+            SortGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);
         }
 
-        internal static void MarkAsDirty() => previousSortAscending = !previousSortAscending;
+        internal static void RefreshControlsVisibility()
+        {
+            var active = Main.Settings.EnableInventoryFilteringAndSorting;
+
+            FilterGuiDropdown.gameObject.SetActive(active);
+            BySortGroup.gameObject.SetActive(active);
+            SortGuiDropdown.gameObject.SetActive(active);
+        }
 
         private static void Sort(List<RulesetItem> items)
         {
-            int SortOrder() => currentSortAscending ? 1 : -1;
+            var sortOrder = BySortGroup.Inverted ? -1 : 1;
 
-            switch (currentSortDropDownValue)
+            int SortByName(RulesetItem a, RulesetItem b)
             {
-                case 0: // Default
-                    items.Sort((a, b) =>
-                    {
-                        int asi = a.ItemDefinition.SortingIndex;
-                        int bsi = b.ItemDefinition.SortingIndex;
-                        return SortOrder() * (asi == bsi ? Gui.Localize(a.ItemDefinition.FormatTitle()).CompareTo(Gui.Localize(a.ItemDefinition.FormatTitle())) : asi.CompareTo(bsi));
-                    });
+                var at = Gui.Format(a.ItemDefinition.GuiPresentation.Title);
+                var bt = Gui.Format(b.ItemDefinition.GuiPresentation.Title);
+
+                if (at == bt)
+                {
+                    return sortOrder * (a.StackCount - b.StackCount);
+                }
+
+                return sortOrder * at.CompareTo(bt);
+            }
+
+            switch (SortGuiDropdown.value)
+            {
+                case 0: // Name
+                    items.Sort(SortByName);
+
                     break;
 
-                case 1: // Name
-                    items.Sort((a, b) =>
-                    {
-                        return SortOrder() * a.ItemDefinition.FormatTitle().CompareTo(b.ItemDefinition.FormatTitle());
-                    });
-                    break;
-
-                case 2: // Category
+                case 1: // Category
                     items.Sort((a, b) =>
                     {
                         var merchantCategoryDefinitions = DatabaseRepository.GetDatabase<MerchantCategoryDefinition>();
 
-                        var amc = merchantCategoryDefinitions.GetElement(a.ItemDefinition.MerchantCategory).FormatTitle();
-                        var bmc = merchantCategoryDefinitions.GetElement(b.ItemDefinition.MerchantCategory).FormatTitle();
+                        var amct = Gui.Format(merchantCategoryDefinitions.GetElement(a.ItemDefinition.MerchantCategory).GuiPresentation.Title);
+                        var bmct = Gui.Format(merchantCategoryDefinitions.GetElement(b.ItemDefinition.MerchantCategory).GuiPresentation.Title);
 
-                        if (amc == bmc)
+                        if (amct == bmct)
                         {
-                            return SortOrder() * a.ItemDefinition.FormatTitle().CompareTo(b.ItemDefinition.FormatTitle());
+                            return SortByName(a, b);
                         }
 
-                        return SortOrder() * amc.CompareTo(bmc);
+                        return sortOrder * bmct.CompareTo(bmct);
                     });
+
                     break;
 
-                case 3: // Cost
+                case 2: // Cost
                     items.Sort((a, b) =>
                     {
                         var ac = a.ComputeCost();
@@ -207,14 +210,15 @@ namespace SolastaCommunityExpansion.Models
 
                         if (ac == bc)
                         {
-                            return SortOrder() * a.ItemDefinition.FormatTitle().CompareTo(b.ItemDefinition.FormatTitle());
+                            return SortByName(a, b);
                         }
 
-                        return SortOrder() * EquipmentDefinitions.CompareCosts(ac, bc);
+                        return sortOrder * EquipmentDefinitions.CompareCosts(ac, bc);
                     });
+
                     break;
 
-                case 4: // Weight
+                case 3: // Weight
                     items.Sort((a, b) =>
                     {
                         var aw = a.ComputeWeight();
@@ -222,65 +226,74 @@ namespace SolastaCommunityExpansion.Models
 
                         if (Mathf.Abs(aw - bw) < .0E-5f)
                         {
-                            return SortOrder() * a.ItemDefinition.FormatTitle().CompareTo(b.ItemDefinition.FormatTitle());
+                            return SortByName(a, b);
                         }
 
-                        return SortOrder() * aw.CompareTo(bw);
+                        return sortOrder * aw.CompareTo(bw);
                     });
+
                     break;
 
-                case 5: // Cost per Weight
+                case 4: // Cost per Weight
                     items.Sort((a, b) =>
                     {
                         var acpw = EquipmentDefinitions.GetApproximateCostInGold(a.ItemDefinition.Costs) / a.ComputeWeight();
                         var bcpw = EquipmentDefinitions.GetApproximateCostInGold(b.ItemDefinition.Costs) / b.ComputeWeight();
 
-                        if (Mathf.Abs(acpw - bcpw) < .0E-4f)
+                        if (Mathf.Abs(acpw - bcpw) < .0E-5f)
                         {
-                            return SortOrder() * a.ItemDefinition.FormatTitle().CompareTo(b.ItemDefinition.FormatTitle());
+                            return SortByName(a, b);
                         }
 
-                        return SortOrder() * acpw.CompareTo(bcpw);
+                        return sortOrder * acpw.CompareTo(bcpw);
                     });
+
                     break;
             }
         }
 
-        internal static void Refresh(ContainerPanel containerPanel, bool clearState = false)
+        internal static void SortAndFilter(ContainerPanel containerPanel, RulesetContainer container = null)
         {
-            var clean = previousFilterDropDownValue == currentFilterDropDownValue && previousSortAscending == currentSortAscending && previousSortDropDownValue == currentSortDropDownValue;
+            container = container ?? containerPanel.Container;
+
+            if (container == null)
+            {
+                return;
+            }
+
+            var allItems = new List<RulesetItem>();
+
+            container.EnumerateAllItems(allItems);
+            container.InventorySlots.ForEach(slot => slot.UnequipItem(silent: true));
+
+            Sort(allItems);
+
+            allItems.ForEach(item =>
+            {
+                var value = FilterGuiDropdown.value;
+
+                if (value == 0 || item.ItemDefinition.MerchantCategory == ItemCategories[value].Name)
+                {
+                    container.AddSubItem(item, silent: true);
+                }
+                else
+                {
+                    FilteredItems.Add(item);
+                }
+            });
+        }
+
+        internal static void Flush(ContainerPanel containerPanel)
+        {
             var container = containerPanel.Container;
 
-            if ((clearState || !clean) && container != null)
+            if (container == null)
             {
-                var items = new List<RulesetItem>();
-
-                container.EnumerateAllItems(items);
-                container.InventorySlots.ForEach(x => x.UnequipItem(silent: true));
-
-                items.AddRange(FilteredOutItems);
-                FilteredOutItems.Clear();
-
-                Sort(items);
-
-                foreach (var item in items)
-                {
-                    if (clearState || currentFilterDropDownValue == 0 || item.ItemDefinition.MerchantCategory == FilterCategories[currentFilterDropDownValue].Name)
-                    {
-                        container.AddSubItem(item, true);
-                    }
-                    else
-                    {
-                        FilteredOutItems.Add(item);
-                    }
-                }
-
-                previousFilterDropDownValue = currentFilterDropDownValue;
-                previousSortAscending = clearState ? !currentSortAscending : currentSortAscending; // bypass here forces a refresh on next bind as it creates an unclean state. this is required when swaping heroes
-                previousSortDropDownValue = currentSortDropDownValue;
-
-                containerPanel.InspectedCharacter?.RulesetCharacterHero?.CharacterRefreshed?.Invoke(containerPanel.InspectedCharacter.RulesetCharacterHero);
+                return;
             }
+
+            FilteredItems.ForEach(item => container.AddSubItem(item, silent: true));
+            FilteredItems.Clear();
         }
     }
 }
