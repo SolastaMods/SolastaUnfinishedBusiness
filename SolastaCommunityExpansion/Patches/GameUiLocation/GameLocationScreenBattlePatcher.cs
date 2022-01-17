@@ -45,15 +45,18 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
 
             void ShowAll()
             {
-                ShowCharacterControlPanelBattle();
-                ShowGuiConsoleScreen();
-                ShowTimeAndNavigationPanel();
-                ShowPartyControlPanel();
+                var guiConsoleScreen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
+                var anyVisible = ___characterControlPanelBattle.Visible || guiConsoleScreen.Visible || ___timeAndNavigationPanel.Visible || ___initiativeTable.Visible;
+
+                ShowCharacterControlPanelBattle(anyVisible);
+                ShowGuiConsoleScreen(anyVisible);
+                ShowTimeAndNavigationPanel(anyVisible);
+                ShowPartyControlPanel(anyVisible);
             }
 
-            void ShowCharacterControlPanelBattle()
+            void ShowCharacterControlPanelBattle(bool forceHide = false)
             {
-                if (___characterControlPanelBattle.Visible)
+                if (___characterControlPanelBattle.Visible || forceHide)
                 {
                     ___characterControlPanelBattle.Hide();
                     ___characterControlPanelBattle.Unbind();
@@ -70,11 +73,11 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
                 }
             }
 
-            void ShowGuiConsoleScreen()
+            void ShowGuiConsoleScreen(bool forceHide = false)
             {
                 var guiConsoleScreen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
 
-                if (guiConsoleScreen.Visible)
+                if (guiConsoleScreen.Visible || forceHide)
                 {
                     guiConsoleScreen.Hide();
                 }
@@ -84,9 +87,9 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
                 }
             }
 
-            void ShowTimeAndNavigationPanel()
+            void ShowTimeAndNavigationPanel(bool forceHide = false)
             {
-                if (___timeAndNavigationPanel.Visible)
+                if (___timeAndNavigationPanel.Visible || forceHide)
                 {
                     ___timeAndNavigationPanel.Hide();
                 }
@@ -96,9 +99,9 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
                 }
             }
 
-            void ShowPartyControlPanel()
+            void ShowPartyControlPanel(bool forceHide = false)
             {
-                if (___initiativeTable.Visible)
+                if (___initiativeTable.Visible || forceHide)
                 {
                     ___initiativeTable.Hide();
                 }
