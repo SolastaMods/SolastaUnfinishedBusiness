@@ -17,21 +17,13 @@ namespace SolastaCommunityExpansion.Models
             TeleporterParty,
         };
 
-        public const InputCommands.Id CTRL_C = (InputCommands.Id)44440000;
-        public const InputCommands.Id CTRL_L = (InputCommands.Id)44440001;
-        public const InputCommands.Id CTRL_M = (InputCommands.Id)44440002;
-        public const InputCommands.Id CTRL_P = (InputCommands.Id)44440003;
-        public const InputCommands.Id CTRL_E = (InputCommands.Id)44440004;
-        public const InputCommands.Id CTRL_H = (InputCommands.Id)44440005;
-
         internal static void Load()
         {
-            ServiceRepository.GetService<IInputService>().RegisterCommand(CTRL_C, (int)KeyCode.C, (int)KeyCode.LeftControl, -1, -1, -1, -1);
-            ServiceRepository.GetService<IInputService>().RegisterCommand(CTRL_L, (int)KeyCode.L, (int)KeyCode.LeftControl, -1, -1, -1, -1);
-            ServiceRepository.GetService<IInputService>().RegisterCommand(CTRL_M, (int)KeyCode.M, (int)KeyCode.LeftControl, -1, -1, -1, -1);
-            ServiceRepository.GetService<IInputService>().RegisterCommand(CTRL_P, (int)KeyCode.P, (int)KeyCode.LeftControl, -1, -1, -1, -1);
-            ServiceRepository.GetService<IInputService>().RegisterCommand(CTRL_E, (int)KeyCode.E, (int)KeyCode.LeftControl, -1, -1, -1, -1);
-            ServiceRepository.GetService<IInputService>().RegisterCommand(CTRL_H, (int)KeyCode.H, (int)KeyCode.LeftControl, -1, -1, -1, -1);
+            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_C, (int)KeyCode.C, (int)KeyCode.LeftControl, -1, -1, -1, -1);
+            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_L, (int)KeyCode.L, (int)KeyCode.LeftControl, -1, -1, -1, -1);
+            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_M, (int)KeyCode.M, (int)KeyCode.LeftControl, -1, -1, -1, -1);
+            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_P, (int)KeyCode.P, (int)KeyCode.LeftControl, -1, -1, -1, -1);
+            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_H, (int)KeyCode.H, (int)KeyCode.LeftControl, -1, -1, -1, -1);
         }
 
         internal static class RemoveInvalidFilenameChars
