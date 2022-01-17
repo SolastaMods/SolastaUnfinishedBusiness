@@ -30,6 +30,14 @@ namespace SolastaCommunityExpansion.Models
             var rightGroup = characterInspectionScreen.transform.FindChildRecursive("RightGroup");
             var containerPanel = rightGroup.GetComponentInChildren<ContainerPanel>();
 
+            void SelectionChanged()
+            {
+                var container = containerPanel.Container;
+
+                containerPanel.Unbind();
+                containerPanel.Bind(container, containerPanel.InspectedCharacter, containerPanel.DropAreaClicked, containerPanel.VisibleSlotsRefreshed);
+            }
+
             var dropdownPrefab = Resources.Load<GameObject>("GUI/Prefabs/Component/Dropdown");
             var sortGroupPrefab = Gui.GuiService.GetScreen<MainMenuScreen>().transform.FindChildRecursive("SortGroupAlphabetical");
 
@@ -72,7 +80,7 @@ namespace SolastaCommunityExpansion.Models
             filterRect.sizeDelta = new Vector2(150f, 28f);
 
             FilterGuiDropdown.ClearOptions();
-            FilterGuiDropdown.onValueChanged.AddListener(delegate { Refresh(containerPanel, rebind: true); });
+            FilterGuiDropdown.onValueChanged.AddListener(delegate { SelectionChanged(); });
 
             ItemCategories.ForEach(x => filterOptions.Add(new TMP_Dropdown.OptionData() { text = x.FormatTitle() }));
 
@@ -90,7 +98,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 BySortGroup.Inverted = inverted;
                 BySortGroup.Refresh();
-                Refresh(containerPanel, rebind: true);
+                SelectionChanged();
             });
 
             byTextMesh.SetText("by");
@@ -103,7 +111,7 @@ namespace SolastaCommunityExpansion.Models
             sortRect.sizeDelta = new Vector2(150f, 28f);
 
             SortGuiDropdown.ClearOptions();
-            SortGuiDropdown.onValueChanged.AddListener(delegate { Refresh(containerPanel, rebind: true); });
+            SortGuiDropdown.onValueChanged.AddListener(delegate { SelectionChanged(); });
 
             SortGuiDropdown.AddOptions(new List<TMP_Dropdown.OptionData>()
             {
@@ -119,19 +127,14 @@ namespace SolastaCommunityExpansion.Models
             reorder.localPosition = new Vector3(-32f, 358f, 0f);
             reorderButton.onClick.RemoveAllListeners();
             reorderButton.onClick.AddListener(delegate 
-            { 
-                Reset();
-                Refresh(containerPanel, rebind: true);
+            {
+                FilterGuiDropdown.value = 0;
+                SortGuiDropdown.value = 0;
+                BySortGroup.Inverted = false;
+                BySortGroup.Refresh();
+                SelectionChanged();
             });
             reorderTextMesh.text = "Reset";
-        }
-
-        internal static void Reset()
-        {
-            FilterGuiDropdown.value = 0;
-            SortGuiDropdown.value = 0;
-            BySortGroup.Inverted = false;
-            BySortGroup.Refresh();
         }
 
         private static void Sort(List<RulesetItem> items)
@@ -155,15 +158,16 @@ namespace SolastaCommunityExpansion.Models
             {
                 case 0: // Name
                     items.Sort(SortByName);
+
                     break;
 
                 case 1: // Category
                     items.Sort((a, b) =>
                     {
-                    var merchantCategoryDefinitions = DatabaseRepository.GetDatabase<MerchantCategoryDefinition>();
+                        var merchantCategoryDefinitions = DatabaseRepository.GetDatabase<MerchantCategoryDefinition>();
 
-                    var amct = Gui.Format(merchantCategoryDefinitions.GetElement(a.ItemDefinition.MerchantCategory).GuiPresentation.Title);
-                    var bmct = Gui.Format(merchantCategoryDefinitions.GetElement(b.ItemDefinition.MerchantCategory).GuiPresentation.Title);
+                        var amct = Gui.Format(merchantCategoryDefinitions.GetElement(a.ItemDefinition.MerchantCategory).GuiPresentation.Title);
+                        var bmct = Gui.Format(merchantCategoryDefinitions.GetElement(b.ItemDefinition.MerchantCategory).GuiPresentation.Title);
 
                         if (amct == bmct)
                         {
@@ -172,6 +176,7 @@ namespace SolastaCommunityExpansion.Models
 
                         return sortOrder * bmct.CompareTo(bmct);
                     });
+
                     break;
 
                 case 2: // Cost
@@ -187,6 +192,7 @@ namespace SolastaCommunityExpansion.Models
 
                         return sortOrder * EquipmentDefinitions.CompareCosts(ac, bc);
                     });
+
                     break;
 
                 case 3: // Weight
@@ -202,6 +208,7 @@ namespace SolastaCommunityExpansion.Models
 
                         return sortOrder * aw.CompareTo(bw);
                     });
+
                     break;
 
                 case 4: // Cost per Weight
@@ -217,6 +224,7 @@ namespace SolastaCommunityExpansion.Models
 
                         return sortOrder * acpw.CompareTo(bcpw);
                     });
+
                     break;
             }
         }
@@ -230,13 +238,11 @@ namespace SolastaCommunityExpansion.Models
                 return;
             }
 
-            foreach (var filteredItem in FilteredItems)
-            {
-                container.AddSubItem(filteredItem, silent: true);
-            }
+            FilteredItems.ForEach(item => container.AddSubItem(item, silent: true));
+            FilteredItems.Clear();
         }
 
-        internal static void Refresh(ContainerPanel containerPanel, bool rebind = false)
+        internal static void SortAndFilter(ContainerPanel containerPanel)
         {
             var container = containerPanel.Container;
 
@@ -245,20 +251,19 @@ namespace SolastaCommunityExpansion.Models
                 return;
             }
 
-            var items = new List<RulesetItem>();
+            var allItems = new List<RulesetItem>();
 
-            container.EnumerateAllItems(items);
-            container.InventorySlots.ForEach(x => x.UnequipItem(silent: true));
+            container.EnumerateAllItems(allItems);
+            container.InventorySlots.ForEach(slot => slot.UnequipItem(silent: true));
 
             if (FilteredItems.Count > 0)
             {
-                items.AddRange(FilteredItems);
+                allItems.AddRange(FilteredItems);
                 FilteredItems.Clear();
             }
 
-            Sort(items);
-
-            foreach (var item in items)
+            Sort(allItems);
+            allItems.ForEach(item =>
             {
                 if (FilterGuiDropdown.value == 0 || item.ItemDefinition.MerchantCategory == ItemCategories[FilterGuiDropdown.value].Name)
                 {
@@ -268,13 +273,7 @@ namespace SolastaCommunityExpansion.Models
                 {
                     FilteredItems.Add(item);
                 }
-            }
-
-            if (rebind)
-            {
-                containerPanel.Unbind();
-                containerPanel.Bind(container, containerPanel.InspectedCharacter, containerPanel.DropAreaClicked, containerPanel.VisibleSlotsRefreshed);
-            }
+            });
         }
     }
 }
