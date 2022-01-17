@@ -9,10 +9,9 @@ namespace SolastaCommunityExpansion.Patches.GameUiInventory
     {
         internal static void Prefix(ContainerPanel __instance, RulesetContainer container)
         {
-            if (Main.Settings.EnableInventoryFilteringAndSorting && (__instance.name == "Personal" || __instance.name == "PersonalContainerPanel"))
+            if (Main.Settings.EnableInventoryFilteringAndSorting && __instance.name.StartsWith("Personal"))
             {
-                __instance.Container = container;
-                Models.InventoryManagementContext.SortAndFilter(__instance);
+                Models.InventoryManagementContext.SortAndFilter(__instance, container);
             }
         }
     }
@@ -23,7 +22,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiInventory
     {
         internal static void Prefix(ContainerPanel __instance)
         {
-            if (Main.Settings.EnableInventoryFilteringAndSorting && (__instance.name == "Personal" || __instance.name == "PersonalContainerPanel"))
+            if (__instance.name.StartsWith("Personal"))
             {
                 Models.InventoryManagementContext.Flush(__instance);
             }

@@ -2,13 +2,21 @@
 using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using static SolastaModApi.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Models
 {
     internal static class InventoryManagementContext
     {
+        private static readonly List<string> SortCategories = new List<string>
+        {
+            "Name",
+            "Category",
+            "Cost",
+            "Weight",
+            "Cost per Weight",
+        };
+
         private static readonly List<RulesetItem> FilteredItems = new List<RulesetItem>();
 
         private static readonly List<MerchantCategoryDefinition> ItemCategories = new List<MerchantCategoryDefinition>();
@@ -18,6 +26,8 @@ namespace SolastaCommunityExpansion.Models
         private static SortGroup BySortGroup { get; set; }
 
         private static GuiDropdown SortGuiDropdown { get; set; }
+
+        private static Transform Reorder;
 
         internal static void Load()
         {
@@ -56,9 +66,7 @@ namespace SolastaCommunityExpansion.Models
             
             SortGuiDropdown = sort.GetComponent<GuiDropdown>();
 
-            var reorder = rightGroup.transform.Find("ReorderPersonalContainerButton");
-            var reorderButton = reorder.GetComponent<Button>();
-            var reorderTextMesh = reorder.GetComponentInChildren<TextMeshProUGUI>();
+            Reorder = rightGroup.transform.Find("ReorderPersonalContainerButton");
 
             // caches categories
 
@@ -105,6 +113,8 @@ namespace SolastaCommunityExpansion.Models
 
             // adds the sort dropdown
 
+            var sortOptions = new List<TMP_Dropdown.OptionData>();
+
             sort.name = "SortDropdown";
             sort.transform.localPosition = new Vector3(-205f, 370f, 0f);
 
@@ -113,28 +123,20 @@ namespace SolastaCommunityExpansion.Models
             SortGuiDropdown.ClearOptions();
             SortGuiDropdown.onValueChanged.AddListener(delegate { SelectionChanged(); });
 
-            SortGuiDropdown.AddOptions(new List<TMP_Dropdown.OptionData>()
-            {
-                new TMP_Dropdown.OptionData() { text = "Name" },
-                new TMP_Dropdown.OptionData() { text = "Category" },
-                new TMP_Dropdown.OptionData() { text = "Cost" },
-                new TMP_Dropdown.OptionData() { text = "Weight" },
-                new TMP_Dropdown.OptionData() { text = "Cost per Weight" },
-            });
+            SortCategories.ForEach(x => sortOptions.Add(new TMP_Dropdown.OptionData() { text = x }));
 
-            // changes the reorder button behavior
+            SortGuiDropdown.AddOptions(sortOptions);
+            SortGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);
+        }
 
-            reorder.localPosition = new Vector3(-32f, 358f, 0f);
-            reorderButton.onClick.RemoveAllListeners();
-            reorderButton.onClick.AddListener(delegate 
-            {
-                FilterGuiDropdown.value = 0;
-                SortGuiDropdown.value = 0;
-                BySortGroup.Inverted = false;
-                BySortGroup.Refresh();
-                SelectionChanged();
-            });
-            reorderTextMesh.text = "Reset";
+        internal static void RefreshControlsVisibility()
+        {
+            var active = Main.Settings.EnableInventoryFilteringAndSorting;
+
+            FilterGuiDropdown.gameObject.SetActive(active);
+            BySortGroup.gameObject.SetActive(active);
+            SortGuiDropdown.gameObject.SetActive(active);
+            Reorder.gameObject.SetActive(!active);
         }
 
         private static void Sort(List<RulesetItem> items)
@@ -229,22 +231,9 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void Flush(ContainerPanel containerPanel)
+        internal static void SortAndFilter(ContainerPanel containerPanel, RulesetContainer container = null)
         {
-            var container = containerPanel.Container;
-
-            if (container == null)
-            {
-                return;
-            }
-
-            FilteredItems.ForEach(item => container.AddSubItem(item, silent: true));
-            FilteredItems.Clear();
-        }
-
-        internal static void SortAndFilter(ContainerPanel containerPanel)
-        {
-            var container = containerPanel.Container;
+            container = container ?? containerPanel.Container;
 
             if (container == null)
             {
@@ -255,12 +244,6 @@ namespace SolastaCommunityExpansion.Models
 
             container.EnumerateAllItems(allItems);
             container.InventorySlots.ForEach(slot => slot.UnequipItem(silent: true));
-
-            if (FilteredItems.Count > 0)
-            {
-                allItems.AddRange(FilteredItems);
-                FilteredItems.Clear();
-            }
 
             Sort(allItems);
             allItems.ForEach(item =>
@@ -274,6 +257,19 @@ namespace SolastaCommunityExpansion.Models
                     FilteredItems.Add(item);
                 }
             });
+        }
+
+        internal static void Flush(ContainerPanel containerPanel)
+        {
+            var container = containerPanel.Container;
+
+            if (container == null)
+            {
+                return;
+            }
+
+            FilteredItems.ForEach(item => container.AddSubItem(item, silent: true));
+            FilteredItems.Clear();
         }
     }
 }
