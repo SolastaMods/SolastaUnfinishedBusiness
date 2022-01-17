@@ -6,16 +6,14 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class TeleporterContext
     {
-        internal const InputCommands.Id CTRL_SHIFT_T = (InputCommands.Id)44440006;
-
         internal static void Load()
         {
-            ServiceRepository.GetService<IInputService>().RegisterCommand(CTRL_SHIFT_T, (int)KeyCode.T, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_T, (int)KeyCode.T, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
         }
 
         internal static void ConfirmTeleportParty(InputCommands.Id command)
         {
-            if (Main.Settings.EnableTeleportParty && command == CTRL_SHIFT_T)
+            if (Main.Settings.EnableTeleportParty && command == Hotkeys.CTRL_SHIFT_T)
             {
                 var position = GetEncounterPosition();
 

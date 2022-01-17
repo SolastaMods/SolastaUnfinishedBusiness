@@ -22,23 +22,23 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
 
             switch (command)
             {
-                case GameUiContext.CTRL_C:
+                case Hotkeys.CTRL_C:
                     ShowCharacterControlPanelExploration();
                     break;
 
-                case GameUiContext.CTRL_L:
+                case Hotkeys.CTRL_L:
                     ShowGuiConsoleScreen();
                     break;
 
-                case GameUiContext.CTRL_M:
+                case Hotkeys.CTRL_M:
                     ShowTimeAndNavigationPanel();
                     break;
 
-                case GameUiContext.CTRL_P:
+                case Hotkeys.CTRL_P:
                     ShowPartyControlPanel();
                     break;
 
-                case GameUiContext.CTRL_H:
+                case Hotkeys.CTRL_H:
                     ShowAll();
                     break;
             }

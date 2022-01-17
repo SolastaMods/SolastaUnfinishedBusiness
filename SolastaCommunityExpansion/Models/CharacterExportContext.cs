@@ -18,6 +18,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
+            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_E, (int)KeyCode.E, (int)KeyCode.LeftControl, -1, -1, -1, -1);
             LoadInputField();
         }
 
