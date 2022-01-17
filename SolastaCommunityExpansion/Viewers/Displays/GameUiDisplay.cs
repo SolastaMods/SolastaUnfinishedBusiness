@@ -199,9 +199,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 UI.Label("");
 
                 toggle = Main.Settings.EnableInventoryFilteringAndSorting;
-                if (UI.Toggle("Enable inventory filtering and sorting " + RequiresRestart, ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Enable inventory filtering and sorting", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableInventoryFilteringAndSorting = toggle;
+                    InventoryManagementContext.RefreshControlsVisibility();
                 }
 
                 toggle = Main.Settings.EnableInvisibleCrownOfTheMagister;
