@@ -172,7 +172,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.EnableHotkeysToToggleHud;
-                if (UI.Toggle("Enable the hotkeys " + "ctrl-(C)ontrol Panel, ctrl-(L)og, ctrl-(M)ap and ctrl-(P)arty ".cyan() + "to toggle the HUD visibility", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Enable the hotkeys " + "ctrl-(C)ontrol Panel, ctrl-(L)og, ctrl-(M)ap, ctrl-(P)arty and ctrl-(H) for all ".cyan() + "to toggle the HUD visibility", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableHotkeysToToggleHud = toggle;
                 }
