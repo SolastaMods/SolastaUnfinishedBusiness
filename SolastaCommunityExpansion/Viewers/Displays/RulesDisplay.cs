@@ -39,6 +39,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
+            toggle = Main.Settings.AddBleedingToLesserRestoration;
+            if (UI.Toggle("Add the " + "Bleeding".orange() + " condition to the conditions removed by " + "Lesser Restoration".orange(), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.AddBleedingToLesserRestoration = toggle;
+                HouseSpellTweaks.AddBleedingToLesserRestoration();
+            }
+
             toggle = Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell;
             if (UI.Toggle("Allow target selection when casting the " + "Chain Lightning".orange() + " spell", ref toggle, UI.AutoWidth()))
             {
@@ -53,11 +60,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 SrdAndHouseRulesContext.ApplyConditionBlindedShouldNotAllowOpportunityAttack();
             }
 
-            toggle = Main.Settings.AddBleedingToLesserRestoration;
-            if (UI.Toggle("Add the " + "Bleeding".orange() + " condition to the conditions removed by "+ "Lesser Restoration".orange(), ref toggle, UI.AutoWidth()))
+            toggle = Main.Settings.FixSorcererTwinnedLogic;
+            if (UI.Toggle("Fix " + "Sorcerer".orange() + " twinned metamagic use " + "[a spell must be incapable of targeting more than one creature at the spell's current level]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.AddBleedingToLesserRestoration = toggle;
-                HouseSpellTweaks.AddBleedingToLesserRestoration();
+                Main.Settings.FixSorcererTwinnedLogic = toggle;
             }
 
             toggle = Main.Settings.FullyControlConjurations;
