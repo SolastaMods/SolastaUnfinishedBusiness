@@ -2,7 +2,7 @@
 namespace SolastaCommunityExpansion
 #pragma warning restore IDE0130 // Namespace does not match folder structure
 {
-    internal class Hotkeys
+    internal static class Hotkeys
     {
         // Hide / Show HUD components
         internal const InputCommands.Id CTRL_C = (InputCommands.Id)44440000;
