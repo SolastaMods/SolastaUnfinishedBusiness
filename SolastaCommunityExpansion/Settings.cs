@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityModManagerNet;
@@ -57,7 +57,6 @@ namespace SolastaCommunityExpansion
         public bool BugFixGameGadgetCheckIsEnabled { get; set; } = true;
         public bool BugFixItemFiltering { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
-        public bool BugFixOnCanSaveToggleChanged { get; set; } = true;
         public bool EnableCancelEditOnRightMouseClick { get; set; } = true;
         public bool EnableDungeonMakerRotationHotkeys { get; set; } = true;
         public bool EnableFirstLevelCasterFeats { get; set; } = true;
