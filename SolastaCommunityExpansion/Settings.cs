@@ -48,14 +48,12 @@ namespace SolastaCommunityExpansion
 
         public bool AllowDynamicPowers { get; set; } = true;
 
-        public bool BugFixAttunementUnknownCharacter { get; set; } = true;
         public bool BugFixBestiarySorting { get; set; } = true;
         public bool BugFixButtonActivatorTriggerIssue { get; set; } = true;
         public bool BugFixCharacterPanelSorting { get; set; } = true;
         public bool BugFixExpandColorTables { get; set; } = true;
         public bool BugFixItemFiltering { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
-        public bool BugFixOnCanSaveToggleChanged { get; set; } = true;
         public bool EnableCancelEditOnRightMouseClick { get; set; } = true;
         public bool EnableDungeonMakerRotationHotkeys { get; set; } = true;
         public bool EnableFirstLevelCasterFeats { get; set; } = true;
@@ -166,6 +164,7 @@ namespace SolastaCommunityExpansion
         public bool DismissControlledConjurationsWhenDeliberatelyDropConcentration { get; set; }
         public bool EnableUpcastConjureElementalAndFey { get; set; }
         public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
+        public bool FixSorcererTwinnedLogic { get; set; }
 
         // House
         public bool AllowAnyClassToWearSylvanArmor { get; set; }
