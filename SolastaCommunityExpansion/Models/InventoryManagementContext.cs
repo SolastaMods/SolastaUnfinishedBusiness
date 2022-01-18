@@ -64,6 +64,8 @@ namespace SolastaCommunityExpansion.Models
                 var visibleSlotsRefreshed = containerPanel.VisibleSlotsRefreshed;
 
                 containerPanel.Unbind();
+                Flush(container);
+                SortAndFilter(container);
                 containerPanel.Bind(container, inspectedCharacter, dropAreaClicked, visibleSlotsRefreshed);
             }
 
@@ -80,10 +82,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 if (Main.Settings.EnableInventoryFilteringAndSorting)
                 {
-                    FilterGuiDropdown.value = 0;
-                    SortGuiDropdown.value = 0;
-                    BySortGroup.Inverted = false;
-                    BySortGroup.Refresh();
+                    ResetControls();
                     SelectionChanged();
                 }
                 else
@@ -149,6 +148,17 @@ namespace SolastaCommunityExpansion.Models
 
             SortGuiDropdown.AddOptions(sortOptions);
             SortGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);
+        }
+
+        internal static void ResetControls()
+        {
+            if (BySortGroup != null) // required to avoid a null exception during game load
+            {
+                FilterGuiDropdown.value = 0;
+                SortGuiDropdown.value = 0;
+                BySortGroup.Inverted = false;
+                BySortGroup.Refresh();
+            }
         }
 
         internal static void RefreshControlsVisibility()
@@ -252,10 +262,8 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void SortAndFilter(ContainerPanel containerPanel, RulesetContainer container = null)
+        internal static void SortAndFilter(RulesetContainer container)
         {
-            container = container ?? containerPanel.Container;
-
             if (container == null)
             {
                 return;
@@ -283,17 +291,13 @@ namespace SolastaCommunityExpansion.Models
             });
         }
 
-        internal static void Flush(ContainerPanel containerPanel)
+        internal static void Flush(RulesetContainer container)
         {
-            var container = containerPanel.Container;
-
-            if (container == null)
+            if (container != null)
             {
-                return;
+                FilteredItems.ForEach(item => container.AddSubItem(item, silent: true));
+                FilteredItems.Clear();
             }
-
-            FilteredItems.ForEach(item => container.AddSubItem(item, silent: true));
-            FilteredItems.Clear();
         }
     }
 }

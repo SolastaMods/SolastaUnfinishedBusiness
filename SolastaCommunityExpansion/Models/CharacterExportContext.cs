@@ -10,7 +10,6 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class CharacterExportContext
     {
-        internal const InputCommands.Id CTRL_E = (InputCommands.Id)44440004;
         internal const string INPUT_MODAL_MARK = "Message/&CharacterExportModalContentDescription";
 
         internal static TMP_InputField InputField { get; private set; }
@@ -19,8 +18,8 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
+            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_E, (int)KeyCode.E, (int)KeyCode.LeftControl, -1, -1, -1, -1);
             LoadInputField();
-            ServiceRepository.GetService<IInputService>().RegisterCommand(CTRL_E, (int)KeyCode.E, (int)KeyCode.LeftControl, -1, -1, -1, -1);
         }
 
         internal static void LoadInputField()
