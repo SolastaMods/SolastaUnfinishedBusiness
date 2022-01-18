@@ -336,7 +336,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             FeatureDefinitionPowerPoolModifier ArtilleryPoolIncrease = new FeatureDefinitionPowerPoolModifierBuilder(
                 "AttributeModiferArtilleryPoolIncrease",
-                GuidHelper.Create(Main.ModGuidNamespace, "AttributeModiferArtilleryPoolIncrease").ToString(),
+                GuidHelper.Create(TinkererClass.GuidNamespace, "AttributeModiferArtilleryPoolIncrease").ToString(),
                 1,
                 RuleDefinitions.UsesDetermination.Fixed,
                 AttributeDefinitions.Intelligence,

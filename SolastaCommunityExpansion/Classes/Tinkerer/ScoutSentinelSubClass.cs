@@ -682,7 +682,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             };
 
             healingEffect.SetTemporaryHitPointsForm(tempHPForm);
-            healingEffect.SetApplyLevel(EffectForm.LevelApplianceType.Multiply);
+            healingEffect.SetApplyLevel(EffectForm.LevelApplianceType.MultiplyBonus);
             healingEffect.SetLevelType(RuleDefinitions.LevelSourceType.CharacterLevel);
             healingEffect.SetLevelMultiplier(1);
 
@@ -1131,7 +1131,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             motion.SetType(MotionForm.MotionType.DragToOrigin);
 
             motionEffect.SetMotionForm(motion);
-            motionEffect.SetApplyLevel(EffectForm.LevelApplianceType.Multiply);
+            motionEffect.SetApplyLevel(EffectForm.LevelApplianceType.MultiplyBonus);
             motionEffect.SetLevelType(RuleDefinitions.LevelSourceType.CharacterLevel);
             motionEffect.SetLevelMultiplier(1);
             motionEffect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
