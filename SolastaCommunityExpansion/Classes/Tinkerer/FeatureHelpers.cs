@@ -12,6 +12,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
     internal class FeatureHelpers
     {
 
+        // TODO Most of theese builders should likely get moved/merged with the CE builders.
         public class FeatureDefinitionPowerBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
         {
             public FeatureDefinitionPowerBuilder(string name, string guid, int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,

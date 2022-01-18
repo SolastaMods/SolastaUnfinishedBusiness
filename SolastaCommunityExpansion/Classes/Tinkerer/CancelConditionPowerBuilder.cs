@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
+    // TODO see if there's interest in moving this to CE builders
     class CancelConditionPowerBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
     {
         public CancelConditionPowerBuilder(string name, string guid, GuiPresentation presentation, ConditionDefinition condition) : base(name, guid)
