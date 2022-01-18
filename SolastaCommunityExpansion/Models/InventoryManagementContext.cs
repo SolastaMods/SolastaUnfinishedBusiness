@@ -39,17 +39,17 @@ namespace SolastaCommunityExpansion.Models
 
             var filter = Object.Instantiate(dropdownPrefab, rightGroup);
             var filterRect = filter.GetComponent<RectTransform>();
-            
+
             FilterGuiDropdown = filter.GetComponent<GuiDropdown>();
 
             var by = Object.Instantiate(sortGroupPrefab, rightGroup);
             var byTextMesh = by.GetComponentInChildren<TextMeshProUGUI>();
-            
+
             BySortGroup = by.GetComponent<SortGroup>();
 
             var sort = Object.Instantiate(dropdownPrefab, rightGroup);
             var sortRect = sort.GetComponent<RectTransform>();
-            
+
             SortGuiDropdown = sort.GetComponent<GuiDropdown>();
 
             //

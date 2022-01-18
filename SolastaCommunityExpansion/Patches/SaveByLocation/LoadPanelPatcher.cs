@@ -107,7 +107,7 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
 
             int newValue = option?.Index ?? 0;
 
-            if(guiDropdown.value == newValue)
+            if (guiDropdown.value == newValue)
             {
                 if (newValue == 0)
                 {
