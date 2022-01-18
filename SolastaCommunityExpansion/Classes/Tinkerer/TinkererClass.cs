@@ -66,7 +66,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                     InfusionHelpers.RingProtectionPlus1,
                 };
 
-        public static void BuildTinkererClass()
+        public static CharacterClassDefinition BuildTinkererClass()
         {
             CharacterClassDefinitionBuilder ArtificerBuilder = new CharacterClassDefinitionBuilder("ClassTinkerer", GuidHelper.Create(GuidNamespace, "ClassTinkerer").ToString());
             ArtificerBuilder.SetHitDice(RuleDefinitions.DieType.D8);
@@ -444,22 +444,21 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             // 20 - soul of artifice, +1 to saving throws for each attuned item (probably just give +6)
             // also an ability that lets you drop to 1 instead of 0 as an reaction, supposed to end one of your infusions, but maybe just use some other resource?
 
-            CharacterClassDefinition Artificer = ArtificerBuilder.AddToDB();
+            CharacterClassDefinition tinkerer = ArtificerBuilder.AddToDB();
 
-            // subclasses
-            // these might be difficult due to powers being full actions and not attacks- guardian (tank), infiltrator (stealth/ranged),
-
-            CharacterSubclassDefinition alchemist = AlchemistBuilder.Build(Artificer);
+            CharacterSubclassDefinition alchemist = AlchemistBuilder.Build(tinkerer);
             subclasses.Subclasses.Add(alchemist.Name);
 
-            CharacterSubclassDefinition artillerist = ArtilleristBuilder.Build(Artificer, featureCasting);
+            CharacterSubclassDefinition artillerist = ArtilleristBuilder.Build(tinkerer, featureCasting);
             subclasses.Subclasses.Add(artillerist.Name);
 
-            CharacterSubclassDefinition battleSmith = BattleSmithBuilder.Build(Artificer);
+            CharacterSubclassDefinition battleSmith = BattleSmithBuilder.Build(tinkerer);
             subclasses.Subclasses.Add(battleSmith.Name);
 
             ScoutSentinelTinkererSubclassBuilder.BuildAndAddSubclass();
             subclasses.Subclasses.Add(ScoutSentinelTinkererSubclassBuilder.Name);
+
+            return tinkerer;
         }
 
         private static FeatureDefinitionMagicAffinity BuildMagicAffinityHandsFull(string name, GuiPresentation guiPresentation)
