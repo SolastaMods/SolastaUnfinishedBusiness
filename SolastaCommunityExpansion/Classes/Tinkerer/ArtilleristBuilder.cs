@@ -2,9 +2,9 @@
 using SolastaModApi.BuilderHelpers;
 using System.Collections.Generic;
 using static RuleDefinitions;
-using static SolastaArtificerMod.FeatureHelpers;
+using static SolastaCommunityExpansion.Classes.Tinkerer.FeatureHelpers;
 
-namespace SolastaArtificerMod
+namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
     public class ArtilleristBuilder
     {

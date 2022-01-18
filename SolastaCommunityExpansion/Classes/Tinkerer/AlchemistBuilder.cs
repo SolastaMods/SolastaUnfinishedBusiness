@@ -4,7 +4,7 @@ using SolastaModApi.Extensions;
 using System.Collections.Generic;
 using static RuleDefinitions;
 
-namespace SolastaArtificerMod
+namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
     public class AlchemistBuilder
     {

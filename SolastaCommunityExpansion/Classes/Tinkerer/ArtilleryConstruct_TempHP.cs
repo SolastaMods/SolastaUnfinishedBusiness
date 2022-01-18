@@ -2,7 +2,7 @@
 using SolastaModApi;
 using SolastaModApi.Extensions;
 
-namespace SolastaArtificerMod
+namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
 
     //*****************************************************************************************************************************************

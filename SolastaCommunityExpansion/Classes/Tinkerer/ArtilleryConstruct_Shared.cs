@@ -5,7 +5,7 @@ using SolastaModApi.Extensions;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SolastaArtificerMod
+namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
 
 

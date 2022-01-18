@@ -2,11 +2,10 @@
 using HarmonyLib;
 using System.Reflection;
 
-namespace SolastaArtificerMod
+namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
     internal class Patches
     {
-        // TODO verify if this is still needed.
         [HarmonyPatch(typeof(CharacterBuildingManager), "LevelUpCharacter")]
         internal static class CharacterBuildingManager_LevelUpClearActiveFeatures
         {

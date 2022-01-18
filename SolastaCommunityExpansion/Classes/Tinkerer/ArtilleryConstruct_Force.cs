@@ -4,7 +4,7 @@ using SolastaModApi.Extensions;
 using UnityEngine.AddressableAssets;
 using System.Collections.Generic;
 
-namespace SolastaArtificerMod
+namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
 
 

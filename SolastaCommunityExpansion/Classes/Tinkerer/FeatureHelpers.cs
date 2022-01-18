@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 
-namespace SolastaArtificerMod
+namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
     internal class FeatureHelpers
     {

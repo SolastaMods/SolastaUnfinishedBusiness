@@ -6,9 +6,9 @@ using SolastaModApi.BuilderHelpers;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using static SolastaArtificerMod.FeatureHelpers;
+using static SolastaCommunityExpansion.Classes.Tinkerer.FeatureHelpers;
 
-namespace SolastaArtificerMod
+namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
     internal class InfusionHelpers
     {

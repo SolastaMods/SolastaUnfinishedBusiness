@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static CharacterClassDefinition;
 
-namespace SolastaArtificerMod
+namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
     internal static class TinkererClass
     {

@@ -2,7 +2,7 @@
 using SolastaModApi.Extensions;
 using System.Collections.Generic;
 
-namespace SolastaArtificerMod
+namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
     internal class TinkererSpellList : BaseDefinitionBuilder<SpellListDefinition>
     {

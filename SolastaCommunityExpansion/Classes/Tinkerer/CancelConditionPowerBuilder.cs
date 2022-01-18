@@ -3,7 +3,7 @@ using SolastaModApi.BuilderHelpers;
 using SolastaModApi.Extensions;
 using System.Collections.Generic;
 
-namespace SolastaArtificerMod
+namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
     class CancelConditionPowerBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
     {

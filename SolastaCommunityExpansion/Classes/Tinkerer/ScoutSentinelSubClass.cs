@@ -7,7 +7,7 @@ using UnityEngine.AddressableAssets;
 
 
 
-namespace SolastaArtificerMod
+namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
     public static class ScoutSentinelTinkererSubclassBuilder
     {
