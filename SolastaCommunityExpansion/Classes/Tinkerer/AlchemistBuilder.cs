@@ -11,7 +11,7 @@ namespace SolastaArtificerMod
         public static CharacterSubclassDefinition Build(CharacterClassDefinition artificer)
         {
             // Make Alchemist subclass
-            CharacterSubclassDefinitionBuilder alchemist = new CharacterSubclassDefinitionBuilder("Alchemist", GuidHelper.Create(Main.ModGuidNamespace, "Alchemist").ToString());
+            CharacterSubclassDefinitionBuilder alchemist = new CharacterSubclassDefinitionBuilder("Alchemist", GuidHelper.Create(TinkererClass.GuidNamespace, "Alchemist").ToString());
             GuiPresentationBuilder meleePresentation = new GuiPresentationBuilder(
                 "Subclass/&ArtificerAlchemistDescription",
                 "Subclass/&ArtificerAlchemistTitle");
@@ -66,7 +66,7 @@ namespace SolastaArtificerMod
                 "Feat/&ArtificerAlchemistHealElixirDescription",
                 "Feat/&ArtificerAlchemistHealElixirTitle");
             healingElixirGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionPotionOfHealing.GuiPresentation.SpriteReference);
-            SpellDefinition healElixirSpell = new SpellBuilder("AlchemistHealElixir", GuidHelper.Create(Main.ModGuidNamespace, "AlchemistHealElixir").ToString())
+            SpellDefinition healElixirSpell = new SpellBuilder("AlchemistHealElixir", GuidHelper.Create(TinkererClass.GuidNamespace, "AlchemistHealElixir").ToString())
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(1)
                 .SetCastingTime(RuleDefinitions.ActivationTime.BonusAction)
@@ -97,7 +97,7 @@ namespace SolastaArtificerMod
             swiftnessEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Touch, 1, RuleDefinitions.TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.None);
             swiftnessEffect.SetDurationData(RuleDefinitions.DurationType.Hour, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             swiftnessEffect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.Longstrider.EffectDescription.EffectParticleParameters);
-            SpellDefinition swiftnessElixirSpell = new SpellBuilder("AlchemistSwiftnessElixir", GuidHelper.Create(Main.ModGuidNamespace, "AlchemistSwiftnessElixir").ToString())
+            SpellDefinition swiftnessElixirSpell = new SpellBuilder("AlchemistSwiftnessElixir", GuidHelper.Create(TinkererClass.GuidNamespace, "AlchemistSwiftnessElixir").ToString())
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(1)
                 .SetCastingTime(RuleDefinitions.ActivationTime.BonusAction)
@@ -126,7 +126,7 @@ namespace SolastaArtificerMod
             resilienceEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Touch, 1, RuleDefinitions.TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.None);
             resilienceEffect.SetDurationData(RuleDefinitions.DurationType.Minute, 10, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             resilienceEffect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.Blur.EffectDescription.EffectParticleParameters);
-            SpellDefinition resilienceElixirSpell = new SpellBuilder("AlchemistResilienceElixir", GuidHelper.Create(Main.ModGuidNamespace, "AlchemistResilienceElixir").ToString())
+            SpellDefinition resilienceElixirSpell = new SpellBuilder("AlchemistResilienceElixir", GuidHelper.Create(TinkererClass.GuidNamespace, "AlchemistResilienceElixir").ToString())
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(1)
                 .SetCastingTime(RuleDefinitions.ActivationTime.BonusAction)
@@ -147,7 +147,7 @@ namespace SolastaArtificerMod
             boldnessEffect.SetDurationData(RuleDefinitions.DurationType.Minute, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             boldnessEffect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.Bless.EffectDescription.EffectParticleParameters);
 
-            SpellDefinition boldnessElixirSpell = new SpellBuilder("AlchemistBoldnessElixir", GuidHelper.Create(Main.ModGuidNamespace, "AlchemistBoldnessElixir").ToString())
+            SpellDefinition boldnessElixirSpell = new SpellBuilder("AlchemistBoldnessElixir", GuidHelper.Create(TinkererClass.GuidNamespace, "AlchemistBoldnessElixir").ToString())
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(1)
                 .SetCastingTime(RuleDefinitions.ActivationTime.BonusAction)
@@ -177,7 +177,7 @@ namespace SolastaArtificerMod
             flyEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Touch, 1, RuleDefinitions.TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.None);
             flyEffect.SetDurationData(RuleDefinitions.DurationType.Minute, 10, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             flyEffect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.Fly.EffectDescription.EffectParticleParameters);
-            SpellDefinition flyElixirSpell = new SpellBuilder("AlchemistFlyElixir", GuidHelper.Create(Main.ModGuidNamespace, "AlchemistFlyElixir").ToString())
+            SpellDefinition flyElixirSpell = new SpellBuilder("AlchemistFlyElixir", GuidHelper.Create(TinkererClass.GuidNamespace, "AlchemistFlyElixir").ToString())
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(1)
                 .SetCastingTime(RuleDefinitions.ActivationTime.BonusAction)
@@ -222,7 +222,7 @@ namespace SolastaArtificerMod
                 "Feat/&PowerAlchemistRestorativeElixirsDescription",
                 "Feat/&PowerAlchemistRestorativeElixirsTitle");
             restorativeElixirs.SetSpriteReference(DatabaseHelper.SpellDefinitions.LesserRestoration.GuiPresentation.SpriteReference);
-            FeatureDefinitionPower restorativeElixisrPower = new FeatureHelpers.FeatureDefinitionPowerBuilder("PowerAlchemistRestorativeElixirs", GuidHelper.Create(Main.ModGuidNamespace, "PowerAlchemistRestorativeElixirs").ToString(),
+            FeatureDefinitionPower restorativeElixisrPower = new FeatureHelpers.FeatureDefinitionPowerBuilder("PowerAlchemistRestorativeElixirs", GuidHelper.Create(TinkererClass.GuidNamespace, "PowerAlchemistRestorativeElixirs").ToString(),
                 0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence,
                 RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
                 false, false, AttributeDefinitions.Intelligence,
@@ -239,7 +239,7 @@ namespace SolastaArtificerMod
             emboldeningShotsEffect.SetDurationData(RuleDefinitions.DurationType.Permanent, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             emboldeningShotsEffect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.FalseLife.EffectDescription.EffectParticleParameters);
 
-            SpellDefinition emboldeningShots = new SpellBuilder("CantripAlchemistEmboldeningShots", GuidHelper.Create(Main.ModGuidNamespace, "CantripAlchemistEmboldeningShots").ToString())
+            SpellDefinition emboldeningShots = new SpellBuilder("CantripAlchemistEmboldeningShots", GuidHelper.Create(TinkererClass.GuidNamespace, "CantripAlchemistEmboldeningShots").ToString())
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSpellLevel(0)
                 .SetCastingTime(RuleDefinitions.ActivationTime.BonusAction)
@@ -258,7 +258,7 @@ namespace SolastaArtificerMod
                 "Feat/&PowerAlchemistGreaterRestorativeElixirsDescription",
                 "Feat/&PowerAlchemistGreaterRestorativeElixirsTitle");
             restorativeElixirs.SetSpriteReference(DatabaseHelper.SpellDefinitions.GreaterRestoration.GuiPresentation.SpriteReference);
-            FeatureDefinitionPower greaterRestorativeElixirs = new FeatureHelpers.FeatureDefinitionPowerBuilder("PowerAlchemistGreaterRestorativeElixirs", GuidHelper.Create(Main.ModGuidNamespace, "PowerAlchemistGreaterRestorativeElixirs").ToString(),
+            FeatureDefinitionPower greaterRestorativeElixirs = new FeatureHelpers.FeatureDefinitionPowerBuilder("PowerAlchemistGreaterRestorativeElixirs", GuidHelper.Create(TinkererClass.GuidNamespace, "PowerAlchemistGreaterRestorativeElixirs").ToString(),
                 1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
                 RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
                 false, false, AttributeDefinitions.Intelligence,
@@ -292,7 +292,7 @@ namespace SolastaArtificerMod
             healSpellEffect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.FalseLife.EffectDescription.EffectParticleParameters);
 
             FeatureDefinitionPower greatHealElixirs = new FeatureHelpers.FeatureDefinitionPowerBuilder("PowerAlchemistHealElixirs",
-                GuidHelper.Create(Main.ModGuidNamespace, "PowerAlchemistHealElixirs").ToString(),
+                GuidHelper.Create(TinkererClass.GuidNamespace, "PowerAlchemistHealElixirs").ToString(),
                 1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
                 RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
                 false, false, AttributeDefinitions.Intelligence,

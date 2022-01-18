@@ -11,7 +11,7 @@ namespace SolastaArtificerMod
         public static CharacterSubclassDefinition Build(CharacterClassDefinition artificer)
         {
             // Make Battle Smith subclass
-            CharacterSubclassDefinitionBuilder battleSmith = new CharacterSubclassDefinitionBuilder("BattleSmith", GuidHelper.Create(Main.ModGuidNamespace, "BattleSmith").ToString());
+            CharacterSubclassDefinitionBuilder battleSmith = new CharacterSubclassDefinitionBuilder("BattleSmith", GuidHelper.Create(TinkererClass.GuidNamespace, "BattleSmith").ToString());
             GuiPresentationBuilder battleSmithPresentation = new GuiPresentationBuilder(
                 "Subclass/&ArtificerBattleSmithDescription",
                 "Subclass/&ArtificerBattleSmithTitle");
@@ -54,7 +54,7 @@ namespace SolastaArtificerMod
                 "Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseDescription",
                 "Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseTitle");
             FeatureDefinitionPowerPoolModifier InfusionPoolIncrease = new FeatureDefinitionPowerPoolModifierBuilder("AttributeModiferArtificerBattleSmithInfusionHealingPool",
-                GuidHelper.Create(Main.ModGuidNamespace, "AttributeModiferArtificerBattleSmithInfusionHealingPool").ToString(),
+                GuidHelper.Create(TinkererClass.GuidNamespace, "AttributeModiferArtificerBattleSmithInfusionHealingPool").ToString(),
                 2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, TinkererClass.InfusionPool, InfusionPoolIncreaseGui.Build()).AddToDB();
             battleSmith.AddFeatureAtLevel(InfusionPoolIncrease, 3);
 
@@ -63,7 +63,7 @@ namespace SolastaArtificerMod
                 "Subclass/&AttackModifierArtificerBattleSmithWeaponTitle");
             attackModGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference);
             FeatureDefinitionAttackModifier battleSmithInfusedWeapon = new FeatureDefinitionAttackModifierBuilder("AttackModifierArtificerBattleSmithWeapon",
-                 GuidHelper.Create(Main.ModGuidNamespace, "AttackModifierArtificerBattleSmithWeapon").ToString(),
+                 GuidHelper.Create(TinkererClass.GuidNamespace, "AttackModifierArtificerBattleSmithWeapon").ToString(),
                 // Note this is not magical because that causes a conflict with the enhanced weapon effect.
                 AbilityScoreReplacement.SpellcastingAbility, "", attackModGui.Build()).AddToDB();
 

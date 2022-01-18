@@ -6,6 +6,7 @@ namespace SolastaArtificerMod
 {
     internal class Patches
     {
+        // TODO verify if this is still needed.
         [HarmonyPatch(typeof(CharacterBuildingManager), "LevelUpCharacter")]
         internal static class CharacterBuildingManager_LevelUpClearActiveFeatures
         {

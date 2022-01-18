@@ -109,7 +109,7 @@ namespace SolastaArtificerMod
 
         public static SpellListDefinition BuildSpellList()
         {
-            return new TinkererSpellList("SpellListTinkerer", GuidHelper.Create(Main.ModGuidNamespace, "SpellListTinkerer").ToString(),
+            return new TinkererSpellList("SpellListTinkerer", GuidHelper.Create(TinkererClass.GuidNamespace, "SpellListTinkerer").ToString(),
                 new GuiPresentationBuilder("Feature/&NoContentTitle",
                 "SpellList/&SpellListTinkererTitle").Build()).AddToDB();
         }

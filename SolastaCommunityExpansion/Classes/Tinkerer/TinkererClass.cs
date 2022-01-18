@@ -10,8 +10,10 @@ namespace SolastaArtificerMod
 {
     internal static class TinkererClass
     {
+        public static Guid GuidNamespace = new Guid("7aee1270-7a61-48d9-8670-cf087c551c16");
+
         public static readonly FeatureDefinitionPower InfusionPool = new FeatureDefinitionPowerPoolBuilder("AttributeModiferArtificerInfusionHealingPool",
-            GuidHelper.Create(Main.ModGuidNamespace, "AttributeModiferArtificerInfusionHealingPool").ToString(),
+            GuidHelper.Create(GuidNamespace, "AttributeModiferArtificerInfusionHealingPool").ToString(),
                 2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, RuleDefinitions.RechargeRate.LongRest,
                 new GuiPresentationBuilder("Subclass/&HealingPoolArtificerInfusionsDescription",
                 "Subclass/&HealingPoolArtificerInfusionsTitle").Build()).AddToDB();
@@ -66,7 +68,7 @@ namespace SolastaArtificerMod
 
         public static void BuildTinkererClass()
         {
-            CharacterClassDefinitionBuilder ArtificerBuilder = new CharacterClassDefinitionBuilder("ClassTinkerer", GuidHelper.Create(Main.ModGuidNamespace, "ClassTinkerer").ToString());
+            CharacterClassDefinitionBuilder ArtificerBuilder = new CharacterClassDefinitionBuilder("ClassTinkerer", GuidHelper.Create(GuidNamespace, "ClassTinkerer").ToString());
             ArtificerBuilder.SetHitDice(RuleDefinitions.DieType.D8);
             ArtificerBuilder.AddPersonality(DatabaseHelper.PersonalityFlagDefinitions.GpSpellcaster, 2);
             ArtificerBuilder.AddPersonality(DatabaseHelper.PersonalityFlagDefinitions.GpCombat, 3);
@@ -202,7 +204,7 @@ namespace SolastaArtificerMod
             SpellListDefinition spellList = TinkererSpellList.BuildSpellList();
 
             // spell casting (1)
-            CastSpellBuilder spellCasting = new CastSpellBuilder("CastSpellTinkerer", GuidHelper.Create(Main.ModGuidNamespace, "CastSpellTinkerer").ToString());
+            CastSpellBuilder spellCasting = new CastSpellBuilder("CastSpellTinkerer", GuidHelper.Create(GuidNamespace, "CastSpellTinkerer").ToString());
             spellCasting.SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class);
             spellCasting.SetSpellCastingAbility(AttributeDefinitions.Intelligence);
             spellCasting.SetSpellList(spellList);
@@ -252,7 +254,7 @@ namespace SolastaArtificerMod
                 "Subclass/&TinkererInfusionChoiceDescription",
                 "Subclass/&TinkererInfusionChoiceTitle");
             FeatureDefinitionFeatureSet level2Infusions = new FeatureHelpers.FeatureDefinitionFeatureSetBuilder("TinkererLevel2InfusionChoice",
-                GuidHelper.Create(Main.ModGuidNamespace, "TinkererLevel2InfusionChoice").ToString(),
+                GuidHelper.Create(GuidNamespace, "TinkererLevel2InfusionChoice").ToString(),
                 Level2InfusionList, FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion, 0, false, false, infusionChoiceGui.Build()
                 ).AddToDB();
             ArtificerBuilder.AddFeatureAtLevel(level2Infusions, 2);
@@ -272,7 +274,7 @@ namespace SolastaArtificerMod
                 new GuiPresentationBuilder(
                     "Feature/&ArtificerSpecialistArchetypesDescription",
                     "Feature/&AftificerSpecialistArchetypesTitle").Build(),
-                GuidHelper.Create(Main.ModGuidNamespace, "SubclassChoiceArtificerSpecialistArchetypes").ToString());
+                GuidHelper.Create(GuidNamespace, "SubclassChoiceArtificerSpecialistArchetypes").ToString());
 
             // ASI (4)
             ArtificerBuilder.AddFeatureAtLevel(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 4);
@@ -292,12 +294,12 @@ namespace SolastaArtificerMod
                 "Subclass/&HealingPoolArtificerInfusionsIncreaseDescription",
                 "Subclass/&HealingPoolArtificerInfusionsIncreaseTitle");
             FeatureDefinitionPowerPoolModifier InfusionPoolIncrease = new FeatureDefinitionPowerPoolModifierBuilder("AttributeModiferArtificerInfusionIncreaseHealingPool",
-                GuidHelper.Create(Main.ModGuidNamespace, "AttributeModiferArtificerInfusionIncreaseHealingPool").ToString(),
+                GuidHelper.Create(GuidNamespace, "AttributeModiferArtificerInfusionIncreaseHealingPool").ToString(),
                 1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool, InfusionPoolIncreaseGui.Build()).AddToDB();
             ArtificerBuilder.AddFeatureAtLevel(InfusionPoolIncrease, 6);
 
             FeatureDefinitionFeatureSet level6Infusions = new FeatureHelpers.FeatureDefinitionFeatureSetBuilder("TinkererLevel6InfusionChoice",
-                GuidHelper.Create(Main.ModGuidNamespace, "TinkererLevel6InfusionChoice").ToString(), Level6InfusionList,
+                GuidHelper.Create(GuidNamespace, "TinkererLevel6InfusionChoice").ToString(), Level6InfusionList,
                 FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion, 0, true, false, infusionChoiceGui.Build()
                 ).AddToDB();
             ArtificerBuilder.AddFeatureAtLevel(level6Infusions, 6);
@@ -347,7 +349,7 @@ namespace SolastaArtificerMod
                 "Subclass/&TinkererFlashOfGeniusPowerDescription",
                 "Subclass/&TinkererFlashOfGeniusPowerTitle");
 
-            FeatureDefinitionPower flashOfGenius = new FeatureHelpers.FeatureDefinitionPowerBuilder("TinkererFlashOfGeniusPower", GuidHelper.Create(Main.ModGuidNamespace, "TinkererFlashOfGeniusPower").ToString(),
+            FeatureDefinitionPower flashOfGenius = new FeatureHelpers.FeatureDefinitionPowerBuilder("TinkererFlashOfGeniusPower", GuidHelper.Create(GuidNamespace, "TinkererFlashOfGeniusPower").ToString(),
                 -1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, RuleDefinitions.ActivationTime.PermanentUnlessIncapacitated,
                 -1, RuleDefinitions.RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence, flashEffect.Build(), flashOfGeniusPresentation.Build()).AddToDB();
             ArtificerBuilder.AddFeatureAtLevel(flashOfGenius, 7);
@@ -359,7 +361,7 @@ namespace SolastaArtificerMod
             GuiPresentationBuilder CraftingTinkererMagicItemAdeptPresentation = new GuiPresentationBuilder(
                 "Subclass/&CraftingTinkererMagicItemAdeptDescription",
                 "Subclass/&CraftingTinkererMagicItemAdeptTitle");
-            FeatureDefinitionCraftingAffinity craftingAffinity = new FeatureHelpers.FeatureDefinitionCraftingAffinityBuilder("CraftingTinkererMagicItemAdept", GuidHelper.Create(Main.ModGuidNamespace, "CraftingTinkererMagicItemAdept").ToString(),
+            FeatureDefinitionCraftingAffinity craftingAffinity = new FeatureHelpers.FeatureDefinitionCraftingAffinityBuilder("CraftingTinkererMagicItemAdept", GuidHelper.Create(GuidNamespace, "CraftingTinkererMagicItemAdept").ToString(),
                 new List<ToolTypeDefinition>()
                 {
                     DatabaseHelper.ToolTypeDefinitions.ThievesToolsType, DatabaseHelper.ToolTypeDefinitions.ScrollKitType,
@@ -369,12 +371,12 @@ namespace SolastaArtificerMod
             ArtificerBuilder.AddFeatureAtLevel(craftingAffinity, 10);
             // boost to infusions (many of the +1s become +2s)
             FeatureDefinitionPowerPoolModifier InfusionPoolIncrease10 = new FeatureDefinitionPowerPoolModifierBuilder("AttributeModiferArtificerInfusionIncreaseHealingPool10",
-                GuidHelper.Create(Main.ModGuidNamespace, "AttributeModiferArtificerInfusionIncreaseHealingPool10").ToString(),
+                GuidHelper.Create(GuidNamespace, "AttributeModiferArtificerInfusionIncreaseHealingPool10").ToString(),
                 1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool, InfusionPoolIncreaseGui.Build()).AddToDB();
             ArtificerBuilder.AddFeatureAtLevel(InfusionPoolIncrease10, 10);
 
             FeatureDefinitionFeatureSet level10Infusions = new FeatureHelpers.FeatureDefinitionFeatureSetBuilder("TinkererLevel10InfusionChoice",
-                GuidHelper.Create(Main.ModGuidNamespace, "TinkererLevel10InfusionChoice").ToString(), Level10InfusionList,
+                GuidHelper.Create(GuidNamespace, "TinkererLevel10InfusionChoice").ToString(), Level10InfusionList,
                 FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion, 0, true, false, infusionChoiceGui.Build()
                 ).AddToDB();
             ArtificerBuilder.AddFeatureAtLevel(level10Infusions, 10);
@@ -395,7 +397,7 @@ namespace SolastaArtificerMod
             spellEffect.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             spellEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self, 1, 1, ActionDefinitions.ItemSelectionType.None);
             spellEffect.AddEffectForm(new EffectFormBuilder().SetSpellForm(9).Build());
-            FeatureDefinitionPower spellStoringItem = new FeatureHelpers.FeatureDefinitionPowerBuilder("TinkererSpellStoringItem", GuidHelper.Create(Main.ModGuidNamespace, "TinkererSpellStoringItem").ToString(),
+            FeatureDefinitionPower spellStoringItem = new FeatureHelpers.FeatureDefinitionPowerBuilder("TinkererSpellStoringItem", GuidHelper.Create(GuidNamespace, "TinkererSpellStoringItem").ToString(),
                 0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, RuleDefinitions.ActivationTime.BonusAction,
                 1, RuleDefinitions.RechargeRate.LongRest, false, false, AttributeDefinitions.Intelligence, spellEffect.Build(),
                 SpellStoringItemGui.Build()).AddToDB();
@@ -406,11 +408,11 @@ namespace SolastaArtificerMod
             // 14- magic item savant another attunement slot and ignore requirements on magic items
             // also another infusion slot
             FeatureDefinitionPowerPoolModifier InfusionPoolIncrease14 = new FeatureDefinitionPowerPoolModifierBuilder("AttributeModiferArtificerInfusionIncreaseHealingPool14",
-                GuidHelper.Create(Main.ModGuidNamespace, "AttributeModiferArtificerInfusionIncreaseHealingPool14").ToString(),
+                GuidHelper.Create(GuidNamespace, "AttributeModiferArtificerInfusionIncreaseHealingPool14").ToString(),
                 1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool, InfusionPoolIncreaseGui.Build()).AddToDB();
             ArtificerBuilder.AddFeatureAtLevel(InfusionPoolIncrease14, 14);
             FeatureDefinitionFeatureSet level14Infusions = new FeatureHelpers.FeatureDefinitionFeatureSetBuilder("TinkererLevel14InfusionChoice",
-                GuidHelper.Create(Main.ModGuidNamespace, "TinkererLevel14InfusionChoice").ToString(), Level14InfusionList,
+                GuidHelper.Create(GuidNamespace, "TinkererLevel14InfusionChoice").ToString(), Level14InfusionList,
                 FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion, 0, true, false, infusionChoiceGui.Build()
                 ).AddToDB();
             ArtificerBuilder.AddFeatureAtLevel(level14Infusions, 14);
@@ -423,7 +425,7 @@ namespace SolastaArtificerMod
             // 18 - magic item master another attunement slot
             // also another infusion slot
             FeatureDefinitionPowerPoolModifier InfusionPoolIncrease18 = new FeatureDefinitionPowerPoolModifierBuilder("AttributeModiferArtificerInfusionIncreaseHealingPool18",
-                GuidHelper.Create(Main.ModGuidNamespace, "AttributeModiferArtificerInfusionIncreaseHealingPool18").ToString(),
+                GuidHelper.Create(GuidNamespace, "AttributeModiferArtificerInfusionIncreaseHealingPool18").ToString(),
                 1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool, InfusionPoolIncreaseGui.Build()).AddToDB();
             ArtificerBuilder.AddFeatureAtLevel(InfusionPoolIncrease18, 18);
             ArtificerBuilder.AddFeatureAtLevel(level14Infusions, 18);
@@ -462,7 +464,7 @@ namespace SolastaArtificerMod
 
         private static FeatureDefinitionMagicAffinity BuildMagicAffinityHandsFull(string name, GuiPresentation guiPresentation)
         {
-            return new FeatureHelpers.FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(Main.ModGuidNamespace, name).ToString(), guiPresentation).AddToDB();
+            return new FeatureHelpers.FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(GuidNamespace, name).ToString(), guiPresentation).AddToDB();
         }
     }
 }

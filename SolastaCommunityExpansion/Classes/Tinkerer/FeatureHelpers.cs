@@ -367,7 +367,7 @@ namespace SolastaArtificerMod
         public static FeatureDefinitionAutoPreparedSpells BuildAutoPreparedSpells(List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> autospelllists,
             CharacterClassDefinition characterclass, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionAutoPreparedSpellsBuilder builder = new FeatureDefinitionAutoPreparedSpellsBuilder(name, GuidHelper.Create(Main.ModGuidNamespace, name).ToString(),
+            FeatureDefinitionAutoPreparedSpellsBuilder builder = new FeatureDefinitionAutoPreparedSpellsBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
                 autospelllists, characterclass, guiPresentation);
             return builder.AddToDB();
         }
@@ -390,21 +390,21 @@ namespace SolastaArtificerMod
         public static FeatureDefinitionProficiency BuildProficiency(RuleDefinitions.ProficiencyType type,
             List<string> proficiencies, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionProficiencyBuilder builder = new FeatureDefinitionProficiencyBuilder(name, GuidHelper.Create(Main.ModGuidNamespace, name).ToString(), type, proficiencies, guiPresentation);
+            FeatureDefinitionProficiencyBuilder builder = new FeatureDefinitionProficiencyBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(), type, proficiencies, guiPresentation);
             return builder.AddToDB();
         }
 
         public static FeatureDefinitionAttributeModifier BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation modifierType,
             string attribute, int amount, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionAttributeModifierBuilder builder = new FeatureDefinitionAttributeModifierBuilder(name, GuidHelper.Create(Main.ModGuidNamespace, name).ToString(),
+            FeatureDefinitionAttributeModifierBuilder builder = new FeatureDefinitionAttributeModifierBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
                 modifierType, attribute, amount, guiPresentation);
             return builder.AddToDB();
         }
 
         public static FeatureDefinitionMagicAffinity BuildMagicAffinityHeightenedList(List<string> spellNames, int levelBonus, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionMagicAffinityBuilder builder = new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(Main.ModGuidNamespace, name).ToString(),
+            FeatureDefinitionMagicAffinityBuilder builder = new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
                 spellNames, levelBonus, guiPresentation);
             return builder.AddToDB();
         }
@@ -412,14 +412,14 @@ namespace SolastaArtificerMod
         public static ConditionDefinition BuildCondition(List<FeatureDefinition> conditionFeatures, RuleDefinitions.DurationType durationType,
             int durationParameter, bool silent, string name, GuiPresentation guiPresentation)
         {
-            ConditionDefinitionBuilder builder = new ConditionDefinitionBuilder(name, GuidHelper.Create(Main.ModGuidNamespace, name).ToString(),
+            ConditionDefinitionBuilder builder = new ConditionDefinitionBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
                 conditionFeatures, durationType, durationParameter, silent, guiPresentation);
             return builder.AddToDB();
         }
 
         public static FeatureDefinitionMagicAffinity BuildMagicAffinityModifiers(int attackModifier, int dcModifier, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionMagicAffinityBuilder builder = new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(Main.ModGuidNamespace, name).ToString(),
+            FeatureDefinitionMagicAffinityBuilder builder = new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
                 attackModifier, dcModifier, guiPresentation);
             return builder.AddToDB();
         }
@@ -441,7 +441,7 @@ namespace SolastaArtificerMod
             effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
 
 
-            FeatureDefinitionPowerBuilder builder = new FeatureDefinitionPowerBuilder(name, GuidHelper.Create(Main.ModGuidNamespace, name).ToString(),
+            FeatureDefinitionPowerBuilder builder = new FeatureDefinitionPowerBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
                 usesPerRecharge, usesDetermination, AttributeDefinitions.Intelligence, activationTime, costPerUse, recharge, false, false, AttributeDefinitions.Intelligence,
                 effectDescriptionBuilder.Build(), guiPresentation);
             return builder.AddToDB();
@@ -450,7 +450,7 @@ namespace SolastaArtificerMod
         public static RestActivityDefinition BuildRestActivity(RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType, RestActivityDefinition.ActivityCondition condition,
             string functor, string stringParameter, string name, GuiPresentation guiPresentation)
         {
-            RestActivityDefinitionBuilder builder = new RestActivityDefinitionBuilder(name, GuidHelper.Create(Main.ModGuidNamespace, name).ToString(),
+            RestActivityDefinitionBuilder builder = new RestActivityDefinitionBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
                 restStage, restType, condition, functor, stringParameter, guiPresentation);
             return builder.AddToDB();
         }
@@ -460,7 +460,7 @@ namespace SolastaArtificerMod
             int damageRollModifier, string damageRollAbilityScore, bool canAddAbilityBonusToSecondary, string additionalAttackTag,
             string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionAttackModifierBuilder builder = new FeatureDefinitionAttackModifierBuilder(name, GuidHelper.Create(Main.ModGuidNamespace, name).ToString(),
+            FeatureDefinitionAttackModifierBuilder builder = new FeatureDefinitionAttackModifierBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
                 attackRollModifierMethod, attackRollModifier, attackRollAbilityScore, damageRollModifierMethod, damageRollModifier, damageRollAbilityScore,
                 canAddAbilityBonusToSecondary, additionalAttackTag, guiPresentation);
             return builder.AddToDB();
@@ -468,7 +468,7 @@ namespace SolastaArtificerMod
 
         public static FeatureDefinitionMovementAffinity BuildMovementAffinity(bool addBase, int speedAdd, float speedMult, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionMovementAffinityBuilder builder = new FeatureDefinitionMovementAffinityBuilder(name, GuidHelper.Create(Main.ModGuidNamespace, name).ToString(),
+            FeatureDefinitionMovementAffinityBuilder builder = new FeatureDefinitionMovementAffinityBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
                 addBase, speedAdd, speedMult, guiPresentation);
             return builder.AddToDB();
         }
@@ -477,14 +477,14 @@ namespace SolastaArtificerMod
             RuleDefinitions.LevelSourceType addLevel, string name, GuiPresentation guiPresentation)
         {
 
-            FeatureDefinitionHealingModifierBuilder healingModifier = new FeatureDefinitionHealingModifierBuilder(name, GuidHelper.Create(Main.ModGuidNamespace, name).ToString(),
+            FeatureDefinitionHealingModifierBuilder healingModifier = new FeatureDefinitionHealingModifierBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
                 healingBonusDiceNumber, healingBonusDiceType, addLevel, guiPresentation);
             return healingModifier.AddToDB();
         }
 
         public static FeatureDefinitionBonusCantrips BuildBonusCantrips(List<SpellDefinition> cantrips, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionBonusCantripsBuilder bonusCantrips = new FeatureDefinitionBonusCantripsBuilder(name, GuidHelper.Create(Main.ModGuidNamespace, name).ToString(),
+            FeatureDefinitionBonusCantripsBuilder bonusCantrips = new FeatureDefinitionBonusCantripsBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
                 cantrips, guiPresentation);
             return bonusCantrips.AddToDB();
         }
@@ -494,7 +494,7 @@ namespace SolastaArtificerMod
             FeatureDefinitionSavingThrowAffinity.ModifierType modifierType, int diceNumber, RuleDefinitions.DieType dieType,
             bool againstMagic, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionSavingThrowAffinityBuilder builder = new FeatureDefinitionSavingThrowAffinityBuilder(name, GuidHelper.Create(Main.ModGuidNamespace, name).ToString(),
+            FeatureDefinitionSavingThrowAffinityBuilder builder = new FeatureDefinitionSavingThrowAffinityBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
                 abilityScores, affinityType, modifierType, diceNumber, dieType, againstMagic, guiPresentation);
             return builder.AddToDB();
         }
@@ -503,7 +503,7 @@ namespace SolastaArtificerMod
             int diceNumber, RuleDefinitions.DieType dieType, RuleDefinitions.CharacterAbilityCheckAffinity affinityType,
             string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionAbilityCheckAffinityBuilder builder = new FeatureDefinitionAbilityCheckAffinityBuilder(name, GuidHelper.Create(Main.ModGuidNamespace, name).ToString(),
+            FeatureDefinitionAbilityCheckAffinityBuilder builder = new FeatureDefinitionAbilityCheckAffinityBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
                 abilityProficiencyPairs, diceNumber, dieType, affinityType, guiPresentation);
             return builder.AddToDB();
         }
@@ -511,21 +511,21 @@ namespace SolastaArtificerMod
         public static FeatureDefinitionPointPool BuildPointPool(HeroDefinitions.PointsPoolType poolType, int poolAmount,
             List<string> choices, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionPointPoolBuilder builder = new FeatureDefinitionPointPoolBuilder(name, GuidHelper.Create(Main.ModGuidNamespace, name).ToString(),
+            FeatureDefinitionPointPoolBuilder builder = new FeatureDefinitionPointPoolBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
                 poolType, poolAmount, choices, false, guiPresentation);
             return builder.AddToDB();
         }
 
         public static FeatureDefinitionEquipmentAffinity BuildEquipmentAffinity(float carryingCapacityMultiplier, float additionalCarryingCapacity, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionEquipmentAffinityBuilder equipmentAffinity = new FeatureDefinitionEquipmentAffinityBuilder(name, GuidHelper.Create(Main.ModGuidNamespace, name).ToString(),
+            FeatureDefinitionEquipmentAffinityBuilder equipmentAffinity = new FeatureDefinitionEquipmentAffinityBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
                 carryingCapacityMultiplier, additionalCarryingCapacity, guiPresentation);
             return equipmentAffinity.AddToDB();
         }
 
         public static FeatureDefinitionMagicAffinity BuildMagicAffinityConcentration(RuleDefinitions.ConcentrationAffinity concentrationAffinity, int threshold, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionMagicAffinityBuilder builder = new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(Main.ModGuidNamespace, name).ToString(),
+            FeatureDefinitionMagicAffinityBuilder builder = new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
                 concentrationAffinity, threshold, guiPresentation);
             return builder.AddToDB();
         }

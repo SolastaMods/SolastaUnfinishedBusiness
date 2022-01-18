@@ -46,7 +46,7 @@ namespace SolastaArtificerMod
         private static FeatureDefinitionPowerSharedPoolBuilder BuildBasicInfusionPower(string name, EffectDescription effect, GuiPresentation presentation)
         {
             FeatureDefinitionPowerSharedPoolBuilder infusion = new FeatureDefinitionPowerSharedPoolBuilder(name,
-                GuidHelper.Create(Main.ModGuidNamespace, name).ToString(),
+                GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
                 TinkererClass.InfusionPool, RuleDefinitions.RechargeRate.LongRest, RuleDefinitions.ActivationTime.NoCost, 1, false, false, AttributeDefinitions.Intelligence,
                 effect, presentation, true /* unique instance */);
             return infusion;
@@ -436,7 +436,7 @@ namespace SolastaArtificerMod
             spellEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self, 1, 1, ActionDefinitions.ItemSelectionType.None);
             spellEffect.AddEffectForm(new EffectFormBuilder().SetSpellForm(9).Build());
             FeatureDefinitionPowerSharedPool spellRefuelingRing = new FeatureDefinitionPowerSharedPoolBuilder("ArtificerInfusionSpellRefuelingRing",
-                GuidHelper.Create(Main.ModGuidNamespace, "ArtificerInfusionSpellRefuelingRing").ToString(),
+                GuidHelper.Create(TinkererClass.GuidNamespace, "ArtificerInfusionSpellRefuelingRing").ToString(),
                 TinkererClass.InfusionPool, RuleDefinitions.RechargeRate.LongRest, RuleDefinitions.ActivationTime.NoCost, 1, false, false, AttributeDefinitions.Intelligence,
                 spellEffect.Build(), InfuseSpellRefuelingRing.Build(), true /* unique instance */).AddToDB();
             return spellRefuelingRing;
@@ -468,7 +468,7 @@ namespace SolastaArtificerMod
             Traverse.Create(addBlindingCondition).Field("saveAffinity").SetValue(RuleDefinitions.EffectSavingThrowType.Negates);
 
             FeatureDefinitionAdditionalDamage radiantDamage = new FeatureDefinitionAdditionalDamageBuilder("AdditionalDamageRadiantWeapon",
-                GuidHelper.Create(Main.ModGuidNamespace, "AdditionalDamageRadiantWeapon").ToString(), "BlindingWeaponStrike",
+                GuidHelper.Create(TinkererClass.GuidNamespace, "AdditionalDamageRadiantWeapon").ToString(), "BlindingWeaponStrike",
                 RuleDefinitions.FeatureLimitedUsage.OncePerTurn, RuleDefinitions.AdditionalDamageValueDetermination.Die,
                 RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive, RuleDefinitions.AdditionalDamageRequiredProperty.None, true, RuleDefinitions.DieType.D4, 1, RuleDefinitions.AdditionalDamageType.Specific,
                 "DamageRadiant", RuleDefinitions.AdditionalDamageAdvancement.None, new List<DiceByRank>(), true, AttributeDefinitions.Constitution, 15, RuleDefinitions.EffectSavingThrowType.None,

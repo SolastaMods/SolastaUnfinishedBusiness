@@ -11,7 +11,7 @@ namespace SolastaArtificerMod
         public static CharacterSubclassDefinition Build(CharacterClassDefinition artificer, FeatureDefinitionCastSpell spellCasting)
         {
             // Make Artillerist subclass
-            CharacterSubclassDefinitionBuilder artillerist = new CharacterSubclassDefinitionBuilder("Artillerist", GuidHelper.Create(Main.ModGuidNamespace, "Artillerist").ToString());
+            CharacterSubclassDefinitionBuilder artillerist = new CharacterSubclassDefinitionBuilder("Artillerist", GuidHelper.Create(TinkererClass.GuidNamespace, "Artillerist").ToString());
             GuiPresentationBuilder meleePresentation = new GuiPresentationBuilder(
                 "Subclass/&ArtificerArtilleristDescription",
                 "Subclass/&ArtificerArtilleristTitle");
@@ -57,13 +57,13 @@ namespace SolastaArtificerMod
             fireEffect.SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Cone, 3, 2, ActionDefinitions.ItemSelectionType.None);
             fireEffect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.BurningHands.EffectDescription.EffectParticleParameters);
 
-            FeatureDefinitionPower flameAttack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristFlameCannonAttack", GuidHelper.Create(Main.ModGuidNamespace, "ArtilleristFlameCannonAttack").ToString(),
+            FeatureDefinitionPower flameAttack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristFlameCannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristFlameCannonAttack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence, fireEffect.Build(),
                 flameGui.Build()).AddToDB();
             //    artillerist.AddFeatureAtLevel(flameAttack, 3);
 
             // Leaving the spell definition for backwards compatability, though the class no longer uses it.
-            SpellDefinition flamethrower = new SpellBuilder("CantripArtificerFlamethrower", GuidHelper.Create(Main.ModGuidNamespace, "CantripArtificerFlamethrower").ToString())
+            SpellDefinition flamethrower = new SpellBuilder("CantripArtificerFlamethrower", GuidHelper.Create(TinkererClass.GuidNamespace, "CantripArtificerFlamethrower").ToString())
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSpellLevel(0)
                 .SetCastingTime(RuleDefinitions.ActivationTime.BonusAction)
@@ -84,14 +84,14 @@ namespace SolastaArtificerMod
             forceEffect.SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.RangeHit, 24, RuleDefinitions.TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.None);
             forceEffect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters);
 
-            FeatureDefinitionPower forceAttack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristForceCannonAttack", GuidHelper.Create(Main.ModGuidNamespace, "ArtilleristForceCannonAttack").ToString(),
+            FeatureDefinitionPower forceAttack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristForceCannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristForceCannonAttack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, true, true, AttributeDefinitions.Intelligence, forceEffect.Build(),
                 forceGui.Build()).AddToDB();
             //    artillerist.AddFeatureAtLevel(forceAttack, 3);
 
 
             // Leaving the spell definition for backwards compatability, though the class no longer uses it.
-            SpellDefinition forceBallista = new SpellBuilder("CantripArtificerForceBallista", GuidHelper.Create(Main.ModGuidNamespace, "CantripArtificerForceBallista").ToString())
+            SpellDefinition forceBallista = new SpellBuilder("CantripArtificerForceBallista", GuidHelper.Create(TinkererClass.GuidNamespace, "CantripArtificerForceBallista").ToString())
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSpellLevel(0)
                 .SetCastingTime(RuleDefinitions.ActivationTime.BonusAction)
@@ -112,13 +112,13 @@ namespace SolastaArtificerMod
             protectorEffect.SetDurationData(RuleDefinitions.DurationType.Permanent, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             protectorEffect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.FalseLife.EffectDescription.EffectParticleParameters);
 
-            FeatureDefinitionPower protectorActivation = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristProtectorCannonAttack", GuidHelper.Create(Main.ModGuidNamespace, "ArtilleristProtectorCannonAttack").ToString(),
+            FeatureDefinitionPower protectorActivation = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristProtectorCannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristProtectorCannonAttack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence, protectorEffect.Build(),
                 protectorGui.Build()).AddToDB();
             //     artillerist.AddFeatureAtLevel(protectorActivation, 3);
 
             // Leaving the spell definition for backwards compatability, though the class no longer uses it.
-            SpellDefinition protector = new SpellBuilder("CantripArtificerProtector", GuidHelper.Create(Main.ModGuidNamespace, "CantripArtificerProtector").ToString())
+            SpellDefinition protector = new SpellBuilder("CantripArtificerProtector", GuidHelper.Create(TinkererClass.GuidNamespace, "CantripArtificerProtector").ToString())
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSpellLevel(0)
                 .SetCastingTime(RuleDefinitions.ActivationTime.BonusAction)
@@ -159,7 +159,7 @@ namespace SolastaArtificerMod
                 "Feat/&ArtificerArtilleristArcaneFirearmDescription",
                 "Feat/&ArtificerArtilleristArcaneFirearmTitle");
             FeatureDefinitionAdditionalDamage arcaneFirearm = new FeatureDefinitionAdditionalDamageBuilder("ArtificerArtilleristArcaneFirearm",
-                 GuidHelper.Create(Main.ModGuidNamespace, "ArtificerArtilleristArcaneFirearm").ToString(), "ArcaneFirearm",
+                 GuidHelper.Create(TinkererClass.GuidNamespace, "ArtificerArtilleristArcaneFirearm").ToString(), "ArcaneFirearm",
                 RuleDefinitions.FeatureLimitedUsage.OncePerTurn, RuleDefinitions.AdditionalDamageValueDetermination.Die, RuleDefinitions.AdditionalDamageTriggerCondition.EvocationSpellDamage, RuleDefinitions.AdditionalDamageRequiredProperty.None,
                 false /* attack only */, RuleDefinitions.DieType.D8, 1 /* dice number */, RuleDefinitions.AdditionalDamageType.SameAsBaseDamage, "", RuleDefinitions.AdditionalDamageAdvancement.None,
                 new List<DiceByRank>(), false, AttributeDefinitions.Wisdom, 0, EffectSavingThrowType.None, new List<ConditionOperationDescription>(),
@@ -179,7 +179,7 @@ namespace SolastaArtificerMod
             detonationEffect.SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 12, RuleDefinitions.TargetType.Sphere, 4, 4, ActionDefinitions.ItemSelectionType.None);
             detonationEffect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters);
 
-            SpellDefinition detonation = new SpellBuilder("ArtilleristCannonDetonation", GuidHelper.Create(Main.ModGuidNamespace, "ArtilleristCannonDetonation").ToString())
+            SpellDefinition detonation = new SpellBuilder("ArtilleristCannonDetonation", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristCannonDetonation").ToString())
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSpellLevel(1)
                 .SetCastingTime(RuleDefinitions.ActivationTime.Action)
@@ -214,7 +214,7 @@ namespace SolastaArtificerMod
             fire9Effect.SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Cone, 3, 2, ActionDefinitions.ItemSelectionType.None);
             fire9Effect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.BurningHands.EffectDescription.EffectParticleParameters);
 
-            FeatureDefinitionPower flame9Attack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristFlame9CannonAttack", GuidHelper.Create(Main.ModGuidNamespace, "ArtilleristFlame9CannonAttack").ToString(),
+            FeatureDefinitionPower flame9Attack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristFlame9CannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristFlame9CannonAttack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence, fire9Effect.Build(),
                 flame9Gui.Build(), flameAttack).AddToDB();
             //    artillerist.AddFeatureAtLevel(flame9Attack, 9);
@@ -232,7 +232,7 @@ namespace SolastaArtificerMod
             force9Effect.SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.RangeHit, 24, RuleDefinitions.TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.None);
             force9Effect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters);
 
-            FeatureDefinitionPower force9Attack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristForceCannon9Attack", GuidHelper.Create(Main.ModGuidNamespace, "ArtilleristForceCannon9Attack").ToString(),
+            FeatureDefinitionPower force9Attack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristForceCannon9Attack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristForceCannon9Attack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, true, true, AttributeDefinitions.Intelligence, force9Effect.Build(),
                 force9Gui.Build(), forceAttack).AddToDB();
             //    artillerist.AddFeatureAtLevel(force9Attack, 9);
@@ -267,7 +267,7 @@ namespace SolastaArtificerMod
             fire15Effect.SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Cone, 3, 2, ActionDefinitions.ItemSelectionType.None);
             fire15Effect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.BurningHands.EffectDescription.EffectParticleParameters);
 
-            FeatureDefinitionPower flame15Attack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristFlame15CannonAttack", GuidHelper.Create(Main.ModGuidNamespace, "ArtilleristFlame15CannonAttack").ToString(),
+            FeatureDefinitionPower flame15Attack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristFlame15CannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristFlame15CannonAttack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence, fire15Effect.Build(),
                 flame15Gui.Build(), flame9Attack).AddToDB();
             //    artillerist.AddFeatureAtLevel(flame15Attack, 15);
@@ -285,7 +285,7 @@ namespace SolastaArtificerMod
             force15Effect.SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.RangeHit, 24, RuleDefinitions.TargetType.Individuals, 2, 2, ActionDefinitions.ItemSelectionType.None);
             force15Effect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters);
 
-            FeatureDefinitionPower force15Attack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristForceCannon15Attack", GuidHelper.Create(Main.ModGuidNamespace, "ArtilleristForceCannon15Attack").ToString(),
+            FeatureDefinitionPower force15Attack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristForceCannon15Attack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristForceCannon15Attack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, true, true, AttributeDefinitions.Intelligence, force15Effect.Build(),
                 force15Gui.Build(), force9Attack).AddToDB();
             //    artillerist.AddFeatureAtLevel(force15Attack, 15);
@@ -301,7 +301,7 @@ namespace SolastaArtificerMod
             protector15Effect.SetDurationData(RuleDefinitions.DurationType.Permanent, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             protector15Effect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.FalseLife.EffectDescription.EffectParticleParameters);
 
-            FeatureDefinitionPower protector15Activation = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristProtector15CannonAttack", GuidHelper.Create(Main.ModGuidNamespace, "ArtilleristProtector15CannonAttack").ToString(),
+            FeatureDefinitionPower protector15Activation = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristProtector15CannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristProtector15CannonAttack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence, protector15Effect.Build(),
                 protector15Gui.Build(), protectorActivation).AddToDB();
             //    artillerist.AddFeatureAtLevel(protector15Activation, 15);
