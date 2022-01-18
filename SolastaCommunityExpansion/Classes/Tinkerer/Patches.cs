@@ -4,6 +4,7 @@ using System.Reflection;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
+    // TODO verify if this is still needed. It's original goal was to help filter the Infusion selection lists during level up properly.
     internal class Patches
     {
         [HarmonyPatch(typeof(CharacterBuildingManager), "LevelUpCharacter")]
