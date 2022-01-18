@@ -57,20 +57,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             fireEffect.SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Cone, 3, 2, ActionDefinitions.ItemSelectionType.None);
             fireEffect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.BurningHands.EffectDescription.EffectParticleParameters);
 
+            // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
             FeatureDefinitionPower flameAttack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristFlameCannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristFlameCannonAttack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence, fireEffect.Build(),
                 flameGui.Build()).AddToDB();
             //    artillerist.AddFeatureAtLevel(flameAttack, 3);
 
-            // Leaving the spell definition for backwards compatability, though the class no longer uses it.
-            SpellDefinition flamethrower = new SpellBuilder("CantripArtificerFlamethrower", GuidHelper.Create(TinkererClass.GuidNamespace, "CantripArtificerFlamethrower").ToString())
-                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
-                .SetSpellLevel(0)
-                .SetCastingTime(RuleDefinitions.ActivationTime.BonusAction)
-                .SetEffectDescription(fireEffect.Build())
-                .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane)
-                .SetGuiPresentation(flameGui.Build())
-                .AddToDB();
 
             GuiPresentationBuilder forceGui = new GuiPresentationBuilder(
                 "Feat/&ArtilleristForceCannonDescription",
@@ -84,21 +76,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             forceEffect.SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.RangeHit, 24, RuleDefinitions.TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.None);
             forceEffect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters);
 
+            // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
             FeatureDefinitionPower forceAttack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristForceCannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristForceCannonAttack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, true, true, AttributeDefinitions.Intelligence, forceEffect.Build(),
                 forceGui.Build()).AddToDB();
             //    artillerist.AddFeatureAtLevel(forceAttack, 3);
-
-
-            // Leaving the spell definition for backwards compatability, though the class no longer uses it.
-            SpellDefinition forceBallista = new SpellBuilder("CantripArtificerForceBallista", GuidHelper.Create(TinkererClass.GuidNamespace, "CantripArtificerForceBallista").ToString())
-                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
-                .SetSpellLevel(0)
-                .SetCastingTime(RuleDefinitions.ActivationTime.BonusAction)
-                .SetEffectDescription(forceEffect.Build())
-                .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane)
-                .SetGuiPresentation(forceGui.Build())
-                .AddToDB();
 
             // Protector
             GuiPresentationBuilder protectorGui = new GuiPresentationBuilder(
@@ -112,20 +94,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             protectorEffect.SetDurationData(RuleDefinitions.DurationType.Permanent, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             protectorEffect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.FalseLife.EffectDescription.EffectParticleParameters);
 
+            // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
             FeatureDefinitionPower protectorActivation = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristProtectorCannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristProtectorCannonAttack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence, protectorEffect.Build(),
                 protectorGui.Build()).AddToDB();
             //     artillerist.AddFeatureAtLevel(protectorActivation, 3);
-
-            // Leaving the spell definition for backwards compatability, though the class no longer uses it.
-            SpellDefinition protector = new SpellBuilder("CantripArtificerProtector", GuidHelper.Create(TinkererClass.GuidNamespace, "CantripArtificerProtector").ToString())
-                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
-                .SetSpellLevel(0)
-                .SetCastingTime(RuleDefinitions.ActivationTime.BonusAction)
-                .SetEffectDescription(protectorEffect.Build())
-                .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane)
-                .SetGuiPresentation(protectorGui.Build())
-                .AddToDB();
 
             artillerist.AddFeatureAtLevel(ArtilleryConstructlevel03FeatureSetBuilder.ArtilleryConstructlevel03FeatureSet, 3);
 
@@ -142,17 +115,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "ArtilleryConstructLevel03AutopreparedSpells",
                 ArtilleryConstructLevel03AutopreparedSpellsPresentation.Build());
             artillerist.AddFeatureAtLevel(ArtilleryConstructLevel03AutopreparedSpells, 03);
-
-            //GuiPresentationBuilder cannonsPool = new GuiPresentationBuilder(
-            //    "Subclass/&ArtificerArtileristCannonsDescription",
-            //    "Subclass/&ArtificerArtileristCannonsTitle");
-            //FeatureDefinitionBonusCantrips cannonCantrips = FeatureHelpers.BuildBonusCantrips(new List<SpellDefinition>()
-            //{
-            //    flamethrower,
-            //    forceBallista,
-            //    protector,
-            //}, "ArtilleristBonusActionAttacks", cannonsPool.Build());
-            //artillerist.AddFeatureAtLevel(cannonCantrips, 3);
 
             // Level 5: Arcane Firearm-- additional damage, school of evocation spells
             GuiPresentationBuilder arcaneFirearmGui = new GuiPresentationBuilder(
@@ -188,6 +150,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 .SetGuiPresentation(detonationGui.Build())
                 .AddToDB();
 
+            // TODO- add an option to enable the power/spell version of the Blaster (there have been some requests for this) instead of the summons
             GuiPresentationBuilder artilleristDetonationPreparedPresentation = new GuiPresentationBuilder(
                 "Feat/&ArtificerArtillerstDetonationSpellPreparedDescription",
                 "Feat/&ArtificerArtillerstDetonationSpellPreparedTitle");
@@ -197,8 +160,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 },
                 artificer, "ArtificerArtillerstDetonationSpellPrepared", artilleristDetonationPreparedPresentation.Build());
             //    artillerist.AddFeatureAtLevel(ArtilleristDetonationSpell, 9);
-
-
 
             // cannons with boosted damage
             GuiPresentationBuilder flame9Gui = new GuiPresentationBuilder(
@@ -214,6 +175,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             fire9Effect.SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Cone, 3, 2, ActionDefinitions.ItemSelectionType.None);
             fire9Effect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.BurningHands.EffectDescription.EffectParticleParameters);
 
+            // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
             FeatureDefinitionPower flame9Attack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristFlame9CannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristFlame9CannonAttack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence, fire9Effect.Build(),
                 flame9Gui.Build(), flameAttack).AddToDB();
@@ -232,6 +194,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             force9Effect.SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.RangeHit, 24, RuleDefinitions.TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.None);
             force9Effect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters);
 
+            // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
             FeatureDefinitionPower force9Attack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristForceCannon9Attack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristForceCannon9Attack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, true, true, AttributeDefinitions.Intelligence, force9Effect.Build(),
                 force9Gui.Build(), forceAttack).AddToDB();
@@ -267,6 +230,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             fire15Effect.SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Cone, 3, 2, ActionDefinitions.ItemSelectionType.None);
             fire15Effect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.BurningHands.EffectDescription.EffectParticleParameters);
 
+            // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
             FeatureDefinitionPower flame15Attack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristFlame15CannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristFlame15CannonAttack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence, fire15Effect.Build(),
                 flame15Gui.Build(), flame9Attack).AddToDB();
@@ -285,6 +249,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             force15Effect.SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.RangeHit, 24, RuleDefinitions.TargetType.Individuals, 2, 2, ActionDefinitions.ItemSelectionType.None);
             force15Effect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters);
 
+            // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
             FeatureDefinitionPower force15Attack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristForceCannon15Attack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristForceCannon15Attack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, true, true, AttributeDefinitions.Intelligence, force15Effect.Build(),
                 force15Gui.Build(), force9Attack).AddToDB();
@@ -301,6 +266,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             protector15Effect.SetDurationData(RuleDefinitions.DurationType.Permanent, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             protector15Effect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.FalseLife.EffectDescription.EffectParticleParameters);
 
+            // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
             FeatureDefinitionPower protector15Activation = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristProtector15CannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristProtector15CannonAttack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence, protector15Effect.Build(),
                 protector15Gui.Build(), protectorActivation).AddToDB();
