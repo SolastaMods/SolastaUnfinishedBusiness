@@ -118,10 +118,10 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
                     return;
                 }
 
-                var rulesetSpellRepertoire = rulesetEffectSpell?.SpellRepertoire;
-                var spellDefinition = rulesetEffectSpell?.SpellDefinition;
+                var rulesetSpellRepertoire = rulesetEffectSpell.SpellRepertoire;
+                var spellDefinition = rulesetEffectSpell.SpellDefinition;
                 var spellLevel = spellDefinition?.SpellLevel;
-                var slotLevel = rulesetEffectSpell?.SlotLevel;
+                var slotLevel = rulesetEffectSpell.SlotLevel;
                 int classLevel;
 
                 if (spellDefinition != null && rulesetSpellRepertoire?.KnownCantrips.Contains(spellDefinition) == true)
