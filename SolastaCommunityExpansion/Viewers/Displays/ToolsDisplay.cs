@@ -147,9 +147,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     }
                 }
 
-                if (UI.Toggle("Enable the debug overlay", ref enableDebugOverlay, UI.AutoWidth()))
+                toggle = Main.Settings.EnableDebugOverlay;
+                if (UI.Toggle("Enable the hotkey " + "ctrl-(D)".cyan() + "ebug for the in-game overlay", ref enableDebugOverlay, UI.AutoWidth()))
                 {
-                    ServiceRepository.GetService<IDebugOverlayService>().ToggleActivation();
+                    Main.Settings.EnableDebugOverlay = toggle;
                 }
             }
 

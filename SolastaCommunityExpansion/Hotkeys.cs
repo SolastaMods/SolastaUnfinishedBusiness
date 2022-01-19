@@ -19,5 +19,8 @@ namespace SolastaCommunityExpansion
 
         // Teleport Party
         internal const InputCommands.Id CTRL_SHIFT_T = (InputCommands.Id)44440007;
+
+        // Debug Overlay
+        internal const InputCommands.Id CTRL_SHIFT_D = (InputCommands.Id)44440008;
     }
 }
