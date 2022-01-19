@@ -7,8 +7,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
     {
         private static bool enableDebugCamera;
 
-        private static bool enableDebugOverlay;
-
         internal static void DisplayTools()
         {
             bool toggle;
@@ -147,9 +145,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     }
                 }
 
-                if (UI.Toggle("Enable the debug overlay", ref enableDebugOverlay, UI.AutoWidth()))
+                toggle = Main.Settings.EnableDebugOverlay;
+                if (UI.Toggle("Enable the hotkey " + "ctrl-shift-(D)".cyan() + "ebug for the in-game overlay", ref toggle, UI.AutoWidth()))
                 {
-                    ServiceRepository.GetService<IDebugOverlayService>().ToggleActivation();
+                    Main.Settings.EnableDebugOverlay = toggle;
                 }
             }
 
