@@ -225,6 +225,7 @@ namespace SolastaCommunityExpansion
 
         // Debug
         public bool EnableCheatMenu { get; set; }
+        public bool EnableDebugOverlay { get; set; }
 
         // Experience
         public bool NoExperienceOnLevelUp { get; set; }

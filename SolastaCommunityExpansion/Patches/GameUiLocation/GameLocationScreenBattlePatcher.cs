@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.GameUiLocation
 {
@@ -15,32 +14,40 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
             CharacterControlPanelBattle ___characterControlPanelBattle,
             TimeAndNavigationPanel ___timeAndNavigationPanel)
         {
-            if (!Main.Settings.EnableHotkeysToToggleHud)
+            if (Main.Settings.EnableHotkeysToToggleHud)
             {
-                return;
+                switch (command)
+                {
+                    case Hotkeys.CTRL_SHIFT_C:
+                        ShowCharacterControlPanelBattle();
+                        break;
+
+                    case Hotkeys.CTRL_SHIFT_L:
+                        ShowGuiConsoleScreen();
+                        break;
+
+                    case Hotkeys.CTRL_SHIFT_M:
+                        ShowTimeAndNavigationPanel();
+                        break;
+
+                    case Hotkeys.CTRL_SHIFT_P:
+                        ShowPartyControlPanel();
+                        break;
+
+                    case Hotkeys.CTRL_SHIFT_H:
+                        ShowAll();
+                        break;
+                }
             }
 
-            switch (command)
+            if (Main.Settings.EnableDebugOverlay && command == Hotkeys.CTRL_SHIFT_D)
             {
-                case Hotkeys.CTRL_C:
-                    ShowCharacterControlPanelBattle();
-                    break;
+                ServiceRepository.GetService<IDebugOverlayService>()?.ToggleActivation();
+            }
 
-                case Hotkeys.CTRL_L:
-                    ShowGuiConsoleScreen();
-                    break;
-
-                case Hotkeys.CTRL_M:
-                    ShowTimeAndNavigationPanel();
-                    break;
-
-                case Hotkeys.CTRL_P:
-                    ShowPartyControlPanel();
-                    break;
-
-                case Hotkeys.CTRL_H:
-                    ShowAll();
-                    break;
+            if (Main.Settings.EnableTeleportParty && command == Hotkeys.CTRL_SHIFT_T)
+            {
+                Models.GameUiContext.Teleporter.ConfirmTeleportParty();
             }
 
             void ShowAll()

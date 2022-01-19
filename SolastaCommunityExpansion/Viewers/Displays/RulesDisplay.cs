@@ -67,7 +67,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             toggle = Main.Settings.FullyControlConjurations;
-            if (UI.Toggle("Fully control conjurations " + "[animals, elementals, etc]".italic(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Fully control conjurations " + "[animals, elementals, etc]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.FullyControlConjurations = toggle;
                 ConjurationsContext.Load();
@@ -122,14 +122,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.DisableAutoEquip = toggle;
             }
 
-            toggle = Main.Settings.QuickCastLightCantripOnWornItemsFirst;
-            if (UI.Toggle("Quick cast light cantrip uses head or torso worn items first", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.QuickCastLightCantripOnWornItemsFirst = toggle;
-            }
-
             toggle = Main.Settings.MakeAllMagicStaveArcaneFoci;
-            if (UI.Toggle("Make all magic staves arcane foci " + "[except for Staff of Healing which is Universal]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Make all magic staves arcane foci " + "[except for ".italic().yellow() + "Staff of Healing".italic().orange() + " which is Universal]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.MakeAllMagicStaveArcaneFoci = toggle;
                 ItemOptionsContext.SwitchMagicStaffFoci();
@@ -141,6 +135,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (UI.Toggle("Increase " + "Sense Normal Vision".orange() + " range to enable long range attacks " + RequiresRestart, ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.IncreaseSenseNormalVision = toggle;
+            }
+
+            UI.Label("");
+
+            toggle = Main.Settings.QuickCastLightCantripOnWornItemsFirst;
+            if (UI.Toggle("Quick cast light cantrip uses head or torso worn items first", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.QuickCastLightCantripOnWornItemsFirst = toggle;
             }
 
             UI.Label("");
