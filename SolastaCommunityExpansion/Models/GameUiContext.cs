@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using TA;
 using TMPro;
 using UnityEngine;
 using static SolastaModApi.DatabaseHelper.GadgetBlueprints;
@@ -24,6 +25,65 @@ namespace SolastaCommunityExpansion.Models
             ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_M, (int)KeyCode.M, (int)KeyCode.LeftControl, -1, -1, -1, -1);
             ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_P, (int)KeyCode.P, (int)KeyCode.LeftControl, -1, -1, -1, -1);
             ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_H, (int)KeyCode.H, (int)KeyCode.LeftControl, -1, -1, -1, -1);
+            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_D, (int)KeyCode.D, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_T, (int)KeyCode.T, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+        }
+
+        internal static class Teleporter
+        {
+            internal static void ConfirmTeleportParty()
+            {
+                var position = GetEncounterPosition();
+
+                Gui.GuiService.ShowMessage(
+                    MessageModal.Severity.Attention2,
+                    "Message/&TeleportPartyTitle",
+                    Gui.Format("Message/&TeleportPartyDescription", position.x.ToString(), position.x.ToString()),
+                    "Message/&MessageYesTitle", "Message/&MessageNoTitle",
+                    new MessageModal.MessageValidatedHandler(() => { TeleportParty(position); }),
+                    null);
+            }
+
+            private static int3 GetEncounterPosition()
+            {
+                var gameLocationService = ServiceRepository.GetService<IGameLocationService>();
+
+                int x = (int)gameLocationService.GameLocation.LastCameraPosition.x;
+                int z = (int)gameLocationService.GameLocation.LastCameraPosition.z;
+
+                return new int3(x, 0, z);
+            }
+
+            private static void TeleportParty(int3 position)
+            {
+                var gameLocationActionService = ServiceRepository.GetService<IGameLocationActionService>();
+                var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+                var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+                var formationPositions = new List<int3>();
+                var partyAndGuests = new List<GameLocationCharacter>();
+                var positions = new List<int3>();
+
+                for (var iy = 0; iy < 4; iy++)
+                {
+                    for (var ix = 0; ix < 2; ix++)
+                    {
+                        formationPositions.Add(new int3(ix, 0, iy));
+                    }
+                }
+
+                partyAndGuests.AddRange(gameLocationCharacterService.PartyCharacters);
+                partyAndGuests.AddRange(gameLocationCharacterService.GuestCharacters);
+
+                gameLocationPositioningService.ComputeFormationPlacementPositions(partyAndGuests, position, LocationDefinitions.Orientation.North, formationPositions, CellHelpers.PlacementMode.Station, positions, new List<RulesetActor.SizeParameters>(), 25);
+
+                for (var index = 0; index < positions.Count; index++)
+                {
+                    partyAndGuests[index].LocationPosition = positions[index];
+
+                    // rotates the characters in position to force the game to redrawn them
+                    gameLocationActionService.MoveCharacter(partyAndGuests[index], positions[(index + 1) % positions.Count], LocationDefinitions.Orientation.North, 0, ActionDefinitions.MoveStance.Walk);
+                }
+            }
         }
 
         internal static class RemoveInvalidFilenameChars

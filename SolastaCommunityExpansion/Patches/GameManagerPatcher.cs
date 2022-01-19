@@ -39,7 +39,6 @@ namespace SolastaCommunityExpansion.Patches
             SpellsContext.AddToDB();
             SrdAndHouseRulesContext.Load();
             TelemaCampaignContext.Load();
-            TeleporterContext.Load();
             VisionContext.Load();
 
             // Classes may rely on spells and powers being in the DB before they can properly load.
