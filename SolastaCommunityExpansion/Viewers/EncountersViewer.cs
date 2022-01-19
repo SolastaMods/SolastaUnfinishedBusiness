@@ -282,8 +282,8 @@ namespace SolastaCommunityExpansion.Viewers
 
             UI.Label(". use the Bestiary tab to add monsters to the challenge", UI.AutoWidth());
             UI.Label(". use the Characters Pool tab to add heroes as enemies to the challenge", UI.AutoWidth());
-            UI.Label(". click - to remove participants from the group");
-            UI.Label(". pan the camera to the desired encounter location and press " + "ctrl-shift-(E)ncounter".cyan() + " to spawn the group", UI.AutoWidth());
+            UI.Label(". click " + "minus".italic() + " to remove participants from the group");
+            UI.Label(". pan the camera to the desired encounter location and press " + "ctrl-shift-(E)".cyan() + "ncounter to spawn the group", UI.AutoWidth());
             UI.Label("");
 
             if (EncountersSpawnContext.EncounterCharacters.Count == 0)
