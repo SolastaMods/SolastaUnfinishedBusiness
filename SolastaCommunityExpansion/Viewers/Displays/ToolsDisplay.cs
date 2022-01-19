@@ -27,7 +27,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 UI.Label("");
 
                 toggle = Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView;
-                if (UI.Toggle("ALT key only highlight gadgets in party field of view " + "[only in custom dungeons]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("ALT".cyan() + " key only highlight gadgets in party field of view " + "[only in custom dungeons]".italic().yellow(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView = toggle;
                 }
@@ -73,7 +73,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.EnableTeleportParty;
-                if (UI.Toggle("Enable the hotkey " + "ctrl-shift-(T)eleport".cyan() + " in game locations" + "\nYou might break quests or maps if you teleport to an undiscovered place".italic().yellow(), ref toggle))
+                if (UI.Toggle("Enable the hotkey " + "ctrl-shift-(T)".cyan() + "eleport in game locations" + "\nYou might break quests or maps if you teleport to an undiscovered place".italic().yellow(), ref toggle))
                 {
                     Main.Settings.EnableTeleportParty = toggle;
                 }

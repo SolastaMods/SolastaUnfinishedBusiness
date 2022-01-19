@@ -25,7 +25,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (Main.Settings.DisplayAdventureLogToggle)
             {
                 UI.Label("");
-                UI.Label(". The settings below only work in custom campaigns or locations");
+                UI.Label(". These settings only work in custom campaigns or locations");
                 UI.Label("");
 
                 toggle = Main.Settings.EnableAdventureLogBanterLines;
@@ -139,13 +139,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 UI.Label("");
 
                 toggle = Main.Settings.UnleashNpcAsEnemy;
-                if (UI.Toggle("Unleash NPCs as enemies " + "[press SHIFT while clicking Select on gadget panel]".italic().yellow(), ref toggle))
+                if (UI.Toggle("Unleash NPCs as enemies " + "[press ".italic().yellow() + "SHIFT".italic().cyan() + " while clicking Select on gadget panel]".italic().yellow(), ref toggle))
                 {
                     Main.Settings.UnleashNpcAsEnemy = toggle;
                 }
 
                 toggle = Main.Settings.UnleashEnemyAsNpc;
-                if (UI.Toggle("Unleash enemies as NPCs " + "[press SHIFT while clicking Select on gadget panel]".italic().yellow(), ref toggle))
+                if (UI.Toggle("Unleash enemies as NPCs " + "[press ".italic().yellow() + "SHIFT".italic().cyan() + " while clicking Select on gadget panel]".italic().yellow(), ref toggle))
                 {
                     Main.Settings.UnleashEnemyAsNpc = toggle;
                 }
@@ -156,7 +156,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.DisplayHotkeysToggle;
-            if (UI.DisclosureToggle("Hotkey:".yellow(), ref toggle, 200))
+            if (UI.DisclosureToggle("Hotkeys:".yellow(), ref toggle, 200))
             {
                 Main.Settings.DisplayHotkeysToggle = toggle;
             }
@@ -166,19 +166,19 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 UI.Label("");
 
                 toggle = Main.Settings.EnableCharacterExport;
-                if (UI.Toggle("Enable character export from the inventory screen using " + "ctrl-(E)xport".cyan(), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Enable character export from the inventory screen using " + "ctrl-(E)".cyan() + "xport", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableCharacterExport = toggle;
                 }
 
                 toggle = Main.Settings.EnableHotkeysToToggleHud;
-                if (UI.Toggle("Enable the hotkeys " + "ctrl-(C)ontrol Panel, ctrl-(L)og, ctrl-(M)ap, ctrl-(P)arty and ctrl-(H) for all ".cyan() + "to toggle the HUD visibility", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Enable the hotkeys " + "ctrl-(C)".cyan() + "ontrol Panel, " + "ctrl-(L)".cyan() + "og, " + "ctrl-(M)".cyan() + "ap, " + "ctrl-(P)".cyan() + "arty and " + "ctrl-(H)".cyan() + "ud to toggle the UI panels visibility", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableHotkeysToToggleHud = toggle;
                 }
 
                 toggle = Main.Settings.InvertAltBehaviorOnTooltips;
-                if (UI.Toggle("Invert ALT key behavior on tooltips", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Invert " + "ALT".cyan() + " key behavior on tooltips", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.InvertAltBehaviorOnTooltips = toggle;
                 }

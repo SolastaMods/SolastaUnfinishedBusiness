@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Feats
         public static void CreateFeats(List<FeatDefinition> feats)
         {
             GuiPresentationBuilder intPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatIntIncrementDescription", 
+                "Feat/&FeatIntIncrementDescription",
                 "Feat/&FeatIntIncrementTitle");
             FeatureDefinition intIncrement = BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                 AttributeDefinitions.Intelligence, 1, "FeatIntIncrement", intPresentation.Build());
