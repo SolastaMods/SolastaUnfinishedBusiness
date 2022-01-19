@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using TA;
+using UnityEngine;
 using static SolastaModApi.DatabaseHelper.DecisionPackageDefinitions;
 using static SolastaModApi.DatabaseHelper.FactionDefinitions;
 using static SolastaModApi.DatabaseHelper.FormationDefinitions;
@@ -21,7 +22,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
-            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_E, 101, 304, 306, -1, -1, -1);
+            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_S, (int)KeyCode.S, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
         }
 
         internal static void AddToEncounter(RulesetCharacterHero hero)
@@ -99,7 +100,9 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void ConfirmStageEncounter(InputCommands.Id command)
         {
-            if (command == Hotkeys.CTRL_SHIFT_E && EncounterCharacters.Count > 0)
+            var isUserLocation = Gui.GameLocation?.LocationDefinition?.IsUserLocation == true;
+
+            if (command == Hotkeys.CTRL_SHIFT_E && isUserLocation && EncounterCharacters.Count > 0)
             {
                 var position = GetEncounterPosition();
 

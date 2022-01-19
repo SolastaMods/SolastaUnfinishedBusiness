@@ -166,13 +166,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 UI.Label("");
 
                 toggle = Main.Settings.EnableCharacterExport;
-                if (UI.Toggle("Enable character export from the inventory screen using " + "ctrl-(E)".cyan() + "xport", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Enable character export from the inventory screen using " + "ctrl-shift-(E)".cyan() + "xport", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableCharacterExport = toggle;
                 }
 
                 toggle = Main.Settings.EnableHotkeysToToggleHud;
-                if (UI.Toggle("Enable the hotkeys " + "ctrl-(C)".cyan() + "ontrol Panel, " + "ctrl-(L)".cyan() + "og, " + "ctrl-(M)".cyan() + "ap, " + "ctrl-(P)".cyan() + "arty and " + "ctrl-(H)".cyan() + "ud to toggle the UI panels visibility", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Enable the hotkeys " + "ctrl-shift-(C)".cyan() + "ontrol Panel, " + "ctrl-shift-(L)".cyan() + "og, " + "ctrl-shift-(M)".cyan() + "ap, " + "ctrl-shift-(P)".cyan() + "arty and " + "ctrl-shift-(H)".cyan() + "ud to toggle the UI panels visibility", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableHotkeysToToggleHud = toggle;
                 }
