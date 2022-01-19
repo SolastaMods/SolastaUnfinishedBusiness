@@ -18,23 +18,23 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
             {
                 switch (command)
                 {
-                    case Hotkeys.CTRL_C:
+                    case Hotkeys.CTRL_SHIFT_C:
                         ShowCharacterControlPanelBattle();
                         break;
 
-                    case Hotkeys.CTRL_L:
+                    case Hotkeys.CTRL_SHIFT_L:
                         ShowGuiConsoleScreen();
                         break;
 
-                    case Hotkeys.CTRL_M:
+                    case Hotkeys.CTRL_SHIFT_M:
                         ShowTimeAndNavigationPanel();
                         break;
 
-                    case Hotkeys.CTRL_P:
+                    case Hotkeys.CTRL_SHIFT_P:
                         ShowPartyControlPanel();
                         break;
 
-                    case Hotkeys.CTRL_H:
+                    case Hotkeys.CTRL_SHIFT_H:
                         ShowAll();
                         break;
                 }
