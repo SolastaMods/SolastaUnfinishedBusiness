@@ -20,9 +20,9 @@ namespace SolastaCommunityExpansion.Models
 
         internal static readonly List<RulesetCharacter> EncounterCharacters = new List<RulesetCharacter>();
 
-        internal static void Load()
+        internal static void RegisterCommand(InputCommands.Id command, int primaryKeyCode, int primaryModifier1, int primaryModifier2)
         {
-            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_S, (int)KeyCode.S, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+            ServiceRepository.GetService<IInputService>().RegisterCommand(command, primaryKeyCode, primaryModifier1, primaryModifier2, -1, -1, -1);
         }
 
         internal static void AddToEncounter(RulesetCharacterHero hero)
@@ -98,22 +98,17 @@ namespace SolastaCommunityExpansion.Models
             return Heroes;
         }
 
-        internal static void ConfirmStageEncounter(InputCommands.Id command)
+        internal static void ConfirmStageEncounter()
         {
-            var isUserLocation = Gui.GameLocation?.LocationDefinition?.IsUserLocation == true;
+            var position = GetEncounterPosition();
 
-            if (command == Hotkeys.CTRL_SHIFT_E && isUserLocation && EncounterCharacters.Count > 0)
-            {
-                var position = GetEncounterPosition();
-
-                Gui.GuiService.ShowMessage(
-                    MessageModal.Severity.Attention2,
-                    "Message/&SpawnCustomEncounterTitle",
-                    Gui.Format("Message/&SpawnCustomEncounterDescription", position.x.ToString(), position.x.ToString()),
-                    "Message/&MessageYesTitle", "Message/&MessageNoTitle",
-                    new MessageModal.MessageValidatedHandler(() => { StageEncounter(position); }),
-                    null);
-            }
+            Gui.GuiService.ShowMessage(
+                MessageModal.Severity.Attention2,
+                "Message/&SpawnCustomEncounterTitle",
+                Gui.Format("Message/&SpawnCustomEncounterDescription", position.x.ToString(), position.x.ToString()),
+                "Message/&MessageYesTitle", "Message/&MessageNoTitle",
+                new MessageModal.MessageValidatedHandler(() => { StageEncounter(position); }),
+                null);
         }
 
         private static int3 GetEncounterPosition()

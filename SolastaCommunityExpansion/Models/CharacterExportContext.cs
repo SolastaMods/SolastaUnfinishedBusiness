@@ -18,8 +18,12 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
-            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_E, (int)KeyCode.T, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
             LoadInputField();
+        }
+
+        internal static void RegisterCommand(InputCommands.Id command, int primaryKeyCode, int primaryModifier1, int primaryModifier2)
+        {
+            ServiceRepository.GetService<IInputService>().RegisterCommand(command, primaryKeyCode, primaryModifier1, primaryModifier2, -1, -1, -1);
         }
 
         internal static void LoadInputField()
