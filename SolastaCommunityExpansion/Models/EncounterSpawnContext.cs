@@ -100,15 +100,20 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void ConfirmStageEncounter()
         {
-            var position = GetEncounterPosition();
+            var isUserLocation = Gui.GameLocation?.LocationDefinition?.IsUserLocation == true;
 
-            Gui.GuiService.ShowMessage(
-                MessageModal.Severity.Attention2,
-                "Message/&SpawnCustomEncounterTitle",
-                Gui.Format("Message/&SpawnCustomEncounterDescription", position.x.ToString(), position.x.ToString()),
-                "Message/&MessageYesTitle", "Message/&MessageNoTitle",
-                new MessageModal.MessageValidatedHandler(() => { StageEncounter(position); }),
-                null);
+            if (isUserLocation)
+            {
+                var position = GetEncounterPosition();
+
+                Gui.GuiService.ShowMessage(
+                    MessageModal.Severity.Attention2,
+                    "Message/&SpawnCustomEncounterTitle",
+                    Gui.Format("Message/&SpawnCustomEncounterDescription", position.x.ToString(), position.x.ToString()),
+                    "Message/&MessageYesTitle", "Message/&MessageNoTitle",
+                    new MessageModal.MessageValidatedHandler(() => { StageEncounter(position); }),
+                    null);
+            }
         }
 
         private static int3 GetEncounterPosition()

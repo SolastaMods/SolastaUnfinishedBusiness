@@ -72,9 +72,7 @@ namespace SolastaCommunityExpansion.Models
                 return;
             }
 
-            var isUserLocation = Gui.GameLocation?.LocationDefinition?.IsUserLocation == true;
-
-            if (command == Hotkeys.CTRL_SHIFT_S && isUserLocation && EncountersSpawnContext.EncounterCharacters.Count > 0)
+            if (EncountersSpawnContext.EncounterCharacters.Count > 0 && command == Hotkeys.CTRL_SHIFT_S)
             {
                 EncountersSpawnContext.ConfirmStageEncounter();
                 return;
@@ -115,8 +113,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static class GameHud
         {
-            internal static void ShowAll(
-                GameLocationBaseScreen gameLocationBaseScreen, GuiPanel initiativeOrPartyPanel, TimeAndNavigationPanel timeAndNavigationPanel)
+            internal static void ShowAll(GameLocationBaseScreen gameLocationBaseScreen, GuiPanel initiativeOrPartyPanel, TimeAndNavigationPanel timeAndNavigationPanel)
             {
                 var guiConsoleScreen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
                 var anyVisible = guiConsoleScreen.Visible || gameLocationBaseScreen.CharacterControlPanel.Visible || initiativeOrPartyPanel.Visible || timeAndNavigationPanel.Visible;
