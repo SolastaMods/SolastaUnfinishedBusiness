@@ -95,19 +95,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 {
                     Main.Settings.AutoPauseOnVictory = toggle;
                 }
-
-                toggle = Main.Settings.PermanentlySpeedBattleUp;
-                if (UI.Toggle("Permanently speeds battle up", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.PermanentlySpeedBattleUp = toggle;
-                }
-
-                UI.Label("");
-                floatValue = Main.Settings.BattleCustomTimeScale;
-                if (UI.Slider("Battle timescale modifier".white(), ref floatValue, 1f, 50f, 1f, 1, "M", UI.AutoWidth()))
-                {
-                    Main.Settings.BattleCustomTimeScale = floatValue;
-                }
             }
             #endregion
 
