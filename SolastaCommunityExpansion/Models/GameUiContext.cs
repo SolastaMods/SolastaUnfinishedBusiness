@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using SolastaModApi.Infrastructure;
 using TA;
 using TMPro;
 using UnityEngine;
@@ -20,15 +21,154 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
-            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_C, (int)KeyCode.C, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
-            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_L, (int)KeyCode.L, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
-            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_M, (int)KeyCode.M, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
-            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_P, (int)KeyCode.P, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
-            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_H, (int)KeyCode.H, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
-            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_D, (int)KeyCode.D, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
-            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_T, (int)KeyCode.T, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+            var inputService = ServiceRepository.GetService<IInputService>();
+
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_C, (int)KeyCode.C, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_L, (int)KeyCode.L, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_M, (int)KeyCode.M, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_P, (int)KeyCode.P, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_H, (int)KeyCode.H, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_D, (int)KeyCode.D, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_T, (int)KeyCode.T, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+
+            // Export Character
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_E, (int)KeyCode.E, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+
+            // Spawn Encounter
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_S, (int)KeyCode.S, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
         }
 
+        internal static void HandleInput(GameLocationBaseScreen gameLocationBaseScreen, InputCommands.Id command)
+        {
+            if (Main.Settings.EnableHotkeysToToggleHud)
+            {
+                switch (command)
+                {
+                    case Hotkeys.CTRL_SHIFT_C:
+                        GameHud.ShowCharacterControlPanel(gameLocationBaseScreen);
+                        return;
+
+                    case Hotkeys.CTRL_SHIFT_L:
+                        GameHud.TogglePanelVisibility(Gui.GuiService.GetScreen<GuiConsoleScreen>());
+                        return;
+
+                    case Hotkeys.CTRL_SHIFT_M:
+                        GameHud.TogglePanelVisibility(GetTimeAndNavigationPanel());
+                        return;
+
+                    case Hotkeys.CTRL_SHIFT_P:
+                        GameHud.TogglePanelVisibility(GetInitiativeOrPartyPanel());
+                        return;
+
+                    case Hotkeys.CTRL_SHIFT_H:
+                        GameHud.ShowAll(gameLocationBaseScreen, GetInitiativeOrPartyPanel(), GetTimeAndNavigationPanel());
+                        return;
+                }
+            }
+
+            if (Main.Settings.EnableDebugOverlay && command == Hotkeys.CTRL_SHIFT_D)
+            {
+                ServiceRepository.GetService<IDebugOverlayService>()?.ToggleActivation();
+                return;
+            }
+
+            if (Main.Settings.EnableTeleportParty && command == Hotkeys.CTRL_SHIFT_T)
+            {
+                Teleporter.ConfirmTeleportParty();
+                return;
+            }
+
+            if (EncountersSpawnContext.EncounterCharacters.Count > 0 && command == Hotkeys.CTRL_SHIFT_S)
+            {
+                EncountersSpawnContext.ConfirmStageEncounter();
+                return;
+            }
+
+            GuiPanel GetInitiativeOrPartyPanel()
+            {
+                if (gameLocationBaseScreen is GameLocationScreenExploration gameLocationScreenExploration)
+                {
+                    return gameLocationScreenExploration.GetField<GameLocationScreenExploration, PartyControlPanel>("partyControlPanel");
+                }
+                else if (gameLocationBaseScreen is GameLocationScreenBattle gameLocationScreenBattle)
+                {
+                    return gameLocationScreenBattle.GetField<GameLocationScreenBattle, BattleInitiativeTable>("initiativeTable");
+                }
+                else
+                {
+                    return null;
+                }
+            }
+
+            TimeAndNavigationPanel GetTimeAndNavigationPanel()
+            {
+                if (gameLocationBaseScreen is GameLocationScreenExploration gameLocationScreenExploration)
+                {
+                    return gameLocationScreenExploration.GetField<GameLocationScreenExploration, TimeAndNavigationPanel>("timeAndNavigationPanel");
+                }
+                else if (gameLocationBaseScreen is GameLocationScreenBattle gameLocationScreenBattle)
+                {
+                    return gameLocationScreenBattle.GetField<GameLocationScreenBattle, TimeAndNavigationPanel>("timeAndNavigationPanel");
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+        internal static class GameHud
+        {
+            internal static void ShowAll(GameLocationBaseScreen gameLocationBaseScreen, GuiPanel initiativeOrPartyPanel, TimeAndNavigationPanel timeAndNavigationPanel)
+            {
+                var guiConsoleScreen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
+                var anyVisible = guiConsoleScreen.Visible || gameLocationBaseScreen.CharacterControlPanel.Visible || initiativeOrPartyPanel.Visible || timeAndNavigationPanel.Visible;
+
+                ShowCharacterControlPanel(gameLocationBaseScreen, anyVisible);
+                TogglePanelVisibility(guiConsoleScreen, anyVisible);
+                TogglePanelVisibility(initiativeOrPartyPanel);
+                TogglePanelVisibility(timeAndNavigationPanel, anyVisible);
+            }
+
+            internal static void ShowCharacterControlPanel(GameLocationBaseScreen gameLocationBaseScreen, bool forceHide = false)
+            {
+                var characterControlPanel = gameLocationBaseScreen.CharacterControlPanel;
+
+                if (characterControlPanel.Visible || forceHide)
+                {
+                    characterControlPanel.Hide();
+                    characterControlPanel.Unbind();
+                }
+                else
+                {
+                    var gameLocationSelectionService = ServiceRepository.GetService<IGameLocationSelectionService>();
+
+                    if (gameLocationSelectionService.SelectedCharacters.Count > 0)
+                    {
+                        characterControlPanel.Bind(gameLocationSelectionService.SelectedCharacters[0], gameLocationBaseScreen.ActionTooltipDock);
+                        characterControlPanel.Show();
+                    }
+                }
+            }
+
+            internal static void TogglePanelVisibility(GuiPanel guiPanel, bool forceHide = false)
+            {
+                if (guiPanel == null)
+                {
+                    return;
+                }
+
+                if (guiPanel.Visible || forceHide)
+                {
+                    guiPanel.Hide();
+                }
+                else
+                {
+                    guiPanel.Show();
+                }
+            }
+        }
+        
         internal static class Teleporter
         {
             internal static void ConfirmTeleportParty()

@@ -20,11 +20,6 @@ namespace SolastaCommunityExpansion.Models
 
         internal static readonly List<RulesetCharacter> EncounterCharacters = new List<RulesetCharacter>();
 
-        internal static void Load()
-        {
-            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_S, (int)KeyCode.S, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
-        }
-
         internal static void AddToEncounter(RulesetCharacterHero hero)
         {
             if (EncounterCharacters.Count < MAX_ENCOUNTER_CHARACTERS)
@@ -98,11 +93,11 @@ namespace SolastaCommunityExpansion.Models
             return Heroes;
         }
 
-        internal static void ConfirmStageEncounter(InputCommands.Id command)
+        internal static void ConfirmStageEncounter()
         {
             var isUserLocation = Gui.GameLocation?.LocationDefinition?.IsUserLocation == true;
 
-            if (command == Hotkeys.CTRL_SHIFT_E && isUserLocation && EncounterCharacters.Count > 0)
+            if (isUserLocation)
             {
                 var position = GetEncounterPosition();
 

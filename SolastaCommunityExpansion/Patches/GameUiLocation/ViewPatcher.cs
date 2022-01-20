@@ -1,17 +1,17 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.ModUi
+namespace SolastaCommunityExpansion.Patches.GameUiLocation
 {
-    [HarmonyPatch(typeof(GameLocationBaseScreen), "HandleInput")]
+    // this patch prevents game from receive input if Mod UI is open
+    [HarmonyPatch(typeof(View), "HandleInputs")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GameLocationBaseScreen_HandleInput
+    internal static class View_HandleInputs
     {
-        internal static bool Prefix(ref bool __result)
+        internal static bool Prefix()
         {
             if (ModManagerUI.IsOpen)
             {
-                __result = true;
                 return false;
             }
 
