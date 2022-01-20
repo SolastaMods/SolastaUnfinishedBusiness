@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
-            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_E, (int)KeyCode.E, (int)KeyCode.LeftControl, -1, -1, -1, -1);
+            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_E, (int)KeyCode.T, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
             LoadInputField();
         }
 
@@ -184,60 +184,6 @@ namespace SolastaCommunityExpansion.Models
                 heroCharacter.SetCurrentHitPoints(hitPoints);
 
                 heroCharacter.Register(false);
-            }
-        }
-
-        /// <summary>
-        /// Required during de-serialization in the character inspection screen to prevent null-ref exceptions
-        /// </summary>
-        internal class DummyRulesetEntityService : IRulesetEntityService
-        {
-            public static IRulesetEntityService Instance => new DummyRulesetEntityService();
-
-            public bool Dirty { get; set; }
-
-            public Dictionary<ulong, RulesetEntity> RulesetEntities => new Dictionary<ulong, RulesetEntity>();
-
-            public ulong GenerateGuid()
-            {
-                return 0;
-            }
-
-            public void RegisterEntity(RulesetEntity rulesetEntity)
-            {
-                if (!RulesetEntities.ContainsKey(rulesetEntity.Guid))
-                {
-                    RulesetEntities.Add(rulesetEntity.Guid, rulesetEntity);
-                }
-            }
-
-            public bool TryGetEntityByGuid(ulong guid, out RulesetEntity rulesetEntity)
-            {
-                return RulesetEntities.TryGetValue(guid, out rulesetEntity);
-            }
-
-            public void UnregisterEntity(RulesetEntity rulesetEntity)
-            {
-                if (rulesetEntity != null)
-                {
-                    RulesetEntities.Remove(rulesetEntity.Guid);
-                }
-            }
-
-            public void SwapEntities(RulesetEntity oldRulesetEntity, RulesetEntity newRulesetEntity)
-            {
-                // Nothing to do
-            }
-
-            public void ResetCurrentGuid()
-            {
-                // Nothing to do
-            }
-
-            public bool TryGetEntityByGuidAndType<T>(ulong guid, out T rulesetEntity) where T : RulesetEntity
-            {
-                rulesetEntity = null;
-                return false;
             }
         }
     }
