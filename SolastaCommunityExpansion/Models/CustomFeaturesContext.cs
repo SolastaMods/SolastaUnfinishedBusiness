@@ -29,7 +29,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 if (usablePower.PowerDefinition is IPowerSharedPool pool)
                 {
-                    FeatureDefinitionPower pointPoolPower = pool.GetUsagePoolPower();
+                    var pointPoolPower = pool.GetUsagePoolPower();
 
                     // Only add to recharge here if it (recharges on a short rest and this is a short or long rest) or 
                     // it recharges on a long rest and this is a long rest.
@@ -90,14 +90,16 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void UpdateUsageForPowerPool(this RulesetCharacter character, RulesetUsablePower modifiedPower, int poolUsage)
         {
-            if (!(modifiedPower.PowerDefinition is IPowerSharedPool))
+            if (!(modifiedPower.PowerDefinition is IPowerSharedPool sharedPoolPower))
             {
                 return;
             }
-            IPowerSharedPool sharedPoolPower = (IPowerSharedPool)modifiedPower.PowerDefinition;
+
+            var pointPoolPower = sharedPoolPower.GetUsagePoolPower();
+
             foreach (RulesetUsablePower poolPower in character.UsablePowers)
             {
-                if (poolPower.PowerDefinition == sharedPoolPower.GetUsagePoolPower())
+                if (poolPower.PowerDefinition == pointPoolPower)
                 {
                     int maxUses = GetMaxUsesForPool(poolPower, character);
                     int remainingUses = Mathf.Clamp(poolPower.RemainingUses - poolUsage, 0, maxUses);
