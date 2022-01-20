@@ -250,8 +250,6 @@ namespace SolastaCommunityExpansion
         public bool DontFollowCharacterInBattle { get; set; }
         public int DontFollowMargin { get; set; } = 5;
         public bool AutoPauseOnVictory { get; set; }
-        public bool PermanentlySpeedBattleUp { get; set; }
-        public float BattleCustomTimeScale { get; set; } = 1.0f;
 
         // Dungeon Maker
         public bool AllowGadgetsToBePlacedAnywhere { get; set; }
