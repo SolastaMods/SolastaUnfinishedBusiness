@@ -2,7 +2,7 @@
 using HarmonyLib;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.Camera
+namespace SolastaCommunityExpansion.Patches.GameUiBattle
 {
     [HarmonyPatch(typeof(CameraControllerLocation), "FollowCharacterForBattle")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
