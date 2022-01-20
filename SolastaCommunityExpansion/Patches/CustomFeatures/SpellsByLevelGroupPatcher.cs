@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
-namespace SolastaCommunityExpansion.Patches.AutoPreparedSpells
+namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {
     [HarmonyPatch(typeof(SpellsByLevelGroup), "CommonBind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

@@ -3,7 +3,7 @@ using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
-namespace SolastaCommunityExpansion.Patches.RemoveGrantedFeature
+namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {
     //
     // this patch shouldn't be protected

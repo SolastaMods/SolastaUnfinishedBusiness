@@ -4,7 +4,7 @@ using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 
-namespace SolastaCommunityExpansion.Patches.ConditionRemovedOnSourceTurnStart
+namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {
     // Yes, the actual method name has a typo
     [HarmonyPatch(typeof(RulesetActor), "ProcessConditionsMatchingOccurenceType")]
@@ -45,6 +45,37 @@ namespace SolastaCommunityExpansion.Patches.ConditionRemovedOnSourceTurnStart
                 {
                     contender.RulesetActor.RemoveCondition(conditionToRemove);
                 }
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetActor), "InflictCondition")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+
+    internal static class RulesetActor_InflictCondition
+    {
+
+        internal static void Prefix(string conditionDefinitionName,
+            ref int sourceAmount)
+        {
+            if (RulesetImplementationManagerLocation_ApplySummonForm.ConditionToAmount.ContainsKey(conditionDefinitionName))
+            {
+                sourceAmount = RulesetImplementationManagerLocation_ApplySummonForm.ConditionToAmount[conditionDefinitionName];
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetActor), "RemoveCondition")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetActor_RemoveCondition
+    {
+        internal static void Postfix(RulesetActor __instance, RulesetCondition rulesetCondition)
+        {
+            var notifiedDefinition = rulesetCondition?.ConditionDefinition as INotifyConditionRemoval;
+
+            if (notifiedDefinition != null)
+            {
+                notifiedDefinition.AfterConditionRemoved(__instance, rulesetCondition);
             }
         }
     }

@@ -4,7 +4,7 @@ using SolastaCommunityExpansion.Helpers;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
-namespace SolastaCommunityExpansion.Patches.OnAttackEffects
+namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {
     //
     // this patch shouldn't be protected
