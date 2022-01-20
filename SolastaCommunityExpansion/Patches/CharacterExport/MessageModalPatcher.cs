@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Patches.CharacterExport
                 // add this check here to avoid a restart required on this UI toggle
                 if (InputField == null)
                 {
-                    LoadInputField();
+                    Load();
                 }
 
                 InputField.gameObject.SetActive(true);

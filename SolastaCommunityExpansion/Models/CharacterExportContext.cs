@@ -18,12 +18,6 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
-            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_E, (int)KeyCode.T, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
-            LoadInputField();
-        }
-
-        internal static void LoadInputField()
-        {
             MessageModal messageModal = Gui.GuiService.GetScreen<MessageModal>();
             TMP_Text contentText = messageModal.transform.FindChildRecursive("Content").GetComponent<TMP_Text>();
 
