@@ -20,11 +20,6 @@ namespace SolastaCommunityExpansion.Models
 
         internal static readonly List<RulesetCharacter> EncounterCharacters = new List<RulesetCharacter>();
 
-        internal static void RegisterCommand(InputCommands.Id command, int primaryKeyCode, int primaryModifier1, int primaryModifier2)
-        {
-            ServiceRepository.GetService<IInputService>().RegisterCommand(command, primaryKeyCode, primaryModifier1, primaryModifier2, -1, -1, -1);
-        }
-
         internal static void AddToEncounter(RulesetCharacterHero hero)
         {
             if (EncounterCharacters.Count < MAX_ENCOUNTER_CHARACTERS)

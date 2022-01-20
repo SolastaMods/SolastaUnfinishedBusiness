@@ -18,16 +18,6 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
-            LoadInputField();
-        }
-
-        internal static void RegisterCommand(InputCommands.Id command, int primaryKeyCode, int primaryModifier1, int primaryModifier2)
-        {
-            ServiceRepository.GetService<IInputService>().RegisterCommand(command, primaryKeyCode, primaryModifier1, primaryModifier2, -1, -1, -1);
-        }
-
-        internal static void LoadInputField()
-        {
             MessageModal messageModal = Gui.GuiService.GetScreen<MessageModal>();
             TMP_Text contentText = messageModal.transform.FindChildRecursive("Content").GetComponent<TMP_Text>();
 

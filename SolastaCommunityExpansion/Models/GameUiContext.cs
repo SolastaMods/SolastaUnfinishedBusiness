@@ -21,15 +21,21 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
-            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_C, (int)KeyCode.C, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
-            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_L, (int)KeyCode.L, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
-            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_M, (int)KeyCode.M, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
-            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_P, (int)KeyCode.P, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
-            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_H, (int)KeyCode.H, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
-            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_D, (int)KeyCode.D, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
-            ServiceRepository.GetService<IInputService>().RegisterCommand(Hotkeys.CTRL_SHIFT_T, (int)KeyCode.T, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
-            CharacterExportContext.RegisterCommand(Hotkeys.CTRL_SHIFT_E, (int)KeyCode.E, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl);
-            EncountersSpawnContext.RegisterCommand(Hotkeys.CTRL_SHIFT_S, (int)KeyCode.S, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl);
+            var inputService = ServiceRepository.GetService<IInputService>();
+
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_C, (int)KeyCode.C, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_L, (int)KeyCode.L, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_M, (int)KeyCode.M, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_P, (int)KeyCode.P, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_H, (int)KeyCode.H, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_D, (int)KeyCode.D, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_T, (int)KeyCode.T, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+
+            // Export Character
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_E, (int)KeyCode.E, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+
+            // Spawn Encounter
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_S, (int)KeyCode.S, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
         }
 
         internal static void HandleInput(GameLocationBaseScreen gameLocationBaseScreen, InputCommands.Id command)
