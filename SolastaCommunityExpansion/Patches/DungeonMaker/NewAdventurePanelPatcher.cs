@@ -2,7 +2,7 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.CampaignRequirements
+namespace SolastaCommunityExpansion.Patches.DungeonMaker
 {
     // this patch changes the min/max requirements on campaigns
     [HarmonyPatch(typeof(NewAdventurePanel), "SelectCampaign")]

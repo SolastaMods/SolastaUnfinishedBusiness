@@ -2,7 +2,7 @@
 using HarmonyLib;
 using TMPro;
 
-namespace SolastaCommunityExpansion.Patches.ExtraCharsInNames
+namespace SolastaCommunityExpansion.Patches.GameUiLevelUp
 {
     [HarmonyPatch(typeof(CharacterStageIdentityDefinitionPanel), "EnterStage")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.CampaignRequirements
+namespace SolastaCommunityExpansion.Patches.DungeonMaker
 {
     // this patch changes the min requirements on official campaigns
     [HarmonyPatch(typeof(CampaignDefinition), "MinStartLevel", MethodType.Getter)]
