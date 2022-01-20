@@ -4,7 +4,7 @@ using SolastaCommunityExpansion.Helpers;
 using HarmonyLib;
 using System.Linq;
 
-namespace SolastaCommunityExpansion.Patches.ExtraSummoningModifiers
+namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {
     [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "ApplySummonForm")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -68,22 +68,6 @@ namespace SolastaCommunityExpansion.Patches.ExtraSummoningModifiers
         internal static void Postfix()
         {
             ConditionToAmount.Clear();
-        }
-    }
-
-    [HarmonyPatch(typeof(RulesetActor), "InflictCondition")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-
-    internal static class RulesetActor_InflictCondition
-    {
-
-        internal static void Prefix(string conditionDefinitionName,
-            ref int sourceAmount)
-        {
-            if (RulesetImplementationManagerLocation_ApplySummonForm.ConditionToAmount.ContainsKey(conditionDefinitionName))
-            {
-                sourceAmount = RulesetImplementationManagerLocation_ApplySummonForm.ConditionToAmount[conditionDefinitionName];
-            }
         }
     }
 }

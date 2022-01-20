@@ -2,8 +2,35 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 
-namespace SolastaCommunityExpansion.Patches.CustomFightingStyle
+namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {
+    [HarmonyPatch(typeof(RulesetCharacterHero), "FindClassHoldingFeature")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetCharacterHero_FindClassHoldingFeature
+    {
+        //
+        // TODO @CHRIS: should we protect this patch? What is the purpose?
+        //
+        internal static void Postfix(
+            RulesetCharacterHero __instance,
+            FeatureDefinition featureDefinition,
+            ref CharacterClassDefinition __result)
+        {
+            var overrideClassHoldingFeature = featureDefinition as IClassHoldingFeature;
+
+            if (overrideClassHoldingFeature?.Class == null)
+            {
+                return;
+            }
+
+            // Only override if the character actually has levels in the class, to prevent errors
+            if (__instance.ClassesAndLevels.TryGetValue(overrideClassHoldingFeature.Class, out int levelsInClass) && levelsInClass > 0)
+            {
+                __result = overrideClassHoldingFeature.Class;
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshActiveFightingStyles")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacterHero_RefreshActiveFightingStyles

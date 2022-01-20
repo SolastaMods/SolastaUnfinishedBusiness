@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
-namespace SolastaCommunityExpansion.Patches.FeatureDefinitionCustomCode
+namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {
     internal static class ApplyFeatureProcessor
     {
