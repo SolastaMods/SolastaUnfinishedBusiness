@@ -1,9 +1,9 @@
-﻿using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using SolastaModApi;
-using SolastaModApi.BuilderHelpers;
-using SolastaModApi.Extensions;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
+using SolastaModApi;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Feats
 {

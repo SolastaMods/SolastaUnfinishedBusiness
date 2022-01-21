@@ -1,8 +1,9 @@
-﻿using SolastaCommunityExpansion.Features;
+﻿using System;
+using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
-using System;
-using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard
 {

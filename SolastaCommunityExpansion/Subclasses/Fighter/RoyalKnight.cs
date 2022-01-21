@@ -1,6 +1,7 @@
-﻿using SolastaModApi;
+﻿using System;
+using SolastaCommunityExpansion.Builders;
+using SolastaModApi;
 using SolastaModApi.Extensions;
-using System;
 
 namespace SolastaCommunityExpansion.Subclasses.Fighter
 {

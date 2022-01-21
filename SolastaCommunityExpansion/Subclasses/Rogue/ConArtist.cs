@@ -1,10 +1,10 @@
-﻿using SolastaCommunityExpansion.Features;
+﻿using System;
+using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Features;
 using SolastaModApi;
-using SolastaModApi.BuilderHelpers;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using System;
-using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Subclasses.Rogue
 {

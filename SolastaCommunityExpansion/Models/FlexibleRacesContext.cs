@@ -1,5 +1,4 @@
-﻿using SolastaModApi;
-using SolastaModApi.BuilderHelpers;
+﻿using SolastaCommunityExpansion.Builders;
 using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Models

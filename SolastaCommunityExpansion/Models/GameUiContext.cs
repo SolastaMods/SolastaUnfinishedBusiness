@@ -66,19 +66,14 @@ namespace SolastaCommunityExpansion.Models
             if (Main.Settings.EnableDebugOverlay && command == Hotkeys.CTRL_SHIFT_D)
             {
                 ServiceRepository.GetService<IDebugOverlayService>()?.ToggleActivation();
-                return;
             }
-
-            if (Main.Settings.EnableTeleportParty && command == Hotkeys.CTRL_SHIFT_T)
+            else if (Main.Settings.EnableTeleportParty && command == Hotkeys.CTRL_SHIFT_T)
             {
                 Teleporter.ConfirmTeleportParty();
-                return;
             }
-
-            if (EncountersSpawnContext.EncounterCharacters.Count > 0 && command == Hotkeys.CTRL_SHIFT_S)
+            else if (EncountersSpawnContext.EncounterCharacters.Count > 0 && command == Hotkeys.CTRL_SHIFT_S)
             {
                 EncountersSpawnContext.ConfirmStageEncounter();
-                return;
             }
 
             GuiPanel GetInitiativeOrPartyPanel()
@@ -165,7 +160,7 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
         }
-        
+
         internal static class Teleporter
         {
             internal static void ConfirmTeleportParty()
