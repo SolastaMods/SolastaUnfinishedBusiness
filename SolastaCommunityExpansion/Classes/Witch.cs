@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using SolastaModApi;
-using SolastaModApi.BuilderHelpers;
-using SolastaModApi.Extensions;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Features;
 using SolastaCommunityExpansion.Helpers;
-using SolastaCommunityExpansion.Subclasses.Witch;
 using SolastaCommunityExpansion.Level20;
+using SolastaCommunityExpansion.Subclasses.Witch;
+using SolastaModApi;
+using SolastaModApi.Extensions;
 using static CharacterClassDefinition;
 using static FeatureDefinitionCastSpell;
 

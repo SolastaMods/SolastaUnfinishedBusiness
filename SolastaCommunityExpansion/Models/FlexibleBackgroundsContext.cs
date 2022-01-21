@@ -1,5 +1,4 @@
-﻿using SolastaModApi;
-using SolastaModApi.BuilderHelpers;
+﻿using SolastaCommunityExpansion.Builders;
 using System.Collections.Generic;
 using static SolastaModApi.DatabaseHelper.CharacterBackgroundDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;

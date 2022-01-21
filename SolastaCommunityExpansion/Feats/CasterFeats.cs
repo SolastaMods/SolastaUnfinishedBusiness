@@ -1,6 +1,6 @@
-﻿using SolastaCommunityExpansion.Features;
+﻿using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Features;
 using SolastaModApi;
-using SolastaModApi.BuilderHelpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;

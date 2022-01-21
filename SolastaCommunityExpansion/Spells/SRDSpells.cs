@@ -3,10 +3,10 @@ using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi;
 using SolastaModApi.Extensions;
-using SolastaModApi.BuilderHelpers;
 using SolastaModApi.Infrastructure;
 using SolastaCommunityExpansion.Features;
 using UnityEngine.AddressableAssets;
+using SolastaCommunityExpansion.Builders;
 
 namespace SolastaCommunityExpansion.Spells
 {

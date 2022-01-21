@@ -1,7 +1,8 @@
-﻿using SolastaCommunityExpansion.CustomFeatureDefinitions;
+﻿using System;
+using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
 using SolastaModApi.Extensions;
-using System;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 
 namespace SolastaCommunityExpansion.Subclasses.Rogue
