@@ -81,6 +81,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (UI.Toggle("Fully control conjurations " + "[animals, elementals, etc]".italic().yellow(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.FullyControlConjurations = toggle;
+                    Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration = false;
                     ConjurationsContext.Load();
                 }
 
@@ -97,6 +98,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (UI.Toggle("Enable upcast of " + "Conjure Elemental, Conjure Fey".orange(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableUpcastConjureElementalAndFey = toggle;
+                    Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey = false;
                     ConjurationsContext.Load();
                 }
 

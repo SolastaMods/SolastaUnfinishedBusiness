@@ -34,6 +34,7 @@ namespace SolastaCommunityExpansion
         public bool DisplayHouseRulesToggle { get; set; }
         public bool DisplayAdventureLogToggle { get; set; }
         public bool DisplayBattleToggle { get; set; }
+        public bool DisplayCampaignToggle { get; set; }
         public bool DisplayItemToggle { get; set; }
         public bool DisplayMonsterToggle { get; set; }
         public bool DisplaySpellToggle { get; set; }
@@ -181,9 +182,6 @@ namespace SolastaCommunityExpansion
         // Gameplay - Campaigns and Locations
         //
 
-        public bool EnableAdditionalIconsOnLevelMap { get; set; }
-        public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
-        public bool HideExitAndTeleporterGizmosIfNotDiscovered { get; set; }
         public bool EnableSaveByLocation { get; set; }
         public bool EnableTelemaCampaign { get; set; }
         public bool EnableTeleportParty { get; set; }
@@ -253,6 +251,11 @@ namespace SolastaCommunityExpansion
         public int DontFollowMargin { get; set; } = 5;
         public bool AutoPauseOnVictory { get; set; }
 
+        // Campaigns and Locations
+        public bool EnableAdditionalIconsOnLevelMap { get; set; }
+        public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
+        public bool HideExitAndTeleporterGizmosIfNotDiscovered { get; set; }
+
         // Inventory and Items
         public bool EnableInventoryFilteringAndSorting { get; set; } = true;
         public bool EnableInvisibleCrownOfTheMagister { get; set; }
@@ -273,7 +276,8 @@ namespace SolastaCommunityExpansion
         public bool EnableCharacterExport { get; set; }
         public bool EnableHotkeyDebugOverlay { get; set; }
         public bool EnableHotkeyZoomCamera { get; set; }
-        public bool EnableHotkeysToToggleHud { get; set; }
+        public bool EnableHotkeyToggleHud { get; set; }
+        public bool EnableHotkeyToggleIndividualHud { get; set; }
         public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
         public bool InvertAltBehaviorOnTooltips { get; set; }
     }

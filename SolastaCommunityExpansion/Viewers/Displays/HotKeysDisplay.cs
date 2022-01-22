@@ -8,17 +8,27 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         {
             bool toggle;
 
+            string hk(char key) => "ctrl-shift-(".cyan() + key + ")".cyan();
+
             #region Hotkeys
             UI.Label("");
 
-            toggle = Main.Settings.EnableHotkeysToToggleHud;
-            if (UI.Toggle("Enable the " + "ctrl-shift-(C)".cyan() + "ontrol Panel, " + "ctrl-shift-(L)".cyan() + "og, " + "ctrl-shift-(M)".cyan() + "ap, " + "ctrl-shift-(P)".cyan() + "arty and " + "ctrl-shift-(H)".cyan() + "ud hotkeys to toggle UI panels visibility", ref toggle, UI.AutoWidth()))
+            toggle = Main.Settings.EnableHotkeyToggleIndividualHud;
+            if (UI.Toggle($"Enable {hk('C')}ontrol Panel, {hk('L')}og, {hk('M')}ap and {hk('P')}arty to toggle each UI panels visibility", ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.EnableHotkeysToToggleHud = toggle;
+                Main.Settings.EnableHotkeyToggleIndividualHud = toggle;
             }
 
+            toggle = Main.Settings.EnableHotkeyToggleHud;
+            if (UI.Toggle($"Enable {hk('H')}ud to toggle all UI panels visibility", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableHotkeyToggleHud = toggle;
+            }
+
+            UI.Label("");
+
             toggle = Main.Settings.EnableCharacterExport;
-            if (UI.Toggle("Enable the " + "ctrl-shift-(E)".cyan() + "xport character hotkey " + "[on character inspection screen only]".yellow().italic(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle($"Enable {hk('E')}xport character " + "[on character inspection screen only]".yellow().italic(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableCharacterExport = toggle;
             }
@@ -26,21 +36,19 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableHotkeyDebugOverlay;
-            if (UI.Toggle("Enable the " + "ctrl-shift-(D)".cyan() + "ebug overlay hotkey", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle($"Enable {hk('D')}ebug overlay", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableHotkeyDebugOverlay = toggle;
             }
 
             toggle = Main.Settings.EnableHotkeyDebugOverlay;
-            if (UI.Toggle("Enable the " + "ctrl-shift-(Z)".cyan() + "oom camera hotkey " + "[useful when taking dungeon screenshots for publishing]".yellow().italic(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle($"Enable {hk('Z')}oom camera " + "[useful when taking dungeon screenshots for publishing]".yellow().italic(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableHotkeyDebugOverlay = toggle;
             }
 
-            UI.Label("");
-
             toggle = Main.Settings.EnableTeleportParty;
-            if (UI.Toggle("Enable the " + "ctrl-shift-(T)".cyan() + "eleport party hotkey " + "[You might break quests or maps if you teleport to an undiscovered place]".italic().yellow(), ref toggle))
+            if (UI.Toggle($"Enable {hk('T')}eleport party " + "[you might break quests or maps if you teleport to an undiscovered place]".yellow().italic(), ref toggle))
             {
                 Main.Settings.EnableTeleportParty = toggle;
             }
@@ -48,7 +56,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView;
-            if (UI.Toggle("ALT".cyan() + " key only highlight gadgets in party field of view " + "[only in custom dungeons]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("ALT".cyan() + " key only highlight gadgets in party field of view " + "[only in custom dungeons]".yellow().italic(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView = toggle;
             }
