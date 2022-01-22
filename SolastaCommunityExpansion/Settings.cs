@@ -9,7 +9,6 @@ namespace SolastaCommunityExpansion
 {
     public class Core
     {
-
     }
 
     [Serializable]
@@ -109,9 +108,9 @@ namespace SolastaCommunityExpansion
         public int OverrideRogueConArtistImprovedManipulationSpellDc { get; set; } = 3;
         public int OverrideWizardMasterManipulatorArcaneManipulationSpellDc { get; set; } = 2;
         public int ClassSliderPosition { get; set; } = 1;
-        public List<string> ClassEnabled { get; private set; } = new List<string>();
+        public List<string> ClassEnabled { get; } = new List<string>();
         public int SubclassSliderPosition { get; set; } = 1;
-        public List<string> SubclassEnabled { get; private set; } = new List<string>();
+        public List<string> SubclassEnabled { get; } = new List<string>();
 
         //
         // Characters - Feats
@@ -119,20 +118,20 @@ namespace SolastaCommunityExpansion
 
         public int FeatPowerAttackModifier { get; set; } = 3;
         public int FeatSliderPosition { get; set; } = 1;
-        public List<string> FeatEnabled { get; private set; } = new List<string>();
+        public List<string> FeatEnabled { get; } = new List<string>();
 
         //
         // Characters - Fighting Styles
         //
 
         public int FightingStyleSliderPosition { get; set; } = 1;
-        public List<string> FightingStyleEnabled { get; private set; } = new List<string>();
+        public List<string> FightingStyleEnabled { get; } = new List<string>();
 
         //
         // Characters - Powers
         //
 
-        public List<string> PowerEnabled { get; private set; } = new List<string>();
+        public List<string> PowerEnabled { get; } = new List<string>();
 
         //
         // Characters - Spells
@@ -164,7 +163,6 @@ namespace SolastaCommunityExpansion
         public bool FullyControlConjurations { get; set; }
         public bool DismissControlledConjurationsWhenDeliberatelyDropConcentration { get; set; }
         public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
-
 
         // House
         public bool AllowAnyClassToWearSylvanArmor { get; set; }
@@ -203,9 +201,9 @@ namespace SolastaCommunityExpansion
         public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
 
         // Crafting
-        public List<string> CraftingInStore { get; private set; } = new List<string>();
-        public List<string> CraftingItemsInDM { get; private set; } = new List<string>();
-        public List<string> CraftingRecipesInDM { get; private set; } = new List<string>();
+        public List<string> CraftingInStore { get; } = new List<string>();
+        public List<string> CraftingItemsInDM { get; } = new List<string>();
+        public List<string> CraftingRecipesInDM { get; } = new List<string>();
 
         // Merchants
         public bool StockGorimStoreWithAllNonMagicalClothing { get; set; }

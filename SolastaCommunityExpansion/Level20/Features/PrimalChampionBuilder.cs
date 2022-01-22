@@ -10,7 +10,6 @@ namespace SolastaCommunityExpansion.Level20.Features
 
         protected PrimalChampionBuilder(string name, string guid) : base(name, guid)
         {
-
             Definition.GuiPresentation.Description = "Feature/&PrimalChampionDescription";
             Definition.GuiPresentation.Title = "Feature/&PrimalChampionTitle";
         }

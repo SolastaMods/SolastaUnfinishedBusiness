@@ -7,8 +7,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class ItemsAndCraftingDisplay
     {
-
-
         private static void AddUIForWeaponKey(string key)
         {
             bool toggle;

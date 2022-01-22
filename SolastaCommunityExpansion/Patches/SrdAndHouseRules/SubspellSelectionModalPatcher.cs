@@ -43,7 +43,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
             RulesetSpellRepertoire ___spellRepertoire, SpellsByLevelBox.SpellCastEngagedHandler ___spellCastEngaged)
         {
             if (!Main.Settings.EnableUpcastConjureElementalAndFey
-               || !SpellDefinition_SubspellsList.FilteredSubspells.Any())
+               || SpellDefinition_SubspellsList.FilteredSubspells.Count == 0)
             {
                 return true;
             }
@@ -112,8 +112,8 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
                     ChallengeRating = g.Key,
                     SpellDefinitions = g.Select(s => s.SpellDefinition).OrderBy(s => Gui.Format(s.GuiPresentation.Title))
                 })
-                .OrderByDescending(s => s.ChallengeRating)
                 .Where(s => s.ChallengeRating <= FilterBySlotLevel.Value)
+                .OrderByDescending(s => s.ChallengeRating)
                 .ToList();
 
             var allOrMostPowerful = Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey

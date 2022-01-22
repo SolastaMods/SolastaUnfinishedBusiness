@@ -83,7 +83,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
                     secondRow.gameObject.SetActive(false);
                 }
 
-                if (thirdRow != null && thirdRow.gameObject.activeSelf)
+                if (thirdRow?.gameObject.activeSelf == true)
                 {
                     Gui.ReleaseChildrenToPool(thirdRow);
                     thirdRow.gameObject.SetActive(false);

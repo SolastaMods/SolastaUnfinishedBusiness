@@ -92,4 +92,3 @@ namespace SolastaCommunityExpansion.Models
         }
     }
 }
-

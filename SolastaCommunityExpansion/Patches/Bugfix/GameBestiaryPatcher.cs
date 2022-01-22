@@ -5,7 +5,7 @@ using HarmonyLib;
 namespace SolastaCommunityExpansion.Patches.BugFix
 {
     /// <summary>
-    /// Fix issue: GameBestiaryEntry.LastUpdateTimeCode is never set. 
+    /// Fix issue: GameBestiaryEntry.LastUpdateTimeCode is never set.
     /// Should be set when increasing knowledge level.
     /// </summary>
     [HarmonyPatch(typeof(GameBestiary), "ApplyKnowledgeLevel")]
@@ -27,9 +27,8 @@ namespace SolastaCommunityExpansion.Patches.BugFix
         }
     }
 
-
     /// <summary>
-    /// Fix issue: 
+    /// Fix issue:
     /// sorting should put all monsters with knowledge level = 0 at the end of the list since they have no useful info
     /// sorting should sort by category and then by name to make it less of a jumble
     /// </summary>

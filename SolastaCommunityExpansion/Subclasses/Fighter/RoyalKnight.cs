@@ -94,15 +94,15 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 effectDescription.Copy(Definition.EffectDescription);
                 effectDescription.EffectForms[0].HealingForm.HealingCap = RuleDefinitions.HealingCap.MaximumHitPoints;
                 effectDescription.EffectForms[0].HealingForm.DiceNumber = 4;
-                FeatureDefinitionPowerExtensions.SetEffectDescription(Definition, effectDescription);
+                Definition.SetEffectDescription(effectDescription);
             }
 
             private void SetupGUI()
             {
                 Definition.GuiPresentation.Title = "Feature/&RallyingCryPowerTitle";
                 Definition.GuiPresentation.Description = "Feature/&RallyingCryPowerDescription";
-                FeatureDefinitionPowerExtensions.SetShortTitleOverride(Definition, "Feature/&RallyingCryPowerTitleShort");
-                GuiPresentationExtensions.SetSpriteReference(Definition.GuiPresentation, DatabaseHelper.SpellDefinitions.HealingWord.GuiPresentation.SpriteReference);
+                Definition.SetShortTitleOverride("Feature/&RallyingCryPowerTitleShort");
+                Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.HealingWord.GuiPresentation.SpriteReference);
             }
 
             public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
@@ -145,15 +145,15 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                     effectDescription.EffectForms.Add(effectForm);
                 }
 
-                FeatureDefinitionPowerExtensions.SetEffectDescription(Definition, effectDescription);
+                Definition.SetEffectDescription(effectDescription);
             }
 
             private void SetupGUI()
             {
                 Definition.GuiPresentation.Title = "Feature/&InspiringSurgePowerTitle";
                 Definition.GuiPresentation.Description = "Feature/&InspiringSurgePowerDescription";
-                FeatureDefinitionPowerExtensions.SetShortTitleOverride(Definition, "Feature/&InspiringSurgePowerTitleShort");
-                GuiPresentationExtensions.SetSpriteReference(Definition.GuiPresentation, DatabaseHelper.SpellDefinitions.Heroism.GuiPresentation.SpriteReference);
+                Definition.SetShortTitleOverride("Feature/&InspiringSurgePowerTitleShort");
+                Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Heroism.GuiPresentation.SpriteReference);
             }
 
             public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)

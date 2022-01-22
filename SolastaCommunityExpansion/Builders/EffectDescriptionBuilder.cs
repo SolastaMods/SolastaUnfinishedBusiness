@@ -87,7 +87,6 @@ namespace SolastaCommunityExpansion.Builders
 
         public EffectDescriptionBuilder NoVisibilityRequiredToTarget()
         {
-
             effect.SetRequiresVisibilityForPosition(false);
             return this;
         }

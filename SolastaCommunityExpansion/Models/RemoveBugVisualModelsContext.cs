@@ -11,7 +11,6 @@ namespace SolastaCommunityExpansion.Models
         {
             if (Main.Settings.RemoveBugVisualModels)
             {
-
                 // Spiderlings, fire spider, kindred spirit spider, BadlandsSpider(normal, conjured and wildshaped versions)
                 const string assetReference_spider_1 = "362fc51df586d254ab182ef854396f82";
                 //CrimsonSpiderling, PhaseSpider, SpectralSpider, CrimsonSpider, deep spider(normal, conjured and wildshaped versions)
@@ -47,9 +46,7 @@ namespace SolastaCommunityExpansion.Models
                 MonsterDefinition ape = DatabaseHelper.MonsterDefinitions.Ape_MonsterDefinition;
                 AssetReference apePrefab = new AssetReference("8f4589a9a294b444785fab045256a713");
 
-
                 MonsterDefinition[] listofAllMonsters = DatabaseRepository.GetDatabase<MonsterDefinition>().GetAllElements();
-
 
                 // check every monster for targeted prefab guid references
                 foreach (MonsterDefinition monster in listofAllMonsters)

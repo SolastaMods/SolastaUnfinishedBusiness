@@ -8,8 +8,6 @@ using static CharacterClassDefinition;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    /// <summary>
-    /// </summary>
     public class CharacterClassDefinitionBuilder : BaseDefinitionBuilder<CharacterClassDefinition>
     {
         public CharacterClassDefinitionBuilder(string name, string guid) : base(name, guid)

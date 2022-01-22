@@ -173,10 +173,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                         CreateNamespacedGuid("PathOfTheLightLightsProtectionOpportunityAttackImmunity"),
                         "Feature/&NoContentTitle",
                         "Feature/&NoContentTitle",
-                        definition =>
-                        {
-                            definition.ConditionName = IlluminatedConditionName;
-                        });
+                        definition => definition.ConditionName = IlluminatedConditionName);
 
                     featureSetDefinition.FeatureSet.Add(conditionalOpportunityAttackImmunity);
                 });
@@ -409,10 +406,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 CreateNamespacedGuid("PathOfTheLightIlluminatedDisadvantage"),
                 "Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription",
                 "Feature/&NoContentTitle",
-                definition =>
-                {
-                    definition.ConditionName = IlluminatedConditionName;
-                });
+                definition => definition.ConditionName = IlluminatedConditionName);
 
             return disadvantageAgainstNonSource;
         }
@@ -499,7 +493,6 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 character.PersonalLightSource = null;
             }
         }
-
 
         // Helper classes
 

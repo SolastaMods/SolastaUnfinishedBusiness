@@ -121,9 +121,9 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             public AdvantageBuilder(string name, string guid, ConditionDefinition original, GuiPresentation guiPresentation) : base(original, name, guid)
             {
                 Definition.SetGuiPresentation(guiPresentation);
-                Definition.SetField("specialInterruptions", (new List<RuleDefinitions.ConditionInterruption>() {
+                Definition.SetField("specialInterruptions", new List<RuleDefinitions.ConditionInterruption>() {
                     RuleDefinitions.ConditionInterruption.Attacked,
-                }));
+                });
                 Definition.SetAdditionalDamageWhenHit(true);
                 Definition.SetAdditionalDamageDieType(RuleDefinitions.DieType.D8);
                 Definition.SetAdditionalDamageDieNumber(3);

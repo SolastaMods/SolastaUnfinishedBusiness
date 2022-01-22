@@ -27,7 +27,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             }
 
             foreach (GameLocationCharacter contender in battleService.Battle.AllContenders
-                .Where(x => x != null && x.Valid && x.RulesetActor != null))
+                .Where(x => x?.Valid == true && x.RulesetActor != null))
             {
                 var conditionsToRemove = new List<RulesetCondition>();
 
@@ -55,7 +55,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
 
     internal static class RulesetActor_InflictCondition
     {
-
         internal static void Prefix(string conditionDefinitionName,
             ref int sourceAmount)
         {
@@ -74,10 +73,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         {
             var notifiedDefinition = rulesetCondition?.ConditionDefinition as INotifyConditionRemoval;
 
-            if (notifiedDefinition != null)
-            {
-                notifiedDefinition.AfterConditionRemoved(__instance, rulesetCondition);
-            }
+            notifiedDefinition?.AfterConditionRemoved(__instance, rulesetCondition);
         }
     }
 

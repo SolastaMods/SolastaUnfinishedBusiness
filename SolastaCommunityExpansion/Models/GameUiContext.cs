@@ -66,14 +66,14 @@ namespace SolastaCommunityExpansion.Models
                     case Hotkeys.CTRL_SHIFT_P:
                         GameHud.TogglePanelVisibility(GetInitiativeOrPartyPanel());
                         return;
+
+                    case Hotkeys.CTRL_SHIFT_H:
+                        GameHud.ShowAll(gameLocationBaseScreen, GetInitiativeOrPartyPanel(), GetTimeAndNavigationPanel());
+                        return;
                 }
             }
 
-            if (Main.Settings.EnableHotkeyToggleHud && command == Hotkeys.CTRL_SHIFT_H)
-            {
-                GameHud.ShowAll(gameLocationBaseScreen, GetInitiativeOrPartyPanel(), GetTimeAndNavigationPanel());
-            }
-            else if (Main.Settings.EnableHotkeyDebugOverlay && command == Hotkeys.CTRL_SHIFT_D)
+            if (Main.Settings.EnableHotkeyDebugOverlay && command == Hotkeys.CTRL_SHIFT_D)
             {
                 ServiceRepository.GetService<IDebugOverlayService>()?.ToggleActivation();
             }
@@ -201,7 +201,7 @@ namespace SolastaCommunityExpansion.Models
                     "Message/&TeleportPartyTitle",
                     Gui.Format("Message/&TeleportPartyDescription", position.x.ToString(), position.x.ToString()),
                     "Message/&MessageYesTitle", "Message/&MessageNoTitle",
-                    new MessageModal.MessageValidatedHandler(() => { TeleportParty(position); }),
+                    new MessageModal.MessageValidatedHandler(() => TeleportParty(position)),
                     null);
             }
 

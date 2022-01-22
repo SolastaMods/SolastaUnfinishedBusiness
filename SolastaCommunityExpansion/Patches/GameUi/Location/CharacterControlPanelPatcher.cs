@@ -192,10 +192,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
             }
 
             // Re transition to current state?
-            if (panelToActivate != null)
-            {
-                panelToActivate.OnActivateAction(actionId);
-            }
+            panelToActivate?.OnActivateAction(actionId);
 
             panelToActivate = null;
         }

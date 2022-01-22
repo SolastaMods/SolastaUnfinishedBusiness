@@ -72,7 +72,6 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
                                 spellLevelsOnLine = 0;
                                 needNewLine = true;
                                 indexOfLine = 0;
-
                             }
                         }
                     }
@@ -152,7 +151,6 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
                     case ActionDefinitions.ActionType.NoCost:
                         spellActivationTime = RuleDefinitions.ActivationTime.NoCost;
                         break;
-
                 }
 
                 if (level == 0)
@@ -200,7 +198,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
 
                 foreach (RectTransform spellTable in spellLineTables)
                 {
-                    if (spellTable != null && spellTable.gameObject.activeSelf && spellTable.childCount > 0)
+                    if (spellTable?.gameObject.activeSelf == true && spellTable.childCount > 0)
                     {
                         Gui.ReleaseChildrenToPool(spellTable);
                         spellTable.SetParent(null);

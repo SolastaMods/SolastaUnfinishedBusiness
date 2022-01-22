@@ -8,7 +8,6 @@ namespace SolastaCommunityExpansion.Level20.Classes
 {
     internal static class DruidBuilder
     {
-
         internal static void Load()
         {
             // add missing progression

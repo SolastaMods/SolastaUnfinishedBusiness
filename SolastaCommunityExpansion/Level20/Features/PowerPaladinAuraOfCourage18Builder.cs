@@ -28,14 +28,8 @@ namespace SolastaCommunityExpansion.Level20.Features
         {
             get
             {
-                if (_instance == null)
-                {
-                    _instance = new PowerPaladinAuraOfCourage18Builder().AddToDB();
-                }
-
-                return _instance;
+                return _instance ?? (_instance = new PowerPaladinAuraOfCourage18Builder().AddToDB());
             }
         }
     }
-
 }

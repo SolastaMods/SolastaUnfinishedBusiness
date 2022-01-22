@@ -10,6 +10,5 @@ namespace SolastaCommunityExpansion.Features
         {
             Definition.SetGuiPresentation(guiPresentation);
         }
-
     }
 }

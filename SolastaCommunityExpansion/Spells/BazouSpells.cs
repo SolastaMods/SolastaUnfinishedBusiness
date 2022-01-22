@@ -96,7 +96,6 @@ namespace SolastaCommunityExpansion.Spells
             //            spell.EffectDescription.EffectForms.Add(effectForm);
 
             return spell;
-
         }
 
         private static SpellDefinition BuildFindFamiliar()

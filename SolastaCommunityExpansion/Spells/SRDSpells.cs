@@ -10,7 +10,7 @@ using SolastaCommunityExpansion.Builders;
 
 namespace SolastaCommunityExpansion.Spells
 {
-    internal class SrdSpells
+    internal static class SrdSpells
     {
         private static readonly SpellDefinition DivineWord = BuildDivineWord();
         private static readonly SpellDefinition FingerOfDeath = BuildFingerOfDeath();
@@ -210,7 +210,7 @@ namespace SolastaCommunityExpansion.Spells
                     effectDefinitionName = formsParams.activeEffect.SourceDefinition.Name;
                 }
 
-                int sourceAbilityBonus = formsParams.activeEffect != null ? formsParams.activeEffect.ComputeSourceAbilityBonus(formsParams.sourceCharacter) : 0;
+                int sourceAbilityBonus = (formsParams.activeEffect?.ComputeSourceAbilityBonus(formsParams.sourceCharacter)) ?? 0;
 
                 formsParams.targetCharacter.InflictCondition(condition.Name, durationType, durationParam, RuleDefinitions.TurnOccurenceType.EndOfTurn, "11Effect", sourceGuid, sourceFaction, formsParams.effectLevel, effectDefinitionName, 0, sourceAbilityBonus);
             }
@@ -230,7 +230,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildFingerOfDeath()
         {
-            string text = "FingerOfDeathSpell";
+            const string text = "FingerOfDeathSpell";
 
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(
@@ -366,7 +366,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildReverseGravity()
         {
-            string text = "ReverseGravitySpell";
+            const string text = "ReverseGravitySpell";
 
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(
@@ -530,36 +530,36 @@ namespace SolastaCommunityExpansion.Spells
                 new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 20 },
             });
 
-            string text = "ConjureCelestialSpell";
+            const string text = "ConjureCelestialSpell";
 
             MonsterDefinition BaseTemplateName = DatabaseHelper.MonsterDefinitions.KindredSpiritViper;
             MonsterDefinition MonsterShaderReference = DatabaseHelper.MonsterDefinitions.KindredSpiritViper;
 
-            string NewName = "CustomCouatl";
-            string NewTitle = "CustomCouatlTitle";
-            string NewDescription = "CustomCouatlDescription";
+            const string NewName = "CustomCouatl";
+            const string NewTitle = "CustomCouatlTitle";
+            const string NewDescription = "CustomCouatlDescription";
             CharacterSizeDefinition Size = DatabaseHelper.CharacterSizeDefinitions.Medium;
-            string Alignment = "LawfulGood";
-            int ArmorClass = 19;
-            int HitDice = 13;
-            RuleDefinitions.DieType HitDiceType = RuleDefinitions.DieType.D8;
-            int HitPointsBonus = 39;
-            int StandardHitPoints = 97;
-            int AttributeStrength = 16;
-            int AttributeDexterity = 20;
-            int AttributeConstitution = 17;
-            int AttributeIntelligence = 18;
-            int AttributeWisdom = 20;
-            int AttributeCharisma = 18;
-            int SavingThrowStrength = 0;
-            int SavingThrowDexterity = 0;
-            int SavingThrowConstitution = 5;
-            int SavingThrowIntelligence = 0;
-            int SavingThrowWisdom = 7;
-            int SavingThrowCharisma = 6;
-            int CR = 4;
-            bool LegendaryCreature = false;
-            string Type = "Celestial";
+            const string Alignment = "LawfulGood";
+            const int ArmorClass = 19;
+            const int HitDice = 13;
+            const RuleDefinitions.DieType HitDiceType = RuleDefinitions.DieType.D8;
+            const int HitPointsBonus = 39;
+            const int StandardHitPoints = 97;
+            const int AttributeStrength = 16;
+            const int AttributeDexterity = 20;
+            const int AttributeConstitution = 17;
+            const int AttributeIntelligence = 18;
+            const int AttributeWisdom = 20;
+            const int AttributeCharisma = 18;
+            const int SavingThrowStrength = 0;
+            const int SavingThrowDexterity = 0;
+            const int SavingThrowConstitution = 5;
+            const int SavingThrowIntelligence = 0;
+            const int SavingThrowWisdom = 7;
+            const int SavingThrowCharisma = 6;
+            const int CR = 4;
+            const bool LegendaryCreature = false;
+            const string Type = "Celestial";
 
             List<FeatureDefinition> Features = new List<FeatureDefinition>()
             {
@@ -650,9 +650,9 @@ namespace SolastaCommunityExpansion.Spells
 
             List<LegendaryActionDescription> LegendaryActionOptions = new List<LegendaryActionDescription>();
 
-            bool GroupAttacks = false;
+            const bool GroupAttacks = false;
 
-            bool PhantomDistortion = true;
+            const bool PhantomDistortion = true;
             // AttachedParticlesReference = "0286006526f6f9c4fa61ed8ead4f72cc"
             AssetReference AttachedParticlesReference = DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation.GetField<UnityEngine.AddressableAssets.AssetReference>("attachedParticlesReference");
             AssetReferenceSprite SpriteReference = DatabaseHelper.MonsterDefinitions.KindredSpiritViper.GuiPresentation.SpriteReference;
@@ -864,7 +864,7 @@ namespace SolastaCommunityExpansion.Spells
         */
         private static SpellDefinition BuildDominateMonster()
         {
-            string text = "DominateMonsterSpell";
+            const string text = "DominateMonsterSpell";
 
             EffectDescription effectDescription = new EffectDescription();
 
@@ -894,7 +894,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildFeeblemind()
         {
-            string text = "FeeblemindSpell";
+            const string text = "FeeblemindSpell";
 
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
@@ -918,7 +918,7 @@ namespace SolastaCommunityExpansion.Spells
                 DatabaseHelper.SmartAttributeDefinitions.Intelligence.name,
                 20,
                 false,
-                new List<SaveAffinityBySenseDescription> { }
+                new List<SaveAffinityBySenseDescription>()
                 )
             .AddEffectForm(new EffectFormBuilder()
                 .SetConditionForm(
@@ -1006,7 +1006,6 @@ namespace SolastaCommunityExpansion.Spells
                 Definition.SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Force);
                 Definition.SetModifierValue(1);
                 Definition.SetSituationalContext(RuleDefinitions.SituationalContext.None);
-
             }
             private static FeatureDefinitionAttributeModifier CreateAndAddToDB(string name, string guid)
                 => new FeeblemindIntAttributeModifierBuilder(name, guid).AddToDB();
@@ -1070,7 +1069,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildHolyAura()
         {
-            string text = "HolyAuraSpell";
+            const string text = "HolyAuraSpell";
 
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(
@@ -1117,7 +1116,6 @@ namespace SolastaCommunityExpansion.Spells
 
             return holyAuraSpell.AddToDB();
         }
-
 
         internal class HolyAuraConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
         {
@@ -1218,8 +1216,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildIncendiaryCloud()
         {
-
-            string text = "IncendiaryCloudSpell";
+            const string text = "IncendiaryCloudSpell";
 
             //
             // TODO: Why this effect description isn't used?
@@ -1323,7 +1320,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildMaze()
         {
-            string text = "MazeSpell";
+            const string text = "MazeSpell";
 
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
@@ -1384,8 +1381,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildMindBlank()
         {
-
-            string text = "MindBlankSpell";
+            const string text = "MindBlankSpell";
 
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder();
             effectDescription.SetDurationData(
@@ -1460,7 +1456,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildPowerWordStun()
         {
-            string text = "PowerWordStunSpell";
+            const string text = "PowerWordStunSpell";
 
             ConditionForm conditionForm = new ConditionForm()
                 .SetApplyToSelf(false)
@@ -1529,10 +1525,9 @@ namespace SolastaCommunityExpansion.Spells
             return powerWordStunSpell.AddToDB();
         }
 
-
         private static SpellDefinition BuildSunBurst()
         {
-            string text = "SunBurstSpell";
+            const string text = "SunBurstSpell";
 
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(
@@ -1616,7 +1611,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildForesight()
         {
-            string text = "ForesightSpell";
+            const string text = "ForesightSpell";
 
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(
@@ -1692,7 +1687,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildMassHeal()
         {
-            string text = "MassHealSpell";
+            const string text = "MassHealSpell";
 
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(
@@ -1739,7 +1734,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildMeteorSwarmSingleTarget()
         {
-            string text = "MeteorSwarmSingleTargetSpell";
+            const string text = "MeteorSwarmSingleTargetSpell";
 
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(
@@ -1812,7 +1807,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildPowerWordHeal()
         {
-            string text = "PowerWordHealSpell";
+            const string text = "PowerWordHealSpell";
 
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
@@ -1858,7 +1853,6 @@ namespace SolastaCommunityExpansion.Spells
                     })
                 .Build());
 
-
             GuiPresentation guiPresentationSpell = new GuiPresentation()
                 .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
                 .SetDescription(GetSpellDescriptionTerm(text))
@@ -1881,7 +1875,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildPowerWordKill()
         {
-            string text = "PowerWordKillSpell";
+            const string text = "PowerWordKillSpell";
 
             KillForm killForm = new KillForm()
                 .SetKillCondition(RuleDefinitions.KillCondition.UnderHitPoints)
@@ -1932,7 +1926,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildShapechange()
         {
-            string text = "ShapechangeSpell";
+            const string text = "ShapechangeSpell";
 
             ShapeChangeForm shapeChangeForm = new ShapeChangeForm()
                 .SetKeepMentalAbilityScores(true)
@@ -2001,7 +1995,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildTimeStop()
         {
-            string text = "TimeStopSpell";
+            const string text = "TimeStopSpell";
 
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
@@ -2072,7 +2066,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildWeird()
         {
-            string text = "WeirdSpell";
+            const string text = "WeirdSpell";
 
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(

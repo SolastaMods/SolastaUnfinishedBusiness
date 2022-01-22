@@ -1,5 +1,6 @@
 ﻿using SolastaModApi;
 using SolastaModApi.Extensions;
+using static FeatureDefinitionFeatureSet;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -9,13 +10,11 @@ namespace SolastaCommunityExpansion.Models
         {
             if (active)
             {
-                FeatureDefinitionFeatureSetExtensions.SetMode(
-                    DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, FeatureDefinitionFeatureSet.FeatureSetMode.Union);
+                DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice.SetMode(FeatureSetMode.Union);
             }
             else
             {
-                FeatureDefinitionFeatureSetExtensions.SetMode(
-                    DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion);
+                DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice.SetMode(FeatureSetMode.Exclusion);
             }
         }
 
@@ -23,6 +22,5 @@ namespace SolastaCommunityExpansion.Models
         {
             Switch(Main.Settings.EnablesAsiAndFeat);
         }
-
     }
 }

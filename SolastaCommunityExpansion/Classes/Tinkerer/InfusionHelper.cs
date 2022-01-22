@@ -10,7 +10,7 @@ using static SolastaCommunityExpansion.Classes.Tinkerer.FeatureHelpers;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
-    internal class InfusionHelpers
+    internal static class InfusionHelpers
     {
         private static FeatureDefinitionPower artificialServant;
         private static FeatureDefinitionPower enhancedFocus;
@@ -45,22 +45,17 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         private static FeatureDefinitionPowerSharedPoolBuilder BuildBasicInfusionPower(string name, EffectDescription effect, GuiPresentation presentation)
         {
-            FeatureDefinitionPowerSharedPoolBuilder infusion = new FeatureDefinitionPowerSharedPoolBuilder(name,
+            return new FeatureDefinitionPowerSharedPoolBuilder(name,
                 GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
                 TinkererClass.InfusionPool, RuleDefinitions.RechargeRate.LongRest, RuleDefinitions.ActivationTime.NoCost, 1, false, false, AttributeDefinitions.Intelligence,
                 effect, presentation, true /* unique instance */);
-            return infusion;
         }
 
         public static FeatureDefinitionPower ArtificialServant
         {
             get
             {
-                if (artificialServant == null)
-                {
-                    artificialServant = BuildArtificialServant();
-                }
-                return artificialServant;
+                return artificialServant ?? (artificialServant = BuildArtificialServant());
             }
         }
 
@@ -76,20 +71,15 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             artificialServantEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             artificialServantEffect.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, ArtificialServantBuilder.ArtificialServant.name, DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
 
-            FeatureDefinitionPowerSharedPool summonArtificialServantPower = InfusionHelpers.BuildBasicInfusionPower("summonArtificialServantPower",
+            return BuildBasicInfusionPower("summonArtificialServantPower",
                 artificialServantEffect.Build(), summonArtificialServantGui.Build()).AddToDB();
-            return summonArtificialServantPower;
         }
 
         public static FeatureDefinitionPower EnhancedFocus
         {
             get
             {
-                if (enhancedFocus == null)
-                {
-                    enhancedFocus = BuildEnhancedFocus();
-                }
-                return enhancedFocus;
+                return enhancedFocus ?? (enhancedFocus = BuildEnhancedFocus());
             }
         }
 
@@ -99,8 +89,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Subclass/&AttackModifierArtificerEnhancedFocusDescription",
                 "Subclass/&AttackModifierArtificerEnhancedFocusTitle");
             focusPlus1Gui.SetSpriteReference(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference);
-            FeatureDefinitionMagicAffinity focusPlus1 = FeatureHelpers.BuildMagicAffinityModifiers(1, 1, "Enhanced Focus", focusPlus1Gui.Build());
-            ConditionDefinition infusedFocusCondition = FeatureHelpers.BuildCondition(new List<FeatureDefinition>() { focusPlus1 }, RuleDefinitions.DurationType.UntilLongRest, 1, false, "ArtificerInfusedFocus", focusPlus1Gui.Build());
+            FeatureDefinitionMagicAffinity focusPlus1 = BuildMagicAffinityModifiers(1, 1, "Enhanced Focus", focusPlus1Gui.Build());
+            ConditionDefinition infusedFocusCondition = BuildCondition(new List<FeatureDefinition>() { focusPlus1 }, RuleDefinitions.DurationType.UntilLongRest, 1, false, "ArtificerInfusedFocus", focusPlus1Gui.Build());
 
             GuiPresentationBuilder enhanceFocusGui = new GuiPresentationBuilder(
                 "Subclass/&AttackModifierArtificerEnhancedFocusDescription",
@@ -113,11 +103,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (improvedEnhancedFocus == null)
-                {
-                    improvedEnhancedFocus = BuildImprovedEnhancedFocus();
-                }
-                return improvedEnhancedFocus;
+                return improvedEnhancedFocus ?? (improvedEnhancedFocus = BuildImprovedEnhancedFocus());
             }
         }
 
@@ -127,8 +113,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Subclass/&AttackModifierArtificerImprovedEnhancedFocusDescription",
                 "Subclass/&AttackModifierArtificerImprovedEnhancedFocusTitle");
             focusPlus2Gui.SetSpriteReference(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference);
-            FeatureDefinitionMagicAffinity focusPlus2 = FeatureHelpers.BuildMagicAffinityModifiers(2, 2, "ImprovedEnhancedFocus", focusPlus2Gui.Build());
-            ConditionDefinition infusedFocusCondition = FeatureHelpers.BuildCondition(new List<FeatureDefinition>() { focusPlus2 }, RuleDefinitions.DurationType.UntilLongRest, 1, false,
+            FeatureDefinitionMagicAffinity focusPlus2 = BuildMagicAffinityModifiers(2, 2, "ImprovedEnhancedFocus", focusPlus2Gui.Build());
+            ConditionDefinition infusedFocusCondition = BuildCondition(new List<FeatureDefinition>() { focusPlus2 }, RuleDefinitions.DurationType.UntilLongRest, 1, false,
                 "ArtificerImprovedInfusedFocus", focusPlus2Gui.Build());
 
             GuiPresentationBuilder enhanceFocusGui = new GuiPresentationBuilder(
@@ -143,11 +129,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (enhancedDefense == null)
-                {
-                    enhancedDefense = BuildEnhancedDefense();
-                }
-                return enhancedDefense;
+                return enhancedDefense ?? (enhancedDefense = BuildEnhancedDefense());
             }
         }
 
@@ -157,7 +139,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Subclass/&AttackModifierArtificerEnhancedArmorDescription",
                 "Subclass/&AttackModifierArtificerEnhancedArmorTitle");
             enhanceArmorConditionGui.SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionAuraOfProtection.GuiPresentation.SpriteReference);
-            FeatureDefinitionAttributeModifier armorModifier = FeatureHelpers.BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1,
+            FeatureDefinitionAttributeModifier armorModifier = BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1,
                 "AttributeModifierArmorInfusion", enhanceArmorConditionGui.Build());
 
             GuiPresentationBuilder enhanceArmorGui = new GuiPresentationBuilder(
@@ -172,11 +154,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (improvedEnhancedDefense == null)
-                {
-                    improvedEnhancedDefense = BuildImprovedEnhancedDefense();
-                }
-                return improvedEnhancedDefense;
+                return improvedEnhancedDefense ?? (improvedEnhancedDefense = BuildImprovedEnhancedDefense());
             }
         }
 
@@ -186,7 +164,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Subclass/&AttackModifierArtificerImprovedEnhancedArmorDescription",
                 "Subclass/&AttackModifierArtificerImprovedEnhancedArmorTitle");
             enhanceArmorConditionGui.SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionAuraOfProtection.GuiPresentation.SpriteReference);
-            FeatureDefinitionAttributeModifier armorModifier = FeatureHelpers.BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2,
+            FeatureDefinitionAttributeModifier armorModifier = BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2,
                 "AttributeModifierImprovedArmorInfusion", enhanceArmorConditionGui.Build());
 
             GuiPresentationBuilder enhanceArmorGui = new GuiPresentationBuilder(
@@ -202,11 +180,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (enhancedWeapon == null)
-                {
-                    enhancedWeapon = BuildEnhancedWeapon();
-                }
-                return enhancedWeapon;
+                return enhancedWeapon ?? (enhancedWeapon = BuildEnhancedWeapon());
             }
         }
 
@@ -225,11 +199,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (improvedEnhancedWeapon == null)
-                {
-                    improvedEnhancedWeapon = BuildImprovedEnhancedWeapon();
-                }
-                return improvedEnhancedWeapon;
+                return improvedEnhancedWeapon ?? (improvedEnhancedWeapon = BuildImprovedEnhancedWeapon());
             }
         }
 
@@ -249,11 +219,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (bagOfHolding == null)
-                {
-                    bagOfHolding = BuildBagOfHolding();
-                }
-                return bagOfHolding;
+                return bagOfHolding ?? (bagOfHolding = BuildBagOfHolding());
             }
         }
 
@@ -263,26 +229,22 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Subclass/&EquipmentModifierArtificerBagOfHolderDescription",
                 "Subclass/&EquipmentModifierArtificerBagOfHolderTitle");
             bagOfHoldingConditionGui.SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionBullsStrength.GuiPresentation.SpriteReference);
-            ConditionDefinition bagOfHoldingCondition = FeatureHelpers.BuildCondition(new List<FeatureDefinition>() {
-                    FeatureHelpers.BuildEquipmentAffinity(1.0f, 500.0f, "InfusionBagOfHolding", bagOfHoldingConditionGui.Build())
+            ConditionDefinition bagOfHoldingCondition = BuildCondition(new List<FeatureDefinition>() {
+                    BuildEquipmentAffinity(1.0f, 500.0f, "InfusionBagOfHolding", bagOfHoldingConditionGui.Build())
                     }, RuleDefinitions.DurationType.UntilLongRest, 1, false, "ArtificerInfusedConditionBagOfHolding", bagOfHoldingConditionGui.Build());
 
             GuiPresentationBuilder bagOfHoldingGui = new GuiPresentationBuilder(
                 "Subclass/&EquipmentModifierArtificerBagOfHolderDescription",
                 "Subclass/&EquipmentModifierArtificerBagOfHolderTitle");
             bagOfHoldingGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionPotionOfGiantStrengthCloud.GuiPresentation.SpriteReference);
-            return BuildItemConditionInfusion(bagOfHoldingCondition, "ArtificerInfusionBagOfHolding", bagOfHoldingGui.Build()).AddToDB(); ;
+            return BuildItemConditionInfusion(bagOfHoldingCondition, "ArtificerInfusionBagOfHolding", bagOfHoldingGui.Build()).AddToDB();
         }
 
         public static FeatureDefinitionPower GogglesOfNight
         {
             get
             {
-                if (gogglesOfNight == null)
-                {
-                    gogglesOfNight = BuildGogglesOfNight();
-                }
-                return gogglesOfNight;
+                return gogglesOfNight ?? (gogglesOfNight = BuildGogglesOfNight());
             }
         }
 
@@ -292,7 +254,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Subclass/&PowerInfuseDarkvisionDescription",
                 "Subclass/&PowerInfuseDarkvisionTitle");
             InfuseDarkvisionCondition.SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionSeeInvisibility.GuiPresentation.SpriteReference);
-            ConditionDefinition darkvisionCondition = FeatureHelpers.BuildCondition(new List<FeatureDefinition>() {
+            ConditionDefinition darkvisionCondition = BuildCondition(new List<FeatureDefinition>() {
                 DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
                 }, RuleDefinitions.DurationType.UntilLongRest, 1, false, "ArtificerInfusedConditionDarkvision", InfuseDarkvisionCondition.Build());
 
@@ -301,18 +263,14 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Subclass/&PowerInfuseDarkvisionTitle");
             InfuseDarkvision.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainBattleDivineWrath.GuiPresentation.SpriteReference);
 
-            return BuildItemConditionInfusion(darkvisionCondition, "PowerInfuseDarkvision", InfuseDarkvision.Build()).AddToDB(); ;
+            return BuildItemConditionInfusion(darkvisionCondition, "PowerInfuseDarkvision", InfuseDarkvision.Build()).AddToDB();
         }
 
         public static FeatureDefinitionPower MindSharpener
         {
             get
             {
-                if (mindSharpener == null)
-                {
-                    mindSharpener = BuildMindSharpener();
-                }
-                return mindSharpener;
+                return mindSharpener ?? (mindSharpener = BuildMindSharpener());
             }
         }
 
@@ -322,8 +280,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Subclass/&PowerInfuseMindSharpenerDescription",
                 "Subclass/&PowerInfuseMindSharpenerTitle");
             InfuseMindSharpenerCondition.SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionBearsEndurance.GuiPresentation.SpriteReference);
-            ConditionDefinition infusedMindSharpenerCondition = FeatureHelpers.BuildCondition(new List<FeatureDefinition>() {
-                FeatureHelpers.BuildMagicAffinityConcentration(RuleDefinitions.ConcentrationAffinity.Advantage, 20, "MagicAffinityMindSharpener", InfuseMindSharpenerCondition.Build()),
+            ConditionDefinition infusedMindSharpenerCondition = BuildCondition(new List<FeatureDefinition>() {
+                BuildMagicAffinityConcentration(RuleDefinitions.ConcentrationAffinity.Advantage, 20, "MagicAffinityMindSharpener", InfuseMindSharpenerCondition.Build()),
                 }, RuleDefinitions.DurationType.UntilLongRest, 1, false, "ArtificerInfusedConditionMindSharpener", InfuseMindSharpenerCondition.Build());
 
             GuiPresentationBuilder InfuseMindSharpener = new GuiPresentationBuilder(
@@ -331,18 +289,14 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Subclass/&PowerInfuseMindSharpenerTitle");
             InfuseMindSharpener.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionTomeOfQuickThought.GuiPresentation.SpriteReference);
 
-            return BuildItemConditionInfusion(infusedMindSharpenerCondition, "ArtificerInfusionMindSharpener", InfuseMindSharpener.Build()).AddToDB(); ;
+            return BuildItemConditionInfusion(infusedMindSharpenerCondition, "ArtificerInfusionMindSharpener", InfuseMindSharpener.Build()).AddToDB();
         }
 
         public static FeatureDefinitionPower ArmorOfMagicalStrength
         {
             get
             {
-                if (armorOfMagicalStrength == null)
-                {
-                    armorOfMagicalStrength = BuildArmorOfMagicalStrength();
-                }
-                return armorOfMagicalStrength;
+                return armorOfMagicalStrength ?? (armorOfMagicalStrength = BuildArmorOfMagicalStrength());
             }
         }
 
@@ -352,13 +306,13 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Subclass/&PowerInfuseArmorMagicalStrengthDescription",
                 "Subclass/&PowerInfuseArmorMagicalStrengthTitle");
             InfuseArmorMagicalStrengthCondition.SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionBullsStrength.GuiPresentation.SpriteReference);
-            FeatureDefinitionAbilityCheckAffinity strengthAbilityAffinity = FeatureHelpers.BuildAbilityAffinity(new List<Tuple<string, string>>()
+            FeatureDefinitionAbilityCheckAffinity strengthAbilityAffinity = BuildAbilityAffinity(new List<Tuple<string, string>>()
             {
                 new Tuple<string, string>(AttributeDefinitions.Strength, ""),
             }, 0, RuleDefinitions.DieType.D1, RuleDefinitions.CharacterAbilityCheckAffinity.Advantage, "AbilityAffinityInfusionMagicalStrength", InfuseArmorMagicalStrengthCondition.Build());
-            FeatureDefinitionSavingThrowAffinity strengthSaveAffinity = FeatureHelpers.BuildSavingThrowAffinity(new List<string>() { AttributeDefinitions.Strength },
+            FeatureDefinitionSavingThrowAffinity strengthSaveAffinity = BuildSavingThrowAffinity(new List<string>() { AttributeDefinitions.Strength },
                 RuleDefinitions.CharacterSavingThrowAffinity.Advantage, FeatureDefinitionSavingThrowAffinity.ModifierType.AddDice, 0, RuleDefinitions.DieType.D1, false, "SaveAffinityInfusionMagicalStrength", InfuseArmorMagicalStrengthCondition.Build());
-            ConditionDefinition armorMagicalStrengthCondition = FeatureHelpers.BuildCondition(new List<FeatureDefinition>() {
+            ConditionDefinition armorMagicalStrengthCondition = BuildCondition(new List<FeatureDefinition>() {
                 strengthAbilityAffinity,
                 strengthSaveAffinity,
                 DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity,
@@ -368,21 +322,16 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Subclass/&PowerInfuseArmorMagicalStrengthDescription",
                 "Subclass/&PowerInfuseArmorMagicalStrengthTitle");
             InfuseArmorMagicalStrength.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionManualGainfulExercise.GuiPresentation.SpriteReference);
-            return BuildItemConditionInfusion(armorMagicalStrengthCondition, "ArtificerInfusionArmorMagicalStrength", InfuseArmorMagicalStrength.Build()).AddToDB(); ;
+            return BuildItemConditionInfusion(armorMagicalStrengthCondition, "ArtificerInfusionArmorMagicalStrength", InfuseArmorMagicalStrength.Build()).AddToDB();
         }
 
         public static FeatureDefinitionPower ResistantArmor
         {
             get
             {
-                if (resistantArmor == null)
-                {
-                    resistantArmor = BuildResistantArmor();
-                }
-                return resistantArmor;
+                return resistantArmor ?? (resistantArmor = BuildResistantArmor());
             }
         }
-
 
         private static FeatureDefinitionPower BuildResistantArmor()
         {
@@ -394,7 +343,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Subclass/&ConditionResistnatArmorDescription",
                 "Subclass/&ConditionResistantArmorTitle");
             ConditionArmorResistance.SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionAuraOfProtection.GuiPresentation.SpriteReference);
-            ConditionDefinition ArmorResistance = FeatureHelpers.BuildCondition(new List<FeatureDefinition>() {
+            ConditionDefinition ArmorResistance = BuildCondition(new List<FeatureDefinition>() {
                 DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityAcidResistance,
                 DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
                 DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
@@ -405,52 +354,43 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPsychicResistance,
                 DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityRadiantResistance,
                 DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityThunderResistance,
-
             },
                 RuleDefinitions.DurationType.UntilLongRest, 1, false, "ConditionPowerArtificerResistantArmor", ConditionArmorResistance.Build());
-            return BuildItemConditionInfusion(ArmorResistance, "ArtificerInfusionResistantArmor", InfuseResistantArmor.Build()).AddToDB(); ;
+            return BuildItemConditionInfusion(ArmorResistance, "ArtificerInfusionResistantArmor", InfuseResistantArmor.Build()).AddToDB();
         }
 
         public static FeatureDefinitionPower SpellRefuelingRing
         {
             get
             {
-                if (spellRefuelingRing == null)
-                {
-                    spellRefuelingRing = BuildSpellRefuelingRing();
-                }
-                return spellRefuelingRing;
+                return spellRefuelingRing ?? (spellRefuelingRing = BuildSpellRefuelingRing());
             }
         }
 
-
         private static FeatureDefinitionPower BuildSpellRefuelingRing()
         {
-            GuiPresentationBuilder InfuseSpellRefuelingRing = new GuiPresentationBuilder(
+            GuiPresentationBuilder infuseSpellRefuelingRing = new GuiPresentationBuilder(
                 "Subclass/&PowerSpellRefuelingRingDescription",
                 "Subclass/&PowerSpellRefuelingRingTitle");
-            InfuseSpellRefuelingRing.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalDiscipleOfTheElementsLightning.GuiPresentation.SpriteReference);
+            infuseSpellRefuelingRing.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalDiscipleOfTheElementsLightning.GuiPresentation.SpriteReference);
 
             EffectDescriptionBuilder spellEffect = new EffectDescriptionBuilder();
             spellEffect.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             spellEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self, 1, 1, ActionDefinitions.ItemSelectionType.None);
             spellEffect.AddEffectForm(new EffectFormBuilder().SetSpellForm(9).Build());
-            FeatureDefinitionPowerSharedPool spellRefuelingRing = new FeatureDefinitionPowerSharedPoolBuilder("ArtificerInfusionSpellRefuelingRing",
+
+            return
+                new FeatureDefinitionPowerSharedPoolBuilder("ArtificerInfusionSpellRefuelingRing",
                 GuidHelper.Create(TinkererClass.GuidNamespace, "ArtificerInfusionSpellRefuelingRing").ToString(),
                 TinkererClass.InfusionPool, RuleDefinitions.RechargeRate.LongRest, RuleDefinitions.ActivationTime.NoCost, 1, false, false, AttributeDefinitions.Intelligence,
-                spellEffect.Build(), InfuseSpellRefuelingRing.Build(), true /* unique instance */).AddToDB();
-            return spellRefuelingRing;
+                spellEffect.Build(), infuseSpellRefuelingRing.Build(), true /* unique instance */).AddToDB();
         }
 
         public static FeatureDefinitionPower BlindingWeapon
         {
             get
             {
-                if (blindingWeapon == null)
-                {
-                    blindingWeapon = BuildBlindingWeapon();
-                }
-                return blindingWeapon;
+                return blindingWeapon ?? (blindingWeapon = BuildBlindingWeapon());
             }
         }
 
@@ -489,11 +429,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (cloakOfProtection == null)
-                {
-                    cloakOfProtection = PowerMimicsItem(DatabaseHelper.ItemDefinitions.CloakOfProtection, "InfuseCloakOfProtection");
-                }
-                return cloakOfProtection;
+                return cloakOfProtection ?? (cloakOfProtection = PowerMimicsItem(DatabaseHelper.ItemDefinitions.CloakOfProtection, "InfuseCloakOfProtection"));
             }
         }
 
@@ -501,11 +437,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (bootsOfElvenKind == null)
-                {
-                    bootsOfElvenKind = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BootsOfElvenKind, "InfuseBootsOfElvenKind");
-                }
-                return bootsOfElvenKind;
+                return bootsOfElvenKind ?? (bootsOfElvenKind = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BootsOfElvenKind, "InfuseBootsOfElvenKind"));
             }
         }
 
@@ -513,11 +445,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (cloakOfElvenKind == null)
-                {
-                    cloakOfElvenKind = PowerMimicsItem(DatabaseHelper.ItemDefinitions.CloakOfElvenkind, "InfuseCloakOfElvenKind");
-                }
-                return cloakOfElvenKind;
+                return cloakOfElvenKind ?? (cloakOfElvenKind = PowerMimicsItem(DatabaseHelper.ItemDefinitions.CloakOfElvenkind, "InfuseCloakOfElvenKind"));
             }
         }
 
@@ -525,11 +453,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (bootsOfStridingAndSpringing == null)
-                {
-                    bootsOfStridingAndSpringing = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BootsOfStridingAndSpringing, "InfuseBootsOfStridingAndSpringing");
-                }
-                return bootsOfStridingAndSpringing;
+                return bootsOfStridingAndSpringing ?? (bootsOfStridingAndSpringing = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BootsOfStridingAndSpringing, "InfuseBootsOfStridingAndSpringing"));
             }
         }
 
@@ -537,11 +461,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (bootsOfTheWinterland == null)
-                {
-                    bootsOfTheWinterland = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BootsOfTheWinterland, "InfuseBootsOfTheWinterland");
-                }
-                return bootsOfTheWinterland;
+                return bootsOfTheWinterland ?? (bootsOfTheWinterland = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BootsOfTheWinterland, "InfuseBootsOfTheWinterland"));
             }
         }
 
@@ -549,11 +469,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (bracesrOfArchery == null)
-                {
-                    bracesrOfArchery = PowerMimicsItem(DatabaseHelper.ItemDefinitions.Bracers_Of_Archery, "InfuseBracesrOfArchery");
-                }
-                return bracesrOfArchery;
+                return bracesrOfArchery ?? (bracesrOfArchery = PowerMimicsItem(DatabaseHelper.ItemDefinitions.Bracers_Of_Archery, "InfuseBracesrOfArchery"));
             }
         }
 
@@ -561,11 +477,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (broochOfShielding == null)
-                {
-                    broochOfShielding = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BroochOfShielding, "InfuseBroochOfShielding");
-                }
-                return broochOfShielding;
+                return broochOfShielding ?? (broochOfShielding = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BroochOfShielding, "InfuseBroochOfShielding"));
             }
         }
 
@@ -573,11 +485,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (gauntletsOfOgrePower == null)
-                {
-                    gauntletsOfOgrePower = PowerMimicsItem(DatabaseHelper.ItemDefinitions.GauntletsOfOgrePower, "InfuseGauntletsOfOgrePower");
-                }
-                return gauntletsOfOgrePower;
+                return gauntletsOfOgrePower ?? (gauntletsOfOgrePower = PowerMimicsItem(DatabaseHelper.ItemDefinitions.GauntletsOfOgrePower, "InfuseGauntletsOfOgrePower"));
             }
         }
 
@@ -585,11 +493,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (glovesOfMissileSnaring == null)
-                {
-                    glovesOfMissileSnaring = PowerMimicsItem(DatabaseHelper.ItemDefinitions.GlovesOfMissileSnaring, "InfuseGlovesOfMissileSnaring");
-                }
-                return glovesOfMissileSnaring;
+                return glovesOfMissileSnaring ?? (glovesOfMissileSnaring = PowerMimicsItem(DatabaseHelper.ItemDefinitions.GlovesOfMissileSnaring, "InfuseGlovesOfMissileSnaring"));
             }
         }
 
@@ -597,11 +501,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (slippersOfSpiderClimbing == null)
-                {
-                    slippersOfSpiderClimbing = PowerMimicsItem(DatabaseHelper.ItemDefinitions.SlippersOfSpiderClimbing, "InfuseSlippersOfSpiderClimbing");
-                }
-                return slippersOfSpiderClimbing;
+                return slippersOfSpiderClimbing ?? (slippersOfSpiderClimbing = PowerMimicsItem(DatabaseHelper.ItemDefinitions.SlippersOfSpiderClimbing, "InfuseSlippersOfSpiderClimbing"));
             }
         }
 
@@ -609,11 +509,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (headbandOfIntellect == null)
-                {
-                    headbandOfIntellect = PowerMimicsItem(DatabaseHelper.ItemDefinitions.HeadbandOfIntellect, "InfuseHeadbandOfIntellect");
-                }
-                return headbandOfIntellect;
+                return headbandOfIntellect ?? (headbandOfIntellect = PowerMimicsItem(DatabaseHelper.ItemDefinitions.HeadbandOfIntellect, "InfuseHeadbandOfIntellect"));
             }
         }
 
@@ -621,11 +517,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (amuletOfHealth == null)
-                {
-                    amuletOfHealth = PowerMimicsItem(DatabaseHelper.ItemDefinitions.AmuletOfHealth, "InfuseAmuletOfHealth");
-                }
-                return amuletOfHealth;
+                return amuletOfHealth ?? (amuletOfHealth = PowerMimicsItem(DatabaseHelper.ItemDefinitions.AmuletOfHealth, "InfuseAmuletOfHealth"));
             }
         }
 
@@ -633,11 +525,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (beltOfGiantHillStrength == null)
-                {
-                    beltOfGiantHillStrength = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BeltOfGiantHillStrength, "InfuseBeltOfGiantHillStrength");
-                }
-                return beltOfGiantHillStrength;
+                return beltOfGiantHillStrength ?? (beltOfGiantHillStrength = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BeltOfGiantHillStrength, "InfuseBeltOfGiantHillStrength"));
             }
         }
 
@@ -645,11 +533,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (bracersOfDefense == null)
-                {
-                    bracersOfDefense = PowerMimicsItem(DatabaseHelper.ItemDefinitions.Bracers_Of_Defense, "InfuseBracersOfDefense");
-                }
-                return bracersOfDefense;
+                return bracersOfDefense ?? (bracersOfDefense = PowerMimicsItem(DatabaseHelper.ItemDefinitions.Bracers_Of_Defense, "InfuseBracersOfDefense"));
             }
         }
 
@@ -657,11 +541,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (cloakOfBat == null)
-                {
-                    cloakOfBat = PowerMimicsItem(DatabaseHelper.ItemDefinitions.CloakOfBat, "InfuseCloakOfBat");
-                }
-                return cloakOfBat;
+                return cloakOfBat ?? (cloakOfBat = PowerMimicsItem(DatabaseHelper.ItemDefinitions.CloakOfBat, "InfuseCloakOfBat"));
             }
         }
 
@@ -669,11 +549,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (ringProtectionPlus1 == null)
-                {
-                    ringProtectionPlus1 = PowerMimicsItem(DatabaseHelper.ItemDefinitions.RingProtectionPlus1, "InfuseRingProtectionPlus1");
-                }
-                return ringProtectionPlus1;
+                return ringProtectionPlus1 ?? (ringProtectionPlus1 = PowerMimicsItem(DatabaseHelper.ItemDefinitions.RingProtectionPlus1, "InfuseRingProtectionPlus1"));
             }
         }
 
@@ -701,13 +577,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         private static FeatureDefinitionPower PowerMimicsItem(ItemDefinition item, string name)
         {
-
             List<FeatureDefinition> features = new List<FeatureDefinition>();
             foreach (ItemPropertyDescription property in item.StaticProperties)
             {
                 features.Add(property.FeatureDefinition);
             }
-            ConditionDefinition itemCondition = FeatureHelpers.BuildCondition(features, RuleDefinitions.DurationType.UntilLongRest, 1, false,
+            ConditionDefinition itemCondition = BuildCondition(features, RuleDefinitions.DurationType.UntilLongRest, 1, false,
                 "Condition" + name, item.GuiPresentation);
 
             EffectDescriptionBuilder itemEffect = new EffectDescriptionBuilder();

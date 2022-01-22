@@ -435,7 +435,7 @@ namespace SolastaCommunityExpansion.Classes
 
             classSpellCast.SetSlotsPerLevel(witchCastingSlots);
             classSpellCast.SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest);
-            classSpellCast.SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class);
+            classSpellCast.SetSpellCastingOrigin(CastingOrigin.Class);
             classSpellCast.SetSpellCastingAbility(AttributeDefinitions.Charisma);
             classSpellCast.SetSpellCastingLevel(9);
             classSpellCast.SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection);
@@ -451,7 +451,6 @@ namespace SolastaCommunityExpansion.Classes
 
         private static void BuildRitualCasting()
         {
-
             FeatureDefinitionFeatureSetRitualCasting = new FeatureDefinitionFeatureSetBuilder(
                     DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
                     "WitchFeatureSetRitualCasting",
@@ -469,12 +468,10 @@ namespace SolastaCommunityExpansion.Classes
                             .SetRitualCasting((RuleDefinitions.RitualCasting)ExtraRitualCasting.Known).AddToDB())
                     .AddFeature(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinityWizardRitualCasting)
                     .AddToDB();
-
         }
 
         private static void BuildWitchCurses()
         {
-
             // Legend: 
             // +: implemented 
             // -: will not implement
@@ -578,12 +575,10 @@ namespace SolastaCommunityExpansion.Classes
                     .AddFeature(lovelessCurse)
                     .AddFeature(visionsCurse)
                     .AddToDB();
-
         }
 
         private static void BuildMaledictions()
         {
-
             // Maledictions are actions unless mentioned otherwise
             // If a Malediction calls for an attack roll or saving throw, it uses your spell attack bonus or spell save DC, unless mentioned otherwise. 
             // All Maledictions require verbal or somatic components
@@ -662,7 +657,6 @@ namespace SolastaCommunityExpansion.Classes
                     true)
                     .AddToDB();
 
-
             var apathyEffectDescription = new EffectDescription();
             apathyEffectDescription.Copy(DatabaseHelper.SpellDefinitions.CalmEmotionsOnEnemy.EffectDescription);
             apathyEffectDescription.SetDurationParameter(1);
@@ -692,7 +686,6 @@ namespace SolastaCommunityExpansion.Classes
                             .SetSpriteReference(DatabaseHelper.SpellDefinitions.CalmEmotions.GuiPresentation.SpriteReference),
                     true)
                     .AddToDB();
-
 
             var charmEffectDescription = new EffectDescription();
             charmEffectDescription.Copy(DatabaseHelper.SpellDefinitions.CharmPerson.EffectDescription);
@@ -725,7 +718,6 @@ namespace SolastaCommunityExpansion.Classes
                     true)
                     .AddToDB();
 
-
             var evileyeEffectDescription = new EffectDescription();
             evileyeEffectDescription.Copy(DatabaseHelper.SpellDefinitions.Fear.EffectDescription);
             evileyeEffectDescription.SetDurationParameter(1);
@@ -757,7 +749,6 @@ namespace SolastaCommunityExpansion.Classes
                     true)
                     .AddToDB();
 
-
             var obfuscateEffectDescription = new EffectDescription();
             obfuscateEffectDescription.Copy(DatabaseHelper.SpellDefinitions.FogCloud.EffectDescription);
             obfuscateEffectDescription.SetCanBePlacedOnCharacter(true);
@@ -785,7 +776,6 @@ namespace SolastaCommunityExpansion.Classes
                             .SetSpriteReference(DatabaseHelper.SpellDefinitions.FogCloud.GuiPresentation.SpriteReference),
                     true)
                     .AddToDB();
-
 
             EffectForm poxEffectForm = new EffectForm
             {
@@ -827,7 +817,6 @@ namespace SolastaCommunityExpansion.Classes
                             .SetSpriteReference(DatabaseHelper.SpellDefinitions.PoisonSpray.GuiPresentation.SpriteReference),
                     true)
                     .AddToDB();
-
 
             EffectForm ruinEffectForm = new EffectForm
             {
@@ -902,7 +891,6 @@ namespace SolastaCommunityExpansion.Classes
                     true)
                     .AddToDB();
 
-
             FeatureDefinitionFeatureSetMaledictions = new FeatureDefinitionFeatureSetBuilder(
                     DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
                     "WitchFeatureSetMaledictions",
@@ -921,12 +909,10 @@ namespace SolastaCommunityExpansion.Classes
                     .AddFeature(pox)
                     .AddFeature(ruin)
                     .AddToDB();
-
         }
 
         private static void BuildCackle()
         {
-
             // At 2nd level, you can use your bonus action to cackle. 
             // The duration of your Malediction extends by 1 round for each creature affected within 60 feet of you. 
             // Not all witches laugh maniacally when they cackle, but all cackles require a verbal component, as a spell. 
@@ -979,7 +965,6 @@ namespace SolastaCommunityExpansion.Classes
                             .SetSpriteReference(DatabaseHelper.SpellDefinitions.HideousLaughter.GuiPresentation.SpriteReference),
                     true)
                     .AddToDB();
-
         }
 
         private static CharacterClassDefinition BuildAndAddClass()
@@ -1224,7 +1209,6 @@ namespace SolastaCommunityExpansion.Classes
                 //            subClassChoices.Subclasses.Add(new PurpleWitch().GetSubclass(classDef).name);
                 subClassChoices.Subclasses.Add(new RedWitch().GetSubclass(witch).name);
                 subClassChoices.Subclasses.Add(new WhiteWitch().GetSubclass(witch).name);
-
             }
 
             void BuildProgression()

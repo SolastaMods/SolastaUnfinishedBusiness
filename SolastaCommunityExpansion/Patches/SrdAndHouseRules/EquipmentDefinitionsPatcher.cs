@@ -15,8 +15,6 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
         }
         */
 
-    /// <summary>
-    /// </summary>
     [HarmonyPatch(typeof(EquipmentDefinitions), "ScaleAndRoundCosts")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class EquipmentDefinitions_ScaleAndRoundCosts
@@ -30,10 +28,10 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
 
             // convert to copper
             int cp =
-                1000 * baseCosts[0] + // platinum
-                100 * baseCosts[1] + // gold
-                50 * baseCosts[2] + // electrum?
-                10 * baseCosts[3] + // silver
+                (1000 * baseCosts[0]) + // platinum
+                (100 * baseCosts[1]) + // gold
+                (50 * baseCosts[2]) + // electrum?
+                (10 * baseCosts[3]) + // silver
                 baseCosts[4]; // copper
 
             // scale
@@ -56,7 +54,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
             else
             {
                 // else keep 2 sig fig
-                scaledGold = SignificantDigits.Round(scaledGold, 2);
+                scaledGold = scaledGold.Round(2);
             }
 
             // convert back to cp
@@ -66,8 +64,8 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
             scaledCosts[4] = scaledAndRoundedCopper % 10;
             scaledCosts[3] = (scaledAndRoundedCopper - scaledCosts[4]) / 10 % 10;
             // scaledCosts[2] always zero?
-            scaledCosts[1] = (scaledAndRoundedCopper - scaledCosts[3] * 10 - scaledCosts[4]) / 100 % 10;
-            scaledCosts[0] = (scaledAndRoundedCopper - scaledCosts[1] * 100 - scaledCosts[3] * 10 - scaledCosts[4]) / 1000;
+            scaledCosts[1] = (scaledAndRoundedCopper - (scaledCosts[3] * 10) - scaledCosts[4]) / 100 % 10;
+            scaledCosts[0] = (scaledAndRoundedCopper - (scaledCosts[1] * 100) - (scaledCosts[3] * 10) - scaledCosts[4]) / 1000;
 
             // only show platinum if baseCosts had platinum
             if (baseCosts[0] == 0)
@@ -158,7 +156,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
             }
 
             // The resulting rounding position will be negative for rounding at whole numbers, and positive for decimal places.
-            roundingPosition = significantDigits - 1 - (int)(Math.Floor(Math.Log10(Math.Abs(value))));
+            roundingPosition = significantDigits - 1 - (int)Math.Floor(Math.Log10(Math.Abs(value)));
 
             // try to use a rounding position directly, if no scale is needed.
             // this is because the scale mutliplication after the rounding can introduce error, although 

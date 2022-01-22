@@ -214,9 +214,9 @@ namespace SolastaCommunityExpansion.Feats
             {
                 return false;
             }
-            RulesetItem off_item = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
 
-            return (off_item != null && off_item.ItemDefinition != null && off_item.ItemDefinition.IsLightSourceItem);
+            RulesetItem off_item = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
+            return off_item?.ItemDefinition?.IsLightSourceItem ?? false;
         }
     }
 }

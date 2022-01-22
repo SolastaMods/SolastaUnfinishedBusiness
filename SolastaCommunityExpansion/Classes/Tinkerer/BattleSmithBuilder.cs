@@ -7,7 +7,7 @@ using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
-    public class BattleSmithBuilder
+    public static class BattleSmithBuilder
     {
         public static CharacterSubclassDefinition Build(CharacterClassDefinition artificer)
         {
@@ -46,7 +46,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             GuiPresentationBuilder weaponProfPresentation = new GuiPresentationBuilder(
                 "Subclass/&WeaponProfArtificerBattleSmithDescription",
                 "Subclass/&WeaponProfArtificerBattleSmithTitle");
-            FeatureDefinitionProficiency weaponProf = FeatureHelpers.BuildProficiency(RuleDefinitions.ProficiencyType.Weapon,
+            FeatureDefinitionProficiency weaponProf = FeatureHelpers.BuildProficiency(ProficiencyType.Weapon,
                 new List<string>() { EquipmentDefinitions.MartialWeaponCategory },
                 "ProficiencyWeaponArtificerBattleSmith", weaponProfPresentation.Build());
             battleSmith.AddFeatureAtLevel(weaponProf, 3);
@@ -56,7 +56,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseTitle");
             FeatureDefinitionPowerPoolModifier InfusionPoolIncrease = new FeatureDefinitionPowerPoolModifierBuilder("AttributeModiferArtificerBattleSmithInfusionHealingPool",
                 GuidHelper.Create(TinkererClass.GuidNamespace, "AttributeModiferArtificerBattleSmithInfusionHealingPool").ToString(),
-                2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, TinkererClass.InfusionPool, InfusionPoolIncreaseGui.Build()).AddToDB();
+                2, UsesDetermination.Fixed, AttributeDefinitions.Intelligence, TinkererClass.InfusionPool, InfusionPoolIncreaseGui.Build()).AddToDB();
             battleSmith.AddFeatureAtLevel(InfusionPoolIncrease, 3);
 
             GuiPresentationBuilder attackModGui = new GuiPresentationBuilder(
@@ -93,8 +93,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Feat/&AttackModifierArtificerBattleSmithJoltTitle");
             FeatureDefinitionAttackModifier joltAttack = FeatureHelpers.BuildAttackModifier(
                 // Note ability score bonus only works if it's applied to a weapon, not a character.
-                RuleDefinitions.AttackModifierMethod.None, 0, AttributeDefinitions.Intelligence,
-                RuleDefinitions.AttackModifierMethod.FlatValue, 3, AttributeDefinitions.Intelligence, false, "Magical",
+                AttackModifierMethod.None, 0, AttributeDefinitions.Intelligence,
+                AttackModifierMethod.FlatValue, 3, AttributeDefinitions.Intelligence, false, "Magical",
                 "AttackModifierArtificerBattleSmithJolt", joltAttackGui.Build());
             battleSmith.AddFeatureAtLevel(joltAttack, 9);
 
@@ -113,8 +113,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Feat/&AttackModifierArtificerBattleSmithJolt2Title");
             FeatureDefinitionAttackModifier jolt2Attack = FeatureHelpers.BuildAttackModifier(
                 // Note ability score bonus only works if it's applied to a weapon, not a character.
-                RuleDefinitions.AttackModifierMethod.None, 0, AttributeDefinitions.Intelligence,
-                RuleDefinitions.AttackModifierMethod.FlatValue, 3, AttributeDefinitions.Intelligence, false, "Magical",
+                AttackModifierMethod.None, 0, AttributeDefinitions.Intelligence,
+                AttackModifierMethod.FlatValue, 3, AttributeDefinitions.Intelligence, false, "Magical",
                 "AttackModifierArtificerBattleSmithJolt2", jolt2AttackGui.Build());
             battleSmith.AddFeatureAtLevel(jolt2Attack, 15);
             battleSmith.AddFeatureAtLevel(ProtectorConstructUpgradeFeatureSetBuilder.ProtectorConstructUpgradeFeatureSet, 15);
@@ -123,7 +123,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return battleSmith.AddToDB();
         }
 
-        private class FeatureDefinitionAttackModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttackModifier>
+        private sealed class FeatureDefinitionAttackModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttackModifier>
         {
             public FeatureDefinitionAttackModifierBuilder(string name, string guid,
             RuleDefinitions.AbilityScoreReplacement abilityReplacement, string additionalAttackTag,

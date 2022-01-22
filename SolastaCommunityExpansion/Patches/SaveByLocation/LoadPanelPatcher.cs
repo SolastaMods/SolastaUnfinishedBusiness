@@ -23,10 +23,7 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
         {
             if (!Main.Settings.EnableSaveByLocation)
             {
-                if (Dropdown != null)
-                {
-                    Dropdown.SetActive(false);
-                }
+                Dropdown?.SetActive(false);
 
                 return true;
             }

@@ -123,7 +123,7 @@ namespace SolastaCommunityExpansion.Models
 
             BySortGroup.Inverted = false;
             BySortGroup.Selected = true;
-            BySortGroup.SortRequested = new SortGroup.SortRequestedHandler((sortCategory, inverted) =>
+            BySortGroup.SortRequested = new SortGroup.SortRequestedHandler((_, inverted) =>
             {
                 BySortGroup.Inverted = inverted;
                 BySortGroup.Refresh();

@@ -13,48 +13,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         public const string Name = "ScoutSentinel";
         public const string Guid = "fb2e5f73-d552-430f-b329-1f0a2ecdf6bd";
 
-        public static FeatureDefinitionPowerSharedPool scoutmodepower;
-        public static FeatureDefinitionPowerSharedPool sentinelmodepower;
-        public static FeatureDefinitionPower ArmorModePool;
+        public static readonly FeatureDefinitionPowerSharedPool ScoutModePower = BuildScoutModePower();
+        public static readonly FeatureDefinitionPowerSharedPool SentinelModePower = BuildSentinelModePower();
+        public static readonly FeatureDefinitionPower ArmorModePool = BuildArmorModePool();
 
-        public static void BuildAndAddSubclass()
+        private static FeatureDefinitionPower BuildArmorModePool()
         {
-
-
-
-            var subclassGuiPresentation = new GuiPresentationBuilder(
-                "Subclass/&ScoutSentinelTinkererSubclassDescription",
-                "Subclass/&ScoutSentinelTinkererSubclassTitle")
-                .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.MartialMountaineer.GuiPresentation.SpriteReference)
-                .Build();
-
-            var definition = new CharacterSubclassDefinitionBuilder(Name, Guid)
-                .SetGuiPresentation(subclassGuiPresentation)
-
-            // level 3
-            .AddFeatureAtLevel(ScoutSentinelFeatureSet_level03Builder.ScoutSentinelFeatureSet_level03, 3)
-            // level 5
-            .AddFeatureAtLevel(ScoutSentinelFeatureSet_level05Builder.ScoutSentinelFeatureSet_level05, 5)
-            // level 10
-            .AddFeatureAtLevel(ScoutSentinelFeatureSet_level09Builder.ScoutSentinelFeatureSet_level09, 9)
-            // level 14
-            .AddFeatureAtLevel(ScoutSentinelFeatureSet_level15Builder.ScoutSentinelFeatureSet_level15, 15)
-           .AddToDB(true);
-
-        }
-    }
-
-    internal class ScoutSentinelFeatureSet_level03Builder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
-    {
-        private const string ScoutSentinelFeatureSet_level03Name = "ScoutSentinelFeatureSet_level03";
-        private const string ScoutSentinelFeatureSet_level03Guid = "a6560212-c665-49fd-94b7-378512e68edb";
-
-        protected ScoutSentinelFeatureSet_level03Builder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
-        {
-            Definition.GuiPresentation.Title = "Feat/&ScoutSentinelFeatureSet_level03Title";
-            Definition.GuiPresentation.Description = "Feat/&ScoutSentinelFeatureSet_level03Description";
-
-
             GuiPresentation guiPresentationArmorMode = new GuiPresentation();
             guiPresentationArmorMode.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
             guiPresentationArmorMode.SetDescription("Feat/&ArmorModePoolDescription");
@@ -62,19 +26,35 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             guiPresentationArmorMode.SetSpriteReference(null);
             guiPresentationArmorMode.SetSymbolChar("221E");
 
-            FeatureDefinitionPower ArmorModePool = new FeatureDefinitionPowerPoolBuilder
-                (
-                    "ArmorModePool",
-                    "fd0567d8-a728-4459-8569-273f3ead3f73",
-                    1,
-                    RuleDefinitions.UsesDetermination.Fixed,
-                    AttributeDefinitions.Intelligence,
-                    RuleDefinitions.RechargeRate.ShortRest,
-                    guiPresentationArmorMode
-                ).AddToDB();
+            return new FeatureDefinitionPowerPoolBuilder
+            (
+                "ArmorModePool",
+                "fd0567d8-a728-4459-8569-273f3ead3f73",
+                1,
+                RuleDefinitions.UsesDetermination.Fixed,
+                AttributeDefinitions.Intelligence,
+                RuleDefinitions.RechargeRate.ShortRest,
+                guiPresentationArmorMode
+            )
+            .AddToDB();
+        }
 
+        private static EffectForm GetEffectItem()
+        {
+            ItemPropertyForm itemPropertyForm = new ItemPropertyForm();
+            itemPropertyForm.FeatureBySlotLevel.Add(new FeatureUnlockByLevel(IntToAttackAndDamageBuilder.IntToAttackAndDamage, 0));
 
+            EffectForm effectItem = new EffectForm
+            {
+                FormType = EffectForm.EffectFormType.ItemProperty
+            };
+            effectItem.SetItemPropertyForm(itemPropertyForm);
 
+            return effectItem;
+        }
+
+        private static FeatureDefinitionPowerSharedPool BuildSentinelModePower()
+        {
             GuiPresentation guiPresentationSentinel = new GuiPresentation();
             guiPresentationSentinel.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
             guiPresentationSentinel.SetDescription("Feature/&SentinelModePowerDescription");
@@ -82,13 +62,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             guiPresentationSentinel.SetSpriteReference(DatabaseHelper.SpellDefinitions.MageArmor.GuiPresentation.SpriteReference);
             guiPresentationSentinel.SetSymbolChar("221E");
 
-            ItemPropertyForm itemPropertyForm = new ItemPropertyForm();
-            itemPropertyForm.FeatureBySlotLevel.Add(new FeatureUnlockByLevel(IntToAttackAndDamageBuilder.IntToAttackAndDamage, 0));
-            EffectForm effectItem = new EffectForm
-            {
-                FormType = EffectForm.EffectFormType.ItemProperty
-            };
-            effectItem.SetItemPropertyForm(itemPropertyForm);
 
             EffectDescription effectsentinelmode = new EffectDescription();
             effectsentinelmode.Copy(DatabaseHelper.SpellDefinitions.ProduceFlameHold.EffectDescription);
@@ -100,12 +73,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             effectsentinelmode.SetItemSelectionType(ActionDefinitions.ItemSelectionType.Weapon);
             effectsentinelmode.EffectForms[0].SummonForm.SetTrackItem(false);
             effectsentinelmode.EffectForms[0].SummonForm.SetNumber(1);
-            effectsentinelmode.EffectForms.Add(effectItem);
+            effectsentinelmode.EffectForms.Add(GetEffectItem());
 
-
-
-            ScoutSentinelTinkererSubclassBuilder.sentinelmodepower = new FeatureDefinitionPowerSharedPoolBuilder
-                (
+            return new FeatureDefinitionPowerSharedPoolBuilder(
                  "SentinelModePower"                                         // string name
                  , "410768a3-757f-48ee-8a2f-bffd963c0a5b"                    // string guid
                  , ArmorModePool                                             // FeatureDefinitionPower poolPower
@@ -118,9 +88,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                  , effectsentinelmode                                        // EffectDescription effectDescription
                  , guiPresentationSentinel                                   // GuiPresentation guiPresentation
                  , true                                                      // bool uniqueInstanc
-                ).AddToDB();
+                )
+                .AddToDB();
+        }
 
-
+        private static FeatureDefinitionPowerSharedPool BuildScoutModePower()
+        {
             GuiPresentation guiPresentationScout = new GuiPresentation();
             guiPresentationScout.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
             guiPresentationScout.SetDescription("Feature/&ScoutModePowerDescription");
@@ -139,9 +112,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             effectScoutMode.SetItemSelectionType(ActionDefinitions.ItemSelectionType.Weapon);
             effectScoutMode.EffectForms[0].SummonForm.SetTrackItem(false);
             effectScoutMode.EffectForms[0].SummonForm.SetNumber(1);
-            effectScoutMode.EffectForms.Add(effectItem);
+            effectScoutMode.EffectForms.Add(GetEffectItem());
 
-            ScoutSentinelTinkererSubclassBuilder.scoutmodepower = new FeatureDefinitionPowerSharedPoolBuilder
+            return new FeatureDefinitionPowerSharedPoolBuilder
                  (
                   "ScoutModePower"                                            // string name
                   , "ff6b9eb1-01ad-4100-ab12-7d6dc38ccc70"                    // string guid
@@ -155,12 +128,46 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                   , effectScoutMode                                           // EffectDescription effectDescription
                   , guiPresentationScout                                      // GuiPresentation guiPresentation
                   , true                                                      // bool uniqueInstanc
-                 ).AddToDB();
+                 )
+                 .AddToDB();
+        }
+
+        public static void BuildAndAddSubclass()
+        {
+            var subclassGuiPresentation = new GuiPresentationBuilder(
+                "Subclass/&ScoutSentinelTinkererSubclassDescription",
+                "Subclass/&ScoutSentinelTinkererSubclassTitle")
+                .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.MartialMountaineer.GuiPresentation.SpriteReference)
+                .Build();
+
+            new CharacterSubclassDefinitionBuilder(Name, Guid)
+                .SetGuiPresentation(subclassGuiPresentation)
+                // level 3
+                .AddFeatureAtLevel(ScoutSentinelFeatureSetLevel03Builder.ScoutSentinelFeatureSet_level03, 3)
+                // level 5
+                .AddFeatureAtLevel(ScoutSentinelFeatureSetLevel05Builder.ScoutSentinelFeatureSet_level05, 5)
+                // level 10
+                .AddFeatureAtLevel(ScoutSentinelFeatureSetLevel09Builder.ScoutSentinelFeatureSet_level09, 9)
+                // level 14
+                .AddFeatureAtLevel(ScoutSentinelFeatureSetLevel15Builder.ScoutSentinelFeatureSet_level15, 15)
+               .AddToDB(true);
+        }
+    }
+
+    internal class ScoutSentinelFeatureSetLevel03Builder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
+    {
+        private const string ScoutSentinelFeatureSet_level03Name = "ScoutSentinelFeatureSet_level03";
+        private const string ScoutSentinelFeatureSet_level03Guid = "a6560212-c665-49fd-94b7-378512e68edb";
+
+        protected ScoutSentinelFeatureSetLevel03Builder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
+        {
+            Definition.GuiPresentation.Title = "Feat/&ScoutSentinelFeatureSet_level03Title";
+            Definition.GuiPresentation.Description = "Feat/&ScoutSentinelFeatureSet_level03Description";
 
             Definition.FeatureSet.Clear();
-            Definition.FeatureSet.Add(ArmorModePool);
-            Definition.FeatureSet.Add(ScoutSentinelTinkererSubclassBuilder.scoutmodepower);
-            Definition.FeatureSet.Add(ScoutSentinelTinkererSubclassBuilder.sentinelmodepower);
+            Definition.FeatureSet.Add(ScoutSentinelTinkererSubclassBuilder.ArmorModePool);
+            Definition.FeatureSet.Add(ScoutSentinelTinkererSubclassBuilder.ScoutModePower);
+            Definition.FeatureSet.Add(ScoutSentinelTinkererSubclassBuilder.SentinelModePower);
             Definition.FeatureSet.Add(SubclassProficienciesBuilder.SubclassProficiencies);
             Definition.FeatureSet.Add(UseArmorWeaponsAsFocusBuilder.UseArmorWeaponsAsFocus);
             Definition.FeatureSet.Add(SubclassMovementAffinitiesBuilder.SubclassMovementAffinities);
@@ -169,46 +176,43 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
         {
-            return new ScoutSentinelFeatureSet_level03Builder(name, guid).AddToDB();
+            return new ScoutSentinelFeatureSetLevel03Builder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionFeatureSet ScoutSentinelFeatureSet_level03 = CreateAndAddToDB(ScoutSentinelFeatureSet_level03Name, ScoutSentinelFeatureSet_level03Guid);
+        public static readonly FeatureDefinitionFeatureSet ScoutSentinelFeatureSet_level03 = CreateAndAddToDB(ScoutSentinelFeatureSet_level03Name, ScoutSentinelFeatureSet_level03Guid);
     }
 
-    internal class ScoutSentinelFeatureSet_level05Builder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal class ScoutSentinelFeatureSetLevel05Builder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
     {
         private const string ScoutSentinelFeatureSet_level05Name = "ScoutSentinelFeatureSet_level05";
         private const string ScoutSentinelFeatureSet_level05Guid = "a881c02a-7add-426b-a2d4-1f3994d12fa9";
 
-        protected ScoutSentinelFeatureSet_level05Builder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
+        protected ScoutSentinelFeatureSetLevel05Builder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&ScoutSentinelFeatureSet_level05Title";
             Definition.GuiPresentation.Description = "Feat/&ScoutSentinelFeatureSet_level05Description";
 
             Definition.FeatureSet.Clear();
             Definition.FeatureSet.Add(DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack);
-
-
         }
 
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
         {
-            return new ScoutSentinelFeatureSet_level05Builder(name, guid).AddToDB();
+            return new ScoutSentinelFeatureSetLevel05Builder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionFeatureSet ScoutSentinelFeatureSet_level05 = CreateAndAddToDB(ScoutSentinelFeatureSet_level05Name, ScoutSentinelFeatureSet_level05Guid);
+        public static readonly FeatureDefinitionFeatureSet ScoutSentinelFeatureSet_level05 = CreateAndAddToDB(ScoutSentinelFeatureSet_level05Name, ScoutSentinelFeatureSet_level05Guid);
     }
 
-    internal class ScoutSentinelFeatureSet_level09Builder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal class ScoutSentinelFeatureSetLevel09Builder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
     {
         private const string ScoutSentinelFeatureSet_level09Name = "ScoutSentinelFeatureSet_level09";
         private const string ScoutSentinelFeatureSet_level09Guid = "87e8b110-4590-4791-b31c-b8bba5f362b1";
 
-        protected ScoutSentinelFeatureSet_level09Builder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
+        protected ScoutSentinelFeatureSetLevel09Builder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&ScoutSentinelFeatureSet_level09Title";
             Definition.GuiPresentation.Description = "Feat/&ScoutSentinelFeatureSet_level09Description";
-
 
             GuiPresentation guiPresentation = new GuiPresentation();
             guiPresentation.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
@@ -217,8 +221,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             guiPresentation.SetSpriteReference(null);
             guiPresentation.SetSymbolChar("221E");
             guiPresentation.SetSortOrder(1);
-
-
 
             FeatureDefinitionPowerPoolModifier ExtraInfusionSlots = new FeatureDefinitionPowerPoolModifierBuilder(
                 "ExtraInfusionSlots",
@@ -229,141 +231,44 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 TinkererClass.InfusionPool, guiPresentation
                 ).AddToDB();
 
-
-
             Definition.FeatureSet.Clear();
             Definition.FeatureSet.Add(ExtraInfusionSlots);
-
         }
 
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
         {
-            return new ScoutSentinelFeatureSet_level09Builder(name, guid).AddToDB();
+            return new ScoutSentinelFeatureSetLevel09Builder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionFeatureSet ScoutSentinelFeatureSet_level09 = CreateAndAddToDB(ScoutSentinelFeatureSet_level09Name, ScoutSentinelFeatureSet_level09Guid);
+        public static readonly FeatureDefinitionFeatureSet ScoutSentinelFeatureSet_level09 = CreateAndAddToDB(ScoutSentinelFeatureSet_level09Name, ScoutSentinelFeatureSet_level09Guid);
     }
 
-    internal class ScoutSentinelFeatureSet_level15Builder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal class ScoutSentinelFeatureSetLevel15Builder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
     {
         private const string ScoutSentinelFeatureSet_level15Name = "ScoutSentinelFeatureSet_level15";
         private const string ScoutSentinelFeatureSet_level15Guid = "69a9ba53-4949-47ec-9693-467d053e4646";
 
-        protected ScoutSentinelFeatureSet_level15Builder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
+        protected ScoutSentinelFeatureSetLevel15Builder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&ScoutSentinelFeatureSet_level15Title";
             Definition.GuiPresentation.Description = "Feat/&ScoutSentinelFeatureSet_level15Description";
 
             Definition.FeatureSet.Clear();
-
-            GuiPresentation guiPresentationImprovedSentinel = new GuiPresentation();
-            guiPresentationImprovedSentinel.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
-            guiPresentationImprovedSentinel.SetDescription("Feature/&ImprovedSentinelModePowerDescription");
-            guiPresentationImprovedSentinel.SetTitle("Feature/&ImprovedSentinelModePowerTitle");
-            guiPresentationImprovedSentinel.SetSpriteReference(DatabaseHelper.SpellDefinitions.MageArmor.GuiPresentation.SpriteReference);
-            guiPresentationImprovedSentinel.SetSymbolChar("221E");
-
-            ItemPropertyForm itemPropertyForm = new ItemPropertyForm();
-            itemPropertyForm.FeatureBySlotLevel.Add(new FeatureUnlockByLevel(IntToAttackAndDamageBuilder.IntToAttackAndDamage, 0));
-            EffectForm effectItem = new EffectForm
-            {
-                FormType = EffectForm.EffectFormType.ItemProperty
-            };
-            effectItem.SetItemPropertyForm(itemPropertyForm);
-
-            EffectDescription effectImprovedSentinelmode = new EffectDescription();
-            effectImprovedSentinelmode.Copy(DatabaseHelper.SpellDefinitions.ProduceFlameHold.EffectDescription);
-            effectImprovedSentinelmode.SlotTypes.Clear();
-            effectImprovedSentinelmode.SlotTypes.AddRange("MainHandSlot", "OffHandSlot");
-            effectImprovedSentinelmode.SetDurationType(RuleDefinitions.DurationType.UntilShortRest);
-            effectImprovedSentinelmode.SetEffectParticleParameters(DatabaseHelper.SpellDefinitions.Shield.EffectDescription.EffectParticleParameters);
-            effectImprovedSentinelmode.EffectForms[0].SummonForm.SetItemDefinition(ImprovedSentinelSuitWeaponBuilder.ImprovedSentinelSuitWeapon);
-            effectImprovedSentinelmode.SetItemSelectionType(ActionDefinitions.ItemSelectionType.Weapon);
-            effectImprovedSentinelmode.EffectForms[0].SummonForm.SetTrackItem(false);
-            effectImprovedSentinelmode.EffectForms[0].SummonForm.SetNumber(1);
-            effectImprovedSentinelmode.EffectForms.Add(effectItem);
-
-
-
-            FeatureDefinitionPowerSharedPoolBuilder Improvedsentinelmodepowerbuilder = new FeatureDefinitionPowerSharedPoolBuilder
-                (
-                 "ImprovedSentinelModePower"                                         // string name
-                 , "b216988a-5905-47fd-9359-093cd77d41f9"                    // string guid
-                 , ScoutSentinelTinkererSubclassBuilder.ArmorModePool        // FeatureDefinitionPower poolPower
-                 , RuleDefinitions.RechargeRate.ShortRest                    // RuleDefinitions.RechargeRate recharge
-                 , RuleDefinitions.ActivationTime.NoCost                     // RuleDefinitions.ActivationTime activationTime
-                 , 1                                                         // int costPerUse
-                 , false                                                     // bool proficiencyBonusToAttack
-                 , false                                                     // bool abilityScoreBonusToAttack
-                 , DatabaseHelper.SmartAttributeDefinitions.Intelligence.name// string abilityScore
-                 , effectImprovedSentinelmode                                        // EffectDescription effectDescription
-                 , guiPresentationImprovedSentinel                                   // GuiPresentation guiPresentation
-                 , true                                                      // bool uniqueInstanc
-                );
-            FeatureDefinitionPowerSharedPool Improvedsentinelmodepower = Improvedsentinelmodepowerbuilder.AddToDB();
-
-            Improvedsentinelmodepower.SetOverriddenPower(ScoutSentinelTinkererSubclassBuilder.sentinelmodepower);
-
-            GuiPresentation guiPresentationImprovedScout = new GuiPresentation();
-            guiPresentationImprovedScout.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
-            guiPresentationImprovedScout.SetDescription("Feature/&ImprovedScoutModePowerDescription");
-            guiPresentationImprovedScout.SetTitle("Feature/&ImprovedScoutModePowerTitle");
-            guiPresentationImprovedScout.SetSpriteReference(DatabaseHelper.SpellDefinitions.ShadowArmor.GuiPresentation.SpriteReference);
-            guiPresentationImprovedScout.SetSymbolChar("221E");
-            guiPresentationImprovedScout.SetSortOrder(1);
-
-            EffectDescription effectImprovedScoutMode = new EffectDescription();
-            effectImprovedScoutMode.Copy(DatabaseHelper.SpellDefinitions.ProduceFlameHold.EffectDescription);
-            effectImprovedScoutMode.SlotTypes.Clear();
-            effectImprovedScoutMode.SlotTypes.AddRange("MainHandSlot", "OffHandSlot");
-            effectImprovedScoutMode.SetDurationType(RuleDefinitions.DurationType.UntilShortRest);
-            effectImprovedScoutMode.SetEffectParticleParameters(DatabaseHelper.SpellDefinitions.Shield.EffectDescription.EffectParticleParameters);
-            effectImprovedScoutMode.EffectForms[0].SummonForm.SetItemDefinition(ImprovedScoutSuitWeaponBuilder.ImprovedScoutSuitWeapon);
-            effectImprovedScoutMode.SetItemSelectionType(ActionDefinitions.ItemSelectionType.Weapon);
-            effectImprovedScoutMode.EffectForms[0].SummonForm.SetTrackItem(false);
-            effectImprovedScoutMode.EffectForms[0].SummonForm.SetNumber(1);
-            effectImprovedScoutMode.EffectForms.Add(effectItem);
-
-            FeatureDefinitionPowerSharedPoolBuilder Improvedscoutmodepowerbuilder = new FeatureDefinitionPowerSharedPoolBuilder
-                 (
-                  "ImprovedScoutModePower"                                            // string name
-                  , "89ec2647-5560-4e82-aa7b-59a8489de492"                    // string guid
-                  , ScoutSentinelTinkererSubclassBuilder.ArmorModePool        // FeatureDefinitionPower poolPower
-                  , RuleDefinitions.RechargeRate.ShortRest                    // RuleDefinitions.RechargeRate recharge
-                  , RuleDefinitions.ActivationTime.NoCost                     // RuleDefinitions.ActivationTime activationTime
-                  , 1                                                         // int costPerUse
-                  , false                                                     // bool proficiencyBonusToAttack
-                  , false                                                     // bool abilityScoreBonusToAttack
-                  , DatabaseHelper.SmartAttributeDefinitions.Intelligence.name// string abilityScore
-                  , effectImprovedScoutMode                                           // EffectDescription effectDescription
-                  , guiPresentationImprovedScout                                      // GuiPresentation guiPresentation
-                  , true                                                      // bool uniqueInstanc
-                 );
-            FeatureDefinitionPowerSharedPool Improvedscoutmodepower = Improvedscoutmodepowerbuilder.AddToDB();
-
-            Improvedscoutmodepower.SetOverriddenPower(ScoutSentinelTinkererSubclassBuilder.scoutmodepower);
-
-            Definition.FeatureSet.Add(Improvedscoutmodepower);
-            Definition.FeatureSet.Add(Improvedsentinelmodepower);
+            Definition.FeatureSet.Add(ImprovedScoutModePowerBuilder.ImprovedScoutModePower);
+            Definition.FeatureSet.Add(ImprovedSentinelModePowerBuilder.ImprovedSentinelModePower);
         }
 
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
         {
-            return new ScoutSentinelFeatureSet_level15Builder(name, guid).AddToDB();
+            return new ScoutSentinelFeatureSetLevel15Builder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionFeatureSet ScoutSentinelFeatureSet_level15 = CreateAndAddToDB(ScoutSentinelFeatureSet_level15Name, ScoutSentinelFeatureSet_level15Guid);
+        public static readonly FeatureDefinitionFeatureSet ScoutSentinelFeatureSet_level15 = CreateAndAddToDB(ScoutSentinelFeatureSet_level15Name, ScoutSentinelFeatureSet_level15Guid);
     }
-
-
-
 
     //*****************************************************************************************************************************************
     //***********************************		SubclassAutopreparedSpellsBuilder		*******************************************************
     //*****************************************************************************************************************************************
-
-
-
 
     public class ScoutSentinelAutopreparedSpellsBuilder : BaseDefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
     {
@@ -372,49 +277,44 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected ScoutSentinelAutopreparedSpellsBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionAutoPreparedSpellss.AutoPreparedSpellsDomainBattle, name, guid)
         {
-
-
             Definition.GuiPresentation.Title = "Feat/&AutoPreparedSpellsTitle";
             Definition.GuiPresentation.Description = "Feat/&AutoPreparedSpellsDescription";
-
 
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup autoPreparedSpellsGroup_Level_3 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
                 ClassLevel = 3,
-                SpellsList = (new List<SpellDefinition> {
+                SpellsList = new List<SpellDefinition> {
                 DatabaseHelper.SpellDefinitions.Thunderwave,
                 DatabaseHelper.SpellDefinitions.MagicMissile
-            })
+            }
             };
 
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup autoPreparedSpellsGroup_Level_5 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
                 ClassLevel = 5,
-                SpellsList = (new List<SpellDefinition> {
+                SpellsList = new List<SpellDefinition> {
                 DatabaseHelper.SpellDefinitions.Shatter,
                 DatabaseHelper.SpellDefinitions.Blur
-            })
+            }
             };
-
 
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup autoPreparedSpellsGroup_Level_9 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
                 ClassLevel = 9,
-                SpellsList = (new List<SpellDefinition> {
+                SpellsList = new List<SpellDefinition> {
                 DatabaseHelper.SpellDefinitions.LightningBolt
                 ,DatabaseHelper.SpellDefinitions.HypnoticPattern
-            })
+            }
             };
 
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup autoPreparedSpellsGroup_Level_13 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
                 ClassLevel = 13,
-                SpellsList = (new List<SpellDefinition> {
+                SpellsList = new List<SpellDefinition> {
                 DatabaseHelper.SpellDefinitions.FireShield
                 ,DatabaseHelper.SpellDefinitions.GreaterInvisibility
-            })
+            }
             };
-
 
             //  added extra spells to balance spells withput "implemented"=true flag yet
             //blur for mirror image
@@ -424,12 +324,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup autoPreparedSpellsGroup_Level_17 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
                 ClassLevel = 17,
-                SpellsList = (new List<SpellDefinition> {
+                SpellsList = new List<SpellDefinition> {
                 DatabaseHelper.SpellDefinitions.DimensionDoor
             //    ,DatabaseHelper.SpellDefinitions.WallOfForce
                 ,DatabaseHelper.SpellDefinitions.WallOfFire
                 ,DatabaseHelper.SpellDefinitions.WindWall
-            })
+            }
             };
 
             Definition.AutoPreparedSpellsGroups.Clear();
@@ -441,20 +341,15 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 autoPreparedSpellsGroup_Level_13,
                 autoPreparedSpellsGroup_Level_17
             });
-
         }
-
-
-
 
         public static FeatureDefinitionAutoPreparedSpells CreateAndAddToDB(string name, string guid)
         {
             return new ScoutSentinelAutopreparedSpellsBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionAutoPreparedSpells SubclassAutopreparedSpells = CreateAndAddToDB(SubclassAutopreparedSpellsName, SubclassAutopreparedSpellsGuid);
+        public static readonly FeatureDefinitionAutoPreparedSpells SubclassAutopreparedSpells = CreateAndAddToDB(SubclassAutopreparedSpellsName, SubclassAutopreparedSpellsGuid);
     }
-
 
     //*****************************************************************************************************************************************
     //***********************************		SubclassProficienciesBuilder		*******************************************************
@@ -469,8 +364,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             Definition.GuiPresentation.Title = "Feat/&SubclassProficienciesTitle"; //Feature/&NoContentTitle
             Definition.GuiPresentation.Description = "Feat/&SubclassProficienciesDescription";//Feature/&NoContentTitle
+                                                                                              // Definition.Proficiencies.Add(DatabaseHelper.FeatureDefinitionProficiencys.ProficiencySmithTools.Name);
             Definition.Proficiencies.Add(DatabaseHelper.ArmorCategoryDefinitions.HeavyArmorCategory.Name);
-
         }
 
         public static FeatureDefinitionProficiency CreateAndAddToDB(string name, string guid)
@@ -478,7 +373,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SubclassProficienciesBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionProficiency SubclassProficiencies = CreateAndAddToDB(SubclassProficienciesName, SubclassProficienciesGuid);
+        public static readonly FeatureDefinitionProficiency SubclassProficiencies = CreateAndAddToDB(SubclassProficienciesName, SubclassProficienciesGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -495,8 +390,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.GuiPresentation.Title = "Feat/&SubclassMovementTitle";
             Definition.GuiPresentation.Description = "Feat/&SubclassMovementDescription";
             Definition.SetHeavyArmorImmunity(true);
-
-
         }
 
         public static FeatureDefinitionMovementAffinity CreateAndAddToDB(string name, string guid)
@@ -504,11 +397,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SubclassMovementAffinitiesBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionMovementAffinity SubclassMovementAffinities = CreateAndAddToDB(SubclassMovementAffinitiesName, SubclassMovementAffinitiesGuid);
+        public static readonly FeatureDefinitionMovementAffinity SubclassMovementAffinities = CreateAndAddToDB(SubclassMovementAffinitiesName, SubclassMovementAffinitiesGuid);
     }
-
-
-
 
     //*****************************************************************************************************************************************
     //***********************************		UseArmorWeaponsAsFocusBuilder		*******************************************************
@@ -521,14 +411,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected UseArmorWeaponsAsFocusBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feat/&UseArmorWeaponsAsFocusTitle";
             Definition.GuiPresentation.Description = "Feat/&UseArmorWeaponsAsFocusDescription";
             Definition.SetCanUseProficientWeaponAsFocus(true);
             Definition.SetSomaticWithWeapon(true);
             Definition.SetRangeSpellNoProximityPenalty(false);
-
-
         }
 
         public static FeatureDefinitionMagicAffinity CreateAndAddToDB(string name, string guid)
@@ -536,11 +423,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new UseArmorWeaponsAsFocusBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionMagicAffinity UseArmorWeaponsAsFocus = CreateAndAddToDB(UseArmorWeaponsAsFocusName, UseArmorWeaponsAsFocusGuid);
-
+        public static readonly FeatureDefinitionMagicAffinity UseArmorWeaponsAsFocus = CreateAndAddToDB(UseArmorWeaponsAsFocusName, UseArmorWeaponsAsFocusGuid);
     }
-
-
 
     //*****************************************************************************************************************************************
     //***********************************		IntToAttackAndDamageBuilder		*******************************************************
@@ -553,7 +437,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected IntToAttackAndDamageBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierShillelagh, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feat/&IntToAttackAndDamageTitle";
             Definition.GuiPresentation.Description = "Feat/&IntToAttackAndDamageDescription";
 
@@ -565,8 +448,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             //    assetReference.SetField("m_AssetGUID", "ad68a1be3193a314c911afd02ca8d360");
             //    Definition.SetImpactParticleReference(assetReference);
 
-
-
         }
 
         public static FeatureDefinitionAttackModifier CreateAndAddToDB(string name, string guid)
@@ -574,10 +455,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new IntToAttackAndDamageBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionAttackModifier IntToAttackAndDamage = CreateAndAddToDB(IntToAttackAndDamageName, IntToAttackAndDamageGuid);
+        public static readonly FeatureDefinitionAttackModifier IntToAttackAndDamage = CreateAndAddToDB(IntToAttackAndDamageName, IntToAttackAndDamageGuid);
     }
-
-
 
     //*************************************************************************************************************************
     //***********************************		Sentinel Suit Weapon           		*******************************************
@@ -590,17 +469,13 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected SentinelSuitWeaponBuilder(string name, string guid) : base(DatabaseHelper.ItemDefinitions.UnarmedStrikeBase, name, guid)
         {
-
-
             // can only take 3 ( at game launch in may, havent checked since)
             Definition.IsFocusItem = true;
             Definition.IsUsableDevice = true;
             Definition.IsWeapon = true;
             //         Definition.IsFood = true;
 
-
             Definition.SetInDungeonEditor(true);
-
 
             EffectForm damageEffect = new EffectForm
             {
@@ -630,10 +505,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             balancingeffect.ConditionForm.Operation = ConditionForm.ConditionOperation.Add;
             balancingeffect.ConditionForm.ConditionDefinition = ThunderStruckBalancingAdvantageConditionBuilder.ThunderStruckBalancingAdvantage;
 
-
-
-
-
             //Add to our new effect
             EffectDescription newEffectDescription = new EffectDescription();
             newEffectDescription.Copy(Definition.WeaponDescription.EffectDescription);
@@ -651,7 +522,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             newEffectDescription.SetCanBePlacedOnCharacter(true);
             newEffectDescription.SetRangeType(RuleDefinitions.RangeType.MeleeHit);
 
-
             newEffectDescription.SetEffectParticleParameters(DatabaseHelper.SpellDefinitions.Shatter.EffectDescription.EffectParticleParameters);
 
             WeaponDescription ThunderPunch = new WeaponDescription();
@@ -663,13 +533,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             ThunderPunch.SetEffectDescription(newEffectDescription);
             ThunderPunch.WeaponTags.Add("ScoutSentinelWeapon");
 
-
-
-            ItemPropertyDescription UsingBonusActionItemPower = new ItemPropertyDescription(DatabaseHelper.ItemDefinitions.BeltOfDwarvenKind.StaticProperties[6]); ;
+            ItemPropertyDescription UsingBonusActionItemPower = new ItemPropertyDescription(DatabaseHelper.ItemDefinitions.BeltOfDwarvenKind.StaticProperties[6]);
             UsingBonusActionItemPower.SetFeatureDefinition(UsingitemPowerBuilder.UsingitemPower);
             UsingBonusActionItemPower.SetType(ItemPropertyDescription.PropertyType.Feature);
             UsingBonusActionItemPower.SetKnowledgeAffinity(EquipmentDefinitions.KnowledgeAffinity.InactiveAndHidden);
-
 
             DeviceFunctionDescription deviceFunctionDescription = new DeviceFunctionDescription(DatabaseHelper.ItemDefinitions.PotionOfComprehendLanguages.UsableDeviceDescription.DeviceFunctions[0]);
             deviceFunctionDescription.SetCanOverchargeSpell(false);
@@ -689,10 +556,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             usableDeviceDescription.SetRechargeDie(RuleDefinitions.DieType.D1);
             usableDeviceDescription.SetRechargeBonus(5);
             usableDeviceDescription.SetOutOfChargesConsequence(EquipmentDefinitions.ItemOutOfCharges.Persist);
-            usableDeviceDescription.SetMagicAttackBonus(11);
-            usableDeviceDescription.SetSaveDC(19);
+            usableDeviceDescription.SetMagicAttackBonus(5);
+            usableDeviceDescription.SetSaveDC(13);
             usableDeviceDescription.DeviceFunctions.Add(deviceFunctionDescription);
-
 
             Definition.SlotTypes.AddRange(new List<string> { "MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot" });
             Definition.SlotsWhereActive.AddRange(new List<string> { "MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot" });
@@ -723,9 +589,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.GuiPresentation.Title = "Equipment/&ThunderPunchTitle";
             Definition.GuiPresentation.Description = "Equipment/&ThunderPunchDescription";
             Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.ItemDefinitions.GauntletsOfOgrePower.GuiPresentation.SpriteReference);
-
-
-
         }
 
         public static ItemDefinition CreateAndAddToDB(string name, string guid)
@@ -733,10 +596,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SentinelSuitWeaponBuilder(name, guid).AddToDB();
         }
 
-        public static ItemDefinition SentinelSuitWeapon = CreateAndAddToDB(SentinelSuitWeaponName, SentinelSuitWeaponGuid);
+        public static readonly ItemDefinition SentinelSuitWeapon = CreateAndAddToDB(SentinelSuitWeaponName, SentinelSuitWeaponGuid);
     }
-
-
 
     internal class ThunderShieldBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
     {
@@ -748,7 +609,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.GuiPresentation.Title = "Feat/&ThunderShieldTitle";
             Definition.GuiPresentation.Description = "Feat/&ThunderShieldDescription";
             Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Shield.GuiPresentation.SpriteReference);
-
 
             Definition.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
             Definition.SetCostPerUse(1);
@@ -773,7 +633,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             healingEffect.SetLevelType(RuleDefinitions.LevelSourceType.CharacterLevel);
             healingEffect.SetLevelMultiplier(1);
 
-
             //Add to our new effect
             EffectDescription newEffectDescription = new EffectDescription();
             newEffectDescription.Copy(Definition.EffectDescription);
@@ -797,9 +656,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ThunderShieldBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionPower ThunderShield = CreateAndAddToDB(ThunderShieldName, ThunderShieldGuid);
+        public static readonly FeatureDefinitionPower ThunderShield = CreateAndAddToDB(ThunderShieldName, ThunderShieldGuid);
     }
-
 
     internal class ThunderStruckConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
     {
@@ -826,8 +684,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             assetReference.SetField("m_AssetGUID", "3e25fca5d3585174f9b7e20aca6ef3d9");
             Definition.SetConditionStartParticleReference(assetReference);
             Definition.SetConditionParticleReference(assetReference);
-
-
         }
 
         public static ConditionDefinition CreateAndAddToDB(string name, string guid)
@@ -835,7 +691,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ThunderStruckConditionBuilder(name, guid).AddToDB();
         }
 
-        public static ConditionDefinition ThunderStruck = CreateAndAddToDB(ThunderStruckName, ThunderStruckGuid);
+        public static readonly ConditionDefinition ThunderStruck = CreateAndAddToDB(ThunderStruckName, ThunderStruckGuid);
     }
 
     internal class ThunderStruckDisadvantageCombatAffintityBuilder : BaseDefinitionBuilder<FeatureDefinitionCombatAffinity>
@@ -845,9 +701,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected ThunderStruckDisadvantageCombatAffintityBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityPoisoned, name, guid)
         {
-
             Definition.SetMyAttackAdvantage(RuleDefinitions.AdvantageType.Disadvantage);
-
         }
 
         public static FeatureDefinitionCombatAffinity CreateAndAddToDB(string name, string guid)
@@ -855,7 +709,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ThunderStruckDisadvantageCombatAffintityBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionCombatAffinity Disadvantage = CreateAndAddToDB(ThunderStruckDisadvantageName, ThunderStruckDisadvantageGuid);
+        public static readonly FeatureDefinitionCombatAffinity Disadvantage = CreateAndAddToDB(ThunderStruckDisadvantageName, ThunderStruckDisadvantageGuid);
     }
     internal class ThunderStruckBalancingAdvantageConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
     {
@@ -876,7 +730,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
 
             Definition.Features.Add(BalancingAdvantageCombatAffintityBuilder.BalancingAdvantage);
-
         }
 
         public static ConditionDefinition CreateAndAddToDB(string name, string guid)
@@ -884,7 +737,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ThunderStruckBalancingAdvantageConditionBuilder(name, guid).AddToDB();
         }
 
-        public static ConditionDefinition ThunderStruckBalancingAdvantage = CreateAndAddToDB(ThunderStruckBalancingAdvantageName, ThunderStruckBalancingAdvantageGuid);
+        public static readonly ConditionDefinition ThunderStruckBalancingAdvantage = CreateAndAddToDB(ThunderStruckBalancingAdvantageName, ThunderStruckBalancingAdvantageGuid);
     }
 
     internal class BalancingAdvantageCombatAffintityBuilder : BaseDefinitionBuilder<FeatureDefinitionCombatAffinity>
@@ -894,7 +747,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected BalancingAdvantageCombatAffintityBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityCursedByBestowCurseOnAttackRoll, name, guid)
         {
-
             Definition.SetMyAttackAdvantage(RuleDefinitions.AdvantageType.Advantage);
             Definition.SetSituationalContext(RuleDefinitions.SituationalContext.TargetIsEffectSource);
         }
@@ -904,7 +756,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new BalancingAdvantageCombatAffintityBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionCombatAffinity BalancingAdvantage = CreateAndAddToDB(BalancingAdvantageName, BalancingAdvantageGuid);
+        public static readonly FeatureDefinitionCombatAffinity BalancingAdvantage = CreateAndAddToDB(BalancingAdvantageName, BalancingAdvantageGuid);
     }
     internal class UsingitemPowerBuilder : BaseDefinitionBuilder<FeatureDefinitionActionAffinity>
     {
@@ -913,13 +765,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected UsingitemPowerBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinityThiefFastHands, name, guid)
         {
-
             Definition.AuthorizedActions.Clear();
             Definition.AuthorizedActions.Add(ActionDefinitions.Id.UseItemBonus);
 
             Definition.GuiPresentation.Title = "Feat/&UsingitemPowerTitle";
             Definition.GuiPresentation.Description = "Feat/&UsingitemPowerDescription";
-
         }
 
         public static FeatureDefinitionActionAffinity CreateAndAddToDB(string name, string guid)
@@ -927,18 +777,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new UsingitemPowerBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionActionAffinity UsingitemPower = CreateAndAddToDB(UsingitemPowerName, UsingitemPowerGuid);
+        public static readonly FeatureDefinitionActionAffinity UsingitemPower = CreateAndAddToDB(UsingitemPowerName, UsingitemPowerGuid);
     }
-
-
-
-
-
 
     //**************************************************************************************************************************************
     //************************************************      Scout Suit Weapon        *******************************************************
     //**************************************************************************************************************************************
-
 
     internal class ScoutSuitWeaponBuilder : BaseDefinitionBuilder<ItemDefinition>
     {
@@ -947,7 +791,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected ScoutSuitWeaponBuilder(string name, string guid) : base(DatabaseHelper.ItemDefinitions.Dart, name, guid)
         {
-
             // can only take 3    (at game launch in may, havent checked since)
             Definition.IsFocusItem = true;
             Definition.IsWeapon = true;
@@ -1009,7 +852,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             LightningCloakMovement.SetType(ItemPropertyDescription.PropertyType.Feature);
             LightningCloakMovement.SetKnowledgeAffinity(EquipmentDefinitions.KnowledgeAffinity.InactiveAndHidden);
 
-
             Definition.SlotTypes.AddRange(new List<string> { "MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot" });
             Definition.SlotsWhereActive.AddRange(new List<string> { "MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot" });
 
@@ -1041,9 +883,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.ItemDefinitions.GlovesOfMissileSnaring.GuiPresentation.SpriteReference);
 
             Definition.SetItemPresentation(DatabaseHelper.ItemDefinitions.UnarmedStrikeBase.ItemPresentation);
-
-
-
         }
 
         public static ItemDefinition CreateAndAddToDB(string name, string guid)
@@ -1051,9 +890,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ScoutSuitWeaponBuilder(name, guid).AddToDB();
         }
 
-        public static ItemDefinition ScoutSuitWeapon = CreateAndAddToDB(ScoutSuitWeaponName, ScoutSuitWeaponGuid);
+        public static readonly ItemDefinition ScoutSuitWeapon = CreateAndAddToDB(ScoutSuitWeaponName, ScoutSuitWeaponGuid);
     }
-
 
     internal class LightningSpearAdditionalDamageBuilder : BaseDefinitionBuilder<FeatureDefinitionAdditionalDamage>
     {
@@ -1078,7 +916,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new LightningSpearAdditionalDamageBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionAdditionalDamage LightningSpearAdditionalDamage = CreateAndAddToDB(LightningSpearAdditionalDamageName, LightningSpearAdditionalDamageGuid);
+        public static readonly FeatureDefinitionAdditionalDamage LightningSpearAdditionalDamage = CreateAndAddToDB(LightningSpearAdditionalDamageName, LightningSpearAdditionalDamageGuid);
     }
     internal class LightningCloakMovementAffinitiesBuilder : BaseDefinitionBuilder<FeatureDefinitionMovementAffinity>
     {
@@ -1095,7 +933,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new LightningCloakMovementAffinitiesBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionMovementAffinity LightningCloakMovementAffinities = CreateAndAddToDB(LightningCloakMovementAffinitiesName, LightningCloakMovementAffinitiesGuid);
+        public static readonly FeatureDefinitionMovementAffinity LightningCloakMovementAffinities = CreateAndAddToDB(LightningCloakMovementAffinitiesName, LightningCloakMovementAffinitiesGuid);
     }
     internal class LightningCloakAbilityCheckAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionAbilityCheckAffinity>
     {
@@ -1118,12 +956,34 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new LightningCloakAbilityCheckAffinityBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionAbilityCheckAffinity LightningCloakAbilityCheckAffinity = CreateAndAddToDB(LightningCloakAbilityCheckAffinityName, LightningCloakAbilityCheckAffinityGuid);
+        public static readonly FeatureDefinitionAbilityCheckAffinity LightningCloakAbilityCheckAffinity = CreateAndAddToDB(LightningCloakAbilityCheckAffinityName, LightningCloakAbilityCheckAffinityGuid);
     }
 
     //*************************************************************************************************************************
     //***********************************		Improved Sentinel Suit Weapon   		****************************************
     //*************************************************************************************************************************
+
+    internal class ImprovedSentinelModePowerBuilder : BaseDefinitionBuilder<FeatureDefinitionPowerSharedPool>
+    {
+        private const string ImprovedSentinelModePowerName = "ImprovedSentinelModePower";
+        private const string ImprovedSentinelModePowerGuid = "b216988a-5905-47fd-9359-093cd77d41f9";
+
+        protected ImprovedSentinelModePowerBuilder(string name, string guid) : base(ScoutSentinelTinkererSubclassBuilder.SentinelModePower, name, guid)
+        {
+            //Definition.EffectDescription.EffectParticleParameters.Clear();
+            Definition.GuiPresentation.Title = "Feature/&ImprovedSentinelModePowerTitle";
+            Definition.GuiPresentation.Description = "Feature/&ImprovedSentinelModePowerDescription";
+            Definition.EffectDescription.EffectForms[0].SummonForm.SetItemDefinition(ImprovedSentinelSuitWeaponBuilder.ImprovedSentinelSuitWeapon);
+            Definition.SetOverriddenPower(ScoutSentinelTinkererSubclassBuilder.SentinelModePower);
+        }
+
+        public static FeatureDefinitionPowerSharedPool CreateAndAddToDB(string name, string guid)
+        {
+            return new ImprovedSentinelModePowerBuilder(name, guid).AddToDB();
+        }
+
+        public static readonly FeatureDefinitionPowerSharedPool ImprovedSentinelModePower = CreateAndAddToDB(ImprovedSentinelModePowerName, ImprovedSentinelModePowerGuid);
+    }
     internal class ImprovedSentinelSuitWeaponBuilder : BaseDefinitionBuilder<ItemDefinition>
     {
         private const string ImprovedSentinelSuitWeaponName = "ImprovedSentinelSuitWeapon";
@@ -1131,7 +991,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected ImprovedSentinelSuitWeaponBuilder(string name, string guid) : base(SentinelSuitWeaponBuilder.SentinelSuitWeapon, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Equipment/&ImprovedThunderPunchTitle";
             Definition.GuiPresentation.Description = "Equipment/&ImprovedThunderPunchDescription";
             Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.ItemDefinitions.GauntletsOfOgrePower.GuiPresentation.SpriteReference);
@@ -1148,8 +1007,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             Definition.UsableDeviceDescription.DeviceFunctions.Add(grapplefunction);
             Definition.UsableDeviceDescription.SetChargesCapitalNumber(10);
-
-
         }
 
         public static ItemDefinition CreateAndAddToDB(string name, string guid)
@@ -1157,9 +1014,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ImprovedSentinelSuitWeaponBuilder(name, guid).AddToDB();
         }
 
-        public static ItemDefinition ImprovedSentinelSuitWeapon = CreateAndAddToDB(ImprovedSentinelSuitWeaponName, ImprovedSentinelSuitWeaponGuid);
+        public static readonly ItemDefinition ImprovedSentinelSuitWeapon = CreateAndAddToDB(ImprovedSentinelSuitWeaponName, ImprovedSentinelSuitWeaponGuid);
     }
-
 
     internal class GauntletsGrappleBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
     {
@@ -1172,14 +1028,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.GuiPresentation.Description = "Feat/&GauntletsGrappleDescription";
             Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerShadowTamerRopeGrapple.GuiPresentation.SpriteReference);
 
-
             Definition.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
             Definition.SetCostPerUse(1);
             Definition.SetFixedUsesPerRecharge(6);
             Definition.SetActivationTime(RuleDefinitions.ActivationTime.BonusAction);
             Definition.SetShortTitleOverride("Feat/&GauntletsGrappleTitle");
             Definition.SetReactionContext(RuleDefinitions.ReactionTriggerContext.HitByMelee);
-
 
             EffectForm motionEffect = new EffectForm
             {
@@ -1216,7 +1070,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             newEffectDescription.HasSavingThrow = true;
             newEffectDescription.SavingThrowAbility = DatabaseHelper.SmartAttributeDefinitions.Strength.Name;
             newEffectDescription.SetSavingThrowDifficultyAbility(DatabaseHelper.SmartAttributeDefinitions.Intelligence.Name);
-            newEffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature);
+            newEffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.FixedValue);
             newEffectDescription.FixedSavingThrowDifficultyClass = 19;
             newEffectDescription.SetCreatedByCharacter(true);
 
@@ -1238,12 +1092,37 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new GauntletsGrappleBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionPower GauntletsGrapple = CreateAndAddToDB(GauntletsGrappleName, GauntletsGrappleGuid);
+        public static readonly FeatureDefinitionPower GauntletsGrapple = CreateAndAddToDB(GauntletsGrappleName, GauntletsGrappleGuid);
     }
 
     //**************************************************************************************************************************************
     //******************************************       Improved Scout Suit Weapon        ***************************************************
     //**************************************************************************************************************************************
+
+    internal class ImprovedScoutModePowerBuilder : BaseDefinitionBuilder<FeatureDefinitionPowerSharedPool>
+    {
+        private const string ImprovedScoutModePowerName = "ImprovedScoutModePower";
+        private const string ImprovedScoutModePowerGuid = "89ec2647-5560-4e82-aa7b-59a8489de492";
+
+        protected ImprovedScoutModePowerBuilder(string name, string guid) : base(ScoutSentinelTinkererSubclassBuilder.ScoutModePower, name, guid)
+        {
+            Definition.EffectDescription.EffectParticleParameters.Clear();
+            Definition.GuiPresentation.Title = "Feature/&ImprovedScoutModePowerTitle";
+            Definition.GuiPresentation.Description = "Feature/&ImprovedScoutModePowerDescription";
+            Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.ShadowArmor.GuiPresentation.SpriteReference);
+
+            Definition.SetOverriddenPower(ScoutSentinelTinkererSubclassBuilder.ScoutModePower);
+            Definition.EffectDescription.EffectForms[0].SummonForm.SetItemDefinition(ImprovedScoutSuitWeaponBuilder.ImprovedScoutSuitWeapon);
+        }
+
+        public static FeatureDefinitionPowerSharedPool CreateAndAddToDB(string name, string guid)
+        {
+            return new ImprovedScoutModePowerBuilder(name, guid).AddToDB();
+        }
+
+        public static readonly FeatureDefinitionPowerSharedPool ImprovedScoutModePower = CreateAndAddToDB(ImprovedScoutModePowerName, ImprovedScoutModePowerGuid);
+    }
+
     internal class ImprovedScoutSuitWeaponBuilder : BaseDefinitionBuilder<ItemDefinition>
     {
         private const string ImprovedScoutSuitWeaponName = "ImprovedScoutSuitWeapon";
@@ -1251,17 +1130,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected ImprovedScoutSuitWeaponBuilder(string name, string guid) : base(ScoutSuitWeaponBuilder.ScoutSuitWeapon, name, guid)
         {
-
-
-
             Definition.GuiPresentation.Title = "Equipment/&ImprovedLightningSpearTitle";
             Definition.GuiPresentation.Description = "Equipment/&ImprovedLightningSpearDescription";
             Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.ItemDefinitions.GlovesOfMissileSnaring.GuiPresentation.SpriteReference);
 
-
             Definition.SetInDungeonEditor(true);
-
-
 
             //next attack advantage // condition true strike or guiding bolt
             EffectForm NextAttackAdvantage = new EffectForm
@@ -1272,7 +1145,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             NextAttackAdvantage.ConditionForm.Operation = ConditionForm.ConditionOperation.Add;
             NextAttackAdvantage.ConditionForm.ConditionDefinition = AdvantageAttackOnEnemyBuilder.AdvantageAttackOnEnemy;
 
-
             // combat affinity cursed on attack roll
             EffectForm EnemyAttackDisadvantageEffect = new EffectForm
             {
@@ -1281,7 +1153,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             };
             EnemyAttackDisadvantageEffect.ConditionForm.Operation = ConditionForm.ConditionOperation.Add;
             EnemyAttackDisadvantageEffect.ConditionForm.ConditionDefinition = DisadvantageOnAttackByEnemyBuilder.DisadvantageOnAttackByEnemy;
-
 
             //extra damage on attack
             EffectForm ExtraAttackEffect = new EffectForm
@@ -1296,7 +1167,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             LightSourceForm lightSourceForm = new LightSourceForm();
             lightSourceForm.Copy(DatabaseHelper.SpellDefinitions.Shine.EffectDescription.EffectForms[0].LightSourceForm);
 
-
             EffectForm MagicalLightSourceEffect = new EffectForm();
             MagicalLightSourceEffect.SetLevelMultiplier(1);
             MagicalLightSourceEffect.SetLevelType(RuleDefinitions.LevelSourceType.CharacterLevel);
@@ -1305,13 +1175,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             MagicalLightSourceEffect.FormType = EffectForm.EffectFormType.LightSource;
             MagicalLightSourceEffect.SetLightSourceForm(lightSourceForm);
 
-
             Definition.WeaponDescription.EffectDescription.EffectForms.Add(EnemyAttackDisadvantageEffect);
             Definition.WeaponDescription.EffectDescription.EffectForms.Add(ExtraAttackEffect);
             Definition.WeaponDescription.EffectDescription.EffectForms.Add(NextAttackAdvantage);
             // game hangs when light effect is added, dont know why
             //Definition.WeaponDescription.EffectDescription.EffectForms.Add(MagicalLightSourceEffect);
-
 
         }
 
@@ -1320,7 +1188,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ImprovedScoutSuitWeaponBuilder(name, guid).AddToDB();
         }
 
-        public static ItemDefinition ImprovedScoutSuitWeapon = CreateAndAddToDB(ImprovedScoutSuitWeaponName, ImprovedScoutSuitWeaponGuid);
+        public static readonly ItemDefinition ImprovedScoutSuitWeapon = CreateAndAddToDB(ImprovedScoutSuitWeaponName, ImprovedScoutSuitWeaponGuid);
     }
 
     internal class DisadvantageOnAttackByEnemyBuilder : BaseDefinitionBuilder<ConditionDefinition>
@@ -1333,7 +1201,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             // Jolted - enemey has disadvantage on scout sentinel after weapon hits
             Definition.GuiPresentation.Title = "Rules/&DisadvantageOnAttackByEnemyTitle";
             Definition.GuiPresentation.Description = "Rules/&DisadvantageOnAttackByEnemyDescription";
-
         }
 
         public static ConditionDefinition CreateAndAddToDB(string name, string guid)
@@ -1341,7 +1208,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new DisadvantageOnAttackByEnemyBuilder(name, guid).AddToDB();
         }
 
-        public static ConditionDefinition DisadvantageOnAttackByEnemy = CreateAndAddToDB(DisadvantageOnAttackByEnemyName, DisadvantageOnAttackByEnemyGuid);
+        public static readonly ConditionDefinition DisadvantageOnAttackByEnemy = CreateAndAddToDB(DisadvantageOnAttackByEnemyName, DisadvantageOnAttackByEnemyGuid);
     }
 
     internal class AdvantageAttackOnEnemyBuilder : BaseDefinitionBuilder<ConditionDefinition>
@@ -1361,7 +1228,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new AdvantageAttackOnEnemyBuilder(name, guid).AddToDB();
         }
 
-        public static ConditionDefinition AdvantageAttackOnEnemy = CreateAndAddToDB(AdvantageAttackOnEnemyName, AdvantageAttackOnEnemyGuid);
+        public static readonly ConditionDefinition AdvantageAttackOnEnemy = CreateAndAddToDB(AdvantageAttackOnEnemyName, AdvantageAttackOnEnemyGuid);
     }
 
     internal class ExtraDamageOnAttackConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
@@ -1382,15 +1249,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
             Definition.HasSpecialInterruptionOfType(RuleDefinitions.ConditionInterruption.Damaged);
 
-
-
             Definition.SetAdditionalDamageWhenHit(true);
             Definition.SetAdditionalDamageDieNumber(1);
             Definition.SetAdditionalDamageDieType(RuleDefinitions.DieType.D6);
             Definition.SetAdditionalDamageType(RuleDefinitions.DamageTypeLightning);
             Definition.SetAdditionalDamageQuantity(ConditionDefinition.DamageQuantity.Dice);
-
-
         }
 
         public static ConditionDefinition CreateAndAddToDB(string name, string guid)
@@ -1398,7 +1261,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ExtraDamageOnAttackConditionBuilder(name, guid).AddToDB();
         }
 
-        public static ConditionDefinition ExtraDamageOnAttackCondition = CreateAndAddToDB(ExtraDamageOnAttackConditionName, ExtraDamageOnAttackConditionGuid);
+        public static readonly ConditionDefinition ExtraDamageOnAttackCondition = CreateAndAddToDB(ExtraDamageOnAttackConditionName, ExtraDamageOnAttackConditionGuid);
     }
-
 }

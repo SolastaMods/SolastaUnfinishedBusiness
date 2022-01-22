@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Feats
                 "Feat/&FeatSavageAttackerDescription",
                 "Feat/&FeatSavageAttackerTitle");
 
-            string rerollKey = "Feat/&FeatSavageAttackerReroll";
+            const string rerollKey = "Feat/&FeatSavageAttackerReroll";
             FeatureDefinitionDieRollModifier savageAttackDieRoll = BuildDieRollModifier(RuleDefinitions.RollContext.AttackDamageValueRoll,
                 1 /* reroll count */, 1 /* reroll min value */, rerollKey, "DieRollModifierFeatSavageAttacker",
                 savageAttackerPresentation.Build());

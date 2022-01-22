@@ -14,11 +14,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         }
         internal override CharacterSubclassDefinition GetSubclass()
         {
-            if (Subclass == null)
-            {
-                Subclass = TacticianFighterSubclassBuilder.BuildAndAddSubclass();
-            }
-            return Subclass;
+            return Subclass ?? (Subclass = TacticianFighterSubclassBuilder.BuildAndAddSubclass());
         }
     }
 
@@ -246,6 +242,5 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         public static readonly FeatureDefinitionPowerSharedPool KnockDownPower = KnockDownPowerBuilder.CreateAndAddToDB();
         public static readonly FeatureDefinitionPowerSharedPool InspirePower = InspirePowerBuilder.CreateAndAddToDB();
         public static readonly FeatureDefinitionPowerSharedPool CounterStrikePower = CounterStrikePowerBuilder.CreateAndAddToDB();
-
     }
 }

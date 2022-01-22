@@ -91,7 +91,7 @@ namespace SolastaCommunityExpansion.FightingStyles
         {
             RulesetInventorySlot mainHand = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand];
             RulesetInventorySlot offHand = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand];
-            return mainHand.EquipedItem == null && (offHand.EquipedItem == null || offHand.EquipedItem.ItemDefinition.IsLightSourceItem);
+            return mainHand.EquipedItem == null && (offHand.EquipedItem?.ItemDefinition.IsLightSourceItem != false);
         }
     }
 }

@@ -3,8 +3,6 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    /// <summary>
-    /// </summary>
     public class CharacterSubclassDefinitionBuilder : BaseDefinitionBuilder<CharacterSubclassDefinition>
     {
         public CharacterSubclassDefinitionBuilder(string name, string guid) : base(name, guid)
