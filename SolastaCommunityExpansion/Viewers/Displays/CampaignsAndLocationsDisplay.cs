@@ -12,34 +12,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
-            if (UI.Toggle("Enable additional icons for camps, exits and teleporters on level map", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableAdditionalIconsOnLevelMap = toggle;
-
-                if (toggle)
-                {
-                    Main.Settings.MarkInvisibleTeleportersOnLevelMap = false;
-                }
-            }
-
-            if (Main.Settings.EnableAdditionalIconsOnLevelMap)
-            {
-                toggle = Main.Settings.MarkInvisibleTeleportersOnLevelMap;
-                if (UI.Toggle("+ Also mark the location of invisible teleporters on level map after discovery".italic(), ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.MarkInvisibleTeleportersOnLevelMap = toggle;
-                }
-            }
-
-            toggle = Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered;
-            if (UI.Toggle("Hide exits and teleporters visual effects if not discovered yet", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered = toggle;
-            }
-
-            UI.Label("");
-
             toggle = Main.Settings.EnableSaveByLocation;
             if (UI.Toggle("Enable save by campaigns / locations", ref toggle, UI.AutoWidth()))
             {

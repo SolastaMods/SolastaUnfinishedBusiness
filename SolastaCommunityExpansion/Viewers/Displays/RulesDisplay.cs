@@ -82,6 +82,11 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 {
                     Main.Settings.FullyControlConjurations = toggle;
                     ConjurationsContext.Load();
+
+                    if (toggle)
+                    {
+                        Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration = false;
+                    }
                 }
 
                 if (Main.Settings.FullyControlConjurations)
@@ -98,6 +103,11 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 {
                     Main.Settings.EnableUpcastConjureElementalAndFey = toggle;
                     ConjurationsContext.Load();
+
+                    if (toggle)
+                    {
+                        Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey = false;
+                    }
                 }
 
                 if (Main.Settings.EnableUpcastConjureElementalAndFey)

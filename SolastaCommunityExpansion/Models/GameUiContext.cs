@@ -47,7 +47,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void HandleInput(GameLocationBaseScreen gameLocationBaseScreen, InputCommands.Id command)
         {
-            if (Main.Settings.EnableHotkeysToToggleHud)
+            if (Main.Settings.EnableHotkeyToggleIndividualHud)
             {
                 switch (command)
                 {
@@ -66,14 +66,14 @@ namespace SolastaCommunityExpansion.Models
                     case Hotkeys.CTRL_SHIFT_P:
                         GameHud.TogglePanelVisibility(GetInitiativeOrPartyPanel());
                         return;
-
-                    case Hotkeys.CTRL_SHIFT_H:
-                        GameHud.ShowAll(gameLocationBaseScreen, GetInitiativeOrPartyPanel(), GetTimeAndNavigationPanel());
-                        return;
                 }
             }
 
-            if (Main.Settings.EnableHotkeyDebugOverlay && command == Hotkeys.CTRL_SHIFT_D)
+            if (Main.Settings.EnableHotkeyToggleHud && command == Hotkeys.CTRL_SHIFT_H)
+            {
+                GameHud.ShowAll(gameLocationBaseScreen, GetInitiativeOrPartyPanel(), GetTimeAndNavigationPanel());
+            }
+            else if (Main.Settings.EnableHotkeyDebugOverlay && command == Hotkeys.CTRL_SHIFT_D)
             {
                 ServiceRepository.GetService<IDebugOverlayService>()?.ToggleActivation();
             }
