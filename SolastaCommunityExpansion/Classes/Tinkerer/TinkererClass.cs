@@ -1,6 +1,6 @@
-﻿using SolastaCommunityExpansion.CustomFeatureDefinitions;
+﻿using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
-using SolastaModApi.BuilderHelpers;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
