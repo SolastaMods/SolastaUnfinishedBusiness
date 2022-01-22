@@ -300,17 +300,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected ProtectorConstructUpgradeFeatureSetBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
         {
-            // unnecessary comment added to prevent false positive by linter
-            Definition.GuiPresentation.Title = "Feat/&SummonProtectorConstructTitle";// unnecessary comment added to prevent false positive by linter
-            Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription";// unnecessary comment added to prevent false positive by linter
-            // unnecessary comment added to prevent false positive by linter
+            Definition.GuiPresentation.Title = "Feat/&SummonProtectorConstructTitle";
+            Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription";
 
-            // unnecessary comment added to prevent false positive by linter
-            Definition.FeatureSet.Clear();// unnecessary comment added to prevent false positive by linter
+            Definition.FeatureSet.Clear();
             Definition.FeatureSet.Add(ProtectorConstructLevel15AutopreparedSpellsBuilder.ProtectorConstructLevel15AutopreparedSpells);
             Definition.FeatureSet.Add(SummonProtectorPowerConstruct_UpgradeBuilder.SummonProtectorPowerConstruct_Upgrade);
-
-
         }
 
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)

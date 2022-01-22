@@ -340,9 +340,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.SetUniqueInstance(false);
             Definition.EffectDescription.EffectForms[0].SummonForm.SetMonsterDefinitionName(FlameArtilleryConstruct_15Builder.FlameArtilleryConstruct_15.Name);
 
-
-
-
         }
 
         public static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -353,11 +350,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         public static SpellDefinition SummonFlameArtilleryConstruct_15 = CreateAndAddToDB(SummonFlameArtilleryConstruct_15Name, SummonFlameArtilleryConstruct_15Guid);
 
     }
-
-
-
-
-
 
 }
 
