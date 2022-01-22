@@ -4,7 +4,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.EpicArrayAndPointBuy
+namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.EpicArrayAndPointBuy
 {
     // enables epic points
     [HarmonyPatch(typeof(CharacterStageAbilityScoresPanel), "Reset")]

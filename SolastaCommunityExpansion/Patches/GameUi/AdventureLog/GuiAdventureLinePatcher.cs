@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.AdventureLog
+namespace SolastaCommunityExpansion.Patches.GameUi.AdventureLog
 {
     //
     // this patch shouldn't be protected to avoid game breaking on load
