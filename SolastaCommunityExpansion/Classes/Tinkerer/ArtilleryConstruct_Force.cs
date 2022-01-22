@@ -6,119 +6,6 @@ using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
-
-
-    //*****************************************************************************************************************************************
-    //***********************************		ForceArtilleryBuilder		*******************************************************************
-    //*****************************************************************************************************************************************
-
-    internal class ForceArtilleryBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
-    {
-        private const string ForceArtilleryName = "ForceArtillery";
-        private const string ForceArtilleryGuid = "928af495-1ed7-4307-a194-81d7e7bbef12";
-
-        protected ForceArtilleryBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalIceLance, name, guid)
-        {
-
-            Definition.GuiPresentation.Title = "Feature/&ForceArtilleryTitle";
-            Definition.SetShortTitleOverride("Feature/&ForceArtilleryTitle");
-            Definition.GuiPresentation.Description = "Feat/&ForceArtilleryDescription";
-            Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation.SpriteReference);
-
-            Definition.SetActivationTime(RuleDefinitions.ActivationTime.Action);
-            Definition.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
-
-            MotionForm motionForm = new MotionForm();
-            motionForm.SetType(MotionForm.MotionType.PushFromOrigin);
-            motionForm.SetDistance(1);
-
-            EffectForm effectmotion = new EffectForm
-            {
-                FormType = EffectForm.EffectFormType.Motion
-            };
-            effectmotion.SetMotionForm(motionForm);
-            effectmotion.SetCreatedByCharacter(true);
-            effectmotion.HasSavingThrow = false;
-            effectmotion.AddBonusMode = RuleDefinitions.AddBonusMode.None;
-            effectmotion.SetLevelMultiplier(1);
-            effectmotion.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
-            effectmotion.SetApplyLevel(EffectForm.LevelApplianceType.No);
-
-            DamageForm ForceArtillery = new DamageForm
-            {
-                DieType = RuleDefinitions.DieType.D8,
-                DiceNumber = 2,
-                DamageType = RuleDefinitions.DamageTypeForce,
-                BonusDamage = 0
-            };
-
-            EffectForm effect = new EffectForm
-            {
-                FormType = EffectForm.EffectFormType.Damage,
-                DamageForm = (ForceArtillery)
-            };
-            effect.SetCreatedByCharacter(true);
-            effect.HasSavingThrow = false;
-            effect.AddBonusMode = RuleDefinitions.AddBonusMode.None;
-            effect.SetLevelMultiplier(1);
-            effect.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
-            effect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-
-
-            Definition.EffectDescription.EffectAdvancement.Clear();
-            Definition.EffectDescription.EffectForms.Clear();
-            Definition.EffectDescription.EffectForms.Add(effect);
-            Definition.EffectDescription.EffectForms.Add(effectmotion);
-            Definition.EffectDescription.SetTargetType(RuleDefinitions.TargetType.IndividualsUnique);
-            Definition.EffectDescription.SetTargetSide(RuleDefinitions.Side.Enemy);
-            Definition.EffectDescription.SetTargetParameter(1);
-            Definition.EffectDescription.SetRangeParameter(24);
-            Definition.EffectDescription.HasSavingThrow = false;
-            Definition.EffectDescription.SetCreatedByCharacter(true);
-            Definition.EffectDescription.SetCanBePlacedOnCharacter(true);
-
-            Definition.EffectDescription.SetRangeType(RuleDefinitions.RangeType.RangeHit);
-            Definition.EffectDescription.SetEffectParticleParameters(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters);
-        }
-
-        public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-        {
-            return new ForceArtilleryBuilder(name, guid).AddToDB();
-        }
-
-        public static FeatureDefinitionPower ForceArtillery = CreateAndAddToDB(ForceArtilleryName, ForceArtilleryGuid);
-
-
-    }
-
-    //*****************************************************************************************************************************************
-    //***********************************		ForceArtillery_2Builder		*******************************************************************
-    //*****************************************************************************************************************************************
-
-    internal class ForceArtillery_2Builder : BaseDefinitionBuilder<FeatureDefinitionPower>
-    {
-        private const string ForceArtillery_2Name = "ForceArtillery_2";
-        private const string ForceArtillery_2Guid = "79e96b14-d276-4a33-8cab-7e884bcde120";
-
-        protected ForceArtillery_2Builder(string name, string guid) : base(ForceArtilleryBuilder.ForceArtillery, name, guid)
-        {
-
-            Definition.GuiPresentation.Title = "Feat/&ForceArtillery_2Title";
-            Definition.GuiPresentation.Description = "Feat/&ForceArtillery_2Description";
-
-            Definition.EffectDescription.EffectForms[0].DamageForm.DiceNumber = 3;
-            Definition.SetOverriddenPower(ForceArtilleryBuilder.ForceArtillery);
-        }
-
-        public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-        {
-            return new ForceArtillery_2Builder(name, guid).AddToDB();
-        }
-
-        public static FeatureDefinitionPower ForceArtillery_2 = CreateAndAddToDB(ForceArtillery_2Name, ForceArtillery_2Guid);
-
-
-    }
     //*****************************************************************************************************************************************
     //***********************************		ForceArtilleryConstructBuilder		*******************************************************************
     //*****************************************************************************************************************************************
@@ -432,7 +319,6 @@ Web
             MotionForm motionForm = new MotionForm();
             motionForm.SetType(MotionForm.MotionType.PushFromOrigin);
             motionForm.SetDistance(1);
-            // new comment to get past linter not liking the fact i'm trying to maintain old powers to avoid causing issues for peoples games
 
             EffectForm effectmotion = new EffectForm
             {
@@ -440,11 +326,9 @@ Web
             };
             effectmotion.SetMotionForm(motionForm);
             effectmotion.SetCreatedByCharacter(true);
-            // new comment to get past linter not liking the fact i'm trying to maintain old powers to avoid causing issues for peoples games
             effectmotion.HasSavingThrow = false;
             effectmotion.AddBonusMode = RuleDefinitions.AddBonusMode.None;
             effectmotion.SetLevelMultiplier(1);
-            // new comment to get past linter not liking the fact i'm trying to maintain old powers to avoid causing issues for peoples games
             effectmotion.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
             effectmotion.SetApplyLevel(EffectForm.LevelApplianceType.No);
 
@@ -457,36 +341,29 @@ Web
             };
 
             EffectForm effect = new EffectForm
-            // new comment to get past linter not liking the fact i'm trying to maintain old powers to avoid causing issues for peoples games
             {
                 FormType = EffectForm.EffectFormType.Damage,
                 DamageForm = (ForceArtilleryAttack)
             };
-            // new comment to get past linter not liking the fact i'm trying to maintain old powers to avoid causing issues for peoples games
             effect.SetCreatedByCharacter(true);
             effect.HasSavingThrow = false;
             effect.AddBonusMode = RuleDefinitions.AddBonusMode.None;
             effect.SetLevelMultiplier(1);
-            // new comment to get past linter not liking the fact i'm trying to maintain old powers to avoid causing issues for peoples games
             effect.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
             effect.SetApplyLevel(EffectForm.LevelApplianceType.No);
 
-            // new comment to get past linter not liking the fact i'm trying to maintain old powers to avoid causing issues for peoples games
             Definition.EffectDescription.EffectAdvancement.Clear();
             Definition.EffectDescription.EffectForms.Clear();
             Definition.EffectDescription.EffectForms.Add(effect);
             Definition.EffectDescription.EffectForms.Add(effectmotion);
-            // new comment to get past linter not liking the fact i'm trying to maintain old powers to avoid causing issues for peoples games
             Definition.EffectDescription.SetTargetType(RuleDefinitions.TargetType.IndividualsUnique);
             Definition.EffectDescription.SetTargetSide(RuleDefinitions.Side.Enemy);
             Definition.EffectDescription.SetTargetParameter(1);
             Definition.EffectDescription.SetRangeParameter(24);
-            // new comment to get past linter not liking the fact i'm trying to maintain old powers to avoid causing issues for peoples games
             Definition.EffectDescription.HasSavingThrow = false;
             Definition.EffectDescription.SetCreatedByCharacter(true);
             Definition.EffectDescription.SetCanBePlacedOnCharacter(true);
 
-            // new comment to get past linter not liking the fact i'm trying to maintain old powers to avoid causing issues for peoples games
             Definition.EffectDescription.SetRangeType(RuleDefinitions.RangeType.RangeHit);
 
             EffectParticleParameters effectParticleParameters = new EffectParticleParameters();

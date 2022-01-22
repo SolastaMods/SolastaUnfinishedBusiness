@@ -1,12 +1,12 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaModApi.Extensions;
-using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
     // TODO see if there's interest in moving this to CE builders
-    class CancelConditionPowerBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
+    internal class CancelConditionPowerBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
     {
         public CancelConditionPowerBuilder(string name, string guid, GuiPresentation presentation, ConditionDefinition condition) : base(name, guid)
         {

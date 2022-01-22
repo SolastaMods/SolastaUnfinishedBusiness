@@ -30,15 +30,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.GuiPresentation.Title = "Feat/&SummonArtilleryConstructTitle";
             Definition.GuiPresentation.Description = "Feat/&SummonArtilleryConstructDescription";
 
-
-
-
-
-
-
-
-
-
             GuiPresentation guiPresentationArtilleryMode = new GuiPresentation();
             guiPresentationArtilleryMode.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
             guiPresentationArtilleryMode.SetDescription("Feat/&ArtilleryModePoolDescription");
@@ -113,10 +104,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                  , true                                                      // bool uniqueInstanc
                 ).AddToDB();
 
-
-
-
-
             GuiPresentationBuilder guiPresentationTempHPShield03 = new GuiPresentationBuilder(
                 "Feature/&TempHPShieldModePowerDescription",
                 "Feature/&TempHPShieldModePowerTitle");
@@ -143,13 +130,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                  , guiPresentationTempHPShield03.Build()                       // GuiPresentation guiPresentation
                  , true                                                      // bool uniqueInstanc
                 ).AddToDB();
-
-
-
-
-
-
-
 
 
             Definition.FeatureSet.Clear();
@@ -280,20 +260,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 ).AddToDB();
             TempHPShield_09modepower.SetOverriddenPower(ArtilleryConstructlevel03FeatureSetBuilder.TempHPShield_03modepower);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             Definition.FeatureSet.Clear();
             Definition.FeatureSet.Add(TempHPShield_09modepower);
             Definition.FeatureSet.Add(FlameArtillery_09modepower);
@@ -343,14 +309,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 ArtilleryConstructlevel03FeatureSetBuilder.ArtilleryModePool,
                 ArtilleryPoolIncreaseGui.Build()
                 ).AddToDB();
-
-
-
-
-
-
-
-
 
             GuiPresentationBuilder guiPresentationFlameArtillery15 = new GuiPresentationBuilder(
                 "Feature/&FlameArtillery_15ModePowerDescription",
@@ -770,10 +728,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 SummonTempHPShieldSpellConstructBuilder.SummonTempHPShieldConstruct
             });
 
-
-
-
-
             Definition.EffectDescription.Clear();
 
 
@@ -787,9 +741,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         public static SpellDefinition SummonArtillerySpellConstruct = CreateAndAddToDB(SummonArtillerySpellConstructName, SummonArtillerySpellConstructGuid);
 
     }
-
-
-
 
     //*****************************************************************************************************************************************
     //***********************************		SummonArtillerySpellConstruct_9Builder		*******************************************************************
@@ -813,8 +764,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                SummonForceArtillerySpellConstruct_9Builder.SummonForceArtilleryConstruct_9,
                 SummonTempHPShieldSpellConstruct_9Builder.SummonTempHPShieldConstruct_9
             });
-
-
         }
 
         public static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -825,8 +774,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         public static SpellDefinition SummonArtillerySpellConstruct_9 = CreateAndAddToDB(SummonArtillerySpellConstruct_9Name, SummonArtillerySpellConstruct_9Guid);
 
     }
-
-
 
 
     //*****************************************************************************************************************************************

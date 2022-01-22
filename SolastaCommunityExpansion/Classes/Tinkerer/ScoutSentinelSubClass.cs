@@ -15,6 +15,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public static FeatureDefinitionPowerSharedPool scoutmodepower;
         public static FeatureDefinitionPowerSharedPool sentinelmodepower;
+        public static FeatureDefinitionPower ArmorModePool;
 
         public static void BuildAndAddSubclass()
         {
@@ -254,8 +255,96 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.GuiPresentation.Description = "Feat/&ScoutSentinelFeatureSet_level15Description";
 
             Definition.FeatureSet.Clear();
-            Definition.FeatureSet.Add(ImprovedScoutModePowerBuilder.ImprovedScoutModePower);
-            Definition.FeatureSet.Add(ImprovedSentinelModePowerBuilder.ImprovedSentinelModePower);
+
+            GuiPresentation guiPresentationImprovedSentinel = new GuiPresentation();
+            guiPresentationImprovedSentinel.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
+            guiPresentationImprovedSentinel.SetDescription("Feature/&ImprovedSentinelModePowerDescription");
+            guiPresentationImprovedSentinel.SetTitle("Feature/&ImprovedSentinelModePowerTitle");
+            guiPresentationImprovedSentinel.SetSpriteReference(DatabaseHelper.SpellDefinitions.MageArmor.GuiPresentation.SpriteReference);
+            guiPresentationImprovedSentinel.SetSymbolChar("221E");
+
+            ItemPropertyForm itemPropertyForm = new ItemPropertyForm();
+            itemPropertyForm.FeatureBySlotLevel.Add(new FeatureUnlockByLevel(IntToAttackAndDamageBuilder.IntToAttackAndDamage, 0));
+            EffectForm effectItem = new EffectForm
+            {
+                FormType = EffectForm.EffectFormType.ItemProperty
+            };
+            effectItem.SetItemPropertyForm(itemPropertyForm);
+
+            EffectDescription effectImprovedSentinelmode = new EffectDescription();
+            effectImprovedSentinelmode.Copy(DatabaseHelper.SpellDefinitions.ProduceFlameHold.EffectDescription);
+            effectImprovedSentinelmode.SlotTypes.Clear();
+            effectImprovedSentinelmode.SlotTypes.AddRange("MainHandSlot", "OffHandSlot");
+            effectImprovedSentinelmode.SetDurationType(RuleDefinitions.DurationType.UntilShortRest);
+            effectImprovedSentinelmode.SetEffectParticleParameters(DatabaseHelper.SpellDefinitions.Shield.EffectDescription.EffectParticleParameters);
+            effectImprovedSentinelmode.EffectForms[0].SummonForm.SetItemDefinition(ImprovedSentinelSuitWeaponBuilder.ImprovedSentinelSuitWeapon);
+            effectImprovedSentinelmode.SetItemSelectionType(ActionDefinitions.ItemSelectionType.Weapon);
+            effectImprovedSentinelmode.EffectForms[0].SummonForm.SetTrackItem(false);
+            effectImprovedSentinelmode.EffectForms[0].SummonForm.SetNumber(1);
+            effectImprovedSentinelmode.EffectForms.Add(effectItem);
+
+
+
+            FeatureDefinitionPowerSharedPoolBuilder Improvedsentinelmodepowerbuilder = new FeatureDefinitionPowerSharedPoolBuilder
+                (
+                 "ImprovedSentinelModePower"                                         // string name
+                 , "b216988a-5905-47fd-9359-093cd77d41f9"                    // string guid
+                 , ScoutSentinelTinkererSubclassBuilder.ArmorModePool        // FeatureDefinitionPower poolPower
+                 , RuleDefinitions.RechargeRate.ShortRest                    // RuleDefinitions.RechargeRate recharge
+                 , RuleDefinitions.ActivationTime.NoCost                     // RuleDefinitions.ActivationTime activationTime
+                 , 1                                                         // int costPerUse
+                 , false                                                     // bool proficiencyBonusToAttack
+                 , false                                                     // bool abilityScoreBonusToAttack
+                 , DatabaseHelper.SmartAttributeDefinitions.Intelligence.name// string abilityScore
+                 , effectImprovedSentinelmode                                        // EffectDescription effectDescription
+                 , guiPresentationImprovedSentinel                                   // GuiPresentation guiPresentation
+                 , true                                                      // bool uniqueInstanc
+                );
+            FeatureDefinitionPowerSharedPool Improvedsentinelmodepower = Improvedsentinelmodepowerbuilder.AddToDB();
+
+            Improvedsentinelmodepower.SetOverriddenPower(ScoutSentinelTinkererSubclassBuilder.sentinelmodepower);
+
+            GuiPresentation guiPresentationImprovedScout = new GuiPresentation();
+            guiPresentationImprovedScout.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
+            guiPresentationImprovedScout.SetDescription("Feature/&ImprovedScoutModePowerDescription");
+            guiPresentationImprovedScout.SetTitle("Feature/&ImprovedScoutModePowerTitle");
+            guiPresentationImprovedScout.SetSpriteReference(DatabaseHelper.SpellDefinitions.ShadowArmor.GuiPresentation.SpriteReference);
+            guiPresentationImprovedScout.SetSymbolChar("221E");
+            guiPresentationImprovedScout.SetSortOrder(1);
+
+            EffectDescription effectImprovedScoutMode = new EffectDescription();
+            effectImprovedScoutMode.Copy(DatabaseHelper.SpellDefinitions.ProduceFlameHold.EffectDescription);
+            effectImprovedScoutMode.SlotTypes.Clear();
+            effectImprovedScoutMode.SlotTypes.AddRange("MainHandSlot", "OffHandSlot");
+            effectImprovedScoutMode.SetDurationType(RuleDefinitions.DurationType.UntilShortRest);
+            effectImprovedScoutMode.SetEffectParticleParameters(DatabaseHelper.SpellDefinitions.Shield.EffectDescription.EffectParticleParameters);
+            effectImprovedScoutMode.EffectForms[0].SummonForm.SetItemDefinition(ImprovedScoutSuitWeaponBuilder.ImprovedScoutSuitWeapon);
+            effectImprovedScoutMode.SetItemSelectionType(ActionDefinitions.ItemSelectionType.Weapon);
+            effectImprovedScoutMode.EffectForms[0].SummonForm.SetTrackItem(false);
+            effectImprovedScoutMode.EffectForms[0].SummonForm.SetNumber(1);
+            effectImprovedScoutMode.EffectForms.Add(effectItem);
+
+            FeatureDefinitionPowerSharedPoolBuilder Improvedscoutmodepowerbuilder = new FeatureDefinitionPowerSharedPoolBuilder
+                 (
+                  "ImprovedScoutModePower"                                            // string name
+                  , "89ec2647-5560-4e82-aa7b-59a8489de492"                    // string guid
+                  , ScoutSentinelTinkererSubclassBuilder.ArmorModePool        // FeatureDefinitionPower poolPower
+                  , RuleDefinitions.RechargeRate.ShortRest                    // RuleDefinitions.RechargeRate recharge
+                  , RuleDefinitions.ActivationTime.NoCost                     // RuleDefinitions.ActivationTime activationTime
+                  , 1                                                         // int costPerUse
+                  , false                                                     // bool proficiencyBonusToAttack
+                  , false                                                     // bool abilityScoreBonusToAttack
+                  , DatabaseHelper.SmartAttributeDefinitions.Intelligence.name// string abilityScore
+                  , effectImprovedScoutMode                                           // EffectDescription effectDescription
+                  , guiPresentationImprovedScout                                      // GuiPresentation guiPresentation
+                  , true                                                      // bool uniqueInstanc
+                 );
+            FeatureDefinitionPowerSharedPool Improvedscoutmodepower = Improvedscoutmodepowerbuilder.AddToDB();
+
+            Improvedscoutmodepower.SetOverriddenPower(ScoutSentinelTinkererSubclassBuilder.scoutmodepower);
+
+            Definition.FeatureSet.Add(Improvedscoutmodepower);
+            Definition.FeatureSet.Add(Improvedsentinelmodepower);
         }
 
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
@@ -380,7 +469,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             Definition.GuiPresentation.Title = "Feat/&SubclassProficienciesTitle"; //Feature/&NoContentTitle
             Definition.GuiPresentation.Description = "Feat/&SubclassProficienciesDescription";//Feature/&NoContentTitle
-                                                                                              // Definition.Proficiencies.Add(DatabaseHelper.FeatureDefinitionProficiencys.ProficiencySmithTools.Name);
             Definition.Proficiencies.Add(DatabaseHelper.ArmorCategoryDefinitions.HeavyArmorCategory.Name);
 
         }
@@ -601,8 +689,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             usableDeviceDescription.SetRechargeDie(RuleDefinitions.DieType.D1);
             usableDeviceDescription.SetRechargeBonus(5);
             usableDeviceDescription.SetOutOfChargesConsequence(EquipmentDefinitions.ItemOutOfCharges.Persist);
-            usableDeviceDescription.SetMagicAttackBonus(5);
-            usableDeviceDescription.SetSaveDC(13);
+            usableDeviceDescription.SetMagicAttackBonus(11);
+            usableDeviceDescription.SetSaveDC(19);
             usableDeviceDescription.DeviceFunctions.Add(deviceFunctionDescription);
 
 
@@ -1036,33 +1124,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
     //*************************************************************************************************************************
     //***********************************		Improved Sentinel Suit Weapon   		****************************************
     //*************************************************************************************************************************
-
-    internal class ImprovedSentinelModePowerBuilder : BaseDefinitionBuilder<FeatureDefinitionPowerSharedPool>
-    {
-        private const string ImprovedSentinelModePowerName = "ImprovedSentinelModePower";
-        private const string ImprovedSentinelModePowerGuid = "b216988a-5905-47fd-9359-093cd77d41f9";
-
-        protected ImprovedSentinelModePowerBuilder(string name, string guid) : base(ScoutSentinelTinkererSubclassBuilder.sentinelmodepower, name, guid)
-        {
-
-            //Definition.EffectDescription.EffectParticleParameters.Clear();
-            Definition.GuiPresentation.Title = "Feature/&ImprovedSentinelModePowerTitle";
-            Definition.GuiPresentation.Description = "Feature/&ImprovedSentinelModePowerDescription";
-            Definition.EffectDescription.EffectForms[0].SummonForm.SetItemDefinition(ImprovedSentinelSuitWeaponBuilder.ImprovedSentinelSuitWeapon);
-            Definition.SetOverriddenPower(ScoutSentinelTinkererSubclassBuilder.sentinelmodepower);
-
-
-
-        }
-
-        public static FeatureDefinitionPowerSharedPool CreateAndAddToDB(string name, string guid)
-        {
-            return new ImprovedSentinelModePowerBuilder(name, guid).AddToDB();
-        }
-
-        public static FeatureDefinitionPowerSharedPool ImprovedSentinelModePower = CreateAndAddToDB(ImprovedSentinelModePowerName, ImprovedSentinelModePowerGuid);
-
-    }
     internal class ImprovedSentinelSuitWeaponBuilder : BaseDefinitionBuilder<ItemDefinition>
     {
         private const string ImprovedSentinelSuitWeaponName = "ImprovedSentinelSuitWeapon";
@@ -1155,7 +1216,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             newEffectDescription.HasSavingThrow = true;
             newEffectDescription.SavingThrowAbility = DatabaseHelper.SmartAttributeDefinitions.Strength.Name;
             newEffectDescription.SetSavingThrowDifficultyAbility(DatabaseHelper.SmartAttributeDefinitions.Intelligence.Name);
-            newEffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.FixedValue);
+            newEffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature);
             newEffectDescription.FixedSavingThrowDifficultyClass = 19;
             newEffectDescription.SetCreatedByCharacter(true);
 
@@ -1183,38 +1244,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
     //**************************************************************************************************************************************
     //******************************************       Improved Scout Suit Weapon        ***************************************************
     //**************************************************************************************************************************************
-
-
-    internal class ImprovedScoutModePowerBuilder : BaseDefinitionBuilder<FeatureDefinitionPowerSharedPool>
-    {
-        private const string ImprovedScoutModePowerName = "ImprovedScoutModePower";
-        private const string ImprovedScoutModePowerGuid = "89ec2647-5560-4e82-aa7b-59a8489de492";
-
-        protected ImprovedScoutModePowerBuilder(string name, string guid) : base(ScoutSentinelTinkererSubclassBuilder.scoutmodepower, name, guid)
-        {
-            Definition.EffectDescription.EffectParticleParameters.Clear();
-            Definition.GuiPresentation.Title = "Feature/&ImprovedScoutModePowerTitle";
-            Definition.GuiPresentation.Description = "Feature/&ImprovedScoutModePowerDescription";
-            Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.ShadowArmor.GuiPresentation.SpriteReference);
-
-
-            Definition.SetOverriddenPower(ScoutSentinelTinkererSubclassBuilder.scoutmodepower);
-            Definition.EffectDescription.EffectForms[0].SummonForm.SetItemDefinition(ImprovedScoutSuitWeaponBuilder.ImprovedScoutSuitWeapon);
-
-
-        }
-
-        public static FeatureDefinitionPowerSharedPool CreateAndAddToDB(string name, string guid)
-        {
-            return new ImprovedScoutModePowerBuilder(name, guid).AddToDB();
-        }
-
-        public static FeatureDefinitionPowerSharedPool ImprovedScoutModePower = CreateAndAddToDB(ImprovedScoutModePowerName, ImprovedScoutModePowerGuid);
-
-
-    }
-
-
     internal class ImprovedScoutSuitWeaponBuilder : BaseDefinitionBuilder<ItemDefinition>
     {
         private const string ImprovedScoutSuitWeaponName = "ImprovedScoutSuitWeapon";
