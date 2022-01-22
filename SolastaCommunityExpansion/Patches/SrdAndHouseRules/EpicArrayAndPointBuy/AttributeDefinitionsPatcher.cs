@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.EpicArrayAndPointBuy
+namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.EpicArrayAndPointBuy
 {
     // extends the cost buy table
     [HarmonyPatch(typeof(AttributeDefinitions), "ComputeCostToRaiseAbility")]

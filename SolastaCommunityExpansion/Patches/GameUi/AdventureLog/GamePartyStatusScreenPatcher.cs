@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using System.Diagnostics.CodeAnalysis;
 
-namespace SolastaCommunityExpansion.Patches.AdventureLog
+namespace SolastaCommunityExpansion.Patches.GameUi.AdventureLog
 {
     [HarmonyPatch(typeof(GamePartyStatusScreen), "ShowBottomPopup")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
