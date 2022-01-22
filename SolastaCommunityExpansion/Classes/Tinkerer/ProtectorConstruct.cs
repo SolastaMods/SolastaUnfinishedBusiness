@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
+using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
-using SolastaModApi.BuilderHelpers;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;

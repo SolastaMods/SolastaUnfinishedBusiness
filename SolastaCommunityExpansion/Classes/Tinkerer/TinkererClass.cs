@@ -1,6 +1,6 @@
-﻿using SolastaCommunityExpansion.CustomFeatureDefinitions;
+﻿using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
-using SolastaModApi.BuilderHelpers;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -286,8 +286,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                     DatabaseHelper.ToolTypeDefinitions.EnchantingToolType.Name, DatabaseHelper.ToolTypeDefinitions.ArtisanToolSmithToolsType.Name},
                 "ExpertiseToolsTinkerer",
                 new GuiPresentationBuilder(
-                    "Feature/&TinkererToolProficiencyPluralShortDescription",
-                    "Feature/&TinkererToolsProficiencyTitle").Build());
+                    "Feature/&TinkererToolsExpertisePluralShortDescription",
+                    "Feature/&TinkererToolsExpertiseTitle").Build());
             ArtificerBuilder.AddFeatureAtLevel(toolExpertise, 6);
 
             GuiPresentationBuilder InfusionPoolIncreaseGui = new GuiPresentationBuilder(

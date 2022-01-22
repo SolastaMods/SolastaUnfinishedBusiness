@@ -313,8 +313,6 @@ Feat/&ArtilleristForceCannon15Title Force Cannon
 Feat/&ArtilleristForceCannon9Description Use a force attack dealing 3d8 force damage at a target as a bonus action
 Feat/&ArtilleristForceCannon9Title Force Cannon
 Feat/&ArtilleristForceCannonDescription Use a force attack dealing 2d8 force damage at a target as a bonus action
-Feat/&ArtilleristForceCannonDescription Use a force attack dealing 2d8 force damage at a target as a bonus action
-Feat/&ArtilleristForceCannonTitle Force Cannon
 Feat/&ArtilleristForceCannonTitle Force Cannon
 Feat/&ArtilleristProtectorCannon15Description Emit positive energy as a bonus action. Allies within 20 feet gain 3d8 + your Intelligence modifier temporary hit points
 Feat/&ArtilleristProtectorCannon15Title Arcane Shield
@@ -478,8 +476,6 @@ Feat/&PickPocketFeatTitle	Pickpocket
 Feat/&PowerAlchemistEmboldeningShotsDescription You gain the ability to administer an elixier that emboldens your allies, providing them 4d6+intelligence modifier temporary hit points
 Feat/&PowerAlchemistEmboldeningShotsTitle Emboldening Shots
 Feat/&PowerAlchemistGreaterRestorativeElixirsDescription Once per day you can cast Greater Restoration
-Feat/&PowerAlchemistGreaterRestorativeElixirsDescription Once per day you can cast Greater Restoration
-Feat/&PowerAlchemistGreaterRestorativeElixirsTitle Greater Restoration
 Feat/&PowerAlchemistGreaterRestorativeElixirsTitle Greater Restoration
 Feat/&PowerAlchemistHealElixirsDescription Once per day you can cast Heal
 Feat/&PowerAlchemistHealElixirsTitle Heal
@@ -529,9 +525,7 @@ Feat/&ScoutSentinelFeatureSet_level09Description <size=17><color=#add8e6ff>Extra
 Feat/&ScoutSentinelFeatureSet_level09Title  
 Feat/&ScoutSentinelFeatureSet_level15Description <size=17><color=#add8e6ff>Improved Sentinel Mode</color></size>\nCan now pull enemies into melee range with a bonus action and inflict 1D8 thunder damage via the Gauntlet Grapple power\n\n<size=17><color=#add8e6ff>Improved Scout Mode</color></size>\nCan now create advantage for allies and disadvantage for enemies with a single attack
 Feat/&ScoutSentinelFeatureSet_level15Title  
-Feat/&SelfDestructDescription Self-destruct and force a Dex saving throw for 3D8 force damage within 10ft
 Feat/&SelfDestructDescription	Self-destruct and force a Dex saving throw for 3D8 force damage within 10ft
-Feat/&SelfDestructTitle Self-Destruct
 Feat/&SelfDestructTitle	Self-Destruct
 Feat/&SelfRepairDescription	Heal 2D8 HP, 3 times per day
 Feat/&SelfRepairTitle	Self-Repair
@@ -703,9 +697,9 @@ Feature/&TinkererArmorProficiencyTitle Tinkerer Armor Proficiency
 Feature/&TinkererArmorTrainingShortDescription Proficiency with Light and Medium armors as well as shields
 Feature/&TinkererSkillGainChoicesPluralDescription Tinkerer skills are Arcana, History, Investigation, Medecine, Nature, Perception and Sleight of Hand
 Feature/&TinkererSkillPointsTitle Tinkerer Skills
-Feature/&TinkererToolProficiencyPluralShortDescription Gain expertise with many tools including Thieve's Tools, Scroll Kits, Poisoner's Kit, Herbalism Kit, and Enchanting Tools
 Feature/&TinkererToolProficiencyPluralShortDescription Gain proficiency with many tools including Thieve's Tools, Scroll Kits, Poisoner's Kit, Herbalism Kit, and Enchanting Tools
-Feature/&TinkererToolsProficiencyTitle Tinkerer Tool Expertise
+Feature/&TinkererToolsExpertisePluralShortDescription Gain expertise with many tools including Thieve's Tools, Scroll Kits, Poisoner's Kit, Herbalism Kit, and Enchanting Tools
+Feature/&TinkererToolsExpertiseTitle Tinkerer Tool Expertise
 Feature/&TinkererToolsProficiencyTitle Tool Proficiencies
 Feature/&TinkererWeaponProficiencyTitle Tinkerer Weapon Proficiencies
 Feature/&TinkererWeaponTrainingShortDescription Proficiency with simple weapons

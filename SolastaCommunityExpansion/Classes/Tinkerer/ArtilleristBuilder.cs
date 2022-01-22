@@ -1,5 +1,5 @@
-﻿using SolastaModApi;
-using SolastaModApi.BuilderHelpers;
+﻿using SolastaCommunityExpansion.Builders;
+using SolastaModApi;
 using System.Collections.Generic;
 using static RuleDefinitions;
 using static SolastaCommunityExpansion.Classes.Tinkerer.FeatureHelpers;
