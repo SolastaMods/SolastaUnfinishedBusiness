@@ -30,24 +30,21 @@ namespace SolastaCommunityExpansion
         public bool DisplaySubclassesToggle { get; set; }
         public bool DisplayFeatsToggle { get; set; }
         public bool DisplayFightingStylesToggle { get; set; }
+        public bool DisplaySrdRulesToggle { get; set; }
+        public bool DisplayHouseRulesToggle { get; set; }
         public bool DisplayAdventureLogToggle { get; set; }
         public bool DisplayBattleToggle { get; set; }
-        public bool DisplayDungeonMakerToggle { get; set; }
         public bool DisplayItemToggle { get; set; }
-        public bool DisplayHotkeysToggle { get; set; }
         public bool DisplayMonsterToggle { get; set; }
         public bool DisplaySpellToggle { get; set; }
         public bool DisplayCraftingToggle { get; set; }
         public bool DisplayMerchantsToggle { get; set; }
-        public bool DisplayCampaignsAndLocationsToggle { get; set; }
-        public bool DisplayDebugToggle { get; set; }
 
         //
         // SETTINGS HIDDEN ON UI
         //
 
         public bool AllowDynamicPowers { get; set; } = true;
-
         public bool BugFixBestiarySorting { get; set; } = true;
         public bool BugFixButtonActivatorTriggerIssue { get; set; } = true;
         public bool BugFixCharacterPanelSorting { get; set; } = true;
@@ -158,13 +155,15 @@ namespace SolastaCommunityExpansion
         public bool UseOfficialCombatSurpriseRules { get; set; }
         public bool RollDifferentStealthChecksForEachCharacterPair { get; set; }
         public bool EnablePowerAid { get; set; }
-        public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
+        public bool AddBleedingToLesserRestoration { get; set; }
         public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
+        public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
+        public bool FixSorcererTwinnedLogic { get; set; }
+        public bool EnableUpcastConjureElementalAndFey { get; set; }
         public bool FullyControlConjurations { get; set; }
         public bool DismissControlledConjurationsWhenDeliberatelyDropConcentration { get; set; }
-        public bool EnableUpcastConjureElementalAndFey { get; set; }
         public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
-        public bool FixSorcererTwinnedLogic { get; set; }
+
 
         // House
         public bool AllowAnyClassToWearSylvanArmor { get; set; }
@@ -175,10 +174,23 @@ namespace SolastaCommunityExpansion
         public bool AddPickpocketableLoot { get; set; }
         public bool AllowStackedMaterialComponent { get; set; }
         public bool ScaleMerchantPricesCorrectly { get; set; }
-
-        public bool AddBleedingToLesserRestoration { get; set; }
         public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
+        public int MultiplyTheExperienceGainedBy { get; set; } = 100;
 
+        //
+        // Gameplay - Campaigns and Locations
+        //
+
+        public bool EnableAdditionalIconsOnLevelMap { get; set; }
+        public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
+        public bool HideExitAndTeleporterGizmosIfNotDiscovered { get; set; }
+        public bool EnableSaveByLocation { get; set; }
+        public bool EnableTelemaCampaign { get; set; }
+        public bool EnableTeleportParty { get; set; }
+        public bool FollowCharactersOnTeleport { get; set; }
+        public bool OverrideMinMaxLevel { get; set; }
+        public int OverridePartySize { get; set; } = Models.DungeonMakerContext.GAME_PARTY_SIZE;
+        public int MaxBackupFilesPerLocationCampaign { get; set; } = 10;
 
         //
         // Gameplay - Items, Crafting & Merchants
@@ -210,31 +222,23 @@ namespace SolastaCommunityExpansion
         // Gameplay - Tools
         //
 
-        // Campaigns and Locations
-        public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
-        public bool EnableAdditionalIconsOnLevelMap { get; set; }
-        public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
-        public bool HideExitAndTeleporterGizmosIfNotDiscovered { get; set; }
-        public bool EnableSaveByLocation { get; set; }
-        public bool EnableTelemaCampaign { get; set; }
-        public bool EnableTeleportParty { get; set; }
-        public bool FollowCharactersOnTeleport { get; set; }
-        public bool OverrideMinMaxLevel { get; set; }
-        public int OverridePartySize { get; set; } = Models.DungeonMakerContext.GAME_PARTY_SIZE;
-        public int MaxBackupFilesPerLocationCampaign { get; set; } = 10;
-
         // Debug
         public bool EnableCheatMenu { get; set; }
-        public bool EnableDebugOverlay { get; set; }
-
-        // Experience
         public bool NoExperienceOnLevelUp { get; set; }
-        public int MultiplyTheExperienceGainedBy { get; set; } = 100;
 
         // Faction Relations
 
         //
-        // Game UI
+        // Interface - Dungeon Maker
+        //
+
+        public bool AllowGadgetsToBePlacedAnywhere { get; set; }
+        public bool AllowPropsToBePlacedAnywhere { get; set; }
+        public bool UnleashNpcAsEnemy { get; set; }
+        public bool UnleashEnemyAsNpc { get; set; }
+
+        //
+        // Interface - Game UI
         //
 
         // Adventure Log
@@ -249,21 +253,10 @@ namespace SolastaCommunityExpansion
         public int DontFollowMargin { get; set; } = 5;
         public bool AutoPauseOnVictory { get; set; }
 
-        // Dungeon Maker
-        public bool AllowGadgetsToBePlacedAnywhere { get; set; }
-        public bool AllowPropsToBePlacedAnywhere { get; set; }
-        public bool UnleashNpcAsEnemy { get; set; }
-        public bool UnleashEnemyAsNpc { get; set; }
-
         // Inventory and Items
         public bool EnableInventoryFilteringAndSorting { get; set; } = true;
         public bool EnableInvisibleCrownOfTheMagister { get; set; }
         public string EmpressGarbAppearance { get; set; } = "Normal";
-
-        // Hotkeys
-        public bool EnableCharacterExport { get; set; }
-        public bool EnableHotkeysToToggleHud { get; set; }
-        public bool InvertAltBehaviorOnTooltips { get; set; }
 
         // Monsters
         public bool HideMonsterHitPoints { get; set; }
@@ -272,5 +265,16 @@ namespace SolastaCommunityExpansion
         // Spells
         public int MaxSpellLevelsPerLine { get; set; } = 5;
         public float SpellPanelGapBetweenLines { get; set; } = 30f;
+
+        //
+        // Interface - Hotkeys
+        //
+
+        public bool EnableCharacterExport { get; set; }
+        public bool EnableHotkeyDebugOverlay { get; set; }
+        public bool EnableHotkeyZoomCamera { get; set; }
+        public bool EnableHotkeysToToggleHud { get; set; }
+        public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
+        public bool InvertAltBehaviorOnTooltips { get; set; }
     }
 }

@@ -1,28 +1,26 @@
-﻿using ModKit;
-using System.Linq;
+﻿using System.Linq;
+using ModKit;
 using UnityEngine;
 using UnityModManagerNet;
-using static SolastaCommunityExpansion.Viewers.Displays.CampaignsAndLocationsDisplay;
-using static SolastaCommunityExpansion.Viewers.Displays.ItemsAndCraftingDisplay;
-using static SolastaCommunityExpansion.Viewers.Displays.RulesDisplay;
-using static SolastaCommunityExpansion.Viewers.Displays.ToolsDisplay;
+using static SolastaCommunityExpansion.Viewers.Displays.DungeonMakerDisplay;
+using static SolastaCommunityExpansion.Viewers.Displays.GameUiDisplay;
+using static SolastaCommunityExpansion.Viewers.Displays.HotKeysDisplay;
 
 namespace SolastaCommunityExpansion.Viewers
 {
-    public class GameplayViewer : IMenuSelectablePage
+    public class InterfaceViewer : IMenuSelectablePage
     {
-        public string Name => "Gameplay";
+        public string Name => "Interface";
 
-        public int Priority => 20;
+        public int Priority => 30;
 
         private static int selectedPane;
 
         private static readonly NamedAction[] actions =
         {
-            new NamedAction("Rules", DisplayRules),
-            new NamedAction("Campaigns and Locations", DisplayCampaignsAndLocations),
-            new NamedAction("Items, Crafting & Merchants", DisplayItemsAndCrafting),
-            new NamedAction("Tools", DisplayTools),
+            new NamedAction("Dungeon Maker", DisplayDungeonMaker),
+            new NamedAction("Game UI", DisplayGameUi),
+            new NamedAction("Hotkeys", DisplayHotkeys),
         };
 
         public void OnGUI(UnityModManager.ModEntry modEntry)

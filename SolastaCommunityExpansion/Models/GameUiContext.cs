@@ -16,23 +16,33 @@ namespace SolastaCommunityExpansion.Models
             TeleporterParty,
         };
 
+        private static bool EnableDebugCamera { get; set; }
+
         internal static void Load()
         {
             var inputService = ServiceRepository.GetService<IInputService>();
 
+            // HUD
             inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_C, (int)KeyCode.C, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
             inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_L, (int)KeyCode.L, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
             inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_M, (int)KeyCode.M, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
             inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_P, (int)KeyCode.P, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
             inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_H, (int)KeyCode.H, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+
+            // Debug Overlay
             inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_D, (int)KeyCode.D, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
-            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_T, (int)KeyCode.T, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
 
             // Export Character
             inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_E, (int)KeyCode.E, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
 
             // Spawn Encounter
             inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_S, (int)KeyCode.S, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+
+            // Teleport
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_T, (int)KeyCode.T, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+
+            // Zoom Camera
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_Z, (int)KeyCode.Z, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
         }
 
         internal static void HandleInput(GameLocationBaseScreen gameLocationBaseScreen, InputCommands.Id command)
@@ -63,7 +73,7 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
 
-            if (Main.Settings.EnableDebugOverlay && command == Hotkeys.CTRL_SHIFT_D)
+            if (Main.Settings.EnableHotkeyDebugOverlay && command == Hotkeys.CTRL_SHIFT_D)
             {
                 ServiceRepository.GetService<IDebugOverlayService>()?.ToggleActivation();
             }
@@ -71,9 +81,28 @@ namespace SolastaCommunityExpansion.Models
             {
                 Teleporter.ConfirmTeleportParty();
             }
+            else if (Main.Settings.EnableHotkeyZoomCamera && command == Hotkeys.CTRL_SHIFT_Z)
+            {
+                ToggleZoomCamera();
+            }
             else if (EncountersSpawnContext.EncounterCharacters.Count > 0 && command == Hotkeys.CTRL_SHIFT_S)
             {
                 EncountersSpawnContext.ConfirmStageEncounter();
+            }
+
+            void ToggleZoomCamera()
+            {
+                IViewService viewService = ServiceRepository.GetService<IViewService>();
+                ICameraService cameraService = ServiceRepository.GetService<ICameraService>();
+
+                if (viewService == null || cameraService == null)
+                {
+                    EnableDebugCamera = false;
+                }
+                else
+                {
+                    cameraService.DebugCameraEnabled = EnableDebugCamera;
+                }
             }
 
             GuiPanel GetInitiativeOrPartyPanel()
