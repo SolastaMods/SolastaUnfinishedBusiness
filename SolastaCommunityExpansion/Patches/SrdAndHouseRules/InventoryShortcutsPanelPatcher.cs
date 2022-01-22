@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.CharactersPool
+namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
 {
     // TODO: modify "Screen/&CastLightButtonDescription"
 
