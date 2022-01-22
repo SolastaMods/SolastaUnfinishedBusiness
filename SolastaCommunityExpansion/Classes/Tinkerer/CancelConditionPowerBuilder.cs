@@ -1,5 +1,5 @@
-﻿using SolastaModApi;
-using SolastaModApi.BuilderHelpers;
+﻿using SolastaCommunityExpansion.Builders;
+using SolastaModApi;
 using SolastaModApi.Extensions;
 using System.Collections.Generic;
 
