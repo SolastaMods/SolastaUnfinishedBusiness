@@ -396,6 +396,10 @@
 			<HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\UnityEngine.XRModule.dll'))</HintPath>
 			<Private>false</Private>
 		</Reference>
+		<Reference Include="AwesomeTechnologies.VegetationStudioPro.Runtime">
+			<HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\AwesomeTechnologies.VegetationStudioPro.Runtime.dll'))</HintPath>
+			<Private>false</Private>
+		</Reference>
 		<Reference Include="UnityModManager">
 			<HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\UnityModManager\UnityModManager.dll'))</HintPath>
 			<Private>false</Private>

@@ -53,12 +53,14 @@ namespace SolastaCommunityExpansion
         public bool BugFixItemFiltering { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
         public bool EnableCancelEditOnRightMouseClick { get; set; } = true;
+        public bool EnableDungeonMakerPro { get; set; } = true;
         public bool EnableDungeonMakerRotationHotkeys { get; set; } = true;
         public bool EnableFirstLevelCasterFeats { get; set; } = true;
         public bool EnableMultiLinePowerPanel { get; set; } = true;
         public bool EnableMultiLineSpellPanel { get; set; } = true;
         public bool EnableSortingClasses { get; set; } = true;
         public bool EnableSortingDeities { get; set; } = true;
+        public bool EnableSortingDungeonMakerAssets { get; set; } = true;
         public bool EnableSortingFeats { get; set; } = true;
         public bool EnableSortingFutureFeatures { get; set; } = true;
         public bool EnableSortingRaces { get; set; } = true;
@@ -234,6 +236,7 @@ namespace SolastaCommunityExpansion
         public bool AllowPropsToBePlacedAnywhere { get; set; }
         public bool UnleashNpcAsEnemy { get; set; }
         public bool UnleashEnemyAsNpc { get; set; }
+        public bool EnableDungeonMakerModdedContent { get; set; }
 
         //
         // Interface - Game UI
