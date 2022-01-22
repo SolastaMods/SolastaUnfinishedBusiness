@@ -42,6 +42,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             #endregion
 
             UI.Label("");
+
+            if (!Main.Settings.EnableDungeonMakerPro)
+            {
+                return;
+            }
+
             UI.Label("ATTENTION:".bold().yellow());
             UI.Label(". Any modded content used on a location will force the player to install this mod");
             UI.Label(". Can be easily identified in the editor as asset labels are " + "yellow".yellow());
