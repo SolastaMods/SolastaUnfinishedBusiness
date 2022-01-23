@@ -134,8 +134,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             hero.EnumerateFeaturesToBrowse<FeatureDefinitionPower>(hero.FeaturesToBrowse, null);
             foreach (FeatureDefinitionPower featureDefinitionPower in hero.FeaturesToBrowse.Cast<FeatureDefinitionPower>())
             {
-                if (featureDefinitionPower is IConditionalPower &&
-                    !(featureDefinitionPower as IConditionalPower).IsActive(hero))
+                if ((featureDefinitionPower as IConditionalPower)?.IsActive(hero) == false)
                 {
                     continue;
                 }

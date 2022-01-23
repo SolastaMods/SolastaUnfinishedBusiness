@@ -143,7 +143,6 @@ namespace SolastaCommunityExpansion.Features
             return this;
         }
 
-
         public FeatureDefinitionPowerBuilder SetShowCasting(bool casting)
         {
             Definition.SetShowCasting(casting);

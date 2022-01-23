@@ -136,7 +136,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 var spellName = spellDefinition.Name;
                 var spellTitle = $"{spellDefinition.SpellLevel} - {spellDefinition.FormatTitle()}";
 
-                if (IsFromOtherModList.ElementAt(i))
+                if (IsFromOtherModList[i])
                 {
                     spellTitle = spellTitle.color(RGBA.brown);
                 }

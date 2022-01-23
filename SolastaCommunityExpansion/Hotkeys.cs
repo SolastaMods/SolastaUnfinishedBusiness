@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion
 
         // Debug Overlay
         internal const InputCommands.Id CTRL_SHIFT_D = (InputCommands.Id)44440005;
-        
+
         // Export Character
         internal const InputCommands.Id CTRL_SHIFT_E = (InputCommands.Id)44440006;
 

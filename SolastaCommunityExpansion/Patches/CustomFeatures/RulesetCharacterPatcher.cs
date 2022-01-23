@@ -66,7 +66,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
 
             int? modifiedMinRoll = RulesetCharacter_ResolveContestCheck.MinimumStrengthAbilityCheckDieRoll(__instance, baseBonus, rollModifier, proficiencyName);
 
-            if (modifiedMinRoll.HasValue && modifiedMinRoll.Value > minRoll)
+            if (modifiedMinRoll > minRoll)
             {
                 minRoll = modifiedMinRoll.Value;
             }

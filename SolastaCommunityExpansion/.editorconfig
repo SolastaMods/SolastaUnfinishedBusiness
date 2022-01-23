@@ -143,6 +143,12 @@ dotnet_diagnostic.S125.severity = silent
 # S3267: Loops should be simplified with "LINQ" expressions
 dotnet_diagnostic.S3267.severity = silent
 
+# RCS1146: Use conditional access.
+dotnet_diagnostic.RCS1146.severity = silent
+
+# RCS1112: Combine 'Enumerable.Where' method chain.
+dotnet_diagnostic.RCS1112.severity = silent
+
 [*.vb]
 # Modifier preferences
 visual_basic_preferred_modifier_order = Partial,Default,Private,Protected,Public,Friend,NotOverridable,Overridable,MustOverride,Overloads,Overrides,MustInherit,NotInheritable,Static,Shared,Shadows,ReadOnly,WriteOnly,Dim,Const,WithEvents,Widening,Narrowing,Custom,Async:suggestion

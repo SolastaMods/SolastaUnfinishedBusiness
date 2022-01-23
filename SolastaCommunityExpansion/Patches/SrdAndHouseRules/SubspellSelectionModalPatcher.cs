@@ -42,8 +42,8 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
         public static bool Prefix(SubspellSelectionModal __instance, int index, int ___slotLevel,
             RulesetSpellRepertoire ___spellRepertoire, SpellsByLevelBox.SpellCastEngagedHandler ___spellCastEngaged)
         {
-            if (!Main.Settings.EnableUpcastConjureElementalAndFey
-               || !SpellDefinition_SubspellsList.FilteredSubspells.Any())
+            if (!Main.Settings.EnableUpcastConjureElementalAndFey ||
+                SpellDefinition_SubspellsList.FilteredSubspells.Count == 0)
             {
                 return true;
             }
