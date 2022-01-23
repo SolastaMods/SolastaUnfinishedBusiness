@@ -17,6 +17,7 @@ namespace SolastaCommunityExpansion.Patches
             ConjurationsContext.Load();
             DruidArmorContext.Load();
             DungeonMakerContext.Load();
+            DmProEditorContext.Load();
             EpicArrayContext.Load();
             FaceUnlockContext.Load();
             // Fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones.
