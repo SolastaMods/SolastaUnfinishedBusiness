@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using TA;
-using UnityEngine;
 using static SolastaModApi.DatabaseHelper.DecisionPackageDefinitions;
 using static SolastaModApi.DatabaseHelper.FactionDefinitions;
 using static SolastaModApi.DatabaseHelper.FormationDefinitions;

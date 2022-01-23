@@ -24,12 +24,6 @@ namespace SolastaCommunityExpansion.Level20.Features
             Definition.GuiPresentation.Title = "Feature/&PowerPaladinAuraOfCourage18Title";
         }
 
-        internal static FeatureDefinitionPower Instance
-        {
-            get
-            {
-                return _instance ?? (_instance = new PowerPaladinAuraOfCourage18Builder().AddToDB());
-            }
-        }
+        internal static FeatureDefinitionPower Instance => _instance ?? (_instance = new PowerPaladinAuraOfCourage18Builder().AddToDB());
     }
 }

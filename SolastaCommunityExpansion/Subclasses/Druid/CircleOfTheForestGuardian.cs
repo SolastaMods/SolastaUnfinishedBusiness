@@ -283,7 +283,9 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         }
 
         public static ConditionDefinition CreateAndAddToDB()
-            => new ConditionBarkWardBuilder("BarkWard", GuidHelper.Create(CircleOfTheForestGuardian.DFG_BASE_GUID, "BarkWard").ToString()).AddToDB();
+        {
+            return new ConditionBarkWardBuilder("BarkWard", GuidHelper.Create(CircleOfTheForestGuardian.DFG_BASE_GUID, "BarkWard").ToString()).AddToDB();
+        }
 
         public static ConditionDefinition GetOrAdd()
         {
@@ -358,7 +360,9 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         }
 
         public static ConditionDefinition CreateAndAddToDB()
-            => new ConditionImprovedBarkWardBuilder("ImprovedBarkWard", GuidHelper.Create(CircleOfTheForestGuardian.DFG_BASE_GUID, "ImprovedBarkWard").ToString()).AddToDB();
+        {
+            return new ConditionImprovedBarkWardBuilder("ImprovedBarkWard", GuidHelper.Create(CircleOfTheForestGuardian.DFG_BASE_GUID, "ImprovedBarkWard").ToString()).AddToDB();
+        }
 
         public static ConditionDefinition GetOrAdd()
         {
@@ -433,7 +437,9 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         }
 
         public static ConditionDefinition CreateAndAddToDB()
-            => new ConditionSuperiorBarkWardBuilder("SuperiorBarkWard", GuidHelper.Create(CircleOfTheForestGuardian.DFG_BASE_GUID, "SuperiorBarkWard").ToString()).AddToDB();
+        {
+            return new ConditionSuperiorBarkWardBuilder("SuperiorBarkWard", GuidHelper.Create(CircleOfTheForestGuardian.DFG_BASE_GUID, "SuperiorBarkWard").ToString()).AddToDB();
+        }
 
         public static ConditionDefinition GetOrAdd()
         {

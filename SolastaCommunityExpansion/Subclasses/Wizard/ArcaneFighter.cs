@@ -104,13 +104,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 weaponUseIntModifier, "PowerMeleeWizardArcaneWeapon", arcaneWeaponGui.Build());
             return enchantWeapon;
         }
-        internal static FeatureDefinitionPower EnchantWeapon
-        {
-            get
-            {
-                return _enchantWeapon = _enchantWeapon ?? BuildEnchantWeapon();
-            }
-        }
+        internal static FeatureDefinitionPower EnchantWeapon => _enchantWeapon = _enchantWeapon ?? BuildEnchantWeapon();
 
         public static void UpdateEnchantWeapon()
         {

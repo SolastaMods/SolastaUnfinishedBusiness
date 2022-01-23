@@ -1,10 +1,10 @@
-﻿using HarmonyLib;
-using SolastaModApi;
+﻿using System;
+using System.Collections.Generic;
+using HarmonyLib;
 using SolastaCommunityExpansion.Builders;
+using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using System;
-using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
@@ -219,7 +219,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                     {
                         abilityScoreName = abilityProficiency.Item1
                     };
-                    if (!String.IsNullOrEmpty(abilityProficiency.Item2))
+                    if (!string.IsNullOrEmpty(abilityProficiency.Item2))
                     {
                         group.proficiencyName = abilityProficiency.Item2;
                     }

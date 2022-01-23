@@ -1,6 +1,6 @@
-﻿using HarmonyLib;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.SaveByLocation
 {

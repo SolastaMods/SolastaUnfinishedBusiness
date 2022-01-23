@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
+using SolastaCommunityExpansion.Features;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using SolastaCommunityExpansion.Features;
 using UnityEngine.AddressableAssets;
-using SolastaCommunityExpansion.Builders;
 
 namespace SolastaCommunityExpansion.Spells
 {
@@ -224,9 +224,15 @@ namespace SolastaCommunityExpansion.Spells
 
         private const string DhBaseString = "DH";
 
-        private static string GetSpellTitleTerm(string text) => $"Spell/&{DhBaseString}{text}Title";
+        private static string GetSpellTitleTerm(string text)
+        {
+            return $"Spell/&{DhBaseString}{text}Title";
+        }
 
-        private static string GetSpellDescriptionTerm(string text) => $"Spell/&{DhBaseString}{text}Description";
+        private static string GetSpellDescriptionTerm(string text)
+        {
+            return $"Spell/&{DhBaseString}{text}Description";
+        }
 
         private static SpellDefinition BuildFingerOfDeath()
         {
@@ -449,7 +455,9 @@ namespace SolastaCommunityExpansion.Spells
             }
 
             private static ConditionDefinition CreateAndAddToDB(string name, string guid)
-                => new ReverseGravityConditionBuilder(name, guid).AddToDB();
+            {
+                return new ReverseGravityConditionBuilder(name, guid).AddToDB();
+            }
 
             internal static readonly ConditionDefinition ReverseGravityCondition = CreateAndAddToDB(Name, Guid);
         }
@@ -985,7 +993,9 @@ namespace SolastaCommunityExpansion.Spells
             }
 
             internal static ConditionDefinition CreateAndAddToDB(string name, string guid)
-                => new FeeblemindConditionBuilder(name, guid).AddToDB();
+            {
+                return new FeeblemindConditionBuilder(name, guid).AddToDB();
+            }
 
             internal static readonly ConditionDefinition FeeblemindCondition = CreateAndAddToDB(Name, Guid);
         }
@@ -1008,7 +1018,9 @@ namespace SolastaCommunityExpansion.Spells
                 Definition.SetSituationalContext(RuleDefinitions.SituationalContext.None);
             }
             private static FeatureDefinitionAttributeModifier CreateAndAddToDB(string name, string guid)
-                => new FeeblemindIntAttributeModifierBuilder(name, guid).AddToDB();
+            {
+                return new FeeblemindIntAttributeModifierBuilder(name, guid).AddToDB();
+            }
 
             internal static readonly FeatureDefinitionAttributeModifier FeeblemindIntAttributeModifier = CreateAndAddToDB(Name, Guid);
         }
@@ -1032,7 +1044,9 @@ namespace SolastaCommunityExpansion.Spells
             }
 
             private static FeatureDefinitionAttributeModifier CreateAndAddToDB(string name, string guid)
-                => new FeeblemindChaAttributeModifierBuilder(name, guid).AddToDB();
+            {
+                return new FeeblemindChaAttributeModifierBuilder(name, guid).AddToDB();
+            }
 
             internal static readonly FeatureDefinitionAttributeModifier FeeblemindCha_AttributeModifier = CreateAndAddToDB(Name, Guid);
         }
@@ -1062,7 +1076,9 @@ namespace SolastaCommunityExpansion.Spells
             }
 
             private static FeatureDefinitionActionAffinity CreateAndAddToDB(string name, string guid)
-                => new FeeblemindActionAffinityBuilder(name, guid).AddToDB();
+            {
+                return new FeeblemindActionAffinityBuilder(name, guid).AddToDB();
+            }
 
             internal static readonly FeatureDefinitionActionAffinity FeeblemindActionAffinity = CreateAndAddToDB(Name, Guid);
         }
@@ -1138,7 +1154,9 @@ namespace SolastaCommunityExpansion.Spells
             }
 
             private static ConditionDefinition CreateAndAddToDB(string name, string guid)
-                => new HolyAuraConditionBuilder(name, guid).AddToDB();
+            {
+                return new HolyAuraConditionBuilder(name, guid).AddToDB();
+            }
 
             internal static readonly ConditionDefinition HolyAuraCondition = CreateAndAddToDB(Name, Guid);
         }
@@ -1164,7 +1182,9 @@ namespace SolastaCommunityExpansion.Spells
             }
 
             internal static FeatureDefinitionDamageAffinity CreateAndAddToDB(string name, string guid)
-                => new HolyAuraDamageAffinityBuilder(name, guid).AddToDB();
+            {
+                return new HolyAuraDamageAffinityBuilder(name, guid).AddToDB();
+            }
 
             internal static readonly FeatureDefinitionDamageAffinity HolyAuraDamageAffinity = CreateAndAddToDB(Name, Guid);
         }
@@ -1209,7 +1229,9 @@ namespace SolastaCommunityExpansion.Spells
             }
 
             private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-                => new HolyAuraBlindingPowerBuilder(name, guid).AddToDB();
+            {
+                return new HolyAuraBlindingPowerBuilder(name, guid).AddToDB();
+            }
 
             internal static readonly FeatureDefinitionPower HolyAuraBlindingPower = CreateAndAddToDB(Name, Guid);
         }
@@ -1449,7 +1471,9 @@ namespace SolastaCommunityExpansion.Spells
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPsychicImmunity);
             }
             private static ConditionDefinition CreateAndAddToDB(string name, string guid)
-                => new MindBlankConditionBuilder(name, guid).AddToDB();
+            {
+                return new MindBlankConditionBuilder(name, guid).AddToDB();
+            }
 
             internal static readonly ConditionDefinition MindBlankCondition = CreateAndAddToDB(Name, Guid);
         }
@@ -1680,7 +1704,9 @@ namespace SolastaCommunityExpansion.Spells
             }
 
             private static ConditionDefinition CreateAndAddToDB(string name, string guid)
-                => new ForesightConditionBuilder(name, guid).AddToDB();
+            {
+                return new ForesightConditionBuilder(name, guid).AddToDB();
+            }
 
             internal static readonly ConditionDefinition ForesightCondition = CreateAndAddToDB(Name, Guid);
         }
@@ -2059,7 +2085,9 @@ namespace SolastaCommunityExpansion.Spells
             }
 
             private static ConditionDefinition CreateAndAddToDB(string name, string guid)
-                => new TimeStopConditionBuilder(name, guid).AddToDB();
+            {
+                return new TimeStopConditionBuilder(name, guid).AddToDB();
+            }
 
             internal static readonly ConditionDefinition TimeStopCondition = CreateAndAddToDB(Name, Guid);
         }
@@ -2138,7 +2166,9 @@ namespace SolastaCommunityExpansion.Spells
                 // weird condition is the same as phantasma killer condition, just for more people
             }
             private static ConditionDefinition CreateAndAddToDB(string name, string guid)
-                => new WeirdConditionBuilder(name, guid).AddToDB();
+            {
+                return new WeirdConditionBuilder(name, guid).AddToDB();
+            }
 
             internal static readonly ConditionDefinition WeirdCondition = CreateAndAddToDB(Name, Guid);
         }

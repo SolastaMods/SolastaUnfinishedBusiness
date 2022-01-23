@@ -1,6 +1,6 @@
-﻿using SolastaModApi;
+﻿using System.Collections.Generic;
+using SolastaModApi;
 using SolastaModApi.Extensions;
-using System.Collections.Generic;
 using static FeatureDefinitionSavingThrowAffinity;
 
 namespace SolastaCommunityExpansion.Feats
@@ -69,7 +69,9 @@ namespace SolastaCommunityExpansion.Feats
             }
 
             public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-                => new PowerAttackPowerBuilder(name, guid).AddToDB();
+            {
+                return new PowerAttackPowerBuilder(name, guid).AddToDB();
+            }
 
             public static readonly FeatureDefinitionPower PowerAttackPower = CreateAndAddToDB(PowerAttackPowerName, PowerAttackPowerNameGuid);
         }
@@ -113,7 +115,9 @@ namespace SolastaCommunityExpansion.Feats
             }
 
             public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-                => new PowerAttackTwoHandedPowerBuilder(name, guid).AddToDB();
+            {
+                return new PowerAttackTwoHandedPowerBuilder(name, guid).AddToDB();
+            }
 
             public static readonly FeatureDefinitionPower PowerAttackTwoHandedPower = CreateAndAddToDB(PowerAttackTwoHandedPowerName, PowerAttackTwoHandedPowerNameGuid);
         }
@@ -137,7 +141,9 @@ namespace SolastaCommunityExpansion.Feats
             }
 
             public static FeatureDefinitionAttackModifier CreateAndAddToDB(string name, string guid)
-                => new PowerAttackOneHandedAttackModifierBuilder(name, guid).AddToDB();
+            {
+                return new PowerAttackOneHandedAttackModifierBuilder(name, guid).AddToDB();
+            }
 
             public static readonly FeatureDefinitionAttackModifier PowerAttackAttackModifier
                 = CreateAndAddToDB(PowerAttackAttackModifierName, PowerAttackAttackModifierNameGuid);
@@ -162,7 +168,9 @@ namespace SolastaCommunityExpansion.Feats
             }
 
             public static FeatureDefinitionAttackModifier CreateAndAddToDB(string name, string guid)
-                => new PowerAttackTwoHandedAttackModifierBuilder(name, guid).AddToDB();
+            {
+                return new PowerAttackTwoHandedAttackModifierBuilder(name, guid).AddToDB();
+            }
 
             public static readonly FeatureDefinitionAttackModifier PowerAttackTwoHandedAttackModifier = CreateAndAddToDB(PowerAttackTwoHandedAttackModifierName, PowerAttackTwoHandedAttackModifierNameGuid);
         }
@@ -186,7 +194,9 @@ namespace SolastaCommunityExpansion.Feats
             }
 
             public static ConditionDefinition CreateAndAddToDB(string name, string guid)
-                => new PowerAttackConditionBuilder(name, guid).AddToDB();
+            {
+                return new PowerAttackConditionBuilder(name, guid).AddToDB();
+            }
 
             public static readonly ConditionDefinition PowerAttackCondition = CreateAndAddToDB(PowerAttackConditionName, PowerAttackConditionNameGuid);
         }
@@ -210,7 +220,9 @@ namespace SolastaCommunityExpansion.Feats
             }
 
             public static ConditionDefinition CreateAndAddToDB(string name, string guid)
-                => new PowerAttackTwoHandedConditionBuilder(name, guid).AddToDB();
+            {
+                return new PowerAttackTwoHandedConditionBuilder(name, guid).AddToDB();
+            }
 
             public static readonly ConditionDefinition PowerAttackTwoHandedCondition = CreateAndAddToDB(PowerAttackTwoHandedConditionName, PowerAttackTwoHandedConditionNameGuid);
         }
@@ -232,7 +244,9 @@ namespace SolastaCommunityExpansion.Feats
             }
 
             public static FeatDefinition CreateAndAddToDB(string name, string guid)
-                => new PowerAttackFeatBuilder(name, guid).AddToDB();
+            {
+                return new PowerAttackFeatBuilder(name, guid).AddToDB();
+            }
 
             public static readonly FeatDefinition PowerAttackFeat = CreateAndAddToDB(PowerAttackFeatName, PowerAttackFeatNameGuid);
         }
@@ -254,7 +268,9 @@ namespace SolastaCommunityExpansion.Feats
             }
 
             public static FeatDefinition CreateAndAddToDB(string name, string guid)
-                => new RecklessFuryFeatBuilder(name, guid).AddToDB();
+            {
+                return new RecklessFuryFeatBuilder(name, guid).AddToDB();
+            }
 
             public static readonly FeatDefinition RecklessFuryFeat = CreateAndAddToDB(RecklessFuryFeatName, RecklessFuryFeatNameGuid);
         }
@@ -302,7 +318,9 @@ namespace SolastaCommunityExpansion.Feats
             }
 
             public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-                => new RagePowerBuilder(name, guid).AddToDB();
+            {
+                return new RagePowerBuilder(name, guid).AddToDB();
+            }
 
             public static readonly FeatureDefinitionPower RagePower = CreateAndAddToDB(RagePowerName, RagePowerNameGuid);
         }
@@ -330,7 +348,9 @@ namespace SolastaCommunityExpansion.Feats
             }
 
             public static ConditionDefinition CreateAndAddToDB(string name, string guid)
-                => new RageFeatConditionBuilder(name, guid).AddToDB();
+            {
+                return new RageFeatConditionBuilder(name, guid).AddToDB();
+            }
 
             public static readonly ConditionDefinition RageFeatCondition = CreateAndAddToDB(RageFeatConditionName, RageFeatConditionNameGuid);
         }
@@ -356,7 +376,9 @@ namespace SolastaCommunityExpansion.Feats
             }
 
             public static FeatureDefinitionSavingThrowAffinity CreateAndAddToDB(string name, string guid)
-                => new RageStrengthSavingThrowAffinityBuilder(name, guid).AddToDB();
+            {
+                return new RageStrengthSavingThrowAffinityBuilder(name, guid).AddToDB();
+            }
 
             public static readonly FeatureDefinitionSavingThrowAffinity RageStrengthSavingThrowAffinity = CreateAndAddToDB(RageStrengthSavingThrowAffinityName, RageStrengthSavingThrowAffinityNameGuid);
         }
@@ -377,7 +399,9 @@ namespace SolastaCommunityExpansion.Feats
             }
 
             public static FeatureDefinitionAttackModifier CreateAndAddToDB(string name, string guid)
-                => new RageDamageBonusAttackModifierBuilder(name, guid).AddToDB();
+            {
+                return new RageDamageBonusAttackModifierBuilder(name, guid).AddToDB();
+            }
 
             public static readonly FeatureDefinitionAttackModifier RageDamageBonusAttackModifier = CreateAndAddToDB(RageDamageBonusAttackModifierName, RageDamageBonusAttackModifierNameGuid);
         }

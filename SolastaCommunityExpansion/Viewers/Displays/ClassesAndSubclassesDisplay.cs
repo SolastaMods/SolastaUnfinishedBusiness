@@ -1,8 +1,8 @@
-﻿using ModKit;
+﻿using System.Linq;
+using ModKit;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Subclasses.Rogue;
 using SolastaCommunityExpansion.Subclasses.Wizard;
-using System.Linq;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {

@@ -48,7 +48,9 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             }
 
             public static FeatureDefinitionAbilityCheckAffinity CreateAndAddToDB(string name, string guid)
-                => new RoyalEnvoyAbilityCheckAffinityBuilder(name, guid).AddToDB();
+            {
+                return new RoyalEnvoyAbilityCheckAffinityBuilder(name, guid).AddToDB();
+            }
 
             public static FeatureDefinitionAbilityCheckAffinity RoyalEnvoyAbilityCheckAffinity
                 => CreateAndAddToDB(RoyalEnvoyAbilityCheckName, RoyalEnvoyAbilityCheckGuid);
@@ -69,7 +71,9 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             }
 
             public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
-                 => new RoyalEnvoyFeatureBuilder(name, guid).AddToDB();
+            {
+                return new RoyalEnvoyFeatureBuilder(name, guid).AddToDB();
+            }
 
             public static FeatureDefinitionFeatureSet RoyalEnvoyFeatureSet
                 => CreateAndAddToDB(RoyalEnvoyFeatureName, RoyalEnvoyFeatureGuid);
@@ -106,7 +110,9 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             }
 
             public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-                => new RallyingCryPowerBuilder(name, guid).AddToDB();
+            {
+                return new RallyingCryPowerBuilder(name, guid).AddToDB();
+            }
 
             public static FeatureDefinitionPower RallyingCryPower
                 => CreateAndAddToDB(RallyingCryPowerName, RallyingCryPowerGuid);
@@ -157,7 +163,9 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             }
 
             public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-                => new InspiringSurgePowerBuilder(name, guid).AddToDB();
+            {
+                return new InspiringSurgePowerBuilder(name, guid).AddToDB();
+            }
 
             public static FeatureDefinitionPower InspiringSurgePower
                 => CreateAndAddToDB(InspiringSurgePowerName, InspiringSurgePowerNameGuid);

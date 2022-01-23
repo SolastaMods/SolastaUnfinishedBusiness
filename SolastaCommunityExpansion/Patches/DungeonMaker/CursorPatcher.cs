@@ -1,6 +1,6 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 using SolastaModApi.Infrastructure;
-using System.Diagnostics.CodeAnalysis;
 
 namespace SolastaCommunityExpansion.Patches.DungeonMaker
 {

@@ -14,14 +14,8 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 
         #region DcIncreaseAffinity
         private static FeatureDefinitionMagicAffinity _dcIncreaseAffinity;
-        private static FeatureDefinitionMagicAffinity DcIncreaseAffinity
-        {
-            get
-            {
-                return _dcIncreaseAffinity = _dcIncreaseAffinity ??
+        private static FeatureDefinitionMagicAffinity DcIncreaseAffinity => _dcIncreaseAffinity = _dcIncreaseAffinity ??
                     BuildMagicAffinityModifiers(0, Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc, "MagicAffinityMasterManipulatorDC", GetSpellDCPresentation().Build());
-            }
-        }
         #endregion
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()

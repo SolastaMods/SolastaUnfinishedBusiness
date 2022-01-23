@@ -1,8 +1,8 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using System;
+using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using static CharacterClassDefinition;
 

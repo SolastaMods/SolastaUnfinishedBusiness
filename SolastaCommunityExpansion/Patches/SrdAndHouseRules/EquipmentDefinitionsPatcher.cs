@@ -1,6 +1,6 @@
-﻿using HarmonyLib;
-using System;
+﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
 {

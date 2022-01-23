@@ -1,5 +1,5 @@
-﻿using static SolastaModApi.DatabaseHelper.SpellDefinitions;
-using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
+﻿using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
+using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Spells
 {

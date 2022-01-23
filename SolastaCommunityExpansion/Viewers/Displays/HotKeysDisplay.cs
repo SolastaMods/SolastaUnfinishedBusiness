@@ -8,7 +8,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         {
             bool toggle;
 
-            string hk(char key) => "ctrl-shift-(".cyan() + key + ")".cyan();
+            string hk(char key)
+            {
+                return "ctrl-shift-(".cyan() + key + ")".cyan();
+            }
 
             #region Hotkeys
             UI.Label("");

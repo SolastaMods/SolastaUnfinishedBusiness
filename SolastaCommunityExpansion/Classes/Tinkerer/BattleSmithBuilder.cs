@@ -1,8 +1,8 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
 using SolastaModApi.Extensions;
-using System.Collections.Generic;
 using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer

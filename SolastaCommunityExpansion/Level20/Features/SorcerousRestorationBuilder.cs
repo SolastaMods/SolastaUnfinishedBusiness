@@ -57,7 +57,9 @@ namespace SolastaCommunityExpansion.Level20.Features
         }
 
         private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-            => new SorcerousRestorationBuilder(name, guid).AddToDB();
+        {
+            return new SorcerousRestorationBuilder(name, guid).AddToDB();
+        }
 
         internal static readonly FeatureDefinitionPower SorcerousRestoration =
             CreateAndAddToDB(SorcerousRestorationName, SorcerousRestorationGuid);

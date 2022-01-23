@@ -1,7 +1,7 @@
-﻿using HarmonyLib;
-using System;
+﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
+using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {

@@ -1,7 +1,7 @@
-﻿using SolastaModApi.Extensions;
-using System.Collections.Generic;
-using static SolastaCommunityExpansion.Level20.Features.RangerVanishActionBuilder;
+﻿using System.Collections.Generic;
+using SolastaModApi.Extensions;
 using static SolastaCommunityExpansion.Level20.Features.RangerFeralSensesBuilder;
+using static SolastaCommunityExpansion.Level20.Features.RangerVanishActionBuilder;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;

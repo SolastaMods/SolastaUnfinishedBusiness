@@ -6,7 +6,7 @@ using UnityEngine;
 namespace SolastaCommunityExpansion.Models
 {
     internal static class CustomFeaturesContext
-    {   
+    {
         internal static void RecursiveGrantCustomFeatures(RulesetCharacterHero hero, List<FeatureDefinition> features)
         {
             foreach (FeatureDefinition grantedFeature in features)

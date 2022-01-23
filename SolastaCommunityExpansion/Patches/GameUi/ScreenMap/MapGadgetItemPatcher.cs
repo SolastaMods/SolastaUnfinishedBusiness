@@ -1,7 +1,7 @@
-﻿using HarmonyLib;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
+using HarmonyLib;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap

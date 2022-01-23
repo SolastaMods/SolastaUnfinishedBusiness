@@ -36,16 +36,10 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 
         #region Bonus recovery
         private static FeatureDefinitionPower _bonusRecovery;
-        internal static FeatureDefinitionPower BonusRecovery
-        {
-            get
-            {
-                return _bonusRecovery = _bonusRecovery ??
+        internal static FeatureDefinitionPower BonusRecovery => _bonusRecovery = _bonusRecovery ??
                     BuildSpellFormPower(
                         1 /* usePerRecharge */, RuleDefinitions.UsesDetermination.Fixed, RuleDefinitions.ActivationTime.Rest,
                         1 /* cost */, RuleDefinitions.RechargeRate.LongRest, "PowerSpellMasterBonusRecovery", SpellRecoveryGui);
-            }
-        }
         #endregion
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()

@@ -1,10 +1,10 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace SolastaCommunityExpansion.ItemCrafting
 {

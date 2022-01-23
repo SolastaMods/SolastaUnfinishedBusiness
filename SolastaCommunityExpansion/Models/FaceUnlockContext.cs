@@ -1,5 +1,5 @@
-﻿using SolastaModApi.Extensions;
-using System.Linq;
+﻿using System.Linq;
+using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.MorphotypeElementDefinitions;

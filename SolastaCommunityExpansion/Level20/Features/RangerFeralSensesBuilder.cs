@@ -17,7 +17,9 @@ namespace SolastaCommunityExpansion.Level20.Features
         }
 
         private static FeatureDefinitionSense CreateAndAddToDB(string name, string guid)
-            => new RangerFeralSensesBuilder(name, guid).AddToDB();
+        {
+            return new RangerFeralSensesBuilder(name, guid).AddToDB();
+        }
 
         internal static readonly FeatureDefinitionSense RangerFeralSenses =
             CreateAndAddToDB(RangerFeralSensesName, RangerFeralSensesGuid);

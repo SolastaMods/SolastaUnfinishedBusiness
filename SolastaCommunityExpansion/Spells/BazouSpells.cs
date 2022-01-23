@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using SolastaModApi;
-using SolastaModApi.Extensions;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Features;
 using SolastaCommunityExpansion.Models;
-using SolastaCommunityExpansion.Builders;
+using SolastaModApi;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Spells
 {

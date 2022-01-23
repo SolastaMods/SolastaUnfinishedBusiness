@@ -22,7 +22,9 @@ namespace SolastaCommunityExpansion.Level20.Features
         }
 
         private static FeatureDefinitionPower CreateAndAddToDB(FeatureDefinitionPower basePower, string name, string guid)
-            => new PowerClericDivineInterventionImprovementBuilder(basePower, name, guid).AddToDB();
+        {
+            return new PowerClericDivineInterventionImprovementBuilder(basePower, name, guid).AddToDB();
+        }
 
         internal static readonly FeatureDefinitionPower PowerClericDivineInterventionImprovementCleric =
             CreateAndAddToDB(PowerClericDivineInterventionCleric, PowerClericDivineInterventionImprovementClericName, PowerClericDivineInterventionImprovementClericGuid);

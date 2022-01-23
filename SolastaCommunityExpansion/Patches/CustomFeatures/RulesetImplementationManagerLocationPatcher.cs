@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using SolastaCommunityExpansion.Helpers;
-using HarmonyLib;
 using System.Linq;
+using HarmonyLib;
+using SolastaCommunityExpansion.Helpers;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {

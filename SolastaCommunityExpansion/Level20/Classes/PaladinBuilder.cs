@@ -1,7 +1,7 @@
-﻿using SolastaCommunityExpansion.Level20.Features;
+﻿using System.Collections.Generic;
+using SolastaCommunityExpansion.Level20.Features;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using System.Collections.Generic;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAutoPreparedSpellss;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionCastSpells;

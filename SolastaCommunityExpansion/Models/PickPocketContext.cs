@@ -1,8 +1,7 @@
-﻿
+﻿using System.Collections.Generic;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using System.Collections.Generic;
 using static RuleDefinitions;
 using static SolastaModApi.DatabaseHelper.LootPackDefinitions;
 

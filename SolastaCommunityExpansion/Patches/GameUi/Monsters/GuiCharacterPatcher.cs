@@ -1,7 +1,7 @@
-﻿using HarmonyLib;
-using SolastaCommunityExpansion.Models;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
+using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 using UnityEngine;
 using UnityEngine.UI;
 

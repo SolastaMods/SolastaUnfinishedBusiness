@@ -16,7 +16,9 @@ namespace SolastaCommunityExpansion.Level20.Features
         }
 
         private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-            => new PowerFighterActionSurge2Builder(name, guid).AddToDB();
+        {
+            return new PowerFighterActionSurge2Builder(name, guid).AddToDB();
+        }
 
         internal static readonly FeatureDefinitionPower PowerFighterActionSurge2 =
             CreateAndAddToDB(PowerFighterActionSurgeName, PowerFighterActionSurgeGuid);

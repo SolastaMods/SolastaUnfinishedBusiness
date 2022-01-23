@@ -47,9 +47,9 @@ namespace SolastaCommunityExpansion.Level20
                     {
                         spellListDefinition.SpellsByLevel.Add(
                             new SpellListDefinition.SpellsByLevelDuplet
-                            { 
-                                Level = spellListDefinition.SpellsByLevel.Count, 
-                                Spells = new List<SpellDefinition>() 
+                            {
+                                Level = spellListDefinition.SpellsByLevel.Count,
+                                Spells = new List<SpellDefinition>()
                             });
                     }
                 }

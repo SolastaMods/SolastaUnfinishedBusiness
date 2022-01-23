@@ -319,7 +319,9 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
         }
 
         public static ConditionDefinition CreateAndAddToDB()
-            => new ConditionMarkedByArcanistBuilder("ConditionMarkedByArcanist", GuidHelper.Create(Arcanist.RA_BASE_GUID, "ConditionMarkedByArcanist").ToString()).AddToDB();
+        {
+            return new ConditionMarkedByArcanistBuilder("ConditionMarkedByArcanist", GuidHelper.Create(Arcanist.RA_BASE_GUID, "ConditionMarkedByArcanist").ToString()).AddToDB();
+        }
 
         public static ConditionDefinition GetOrAdd()
         {

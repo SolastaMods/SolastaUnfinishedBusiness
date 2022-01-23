@@ -37,8 +37,10 @@ namespace SolastaCommunityExpansion.Models
                 Store_Merchant_Hugo_Requer_Cyflen_Potions.StockUnitDescriptions.Add(stockFocus);
             }
 
-            private static ItemDefinition CreateAndAddToDB(string name, string guid, string title, string description, ItemDefinition original) =>
-                new WandIdentifyBuilder(name, guid, title, description, original).AddToDB();
+            private static ItemDefinition CreateAndAddToDB(string name, string guid, string title, string description, ItemDefinition original)
+            {
+                return new WandIdentifyBuilder(name, guid, title, description, original).AddToDB();
+            }
 
             internal static readonly ItemDefinition WandIdentify = WandIdentifyBuilder.CreateAndAddToDB(
                 "WandIdentify",
@@ -80,8 +82,10 @@ namespace SolastaCommunityExpansion.Models
                 Store_Merchant_Hugo_Requer_Cyflen_Potions.StockUnitDescriptions.Add(stockFocus);
             }
 
-            private static ItemDefinition CreateAndAddToDB(string name, string guid, string title, string description, ItemDefinition original, EquipmentDefinitions.FocusType type, AssetReferenceSprite assetReferenceSprite) =>
-                new FocusDefinitionBuilder(name, guid, title, description, original, type, assetReferenceSprite).AddToDB();
+            private static ItemDefinition CreateAndAddToDB(string name, string guid, string title, string description, ItemDefinition original, EquipmentDefinitions.FocusType type, AssetReferenceSprite assetReferenceSprite)
+            {
+                return new FocusDefinitionBuilder(name, guid, title, description, original, type, assetReferenceSprite).AddToDB();
+            }
 
             internal static readonly ItemDefinition ArcaneStaff = FocusDefinitionBuilder.CreateAndAddToDB(
                 "ArcaneStaff",

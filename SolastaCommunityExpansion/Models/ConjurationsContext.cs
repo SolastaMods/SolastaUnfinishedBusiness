@@ -160,32 +160,36 @@ namespace SolastaCommunityExpansion.Models
 
             // Helpers
 
-/*            MonsterBuilder GetMonsterBuilder(string name, string title, MonsterDefinition baseMonster)
-            {
-                return new MonsterBuilder(name, CreateGuid(name), title, baseMonster.GuiPresentation.Description, baseMonster);
-            }
+            /*            MonsterBuilder GetMonsterBuilder(string name, string title, MonsterDefinition baseMonster)
+                        {
+                            return new MonsterBuilder(name, CreateGuid(name), title, baseMonster.GuiPresentation.Description, baseMonster);
+                        }
 
-            MonsterAttackIteration CreateAttackIteration(MonsterAttackIteration attackIteration, string namePrefix, int attacks = 2)
-            {
-                // copy existing attack iteration and bump up ToHitBonus and DamageBonus by 1
-                var attackDefinition = CreateAttackDefinition(attackIteration.MonsterAttackDefinition, namePrefix);
+                        MonsterAttackIteration CreateAttackIteration(MonsterAttackIteration attackIteration, string namePrefix, int attacks = 2)
+                        {
+                            // copy existing attack iteration and bump up ToHitBonus and DamageBonus by 1
+                            var attackDefinition = CreateAttackDefinition(attackIteration.MonsterAttackDefinition, namePrefix);
 
-                return new MonsterAttackIteration(attackDefinition, attacks);
-            }
+                            return new MonsterAttackIteration(attackDefinition, attacks);
+                        }
 
-            MonsterAttackDefinition CreateAttackDefinition(MonsterAttackDefinition attackDefinition, string namePrefix)
-            {
-                var name = $"{namePrefix}_{attackDefinition.Name}";
+                        MonsterAttackDefinition CreateAttackDefinition(MonsterAttackDefinition attackDefinition, string namePrefix)
+                        {
+                            var name = $"{namePrefix}_{attackDefinition.Name}";
 
-                var builder = new MonsterAttackDefinitionBuilder(name, CreateGuid(name), attackDefinition);
+                            var builder = new MonsterAttackDefinitionBuilder(name, CreateGuid(name), attackDefinition);
 
-                builder.SetDamageBonusOfFirstDamageForm(4);
-                builder.SetToHitBonus(7);
+                            builder.SetDamageBonusOfFirstDamageForm(4);
+                            builder.SetToHitBonus(7);
 
-                return builder.AddToDB();
-            }
-*/        }
+                            return builder.AddToDB();
+                        }
+            */
+        }
 
-        private static string CreateGuid(string name) => GuidHelper.Create(Namespace, name).ToString("N");
+        private static string CreateGuid(string name)
+        {
+            return GuidHelper.Create(Namespace, name).ToString("N");
+        }
     }
 }

@@ -15,7 +15,9 @@ namespace SolastaCommunityExpansion.Level20.Features
         }
 
         private static PrimalChampion CreateAndAddToDB(string name, string guid)
-            => new PrimalChampionBuilder(name, guid).AddToDB();
+        {
+            return new PrimalChampionBuilder(name, guid).AddToDB();
+        }
 
         internal static readonly PrimalChampion PrimalChampion =
             CreateAndAddToDB(PrimalChampionName, PrimalChampionGuid);

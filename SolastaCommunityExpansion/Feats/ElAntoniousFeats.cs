@@ -34,7 +34,9 @@ namespace SolastaCommunityExpansion.Feats
         }
 
         public static FeatDefinition CreateAndAddToDB(string name, string guid)
-            => new DualFlurryFeatBuilder(name, guid).AddToDB();
+        {
+            return new DualFlurryFeatBuilder(name, guid).AddToDB();
+        }
 
         public static readonly FeatDefinition DualFlurryFeat = CreateAndAddToDB(DualFlurryFeatName, DualFlurryFeatNameGuid);
 
@@ -90,7 +92,9 @@ namespace SolastaCommunityExpansion.Feats
         }
 
         public static ConditionDefinition CreateAndAddToDB()
-            => new ConditionDualFlurryApplyBuilder("ConditionDualFlurryApply", GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryApply").ToString()).AddToDB();
+        {
+            return new ConditionDualFlurryApplyBuilder("ConditionDualFlurryApply", GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryApply").ToString()).AddToDB();
+        }
 
         public static ConditionDefinition GetOrAdd()
         {
@@ -120,7 +124,9 @@ namespace SolastaCommunityExpansion.Feats
         }
 
         public static ConditionDefinition CreateAndAddToDB()
-            => new ConditionDualFlurryGrantBuilder("ConditionDualFlurryGrant", GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryGrant").ToString()).AddToDB();
+        {
+            return new ConditionDualFlurryGrantBuilder("ConditionDualFlurryGrant", GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryGrant").ToString()).AddToDB();
+        }
 
         public static ConditionDefinition GetOrAdd()
         {
@@ -162,7 +168,9 @@ namespace SolastaCommunityExpansion.Feats
         }
 
         public static FeatDefinition CreateAndAddToDB(string name, string guid)
-            => new TorchbearerFeatBuilder(name, guid).AddToDB();
+        {
+            return new TorchbearerFeatBuilder(name, guid).AddToDB();
+        }
 
         public static readonly FeatDefinition TorchbearerFeat = CreateAndAddToDB(TorchbearerFeatName, TorchbearerFeatNameGuid);
 

@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 namespace SolastaCommunityExpansion.Utils
 {
     // Generic types should not contain static fields, or they get copied for every instance of the type
-    static class SerializableDictionary
+    internal static class SerializableDictionary
     {
         public const string ItemTag = "item";
         public const string KeyTag = "key";

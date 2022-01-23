@@ -1,8 +1,8 @@
-﻿using HarmonyLib;
+﻿using System.Collections.Generic;
+using HarmonyLib;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
