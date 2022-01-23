@@ -1170,3 +1170,6 @@ Subclass/&WitchSubclassPathDescription	Your knowledge of magic has culminated in
 Subclass/&WitchSubclassPathTitle	Witch Covens
 Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagScoutSentinelWeaponTitle	Uses Int for attack & damage
+Screen/&EditorLocationSize3Title	Huge [MODDED]
+Screen/&EditorLocationSize4Title	Gargantuan [MODDED]
+BlueprintCategory/&FlatRoomsTitle	Flat Rooms
