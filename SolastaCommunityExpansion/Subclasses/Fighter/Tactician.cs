@@ -14,11 +14,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         }
         internal override CharacterSubclassDefinition GetSubclass()
         {
-            if (Subclass == null)
-            {
-                Subclass = TacticianFighterSubclassBuilder.BuildAndAddSubclass();
-            }
-            return Subclass;
+            return Subclass ?? (Subclass = TacticianFighterSubclassBuilder.BuildAndAddSubclass());
         }
     }
 
@@ -75,7 +71,9 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         }
 
         public static FeatureDefinitionPowerSharedPool CreateAndAddToDB()
-            => Build(KnockDownPowerName, KnockDownPowerNameGuid);
+        {
+            return Build(KnockDownPowerName, KnockDownPowerNameGuid);
+        }
     }
 
     internal static class InspirePowerBuilder
@@ -131,7 +129,9 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         }
 
         public static FeatureDefinitionPowerSharedPool CreateAndAddToDB()
-            => Build(InspirePowerName, InspirePowerNameGuid);
+        {
+            return Build(InspirePowerName, InspirePowerNameGuid);
+        }
     }
 
     internal static class CounterStrikePowerBuilder
@@ -171,7 +171,9 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         }
 
         public static FeatureDefinitionPowerSharedPool CreateAndAddToDB()
-            => Build(CounterStrikePowerName, CounterStrikePowerNameGuid);
+        {
+            return Build(CounterStrikePowerName, CounterStrikePowerNameGuid);
+        }
     }
 
     internal static class GambitResourcePoolBuilder
@@ -180,9 +182,11 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         private const string GambitResourcePoolNameGuid = "00da2b27-139a-4ca0-a285-aaa70d108bc8";
 
         public static FeatureDefinitionPower CreateAndAddToDB()
-            => new FeatureDefinitionPowerPoolBuilder(GambitResourcePoolName, GambitResourcePoolNameGuid,
-                4, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Dexterity, RuleDefinitions.RechargeRate.ShortRest,
-                new GuiPresentationBuilder("Feature/&GambitResourcePoolDescription", "Feature/&GambitResourcePoolTitle").Build()).AddToDB();
+        {
+            return new FeatureDefinitionPowerPoolBuilder(GambitResourcePoolName, GambitResourcePoolNameGuid,
+                           4, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Dexterity, RuleDefinitions.RechargeRate.ShortRest,
+                           new GuiPresentationBuilder("Feature/&GambitResourcePoolDescription", "Feature/&GambitResourcePoolTitle").Build()).AddToDB();
+        }
     }
 
     internal static class GambitResourcePoolAddBuilder
@@ -200,14 +204,31 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         private const string GambitResourcePoolAdd18Guid = "c7ced45a-572f-4af0-8ec5-2add074dd7c3";
 
         public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-            => new FeatureDefinitionPowerPoolModifierBuilder(name, guid,
-                1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Dexterity, TacticianFighterSubclassBuilder.GambitResourcePool,
-                new GuiPresentationBuilder("Feature/&GambitResourcePoolAddDescription", "Feature/&GambitResourcePoolAddTitle").Build()).AddToDB();
+        {
+            return new FeatureDefinitionPowerPoolModifierBuilder(name, guid,
+                           1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Dexterity, TacticianFighterSubclassBuilder.GambitResourcePool,
+                           new GuiPresentationBuilder("Feature/&GambitResourcePoolAddDescription", "Feature/&GambitResourcePoolAddTitle").Build()).AddToDB();
+        }
 
-        public static FeatureDefinitionPower GambitResourcePoolAdd() => CreateAndAddToDB(GambitResourcePoolAddName, GambitResourcePoolAddNameGuid);
-        public static FeatureDefinitionPower GambitResourcePoolAdd10() => CreateAndAddToDB(GambitResourcePoolAdd10Name, GambitResourcePoolAdd10Guid);
-        public static FeatureDefinitionPower GambitResourcePoolAdd15() => CreateAndAddToDB(GambitResourcePoolAdd15Name, GambitResourcePoolAdd15Guid);
-        public static FeatureDefinitionPower GambitResourcePoolAdd18() => CreateAndAddToDB(GambitResourcePoolAdd18Name, GambitResourcePoolAdd18Guid);
+        public static FeatureDefinitionPower GambitResourcePoolAdd()
+        {
+            return CreateAndAddToDB(GambitResourcePoolAddName, GambitResourcePoolAddNameGuid);
+        }
+
+        public static FeatureDefinitionPower GambitResourcePoolAdd10()
+        {
+            return CreateAndAddToDB(GambitResourcePoolAdd10Name, GambitResourcePoolAdd10Guid);
+        }
+
+        public static FeatureDefinitionPower GambitResourcePoolAdd15()
+        {
+            return CreateAndAddToDB(GambitResourcePoolAdd15Name, GambitResourcePoolAdd15Guid);
+        }
+
+        public static FeatureDefinitionPower GambitResourcePoolAdd18()
+        {
+            return CreateAndAddToDB(GambitResourcePoolAdd18Name, GambitResourcePoolAdd18Guid);
+        }
     }
 
     public static class TacticianFighterSubclassBuilder
@@ -246,6 +267,5 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         public static readonly FeatureDefinitionPowerSharedPool KnockDownPower = KnockDownPowerBuilder.CreateAndAddToDB();
         public static readonly FeatureDefinitionPowerSharedPool InspirePower = InspirePowerBuilder.CreateAndAddToDB();
         public static readonly FeatureDefinitionPowerSharedPool CounterStrikePower = CounterStrikePowerBuilder.CreateAndAddToDB();
-
     }
 }

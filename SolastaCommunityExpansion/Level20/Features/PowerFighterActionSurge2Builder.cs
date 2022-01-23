@@ -12,11 +12,13 @@ namespace SolastaCommunityExpansion.Level20.Features
         protected PowerFighterActionSurge2Builder(string name, string guid) : base(PowerFighterActionSurge, name, guid)
         {
             Definition.SetFixedUsesPerRecharge(2);
-            Definition.SetOverriddenPower(DatabaseHelper.FeatureDefinitionPowers.PowerFighterActionSurge);
+            Definition.SetOverriddenPower(PowerFighterActionSurge);
         }
 
         private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-            => new PowerFighterActionSurge2Builder(name, guid).AddToDB();
+        {
+            return new PowerFighterActionSurge2Builder(name, guid).AddToDB();
+        }
 
         internal static readonly FeatureDefinitionPower PowerFighterActionSurge2 =
             CreateAndAddToDB(PowerFighterActionSurgeName, PowerFighterActionSurgeGuid);

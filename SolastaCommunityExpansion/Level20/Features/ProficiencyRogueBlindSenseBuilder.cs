@@ -17,7 +17,9 @@ namespace SolastaCommunityExpansion.Level20.Features
         }
 
         private static FeatureDefinitionSense CreateAndAddToDB(string name, string guid)
-            => new ProficiencyRogueBlindSenseBuilder(name, guid).AddToDB();
+        {
+            return new ProficiencyRogueBlindSenseBuilder(name, guid).AddToDB();
+        }
 
         internal static readonly FeatureDefinitionSense ProficiencyRogueBlindSense
             = CreateAndAddToDB(ProficiencyRogueBlindSenseName, ProficiencyRogueBlindSensedGuid);

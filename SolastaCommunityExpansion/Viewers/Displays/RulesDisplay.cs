@@ -111,7 +111,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     }
                 }
             }
-  
+
             UI.Label("");
 
             toggle = Main.Settings.DisplayHouseRulesToggle;

@@ -1,5 +1,5 @@
-﻿using ModKit;
-using System.Linq;
+﻿using System.Linq;
+using ModKit;
 using UnityEngine;
 using UnityModManagerNet;
 using static SolastaCommunityExpansion.Viewers.Displays.CharacterDisplay;

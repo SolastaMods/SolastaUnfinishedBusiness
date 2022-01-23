@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static bool IsOffGame => Gui.Game == null;
 
-        internal static List<GameLocationCharacter> PlayerCharacters { get; private set; } = new List<GameLocationCharacter>();
+        internal static List<GameLocationCharacter> PlayerCharacters { get; } = new List<GameLocationCharacter>();
 
         internal static int[] PlayerCharactersChoices
         {

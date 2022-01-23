@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Features

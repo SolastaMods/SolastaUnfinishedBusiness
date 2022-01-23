@@ -1,12 +1,11 @@
-﻿using HarmonyLib;
+﻿using System.Collections.Generic;
+using HarmonyLib;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
-
     ////*****************************************************************************************************************************************
     ////***********************************		TinkererConstructFamilyBuilder		*************************************************************
     ////*****************************************************************************************************************************************
@@ -18,9 +17,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected TinkererConstructFamilyBuilder(string name, string guid) : base(DatabaseHelper.CharacterFamilyDefinitions.Construct, name, guid)
         {
-
             Definition.SetExtraplanar(true);
-
         }
 
         public static CharacterFamilyDefinition CreateAndAddToDB(string name, string guid)
@@ -28,7 +25,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new TinkererConstructFamilyBuilder(name, guid).AddToDB();
         }
 
-        public static CharacterFamilyDefinition TinkererConstructFamily = CreateAndAddToDB(TinkererConstructFamilyName, TinkererConstructFamilyGuid);
+        public static readonly CharacterFamilyDefinition TinkererConstructFamily = CreateAndAddToDB(TinkererConstructFamilyName, TinkererConstructFamilyGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -42,14 +39,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected AddConstructCantripsBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionBonusCantripss.BonusCantripsDomainOblivion, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feat/&AddConstructCantripsTitle";
             Definition.GuiPresentation.Description = "Feat/&AddConstructCantripsDescription";
 
             Definition.BonusCantrips.Clear();
             Definition.BonusCantrips.Add(MendingConstructBuilder.MendingConstruct);
             Definition.BonusCantrips.Add(DismissConstructBuilder.DismissConstruct);
-
         }
 
         public static FeatureDefinitionBonusCantrips CreateAndAddToDB(string name, string guid)
@@ -57,7 +52,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new AddConstructCantripsBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionBonusCantrips AddConstructCantrips = CreateAndAddToDB(Name, Guid);
+        public static readonly FeatureDefinitionBonusCantrips AddConstructCantrips = CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -71,7 +66,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected MendingConstructBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.PrayerOfHealing, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feat/&MendingConstructTitle";
             Definition.GuiPresentation.Description = "Feat/&MendingConstructDescription";
 
@@ -101,7 +95,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.EffectDescription.EffectForms.Add(effect);
             Definition.EffectDescription.RestrictedCreatureFamilies.Add(TinkererConstructFamilyBuilder.TinkererConstructFamily.Name);
             Definition.EffectDescription.ImmuneCreatureFamilies.Clear();
-
         }
 
         public static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -109,7 +102,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new MendingConstructBuilder(name, guid).AddToDB();
         }
 
-        public static SpellDefinition MendingConstruct = CreateAndAddToDB(Name, Guid);
+        public static readonly SpellDefinition MendingConstruct = CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -123,7 +116,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected DismissConstructBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.Banishment, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feat/&DismissConstructTitle";
             Definition.GuiPresentation.Description = "Feat/&DismissConstructDescription";
             Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.AnimalFriendship.GuiPresentation.SpriteReference);
@@ -135,14 +127,14 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.SetMaterialComponentType(RuleDefinitions.MaterialComponentType.None);
             Definition.SetVerboseComponent(false);
 
-            CounterForm DismissConstruct = new CounterForm();
-            DismissConstruct.SetType(CounterForm.CounterType.DismissCreature);
+            CounterForm dismissConstruct = new CounterForm();
+            dismissConstruct.SetType(CounterForm.CounterType.DismissCreature);
 
             EffectForm effect = new EffectForm
             {
                 FormType = EffectForm.EffectFormType.Counter
             };
-            effect.SetCounterForm(DismissConstruct);
+            effect.SetCounterForm(dismissConstruct);
             effect.HasSavingThrow = false;
             effect.SetCreatedByCharacter(true);
 
@@ -176,7 +168,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             });
 
             Definition.SetEffectDescription(effectDescription);
-
         }
 
         public static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -184,9 +175,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new DismissConstructBuilder(name, guid).AddToDB();
         }
 
-        public static SpellDefinition DismissConstruct = CreateAndAddToDB(Name, Guid);
+        public static readonly SpellDefinition DismissConstruct = CreateAndAddToDB(Name, Guid);
     }
-
 
     //*****************************************************************************************************************************************
     //***********************************		ArtificialServantBuilder		*******************************************************************
@@ -199,8 +189,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected ArtificialServantBuilder(string name, string guid) : base(DatabaseHelper.MonsterDefinitions.Fire_Jester, name, guid)
         {
-
-
             Definition.GuiPresentation.Title = "Feat/&ArtificialServantTitle";
             Definition.GuiPresentation.Description = "Feat/&ArtificialServantDescription";
             Definition.MonsterPresentation.SetUniqueNameTitle("Feat/&ArtificialServantTitle");
@@ -242,8 +230,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.SkillScores.Add(Stealth);
             Definition.SkillScores.Add(Perception);
 
-
-
             Definition.SetFullyControlledWhenAllied(true);
             Definition.SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None);
             Definition.SetStandardHitPoints(10);
@@ -265,7 +251,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.Features.Add(DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity);
             // Definition.Features.Add(DatabaseHelper.);
 
-
             Definition.AttackIterations.Clear();
             MonsterAttackIteration monsterAttackIteration = new MonsterAttackIteration();
             monsterAttackIteration.SetField("monsterAttackDefinition", ArtificialServantAttackBuilder.ArtificialServantAttack);
@@ -276,7 +261,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.MonsterPresentation.SetFemalePrefabReference(new UnityEngine.AddressableAssets.AssetReference("ab0501343e8629149ae0aa4dace755f5"));
             Definition.MonsterPresentation.SetMaleModelScale(0.2f);
             Definition.MonsterPresentation.SetFemaleModelScale(0.2f);
-
         }
 
         public static MonsterDefinition CreateAndAddToDB(string name, string guid)
@@ -284,9 +268,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ArtificialServantBuilder(name, guid).AddToDB();
         }
 
-        public static MonsterDefinition ArtificialServant = CreateAndAddToDB(ArtificialServantName, ArtificialServantGuid);
-
-
+        public static readonly MonsterDefinition ArtificialServant = CreateAndAddToDB(ArtificialServantName, ArtificialServantGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -300,7 +282,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected ArtificialServantAttackBuilder(string name, string guid) : base(DatabaseHelper.MonsterAttackDefinitions.Attack_Goblin_PebbleThrow, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feat/&ArtificialServantAttackTitle";
             Definition.GuiPresentation.Description = "Feat/&ArtificialServantAttackDescription";
 
@@ -314,12 +295,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 }
             };
 
-            int assumedIntModifier = 3;
-            int assumedProficiencyBonus = 2;
+            const int assumedIntModifier = 3;
+            const int assumedProficiencyBonus = 2;
             damageEffect.DamageForm.BonusDamage = assumedProficiencyBonus;
             damageEffect.DamageForm.DamageType = "DamageForce";
-
-
 
             //Add to our new effect
             EffectDescription newEffectDescription = new EffectDescription();
@@ -337,15 +316,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             // newEffectDescription.SetEffectParticleParameters(DatabaseHelper.SpellDefinitions.ShadowDagger.EffectDescription.EffectParticleParameters);
             newEffectDescription.SetEffectParticleParameters(DatabaseHelper.MonsterAttackDefinitions.Attack_Goblin_PebbleThrow.EffectDescription.EffectParticleParameters);
 
-
             Definition.SetEffectDescription(newEffectDescription);
 
             Definition.SetToHitBonus(assumedIntModifier + assumedProficiencyBonus);
-
-
-
-
-
         }
 
         public static MonsterAttackDefinition CreateAndAddToDB(string name, string guid)
@@ -353,9 +326,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ArtificialServantAttackBuilder(name, guid).AddToDB();
         }
 
-        public static MonsterAttackDefinition ArtificialServantAttack = CreateAndAddToDB(ArtificialServantAttacksListName, ArtificialServantAttacksListGuid);
-
-
+        public static readonly MonsterAttackDefinition ArtificialServantAttack = CreateAndAddToDB(ArtificialServantAttacksListName, ArtificialServantAttacksListGuid);
     }
     internal class CancelFlyingConditionBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
     {
@@ -364,7 +335,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected CancelFlyingConditionBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionBootsWinged, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feat/&CancelFlyingConditionTitle";
             Definition.GuiPresentation.Description = "Feat/&CancelFlyingConditionDescription";
             Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.ExpeditiousRetreat.GuiPresentation.SpriteReference);
@@ -397,7 +367,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             effectDescription.EffectForms.Add(effect);
 
             Definition.SetEffectDescription(effectDescription);
-
         }
 
         public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
@@ -405,7 +374,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new CancelFlyingConditionBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionPower CancelFlyingCondition = CreateAndAddToDB(Name, Guid);
+        public static readonly FeatureDefinitionPower CancelFlyingCondition = CreateAndAddToDB(Name, Guid);
     }
 }
-

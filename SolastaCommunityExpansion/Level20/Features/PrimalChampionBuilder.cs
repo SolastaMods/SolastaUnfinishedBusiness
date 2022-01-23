@@ -10,13 +10,14 @@ namespace SolastaCommunityExpansion.Level20.Features
 
         protected PrimalChampionBuilder(string name, string guid) : base(name, guid)
         {
-
             Definition.GuiPresentation.Description = "Feature/&PrimalChampionDescription";
             Definition.GuiPresentation.Title = "Feature/&PrimalChampionTitle";
         }
 
         private static PrimalChampion CreateAndAddToDB(string name, string guid)
-            => new PrimalChampionBuilder(name, guid).AddToDB();
+        {
+            return new PrimalChampionBuilder(name, guid).AddToDB();
+        }
 
         internal static readonly PrimalChampion PrimalChampion =
             CreateAndAddToDB(PrimalChampionName, PrimalChampionGuid);

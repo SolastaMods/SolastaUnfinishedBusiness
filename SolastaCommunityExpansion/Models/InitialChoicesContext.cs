@@ -123,7 +123,6 @@ namespace SolastaCommunityExpansion.Models
 
             BuildFeatureUnlocks(initialFeats, alternateHuman, out FeatureUnlockByLevel featureUnlockByLevelNonHuman, out FeatureUnlockByLevel featureUnlockByLevelHuman);
 
-
             foreach (var characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>().GetAllElements())
             {
                 if (!IsSubRace(characterRaceDefinition))

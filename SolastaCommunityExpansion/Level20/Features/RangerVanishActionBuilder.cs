@@ -19,7 +19,9 @@ namespace SolastaCommunityExpansion.Level20.Features
         }
 
         private static FeatureDefinitionActionAffinity CreateAndAddToDB(string name, string guid)
-            => new RangerVanishActionBuilder(name, guid).AddToDB();
+        {
+            return new RangerVanishActionBuilder(name, guid).AddToDB();
+        }
 
         internal static readonly FeatureDefinitionActionAffinity RangerVanishAction
             = CreateAndAddToDB(RangerVanishActionName, RangerVanishActionGuid);

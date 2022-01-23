@@ -1,7 +1,6 @@
-﻿using HarmonyLib;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
+using HarmonyLib;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Models
@@ -17,7 +16,7 @@ namespace SolastaCommunityExpansion.Models
             if (isUserText)
             {
                 var builder = new StringBuilder();
-                var fragments = itemDefinition.DocumentDescription.ContentFragments.Select(x => x.Text).ToList();
+                var fragments = itemDefinition.DocumentDescription.ContentFragments.ConvertAll(x => x.Text);
 
                 fragments.ForEach(x => builder.Append(x));
                 LogEntry(itemDefinition.FormatTitle(), builder.ToString(), string.Empty, assetReferenceSprite);
@@ -49,12 +48,10 @@ namespace SolastaCommunityExpansion.Models
             private string assetGuid;
             private AssetReferenceSprite assetReferenceSprite;
             private List<GameAdventureConversationInfo> conversationInfos = new List<GameAdventureConversationInfo>();
-            private readonly List<TextBreaker> textBreakers = new List<TextBreaker>();
             private string title;
 
             public GameAdventureEntryDungeonMaker()
             {
-
             }
 
             public GameAdventureEntryDungeonMaker(AdventureLogDefinition adventureLogDefinition, string header, string text, string actorName, AssetReferenceSprite sprite) : base(adventureLogDefinition)
@@ -62,7 +59,7 @@ namespace SolastaCommunityExpansion.Models
                 assetGuid = assetReferenceSprite == null ? string.Empty : assetReferenceSprite.AssetGUID;
                 assetReferenceSprite = sprite;
                 conversationInfos.Add(new GameAdventureConversationInfo(actorName, text, actorName != ""));
-                textBreakers.Add(new TextBreaker());
+                TextBreakers.Add(new TextBreaker());
                 title = header;
             }
 
@@ -78,7 +75,7 @@ namespace SolastaCommunityExpansion.Models
 
             public override AssetReference IllustrationReference => assetReferenceSprite;
 
-            public List<TextBreaker> TextBreakers => textBreakers;
+            public List<TextBreaker> TextBreakers { get; } = new List<TextBreaker>();
 
             public string Title => title;
 
@@ -87,9 +84,9 @@ namespace SolastaCommunityExpansion.Models
                 base.ComputeHeight(areaWidth, textCompute);
                 Height = AdventureLogDefinition.ConversationHeaderHeight;
 
-                for (var i = 0; i < textBreakers.Count; ++i)
+                for (var i = 0; i < TextBreakers.Count; ++i)
                 {
-                    var textBreaker = textBreakers[i];
+                    var textBreaker = TextBreakers[i];
 
                     if (conversationInfos[i].ActorName != "")
                     {
@@ -137,7 +134,7 @@ namespace SolastaCommunityExpansion.Models
                         captionHashes.Add(hashCode);
                     }
 
-                    textBreakers.Add(new TextBreaker());
+                    TextBreakers.Add(new TextBreaker());
                 }
             }
         }

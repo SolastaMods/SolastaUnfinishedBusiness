@@ -14,8 +14,6 @@ namespace SolastaCommunityExpansion.Helpers
         /// <param name="actor"></param>
         /// <param name="populateActorFeaturesToBrowse">Set to true to populate actor.FeaturesToBrowse as well as returning features.  false to just return features.</param>
         /// <param name="featuresOrigin"></param>
-        /// <returns></returns>
-        /// <summary>
         public static ICollection<T> EnumerateFeaturesToBrowse<T>(
             this RulesetActor actor, bool populateActorFeaturesToBrowse = false, Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin = null)
         {

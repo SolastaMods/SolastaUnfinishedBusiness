@@ -15,18 +15,12 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
 
         #region DcIncreaseAffinity
         private static FeatureDefinitionMagicAffinity _dcIncreaseAffinity;
-        private static FeatureDefinitionMagicAffinity DcIncreaseAffinity
-        {
-            get
-            {
-                return _dcIncreaseAffinity = _dcIncreaseAffinity ??
+        private static FeatureDefinitionMagicAffinity DcIncreaseAffinity => _dcIncreaseAffinity = _dcIncreaseAffinity ??
                     new FeatureDefinitionMagicAffinityBuilder(
                         "MagicAffinityRoguishConArtistDC",
                         GuidHelper.Create(SubclassNamespace, "MagicAffinityRoguishConArtistDC").ToString(),
                         GetSpellDCPresentation().Build())
                             .SetCastingModifiers(0, Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc, false, false, false).AddToDB();
-            }
-        }
         #endregion
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
@@ -121,9 +115,9 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             public AdvantageBuilder(string name, string guid, ConditionDefinition original, GuiPresentation guiPresentation) : base(original, name, guid)
             {
                 Definition.SetGuiPresentation(guiPresentation);
-                Definition.SetField("specialInterruptions", (new List<RuleDefinitions.ConditionInterruption>() {
+                Definition.SetField("specialInterruptions", new List<RuleDefinitions.ConditionInterruption>() {
                     RuleDefinitions.ConditionInterruption.Attacked,
-                }));
+                });
                 Definition.SetAdditionalDamageWhenHit(true);
                 Definition.SetAdditionalDamageDieType(RuleDefinitions.DieType.D8);
                 Definition.SetAdditionalDamageDieNumber(3);

@@ -1,7 +1,7 @@
-﻿using SolastaModApi;
+﻿using System.Collections.Generic;
+using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using System.Collections.Generic;
 using static SolastaModApi.DatabaseHelper.SchoolOfMagicDefinitions;
 
 namespace SolastaCommunityExpansion.Features

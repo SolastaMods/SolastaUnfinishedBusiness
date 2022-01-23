@@ -113,10 +113,10 @@ namespace SolastaCommunityExpansion.Models
 
             heroCharacter.CharacterInventory.EnumerateAllItems(inventoryItems);
 
-            var attunedItems = inventoryItems.Select(i => new { Item = i, Name = i.AttunedToCharacter }).ToList();
+            var attunedItems = inventoryItems.ConvertAll(i => new { Item = i, Name = i.AttunedToCharacter });
             var customItems = inventoryItems.FindAll(i => Gui.GameLocation?.UserCampaign?.UserItems?.Exists(ui => ui.ReferenceItemDefinition == i.ItemDefinition) == true).ToList();
-            var heroItemGuids = heroCharacter.Items.Select(i => new { Item = i, i.Guid }).ToList();
-            var inventoryItemGuids = inventoryItems.Select(i => new { Item = i, i.Guid }).ToList();
+            var heroItemGuids = heroCharacter.Items.ConvertAll(i => new { Item = i, i.Guid });
+            var inventoryItemGuids = inventoryItems.ConvertAll(i => new { Item = i, i.Guid });
 
             try
             {

@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Level20
             var dbFeatureDefinitionCastSpell = DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>();
 
             foreach (var featureDefinitionCastSpell in dbFeatureDefinitionCastSpell
-                .Where(x => x.SpellCastingOrigin != FeatureDefinitionCastSpell.CastingOrigin.Monster))
+                .Where(x => x.SpellCastingOrigin != CastingOrigin.Monster))
             {
                 while (featureDefinitionCastSpell.KnownCantrips.Count < MOD_MAX_LEVEL + 1)
                 {
@@ -47,9 +47,9 @@ namespace SolastaCommunityExpansion.Level20
                     {
                         spellListDefinition.SpellsByLevel.Add(
                             new SpellListDefinition.SpellsByLevelDuplet
-                            { 
-                                Level = spellListDefinition.SpellsByLevel.Count, 
-                                Spells = new List<SpellDefinition>() 
+                            {
+                                Level = spellListDefinition.SpellsByLevel.Count,
+                                Spells = new List<SpellDefinition>()
                             });
                     }
                 }

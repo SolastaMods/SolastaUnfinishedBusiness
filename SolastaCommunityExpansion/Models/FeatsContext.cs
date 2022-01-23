@@ -1,9 +1,9 @@
-﻿using SolastaCommunityExpansion.Feats;
-using SolastaModApi.Extensions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using SolastaCommunityExpansion.Feats;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Models
 {

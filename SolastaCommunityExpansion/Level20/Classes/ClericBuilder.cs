@@ -1,5 +1,5 @@
-﻿using SolastaModApi.Extensions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using SolastaModApi.Extensions;
 using static SolastaCommunityExpansion.Level20.Features.PowerClericDivineInterventionImprovementBuilder;
 using static SolastaCommunityExpansion.Level20.Features.PowerClericTurnUndeadBuilder;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;

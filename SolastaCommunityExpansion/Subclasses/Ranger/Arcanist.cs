@@ -18,11 +18,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
         }
         internal override CharacterSubclassDefinition GetSubclass()
         {
-            if (Subclass == null)
-            {
-                Subclass = BuildAndAddSubclass();
-            }
-            return Subclass;
+            return Subclass ?? (Subclass = BuildAndAddSubclass());
         }
 
         private const string RangerArcanistRangerSubclassName = "RangerArcanistRangerSubclass";
@@ -306,7 +302,6 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
         }
     }
 
-
     // Creates a dedicated builder for the marked by arcanist condition. This helps with GUID wonkiness on the fact that separate features interact with it.
     internal class ConditionMarkedByArcanistBuilder : BaseDefinitionBuilder<ConditionDefinition>
     {
@@ -324,7 +319,9 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
         }
 
         public static ConditionDefinition CreateAndAddToDB()
-            => new ConditionMarkedByArcanistBuilder("ConditionMarkedByArcanist", GuidHelper.Create(Arcanist.RA_BASE_GUID, "ConditionMarkedByArcanist").ToString()).AddToDB();
+        {
+            return new ConditionMarkedByArcanistBuilder("ConditionMarkedByArcanist", GuidHelper.Create(Arcanist.RA_BASE_GUID, "ConditionMarkedByArcanist").ToString()).AddToDB();
+        }
 
         public static ConditionDefinition GetOrAdd()
         {

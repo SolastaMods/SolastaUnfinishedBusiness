@@ -1,5 +1,5 @@
-﻿using ModKit;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using ModKit;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {

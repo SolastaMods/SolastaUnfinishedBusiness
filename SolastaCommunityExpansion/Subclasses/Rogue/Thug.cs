@@ -43,7 +43,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                 .SetGuiPresentation(guiPresentation)
                 .AddFeatureAtLevel(new RemoveGrantedFeatureBuilder(
                     featureName,
-                    GuidHelper.Create(Thug.SubclassNamespace, featureName).ToString(),
+                    GuidHelper.Create(SubclassNamespace, featureName).ToString(),
                     AdditionalDamageRogueSneakAttack,
                     1,
                     DatabaseHelper.CharacterClassDefinitions.Rogue).AddToDB(), 3)
@@ -63,11 +63,13 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             {
                 Definition.GuiPresentation.Title = "Feature/&KSRogueSubclassThugExploitVulnerabilitiesSneakAttackTitle";
                 Definition.GuiPresentation.Description = "Feature/&KSRogueSubclassThugExploitVulnerabilitiesSneakAttackDescription";
-                FeatureDefinitionAdditionalDamageExtensions.SetRequiredProperty(Definition, RuleDefinitions.AdditionalDamageRequiredProperty.None);
+                Definition.SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty.None);
             }
 
             private static FeatureDefinitionAdditionalDamage CreateAndAddToDB(string name, string guid)
-                => new RogueSubclassThugExploitVulnerabilitiesSneakAttackBuilder(name, guid).AddToDB();
+            {
+                return new RogueSubclassThugExploitVulnerabilitiesSneakAttackBuilder(name, guid).AddToDB();
+            }
 
             internal static readonly FeatureDefinitionAdditionalDamage ExploitVulnerabilities =
                 CreateAndAddToDB(ExploitVulnerabilitiesName, ExploitVulnerabilitiesGuid);
@@ -82,13 +84,15 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             {
                 Definition.GuiPresentation.Title = "Feature/&KSRogueSubclassThugProficienciesTitle";
                 Definition.GuiPresentation.Description = "Feature/&KSRogueSubclassThugProficienciesDescription";
-                FeatureDefinitionProficiencyExtensions.SetProficiencyType(Definition, RuleDefinitions.ProficiencyType.Armor);
+                Definition.SetProficiencyType(RuleDefinitions.ProficiencyType.Armor);
                 Definition.Proficiencies.Add("MediumArmorCategory");
                 Definition.Proficiencies.Add("ShieldCategory");
             }
 
             private static FeatureDefinitionProficiency CreateAndAddToDB(string name, string guid)
-                => new RogueSubclassThugProficienciesBuilder(name, guid).AddToDB();
+            {
+                return new RogueSubclassThugProficienciesBuilder(name, guid).AddToDB();
+            }
 
             internal static readonly FeatureDefinitionProficiency ThugProficiencies =
                 CreateAndAddToDB(RogueSubclassThugProficienciesName, RogueSubclassThugProficienciesGuid);
@@ -108,7 +112,9 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             }
 
             private static FeatureDefinitionActionAffinity CreateAndAddToDB(string name, string guid)
-                => new RogueSubclassThugBrutalMethodsBuilder(name, guid).AddToDB();
+            {
+                return new RogueSubclassThugBrutalMethodsBuilder(name, guid).AddToDB();
+            }
 
             internal static readonly FeatureDefinitionActionAffinity ThugBrutalMethods =
                 CreateAndAddToDB(RogueSubclassThugBrutalMethodsName, RogueSubclassThugBrutalMethodsGuid);
@@ -121,11 +127,13 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
 
             private RogueSubclassThugBrutalMethodsActionBuilder(string name, string guid) : base(DatabaseHelper.ActionDefinitions.ShoveBonus, name, guid)
             {
-                ActionDefinitionExtensions.SetId(Definition, (ActionDefinitions.Id)THUG_BONUS_SHOVE_ACTION_ID);
+                Definition.SetId((ActionDefinitions.Id)THUG_BONUS_SHOVE_ACTION_ID);
             }
 
             private static ActionDefinition CreateAndAddToDB(string name, string guid)
-                => new RogueSubclassThugBrutalMethodsActionBuilder(name, guid).AddToDB();
+            {
+                return new RogueSubclassThugBrutalMethodsActionBuilder(name, guid).AddToDB();
+            }
 
             internal static readonly ActionDefinition ThugBrutalMethodsAction
                 = CreateAndAddToDB(RogueSubclassThugBrutalMethodsActionName, RogueSubclassThugBrutalMethodsActionGuid);
@@ -149,7 +157,9 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             }
 
             private static FeatureDefinitionAbilityCheckAffinity CreateAndAddToDB(string name, string guid)
-                => new RogueSubclassThugOvercomeCompetitionBuilder(name, guid).AddToDB();
+            {
+                return new RogueSubclassThugOvercomeCompetitionBuilder(name, guid).AddToDB();
+            }
 
             internal static readonly FeatureDefinitionAbilityCheckAffinity ThugOvercomeCompetition =
                 CreateAndAddToDB(RogueSubclassThugOvercomeCompetitionName, RogueSubclassThugOvercomeCompetitionGuid);

@@ -123,6 +123,5 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetGuiPresentation(gui);
             return this;
         }
-
     }
 }

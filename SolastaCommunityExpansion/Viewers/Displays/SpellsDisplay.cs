@@ -1,8 +1,8 @@
-﻿using ModKit;
+﻿using System.Collections.Generic;
+using System.Linq;
+using ModKit;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
@@ -136,7 +136,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 var spellName = spellDefinition.Name;
                 var spellTitle = $"{spellDefinition.SpellLevel} - {spellDefinition.FormatTitle()}";
 
-                if (IsFromOtherModList.ElementAt(i))
+                if (IsFromOtherModList[i])
                 {
                     spellTitle = spellTitle.color(RGBA.brown);
                 }

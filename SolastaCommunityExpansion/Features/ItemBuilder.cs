@@ -1,9 +1,9 @@
-﻿using SolastaModApi;
-using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaModApi;
+using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Features
 {
@@ -103,7 +103,6 @@ namespace SolastaCommunityExpansion.Features
 
         public static ItemDefinition BuildNewMagicWeapon(Guid collectionGuid, ItemDefinition baseItem, ItemDefinition magicalExample, string name)
         {
-
             string itemName = "Enchanted_" + baseItem.Name + "_" + name;
             ItemDefinitionBuilder builder = new ItemDefinitionBuilder(baseItem, itemName, GuidHelper.Create(collectionGuid, itemName).ToString());
             // Set is magical

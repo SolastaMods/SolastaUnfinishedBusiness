@@ -31,7 +31,9 @@ namespace SolastaCommunityExpansion.Level20.Features
         }
 
         private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-            => new PowerPaladinCleansingTouchBuilder(name, guid).AddToDB();
+        {
+            return new PowerPaladinCleansingTouchBuilder(name, guid).AddToDB();
+        }
 
         internal static readonly FeatureDefinitionPower PowerPaladinCleansingTouch =
             CreateAndAddToDB(PowerPaladinCleansingTouchName, PowerPaladinCleansingTouchGuid);

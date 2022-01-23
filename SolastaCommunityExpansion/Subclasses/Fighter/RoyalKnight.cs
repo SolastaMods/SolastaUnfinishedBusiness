@@ -48,7 +48,9 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             }
 
             public static FeatureDefinitionAbilityCheckAffinity CreateAndAddToDB(string name, string guid)
-                => new RoyalEnvoyAbilityCheckAffinityBuilder(name, guid).AddToDB();
+            {
+                return new RoyalEnvoyAbilityCheckAffinityBuilder(name, guid).AddToDB();
+            }
 
             public static FeatureDefinitionAbilityCheckAffinity RoyalEnvoyAbilityCheckAffinity
                 => CreateAndAddToDB(RoyalEnvoyAbilityCheckName, RoyalEnvoyAbilityCheckGuid);
@@ -69,7 +71,9 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             }
 
             public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
-                 => new RoyalEnvoyFeatureBuilder(name, guid).AddToDB();
+            {
+                return new RoyalEnvoyFeatureBuilder(name, guid).AddToDB();
+            }
 
             public static FeatureDefinitionFeatureSet RoyalEnvoyFeatureSet
                 => CreateAndAddToDB(RoyalEnvoyFeatureName, RoyalEnvoyFeatureGuid);
@@ -94,19 +98,21 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 effectDescription.Copy(Definition.EffectDescription);
                 effectDescription.EffectForms[0].HealingForm.HealingCap = RuleDefinitions.HealingCap.MaximumHitPoints;
                 effectDescription.EffectForms[0].HealingForm.DiceNumber = 4;
-                FeatureDefinitionPowerExtensions.SetEffectDescription(Definition, effectDescription);
+                Definition.SetEffectDescription(effectDescription);
             }
 
             private void SetupGUI()
             {
                 Definition.GuiPresentation.Title = "Feature/&RallyingCryPowerTitle";
                 Definition.GuiPresentation.Description = "Feature/&RallyingCryPowerDescription";
-                FeatureDefinitionPowerExtensions.SetShortTitleOverride(Definition, "Feature/&RallyingCryPowerTitleShort");
-                GuiPresentationExtensions.SetSpriteReference(Definition.GuiPresentation, DatabaseHelper.SpellDefinitions.HealingWord.GuiPresentation.SpriteReference);
+                Definition.SetShortTitleOverride("Feature/&RallyingCryPowerTitleShort");
+                Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.HealingWord.GuiPresentation.SpriteReference);
             }
 
             public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-                => new RallyingCryPowerBuilder(name, guid).AddToDB();
+            {
+                return new RallyingCryPowerBuilder(name, guid).AddToDB();
+            }
 
             public static FeatureDefinitionPower RallyingCryPower
                 => CreateAndAddToDB(RallyingCryPowerName, RallyingCryPowerGuid);
@@ -145,19 +151,21 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                     effectDescription.EffectForms.Add(effectForm);
                 }
 
-                FeatureDefinitionPowerExtensions.SetEffectDescription(Definition, effectDescription);
+                Definition.SetEffectDescription(effectDescription);
             }
 
             private void SetupGUI()
             {
                 Definition.GuiPresentation.Title = "Feature/&InspiringSurgePowerTitle";
                 Definition.GuiPresentation.Description = "Feature/&InspiringSurgePowerDescription";
-                FeatureDefinitionPowerExtensions.SetShortTitleOverride(Definition, "Feature/&InspiringSurgePowerTitleShort");
-                GuiPresentationExtensions.SetSpriteReference(Definition.GuiPresentation, DatabaseHelper.SpellDefinitions.Heroism.GuiPresentation.SpriteReference);
+                Definition.SetShortTitleOverride("Feature/&InspiringSurgePowerTitleShort");
+                Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Heroism.GuiPresentation.SpriteReference);
             }
 
             public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-                => new InspiringSurgePowerBuilder(name, guid).AddToDB();
+            {
+                return new InspiringSurgePowerBuilder(name, guid).AddToDB();
+            }
 
             public static FeatureDefinitionPower InspiringSurgePower
                 => CreateAndAddToDB(InspiringSurgePowerName, InspiringSurgePowerNameGuid);

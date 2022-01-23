@@ -1,9 +1,9 @@
-﻿using SolastaCommunityExpansion.Builders;
-using SolastaCommunityExpansion.Features;
-using SolastaModApi;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Features;
+using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Feats
 {
@@ -365,7 +365,6 @@ namespace SolastaCommunityExpansion.Feats
             EffectParticleParameters particleParams = new EffectParticleParameters();
             particleParams.Copy(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters);
             effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
-
 
             return BuildPowerFromEffectDescription(usesPerRecharge, usesDetermination, activationTime, costPerUse, recharge,
                 false, false, savingThrowDifficultyAbility, effectDescriptionBuilder.Build(), name, guiPresentation);

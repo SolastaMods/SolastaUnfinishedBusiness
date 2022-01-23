@@ -1,5 +1,5 @@
-﻿using SolastaModApi.Extensions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
@@ -8,7 +8,6 @@ namespace SolastaCommunityExpansion.Level20.Classes
 {
     internal static class DruidBuilder
     {
-
         internal static void Load()
         {
             // add missing progression

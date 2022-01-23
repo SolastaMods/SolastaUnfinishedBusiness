@@ -1,8 +1,8 @@
-﻿using HarmonyLib;
+﻿using System.Collections.Generic;
+using HarmonyLib;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using UnityEngine.AddressableAssets;
-using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
@@ -17,7 +17,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected ForceArtilleryConstructBuilder(string name, string guid) : base(DatabaseHelper.MonsterDefinitions.Magic_Mouth, name, guid)
         {
-
             // can use set, need to copy individual parts of presentation
             //Definition.SetMonsterPresentation(DatabaseHelper.MonsterDefinitions.CubeOfLight.MonsterPresentation);
 
@@ -46,10 +45,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.AbilityScores.AddToArray(10);    // WIS
             Definition.AbilityScores.AddToArray(10);     // CHA
 
-
-
-
-
             Definition.SetFullyControlledWhenAllied(true);
             Definition.SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None);
             Definition.SetStandardHitPoints(15);
@@ -77,10 +72,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             // Definition.Features.Add(ForceArtilleryBuilder.ForceArtillery);
 
-
-
             Definition.AttackIterations.Clear();
-
 
             MonsterAttackIteration monsterAttackIteration = new MonsterAttackIteration();
 
@@ -90,11 +82,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             Definition.AttackIterations.AddRange(new List<MonsterAttackIteration> { monsterAttackIteration });
 
-
             Definition.CreatureTags.Add("ScalingTinkererArtilleryConstruct");
-
-
-
         }
 
         public static MonsterDefinition CreateAndAddToDB(string name, string guid)
@@ -102,11 +90,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ForceArtilleryConstructBuilder(name, guid).AddToDB();
         }
 
-        public static MonsterDefinition ForceArtilleryConstruct = CreateAndAddToDB(ForceArtilleryConstructName, ForceArtilleryConstructGuid);
-
-
+        public static readonly MonsterDefinition ForceArtilleryConstruct = CreateAndAddToDB(ForceArtilleryConstructName, ForceArtilleryConstructGuid);
     }
-
 
     //*****************************************************************************************************************************************
     //***********************************		ForceArtilleryConstruct_9Builder		*******************************************************************
@@ -126,7 +111,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.Features.Add(ForceArtilleryAdditionalDamageBuilder.ForceArtilleryAdditionalDamage);
 
             Definition.Features.Add(SelfDestructBuilder.SelfDestruct);
-
         }
 
         public static MonsterDefinition CreateAndAddToDB(string name, string guid)
@@ -134,12 +118,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ForceArtilleryConstruct_9Builder(name, guid).AddToDB();
         }
 
-        public static MonsterDefinition ForceArtilleryConstruct_9 = CreateAndAddToDB(ForceArtilleryConstruct_9Name, ForceArtilleryConstruct_9Guid);
-
-
+        public static readonly MonsterDefinition ForceArtilleryConstruct_9 = CreateAndAddToDB(ForceArtilleryConstruct_9Name, ForceArtilleryConstruct_9Guid);
     }
-
-
 
     //*****************************************************************************************************************************************
     //***********************************		ForceArtilleryConstruct_15Builder		*******************************************************************
@@ -156,7 +136,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.GuiPresentation.Description = "Feat/&ForceArtilleryConstructDescription_3";
 
             Definition.Features.Add(HalfCoverShieldBuilder.HalfCoverShield);
-
         }
 
         public static MonsterDefinition CreateAndAddToDB(string name, string guid)
@@ -164,11 +143,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ForceArtilleryConstruct_15Builder(name, guid).AddToDB();
         }
 
-        public static MonsterDefinition ForceArtilleryConstruct_15 = CreateAndAddToDB(ForceArtilleryConstruct_15Name, ForceArtilleryConstruct_15Guid);
-
-
+        public static readonly MonsterDefinition ForceArtilleryConstruct_15 = CreateAndAddToDB(ForceArtilleryConstruct_15Name, ForceArtilleryConstruct_15Guid);
     }
-
 
     //*****************************************************************************************************************************************
     //***********************************		SummonForceArtillerySpellConstructBuilder		*******************************************************************
@@ -181,7 +157,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected SummonForceArtillerySpellConstructBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.DancingLights, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feature/&ForceArtilleryModePowerTitle";
             Definition.GuiPresentation.Description = "Feature/&ForceArtilleryModePowerDescription";
             Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation.SpriteReference);
@@ -191,11 +166,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.SetUniqueInstance(true);
             Definition.SetCastingTime(RuleDefinitions.ActivationTime.Action);
 
-
-
             Definition.SetEffectDescription(ArtilleryConstructlevel03FeatureSetBuilder.ForceArtillery_03modepower.EffectDescription);
-
-
         }
 
         public static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -203,11 +174,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SummonForceArtillerySpellConstructBuilder(name, guid).AddToDB();
         }
 
-        public static SpellDefinition SummonForceArtilleryConstruct = CreateAndAddToDB(SummonForceArtilleryConstructName, SummonForceArtilleryConstructGuid);
-
+        public static readonly SpellDefinition SummonForceArtilleryConstruct = CreateAndAddToDB(SummonForceArtilleryConstructName, SummonForceArtilleryConstructGuid);
     }
-
-
 
     //*****************************************************************************************************************************************
     //***********************************		SummonForceArtillerySpellConstruct_9Builder		*******************************************************************
@@ -220,14 +188,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected SummonForceArtillerySpellConstruct_9Builder(string name, string guid) : base(SummonForceArtillerySpellConstructBuilder.SummonForceArtilleryConstruct, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feature/&ForceArtillery_09ModePowerTitle";
             Definition.GuiPresentation.Description = "Feature/&ForceArtillery_09ModePowerDescription";
 
             Definition.EffectDescription.EffectForms[0].SummonForm.SetMonsterDefinitionName(ForceArtilleryConstruct_9Builder.ForceArtilleryConstruct_9.Name);
             //
-
-
 
         }
 
@@ -236,11 +201,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SummonForceArtillerySpellConstruct_9Builder(name, guid).AddToDB();
         }
 
-        public static SpellDefinition SummonForceArtilleryConstruct_9 = CreateAndAddToDB(SummonForceArtilleryConstruct_9Name, SummonForceArtilleryConstruct_9Guid);
-
+        public static readonly SpellDefinition SummonForceArtilleryConstruct_9 = CreateAndAddToDB(SummonForceArtilleryConstruct_9Name, SummonForceArtilleryConstruct_9Guid);
     }
-
-
 
     //*****************************************************************************************************************************************
     //***********************************		SummonForceArtillerySpellConstruct_15Builder		*******************************************************************
@@ -253,17 +215,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected SummonForceArtillerySpellConstruct_15Builder(string name, string guid) : base(SummonForceArtillerySpellConstructBuilder.SummonForceArtilleryConstruct, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feature/&ForceArtillery_15ModePowerTitle";
             Definition.GuiPresentation.Description = "Feature/&ForceArtillery_15ModePowerDescription";
             Definition.SetUniqueInstance(false);
 
             Definition.EffectDescription.EffectForms[0].SummonForm.SetMonsterDefinitionName(ForceArtilleryConstruct_15Builder.ForceArtilleryConstruct_15.Name);
-
-
-
-
-
         }
 
         public static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -271,11 +227,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SummonForceArtillerySpellConstruct_15Builder(name, guid).AddToDB();
         }
 
-        public static SpellDefinition SummonForceArtilleryConstruct_15 = CreateAndAddToDB(SummonForceArtilleryConstruct_15Name, SummonForceArtilleryConstruct_15Guid);
-
+        public static readonly SpellDefinition SummonForceArtilleryConstruct_15 = CreateAndAddToDB(SummonForceArtilleryConstruct_15Name, SummonForceArtilleryConstruct_15Guid);
     }
-
-
 
     internal class ForceArtilleryAttackBuilder : BaseDefinitionBuilder<MonsterAttackDefinition>
     {
@@ -284,7 +237,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected ForceArtilleryAttackBuilder(string name, string guid) : base(DatabaseHelper.MonsterAttackDefinitions.Attack_Orc_Grimblade_IceDagger, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feature/&ForceArtilleryTitle";
             Definition.GuiPresentation.Description = "Feat/&ForceArtilleryDescription";
             Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation.SpriteReference);
@@ -332,7 +284,7 @@ Web
             effectmotion.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
             effectmotion.SetApplyLevel(EffectForm.LevelApplianceType.No);
 
-            DamageForm ForceArtilleryAttack = new DamageForm
+            DamageForm forceArtilleryAttack = new DamageForm
             {
                 DieType = RuleDefinitions.DieType.D8,
                 DiceNumber = 2,
@@ -343,7 +295,7 @@ Web
             EffectForm effect = new EffectForm
             {
                 FormType = EffectForm.EffectFormType.Damage,
-                DamageForm = (ForceArtilleryAttack)
+                DamageForm = forceArtilleryAttack
             };
             effect.SetCreatedByCharacter(true);
             effect.HasSavingThrow = false;
@@ -369,7 +321,6 @@ Web
             EffectParticleParameters effectParticleParameters = new EffectParticleParameters();
             effectParticleParameters.Copy(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters);
             Definition.EffectDescription.SetEffectParticleParameters(effectParticleParameters);
-
         }
 
         public static MonsterAttackDefinition CreateAndAddToDB(string name, string guid)
@@ -377,9 +328,7 @@ Web
             return new ForceArtilleryAttackBuilder(name, guid).AddToDB();
         }
 
-        public static MonsterAttackDefinition ForceArtilleryAttack = CreateAndAddToDB(ForceArtilleryAttackName, ForceArtilleryAttackGuid);
-
-
+        public static readonly MonsterAttackDefinition ForceArtilleryAttack = CreateAndAddToDB(ForceArtilleryAttackName, ForceArtilleryAttackGuid);
     }
 
     internal class ForceArtilleryAdditionalDamageBuilder : BaseDefinitionBuilder<FeatureDefinitionAdditionalDamage>
@@ -389,7 +338,6 @@ Web
 
         protected ForceArtilleryAdditionalDamageBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageDomainLifeDivineStrike, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feature/&ForceArtilleryAdditionalDamageTitle";
             Definition.GuiPresentation.Description = "Feat/&ForceArtilleryAdditionalDamageDescription";
             Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation.SpriteReference);
@@ -400,7 +348,6 @@ Web
             Definition.SetDamageDieType(RuleDefinitions.DieType.D8);
             Definition.SetNotificationTag("UpgradedConstruct");
             Definition.SetLimitedUsage(RuleDefinitions.FeatureLimitedUsage.None);
-
         }
 
         public static FeatureDefinitionAdditionalDamage CreateAndAddToDB(string name, string guid)
@@ -408,13 +355,8 @@ Web
             return new ForceArtilleryAdditionalDamageBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionAdditionalDamage ForceArtilleryAdditionalDamage = CreateAndAddToDB(ForceArtilleryAdditionalDamageName, ForceArtilleryAdditionalDamageGuid);
-
-
+        public static readonly FeatureDefinitionAdditionalDamage ForceArtilleryAdditionalDamage = CreateAndAddToDB(ForceArtilleryAdditionalDamageName, ForceArtilleryAdditionalDamageGuid);
     }
-
-
-
 
     internal class ForceArtilleryProjectileBuilder : BaseDefinitionBuilder<ItemDefinition>
     {
@@ -423,7 +365,6 @@ Web
 
         protected ForceArtilleryProjectileBuilder(string name, string guid) : base(DatabaseHelper.ItemDefinitions.OrcGrimblade_IceDagger, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Item/&ForceArtilleryProjectileTitle";
             Definition.GuiPresentation.Description = "Item/&ForceArtilleryProjectileDescription";
             Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation.SpriteReference);
@@ -431,7 +372,6 @@ Web
             EffectParticleParameters effectParticleParameters = new EffectParticleParameters();
             effectParticleParameters.Copy(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters);
             Definition.AmmunitionDescription.EffectDescription.SetEffectParticleParameters(effectParticleParameters);
-
         }
 
         public static ItemDefinition CreateAndAddToDB(string name, string guid)
@@ -439,9 +379,6 @@ Web
             return new ForceArtilleryProjectileBuilder(name, guid).AddToDB();
         }
 
-        public static ItemDefinition ForceArtilleryProjectile = CreateAndAddToDB(ForceArtilleryProjectileName, ForceArtilleryProjectileGuid);
-
-
+        public static readonly ItemDefinition ForceArtilleryProjectile = CreateAndAddToDB(ForceArtilleryProjectileName, ForceArtilleryProjectileGuid);
     }
 }
-

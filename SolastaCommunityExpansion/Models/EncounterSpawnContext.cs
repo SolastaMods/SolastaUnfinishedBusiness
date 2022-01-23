@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using TA;
-using UnityEngine;
 using static SolastaModApi.DatabaseHelper.DecisionPackageDefinitions;
 using static SolastaModApi.DatabaseHelper.FactionDefinitions;
 using static SolastaModApi.DatabaseHelper.FormationDefinitions;
@@ -106,7 +105,7 @@ namespace SolastaCommunityExpansion.Models
                     "Message/&SpawnCustomEncounterTitle",
                     Gui.Format("Message/&SpawnCustomEncounterDescription", position.x.ToString(), position.x.ToString()),
                     "Message/&MessageYesTitle", "Message/&MessageNoTitle",
-                    new MessageModal.MessageValidatedHandler(() => { StageEncounter(position); }),
+                    new MessageModal.MessageValidatedHandler(() => StageEncounter(position)),
                     null);
             }
         }

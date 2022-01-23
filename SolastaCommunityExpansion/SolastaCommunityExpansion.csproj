@@ -45,22 +45,22 @@
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 	  <WarningLevel>5</WarningLevel>
-	  <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+	  <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 	  <WarningLevel>5</WarningLevel>
-	  <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+	  <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Install|AnyCPU'">
 	  <WarningLevel>5</WarningLevel>
-	  <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+	  <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Install|AnyCPU'">
 	  <WarningLevel>5</WarningLevel>
-	  <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+	  <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
 	</PropertyGroup>
 
 	<ItemGroup>

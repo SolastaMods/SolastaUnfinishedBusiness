@@ -1,14 +1,12 @@
-﻿using ModKit;
+﻿using System.Linq;
+using ModKit;
 using SolastaCommunityExpansion.Models;
-using System.Linq;
 using static SolastaCommunityExpansion.Viewers.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class ItemsAndCraftingDisplay
     {
-
-
         private static void AddUIForWeaponKey(string key)
         {
             bool toggle;

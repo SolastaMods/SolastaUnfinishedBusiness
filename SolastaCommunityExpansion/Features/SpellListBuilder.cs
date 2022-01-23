@@ -1,6 +1,6 @@
-﻿using SolastaModApi;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Features
 {

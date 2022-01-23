@@ -1,6 +1,6 @@
-﻿using SolastaModApi;
+﻿using System.Collections.Generic;
+using SolastaModApi;
 using SolastaModApi.Extensions;
-using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Features
 {
@@ -77,6 +77,5 @@ namespace SolastaCommunityExpansion.Features
             Definition.SetRitualCasting(ritualCasting);
             return this;
         }
-
     }
 }

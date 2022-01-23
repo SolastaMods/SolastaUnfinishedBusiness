@@ -1,10 +1,10 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using System;
+using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Features;
 using SolastaCommunityExpansion.FightingStyles;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi;
-using System;
-using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Feats
 {

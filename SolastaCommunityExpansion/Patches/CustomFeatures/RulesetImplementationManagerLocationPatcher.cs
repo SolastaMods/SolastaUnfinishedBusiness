@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using SolastaCommunityExpansion.Helpers;
-using HarmonyLib;
 using System.Linq;
+using HarmonyLib;
+using SolastaCommunityExpansion.Helpers;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {
@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
 
     internal static class RulesetImplementationManagerLocation_ApplySummonForm
     {
-        internal static Dictionary<string, int> ConditionToAmount { get; private set; } = new Dictionary<string, int>();
+        internal static Dictionary<string, int> ConditionToAmount { get; } = new Dictionary<string, int>();
 
         internal static void Prefix(
             EffectForm effectForm,
@@ -56,7 +56,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
                                             ConditionToAmount.AddOrReplace(addedCondition.Name, sourceAmount);
                                         }
                                         break;
-
                                 }
                             }
                         }

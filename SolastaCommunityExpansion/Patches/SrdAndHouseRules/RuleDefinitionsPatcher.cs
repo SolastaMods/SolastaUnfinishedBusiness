@@ -1,7 +1,7 @@
-﻿using HarmonyLib;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using HarmonyLib;
 using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules

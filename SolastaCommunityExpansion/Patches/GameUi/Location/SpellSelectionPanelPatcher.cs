@@ -1,8 +1,8 @@
-﻿using HarmonyLib;
-using SolastaModApi.Infrastructure;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using HarmonyLib;
+using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -72,7 +72,6 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
                                 spellLevelsOnLine = 0;
                                 needNewLine = true;
                                 indexOfLine = 0;
-
                             }
                         }
                     }
@@ -152,7 +151,6 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
                     case ActionDefinitions.ActionType.NoCost:
                         spellActivationTime = RuleDefinitions.ActivationTime.NoCost;
                         break;
-
                 }
 
                 if (level == 0)
@@ -170,8 +168,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
 
                 if (spellRepertoire.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.Prepared &&
                     spellRepertoire.PreparedSpells
-                        .Where(spellDefinition => spellDefinition.SpellLevel == level)
-                        .Any(spellDefinition => spellDefinition.ActivationTime == spellActivationTime))
+                        .Any(spellDefinition =>
+                            spellDefinition.SpellLevel == level
+                            && spellDefinition.ActivationTime == spellActivationTime))
                 {
                     return true;
                 }

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using HarmonyLib;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -29,7 +28,9 @@ namespace SolastaCommunityExpansion.Models
             }
 
             private static RestActivityDefinition CreateAndAddToDB(string name, string guid)
-                => new RestActivityRespecBuilder(name, guid).AddToDB();
+            {
+                return new RestActivityRespecBuilder(name, guid).AddToDB();
+            }
 
             public static readonly RestActivityDefinition RestActivityRespec
                 = CreateAndAddToDB(RespecName, RespecGuid);
@@ -50,11 +51,20 @@ namespace SolastaCommunityExpansion.Models
 
             internal static bool IsRespecing => RespecState == RESPEC_STATE_RESPECING;
 
-            internal static void AbortRespec() => RespecState = RESPEC_STATE_ABORTED;
+            internal static void AbortRespec()
+            {
+                RespecState = RESPEC_STATE_ABORTED;
+            }
 
-            internal static void StartRespec() => RespecState = RESPEC_STATE_RESPECING;
+            internal static void StartRespec()
+            {
+                RespecState = RESPEC_STATE_RESPECING;
+            }
 
-            internal static void StopRespec() => RespecState = RESPEC_STATE_NORESPEC;
+            internal static void StopRespec()
+            {
+                RespecState = RESPEC_STATE_NORESPEC;
+            }
 
             private static readonly List<RulesetItemSpellbook> rulesetItemSpellbooks = new List<RulesetItemSpellbook>();
 

@@ -120,7 +120,7 @@ namespace SolastaCommunityExpansion.Builders
             RuleDefinitions.DieType dieType, int diceNumber, RuleDefinitions.HealFromInflictedDamage healFromInflictedDamage,
             params RuleDefinitions.TrendInfo[] damageBonusTrends)
         {
-            return SetDamageForm(versatile, versatileDieType, damageType, bonusDamage, dieType, 
+            return SetDamageForm(versatile, versatileDieType, damageType, bonusDamage, dieType,
                 diceNumber, healFromInflictedDamage, damageBonusTrends.AsEnumerable());
         }
 

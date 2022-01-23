@@ -20,7 +20,9 @@ namespace SolastaCommunityExpansion.Level20.Features
         }
 
         private static FeatureDefinition CreateAndAddToDB(string name, string guid)
-            => new IndomitableMightBuilder(name, guid).AddToDB();
+        {
+            return new IndomitableMightBuilder(name, guid).AddToDB();
+        }
 
         internal static readonly FeatureDefinition IndomitableMight =
             CreateAndAddToDB(IndomitableMightName, IndomitableMightGuid);

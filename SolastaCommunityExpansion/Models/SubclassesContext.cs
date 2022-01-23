@@ -1,13 +1,13 @@
-﻿using SolastaCommunityExpansion.Subclasses;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using SolastaCommunityExpansion.Subclasses;
 using SolastaCommunityExpansion.Subclasses.Barbarian;
 using SolastaCommunityExpansion.Subclasses.Druid;
 using SolastaCommunityExpansion.Subclasses.Fighter;
 using SolastaCommunityExpansion.Subclasses.Ranger;
 using SolastaCommunityExpansion.Subclasses.Rogue;
 using SolastaCommunityExpansion.Subclasses.Wizard;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -129,5 +129,4 @@ namespace SolastaCommunityExpansion.Models
             return outString.ToString();
         }
     }
-
 }

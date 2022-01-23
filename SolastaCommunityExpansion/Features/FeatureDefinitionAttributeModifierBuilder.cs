@@ -19,5 +19,4 @@ namespace SolastaCommunityExpansion.Features
             return this;
         }
     }
-
 }

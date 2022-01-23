@@ -1,5 +1,5 @@
-﻿using SolastaCommunityExpansion.Builders;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders;
 
 namespace SolastaCommunityExpansion.Models
 {

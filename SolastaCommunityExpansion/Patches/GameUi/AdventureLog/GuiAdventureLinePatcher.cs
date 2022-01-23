@@ -1,6 +1,6 @@
-﻿using HarmonyLib;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.AdventureLog

@@ -269,7 +269,6 @@ namespace SolastaCommunityExpansion.Builders
                 case CasterProgression.THIRD_CASTER:
                     for (; level < 21; level++)
                     {
-
                         Definition.KnownSpells.Add(startingAmount +
                             // +2 here because third casters effectively "round up" for spells known
                             BonusSpellsKnownByCasterLevel[(level + 2) / 3] +
@@ -382,7 +381,7 @@ namespace SolastaCommunityExpansion.Builders
                         FeatureDefinitionCastSpell.SlotsByLevelDuplet slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
                         {
                             Level = level,
-                            Slots = SlotsByCasterLevel[(level - startingLevel) / 2 + 1]
+                            Slots = SlotsByCasterLevel[((level - startingLevel) / 2) + 1]
                         };
                         Definition.SlotsPerLevels.Add(slotsForLevel);
                     }
@@ -393,7 +392,7 @@ namespace SolastaCommunityExpansion.Builders
                         FeatureDefinitionCastSpell.SlotsByLevelDuplet slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
                         {
                             Level = level,
-                            Slots = SlotsByCasterLevel[(level - startingLevel + 2) / 3 + 1]
+                            Slots = SlotsByCasterLevel[((level - startingLevel + 2) / 3) + 1]
                         };
                         Definition.SlotsPerLevels.Add(slotsForLevel);
                     }

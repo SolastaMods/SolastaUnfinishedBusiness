@@ -1,6 +1,6 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 using SolastaCommunityExpansion.Models;
-using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.Monsters

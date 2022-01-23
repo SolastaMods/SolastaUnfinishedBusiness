@@ -19,11 +19,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         }
         internal override CharacterSubclassDefinition GetSubclass()
         {
-            if (Subclass == null)
-            {
-                Subclass = BuildAndAddSubclass();
-            }
-            return Subclass;
+            return Subclass ?? (Subclass = BuildAndAddSubclass());
         }
 
         private const string DruidForestGuardianDruidSubclassName = "DruidForestGuardianDruidSubclass";
@@ -231,7 +227,6 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
                 true).AddToDB();
             superiorBarkWard.SetOverriddenPower(improvedBarkWard);
 
-
             return new Dictionary<int, FeatureDefinitionPowerSharedPool>{
                 {2, barkWard},
                 {10, improvedBarkWard},
@@ -288,7 +283,9 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         }
 
         public static ConditionDefinition CreateAndAddToDB()
-            => new ConditionBarkWardBuilder("BarkWard", GuidHelper.Create(CircleOfTheForestGuardian.DFG_BASE_GUID, "BarkWard").ToString()).AddToDB();
+        {
+            return new ConditionBarkWardBuilder("BarkWard", GuidHelper.Create(CircleOfTheForestGuardian.DFG_BASE_GUID, "BarkWard").ToString()).AddToDB();
+        }
 
         public static ConditionDefinition GetOrAdd()
         {
@@ -315,8 +312,6 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
 
             EffectDescriptionBuilder improvedBarkWardRetaliationEffect = new EffectDescriptionBuilder();
             improvedBarkWardRetaliationEffect.AddEffectForm(damageEffect.Build());
-
-
 
             return new FeatureDefinitionPowerBuilder("improvedBarkWardRetaliate",
                 GuidHelper.Create(CircleOfTheForestGuardian.DFG_BASE_GUID, "improvedBarkWardRetaliate").ToString(),
@@ -362,11 +357,12 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             Definition.SetDurationParameter(10);
             Definition.SetDurationType(RuleDefinitions.DurationType.Minute);
             Definition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
-
         }
 
         public static ConditionDefinition CreateAndAddToDB()
-            => new ConditionImprovedBarkWardBuilder("ImprovedBarkWard", GuidHelper.Create(CircleOfTheForestGuardian.DFG_BASE_GUID, "ImprovedBarkWard").ToString()).AddToDB();
+        {
+            return new ConditionImprovedBarkWardBuilder("ImprovedBarkWard", GuidHelper.Create(CircleOfTheForestGuardian.DFG_BASE_GUID, "ImprovedBarkWard").ToString()).AddToDB();
+        }
 
         public static ConditionDefinition GetOrAdd()
         {
@@ -438,11 +434,12 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             Definition.SetDurationParameter(10);
             Definition.SetDurationType(RuleDefinitions.DurationType.Minute);
             Definition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
-
         }
 
         public static ConditionDefinition CreateAndAddToDB()
-            => new ConditionSuperiorBarkWardBuilder("SuperiorBarkWard", GuidHelper.Create(CircleOfTheForestGuardian.DFG_BASE_GUID, "SuperiorBarkWard").ToString()).AddToDB();
+        {
+            return new ConditionSuperiorBarkWardBuilder("SuperiorBarkWard", GuidHelper.Create(CircleOfTheForestGuardian.DFG_BASE_GUID, "SuperiorBarkWard").ToString()).AddToDB();
+        }
 
         public static ConditionDefinition GetOrAdd()
         {

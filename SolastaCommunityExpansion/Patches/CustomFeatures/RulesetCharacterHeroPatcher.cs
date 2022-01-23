@@ -32,7 +32,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             ritualSpells.AddRange(spellRepertoire.AutoPreparedSpells
                 .Where(s => s.Ritual)
                 .Where(s => spellRepertoire.MaxSpellLevelOfSpellCastingLevel >= s.SpellLevel));
-
         }
     }
 
@@ -105,9 +104,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         {
             foreach (FeatDefinition feat in feats)
             {
-                Models.CustomFeaturesContext.RecursiveGrantCustomFeatures(__instance, feat.Features);
+                CustomFeaturesContext.RecursiveGrantCustomFeatures(__instance, feat.Features);
             }
-
         }
     }
 
@@ -136,12 +134,11 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             hero.EnumerateFeaturesToBrowse<FeatureDefinitionPower>(hero.FeaturesToBrowse, null);
             foreach (FeatureDefinitionPower featureDefinitionPower in hero.FeaturesToBrowse.Cast<FeatureDefinitionPower>())
             {
-                if (featureDefinitionPower is IConditionalPower &&
-                    !(featureDefinitionPower as IConditionalPower).IsActive(hero))
+                if ((featureDefinitionPower as IConditionalPower)?.IsActive(hero) == false)
                 {
                     continue;
                 }
-                RulesetUsablePower rulesetUsablePower = hero.UsablePowers.FirstOrDefault(up => up.PowerDefinition == featureDefinitionPower);
+                RulesetUsablePower rulesetUsablePower = hero.UsablePowers.Find(up => up.PowerDefinition == featureDefinitionPower);
                 if (rulesetUsablePower != null)
                 {
                     // If we found a power that was already on the character, re-add the same instance.
@@ -233,7 +230,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
                 }
             }
 
-            return (null, null, hero.TrainedFeats.FirstOrDefault(tf => tf.Features.Contains(featureDefinition)));
+            return (null, null, hero.TrainedFeats.Find(tf => tf.Features.Contains(featureDefinition)));
         }
     }
 }

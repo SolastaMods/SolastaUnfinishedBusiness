@@ -1,8 +1,8 @@
-﻿using ModKit;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using ModKit;
 using UnityModManagerNet;
 
 #pragma warning disable IDE0130 // Namespace does not match folder structure
@@ -16,14 +16,30 @@ namespace SolastaCommunityExpansion
         internal static readonly string MOD_FOLDER = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
         [Conditional("DEBUG")]
-        internal static void Log(string msg) => Logger.Log(msg);
-        internal static void Error(Exception ex) => Logger?.Error(ex.ToString());
-        internal static void Error(string msg) => Logger?.Error(msg);
-        internal static void Warning(string msg) => Logger?.Warning(msg);
+        internal static void Log(string msg)
+        {
+            Logger.Log(msg);
+        }
+
+        internal static void Error(Exception ex)
+        {
+            Logger?.Error(ex.ToString());
+        }
+
+        internal static void Error(string msg)
+        {
+            Logger?.Error(msg);
+        }
+
+        internal static void Warning(string msg)
+        {
+            Logger?.Warning(msg);
+        }
+
         internal static UnityModManager.ModEntry.ModLogger Logger { get; private set; }
         internal static ModManager<Core, Settings> Mod { get; private set; }
         internal static MenuManager Menu { get; private set; }
-        internal static Settings Settings { get { return Mod.Settings; } }
+        internal static Settings Settings => Mod.Settings;
 
         internal static bool Load(UnityModManager.ModEntry modEntry)
         {

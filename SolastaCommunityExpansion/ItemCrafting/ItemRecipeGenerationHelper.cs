@@ -1,10 +1,10 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace SolastaCommunityExpansion.ItemCrafting
 {
@@ -50,7 +50,6 @@ namespace SolastaCommunityExpansion.ItemCrafting
                         StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore, craftingManual);
                     }
                 }
-
             }
         }
 
@@ -149,7 +148,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
                 recipes.Add(builder.AddToDB());
             }
 
-            string groupKey = "EnchantingIngredients";
+            const string groupKey = "EnchantingIngredients";
             Models.ItemCraftingContext.RecipeBooks.Add(groupKey, new List<ItemDefinition>());
 
             foreach (RecipeDefinition recipe in recipes)
@@ -203,7 +202,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
             };
             IEnumerable<RecipeDefinition> recipes = primedToBase.Keys.Select(item => CreatePrimingRecipe(baseGuid, primedToBase[item], item));
 
-            string groupKey = "PrimedItems";
+            const string groupKey = "PrimedItems";
             Models.ItemCraftingContext.RecipeBooks.Add(groupKey, new List<ItemDefinition>());
 
             foreach (RecipeDefinition recipe in recipes)
@@ -230,7 +229,6 @@ namespace SolastaCommunityExpansion.ItemCrafting
                 {DatabaseHelper.ItemDefinitions.CAERLEM_TirmarianHolySymbol, DatabaseHelper.ItemDefinitions.Art_Item_50_GP_JadePendant},
                 {DatabaseHelper.ItemDefinitions.BONEKEEP_MagicRune, DatabaseHelper.ItemDefinitions.Art_Item_25_GP_EngraveBoneDice},
                 {DatabaseHelper.ItemDefinitions.CaerLem_Gate_Plaque, DatabaseHelper.ItemDefinitions.Art_Item_25_GP_SilverChalice},
-
             };
             List<RecipeDefinition> recipes = new List<RecipeDefinition>();
             foreach (ItemDefinition item in ForgeryToIngredient.Keys)
@@ -265,7 +263,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
                 recipes.Add(builder.AddToDB());
             }
 
-            string groupKey = "RelicForgeries";
+            const string groupKey = "RelicForgeries";
             Models.ItemCraftingContext.RecipeBooks.Add(groupKey, new List<ItemDefinition>());
 
             foreach (RecipeDefinition recipe in recipes)

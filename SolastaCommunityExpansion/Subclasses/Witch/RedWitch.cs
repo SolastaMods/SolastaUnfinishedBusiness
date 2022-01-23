@@ -8,7 +8,6 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 {
     internal class RedWitch
     {
-
         public static readonly Guid RW_BASE_GUID = new Guid("3cc83deb-e681-4670-9340-33d08b61f599");
         private CharacterSubclassDefinition Subclass;
         public static CharacterClassDefinition WitchClass { get; private set; }
@@ -16,11 +15,7 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 
         internal CharacterSubclassDefinition GetSubclass(CharacterClassDefinition witchClass)
         {
-            if (Subclass == null)
-            {
-                Subclass = BuildAndAddSubclass(witchClass);
-            }
-            return Subclass;
+            return Subclass ?? (Subclass = BuildAndAddSubclass(witchClass));
         }
 
         private static void BuildRedMagic()
@@ -89,7 +84,6 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
                     .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                     .SetUniqueChoices(true)
                     .AddToDB();
-
         }
 
         private static void BuildProgression(CharacterSubclassDefinitionBuilder subclassBuilder)
@@ -99,7 +93,6 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 
         public static CharacterSubclassDefinition BuildAndAddSubclass(CharacterClassDefinition witchClassDefinition)
         {
-
             WitchClass = witchClassDefinition;
 
             var subclassGuiPresentation = new GuiPresentationBuilder(
@@ -118,6 +111,5 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 
             return subclassBuilder.AddToDB();
         }
-
     }
 }

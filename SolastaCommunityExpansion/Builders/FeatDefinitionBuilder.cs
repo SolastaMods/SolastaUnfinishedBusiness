@@ -30,7 +30,6 @@ namespace SolastaCommunityExpansion.Builders
 
         public FeatDefinitionBuilder(FeatDefinition original, string name, string guid) : base(original, name, guid)
         {
-
         }
 
         public FeatDefinitionBuilder SetFeatures(params FeatureDefinition[] features)

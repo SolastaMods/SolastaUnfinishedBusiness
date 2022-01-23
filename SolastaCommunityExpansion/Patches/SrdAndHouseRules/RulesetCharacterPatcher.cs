@@ -106,7 +106,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
 
             if (itemToUse == null)
             {
-                Main.Log($"Didn't find item.");
+                Main.Log("Didn't find item.");
 
                 return false;
             }
@@ -133,7 +133,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
             }
             else
             {
-                Main.Log($"Destroy item");
+                Main.Log("Destroy item");
 
                 __instance.CharacterInventory.DestroyItem(rulesetItem);
             }

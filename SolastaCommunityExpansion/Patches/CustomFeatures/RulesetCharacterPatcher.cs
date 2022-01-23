@@ -1,8 +1,8 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using System.Collections.Generic;
-using System.Linq;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures
@@ -66,7 +66,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
 
             int? modifiedMinRoll = RulesetCharacter_ResolveContestCheck.MinimumStrengthAbilityCheckDieRoll(__instance, baseBonus, rollModifier, proficiencyName);
 
-            if (modifiedMinRoll.HasValue && modifiedMinRoll.Value > minRoll)
+            if (modifiedMinRoll > minRoll)
             {
                 minRoll = modifiedMinRoll.Value;
             }
@@ -140,8 +140,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
 
             return featuresToBrowse
                 .OfType<IMinimumAbilityCheckTotal>()
-                .Select(feature => feature.MinimumStrengthAbilityCheckTotal(character, proficiencyName))
-                .Max();
+                .Max(feature => feature.MinimumStrengthAbilityCheckTotal(character, proficiencyName));
         }
     }
 
@@ -171,7 +170,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     {
         public static void Postfix(RulesetCharacter __instance)
         {
-            Models.CustomFeaturesContext.RechargeLinkedPowers(__instance, RuleDefinitions.RestType.LongRest);
+            CustomFeaturesContext.RechargeLinkedPowers(__instance, RuleDefinitions.RestType.LongRest);
         }
     }
 
@@ -184,7 +183,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         {
             if (!simulate)
             {
-                Models.CustomFeaturesContext.RechargeLinkedPowers(__instance, restType);
+                CustomFeaturesContext.RechargeLinkedPowers(__instance, restType);
             }
 
             // The player isn't recharging the shared pool features, just the pool.

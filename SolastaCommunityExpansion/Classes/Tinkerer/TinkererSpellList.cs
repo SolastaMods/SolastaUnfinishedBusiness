@@ -1,11 +1,11 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaModApi.Extensions;
-using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
-    internal class TinkererSpellList : BaseDefinitionBuilder<SpellListDefinition>
+    internal sealed class TinkererSpellList : BaseDefinitionBuilder<SpellListDefinition>
     {
         private TinkererSpellList(string name, string guid, GuiPresentation guiPresentation) : base(name, guid)
         {
