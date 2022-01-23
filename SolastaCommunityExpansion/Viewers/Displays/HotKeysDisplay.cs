@@ -41,10 +41,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.EnableHotkeyDebugOverlay = toggle;
             }
 
-            toggle = Main.Settings.EnableHotkeyDebugOverlay;
+            toggle = Main.Settings.EnableHotkeyZoomCamera;
             if (UI.Toggle($"Enable {hk('Z')}oom camera " + "[useful when taking dungeon screenshots for publishing]".yellow().italic(), ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.EnableHotkeyDebugOverlay = toggle;
+                Main.Settings.EnableHotkeyZoomCamera = toggle;
             }
 
             toggle = Main.Settings.EnableTeleportParty;
