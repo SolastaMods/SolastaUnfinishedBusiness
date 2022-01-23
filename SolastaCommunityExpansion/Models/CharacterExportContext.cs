@@ -64,7 +64,7 @@ namespace SolastaCommunityExpansion.Models
 
                 newFirstName = newFirstName.TrimStart();
 
-                if (newFirstName == string.Empty)
+                if (string.IsNullOrEmpty(newFirstName))
                 {
                     Gui.GuiService.ShowAlert("Message/&CharacterExportEmptyNameErrorDescription", "EA7171", 5);
                 }

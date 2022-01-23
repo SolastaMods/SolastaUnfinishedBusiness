@@ -6,3 +6,4 @@
 using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("CodeQuality", "IDE0079:Remove unnecessary suppression", Justification = "<Pending>", Scope = "namespace", Target = "~N:SolastaCommunityExpansion")]
+[assembly: SuppressMessage("Roslynator", "RCS1093:Remove file with no code.", Justification = "keeping code for reference")]

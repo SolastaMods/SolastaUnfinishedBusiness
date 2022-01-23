@@ -9,9 +9,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
     public static class ArtilleristBuilder
     {
         // TODO: unused parameter FeatureDefinitionCastSpell
-#pragma warning disable RCS1163 // Unused parameter.
+#pragma warning disable IDE0060, RCS1163 // Unused parameter.
         public static CharacterSubclassDefinition Build(CharacterClassDefinition artificer, FeatureDefinitionCastSpell spellCasting)
-#pragma warning restore RCS1163 // Unused parameter.
+#pragma warning restore IDE0060, RCS1163 // Unused parameter.
         {
             // Make Artillerist subclass
             CharacterSubclassDefinitionBuilder artillerist = new CharacterSubclassDefinitionBuilder("Artillerist", GuidHelper.Create(TinkererClass.GuidNamespace, "Artillerist").ToString());

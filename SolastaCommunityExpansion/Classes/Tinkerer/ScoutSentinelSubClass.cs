@@ -5,6 +5,7 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
+using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
@@ -13,9 +14,119 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         public const string Name = "ScoutSentinel";
         public const string Guid = "fb2e5f73-d552-430f-b329-1f0a2ecdf6bd";
 
-        public static FeatureDefinitionPowerSharedPool scoutmodepower;
-        public static FeatureDefinitionPowerSharedPool sentinelmodepower;
-        public static FeatureDefinitionPower ArmorModePool;
+        public static readonly FeatureDefinitionPowerSharedPool ScoutModePower = CreateScoutModePower();
+        public static readonly FeatureDefinitionPowerSharedPool SentinelModePower = CreateSentinelModePower();
+        public static readonly FeatureDefinitionPower ArmorModePool = CreateArmorModePool();
+
+        private static EffectForm CreateEffectItem()
+        {
+            ItemPropertyForm itemPropertyForm = new ItemPropertyForm();
+            itemPropertyForm.FeatureBySlotLevel.Add(new FeatureUnlockByLevel(IntToAttackAndDamageBuilder.IntToAttackAndDamage, 0));
+            EffectForm effectItem = new EffectForm
+            {
+                FormType = EffectForm.EffectFormType.ItemProperty
+            };
+            effectItem.SetItemPropertyForm(itemPropertyForm);
+            return effectItem;
+        }
+
+        private static FeatureDefinitionPowerSharedPool CreateScoutModePower()
+        {
+            GuiPresentation guiPresentationScout = new GuiPresentation();
+            guiPresentationScout.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
+            guiPresentationScout.SetDescription("Feature/&ScoutModePowerDescription");
+            guiPresentationScout.SetTitle("Feature/&ScoutModePowerTitle");
+            guiPresentationScout.SetSpriteReference(ShadowArmor.GuiPresentation.SpriteReference);
+            guiPresentationScout.SetSymbolChar("221E");
+            guiPresentationScout.SetSortOrder(1);
+
+            EffectDescription effectScoutMode = new EffectDescription();
+            effectScoutMode.Copy(ProduceFlameHold.EffectDescription);
+            effectScoutMode.SlotTypes.Clear();
+            effectScoutMode.SlotTypes.AddRange("MainHandSlot", "OffHandSlot");
+            effectScoutMode.SetDurationType(RuleDefinitions.DurationType.UntilShortRest);
+            effectScoutMode.SetEffectParticleParameters(Shield.EffectDescription.EffectParticleParameters);
+            effectScoutMode.EffectForms[0].SummonForm.SetItemDefinition(ScoutSuitWeaponBuilder.ScoutSuitWeapon);
+            effectScoutMode.SetItemSelectionType(ActionDefinitions.ItemSelectionType.Weapon);
+            effectScoutMode.EffectForms[0].SummonForm.SetTrackItem(false);
+            effectScoutMode.EffectForms[0].SummonForm.SetNumber(1);
+            effectScoutMode.EffectForms.Add(CreateEffectItem());
+
+            return new FeatureDefinitionPowerSharedPoolBuilder(
+                  "ScoutModePower"                                            // string name
+                  , "ff6b9eb1-01ad-4100-ab12-7d6dc38ccc70"                    // string guid
+                  , ArmorModePool                                             // FeatureDefinitionPower poolPower
+                  , RuleDefinitions.RechargeRate.ShortRest                    // RuleDefinitions.RechargeRate recharge
+                  , RuleDefinitions.ActivationTime.NoCost                     // RuleDefinitions.ActivationTime activationTime
+                  , 1                                                         // int costPerUse
+                  , false                                                     // bool proficiencyBonusToAttack
+                  , false                                                     // bool abilityScoreBonusToAttack
+                  , DatabaseHelper.SmartAttributeDefinitions.Intelligence.name// string abilityScore
+                  , effectScoutMode                                           // EffectDescription effectDescription
+                  , guiPresentationScout                                      // GuiPresentation guiPresentation
+                  , true                                                      // bool uniqueInstanc
+                 )
+                .AddToDB();
+        }
+
+        private static FeatureDefinitionPowerSharedPool CreateSentinelModePower()
+        {
+            EffectDescription effectsentinelmode = new EffectDescription();
+            effectsentinelmode.Copy(ProduceFlameHold.EffectDescription);
+            effectsentinelmode.SlotTypes.Clear();
+            effectsentinelmode.SlotTypes.AddRange("MainHandSlot", "OffHandSlot");
+            effectsentinelmode.SetDurationType(RuleDefinitions.DurationType.UntilShortRest);
+            effectsentinelmode.SetEffectParticleParameters(Shield.EffectDescription.EffectParticleParameters);
+            effectsentinelmode.EffectForms[0].SummonForm.SetItemDefinition(SentinelSuitWeaponBuilder.SentinelSuitWeapon);
+            effectsentinelmode.SetItemSelectionType(ActionDefinitions.ItemSelectionType.Weapon);
+            effectsentinelmode.EffectForms[0].SummonForm.SetTrackItem(false);
+            effectsentinelmode.EffectForms[0].SummonForm.SetNumber(1);
+            effectsentinelmode.EffectForms.Add(CreateEffectItem());
+
+            GuiPresentation guiPresentationSentinel = new GuiPresentation();
+            guiPresentationSentinel.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
+            guiPresentationSentinel.SetDescription("Feature/&SentinelModePowerDescription");
+            guiPresentationSentinel.SetTitle("Feature/&SentinelModePowerTitle");
+            guiPresentationSentinel.SetSpriteReference(MageArmor.GuiPresentation.SpriteReference);
+            guiPresentationSentinel.SetSymbolChar("221E");
+
+            return new FeatureDefinitionPowerSharedPoolBuilder
+                (
+                 "SentinelModePower"                                         // string name
+                 , "410768a3-757f-48ee-8a2f-bffd963c0a5b"                    // string guid
+                 , ArmorModePool                                             // FeatureDefinitionPower poolPower
+                 , RuleDefinitions.RechargeRate.ShortRest                    // RuleDefinitions.RechargeRate recharge
+                 , RuleDefinitions.ActivationTime.NoCost                     // RuleDefinitions.ActivationTime activationTime
+                 , 1                                                         // int costPerUse
+                 , false                                                     // bool proficiencyBonusToAttack
+                 , false                                                     // bool abilityScoreBonusToAttack
+                 , DatabaseHelper.SmartAttributeDefinitions.Intelligence.name// string abilityScore
+                 , effectsentinelmode                                        // EffectDescription effectDescription
+                 , guiPresentationSentinel                                   // GuiPresentation guiPresentation
+                 , true                                                      // bool uniqueInstanc
+                ).AddToDB();
+        }
+
+        private static FeatureDefinitionPower CreateArmorModePool()
+        {
+            GuiPresentation guiPresentationArmorMode = new GuiPresentation();
+            guiPresentationArmorMode.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
+            guiPresentationArmorMode.SetDescription("Feat/&ArmorModePoolDescription");
+            guiPresentationArmorMode.SetTitle("Feat/&ArmorModePoolTitle");
+            guiPresentationArmorMode.SetSpriteReference(null);
+            guiPresentationArmorMode.SetSymbolChar("221E");
+
+            return new FeatureDefinitionPowerPoolBuilder(
+                    "ArmorModePool",
+                    "fd0567d8-a728-4459-8569-273f3ead3f73",
+                    1,
+                    RuleDefinitions.UsesDetermination.Fixed,
+                    AttributeDefinitions.Intelligence,
+                    RuleDefinitions.RechargeRate.ShortRest,
+                    guiPresentationArmorMode
+                )
+                .AddToDB();
+        }
 
         public static void BuildAndAddSubclass()
         {
@@ -50,107 +161,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.GuiPresentation.Title = "Feat/&ScoutSentinelFeatureSet_level03Title";
             Definition.GuiPresentation.Description = "Feat/&ScoutSentinelFeatureSet_level03Description";
 
-            GuiPresentation guiPresentationArmorMode = new GuiPresentation();
-            guiPresentationArmorMode.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
-            guiPresentationArmorMode.SetDescription("Feat/&ArmorModePoolDescription");
-            guiPresentationArmorMode.SetTitle("Feat/&ArmorModePoolTitle");
-            guiPresentationArmorMode.SetSpriteReference(null);
-            guiPresentationArmorMode.SetSymbolChar("221E");
-
-            FeatureDefinitionPower ArmorModePool = new FeatureDefinitionPowerPoolBuilder
-                (
-                    "ArmorModePool",
-                    "fd0567d8-a728-4459-8569-273f3ead3f73",
-                    1,
-                    RuleDefinitions.UsesDetermination.Fixed,
-                    AttributeDefinitions.Intelligence,
-                    RuleDefinitions.RechargeRate.ShortRest,
-                    guiPresentationArmorMode
-                ).AddToDB();
-
-            GuiPresentation guiPresentationSentinel = new GuiPresentation();
-            guiPresentationSentinel.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
-            guiPresentationSentinel.SetDescription("Feature/&SentinelModePowerDescription");
-            guiPresentationSentinel.SetTitle("Feature/&SentinelModePowerTitle");
-            guiPresentationSentinel.SetSpriteReference(DatabaseHelper.SpellDefinitions.MageArmor.GuiPresentation.SpriteReference);
-            guiPresentationSentinel.SetSymbolChar("221E");
-
-            ItemPropertyForm itemPropertyForm = new ItemPropertyForm();
-            itemPropertyForm.FeatureBySlotLevel.Add(new FeatureUnlockByLevel(IntToAttackAndDamageBuilder.IntToAttackAndDamage, 0));
-            EffectForm effectItem = new EffectForm
-            {
-                FormType = EffectForm.EffectFormType.ItemProperty
-            };
-            effectItem.SetItemPropertyForm(itemPropertyForm);
-
-            EffectDescription effectsentinelmode = new EffectDescription();
-            effectsentinelmode.Copy(DatabaseHelper.SpellDefinitions.ProduceFlameHold.EffectDescription);
-            effectsentinelmode.SlotTypes.Clear();
-            effectsentinelmode.SlotTypes.AddRange("MainHandSlot", "OffHandSlot");
-            effectsentinelmode.SetDurationType(RuleDefinitions.DurationType.UntilShortRest);
-            effectsentinelmode.SetEffectParticleParameters(DatabaseHelper.SpellDefinitions.Shield.EffectDescription.EffectParticleParameters);
-            effectsentinelmode.EffectForms[0].SummonForm.SetItemDefinition(SentinelSuitWeaponBuilder.SentinelSuitWeapon);
-            effectsentinelmode.SetItemSelectionType(ActionDefinitions.ItemSelectionType.Weapon);
-            effectsentinelmode.EffectForms[0].SummonForm.SetTrackItem(false);
-            effectsentinelmode.EffectForms[0].SummonForm.SetNumber(1);
-            effectsentinelmode.EffectForms.Add(effectItem);
-
-            ScoutSentinelTinkererSubclassBuilder.sentinelmodepower = new FeatureDefinitionPowerSharedPoolBuilder
-                (
-                 "SentinelModePower"                                         // string name
-                 , "410768a3-757f-48ee-8a2f-bffd963c0a5b"                    // string guid
-                 , ArmorModePool                                             // FeatureDefinitionPower poolPower
-                 , RuleDefinitions.RechargeRate.ShortRest                    // RuleDefinitions.RechargeRate recharge
-                 , RuleDefinitions.ActivationTime.NoCost                     // RuleDefinitions.ActivationTime activationTime
-                 , 1                                                         // int costPerUse
-                 , false                                                     // bool proficiencyBonusToAttack
-                 , false                                                     // bool abilityScoreBonusToAttack
-                 , DatabaseHelper.SmartAttributeDefinitions.Intelligence.name// string abilityScore
-                 , effectsentinelmode                                        // EffectDescription effectDescription
-                 , guiPresentationSentinel                                   // GuiPresentation guiPresentation
-                 , true                                                      // bool uniqueInstanc
-                ).AddToDB();
-
-            GuiPresentation guiPresentationScout = new GuiPresentation();
-            guiPresentationScout.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
-            guiPresentationScout.SetDescription("Feature/&ScoutModePowerDescription");
-            guiPresentationScout.SetTitle("Feature/&ScoutModePowerTitle");
-            guiPresentationScout.SetSpriteReference(DatabaseHelper.SpellDefinitions.ShadowArmor.GuiPresentation.SpriteReference);
-            guiPresentationScout.SetSymbolChar("221E");
-            guiPresentationScout.SetSortOrder(1);
-
-            EffectDescription effectScoutMode = new EffectDescription();
-            effectScoutMode.Copy(DatabaseHelper.SpellDefinitions.ProduceFlameHold.EffectDescription);
-            effectScoutMode.SlotTypes.Clear();
-            effectScoutMode.SlotTypes.AddRange("MainHandSlot", "OffHandSlot");
-            effectScoutMode.SetDurationType(RuleDefinitions.DurationType.UntilShortRest);
-            effectScoutMode.SetEffectParticleParameters(DatabaseHelper.SpellDefinitions.Shield.EffectDescription.EffectParticleParameters);
-            effectScoutMode.EffectForms[0].SummonForm.SetItemDefinition(ScoutSuitWeaponBuilder.ScoutSuitWeapon);
-            effectScoutMode.SetItemSelectionType(ActionDefinitions.ItemSelectionType.Weapon);
-            effectScoutMode.EffectForms[0].SummonForm.SetTrackItem(false);
-            effectScoutMode.EffectForms[0].SummonForm.SetNumber(1);
-            effectScoutMode.EffectForms.Add(effectItem);
-
-            ScoutSentinelTinkererSubclassBuilder.scoutmodepower = new FeatureDefinitionPowerSharedPoolBuilder
-                 (
-                  "ScoutModePower"                                            // string name
-                  , "ff6b9eb1-01ad-4100-ab12-7d6dc38ccc70"                    // string guid
-                  , ArmorModePool                                             // FeatureDefinitionPower poolPower
-                  , RuleDefinitions.RechargeRate.ShortRest                    // RuleDefinitions.RechargeRate recharge
-                  , RuleDefinitions.ActivationTime.NoCost                     // RuleDefinitions.ActivationTime activationTime
-                  , 1                                                         // int costPerUse
-                  , false                                                     // bool proficiencyBonusToAttack
-                  , false                                                     // bool abilityScoreBonusToAttack
-                  , DatabaseHelper.SmartAttributeDefinitions.Intelligence.name// string abilityScore
-                  , effectScoutMode                                           // EffectDescription effectDescription
-                  , guiPresentationScout                                      // GuiPresentation guiPresentation
-                  , true                                                      // bool uniqueInstanc
-                 ).AddToDB();
-
             Definition.FeatureSet.Clear();
-            Definition.FeatureSet.Add(ArmorModePool);
-            Definition.FeatureSet.Add(ScoutSentinelTinkererSubclassBuilder.scoutmodepower);
-            Definition.FeatureSet.Add(ScoutSentinelTinkererSubclassBuilder.sentinelmodepower);
+            Definition.FeatureSet.Add(ScoutSentinelTinkererSubclassBuilder.ArmorModePool);
+            Definition.FeatureSet.Add(ScoutSentinelTinkererSubclassBuilder.ScoutModePower);
+            Definition.FeatureSet.Add(ScoutSentinelTinkererSubclassBuilder.SentinelModePower);
             Definition.FeatureSet.Add(SubclassProficienciesBuilder.SubclassProficiencies);
             Definition.FeatureSet.Add(UseArmorWeaponsAsFocusBuilder.UseArmorWeaponsAsFocus);
             Definition.FeatureSet.Add(SubclassMovementAffinitiesBuilder.SubclassMovementAffinities);
@@ -242,7 +256,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             guiPresentationImprovedSentinel.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
             guiPresentationImprovedSentinel.SetDescription("Feature/&ImprovedSentinelModePowerDescription");
             guiPresentationImprovedSentinel.SetTitle("Feature/&ImprovedSentinelModePowerTitle");
-            guiPresentationImprovedSentinel.SetSpriteReference(DatabaseHelper.SpellDefinitions.MageArmor.GuiPresentation.SpriteReference);
+            guiPresentationImprovedSentinel.SetSpriteReference(MageArmor.GuiPresentation.SpriteReference);
             guiPresentationImprovedSentinel.SetSymbolChar("221E");
 
             ItemPropertyForm itemPropertyForm = new ItemPropertyForm();
@@ -254,11 +268,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             effectItem.SetItemPropertyForm(itemPropertyForm);
 
             EffectDescription effectImprovedSentinelmode = new EffectDescription();
-            effectImprovedSentinelmode.Copy(DatabaseHelper.SpellDefinitions.ProduceFlameHold.EffectDescription);
+            effectImprovedSentinelmode.Copy(ProduceFlameHold.EffectDescription);
             effectImprovedSentinelmode.SlotTypes.Clear();
             effectImprovedSentinelmode.SlotTypes.AddRange("MainHandSlot", "OffHandSlot");
             effectImprovedSentinelmode.SetDurationType(RuleDefinitions.DurationType.UntilShortRest);
-            effectImprovedSentinelmode.SetEffectParticleParameters(DatabaseHelper.SpellDefinitions.Shield.EffectDescription.EffectParticleParameters);
+            effectImprovedSentinelmode.SetEffectParticleParameters(Shield.EffectDescription.EffectParticleParameters);
             effectImprovedSentinelmode.EffectForms[0].SummonForm.SetItemDefinition(ImprovedSentinelSuitWeaponBuilder.ImprovedSentinelSuitWeapon);
             effectImprovedSentinelmode.SetItemSelectionType(ActionDefinitions.ItemSelectionType.Weapon);
             effectImprovedSentinelmode.EffectForms[0].SummonForm.SetTrackItem(false);
@@ -282,22 +296,22 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 );
             FeatureDefinitionPowerSharedPool Improvedsentinelmodepower = Improvedsentinelmodepowerbuilder.AddToDB();
 
-            Improvedsentinelmodepower.SetOverriddenPower(ScoutSentinelTinkererSubclassBuilder.sentinelmodepower);
+            Improvedsentinelmodepower.SetOverriddenPower(ScoutSentinelTinkererSubclassBuilder.SentinelModePower);
 
             GuiPresentation guiPresentationImprovedScout = new GuiPresentation();
             guiPresentationImprovedScout.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
             guiPresentationImprovedScout.SetDescription("Feature/&ImprovedScoutModePowerDescription");
             guiPresentationImprovedScout.SetTitle("Feature/&ImprovedScoutModePowerTitle");
-            guiPresentationImprovedScout.SetSpriteReference(DatabaseHelper.SpellDefinitions.ShadowArmor.GuiPresentation.SpriteReference);
+            guiPresentationImprovedScout.SetSpriteReference(ShadowArmor.GuiPresentation.SpriteReference);
             guiPresentationImprovedScout.SetSymbolChar("221E");
             guiPresentationImprovedScout.SetSortOrder(1);
 
             EffectDescription effectImprovedScoutMode = new EffectDescription();
-            effectImprovedScoutMode.Copy(DatabaseHelper.SpellDefinitions.ProduceFlameHold.EffectDescription);
+            effectImprovedScoutMode.Copy(ProduceFlameHold.EffectDescription);
             effectImprovedScoutMode.SlotTypes.Clear();
             effectImprovedScoutMode.SlotTypes.AddRange("MainHandSlot", "OffHandSlot");
             effectImprovedScoutMode.SetDurationType(RuleDefinitions.DurationType.UntilShortRest);
-            effectImprovedScoutMode.SetEffectParticleParameters(DatabaseHelper.SpellDefinitions.Shield.EffectDescription.EffectParticleParameters);
+            effectImprovedScoutMode.SetEffectParticleParameters(Shield.EffectDescription.EffectParticleParameters);
             effectImprovedScoutMode.EffectForms[0].SummonForm.SetItemDefinition(ImprovedScoutSuitWeaponBuilder.ImprovedScoutSuitWeapon);
             effectImprovedScoutMode.SetItemSelectionType(ActionDefinitions.ItemSelectionType.Weapon);
             effectImprovedScoutMode.EffectForms[0].SummonForm.SetTrackItem(false);
@@ -321,7 +335,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                  );
             FeatureDefinitionPowerSharedPool Improvedscoutmodepower = Improvedscoutmodepowerbuilder.AddToDB();
 
-            Improvedscoutmodepower.SetOverriddenPower(ScoutSentinelTinkererSubclassBuilder.scoutmodepower);
+            Improvedscoutmodepower.SetOverriddenPower(ScoutSentinelTinkererSubclassBuilder.ScoutModePower);
 
             Definition.FeatureSet.Add(Improvedscoutmodepower);
             Definition.FeatureSet.Add(Improvedsentinelmodepower);
@@ -352,37 +366,25 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup autoPreparedSpellsGroup_Level_3 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
                 ClassLevel = 3,
-                SpellsList = (new List<SpellDefinition> {
-                DatabaseHelper.SpellDefinitions.Thunderwave,
-                DatabaseHelper.SpellDefinitions.MagicMissile
-            })
+                SpellsList = new List<SpellDefinition> { Thunderwave, MagicMissile }
             };
 
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup autoPreparedSpellsGroup_Level_5 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
                 ClassLevel = 5,
-                SpellsList = (new List<SpellDefinition> {
-                DatabaseHelper.SpellDefinitions.Shatter,
-                DatabaseHelper.SpellDefinitions.Blur
-            })
+                SpellsList = new List<SpellDefinition> { Shatter, Blur }
             };
 
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup autoPreparedSpellsGroup_Level_9 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
                 ClassLevel = 9,
-                SpellsList = (new List<SpellDefinition> {
-                DatabaseHelper.SpellDefinitions.LightningBolt
-                ,DatabaseHelper.SpellDefinitions.HypnoticPattern
-            })
+                SpellsList = new List<SpellDefinition> { LightningBolt, HypnoticPattern }
             };
 
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup autoPreparedSpellsGroup_Level_13 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
                 ClassLevel = 13,
-                SpellsList = (new List<SpellDefinition> {
-                DatabaseHelper.SpellDefinitions.FireShield
-                ,DatabaseHelper.SpellDefinitions.GreaterInvisibility
-            })
+                SpellsList = new List<SpellDefinition> { FireShield, GreaterInvisibility }
             };
 
             //  added extra spells to balance spells withput "implemented"=true flag yet
@@ -393,12 +395,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup autoPreparedSpellsGroup_Level_17 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
                 ClassLevel = 17,
-                SpellsList = (new List<SpellDefinition> {
-                DatabaseHelper.SpellDefinitions.DimensionDoor
+                SpellsList = new List<SpellDefinition> {
+                DimensionDoor
             //    ,DatabaseHelper.SpellDefinitions.WallOfForce
-                ,DatabaseHelper.SpellDefinitions.WallOfFire
-                ,DatabaseHelper.SpellDefinitions.WindWall
-            })
+                ,WallOfFire
+                ,WindWall
+            }
             };
 
             Definition.AutoPreparedSpellsGroups.Clear();
@@ -515,7 +517,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             //    AssetReference assetReference = new AssetReference();
             //    assetReference.SetField("m_AssetGUID", "ad68a1be3193a314c911afd02ca8d360");
             //    Definition.SetImpactParticleReference(assetReference);
-
         }
 
         public static FeatureDefinitionAttackModifier CreateAndAddToDB(string name, string guid)
@@ -590,7 +591,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             newEffectDescription.SetCanBePlacedOnCharacter(true);
             newEffectDescription.SetRangeType(RuleDefinitions.RangeType.MeleeHit);
 
-            newEffectDescription.SetEffectParticleParameters(DatabaseHelper.SpellDefinitions.Shatter.EffectDescription.EffectParticleParameters);
+            newEffectDescription.SetEffectParticleParameters(Shatter.EffectDescription.EffectParticleParameters);
 
             WeaponDescription ThunderPunch = new WeaponDescription();
             ThunderPunch.SetWeaponType("UnarmedStrikeType");
@@ -676,7 +677,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             Definition.GuiPresentation.Title = "Feat/&ThunderShieldTitle";
             Definition.GuiPresentation.Description = "Feat/&ThunderShieldDescription";
-            Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Shield.GuiPresentation.SpriteReference);
+            Definition.GuiPresentation.SetSpriteReference(Shield.GuiPresentation.SpriteReference);
 
             Definition.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
             Definition.SetCostPerUse(1);
@@ -714,7 +715,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             newEffectDescription.SetCanBePlacedOnCharacter(true);
             newEffectDescription.SetRangeType(RuleDefinitions.RangeType.Self);
 
-            newEffectDescription.SetEffectParticleParameters(DatabaseHelper.SpellDefinitions.Shield.EffectDescription.EffectParticleParameters);
+            newEffectDescription.SetEffectParticleParameters(Shield.EffectDescription.EffectParticleParameters);
 
             Definition.SetEffectDescription(newEffectDescription);
         }
@@ -894,7 +895,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             newEffectDescription.SetRangeType(RuleDefinitions.RangeType.RangeHit);
             newEffectDescription.SetRangeParameter(12);
 
-            newEffectDescription.SetEffectParticleParameters(DatabaseHelper.SpellDefinitions.LightningBolt.EffectDescription.EffectParticleParameters);
+            newEffectDescription.SetEffectParticleParameters(LightningBolt.EffectDescription.EffectParticleParameters);
 
             WeaponDescription LightningSpear = new WeaponDescription();
             LightningSpear.SetWeaponType("DartType");
@@ -1186,7 +1187,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             // target illuminated
             LightSourceForm lightSourceForm = new LightSourceForm();
-            lightSourceForm.Copy(DatabaseHelper.SpellDefinitions.Shine.EffectDescription.EffectForms[0].LightSourceForm);
+            lightSourceForm.Copy(Shine.EffectDescription.EffectForms[0].LightSourceForm);
 
             EffectForm MagicalLightSourceEffect = new EffectForm();
             MagicalLightSourceEffect.SetLevelMultiplier(1);

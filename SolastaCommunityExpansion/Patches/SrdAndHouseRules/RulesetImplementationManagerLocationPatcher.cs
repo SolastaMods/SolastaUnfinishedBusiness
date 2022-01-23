@@ -113,7 +113,9 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
                 MetamagicOptionDefinition metamagicOption,
                 ref string failure)
             {
-                if (!Main.Settings.FixSorcererTwinnedLogic || metamagicOption != SolastaModApi.DatabaseHelper.MetamagicOptionDefinitions.MetamagicTwinnedSpell)
+                if (!Main.Settings.FixSorcererTwinnedLogic
+                    || metamagicOption != SolastaModApi.DatabaseHelper.MetamagicOptionDefinitions.MetamagicTwinnedSpell
+                    || !(caster is RulesetCharacterHero hero))
                 {
                     return;
                 }
@@ -126,7 +128,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
 
                 if (spellDefinition != null && rulesetSpellRepertoire?.KnownCantrips.Contains(spellDefinition) == true)
                 {
-                    classLevel = (caster as RulesetCharacterHero).ClassesHistory.Count;
+                    classLevel = hero.ClassesHistory.Count;
                 }
                 else
                 {
