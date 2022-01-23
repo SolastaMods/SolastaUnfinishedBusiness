@@ -1,5 +1,4 @@
-﻿
-using HarmonyLib;
+﻿using HarmonyLib;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
@@ -10,7 +9,7 @@ using static SolastaCommunityExpansion.Classes.Tinkerer.FeatureHelpers;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
-    internal class InfusionHelpers
+    internal static class InfusionHelpers
     {
         private static FeatureDefinitionPower artificialServant;
         private static FeatureDefinitionPower enhancedFocus;
@@ -271,7 +270,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Subclass/&EquipmentModifierArtificerBagOfHolderDescription",
                 "Subclass/&EquipmentModifierArtificerBagOfHolderTitle");
             bagOfHoldingGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionPotionOfGiantStrengthCloud.GuiPresentation.SpriteReference);
-            return BuildItemConditionInfusion(bagOfHoldingCondition, "ArtificerInfusionBagOfHolding", bagOfHoldingGui.Build()).AddToDB(); ;
+            return BuildItemConditionInfusion(bagOfHoldingCondition, "ArtificerInfusionBagOfHolding", bagOfHoldingGui.Build()).AddToDB();
         }
 
         public static FeatureDefinitionPower GogglesOfNight
@@ -301,7 +300,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Subclass/&PowerInfuseDarkvisionTitle");
             InfuseDarkvision.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainBattleDivineWrath.GuiPresentation.SpriteReference);
 
-            return BuildItemConditionInfusion(darkvisionCondition, "PowerInfuseDarkvision", InfuseDarkvision.Build()).AddToDB(); ;
+            return BuildItemConditionInfusion(darkvisionCondition, "PowerInfuseDarkvision", InfuseDarkvision.Build()).AddToDB();
         }
 
         public static FeatureDefinitionPower MindSharpener
@@ -331,7 +330,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Subclass/&PowerInfuseMindSharpenerTitle");
             InfuseMindSharpener.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionTomeOfQuickThought.GuiPresentation.SpriteReference);
 
-            return BuildItemConditionInfusion(infusedMindSharpenerCondition, "ArtificerInfusionMindSharpener", InfuseMindSharpener.Build()).AddToDB(); ;
+            return BuildItemConditionInfusion(infusedMindSharpenerCondition, "ArtificerInfusionMindSharpener", InfuseMindSharpener.Build()).AddToDB();
         }
 
         public static FeatureDefinitionPower ArmorOfMagicalStrength
@@ -368,7 +367,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Subclass/&PowerInfuseArmorMagicalStrengthDescription",
                 "Subclass/&PowerInfuseArmorMagicalStrengthTitle");
             InfuseArmorMagicalStrength.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionManualGainfulExercise.GuiPresentation.SpriteReference);
-            return BuildItemConditionInfusion(armorMagicalStrengthCondition, "ArtificerInfusionArmorMagicalStrength", InfuseArmorMagicalStrength.Build()).AddToDB(); ;
+            return BuildItemConditionInfusion(armorMagicalStrengthCondition, "ArtificerInfusionArmorMagicalStrength", InfuseArmorMagicalStrength.Build()).AddToDB();
         }
 
         public static FeatureDefinitionPower ResistantArmor
@@ -382,7 +381,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 return resistantArmor;
             }
         }
-
 
         private static FeatureDefinitionPower BuildResistantArmor()
         {
@@ -405,10 +403,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPsychicResistance,
                 DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityRadiantResistance,
                 DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityThunderResistance,
-
             },
                 RuleDefinitions.DurationType.UntilLongRest, 1, false, "ConditionPowerArtificerResistantArmor", ConditionArmorResistance.Build());
-            return BuildItemConditionInfusion(ArmorResistance, "ArtificerInfusionResistantArmor", InfuseResistantArmor.Build()).AddToDB(); ;
+            return BuildItemConditionInfusion(ArmorResistance, "ArtificerInfusionResistantArmor", InfuseResistantArmor.Build()).AddToDB();
         }
 
         public static FeatureDefinitionPower SpellRefuelingRing
@@ -422,7 +419,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 return spellRefuelingRing;
             }
         }
-
 
         private static FeatureDefinitionPower BuildSpellRefuelingRing()
         {
@@ -701,7 +697,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         private static FeatureDefinitionPower PowerMimicsItem(ItemDefinition item, string name)
         {
-
             List<FeatureDefinition> features = new List<FeatureDefinition>();
             foreach (ItemPropertyDescription property in item.StaticProperties)
             {

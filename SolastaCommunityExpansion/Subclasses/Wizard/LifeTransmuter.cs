@@ -186,7 +186,6 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             RuleDefinitions.TurnOccurenceType endOfEffect, string abilityScore, ConditionDefinition condition,
             string name, GuiPresentation guiPresentation)
         {
-
             EffectDescriptionBuilder effectDescriptionBuilder = new EffectDescriptionBuilder();
             effectDescriptionBuilder.SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType, 1, 0, itemSelectionType);
             effectDescriptionBuilder.SetCreatedByCharacter();

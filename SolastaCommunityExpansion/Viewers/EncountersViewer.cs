@@ -137,7 +137,6 @@ namespace SolastaCommunityExpansion.Viewers
                     UI.Label($"CR: {monsterDefinition.ChallengeRating}".yellow(), UI.Width(72));
                 }
 
-
                 currentAttacksMonster.TryGetValue(monsterDefinition, out flip);
 
                 if (UI.DisclosureToggle($"Attacks ({monsterDefinition.AttackIterations.Count:0#})", ref flip, 132))

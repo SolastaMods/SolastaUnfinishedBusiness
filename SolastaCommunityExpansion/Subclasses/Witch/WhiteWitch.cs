@@ -8,7 +8,6 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 {
     internal class WhiteWitch
     {
-
         public static readonly Guid WW_BASE_GUID = new Guid("2d849694-5cc9-4333-944b-e40cc1e0d0fd");
         private CharacterSubclassDefinition Subclass;
         public static CharacterClassDefinition WitchClass { get; private set; }
@@ -89,7 +88,6 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
                     .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                     .SetUniqueChoices(true)
                     .AddToDB();
-
         }
 
         private static void BuildProgression(CharacterSubclassDefinitionBuilder subclassBuilder)
@@ -99,7 +97,6 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 
         private static CharacterSubclassDefinition BuildAndAddSubclass(CharacterClassDefinition witchClassDefinition)
         {
-
             WitchClass = witchClassDefinition;
 
             var subclassGuiPresentation = new GuiPresentationBuilder(
@@ -118,6 +115,5 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 
             return subclassBuilder.AddToDB();
         }
-
     }
 }

@@ -10,10 +10,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
     /// <summary>
     /// Currently when a character is teleported off screen the camera doesn't follow.
     /// This patch will attempt to follow the character if initiated by a teleport game gadget
-    /// The don't follow character in battle patch will interact with this patch to cancel 
+    /// The don't follow character in battle patch will interact with this patch to cancel
     /// following if we're in battle and the character is on screen.
     /// </summary>
-
     [HarmonyPatch(typeof(FunctorTeleport), "Execute")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class FunctorTeleport_Execute

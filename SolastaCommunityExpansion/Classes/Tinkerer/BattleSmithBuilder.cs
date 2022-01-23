@@ -7,7 +7,7 @@ using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
-    public class BattleSmithBuilder
+    public static class BattleSmithBuilder
     {
         public static CharacterSubclassDefinition Build(CharacterClassDefinition artificer)
         {
@@ -123,7 +123,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return battleSmith.AddToDB();
         }
 
-        private class FeatureDefinitionAttackModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttackModifier>
+        private sealed class FeatureDefinitionAttackModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttackModifier>
         {
             public FeatureDefinitionAttackModifierBuilder(string name, string guid,
             RuleDefinitions.AbilityScoreReplacement abilityReplacement, string additionalAttackTag,

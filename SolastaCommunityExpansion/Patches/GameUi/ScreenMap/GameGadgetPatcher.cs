@@ -13,8 +13,6 @@ namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameGadget_ComputeIsRevealed
     {
-
-
         internal static void Postfix(GameGadget __instance, ref bool ___revealed, ref bool __result)
         {
             if (!__instance.Revealed || Gui.GameLocation.UserLocation == null || !Main.Settings.EnableAdditionalIconsOnLevelMap)

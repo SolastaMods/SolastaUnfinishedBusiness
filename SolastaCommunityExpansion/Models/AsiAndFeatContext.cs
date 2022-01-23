@@ -23,6 +23,5 @@ namespace SolastaCommunityExpansion.Models
         {
             Switch(Main.Settings.EnablesAsiAndFeat);
         }
-
     }
 }

@@ -7,8 +7,6 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
-
-
     //*****************************************************************************************************************************************
     //***********************************		ArtilleryConstructlevel03FeatureSetBuilder		***********************************************************
     //*****************************************************************************************************************************************
@@ -23,10 +21,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         public static FeatureDefinitionPowerSharedPool ForceArtillery_03modepower;
         public static FeatureDefinitionPowerSharedPool TempHPShield_03modepower;
 
-
         protected ArtilleryConstructlevel03FeatureSetBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feat/&SummonArtilleryConstructTitle";
             Definition.GuiPresentation.Description = "Feat/&SummonArtilleryConstructDescription";
 
@@ -47,8 +43,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                    RuleDefinitions.RechargeRate.ShortRest,
                    guiPresentationArtilleryMode
                ).AddToDB();
-
-
 
             GuiPresentationBuilder guiPresentationFlameArtillery03 = new GuiPresentationBuilder(
                 "Feature/&FlameArtilleryModePowerDescription",
@@ -75,8 +69,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                  , guiPresentationFlameArtillery03.Build()                     // GuiPresentation guiPresentation
                  , true                                                      // bool uniqueInstanc
                 ).AddToDB();
-
-
 
             GuiPresentationBuilder guiPresentationForceArtillery03 = new GuiPresentationBuilder(
                 "Feature/&ForceArtilleryModePowerDescription",
@@ -114,7 +106,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             effectTempHPShieldmode03.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             effectTempHPShieldmode03.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, TempHPShieldConstructBuilder.TempHPShieldConstruct.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
 
-
             TempHPShield_03modepower = new FeatureDefinitionPowerSharedPoolBuilder
                 (
                  "TempHPShieldModePower"                                         // string name
@@ -131,7 +122,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                  , true                                                      // bool uniqueInstanc
                 ).AddToDB();
 
-
             Definition.FeatureSet.Clear();
             Definition.FeatureSet.Add(ArtilleryModePool);
             Definition.FeatureSet.Add(TempHPShield_03modepower);
@@ -140,7 +130,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.FeatureSet.Add(AddConstructCantripsBuilder.AddConstructCantrips);
             //Definition.FeatureSet.Add(SummoningAffinityTinkererConstructBuilder.SummoningAffinityTinkererConstruct);
             Definition.FeatureSet.Add(SummoningAffinityTinkererArtilleryConstructBuilder.SummoningAffinityTinkererArtilleryConstruct);
-
         }
 
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
@@ -149,7 +138,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         }
 
         public static FeatureDefinitionFeatureSet ArtilleryConstructlevel03FeatureSet = CreateAndAddToDB(Name, Guid);
-
     }
 
     //*****************************************************************************************************************************************
@@ -167,12 +155,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected ArtilleryConstructlevel09FeatureSetBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feat/&SummonArtilleryConstructlevel09Title";
             Definition.GuiPresentation.Description = "Feat/&SummonArtilleryConstructlevel09Description";
-
-
-
 
             GuiPresentationBuilder guiPresentationFlameArtillery09 = new GuiPresentationBuilder(
                 "Feature/&FlameArtillery_09ModePowerDescription",
@@ -183,7 +167,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             effectFlameArtillerymode09.SetDurationData(RuleDefinitions.DurationType.Hour, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectFlameArtillerymode09.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             effectFlameArtillerymode09.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, FlameArtilleryConstruct_9Builder.FlameArtilleryConstruct_9.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
-
 
             FlameArtillery_09modepower = new FeatureDefinitionPowerSharedPoolBuilder
                 (
@@ -201,7 +184,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                  , true                                                      // bool uniqueInstanc
                 ).AddToDB();
             FlameArtillery_09modepower.SetOverriddenPower(ArtilleryConstructlevel03FeatureSetBuilder.FlameArtillery_03modepower);
-
 
             GuiPresentationBuilder guiPresentationForceArtillery09 = new GuiPresentationBuilder(
                 "Feature/&ForceArtillery_09ModePowerDescription",
@@ -230,8 +212,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 ).AddToDB();
             ForceArtillery_09modepower.SetOverriddenPower(ArtilleryConstructlevel03FeatureSetBuilder.ForceArtillery_03modepower);
 
-
-
             GuiPresentationBuilder guiPresentationTempHPShield09 = new GuiPresentationBuilder(
                 "Feature/&TempHPShield_09ModePowerDescription",
                 "Feature/&TempHPShield_09ModePowerTitle");
@@ -241,7 +221,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             effectTempHPShieldmode09.SetDurationData(RuleDefinitions.DurationType.Hour, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectTempHPShieldmode09.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             effectTempHPShieldmode09.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, TempHPShieldConstruct_9Builder.TempHPShieldConstruct_9.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
-
 
             TempHPShield_09modepower = new FeatureDefinitionPowerSharedPoolBuilder
                 (
@@ -264,8 +243,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.FeatureSet.Add(TempHPShield_09modepower);
             Definition.FeatureSet.Add(FlameArtillery_09modepower);
             Definition.FeatureSet.Add(ForceArtillery_09modepower);
-
-
         }
 
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
@@ -274,7 +251,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         }
 
         public static FeatureDefinitionFeatureSet ArtilleryConstructlevel09FeatureSet = CreateAndAddToDB(Name, Guid);
-
     }
 
     //*****************************************************************************************************************************************
@@ -292,7 +268,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected ArtilleryConstructlevel15FeatureSetBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feat/&SummonArtilleryConstructlevel15Title";
             Definition.GuiPresentation.Description = "Feat/&SummonArtilleryConstructlevel15Description";
 
@@ -320,7 +295,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             effectFlameArtillerymode15.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             effectFlameArtillerymode15.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, FlameArtilleryConstruct_15Builder.FlameArtilleryConstruct_15.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
 
-
             FlameArtillery_15modepower = new FeatureDefinitionPowerSharedPoolBuilder
                 (
                  "FlameArtillery_15ModePower"                                   // string name
@@ -337,7 +311,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                  , true                                                      // bool uniqueInstanc
                 ).AddToDB();
             FlameArtillery_15modepower.SetOverriddenPower(ArtilleryConstructlevel09FeatureSetBuilder.FlameArtillery_09modepower);
-
 
             GuiPresentationBuilder guiPresentationForceArtillery15 = new GuiPresentationBuilder(
                 "Feature/&ForceArtillery_15ModePowerDescription",
@@ -366,8 +339,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 ).AddToDB();
             ForceArtillery_15modepower.SetOverriddenPower(ArtilleryConstructlevel09FeatureSetBuilder.ForceArtillery_09modepower);
 
-
-
             GuiPresentationBuilder guiPresentationTempHPShield15 = new GuiPresentationBuilder(
                 "Feature/&TempHPShield_15ModePowerDescription",
                 "Feature/&TempHPShield_15ModePowerTitle");
@@ -377,7 +348,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             effectTempHPShieldmode15.SetDurationData(RuleDefinitions.DurationType.Hour, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectTempHPShieldmode15.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             effectTempHPShieldmode15.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, TempHPShieldConstruct_15Builder.TempHPShieldConstruct_15.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
-
 
             TempHPShield_15modepower = new FeatureDefinitionPowerSharedPoolBuilder
                 (
@@ -396,19 +366,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 ).AddToDB();
             TempHPShield_15modepower.SetOverriddenPower(ArtilleryConstructlevel09FeatureSetBuilder.TempHPShield_09modepower);
 
-
-
-
-
-
-
-
             Definition.FeatureSet.Clear();
             Definition.FeatureSet.Add(ArtilleryPoolIncrease);
             Definition.FeatureSet.Add(TempHPShield_15modepower);
             Definition.FeatureSet.Add(FlameArtillery_15modepower);
             Definition.FeatureSet.Add(ForceArtillery_15modepower);
-
         }
 
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
@@ -417,9 +379,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         }
 
         public static FeatureDefinitionFeatureSet ArtilleryConstructlevel15FeatureSet = CreateAndAddToDB(Name, Guid);
-
     }
-
 
     //*****************************************************************************************************************************************
     //***********************************		SelfDestructBuilder		*******************************************************************
@@ -432,7 +392,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected SelfDestructBuilder(string name, string guid) : base(ThunderShieldBuilder.ThunderShield, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feat/&SelfDestructTitle";
             Definition.GuiPresentation.Description = "Feat/&SelfDestructDescription";
             Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.FlamingSphere.GuiPresentation.SpriteReference);
@@ -440,9 +399,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             Definition.SetActivationTime(RuleDefinitions.ActivationTime.Action);
             Definition.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
-
-
-
 
             // SelfDestructionConditionBuilder.SelfDestructionCondition
 
@@ -459,8 +415,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             // CounterForm SelfDestruct = new CounterForm();
             //
             // SelfDestruct.SetType (CounterForm.CounterType.DismissCreature);
-
-
 
             DamageForm ExplosionDamage = new DamageForm
             {
@@ -517,8 +471,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         }
 
         public static FeatureDefinitionPower SelfDestruct = CreateAndAddToDB(SelfDestructName, SelfDestructGuid);
-
-
     }
 
     //*****************************************************************************************************************************************
@@ -554,7 +506,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             KillEffect.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
             KillEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
 
-
             Definition.RecurrentEffectForms.Add(KillEffect);
 
             Definition.SetDurationType(RuleDefinitions.DurationType.Permanent);
@@ -562,8 +513,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.SetSpecialDuration(true);
             Definition.SetDurationParameter(1);
             Definition.SetConditionType(RuleDefinitions.ConditionType.Detrimental);
-
-
         }
 
         public static ConditionDefinition CreateAndAddToDB(string name, string guid)
@@ -585,7 +534,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected HalfCoverShieldBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionPowers.PowerDomainBattleHeraldOfBattle, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feat/&HalfCoverShieldTitle";
             Definition.GuiPresentation.Description = "Feat/&HalfCoverShieldDescription";
             Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Shield.GuiPresentation.SpriteReference);
@@ -599,14 +547,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             HalfCoverShield.ConditionForm.SetConditionDefinitionName(HalfCoverShieldConditionBuilder.HalfCoverShieldCondition.Name);
             HalfCoverShield.ConditionForm.ConditionDefinition = HalfCoverShieldConditionBuilder.HalfCoverShieldCondition;// DistractingPulseBuilder.DistractingPulse;
 
-
             HalfCoverShield.SetCreatedByCharacter(true);
 
             HalfCoverShield.AddBonusMode = RuleDefinitions.AddBonusMode.AbilityBonus;
             HalfCoverShield.SetLevelMultiplier(1);
             HalfCoverShield.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
             HalfCoverShield.SetApplyLevel(EffectForm.LevelApplianceType.No);
-
 
             Definition.EffectDescription.EffectAdvancement.Clear();
             Definition.EffectDescription.EffectForms.Clear();
@@ -630,8 +576,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         }
 
         public static FeatureDefinitionPower HalfCoverShield = CreateAndAddToDB(HalfCoverShieldName, HalfCoverShieldGuid);
-
-
     }
 
     //*****************************************************************************************************************************************
@@ -650,10 +594,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             Definition.Features.Clear();
             Definition.Features.Add(HalfCoverShieldAttributeBuilder.HalfCoverShieldAttribute);
-
-
-
-
         }
 
         public static ConditionDefinition CreateAndAddToDB(string name, string guid)
@@ -675,17 +615,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected HalfCoverShieldAttributeBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierHeraldOfBattle, name, guid)
         {
-
-
             Definition.GuiPresentation.Title = "Rules/&HalfCoverShieldAttributeTitle";
             Definition.GuiPresentation.Description = "Rules/&HalfCoverShieldAttributeDescription";
 
             Definition.SetModifiedAttribute(DatabaseHelper.SmartAttributeDefinitions.ArmorClass.Name);
             Definition.SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive);
             Definition.SetModifierValue(2);
-
-
-
         }
 
         public static FeatureDefinitionAttributeModifier CreateAndAddToDB(string name, string guid)
@@ -695,8 +630,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public static FeatureDefinitionAttributeModifier HalfCoverShieldAttribute = CreateAndAddToDB(HalfCoverShieldAttributeName, HalfCoverShieldAttributeGuid);
     }
-
-
 
     //*****************************************************************************************************************************************
     //***********************************		SummonArtillerySpellConstructBuilder		*******************************************************************
@@ -709,7 +642,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected SummonArtillerySpellConstructBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.DancingLights, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feat/&ResummonArtilleryConstruct_03Title";
             Definition.GuiPresentation.Description = "Feat/&ResummonArtilleryConstructDescription";
             Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.FaerieFire.GuiPresentation.SpriteReference);
@@ -718,7 +650,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.SetRequiresConcentration(false);
             Definition.SetUniqueInstance(true);
             Definition.SetCastingTime(RuleDefinitions.ActivationTime.Action);
-
 
             Definition.SetSpellsBundle(true);
             Definition.SubspellsList.AddRange(new List<SpellDefinition>
@@ -729,8 +660,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             });
 
             Definition.EffectDescription.Clear();
-
-
         }
 
         public static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -739,7 +668,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         }
 
         public static SpellDefinition SummonArtillerySpellConstruct = CreateAndAddToDB(SummonArtillerySpellConstructName, SummonArtillerySpellConstructGuid);
-
     }
 
     //*****************************************************************************************************************************************
@@ -753,7 +681,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected SummonArtillerySpellConstruct_9Builder(string name, string guid) : base(SummonArtillerySpellConstructBuilder.SummonArtillerySpellConstruct, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feat/&ResummonArtilleryConstruct_09Title";
             Definition.GuiPresentation.Description = "Feat/&ResummonArtilleryConstructDescription";
 
@@ -772,9 +699,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         }
 
         public static SpellDefinition SummonArtillerySpellConstruct_9 = CreateAndAddToDB(SummonArtillerySpellConstruct_9Name, SummonArtillerySpellConstruct_9Guid);
-
     }
-
 
     //*****************************************************************************************************************************************
     //***********************************		SummonArtillerySpellConstruct_15Builder		*******************************************************************
@@ -787,10 +712,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected SummonArtillerySpellConstruct_15Builder(string name, string guid) : base(SummonArtillerySpellConstructBuilder.SummonArtillerySpellConstruct, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feat/&ResummonArtilleryConstruct_15Title";
             Definition.GuiPresentation.Description = "Feat/&ResummonArtilleryConstructDescription";
-
 
             Definition.SubspellsList.Clear();
             Definition.SubspellsList.AddRange(new List<SpellDefinition>
@@ -799,9 +722,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                SummonForceArtillerySpellConstruct_15Builder.SummonForceArtilleryConstruct_15,
                 SummonTempHPShieldSpellConstruct_15Builder.SummonTempHPShieldConstruct_15
             });
-
-
-
         }
 
         public static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -812,7 +732,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         public static SpellDefinition SummonArtillerySpellConstruct_15 = CreateAndAddToDB(SummonArtillerySpellConstruct_15Name, SummonArtillerySpellConstruct_15Guid);
     }
 
-
     internal class SummoningAffinityTinkererArtilleryConstructBuilder : BaseDefinitionBuilder<FeatureDefinitionSummoningAffinity>
     {
         private const string Name = "SummoningAffinityTinkererArtilleryConstruct";
@@ -820,7 +739,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected SummoningAffinityTinkererArtilleryConstructBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritBond, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feature/&NoContentTitle";
             Definition.GuiPresentation.Description = "Feature/&NoContentTitle";
             Definition.GuiPresentation.SetSpriteReference(null);
@@ -865,7 +783,5 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         }
 
         public static FeatureDefinitionSummoningAffinity SummoningAffinityTinkererArtilleryConstruct = CreateAndAddToDB(Name, Guid);
-
     }
 }
-

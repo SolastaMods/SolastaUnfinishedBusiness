@@ -8,8 +8,6 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
-
-
     //*****************************************************************************************************************************************
     //***********************************		ProtectorConstructFeatureSetBuilder		***********************************************************
     //*****************************************************************************************************************************************
@@ -21,7 +19,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected ProtectorConstructFeatureSetBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feat/&SummonProtectorConstructTitle";
             Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription";
 
@@ -29,7 +26,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.FeatureSet.Add(SummoningAffinityTinkererConstructBuilder.SummoningAffinityTinkererConstruct);
             Definition.FeatureSet.Add(SummonProtectorPowerConstructBuilder.SummonProtectorConstruct);
             Definition.FeatureSet.Add(ProtectorConstructLevel3AutopreparedSpellsBuilder.ProtectorConstructLevel3AutopreparedSpells);
-
         }
 
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
@@ -38,7 +34,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         }
 
         public static FeatureDefinitionFeatureSet ProtectorConstructFeatureSet = CreateAndAddToDB(Name, Guid);
-
     }
 
     public class ProtectorConstructLevel3AutopreparedSpellsBuilder : BaseDefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
@@ -79,7 +74,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected SummoningAffinityTinkererConstructBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritBond, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feature/&NoContentTitle";
             Definition.GuiPresentation.Description = "Feature/&NoContentTitle";
             Definition.GuiPresentation.SetSpriteReference(null);
@@ -124,9 +118,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         }
 
         public static FeatureDefinitionSummoningAffinity SummoningAffinityTinkererConstruct = CreateAndAddToDB(Name, Guid);
-
     }
-
 
     //*****************************************************************************************************************************************
     //***********************************		SummonProtectorConstructBuilder		***********************************************************
@@ -139,7 +131,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected SummonProtectorPowerConstructBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionPowers.PowerClericDivineInterventionCleric, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feat/&SummonProtectorConstructTitle";
             Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription";
             Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.ConjureAnimalsFourBeasts.GuiPresentation.SpriteReference);
@@ -157,7 +148,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             ProtectorConstructEffect.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, ProtectorConstructBuilder.ProtectorConstruct.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
 
             Definition.SetEffectDescription(ProtectorConstructEffect.Build());
-
         }
 
         public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
@@ -166,7 +156,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         }
 
         public static FeatureDefinitionPower SummonProtectorConstruct = CreateAndAddToDB(SummonProtectorConstructName, SummonProtectorConstructNameGuid);
-
     }
 
     //*****************************************************************************************************************************************
@@ -207,7 +196,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected SummonProtectorSpellConstructBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.DancingLights, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feat/&SummonProtectorConstructTitle";
             Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription";
             Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.ConjureAnimalsFourBeasts.GuiPresentation.SpriteReference);
@@ -221,7 +209,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.SetVerboseComponent(false);
 
             Definition.SetEffectDescription(SummonProtectorPowerConstructBuilder.SummonProtectorConstruct.EffectDescription);
-
         }
 
         public static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -230,12 +217,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         }
 
         public static SpellDefinition SummonProtectorConstruct = CreateAndAddToDB(SummonProtectorConstructName, SummonProtectorConstructNameGuid);
-
     }
     //*****************************************************************************************************************************************
     //***********************************		SummonProtectorSpellConstruct_UpgradeBuilder		*******************************************************************
     //*****************************************************************************************************************************************
-
 
     //
     // need a new featuredefintionAutopreparedSpells list with the summon upgrade spell for the two different subclasses
@@ -314,9 +299,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         }
 
         public static FeatureDefinitionFeatureSet ProtectorConstructUpgradeFeatureSet = CreateAndAddToDB(Name, Guid);
-
     }
-
 
     //*****************************************************************************************************************************************
     //***********************************		ProtectorConstructBuilder		***************************************************************
@@ -329,7 +312,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected ProtectorConstructBuilder(string name, string guid) : base(DatabaseHelper.MonsterDefinitions.ConjuredEightBeast_Wolf, name, guid)
         {
-
             Definition.SetMonsterPresentation(DatabaseHelper.MonsterDefinitions.Ghost_Wolf.MonsterPresentation);
 
             Definition.GuiPresentation.Title = "Feat/&ProtectorConstructTitle";
@@ -351,7 +333,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.AbilityScores.AddToArray(4);     // INT
             Definition.AbilityScores.AddToArray(10);    // WIS
             Definition.AbilityScores.AddToArray(6);     // CHA
-
 
             //replaced by new bond methods?
             //assume PB=4
@@ -377,8 +358,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.SkillScores.Add(Athletics);
             Definition.SkillScores.Add(Perception);
 
-
-
             Definition.SetFullyControlledWhenAllied(true);
             Definition.SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None);
             Definition.SetStandardHitPoints(20);
@@ -397,10 +376,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.Features.Add(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinityFightingStyleProtection);
             Definition.Features.Add(SelfRepairBuilder.SelfRepair);
 
-
-
             Definition.AttackIterations.Clear();
-
 
             MonsterAttackIteration monsterAttackIteration = new MonsterAttackIteration();
 
@@ -409,8 +385,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Traverse.Create(monsterAttackIteration).Field("number").SetValue(1);
 
             Definition.AttackIterations.AddRange(new List<MonsterAttackIteration> { monsterAttackIteration });
-
-
         }
 
         public static MonsterDefinition CreateAndAddToDB(string name, string guid)
@@ -419,7 +393,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         }
 
         public static MonsterDefinition ProtectorConstruct = CreateAndAddToDB(ProtectorConstructName, ProtectorConstructNameGuid);
-
     }
     //*****************************************************************************************************************************************
     //***********************************		ProtectorConstruct_UpgradeBuilder		*******************************************************
@@ -447,8 +420,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         public static MonsterDefinition ProtectorConstruct_Upgrade = CreateAndAddToDB(Name, Guid);
     }
 
-
-
     //*****************************************************************************************************************************************
     //***********************************		ProtectorConstructAttacksBuilder		*******************************************************
     //*****************************************************************************************************************************************
@@ -460,7 +431,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected ProtectorConstructAttackBuilder(string name, string guid) : base(DatabaseHelper.MonsterAttackDefinitions.Attack_Wolf_Bite, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feat/&ProtectorConstructAttackTitle";
             Definition.GuiPresentation.Description = "Feat/&ProtectorConstructAttackDescription";
 
@@ -497,7 +467,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             //replaced by new bond methods?
             Definition.SetEffectDescription(newEffectDescription);
             Definition.SetToHitBonus(0);
-
         }
 
         public static MonsterAttackDefinition CreateAndAddToDB(string name, string guid)
@@ -519,7 +488,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected SelfRepairBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionPowers.PowerFighterSecondWind, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feat/&SelfRepairTitle";
             Definition.GuiPresentation.Description = "Feat/&SelfRepairDescription";
 
@@ -547,7 +515,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.EffectDescription.EffectForms.Add(effect);
             Definition.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Self);
             Definition.EffectDescription.RestrictedCreatureFamilies.Add(TinkererConstructFamilyBuilder.TinkererConstructFamily.Name);
-
         }
 
         public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
@@ -569,7 +536,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         protected RetributionBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLawHolyRetribution, name, guid)
         {
-
             Definition.GuiPresentation.Title = "Feat/&RetributionTitle";
             Definition.GuiPresentation.Description = "Feat/&RetributionDescription";
             Definition.SetShortTitleOverride("Feat/&RetributionTitle");
@@ -591,6 +557,4 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public static FeatureDefinitionPower Retribution = CreateAndAddToDB(RetributionName, RetributionNameGuid);
     }
-
 }
-

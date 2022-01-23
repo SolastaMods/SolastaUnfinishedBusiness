@@ -37,5 +37,4 @@ namespace SolastaCommunityExpansion.Level20.Features
             }
         }
     }
-
 }

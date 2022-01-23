@@ -6,7 +6,7 @@ using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
-    public class AlchemistBuilder
+    public static class AlchemistBuilder
     {
         public static CharacterSubclassDefinition Build(CharacterClassDefinition artificer)
         {
@@ -265,7 +265,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 DatabaseHelper.SpellDefinitions.GreaterRestoration.EffectDescription,
                 greaterRestorativeElixirsGui.Build()).AddToDB();
             alchemist.AddFeatureAtLevel(greaterRestorativeElixirs, 15);
-
 
             GuiPresentationBuilder healElixirsGui = new GuiPresentationBuilder(
                 "Feat/&PowerAlchemistHealElixirsDescription",

@@ -15,8 +15,6 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
         }
         */
 
-    /// <summary>
-    /// </summary>
     [HarmonyPatch(typeof(EquipmentDefinitions), "ScaleAndRoundCosts")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class EquipmentDefinitions_ScaleAndRoundCosts

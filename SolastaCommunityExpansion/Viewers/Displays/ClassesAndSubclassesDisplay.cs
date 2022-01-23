@@ -4,7 +4,6 @@ using SolastaCommunityExpansion.Subclasses.Rogue;
 using SolastaCommunityExpansion.Subclasses.Wizard;
 using System.Linq;
 
-
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class ClassesAndSubclassesDisplay
@@ -233,5 +232,4 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
         }
     }
-
 }

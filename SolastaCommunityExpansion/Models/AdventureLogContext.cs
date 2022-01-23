@@ -54,7 +54,6 @@ namespace SolastaCommunityExpansion.Models
 
             public GameAdventureEntryDungeonMaker()
             {
-
             }
 
             public GameAdventureEntryDungeonMaker(AdventureLogDefinition adventureLogDefinition, string header, string text, string actorName, AssetReferenceSprite sprite) : base(adventureLogDefinition)

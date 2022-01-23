@@ -56,7 +56,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
                                             ConditionToAmount.AddOrReplace(addedCondition.Name, sourceAmount);
                                         }
                                         break;
-
                                 }
                             }
                         }

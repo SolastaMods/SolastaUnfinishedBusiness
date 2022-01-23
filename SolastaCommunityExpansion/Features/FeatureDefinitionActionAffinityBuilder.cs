@@ -7,6 +7,5 @@ namespace SolastaCommunityExpansion.Features
         public FeatureDefinitionActionAffinityBuilder(FeatureDefinitionActionAffinity toCopy, string name, string guid) : base(toCopy, name, guid)
         {
         }
-
     }
 }

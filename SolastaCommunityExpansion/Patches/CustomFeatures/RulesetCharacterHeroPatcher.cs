@@ -32,7 +32,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             ritualSpells.AddRange(spellRepertoire.AutoPreparedSpells
                 .Where(s => s.Ritual)
                 .Where(s => spellRepertoire.MaxSpellLevelOfSpellCastingLevel >= s.SpellLevel));
-
         }
     }
 
@@ -107,7 +106,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             {
                 Models.CustomFeaturesContext.RecursiveGrantCustomFeatures(__instance, feat.Features);
             }
-
         }
     }
 

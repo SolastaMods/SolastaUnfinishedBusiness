@@ -366,7 +366,6 @@ namespace SolastaCommunityExpansion.Feats
             particleParams.Copy(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters);
             effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
 
-
             return BuildPowerFromEffectDescription(usesPerRecharge, usesDetermination, activationTime, costPerUse, recharge,
                 false, false, savingThrowDifficultyAbility, effectDescriptionBuilder.Build(), name, guiPresentation);
         }

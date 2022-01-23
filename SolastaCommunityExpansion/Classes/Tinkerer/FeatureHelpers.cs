@@ -9,9 +9,8 @@ using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
-    internal class FeatureHelpers
+    internal static class FeatureHelpers
     {
-
         // TODO Most of theese builders should likely get moved/merged with the CE builders.
         public class FeatureDefinitionPowerBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
         {
@@ -92,7 +91,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public class FeatureDefinitionMagicAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionMagicAffinity>
         {
-
             public FeatureDefinitionMagicAffinityBuilder(string name, string guid, RuleDefinitions.ConcentrationAffinity concentrationAffinity,
                 int threshold, GuiPresentation guiPresentation) : base(name, guid)
             {
@@ -311,7 +309,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             public FeatureDefinitionBonusCantripsBuilder(string name, string guid, List<SpellDefinition> cantrips, GuiPresentation guiPresentation) : base(name, guid)
             {
-
                 foreach (SpellDefinition cantrip in cantrips)
                 {
                     Definition.BonusCantrips.Add(cantrip);
@@ -372,7 +369,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 autospelllists, characterclass, guiPresentation);
             return builder.AddToDB();
         }
-
 
         public static FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup BuildAutoPreparedSpellGroup(int classLevel, List<SpellDefinition> spellnames)
         {
@@ -441,7 +437,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             particleParams.Copy(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters);
             effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
 
-
             FeatureDefinitionPowerBuilder builder = new FeatureDefinitionPowerBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
                 usesPerRecharge, usesDetermination, AttributeDefinitions.Intelligence, activationTime, costPerUse, recharge, false, false, AttributeDefinitions.Intelligence,
                 effectDescriptionBuilder.Build(), guiPresentation);
@@ -477,7 +472,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         public static FeatureDefinitionHealingModifier BuildHealingModifier(int healingBonusDiceNumber, RuleDefinitions.DieType healingBonusDiceType,
             RuleDefinitions.LevelSourceType addLevel, string name, GuiPresentation guiPresentation)
         {
-
             FeatureDefinitionHealingModifierBuilder healingModifier = new FeatureDefinitionHealingModifierBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
                 healingBonusDiceNumber, healingBonusDiceType, addLevel, guiPresentation);
             return healingModifier.AddToDB();

@@ -24,12 +24,10 @@ namespace SolastaCommunityExpansion.Builders
 
         public FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original, string name, string guid) : base(original, name, guid)
         {
-
         }
 
         public FeatureDefinitionAdditionalActionBuilder(string name, string guid) : base(name, guid)
         {
-
         }
 
         public FeatureDefinitionAdditionalActionBuilder SetGuiPresentation(GuiPresentation guiPresentation)

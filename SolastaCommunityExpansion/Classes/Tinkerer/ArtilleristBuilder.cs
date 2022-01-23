@@ -6,7 +6,7 @@ using static SolastaCommunityExpansion.Classes.Tinkerer.FeatureHelpers;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
-    public class ArtilleristBuilder
+    public static class ArtilleristBuilder
     {
         public static CharacterSubclassDefinition Build(CharacterClassDefinition artificer, FeatureDefinitionCastSpell spellCasting)
         {
@@ -62,7 +62,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence, fireEffect.Build(),
                 flameGui.Build()).AddToDB();
             //    artillerist.AddFeatureAtLevel(flameAttack, 3);
-
 
             GuiPresentationBuilder forceGui = new GuiPresentationBuilder(
                 "Feat/&ArtilleristForceCannonDescription",

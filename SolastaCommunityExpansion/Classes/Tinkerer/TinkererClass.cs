@@ -155,7 +155,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             };
             ArtificerBuilder.AddEquipmentRow(providedGear);
 
-
             //public List<FeatureUnlockByLevel> FeatureUnlocks { get; }
             FeatureDefinitionProficiency armorProf = FeatureHelpers.BuildProficiency(RuleDefinitions.ProficiencyType.Armor,
                 new List<string>() { EquipmentDefinitions.LightArmorCategory, EquipmentDefinitions.MediumArmorCategory, EquipmentDefinitions.ShieldCategory },
@@ -247,7 +246,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             ArtificerBuilder.AddFeatureAtLevel(InfusionPool, 2);
 
-
             // Infusions -- Focus, Weapon, Mind Sharpener, Armor of Magical Strength are given in subclasses
             // Defense
             GuiPresentationBuilder infusionChoiceGui = new GuiPresentationBuilder(
@@ -265,9 +263,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             // Repeating Shot-- no point it seems
             // Returning Weapon-- not currently do-able
 
-
             // right tool for the job (level 3) (can I just give enchanting tool at level 3?)-- tools are available in the store, just skipping for now
-
 
             // Subclasses
             FeatureDefinitionSubclassChoice subclasses = ArtificerBuilder.BuildSubclassChoice(3, "Specialist", false, "SubclassChoiceArtificerSpecialistArchetypes",
@@ -432,7 +428,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             ArtificerBuilder.AddFeatureAtLevel(level14Infusions, 18);
 
             ArtificerBuilder.AddFeatureAtLevel(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 19);
-
 
             GuiPresentationBuilder SoulOfArtificeGui = new GuiPresentationBuilder(
                 "Subclass/&PowerTinkererSoulOfArtificeSavesDescription",

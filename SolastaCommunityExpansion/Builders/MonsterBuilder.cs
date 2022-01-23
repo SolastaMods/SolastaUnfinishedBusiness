@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class MonsterBuilder : BaseDefinitionBuilder<MonsterDefinition>
     {
-        public MonsterBuilder(string name, string guid, string title, string description, MonsterDefinition baseMonster) 
+        public MonsterBuilder(string name, string guid, string title, string description, MonsterDefinition baseMonster)
             : base(baseMonster, name, guid, title, description)
         {
         }
@@ -290,7 +290,6 @@ namespace SolastaCommunityExpansion.Builders
 
         public MonsterBuilder ClearSkillScores()
         {
-
             Definition.SkillScores.Clear();
             return this;
         }
@@ -308,7 +307,6 @@ namespace SolastaCommunityExpansion.Builders
 
         public MonsterBuilder ClearAttackIterations()
         {
-
             Definition.AttackIterations.Clear();
             return this;
         }

@@ -231,7 +231,6 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
                 true).AddToDB();
             superiorBarkWard.SetOverriddenPower(improvedBarkWard);
 
-
             return new Dictionary<int, FeatureDefinitionPowerSharedPool>{
                 {2, barkWard},
                 {10, improvedBarkWard},
@@ -316,8 +315,6 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             EffectDescriptionBuilder improvedBarkWardRetaliationEffect = new EffectDescriptionBuilder();
             improvedBarkWardRetaliationEffect.AddEffectForm(damageEffect.Build());
 
-
-
             return new FeatureDefinitionPowerBuilder("improvedBarkWardRetaliate",
                 GuidHelper.Create(CircleOfTheForestGuardian.DFG_BASE_GUID, "improvedBarkWardRetaliate").ToString(),
                 0,
@@ -362,7 +359,6 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             Definition.SetDurationParameter(10);
             Definition.SetDurationType(RuleDefinitions.DurationType.Minute);
             Definition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
-
         }
 
         public static ConditionDefinition CreateAndAddToDB()
@@ -438,7 +434,6 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             Definition.SetDurationParameter(10);
             Definition.SetDurationType(RuleDefinitions.DurationType.Minute);
             Definition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
-
         }
 
         public static ConditionDefinition CreateAndAddToDB()

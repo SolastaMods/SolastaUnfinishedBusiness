@@ -19,11 +19,8 @@ namespace SolastaCommunityExpansion.Features
 
         public FeatureDefinitionBonusCantripsBuilder AddBonusCantrip(SpellDefinition spellDefinition)
         {
-
             Definition.BonusCantrips.Add(spellDefinition);
             return this;
         }
-
     }
-
 }

@@ -8,7 +8,6 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 {
     internal class BloodWitch
     {
-
         public static readonly Guid BLOODW_BASE_GUID = new Guid("c9f680ec-7c79-414f-b700-eebc11863105");
         private CharacterSubclassDefinition Subclass;
         public static CharacterClassDefinition WitchClass { get; private set; }
@@ -89,7 +88,6 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
                     .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                     .SetUniqueChoices(true)
                     .AddToDB();
-
         }
 
         private static void BuildProgression(CharacterSubclassDefinitionBuilder subclassBuilder)
@@ -99,7 +97,6 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 
         public static CharacterSubclassDefinition BuildAndAddSubclass(CharacterClassDefinition witchClassDefinition)
         {
-
             WitchClass = witchClassDefinition;
 
             var subclassGuiPresentation = new GuiPresentationBuilder(
@@ -118,6 +115,5 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 
             return subclassBuilder.AddToDB();
         }
-
     }
 }

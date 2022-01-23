@@ -72,7 +72,6 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
                                 spellLevelsOnLine = 0;
                                 needNewLine = true;
                                 indexOfLine = 0;
-
                             }
                         }
                     }
@@ -152,7 +151,6 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
                     case ActionDefinitions.ActionType.NoCost:
                         spellActivationTime = RuleDefinitions.ActivationTime.NoCost;
                         break;
-
                 }
 
                 if (level == 0)

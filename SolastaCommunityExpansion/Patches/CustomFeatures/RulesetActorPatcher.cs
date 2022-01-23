@@ -55,7 +55,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
 
     internal static class RulesetActor_InflictCondition
     {
-
         internal static void Prefix(string conditionDefinitionName,
             ref int sourceAmount)
         {

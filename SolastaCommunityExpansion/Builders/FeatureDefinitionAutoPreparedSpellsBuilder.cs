@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion.Builders
         public FeatureDefinitionAutoPreparedSpellsBuilder(string name, string guid, List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> autospelllists,
             GuiPresentation guiPresentation) : base(name, guid)
         {
-            Definition.SetField("autoPreparedSpellsGroups", 
+            Definition.SetField("autoPreparedSpellsGroups",
                 new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>(autospelllists));
 
             Definition.SetGuiPresentation(guiPresentation);
@@ -31,12 +31,10 @@ namespace SolastaCommunityExpansion.Builders
 
         public FeatureDefinitionAutoPreparedSpellsBuilder(string name, string guid) : base(name, guid)
         {
-
         }
 
         public FeatureDefinitionAutoPreparedSpellsBuilder(FeatureDefinitionAutoPreparedSpells original, string name, string guid) : base(original, name, guid)
         {
-
         }
 
         public FeatureDefinitionAutoPreparedSpellsBuilder SetPreparedSpellGroups(params FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup[] autospelllists)
@@ -46,7 +44,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public FeatureDefinitionAutoPreparedSpellsBuilder SetPreparedSpellGroups(IEnumerable<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> autospelllists)
         {
-            Definition.SetField("autoPreparedSpellsGroups", 
+            Definition.SetField("autoPreparedSpellsGroups",
                 new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>(autospelllists));
 
             return this;

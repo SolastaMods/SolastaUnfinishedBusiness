@@ -35,7 +35,6 @@ namespace SolastaCommunityExpansion.Models
                     {
                         dwarfNames.RacePresentation.SurNameOptions.Add(name);
                     }
-
                     else if (term.Contains("ElfFemale"))
                     {
                         elfHighNames.RacePresentation.FemaleNameOptions.Add(name);
@@ -48,7 +47,6 @@ namespace SolastaCommunityExpansion.Models
                     {
                         elfHighNames.RacePresentation.SurNameOptions.Add(name);
                     }
-
                     else if (term.Contains("SylvanElfFemale"))
                     {
                         elfSylvanNames.RacePresentation.FemaleNameOptions.Add(name);
@@ -61,7 +59,6 @@ namespace SolastaCommunityExpansion.Models
                     {
                         elfSylvanNames.RacePresentation.SurNameOptions.Add(name);
                     }
-
                     else if (term.Contains("HalfElfFemale"))
                     {
                         halfElfNames.RacePresentation.FemaleNameOptions.Add(name);
@@ -74,7 +71,6 @@ namespace SolastaCommunityExpansion.Models
                     {
                         halfElfNames.RacePresentation.SurNameOptions.Add(name);
                     }
-
                     else if (term.Contains("HalfOrcFemale"))
                     {
                         halfOrcNames.RacePresentation.FemaleNameOptions.Add(name);
@@ -83,7 +79,6 @@ namespace SolastaCommunityExpansion.Models
                     {
                         halfOrcNames.RacePresentation.MaleNameOptions.Add(name);
                     }
-
                     else if (term.Contains("HalflingFemale"))
                     {
                         halflingNames.RacePresentation.FemaleNameOptions.Add(name);
@@ -96,7 +91,6 @@ namespace SolastaCommunityExpansion.Models
                     {
                         halflingNames.RacePresentation.SurNameOptions.Add(name);
                     }
-
                     else if (term.Contains("HumanFemale"))
                     {
                         humanNames.RacePresentation.FemaleNameOptions.Add(name);

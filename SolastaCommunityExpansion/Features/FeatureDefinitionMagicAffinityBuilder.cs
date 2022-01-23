@@ -77,6 +77,5 @@ namespace SolastaCommunityExpansion.Features
             Definition.SetRitualCasting(ritualCasting);
             return this;
         }
-
     }
 }

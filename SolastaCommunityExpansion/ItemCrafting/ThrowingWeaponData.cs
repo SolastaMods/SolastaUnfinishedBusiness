@@ -49,4 +49,3 @@ namespace SolastaCommunityExpansion.ItemCrafting
         }
     }
 }
-

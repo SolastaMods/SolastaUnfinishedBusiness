@@ -8,7 +8,6 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 {
     internal class PurpleWitch
     {
-
         public static readonly Guid PW_BASE_GUID = new Guid("bb8a01e8-7997-4c44-8643-72ac15853b47");
         private CharacterSubclassDefinition Subclass;
         public static CharacterClassDefinition WitchClass { get; private set; }
@@ -89,7 +88,6 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
                     .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                     .SetUniqueChoices(true)
                     .AddToDB();
-
         }
 
         private static void BuildProgression(CharacterSubclassDefinitionBuilder subclassBuilder)
@@ -99,7 +97,6 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 
         public static CharacterSubclassDefinition BuildAndAddSubclass(CharacterClassDefinition witchClassDefinition)
         {
-
             WitchClass = witchClassDefinition;
 
             var subclassGuiPresentation = new GuiPresentationBuilder(
@@ -118,6 +115,5 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 
             return subclassBuilder.AddToDB();
         }
-
     }
 }

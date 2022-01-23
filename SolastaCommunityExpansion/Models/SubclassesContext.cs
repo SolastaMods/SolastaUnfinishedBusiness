@@ -129,5 +129,4 @@ namespace SolastaCommunityExpansion.Models
             return outString.ToString();
         }
     }
-
 }
