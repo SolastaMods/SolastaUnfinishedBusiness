@@ -173,7 +173,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             EffectDescriptionBuilder effectFlameArtillerymode09 = new EffectDescriptionBuilder();
             effectFlameArtillerymode09.SetDurationData(RuleDefinitions.DurationType.Hour, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectFlameArtillerymode09.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
-            effectFlameArtillerymode09.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, FlameArtilleryConstruct_9Builder.FlameArtilleryConstruct_9.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
+            effectFlameArtillerymode09.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, FlameArtilleryConstruct9Builder.FlameArtilleryConstruct9.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
 
             var power = new FeatureDefinitionPowerSharedPoolBuilder(
                  "FlameArtillery_09ModePower"                                   // string name
@@ -205,7 +205,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             EffectDescriptionBuilder effectForceArtillerymode09 = new EffectDescriptionBuilder();
             effectForceArtillerymode09.SetDurationData(RuleDefinitions.DurationType.Hour, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectForceArtillerymode09.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
-            effectForceArtillerymode09.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, ForceArtilleryConstruct_9Builder.ForceArtilleryConstruct_9.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
+            effectForceArtillerymode09.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, ForceArtilleryConstruct9Builder.ForceArtilleryConstruct9.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
 
             var power = new FeatureDefinitionPowerSharedPoolBuilder
                 (
@@ -238,9 +238,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             EffectDescriptionBuilder effectTempHPShieldmode09 = new EffectDescriptionBuilder();
             effectTempHPShieldmode09.SetDurationData(RuleDefinitions.DurationType.Hour, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectTempHPShieldmode09.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
-            effectTempHPShieldmode09.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, TempHPShieldConstruct_9Builder.TempHPShieldConstruct_9.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
+            effectTempHPShieldmode09.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, TempHPShieldConstruct9Builder.TempHPShieldConstruct9.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
 
-            var power = new FeatureDefinitionPowerSharedPoolBuilder                (
+            var power = new FeatureDefinitionPowerSharedPoolBuilder(
                  "TempHPShield_09ModePower"                                     // string name
                  , "feac61d2-d2af-43a8-8136-dce6df168d73"                    // string guid
                  , ArtilleryConstructlevel03FeatureSetBuilder.ArtilleryModePool // FeatureDefinitionPower poolPower
@@ -302,7 +302,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             EffectDescriptionBuilder effectFlameArtillerymode15 = new EffectDescriptionBuilder();
             effectFlameArtillerymode15.SetDurationData(RuleDefinitions.DurationType.Hour, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectFlameArtillerymode15.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
-            effectFlameArtillerymode15.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, FlameArtilleryConstruct_15Builder.FlameArtilleryConstruct_15.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
+            effectFlameArtillerymode15.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, FlameArtilleryConstruct15Builder.FlameArtilleryConstruct15.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
 
             var power = new FeatureDefinitionPowerSharedPoolBuilder
                 (
@@ -334,7 +334,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             EffectDescriptionBuilder effectForceArtillerymode15 = new EffectDescriptionBuilder();
             effectForceArtillerymode15.SetDurationData(RuleDefinitions.DurationType.Hour, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectForceArtillerymode15.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
-            effectForceArtillerymode15.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, ForceArtilleryConstruct_15Builder.ForceArtilleryConstruct_15.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
+            effectForceArtillerymode15.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, ForceArtilleryConstruct15Builder.ForceArtilleryConstruct15.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
 
             var power = new FeatureDefinitionPowerSharedPoolBuilder
                 (
@@ -367,7 +367,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             EffectDescriptionBuilder effectTempHPShieldmode15 = new EffectDescriptionBuilder();
             effectTempHPShieldmode15.SetDurationData(RuleDefinitions.DurationType.Hour, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectTempHPShieldmode15.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
-            effectTempHPShieldmode15.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, TempHPShieldConstruct_15Builder.TempHPShieldConstruct_15.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
+            effectTempHPShieldmode15.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, TempHPShieldConstruct15Builder.TempHPShieldConstruct15.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
 
             var power = new FeatureDefinitionPowerSharedPoolBuilder
                 (
@@ -716,12 +716,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
     //***********************************		SummonArtillerySpellConstruct_9Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal class SummonArtillerySpellConstruct_9Builder : BaseDefinitionBuilder<SpellDefinition>
+    internal class SummonArtillerySpellConstruct9Builder : BaseDefinitionBuilder<SpellDefinition>
     {
         private const string SummonArtillerySpellConstruct_9Name = "SummonArtillerySpellConstruct_9";
         private const string SummonArtillerySpellConstruct_9Guid = "9ad29b43-5207-46e8-bbc9-7b8138b2912f";
 
-        protected SummonArtillerySpellConstruct_9Builder(string name, string guid) : base(SummonArtillerySpellConstructBuilder.SummonArtillerySpellConstruct, name, guid)
+        protected SummonArtillerySpellConstruct9Builder(string name, string guid) : base(SummonArtillerySpellConstructBuilder.SummonArtillerySpellConstruct, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&ResummonArtilleryConstruct_09Title";
             Definition.GuiPresentation.Description = "Feat/&ResummonArtilleryConstructDescription";
@@ -729,30 +729,30 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.SubspellsList.Clear();
             Definition.SubspellsList.AddRange(new List<SpellDefinition>
             {
-                SummonFlameArtillerySpellConstruct_9Builder.SummonFlameArtilleryConstruct_9 ,
-               SummonForceArtillerySpellConstruct_9Builder.SummonForceArtilleryConstruct_9,
-                SummonTempHPShieldSpellConstruct_9Builder.SummonTempHPShieldConstruct_9
+                SummonFlameArtillerySpellConstruct9Builder.SummonFlameArtilleryConstruct9 ,
+               SummonForceArtillerySpellConstruct9Builder.SummonForceArtilleryConstruct_9,
+                SummonTempHPShieldSpellConstruct9Builder.SummonTempHPShieldConstruct_9
             });
         }
 
         public static SpellDefinition CreateAndAddToDB(string name, string guid)
         {
-            return new SummonArtillerySpellConstruct_9Builder(name, guid).AddToDB();
+            return new SummonArtillerySpellConstruct9Builder(name, guid).AddToDB();
         }
 
-        public static readonly SpellDefinition SummonArtillerySpellConstruct_9 = CreateAndAddToDB(SummonArtillerySpellConstruct_9Name, SummonArtillerySpellConstruct_9Guid);
+        public static readonly SpellDefinition SummonArtillerySpellConstruct9 = CreateAndAddToDB(SummonArtillerySpellConstruct_9Name, SummonArtillerySpellConstruct_9Guid);
     }
 
     //*****************************************************************************************************************************************
     //***********************************		SummonArtillerySpellConstruct_15Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal class SummonArtillerySpellConstruct_15Builder : BaseDefinitionBuilder<SpellDefinition>
+    internal class SummonArtillerySpellConstruct15Builder : BaseDefinitionBuilder<SpellDefinition>
     {
         private const string SummonArtillerySpellConstruct_15Name = "SummonArtillerySpellConstruct_15";
         private const string SummonArtillerySpellConstruct_15Guid = "f0038039-423b-4265-b0cf-2eab2450f982";
 
-        protected SummonArtillerySpellConstruct_15Builder(string name, string guid) : base(SummonArtillerySpellConstructBuilder.SummonArtillerySpellConstruct, name, guid)
+        protected SummonArtillerySpellConstruct15Builder(string name, string guid) : base(SummonArtillerySpellConstructBuilder.SummonArtillerySpellConstruct, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&ResummonArtilleryConstruct_15Title";
             Definition.GuiPresentation.Description = "Feat/&ResummonArtilleryConstructDescription";
@@ -760,18 +760,18 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.SubspellsList.Clear();
             Definition.SubspellsList.AddRange(new List<SpellDefinition>
             {
-                SummonFlameArtillerySpellConstruct_15Builder.SummonFlameArtilleryConstruct_15 ,
-               SummonForceArtillerySpellConstruct_15Builder.SummonForceArtilleryConstruct_15,
-                SummonTempHPShieldSpellConstruct_15Builder.SummonTempHPShieldConstruct_15
+                SummonFlameArtillerySpellConstruct15Builder.SummonFlameArtilleryConstruct15,
+                SummonForceArtillerySpellConstruct15Builder.SummonForceArtilleryConstruct15,
+                SummonTempHPShieldSpellConstruct15Builder.SummonTempHPShieldConstruct15
             });
         }
 
         public static SpellDefinition CreateAndAddToDB(string name, string guid)
         {
-            return new SummonArtillerySpellConstruct_15Builder(name, guid).AddToDB();
+            return new SummonArtillerySpellConstruct15Builder(name, guid).AddToDB();
         }
 
-        public static readonly SpellDefinition SummonArtillerySpellConstruct_15 = CreateAndAddToDB(SummonArtillerySpellConstruct_15Name, SummonArtillerySpellConstruct_15Guid);
+        public static readonly SpellDefinition SummonArtillerySpellConstruct15 = CreateAndAddToDB(SummonArtillerySpellConstruct_15Name, SummonArtillerySpellConstruct_15Guid);
     }
 
     internal class SummoningAffinityTinkererArtilleryConstructBuilder : BaseDefinitionBuilder<FeatureDefinitionSummoningAffinity>

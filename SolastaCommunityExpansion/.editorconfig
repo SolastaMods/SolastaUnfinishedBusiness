@@ -149,6 +149,10 @@ dotnet_diagnostic.RCS1146.severity = silent
 # RCS1112: Combine 'Enumerable.Where' method chain.
 dotnet_diagnostic.RCS1112.severity = silent
 
+# ROS0003: Analyzer requires config option to be specified
+dotnet_diagnostic.ROS0003.severity = silent
+
 [*.vb]
 # Modifier preferences
 visual_basic_preferred_modifier_order = Partial,Default,Private,Protected,Public,Friend,NotOverridable,Overridable,MustOverride,Overloads,Overrides,MustInherit,NotInheritable,Static,Shared,Shadows,ReadOnly,WriteOnly,Dim,Const,WithEvents,Widening,Narrowing,Custom,Async:suggestion
+

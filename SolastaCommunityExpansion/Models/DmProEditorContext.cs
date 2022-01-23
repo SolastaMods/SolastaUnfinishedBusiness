@@ -1,7 +1,7 @@
-﻿using ModKit;
-using SolastaModApi.Extensions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using ModKit;
+using SolastaModApi.Extensions;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Models
@@ -113,7 +113,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static void CreateFlatRooms(int maxMultiplier)
         {
-            var template = "Crossroad_12C";
+            const string template = "Crossroad_12C";
             var dbRoomBlueprint = DatabaseRepository.GetDatabase<RoomBlueprint>();
 
             for (var multiplier = 1; multiplier <= maxMultiplier; multiplier++)

@@ -46,11 +46,14 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.GuiPresentation.Title = "Feat/&ProtectorConstructLevel3AutopreparedSpellsTitle";
             Definition.GuiPresentation.Description = "Feat/&ProtectorConstructLevel3AutopreparedSpellsDescription";
 
+            // TODO: @Chris - review
+#pragma warning disable S1481, IDE0059 // Unused local variables should be removed
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup autoPreparedSpellsGroup = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
                 ClassLevel = 1,
                 SpellsList = new List<SpellDefinition> { SummonProtectorSpellConstructBuilder.SummonProtectorConstruct }
             };
+#pragma warning restore S1481, IDE0059 // Unused local variables should be removed
         }
         public static FeatureDefinitionAutoPreparedSpells CreateAndAddToDB(string name, string guid)
         {
@@ -159,27 +162,27 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
     //***********************************		SummonProtectorPowerConstruct_UpgradeBuilder		***************************************************
     //*****************************************************************************************************************************************
 
-    internal class SummonProtectorPowerConstruct_UpgradeBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
+    internal class SummonProtectorPowerConstructUpgradeBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
     {
         private const string Name = "SummonProtectorPowerConstruct_Upgrade";
         private const string Guid = "34c307e9-5883-438c-9130-1f286b9cdafc";
 
-        protected SummonProtectorPowerConstruct_UpgradeBuilder(string name, string guid) : base(SummonProtectorPowerConstructBuilder.SummonProtectorConstruct, name, guid)
+        protected SummonProtectorPowerConstructUpgradeBuilder(string name, string guid) : base(SummonProtectorPowerConstructBuilder.SummonProtectorConstruct, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&SummonProtectorConstructTitle_2";
             Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription_2";
 
             Definition.SetOverriddenPower(SummonProtectorPowerConstructBuilder.SummonProtectorConstruct);
 
-            Definition.EffectDescription.EffectForms[0].SummonForm.SetMonsterDefinitionName(ProtectorConstruct_UpgradeBuilder.ProtectorConstruct_Upgrade.Name);
+            Definition.EffectDescription.EffectForms[0].SummonForm.SetMonsterDefinitionName(ProtectorConstructUpgradeBuilder.ProtectorConstructUpgrade.Name);
         }
 
         public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
         {
-            return new SummonProtectorPowerConstruct_UpgradeBuilder(name, guid).AddToDB();
+            return new SummonProtectorPowerConstructUpgradeBuilder(name, guid).AddToDB();
         }
 
-        public static readonly FeatureDefinitionPower SummonProtectorPowerConstruct_Upgrade = CreateAndAddToDB(Name, Guid);
+        public static readonly FeatureDefinitionPower SummonProtectorPowerConstructUpgrade = CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -223,25 +226,25 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
     // need a new featuredefintionAutopreparedSpells list with the summon upgrade spell for the two different subclasses
     // as features can be added at any lvl and it's 1st lvl spell
     //
-    internal class SummonProtectorSpellConstruct_UpgradeBuilder : BaseDefinitionBuilder<SpellDefinition>
+    internal class SummonProtectorSpellConstructUpgradeBuilder : BaseDefinitionBuilder<SpellDefinition>
     {
         private const string Name = "SummonProtectorConstruct_Upgrade";
         private const string Guid = "ccd2a793-e566-4c1e-9588-ac36b578ae89";
 
-        protected SummonProtectorSpellConstruct_UpgradeBuilder(string name, string guid) : base(SummonProtectorSpellConstructBuilder.SummonProtectorConstruct, name, guid)
+        protected SummonProtectorSpellConstructUpgradeBuilder(string name, string guid) : base(SummonProtectorSpellConstructBuilder.SummonProtectorConstruct, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&SummonProtectorConstructTitle_Upgrade";
             Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription_Upgrade";
 
-            Definition.EffectDescription.EffectForms[0].SummonForm.SetMonsterDefinitionName(ProtectorConstruct_UpgradeBuilder.ProtectorConstruct_Upgrade.Name);
+            Definition.EffectDescription.EffectForms[0].SummonForm.SetMonsterDefinitionName(ProtectorConstructUpgradeBuilder.ProtectorConstructUpgrade.Name);
         }
 
         public static SpellDefinition CreateAndAddToDB(string name, string guid)
         {
-            return new SummonProtectorSpellConstruct_UpgradeBuilder(name, guid).AddToDB();
+            return new SummonProtectorSpellConstructUpgradeBuilder(name, guid).AddToDB();
         }
 
-        public static readonly SpellDefinition SummonProtectorConstruct_Upgrade = CreateAndAddToDB(Name, Guid);
+        public static readonly SpellDefinition SummonProtectorConstructUpgrade = CreateAndAddToDB(Name, Guid);
     }
 
     public class ProtectorConstructLevel15AutopreparedSpellsBuilder : BaseDefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
@@ -254,14 +257,17 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.GuiPresentation.Title = "Feat/&ProtectorConstructLevel15AutopreparedSpellsTitle";
             Definition.GuiPresentation.Description = "Feat/&ProtectorConstructLevel15AutopreparedSpellsDescription";
 
+            // TODO: @Chris - review
+#pragma warning disable S1481, IDE0059 // Unused local variables should be removed
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup autoPreparedSpellsGroup = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
                 ClassLevel = 1,
                 SpellsList = (new List<SpellDefinition>
             {
-                SummonProtectorSpellConstruct_UpgradeBuilder.SummonProtectorConstruct_Upgrade
+                SummonProtectorSpellConstructUpgradeBuilder.SummonProtectorConstructUpgrade
             })
             };
+#pragma warning restore S1481, IDE0059 // Unused local variables should be removed
         }
         public static FeatureDefinitionAutoPreparedSpells CreateAndAddToDB(string name, string guid)
         {
@@ -287,7 +293,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             Definition.FeatureSet.Clear();
             Definition.FeatureSet.Add(ProtectorConstructLevel15AutopreparedSpellsBuilder.ProtectorConstructLevel15AutopreparedSpells);
-            Definition.FeatureSet.Add(SummonProtectorPowerConstruct_UpgradeBuilder.SummonProtectorPowerConstruct_Upgrade);
+            Definition.FeatureSet.Add(SummonProtectorPowerConstructUpgradeBuilder.SummonProtectorPowerConstructUpgrade);
         }
 
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
@@ -395,12 +401,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
     //***********************************		ProtectorConstruct_UpgradeBuilder		*******************************************************
     //*****************************************************************************************************************************************
 
-    internal class ProtectorConstruct_UpgradeBuilder : BaseDefinitionBuilder<MonsterDefinition>
+    internal class ProtectorConstructUpgradeBuilder : BaseDefinitionBuilder<MonsterDefinition>
     {
         private const string Name = "ProtectorConstruct_Upgrade";
         private const string Guid = "c6f711d8-9b83-497f-8e90-6440776cf644";
 
-        protected ProtectorConstruct_UpgradeBuilder(string name, string guid) : base(ProtectorConstructBuilder.ProtectorConstruct, name, guid)
+        protected ProtectorConstructUpgradeBuilder(string name, string guid) : base(ProtectorConstructBuilder.ProtectorConstruct, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&ProtectorConstructTitle_5";
             Definition.GuiPresentation.Description = "Feat/&ProtectorConstructDescription_5";
@@ -411,10 +417,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public static MonsterDefinition CreateAndAddToDB(string name, string guid)
         {
-            return new ProtectorConstruct_UpgradeBuilder(name, guid).AddToDB();
+            return new ProtectorConstructUpgradeBuilder(name, guid).AddToDB();
         }
 
-        public static readonly MonsterDefinition ProtectorConstruct_Upgrade = CreateAndAddToDB(Name, Guid);
+        public static readonly MonsterDefinition ProtectorConstructUpgrade = CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************

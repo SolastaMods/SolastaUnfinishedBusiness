@@ -1,8 +1,8 @@
-﻿using HarmonyLib;
-using ModKit;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
+using HarmonyLib;
+using ModKit;
 using TMPro;
 using static SolastaCommunityExpansion.Models.DmProEditorContext;
 
@@ -40,7 +40,7 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class UserLocationSettingsModal_RuntimeLoaded
     {
-        internal static void Postfix(UserLocationSettingsModal __instance, List<TMP_Dropdown.OptionData> ___optionsListSize)
+        internal static void Postfix(List<TMP_Dropdown.OptionData> ___optionsListSize)
         {
             if (!Main.Settings.EnableDungeonMakerPro || !Main.Settings.EnableDungeonMakerModdedContent)
             {
