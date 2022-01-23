@@ -1,10 +1,12 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.DungeonMaker
 {
     // better props sorting
     [HarmonyPatch(typeof(PropBlueprintSelectionPanel), "Compare")]
-    internal static class PropBlueprintSelectionPanelCompare
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class PropBlueprintSelectionPanel_Compare
     {
         internal static bool Prefix(PropBlueprint left, PropBlueprint right, ref int __result)
         {

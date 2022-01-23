@@ -1,10 +1,12 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.DungeonMaker
 {
     // better gadget sorting
     [HarmonyPatch(typeof(GadgetBlueprintSelectionPanel), "Compare")]
-    internal static class GadgetBlueprintSelectionPanelCompare
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class GadgetBlueprintSelectionPanel_Compare
     {
         internal static bool Prefix(GadgetBlueprint left, GadgetBlueprint right, ref int __result)
         {
