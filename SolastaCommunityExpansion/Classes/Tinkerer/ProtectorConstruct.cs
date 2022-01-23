@@ -49,10 +49,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup autoPreparedSpellsGroup = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
                 ClassLevel = 1,
-                SpellsList = (new List<SpellDefinition>
-            {
-                SummonProtectorSpellConstructBuilder.SummonProtectorConstruct
-            })
+                SpellsList = new List<SpellDefinition> { SummonProtectorSpellConstructBuilder.SummonProtectorConstruct }
             };
         }
         public static FeatureDefinitionAutoPreparedSpells CreateAndAddToDB(string name, string guid)

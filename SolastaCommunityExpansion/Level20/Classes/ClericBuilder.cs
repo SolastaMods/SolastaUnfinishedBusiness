@@ -31,7 +31,6 @@ namespace SolastaCommunityExpansion.Level20.Classes
             CastSpellCleric.ReplacedSpells.Clear();
             CastSpellCleric.ReplacedSpells.AddRange(SpellsHelper.EmptyReplacedSpells);
 
-
             DomainBattle.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementPaladin, 20));
             DomainElementalCold.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
             DomainElementalFire.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
