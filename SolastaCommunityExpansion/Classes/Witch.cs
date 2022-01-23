@@ -435,7 +435,7 @@ namespace SolastaCommunityExpansion.Classes
 
             classSpellCast.SetSlotsPerLevel(witchCastingSlots);
             classSpellCast.SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest);
-            classSpellCast.SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class);
+            classSpellCast.SetSpellCastingOrigin(CastingOrigin.Class);
             classSpellCast.SetSpellCastingAbility(AttributeDefinitions.Charisma);
             classSpellCast.SetSpellCastingLevel(9);
             classSpellCast.SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection);

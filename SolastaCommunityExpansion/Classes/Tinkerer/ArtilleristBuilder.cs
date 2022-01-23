@@ -21,25 +21,25 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             meleePresentation.SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.TraditionShockArcanist.GuiPresentation.SpriteReference);
             artillerist.SetGuiPresentation(meleePresentation.Build());
 
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells1 = FeatureHelpers.BuildAutoPreparedSpellGroup(3,
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells1 = BuildAutoPreparedSpellGroup(3,
                 new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.Shield, DatabaseHelper.SpellDefinitions.Thunderwave });
 
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells2 = FeatureHelpers.BuildAutoPreparedSpellGroup(5,
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells2 = BuildAutoPreparedSpellGroup(5,
                 new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.ScorchingRay, DatabaseHelper.SpellDefinitions.Shatter });
 
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells3 = FeatureHelpers.BuildAutoPreparedSpellGroup(9,
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells3 = BuildAutoPreparedSpellGroup(9,
                 new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.Fireball, DatabaseHelper.SpellDefinitions.WindWall });
 
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells4 = FeatureHelpers.BuildAutoPreparedSpellGroup(13,
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells4 = BuildAutoPreparedSpellGroup(13,
                 new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.IceStorm, DatabaseHelper.SpellDefinitions.WallOfFire });
 
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells5 = FeatureHelpers.BuildAutoPreparedSpellGroup(17,
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells5 = BuildAutoPreparedSpellGroup(17,
                 new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.ConeOfCold, DatabaseHelper.SpellDefinitions.WallOfForce });
 
             GuiPresentationBuilder artilleristSpellsPresentation = new GuiPresentationBuilder(
                 "Feat/&ArtilleristSubclassSpellsDescription",
                 "Feat/&ArtilleristSubclassSpellsTitle");
-            FeatureDefinitionAutoPreparedSpells ArtilleristPrepSpells = FeatureHelpers.BuildAutoPreparedSpells(
+            FeatureDefinitionAutoPreparedSpells ArtilleristPrepSpells = BuildAutoPreparedSpells(
                 new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>() {
                     artilleristSpells1, artilleristSpells2, artilleristSpells3, artilleristSpells4, artilleristSpells5 },
                 artificer, "ArtificerArtilleristAutoPrepSpells", artilleristSpellsPresentation.Build());
@@ -55,9 +55,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             EffectDescriptionBuilder fireEffect = new EffectDescriptionBuilder();
             fireEffect.AddEffectForm(new EffectFormBuilder().SetDamageForm(false, DieType.D8, DamageTypeFire, 0, DieType.D8, 2, HealFromInflictedDamage.Never, new List<TrendInfo>())
                 .HasSavingThrow(EffectSavingThrowType.HalfDamage).Build());
-            fireEffect.SetSavingThrowData(true, false, AttributeDefinitions.Dexterity, false, RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Intelligence,
+            fireEffect.SetSavingThrowData(true, false, AttributeDefinitions.Dexterity, false, EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Intelligence,
                 15, false, new List<SaveAffinityBySenseDescription>());
-            fireEffect.SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Cone, 3, 2, ActionDefinitions.ItemSelectionType.None);
+            fireEffect.SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Cone, 3, 2, ActionDefinitions.ItemSelectionType.None);
             fireEffect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.BurningHands.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
@@ -75,7 +75,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             forceEffect.AddEffectForm(new EffectFormBuilder().SetDamageForm(false, DieType.D8, DamageTypeForce, 0, DieType.D8, 2, HealFromInflictedDamage.Never, new List<TrendInfo>())
                 .Build());
             forceEffect.AddEffectForm(new EffectFormBuilder().SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1).Build());
-            forceEffect.SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.RangeHit, 24, RuleDefinitions.TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.None);
+            forceEffect.SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.None);
             forceEffect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
@@ -91,9 +91,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             protectorGui.SetSpriteReference(DatabaseHelper.SpellDefinitions.FalseLife.GuiPresentation.SpriteReference);
 
             EffectDescriptionBuilder protectorEffect = new EffectDescriptionBuilder();
-            protectorEffect.AddEffectForm(new EffectFormBuilder().SetTempHPForm(0, DieType.D8, 1).SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus).Build());
-            protectorEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 2, RuleDefinitions.TargetType.Sphere, 2, 2, ActionDefinitions.ItemSelectionType.None);
-            protectorEffect.SetDurationData(RuleDefinitions.DurationType.Permanent, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            protectorEffect.AddEffectForm(new EffectFormBuilder().SetTempHPForm(0, DieType.D8, 1).SetBonusMode(AddBonusMode.AbilityBonus).Build());
+            protectorEffect.SetTargetingData(Side.Ally, RangeType.Self, 2, TargetType.Sphere, 2, 2, ActionDefinitions.ItemSelectionType.None);
+            protectorEffect.SetDurationData(DurationType.Permanent, 1, TurnOccurenceType.EndOfTurn);
             protectorEffect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.FalseLife.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
@@ -107,7 +107,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             GuiPresentationBuilder ArtilleryConstructLevel03AutopreparedSpellsPresentation = new GuiPresentationBuilder(
                  "Feat/&ArtilleryConstructLevel03AutopreparedSpellsDescription",
                  "Feat/&ArtilleryConstructLevel03AutopreparedSpellsTitle");
-            FeatureDefinitionAutoPreparedSpells ArtilleryConstructLevel03AutopreparedSpells = FeatureHelpers.BuildAutoPreparedSpells(
+            FeatureDefinitionAutoPreparedSpells ArtilleryConstructLevel03AutopreparedSpells = BuildAutoPreparedSpells(
                 new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>() {
                     new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup() {
                         ClassLevel=1,
@@ -124,8 +124,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Feat/&ArtificerArtilleristArcaneFirearmTitle");
             FeatureDefinitionAdditionalDamage arcaneFirearm = new FeatureDefinitionAdditionalDamageBuilder("ArtificerArtilleristArcaneFirearm",
                  GuidHelper.Create(TinkererClass.GuidNamespace, "ArtificerArtilleristArcaneFirearm").ToString(), "ArcaneFirearm",
-                RuleDefinitions.FeatureLimitedUsage.OncePerTurn, RuleDefinitions.AdditionalDamageValueDetermination.Die, RuleDefinitions.AdditionalDamageTriggerCondition.EvocationSpellDamage, RuleDefinitions.AdditionalDamageRequiredProperty.None,
-                false /* attack only */, RuleDefinitions.DieType.D8, 1 /* dice number */, RuleDefinitions.AdditionalDamageType.SameAsBaseDamage, "", RuleDefinitions.AdditionalDamageAdvancement.None,
+                FeatureLimitedUsage.OncePerTurn, AdditionalDamageValueDetermination.Die, AdditionalDamageTriggerCondition.EvocationSpellDamage, AdditionalDamageRequiredProperty.None,
+                false /* attack only */, DieType.D8, 1 /* dice number */, AdditionalDamageType.SameAsBaseDamage, "", AdditionalDamageAdvancement.None,
                 new List<DiceByRank>(), false, AttributeDefinitions.Wisdom, 0, EffectSavingThrowType.None, new List<ConditionOperationDescription>(),
                 arcaneFirearmGui.Build()).AddToDB();
             artillerist.AddFeatureAtLevel(arcaneFirearm, 5);
@@ -138,17 +138,17 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             detonationEffect.AddEffectForm(new EffectFormBuilder().SetDamageForm(false, DieType.D8, DamageTypeForce, 0, DieType.D8, 3, HealFromInflictedDamage.Never, new List<TrendInfo>())
                 .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                 .Build());
-            detonationEffect.SetSavingThrowData(true, false, AttributeDefinitions.Dexterity, false, RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Intelligence,
+            detonationEffect.SetSavingThrowData(true, false, AttributeDefinitions.Dexterity, false, EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Intelligence,
                 15, false, new List<SaveAffinityBySenseDescription>());
-            detonationEffect.SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 12, RuleDefinitions.TargetType.Sphere, 4, 4, ActionDefinitions.ItemSelectionType.None);
+            detonationEffect.SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 4, 4, ActionDefinitions.ItemSelectionType.None);
             detonationEffect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters);
 
             SpellDefinition detonation = new SpellBuilder("ArtilleristCannonDetonation", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristCannonDetonation").ToString())
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSpellLevel(1)
-                .SetCastingTime(RuleDefinitions.ActivationTime.Action)
+                .SetCastingTime(ActivationTime.Action)
                 .SetEffectDescription(detonationEffect.Build())
-                .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane)
+                .SetMaterialComponent(MaterialComponentType.Mundane)
                 .SetGuiPresentation(detonationGui.Build())
                 .AddToDB();
 
@@ -159,9 +159,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             // TODO: unused
 #pragma warning disable IDE0059, S1481 // Unused local variables should be removed
-            FeatureDefinitionAutoPreparedSpells artilleristDetonationSpell = FeatureHelpers.BuildAutoPreparedSpells(
+            FeatureDefinitionAutoPreparedSpells artilleristDetonationSpell = BuildAutoPreparedSpells(
                 new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>() {
-                    FeatureHelpers.BuildAutoPreparedSpellGroup(9, new List<SpellDefinition>() { detonation })
+                    BuildAutoPreparedSpellGroup(9, new List<SpellDefinition>() { detonation })
                 },
                 artificer, "ArtificerArtillerstDetonationSpellPrepared", artilleristDetonationPreparedPresentation.Build());
             //    artillerist.AddFeatureAtLevel(artilleristDetonationSpell, 9);
@@ -176,9 +176,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             EffectDescriptionBuilder fire9Effect = new EffectDescriptionBuilder();
             fire9Effect.AddEffectForm(new EffectFormBuilder().SetDamageForm(false, DieType.D8, DamageTypeFire, 0, DieType.D8, 3, HealFromInflictedDamage.Never, new List<TrendInfo>())
                 .HasSavingThrow(EffectSavingThrowType.HalfDamage).Build());
-            fire9Effect.SetSavingThrowData(true, false, AttributeDefinitions.Dexterity, false, RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Intelligence,
+            fire9Effect.SetSavingThrowData(true, false, AttributeDefinitions.Dexterity, false, EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Intelligence,
                 15, false, new List<SaveAffinityBySenseDescription>());
-            fire9Effect.SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Cone, 3, 2, ActionDefinitions.ItemSelectionType.None);
+            fire9Effect.SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Cone, 3, 2, ActionDefinitions.ItemSelectionType.None);
             fire9Effect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.BurningHands.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
@@ -197,7 +197,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             force9Effect.AddEffectForm(new EffectFormBuilder().SetDamageForm(false, DieType.D8, DamageTypeForce, 0, DieType.D8, 3, HealFromInflictedDamage.Never, new List<TrendInfo>())
                 .Build());
             force9Effect.AddEffectForm(new EffectFormBuilder().SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1).Build());
-            force9Effect.SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.RangeHit, 24, RuleDefinitions.TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.None);
+            force9Effect.SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.None);
             force9Effect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
@@ -211,7 +211,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             GuiPresentationBuilder ArtilleryConstructLevel09AutopreparedSpellsPresentation = new GuiPresentationBuilder(
                  "Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription",
                  "Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle");
-            FeatureDefinitionAutoPreparedSpells ArtilleryConstructLevel09AutopreparedSpells = FeatureHelpers.BuildAutoPreparedSpells(
+            FeatureDefinitionAutoPreparedSpells ArtilleryConstructLevel09AutopreparedSpells = BuildAutoPreparedSpells(
                 new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>() {
                     new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup() {
                         ClassLevel=1,
@@ -231,9 +231,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             EffectDescriptionBuilder fire15Effect = new EffectDescriptionBuilder();
             fire15Effect.AddEffectForm(new EffectFormBuilder().SetDamageForm(false, DieType.D8, DamageTypeFire, 0, DieType.D8, 6, HealFromInflictedDamage.Never, new List<TrendInfo>())
                 .HasSavingThrow(EffectSavingThrowType.HalfDamage).Build());
-            fire15Effect.SetSavingThrowData(true, false, AttributeDefinitions.Dexterity, false, RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Intelligence,
+            fire15Effect.SetSavingThrowData(true, false, AttributeDefinitions.Dexterity, false, EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Intelligence,
                 15, false, new List<SaveAffinityBySenseDescription>());
-            fire15Effect.SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Cone, 3, 2, ActionDefinitions.ItemSelectionType.None);
+            fire15Effect.SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Cone, 3, 2, ActionDefinitions.ItemSelectionType.None);
             fire15Effect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.BurningHands.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
@@ -252,7 +252,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             force15Effect.AddEffectForm(new EffectFormBuilder().SetDamageForm(false, DieType.D8, DamageTypeForce, 0, DieType.D8, 3, HealFromInflictedDamage.Never, new List<TrendInfo>())
                 .Build());
             force15Effect.AddEffectForm(new EffectFormBuilder().SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1).Build());
-            force15Effect.SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.RangeHit, 24, RuleDefinitions.TargetType.Individuals, 2, 2, ActionDefinitions.ItemSelectionType.None);
+            force15Effect.SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.Individuals, 2, 2, ActionDefinitions.ItemSelectionType.None);
             force15Effect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
@@ -267,9 +267,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             protectorGui.SetSpriteReference(DatabaseHelper.SpellDefinitions.FalseLife.GuiPresentation.SpriteReference);
 
             EffectDescriptionBuilder protector15Effect = new EffectDescriptionBuilder();
-            protector15Effect.AddEffectForm(new EffectFormBuilder().SetTempHPForm(0, DieType.D8, 2).SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus).Build());
-            protector15Effect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 2, RuleDefinitions.TargetType.Sphere, 4, 4, ActionDefinitions.ItemSelectionType.None);
-            protector15Effect.SetDurationData(RuleDefinitions.DurationType.Permanent, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            protector15Effect.AddEffectForm(new EffectFormBuilder().SetTempHPForm(0, DieType.D8, 2).SetBonusMode(AddBonusMode.AbilityBonus).Build());
+            protector15Effect.SetTargetingData(Side.Ally, RangeType.Self, 2, TargetType.Sphere, 4, 4, ActionDefinitions.ItemSelectionType.None);
+            protector15Effect.SetDurationData(DurationType.Permanent, 1, TurnOccurenceType.EndOfTurn);
             protector15Effect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.FalseLife.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
@@ -283,7 +283,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             GuiPresentationBuilder ArtilleryConstructLevel15AutopreparedSpellsPresentation = new GuiPresentationBuilder(
     "Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription",
     "Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle");
-            FeatureDefinitionAutoPreparedSpells ArtilleryConstructLevel15AutopreparedSpells = FeatureHelpers.BuildAutoPreparedSpells(
+            FeatureDefinitionAutoPreparedSpells ArtilleryConstructLevel15AutopreparedSpells = BuildAutoPreparedSpells(
                 new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>() {
                     new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup() {
                         ClassLevel=1,

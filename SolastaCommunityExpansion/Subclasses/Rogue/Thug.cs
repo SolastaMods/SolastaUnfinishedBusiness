@@ -43,7 +43,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                 .SetGuiPresentation(guiPresentation)
                 .AddFeatureAtLevel(new RemoveGrantedFeatureBuilder(
                     featureName,
-                    GuidHelper.Create(Thug.SubclassNamespace, featureName).ToString(),
+                    GuidHelper.Create(SubclassNamespace, featureName).ToString(),
                     AdditionalDamageRogueSneakAttack,
                     1,
                     DatabaseHelper.CharacterClassDefinitions.Rogue).AddToDB(), 3)

@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Level20
             var dbFeatureDefinitionCastSpell = DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>();
 
             foreach (var featureDefinitionCastSpell in dbFeatureDefinitionCastSpell
-                .Where(x => x.SpellCastingOrigin != FeatureDefinitionCastSpell.CastingOrigin.Monster))
+                .Where(x => x.SpellCastingOrigin != CastingOrigin.Monster))
             {
                 while (featureDefinitionCastSpell.KnownCantrips.Count < MOD_MAX_LEVEL + 1)
                 {

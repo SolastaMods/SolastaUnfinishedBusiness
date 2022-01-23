@@ -170,7 +170,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     {
         public static void Postfix(RulesetCharacter __instance)
         {
-            Models.CustomFeaturesContext.RechargeLinkedPowers(__instance, RuleDefinitions.RestType.LongRest);
+            CustomFeaturesContext.RechargeLinkedPowers(__instance, RuleDefinitions.RestType.LongRest);
         }
     }
 
@@ -183,7 +183,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         {
             if (!simulate)
             {
-                Models.CustomFeaturesContext.RechargeLinkedPowers(__instance, restType);
+                CustomFeaturesContext.RechargeLinkedPowers(__instance, restType);
             }
 
             // The player isn't recharging the shared pool features, just the pool.

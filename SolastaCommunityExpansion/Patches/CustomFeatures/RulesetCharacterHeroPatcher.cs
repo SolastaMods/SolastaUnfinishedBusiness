@@ -104,7 +104,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         {
             foreach (FeatDefinition feat in feats)
             {
-                Models.CustomFeaturesContext.RecursiveGrantCustomFeatures(__instance, feat.Features);
+                CustomFeaturesContext.RecursiveGrantCustomFeatures(__instance, feat.Features);
             }
         }
     }

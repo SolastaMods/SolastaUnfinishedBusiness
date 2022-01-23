@@ -263,7 +263,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static bool AreAllSpellListsSelected(SpellDefinition spellDefinition)
         {
-            return Main.Settings.SpellSpellListEnabled[spellDefinition.Name].Count == SpellsContext.SpellLists.Count;
+            return Main.Settings.SpellSpellListEnabled[spellDefinition.Name].Count == SpellLists.Count;
         }
 
         internal static bool AreMinimumSpellListsSelected()

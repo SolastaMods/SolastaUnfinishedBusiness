@@ -42,7 +42,7 @@ namespace SolastaCommunityExpansion.Models
                 return new WandIdentifyBuilder(name, guid, title, description, original).AddToDB();
             }
 
-            internal static readonly ItemDefinition WandIdentify = WandIdentifyBuilder.CreateAndAddToDB(
+            internal static readonly ItemDefinition WandIdentify = CreateAndAddToDB(
                 "WandIdentify",
                 "46ae7624-4d24-455a-98f9-d41403b0ae19",
                 "Equipment/&WandIdentifyTitle",
@@ -87,7 +87,7 @@ namespace SolastaCommunityExpansion.Models
                 return new FocusDefinitionBuilder(name, guid, title, description, original, type, assetReferenceSprite).AddToDB();
             }
 
-            internal static readonly ItemDefinition ArcaneStaff = FocusDefinitionBuilder.CreateAndAddToDB(
+            internal static readonly ItemDefinition ArcaneStaff = CreateAndAddToDB(
                 "ArcaneStaff",
                 "991e1fec-9777-4635-948f-5bedcb96147d",
                 "Equipment/&ArcaneStaffTitle",
@@ -96,7 +96,7 @@ namespace SolastaCommunityExpansion.Models
                 EquipmentDefinitions.FocusType.Druidic,
                 QuarterstaffPlus1.GuiPresentation.SpriteReference);
 
-            internal static readonly ItemDefinition DruidicAmulet = FocusDefinitionBuilder.CreateAndAddToDB(
+            internal static readonly ItemDefinition DruidicAmulet = CreateAndAddToDB(
                 "DruidicAmulet",
                 "3487d3b2-1058-4c0f-8009-9e4f525cb0e0",
                 "Equipment/&DruidicAmuletTitle",
@@ -105,7 +105,7 @@ namespace SolastaCommunityExpansion.Models
                 EquipmentDefinitions.FocusType.Druidic,
                 BeltOfGiantHillStrength.GuiPresentation.SpriteReference);
 
-            internal static readonly ItemDefinition LivewoodClub = FocusDefinitionBuilder.CreateAndAddToDB(
+            internal static readonly ItemDefinition LivewoodClub = CreateAndAddToDB(
                 "LivewoodClub",
                 "dd27119b-01e0-4a47-a043-98b89dc930a1",
                 "Equipment/&LivewoodClubTitle",
@@ -114,7 +114,7 @@ namespace SolastaCommunityExpansion.Models
                 EquipmentDefinitions.FocusType.Druidic,
                 null);
 
-            internal static readonly ItemDefinition LivewoodStaff = FocusDefinitionBuilder.CreateAndAddToDB(
+            internal static readonly ItemDefinition LivewoodStaff = CreateAndAddToDB(
                 "LivewoodStaff",
                 "ff3ec29c-734f-4ef6-8d6e-ceb961d9a8a0",
                 "Equipment/&LivewoodStaffTitle",
@@ -280,7 +280,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void SwitchRestockAntiquarian()
         {
-            foreach (var stock in DatabaseHelper.MerchantDefinitions.Store_Merchant_Antiquarians_Halman_Summer.StockUnitDescriptions.Where(
+            foreach (var stock in Store_Merchant_Antiquarians_Halman_Summer.StockUnitDescriptions.Where(
                 x => !x.ItemDefinition.Name.Contains("Manual") && !x.ItemDefinition.Name.Contains("Tome")))
             {
                 stock.SetReassortAmount(Main.Settings.RestockAntiquarians ? 1 : 0);
@@ -290,7 +290,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void SwitchRestockArcaneum()
         {
-            foreach (StockUnitDescription stock in DatabaseHelper.MerchantDefinitions.Store_Merchant_Arcaneum_Heddlon_Surespell.StockUnitDescriptions)
+            foreach (StockUnitDescription stock in Store_Merchant_Arcaneum_Heddlon_Surespell.StockUnitDescriptions)
             {
                 stock.SetReassortAmount(Main.Settings.RestockArcaneum ? 1 : 0);
             }
@@ -298,7 +298,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void SwitchRestockCircleOfDanantar()
         {
-            foreach (StockUnitDescription stock in DatabaseHelper.MerchantDefinitions.Store_Merchant_CircleOfDanantar_Joriel_Foxeye.StockUnitDescriptions)
+            foreach (StockUnitDescription stock in Store_Merchant_CircleOfDanantar_Joriel_Foxeye.StockUnitDescriptions)
             {
                 stock.SetReassortAmount(Main.Settings.RestockCircleOfDanantar ? 1 : 0);
             }
@@ -306,7 +306,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void SwitchRestockTowerOfKnowledge()
         {
-            foreach (StockUnitDescription stock in DatabaseHelper.MerchantDefinitions.Store_Merchant_TowerOfKnowledge_Maddy_Greenisle.StockUnitDescriptions)
+            foreach (StockUnitDescription stock in Store_Merchant_TowerOfKnowledge_Maddy_Greenisle.StockUnitDescriptions)
             {
                 stock.SetReassortAmount(Main.Settings.RestockTowerOfKnowledge ? 1 : 0);
             }
