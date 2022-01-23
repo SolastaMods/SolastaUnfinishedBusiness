@@ -168,8 +168,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
 
                 if (spellRepertoire.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.Prepared &&
                     spellRepertoire.PreparedSpells
-                        .Where(spellDefinition => spellDefinition.SpellLevel == level)
-                        .Any(spellDefinition => spellDefinition.ActivationTime == spellActivationTime))
+                        .Any(spellDefinition =>
+                            spellDefinition.SpellLevel == level
+                            && spellDefinition.ActivationTime == spellActivationTime))
                 {
                     return true;
                 }

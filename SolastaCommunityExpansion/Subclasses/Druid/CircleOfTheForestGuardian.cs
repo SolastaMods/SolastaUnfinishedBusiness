@@ -19,11 +19,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         }
         internal override CharacterSubclassDefinition GetSubclass()
         {
-            if (Subclass == null)
-            {
-                Subclass = BuildAndAddSubclass();
-            }
-            return Subclass;
+            return Subclass ?? (Subclass = BuildAndAddSubclass());
         }
 
         private const string DruidForestGuardianDruidSubclassName = "DruidForestGuardianDruidSubclass";

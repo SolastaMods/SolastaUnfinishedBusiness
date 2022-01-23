@@ -10,12 +10,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
     {
         internal static bool Prefix()
         {
-            if (ModManagerUI.IsOpen)
-            {
-                return false;
-            }
-
-            return true;
+            return !ModManagerUI.IsOpen;
         }
     }
 }

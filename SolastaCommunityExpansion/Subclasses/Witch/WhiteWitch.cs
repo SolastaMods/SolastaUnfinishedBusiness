@@ -15,11 +15,7 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 
         internal CharacterSubclassDefinition GetSubclass(CharacterClassDefinition witchClass)
         {
-            if (Subclass == null)
-            {
-                Subclass = BuildAndAddSubclass(witchClass);
-            }
-            return Subclass;
+            return Subclass ?? (Subclass = BuildAndAddSubclass(witchClass));
         }
 
         private static void BuildWhiteMagic()

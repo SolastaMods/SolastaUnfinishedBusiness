@@ -112,8 +112,8 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
                     ChallengeRating = g.Key,
                     SpellDefinitions = g.Select(s => s.SpellDefinition).OrderBy(s => Gui.Format(s.GuiPresentation.Title))
                 })
-                .OrderByDescending(s => s.ChallengeRating)
                 .Where(s => s.ChallengeRating <= FilterBySlotLevel.Value)
+                .OrderByDescending(s => s.ChallengeRating)
                 .ToList();
 
             var allOrMostPowerful = Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey

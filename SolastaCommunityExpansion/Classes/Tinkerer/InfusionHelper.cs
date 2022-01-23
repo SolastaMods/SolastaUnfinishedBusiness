@@ -55,11 +55,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (artificialServant == null)
-                {
-                    artificialServant = BuildArtificialServant();
-                }
-                return artificialServant;
+                return artificialServant ?? (artificialServant = BuildArtificialServant());
             }
         }
 
@@ -84,11 +80,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (enhancedFocus == null)
-                {
-                    enhancedFocus = BuildEnhancedFocus();
-                }
-                return enhancedFocus;
+                return enhancedFocus ?? (enhancedFocus = BuildEnhancedFocus());
             }
         }
 
@@ -112,11 +104,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (improvedEnhancedFocus == null)
-                {
-                    improvedEnhancedFocus = BuildImprovedEnhancedFocus();
-                }
-                return improvedEnhancedFocus;
+                return improvedEnhancedFocus ?? (improvedEnhancedFocus = BuildImprovedEnhancedFocus());
             }
         }
 
@@ -142,11 +130,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (enhancedDefense == null)
-                {
-                    enhancedDefense = BuildEnhancedDefense();
-                }
-                return enhancedDefense;
+                return enhancedDefense ?? (enhancedDefense = BuildEnhancedDefense());
             }
         }
 
@@ -171,11 +155,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (improvedEnhancedDefense == null)
-                {
-                    improvedEnhancedDefense = BuildImprovedEnhancedDefense();
-                }
-                return improvedEnhancedDefense;
+                return improvedEnhancedDefense ?? (improvedEnhancedDefense = BuildImprovedEnhancedDefense());
             }
         }
 
@@ -201,11 +181,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (enhancedWeapon == null)
-                {
-                    enhancedWeapon = BuildEnhancedWeapon();
-                }
-                return enhancedWeapon;
+                return enhancedWeapon ?? (enhancedWeapon = BuildEnhancedWeapon());
             }
         }
 
@@ -224,11 +200,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (improvedEnhancedWeapon == null)
-                {
-                    improvedEnhancedWeapon = BuildImprovedEnhancedWeapon();
-                }
-                return improvedEnhancedWeapon;
+                return improvedEnhancedWeapon ?? (improvedEnhancedWeapon = BuildImprovedEnhancedWeapon());
             }
         }
 
@@ -248,11 +220,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (bagOfHolding == null)
-                {
-                    bagOfHolding = BuildBagOfHolding();
-                }
-                return bagOfHolding;
+                return bagOfHolding ?? (bagOfHolding = BuildBagOfHolding());
             }
         }
 
@@ -277,11 +245,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (gogglesOfNight == null)
-                {
-                    gogglesOfNight = BuildGogglesOfNight();
-                }
-                return gogglesOfNight;
+                return gogglesOfNight ?? (gogglesOfNight = BuildGogglesOfNight());
             }
         }
 
@@ -307,11 +271,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (mindSharpener == null)
-                {
-                    mindSharpener = BuildMindSharpener();
-                }
-                return mindSharpener;
+                return mindSharpener ?? (mindSharpener = BuildMindSharpener());
             }
         }
 
@@ -337,11 +297,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (armorOfMagicalStrength == null)
-                {
-                    armorOfMagicalStrength = BuildArmorOfMagicalStrength();
-                }
-                return armorOfMagicalStrength;
+                return armorOfMagicalStrength ?? (armorOfMagicalStrength = BuildArmorOfMagicalStrength());
             }
         }
 
@@ -374,11 +330,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (resistantArmor == null)
-                {
-                    resistantArmor = BuildResistantArmor();
-                }
-                return resistantArmor;
+                return resistantArmor ?? (resistantArmor = BuildResistantArmor());
             }
         }
 
@@ -412,11 +364,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (spellRefuelingRing == null)
-                {
-                    spellRefuelingRing = BuildSpellRefuelingRing();
-                }
-                return spellRefuelingRing;
+                return spellRefuelingRing ?? (spellRefuelingRing = BuildSpellRefuelingRing());
             }
         }
 
@@ -442,11 +390,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (blindingWeapon == null)
-                {
-                    blindingWeapon = BuildBlindingWeapon();
-                }
-                return blindingWeapon;
+                return blindingWeapon ?? (blindingWeapon = BuildBlindingWeapon());
             }
         }
 
@@ -485,11 +429,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (cloakOfProtection == null)
-                {
-                    cloakOfProtection = PowerMimicsItem(DatabaseHelper.ItemDefinitions.CloakOfProtection, "InfuseCloakOfProtection");
-                }
-                return cloakOfProtection;
+                return cloakOfProtection ?? (cloakOfProtection = PowerMimicsItem(DatabaseHelper.ItemDefinitions.CloakOfProtection, "InfuseCloakOfProtection"));
             }
         }
 
@@ -497,11 +437,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (bootsOfElvenKind == null)
-                {
-                    bootsOfElvenKind = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BootsOfElvenKind, "InfuseBootsOfElvenKind");
-                }
-                return bootsOfElvenKind;
+                return bootsOfElvenKind ?? (bootsOfElvenKind = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BootsOfElvenKind, "InfuseBootsOfElvenKind"));
             }
         }
 
@@ -509,11 +445,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (cloakOfElvenKind == null)
-                {
-                    cloakOfElvenKind = PowerMimicsItem(DatabaseHelper.ItemDefinitions.CloakOfElvenkind, "InfuseCloakOfElvenKind");
-                }
-                return cloakOfElvenKind;
+                return cloakOfElvenKind ?? (cloakOfElvenKind = PowerMimicsItem(DatabaseHelper.ItemDefinitions.CloakOfElvenkind, "InfuseCloakOfElvenKind"));
             }
         }
 
@@ -521,11 +453,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (bootsOfStridingAndSpringing == null)
-                {
-                    bootsOfStridingAndSpringing = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BootsOfStridingAndSpringing, "InfuseBootsOfStridingAndSpringing");
-                }
-                return bootsOfStridingAndSpringing;
+                return bootsOfStridingAndSpringing ?? (bootsOfStridingAndSpringing = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BootsOfStridingAndSpringing, "InfuseBootsOfStridingAndSpringing"));
             }
         }
 
@@ -533,11 +461,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (bootsOfTheWinterland == null)
-                {
-                    bootsOfTheWinterland = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BootsOfTheWinterland, "InfuseBootsOfTheWinterland");
-                }
-                return bootsOfTheWinterland;
+                return bootsOfTheWinterland ?? (bootsOfTheWinterland = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BootsOfTheWinterland, "InfuseBootsOfTheWinterland"));
             }
         }
 
@@ -545,11 +469,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (bracesrOfArchery == null)
-                {
-                    bracesrOfArchery = PowerMimicsItem(DatabaseHelper.ItemDefinitions.Bracers_Of_Archery, "InfuseBracesrOfArchery");
-                }
-                return bracesrOfArchery;
+                return bracesrOfArchery ?? (bracesrOfArchery = PowerMimicsItem(DatabaseHelper.ItemDefinitions.Bracers_Of_Archery, "InfuseBracesrOfArchery"));
             }
         }
 
@@ -557,11 +477,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (broochOfShielding == null)
-                {
-                    broochOfShielding = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BroochOfShielding, "InfuseBroochOfShielding");
-                }
-                return broochOfShielding;
+                return broochOfShielding ?? (broochOfShielding = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BroochOfShielding, "InfuseBroochOfShielding"));
             }
         }
 
@@ -569,11 +485,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (gauntletsOfOgrePower == null)
-                {
-                    gauntletsOfOgrePower = PowerMimicsItem(DatabaseHelper.ItemDefinitions.GauntletsOfOgrePower, "InfuseGauntletsOfOgrePower");
-                }
-                return gauntletsOfOgrePower;
+                return gauntletsOfOgrePower ?? (gauntletsOfOgrePower = PowerMimicsItem(DatabaseHelper.ItemDefinitions.GauntletsOfOgrePower, "InfuseGauntletsOfOgrePower"));
             }
         }
 
@@ -581,11 +493,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (glovesOfMissileSnaring == null)
-                {
-                    glovesOfMissileSnaring = PowerMimicsItem(DatabaseHelper.ItemDefinitions.GlovesOfMissileSnaring, "InfuseGlovesOfMissileSnaring");
-                }
-                return glovesOfMissileSnaring;
+                return glovesOfMissileSnaring ?? (glovesOfMissileSnaring = PowerMimicsItem(DatabaseHelper.ItemDefinitions.GlovesOfMissileSnaring, "InfuseGlovesOfMissileSnaring"));
             }
         }
 
@@ -593,11 +501,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (slippersOfSpiderClimbing == null)
-                {
-                    slippersOfSpiderClimbing = PowerMimicsItem(DatabaseHelper.ItemDefinitions.SlippersOfSpiderClimbing, "InfuseSlippersOfSpiderClimbing");
-                }
-                return slippersOfSpiderClimbing;
+                return slippersOfSpiderClimbing ?? (slippersOfSpiderClimbing = PowerMimicsItem(DatabaseHelper.ItemDefinitions.SlippersOfSpiderClimbing, "InfuseSlippersOfSpiderClimbing"));
             }
         }
 
@@ -605,11 +509,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (headbandOfIntellect == null)
-                {
-                    headbandOfIntellect = PowerMimicsItem(DatabaseHelper.ItemDefinitions.HeadbandOfIntellect, "InfuseHeadbandOfIntellect");
-                }
-                return headbandOfIntellect;
+                return headbandOfIntellect ?? (headbandOfIntellect = PowerMimicsItem(DatabaseHelper.ItemDefinitions.HeadbandOfIntellect, "InfuseHeadbandOfIntellect"));
             }
         }
 
@@ -617,11 +517,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (amuletOfHealth == null)
-                {
-                    amuletOfHealth = PowerMimicsItem(DatabaseHelper.ItemDefinitions.AmuletOfHealth, "InfuseAmuletOfHealth");
-                }
-                return amuletOfHealth;
+                return amuletOfHealth ?? (amuletOfHealth = PowerMimicsItem(DatabaseHelper.ItemDefinitions.AmuletOfHealth, "InfuseAmuletOfHealth"));
             }
         }
 
@@ -629,11 +525,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (beltOfGiantHillStrength == null)
-                {
-                    beltOfGiantHillStrength = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BeltOfGiantHillStrength, "InfuseBeltOfGiantHillStrength");
-                }
-                return beltOfGiantHillStrength;
+                return beltOfGiantHillStrength ?? (beltOfGiantHillStrength = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BeltOfGiantHillStrength, "InfuseBeltOfGiantHillStrength"));
             }
         }
 
@@ -641,11 +533,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (bracersOfDefense == null)
-                {
-                    bracersOfDefense = PowerMimicsItem(DatabaseHelper.ItemDefinitions.Bracers_Of_Defense, "InfuseBracersOfDefense");
-                }
-                return bracersOfDefense;
+                return bracersOfDefense ?? (bracersOfDefense = PowerMimicsItem(DatabaseHelper.ItemDefinitions.Bracers_Of_Defense, "InfuseBracersOfDefense"));
             }
         }
 
@@ -653,11 +541,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (cloakOfBat == null)
-                {
-                    cloakOfBat = PowerMimicsItem(DatabaseHelper.ItemDefinitions.CloakOfBat, "InfuseCloakOfBat");
-                }
-                return cloakOfBat;
+                return cloakOfBat ?? (cloakOfBat = PowerMimicsItem(DatabaseHelper.ItemDefinitions.CloakOfBat, "InfuseCloakOfBat"));
             }
         }
 
@@ -665,11 +549,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             get
             {
-                if (ringProtectionPlus1 == null)
-                {
-                    ringProtectionPlus1 = PowerMimicsItem(DatabaseHelper.ItemDefinitions.RingProtectionPlus1, "InfuseRingProtectionPlus1");
-                }
-                return ringProtectionPlus1;
+                return ringProtectionPlus1 ?? (ringProtectionPlus1 = PowerMimicsItem(DatabaseHelper.ItemDefinitions.RingProtectionPlus1, "InfuseRingProtectionPlus1"));
             }
         }
 

@@ -153,9 +153,9 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("\n[line]\n");
                 collectedString.Append("[heading]Credits[/heading]\n[list]");
                 collectedString.Append("\n[*]Chris John Digital");
-                foreach (var kvp in Displays.CreditsDisplay.CreditsTable)
+                foreach (var kvp in CreditsTable)
                 {
-                    collectedString.Append("\n[*]" + kvp.Key + ": " + kvp.Value);
+                    collectedString.Append("\n[*]").Append(kvp.Key).Append(": ").Append(kvp.Value);
                 }
                 collectedString.Append("\n[/list]");
                 collectedString.Append("\nSource code on [url=https://github.com/ChrisPJohn/SolastaCommunityExpansion]GitHub[/url].");

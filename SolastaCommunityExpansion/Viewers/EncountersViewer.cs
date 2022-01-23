@@ -296,11 +296,11 @@ namespace SolastaCommunityExpansion.Viewers
                 {
                     if (EncountersSpawnContext.EncounterCharacters[index] is RulesetCharacterMonster rulesetCharacterMonster)
                     {
-                        DisplayMonsterStats(rulesetCharacterMonster.MonsterDefinition, "-", () => { EncountersSpawnContext.RemoveFromEncounter(index); });
+                        DisplayMonsterStats(rulesetCharacterMonster.MonsterDefinition, "-", () => EncountersSpawnContext.RemoveFromEncounter(index));
                     }
                     else if (EncountersSpawnContext.EncounterCharacters[index] is RulesetCharacterHero rulesetCharacterHero)
                     {
-                        DisplayHeroStats(rulesetCharacterHero, "-", () => { EncountersSpawnContext.RemoveFromEncounter(index); });
+                        DisplayHeroStats(rulesetCharacterHero, "-", () => EncountersSpawnContext.RemoveFromEncounter(index));
                     }
                 }
             }
@@ -316,7 +316,7 @@ namespace SolastaCommunityExpansion.Viewers
 
             foreach (var monsterDefinition in EncountersSpawnContext.GetMonsters())
             {
-                DisplayMonsterStats(monsterDefinition, "+", () => { EncountersSpawnContext.AddToEncounter(monsterDefinition); });
+                DisplayMonsterStats(monsterDefinition, "+", () => EncountersSpawnContext.AddToEncounter(monsterDefinition));
             }
         }
 
@@ -330,7 +330,7 @@ namespace SolastaCommunityExpansion.Viewers
 
                 foreach (var hero in EncountersSpawnContext.GetHeroes())
                 {
-                    DisplayHeroStats(hero, "+", () => { EncountersSpawnContext.AddToEncounter(hero); });
+                    DisplayHeroStats(hero, "+", () => EncountersSpawnContext.AddToEncounter(hero));
                 }
             }
         }

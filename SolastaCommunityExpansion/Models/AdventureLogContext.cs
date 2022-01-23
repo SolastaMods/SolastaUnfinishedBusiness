@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Models
             if (isUserText)
             {
                 var builder = new StringBuilder();
-                var fragments = itemDefinition.DocumentDescription.ContentFragments.Select(x => x.Text).ToList();
+                var fragments = itemDefinition.DocumentDescription.ContentFragments.ConvertAll(x => x.Text);
 
                 fragments.ForEach(x => builder.Append(x));
                 LogEntry(itemDefinition.FormatTitle(), builder.ToString(), string.Empty, assetReferenceSprite);

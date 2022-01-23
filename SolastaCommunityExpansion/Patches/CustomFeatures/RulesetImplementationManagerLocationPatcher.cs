@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
 
     internal static class RulesetImplementationManagerLocation_ApplySummonForm
     {
-        internal static Dictionary<string, int> ConditionToAmount { get; private set; } = new Dictionary<string, int>();
+        internal static Dictionary<string, int> ConditionToAmount { get; } = new Dictionary<string, int>();
 
         internal static void Prefix(
             EffectForm effectForm,

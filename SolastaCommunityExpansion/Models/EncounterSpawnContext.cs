@@ -106,7 +106,7 @@ namespace SolastaCommunityExpansion.Models
                     "Message/&SpawnCustomEncounterTitle",
                     Gui.Format("Message/&SpawnCustomEncounterDescription", position.x.ToString(), position.x.ToString()),
                     "Message/&MessageYesTitle", "Message/&MessageNoTitle",
-                    new MessageModal.MessageValidatedHandler(() => { StageEncounter(position); }),
+                    new MessageModal.MessageValidatedHandler(() => StageEncounter(position)),
                     null);
             }
         }

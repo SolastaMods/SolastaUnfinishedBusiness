@@ -140,8 +140,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
 
             return featuresToBrowse
                 .OfType<IMinimumAbilityCheckTotal>()
-                .Select(feature => feature.MinimumStrengthAbilityCheckTotal(character, proficiencyName))
-                .Max();
+                .Max(feature => feature.MinimumStrengthAbilityCheckTotal(character, proficiencyName));
         }
     }
 

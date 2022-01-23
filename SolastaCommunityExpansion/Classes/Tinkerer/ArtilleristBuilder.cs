@@ -8,7 +8,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
     public static class ArtilleristBuilder
     {
+        // TODO: unused parameter FeatureDefinitionCastSpell
+#pragma warning disable RCS1163 // Unused parameter.
         public static CharacterSubclassDefinition Build(CharacterClassDefinition artificer, FeatureDefinitionCastSpell spellCasting)
+#pragma warning restore RCS1163 // Unused parameter.
         {
             // Make Artillerist subclass
             CharacterSubclassDefinitionBuilder artillerist = new CharacterSubclassDefinitionBuilder("Artillerist", GuidHelper.Create(TinkererClass.GuidNamespace, "Artillerist").ToString());
@@ -153,12 +156,16 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             GuiPresentationBuilder artilleristDetonationPreparedPresentation = new GuiPresentationBuilder(
                 "Feat/&ArtificerArtillerstDetonationSpellPreparedDescription",
                 "Feat/&ArtificerArtillerstDetonationSpellPreparedTitle");
-            FeatureDefinitionAutoPreparedSpells ArtilleristDetonationSpell = FeatureHelpers.BuildAutoPreparedSpells(
+
+            // TODO: unused
+#pragma warning disable IDE0059, S1481 // Unused local variables should be removed
+            FeatureDefinitionAutoPreparedSpells artilleristDetonationSpell = FeatureHelpers.BuildAutoPreparedSpells(
                 new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>() {
                     FeatureHelpers.BuildAutoPreparedSpellGroup(9, new List<SpellDefinition>() { detonation })
                 },
                 artificer, "ArtificerArtillerstDetonationSpellPrepared", artilleristDetonationPreparedPresentation.Build());
-            //    artillerist.AddFeatureAtLevel(ArtilleristDetonationSpell, 9);
+            //    artillerist.AddFeatureAtLevel(artilleristDetonationSpell, 9);
+#pragma warning restore IDE0059, S1481 // Unused local variables should be removed
 
             // cannons with boosted damage
             GuiPresentationBuilder flame9Gui = new GuiPresentationBuilder(

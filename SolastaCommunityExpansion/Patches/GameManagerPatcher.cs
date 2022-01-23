@@ -45,7 +45,7 @@ namespace SolastaCommunityExpansion.Patches
             // Subclasses may rely on classes being loaded (as well as spells and powers) in order to properly refer back to the class.
             SubclassesContext.Load();
 
-            ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (runtime) =>
+            ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (_) =>
             {
                 FlexibleRacesContext.Switch();
                 InitialChoicesContext.RefreshFirstLevelTotalFeats();

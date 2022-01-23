@@ -27,7 +27,6 @@ namespace SolastaCommunityExpansion.Level20.Features
             restoration.AddEffectForm(restoreForm);
             Definition.SetEffectDescription(restoration.Build());
 
-
             GuiPresentationBuilder gui = new GuiPresentationBuilder(
                "Sorceror/&ZSSorcerousRestorationDescription",
                "Sorceror/&ZSSorcerousRestorationTitle");
