@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class DmProEditorContext
     {
-        private const string GUID = "bff53ba4bb694bf5a69b3ae280eec118";
+        private static readonly System.Guid GUID = new System.Guid("bff53ba4bb694bf5a69b3ae280eec118");
 
         internal static readonly List<string> OutdoorRooms = new List<string>();
 
@@ -77,7 +77,7 @@ namespace SolastaCommunityExpansion.Models
             var flatRoomsCategory = Object.Instantiate(emptyRoomsCategory);
 
             flatRoomsCategory.name = "FlatRooms";
-            flatRoomsCategory.SetGuid(SolastaModApi.GuidHelper.Create(new System.Guid(GUID), flatRoomsCategory.name).ToString());
+            flatRoomsCategory.SetGuid(SolastaModApi.GuidHelper.Create(GUID, flatRoomsCategory.name).ToString());
             flatRoomsCategory.GuiPresentation.Title = Gui.Format($"BlueprintCategory/&{flatRoomsCategory.name}Title").yellow();
             dbBlueprintCategory.Add(flatRoomsCategory);
 
@@ -90,7 +90,7 @@ namespace SolastaCommunityExpansion.Models
                     var categoryName = blueprintCategory.Name + "~" + environmentName + "~MOD";
 
                     newBlueprintCategory.name = categoryName;
-                    newBlueprintCategory.SetGuid(SolastaModApi.GuidHelper.Create(new System.Guid(GUID), newBlueprintCategory.name).ToString());
+                    newBlueprintCategory.SetGuid(SolastaModApi.GuidHelper.Create(GUID, newBlueprintCategory.name).ToString());
                     newBlueprintCategory.GuiPresentation.Title = Gui.Format(blueprintCategory.GuiPresentation.Title) + " " + Gui.Format(environmentDefinition.GuiPresentation.Title) + " [MODDED]".yellow();
                     categories.Add(newBlueprintCategory);
                 }
@@ -121,7 +121,7 @@ namespace SolastaCommunityExpansion.Models
                 var flatRoom = Object.Instantiate(dbRoomBlueprint.GetElement(template));
 
                 flatRoom.name = $"Flat{multiplier:D2}Room";
-                flatRoom.SetGuid(SolastaModApi.GuidHelper.Create(new System.Guid(GUID), flatRoom.name).ToString());
+                flatRoom.SetGuid(SolastaModApi.GuidHelper.Create(GUID, flatRoom.name).ToString());
                 flatRoom.GuiPresentation.Title = "Flat".yellow() + " Room";
                 flatRoom.GuiPresentation.SetSortOrder(multiplier);
                 flatRoom.GuiPresentation.SetHidden(true);
@@ -146,7 +146,7 @@ namespace SolastaCommunityExpansion.Models
             var flatRoom = Object.Instantiate(dbRoomBlueprint.GetElement(template));
 
             flatRoom.name = "Flat" + template;
-            flatRoom.SetGuid(SolastaModApi.GuidHelper.Create(new System.Guid(GUID), flatRoom.name).ToString());
+            flatRoom.SetGuid(SolastaModApi.GuidHelper.Create(GUID, flatRoom.name).ToString());
             flatRoom.GuiPresentation.Title = "Flat".yellow() + " " + Gui.Format(flatRoom.GuiPresentation.Title);
             flatRoom.GuiPresentation.SetSortOrder(sortOrder);
             flatRoom.GuiPresentation.SetHidden(true);
@@ -179,7 +179,7 @@ namespace SolastaCommunityExpansion.Models
                     var categoryName = gadgetBlueprint.Category + "~" + environmentName + "~MOD";
 
                     newGadgetBlueprint.name = gadgetBlueprint.Name + "~" + environmentName + "~MOD";
-                    newGadgetBlueprint.SetGuid(SolastaModApi.GuidHelper.Create(new System.Guid(GUID), newGadgetBlueprint.name).ToString());
+                    newGadgetBlueprint.SetGuid(SolastaModApi.GuidHelper.Create(GUID, newGadgetBlueprint.name).ToString());
                     newGadgetBlueprint.GuiPresentation.Title = Gui.Format(gadgetBlueprint.GuiPresentation.Title) + " " + Gui.Format(prefabEnvironmentDefinition.GuiPresentation.Title).yellow();
                     newGadgetBlueprint.SetCategory(categoryName);
                     newGadgetBlueprint.PrefabsByEnvironment.Clear();
@@ -217,7 +217,7 @@ namespace SolastaCommunityExpansion.Models
                     var categoryName = propBlueprint.Category + "~" + environmentName + "~MOD";
 
                     newPropBlueprint.name = propBlueprint.Name + "~" + environmentName + "~MOD";
-                    newPropBlueprint.SetGuid(SolastaModApi.GuidHelper.Create(new System.Guid(GUID), newPropBlueprint.name).ToString());
+                    newPropBlueprint.SetGuid(SolastaModApi.GuidHelper.Create(GUID, newPropBlueprint.name).ToString());
                     newPropBlueprint.GuiPresentation.Title = Gui.Format(propBlueprint.GuiPresentation.Title) + " " + Gui.Format(prefabEnvironmentDefinition.GuiPresentation.Title).yellow();
                     newPropBlueprint.SetCategory(categoryName);
                     newPropBlueprint.PrefabsByEnvironment.Clear();
@@ -245,46 +245,43 @@ namespace SolastaCommunityExpansion.Models
             var dbEnvironmentDefinition = DatabaseRepository.GetDatabase<EnvironmentDefinition>();
             var newRooms = new List<RoomBlueprint>();
 
-            foreach (var roomBlueprint in dbRoomBlueprint)
+            foreach (var roomBlueprint in dbRoomBlueprint
+                .Where(x => x.Category == "EmptyRooms" || x.Category == "FlatRooms"))
             {
-                if (roomBlueprint.Category == "EmptyRooms" || roomBlueprint.Category == "FlatRooms")
+                foreach (var prefabByEnvironment in roomBlueprint.PrefabsByEnvironment
+                    .Where(x => x.Environment != string.Empty))
                 {
-                    foreach (var prefabByEnvironment in roomBlueprint.PrefabsByEnvironment.Where(x => x.Environment != string.Empty))
-                    {
-                        var environmentName = prefabByEnvironment.Environment;
-                        var prefabEnvironmentDefinition = dbEnvironmentDefinition.GetElement(environmentName);
-                        var newRoomBlueprint = Object.Instantiate(roomBlueprint);
-                        var categoryName = roomBlueprint.Category + "~" + environmentName + "~MOD";
+                    var environmentName = prefabByEnvironment.Environment;
+                    var prefabEnvironmentDefinition = dbEnvironmentDefinition.GetElement(environmentName);
+                    var newRoomBlueprint = Object.Instantiate(roomBlueprint);
+                    var categoryName = roomBlueprint.Category + "~" + environmentName + "~MOD";
 
-                        if (prefabEnvironmentDefinition.Outdoor)
+                    newRoomBlueprint.name = roomBlueprint.Name + "~" + environmentName + "~MOD";
+                    newRoomBlueprint.SetGuid(SolastaModApi.GuidHelper.Create(GUID, newRoomBlueprint.name).ToString());
+                    newRoomBlueprint.GuiPresentation.Title = Gui.Format(roomBlueprint.GuiPresentation.Title) + " " + Gui.Format(prefabEnvironmentDefinition.GuiPresentation.Title).yellow();
+                    newRoomBlueprint.SetCategory(categoryName);
+                    newRoomBlueprint.GuiPresentation.SetHidden(false);
+                    newRoomBlueprint.PrefabsByEnvironment.Clear();
+
+                    foreach (var environmentDefinition in dbEnvironmentDefinition
+                        .Where(x => !prefabEnvironmentDefinition.Outdoor || x.Outdoor))
+                    {
+                        var myPrefabByEnvironment = new BaseBlueprint.PrefabByEnvironmentDescription();
+
+                        myPrefabByEnvironment.SetEnvironment(environmentDefinition.name);
+                        myPrefabByEnvironment.SetPrefabReference(prefabByEnvironment.PrefabReference);
+                        newRoomBlueprint.PrefabsByEnvironment.Add(myPrefabByEnvironment);
+                    }
+
+                    newRooms.Add(newRoomBlueprint);
+
+                    if (prefabEnvironmentDefinition.Outdoor)
+                    {
+                        OutdoorRooms.Add(newRoomBlueprint.Name);
+
+                        if (!OutdoorRooms.Contains(roomBlueprint.Name))
                         {
                             OutdoorRooms.Add(roomBlueprint.Name);
-                        }
-
-                        newRoomBlueprint.name = roomBlueprint.Name + "~" + environmentName + "~MOD";
-                        newRoomBlueprint.SetGuid(SolastaModApi.GuidHelper.Create(new System.Guid(GUID), newRoomBlueprint.name).ToString());
-                        newRoomBlueprint.GuiPresentation.Title = Gui.Format(roomBlueprint.GuiPresentation.Title) + " " + Gui.Format(prefabEnvironmentDefinition.GuiPresentation.Title).yellow();
-                        newRoomBlueprint.SetCategory(categoryName);
-                        newRoomBlueprint.GuiPresentation.SetHidden(false);
-                        newRoomBlueprint.PrefabsByEnvironment.Clear();
-
-                        foreach (var environmentDefinition in dbEnvironmentDefinition)
-                        {
-                            if (!prefabEnvironmentDefinition.Outdoor || environmentDefinition.Outdoor)
-                            {
-                                var myPrefabByEnvironment = new BaseBlueprint.PrefabByEnvironmentDescription();
-
-                                myPrefabByEnvironment.SetEnvironment(environmentDefinition.name);
-                                myPrefabByEnvironment.SetPrefabReference(prefabByEnvironment.PrefabReference);
-                                newRoomBlueprint.PrefabsByEnvironment.Add(myPrefabByEnvironment);
-                            }
-                        }
-
-                        newRooms.Add(newRoomBlueprint);
-
-                        if (prefabEnvironmentDefinition.Outdoor)
-                        {
-                            OutdoorRooms.Add(newRoomBlueprint.Name);
                         }
                     }
                 }
@@ -298,22 +295,31 @@ namespace SolastaCommunityExpansion.Models
         {
             var dbGadgetBlueprint = DatabaseRepository.GetDatabase<GadgetBlueprint>();
 
-            dbGadgetBlueprint.Where(x => x.Name.EndsWith("MOD")).ToList().ForEach(y => y.GuiPresentation.SetHidden(!Main.Settings.EnableDungeonMakerModdedContent));
+            dbGadgetBlueprint
+                .Where(x => x.Name.EndsWith("MOD")).ToList()
+                .ForEach(y => y.GuiPresentation.SetHidden(!Main.Settings.EnableDungeonMakerModdedContent));
         }
 
         private static void SetModdedPropsHiddenStatus()
         {
             var dbPropBlueprint = DatabaseRepository.GetDatabase<PropBlueprint>();
 
-            dbPropBlueprint.Where(x => x.Name.EndsWith("MOD")).ToList().ForEach(y => y.GuiPresentation.SetHidden(!Main.Settings.EnableDungeonMakerModdedContent));
+            dbPropBlueprint
+                .Where(x => x.Name.EndsWith("MOD")).ToList()
+                .ForEach(y => y.GuiPresentation.SetHidden(!Main.Settings.EnableDungeonMakerModdedContent));
         }
 
         private static void SetModdedRoomsHiddenStatus()
         {
             var dbRoomBlueprint = DatabaseRepository.GetDatabase<RoomBlueprint>();
 
-            dbRoomBlueprint.Where(x => x.Name.EndsWith("MOD")).ToList().ForEach(y => y.GuiPresentation.SetHidden(!Main.Settings.EnableDungeonMakerModdedContent));
-            dbRoomBlueprint.Where(x => x.Name.StartsWith("Flat")).ToList().ForEach(y => y.GuiPresentation.SetHidden(!Main.Settings.EnableDungeonMakerModdedContent));
+            dbRoomBlueprint
+                .Where(x => x.Name.EndsWith("MOD")).ToList()
+                .ForEach(y => y.GuiPresentation.SetHidden(!Main.Settings.EnableDungeonMakerModdedContent));
+
+            dbRoomBlueprint
+                .Where(x => x.Name.StartsWith("Flat")).ToList()
+                .ForEach(y => y.GuiPresentation.SetHidden(!Main.Settings.EnableDungeonMakerModdedContent));
         }
     }
 }
