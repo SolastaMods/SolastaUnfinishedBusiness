@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.SetActivationTime(RuleDefinitions.ActivationTime.Action);
             Definition.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
 
-            TemporaryHitPointsForm TempHPShield = new TemporaryHitPointsForm
+            TemporaryHitPointsForm tempHPShield = new TemporaryHitPointsForm
             {
                 DieType = RuleDefinitions.DieType.D8,
                 DiceNumber = 1,
@@ -35,7 +35,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             {
                 FormType = EffectForm.EffectFormType.TemporaryHitPoints
             };
-            effect.SetTemporaryHitPointsForm(TempHPShield);
+            effect.SetTemporaryHitPointsForm(tempHPShield);
             effect.SetCreatedByCharacter(true);
 
             effect.AddBonusMode = RuleDefinitions.AddBonusMode.AbilityBonus;
@@ -64,7 +64,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new TempHPShieldBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionPower TempHPShield = CreateAndAddToDB(TempHPShieldName, TempHPShieldGuid);
+        public static readonly FeatureDefinitionPower TempHPShield = CreateAndAddToDB(TempHPShieldName, TempHPShieldGuid);
     }
     //*****************************************************************************************************************************************
     //***********************************		TempHPShieldConstructBuilder		*******************************************************************
@@ -139,7 +139,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new TempHPShieldConstructBuilder(name, guid).AddToDB();
         }
 
-        public static MonsterDefinition TempHPShieldConstruct = CreateAndAddToDB(TempHPShieldConstructName, TempHPShieldConstructGuid);
+        public static readonly MonsterDefinition TempHPShieldConstruct = CreateAndAddToDB(TempHPShieldConstructName, TempHPShieldConstructGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -163,7 +163,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new TempHPShieldConstruct_9Builder(name, guid).AddToDB();
         }
 
-        public static MonsterDefinition TempHPShieldConstruct_9 = CreateAndAddToDB(TempHPShieldConstruct_9Name, TempHPShieldConstruct_9Guid);
+        public static readonly MonsterDefinition TempHPShieldConstruct_9 = CreateAndAddToDB(TempHPShieldConstruct_9Name, TempHPShieldConstruct_9Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -187,7 +187,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new TempHPShieldConstruct_15Builder(name, guid).AddToDB();
         }
 
-        public static MonsterDefinition TempHPShieldConstruct_15 = CreateAndAddToDB(TempHPShieldConstruct_15Name, TempHPShieldConstruct_15Guid);
+        public static readonly MonsterDefinition TempHPShieldConstruct_15 = CreateAndAddToDB(TempHPShieldConstruct_15Name, TempHPShieldConstruct_15Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -218,7 +218,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SummonTempHPShieldSpellConstructBuilder(name, guid).AddToDB();
         }
 
-        public static SpellDefinition SummonTempHPShieldConstruct = CreateAndAddToDB(SummonTempHPShieldConstructName, SummonTempHPShieldConstructGuid);
+        public static readonly SpellDefinition SummonTempHPShieldConstruct = CreateAndAddToDB(SummonTempHPShieldConstructName, SummonTempHPShieldConstructGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -243,7 +243,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SummonTempHPShieldSpellConstruct_9Builder(name, guid).AddToDB();
         }
 
-        public static SpellDefinition SummonTempHPShieldConstruct_9 = CreateAndAddToDB(SummonTempHPShieldConstruct_9Name, SummonTempHPShieldConstruct_9Guid);
+        public static readonly SpellDefinition SummonTempHPShieldConstruct_9 = CreateAndAddToDB(SummonTempHPShieldConstruct_9Name, SummonTempHPShieldConstruct_9Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -268,6 +268,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SummonTempHPShieldSpellConstruct_15Builder(name, guid).AddToDB();
         }
 
-        public static SpellDefinition SummonTempHPShieldConstruct_15 = CreateAndAddToDB(SummonTempHPShieldConstruct_15Name, SummonTempHPShieldConstruct_15Guid);
+        public static readonly SpellDefinition SummonTempHPShieldConstruct_15 = CreateAndAddToDB(SummonTempHPShieldConstruct_15Name, SummonTempHPShieldConstruct_15Guid);
     }
 }

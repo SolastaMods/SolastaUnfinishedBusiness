@@ -26,7 +26,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
             var spell = __instance.GuiCharacter.RulesetCharacterHero?.ConcentratedSpell;
             if (spell == null)
             {
-                Main.Log($"ActiveCharacterPanel_OnStopConcentratingCb: No spell.");
+                Main.Log("ActiveCharacterPanel_OnStopConcentratingCb: No spell.");
                 return;
             }
 

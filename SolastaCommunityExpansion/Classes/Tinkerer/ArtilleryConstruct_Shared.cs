@@ -137,7 +137,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ArtilleryConstructlevel03FeatureSetBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionFeatureSet ArtilleryConstructlevel03FeatureSet = CreateAndAddToDB(Name, Guid);
+        public static readonly FeatureDefinitionFeatureSet ArtilleryConstructlevel03FeatureSet = CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -250,7 +250,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ArtilleryConstructlevel09FeatureSetBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionFeatureSet ArtilleryConstructlevel09FeatureSet = CreateAndAddToDB(Name, Guid);
+        public static readonly FeatureDefinitionFeatureSet ArtilleryConstructlevel09FeatureSet = CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -378,7 +378,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ArtilleryConstructlevel15FeatureSetBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionFeatureSet ArtilleryConstructlevel15FeatureSet = CreateAndAddToDB(Name, Guid);
+        public static readonly FeatureDefinitionFeatureSet ArtilleryConstructlevel15FeatureSet = CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -427,7 +427,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             EffectForm ExplosionEffect = new EffectForm
             {
                 FormType = EffectForm.EffectFormType.Damage,
-                DamageForm = (ExplosionDamage)
+                DamageForm = ExplosionDamage
             };
             ExplosionEffect.SetCreatedByCharacter(true);
             ExplosionEffect.HasSavingThrow = true;
@@ -470,7 +470,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SelfDestructBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionPower SelfDestruct = CreateAndAddToDB(SelfDestructName, SelfDestructGuid);
+        public static readonly FeatureDefinitionPower SelfDestruct = CreateAndAddToDB(SelfDestructName, SelfDestructGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -520,7 +520,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SelfDestructionConditionBuilder(name, guid).AddToDB();
         }
 
-        public static ConditionDefinition SelfDestructionCondition = CreateAndAddToDB(SelfDestructionConditionName, SelfDestructionConditionGuid);
+        public static readonly ConditionDefinition SelfDestructionCondition = CreateAndAddToDB(SelfDestructionConditionName, SelfDestructionConditionGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -538,25 +538,25 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.GuiPresentation.Description = "Feat/&HalfCoverShieldDescription";
             Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Shield.GuiPresentation.SpriteReference);
 
-            EffectForm HalfCoverShield = new EffectForm
+            EffectForm halfCoverShield = new EffectForm
             {
                 ConditionForm = new ConditionForm(),
                 FormType = EffectForm.EffectFormType.Condition
             };
-            HalfCoverShield.ConditionForm.Operation = ConditionForm.ConditionOperation.Add;
-            HalfCoverShield.ConditionForm.SetConditionDefinitionName(HalfCoverShieldConditionBuilder.HalfCoverShieldCondition.Name);
-            HalfCoverShield.ConditionForm.ConditionDefinition = HalfCoverShieldConditionBuilder.HalfCoverShieldCondition;// DistractingPulseBuilder.DistractingPulse;
+            halfCoverShield.ConditionForm.Operation = ConditionForm.ConditionOperation.Add;
+            halfCoverShield.ConditionForm.SetConditionDefinitionName(HalfCoverShieldConditionBuilder.HalfCoverShieldCondition.Name);
+            halfCoverShield.ConditionForm.ConditionDefinition = HalfCoverShieldConditionBuilder.HalfCoverShieldCondition;// DistractingPulseBuilder.DistractingPulse;
 
-            HalfCoverShield.SetCreatedByCharacter(true);
+            halfCoverShield.SetCreatedByCharacter(true);
 
-            HalfCoverShield.AddBonusMode = RuleDefinitions.AddBonusMode.AbilityBonus;
-            HalfCoverShield.SetLevelMultiplier(1);
-            HalfCoverShield.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
-            HalfCoverShield.SetApplyLevel(EffectForm.LevelApplianceType.No);
+            halfCoverShield.AddBonusMode = RuleDefinitions.AddBonusMode.AbilityBonus;
+            halfCoverShield.SetLevelMultiplier(1);
+            halfCoverShield.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
+            halfCoverShield.SetApplyLevel(EffectForm.LevelApplianceType.No);
 
             Definition.EffectDescription.EffectAdvancement.Clear();
             Definition.EffectDescription.EffectForms.Clear();
-            Definition.EffectDescription.EffectForms.Add(HalfCoverShield);
+            Definition.EffectDescription.EffectForms.Add(halfCoverShield);
             Definition.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
             Definition.EffectDescription.SetTargetParameter(2);
             Definition.EffectDescription.SetTargetSide(RuleDefinitions.Side.Ally);
@@ -575,7 +575,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new HalfCoverShieldBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionPower HalfCoverShield = CreateAndAddToDB(HalfCoverShieldName, HalfCoverShieldGuid);
+        public static readonly FeatureDefinitionPower HalfCoverShield = CreateAndAddToDB(HalfCoverShieldName, HalfCoverShieldGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -601,7 +601,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new HalfCoverShieldConditionBuilder(name, guid).AddToDB();
         }
 
-        public static ConditionDefinition HalfCoverShieldCondition = CreateAndAddToDB(HalfCoverShieldConditionName, HalfCoverShieldConditionGuid);
+        public static readonly ConditionDefinition HalfCoverShieldCondition = CreateAndAddToDB(HalfCoverShieldConditionName, HalfCoverShieldConditionGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -628,7 +628,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new HalfCoverShieldAttributeBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionAttributeModifier HalfCoverShieldAttribute = CreateAndAddToDB(HalfCoverShieldAttributeName, HalfCoverShieldAttributeGuid);
+        public static readonly FeatureDefinitionAttributeModifier HalfCoverShieldAttribute = CreateAndAddToDB(HalfCoverShieldAttributeName, HalfCoverShieldAttributeGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -667,7 +667,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SummonArtillerySpellConstructBuilder(name, guid).AddToDB();
         }
 
-        public static SpellDefinition SummonArtillerySpellConstruct = CreateAndAddToDB(SummonArtillerySpellConstructName, SummonArtillerySpellConstructGuid);
+        public static readonly SpellDefinition SummonArtillerySpellConstruct = CreateAndAddToDB(SummonArtillerySpellConstructName, SummonArtillerySpellConstructGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -698,7 +698,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SummonArtillerySpellConstruct_9Builder(name, guid).AddToDB();
         }
 
-        public static SpellDefinition SummonArtillerySpellConstruct_9 = CreateAndAddToDB(SummonArtillerySpellConstruct_9Name, SummonArtillerySpellConstruct_9Guid);
+        public static readonly SpellDefinition SummonArtillerySpellConstruct_9 = CreateAndAddToDB(SummonArtillerySpellConstruct_9Name, SummonArtillerySpellConstruct_9Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -729,7 +729,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SummonArtillerySpellConstruct_15Builder(name, guid).AddToDB();
         }
 
-        public static SpellDefinition SummonArtillerySpellConstruct_15 = CreateAndAddToDB(SummonArtillerySpellConstruct_15Name, SummonArtillerySpellConstruct_15Guid);
+        public static readonly SpellDefinition SummonArtillerySpellConstruct_15 = CreateAndAddToDB(SummonArtillerySpellConstruct_15Name, SummonArtillerySpellConstruct_15Guid);
     }
 
     internal class SummoningAffinityTinkererArtilleryConstructBuilder : BaseDefinitionBuilder<FeatureDefinitionSummoningAffinity>
@@ -782,6 +782,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SummoningAffinityTinkererArtilleryConstructBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionSummoningAffinity SummoningAffinityTinkererArtilleryConstruct = CreateAndAddToDB(Name, Guid);
+        public static readonly FeatureDefinitionSummoningAffinity SummoningAffinityTinkererArtilleryConstruct = CreateAndAddToDB(Name, Guid);
     }
 }

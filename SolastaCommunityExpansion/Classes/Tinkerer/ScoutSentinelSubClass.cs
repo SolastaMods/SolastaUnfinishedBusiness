@@ -162,7 +162,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ScoutSentinelFeatureSet_level03Builder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionFeatureSet ScoutSentinelFeatureSet_level03 = CreateAndAddToDB(ScoutSentinelFeatureSet_level03Name, ScoutSentinelFeatureSet_level03Guid);
+        public static readonly FeatureDefinitionFeatureSet ScoutSentinelFeatureSet_level03 = CreateAndAddToDB(ScoutSentinelFeatureSet_level03Name, ScoutSentinelFeatureSet_level03Guid);
     }
 
     internal class ScoutSentinelFeatureSet_level05Builder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
@@ -184,7 +184,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ScoutSentinelFeatureSet_level05Builder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionFeatureSet ScoutSentinelFeatureSet_level05 = CreateAndAddToDB(ScoutSentinelFeatureSet_level05Name, ScoutSentinelFeatureSet_level05Guid);
+        public static readonly FeatureDefinitionFeatureSet ScoutSentinelFeatureSet_level05 = CreateAndAddToDB(ScoutSentinelFeatureSet_level05Name, ScoutSentinelFeatureSet_level05Guid);
     }
 
     internal class ScoutSentinelFeatureSet_level09Builder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
@@ -223,7 +223,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ScoutSentinelFeatureSet_level09Builder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionFeatureSet ScoutSentinelFeatureSet_level09 = CreateAndAddToDB(ScoutSentinelFeatureSet_level09Name, ScoutSentinelFeatureSet_level09Guid);
+        public static readonly FeatureDefinitionFeatureSet ScoutSentinelFeatureSet_level09 = CreateAndAddToDB(ScoutSentinelFeatureSet_level09Name, ScoutSentinelFeatureSet_level09Guid);
     }
 
     internal class ScoutSentinelFeatureSet_level15Builder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
@@ -332,7 +332,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ScoutSentinelFeatureSet_level15Builder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionFeatureSet ScoutSentinelFeatureSet_level15 = CreateAndAddToDB(ScoutSentinelFeatureSet_level15Name, ScoutSentinelFeatureSet_level15Guid);
+        public static readonly FeatureDefinitionFeatureSet ScoutSentinelFeatureSet_level15 = CreateAndAddToDB(ScoutSentinelFeatureSet_level15Name, ScoutSentinelFeatureSet_level15Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -417,7 +417,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ScoutSentinelAutopreparedSpellsBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionAutoPreparedSpells SubclassAutopreparedSpells = CreateAndAddToDB(SubclassAutopreparedSpellsName, SubclassAutopreparedSpellsGuid);
+        public static readonly FeatureDefinitionAutoPreparedSpells SubclassAutopreparedSpells = CreateAndAddToDB(SubclassAutopreparedSpellsName, SubclassAutopreparedSpellsGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -441,7 +441,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SubclassProficienciesBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionProficiency SubclassProficiencies = CreateAndAddToDB(SubclassProficienciesName, SubclassProficienciesGuid);
+        public static readonly FeatureDefinitionProficiency SubclassProficiencies = CreateAndAddToDB(SubclassProficienciesName, SubclassProficienciesGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -465,7 +465,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SubclassMovementAffinitiesBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionMovementAffinity SubclassMovementAffinities = CreateAndAddToDB(SubclassMovementAffinitiesName, SubclassMovementAffinitiesGuid);
+        public static readonly FeatureDefinitionMovementAffinity SubclassMovementAffinities = CreateAndAddToDB(SubclassMovementAffinitiesName, SubclassMovementAffinitiesGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -491,7 +491,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new UseArmorWeaponsAsFocusBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionMagicAffinity UseArmorWeaponsAsFocus = CreateAndAddToDB(UseArmorWeaponsAsFocusName, UseArmorWeaponsAsFocusGuid);
+        public static readonly FeatureDefinitionMagicAffinity UseArmorWeaponsAsFocus = CreateAndAddToDB(UseArmorWeaponsAsFocusName, UseArmorWeaponsAsFocusGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -523,7 +523,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new IntToAttackAndDamageBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionAttackModifier IntToAttackAndDamage = CreateAndAddToDB(IntToAttackAndDamageName, IntToAttackAndDamageGuid);
+        public static readonly FeatureDefinitionAttackModifier IntToAttackAndDamage = CreateAndAddToDB(IntToAttackAndDamageName, IntToAttackAndDamageGuid);
     }
 
     //*************************************************************************************************************************
@@ -664,7 +664,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SentinelSuitWeaponBuilder(name, guid).AddToDB();
         }
 
-        public static ItemDefinition SentinelSuitWeapon = CreateAndAddToDB(SentinelSuitWeaponName, SentinelSuitWeaponGuid);
+        public static readonly ItemDefinition SentinelSuitWeapon = CreateAndAddToDB(SentinelSuitWeaponName, SentinelSuitWeaponGuid);
     }
 
     internal class ThunderShieldBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
@@ -724,7 +724,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ThunderShieldBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionPower ThunderShield = CreateAndAddToDB(ThunderShieldName, ThunderShieldGuid);
+        public static readonly FeatureDefinitionPower ThunderShield = CreateAndAddToDB(ThunderShieldName, ThunderShieldGuid);
     }
 
     internal class ThunderStruckConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
@@ -759,7 +759,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ThunderStruckConditionBuilder(name, guid).AddToDB();
         }
 
-        public static ConditionDefinition ThunderStruck = CreateAndAddToDB(ThunderStruckName, ThunderStruckGuid);
+        public static readonly ConditionDefinition ThunderStruck = CreateAndAddToDB(ThunderStruckName, ThunderStruckGuid);
     }
 
     internal class ThunderStruckDisadvantageCombatAffintityBuilder : BaseDefinitionBuilder<FeatureDefinitionCombatAffinity>
@@ -777,7 +777,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ThunderStruckDisadvantageCombatAffintityBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionCombatAffinity Disadvantage = CreateAndAddToDB(ThunderStruckDisadvantageName, ThunderStruckDisadvantageGuid);
+        public static readonly FeatureDefinitionCombatAffinity Disadvantage = CreateAndAddToDB(ThunderStruckDisadvantageName, ThunderStruckDisadvantageGuid);
     }
     internal class ThunderStruckBalancingAdvantageConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
     {
@@ -805,7 +805,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ThunderStruckBalancingAdvantageConditionBuilder(name, guid).AddToDB();
         }
 
-        public static ConditionDefinition ThunderStruckBalancingAdvantage = CreateAndAddToDB(ThunderStruckBalancingAdvantageName, ThunderStruckBalancingAdvantageGuid);
+        public static readonly ConditionDefinition ThunderStruckBalancingAdvantage = CreateAndAddToDB(ThunderStruckBalancingAdvantageName, ThunderStruckBalancingAdvantageGuid);
     }
 
     internal class BalancingAdvantageCombatAffintityBuilder : BaseDefinitionBuilder<FeatureDefinitionCombatAffinity>
@@ -824,7 +824,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new BalancingAdvantageCombatAffintityBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionCombatAffinity BalancingAdvantage = CreateAndAddToDB(BalancingAdvantageName, BalancingAdvantageGuid);
+        public static readonly FeatureDefinitionCombatAffinity BalancingAdvantage = CreateAndAddToDB(BalancingAdvantageName, BalancingAdvantageGuid);
     }
     internal class UsingitemPowerBuilder : BaseDefinitionBuilder<FeatureDefinitionActionAffinity>
     {
@@ -845,7 +845,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new UsingitemPowerBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionActionAffinity UsingitemPower = CreateAndAddToDB(UsingitemPowerName, UsingitemPowerGuid);
+        public static readonly FeatureDefinitionActionAffinity UsingitemPower = CreateAndAddToDB(UsingitemPowerName, UsingitemPowerGuid);
     }
 
     //**************************************************************************************************************************************
@@ -958,7 +958,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ScoutSuitWeaponBuilder(name, guid).AddToDB();
         }
 
-        public static ItemDefinition ScoutSuitWeapon = CreateAndAddToDB(ScoutSuitWeaponName, ScoutSuitWeaponGuid);
+        public static readonly ItemDefinition ScoutSuitWeapon = CreateAndAddToDB(ScoutSuitWeaponName, ScoutSuitWeaponGuid);
     }
 
     internal class LightningSpearAdditionalDamageBuilder : BaseDefinitionBuilder<FeatureDefinitionAdditionalDamage>
@@ -984,7 +984,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new LightningSpearAdditionalDamageBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionAdditionalDamage LightningSpearAdditionalDamage = CreateAndAddToDB(LightningSpearAdditionalDamageName, LightningSpearAdditionalDamageGuid);
+        public static readonly FeatureDefinitionAdditionalDamage LightningSpearAdditionalDamage = CreateAndAddToDB(LightningSpearAdditionalDamageName, LightningSpearAdditionalDamageGuid);
     }
     internal class LightningCloakMovementAffinitiesBuilder : BaseDefinitionBuilder<FeatureDefinitionMovementAffinity>
     {
@@ -1001,7 +1001,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new LightningCloakMovementAffinitiesBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionMovementAffinity LightningCloakMovementAffinities = CreateAndAddToDB(LightningCloakMovementAffinitiesName, LightningCloakMovementAffinitiesGuid);
+        public static readonly FeatureDefinitionMovementAffinity LightningCloakMovementAffinities = CreateAndAddToDB(LightningCloakMovementAffinitiesName, LightningCloakMovementAffinitiesGuid);
     }
     internal class LightningCloakAbilityCheckAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionAbilityCheckAffinity>
     {
@@ -1024,7 +1024,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new LightningCloakAbilityCheckAffinityBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionAbilityCheckAffinity LightningCloakAbilityCheckAffinity = CreateAndAddToDB(LightningCloakAbilityCheckAffinityName, LightningCloakAbilityCheckAffinityGuid);
+        public static readonly FeatureDefinitionAbilityCheckAffinity LightningCloakAbilityCheckAffinity = CreateAndAddToDB(LightningCloakAbilityCheckAffinityName, LightningCloakAbilityCheckAffinityGuid);
     }
 
     //*************************************************************************************************************************
@@ -1060,7 +1060,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ImprovedSentinelSuitWeaponBuilder(name, guid).AddToDB();
         }
 
-        public static ItemDefinition ImprovedSentinelSuitWeapon = CreateAndAddToDB(ImprovedSentinelSuitWeaponName, ImprovedSentinelSuitWeaponGuid);
+        public static readonly ItemDefinition ImprovedSentinelSuitWeapon = CreateAndAddToDB(ImprovedSentinelSuitWeaponName, ImprovedSentinelSuitWeaponGuid);
     }
 
     internal class GauntletsGrappleBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
@@ -1138,7 +1138,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new GauntletsGrappleBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionPower GauntletsGrapple = CreateAndAddToDB(GauntletsGrappleName, GauntletsGrappleGuid);
+        public static readonly FeatureDefinitionPower GauntletsGrapple = CreateAndAddToDB(GauntletsGrappleName, GauntletsGrappleGuid);
     }
 
     //**************************************************************************************************************************************
@@ -1209,7 +1209,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ImprovedScoutSuitWeaponBuilder(name, guid).AddToDB();
         }
 
-        public static ItemDefinition ImprovedScoutSuitWeapon = CreateAndAddToDB(ImprovedScoutSuitWeaponName, ImprovedScoutSuitWeaponGuid);
+        public static readonly ItemDefinition ImprovedScoutSuitWeapon = CreateAndAddToDB(ImprovedScoutSuitWeaponName, ImprovedScoutSuitWeaponGuid);
     }
 
     internal class DisadvantageOnAttackByEnemyBuilder : BaseDefinitionBuilder<ConditionDefinition>
@@ -1229,7 +1229,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new DisadvantageOnAttackByEnemyBuilder(name, guid).AddToDB();
         }
 
-        public static ConditionDefinition DisadvantageOnAttackByEnemy = CreateAndAddToDB(DisadvantageOnAttackByEnemyName, DisadvantageOnAttackByEnemyGuid);
+        public static readonly ConditionDefinition DisadvantageOnAttackByEnemy = CreateAndAddToDB(DisadvantageOnAttackByEnemyName, DisadvantageOnAttackByEnemyGuid);
     }
 
     internal class AdvantageAttackOnEnemyBuilder : BaseDefinitionBuilder<ConditionDefinition>
@@ -1249,7 +1249,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new AdvantageAttackOnEnemyBuilder(name, guid).AddToDB();
         }
 
-        public static ConditionDefinition AdvantageAttackOnEnemy = CreateAndAddToDB(AdvantageAttackOnEnemyName, AdvantageAttackOnEnemyGuid);
+        public static readonly ConditionDefinition AdvantageAttackOnEnemy = CreateAndAddToDB(AdvantageAttackOnEnemyName, AdvantageAttackOnEnemyGuid);
     }
 
     internal class ExtraDamageOnAttackConditionBuilder : BaseDefinitionBuilder<ConditionDefinition>
@@ -1282,6 +1282,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ExtraDamageOnAttackConditionBuilder(name, guid).AddToDB();
         }
 
-        public static ConditionDefinition ExtraDamageOnAttackCondition = CreateAndAddToDB(ExtraDamageOnAttackConditionName, ExtraDamageOnAttackConditionGuid);
+        public static readonly ConditionDefinition ExtraDamageOnAttackCondition = CreateAndAddToDB(ExtraDamageOnAttackConditionName, ExtraDamageOnAttackConditionGuid);
     }
 }

@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ProtectorConstructFeatureSetBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionFeatureSet ProtectorConstructFeatureSet = CreateAndAddToDB(Name, Guid);
+        public static readonly FeatureDefinitionFeatureSet ProtectorConstructFeatureSet = CreateAndAddToDB(Name, Guid);
     }
 
     public class ProtectorConstructLevel3AutopreparedSpellsBuilder : BaseDefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
@@ -60,7 +60,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ProtectorConstructLevel3AutopreparedSpellsBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionAutoPreparedSpells ProtectorConstructLevel3AutopreparedSpells = CreateAndAddToDB(Name, Guid);
+        public static readonly FeatureDefinitionAutoPreparedSpells ProtectorConstructLevel3AutopreparedSpells = CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -117,7 +117,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SummoningAffinityTinkererConstructBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionSummoningAffinity SummoningAffinityTinkererConstruct = CreateAndAddToDB(Name, Guid);
+        public static readonly FeatureDefinitionSummoningAffinity SummoningAffinityTinkererConstruct = CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -155,7 +155,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SummonProtectorPowerConstructBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionPower SummonProtectorConstruct = CreateAndAddToDB(SummonProtectorConstructName, SummonProtectorConstructNameGuid);
+        public static readonly FeatureDefinitionPower SummonProtectorConstruct = CreateAndAddToDB(SummonProtectorConstructName, SummonProtectorConstructNameGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -182,7 +182,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SummonProtectorPowerConstruct_UpgradeBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionPower SummonProtectorPowerConstruct_Upgrade = CreateAndAddToDB(Name, Guid);
+        public static readonly FeatureDefinitionPower SummonProtectorPowerConstruct_Upgrade = CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -216,7 +216,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SummonProtectorSpellConstructBuilder(name, guid).AddToDB();
         }
 
-        public static SpellDefinition SummonProtectorConstruct = CreateAndAddToDB(SummonProtectorConstructName, SummonProtectorConstructNameGuid);
+        public static readonly SpellDefinition SummonProtectorConstruct = CreateAndAddToDB(SummonProtectorConstructName, SummonProtectorConstructNameGuid);
     }
     //*****************************************************************************************************************************************
     //***********************************		SummonProtectorSpellConstruct_UpgradeBuilder		*******************************************************************
@@ -244,7 +244,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SummonProtectorSpellConstruct_UpgradeBuilder(name, guid).AddToDB();
         }
 
-        public static SpellDefinition SummonProtectorConstruct_Upgrade = CreateAndAddToDB(Name, Guid);
+        public static readonly SpellDefinition SummonProtectorConstruct_Upgrade = CreateAndAddToDB(Name, Guid);
     }
 
     public class ProtectorConstructLevel15AutopreparedSpellsBuilder : BaseDefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
@@ -271,7 +271,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ProtectorConstructLevel15AutopreparedSpellsBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionAutoPreparedSpells ProtectorConstructLevel15AutopreparedSpells = CreateAndAddToDB(Name, Guid);
+        public static readonly FeatureDefinitionAutoPreparedSpells ProtectorConstructLevel15AutopreparedSpells = CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -298,7 +298,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ProtectorConstructUpgradeFeatureSetBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionFeatureSet ProtectorConstructUpgradeFeatureSet = CreateAndAddToDB(Name, Guid);
+        public static readonly FeatureDefinitionFeatureSet ProtectorConstructUpgradeFeatureSet = CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -392,7 +392,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ProtectorConstructBuilder(name, guid).AddToDB();
         }
 
-        public static MonsterDefinition ProtectorConstruct = CreateAndAddToDB(ProtectorConstructName, ProtectorConstructNameGuid);
+        public static readonly MonsterDefinition ProtectorConstruct = CreateAndAddToDB(ProtectorConstructName, ProtectorConstructNameGuid);
     }
     //*****************************************************************************************************************************************
     //***********************************		ProtectorConstruct_UpgradeBuilder		*******************************************************
@@ -417,7 +417,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ProtectorConstruct_UpgradeBuilder(name, guid).AddToDB();
         }
 
-        public static MonsterDefinition ProtectorConstruct_Upgrade = CreateAndAddToDB(Name, Guid);
+        public static readonly MonsterDefinition ProtectorConstruct_Upgrade = CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -474,7 +474,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ProtectorConstructAttackBuilder(name, guid).AddToDB();
         }
 
-        public static MonsterAttackDefinition ProtectorConstructAttack = CreateAndAddToDB(ProtectorConstructAttacksName, ProtectorConstructAttacksGuid);
+        public static readonly MonsterAttackDefinition ProtectorConstructAttack = CreateAndAddToDB(ProtectorConstructAttacksName, ProtectorConstructAttacksGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -522,7 +522,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SelfRepairBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionPower SelfRepair = CreateAndAddToDB(SelfRepairName, SelfRepairNameGuid);
+        public static readonly FeatureDefinitionPower SelfRepair = CreateAndAddToDB(SelfRepairName, SelfRepairNameGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -555,6 +555,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new RetributionBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionPower Retribution = CreateAndAddToDB(RetributionName, RetributionNameGuid);
+        public static readonly FeatureDefinitionPower Retribution = CreateAndAddToDB(RetributionName, RetributionNameGuid);
     }
 }

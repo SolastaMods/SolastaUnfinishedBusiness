@@ -918,7 +918,7 @@ namespace SolastaCommunityExpansion.Spells
                 DatabaseHelper.SmartAttributeDefinitions.Intelligence.name,
                 20,
                 false,
-                new List<SaveAffinityBySenseDescription> { }
+                new List<SaveAffinityBySenseDescription>()
                 )
             .AddEffectForm(new EffectFormBuilder()
                 .SetConditionForm(

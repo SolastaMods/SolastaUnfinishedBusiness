@@ -381,7 +381,7 @@ namespace SolastaCommunityExpansion.Builders
                         FeatureDefinitionCastSpell.SlotsByLevelDuplet slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
                         {
                             Level = level,
-                            Slots = SlotsByCasterLevel[(level - startingLevel) / 2 + 1]
+                            Slots = SlotsByCasterLevel[((level - startingLevel) / 2) + 1]
                         };
                         Definition.SlotsPerLevels.Add(slotsForLevel);
                     }
@@ -392,7 +392,7 @@ namespace SolastaCommunityExpansion.Builders
                         FeatureDefinitionCastSpell.SlotsByLevelDuplet slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
                         {
                             Level = level,
-                            Slots = SlotsByCasterLevel[(level - startingLevel + 2) / 3 + 1]
+                            Slots = SlotsByCasterLevel[((level - startingLevel + 2) / 3) + 1]
                         };
                         Definition.SlotsPerLevels.Add(slotsForLevel);
                     }

@@ -20,11 +20,11 @@ namespace SolastaCommunityExpansion.Viewers
 
         private static bool showAttributes;
 
-        private static readonly Dictionary<MonsterDefinition, bool> currentFeaturesMonster = new Dictionary<MonsterDefinition, bool> { };
+        private static readonly Dictionary<MonsterDefinition, bool> currentFeaturesMonster = new Dictionary<MonsterDefinition, bool>();
 
-        private static readonly Dictionary<MonsterDefinition, bool> currentAttacksMonster = new Dictionary<MonsterDefinition, bool> { };
+        private static readonly Dictionary<MonsterDefinition, bool> currentAttacksMonster = new Dictionary<MonsterDefinition, bool>();
 
-        private static readonly Dictionary<RulesetCharacterHero, bool> currentItemsHeroes = new Dictionary<RulesetCharacterHero, bool> { };
+        private static readonly Dictionary<RulesetCharacterHero, bool> currentItemsHeroes = new Dictionary<RulesetCharacterHero, bool>();
 
         private static string SplitCamelCase(string str)
         {
@@ -70,7 +70,7 @@ namespace SolastaCommunityExpansion.Viewers
 
                 currentItemsHeroes.TryGetValue(hero, out flip);
 
-                if (UI.DisclosureToggle($"Inventory", ref flip, 132))
+                if (UI.DisclosureToggle("Inventory", ref flip, 132))
                 {
                     currentItemsHeroes.AddOrReplace<RulesetCharacterHero, bool>(hero, flip);
                 }
@@ -208,7 +208,7 @@ namespace SolastaCommunityExpansion.Viewers
                             UI.Label($"hit bonus: {attackIteration.MonsterAttackDefinition.ToHitBonus}".green(), UI.Width(108));
                             if (attackIteration.MonsterAttackDefinition.MaxUses < 0)
                             {
-                                UI.Label($"max uses: inf".green(), UI.Width(108));
+                                UI.Label("max uses: inf".green(), UI.Width(108));
                             }
                             else
                             {
@@ -216,7 +216,7 @@ namespace SolastaCommunityExpansion.Viewers
                             }
                             if (attackIteration.MonsterAttackDefinition.Magical)
                             {
-                                UI.Label($"MAGICAL".green(), UI.Width(108));
+                                UI.Label("MAGICAL".green(), UI.Width(108));
                             }
                         }
                     }

@@ -64,16 +64,16 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker
                     Main.Log($"room orientation before ({ur.Orientation}, {ur.OrientedWidth}, {ur.OrientedHeight})");
                     Main.Log($"current room position ({ur.Position.x}, {ur.Position.y})");
 
-                    var currentRoomCenter = new Vector3(ur.Position.x + ur.OrientedWidth / 2f, ur.Position.y + ur.OrientedHeight / 2f);
+                    var currentRoomCenter = new Vector3(ur.Position.x + (ur.OrientedWidth / 2f), ur.Position.y + (ur.OrientedHeight / 2f));
                     Main.Log($"current room center ({currentRoomCenter.x}, {currentRoomCenter.y})");
 
-                    var newRoomCenter = rotation * (currentRoomCenter - dungeonCenter) + dungeonCenter;
+                    var newRoomCenter = (rotation * (currentRoomCenter - dungeonCenter)) + dungeonCenter;
                     Main.Log($"new room center ({newRoomCenter.x}, {newRoomCenter.y})");
 
                     ur.Rotate(rotationAngle);
                     Main.Log($"room orientation after {ur.Orientation}, {ur.OrientedWidth}, {ur.OrientedHeight}");
 
-                    ur.Position = new Vector2Int(Mathf.RoundToInt(newRoomCenter.x - ur.OrientedWidth / 2f), Mathf.RoundToInt(newRoomCenter.y - ur.OrientedHeight / 2f));
+                    ur.Position = new Vector2Int(Mathf.RoundToInt(newRoomCenter.x - (ur.OrientedWidth / 2f)), Mathf.RoundToInt(newRoomCenter.y - (ur.OrientedHeight / 2f)));
                     Main.Log($"new room position ({ur.Position.x}, {ur.Position.y})");
                 }
 

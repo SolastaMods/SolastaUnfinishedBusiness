@@ -216,7 +216,7 @@ namespace SolastaCommunityExpansion.Feats
             }
             RulesetItem off_item = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
 
-            return (off_item != null && off_item.ItemDefinition != null && off_item.ItemDefinition.IsLightSourceItem);
+            return off_item != null && off_item.ItemDefinition != null && off_item.ItemDefinition.IsLightSourceItem;
         }
     }
 }

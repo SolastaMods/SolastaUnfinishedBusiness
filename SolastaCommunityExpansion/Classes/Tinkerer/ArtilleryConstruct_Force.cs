@@ -90,7 +90,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ForceArtilleryConstructBuilder(name, guid).AddToDB();
         }
 
-        public static MonsterDefinition ForceArtilleryConstruct = CreateAndAddToDB(ForceArtilleryConstructName, ForceArtilleryConstructGuid);
+        public static readonly MonsterDefinition ForceArtilleryConstruct = CreateAndAddToDB(ForceArtilleryConstructName, ForceArtilleryConstructGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -118,7 +118,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ForceArtilleryConstruct_9Builder(name, guid).AddToDB();
         }
 
-        public static MonsterDefinition ForceArtilleryConstruct_9 = CreateAndAddToDB(ForceArtilleryConstruct_9Name, ForceArtilleryConstruct_9Guid);
+        public static readonly MonsterDefinition ForceArtilleryConstruct_9 = CreateAndAddToDB(ForceArtilleryConstruct_9Name, ForceArtilleryConstruct_9Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -143,7 +143,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ForceArtilleryConstruct_15Builder(name, guid).AddToDB();
         }
 
-        public static MonsterDefinition ForceArtilleryConstruct_15 = CreateAndAddToDB(ForceArtilleryConstruct_15Name, ForceArtilleryConstruct_15Guid);
+        public static readonly MonsterDefinition ForceArtilleryConstruct_15 = CreateAndAddToDB(ForceArtilleryConstruct_15Name, ForceArtilleryConstruct_15Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -174,7 +174,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SummonForceArtillerySpellConstructBuilder(name, guid).AddToDB();
         }
 
-        public static SpellDefinition SummonForceArtilleryConstruct = CreateAndAddToDB(SummonForceArtilleryConstructName, SummonForceArtilleryConstructGuid);
+        public static readonly SpellDefinition SummonForceArtilleryConstruct = CreateAndAddToDB(SummonForceArtilleryConstructName, SummonForceArtilleryConstructGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -201,7 +201,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SummonForceArtillerySpellConstruct_9Builder(name, guid).AddToDB();
         }
 
-        public static SpellDefinition SummonForceArtilleryConstruct_9 = CreateAndAddToDB(SummonForceArtilleryConstruct_9Name, SummonForceArtilleryConstruct_9Guid);
+        public static readonly SpellDefinition SummonForceArtilleryConstruct_9 = CreateAndAddToDB(SummonForceArtilleryConstruct_9Name, SummonForceArtilleryConstruct_9Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -227,7 +227,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SummonForceArtillerySpellConstruct_15Builder(name, guid).AddToDB();
         }
 
-        public static SpellDefinition SummonForceArtilleryConstruct_15 = CreateAndAddToDB(SummonForceArtilleryConstruct_15Name, SummonForceArtilleryConstruct_15Guid);
+        public static readonly SpellDefinition SummonForceArtilleryConstruct_15 = CreateAndAddToDB(SummonForceArtilleryConstruct_15Name, SummonForceArtilleryConstruct_15Guid);
     }
 
     internal class ForceArtilleryAttackBuilder : BaseDefinitionBuilder<MonsterAttackDefinition>
@@ -284,7 +284,7 @@ Web
             effectmotion.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
             effectmotion.SetApplyLevel(EffectForm.LevelApplianceType.No);
 
-            DamageForm ForceArtilleryAttack = new DamageForm
+            DamageForm forceArtilleryAttack = new DamageForm
             {
                 DieType = RuleDefinitions.DieType.D8,
                 DiceNumber = 2,
@@ -295,7 +295,7 @@ Web
             EffectForm effect = new EffectForm
             {
                 FormType = EffectForm.EffectFormType.Damage,
-                DamageForm = (ForceArtilleryAttack)
+                DamageForm = forceArtilleryAttack
             };
             effect.SetCreatedByCharacter(true);
             effect.HasSavingThrow = false;
@@ -328,7 +328,7 @@ Web
             return new ForceArtilleryAttackBuilder(name, guid).AddToDB();
         }
 
-        public static MonsterAttackDefinition ForceArtilleryAttack = CreateAndAddToDB(ForceArtilleryAttackName, ForceArtilleryAttackGuid);
+        public static readonly MonsterAttackDefinition ForceArtilleryAttack = CreateAndAddToDB(ForceArtilleryAttackName, ForceArtilleryAttackGuid);
     }
 
     internal class ForceArtilleryAdditionalDamageBuilder : BaseDefinitionBuilder<FeatureDefinitionAdditionalDamage>
@@ -355,7 +355,7 @@ Web
             return new ForceArtilleryAdditionalDamageBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionAdditionalDamage ForceArtilleryAdditionalDamage = CreateAndAddToDB(ForceArtilleryAdditionalDamageName, ForceArtilleryAdditionalDamageGuid);
+        public static readonly FeatureDefinitionAdditionalDamage ForceArtilleryAdditionalDamage = CreateAndAddToDB(ForceArtilleryAdditionalDamageName, ForceArtilleryAdditionalDamageGuid);
     }
 
     internal class ForceArtilleryProjectileBuilder : BaseDefinitionBuilder<ItemDefinition>
@@ -379,6 +379,6 @@ Web
             return new ForceArtilleryProjectileBuilder(name, guid).AddToDB();
         }
 
-        public static ItemDefinition ForceArtilleryProjectile = CreateAndAddToDB(ForceArtilleryProjectileName, ForceArtilleryProjectileGuid);
+        public static readonly ItemDefinition ForceArtilleryProjectile = CreateAndAddToDB(ForceArtilleryProjectileName, ForceArtilleryProjectileGuid);
     }
 }

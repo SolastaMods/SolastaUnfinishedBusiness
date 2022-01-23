@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.SetActivationTime(RuleDefinitions.ActivationTime.Action);
             Definition.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
 
-            DamageForm FlameArtillery = new DamageForm
+            DamageForm flameArtillery = new DamageForm
             {
                 DieType = RuleDefinitions.DieType.D8,
                 DiceNumber = 2,
@@ -37,7 +37,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             EffectForm effect = new EffectForm
             {
                 FormType = EffectForm.EffectFormType.Damage,
-                DamageForm = (FlameArtillery)
+                DamageForm = flameArtillery
             };
             effect.SetCreatedByCharacter(true);
             effect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage;
@@ -69,7 +69,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new FlameArtilleryBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionPower FlameArtillery = CreateAndAddToDB(FlameArtilleryName, FlameArtilleryGuid);
+        public static readonly FeatureDefinitionPower FlameArtillery = CreateAndAddToDB(FlameArtilleryName, FlameArtilleryGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -96,7 +96,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new FlameArtillery_2Builder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionPower FlameArtillery_2 = CreateAndAddToDB(FlameArtillery_2Name, FlameArtillery_2Guid);
+        public static readonly FeatureDefinitionPower FlameArtillery_2 = CreateAndAddToDB(FlameArtillery_2Name, FlameArtillery_2Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -169,7 +169,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new FlameArtilleryConstructBuilder(name, guid).AddToDB();
         }
 
-        public static MonsterDefinition FlameArtilleryConstruct = CreateAndAddToDB(FlameArtilleryConstructName, FlameArtilleryConstructGuid);
+        public static readonly MonsterDefinition FlameArtilleryConstruct = CreateAndAddToDB(FlameArtilleryConstructName, FlameArtilleryConstructGuid);
     }
 
     internal class FlameArtilleryConstruct_9Builder : BaseDefinitionBuilder<MonsterDefinition>
@@ -190,7 +190,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new FlameArtilleryConstruct_9Builder(name, guid).AddToDB();
         }
 
-        public static MonsterDefinition FlameArtilleryConstruct_9 = CreateAndAddToDB(FlameArtilleryConstruct_9Name, FlameArtilleryConstruct_9Guid);
+        public static readonly MonsterDefinition FlameArtilleryConstruct_9 = CreateAndAddToDB(FlameArtilleryConstruct_9Name, FlameArtilleryConstruct_9Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -214,7 +214,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new FlameArtilleryConstruct_15Builder(name, guid).AddToDB();
         }
 
-        public static MonsterDefinition FlameArtilleryConstruct_15 = CreateAndAddToDB(FlameArtilleryConstruct_15Name, FlameArtilleryConstruct_15Guid);
+        public static readonly MonsterDefinition FlameArtilleryConstruct_15 = CreateAndAddToDB(FlameArtilleryConstruct_15Name, FlameArtilleryConstruct_15Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -245,7 +245,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SummonFlameArtillerySpellConstructBuilder(name, guid).AddToDB();
         }
 
-        public static SpellDefinition SummonFlameArtilleryConstruct = CreateAndAddToDB(SummonFlameArtilleryConstructName, SummonFlameArtilleryConstructGuid);
+        public static readonly SpellDefinition SummonFlameArtilleryConstruct = CreateAndAddToDB(SummonFlameArtilleryConstructName, SummonFlameArtilleryConstructGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -269,7 +269,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SummonFlameArtillerySpellConstruct_9Builder(name, guid).AddToDB();
         }
 
-        public static SpellDefinition SummonFlameArtilleryConstruct_9 = CreateAndAddToDB(SummonFlameArtilleryConstruct_9Name, SummonFlameArtilleryConstruct_9Guid);
+        public static readonly SpellDefinition SummonFlameArtilleryConstruct_9 = CreateAndAddToDB(SummonFlameArtilleryConstruct_9Name, SummonFlameArtilleryConstruct_9Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -294,6 +294,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new SummonFlameArtillerySpellConstruct_15Builder(name, guid).AddToDB();
         }
 
-        public static SpellDefinition SummonFlameArtilleryConstruct_15 = CreateAndAddToDB(SummonFlameArtilleryConstruct_15Name, SummonFlameArtilleryConstruct_15Guid);
+        public static readonly SpellDefinition SummonFlameArtilleryConstruct_15 = CreateAndAddToDB(SummonFlameArtilleryConstruct_15Name, SummonFlameArtilleryConstruct_15Guid);
     }
 }

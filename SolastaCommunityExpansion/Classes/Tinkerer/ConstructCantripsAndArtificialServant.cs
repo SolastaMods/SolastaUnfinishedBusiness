@@ -25,7 +25,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new TinkererConstructFamilyBuilder(name, guid).AddToDB();
         }
 
-        public static CharacterFamilyDefinition TinkererConstructFamily = CreateAndAddToDB(TinkererConstructFamilyName, TinkererConstructFamilyGuid);
+        public static readonly CharacterFamilyDefinition TinkererConstructFamily = CreateAndAddToDB(TinkererConstructFamilyName, TinkererConstructFamilyGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -52,7 +52,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new AddConstructCantripsBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionBonusCantrips AddConstructCantrips = CreateAndAddToDB(Name, Guid);
+        public static readonly FeatureDefinitionBonusCantrips AddConstructCantrips = CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -102,7 +102,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new MendingConstructBuilder(name, guid).AddToDB();
         }
 
-        public static SpellDefinition MendingConstruct = CreateAndAddToDB(Name, Guid);
+        public static readonly SpellDefinition MendingConstruct = CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -127,14 +127,14 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.SetMaterialComponentType(RuleDefinitions.MaterialComponentType.None);
             Definition.SetVerboseComponent(false);
 
-            CounterForm DismissConstruct = new CounterForm();
-            DismissConstruct.SetType(CounterForm.CounterType.DismissCreature);
+            CounterForm dismissConstruct = new CounterForm();
+            dismissConstruct.SetType(CounterForm.CounterType.DismissCreature);
 
             EffectForm effect = new EffectForm
             {
                 FormType = EffectForm.EffectFormType.Counter
             };
-            effect.SetCounterForm(DismissConstruct);
+            effect.SetCounterForm(dismissConstruct);
             effect.HasSavingThrow = false;
             effect.SetCreatedByCharacter(true);
 
@@ -175,7 +175,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new DismissConstructBuilder(name, guid).AddToDB();
         }
 
-        public static SpellDefinition DismissConstruct = CreateAndAddToDB(Name, Guid);
+        public static readonly SpellDefinition DismissConstruct = CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -268,7 +268,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ArtificialServantBuilder(name, guid).AddToDB();
         }
 
-        public static MonsterDefinition ArtificialServant = CreateAndAddToDB(ArtificialServantName, ArtificialServantGuid);
+        public static readonly MonsterDefinition ArtificialServant = CreateAndAddToDB(ArtificialServantName, ArtificialServantGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -326,7 +326,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new ArtificialServantAttackBuilder(name, guid).AddToDB();
         }
 
-        public static MonsterAttackDefinition ArtificialServantAttack = CreateAndAddToDB(ArtificialServantAttacksListName, ArtificialServantAttacksListGuid);
+        public static readonly MonsterAttackDefinition ArtificialServantAttack = CreateAndAddToDB(ArtificialServantAttacksListName, ArtificialServantAttacksListGuid);
     }
     internal class CancelFlyingConditionBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
     {
@@ -374,6 +374,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new CancelFlyingConditionBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionPower CancelFlyingCondition = CreateAndAddToDB(Name, Guid);
+        public static readonly FeatureDefinitionPower CancelFlyingCondition = CreateAndAddToDB(Name, Guid);
     }
 }

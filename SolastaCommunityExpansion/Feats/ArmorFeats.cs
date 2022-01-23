@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion.Feats
                 "Feat/&ProfLightArmorTitle");
             FeatureDefinition lightProf = BuildProficiency(RuleDefinitions.ProficiencyType.Armor, new List<string>()
             {
-                EquipmentDefinitions.LightArmorCategory.ToString()
+                EquipmentDefinitions.LightArmorCategory
             }, "FeatLightArmorProficiency", lightProfPresentation.Build()
             );
             GuiPresentationBuilder dexPresentation = new GuiPresentationBuilder(
@@ -44,8 +44,8 @@ namespace SolastaCommunityExpansion.Feats
                 "Feat/&ProfMediumArmorTitle");
             FeatureDefinition mediumProf = BuildProficiency(RuleDefinitions.ProficiencyType.Armor, new List<string>()
             {
-                EquipmentDefinitions.MediumArmorCategory.ToString(),
-                EquipmentDefinitions.ShieldCategory.ToString(),
+                EquipmentDefinitions.MediumArmorCategory,
+                EquipmentDefinitions.ShieldCategory,
             }, "FeatMediumArmorProficiency", mediumProfPresentation.Build()
             );
 

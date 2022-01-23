@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
     internal static class TinkererClass
     {
-        public static Guid GuidNamespace = new Guid("7aee1270-7a61-48d9-8670-cf087c551c16");
+        public static readonly Guid GuidNamespace = new Guid("7aee1270-7a61-48d9-8670-cf087c551c16");
 
         public static readonly FeatureDefinitionPower InfusionPool = new FeatureDefinitionPowerPoolBuilder("AttributeModiferArtificerInfusionHealingPool",
             GuidHelper.Create(GuidNamespace, "AttributeModiferArtificerInfusionHealingPool").ToString(),
