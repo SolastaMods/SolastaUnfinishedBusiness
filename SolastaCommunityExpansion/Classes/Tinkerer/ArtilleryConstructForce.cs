@@ -97,12 +97,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
     //***********************************		ForceArtilleryConstruct_9Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal class ForceArtilleryConstruct_9Builder : BaseDefinitionBuilder<MonsterDefinition>
+    internal class ForceArtilleryConstruct9Builder : BaseDefinitionBuilder<MonsterDefinition>
     {
         private const string ForceArtilleryConstruct_9Name = "ForceArtilleryConstruct_9";
         private const string ForceArtilleryConstruct_9Guid = "1a479ea4-0f72-4847-bd0b-54b2ded48057";
 
-        protected ForceArtilleryConstruct_9Builder(string name, string guid) : base(ForceArtilleryConstructBuilder.ForceArtilleryConstruct, name, guid)
+        protected ForceArtilleryConstruct9Builder(string name, string guid) : base(ForceArtilleryConstructBuilder.ForceArtilleryConstruct, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&ForceArtilleryConstructTitle_3";
             Definition.GuiPresentation.Description = "Feat/&ForceArtilleryConstructDescription_3";
@@ -115,22 +115,22 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public static MonsterDefinition CreateAndAddToDB(string name, string guid)
         {
-            return new ForceArtilleryConstruct_9Builder(name, guid).AddToDB();
+            return new ForceArtilleryConstruct9Builder(name, guid).AddToDB();
         }
 
-        public static readonly MonsterDefinition ForceArtilleryConstruct_9 = CreateAndAddToDB(ForceArtilleryConstruct_9Name, ForceArtilleryConstruct_9Guid);
+        public static readonly MonsterDefinition ForceArtilleryConstruct9 = CreateAndAddToDB(ForceArtilleryConstruct_9Name, ForceArtilleryConstruct_9Guid);
     }
 
     //*****************************************************************************************************************************************
     //***********************************		ForceArtilleryConstruct_15Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal class ForceArtilleryConstruct_15Builder : BaseDefinitionBuilder<MonsterDefinition>
+    internal class ForceArtilleryConstruct15Builder : BaseDefinitionBuilder<MonsterDefinition>
     {
         private const string ForceArtilleryConstruct_15Name = "ForceArtilleryConstruct_15";
         private const string ForceArtilleryConstruct_15Guid = "e7d49f53-cb44-4348-82d7-b8b561861448";
 
-        protected ForceArtilleryConstruct_15Builder(string name, string guid) : base(ForceArtilleryConstruct_9Builder.ForceArtilleryConstruct_9, name, guid)
+        protected ForceArtilleryConstruct15Builder(string name, string guid) : base(ForceArtilleryConstruct9Builder.ForceArtilleryConstruct9, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&ForceArtilleryConstructTitle_5";
             Definition.GuiPresentation.Description = "Feat/&ForceArtilleryConstructDescription_3";
@@ -140,10 +140,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public static MonsterDefinition CreateAndAddToDB(string name, string guid)
         {
-            return new ForceArtilleryConstruct_15Builder(name, guid).AddToDB();
+            return new ForceArtilleryConstruct15Builder(name, guid).AddToDB();
         }
 
-        public static readonly MonsterDefinition ForceArtilleryConstruct_15 = CreateAndAddToDB(ForceArtilleryConstruct_15Name, ForceArtilleryConstruct_15Guid);
+        public static readonly MonsterDefinition ForceArtilleryConstruct15 = CreateAndAddToDB(ForceArtilleryConstruct_15Name, ForceArtilleryConstruct_15Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -181,24 +181,24 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
     //***********************************		SummonForceArtillerySpellConstruct_9Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal class SummonForceArtillerySpellConstruct_9Builder : BaseDefinitionBuilder<SpellDefinition>
+    internal class SummonForceArtillerySpellConstruct9Builder : BaseDefinitionBuilder<SpellDefinition>
     {
         private const string SummonForceArtilleryConstruct_9Name = "SummonForceArtilleryConstruct_9";
         private const string SummonForceArtilleryConstruct_9Guid = "f1e8d7e1-44d9-4a82-ac23-5e0013b40650";
 
-        protected SummonForceArtillerySpellConstruct_9Builder(string name, string guid) : base(SummonForceArtillerySpellConstructBuilder.SummonForceArtilleryConstruct, name, guid)
+        protected SummonForceArtillerySpellConstruct9Builder(string name, string guid) : base(SummonForceArtillerySpellConstructBuilder.SummonForceArtilleryConstruct, name, guid)
         {
             Definition.GuiPresentation.Title = "Feature/&ForceArtillery_09ModePowerTitle";
             Definition.GuiPresentation.Description = "Feature/&ForceArtillery_09ModePowerDescription";
 
-            Definition.EffectDescription.EffectForms[0].SummonForm.SetMonsterDefinitionName(ForceArtilleryConstruct_9Builder.ForceArtilleryConstruct_9.Name);
+            Definition.EffectDescription.EffectForms[0].SummonForm.SetMonsterDefinitionName(ForceArtilleryConstruct9Builder.ForceArtilleryConstruct9.Name);
             //
 
         }
 
         public static SpellDefinition CreateAndAddToDB(string name, string guid)
         {
-            return new SummonForceArtillerySpellConstruct_9Builder(name, guid).AddToDB();
+            return new SummonForceArtillerySpellConstruct9Builder(name, guid).AddToDB();
         }
 
         public static readonly SpellDefinition SummonForceArtilleryConstruct_9 = CreateAndAddToDB(SummonForceArtilleryConstruct_9Name, SummonForceArtilleryConstruct_9Guid);
@@ -208,26 +208,26 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
     //***********************************		SummonForceArtillerySpellConstruct_15Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal class SummonForceArtillerySpellConstruct_15Builder : BaseDefinitionBuilder<SpellDefinition>
+    internal class SummonForceArtillerySpellConstruct15Builder : BaseDefinitionBuilder<SpellDefinition>
     {
         private const string SummonForceArtilleryConstruct_15Name = "SummonForceArtilleryConstruct_15";
         private const string SummonForceArtilleryConstruct_15Guid = "b529386c-defa-4c39-a03c-09a08a104cc6";
 
-        protected SummonForceArtillerySpellConstruct_15Builder(string name, string guid) : base(SummonForceArtillerySpellConstructBuilder.SummonForceArtilleryConstruct, name, guid)
+        protected SummonForceArtillerySpellConstruct15Builder(string name, string guid) : base(SummonForceArtillerySpellConstructBuilder.SummonForceArtilleryConstruct, name, guid)
         {
             Definition.GuiPresentation.Title = "Feature/&ForceArtillery_15ModePowerTitle";
             Definition.GuiPresentation.Description = "Feature/&ForceArtillery_15ModePowerDescription";
             Definition.SetUniqueInstance(false);
 
-            Definition.EffectDescription.EffectForms[0].SummonForm.SetMonsterDefinitionName(ForceArtilleryConstruct_15Builder.ForceArtilleryConstruct_15.Name);
+            Definition.EffectDescription.EffectForms[0].SummonForm.SetMonsterDefinitionName(ForceArtilleryConstruct15Builder.ForceArtilleryConstruct15.Name);
         }
 
         public static SpellDefinition CreateAndAddToDB(string name, string guid)
         {
-            return new SummonForceArtillerySpellConstruct_15Builder(name, guid).AddToDB();
+            return new SummonForceArtillerySpellConstruct15Builder(name, guid).AddToDB();
         }
 
-        public static readonly SpellDefinition SummonForceArtilleryConstruct_15 = CreateAndAddToDB(SummonForceArtilleryConstruct_15Name, SummonForceArtilleryConstruct_15Guid);
+        public static readonly SpellDefinition SummonForceArtilleryConstruct15 = CreateAndAddToDB(SummonForceArtilleryConstruct_15Name, SummonForceArtilleryConstruct_15Guid);
     }
 
     internal class ForceArtilleryAttackBuilder : BaseDefinitionBuilder<MonsterAttackDefinition>

@@ -1,5 +1,4 @@
-﻿
-using SolastaModApi;
+﻿using SolastaModApi;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.CustomFeatureDefinitions
@@ -237,7 +236,6 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
             Definition.SetUniqueInstance(uniqueInstance);
             return this;
         }
-
 
         public FeatureDefinitionPowerSharedPoolBuilder SetShowCasting(bool casting)
         {

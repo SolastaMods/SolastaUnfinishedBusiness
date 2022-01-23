@@ -216,7 +216,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                     new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup() {
                         ClassLevel=1,
                         SpellsList=new List<SpellDefinition>
-                            {SummonArtillerySpellConstruct_9Builder.SummonArtillerySpellConstruct_9}} },
+                            {SummonArtillerySpellConstruct9Builder.SummonArtillerySpellConstruct9}} },
                 artificer,
                 "ArtilleryConstructLevel09AutopreparedSpells",
                 ArtilleryConstructLevel09AutopreparedSpellsPresentation.Build());
@@ -237,10 +237,13 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             fire15Effect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.BurningHands.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
+            // TODO: @Chris - review
+#pragma warning disable S1481, IDE0059 // Unused local variables should be removed
             FeatureDefinitionPower flame15Attack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristFlame15CannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristFlame15CannonAttack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence, fire15Effect.Build(),
                 flame15Gui.Build(), flame9Attack).AddToDB();
             //    artillerist.AddFeatureAtLevel(flame15Attack, 15);
+#pragma warning restore S1481, IDE0059 // Unused local variables should be removed
 
             // Force
             GuiPresentationBuilder force15Gui = new GuiPresentationBuilder(
@@ -256,10 +259,14 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             force15Effect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
+            // TODO: @Chris - review
+#pragma warning disable S1481, IDE0059 // Unused local variables should be removed
             FeatureDefinitionPower force15Attack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristForceCannon15Attack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristForceCannon15Attack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, true, true, AttributeDefinitions.Intelligence, force15Effect.Build(),
                 force15Gui.Build(), force9Attack).AddToDB();
             //    artillerist.AddFeatureAtLevel(force15Attack, 15);
+#pragma warning restore S1481, IDE0059 // Unused local variables should be removed
+
             // Protector
             GuiPresentationBuilder protector15Gui = new GuiPresentationBuilder(
                 "Feat/&ArtilleristProtectorCannon15Description",
@@ -273,10 +280,13 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             protector15Effect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.FalseLife.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
+            // TODO: @Chris - review
+#pragma warning disable S1481, IDE0059 // Unused local variables should be removed
             FeatureDefinitionPower protector15Activation = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristProtector15CannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristProtector15CannonAttack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence, protector15Effect.Build(),
                 protector15Gui.Build(), protectorActivation).AddToDB();
             //    artillerist.AddFeatureAtLevel(protector15Activation, 15);
+#pragma warning restore S1481, IDE0059 // Unused local variables should be removed
 
             artillerist.AddFeatureAtLevel(ArtilleryConstructlevel15FeatureSetBuilder.ArtilleryConstructlevel15FeatureSet, 15);
 
@@ -288,7 +298,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                     new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup() {
                         ClassLevel=1,
                         SpellsList=new List<SpellDefinition>
-                            {SummonArtillerySpellConstruct_15Builder.SummonArtillerySpellConstruct_15}} },
+                            {SummonArtillerySpellConstruct15Builder.SummonArtillerySpellConstruct15}} },
                 artificer,
                 "ArtilleryConstructLevel15AutopreparedSpells",
                 ArtilleryConstructLevel15AutopreparedSpellsPresentation.Build());

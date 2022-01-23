@@ -136,27 +136,30 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.MartialMountaineer.GuiPresentation.SpriteReference)
                 .Build();
 
+            // TODO: @Chris - review
+#pragma warning disable S1481, IDE0059 // Unused local variables should be removed
             var definition = new CharacterSubclassDefinitionBuilder(Name, Guid)
                 .SetGuiPresentation(subclassGuiPresentation)
 
             // level 3
-            .AddFeatureAtLevel(ScoutSentinelFeatureSet_level03Builder.ScoutSentinelFeatureSet_level03, 3)
+            .AddFeatureAtLevel(ScoutSentinelFeatureSet03Builder.ScoutSentinelFeatureSet03, 3)
             // level 5
-            .AddFeatureAtLevel(ScoutSentinelFeatureSet_level05Builder.ScoutSentinelFeatureSet_level05, 5)
+            .AddFeatureAtLevel(ScoutSentinelFeatureSet05Builder.ScoutSentinelFeatureSet05, 5)
             // level 10
-            .AddFeatureAtLevel(ScoutSentinelFeatureSet_level09Builder.ScoutSentinelFeatureSet_level09, 9)
+            .AddFeatureAtLevel(ScoutSentinelFeatureSet09Builder.ScoutSentinelFeatureSet09, 9)
             // level 14
-            .AddFeatureAtLevel(ScoutSentinelFeatureSet_level15Builder.ScoutSentinelFeatureSet_level15, 15)
+            .AddFeatureAtLevel(ScoutSentinelFeatureSet15Builder.ScoutSentinelFeatureSet15, 15)
            .AddToDB(true);
+#pragma warning restore S1481 // Unused local variables should be removed
         }
     }
 
-    internal class ScoutSentinelFeatureSet_level03Builder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal class ScoutSentinelFeatureSet03Builder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
     {
         private const string ScoutSentinelFeatureSet_level03Name = "ScoutSentinelFeatureSet_level03";
         private const string ScoutSentinelFeatureSet_level03Guid = "a6560212-c665-49fd-94b7-378512e68edb";
 
-        protected ScoutSentinelFeatureSet_level03Builder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
+        protected ScoutSentinelFeatureSet03Builder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&ScoutSentinelFeatureSet_level03Title";
             Definition.GuiPresentation.Description = "Feat/&ScoutSentinelFeatureSet_level03Description";
@@ -173,18 +176,18 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
         {
-            return new ScoutSentinelFeatureSet_level03Builder(name, guid).AddToDB();
+            return new ScoutSentinelFeatureSet03Builder(name, guid).AddToDB();
         }
 
-        public static readonly FeatureDefinitionFeatureSet ScoutSentinelFeatureSet_level03 = CreateAndAddToDB(ScoutSentinelFeatureSet_level03Name, ScoutSentinelFeatureSet_level03Guid);
+        public static readonly FeatureDefinitionFeatureSet ScoutSentinelFeatureSet03 = CreateAndAddToDB(ScoutSentinelFeatureSet_level03Name, ScoutSentinelFeatureSet_level03Guid);
     }
 
-    internal class ScoutSentinelFeatureSet_level05Builder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal class ScoutSentinelFeatureSet05Builder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
     {
         private const string ScoutSentinelFeatureSet_level05Name = "ScoutSentinelFeatureSet_level05";
         private const string ScoutSentinelFeatureSet_level05Guid = "a881c02a-7add-426b-a2d4-1f3994d12fa9";
 
-        protected ScoutSentinelFeatureSet_level05Builder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
+        protected ScoutSentinelFeatureSet05Builder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&ScoutSentinelFeatureSet_level05Title";
             Definition.GuiPresentation.Description = "Feat/&ScoutSentinelFeatureSet_level05Description";
@@ -195,18 +198,18 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
         {
-            return new ScoutSentinelFeatureSet_level05Builder(name, guid).AddToDB();
+            return new ScoutSentinelFeatureSet05Builder(name, guid).AddToDB();
         }
 
-        public static readonly FeatureDefinitionFeatureSet ScoutSentinelFeatureSet_level05 = CreateAndAddToDB(ScoutSentinelFeatureSet_level05Name, ScoutSentinelFeatureSet_level05Guid);
+        public static readonly FeatureDefinitionFeatureSet ScoutSentinelFeatureSet05 = CreateAndAddToDB(ScoutSentinelFeatureSet_level05Name, ScoutSentinelFeatureSet_level05Guid);
     }
 
-    internal class ScoutSentinelFeatureSet_level09Builder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal class ScoutSentinelFeatureSet09Builder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
     {
         private const string ScoutSentinelFeatureSet_level09Name = "ScoutSentinelFeatureSet_level09";
         private const string ScoutSentinelFeatureSet_level09Guid = "87e8b110-4590-4791-b31c-b8bba5f362b1";
 
-        protected ScoutSentinelFeatureSet_level09Builder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
+        protected ScoutSentinelFeatureSet09Builder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&ScoutSentinelFeatureSet_level09Title";
             Definition.GuiPresentation.Description = "Feat/&ScoutSentinelFeatureSet_level09Description";
@@ -234,18 +237,18 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
         {
-            return new ScoutSentinelFeatureSet_level09Builder(name, guid).AddToDB();
+            return new ScoutSentinelFeatureSet09Builder(name, guid).AddToDB();
         }
 
-        public static readonly FeatureDefinitionFeatureSet ScoutSentinelFeatureSet_level09 = CreateAndAddToDB(ScoutSentinelFeatureSet_level09Name, ScoutSentinelFeatureSet_level09Guid);
+        public static readonly FeatureDefinitionFeatureSet ScoutSentinelFeatureSet09 = CreateAndAddToDB(ScoutSentinelFeatureSet_level09Name, ScoutSentinelFeatureSet_level09Guid);
     }
 
-    internal class ScoutSentinelFeatureSet_level15Builder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal class ScoutSentinelFeatureSet15Builder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
     {
         private const string ScoutSentinelFeatureSet_level15Name = "ScoutSentinelFeatureSet_level15";
         private const string ScoutSentinelFeatureSet_level15Guid = "69a9ba53-4949-47ec-9693-467d053e4646";
 
-        protected ScoutSentinelFeatureSet_level15Builder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
+        protected ScoutSentinelFeatureSet15Builder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&ScoutSentinelFeatureSet_level15Title";
             Definition.GuiPresentation.Description = "Feat/&ScoutSentinelFeatureSet_level15Description";
@@ -343,10 +346,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
         {
-            return new ScoutSentinelFeatureSet_level15Builder(name, guid).AddToDB();
+            return new ScoutSentinelFeatureSet15Builder(name, guid).AddToDB();
         }
 
-        public static readonly FeatureDefinitionFeatureSet ScoutSentinelFeatureSet_level15 = CreateAndAddToDB(ScoutSentinelFeatureSet_level15Name, ScoutSentinelFeatureSet_level15Guid);
+        public static readonly FeatureDefinitionFeatureSet ScoutSentinelFeatureSet15 = CreateAndAddToDB(ScoutSentinelFeatureSet_level15Name, ScoutSentinelFeatureSet_level15Guid);
     }
 
     //*****************************************************************************************************************************************

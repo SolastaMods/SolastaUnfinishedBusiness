@@ -1,7 +1,7 @@
-﻿using HarmonyLib;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
+using HarmonyLib;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro

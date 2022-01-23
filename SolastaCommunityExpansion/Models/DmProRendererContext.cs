@@ -1,9 +1,9 @@
-﻿using AwesomeTechnologies;
+﻿using System.Collections.Generic;
+using System.Linq;
+using AwesomeTechnologies;
 using AwesomeTechnologies.VegetationSystem;
 using AwesomeTechnologies.VegetationSystem.Biomes;
 using SolastaModApi.Infrastructure;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -21,9 +21,15 @@ namespace SolastaCommunityExpansion.Models
 
         private static VegetationMaskArea TemplateVegetationMaskArea { get; set; }
 
-        private static bool IsFlatRoom(UserRoom userRoom) => userRoom.RoomBlueprint.name.StartsWith(FLAT_ROOM_TAG);
+        private static bool IsFlatRoom(UserRoom userRoom)
+        {
+            return userRoom.RoomBlueprint.name.StartsWith(FLAT_ROOM_TAG);
+        }
 
-        private static bool IsDynamicFlatRoom(UserRoom userRoom) => IsFlatRoom(userRoom) && int.TryParse(userRoom.RoomBlueprint.name.Substring(FLAT_ROOM_TAG.Length, 2), out int _);
+        private static bool IsDynamicFlatRoom(UserRoom userRoom)
+        {
+            return IsFlatRoom(userRoom) && int.TryParse(userRoom.RoomBlueprint.name.Substring(FLAT_ROOM_TAG.Length, 2), out int _);
+        }
 
         public static void GetTemplateVegetationMaskArea(WorldLocation worldLocation)
         {
@@ -51,12 +57,12 @@ namespace SolastaCommunityExpansion.Models
 
             // calculates inverted heights in map coordinates
             var locationSize = UserLocationDefinitions.CellsBySize[userLocation.Size];
-            var mapHeights = new int[locationSize + MARGIN * 2, locationSize + MARGIN * 2];
+            var mapHeights = new int[locationSize + (MARGIN * 2), locationSize + (MARGIN * 2)];
 
             foreach (var userRoom in userLocation.UserRooms)
             {
                 var isIndoor = !DmProEditorContext.OutdoorRooms.Contains(userRoom.RoomBlueprint.name);
-                var border = 2;
+                const int border = 2;
                 var px = userRoom.Position.x;
                 var py = userRoom.Position.y;
                 var oh = userRoom.OrientedHeight;
@@ -66,7 +72,7 @@ namespace SolastaCommunityExpansion.Models
                 {
                     for (var y = 0; y < oh; y++)
                     {
-                        var lowGround = isIndoor && (x >= border && x <= ow - border && y >= border && y <= oh - border || userRoom.GetCellType(x, y) == RoomBlueprint.CellType.GroundLow);
+                        var lowGround = isIndoor && ((x >= border && x <= ow - border && y >= border && y <= oh - border) || userRoom.GetCellType(x, y) == RoomBlueprint.CellType.GroundLow);
 
                         mapHeights[MARGIN + px + x, MARGIN + py + y] = lowGround ? 1 : 0;
                     }
@@ -81,8 +87,8 @@ namespace SolastaCommunityExpansion.Models
             {
                 for (var x = 0; x < resolution; x++)
                 {
-                    var sx = (int)System.Math.Round(x * (locationSize + MARGIN * 2f - 1f) / (resolution - 1f));
-                    var sy = (int)System.Math.Round(y * (locationSize + MARGIN * 2f - 1f) / (resolution - 1f));
+                    var sx = (int)System.Math.Round(x * (locationSize + (MARGIN * 2f) - 1f) / (resolution - 1f));
+                    var sy = (int)System.Math.Round(y * (locationSize + (MARGIN * 2f) - 1f) / (resolution - 1f));
 
                     heights[y, x] = 1 - mapHeights[sx, sy];
                 }
@@ -90,7 +96,7 @@ namespace SolastaCommunityExpansion.Models
 
             // adjusts terrain to new settings
             masterTerrain.terrainData = TerrainDataCloner.Clone(masterTerrain.terrainData);
-            masterTerrain.terrainData.size = new Vector3(locationSize + MARGIN * 2f, 5f, locationSize + MARGIN * 2f);
+            masterTerrain.terrainData.size = new Vector3(locationSize + (MARGIN * 2f), 5f, locationSize + (MARGIN * 2f));
             masterTerrain.terrainData.SetHeights(0, 0, heights);
             masterTerrain.transform.position = new Vector3(masterTerrain.transform.position.x, -5.01f, masterTerrain.transform.position.z);
 
@@ -149,7 +155,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 var rnd = new System.Random();
 
-                roomTransform.position = new Vector3(roomTransform.position.x - (multiplier - 1) * FLAT_ROOM_SIZE / 2, 0, roomTransform.position.z - (multiplier - 1) * FLAT_ROOM_SIZE / 2);
+                roomTransform.position = new Vector3(roomTransform.position.x - ((multiplier - 1) * FLAT_ROOM_SIZE / 2), 0, roomTransform.position.z - ((multiplier - 1) * FLAT_ROOM_SIZE / 2));
 
                 for (var x = 0; x < multiplier; x++)
                 {
@@ -159,7 +165,7 @@ namespace SolastaCommunityExpansion.Models
                         {
                             // placing textures using a random angle to remove the repetition feeling a bit
                             var angle = LocationDefinitions.OrientationToAngle((LocationDefinitions.Orientation)rnd.Next(0, 3));
-                            var newRoom = Object.Instantiate(roomTransform.gameObject, new Vector3(roomTransform.position.x + FLAT_ROOM_SIZE * x, 0, roomTransform.position.z + FLAT_ROOM_SIZE * z), Quaternion.identity, roomTransform.parent);
+                            var newRoom = Object.Instantiate(roomTransform.gameObject, new Vector3(roomTransform.position.x + (FLAT_ROOM_SIZE * x), 0, roomTransform.position.z + (FLAT_ROOM_SIZE * z)), Quaternion.identity, roomTransform.parent);
 
                             newRoom.transform.rotation = Quaternion.Euler(0, angle, 0);
                         }
@@ -189,7 +195,7 @@ namespace SolastaCommunityExpansion.Models
                 sizey = FLAT_ROOM_SIZE;
             }
 
-            vegetationMaskArea.transform.position = new Vector3(userRoom.Position.x + sizex / 2f, 0, userRoom.Position.y + sizey / 2f);
+            vegetationMaskArea.transform.position = new Vector3(userRoom.Position.x + (sizex / 2f), 0, userRoom.Position.y + (sizey / 2f));
             vegetationMaskArea.AdditionalGrassPerimiter = 0;
             vegetationMaskArea.RemoveGrass = true;
             vegetationMaskArea.RemoveLargeObjects = true;
