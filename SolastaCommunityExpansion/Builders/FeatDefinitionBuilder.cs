@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi;
 using SolastaModApi.Extensions;
@@ -21,6 +22,19 @@ namespace SolastaCommunityExpansion.Builders
 
             Definition.SetField("features", features.ToList());
             Definition.SetGuiPresentation(guiPresentation);
+        }
+
+        public FeatDefinitionBuilder(string name, Guid namespaceGuid, string keyPrefix, params FeatureDefinition[] features)
+            : this(name, namespaceGuid, keyPrefix, features.AsEnumerable())
+        {
+        }
+
+        public FeatDefinitionBuilder(string name, Guid namespaceGuid, string keyPrefix, IEnumerable<FeatureDefinition> features)
+            : base(name, namespaceGuid, keyPrefix)
+        {
+            InitializePrerequisiteCollectionFields();
+
+            Definition.SetField("features", features.ToList());
         }
 
         public FeatDefinitionBuilder(string name, string guid) : base(name, guid)

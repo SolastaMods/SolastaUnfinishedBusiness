@@ -453,20 +453,20 @@ Feat/&HealerStabilizeTitle	Stabilize
 Feat/&HealerTitle	Healer
 Feat/&HealerUseMedicineDescription	You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 Feat/&HealerUseMedicineTitle	Use Medicine
-Feat/&HeavyArmorMasterDescription	Resistance to Bludgeoning, Slashing, and Piercing damage.
-Feat/&HeavyArmorMasterTitle	Heavy Defense Mastery
+Feat/&FeatHeavyArmorMasterClassDescription	Resistance to Bludgeoning, Slashing, and Piercing damage.
+Feat/&FeatHeavyArmorMasterClassTitle	Heavy Defense Mastery
 Feat/&IncreaseConstructSelectingDescription You can now summon two Artillery Constructs. The constructs can be of the same or different modes
 Feat/&IncreaseConstructSelectingTitle Reinforcements
 Feat/&InspiringLeaderDescription	Spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier. Useable once per short rest.
 Feat/&InspiringLeaderTitle	Inspiring Leader
 Feat/&IntToAttackAndDamageDescription Add Int instead of Str or Dex to your Armor Weapons
 Feat/&IntToAttackAndDamageTitle Amror Weapon
-Feat/&LightArmorDescription	Gain proficiency with Light Armor and +1 Dexterity
-Feat/&LightArmorTitle	Light Armor
-Feat/&MediumDexArmorDescription	Gain proficiency with Medium Armor and Shields and +1 Dexterity
-Feat/&MediumDexArmorTitle	Medium Armor (Dexterity)
-Feat/&MediumStrengthArmorDescription	Gain proficiency with Medium Armor and Shields and +1 Strength
-Feat/&MediumStrengthArmorTitle	Medium Armor (Strength)
+Feat/&FeatLightArmorDescription	Gain proficiency with Light Armor and +1 Dexterity
+Feat/&FeatLightArmorTitle	Light Armor
+Feat/&FeatMediumArmorDexDescription	Gain proficiency with Medium Armor and Shields and +1 Dexterity
+Feat/&FeatMediumArmorDexTitle	Medium Armor (Dexterity)
+Feat/&FeatMediumArmorStrengthDescription	Gain proficiency with Medium Armor and Shields and +1 Strength
+Feat/&FeatMediumArmorStrengthTitle	Medium Armor (Strength)
 Feat/&MendingConstructDescription	Repair your construct for 2D6 over 1 min
 Feat/&MendingConstructTitle	Mending Construct
 Feat/&ModeSwitchingPoolDescription	You can switch between modes once per day by creating and using temporary weapons
@@ -501,10 +501,10 @@ Feat/&ProfChefTreatDescription	Eat as a bonus action and gain 5 temporary hit po
 Feat/&ProfChefTreatTitle	Chef's Treat
 Feat/&ProfHealerMedicineDescription	Gain Proficiency in Medicine, or Expertise if you are already proficient.
 Feat/&ProfHealerMedicineTitle	Medicine Knowledge
-Feat/&ProfLightArmorDescription	Gain proficiency with Light Armor
-Feat/&ProfLightArmorTitle	Light Armor
-Feat/&ProfMediumArmorDescription	Gain proficiency with Medium Armor and Shields
-Feat/&ProfMediumArmorTitle	Medium Armor
+Feat/&FeatLightArmorProficiencyDescription	Gain proficiency with Light Armor
+Feat/&FeatLightArmorProficiencyTitle	Light Armor
+Feat/&FeatMediumArmorProficiencyDescription	Gain proficiency with Medium Armor and Shields
+Feat/&FeatMediumArmorProficiencyTitle	Medium Armor
 Feat/&ProtectorConstructAttackDescription	Melee 1d10 force damage from the protector construct
 Feat/&ProtectorConstructAttackTitle	Force Rend
 Feat/&ProtectorConstructDescription	It is friendly to you and your companions, and it obeys your commands
