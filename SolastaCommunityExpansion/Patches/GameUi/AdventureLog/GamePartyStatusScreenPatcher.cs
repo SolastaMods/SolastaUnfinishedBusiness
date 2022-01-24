@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.AdventureLog
         {
             if (Main.Settings.EnableAdventureLogPopups)
             {
-                Models.AdventureLogContext.LogEntry(string.Empty, text);
+                Models.AdventureLogContext.LogEntry("Popup", text);
             }
         }
     }
@@ -24,7 +24,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.AdventureLog
         {
             if (Main.Settings.EnableAdventureLogPopups)
             {
-                Models.AdventureLogContext.LogEntry(string.Empty, text);
+                Models.AdventureLogContext.LogEntry("Popup", text);
             }
         }
     }

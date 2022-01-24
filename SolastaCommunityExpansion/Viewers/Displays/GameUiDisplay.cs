@@ -40,12 +40,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     Main.Settings.EnableAdventureLogDocuments = toggle;
                 }
 
-                toggle = Main.Settings.EnableAdventureLogLore;
-                if (UI.Toggle("Record full screen lore", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableAdventureLogLore = toggle;
-                }
-
                 toggle = Main.Settings.EnableAdventureLogTextFeedback;
                 if (UI.Toggle("Record text feedback", ref toggle, UI.AutoWidth()))
                 {
@@ -53,7 +47,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.EnableAdventureLogPopups;
-                if (UI.Toggle("Record bottom and header popups", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Record header and bottom popups", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableAdventureLogPopups = toggle;
                 }

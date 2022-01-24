@@ -243,7 +243,6 @@ namespace SolastaCommunityExpansion
         // Adventure Log
         public bool EnableAdventureLogBanterLines { get; set; }
         public bool EnableAdventureLogDocuments { get; set; }
-        public bool EnableAdventureLogLore { get; set; }
         public bool EnableAdventureLogTextFeedback { get; set; }
         public bool EnableAdventureLogPopups { get; set; }
 
