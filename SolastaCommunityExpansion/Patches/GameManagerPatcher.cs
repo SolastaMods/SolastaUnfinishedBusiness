@@ -10,6 +10,8 @@ namespace SolastaCommunityExpansion.Patches
     {
         internal static void Postfix()
         {
+            GuiPresentationCheck.PostDatabaseLoadCheck();
+
             AdditionalNamesContext.Load();
             AsiAndFeatContext.Load();
             BugFixContext.Load();
@@ -45,6 +47,9 @@ namespace SolastaCommunityExpansion.Patches
             ClassesContext.Load();
             // Subclasses may rely on classes being loaded (as well as spells and powers) in order to properly refer back to the class.
             SubclassesContext.Load();
+
+            // Should this go here or before Main.Enabled, or somewhere else?
+            GuiPresentationCheck.PostCELoadCheck();
 
             ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (_) =>
             {
