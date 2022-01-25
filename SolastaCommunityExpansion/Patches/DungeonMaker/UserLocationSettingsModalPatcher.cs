@@ -5,7 +5,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using static SolastaCommunityExpansion.Models.Level20Context;
 
-namespace SolastaCommunityExpansion.Patches.Level20
+namespace SolastaCommunityExpansion.Patches.DungeonMaker
 {
     [HarmonyPatch(typeof(UserLocationSettingsModal), "OnMinLevelEndEdit")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Patches.Level20
         {
             var code = new List<CodeInstruction>(instructions);
 
-            if (Main.Settings.EnableLevel20)
+            if (Main.Settings.AllowDungeonsMaxLevel20)
             {
                 code
                     .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GAME_MAX_LEVEL)
@@ -34,7 +34,7 @@ namespace SolastaCommunityExpansion.Patches.Level20
         {
             var code = new List<CodeInstruction>(instructions);
 
-            if (Main.Settings.EnableLevel20)
+            if (Main.Settings.AllowDungeonsMaxLevel20)
             {
                 code
                     .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GAME_MAX_LEVEL)

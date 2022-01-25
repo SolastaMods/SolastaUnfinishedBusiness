@@ -230,6 +230,7 @@ namespace SolastaCommunityExpansion
         // Interface - Dungeon Maker
         //
 
+        public bool AllowDungeonsMaxLevel20 { get; set; }
         public bool AllowGadgetsToBePlacedAnywhere { get; set; }
         public bool AllowPropsToBePlacedAnywhere { get; set; }
         public bool UnleashNpcAsEnemy { get; set; }
@@ -243,7 +244,6 @@ namespace SolastaCommunityExpansion
         // Adventure Log
         public bool EnableAdventureLogBanterLines { get; set; }
         public bool EnableAdventureLogDocuments { get; set; }
-        public bool EnableAdventureLogLore { get; set; }
         public bool EnableAdventureLogTextFeedback { get; set; }
         public bool EnableAdventureLogPopups { get; set; }
 
