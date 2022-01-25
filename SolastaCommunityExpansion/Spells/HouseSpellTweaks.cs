@@ -34,6 +34,7 @@ namespace SolastaCommunityExpansion.Spells
 
             if (cfg != null)
             {
+                // NOTE: using the same setting as for Lesser Restoration for compatibility
                 if (Main.Settings.AddBleedingToLesserRestoration)
                 {
                     cfg.ConditionForm.ConditionsList.TryAdd(ConditionBleeding);
