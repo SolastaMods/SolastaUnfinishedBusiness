@@ -230,6 +230,7 @@ namespace SolastaCommunityExpansion
         // Interface - Dungeon Maker
         //
 
+        public bool AllowDungeonsMaxLevel20 { get; set; }
         public bool AllowGadgetsToBePlacedAnywhere { get; set; }
         public bool AllowPropsToBePlacedAnywhere { get; set; }
         public bool UnleashNpcAsEnemy { get; set; }
