@@ -150,7 +150,7 @@ dotnet_diagnostic.RCS1146.severity = silent
 dotnet_diagnostic.RCS1112.severity = silent
 
 # ROS0003: Analyzer requires config option to be specified
-dotnet_diagnostic.ROS0003.severity = silent
+dotnet_diagnostic.ROS0003.severity = none
 
 [*.vb]
 # Modifier preferences

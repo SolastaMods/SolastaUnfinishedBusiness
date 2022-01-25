@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
     /// <summary>
     /// Allow spells that require consumption of a material component (e.g. a gem of value >= 1000gp) use a stack
     /// of lesser value components (e.g. 4 x 300gp diamonds).
-    /// Note that this implementation will only work with identical components - e.g. 'all diamonds', it won't consider combining 
+    /// Note that this implementation will only work with identical components - e.g. 'all diamonds', it won't consider combining
     /// different types of items with the tag 'gem'.
     /// TODO: if anyone requests it we can improve with GroupBy etc...
     /// </summary>
