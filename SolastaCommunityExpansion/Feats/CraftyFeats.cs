@@ -248,7 +248,7 @@ namespace SolastaCommunityExpansion.Feats
 
         public static FeatureDefinitionAttributeModifier BuildNewAttributeModifier(string name, string guid, string title, string description, AssetReferenceSprite sprite_reference, FeatureDefinitionAttributeModifier baseAttributeModifier)
         {
-            var unit = CopyAndCreateNewBlueprint<FeatureDefinitionAttributeModifier>.CreateCopy(
+            return CopyAndCreateNewBlueprint<FeatureDefinitionAttributeModifier>.CreateCopy(
                 name,
                 guid,
                 title,
@@ -256,8 +256,6 @@ namespace SolastaCommunityExpansion.Feats
                 sprite_reference,
                 baseAttributeModifier
             );
-
-            return unit;
         }
 
         public static FeatureDefinitionProficiency BuildNewProficiency(string name, string guid, string title, string description, AssetReferenceSprite sprite_reference, FeatureDefinitionProficiency baseProficiency, RuleDefinitions.ProficiencyType ProficiencyType, List<string> Proficiencies)
