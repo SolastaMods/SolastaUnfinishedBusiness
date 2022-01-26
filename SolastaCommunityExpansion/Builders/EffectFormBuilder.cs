@@ -87,6 +87,11 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
+        public EffectFormBuilder SetConditionForm(ConditionDefinition condition, ConditionForm.ConditionOperation operation, bool applyToSelf, bool forceOnSelf, params ConditionDefinition[] detrimentalConditions)
+        {
+            return SetConditionForm(condition, operation, applyToSelf, forceOnSelf, detrimentalConditions.AsEnumerable());
+        }
+
         public EffectFormBuilder SetConditionForm(ConditionDefinition condition, ConditionForm.ConditionOperation operation, bool applyToSelf, bool forceOnSelf, IEnumerable<ConditionDefinition> detrimentalConditions)
         {
             effectForm.FormType = EffectForm.EffectFormType.Condition;
@@ -282,5 +287,7 @@ namespace SolastaCommunityExpansion.Builders
         {
             return effectForm;
         }
+
+        public static EffectFormBuilder Create() { return new EffectFormBuilder(); }
     }
 }

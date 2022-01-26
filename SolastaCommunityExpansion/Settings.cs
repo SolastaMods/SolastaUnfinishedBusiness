@@ -158,6 +158,7 @@ namespace SolastaCommunityExpansion
         public bool RollDifferentStealthChecksForEachCharacterPair { get; set; }
         public bool EnablePowerAid { get; set; }
         public bool AddBleedingToLesserRestoration { get; set; }
+        public bool BugFixCalmEmotionsOnAlly { get; set; } = true;
         public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
         public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
         public bool FixSorcererTwinnedLogic { get; set; }
