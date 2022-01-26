@@ -225,6 +225,9 @@ namespace SolastaCommunityExpansion
         public bool EnableCheatMenu { get; set; }
         public bool NoExperienceOnLevelUp { get; set; }
 
+        public bool ShowTADefinitionsWithMissingGuiPresentation { get; set; }
+        public bool ShowCEDefinitionsWithMissingGuiPresentation { get; set; } = true;
+
         // Faction Relations
 
         //
