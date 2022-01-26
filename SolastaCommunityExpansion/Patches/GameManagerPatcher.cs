@@ -10,6 +10,8 @@ namespace SolastaCommunityExpansion.Patches
     {
         internal static void Postfix()
         {
+            GuiPresentationCheck.PostDatabaseLoadCheck();
+
             AdditionalNamesContext.Load();
             AsiAndFeatContext.Load();
             BugFixContext.Load();
@@ -57,6 +59,8 @@ namespace SolastaCommunityExpansion.Patches
                 PowersContext.Switch();
                 // Spells context needs character classes (specifically spell lists) in the db in order to do it's work.
                 SpellsContext.Load();
+
+                GuiPresentationCheck.PostCELoadCheck();
 
                 GuiWrapperContext.Recache();
 
