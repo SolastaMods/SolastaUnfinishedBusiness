@@ -26,21 +26,18 @@ namespace SolastaCommunityExpansion.Feats
             var dexterityModifier = BuildAttributeModifier("FeatDexIncrement",
                 AttributeModifierOperation.Additive, AttributeDefinitions.Dexterity, 1);
 
-            // Note: this originally had AttributeDefinitions.Dexterity
             var strengthModifier = BuildAttributeModifier("FeatStrengthIncrement",
                 AttributeModifierOperation.Additive, AttributeDefinitions.Strength, 1);
 
             var lightArmorFeat = BuildFeat("FeatLightArmor", lightArmorProficiency, dexterityModifier);
 
-            // Note: Medium armor feats have prereq of LightArmorCategory
             var mediumDexArmorFeat = BuildFeat("FeatMediumArmorDex", LightArmorCategory, mediumArmorProficiency, dexterityModifier);
             var mediumStrengthArmorFeat = BuildFeat("FeatMediumArmorStrength", LightArmorCategory, mediumArmorProficiency, strengthModifier);
 
-            // but heavy armor feat has prereq HeavyArmorCategory - is this correct?
-            var heavyArmorFeat = BuildFeat("FeatHeavyArmorMasterClass", HeavyArmorCategory,
+            var heavyArmorMasterFeat = BuildFeat("FeatHeavyArmorMasterClass", HeavyArmorCategory,
                 DamageAffinityBludgeoningResistance, DamageAffinitySlashingResistance, DamageAffinityPiercingResistance);
 
-            feats.AddRange(lightArmorFeat, mediumDexArmorFeat, mediumStrengthArmorFeat, heavyArmorFeat);
+            feats.AddRange(lightArmorFeat, mediumDexArmorFeat, mediumStrengthArmorFeat, heavyArmorMasterFeat);
         }
 
         public static FeatDefinition BuildFeat(string name, ArmorCategoryDefinition prerequisite, params FeatureDefinition[] features)
