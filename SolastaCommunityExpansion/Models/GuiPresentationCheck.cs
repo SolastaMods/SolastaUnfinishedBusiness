@@ -34,9 +34,15 @@ namespace SolastaCommunityExpansion.Models
                 return;
             }
 
+            if (!Main.Settings.ShowTADefinitionsWithMissingGuiPresentation)
+            {
+                return;
+            }
+
             Main.Log("PostDatabaseLoad GuiPresentation Check start ------------------------------------------");
 
             TABaseDefinitions = GetAllDefinitions();
+
 
             foreach (var definition in TABaseDefinitions)
             {
@@ -55,6 +61,11 @@ namespace SolastaCommunityExpansion.Models
         public static void PostCELoadCheck()
         {
             Main.Log("PostCELoad GuiPresentation Check start ------------------------------------------------");
+
+            if (!Main.Settings.ShowCEDefinitionsWithMissingGuiPresentation)
+            {
+                return;
+            }
 
             var allDefinitions = GetAllDefinitions();
 
