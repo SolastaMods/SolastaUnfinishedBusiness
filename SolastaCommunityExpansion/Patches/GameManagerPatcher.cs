@@ -48,9 +48,6 @@ namespace SolastaCommunityExpansion.Patches
             // Subclasses may rely on classes being loaded (as well as spells and powers) in order to properly refer back to the class.
             SubclassesContext.Load();
 
-            // Should this go here or before Main.Enabled, or somewhere else?
-            GuiPresentationCheck.PostCELoadCheck();
-
             ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (_) =>
             {
                 FlexibleRacesContext.Switch();
@@ -62,6 +59,8 @@ namespace SolastaCommunityExpansion.Patches
                 PowersContext.Switch();
                 // Spells context needs character classes (specifically spell lists) in the db in order to do it's work.
                 SpellsContext.Load();
+
+                GuiPresentationCheck.PostCELoadCheck();
 
                 GuiWrapperContext.Recache();
 

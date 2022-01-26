@@ -34,15 +34,14 @@ namespace SolastaCommunityExpansion.Models
                 return;
             }
 
+            TABaseDefinitions = GetAllDefinitions();
+
             if (!Main.Settings.ShowTADefinitionsWithMissingGuiPresentation)
             {
                 return;
             }
 
             Main.Log("PostDatabaseLoad GuiPresentation Check start ------------------------------------------");
-
-            TABaseDefinitions = GetAllDefinitions();
-
 
             foreach (var definition in TABaseDefinitions)
             {
@@ -69,7 +68,7 @@ namespace SolastaCommunityExpansion.Models
 
             var allDefinitions = GetAllDefinitions();
 
-            foreach (var definition in allDefinitions.Where(db => !TABaseDefinitions.Contains(db)))
+            foreach (var definition in allDefinitions.Except(TABaseDefinitions))
             {
                 var gp = definition.GuiPresentation;
 
