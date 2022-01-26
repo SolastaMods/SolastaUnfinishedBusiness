@@ -43,6 +43,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
             RulesetSpellRepertoire ___spellRepertoire, SpellsByLevelBox.SpellCastEngagedHandler ___spellCastEngaged)
         {
             if (!Main.Settings.EnableUpcastConjureElementalAndFey ||
+                SpellDefinition_SubspellsList.FilteredSubspells == null ||
                 SpellDefinition_SubspellsList.FilteredSubspells.Count == 0)
             {
                 return true;
@@ -81,7 +82,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
 
         public static void Postfix(ref List<SpellDefinition> __result)
         {
-            if (!FilterBySlotLevel.HasValue)
+            if (!FilterBySlotLevel.HasValue || __result == null || __result.Count == 0)
             {
                 return;
             }

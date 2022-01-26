@@ -1,4 +1,6 @@
-﻿using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
+﻿using System.Linq;
+using SolastaCommunityExpansion.Builders;
+using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Spells
@@ -8,6 +10,7 @@ namespace SolastaCommunityExpansion.Spells
         public static void Register()
         {
             AddBleedingToRestoration();
+            AddFrightenedCharmedImmunityToCalmEmotions();
         }
 
         public static void AddBleedingToRestoration()
@@ -48,6 +51,38 @@ namespace SolastaCommunityExpansion.Spells
             {
                 Main.Error("Unable to find form of type Condition in GreaterRestoration");
             }
+        }
+
+        public static void AddFrightenedCharmedImmunityToCalmEmotions()
+        {
+            var effectForms = CalmEmotionsOnAlly.EffectDescription.EffectForms;
+
+            var effectForm = effectForms
+                .Where(ef => ef.FormType == EffectForm.EffectFormType.Condition)
+                .SingleOrDefault(ef => ef.ConditionForm.ConditionDefinition.Name == "CECalmEmotionsImmunityEffectForm");
+
+            if (Main.Settings.AddImmunitiesToCalmEmotions)
+            {
+                if (effectForm == null)
+                {
+                    effectForms.Add(CECalmEmotionsImmunityEffectForm);
+                }
+            }
+            else if (effectForm != null)
+            {
+                effectForms.Remove(effectForm);
+            }
+        }
+
+        private static readonly EffectForm CECalmEmotionsImmunityEffectForm = BuildCECalmEmotionsImmunityEffectForm();
+
+        private static EffectForm BuildCECalmEmotionsImmunityEffectForm()
+        {
+            // TODO: create new condition
+            return EffectFormBuilder
+                .Create()
+                .SetConditionForm(ConditionProtectedFromEvil, ConditionForm.ConditionOperation.Add, false, false)
+                .Build();
         }
     }
 }
