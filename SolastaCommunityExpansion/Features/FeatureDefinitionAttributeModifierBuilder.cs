@@ -1,18 +1,28 @@
-﻿using SolastaModApi;
+﻿using System;
+using SolastaModApi;
 using SolastaModApi.Extensions;
+using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaCommunityExpansion.Features
 {
     public class FeatureDefinitionAttributeModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttributeModifier>
     {
-        public FeatureDefinitionAttributeModifierBuilder(string name, string guid, FeatureDefinitionAttributeModifier.AttributeModifierOperation modifierType,
-        string attribute, int amount, GuiPresentation guiPresentation) : base(name, guid)
+        public FeatureDefinitionAttributeModifierBuilder(string name, string guid, AttributeModifierOperation modifierType,
+            string attribute, int amount, GuiPresentation guiPresentation) : base(name, guid, guiPresentation)
         {
             Definition.SetModifierType2(modifierType);
             Definition.SetModifiedAttribute(attribute);
             Definition.SetModifierValue(amount);
-            Definition.SetGuiPresentation(guiPresentation);
         }
+
+        public FeatureDefinitionAttributeModifierBuilder(string name, Guid namespaceGuid, AttributeModifierOperation modifierType,
+            string attribute, int amount, string keyPrefix) : base(name, namespaceGuid, keyPrefix)
+        {
+            Definition.SetModifierType2(modifierType);
+            Definition.SetModifiedAttribute(attribute);
+            Definition.SetModifierValue(amount);
+        }
+
         public FeatureDefinitionAttributeModifierBuilder SetModifierAbilityScore(string abilityScore)
         {
             Definition.SetModifierAbilityScore(abilityScore);
