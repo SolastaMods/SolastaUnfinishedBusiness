@@ -49,10 +49,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 UI.Label("");
 
                 toggle = Main.Settings.AddBleedingToLesserRestoration;
-                if (UI.Toggle("Add the " + "Bleeding".orange() + " condition to the conditions removed by " + "Lesser Restoration".orange(), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Add the " + "Bleeding".orange() + " condition to the conditions removed by " + "Greater and Lesser Restoration".orange(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.AddBleedingToLesserRestoration = toggle;
-                    HouseSpellTweaks.AddBleedingToLesserRestoration();
+                    HouseSpellTweaks.AddBleedingToRestoration();
                 }
 
                 toggle = Main.Settings.BlindedConditionDontAllowAttackOfOpportunity;

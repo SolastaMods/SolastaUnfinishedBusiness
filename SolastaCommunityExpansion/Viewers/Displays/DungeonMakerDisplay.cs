@@ -11,7 +11,15 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             #region DungeonMaker
             UI.Label("");
-            UI.Label(". These 4 settings are safe to use as they don't require a player to have this mod installed");
+            UI.Label(". These 5 settings are safe to use as they don't require a player to have this mod installed");
+            UI.Label("");
+
+            toggle = Main.Settings.AllowDungeonsMaxLevel20;
+            if (UI.Toggle("Allow dungeons with max level 20 " + RequiresRestart, ref toggle))
+            {
+                Main.Settings.AllowDungeonsMaxLevel20 = toggle;
+            }
+
             UI.Label("");
 
             toggle = Main.Settings.AllowGadgetsToBePlacedAnywhere;

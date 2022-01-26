@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text;
-using HarmonyLib;
+using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Models
@@ -27,14 +27,14 @@ namespace SolastaCommunityExpansion.Models
         {
             var gameCampaign = Gui.GameCampaign;
 
-            if (gameCampaign != null && gameCampaign.CampaignDefinitionName == "UserCampaign")
+            if (gameCampaign != null && Gui.GameLocation.UserLocation != null)
             {
                 var adventureLog = gameCampaign.AdventureLog;
                 var hashCode = text.GetHashCode();
 
                 if (adventureLog != null && !captionHashes.Contains(hashCode))
                 {
-                    var adventureLogDefinition = AccessTools.Field(adventureLog.GetType(), "adventureLogDefinition").GetValue(adventureLog) as AdventureLogDefinition;
+                    var adventureLogDefinition = adventureLog.GetField<GameAdventureLog, AdventureLogDefinition>("adventureLogDefinition");
                     var loreEntry = new GameAdventureEntryDungeonMaker(adventureLogDefinition, title, text, speakerName, assetReferenceSprite);
 
                     captionHashes.Add(hashCode);
