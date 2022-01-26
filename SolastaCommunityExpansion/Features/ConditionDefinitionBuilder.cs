@@ -47,8 +47,8 @@ namespace SolastaCommunityExpansion.Features
         {
         }
 
-        public ConditionDefinitionBuilder(string name, string guid, List<FeatureDefinition> conditionFeatures, RuleDefinitions.DurationType durationType,
-        int durationParameter, bool silent, GuiPresentation guiPresentation) : base(name, guid)
+        public ConditionDefinitionBuilder(string name, string guid, IEnumerable<FeatureDefinition> conditionFeatures, RuleDefinitions.DurationType durationType,
+            int durationParameter, bool silent, GuiPresentation guiPresentation) : base(name, guid)
         {
             Definition.Features.AddRange(conditionFeatures);
             Definition.SetConditionType(RuleDefinitions.ConditionType.Beneficial);

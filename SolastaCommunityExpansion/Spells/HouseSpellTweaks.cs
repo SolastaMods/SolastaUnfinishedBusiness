@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Features;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
@@ -10,7 +11,7 @@ namespace SolastaCommunityExpansion.Spells
         public static void Register()
         {
             AddBleedingToRestoration();
-            AddFrightenedCharmedImmunityToCalmEmotions();
+            BugFixCalmEmotionsOnAlly();
         }
 
         public static void AddBleedingToRestoration()
@@ -53,35 +54,39 @@ namespace SolastaCommunityExpansion.Spells
             }
         }
 
-        public static void AddFrightenedCharmedImmunityToCalmEmotions()
+        public static void BugFixCalmEmotionsOnAlly()
         {
+            if (!Main.Settings.BugFixCalmEmotionsOnAlly)
+            {
+                return;
+            }
+
             var effectForms = CalmEmotionsOnAlly.EffectDescription.EffectForms;
 
-            var effectForm = effectForms
+            var invalidForm = effectForms
                 .Where(ef => ef.FormType == EffectForm.EffectFormType.Condition)
-                .SingleOrDefault(ef => ef.ConditionForm.ConditionDefinition.Name == "CECalmEmotionsImmunityEffectForm");
+                .Where(ef => ef.ConditionForm.Operation == ConditionForm.ConditionOperation.Add)
+                .Where(ef => ef.ConditionForm.ConditionsList.Contains(ConditionCharmed))
+                .SingleOrDefault();
 
-            if (Main.Settings.AddImmunitiesToCalmEmotions)
+            if (invalidForm != null)
             {
-                if (effectForm == null)
-                {
-                    effectForms.Add(CECalmEmotionsImmunityEffectForm);
-                }
+                Main.Log("BugFixCalmEmotionsOnAlly: Removing invalid form");
+                effectForms.Remove(invalidForm);
             }
-            else if (effectForm != null)
-            {
-                effectForms.Remove(effectForm);
-            }
+
+            effectForms.TryAdd(CECalmEmotionsImmunityEffectForm);
         }
 
         private static readonly EffectForm CECalmEmotionsImmunityEffectForm = BuildCECalmEmotionsImmunityEffectForm();
 
         private static EffectForm BuildCECalmEmotionsImmunityEffectForm()
         {
-            // TODO: create new condition
             return EffectFormBuilder
                 .Create()
-                .SetConditionForm(ConditionProtectedFromEvil, ConditionForm.ConditionOperation.Add, false, false)
+                .SetConditionForm(
+                    ConditionDefinitionCalmEmotionImmunitiesBuilder.ConditionCalmEmotionImmunities,
+                    ConditionForm.ConditionOperation.Add, false, false)
                 .Build();
         }
     }
