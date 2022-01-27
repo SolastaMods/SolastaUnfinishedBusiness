@@ -771,6 +771,7 @@ Subclass/&WhiteWitchTitle	White Witch
 Subclass/&WitchSubclassPathDescription	Your knowledge of magic has culminated in joining a Coven, an innate circle of Witches who delve down a specific path of witchdom and curses.
 Subclass/&WitchSubclassPathTitle	Witch Covens
 Tooltip/&Tag9000Title	Custom Effect
+Tooltip/&TagMaledictionTitle	Malediction
 Equipment/&WandIdentifyDescription	Text	Casts the spell identify by expending one charge. The wand has 3 charges and regains 1d3 charges each dawn.
 Equipment/&WandIdentifyTitle	Text	Wand of Identify
 ActionAffinity/&DHFeeblemindSpellDescription	unable to cast spells
