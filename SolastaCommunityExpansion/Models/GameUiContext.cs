@@ -8,12 +8,18 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class GameUiContext
     {
-        internal static readonly GadgetBlueprint[] GadgetBlueprintsWithGizmos = new GadgetBlueprint[]
+        internal static readonly GadgetBlueprint[] ExitsWithGizmos = new GadgetBlueprint[]
         {
             Exit,
             ExitMultiple,
             TeleporterIndividual,
             TeleporterParty,
+        };
+
+        internal static readonly GadgetBlueprint[] ExitsWithoutGizmos = new GadgetBlueprint[]
+        {
+            VirtualExit,
+            VirtualExitMultiple,
         };
 
         private static bool EnableDebugCamera { get; set; }
@@ -107,33 +113,27 @@ namespace SolastaCommunityExpansion.Models
 
             GuiPanel GetInitiativeOrPartyPanel()
             {
-                if (gameLocationBaseScreen is GameLocationScreenExploration gameLocationScreenExploration)
+                switch (gameLocationBaseScreen)
                 {
-                    return gameLocationScreenExploration.GetField<GameLocationScreenExploration, PartyControlPanel>("partyControlPanel");
-                }
-                else if (gameLocationBaseScreen is GameLocationScreenBattle gameLocationScreenBattle)
-                {
-                    return gameLocationScreenBattle.GetField<GameLocationScreenBattle, BattleInitiativeTable>("initiativeTable");
-                }
-                else
-                {
-                    return null;
+                    case GameLocationScreenExploration gameLocationScreenExploration:
+                        return gameLocationScreenExploration.GetField<GameLocationScreenExploration, PartyControlPanel>("partyControlPanel");
+                    case GameLocationScreenBattle gameLocationScreenBattle:
+                        return gameLocationScreenBattle.GetField<GameLocationScreenBattle, BattleInitiativeTable>("initiativeTable");
+                    default:
+                        return null;
                 }
             }
 
             TimeAndNavigationPanel GetTimeAndNavigationPanel()
             {
-                if (gameLocationBaseScreen is GameLocationScreenExploration gameLocationScreenExploration)
+                switch (gameLocationBaseScreen)
                 {
-                    return gameLocationScreenExploration.GetField<GameLocationScreenExploration, TimeAndNavigationPanel>("timeAndNavigationPanel");
-                }
-                else if (gameLocationBaseScreen is GameLocationScreenBattle gameLocationScreenBattle)
-                {
-                    return gameLocationScreenBattle.GetField<GameLocationScreenBattle, TimeAndNavigationPanel>("timeAndNavigationPanel");
-                }
-                else
-                {
-                    return null;
+                    case GameLocationScreenExploration gameLocationScreenExploration:
+                        return gameLocationScreenExploration.GetField<GameLocationScreenExploration, TimeAndNavigationPanel>("timeAndNavigationPanel");
+                    case GameLocationScreenBattle gameLocationScreenBattle:
+                        return gameLocationScreenBattle.GetField<GameLocationScreenBattle, TimeAndNavigationPanel>("timeAndNavigationPanel");
+                    default:
+                        return null;
                 }
             }
         }
