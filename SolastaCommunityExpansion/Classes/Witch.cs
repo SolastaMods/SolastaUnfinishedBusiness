@@ -762,11 +762,11 @@ namespace SolastaCommunityExpansion.Classes
 
             var charmConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
                     DatabaseHelper.ConditionDefinitions.ConditionCharmed,
-                    "ConditionCharmed",
-                    GuidHelper.Create(WITCH_BASE_GUID, "ConditionCharmed").ToString(),
+                    "ConditionCharm",
+                    GuidHelper.Create(WITCH_BASE_GUID, "ConditionCharm").ToString(),
                     new GuiPresentationBuilder(
-                            "Condition/&CharmedDescription",
-                            "Condition/&CharmedTitle")
+                            "Condition/&CharmDescription",
+                            "Condition/&CharmTitle")
                             .SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionCharmed.GuiPresentation.SpriteReference)
                             .Build())
                     .AddToDB();
@@ -974,11 +974,11 @@ namespace SolastaCommunityExpansion.Classes
 
             var ruinConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
                     DatabaseHelper.ConditionDefinitions.ConditionAcidArrowed,
-                    "ConditionRuined",
-                    GuidHelper.Create(WITCH_BASE_GUID, "ConditionRuined").ToString(),
+                    "ConditionRuin",
+                    GuidHelper.Create(WITCH_BASE_GUID, "ConditionRuin").ToString(),
                     new GuiPresentationBuilder(
-                            "Condition/&RuinedDescription",
-                            "Condition/&RuinedTitle")
+                            "Condition/&RuinDescription",
+                            "Condition/&RuinTitle")
                             .SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionAcidArrowed.GuiPresentation.SpriteReference)
                             .Build())
                     .AddToDB();
