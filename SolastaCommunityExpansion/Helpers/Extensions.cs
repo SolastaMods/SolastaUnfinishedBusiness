@@ -101,14 +101,6 @@ namespace SolastaCommunityExpansion.Helpers
         Known = 9000
     }
 
-    public enum ExtraTargetFilteringTags
-    {
-        No = RuleDefinitions.TargetFilteringTag.No,
-        Unarmored = RuleDefinitions.TargetFilteringTag.Unarmored,
-        MetalArmor = RuleDefinitions.TargetFilteringTag.MetalArmor,
-        CursedByMalediction = 9000
-    }
-
     public enum ExtraOriginOfAmount
     {
         None = 0,
