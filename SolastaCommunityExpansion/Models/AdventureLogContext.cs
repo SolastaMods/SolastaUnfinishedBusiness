@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class AdventureLogContext
     {
-        private static readonly List<int> captionHashes = new List<int>();
+        private static readonly List<int> captionHashes = new();
 
         internal static void LogEntry(ItemDefinition itemDefinition, AssetReferenceSprite assetReferenceSprite)
         {
@@ -47,7 +47,7 @@ namespace SolastaCommunityExpansion.Models
         {
             private string assetGuid;
             private AssetReferenceSprite assetReferenceSprite;
-            private List<GameAdventureConversationInfo> conversationInfos = new List<GameAdventureConversationInfo>();
+            private List<GameAdventureConversationInfo> conversationInfos = new();
             private string title;
 
             public GameAdventureEntryDungeonMaker()
@@ -109,8 +109,8 @@ namespace SolastaCommunityExpansion.Models
             public override void SerializeAttributes(IAttributesSerializer serializer, IVersionProvider versionProvider)
             {
                 base.SerializeAttributes(serializer, versionProvider);
-                assetGuid = serializer.SerializeAttribute<string>("AssetGuid", assetGuid);
-                title = serializer.SerializeAttribute<string>("SectionTitle", title);
+                assetGuid = serializer.SerializeAttribute("AssetGuid", assetGuid);
+                title = serializer.SerializeAttribute("SectionTitle", title);
 
                 if (assetGuid != string.Empty)
                 {
@@ -121,7 +121,7 @@ namespace SolastaCommunityExpansion.Models
             public override void SerializeElements(IElementsSerializer serializer, IVersionProvider versionProvider)
             {
                 base.SerializeElements(serializer, versionProvider);
-                conversationInfos = serializer.SerializeElement<GameAdventureConversationInfo>("ConversationInfos", conversationInfos);
+                conversationInfos = serializer.SerializeElement("ConversationInfos", conversationInfos);
 
                 for (int i = 0; i < conversationInfos.Count; ++i)
                 {

@@ -8,14 +8,14 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 {
     internal class BloodWitch
     {
-        public static readonly Guid BLOODW_BASE_GUID = new Guid("c9f680ec-7c79-414f-b700-eebc11863105");
+        public static readonly Guid BLOODW_BASE_GUID = new("c9f680ec-7c79-414f-b700-eebc11863105");
         private CharacterSubclassDefinition Subclass;
         public static CharacterClassDefinition WitchClass { get; private set; }
         public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetBloodMagic { get; private set; }
 
         internal CharacterSubclassDefinition GetSubclass(CharacterClassDefinition witchClass)
         {
-            return Subclass ?? (Subclass = BuildAndAddSubclass(witchClass));
+            return Subclass ??= BuildAndAddSubclass(witchClass);
         }
 
         private static void BuildBloodMagic()

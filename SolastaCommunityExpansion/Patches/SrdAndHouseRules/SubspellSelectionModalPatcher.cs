@@ -26,7 +26,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
                 masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureElemental.Name
                 || masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureFey.Name
                 ? slotLevel
-                : (int?)null;
+                : null;
         }
 
         public static void Postfix()

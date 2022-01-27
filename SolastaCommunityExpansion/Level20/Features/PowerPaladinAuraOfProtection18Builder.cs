@@ -24,6 +24,6 @@ namespace SolastaCommunityExpansion.Level20.Features
             Definition.GuiPresentation.Title = "Feature/&PowerPaladinAuraOfProtection18Title";
         }
 
-        internal static FeatureDefinitionPower Instance => _instance ?? (_instance = new PowerPaladinAuraOfProtection18Builder().AddToDB());
+        internal static FeatureDefinitionPower Instance => _instance ??= new PowerPaladinAuraOfProtection18Builder().AddToDB();
     }
 }

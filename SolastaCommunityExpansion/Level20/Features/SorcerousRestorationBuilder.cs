@@ -53,7 +53,7 @@ namespace SolastaCommunityExpansion.Level20.Features
 
             // get only property
             public static RestActivityDefinition RestActivityRestoration =>
-                _restActivityRestoration = _restActivityRestoration ?? new RestActivityBuilder(SorcerousRestorationRestName, SorcerousRestorationRestGuid).AddToDB();
+                _restActivityRestoration ??= new RestActivityBuilder(SorcerousRestorationRestName, SorcerousRestorationRestGuid).AddToDB();
         }
 
         private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)

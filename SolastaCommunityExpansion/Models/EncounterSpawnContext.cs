@@ -13,11 +13,11 @@ namespace SolastaCommunityExpansion.Models
 
         private static ulong EncounterId { get; set; } = 10000;
 
-        private static readonly List<RulesetCharacterHero> Heroes = new List<RulesetCharacterHero>();
+        private static readonly List<RulesetCharacterHero> Heroes = new();
 
-        private static readonly List<MonsterDefinition> Monsters = new List<MonsterDefinition>();
+        private static readonly List<MonsterDefinition> Monsters = new();
 
-        internal static readonly List<RulesetCharacter> EncounterCharacters = new List<RulesetCharacter>();
+        internal static readonly List<RulesetCharacter> EncounterCharacters = new();
 
         internal static void AddToEncounter(RulesetCharacterHero hero)
         {

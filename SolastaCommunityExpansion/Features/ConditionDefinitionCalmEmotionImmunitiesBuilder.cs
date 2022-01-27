@@ -34,7 +34,7 @@ namespace SolastaCommunityExpansion.Features
                 "b6243764-bcb5-4a0a-a61c-650f0b9cf59f",
                 GetCalmEmotionsFrightenedImmunityGuiPresentation());
 
-        private readonly static FeatureDefinitionConditionAffinity ConditionAffinityCalmEmotionsCharmImmunity
+        private static readonly FeatureDefinitionConditionAffinity ConditionAffinityCalmEmotionsCharmImmunity
             = FeatureDefinitionConditionAffinityBuilder.CreateAndAddToDB(ConditionAffinityProtectedFromEvilCharmImmunity,
                 "CEConditionAffinityCalmEmotionsCharmImmunity",
                 "da89cda3-5562-41a5-ab37-bc0dd1111a2b",

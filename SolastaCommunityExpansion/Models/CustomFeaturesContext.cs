@@ -90,7 +90,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void UpdateUsageForPowerPool(this RulesetCharacter character, RulesetUsablePower modifiedPower, int poolUsage)
         {
-            if (!(modifiedPower.PowerDefinition is IPowerSharedPool sharedPoolPower))
+            if (modifiedPower.PowerDefinition is not IPowerSharedPool sharedPoolPower)
             {
                 return;
             }

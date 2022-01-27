@@ -8,14 +8,14 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 {
     internal class PurpleWitch
     {
-        public static readonly Guid PW_BASE_GUID = new Guid("bb8a01e8-7997-4c44-8643-72ac15853b47");
+        public static readonly Guid PW_BASE_GUID = new("bb8a01e8-7997-4c44-8643-72ac15853b47");
         private CharacterSubclassDefinition Subclass;
         public static CharacterClassDefinition WitchClass { get; private set; }
         public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetPurpleMagic { get; private set; }
 
         internal CharacterSubclassDefinition GetSubclass(CharacterClassDefinition witchClass)
         {
-            return Subclass ?? (Subclass = BuildAndAddSubclass(witchClass));
+            return Subclass ??= BuildAndAddSubclass(witchClass);
         }
 
         private static void BuildPurpleMagic()

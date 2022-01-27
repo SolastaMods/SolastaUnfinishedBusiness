@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         {
             bool toggle;
 
-            string hk(char key)
+            static string hk(char key)
             {
                 return "ctrl-shift-(".cyan() + key + ")".cyan();
             }

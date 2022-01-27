@@ -19,13 +19,13 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         }
         internal override CharacterSubclassDefinition GetSubclass()
         {
-            return Subclass ?? (Subclass = BuildAndAddSubclass());
+            return Subclass ??= BuildAndAddSubclass();
         }
 
         private const string DruidForestGuardianDruidSubclassName = "DruidForestGuardianDruidSubclass";
         private const string DruidForestGuardianDruidSubclassGuid = "45a7595b-5d5f-4351-b7f1-cb78c9d0a136";
 
-        public static readonly Guid DFG_BASE_GUID = new Guid(DruidForestGuardianDruidSubclassGuid);
+        public static readonly Guid DFG_BASE_GUID = new(DruidForestGuardianDruidSubclassGuid);
         public static readonly FeatureDefinitionAutoPreparedSpells druid_forestGuardian_magic = createDruidForestGuardianMagic();
         public static readonly FeatureDefinitionAttributeModifier extra_attack = createExtraAttack();
         public static readonly FeatureDefinitionAttributeModifier sylvan_resistance = createSylvanDurability();
@@ -40,7 +40,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
                     .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.MartialMountaineer.GuiPresentation.SpriteReference)
                     .Build();
 
-            var definition = new CharacterSubclassDefinitionBuilder(DruidForestGuardianDruidSubclassName, DruidForestGuardianDruidSubclassGuid)
+            return new CharacterSubclassDefinitionBuilder(DruidForestGuardianDruidSubclassName, DruidForestGuardianDruidSubclassGuid)
                     .SetGuiPresentation(subclassGuiPresentation)
                     .AddFeatureAtLevel(druid_forestGuardian_magic, 2)
                     .AddFeatureAtLevel(sylvan_resistance, 2)
@@ -50,8 +50,6 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
                     .AddFeatureAtLevel(bark_ward_dict[10], 10)
                     .AddFeatureAtLevel(bark_ward_dict[14], 14)
                     .AddToDB();
-
-            return definition;
         }
         // Create Auto-prepared Spell list
         private static FeatureDefinitionAutoPreparedSpells createDruidForestGuardianMagic()

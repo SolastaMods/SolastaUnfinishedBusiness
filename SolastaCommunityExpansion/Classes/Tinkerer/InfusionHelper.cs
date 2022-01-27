@@ -44,14 +44,13 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         private static FeatureDefinitionPowerSharedPoolBuilder BuildBasicInfusionPower(string name, EffectDescription effect, GuiPresentation presentation)
         {
-            FeatureDefinitionPowerSharedPoolBuilder infusion = new FeatureDefinitionPowerSharedPoolBuilder(name,
+            return new FeatureDefinitionPowerSharedPoolBuilder(name,
                 GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
                 TinkererClass.InfusionPool, RuleDefinitions.RechargeRate.LongRest, RuleDefinitions.ActivationTime.NoCost, 1, false, false, AttributeDefinitions.Intelligence,
                 effect, presentation, true /* unique instance */);
-            return infusion;
         }
 
-        public static FeatureDefinitionPower ArtificialServant => artificialServant ?? (artificialServant = BuildArtificialServant());
+        public static FeatureDefinitionPower ArtificialServant => artificialServant ??= BuildArtificialServant();
 
         private static FeatureDefinitionPower BuildArtificialServant()
         {
@@ -65,12 +64,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             artificialServantEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             artificialServantEffect.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, ArtificialServantBuilder.ArtificialServant.name, DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
 
-            FeatureDefinitionPowerSharedPool summonArtificialServantPower = BuildBasicInfusionPower("summonArtificialServantPower",
+            return BuildBasicInfusionPower("summonArtificialServantPower",
                 artificialServantEffect.Build(), summonArtificialServantGui.Build()).AddToDB();
-            return summonArtificialServantPower;
         }
 
-        public static FeatureDefinitionPower EnhancedFocus => enhancedFocus ?? (enhancedFocus = BuildEnhancedFocus());
+        public static FeatureDefinitionPower EnhancedFocus => enhancedFocus ??= BuildEnhancedFocus();
 
         private static FeatureDefinitionPower BuildEnhancedFocus()
         {
@@ -88,7 +86,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return BuildItemConditionInfusion(infusedFocusCondition, "ArtificerInfusionEnhancedFocus", enhanceFocusGui.Build()).AddToDB();
         }
 
-        public static FeatureDefinitionPower ImprovedEnhancedFocus => improvedEnhancedFocus ?? (improvedEnhancedFocus = BuildImprovedEnhancedFocus());
+        public static FeatureDefinitionPower ImprovedEnhancedFocus => improvedEnhancedFocus ??= BuildImprovedEnhancedFocus();
 
         private static FeatureDefinitionPower BuildImprovedEnhancedFocus()
         {
@@ -108,7 +106,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 .AddOverriddenPower(EnhancedFocus).AddToDB();
         }
 
-        public static FeatureDefinitionPower EnhancedDefense => enhancedDefense ?? (enhancedDefense = BuildEnhancedDefense());
+        public static FeatureDefinitionPower EnhancedDefense => enhancedDefense ??= BuildEnhancedDefense();
 
         private static FeatureDefinitionPower BuildEnhancedDefense()
         {
@@ -127,7 +125,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return BuildItemModifierInfusion(armorModifier, ActionDefinitions.ItemSelectionType.Equiped, "ArtificerInfusionEnhancedArmor", enhanceArmorGui.Build()).AddToDB();
         }
 
-        public static FeatureDefinitionPower ImprovedEnhancedDefense => improvedEnhancedDefense ?? (improvedEnhancedDefense = BuildImprovedEnhancedDefense());
+        public static FeatureDefinitionPower ImprovedEnhancedDefense => improvedEnhancedDefense ??= BuildImprovedEnhancedDefense();
 
         private static FeatureDefinitionPower BuildImprovedEnhancedDefense()
         {
@@ -147,7 +145,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 .AddOverriddenPower(EnhancedDefense).AddToDB();
         }
 
-        public static FeatureDefinitionPower EnhancedWeapon => enhancedWeapon ?? (enhancedWeapon = BuildEnhancedWeapon());
+        public static FeatureDefinitionPower EnhancedWeapon => enhancedWeapon ??= BuildEnhancedWeapon();
 
         private static FeatureDefinitionPower BuildEnhancedWeapon()
         {
@@ -160,7 +158,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 ActionDefinitions.ItemSelectionType.WeaponNonMagical, "ArtificerInfusionEnhancedWeapon", enhanceWeaponGui.Build()).AddToDB();
         }
 
-        public static FeatureDefinitionPower ImprovedEnhancedWeapon => improvedEnhancedWeapon ?? (improvedEnhancedWeapon = BuildImprovedEnhancedWeapon());
+        public static FeatureDefinitionPower ImprovedEnhancedWeapon => improvedEnhancedWeapon ??= BuildImprovedEnhancedWeapon();
 
         private static FeatureDefinitionPower BuildImprovedEnhancedWeapon()
         {
@@ -174,7 +172,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 .AddOverriddenPower(EnhancedWeapon).AddToDB();
         }
 
-        public static FeatureDefinitionPower BagOfHolding => bagOfHolding ?? (bagOfHolding = BuildBagOfHolding());
+        public static FeatureDefinitionPower BagOfHolding => bagOfHolding ??= BuildBagOfHolding();
 
         private static FeatureDefinitionPower BuildBagOfHolding()
         {
@@ -193,7 +191,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return BuildItemConditionInfusion(bagOfHoldingCondition, "ArtificerInfusionBagOfHolding", bagOfHoldingGui.Build()).AddToDB();
         }
 
-        public static FeatureDefinitionPower GogglesOfNight => gogglesOfNight ?? (gogglesOfNight = BuildGogglesOfNight());
+        public static FeatureDefinitionPower GogglesOfNight => gogglesOfNight ??= BuildGogglesOfNight();
 
         private static FeatureDefinitionPower BuildGogglesOfNight()
         {
@@ -213,7 +211,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return BuildItemConditionInfusion(darkvisionCondition, "PowerInfuseDarkvision", InfuseDarkvision.Build()).AddToDB();
         }
 
-        public static FeatureDefinitionPower MindSharpener => mindSharpener ?? (mindSharpener = BuildMindSharpener());
+        public static FeatureDefinitionPower MindSharpener => mindSharpener ??= BuildMindSharpener();
 
         private static FeatureDefinitionPower BuildMindSharpener()
         {
@@ -233,7 +231,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return BuildItemConditionInfusion(infusedMindSharpenerCondition, "ArtificerInfusionMindSharpener", InfuseMindSharpener.Build()).AddToDB();
         }
 
-        public static FeatureDefinitionPower ArmorOfMagicalStrength => armorOfMagicalStrength ?? (armorOfMagicalStrength = BuildArmorOfMagicalStrength());
+        public static FeatureDefinitionPower ArmorOfMagicalStrength => armorOfMagicalStrength ??= BuildArmorOfMagicalStrength();
 
         private static FeatureDefinitionPower BuildArmorOfMagicalStrength()
         {
@@ -260,7 +258,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return BuildItemConditionInfusion(armorMagicalStrengthCondition, "ArtificerInfusionArmorMagicalStrength", InfuseArmorMagicalStrength.Build()).AddToDB();
         }
 
-        public static FeatureDefinitionPower ResistantArmor => resistantArmor ?? (resistantArmor = BuildResistantArmor());
+        public static FeatureDefinitionPower ResistantArmor => resistantArmor ??= BuildResistantArmor();
 
         private static FeatureDefinitionPower BuildResistantArmor()
         {
@@ -288,7 +286,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return BuildItemConditionInfusion(ArmorResistance, "ArtificerInfusionResistantArmor", InfuseResistantArmor.Build()).AddToDB();
         }
 
-        public static FeatureDefinitionPower SpellRefuelingRing => spellRefuelingRing ?? (spellRefuelingRing = BuildSpellRefuelingRing());
+        public static FeatureDefinitionPower SpellRefuelingRing => spellRefuelingRing ??= BuildSpellRefuelingRing();
 
         private static FeatureDefinitionPower BuildSpellRefuelingRing()
         {
@@ -308,7 +306,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 spellEffect.Build(), InfuseSpellRefuelingRing.Build(), true /* unique instance */).AddToDB();
         }
 
-        public static FeatureDefinitionPower BlindingWeapon => blindingWeapon ?? (blindingWeapon = BuildBlindingWeapon());
+        public static FeatureDefinitionPower BlindingWeapon => blindingWeapon ??= BuildBlindingWeapon();
 
         private static FeatureDefinitionPower BuildBlindingWeapon()
         {
@@ -341,37 +339,37 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 ActionDefinitions.ItemSelectionType.Weapon, "ArtificerInfusionBlindingWeapon", radiantWeaponGui.Build()).AddToDB();
         }
 
-        public static FeatureDefinitionPower CloakOfProtection => cloakOfProtection ?? (cloakOfProtection = PowerMimicsItem(DatabaseHelper.ItemDefinitions.CloakOfProtection, "InfuseCloakOfProtection"));
+        public static FeatureDefinitionPower CloakOfProtection => cloakOfProtection ??= PowerMimicsItem(DatabaseHelper.ItemDefinitions.CloakOfProtection, "InfuseCloakOfProtection");
 
-        public static FeatureDefinitionPower BootsOfElvenKind => bootsOfElvenKind ?? (bootsOfElvenKind = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BootsOfElvenKind, "InfuseBootsOfElvenKind"));
+        public static FeatureDefinitionPower BootsOfElvenKind => bootsOfElvenKind ??= PowerMimicsItem(DatabaseHelper.ItemDefinitions.BootsOfElvenKind, "InfuseBootsOfElvenKind");
 
-        public static FeatureDefinitionPower CloakOfElvenKind => cloakOfElvenKind ?? (cloakOfElvenKind = PowerMimicsItem(DatabaseHelper.ItemDefinitions.CloakOfElvenkind, "InfuseCloakOfElvenKind"));
+        public static FeatureDefinitionPower CloakOfElvenKind => cloakOfElvenKind ??= PowerMimicsItem(DatabaseHelper.ItemDefinitions.CloakOfElvenkind, "InfuseCloakOfElvenKind");
 
-        public static FeatureDefinitionPower BootsOfStridingAndSpringing => bootsOfStridingAndSpringing ?? (bootsOfStridingAndSpringing = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BootsOfStridingAndSpringing, "InfuseBootsOfStridingAndSpringing"));
+        public static FeatureDefinitionPower BootsOfStridingAndSpringing => bootsOfStridingAndSpringing ??= PowerMimicsItem(DatabaseHelper.ItemDefinitions.BootsOfStridingAndSpringing, "InfuseBootsOfStridingAndSpringing");
 
-        public static FeatureDefinitionPower BootsOfTheWinterland => bootsOfTheWinterland ?? (bootsOfTheWinterland = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BootsOfTheWinterland, "InfuseBootsOfTheWinterland"));
+        public static FeatureDefinitionPower BootsOfTheWinterland => bootsOfTheWinterland ??= PowerMimicsItem(DatabaseHelper.ItemDefinitions.BootsOfTheWinterland, "InfuseBootsOfTheWinterland");
 
-        public static FeatureDefinitionPower BracesrOfArchery => bracesrOfArchery ?? (bracesrOfArchery = PowerMimicsItem(DatabaseHelper.ItemDefinitions.Bracers_Of_Archery, "InfuseBracesrOfArchery"));
+        public static FeatureDefinitionPower BracesrOfArchery => bracesrOfArchery ??= PowerMimicsItem(DatabaseHelper.ItemDefinitions.Bracers_Of_Archery, "InfuseBracesrOfArchery");
 
-        public static FeatureDefinitionPower BroochOfShielding => broochOfShielding ?? (broochOfShielding = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BroochOfShielding, "InfuseBroochOfShielding"));
+        public static FeatureDefinitionPower BroochOfShielding => broochOfShielding ??= PowerMimicsItem(DatabaseHelper.ItemDefinitions.BroochOfShielding, "InfuseBroochOfShielding");
 
-        public static FeatureDefinitionPower GauntletsOfOgrePower => gauntletsOfOgrePower ?? (gauntletsOfOgrePower = PowerMimicsItem(DatabaseHelper.ItemDefinitions.GauntletsOfOgrePower, "InfuseGauntletsOfOgrePower"));
+        public static FeatureDefinitionPower GauntletsOfOgrePower => gauntletsOfOgrePower ??= PowerMimicsItem(DatabaseHelper.ItemDefinitions.GauntletsOfOgrePower, "InfuseGauntletsOfOgrePower");
 
-        public static FeatureDefinitionPower GlovesOfMissileSnaring => glovesOfMissileSnaring ?? (glovesOfMissileSnaring = PowerMimicsItem(DatabaseHelper.ItemDefinitions.GlovesOfMissileSnaring, "InfuseGlovesOfMissileSnaring"));
+        public static FeatureDefinitionPower GlovesOfMissileSnaring => glovesOfMissileSnaring ??= PowerMimicsItem(DatabaseHelper.ItemDefinitions.GlovesOfMissileSnaring, "InfuseGlovesOfMissileSnaring");
 
-        public static FeatureDefinitionPower SlippersOfSpiderClimbing => slippersOfSpiderClimbing ?? (slippersOfSpiderClimbing = PowerMimicsItem(DatabaseHelper.ItemDefinitions.SlippersOfSpiderClimbing, "InfuseSlippersOfSpiderClimbing"));
+        public static FeatureDefinitionPower SlippersOfSpiderClimbing => slippersOfSpiderClimbing ??= PowerMimicsItem(DatabaseHelper.ItemDefinitions.SlippersOfSpiderClimbing, "InfuseSlippersOfSpiderClimbing");
 
-        public static FeatureDefinitionPower HeadbandOfIntellect => headbandOfIntellect ?? (headbandOfIntellect = PowerMimicsItem(DatabaseHelper.ItemDefinitions.HeadbandOfIntellect, "InfuseHeadbandOfIntellect"));
+        public static FeatureDefinitionPower HeadbandOfIntellect => headbandOfIntellect ??= PowerMimicsItem(DatabaseHelper.ItemDefinitions.HeadbandOfIntellect, "InfuseHeadbandOfIntellect");
 
-        public static FeatureDefinitionPower AmuletOfHealth => amuletOfHealth ?? (amuletOfHealth = PowerMimicsItem(DatabaseHelper.ItemDefinitions.AmuletOfHealth, "InfuseAmuletOfHealth"));
+        public static FeatureDefinitionPower AmuletOfHealth => amuletOfHealth ??= PowerMimicsItem(DatabaseHelper.ItemDefinitions.AmuletOfHealth, "InfuseAmuletOfHealth");
 
-        public static FeatureDefinitionPower BeltOfGiantHillStrength => beltOfGiantHillStrength ?? (beltOfGiantHillStrength = PowerMimicsItem(DatabaseHelper.ItemDefinitions.BeltOfGiantHillStrength, "InfuseBeltOfGiantHillStrength"));
+        public static FeatureDefinitionPower BeltOfGiantHillStrength => beltOfGiantHillStrength ??= PowerMimicsItem(DatabaseHelper.ItemDefinitions.BeltOfGiantHillStrength, "InfuseBeltOfGiantHillStrength");
 
-        public static FeatureDefinitionPower BracersOfDefense => bracersOfDefense ?? (bracersOfDefense = PowerMimicsItem(DatabaseHelper.ItemDefinitions.Bracers_Of_Defense, "InfuseBracersOfDefense"));
+        public static FeatureDefinitionPower BracersOfDefense => bracersOfDefense ??= PowerMimicsItem(DatabaseHelper.ItemDefinitions.Bracers_Of_Defense, "InfuseBracersOfDefense");
 
-        public static FeatureDefinitionPower CloakOfBat => cloakOfBat ?? (cloakOfBat = PowerMimicsItem(DatabaseHelper.ItemDefinitions.CloakOfBat, "InfuseCloakOfBat"));
+        public static FeatureDefinitionPower CloakOfBat => cloakOfBat ??= PowerMimicsItem(DatabaseHelper.ItemDefinitions.CloakOfBat, "InfuseCloakOfBat");
 
-        public static FeatureDefinitionPower RingProtectionPlus1 => ringProtectionPlus1 ?? (ringProtectionPlus1 = PowerMimicsItem(DatabaseHelper.ItemDefinitions.RingProtectionPlus1, "InfuseRingProtectionPlus1"));
+        public static FeatureDefinitionPower RingProtectionPlus1 => ringProtectionPlus1 ??= PowerMimicsItem(DatabaseHelper.ItemDefinitions.RingProtectionPlus1, "InfuseRingProtectionPlus1");
 
         public static FeatureDefinitionPowerSharedPoolBuilder BuildItemModifierInfusion(FeatureDefinition itemFeature, ActionDefinitions.ItemSelectionType itemType,
             string name, GuiPresentation gui)
@@ -410,9 +408,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             itemEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Touch, 1, RuleDefinitions.TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             itemEffect.AddEffectForm(new EffectFormBuilder().SetConditionForm(itemCondition, ConditionForm.ConditionOperation.Add, false, false, new List<ConditionDefinition>()).Build());
 
-            FeatureDefinitionPowerSharedPool powerItem = BuildBasicInfusionPower("Power" + name,
+            return BuildBasicInfusionPower("Power" + name,
                 itemEffect.Build(), item.GuiPresentation).AddToDB();
-            return powerItem;
         }
     }
 }

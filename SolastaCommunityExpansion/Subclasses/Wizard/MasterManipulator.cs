@@ -9,13 +9,13 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 {
     internal class MasterManipulator : AbstractSubclass
     {
-        private static readonly Guid SubclassNamespace = new Guid("af7255d2-8ce2-4398-8999-f1ef536001f6");
+        private static readonly Guid SubclassNamespace = new("af7255d2-8ce2-4398-8999-f1ef536001f6");
         private readonly CharacterSubclassDefinition Subclass;
 
         #region DcIncreaseAffinity
         private static FeatureDefinitionMagicAffinity _dcIncreaseAffinity;
-        private static FeatureDefinitionMagicAffinity DcIncreaseAffinity => _dcIncreaseAffinity = _dcIncreaseAffinity ??
-                    BuildMagicAffinityModifiers(0, Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc, "MagicAffinityMasterManipulatorDC", GetSpellDCPresentation().Build());
+        private static FeatureDefinitionMagicAffinity DcIncreaseAffinity =>
+            _dcIncreaseAffinity ??= BuildMagicAffinityModifiers(0, Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc, "MagicAffinityMasterManipulatorDC", GetSpellDCPresentation().Build());
         #endregion
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()

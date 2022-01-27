@@ -8,14 +8,14 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
 {
     internal class GreenWitch
     {
-        public static readonly Guid GW_BASE_GUID = new Guid("5d595308-bcf8-4a9f-a9a0-d2ae85c243e7");
+        public static readonly Guid GW_BASE_GUID = new("5d595308-bcf8-4a9f-a9a0-d2ae85c243e7");
         private CharacterSubclassDefinition Subclass;
         public static CharacterClassDefinition WitchClass { get; private set; }
         public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetGreenMagic { get; private set; }
 
         internal CharacterSubclassDefinition GetSubclass(CharacterClassDefinition witchClass)
         {
-            return Subclass ?? (Subclass = BuildAndAddSubclass(witchClass));
+            return Subclass ??= BuildAndAddSubclass(witchClass);
         }
 
         private static void BuildGreenMagic()

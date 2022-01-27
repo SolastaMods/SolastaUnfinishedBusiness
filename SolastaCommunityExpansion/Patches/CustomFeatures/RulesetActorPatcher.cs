@@ -71,9 +71,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     {
         internal static void Postfix(RulesetActor __instance, RulesetCondition rulesetCondition)
         {
-            var notifiedDefinition = rulesetCondition?.ConditionDefinition as INotifyConditionRemoval;
-
-            if (notifiedDefinition != null)
+            if (rulesetCondition?.ConditionDefinition is INotifyConditionRemoval notifiedDefinition)
             {
                 notifiedDefinition.AfterConditionRemoved(__instance, rulesetCondition);
             }
@@ -84,7 +82,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetActor_RollDie
     {
-        private static readonly ConcurrentDictionary<RulesetActor, int> NextAbilityCheckMinimum = new ConcurrentDictionary<RulesetActor, int>();
+        private static readonly ConcurrentDictionary<RulesetActor, int> NextAbilityCheckMinimum = new();
 
         internal static void Postfix(
             RulesetActor __instance,

@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Feats
 {
     internal static class FightingStlyeFeats
     {
-        public static readonly Guid FightingStyleFeatsNamespace = new Guid("db157827-0f8a-4fbb-bb87-6d54689a587a");
+        public static readonly Guid FightingStyleFeatsNamespace = new("db157827-0f8a-4fbb-bb87-6d54689a587a");
 
         public static void CreateFeats(List<FeatDefinition> feats)
         {
