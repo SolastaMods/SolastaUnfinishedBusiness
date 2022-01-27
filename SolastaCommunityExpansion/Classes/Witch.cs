@@ -631,8 +631,6 @@ namespace SolastaCommunityExpansion.Classes
             // Tremors: 10 feet radius centered on you, DEX save, creatures on ground become prone if fail, instant duration
             // Ward: 60 feet 1 creature other than you, reduce damage taken by 3 for every hit
 
-            // NEED TO MAKE IT LESS SHOCKING GRASPY
-
             EffectForm abateEffectForm = new EffectForm
             {
                 FormType = EffectForm.EffectFormType.Condition
