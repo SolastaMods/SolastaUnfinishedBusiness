@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion.Patches.PartySize
         internal static void Prefix(RectTransform ___characterSessionPlatesTable)
         {
             // overrides campaign party size
-            DatabaseHelper.CampaignDefinitions.UserCampaign.SetPartySize<CampaignDefinition>(Main.Settings.OverridePartySize);
+            DatabaseHelper.CampaignDefinitions.UserCampaign.SetPartySize(Main.Settings.OverridePartySize);
 
             // adds new character plates if required
             for (int i = DungeonMakerContext.GAME_PARTY_SIZE; i < Main.Settings.OverridePartySize; i++)

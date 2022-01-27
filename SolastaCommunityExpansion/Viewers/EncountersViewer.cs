@@ -141,14 +141,14 @@ namespace SolastaCommunityExpansion.Viewers
 
                 if (UI.DisclosureToggle($"Attacks ({monsterDefinition.AttackIterations.Count:0#})", ref flip, 132))
                 {
-                    currentAttacksMonster.AddOrReplace<MonsterDefinition, bool>(monsterDefinition, flip);
+                    currentAttacksMonster.AddOrReplace(monsterDefinition, flip);
                 }
 
                 currentFeaturesMonster.TryGetValue(monsterDefinition, out flip);
 
                 if (UI.DisclosureToggle($"Features ({monsterDefinition.Features.Count:0#})", ref flip, 144))
                 {
-                    currentFeaturesMonster.AddOrReplace<MonsterDefinition, bool>(monsterDefinition, flip);
+                    currentFeaturesMonster.AddOrReplace(monsterDefinition, flip);
                 }
             }
 

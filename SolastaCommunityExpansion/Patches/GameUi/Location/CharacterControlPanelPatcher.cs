@@ -66,6 +66,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
                 else if (__instance is CharacterControlPanelBattle battlePanel)
                 {
 #pragma warning disable S3458 // Empty "case" clauses that fall through to the "default" should be omitted
+#pragma warning disable IDE0066 // Convert switch statement to expression
                     switch (actionId)
                     {
                         case ActionDefinitions.Id.CastMain:
@@ -149,6 +150,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
                             panelToActivate = battlePanel.GetField<CharacterActionPanel>("otherActionPanel");
                             break;
                     }
+#pragma warning restore IDE0066 // Convert switch statement to expression
 #pragma warning restore S3458 // Empty "case" clauses that fall through to the "default" should be omitted
                 }
             }

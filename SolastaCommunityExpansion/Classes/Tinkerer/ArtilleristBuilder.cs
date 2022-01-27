@@ -61,7 +61,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             fireEffect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.BurningHands.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
-            FeatureDefinitionPower flameAttack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristFlameCannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristFlameCannonAttack").ToString(),
+            FeatureDefinitionPower flameAttack = new FeatureDefinitionPowerBuilder("ArtilleristFlameCannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristFlameCannonAttack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence, fireEffect.Build(),
                 flameGui.Build()).AddToDB();
             //    artillerist.AddFeatureAtLevel(flameAttack, 3);
@@ -79,7 +79,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             forceEffect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
-            FeatureDefinitionPower forceAttack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristForceCannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristForceCannonAttack").ToString(),
+            FeatureDefinitionPower forceAttack = new FeatureDefinitionPowerBuilder("ArtilleristForceCannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristForceCannonAttack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, true, true, AttributeDefinitions.Intelligence, forceEffect.Build(),
                 forceGui.Build()).AddToDB();
             //    artillerist.AddFeatureAtLevel(forceAttack, 3);
@@ -97,7 +97,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             protectorEffect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.FalseLife.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
-            FeatureDefinitionPower protectorActivation = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristProtectorCannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristProtectorCannonAttack").ToString(),
+            FeatureDefinitionPower protectorActivation = new FeatureDefinitionPowerBuilder("ArtilleristProtectorCannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristProtectorCannonAttack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence, protectorEffect.Build(),
                 protectorGui.Build()).AddToDB();
             //     artillerist.AddFeatureAtLevel(protectorActivation, 3);
@@ -182,7 +182,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             fire9Effect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.BurningHands.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
-            FeatureDefinitionPower flame9Attack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristFlame9CannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristFlame9CannonAttack").ToString(),
+            FeatureDefinitionPower flame9Attack = new FeatureDefinitionPowerBuilder("ArtilleristFlame9CannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristFlame9CannonAttack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence, fire9Effect.Build(),
                 flame9Gui.Build(), flameAttack).AddToDB();
             //    artillerist.AddFeatureAtLevel(flame9Attack, 9);
@@ -201,7 +201,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             force9Effect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
-            FeatureDefinitionPower force9Attack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristForceCannon9Attack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristForceCannon9Attack").ToString(),
+            FeatureDefinitionPower force9Attack = new FeatureDefinitionPowerBuilder("ArtilleristForceCannon9Attack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristForceCannon9Attack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, true, true, AttributeDefinitions.Intelligence, force9Effect.Build(),
                 force9Gui.Build(), forceAttack).AddToDB();
             //    artillerist.AddFeatureAtLevel(force9Attack, 9);
@@ -239,7 +239,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
             // TODO: @Chris - review
 #pragma warning disable S1481, IDE0059 // Unused local variables should be removed
-            FeatureDefinitionPower flame15Attack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristFlame15CannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristFlame15CannonAttack").ToString(),
+            FeatureDefinitionPower flame15Attack = new FeatureDefinitionPowerBuilder("ArtilleristFlame15CannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristFlame15CannonAttack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence, fire15Effect.Build(),
                 flame15Gui.Build(), flame9Attack).AddToDB();
             //    artillerist.AddFeatureAtLevel(flame15Attack, 15);
@@ -261,7 +261,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
             // TODO: @Chris - review
 #pragma warning disable S1481, IDE0059 // Unused local variables should be removed
-            FeatureDefinitionPower force15Attack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristForceCannon15Attack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristForceCannon15Attack").ToString(),
+            FeatureDefinitionPower force15Attack = new FeatureDefinitionPowerBuilder("ArtilleristForceCannon15Attack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristForceCannon15Attack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, true, true, AttributeDefinitions.Intelligence, force15Effect.Build(),
                 force15Gui.Build(), force9Attack).AddToDB();
             //    artillerist.AddFeatureAtLevel(force15Attack, 15);
@@ -282,7 +282,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
             // TODO: @Chris - review
 #pragma warning disable S1481, IDE0059 // Unused local variables should be removed
-            FeatureDefinitionPower protector15Activation = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristProtector15CannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristProtector15CannonAttack").ToString(),
+            FeatureDefinitionPower protector15Activation = new FeatureDefinitionPowerBuilder("ArtilleristProtector15CannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristProtector15CannonAttack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence, protector15Effect.Build(),
                 protector15Gui.Build(), protectorActivation).AddToDB();
             //    artillerist.AddFeatureAtLevel(protector15Activation, 15);

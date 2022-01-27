@@ -126,7 +126,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         private sealed class FeatureDefinitionAttackModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttackModifier>
         {
             public FeatureDefinitionAttackModifierBuilder(string name, string guid,
-            RuleDefinitions.AbilityScoreReplacement abilityReplacement, string additionalAttackTag,
+            AbilityScoreReplacement abilityReplacement, string additionalAttackTag,
             GuiPresentation guiPresentation) : base(name, guid)
             {
                 Definition.SetAbilityScoreReplacement(abilityReplacement);

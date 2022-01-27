@@ -109,8 +109,8 @@ namespace SolastaCommunityExpansion.Models
             public override void SerializeAttributes(IAttributesSerializer serializer, IVersionProvider versionProvider)
             {
                 base.SerializeAttributes(serializer, versionProvider);
-                assetGuid = serializer.SerializeAttribute<string>("AssetGuid", assetGuid);
-                title = serializer.SerializeAttribute<string>("SectionTitle", title);
+                assetGuid = serializer.SerializeAttribute("AssetGuid", assetGuid);
+                title = serializer.SerializeAttribute("SectionTitle", title);
 
                 if (assetGuid != string.Empty)
                 {
@@ -121,7 +121,7 @@ namespace SolastaCommunityExpansion.Models
             public override void SerializeElements(IElementsSerializer serializer, IVersionProvider versionProvider)
             {
                 base.SerializeElements(serializer, versionProvider);
-                conversationInfos = serializer.SerializeElement<GameAdventureConversationInfo>("ConversationInfos", conversationInfos);
+                conversationInfos = serializer.SerializeElement("ConversationInfos", conversationInfos);
 
                 for (int i = 0; i < conversationInfos.Count; ++i)
                 {
