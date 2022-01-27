@@ -8,13 +8,19 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class GameUiContext
     {
-        internal static readonly GadgetBlueprint[] GadgetBlueprintsWithGizmos = new GadgetBlueprint[]
+        internal static readonly GadgetBlueprint[] ExitsWithGizmos = new GadgetBlueprint[]
         {
             Exit,
             ExitMultiple,
             TeleporterIndividual,
             TeleporterParty,
         };
+
+        internal static readonly GadgetBlueprint[] ExitsWithoutGizmos = new GadgetBlueprint[]
+{
+            VirtualExit,
+            VirtualExitMultiple,
+};
 
         private static bool EnableDebugCamera { get; set; }
 
