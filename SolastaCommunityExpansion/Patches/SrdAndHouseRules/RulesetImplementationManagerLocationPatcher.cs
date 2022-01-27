@@ -115,7 +115,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
             {
                 if (!Main.Settings.FixSorcererTwinnedLogic
                     || metamagicOption != SolastaModApi.DatabaseHelper.MetamagicOptionDefinitions.MetamagicTwinnedSpell
-                    || !(caster is RulesetCharacterHero hero))
+                    || caster is not RulesetCharacterHero hero)
                 {
                     return;
                 }

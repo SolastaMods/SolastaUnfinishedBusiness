@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker
         /// </summary>
         internal static void Postfix(Cursor __instance)
         {
-            if (Main.Settings.EnableCancelEditOnRightMouseClick && __instance is CursorLocationEditor && !(__instance is CursorLocationEditorDefault))
+            if (Main.Settings.EnableCancelEditOnRightMouseClick && __instance is CursorLocationEditor && __instance is not CursorLocationEditorDefault)
             {
                 // This is a field on CursorEditor not Cursor so can't be passed in by the patch
                 var userLocationEditorScreen = __instance.GetField<UserLocationEditorScreen>("userLocationEditorScreen");

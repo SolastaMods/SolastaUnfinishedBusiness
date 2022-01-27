@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Tooltip
                 return;
             }
 
-            if (!(tooltip.DataProvider is IItemDefinitionProvider itemDefinitionProvider))
+            if (tooltip.DataProvider is not IItemDefinitionProvider itemDefinitionProvider)
             {
                 return;
             }
