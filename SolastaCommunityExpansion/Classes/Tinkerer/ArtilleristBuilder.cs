@@ -21,20 +21,20 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             meleePresentation.SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.TraditionShockArcanist.GuiPresentation.SpriteReference);
             artillerist.SetGuiPresentation(meleePresentation.Build());
 
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells1 = BuildAutoPreparedSpellGroup(3,
-                new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.Shield, DatabaseHelper.SpellDefinitions.Thunderwave });
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells1 = BuildAutoPreparedSpellGroup(
+                3, DatabaseHelper.SpellDefinitions.Shield, DatabaseHelper.SpellDefinitions.Thunderwave);
 
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells2 = BuildAutoPreparedSpellGroup(5,
-                new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.ScorchingRay, DatabaseHelper.SpellDefinitions.Shatter });
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells2 = BuildAutoPreparedSpellGroup(
+                5, DatabaseHelper.SpellDefinitions.ScorchingRay, DatabaseHelper.SpellDefinitions.Shatter);
 
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells3 = BuildAutoPreparedSpellGroup(9,
-                new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.Fireball, DatabaseHelper.SpellDefinitions.WindWall });
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells3 = BuildAutoPreparedSpellGroup(
+                9, DatabaseHelper.SpellDefinitions.Fireball, DatabaseHelper.SpellDefinitions.WindWall);
 
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells4 = BuildAutoPreparedSpellGroup(13,
-                new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.IceStorm, DatabaseHelper.SpellDefinitions.WallOfFire });
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells4 = BuildAutoPreparedSpellGroup(
+                13, DatabaseHelper.SpellDefinitions.IceStorm, DatabaseHelper.SpellDefinitions.WallOfFire);
 
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells5 = BuildAutoPreparedSpellGroup(17,
-                new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.ConeOfCold, DatabaseHelper.SpellDefinitions.WallOfForce });
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells5 = BuildAutoPreparedSpellGroup(
+                17, DatabaseHelper.SpellDefinitions.ConeOfCold, DatabaseHelper.SpellDefinitions.WallOfForce);
 
             GuiPresentationBuilder artilleristSpellsPresentation = new GuiPresentationBuilder(
                 "Feat/&ArtilleristSubclassSpellsDescription",

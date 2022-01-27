@@ -150,8 +150,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             effectDescription.RestrictedCreatureFamilies.Add(TinkererConstructFamilyBuilder.TinkererConstructFamily.Name);
 
-            effectDescription.ImmuneCreatureFamilies.AddRange(new List<string>
-            {
+            effectDescription.ImmuneCreatureFamilies.AddRange(
                 DatabaseHelper.CharacterFamilyDefinitions.Aberration.Name,
                 DatabaseHelper.CharacterFamilyDefinitions.Beast.Name,
                 DatabaseHelper.CharacterFamilyDefinitions.Celestial.Name,
@@ -165,7 +164,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 DatabaseHelper.CharacterFamilyDefinitions.Ooze.Name,
                 DatabaseHelper.CharacterFamilyDefinitions.Plant.Name,
                 DatabaseHelper.CharacterFamilyDefinitions.Undead.Name
-            });
+            );
 
             Definition.SetEffectDescription(effectDescription);
         }
@@ -255,7 +254,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             MonsterAttackIteration monsterAttackIteration = new MonsterAttackIteration();
             monsterAttackIteration.SetField("monsterAttackDefinition", ArtificialServantAttackBuilder.ArtificialServantAttack);
             monsterAttackIteration.SetField("number", 1);
-            Definition.AttackIterations.AddRange(new List<MonsterAttackIteration> { monsterAttackIteration });
+            Definition.AttackIterations.AddRange(monsterAttackIteration);
 
             Definition.MonsterPresentation.SetMalePrefabReference(new UnityEngine.AddressableAssets.AssetReference("ab0501343e8629149ae0aa4dace755f5"));
             Definition.MonsterPresentation.SetFemalePrefabReference(new UnityEngine.AddressableAssets.AssetReference("ab0501343e8629149ae0aa4dace755f5"));

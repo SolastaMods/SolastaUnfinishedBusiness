@@ -19,20 +19,20 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             battleSmithPresentation.SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.MartialSpellblade.GuiPresentation.SpriteReference);
             battleSmith.SetGuiPresentation(battleSmithPresentation.Build());
 
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup battleSmithSpells1 = FeatureHelpers.BuildAutoPreparedSpellGroup(3,
-                new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.Heroism, DatabaseHelper.SpellDefinitions.Shield, DatabaseHelper.SpellDefinitions.HuntersMark });
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup battleSmithSpells1 = FeatureHelpers.BuildAutoPreparedSpellGroup(
+                3, DatabaseHelper.SpellDefinitions.Heroism, DatabaseHelper.SpellDefinitions.Shield, DatabaseHelper.SpellDefinitions.HuntersMark);
 
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup battleSmithSpells2 = FeatureHelpers.BuildAutoPreparedSpellGroup(5,
-                new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.BrandingSmite, DatabaseHelper.SpellDefinitions.SpiritualWeapon });
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup battleSmithSpells2 = FeatureHelpers.BuildAutoPreparedSpellGroup(
+                5, DatabaseHelper.SpellDefinitions.BrandingSmite, DatabaseHelper.SpellDefinitions.SpiritualWeapon);
 
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup battleSmithSpells3 = FeatureHelpers.BuildAutoPreparedSpellGroup(9,
-                new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.RemoveCurse, DatabaseHelper.SpellDefinitions.BeaconOfHope });
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup battleSmithSpells3 = FeatureHelpers.BuildAutoPreparedSpellGroup(
+                9, DatabaseHelper.SpellDefinitions.RemoveCurse, DatabaseHelper.SpellDefinitions.BeaconOfHope);
 
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup battleSmithSpells4 = FeatureHelpers.BuildAutoPreparedSpellGroup(13,
-                new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.FireShield, DatabaseHelper.SpellDefinitions.DeathWard });
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup battleSmithSpells4 = FeatureHelpers.BuildAutoPreparedSpellGroup(
+                13, DatabaseHelper.SpellDefinitions.FireShield, DatabaseHelper.SpellDefinitions.DeathWard);
 
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup battleSmithSpells5 = FeatureHelpers.BuildAutoPreparedSpellGroup(17,
-                new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.MassCureWounds, DatabaseHelper.SpellDefinitions.WallOfForce });
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup battleSmithSpells5 = FeatureHelpers.BuildAutoPreparedSpellGroup(
+                17, DatabaseHelper.SpellDefinitions.MassCureWounds, DatabaseHelper.SpellDefinitions.WallOfForce);
 
             GuiPresentationBuilder battleSmithSpellsPresentation = new GuiPresentationBuilder(
                 "Feat/&BattleSmithSubclassSpellsDescription",

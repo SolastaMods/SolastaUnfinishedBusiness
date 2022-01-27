@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using UnityEngine;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
@@ -694,12 +694,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.SetCastingTime(RuleDefinitions.ActivationTime.Action);
 
             Definition.SetSpellsBundle(true);
-            Definition.SubspellsList.AddRange(new List<SpellDefinition>
-            {
-                SummonFlameArtillerySpellConstructBuilder.SummonFlameArtilleryConstruct ,
-               SummonForceArtillerySpellConstructBuilder.SummonForceArtilleryConstruct,
+            Definition.SubspellsList.AddRange(
+                SummonFlameArtillerySpellConstructBuilder.SummonFlameArtilleryConstruct,
+                SummonForceArtillerySpellConstructBuilder.SummonForceArtilleryConstruct,
                 SummonTempHPShieldSpellConstructBuilder.SummonTempHPShieldConstruct
-            });
+            );
 
             Definition.EffectDescription.Clear();
         }
@@ -727,12 +726,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.GuiPresentation.Description = "Feat/&ResummonArtilleryConstructDescription";
 
             Definition.SubspellsList.Clear();
-            Definition.SubspellsList.AddRange(new List<SpellDefinition>
-            {
-                SummonFlameArtillerySpellConstruct9Builder.SummonFlameArtilleryConstruct9 ,
-               SummonForceArtillerySpellConstruct9Builder.SummonForceArtilleryConstruct_9,
+            Definition.SubspellsList.AddRange(
+                SummonFlameArtillerySpellConstruct9Builder.SummonFlameArtilleryConstruct9,
+                SummonForceArtillerySpellConstruct9Builder.SummonForceArtilleryConstruct_9,
                 SummonTempHPShieldSpellConstruct9Builder.SummonTempHPShieldConstruct_9
-            });
+            );
         }
 
         public static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -758,12 +756,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.GuiPresentation.Description = "Feat/&ResummonArtilleryConstructDescription";
 
             Definition.SubspellsList.Clear();
-            Definition.SubspellsList.AddRange(new List<SpellDefinition>
-            {
+            Definition.SubspellsList.AddRange(
                 SummonFlameArtillerySpellConstruct15Builder.SummonFlameArtilleryConstruct15,
                 SummonForceArtillerySpellConstruct15Builder.SummonForceArtilleryConstruct15,
                 SummonTempHPShieldSpellConstruct15Builder.SummonTempHPShieldConstruct15
-            });
+            );
         }
 
         public static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -794,29 +791,28 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             // changed the tag here and in relevant constructs
             // so the scaling is only applied to the Protector and Artillry Constructs
             Definition.SetRequiredMonsterTag("ScalingTinkererArtilleryConstruct");
-            Definition.AddedConditions.AddRange(new List<ConditionDefinition>
-            {
-            // using kindred conditions for following reasons
-            // 1- Didnt want to create custom conditions until custom ConditionDefintionBuilder and
-            //    FeatureDefinitionAttributeModifierBuilder are available as it is likely a rewrite
-            //    would be requested as soon as such builders were added.
-            // 2- The tabletop scaling using the class level and proficiency bonus of the summoner
-            //    is not possible using base game features/database manipulation. A patch would be
-            //    required to add such scaling to the game.
-            // 3- A new scaling set via new summoningAffinity, conditionDefinitions and attributeModifers
-            //    could be added but custom conditions may not be worthwhile as without the above patch,
-            //    meaning the any new scaling would not match the required scaling
-            // 4- The default summons scaling used in the base game is similar in magnitude to the original
-            //    concept for the protector construct, so it seemed acceptable for a first implementation.
-            //
-            //DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondTotalControl,
-            //DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondAC,
-            DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondHP,
-            DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondMeleeAttack,
-            //DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondMeleeDamage,
-            //DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondSkillProficiency,
-            //DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondSavingThrows
-            });
+            Definition.AddedConditions.AddRange(
+                // using kindred conditions for following reasons
+                // 1- Didnt want to create custom conditions until custom ConditionDefintionBuilder and
+                //    FeatureDefinitionAttributeModifierBuilder are available as it is likely a rewrite
+                //    would be requested as soon as such builders were added.
+                // 2- The tabletop scaling using the class level and proficiency bonus of the summoner
+                //    is not possible using base game features/database manipulation. A patch would be
+                //    required to add such scaling to the game.
+                // 3- A new scaling set via new summoningAffinity, conditionDefinitions and attributeModifers
+                //    could be added but custom conditions may not be worthwhile as without the above patch,
+                //    meaning the any new scaling would not match the required scaling
+                // 4- The default summons scaling used in the base game is similar in magnitude to the original
+                //    concept for the protector construct, so it seemed acceptable for a first implementation.
+                //
+                //DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondTotalControl,
+                //DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondAC,
+                DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondHP,
+                DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondMeleeAttack
+                //DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondMeleeDamage,
+                //DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondSkillProficiency,
+                //DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondSavingThrows
+            );
         }
 
         public static FeatureDefinitionSummoningAffinity CreateAndAddToDB(string name, string guid)
