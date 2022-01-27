@@ -3,28 +3,25 @@ using System.Linq;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using static FeatureDefinitionAutoPreparedSpells;
 
 namespace SolastaCommunityExpansion.Builders
 {
     public class FeatureDefinitionAutoPreparedSpellsBuilder : BaseDefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
     {
-        public static FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup BuildAutoPreparedSpellGroup(int classLevel, List<SpellDefinition> spellnames)
+        public static AutoPreparedSpellsGroup BuildAutoPreparedSpellGroup(int classLevel, IEnumerable<SpellDefinition> spellnames)
         {
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup spellgroup = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
+            return new AutoPreparedSpellsGroup
             {
                 ClassLevel = classLevel,
-                SpellsList = new List<SpellDefinition>()
+                SpellsList = new List<SpellDefinition>(spellnames)
             };
-            spellgroup.SpellsList.AddRange(spellnames);
-            return spellgroup;
         }
 
-        public FeatureDefinitionAutoPreparedSpellsBuilder(string name, string guid, List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> autospelllists,
+        public FeatureDefinitionAutoPreparedSpellsBuilder(string name, string guid, IEnumerable<AutoPreparedSpellsGroup> autospelllists,
             GuiPresentation guiPresentation) : base(name, guid)
         {
-            Definition.SetField("autoPreparedSpellsGroups",
-                new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>(autospelllists));
-
+            Definition.SetField("autoPreparedSpellsGroups", new List<AutoPreparedSpellsGroup>(autospelllists));
             Definition.SetGuiPresentation(guiPresentation);
         }
 
@@ -36,16 +33,14 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public FeatureDefinitionAutoPreparedSpellsBuilder SetPreparedSpellGroups(params FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup[] autospelllists)
+        public FeatureDefinitionAutoPreparedSpellsBuilder SetPreparedSpellGroups(params AutoPreparedSpellsGroup[] autospelllists)
         {
             return SetPreparedSpellGroups(autospelllists.AsEnumerable());
         }
 
-        public FeatureDefinitionAutoPreparedSpellsBuilder SetPreparedSpellGroups(IEnumerable<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> autospelllists)
+        public FeatureDefinitionAutoPreparedSpellsBuilder SetPreparedSpellGroups(IEnumerable<AutoPreparedSpellsGroup> autospelllists)
         {
-            Definition.SetField("autoPreparedSpellsGroups",
-                new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>(autospelllists));
-
+            Definition.SetField("autoPreparedSpellsGroups", new List<AutoPreparedSpellsGroup>(autospelllists));
             return this;
         }
 

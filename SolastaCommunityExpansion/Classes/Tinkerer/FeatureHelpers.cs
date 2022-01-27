@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using HarmonyLib;
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
+using static FeatureDefinitionAutoPreparedSpells;
+using static FeatureDefinitionAttributeModifier;
+using System.Linq;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
@@ -46,13 +48,16 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         public class FeatureDefinitionProficiencyBuilder : BaseDefinitionBuilder<FeatureDefinitionProficiency>
         {
             public FeatureDefinitionProficiencyBuilder(string name, string guid, RuleDefinitions.ProficiencyType type,
-            List<string> proficiencies, GuiPresentation guiPresentation) : base(name, guid)
+                GuiPresentation guiPresentation, params string[] proficiencies) :
+                this(name: name, guid, type, guiPresentation, proficiencies.AsEnumerable())
+            {
+            }
+
+            public FeatureDefinitionProficiencyBuilder(string name, string guid, RuleDefinitions.ProficiencyType type,
+                GuiPresentation guiPresentation, IEnumerable<string> proficiencies) : base(name, guid)
             {
                 Definition.SetProficiencyType(type);
-                foreach (string item in proficiencies)
-                {
-                    Definition.Proficiencies.Add(item);
-                }
+                Definition.Proficiencies.AddRange(proficiencies);
                 Definition.SetGuiPresentation(guiPresentation);
             }
         }
@@ -60,9 +65,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         public class FeatureDefinitionAttackModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttackModifier>
         {
             public FeatureDefinitionAttackModifierBuilder(string name, string guid, RuleDefinitions.AttackModifierMethod attackRollModifierMethod,
-            int attackRollModifier, string attackRollAbilityScore, RuleDefinitions.AttackModifierMethod damageRollModifierMethod,
-            int damageRollModifier, string damageRollAbilityScore, bool canAddAbilityBonusToSecondary, string additionalAttackTag,
-            GuiPresentation guiPresentation) : base(name, guid)
+                int attackRollModifier, string attackRollAbilityScore, RuleDefinitions.AttackModifierMethod damageRollModifierMethod,
+                int damageRollModifier, string damageRollAbilityScore, bool canAddAbilityBonusToSecondary, string additionalAttackTag,
+                GuiPresentation guiPresentation) : base(name, guid)
             {
                 Definition.SetAttackRollModifierMethod(attackRollModifierMethod);
                 Definition.SetAttackRollModifier(attackRollModifier);
@@ -79,8 +84,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public class FeatureDefinitionAttributeModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttributeModifier>
         {
-            public FeatureDefinitionAttributeModifierBuilder(string name, string guid, FeatureDefinitionAttributeModifier.AttributeModifierOperation modifierType,
-            string attribute, int amount, GuiPresentation guiPresentation) : base(name, guid)
+            public FeatureDefinitionAttributeModifierBuilder(string name, string guid, AttributeModifierOperation modifierType,
+                string attribute, int amount, GuiPresentation guiPresentation) : base(name, guid)
             {
                 Definition.SetModifierType2(modifierType);
                 Definition.SetModifiedAttribute(attribute);
@@ -102,15 +107,18 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 Definition.SetGuiPresentation(guiPresentation);
             }
 
-            public FeatureDefinitionMagicAffinityBuilder(string name, string guid, List<string> spellNames,
-                int levelBonus, GuiPresentation guiPresentation) : base(name, guid)
+            public FeatureDefinitionMagicAffinityBuilder(string name, string guid, int levelBonus,
+                GuiPresentation guiPresentation, params string[] spellNames) :
+                this(name, guid, levelBonus, guiPresentation, spellNames.AsEnumerable())
+            {
+            }
+
+            public FeatureDefinitionMagicAffinityBuilder(string name, string guid, int levelBonus,
+                GuiPresentation guiPresentation, IEnumerable<string> spellNames) : base(name, guid)
             {
                 Definition.SetUsesWarList(true);
                 Definition.SetWarListSlotBonus(levelBonus);
-                foreach (string spell in spellNames)
-                {
-                    Definition.WarListSpells.Add(spell);
-                }
+                Definition.WarListSpells.AddRange(spellNames);
                 Definition.SetGuiPresentation(guiPresentation);
             }
 
@@ -132,14 +140,17 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         public class FeatureDefinitionPointPoolBuilder : BaseDefinitionBuilder<FeatureDefinitionPointPool>
         {
             public FeatureDefinitionPointPoolBuilder(string name, string guid, HeroDefinitions.PointsPoolType poolType, int poolAmount,
-            List<string> choices, bool uniqueChoices, GuiPresentation guiPresentation) : base(name, guid)
+                bool uniqueChoices, GuiPresentation guiPresentation, params string[] choices) :
+                this(name, guid, poolType, poolAmount, uniqueChoices, guiPresentation, choices.AsEnumerable())
+            {
+            }
+
+            public FeatureDefinitionPointPoolBuilder(string name, string guid, HeroDefinitions.PointsPoolType poolType, int poolAmount,
+                bool uniqueChoices, GuiPresentation guiPresentation, IEnumerable<string> choices) : base(name, guid)
             {
                 Definition.SetPoolType(poolType);
                 Definition.SetPoolAmount(poolAmount);
-                foreach (string item in choices)
-                {
-                    Definition.RestrictedChoices.Add(item);
-                }
+                Definition.RestrictedChoices.AddRange(choices);
                 Definition.SetUniqueChoices(uniqueChoices);
                 Definition.SetGuiPresentation(guiPresentation);
             }
@@ -147,13 +158,16 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public class ConditionDefinitionBuilder : BaseDefinitionBuilder<ConditionDefinition>
         {
-            public ConditionDefinitionBuilder(string name, string guid, List<FeatureDefinition> conditionFeatures, RuleDefinitions.DurationType durationType,
-            int durationParameter, bool silent, GuiPresentation guiPresentation) : base(name, guid)
+            public ConditionDefinitionBuilder(string name, string guid, RuleDefinitions.DurationType durationType, int durationParameter,
+                bool silent, GuiPresentation guiPresentation, params FeatureDefinition[] conditionFeatures) :
+                    this(name, guid, durationType, durationParameter, silent, guiPresentation, conditionFeatures.AsEnumerable())
             {
-                foreach (FeatureDefinition feature in conditionFeatures)
-                {
-                    Definition.Features.Add(feature);
-                }
+            }
+
+            public ConditionDefinitionBuilder(string name, string guid, RuleDefinitions.DurationType durationType, int durationParameter,
+                bool silent, GuiPresentation guiPresentation, IEnumerable<FeatureDefinition> conditionFeatures) : base(name, guid)
+            {
+                Definition.Features.AddRange(conditionFeatures);
                 Definition.SetConditionType(RuleDefinitions.ConditionType.Beneficial);
                 Definition.SetAllowMultipleInstances(false);
                 Definition.SetDurationType(durationType);
@@ -167,18 +181,19 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                     Definition.SetSilentWhenAdded(true);
                     Definition.SetSilentWhenRemoved(true);
                 }
-                Traverse.Create(Definition).Field("recurrentEffectForms").SetValue(new List<EffectForm>());
-                Traverse.Create(Definition).Field("cancellingConditions").SetValue(new List<ConditionDefinition>());
+
+                Definition.SetField("recurrentEffectForms", new List<EffectForm>());
+                Definition.SetField("cancellingConditions", new List<ConditionDefinition>());
                 Definition.SetGuiPresentation(guiPresentation);
             }
         }
 
         public class FeatureDefinitionSavingThrowAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionSavingThrowAffinity>
         {
-            public FeatureDefinitionSavingThrowAffinityBuilder(string name, string guid, List<string> abilityScores,
-            RuleDefinitions.CharacterSavingThrowAffinity affinityType,
-            FeatureDefinitionSavingThrowAffinity.ModifierType modifierType, int diceNumber, RuleDefinitions.DieType dieType,
-            bool againstMagic, GuiPresentation guiPresentation) : base(name, guid)
+            public FeatureDefinitionSavingThrowAffinityBuilder(string name, string guid, IEnumerable<string> abilityScores,
+                RuleDefinitions.CharacterSavingThrowAffinity affinityType,
+                FeatureDefinitionSavingThrowAffinity.ModifierType modifierType, int diceNumber, RuleDefinitions.DieType dieType,
+                bool againstMagic, GuiPresentation guiPresentation) : base(name, guid)
             {
                 foreach (string ability in abilityScores)
                 {
@@ -209,9 +224,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public class FeatureDefinitionAbilityCheckAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionAbilityCheckAffinity>
         {
-            public FeatureDefinitionAbilityCheckAffinityBuilder(string name, string guid, List<Tuple<string, string>> abilityProficiencyPairs,
-            int diceNumber, RuleDefinitions.DieType dieType, RuleDefinitions.CharacterAbilityCheckAffinity affinityType,
-            GuiPresentation guiPresentation) : base(name, guid)
+            // TODO: convert tuples to ()
+            public FeatureDefinitionAbilityCheckAffinityBuilder(string name, string guid, IEnumerable<Tuple<string, string>> abilityProficiencyPairs,
+                int diceNumber, RuleDefinitions.DieType dieType, RuleDefinitions.CharacterAbilityCheckAffinity affinityType,
+                GuiPresentation guiPresentation) : base(name, guid)
             {
                 foreach (Tuple<string, string> abilityProficiency in abilityProficiencyPairs)
                 {
@@ -234,8 +250,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public class FeatureDefinitionCraftingAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionCraftingAffinity>
         {
-            public FeatureDefinitionCraftingAffinityBuilder(string name, string guid, List<ToolTypeDefinition> toolTypes,
-            float durationMultiplier, bool doubleProficiencyBonus, GuiPresentation guiPresentation) : base(name, guid)
+            public FeatureDefinitionCraftingAffinityBuilder(string name, string guid, IEnumerable<ToolTypeDefinition> toolTypes,
+                float durationMultiplier, bool doubleProficiencyBonus, GuiPresentation guiPresentation) : base(name, guid)
             {
                 foreach (ToolTypeDefinition tool in toolTypes)
                 {
@@ -253,14 +269,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public class FeatureDefinitionAutoPreparedSpellsBuilder : BaseDefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
         {
-            public FeatureDefinitionAutoPreparedSpellsBuilder(string name, string guid, List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> autospelllists,
-            CharacterClassDefinition characterclass, GuiPresentation guiPresentation) : base(name, guid)
+            public FeatureDefinitionAutoPreparedSpellsBuilder(string name, string guid, IEnumerable<AutoPreparedSpellsGroup> autospelllists,
+                CharacterClassDefinition characterclass, GuiPresentation guiPresentation) : base(name, guid)
             {
-                Traverse.Create(Definition).Field("autoPreparedSpellsGroups").SetValue(new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>());
-                foreach (FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup groups in autospelllists)
-                {
-                    Definition.AutoPreparedSpellsGroups.Add(groups);
-                }
+                Definition.SetField("autoPreparedSpellsGroups", new List<AutoPreparedSpellsGroup>(autospelllists));
                 Definition.SetSpellcastingClass(characterclass);
                 Definition.SetGuiPresentation(guiPresentation);
             }
@@ -268,8 +280,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public class RestActivityDefinitionBuilder : BaseDefinitionBuilder<RestActivityDefinition>
         {
-            public RestActivityDefinitionBuilder(string name, string guid, RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType, RestActivityDefinition.ActivityCondition condition,
-            string functor, string stringParameter, GuiPresentation guiPresentation) : base(name, guid)
+            public RestActivityDefinitionBuilder(string name, string guid, RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType,
+                RestActivityDefinition.ActivityCondition condition, string functor, string stringParameter, GuiPresentation guiPresentation) : base(name, guid)
             {
                 Definition.SetRestStage(restStage);
                 Definition.SetRestType(restType);
@@ -307,12 +319,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public class FeatureDefinitionBonusCantripsBuilder : BaseDefinitionBuilder<FeatureDefinitionBonusCantrips>
         {
-            public FeatureDefinitionBonusCantripsBuilder(string name, string guid, List<SpellDefinition> cantrips, GuiPresentation guiPresentation) : base(name, guid)
+            public FeatureDefinitionBonusCantripsBuilder(string name, string guid, IEnumerable<SpellDefinition> cantrips, GuiPresentation guiPresentation) : base(name, guid)
             {
-                foreach (SpellDefinition cantrip in cantrips)
-                {
-                    Definition.BonusCantrips.Add(cantrip);
-                }
+                Definition.BonusCantrips.AddRange(cantrips);
                 Definition.SetGuiPresentation(guiPresentation);
             }
         }
@@ -331,12 +340,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         public class FeatureDefinitionAdditionalDamageBuilder : BaseDefinitionBuilder<FeatureDefinitionAdditionalDamage>
         {
             public FeatureDefinitionAdditionalDamageBuilder(string name, string guid, string notificationTag, RuleDefinitions.FeatureLimitedUsage limitedUsage,
-            RuleDefinitions.AdditionalDamageValueDetermination damageValueDetermination,
-            RuleDefinitions.AdditionalDamageTriggerCondition triggerCondition, RuleDefinitions.AdditionalDamageRequiredProperty requiredProperty,
-            bool attackModeOnly, RuleDefinitions.DieType damageDieType, int damageDiceNumber, RuleDefinitions.AdditionalDamageType additionalDamageType,
-            string specificDamageType, RuleDefinitions.AdditionalDamageAdvancement damageAdvancement, List<DiceByRank> diceByRankTable,
-            bool hasSavingThrow, string savingThrowAbility, int savingThrowDC, RuleDefinitions.EffectSavingThrowType damageSaveAffinity,
-            List<ConditionOperationDescription> conditionOperations,
+                RuleDefinitions.AdditionalDamageValueDetermination damageValueDetermination,
+                RuleDefinitions.AdditionalDamageTriggerCondition triggerCondition, RuleDefinitions.AdditionalDamageRequiredProperty requiredProperty,
+                bool attackModeOnly, RuleDefinitions.DieType damageDieType, int damageDiceNumber, RuleDefinitions.AdditionalDamageType additionalDamageType,
+                string specificDamageType, RuleDefinitions.AdditionalDamageAdvancement damageAdvancement, IEnumerable<DiceByRank> diceByRankTable,
+                bool hasSavingThrow, string savingThrowAbility, int savingThrowDC, RuleDefinitions.EffectSavingThrowType damageSaveAffinity,
+                IEnumerable<ConditionOperationDescription> conditionOperations,
             GuiPresentation guiPresentation) : base(name, guid)
             {
                 Definition.SetNotificationTag(notificationTag);
@@ -350,75 +359,74 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 Definition.SetAdditionalDamageType(additionalDamageType);
                 Definition.SetSpecificDamageType(specificDamageType);
                 Definition.SetDamageAdvancement(damageAdvancement);
-                Traverse.Create(Definition).Field("diceByRankTable").SetValue(diceByRankTable);
+                Definition.DiceByRankTable.SetRange(diceByRankTable);
                 Definition.SetDamageDieType(damageDieType);
-
                 Definition.SetHasSavingThrow(hasSavingThrow);
                 Definition.SetSavingThrowAbility(savingThrowAbility);
                 Definition.SetSavingThrowDC(savingThrowDC);
                 Definition.SetDamageSaveAffinity(damageSaveAffinity);
-                Traverse.Create(Definition).Field("conditionOperations").SetValue(conditionOperations);
+                Definition.SetField("conditionOperations", new List<ConditionOperationDescription>(conditionOperations));
                 Definition.SetGuiPresentation(guiPresentation);
             }
         }
 
-        public static FeatureDefinitionAutoPreparedSpells BuildAutoPreparedSpells(List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> autospelllists,
-            CharacterClassDefinition characterclass, string name, GuiPresentation guiPresentation)
+        public static FeatureDefinitionAutoPreparedSpells BuildAutoPreparedSpells(
+            CharacterClassDefinition characterclass, string name, GuiPresentation guiPresentation, params AutoPreparedSpellsGroup[] autospelllists)
         {
-            FeatureDefinitionAutoPreparedSpellsBuilder builder = new FeatureDefinitionAutoPreparedSpellsBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
-                autospelllists, characterclass, guiPresentation);
-            return builder.AddToDB();
+            return BuildAutoPreparedSpells(autospelllists.AsEnumerable(), characterclass, name, guiPresentation);
         }
 
-        public static FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup BuildAutoPreparedSpellGroup(int classLevel, List<SpellDefinition> spellnames)
+        public static FeatureDefinitionAutoPreparedSpells BuildAutoPreparedSpells(IEnumerable<AutoPreparedSpellsGroup> autospelllists,
+            CharacterClassDefinition characterclass, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup spellgroup = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
+            return new FeatureDefinitionAutoPreparedSpellsBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
+                autospelllists, characterclass, guiPresentation).AddToDB();
+        }
+
+        public static AutoPreparedSpellsGroup BuildAutoPreparedSpellGroup(int classLevel, params SpellDefinition[] spellnames)
+        {
+            return BuildAutoPreparedSpellGroup(classLevel, spellnames.AsEnumerable());
+        }
+
+        public static AutoPreparedSpellsGroup BuildAutoPreparedSpellGroup(int classLevel, IEnumerable<SpellDefinition> spellnames)
+        {
+            return new AutoPreparedSpellsGroup
             {
                 ClassLevel = classLevel,
-                SpellsList = new List<SpellDefinition>()
+                SpellsList = new List<SpellDefinition>(spellnames)
             };
-            foreach (SpellDefinition spell in spellnames)
-            {
-                spellgroup.SpellsList.Add(spell);
-            }
-            return spellgroup;
         }
 
         public static FeatureDefinitionProficiency BuildProficiency(RuleDefinitions.ProficiencyType type,
-            List<string> proficiencies, string name, GuiPresentation guiPresentation)
+            IEnumerable<string> proficiencies, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionProficiencyBuilder builder = new FeatureDefinitionProficiencyBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(), type, proficiencies, guiPresentation);
-            return builder.AddToDB();
+            return new FeatureDefinitionProficiencyBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(), type, guiPresentation, proficiencies).AddToDB();
         }
 
-        public static FeatureDefinitionAttributeModifier BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation modifierType,
+        public static FeatureDefinitionAttributeModifier BuildAttributeModifier(AttributeModifierOperation modifierType,
             string attribute, int amount, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionAttributeModifierBuilder builder = new FeatureDefinitionAttributeModifierBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
-                modifierType, attribute, amount, guiPresentation);
-            return builder.AddToDB();
+            return new FeatureDefinitionAttributeModifierBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
+                modifierType, attribute, amount, guiPresentation).AddToDB();
         }
 
-        public static FeatureDefinitionMagicAffinity BuildMagicAffinityHeightenedList(List<string> spellNames, int levelBonus, string name, GuiPresentation guiPresentation)
+        public static FeatureDefinitionMagicAffinity BuildMagicAffinityHeightenedList(IEnumerable<string> spellNames, int levelBonus, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionMagicAffinityBuilder builder = new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
-                spellNames, levelBonus, guiPresentation);
-            return builder.AddToDB();
+            return new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
+                levelBonus, guiPresentation, spellNames).AddToDB();
         }
 
-        public static ConditionDefinition BuildCondition(List<FeatureDefinition> conditionFeatures, RuleDefinitions.DurationType durationType,
+        public static ConditionDefinition BuildCondition(IEnumerable<FeatureDefinition> conditionFeatures, RuleDefinitions.DurationType durationType,
             int durationParameter, bool silent, string name, GuiPresentation guiPresentation)
         {
-            ConditionDefinitionBuilder builder = new ConditionDefinitionBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
-                conditionFeatures, durationType, durationParameter, silent, guiPresentation);
-            return builder.AddToDB();
+            return new ConditionDefinitionBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
+                durationType, durationParameter, silent, guiPresentation, conditionFeatures).AddToDB();
         }
 
         public static FeatureDefinitionMagicAffinity BuildMagicAffinityModifiers(int attackModifier, int dcModifier, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionMagicAffinityBuilder builder = new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
-                attackModifier, dcModifier, guiPresentation);
-            return builder.AddToDB();
+            return new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
+                attackModifier, dcModifier, guiPresentation).AddToDB();
         }
 
         public static FeatureDefinitionPower BuildSpellFormPower(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
@@ -437,18 +445,16 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             particleParams.Copy(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters);
             effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
 
-            FeatureDefinitionPowerBuilder builder = new FeatureDefinitionPowerBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
+            return new FeatureDefinitionPowerBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
                 usesPerRecharge, usesDetermination, AttributeDefinitions.Intelligence, activationTime, costPerUse, recharge, false, false, AttributeDefinitions.Intelligence,
-                effectDescriptionBuilder.Build(), guiPresentation);
-            return builder.AddToDB();
+                effectDescriptionBuilder.Build(), guiPresentation).AddToDB();
         }
 
         public static RestActivityDefinition BuildRestActivity(RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType, RestActivityDefinition.ActivityCondition condition,
             string functor, string stringParameter, string name, GuiPresentation guiPresentation)
         {
-            RestActivityDefinitionBuilder builder = new RestActivityDefinitionBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
-                restStage, restType, condition, functor, stringParameter, guiPresentation);
-            return builder.AddToDB();
+            return new RestActivityDefinitionBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
+                restStage, restType, condition, functor, stringParameter, guiPresentation).AddToDB();
         }
 
         public static FeatureDefinitionAttackModifier BuildAttackModifier(RuleDefinitions.AttackModifierMethod attackRollModifierMethod,
@@ -456,73 +462,65 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             int damageRollModifier, string damageRollAbilityScore, bool canAddAbilityBonusToSecondary, string additionalAttackTag,
             string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionAttackModifierBuilder builder = new FeatureDefinitionAttackModifierBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
+            return new FeatureDefinitionAttackModifierBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
                 attackRollModifierMethod, attackRollModifier, attackRollAbilityScore, damageRollModifierMethod, damageRollModifier, damageRollAbilityScore,
-                canAddAbilityBonusToSecondary, additionalAttackTag, guiPresentation);
-            return builder.AddToDB();
+                canAddAbilityBonusToSecondary, additionalAttackTag, guiPresentation).AddToDB();
         }
 
         public static FeatureDefinitionMovementAffinity BuildMovementAffinity(bool addBase, int speedAdd, float speedMult, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionMovementAffinityBuilder builder = new FeatureDefinitionMovementAffinityBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
-                addBase, speedAdd, speedMult, guiPresentation);
-            return builder.AddToDB();
+            return new FeatureDefinitionMovementAffinityBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
+                addBase, speedAdd, speedMult, guiPresentation).AddToDB();
         }
 
         public static FeatureDefinitionHealingModifier BuildHealingModifier(int healingBonusDiceNumber, RuleDefinitions.DieType healingBonusDiceType,
             RuleDefinitions.LevelSourceType addLevel, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionHealingModifierBuilder healingModifier = new FeatureDefinitionHealingModifierBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
-                healingBonusDiceNumber, healingBonusDiceType, addLevel, guiPresentation);
-            return healingModifier.AddToDB();
+            return new FeatureDefinitionHealingModifierBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
+                healingBonusDiceNumber, healingBonusDiceType, addLevel, guiPresentation).AddToDB();
         }
 
-        public static FeatureDefinitionBonusCantrips BuildBonusCantrips(List<SpellDefinition> cantrips, string name, GuiPresentation guiPresentation)
+        public static FeatureDefinitionBonusCantrips BuildBonusCantrips(IEnumerable<SpellDefinition> cantrips, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionBonusCantripsBuilder bonusCantrips = new FeatureDefinitionBonusCantripsBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
-                cantrips, guiPresentation);
-            return bonusCantrips.AddToDB();
+            return new FeatureDefinitionBonusCantripsBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
+                cantrips, guiPresentation).AddToDB();
         }
 
-        public static FeatureDefinitionSavingThrowAffinity BuildSavingThrowAffinity(List<string> abilityScores,
+        public static FeatureDefinitionSavingThrowAffinity BuildSavingThrowAffinity(IEnumerable<string> abilityScores,
             RuleDefinitions.CharacterSavingThrowAffinity affinityType,
             FeatureDefinitionSavingThrowAffinity.ModifierType modifierType, int diceNumber, RuleDefinitions.DieType dieType,
             bool againstMagic, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionSavingThrowAffinityBuilder builder = new FeatureDefinitionSavingThrowAffinityBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
-                abilityScores, affinityType, modifierType, diceNumber, dieType, againstMagic, guiPresentation);
-            return builder.AddToDB();
+            return new FeatureDefinitionSavingThrowAffinityBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
+                abilityScores, affinityType, modifierType, diceNumber, dieType, againstMagic, guiPresentation).AddToDB();
         }
 
-        public static FeatureDefinitionAbilityCheckAffinity BuildAbilityAffinity(List<Tuple<string, string>> abilityProficiencyPairs,
+        public static FeatureDefinitionAbilityCheckAffinity BuildAbilityAffinity(IEnumerable<Tuple<string, string>> abilityProficiencyPairs,
             int diceNumber, RuleDefinitions.DieType dieType, RuleDefinitions.CharacterAbilityCheckAffinity affinityType,
             string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionAbilityCheckAffinityBuilder builder = new FeatureDefinitionAbilityCheckAffinityBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
-                abilityProficiencyPairs, diceNumber, dieType, affinityType, guiPresentation);
-            return builder.AddToDB();
+            return new FeatureDefinitionAbilityCheckAffinityBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
+                abilityProficiencyPairs, diceNumber, dieType, affinityType, guiPresentation).AddToDB();
         }
 
         public static FeatureDefinitionPointPool BuildPointPool(HeroDefinitions.PointsPoolType poolType, int poolAmount,
-            List<string> choices, string name, GuiPresentation guiPresentation)
+            IEnumerable<string> choices, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionPointPoolBuilder builder = new FeatureDefinitionPointPoolBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
-                poolType, poolAmount, choices, false, guiPresentation);
-            return builder.AddToDB();
+            return new FeatureDefinitionPointPoolBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
+                poolType, poolAmount, false, guiPresentation, choices).AddToDB();
         }
 
         public static FeatureDefinitionEquipmentAffinity BuildEquipmentAffinity(float carryingCapacityMultiplier, float additionalCarryingCapacity, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionEquipmentAffinityBuilder equipmentAffinity = new FeatureDefinitionEquipmentAffinityBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
-                carryingCapacityMultiplier, additionalCarryingCapacity, guiPresentation);
-            return equipmentAffinity.AddToDB();
+            return new FeatureDefinitionEquipmentAffinityBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
+                carryingCapacityMultiplier, additionalCarryingCapacity, guiPresentation).AddToDB();
         }
 
-        public static FeatureDefinitionMagicAffinity BuildMagicAffinityConcentration(RuleDefinitions.ConcentrationAffinity concentrationAffinity, int threshold, string name, GuiPresentation guiPresentation)
+        public static FeatureDefinitionMagicAffinity BuildMagicAffinityConcentration(RuleDefinitions.ConcentrationAffinity concentrationAffinity, 
+            int threshold, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionMagicAffinityBuilder builder = new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
-                concentrationAffinity, threshold, guiPresentation);
-            return builder.AddToDB();
+            return new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
+                concentrationAffinity, threshold, guiPresentation).AddToDB();
         }
 
         public static DiceByRank BuildDiceByRank(int rank, int dice)
@@ -535,11 +533,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public class FeatureDefinitionFeatureSetBuilder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
         {
-            public FeatureDefinitionFeatureSetBuilder(string name, string guid, List<FeatureDefinition> featureSet,
+            public FeatureDefinitionFeatureSetBuilder(string name, string guid, IEnumerable<FeatureDefinition> featureSet,
                 FeatureDefinitionFeatureSet.FeatureSetMode mode, int defaultSelection, bool uniqueChoices,
                 bool enumerateInDescription, GuiPresentation guiPresentation) : base(name, guid)
             {
-                Traverse.Create(Definition).Field("featureSet").SetValue(featureSet);
+                Definition.SetField("featureSet", featureSet.ToList());
                 Definition.SetMode(mode);
                 Definition.SetDefaultSelection(defaultSelection);
                 Definition.SetUniqueChoices(uniqueChoices);
