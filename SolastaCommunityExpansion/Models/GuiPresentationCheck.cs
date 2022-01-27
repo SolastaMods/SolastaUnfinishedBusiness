@@ -70,7 +70,8 @@ namespace SolastaCommunityExpansion.Models
             var allDefinitions = GetAllDefinitions();
 
             var languageSourceData = LocalizationManager.Sources[0];
-            var languageIndex = languageSourceData.GetLanguageIndexFromCode("en");
+            var currentLanguage = LocalizationManager.CurrentLanguageCode;
+            var languageIndex = languageSourceData.GetLanguageIndexFromCode(currentLanguage);
 
             foreach (var definition in allDefinitions.Except(TABaseDefinitions))
             {
