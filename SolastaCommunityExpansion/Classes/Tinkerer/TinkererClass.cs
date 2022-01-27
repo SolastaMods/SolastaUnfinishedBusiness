@@ -200,7 +200,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                     "Feature/&TinkererSkillPointsTitle").Build());
             ArtificerBuilder.AddFeatureAtLevel(skillPoints, 1);
 
-            SpellListDefinition spellList = TinkererSpellList.BuildSpellList();
+            SpellListDefinition spellList = TinkererSpellList.BuildAndAddToDB();
 
             // spell casting (1)
             CastSpellBuilder spellCasting = new CastSpellBuilder("CastSpellTinkerer", GuidHelper.Create(GuidNamespace, "CastSpellTinkerer").ToString());

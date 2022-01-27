@@ -1,24 +1,14 @@
-﻿using System.Linq;
-using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
+using static SolastaCommunityExpansion.Classes.Tinkerer.FeatureHelpers;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
     internal sealed class TinkererSpellList : BaseDefinitionBuilder<SpellListDefinition>
     {
-        // TODO: move somewhere shared
-        private static SpellListDefinition.SpellsByLevelDuplet BuildSpellList(int level, params SpellDefinition[] spells)
-        {
-            return new SpellListDefinition.SpellsByLevelDuplet
-            {
-                Level = level,
-                Spells = spells.ToList()
-            };
-        }
-
         private TinkererSpellList(string name, string guid, GuiPresentation guiPresentation) : base(name, guid)
         {
             Definition.SetHasCantrips(true);
@@ -35,7 +25,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.SetGuiPresentation(guiPresentation);
         }
 
-        public static SpellListDefinition BuildSpellList()
+        public static SpellListDefinition BuildAndAddToDB()
         {
             return new TinkererSpellList("SpellListTinkerer", GuidHelper.Create(TinkererClass.GuidNamespace, "SpellListTinkerer").ToString(),
                 new GuiPresentationBuilder("Feature/&NoContentTitle", "SpellList/&SpellListTinkererTitle").Build())

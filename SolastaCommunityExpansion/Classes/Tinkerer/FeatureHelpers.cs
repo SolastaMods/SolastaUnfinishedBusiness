@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
-using static FeatureDefinitionAutoPreparedSpells;
 using static FeatureDefinitionAttributeModifier;
-using System.Linq;
+using static FeatureDefinitionAutoPreparedSpells;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
@@ -394,6 +394,20 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             {
                 ClassLevel = classLevel,
                 SpellsList = new List<SpellDefinition>(spellnames)
+            };
+        }
+
+        public static SpellListDefinition.SpellsByLevelDuplet BuildSpellList(int classLevel, params SpellDefinition[] spellnames)
+        {
+            return BuildSpellList(classLevel, spellnames.AsEnumerable());
+        }
+
+        public static SpellListDefinition.SpellsByLevelDuplet BuildSpellList(int classLevel, IEnumerable<SpellDefinition> spellnames)
+        {
+            return new SpellListDefinition.SpellsByLevelDuplet
+            {
+                Level = classLevel,
+                Spells = new List<SpellDefinition>(spellnames)
             };
         }
 
