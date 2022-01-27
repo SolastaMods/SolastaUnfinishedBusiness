@@ -51,7 +51,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
         }
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            var tryFindTargetWieldedItemMethod = typeof(RulesetCharacterHero).GetMethod("TryFindTargetWieldedItem");
+            var tryFindTargetWieldedItemMethod = typeof(RulesetCharacter).GetMethod("TryFindTargetWieldedItem");
             var myTryFindTargetWieldedItemMethod = typeof(InventoryShortcutsPanel_OnCastLightCb).GetMethod("MyTryFindTargetWieldedItem");
 
             foreach (CodeInstruction instruction in instructions)
