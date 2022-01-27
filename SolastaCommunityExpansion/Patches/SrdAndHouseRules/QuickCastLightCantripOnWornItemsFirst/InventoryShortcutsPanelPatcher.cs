@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
+namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.QuickCastLightCantripOnWornItemsFirst
 {
     // TODO: modify "Screen/&CastLightButtonDescription"
 

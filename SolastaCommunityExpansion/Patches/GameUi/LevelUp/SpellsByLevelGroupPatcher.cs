@@ -2,14 +2,14 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures
+namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 {
     [HarmonyPatch(typeof(SpellsByLevelGroup), "CommonBind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SpellsByLevelGroup_CommonBind
     {
         /*
-         * So this patch seems like it should be unneceary, however when collecting the autoprepared spells TA only looks at the FIRST
+         * So this patch seems like it should be unnecessary, however when collecting the autoprepared spells TA only looks at the FIRST
          * feature returned from enumerate features rather than iterate over all of them. This means only 1 feature worth of auto prepared
          * spells are shown to the user during level up. For the inspection/spell preparation binding a different method to collect the auto
          * prepared spells is used which works properly.

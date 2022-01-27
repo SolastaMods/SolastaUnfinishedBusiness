@@ -4,7 +4,7 @@ using System.Linq;
 using HarmonyLib;
 using static RuleDefinitions;
 
-namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
+namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.OfficialAdvantageDisadvantageRules
 {
     [HarmonyPatch(typeof(ActionModifier), "AttackAdvantageTrend", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
