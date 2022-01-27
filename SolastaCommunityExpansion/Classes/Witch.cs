@@ -1,4 +1,5 @@
-using System;
+﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using SolastaModApi;
 using SolastaModApi.BuilderHelpers;
@@ -7,6 +8,7 @@ using SolastaCommunityExpansion.Features;
 using SolastaCommunityExpansion.Helpers;
 using SolastaCommunityExpansion.Subclasses.Witch;
 using SolastaCommunityExpansion.Level20;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using static CharacterClassDefinition;
 using static FeatureDefinitionCastSpell;
 
@@ -1068,16 +1070,6 @@ namespace SolastaCommunityExpansion.Classes
             // Not all witches laugh maniacally when they cackle, but all cackles require a verbal component, as a spell. 
             // These range from mundane curses and insults, to the murmuring of dead languages and speaking backwards.
 
-            var effectForm = new EffectForm
-            {
-                FormType = EffectForm.EffectFormType.Condition
-            };
-            effectForm.SetCreatedByCharacter(true);
-
-            ConditionForm conditionForm = new ConditionForm();
-            conditionForm.SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionDeafened);
-            effectForm.SetConditionForm(conditionForm);
-
             //Add to our new effect
             var effectDescription = new EffectDescription();
             effectDescription.Copy(DatabaseHelper.SpellDefinitions.HideousLaughter.EffectDescription);
@@ -1086,15 +1078,10 @@ namespace SolastaCommunityExpansion.Classes
             effectDescription.SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectDescription.SetHasSavingThrow(false);
             effectDescription.SetRangeType(RuleDefinitions.RangeType.Self);
-            // Target by tag?
-            //            effectDescription.SetTargetFilteringTag(RuleDefinitions.TargetFilteringTag.CursedByMalediction);
             effectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
             effectDescription.SetTargetParameter(12);
             effectDescription.EffectForms.Clear();
-            // Can we add a Condition dynamically? i.e. can we detect what kind of condition a creature has, and then add that condition here?
-            // And/or can we add a new "CackleCondition" which gets evaluated at end of turn and would search for any 
-            // RuleDefinitions.TargetFilteringTag.CursedByMalediction condition on the creature and reapply the condition?
-            effectDescription.EffectForms.Add(effectForm);
+            effectDescription.EffectForms.Add(new CackleEffectForm());
 
             FeatureDefinitionPowerCackle = new FeatureDefinitionPowerBuilder(
                     "WitchCacklePower",
@@ -1116,6 +1103,53 @@ namespace SolastaCommunityExpansion.Classes
                     true)
                     .AddToDB();
 
+        }
+
+        private sealed class CackleEffectForm : CustomEffectForm
+        {
+
+            public override void ApplyForm(RulesetImplementationDefinitions.ApplyFormsParams formsParams, bool retargeting, bool proxyOnly, bool forceSelfConditionOnly)
+            {
+
+                List<RulesetCondition> conditions = formsParams.targetCharacter.AllConditions;
+
+                var activeMaledictions = conditions.Where(i => i.ConditionDefinition.ConditionTags.Contains("Malediction")).ToList();
+                if (activeMaledictions != null){
+                    foreach (RulesetCondition malediction in activeMaledictions){
+                        // Remove the condition in order to refresh it
+                        formsParams.targetCharacter.RemoveCondition(malediction);
+                        // Refresh the condition
+                        ApplyCondition(formsParams, malediction.ConditionDefinition, RuleDefinitions.DurationType.Round, 1);
+                    }
+                }
+
+            }
+
+            public override void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap)
+            {
+                // Nothing
+            }
+
+            private static void ApplyCondition(RulesetImplementationDefinitions.ApplyFormsParams formsParams, ConditionDefinition condition, RuleDefinitions.DurationType durationType, int durationParam)
+            {
+                // Prepare params for inflicting conditions
+                ulong sourceGuid = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.Guid : 0L;
+                string sourceFaction = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.CurrentFaction.Name : string.Empty;
+                string effectDefinitionName = string.Empty;
+
+                if (formsParams.attackMode != null)
+                {
+                    effectDefinitionName = formsParams.attackMode.SourceDefinition.Name;
+                }
+                else if (formsParams.activeEffect != null)
+                {
+                    effectDefinitionName = formsParams.activeEffect.SourceDefinition.Name;
+                }
+
+                int sourceAbilityBonus = formsParams.activeEffect != null ? formsParams.activeEffect.ComputeSourceAbilityBonus(formsParams.sourceCharacter) : 0;
+
+                formsParams.targetCharacter.InflictCondition(condition.Name, durationType, durationParam, RuleDefinitions.TurnOccurenceType.EndOfTurn, "11Effect", sourceGuid, sourceFaction, formsParams.effectLevel, effectDefinitionName, 0, sourceAbilityBonus);
+            }
         }
 
         private static CharacterClassDefinition BuildAndAddClass()
