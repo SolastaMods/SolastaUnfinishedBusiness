@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using HarmonyLib;
+using I2.Loc;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -68,13 +69,37 @@ namespace SolastaCommunityExpansion.Models
 
             var allDefinitions = GetAllDefinitions();
 
+            var languageSourceData = LocalizationManager.Sources[0];
+            var currentLanguage = LocalizationManager.CurrentLanguageCode;
+            var languageIndex = languageSourceData.GetLanguageIndexFromCode(currentLanguage);
+
             foreach (var definition in allDefinitions.Except(TABaseDefinitions))
             {
                 var gp = definition.GuiPresentation;
 
                 if (string.IsNullOrWhiteSpace(gp?.Title) || string.IsNullOrWhiteSpace(gp?.Description))
                 {
-                    Main.Log($"Definition {definition.Name}: Title='{gp?.Title ?? string.Empty}', Desc='{gp?.Description ?? string.Empty}'");
+                    Main.Log($"*Definition {definition.Name}: Title='{gp?.Title ?? string.Empty}', Desc='{gp?.Description ?? string.Empty}'");
+                }
+
+                if (!string.IsNullOrWhiteSpace(gp?.Title))
+                {
+                    var termData = languageSourceData.GetTermData(gp.Title);
+
+                    if (string.IsNullOrWhiteSpace(termData?.Languages[languageIndex]))
+                    {
+                        Main.Log($"Definition {definition.Name}: Title='{gp.Title}' has no English translation.");
+                    }
+                }
+
+                if (!string.IsNullOrWhiteSpace(gp?.Description))
+                {
+                    var termData = languageSourceData.GetTermData(gp.Title);
+
+                    if (string.IsNullOrWhiteSpace(termData?.Languages[languageIndex]))
+                    {
+                        Main.Log($"Definition {definition.Name}: Description='{gp.Description}' has no English translation.");
+                    }
                 }
             }
 
