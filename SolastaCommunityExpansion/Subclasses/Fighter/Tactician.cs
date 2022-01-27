@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         }
         internal override CharacterSubclassDefinition GetSubclass()
         {
-            return Subclass ?? (Subclass = TacticianFighterSubclassBuilder.BuildAndAddSubclass());
+            return Subclass ??= TacticianFighterSubclassBuilder.BuildAndAddSubclass();
         }
     }
 

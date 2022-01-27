@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 {
     internal class LifeTransmuter : AbstractSubclass
     {
-        private static Guid SubclassNamespace = new Guid("81cdcf44-5f04-4aea-8232-b22a1c264065");
+        private static Guid SubclassNamespace = new("81cdcf44-5f04-4aea-8232-b22a1c264065");
         private readonly CharacterSubclassDefinition Subclass;
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()

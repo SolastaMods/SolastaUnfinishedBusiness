@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class AdventureLogContext
     {
-        private static readonly List<int> captionHashes = new List<int>();
+        private static readonly List<int> captionHashes = new();
 
         internal static void LogEntry(ItemDefinition itemDefinition, AssetReferenceSprite assetReferenceSprite)
         {
@@ -47,7 +47,7 @@ namespace SolastaCommunityExpansion.Models
         {
             private string assetGuid;
             private AssetReferenceSprite assetReferenceSprite;
-            private List<GameAdventureConversationInfo> conversationInfos = new List<GameAdventureConversationInfo>();
+            private List<GameAdventureConversationInfo> conversationInfos = new();
             private string title;
 
             public GameAdventureEntryDungeonMaker()

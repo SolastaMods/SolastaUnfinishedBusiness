@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Feats
 {
     internal static class CasterFeats
     {
-        public static readonly Guid CasterFeatsNamespace = new Guid("bf70984d-e7b9-446a-9ae3-0f2039de833d");
+        public static readonly Guid CasterFeatsNamespace = new("bf70984d-e7b9-446a-9ae3-0f2039de833d");
 
         public static void CreateFeats(List<FeatDefinition> feats)
         {

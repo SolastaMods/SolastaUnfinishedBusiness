@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class PowersContext
     {
-        private static readonly Guid BAZOU_POWERS_BASE_GUID = new Guid("99cee84d-6187-4d7f-a36e-1bd96d3f2deb");
+        private static readonly Guid BAZOU_POWERS_BASE_GUID = new("99cee84d-6187-4d7f-a36e-1bd96d3f2deb");
 
         private static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; set; }
 

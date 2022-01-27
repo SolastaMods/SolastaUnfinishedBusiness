@@ -12,13 +12,13 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 {
     internal class PathOfTheLight : AbstractSubclass
     {
-        private static readonly Guid SubclassNamespace = new Guid("c2067110-5086-45c0-b0c2-4c140599605c");
+        private static readonly Guid SubclassNamespace = new("c2067110-5086-45c0-b0c2-4c140599605c");
         private const string IlluminatedConditionName = "PathOfTheLightIlluminatedCondition";
         private const string IlluminatingStrikeName = "PathOfTheLightIlluminatingStrike";
         private const string IlluminatingBurstName = "PathOfTheLightIlluminatingBurst";
 
         private static readonly List<ConditionDefinition> InvisibleConditions =
-            new List<ConditionDefinition>
+            new()
             {
                 DatabaseHelper.ConditionDefinitions.ConditionInvisibleBase,
                 DatabaseHelper.ConditionDefinitions.ConditionInvisible,
@@ -27,23 +27,23 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
         private readonly CharacterSubclassDefinition _subclass;
 
-        private static readonly Dictionary<int, int> LightsProtectionAmountHealedByClassLevel = new Dictionary<int, int>
+        private static readonly Dictionary<int, int> LightsProtectionAmountHealedByClassLevel = new()
         {
-            {6, 3},
-            {7, 3},
-            {8, 4},
-            {9, 4},
-            {10, 5},
-            {11, 5},
-            {12, 6},
-            {13, 6},
-            {14, 7},
-            {15, 7},
-            {16, 8},
-            {17, 8},
-            {18, 9},
-            {19, 9},
-            {20, 10}
+            { 6, 3 },
+            { 7, 3 },
+            { 8, 4 },
+            { 9, 4 },
+            { 10, 5 },
+            { 11, 5 },
+            { 12, 6 },
+            { 13, 6 },
+            { 14, 7 },
+            { 15, 7 },
+            { 16, 8 },
+            { 17, 8 },
+            { 18, 9 },
+            { 19, 9 },
+            { 20, 10 }
         };
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
@@ -183,7 +183,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
         private static void ApplyLightsProtectionHealing(ulong sourceGuid)
         {
-            if (!(RulesetEntity.GetEntity<RulesetCharacter>(sourceGuid) is RulesetCharacterHero conditionSource) || conditionSource.IsDead)
+            if (RulesetEntity.GetEntity<RulesetCharacter>(sourceGuid) is not RulesetCharacterHero conditionSource || conditionSource.IsDead)
             {
                 return;
             }
@@ -478,7 +478,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
         private static void HandleAfterIlluminatedConditionRemoved(RulesetActor removedFrom)
         {
-            if (!(removedFrom is RulesetCharacter character))
+            if (removedFrom is not RulesetCharacter character)
             {
                 return;
             }

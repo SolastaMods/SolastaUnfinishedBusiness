@@ -55,7 +55,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
             __instance.gameObject.SetActive(true);
             return false;
 
-            Sprite CreateSprite(Bitmap bitmap, int size)
+            static Sprite CreateSprite(Bitmap bitmap, int size)
             {
                 if (!_spritesCache.TryGetValue(bitmap, out var sprite))
                 {
@@ -69,6 +69,6 @@ namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
             }
         }
 
-        internal static readonly Dictionary<Bitmap, Sprite> _spritesCache = new Dictionary<Bitmap, Sprite>();
+        internal static readonly Dictionary<Bitmap, Sprite> _spritesCache = new();
     }
 }

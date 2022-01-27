@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
     internal static class TinkererClass
     {
-        public static readonly Guid GuidNamespace = new Guid("7aee1270-7a61-48d9-8670-cf087c551c16");
+        public static readonly Guid GuidNamespace = new("7aee1270-7a61-48d9-8670-cf087c551c16");
 
         public static readonly FeatureDefinitionPower InfusionPool = new FeatureDefinitionPowerPoolBuilder("AttributeModiferArtificerInfusionHealingPool",
             GuidHelper.Create(GuidNamespace, "AttributeModiferArtificerInfusionHealingPool").ToString(),
@@ -18,53 +18,53 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 new GuiPresentationBuilder("Subclass/&HealingPoolArtificerInfusionsDescription",
                 "Subclass/&HealingPoolArtificerInfusionsTitle").Build()).AddToDB();
 
-        private static readonly List<string> AbilityScores = new List<string>
-            {
-                AttributeDefinitions.Strength,
-                AttributeDefinitions.Dexterity,
-                AttributeDefinitions.Constitution,
-                AttributeDefinitions.Wisdom,
-                AttributeDefinitions.Intelligence,
-                AttributeDefinitions.Charisma,
-            };
-
-        private static readonly List<FeatureDefinition> Level2InfusionList = new List<FeatureDefinition>
-                {
-                    InfusionHelpers.ArtificialServant,
-                    InfusionHelpers.EnhancedDefense,
-                    InfusionHelpers.BagOfHolding,
-                    InfusionHelpers.GogglesOfNight,
-                    InfusionHelpers.EnhancedFocus,
-                    InfusionHelpers.EnhancedWeapon,
-                    InfusionHelpers.MindSharpener,
-                    InfusionHelpers.ArmorOfMagicalStrength,
-                };
-
-        private static readonly List<FeatureDefinition> Level6InfusionList = new List<FeatureDefinition>(Level2InfusionList)
+        private static readonly List<string> AbilityScores = new()
         {
-                    InfusionHelpers.ResistantArmor,
-                    InfusionHelpers.SpellRefuelingRing,
-                    InfusionHelpers.BlindingWeapon,
-                    InfusionHelpers.BootsOfElvenKind,
-                    InfusionHelpers.CloakOfElvenKind,
+            AttributeDefinitions.Strength,
+            AttributeDefinitions.Dexterity,
+            AttributeDefinitions.Constitution,
+            AttributeDefinitions.Wisdom,
+            AttributeDefinitions.Intelligence,
+            AttributeDefinitions.Charisma,
         };
 
-        private static readonly List<FeatureDefinition> Level10InfusionList = new List<FeatureDefinition>(Level6InfusionList)
-                {
-                    InfusionHelpers.BracesrOfArchery,
-                    InfusionHelpers.CloakOfProtection,
-                    InfusionHelpers.GauntletsOfOgrePower,
-                    InfusionHelpers.HeadbandOfIntellect,
-                    InfusionHelpers.SlippersOfSpiderClimbing,
-                };
+        private static readonly List<FeatureDefinition> Level2InfusionList = new()
+        {
+            InfusionHelpers.ArtificialServant,
+            InfusionHelpers.EnhancedDefense,
+            InfusionHelpers.BagOfHolding,
+            InfusionHelpers.GogglesOfNight,
+            InfusionHelpers.EnhancedFocus,
+            InfusionHelpers.EnhancedWeapon,
+            InfusionHelpers.MindSharpener,
+            InfusionHelpers.ArmorOfMagicalStrength,
+        };
 
-        private static readonly List<FeatureDefinition> Level14InfusionList = new List<FeatureDefinition>(Level10InfusionList)
-                {
-                    InfusionHelpers.AmuletOfHealth,
-                    InfusionHelpers.BeltOfGiantHillStrength,
-                    InfusionHelpers.BracersOfDefense,
-                    InfusionHelpers.RingProtectionPlus1,
-                };
+        private static readonly List<FeatureDefinition> Level6InfusionList = new(Level2InfusionList)
+        {
+            InfusionHelpers.ResistantArmor,
+            InfusionHelpers.SpellRefuelingRing,
+            InfusionHelpers.BlindingWeapon,
+            InfusionHelpers.BootsOfElvenKind,
+            InfusionHelpers.CloakOfElvenKind,
+        };
+
+        private static readonly List<FeatureDefinition> Level10InfusionList = new(Level6InfusionList)
+        {
+            InfusionHelpers.BracesrOfArchery,
+            InfusionHelpers.CloakOfProtection,
+            InfusionHelpers.GauntletsOfOgrePower,
+            InfusionHelpers.HeadbandOfIntellect,
+            InfusionHelpers.SlippersOfSpiderClimbing,
+        };
+
+        private static readonly List<FeatureDefinition> Level14InfusionList = new(Level10InfusionList)
+        {
+            InfusionHelpers.AmuletOfHealth,
+            InfusionHelpers.BeltOfGiantHillStrength,
+            InfusionHelpers.BracersOfDefense,
+            InfusionHelpers.RingProtectionPlus1,
+        };
 
         public static CharacterClassDefinition BuildTinkererClass()
         {

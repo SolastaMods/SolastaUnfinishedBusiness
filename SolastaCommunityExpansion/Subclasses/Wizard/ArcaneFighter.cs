@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 {
     internal class ArcaneFighter : AbstractSubclass
     {
-        private static Guid SubclassNamespace = new Guid("cab151dd-cc94-4c4c-bfba-a712b9a0b53d");
+        private static Guid SubclassNamespace = new("cab151dd-cc94-4c4c-bfba-a712b9a0b53d");
         private readonly CharacterSubclassDefinition Subclass;
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
@@ -104,7 +104,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 weaponUseIntModifier, "PowerMeleeWizardArcaneWeapon", arcaneWeaponGui.Build());
             return enchantWeapon;
         }
-        internal static FeatureDefinitionPower EnchantWeapon => _enchantWeapon = _enchantWeapon ?? BuildEnchantWeapon();
+        internal static FeatureDefinitionPower EnchantWeapon => _enchantWeapon ??= BuildEnchantWeapon();
 
         public static void UpdateEnchantWeapon()
         {

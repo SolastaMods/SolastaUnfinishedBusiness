@@ -66,7 +66,7 @@ namespace SolastaCommunityExpansion.Models
                 RespecState = RESPEC_STATE_NORESPEC;
             }
 
-            private static readonly List<RulesetItemSpellbook> rulesetItemSpellbooks = new List<RulesetItemSpellbook>();
+            private static readonly List<RulesetItemSpellbook> rulesetItemSpellbooks = new();
 
             internal static void DropSpellbooksIfRequired(RulesetCharacterHero rulesetCharacterHero)
             {

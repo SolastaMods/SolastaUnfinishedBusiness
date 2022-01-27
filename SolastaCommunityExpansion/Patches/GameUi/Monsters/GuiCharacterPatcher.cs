@@ -59,7 +59,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GuiCharacter_FormatHealthLabel
     {
-        private static readonly Regex HitPointRegex = new Regex(@"^<#.{6}>(?<current_hp>\d{1,4})</color>/(?<max_hp>\d{1,4})", RegexOptions.Compiled | RegexOptions.Singleline);
+        private static readonly Regex HitPointRegex = new(@"^<#.{6}>(?<current_hp>\d{1,4})</color>/(?<max_hp>\d{1,4})", RegexOptions.Compiled | RegexOptions.Singleline);
 
         internal static void Prefix(GuiCharacter __instance, bool ___healthLabelDirty, out bool __state)
         {

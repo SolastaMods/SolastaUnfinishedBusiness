@@ -20,11 +20,11 @@ namespace SolastaCommunityExpansion.Models
             public bool IsFromOtherMod { get; set; }
         }
 
-        internal static readonly Dictionary<SpellDefinition, SpellRecord> RegisteredSpells = new Dictionary<SpellDefinition, SpellRecord>();
+        internal static readonly Dictionary<SpellDefinition, SpellRecord> RegisteredSpells = new();
 
-        private static readonly List<SpellDefinition> RegisteredSpellsList = new List<SpellDefinition>();
+        private static readonly List<SpellDefinition> RegisteredSpellsList = new();
 
-        private static readonly SortedDictionary<string, SpellListDefinition> spellLists = new SortedDictionary<string, SpellListDefinition>();
+        private static readonly SortedDictionary<string, SpellListDefinition> spellLists = new();
 
         internal static SortedDictionary<string, SpellListDefinition> SpellLists
         {

@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
 
         internal static ItemCollection Items
         {
-            get => items ?? (items = new ItemCollection()
+            get => items ??= new ItemCollection()
             {
                 BaseGuid = new Guid("16757d1b-518f-4669-af43-1ddf5d23c223"),
                 BaseWeapons = new List<ItemDefinition>()
@@ -42,7 +42,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
                             new MagicItemDataHolder("Souldrinker", DatabaseHelper.ItemDefinitions.Enchanted_Dagger_Souldrinker,
                                 DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_DaggerSouldrinker),
                         }
-            });
+            };
             set => items = value;
         }
     }

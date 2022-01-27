@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Feats
 {
     internal static class ArmorFeats
     {
-        public static readonly Guid ArmorNamespace = new Guid("d37cf3a0-6dbe-461f-8af5-58761414ef6b");
+        public static readonly Guid ArmorNamespace = new("d37cf3a0-6dbe-461f-8af5-58761414ef6b");
 
         public static void CreateArmorFeats(List<FeatDefinition> feats)
         {

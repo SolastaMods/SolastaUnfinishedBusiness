@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Spells
 {
     internal static class BazouSpells
     {
-        public static readonly Guid BAZOU_SPELLS_BASE_GUID = new Guid("91384db5-6659-4384-bf2c-3a41160343f4");
+        public static readonly Guid BAZOU_SPELLS_BASE_GUID = new("91384db5-6659-4384-bf2c-3a41160343f4");
 
         private static readonly SpellDefinition EldritchOrb = BuildEldritchOrb();
         private static readonly SpellDefinition FindFamiliar = BuildFindFamiliar();

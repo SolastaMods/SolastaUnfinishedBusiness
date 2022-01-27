@@ -132,7 +132,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private sealed class DivineWordEffectForm : CustomEffectForm
         {
-            private readonly List<string> monsterFamilyPlaneshiftList = new List<string>
+            private readonly List<string> monsterFamilyPlaneshiftList = new()
             {
                 "Celestial",
                 "Elemental",

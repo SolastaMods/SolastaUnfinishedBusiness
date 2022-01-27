@@ -18,13 +18,13 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
         }
         internal override CharacterSubclassDefinition GetSubclass()
         {
-            return Subclass ?? (Subclass = BuildAndAddSubclass());
+            return Subclass ??= BuildAndAddSubclass();
         }
 
         private const string RangerArcanistRangerSubclassName = "RangerArcanistRangerSubclass";
         private const string RangerArcanistRangerSubclassGuid = "5ABD870D-9ABD-4953-A2EC-E2109324FAB9";
 
-        public static readonly Guid RA_BASE_GUID = new Guid(RangerArcanistRangerSubclassGuid);
+        public static readonly Guid RA_BASE_GUID = new(RangerArcanistRangerSubclassGuid);
 
         public static readonly FeatureDefinitionFeatureSet ranger_arcanist_magic = createRangerArcanistMagic();
         public static readonly FeatureDefinitionAdditionalDamage arcanist_mark = CreateArcanistMark();
