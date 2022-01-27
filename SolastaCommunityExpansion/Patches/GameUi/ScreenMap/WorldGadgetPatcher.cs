@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
                 return;
             }
 
-            if (Array.IndexOf(Models.GameUiContext.GadgetBlueprintsWithGizmos, __instance.UserGadget.GadgetBlueprint) >= 0)
+            if (Array.IndexOf(Models.GameUiContext.ExitsWithGizmos, __instance.UserGadget.GadgetBlueprint) >= 0)
             {
                 return;
             }
