@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro
         {
             if (!Main.Settings.EnableDungeonMakerPro
                 || !Main.Settings.EnableDungeonMakerModdedContent
-                || !(__instance is PropBlueprint propBlueprint)
+                || __instance is not PropBlueprint propBlueprint
                 || !propBlueprint.Name.EndsWith("MOD"))
             {
                 return true;

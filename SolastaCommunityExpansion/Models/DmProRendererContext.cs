@@ -121,7 +121,7 @@ namespace SolastaCommunityExpansion.Models
 
         public static void SetupFlatRooms(Transform roomTransform, UserRoom userRoom)
         {
-            void DisableWalls(Transform transform)
+            static void DisableWalls(Transform transform)
             {
                 for (int i = 0; i < transform.childCount; i++)
                 {

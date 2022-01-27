@@ -20,11 +20,11 @@ namespace SolastaCommunityExpansion.Viewers
 
         private static bool showAttributes;
 
-        private static readonly Dictionary<MonsterDefinition, bool> currentFeaturesMonster = new Dictionary<MonsterDefinition, bool>();
+        private static readonly Dictionary<MonsterDefinition, bool> currentFeaturesMonster = new();
 
-        private static readonly Dictionary<MonsterDefinition, bool> currentAttacksMonster = new Dictionary<MonsterDefinition, bool>();
+        private static readonly Dictionary<MonsterDefinition, bool> currentAttacksMonster = new();
 
-        private static readonly Dictionary<RulesetCharacterHero, bool> currentItemsHeroes = new Dictionary<RulesetCharacterHero, bool>();
+        private static readonly Dictionary<RulesetCharacterHero, bool> currentItemsHeroes = new();
 
         private static string SplitCamelCase(string str)
         {
@@ -72,7 +72,7 @@ namespace SolastaCommunityExpansion.Viewers
 
                 if (UI.DisclosureToggle("Inventory", ref flip, 132))
                 {
-                    currentItemsHeroes.AddOrReplace<RulesetCharacterHero, bool>(hero, flip);
+                    currentItemsHeroes.AddOrReplace(hero, flip);
                 }
             }
 
@@ -141,14 +141,14 @@ namespace SolastaCommunityExpansion.Viewers
 
                 if (UI.DisclosureToggle($"Attacks ({monsterDefinition.AttackIterations.Count:0#})", ref flip, 132))
                 {
-                    currentAttacksMonster.AddOrReplace<MonsterDefinition, bool>(monsterDefinition, flip);
+                    currentAttacksMonster.AddOrReplace(monsterDefinition, flip);
                 }
 
                 currentFeaturesMonster.TryGetValue(monsterDefinition, out flip);
 
                 if (UI.DisclosureToggle($"Features ({monsterDefinition.Features.Count:0#})", ref flip, 144))
                 {
-                    currentFeaturesMonster.AddOrReplace<MonsterDefinition, bool>(monsterDefinition, flip);
+                    currentFeaturesMonster.AddOrReplace(monsterDefinition, flip);
                 }
             }
 

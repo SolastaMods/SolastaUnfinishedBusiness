@@ -139,7 +139,7 @@ namespace SolastaCommunityExpansion.Models
             "Wizard Clothes"
         };
 
-        private static readonly List<ItemDefinition> Crowns = new List<ItemDefinition>
+        private static readonly List<ItemDefinition> Crowns = new()
         {
             CrownOfTheMagister,
             CrownOfTheMagister01,

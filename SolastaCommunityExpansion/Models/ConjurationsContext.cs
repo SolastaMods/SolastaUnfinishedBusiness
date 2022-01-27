@@ -51,7 +51,7 @@ namespace SolastaCommunityExpansion.Models
             AddSummonsSubSpells();
         }
 
-        private static readonly Guid Namespace = new Guid("de4539b8e0194684b1d0585100dd94e5");
+        private static readonly Guid Namespace = new("de4539b8e0194684b1d0585100dd94e5");
 
         private const string InvisibleStalkerSubspellName = "InvisibleStalker_CE_SubSpell_CR6";
 
@@ -86,7 +86,7 @@ namespace SolastaCommunityExpansion.Models
             ConfigureAdvancement(ConjureFey);
 
             // Set advancement at spell level,not sub-spell
-            void ConfigureAdvancement(SpellDefinition spell)
+            static void ConfigureAdvancement(SpellDefinition spell)
             {
                 var advancement = spell.EffectDescription.EffectAdvancement;
                 advancement.SetEffectIncrementMethod(EffectIncrementMethod.PerAdditionalSlotLevel);

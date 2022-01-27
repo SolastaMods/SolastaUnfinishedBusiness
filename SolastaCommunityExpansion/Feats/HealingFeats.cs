@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Feats
 {
     internal static class HealingFeats
     {
-        public static readonly Guid HealingFeatNamespace = new Guid("501448fd-3c84-4031-befe-84c2ae75123b");
+        public static readonly Guid HealingFeatNamespace = new("501448fd-3c84-4031-befe-84c2ae75123b");
 
         public static void CreateFeats(List<FeatDefinition> feats)
         {

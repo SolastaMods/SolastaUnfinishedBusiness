@@ -10,13 +10,12 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
 {
     internal class ConArtist : AbstractSubclass
     {
-        private static readonly Guid SubclassNamespace = new Guid("fdf8dc11-5006-489e-951c-92a8d72ca4c0");
+        private static readonly Guid SubclassNamespace = new("fdf8dc11-5006-489e-951c-92a8d72ca4c0");
         private readonly CharacterSubclassDefinition Subclass;
 
         #region DcIncreaseAffinity
         private static FeatureDefinitionMagicAffinity _dcIncreaseAffinity;
-        private static FeatureDefinitionMagicAffinity DcIncreaseAffinity => _dcIncreaseAffinity = _dcIncreaseAffinity ??
-                    new FeatureDefinitionMagicAffinityBuilder(
+        private static FeatureDefinitionMagicAffinity DcIncreaseAffinity => _dcIncreaseAffinity ??= new FeatureDefinitionMagicAffinityBuilder(
                         "MagicAffinityRoguishConArtistDC",
                         GuidHelper.Create(SubclassNamespace, "MagicAffinityRoguishConArtistDC").ToString(),
                         GetSpellDCPresentation().Build())

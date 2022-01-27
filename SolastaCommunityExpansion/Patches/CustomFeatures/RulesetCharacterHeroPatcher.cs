@@ -70,7 +70,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         {
             foreach (FightingStyleDefinition fightingStyleDefinition in __instance.TrainedFightingStyles)
             {
-                if (!(fightingStyleDefinition is ICustomFightingStyle customFightingStyle))
+                if (fightingStyleDefinition is not ICustomFightingStyle customFightingStyle)
                 {
                     continue;
                 }

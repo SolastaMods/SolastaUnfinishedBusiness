@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 {
     internal class SpellMaster : AbstractSubclass
     {
-        private static readonly Guid SubclassNamespace = new Guid("9f322734-1498-4f65-ace5-e6072b1d99be");
+        private static readonly Guid SubclassNamespace = new("9f322734-1498-4f65-ace5-e6072b1d99be");
         private readonly CharacterSubclassDefinition Subclass;
 
         #region Spell recovery gui
@@ -19,9 +19,9 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         {
             get
             {
-                return _spellRecoveryGui = _spellRecoveryGui ?? Build();
+                return _spellRecoveryGui ??= Build();
 
-                GuiPresentation Build()
+                static GuiPresentation Build()
                 {
                     var spellRecoveryGui = new GuiPresentationBuilder(
                         "Subclass/&MagicAffinitySpellMasterRecoveryDescription",
@@ -36,8 +36,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 
         #region Bonus recovery
         private static FeatureDefinitionPower _bonusRecovery;
-        internal static FeatureDefinitionPower BonusRecovery => _bonusRecovery = _bonusRecovery ??
-                    BuildSpellFormPower(
+        internal static FeatureDefinitionPower BonusRecovery => _bonusRecovery ??= BuildSpellFormPower(
                         1 /* usePerRecharge */, RuleDefinitions.UsesDetermination.Fixed, RuleDefinitions.ActivationTime.Rest,
                         1 /* cost */, RuleDefinitions.RechargeRate.LongRest, "PowerSpellMasterBonusRecovery", SpellRecoveryGui);
         #endregion

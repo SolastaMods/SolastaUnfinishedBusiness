@@ -8,9 +8,9 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class DmProEditorContext
     {
-        private static readonly System.Guid GUID = new System.Guid("bff53ba4bb694bf5a69b3ae280eec118");
+        private static readonly System.Guid GUID = new("bff53ba4bb694bf5a69b3ae280eec118");
 
-        internal static readonly List<string> OutdoorRooms = new List<string>();
+        internal static readonly List<string> OutdoorRooms = new();
 
         internal enum ExtendedDungeonSize
         {

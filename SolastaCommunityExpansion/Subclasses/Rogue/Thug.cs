@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
 {
     internal class Thug : AbstractSubclass
     {
-        private static readonly Guid SubclassNamespace = new Guid("b6f6a95faee44d0b87fc2fa65a785e1b");
+        private static readonly Guid SubclassNamespace = new("b6f6a95faee44d0b87fc2fa65a785e1b");
 
         private readonly CharacterSubclassDefinition Subclass;
 

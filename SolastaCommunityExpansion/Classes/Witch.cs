@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Classes
 {
     internal static class Witch
     {
-        public static readonly Guid WITCH_BASE_GUID = new Guid("ea7715dd-00cb-45a3-a8c4-458d0639d72c");
+        public static readonly Guid WITCH_BASE_GUID = new("ea7715dd-00cb-45a3-a8c4-458d0639d72c");
 
         public static readonly CharacterClassDefinition Instance = BuildAndAddClass();
         public static FeatureDefinitionProficiency FeatureDefinitionProficiencyArmor { get; private set; }
