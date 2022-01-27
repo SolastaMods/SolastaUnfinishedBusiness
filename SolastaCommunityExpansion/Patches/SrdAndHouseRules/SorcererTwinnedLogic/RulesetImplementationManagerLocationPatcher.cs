@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
+namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SorcererTwinnedLogic
 {
     // fix twinned spells offering
     internal static class RulesetImplementationManagerLocationPatcher

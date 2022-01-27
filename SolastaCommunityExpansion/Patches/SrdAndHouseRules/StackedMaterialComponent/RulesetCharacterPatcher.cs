@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
+namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.StackedMaterialComponent
 {
     /// <summary>
     /// Allow spells that require consumption of a material component (e.g. a gem of value >= 1000gp) use a stack
