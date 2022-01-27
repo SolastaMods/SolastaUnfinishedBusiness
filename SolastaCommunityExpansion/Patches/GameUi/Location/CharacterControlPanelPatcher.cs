@@ -24,29 +24,14 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
             {
                 foundActivePanel = true;
 
-                switch (__instance.SpellSelectionPanel.ActionType)
+                actionId = __instance.SpellSelectionPanel.ActionType switch
                 {
-                    case ActionDefinitions.ActionType.Main:
-                        actionId = ActionDefinitions.Id.CastMain;
-                        break;
-
-                    case ActionDefinitions.ActionType.Bonus:
-                        actionId = ActionDefinitions.Id.CastBonus;
-                        break;
-
-                    case ActionDefinitions.ActionType.Reaction:
-                        actionId = ActionDefinitions.Id.CastReaction;
-                        break;
-
-                    case ActionDefinitions.ActionType.NoCost:
-                        actionId = ActionDefinitions.Id.CastNoCost;
-                        break;
-
-                    default:
-                        actionId = ActionDefinitions.Id.CastMain;
-                        break;
-                }
-
+                    ActionDefinitions.ActionType.Main => ActionDefinitions.Id.CastMain,
+                    ActionDefinitions.ActionType.Bonus => ActionDefinitions.Id.CastBonus,
+                    ActionDefinitions.ActionType.Reaction => ActionDefinitions.Id.CastReaction,
+                    ActionDefinitions.ActionType.NoCost => ActionDefinitions.Id.CastNoCost,
+                    _ => ActionDefinitions.Id.CastMain,
+                };
                 __instance.SpellSelectionPanel.Hide(true);
             }
 
@@ -61,29 +46,14 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
             {
                 foundActivePanel = true;
 
-                switch (__instance.PowerSelectionPanel.ActionType)
+                actionId = __instance.PowerSelectionPanel.ActionType switch
                 {
-                    case ActionDefinitions.ActionType.Main:
-                        actionId = ActionDefinitions.Id.PowerMain;
-                        break;
-
-                    case ActionDefinitions.ActionType.Bonus:
-                        actionId = ActionDefinitions.Id.PowerBonus;
-                        break;
-
-                    case ActionDefinitions.ActionType.Reaction:
-                        actionId = ActionDefinitions.Id.PowerReaction;
-                        break;
-
-                    case ActionDefinitions.ActionType.NoCost:
-                        actionId = ActionDefinitions.Id.PowerNoCost;
-                        break;
-
-                    default:
-                        actionId = ActionDefinitions.Id.PowerMain;
-                        break;
-                }
-
+                    ActionDefinitions.ActionType.Main => ActionDefinitions.Id.PowerMain,
+                    ActionDefinitions.ActionType.Bonus => ActionDefinitions.Id.PowerBonus,
+                    ActionDefinitions.ActionType.Reaction => ActionDefinitions.Id.PowerReaction,
+                    ActionDefinitions.ActionType.NoCost => ActionDefinitions.Id.PowerNoCost,
+                    _ => ActionDefinitions.Id.PowerMain,
+                };
                 __instance.PowerSelectionPanel.Hide(true);
             }
 
