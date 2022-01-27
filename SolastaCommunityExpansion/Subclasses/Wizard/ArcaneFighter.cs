@@ -98,11 +98,10 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             FeatureDefinitionAttackModifier weaponUseIntModifier = new FeatureDefinitionAttackModifierBuilder("AttackModifierMeleeWizard",
                  GuidHelper.Create(SubclassNamespace, "AttackModifierMeleeWizard").ToString(),
                  RuleDefinitions.AbilityScoreReplacement.SpellcastingAbility, TagsDefinitions.Magical, attackModGui.Build()).AddToDB();
-            FeatureDefinitionPower enchantWeapon = BuildActionItemPower(0 /* fixed uses*/, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence,
+            return BuildActionItemPower(0 /* fixed uses*/, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence,
                 RuleDefinitions.ActivationTime.BonusAction, 1 /* use cost */, RuleDefinitions.RechargeRate.LongRest, RuleDefinitions.RangeType.Touch, 1 /* range */, ActionDefinitions.ItemSelectionType.Weapon,
                 RuleDefinitions.DurationType.Minute, 10 /* duration */, RuleDefinitions.TurnOccurenceType.EndOfTurn,
                 weaponUseIntModifier, "PowerMeleeWizardArcaneWeapon", arcaneWeaponGui.Build());
-            return enchantWeapon;
         }
         internal static FeatureDefinitionPower EnchantWeapon => _enchantWeapon ??= BuildEnchantWeapon();
 

@@ -40,7 +40,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
                     .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.RoguishShadowCaster.GuiPresentation.SpriteReference)
                     .Build();
 
-            var definition = new CharacterSubclassDefinitionBuilder(RangerArcanistRangerSubclassName, RangerArcanistRangerSubclassGuid)
+            return new CharacterSubclassDefinitionBuilder(RangerArcanistRangerSubclassName, RangerArcanistRangerSubclassGuid)
                     .SetGuiPresentation(subclassGuiPresentation)
                     .AddFeatureAtLevel(ranger_arcanist_magic, 3)
                     .AddFeatureAtLevel(arcanist_mark, 3)
@@ -49,8 +49,6 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
                     .AddFeatureAtLevel(arcane_detonation_upgrade, 11)
                     .AddFeatureAtLevel(arcane_pulse_dict[15], 15)
                     .AddToDB();
-
-            return definition;
         }
 
         private static DiceByRank BuildDiceByRank(int rank, int dice)
@@ -212,10 +210,9 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
         private static FeatureDefinition CreateArcaneDetonationUpgrade()
         {
             // This is a blank feature. It does nothing except create a description for what happens at level 11.
-            var blank_feature = new FeatureDefinitionBuilder("AdditionalDamageArcaneDetonationUpgrade",
+            return new FeatureDefinitionBuilder("AdditionalDamageArcaneDetonationUpgrade",
                 GuidHelper.Create(RA_BASE_GUID, "AdditionalDamageArcaneDetonationUpgrade").ToString(),
                 new GuiPresentationBuilder("Feature/&ArcaneDetonationUpgradeDescription", "Feature/&ArcaneDetonationUpgradeTitle").Build()).AddToDB();
-            return blank_feature;
         }
 
         private sealed class FeatureDefinitionBuilder : BaseDefinitionBuilder<FeatureDefinition>

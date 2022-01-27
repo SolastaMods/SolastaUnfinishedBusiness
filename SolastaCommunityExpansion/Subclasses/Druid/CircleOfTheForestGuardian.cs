@@ -40,7 +40,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
                     .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.MartialMountaineer.GuiPresentation.SpriteReference)
                     .Build();
 
-            var definition = new CharacterSubclassDefinitionBuilder(DruidForestGuardianDruidSubclassName, DruidForestGuardianDruidSubclassGuid)
+            return new CharacterSubclassDefinitionBuilder(DruidForestGuardianDruidSubclassName, DruidForestGuardianDruidSubclassGuid)
                     .SetGuiPresentation(subclassGuiPresentation)
                     .AddFeatureAtLevel(druid_forestGuardian_magic, 2)
                     .AddFeatureAtLevel(sylvan_resistance, 2)
@@ -50,8 +50,6 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
                     .AddFeatureAtLevel(bark_ward_dict[10], 10)
                     .AddFeatureAtLevel(bark_ward_dict[14], 14)
                     .AddToDB();
-
-            return definition;
         }
         // Create Auto-prepared Spell list
         private static FeatureDefinitionAutoPreparedSpells createDruidForestGuardianMagic()

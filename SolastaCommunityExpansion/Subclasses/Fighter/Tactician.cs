@@ -244,7 +244,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                     .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.RoguishShadowCaster.GuiPresentation.SpriteReference)
                     .Build();
 
-            var definition = new CharacterSubclassDefinitionBuilder(TacticianFighterSubclassName, TacticianFighterSubclassNameGuid)
+            return new CharacterSubclassDefinitionBuilder(TacticianFighterSubclassName, TacticianFighterSubclassNameGuid)
                     .SetGuiPresentation(subclassGuiPresentation)
                     .AddFeatureAtLevel(GambitResourcePool, 3)
                     .AddFeatureAtLevel(KnockDownPower, 3)
@@ -255,8 +255,6 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                     .AddFeatureAtLevel(GambitResourcePoolAdd15, 15)
                     .AddFeatureAtLevel(GambitResourcePoolAdd18, 18)
                     .AddToDB();
-
-            return definition;
         }
 
         public static readonly FeatureDefinitionPower GambitResourcePool = GambitResourcePoolBuilder.CreateAndAddToDB();
