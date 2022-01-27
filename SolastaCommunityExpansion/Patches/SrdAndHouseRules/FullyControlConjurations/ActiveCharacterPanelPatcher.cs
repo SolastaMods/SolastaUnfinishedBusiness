@@ -2,7 +2,7 @@
 using System.Linq;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
+namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.FullyControlConjurations
 {
     [HarmonyPatch(typeof(ActiveCharacterPanel), "OnStopConcentratingCb")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

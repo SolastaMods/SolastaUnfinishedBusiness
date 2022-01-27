@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules
+namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.ScaleMerchantPricesCorrectly
 {
     //Original method - if cost is say '1' and the multiplier is less than one, it ends up as zero.
     //For the Spear it starts out costing 1gp and ends up costing 0gp.
