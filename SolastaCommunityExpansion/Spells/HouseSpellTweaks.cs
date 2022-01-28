@@ -71,11 +71,10 @@ namespace SolastaCommunityExpansion.Spells
 
             if (invalidForm != null)
             {
-                Main.Log("BugFixCalmEmotionsOnAlly: Removing invalid form");
+                Main.Log("BugFixCalmEmotionsOnAlly: Removing invalid form and applying correct form.");
                 effectForms.Remove(invalidForm);
+                effectForms.TryAdd(CECalmEmotionsImmunityEffectForm);
             }
-
-            effectForms.TryAdd(CECalmEmotionsImmunityEffectForm);
         }
 
         private static readonly EffectForm CECalmEmotionsImmunityEffectForm = BuildCECalmEmotionsImmunityEffectForm();
