@@ -17,14 +17,14 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
             switch (___sortCategory)
             {
                 default:
-                    // All categories are known if level > 0 except CR.
+                    // All sort categories are known if level > 0 except CR.
                     // Move all level = 0 to the end and only sort level > 0
                     __result = leftLevel == 0 ? 1 : (rightLevel == 0 ? -1 : 0);
                     break;
                 case BestiaryDefinitions.SortCategory.ChallengeRating:
-                    // Need at least level = 1 to know the CR
-                    // Move all level < 1 to the end and only sort level >= 1
-                    __result = leftLevel < 1 ? 1 : (rightLevel >= 1 ? -1 : 0);
+                    // Need at least level = 2 to know the CR
+                    // Move all level < 2 to the end and only sort level >= 2
+                    __result = leftLevel < 2 ? 1 : (rightLevel < 2 ? -1 : 0);
                     break;
             }
 
