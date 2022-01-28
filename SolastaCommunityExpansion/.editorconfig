@@ -158,6 +158,12 @@ dotnet_diagnostic.S2971.severity = silent
 # RCS1077: Optimize LINQ method call.
 dotnet_diagnostic.RCS1077.severity = silent
 
+# RCS1238: Avoid nested ?: operators.
+dotnet_diagnostic.RCS1238.severity = suggestion
+
+# S3358: Ternary operators should not be nested
+dotnet_diagnostic.S3358.severity = suggestion
+
 [*.vb]
 # Modifier preferences
 visual_basic_preferred_modifier_order = Partial,Default,Private,Protected,Public,Friend,NotOverridable,Overridable,MustOverride,Overloads,Overrides,MustInherit,NotInheritable,Static,Shared,Shadows,ReadOnly,WriteOnly,Dim,Const,WithEvents,Widening,Narrowing,Custom,Async:suggestion

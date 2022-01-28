@@ -45,6 +45,7 @@ namespace SolastaCommunityExpansion
         //
 
         public bool AllowDynamicPowers { get; set; } = true;
+        public bool BugFixBestiarySorting { get; set; } = true;
         public bool BugFixButtonActivatorTriggerIssue { get; set; } = true;
         public bool BugFixCharacterPanelSorting { get; set; } = true;
         public bool BugFixExpandColorTables { get; set; } = true;
