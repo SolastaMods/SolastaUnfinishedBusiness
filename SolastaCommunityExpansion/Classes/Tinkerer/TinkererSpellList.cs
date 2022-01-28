@@ -14,11 +14,19 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.SetHasCantrips(true);
             Definition.SetMaxSpellLevel(5);
             Definition.SpellsByLevel.AddRange(
+                // melee weapon attack (booming blade/green flame blade)
+                // pull enemy towards you (thorn whip/lightning lure)
+                // I'm surrounded (thunderclap/sword burst)
                 BuildSpellList(0, AcidSplash, DancingLights, FireBolt, Guidance, Light, PoisonSpray, RayOfFrost, Resistance, ShockingGrasp, SpareTheDying),
+                // absorb elements, snare, catapult, tasha's caustic brew
                 BuildSpellList(1, CureWounds, DetectMagic, ExpeditiousRetreat, FaerieFire, FalseLife, FeatherFall, Grease, Identify, Jump, Longstrider),
+                // web, pyrotechnics, heat metal, enlarge/reduce
                 BuildSpellList(2, Aid, Blur, Darkvision, EnhanceAbility, Invisibility, LesserRestoration, Levitate, MagicWeapon, ProtectionFromPoison, SeeInvisibility, SpiderClimb),
+                // blink, elemental weapon, flame arrows
                 BuildSpellList(3, CreateFood, DispelMagic, Fly, Haste, ProtectionFromEnergy, Revivify),
+                // everything
                 BuildSpellList(4, FreedomOfMovement, Stoneskin),
+                // everything
                 BuildSpellList(5, GreaterRestoration)
             );
 
