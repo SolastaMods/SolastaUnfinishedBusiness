@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
     // TODO verify if this is still needed. It's original goal was to help filter the Infusion selection lists during level up properly.
     [HarmonyPatch(typeof(CharacterBuildingManager), "LevelUpCharacter")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CharacterBuildingManager_LevelUpClearActiveFeatures
+    internal static class CharacterBuildingManager_LevelUpCharacter
     {
         internal static void Postfix(CharacterBuildingManager __instance)
         {
