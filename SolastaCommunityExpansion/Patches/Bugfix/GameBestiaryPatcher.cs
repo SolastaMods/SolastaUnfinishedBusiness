@@ -16,11 +16,8 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
 
             switch (___sortCategory)
             {
-                case BestiaryDefinitions.SortCategory.Alphabetical:
-                case BestiaryDefinitions.SortCategory.UpdateDate:
-                case BestiaryDefinitions.SortCategory.KnowledgeLevel:
-                case BestiaryDefinitions.SortCategory.Size:
-                    // These are all know if level > 0
+                default:
+                    // All categories are known if level > 0 except CR.
                     // Move all level = 0 to the end and only sort level > 0
                     __result = leftLevel == 0 ? 1 : (rightLevel == 0 ? -1 : 0);
                     break;
