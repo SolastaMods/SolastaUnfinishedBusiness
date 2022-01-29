@@ -71,22 +71,11 @@ namespace SolastaCommunityExpansion.Spells
 
             if (invalidForm != null)
             {
-                Main.Log("BugFixCalmEmotionsOnAlly: Removing invalid form and applying correct form.");
-                effectForms.Remove(invalidForm);
-                effectForms.TryAdd(CECalmEmotionsImmunityEffectForm);
+                Main.Log("BugFixCalmEmotionsOnAlly: Fixing invalid form.");
+
+                invalidForm.ConditionForm.ConditionDefinition = 
+                    ConditionDefinitionCalmEmotionImmunitiesBuilder.ConditionCalmEmotionImmunities;
             }
-        }
-
-        private static readonly EffectForm CECalmEmotionsImmunityEffectForm = BuildCECalmEmotionsImmunityEffectForm();
-
-        private static EffectForm BuildCECalmEmotionsImmunityEffectForm()
-        {
-            return EffectFormBuilder
-                .Create()
-                .SetConditionForm(
-                    ConditionDefinitionCalmEmotionImmunitiesBuilder.ConditionCalmEmotionImmunities,
-                    ConditionForm.ConditionOperation.Add, false, false)
-                .Build();
         }
     }
 }
