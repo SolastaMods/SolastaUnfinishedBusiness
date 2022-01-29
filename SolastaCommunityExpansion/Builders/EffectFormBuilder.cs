@@ -142,7 +142,7 @@ namespace SolastaCommunityExpansion.Builders
             damageForm.DiceNumber = diceNumber;
             damageForm.DieType = dieType;
             damageForm.SetHealFromInflictedDamage(healFromInflictedDamage);
-            damageForm.SetField("damageBonusTrends", damageBonusTrends.ToList());
+            damageForm.DamageBonusTrends.SetRange(damageBonusTrends);
             effectForm.DamageForm = damageForm;
             return this;
         }
@@ -153,8 +153,8 @@ namespace SolastaCommunityExpansion.Builders
             effectForm.FormType = EffectForm.EffectFormType.Divination;
             DivinationForm divinationForm = new DivinationForm();
             divinationForm.SetDivinationType(divinationType);
-            divinationForm.SetField("creatureFamilies", creatureFamilies.ToList());
-            divinationForm.SetField("revealedTags", revealedTags.ToList());
+            divinationForm.CreatureFamilies.SetRange(creatureFamilies);
+            divinationForm.RevealedTags.SetRange(revealedTags);
             divinationForm.SetRangeCells(rangeCells);
             effectForm.SetDivinationForm(divinationForm);
             return this;
@@ -179,13 +179,18 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
+        public EffectFormBuilder SetItemPropertyForm(RuleDefinitions.ItemPropertyUsage usageLimitation, int useAmount, params FeatureUnlockByLevel[] featureBySlotLevel)
+        {
+            return SetItemPropertyForm(featureBySlotLevel.AsEnumerable(), usageLimitation, useAmount);
+        }
+
         public EffectFormBuilder SetItemPropertyForm(IEnumerable<FeatureUnlockByLevel> featureBySlotLevel, RuleDefinitions.ItemPropertyUsage usageLimitation, int useAmount)
         {
             effectForm.FormType = EffectForm.EffectFormType.ItemProperty;
             ItemPropertyForm itemForm = new ItemPropertyForm();
             itemForm.SetUsageLimitation(usageLimitation);
             itemForm.SetUseAmount(useAmount);
-            itemForm.SetField("featureBySlotLevel", featureBySlotLevel);
+            itemForm.FeatureBySlotLevel.SetRange(featureBySlotLevel);
             effectForm.SetItemPropertyForm(itemForm);
             return this;
         }
@@ -227,7 +232,7 @@ namespace SolastaCommunityExpansion.Builders
             ReviveForm reviveForm = new ReviveForm();
             reviveForm.SetMaxSecondsSinceDeath(secondsSinceDeath);
             reviveForm.SetReviveHitPoints(reviveHitPoints);
-            reviveForm.SetField("removedConditions", removedConditions.ToList());
+            reviveForm.RemovedConditions.SetRange(removedConditions);
 
             effectForm.SetReviveForm(reviveForm);
             return this;

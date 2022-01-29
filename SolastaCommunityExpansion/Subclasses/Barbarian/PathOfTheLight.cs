@@ -658,7 +658,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
                         definition.Features.Add(illuminatingStrikeFeature.AddToDB());
 
-                        definition.SetField("specialInterruptions", new List<RuleDefinitions.ConditionInterruption> { RuleDefinitions.ConditionInterruption.RageStop });
+                        definition.SpecialInterruptions.SetRange(RuleDefinitions.ConditionInterruption.RageStop);
                     });
 
                 var enableIlluminatingStrike = new EffectForm

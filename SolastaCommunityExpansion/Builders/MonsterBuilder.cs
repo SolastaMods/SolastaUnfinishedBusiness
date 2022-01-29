@@ -363,6 +363,17 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
+        public MonsterBuilder SetSavingThrowScores(params (string attributeName, int bonus)[] savingThrowScores)
+        {
+            Definition.SavingThrowScores.Clear();
+            return AddSavingThrowScores(savingThrowScores.Select(s => new MonsterSavingThrowProficiency(s.attributeName, s.bonus)).AsEnumerable());
+        }
+
+        public MonsterBuilder AddSavingThrowScores(params (string attributeName, int bonus)[] savingThrowScores)
+        {
+            return AddSavingThrowScores(savingThrowScores.Select(s => new MonsterSavingThrowProficiency(s.attributeName, s.bonus)).AsEnumerable());
+        }
+
         public MonsterBuilder AddSavingThrowScores(params MonsterSavingThrowProficiency[] savingThrowScores)
         {
             return AddSavingThrowScores(savingThrowScores.AsEnumerable());

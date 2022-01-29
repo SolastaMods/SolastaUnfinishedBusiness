@@ -272,7 +272,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             public FeatureDefinitionAutoPreparedSpellsBuilder(string name, string guid, IEnumerable<AutoPreparedSpellsGroup> autospelllists,
                 CharacterClassDefinition characterclass, GuiPresentation guiPresentation) : base(name, guid)
             {
-                Definition.SetField("autoPreparedSpellsGroups", new List<AutoPreparedSpellsGroup>(autospelllists));
+                Definition.AutoPreparedSpellsGroups.SetRange(autospelllists);
                 Definition.SetSpellcastingClass(characterclass);
                 Definition.SetGuiPresentation(guiPresentation);
             }

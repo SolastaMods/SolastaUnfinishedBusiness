@@ -195,7 +195,7 @@ namespace SolastaCommunityExpansion.Builders
             effect.SetSavingThrowDifficultyAbility(savingThrowDifficultyAbility);
             effect.FixedSavingThrowDifficultyClass = fixedSavingThrowDifficultyClass;
             effect.AdvantageForEnemies = advantageForEnemies;
-            effect.SetField("savingThrowAffinitiesBySense", savingThrowAffinitiesBySense.ToList());
+            effect.SavingThrowAffinitiesBySense.SetRange(savingThrowAffinitiesBySense);
             return this;
         }
 

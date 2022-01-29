@@ -111,7 +111,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             public FeatureDefinitionAutoPreparedSpellsBuilder(string name, string guid, List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> autospelllists,
             CharacterClassDefinition characterclass, GuiPresentation guiPresentation) : base(name, guid)
             {
-                Definition.SetField("autoPreparedSpellsGroups", autospelllists);
+                Definition.AutoPreparedSpellsGroups.SetRange(autospelllists);
                 Definition.SetSpellcastingClass(characterclass);
                 Definition.SetGuiPresentation(guiPresentation);
             }

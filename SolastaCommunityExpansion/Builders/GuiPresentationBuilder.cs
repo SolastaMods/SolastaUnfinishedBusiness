@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Builders
     {
         private readonly GuiPresentation guiPresentation;
 
-        public GuiPresentationBuilder(string description = null, string title = null)
+        public GuiPresentationBuilder(string description = null, string title = null, AssetReferenceSprite sprite = null)
         {
             guiPresentation = new GuiPresentation
             {
@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Builders
                 Title = title ?? string.Empty
             };
 
-            SetSpriteReference(new AssetReferenceSprite(string.Empty));
+            SetSpriteReference(sprite ?? new AssetReferenceSprite(string.Empty));
         }
 
         public GuiPresentationBuilder SetColor(Color color)
@@ -48,9 +48,9 @@ namespace SolastaCommunityExpansion.Builders
             return guiPresentation;
         }
 
-        public static GuiPresentation Build(string title, string description)
+        public static GuiPresentation Build(string title, string description, AssetReferenceSprite sprite = null)
         {
-            return new GuiPresentationBuilder(description, title).Build();
+            return new GuiPresentationBuilder(description, title, sprite).Build();
         }
     }
 }
