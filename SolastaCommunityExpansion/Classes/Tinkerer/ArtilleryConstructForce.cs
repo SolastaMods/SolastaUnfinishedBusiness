@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using HarmonyLib;
+﻿using HarmonyLib;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
@@ -72,15 +72,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             // Definition.Features.Add(ForceArtilleryBuilder.ForceArtillery);
 
-            Definition.AttackIterations.Clear();
-
-            MonsterAttackIteration monsterAttackIteration = new MonsterAttackIteration();
-
-            Traverse.Create(monsterAttackIteration).Field("monsterAttackDefinition").SetValue(ForceArtilleryAttackBuilder.ForceArtilleryAttack);
-
-            Traverse.Create(monsterAttackIteration).Field("number").SetValue(1);
-
-            Definition.AttackIterations.AddRange(new List<MonsterAttackIteration> { monsterAttackIteration });
+            Definition.AttackIterations.SetRange(new MonsterAttackIteration(ForceArtilleryAttackBuilder.ForceArtilleryAttack, 1));
 
             Definition.CreatureTags.Add("ScalingTinkererArtilleryConstruct");
         }
