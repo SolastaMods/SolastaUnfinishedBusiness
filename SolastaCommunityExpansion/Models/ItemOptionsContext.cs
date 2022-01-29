@@ -4,7 +4,9 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using UnityEngine.AddressableAssets;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionCharacterPresentations;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaModApi.DatabaseHelper.ItemDefinitions;
 using static SolastaModApi.DatabaseHelper.MerchantDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
@@ -322,6 +324,42 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
+        private static void FixWandOfFear()
+        {
+            if (!Main.Settings.BugFixWandOfFear)
+            {
+                return;
+            }
+
+            WandFear.UsableDeviceDescription.SetSaveDC(25); // for testing
+
+            // Update PowerFunctionWandFearCone
+            var fearCone = PowerFunctionWandFearCone.EffectDescription;
+            fearCone.TargetSide = RuleDefinitions.Side.All;
+            fearCone.DurationType = RuleDefinitions.DurationType.Minute;
+            fearCone.DurationParameter = 1;
+
+            var frightenedConeForm = fearCone.GetFirstFormOfType(EffectForm.EffectFormType.Condition);
+            if (frightenedConeForm != null)
+            {
+                frightenedConeForm.CanSaveToCancel = true;
+                frightenedConeForm.SaveOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn;
+                frightenedConeForm.ConditionForm.ConditionDefinition = ConditionFrightenedFear;
+            }
+
+            // Update PowerFunctionWandFearCommand
+            var fearCommand = PowerFunctionWandFearCommand.EffectDescription;
+            fearCommand.TargetSide = RuleDefinitions.Side.All;
+            fearCommand.DurationType = RuleDefinitions.DurationType.Round;
+            fearCommand.DurationParameter = 1;
+
+            var frightenedCommandForm = fearCone.GetFirstFormOfType(EffectForm.EffectFormType.Condition);
+            if (frightenedCommandForm != null)
+            {
+                frightenedCommandForm.ConditionForm.ConditionDefinition = ConditionFrightenedFear;
+            }
+        }
+
         internal static void Load()
         {
             LoadClothingGorimStock();
@@ -336,6 +374,7 @@ namespace SolastaCommunityExpansion.Models
             SwitchRestockCircleOfDanantar();
             SwitchRestockTowerOfKnowledge();
             SwitchUniversalSylvanArmor();
+            FixWandOfFear();
         }
     }
 }
