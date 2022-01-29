@@ -167,6 +167,7 @@ namespace SolastaCommunityExpansion
         public bool FullyControlConjurations { get; set; }
         public bool DismissControlledConjurationsWhenDeliberatelyDropConcentration { get; set; }
         public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
+        public bool BugFixWandOfFear { get; set; } = true;
 
         // House
         public bool AllowAnyClassToWearSylvanArmor { get; set; }
