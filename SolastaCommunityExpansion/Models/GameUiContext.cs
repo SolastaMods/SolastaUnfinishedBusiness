@@ -8,21 +8,24 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class GameUiContext
     {
-        internal static readonly GadgetBlueprint[] ExitsWithGizmos = new GadgetBlueprint[]
+        private const int EXITS_WITH_GIZMOS = 2;
+
+        private static readonly GadgetBlueprint[] GadgetExits = new GadgetBlueprint[]
         {
+            VirtualExit,
+            VirtualExitMultiple,
             Exit,
             ExitMultiple,
             TeleporterIndividual,
             TeleporterParty,
         };
 
-        internal static readonly GadgetBlueprint[] ExitsWithoutGizmos = new GadgetBlueprint[]
-        {
-            VirtualExit,
-            VirtualExitMultiple,
-        };
-
         private static bool EnableDebugCamera { get; set; }
+
+        internal static bool IsGadgetExit(GadgetBlueprint gadgetBlueprint, bool onlyWithGizmos = false)
+        {
+            return System.Array.IndexOf(GadgetExits, gadgetBlueprint) >= (onlyWithGizmos ? EXITS_WITH_GIZMOS : 0);
+        }
 
         internal static void Load()
         {
