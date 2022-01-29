@@ -42,7 +42,7 @@ namespace SolastaCommunityExpansion.FightingStyles
                 Definition.SetAdditionalDamageType(additionalDamageType);
                 Definition.SetSpecificDamageType(specificDamageType);
                 Definition.SetDamageAdvancement(damageAdvancement);
-                Definition.SetField("diceByRankTable", diceByRankTable);
+                Definition.DiceByRankTable.SetRange(diceByRankTable);
                 Definition.SetDamageDieType(damageDieType);
 
                 Definition.SetHasSavingThrow(hasSavingThrow);

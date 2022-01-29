@@ -695,40 +695,13 @@ namespace SolastaCommunityExpansion.Spells
                 AttributeWisdom,
                 AttributeCharisma);
 
-            MonsterSavingThrowProficiency StrSave = new MonsterSavingThrowProficiency();
-            StrSave.SetField("abilityScoreName", AttributeDefinitions.Strength);
-            StrSave.SetField("bonus", SavingThrowStrength);
-
-            MonsterSavingThrowProficiency DexSave = new MonsterSavingThrowProficiency();
-            DexSave.SetField("abilityScoreName", AttributeDefinitions.Dexterity);
-            DexSave.SetField("bonus", SavingThrowDexterity);
-
-            MonsterSavingThrowProficiency ConSave = new MonsterSavingThrowProficiency();
-            ConSave.SetField("abilityScoreName", AttributeDefinitions.Constitution);
-            ConSave.SetField("bonus", SavingThrowConstitution);
-
-            MonsterSavingThrowProficiency IntSave = new MonsterSavingThrowProficiency();
-            IntSave.SetField("abilityScoreName", AttributeDefinitions.Intelligence);
-            IntSave.SetField("bonus", SavingThrowIntelligence);
-
-            MonsterSavingThrowProficiency WisSave = new MonsterSavingThrowProficiency();
-            WisSave.SetField("abilityScoreName", AttributeDefinitions.Wisdom);
-            WisSave.SetField("bonus", SavingThrowWisdom);
-
-            MonsterSavingThrowProficiency ChaSave = new MonsterSavingThrowProficiency();
-            ChaSave.SetField("abilityScoreName", AttributeDefinitions.Charisma);
-            ChaSave.SetField("bonus", SavingThrowCharisma);
-
-            couatlBuilder.ClearSavingThrowScores();
-            couatlBuilder.AddSavingThrowScores(new List<MonsterSavingThrowProficiency>()
-            {
-                StrSave,
-                DexSave,
-                ConSave,
-                IntSave,
-                WisSave,
-                ChaSave
-            });
+            couatlBuilder.SetSavingThrowScores(
+                (AttributeDefinitions.Strength, SavingThrowStrength),
+                (AttributeDefinitions.Dexterity, SavingThrowDexterity),
+                (AttributeDefinitions.Constitution, SavingThrowConstitution),
+                (AttributeDefinitions.Intelligence, SavingThrowIntelligence),
+                (AttributeDefinitions.Wisdom, SavingThrowWisdom),
+                (AttributeDefinitions.Charisma, SavingThrowCharisma));
 
             couatlBuilder.ClearSkillScores();
             couatlBuilder.AddSkillScores(SkillScores);
