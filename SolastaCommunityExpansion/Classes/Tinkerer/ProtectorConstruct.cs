@@ -379,15 +379,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.Features.Add(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinityFightingStyleProtection);
             Definition.Features.Add(SelfRepairBuilder.SelfRepair);
 
-            Definition.AttackIterations.Clear();
-
-            MonsterAttackIteration monsterAttackIteration = new MonsterAttackIteration();
-
-            Traverse.Create(monsterAttackIteration).Field("monsterAttackDefinition").SetValue(ProtectorConstructAttackBuilder.ProtectorConstructAttack);
-
-            Traverse.Create(monsterAttackIteration).Field("number").SetValue(1);
-
-            Definition.AttackIterations.AddRange(new List<MonsterAttackIteration> { monsterAttackIteration });
+            Definition.AttackIterations.SetRange(new MonsterAttackIteration(ProtectorConstructAttackBuilder.ProtectorConstructAttack, 1));
         }
 
         public static MonsterDefinition CreateAndAddToDB(string name, string guid)
