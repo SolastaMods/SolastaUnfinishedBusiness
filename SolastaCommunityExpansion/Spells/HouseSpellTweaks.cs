@@ -61,9 +61,7 @@ namespace SolastaCommunityExpansion.Spells
                 return;
             }
 
-            var effectForms = CalmEmotionsOnAlly.EffectDescription.EffectForms;
-
-            var invalidForm = effectForms
+            var invalidForm = CalmEmotionsOnAlly.EffectDescription.EffectForms
                 .Where(ef => ef.FormType == EffectForm.EffectFormType.Condition)
                 .Where(ef => ef.ConditionForm.Operation == ConditionForm.ConditionOperation.Add)
                 .Where(ef => ef.ConditionForm.ConditionsList.Contains(ConditionCharmed))
@@ -73,7 +71,7 @@ namespace SolastaCommunityExpansion.Spells
             {
                 Main.Log("BugFixCalmEmotionsOnAlly: Fixing invalid form.");
 
-                invalidForm.ConditionForm.ConditionDefinition = 
+                invalidForm.ConditionForm.ConditionDefinition =
                     ConditionDefinitionCalmEmotionImmunitiesBuilder.ConditionCalmEmotionImmunities;
             }
         }
