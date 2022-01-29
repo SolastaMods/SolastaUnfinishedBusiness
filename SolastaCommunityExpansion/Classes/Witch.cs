@@ -608,7 +608,7 @@ namespace SolastaCommunityExpansion.Classes
             //+ Charm: 60 feet WIS save, Charm Person/Monster effect on fail
             // Dire Familiar: for 1 minute, Familiar gains double witch level in hp and CHA mod bonus on dmg rolls 
             //                can cast other maledictions while active -> This should be a power or lvl 7 Improved Familiar feature?
-            // Disorient: 60 feet CON save, -1d6 on attack rolls on fail
+            //+ Disorient: 60 feet CON save, -1d6 on attack rolls on fail
             // Doomward: 60 feet friendly creature, Death Ward effect, cannot target that creature again until short or long rest (i.e. add a Doomward fatigue debuff?)
             // Duplicity: single mirror image effect, odd roll the iamge image abosrbs the hit and disappears
             //+ Evil Eye: 60 feet WIS save, frightened on fail
@@ -722,6 +722,84 @@ namespace SolastaCommunityExpansion.Classes
                             "Class/&WitchMaledictionCharmDescription",
                             "Class/&WitchMaledictionCharmTitle").Build()
                             .SetSpriteReference(DatabaseHelper.SpellDefinitions.CharmPerson.GuiPresentation.SpriteReference),
+                    true)
+                    .AddToDB();
+
+
+            EffectForm disorientEffectForm = new EffectForm
+            {
+                FormType = EffectForm.EffectFormType.Condition
+            };
+            ConditionForm disorientConditionForm = new ConditionForm();
+            disorientEffectForm.SetConditionForm(disorientConditionForm);
+            disorientEffectForm.SetCreatedByCharacter(true);
+
+            var disorientConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
+                    DatabaseHelper.ConditionDefinitions.ConditionBaned,
+                    "ConditionDisorient",
+                    GuidHelper.Create(WITCH_BASE_GUID, "ConditionDisorient").ToString(),
+                    new GuiPresentationBuilder(
+                            "Condition/&DisorientDescription",
+                            "Condition/&DisorientTitle")
+                            .SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionBaned.GuiPresentation.SpriteReference)
+                            .Build())
+                    .AddToDB();
+            disorientConditionDefinition.SetConditionType(RuleDefinitions.ConditionType.Detrimental);
+            disorientConditionDefinition.SetDurationParameter(1);
+            disorientConditionDefinition.SetDurationType(RuleDefinitions.DurationType.Round);
+            disorientConditionDefinition.RecurrentEffectForms.Clear();
+            disorientConditionDefinition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            disorientConditionDefinition.ConditionTags.Add("Malediction");
+            disorientConditionDefinition.Features.Clear();
+
+            // I cannot set the "NullifiedBySenses" list and FeatureDefinitionBuilder doesn't have a copy original param
+            // Creating a CombatAffinityBuilder to have a copyFrom param until FeatureDefinitionBuilder has one
+            var disorientCombatAffinity = new FeatureDefinitionCombatAffinityBuilder(
+                    DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityBaned,
+                    "CombatAffinityDisoriented",
+                    GuidHelper.Create(WITCH_BASE_GUID, "CombatAffinityDisoriented").ToString(),
+                    new GuiPresentationBuilder(
+                            "Modifier/&DisorientDescription",
+                            "Modifier/&DisorientTitle")
+                            .SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionBaned.GuiPresentation.SpriteReference)
+                            .Build())
+                    .AddToDB();
+            disorientCombatAffinity.SetMyAttackModifierDieType(RuleDefinitions.DieType.D6);
+
+            disorientConditionDefinition.Features.Add(disorientCombatAffinity);
+            disorientEffectForm.ConditionForm.SetConditionDefinition(disorientConditionDefinition);
+
+            var disorientEffectDescription = new EffectDescription();
+            disorientEffectDescription.Copy(DatabaseHelper.SpellDefinitions.Bane.EffectDescription);
+            disorientEffectDescription.SetDurationParameter(1);
+            disorientEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
+            disorientEffectDescription.SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            disorientEffectDescription.SetHasSavingThrow(true);
+            disorientEffectDescription.SetRangeParameter(12);
+            disorientEffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
+            disorientEffectDescription.SetSavingThrowAbility(AttributeDefinitions.Constitution);
+            disorientEffectDescription.SetTargetParameter(1);
+            disorientEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
+            disorientEffectDescription.EffectForms.Clear();
+            disorientEffectDescription.EffectForms.Add(disorientEffectForm);
+
+            var disorient = new FeatureDefinitionPowerBuilder(
+                    "WitchMaledictionDisorient",
+                    GuidHelper.Create(WITCH_BASE_GUID, "WitchMaledictionDisorient").ToString(),
+                    1,
+                    RuleDefinitions.UsesDetermination.Fixed,
+                    AttributeDefinitions.Charisma,
+                    RuleDefinitions.ActivationTime.Action,
+                    0,
+                    RuleDefinitions.RechargeRate.AtWill,
+                    false,
+                    false,
+                    AttributeDefinitions.Charisma,
+                    disorientEffectDescription,
+                    new GuiPresentationBuilder(
+                            "Class/&WitchMaledictionDisorientDescription",
+                            "Class/&WitchMaledictionDisorientTitle").Build()
+                            .SetSpriteReference(DatabaseHelper.SpellDefinitions.Bane.GuiPresentation.SpriteReference),
                     true)
                     .AddToDB();
 
@@ -916,6 +994,7 @@ namespace SolastaCommunityExpansion.Classes
                     .AddFeature(abate)
                     .AddFeature(apathy)
                     .AddFeature(charm)
+                    .AddFeature(disorient)
                     .AddFeature(evileye)
                     .AddFeature(obfuscate)
                     .AddFeature(pox)

@@ -25,6 +25,8 @@ Class/&WitchMaledictionApathyDescription	As an action, choose one creature you c
 Class/&WitchMaledictionApathyTitle	Apathy Malediction
 Class/&WitchMaledictionCharmDescription	As an action, choose one creature you can see within 60 feet to make a Wisdom saving throw. On a failed save, the creature is charmed by you until the end of your next turn.
 Class/&WitchMaledictionCharmTitle	Charm Malediction
+Class/&WitchMaledictionDisorientDescription	As an action, choose one creature you can see within 60 feet to make a Constitution saving throw. On a failed save, whenever this target makes an attack roll before the end of your next turn, it must roll a d6 and subtract the number rolled from the attack roll.
+Class/&WitchMaledictionDisorientTitle	Disorient Malediction
 Class/&WitchMaledictionEvilEyeDescription	As an action, choose one creature you can see that can see you within 60 feet to make a Wisdom saving throw. On a failed save, the creature is frightened of you until the end of your next turn.
 Class/&WitchMaledictionEvilEyeTitle	Evil Eye Malediction
 Class/&WitchMaledictionObfuscateDescription	As an action, you create a 20-foot radius sphere of fog centered on yourself. The sphere spreads around corners, and its area is heavily obscured. This effect lasts until the end of your next turn or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it.
@@ -60,6 +62,8 @@ Condition/&ConditionImprovedBarkWardTitle	Improved Bark Ward
 Condition/&ConditionImprovedBarkWardDescription	The spirits of the forest cause 2d8 piercing damage to melee attackers.
 Condition/&ConditionSuperiorBarkWardTitle	Superior Bark Ward
 Condition/&ConditionSuperiorBarkWardDescription	The spirits of the forest grant you poison immunity, and cause 3d8 piercing damage to melee attackers.
+Condition/&DisorientDescription	This creature feels disoriented and its accuracy is reduced.
+Condition/&DisorientTitle	Disoriented
 Condition/&RuinedDescription	This creature's defence is reduced.
 Condition/&RuinedTitle	Ruined
 Equipment/&ArcaneStaffDescription	This staff is inscribed with magical writing and can be used as a focus for Arcane spell casting.
@@ -487,6 +491,8 @@ Message/&SpawnCustomEncounterDescription	Spawn encounter at coordinates ({0}, {1
 Message/&SpawnCustomEncounterTitle	Encounter
 Message/&TeleportPartyDescription	Teleport party to coordinates ({0}, {1})?\nYou might break quests or maps if you teleport to an undiscovered place
 Message/&TeleportPartyTitle	Teleport
+Modifier/&DisorientDescription	-1d6 to attack rolls
+Modifier/&DisorientTitle	Disoriented
 Modifier/&RuinedDescription	-3 to Armor Class
 Modifier/&RuinedTitle	Ruined
 Power/&HelpActionDescription	You can aid a friendly creature in attacking a creature within 5 feet of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
