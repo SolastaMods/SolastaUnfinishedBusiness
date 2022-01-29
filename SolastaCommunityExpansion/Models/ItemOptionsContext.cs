@@ -331,8 +331,6 @@ namespace SolastaCommunityExpansion.Models
                 return;
             }
 
-            WandFear.UsableDeviceDescription.SetSaveDC(25); // for testing
-
             // Update PowerFunctionWandFearCone
             var fearCone = PowerFunctionWandFearCone.EffectDescription;
             fearCone.TargetSide = RuleDefinitions.Side.All;
