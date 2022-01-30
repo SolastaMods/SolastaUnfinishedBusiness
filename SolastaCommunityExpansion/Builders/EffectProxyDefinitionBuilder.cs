@@ -22,12 +22,6 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetField("additionalFeatures", new List<FeatureDefinition>());
         }
 
-        public EffectProxyDefinitionBuilder SetGuiPresentation(GuiPresentation gui)
-        {
-            Definition.SetGuiPresentation(gui);
-            return this;
-        }
-
         public EffectProxyDefinitionBuilder SetAttack(bool canAttack, RuleDefinitions.ProxyAttackMethod attackMethod,
             RuleDefinitions.DieType damageDie, string damageType)
         {

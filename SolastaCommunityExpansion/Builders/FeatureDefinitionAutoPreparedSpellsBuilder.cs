@@ -44,12 +44,6 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public FeatureDefinitionAutoPreparedSpellsBuilder SetGuiPresentation(GuiPresentation guiPresentation)
-        {
-            Definition.SetGuiPresentation(guiPresentation);
-            return this;
-        }
-
         public FeatureDefinitionAutoPreparedSpellsBuilder SetCharacterClass(CharacterClassDefinition castingClass)
         {
             Definition.SetSpellcastingClass(castingClass);

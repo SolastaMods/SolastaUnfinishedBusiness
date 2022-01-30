@@ -30,12 +30,6 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public FeatureDefinitionAdditionalActionBuilder SetGuiPresentation(GuiPresentation guiPresentation)
-        {
-            Definition.SetGuiPresentation(guiPresentation);
-            return this;
-        }
-
         public FeatureDefinitionAdditionalActionBuilder SetActionType(ActionDefinitions.ActionType actionType)
         {
             Definition.SetActionType(actionType);

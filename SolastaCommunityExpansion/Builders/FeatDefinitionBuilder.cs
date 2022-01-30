@@ -57,12 +57,6 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public FeatDefinitionBuilder SetGuiPresentation(GuiPresentation guiPresentation)
-        {
-            Definition.SetGuiPresentation(guiPresentation);
-            return this;
-        }
-
         public FeatDefinitionBuilder SetAbilityScorePrerequisite(string abilityScore, int value)
         {
             Definition.SetMinimalAbilityScorePrerequisite(true);

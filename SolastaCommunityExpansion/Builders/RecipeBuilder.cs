@@ -66,11 +66,5 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetSpellDefinition(spellDefinition);
             return this;
         }
-
-        public RecipeBuilder SetGuiPresentation(GuiPresentation gui)
-        {
-            Definition.SetGuiPresentation(gui);
-            return this;
-        }
     }
 }

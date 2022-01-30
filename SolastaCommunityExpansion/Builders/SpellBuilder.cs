@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi;
 using SolastaModApi.Extensions;
@@ -14,6 +15,11 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         public SpellBuilder(SpellDefinition original, string name, string guid) : base(original, name, guid)
+        {
+            InitializeFields();
+        }
+
+        public SpellBuilder(SpellDefinition original, string name, Guid guidNamespace) : base(original, name, guidNamespace, null)
         {
             InitializeFields();
         }
@@ -115,12 +121,6 @@ namespace SolastaCommunityExpansion.Builders
         public SpellBuilder SetConcentrationAction(ActionDefinitions.ActionParameter concentrationAction)
         {
             Definition.SetConcentrationAction(concentrationAction);
-            return this;
-        }
-
-        public SpellBuilder SetGuiPresentation(GuiPresentation gui)
-        {
-            Definition.SetGuiPresentation(gui);
             return this;
         }
     }

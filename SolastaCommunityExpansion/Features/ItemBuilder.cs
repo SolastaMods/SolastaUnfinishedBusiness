@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -33,11 +34,6 @@ namespace SolastaCommunityExpansion.Features
             {
                 Definition.GuiPresentation.Title = title;
                 Definition.GuiPresentation.Description = description;
-            }
-
-            public void SetGuiPresentation(GuiPresentation guiPresentation)
-            {
-                Definition.SetGuiPresentation(guiPresentation);
             }
 
             public void SetGold(int gold)

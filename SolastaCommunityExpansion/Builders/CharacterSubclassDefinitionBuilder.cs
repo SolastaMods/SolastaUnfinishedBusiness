@@ -13,12 +13,6 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public CharacterSubclassDefinitionBuilder SetGuiPresentation(GuiPresentation gui)
-        {
-            Definition.SetGuiPresentation(gui);
-            return this;
-        }
-
         public CharacterSubclassDefinitionBuilder AddPersonality(PersonalityFlagDefinition personalityType, int weight)
         {
             Definition.PersonalityFlagOccurences.Add(

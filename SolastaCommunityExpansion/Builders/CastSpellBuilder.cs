@@ -34,12 +34,6 @@ namespace SolastaCommunityExpansion.Builders
             SetScribedZero();
         }
 
-        public CastSpellBuilder SetGuiPresentation(GuiPresentation gui)
-        {
-            Definition.SetGuiPresentation(gui);
-            return this;
-        }
-
         public CastSpellBuilder SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin origin)
         {
             Definition.SetSpellCastingOrigin(origin);
