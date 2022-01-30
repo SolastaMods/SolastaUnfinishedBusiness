@@ -5,6 +5,8 @@ using SolastaCommunityExpansion.Features;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using static SolastaModApi.DatabaseHelper.SpellDefinitions;
+using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 
 namespace SolastaCommunityExpansion.Spells
 {
@@ -41,21 +43,28 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildEldritchOrb()
         {
-            var spellBuilder = new SpellBuilder(
-                    DatabaseHelper.SpellDefinitions.Fireball,
-                    "EldritchOrb",
-                    GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "EldritchOrb").ToString());
+#if false
+            // Direct style - set name and guid
+            var spellBuilder = new SpellBuilder(Fireball, "EldritchOrb", GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "EldritchOrb").ToString());
+#else
+            // Generate style - set name and namespace guid
+            var spellBuilder = new SpellBuilder(Fireball, "EldritchOrb", BAZOU_SPELLS_BASE_GUID);
+#endif
 
             spellBuilder.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation);
             spellBuilder.SetMaterialComponent(RuleDefinitions.MaterialComponentType.None);
             spellBuilder.SetSomaticComponent(true);
             spellBuilder.SetVerboseComponent(true);
             spellBuilder.SetSpellLevel(0);
-            spellBuilder.SetGuiPresentation(
-                    new GuiPresentationBuilder(
-                            "Spell/&EldritchOrbDescription",
-                            "Spell/&EldritchOrbTitle").Build()
-                            .SetSpriteReference(DatabaseHelper.SpellDefinitions.Shine.GuiPresentation.SpriteReference));
+
+#if false
+            // Direct style - set title & description
+            spellBuilder.SetGuiPresentation("Spell/&EldritchOrbDescription", "Spell/&EldritchOrbTitle", Shine.GuiPresentation.SpriteReference);
+#else
+            // Generate style - set name & prefix 
+            spellBuilder.SetGuiPresentation("EldritchOrb", "Spell", Shine.GuiPresentation.SpriteReference);
+#endif
+
 
             var spell = spellBuilder.AddToDB();
 
@@ -148,10 +157,7 @@ namespace SolastaCommunityExpansion.Spells
 
             var familiarMonster = familiarMonsterBuilder.AddToDB();
 
-            var spellBuilder = new SpellBuilder(
-                    DatabaseHelper.SpellDefinitions.Fireball,
-                    "FindFamiliar",
-                    GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "FindFamiliar").ToString());
+            var spellBuilder = new SpellBuilder(Fireball, "FindFamiliar", BAZOU_SPELLS_BASE_GUID);
 
             spellBuilder.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolConjuration);
             spellBuilder.SetMaterialComponent(RuleDefinitions.MaterialComponentType.Specific);
@@ -161,17 +167,13 @@ namespace SolastaCommunityExpansion.Spells
             spellBuilder.SetCastingTime(RuleDefinitions.ActivationTime.Hours1);
             // BUG: Unable to have 70 minutes ritual casting time... if set to 10 minutes, it really only takes 10 minutes, instead of 70
             spellBuilder.SetRitualCasting(RuleDefinitions.ActivationTime.Hours1);
-            spellBuilder.SetGuiPresentation(
-                    new GuiPresentationBuilder(
-                            "Spell/&FindFamiliarDescription",
-                            "Spell/&FindFamiliarTitle").Build()
-                            .SetSpriteReference(DatabaseHelper.SpellDefinitions.AnimalFriendship.GuiPresentation.SpriteReference));
+            spellBuilder.SetGuiPresentation("Spell/&FindFamiliarDescription", "Spell/&FindFamiliarTitle", AnimalFriendship.GuiPresentation.SpriteReference);
 
             var spell = spellBuilder.AddToDB();
 
             spell.SetUniqueInstance(true);
 
-            spell.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.ConjureAnimalsOneBeast.EffectDescription);
+            spell.EffectDescription.Copy(ConjureAnimalsOneBeast.EffectDescription);
             spell.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
             spell.EffectDescription.SetRangeParameter(2);
             spell.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Permanent);
@@ -194,10 +196,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildFrenzy()
         {
-            var spellBuilder = new SpellBuilder(
-                    DatabaseHelper.SpellDefinitions.Confusion,
-                    "Frenzy",
-                    GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "Frenzy").ToString());
+            var spellBuilder = new SpellBuilder(Confusion, "Frenzy", BAZOU_SPELLS_BASE_GUID);
 
             spellBuilder.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEnchantment);
             spellBuilder.SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane);
@@ -205,11 +204,7 @@ namespace SolastaCommunityExpansion.Spells
             spellBuilder.SetVerboseComponent(true);
             spellBuilder.SetSpellLevel(6);
             spellBuilder.SetConcentration();
-            spellBuilder.SetGuiPresentation(
-                    new GuiPresentationBuilder(
-                            "Spell/&FrenzyDescription",
-                            "Spell/&FrenzyTitle").Build()
-                            .SetSpriteReference(DatabaseHelper.SpellDefinitions.Confusion.GuiPresentation.SpriteReference));
+            spellBuilder.SetGuiPresentation("Spell/&FrenzyDescription", "Spell/&FrenzyTitle", Confusion.GuiPresentation.SpriteReference);
 
             var spell = spellBuilder.AddToDB();
 
@@ -225,13 +220,10 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
 
             var conditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                    DatabaseHelper.ConditionDefinitions.ConditionConfused,
+                    ConditionConfused,
                     "ConditionFrenzied",
                     GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "ConditionFrenzied").ToString(),
-                    new GuiPresentationBuilder(
-                            "Condition/&FrenziedDescription",
-                            "Condition/&FrenziedTitle").Build()
-                            .SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionConfusedAttack.GuiPresentation.SpriteReference))
+                    GuiPresentationBuilder.Build("Condition/&FrenziedDescription", "Condition/&FrenziedTitle", ConditionConfusedAttack.GuiPresentation.SpriteReference))
                     .AddToDB();
 
             conditionDefinition.Features.Clear();
@@ -249,7 +241,7 @@ namespace SolastaCommunityExpansion.Spells
             behaviorMode.SetBehaviour(RuleDefinitions.RandomBehaviour.ConditionDuringTurn);
             // This condition seems to only attack a creature adjacent to where it is. 
             // It will not make the affected creature move towards another creature... :(
-            behaviorMode.SetCondition(DatabaseHelper.ConditionDefinitions.ConditionConfusedAttack);
+            behaviorMode.SetCondition(ConditionConfusedAttack);
             behaviorMode.SetWeight(10);
 
             actionAffinity.RandomBehaviourOptions.Add(behaviorMode);
@@ -262,21 +254,14 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildMinorLifesteal()
         {
-            var spellBuilder = new SpellBuilder(
-                    DatabaseHelper.SpellDefinitions.VampiricTouch,
-                    "MinorLifesteal",
-                    GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "MinorLifesteal").ToString());
+            var spellBuilder = new SpellBuilder(VampiricTouch, "MinorLifesteal", BAZOU_SPELLS_BASE_GUID);
 
             spellBuilder.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolNecromancy);
             spellBuilder.SetMaterialComponent(RuleDefinitions.MaterialComponentType.None);
             spellBuilder.SetSomaticComponent(true);
             spellBuilder.SetVerboseComponent(false);
             spellBuilder.SetSpellLevel(0);
-            spellBuilder.SetGuiPresentation(
-                    new GuiPresentationBuilder(
-                            "Spell/&MinorLifestealDescription",
-                            "Spell/&MinorLifestealTitle").Build()
-                            .SetSpriteReference(DatabaseHelper.SpellDefinitions.VampiricTouch.GuiPresentation.SpriteReference));
+            spellBuilder.SetGuiPresentation("Spell/&MinorLifestealDescription", "Spell/&MinorLifestealTitle", VampiricTouch.GuiPresentation.SpriteReference);
 
             var spell = spellBuilder.AddToDB();
 
@@ -309,10 +294,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildPetalStorm()
         {
-            var spellBuilder = new SpellBuilder(
-                    DatabaseHelper.SpellDefinitions.InsectPlague,
-                    "PetalStorm",
-                    GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "PetalStorm").ToString());
+            var spellBuilder = new SpellBuilder(InsectPlague, "PetalStorm", BAZOU_SPELLS_BASE_GUID);
 
             spellBuilder.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolConjuration);
             spellBuilder.SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane);
@@ -320,11 +302,7 @@ namespace SolastaCommunityExpansion.Spells
             spellBuilder.SetVerboseComponent(true);
             spellBuilder.SetSpellLevel(2);
             spellBuilder.SetConcentration();
-            spellBuilder.SetGuiPresentation(
-                    new GuiPresentationBuilder(
-                            "Spell/&PetalStormDescription",
-                            "Spell/&PetalStormTitle").Build()
-                            .SetSpriteReference(DatabaseHelper.SpellDefinitions.WindWall.GuiPresentation.SpriteReference));
+            spellBuilder.SetGuiPresentation("Spell/&PetalStormDescription", "Spell/&PetalStormTitle", WindWall.GuiPresentation.SpriteReference);
 
             var spell = spellBuilder.AddToDB();
 
@@ -357,13 +335,9 @@ namespace SolastaCommunityExpansion.Spells
                     "ProxyPetalStorm",
                     GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "ProxyPetalStorm").ToString());
 
-            effectProxyDefinitionBuilder.SetGuiPresentation(
-                    new GuiPresentationBuilder(
-                            "Spell/&PetalStormDescription",
-                            "Spell/&PetalStormTitle").Build()
-                            .SetSpriteReference(DatabaseHelper.SpellDefinitions.WindWall.GuiPresentation.SpriteReference));
+            effectProxyDefinitionBuilder.SetGuiPresentation("Spell/&PetalStormDescription", "Spell/&PetalStormTitle", WindWall.GuiPresentation.SpriteReference);
             effectProxyDefinitionBuilder.SetCanMove();
-            effectProxyDefinitionBuilder.SetPortrait(DatabaseHelper.SpellDefinitions.WindWall.GuiPresentation.SpriteReference);
+            effectProxyDefinitionBuilder.SetPortrait(WindWall.GuiPresentation.SpriteReference);
             effectProxyDefinitionBuilder.AddAdditionalFeature(DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6);
 
             var effectProxyDefinition = effectProxyDefinitionBuilder.AddToDB();
@@ -380,10 +354,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildProtectThreshold()
         {
-            var spellBuilder = new SpellBuilder(
-                    DatabaseHelper.SpellDefinitions.SpikeGrowth,
-                    "ProtectThreshold",
-                    GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "ProtectThreshold").ToString());
+            var spellBuilder = new SpellBuilder(SpikeGrowth, "ProtectThreshold", BAZOU_SPELLS_BASE_GUID);
 
             spellBuilder.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolAbjuration);
             spellBuilder.SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane);
@@ -391,11 +362,7 @@ namespace SolastaCommunityExpansion.Spells
             spellBuilder.SetVerboseComponent(true);
             spellBuilder.SetSpellLevel(2);
             spellBuilder.SetRitualCasting(RuleDefinitions.ActivationTime.Minute10);
-            spellBuilder.SetGuiPresentation(
-                    new GuiPresentationBuilder(
-                            "Spell/&ProtectThresholdDescription",
-                            "Spell/&ProtectThresholdTitle").Build()
-                            .SetSpriteReference(DatabaseHelper.SpellDefinitions.Bane.GuiPresentation.SpriteReference));
+            spellBuilder.SetGuiPresentation("Spell/&ProtectThresholdDescription", "Spell/&ProtectThresholdTitle", Bane.GuiPresentation.SpriteReference);
 
             var spell = spellBuilder.AddToDB();
             spell.SetRequiresConcentration(false);

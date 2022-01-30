@@ -30,12 +30,6 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public FeatureDefinitionPointPoolBuilder SetGuiPresentation(GuiPresentation guiPresentation)
-        {
-            Definition.SetGuiPresentation(guiPresentation);
-            return this;
-        }
-
         public FeatureDefinitionPointPoolBuilder SetPool(HeroDefinitions.PointsPoolType poolType, int poolAmount)
         {
             Definition.SetPoolType(poolType);

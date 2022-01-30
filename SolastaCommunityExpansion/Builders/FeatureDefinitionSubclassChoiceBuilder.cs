@@ -24,11 +24,5 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetSubclassSuffix(subclassSuffix);
             return this;
         }
-
-        public FeatureDefinitionSubclassChoiceBuilder SetGuiPresentation(GuiPresentation guiPresentation)
-        {
-            Definition.SetGuiPresentation(guiPresentation);
-            return this;
-        }
     }
 }

@@ -211,12 +211,6 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public CharacterClassDefinitionBuilder SetGuiPresentation(GuiPresentation gui)
-        {
-            Definition.SetGuiPresentation(gui);
-            return this;
-        }
-
         public CharacterClassDefinitionBuilder AddEquipmentRow(params HeroEquipmentOption[] equipmentList)
         {
             return AddEquipmentRow(equipmentList.AsEnumerable());
