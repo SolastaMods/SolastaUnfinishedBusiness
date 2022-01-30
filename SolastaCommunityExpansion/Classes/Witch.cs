@@ -7,6 +7,7 @@ using SolastaCommunityExpansion.Level20;
 using SolastaCommunityExpansion.Subclasses.Witch;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using static CharacterClassDefinition;
 using static FeatureDefinitionCastSpell;
 using static SolastaModApi.DatabaseHelper;
@@ -108,57 +109,40 @@ internal static class Witch
     private static void BuildProficiencies()
     {
         FeatureDefinitionProficiencyArmor = new FeatureDefinitionProficiencyBuilder(
-                "ProficiencyWitchArmor", WITCH_BASE_GUID, RuleDefinitions.ProficiencyType.Armor, EquipmentDefinitions.LightArmorCategory)
+                    "ProficiencyWitchArmor", WITCH_BASE_GUID, RuleDefinitions.ProficiencyType.Armor, EquipmentDefinitions.LightArmorCategory)
                 .SetGuiPresentationGenerate("WitchArmorProficiency", "Class")
                 .AddToDB();
 
         FeatureDefinitionProficiencyWeapon = new FeatureDefinitionProficiencyBuilder(
-                "ProficiencyWitchWeapon", WITCH_BASE_GUID, RuleDefinitions.ProficiencyType.Weapon, EquipmentDefinitions.SimpleWeaponCategory)
+                    "ProficiencyWitchWeapon", WITCH_BASE_GUID, RuleDefinitions.ProficiencyType.Weapon, EquipmentDefinitions.SimpleWeaponCategory)
                 .SetGuiPresentationGenerate("WitchWeaponProficiency", "Class")
                 .AddToDB();
 
         FeatureDefinitionProficiencySavingThrow = new FeatureDefinitionProficiencyBuilder(
-                "ProficiencyWitchSavingthrow",
-                GuidHelper.Create(WITCH_BASE_GUID, "ProficiencyWitchSavingthrow").ToString(),
-                RuleDefinitions.ProficiencyType.SavingThrow,
-                new List<string>() { AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom },
-                new GuiPresentationBuilder(
-                        "Class/&WitchSavingthrowProficiencyDescription",
-                        "Class/&WitchSavingthrowProficiencyTitle")
-                        .Build())
+                    "ProficiencyWitchSavingthrow", WITCH_BASE_GUID, RuleDefinitions.ProficiencyType.SavingThrow,
+                     AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom).
+                 SetGuiPresentationGenerate("WitchSavingthrowProficiency", "Class")
                 .AddToDB();
 
         FeatureDefinitionPointPoolSkills = new FeatureDefinitionPointPoolBuilder(
-                "PointPoolWitchSkillPoints",
-                GuidHelper.Create(WITCH_BASE_GUID, "PointPoolWitchSkillPoints").ToString(),
-                HeroDefinitions.PointsPoolType.Skill,
-                2,
-                new GuiPresentationBuilder(
-                        "Class/&WitchSkillProficiencyDescription",
-                        "Class/&WitchSkillProficiencyTitle")
-                        .Build())
-                .RestrictChoices(new List<string>() {
-                        SkillDefinitions.Arcana,
-                        SkillDefinitions.Deception,
-                        SkillDefinitions.Insight,
-                        SkillDefinitions.Intimidation,
-                        SkillDefinitions.Persuasion,
-                        SkillDefinitions.Nature,
-                        SkillDefinitions.Religion})
+                    "PointPoolWitchSkillPoints", WITCH_BASE_GUID, HeroDefinitions.PointsPoolType.Skill, 2)
+                .SetGuiPresentationGenerate("WitchSkillProficiency", "Class")
+                .RestrictChoices(
+                    SkillDefinitions.Arcana,
+                    SkillDefinitions.Deception,
+                    SkillDefinitions.Insight,
+                    SkillDefinitions.Intimidation,
+                    SkillDefinitions.Persuasion,
+                    SkillDefinitions.Nature,
+                    SkillDefinitions.Religion)
                 .AddToDB();
 
         FeatureDefinitionPointPoolTools = new FeatureDefinitionPointPoolBuilder(
-                "ProficiencyWitchTool",
-                GuidHelper.Create(WITCH_BASE_GUID, "ProficiencyWitchTool").ToString(),
-                HeroDefinitions.PointsPoolType.Tool,
-                1,
-                new GuiPresentationBuilder(
-                        "Class/&WitchToolProficiencyDescription",
-                        "Class/&WitchToolProficiencyTitle")
-                        .Build())
-                .RestrictChoices(new List<string>() {
-                        ToolTypeDefinitions.HerbalismKitType.Name,
-                        ToolTypeDefinitions.PoisonersKitType.Name})
+                    "ProficiencyWitchTool", WITCH_BASE_GUID, HeroDefinitions.PointsPoolType.Tool, 1)
+                .SetGuiPresentationGenerate("WitchToolProficiency", "Class")
+                .RestrictChoices(
+                    ToolTypeDefinitions.HerbalismKitType.Name,
+                    ToolTypeDefinitions.PoisonersKitType.Name)
                 .AddToDB();
     }
 
@@ -435,9 +419,8 @@ internal static class Witch
 
         FeatureDefinitionCastSpellWitch = classSpellCast.AddToDB();
 
-        // Waiting for addition of the interface to change replaced spells. Until then, assign directly.
-        FeatureDefinitionCastSpellWitch.ReplacedSpells.Clear();
-        FeatureDefinitionCastSpellWitch.ReplacedSpells.AddRange(SpellsHelper.FullCasterReplacedSpells);
+        // Waiting for addition of the interface to change replaced spells. Until then, assign directly. (??)
+        FeatureDefinitionCastSpellWitch.ReplacedSpells.SetRange(SpellsHelper.FullCasterReplacedSpells);
     }
 
     private static void BuildRitualCasting()
@@ -1207,19 +1190,23 @@ internal static class Witch
                 classBuilder.AddFeatureAtLevel(help, 1);
             }
 
-            classBuilder.AddFeatureAtLevel(FeatureDefinitionProficiencyArmor, 1);
-            classBuilder.AddFeatureAtLevel(FeatureDefinitionProficiencyWeapon, 1);
-            classBuilder.AddFeatureAtLevel(FeatureDefinitionProficiencySavingThrow, 1);
-            classBuilder.AddFeatureAtLevel(FeatureDefinitionPointPoolSkills, 1);
-            classBuilder.AddFeatureAtLevel(FeatureDefinitionPointPoolTools, 1);
-            classBuilder.AddFeatureAtLevel(FeatureDefinitionCastSpellWitch, 1);
-            classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetRitualCasting, 1);
-            classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetWitchCurses, 1);
-            classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetMaledictions, 1);
-            classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetMaledictions, 1);
-            classBuilder.AddFeatureAtLevel(FeatureDefinitionPowerCackle, 2);
-            classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetWitchFamiliar, 2);
-            classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetMaledictions, 2);
+            classBuilder.AddFeaturesAtLevel(1,
+                FeatureDefinitionProficiencyArmor,
+                FeatureDefinitionProficiencyWeapon,
+                FeatureDefinitionProficiencySavingThrow,
+                FeatureDefinitionPointPoolSkills,
+                FeatureDefinitionPointPoolTools,
+                FeatureDefinitionCastSpellWitch,
+                FeatureDefinitionFeatureSetRitualCasting,
+                FeatureDefinitionFeatureSetWitchCurses,
+                FeatureDefinitionFeatureSetMaledictions,
+                FeatureDefinitionFeatureSetMaledictions);
+
+            classBuilder.AddFeaturesAtLevel(2,
+                FeatureDefinitionPowerCackle,
+                FeatureDefinitionFeatureSetWitchFamiliar,
+                FeatureDefinitionFeatureSetMaledictions);
+
             classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 4);
             classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetMaledictions, 5);
             classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 8);
