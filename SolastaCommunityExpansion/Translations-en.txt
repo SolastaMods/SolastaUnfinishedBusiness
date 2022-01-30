@@ -60,8 +60,18 @@ Condition/&ConditionImprovedBarkWardTitle	Improved Bark Ward
 Condition/&ConditionImprovedBarkWardDescription	The spirits of the forest cause 2d8 piercing damage to melee attackers.
 Condition/&ConditionSuperiorBarkWardTitle	Superior Bark Ward
 Condition/&ConditionSuperiorBarkWardDescription	The spirits of the forest grant you poison immunity, and cause 3d8 piercing damage to melee attackers.
-Condition/&RuinedDescription	This creature's defence is reduced.
-Condition/&RuinedTitle	Ruined
+Condition/&AbateDescription	This creature does not have reactions.
+Condition/&AbateTitle	Abate
+Condition/&ApathyDescription	This creature is in an apathied state and is indifferent to you.
+Condition/&ApathyTitle	Apathy
+Condition/&CharmDescription	This creature has been charmed and is not hostile to you.
+Condition/&CharmTitle	Charmed
+Condition/&EvilEyeDescription	This creature is frightened of your Evil Eye.
+Condition/&EvilEyeTitle	Evil Eye
+Condition/&PoxDescription	This creature is poisoned by pox.
+Condition/&PoxTitle	Pox
+Condition/&RuinDescription	This creature's defence is reduced.
+Condition/&RuinTitle	Ruined
 Equipment/&ArcaneStaffDescription	This staff is inscribed with magical writing and can be used as a focus for Arcane spell casting.
 Equipment/&ArcaneStaffTitle	Arcane Staff
 Equipment/&DruidicAmuletDescription	This totemic amulet can be used as a focus for Druidic spell casting.
@@ -761,6 +771,7 @@ Subclass/&WhiteWitchTitle	White Witch
 Subclass/&WitchSubclassPathDescription	Your knowledge of magic has culminated in joining a Coven, an innate circle of Witches who delve down a specific path of witchdom and curses.
 Subclass/&WitchSubclassPathTitle	Witch Covens
 Tooltip/&Tag9000Title	Custom Effect
+Tooltip/&TagMaledictionTitle	Malediction
 Equipment/&WandIdentifyDescription	Text	Casts the spell identify by expending one charge. The wand has 3 charges and regains 1d3 charges each dawn.
 Equipment/&WandIdentifyTitle	Text	Wand of Identify
 ActionAffinity/&DHFeeblemindSpellDescription	unable to cast spells

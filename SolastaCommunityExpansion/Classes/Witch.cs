@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using SolastaModApi;
 using SolastaModApi.BuilderHelpers;
@@ -7,6 +8,7 @@ using SolastaCommunityExpansion.Features;
 using SolastaCommunityExpansion.Helpers;
 using SolastaCommunityExpansion.Subclasses.Witch;
 using SolastaCommunityExpansion.Level20;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using static CharacterClassDefinition;
 using static FeatureDefinitionCastSpell;
 
@@ -629,10 +631,35 @@ namespace SolastaCommunityExpansion.Classes
             // Tremors: 10 feet radius centered on you, DEX save, creatures on ground become prone if fail, instant duration
             // Ward: 60 feet 1 creature other than you, reduce damage taken by 3 for every hit
 
-            // NEED TO MAKE IT LESS SHOCKING GRASPY
+            EffectForm abateEffectForm = new EffectForm
+            {
+                FormType = EffectForm.EffectFormType.Condition
+            };
+            ConditionForm abateConditionForm = new ConditionForm();
+            abateEffectForm.SetConditionForm(abateConditionForm);
+            abateEffectForm.SetCreatedByCharacter(true);
+
+            var abateConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
+                    DatabaseHelper.ConditionDefinitions.ConditionShocked,
+                    "ConditionAbate",
+                    GuidHelper.Create(WITCH_BASE_GUID, "ConditionAbate").ToString(),
+                    new GuiPresentationBuilder(
+                            "Condition/&AbateDescription",
+                            "Condition/&AbateTitle")
+                            .SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionShocked.GuiPresentation.SpriteReference)
+                            .Build())
+                    .AddToDB();
+            abateConditionDefinition.SetConditionType(RuleDefinitions.ConditionType.Detrimental);
+            abateConditionDefinition.SetDurationParameter(1);
+            abateConditionDefinition.SetDurationType(RuleDefinitions.DurationType.Round);
+            abateConditionDefinition.RecurrentEffectForms.Clear();
+            abateConditionDefinition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            abateConditionDefinition.ConditionTags.Add("Malediction");
+
+            abateEffectForm.ConditionForm.SetConditionDefinition(abateConditionDefinition);
+
             var abateEffectDescription = new EffectDescription();
             abateEffectDescription.Copy(DatabaseHelper.SpellDefinitions.ShockingGrasp.EffectDescription);
-            abateEffectDescription.EffectForms.RemoveAt(0);
             abateEffectDescription.SetDurationParameter(1);
             abateEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
             abateEffectDescription.SetHasSavingThrow(true);
@@ -641,6 +668,8 @@ namespace SolastaCommunityExpansion.Classes
             abateEffectDescription.SetSavingThrowAbility(AttributeDefinitions.Charisma);
             abateEffectDescription.SetTargetParameter(1);
             abateEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
+            abateEffectDescription.EffectForms.Clear();
+            abateEffectDescription.EffectForms.Add(abateEffectForm);
 
             var abate = new FeatureDefinitionPowerBuilder(
                     "WitchMaledictionAbate",
@@ -663,6 +692,33 @@ namespace SolastaCommunityExpansion.Classes
                     .AddToDB();
 
 
+            EffectForm apathyEffectForm = new EffectForm
+            {
+                FormType = EffectForm.EffectFormType.Condition
+            };
+            ConditionForm apathyConditionForm = new ConditionForm();
+            apathyEffectForm.SetConditionForm(apathyConditionForm);
+            apathyEffectForm.SetCreatedByCharacter(true);
+
+            var apathyConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
+                    DatabaseHelper.ConditionDefinitions.ConditionCalmedByCalmEmotionsEnemy,
+                    "ConditionApathy",
+                    GuidHelper.Create(WITCH_BASE_GUID, "ConditionApathy").ToString(),
+                    new GuiPresentationBuilder(
+                            "Condition/&ApathyDescription",
+                            "Condition/&ApathyTitle")
+                            .SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionCalmedByCalmEmotionsEnemy.GuiPresentation.SpriteReference)
+                            .Build())
+                    .AddToDB();
+            apathyConditionDefinition.SetConditionType(RuleDefinitions.ConditionType.Detrimental);
+            apathyConditionDefinition.SetDurationParameter(1);
+            apathyConditionDefinition.SetDurationType(RuleDefinitions.DurationType.Round);
+            apathyConditionDefinition.RecurrentEffectForms.Clear();
+            apathyConditionDefinition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            apathyConditionDefinition.ConditionTags.Add("Malediction");
+
+            apathyEffectForm.ConditionForm.SetConditionDefinition(apathyConditionDefinition);
+
             var apathyEffectDescription = new EffectDescription();
             apathyEffectDescription.Copy(DatabaseHelper.SpellDefinitions.CalmEmotionsOnEnemy.EffectDescription);
             apathyEffectDescription.SetDurationParameter(1);
@@ -673,6 +729,8 @@ namespace SolastaCommunityExpansion.Classes
             apathyEffectDescription.SetSavingThrowAbility(AttributeDefinitions.Charisma);
             apathyEffectDescription.SetTargetParameter(1);
             apathyEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
+            apathyEffectDescription.EffectForms.Clear();
+            apathyEffectDescription.EffectForms.Add(apathyEffectForm);
 
             var apathy = new FeatureDefinitionPowerBuilder("WitchMaledictionApathy",
                     GuidHelper.Create(WITCH_BASE_GUID, "WitchMaledictionApathy").ToString(),
@@ -694,6 +752,33 @@ namespace SolastaCommunityExpansion.Classes
                     .AddToDB();
 
 
+            EffectForm charmEffectForm = new EffectForm
+            {
+                FormType = EffectForm.EffectFormType.Condition
+            };
+            ConditionForm charmConditionForm = new ConditionForm();
+            charmEffectForm.SetConditionForm(charmConditionForm);
+            charmEffectForm.SetCreatedByCharacter(true);
+
+            var charmConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
+                    DatabaseHelper.ConditionDefinitions.ConditionCharmed,
+                    "ConditionCharm",
+                    GuidHelper.Create(WITCH_BASE_GUID, "ConditionCharm").ToString(),
+                    new GuiPresentationBuilder(
+                            "Condition/&CharmDescription",
+                            "Condition/&CharmTitle")
+                            .SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionCharmed.GuiPresentation.SpriteReference)
+                            .Build())
+                    .AddToDB();
+            charmConditionDefinition.SetConditionType(RuleDefinitions.ConditionType.Detrimental);
+            charmConditionDefinition.SetDurationParameter(1);
+            charmConditionDefinition.SetDurationType(RuleDefinitions.DurationType.Round);
+            charmConditionDefinition.RecurrentEffectForms.Clear();
+            charmConditionDefinition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            charmConditionDefinition.ConditionTags.Add("Malediction");
+
+            charmEffectForm.ConditionForm.SetConditionDefinition(charmConditionDefinition);
+
             var charmEffectDescription = new EffectDescription();
             charmEffectDescription.Copy(DatabaseHelper.SpellDefinitions.CharmPerson.EffectDescription);
             charmEffectDescription.SetDurationParameter(1);
@@ -704,6 +789,8 @@ namespace SolastaCommunityExpansion.Classes
             charmEffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
             charmEffectDescription.SetTargetParameter(1);
             charmEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
+            charmEffectDescription.EffectForms.Clear();
+            charmEffectDescription.EffectForms.Add(charmEffectForm);
 
             var charm = new FeatureDefinitionPowerBuilder(
                     "WitchMaledictionCharm",
@@ -726,6 +813,33 @@ namespace SolastaCommunityExpansion.Classes
                     .AddToDB();
 
 
+            EffectForm evileyeEffectForm = new EffectForm
+            {
+                FormType = EffectForm.EffectFormType.Condition
+            };
+            ConditionForm evileyeConditionForm = new ConditionForm();
+            evileyeEffectForm.SetConditionForm(evileyeConditionForm);
+            evileyeEffectForm.SetCreatedByCharacter(true);
+
+            var evileyeConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
+                    DatabaseHelper.ConditionDefinitions.ConditionFrightenedFear,
+                    "ConditionEvilEye",
+                    GuidHelper.Create(WITCH_BASE_GUID, "ConditionEvilEye").ToString(),
+                    new GuiPresentationBuilder(
+                            "Condition/&EvilEyeDescription",
+                            "Condition/&EvilEyeTitle")
+                            .SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionFrightenedFear.GuiPresentation.SpriteReference)
+                            .Build())
+                    .AddToDB();
+            evileyeConditionDefinition.SetConditionType(RuleDefinitions.ConditionType.Detrimental);
+            evileyeConditionDefinition.SetDurationParameter(1);
+            evileyeConditionDefinition.SetDurationType(RuleDefinitions.DurationType.Round);
+            evileyeConditionDefinition.RecurrentEffectForms.Clear();
+            evileyeConditionDefinition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            evileyeConditionDefinition.ConditionTags.Add("Malediction");
+
+            evileyeEffectForm.ConditionForm.SetConditionDefinition(evileyeConditionDefinition);
+
             var evileyeEffectDescription = new EffectDescription();
             evileyeEffectDescription.Copy(DatabaseHelper.SpellDefinitions.Fear.EffectDescription);
             evileyeEffectDescription.SetDurationParameter(1);
@@ -736,6 +850,8 @@ namespace SolastaCommunityExpansion.Classes
             evileyeEffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
             evileyeEffectDescription.SetTargetParameter(1);
             evileyeEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
+            evileyeEffectDescription.EffectForms.Clear();
+            evileyeEffectDescription.EffectForms.Add(evileyeEffectForm);
 
             var evileye = new FeatureDefinitionPowerBuilder(
                     "WitchMaledictionEvilEye",
@@ -793,7 +909,26 @@ namespace SolastaCommunityExpansion.Classes
             };
             ConditionForm poxConditionForm = new ConditionForm();
             poxEffectForm.SetConditionForm(poxConditionForm);
-            poxEffectForm.ConditionForm.SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionPoisoned);
+            poxEffectForm.SetCreatedByCharacter(true);
+
+            var poxConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
+                    DatabaseHelper.ConditionDefinitions.ConditionPoisoned,
+                    "ConditionPox",
+                    GuidHelper.Create(WITCH_BASE_GUID, "ConditionPox").ToString(),
+                    new GuiPresentationBuilder(
+                            "Condition/&PoxDescription",
+                            "Condition/&PoxTitle")
+                            .SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionPoisoned.GuiPresentation.SpriteReference)
+                            .Build())
+                    .AddToDB();
+            poxConditionDefinition.SetConditionType(RuleDefinitions.ConditionType.Detrimental);
+            poxConditionDefinition.SetDurationParameter(1);
+            poxConditionDefinition.SetDurationType(RuleDefinitions.DurationType.Round);
+            poxConditionDefinition.RecurrentEffectForms.Clear();
+            poxConditionDefinition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            poxConditionDefinition.ConditionTags.Add("Malediction");
+
+            poxEffectForm.ConditionForm.SetConditionDefinition(poxConditionDefinition);
 
             var poxEffectDescription = new EffectDescription();
             poxEffectDescription.Copy(DatabaseHelper.SpellDefinitions.PoisonSpray.EffectDescription);
@@ -839,11 +974,11 @@ namespace SolastaCommunityExpansion.Classes
 
             var ruinConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
                     DatabaseHelper.ConditionDefinitions.ConditionAcidArrowed,
-                    "ConditionRuined",
-                    GuidHelper.Create(WITCH_BASE_GUID, "ConditionRuined").ToString(),
+                    "ConditionRuin",
+                    GuidHelper.Create(WITCH_BASE_GUID, "ConditionRuin").ToString(),
                     new GuiPresentationBuilder(
-                            "Condition/&RuinedDescription",
-                            "Condition/&RuinedTitle")
+                            "Condition/&RuinDescription",
+                            "Condition/&RuinTitle")
                             .SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionAcidArrowed.GuiPresentation.SpriteReference)
                             .Build())
                     .AddToDB();
@@ -852,6 +987,7 @@ namespace SolastaCommunityExpansion.Classes
             ruinConditionDefinition.SetDurationType(RuleDefinitions.DurationType.Round);
             ruinConditionDefinition.RecurrentEffectForms.Clear();
             ruinConditionDefinition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            ruinConditionDefinition.ConditionTags.Add("Malediction");
             ruinConditionDefinition.Features.Clear();
             ruinConditionDefinition.Features.Add(new FeatureDefinitionAttributeModifierBuilder(
                     "Ruined",
@@ -932,16 +1068,6 @@ namespace SolastaCommunityExpansion.Classes
             // Not all witches laugh maniacally when they cackle, but all cackles require a verbal component, as a spell. 
             // These range from mundane curses and insults, to the murmuring of dead languages and speaking backwards.
 
-            var effectForm = new EffectForm
-            {
-                FormType = EffectForm.EffectFormType.Condition
-            };
-            effectForm.SetCreatedByCharacter(true);
-
-            ConditionForm conditionForm = new ConditionForm();
-            conditionForm.SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionDeafened);
-            effectForm.SetConditionForm(conditionForm);
-
             //Add to our new effect
             var effectDescription = new EffectDescription();
             effectDescription.Copy(DatabaseHelper.SpellDefinitions.HideousLaughter.EffectDescription);
@@ -950,15 +1076,10 @@ namespace SolastaCommunityExpansion.Classes
             effectDescription.SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectDescription.SetHasSavingThrow(false);
             effectDescription.SetRangeType(RuleDefinitions.RangeType.Self);
-            // Target by tag?
-            //            effectDescription.SetTargetFilteringTag(RuleDefinitions.TargetFilteringTag.CursedByMalediction);
             effectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
             effectDescription.SetTargetParameter(12);
             effectDescription.EffectForms.Clear();
-            // Can we add a Condition dynamically? i.e. can we detect what kind of condition a creature has, and then add that condition here?
-            // And/or can we add a new "CackleCondition" which gets evaluated at end of turn and would search for any 
-            // RuleDefinitions.TargetFilteringTag.CursedByMalediction condition on the creature and reapply the condition?
-            effectDescription.EffectForms.Add(effectForm);
+            effectDescription.EffectForms.Add(new CackleEffectForm());
 
             FeatureDefinitionPowerCackle = new FeatureDefinitionPowerBuilder(
                     "WitchCacklePower",
@@ -980,6 +1101,53 @@ namespace SolastaCommunityExpansion.Classes
                     true)
                     .AddToDB();
 
+        }
+
+        private sealed class CackleEffectForm : CustomEffectForm
+        {
+
+            public override void ApplyForm(RulesetImplementationDefinitions.ApplyFormsParams formsParams, bool retargeting, bool proxyOnly, bool forceSelfConditionOnly)
+            {
+
+                List<RulesetCondition> conditions = formsParams.targetCharacter.AllConditions;
+
+                var activeMaledictions = conditions.Where(i => i.ConditionDefinition.ConditionTags.Contains("Malediction")).ToList();
+                if (activeMaledictions != null){
+                    foreach (RulesetCondition malediction in activeMaledictions){
+                        // Remove the condition in order to refresh it
+                        formsParams.targetCharacter.RemoveCondition(malediction);
+                        // Refresh the condition
+                        ApplyCondition(formsParams, malediction.ConditionDefinition, RuleDefinitions.DurationType.Round, 1);
+                    }
+                }
+
+            }
+
+            public override void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap)
+            {
+                // Nothing
+            }
+
+            private static void ApplyCondition(RulesetImplementationDefinitions.ApplyFormsParams formsParams, ConditionDefinition condition, RuleDefinitions.DurationType durationType, int durationParam)
+            {
+                // Prepare params for inflicting conditions
+                ulong sourceGuid = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.Guid : 0L;
+                string sourceFaction = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.CurrentFaction.Name : string.Empty;
+                string effectDefinitionName = string.Empty;
+
+                if (formsParams.attackMode != null)
+                {
+                    effectDefinitionName = formsParams.attackMode.SourceDefinition.Name;
+                }
+                else if (formsParams.activeEffect != null)
+                {
+                    effectDefinitionName = formsParams.activeEffect.SourceDefinition.Name;
+                }
+
+                int sourceAbilityBonus = formsParams.activeEffect != null ? formsParams.activeEffect.ComputeSourceAbilityBonus(formsParams.sourceCharacter) : 0;
+
+                formsParams.targetCharacter.InflictCondition(condition.Name, durationType, durationParam, RuleDefinitions.TurnOccurenceType.EndOfTurn, "11Effect", sourceGuid, sourceFaction, formsParams.effectLevel, effectDefinitionName, 0, sourceAbilityBonus);
+            }
         }
 
         private static CharacterClassDefinition BuildAndAddClass()
