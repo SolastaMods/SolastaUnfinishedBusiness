@@ -33,6 +33,10 @@ namespace SolastaCommunityExpansion.Features
             Definition.SetGuiPresentation(guiPresentation);
         }
 
+        public ConditionDefinitionBuilder(TDefinition toCopy, string name, Guid guidNamespace) : base(toCopy, name, guidNamespace, null)
+        {
+        }
+
         public static TDefinition Build(string name, string guid, Action<TDefinition> modifyDefinition = null)
         {
             var conditionDefinitionBuilder = new ConditionDefinitionBuilder<TDefinition>(name, guid, modifyDefinition);

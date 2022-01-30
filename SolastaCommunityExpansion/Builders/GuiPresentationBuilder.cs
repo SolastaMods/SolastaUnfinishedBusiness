@@ -73,7 +73,7 @@ namespace SolastaCommunityExpansion.Builders
             return SetGuiPresentation(builder, GuiPresentationBuilder.Build(title, description, sprite));
         }
 
-        public static TBuilder SetGuiPresentationFormat<TBuilder>(this TBuilder builder, string name, string prefix, AssetReferenceSprite sprite = null)
+        public static TBuilder SetGuiPresentationGenerate<TBuilder>(this TBuilder builder, string name, string prefix, AssetReferenceSprite sprite = null)
            where TBuilder : IBaseDefinitionBuilder
         {
             return SetGuiPresentation(builder, CreateTitleKey(name, prefix), CreateDescriptionKey(name, prefix), sprite);
