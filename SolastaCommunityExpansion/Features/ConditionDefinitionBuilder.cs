@@ -27,21 +27,37 @@ namespace SolastaCommunityExpansion.Features
             modifyDefinition?.Invoke(Definition);
         }
 
-        public ConditionDefinitionBuilder(TDefinition toCopy, string name, string guid,
-            GuiPresentation guiPresentation) : base(toCopy, name, guid)
+        public ConditionDefinitionBuilder(TDefinition toCopy, string name, string guid)
+            : base(toCopy, name, guid)
+        {
+        }
+
+        public ConditionDefinitionBuilder(TDefinition toCopy, string name, Guid guidNamespace)
+            : base(toCopy, name, guidNamespace, null)
+        {
+        }
+
+        public ConditionDefinitionBuilder(TDefinition toCopy, string name, string guid, GuiPresentation guiPresentation)
+            : base(toCopy, name, guid)
         {
             Definition.SetGuiPresentation(guiPresentation);
         }
 
-        public ConditionDefinitionBuilder(TDefinition toCopy, string name, Guid guidNamespace) : base(toCopy, name, guidNamespace, null)
+        public ConditionDefinitionBuilder(TDefinition toCopy, string name, Guid guidNamespace, GuiPresentation guiPresentation)
+            : base(toCopy, name, guidNamespace, null)
         {
+            Definition.SetGuiPresentation(guiPresentation);
+        }
+
+        public ConditionDefinitionBuilder<TDefinition> SetAmountOrigin(ConditionDefinition.OriginOfAmount value)
+        {
+            Definition.SetAmountOrigin(value);
+            return this;
         }
 
         public static TDefinition Build(string name, string guid, Action<TDefinition> modifyDefinition = null)
         {
-            var conditionDefinitionBuilder = new ConditionDefinitionBuilder<TDefinition>(name, guid, modifyDefinition);
-
-            return conditionDefinitionBuilder.AddToDB();
+            return new ConditionDefinitionBuilder<TDefinition>(name, guid, modifyDefinition).AddToDB();
         }
     }
 

@@ -55,7 +55,17 @@ namespace SolastaCommunityExpansion.Builders
             return new GuiPresentationBuilder(description, title, sprite).Build();
         }
 
-        // TODO: More Build(...) overloads as required
+        public static GuiPresentation BuildGenerate(string name, string prefix, AssetReferenceSprite sprite = null)
+        {
+            return new GuiPresentationBuilder(CreateTitleKey(name, prefix), CreateDescriptionKey(name, prefix), sprite).Build();
+        }
+
+        // TODO: More Build/Generate(...) overloads as required
+
+        /// <summary>
+        /// GuiPresentation representing 'No content title and description'
+        /// </summary>
+        public static GuiPresentation NoContent { get; } = Build("Feature/&NoContentTitle", "Feature/&NoContentTitle");
     }
 
     internal static class BaseDefinitionBuilderGuiPresentationExtensions
@@ -76,10 +86,10 @@ namespace SolastaCommunityExpansion.Builders
         public static TBuilder SetGuiPresentationGenerate<TBuilder>(this TBuilder builder, string name, string prefix, AssetReferenceSprite sprite = null)
            where TBuilder : IBaseDefinitionBuilder
         {
-            return SetGuiPresentation(builder, CreateTitleKey(name, prefix), CreateDescriptionKey(name, prefix), sprite);
+            return SetGuiPresentation(builder, GuiPresentationBuilder.BuildGenerate(name, prefix, sprite));
         }
 
-        // TODO: More SetGuiPresentation/Format(...) overloads as required
+        // TODO: More SetGuiPresentation/Generate(...) overloads as required
     }
 
     internal static class BaseDefinitionGuiPresentationExtensions
@@ -91,12 +101,13 @@ namespace SolastaCommunityExpansion.Builders
             return definition;
         }
 
-        public static TDefinition SetGuiPresentationFormat<TDefinition>(this TDefinition definition, string name, string prefix, AssetReferenceSprite sprite = null)
+        public static TDefinition SetGuiPresentationGenerate<TDefinition>(this TDefinition definition, string name, string prefix, AssetReferenceSprite sprite = null)
             where TDefinition : BaseDefinition
         {
-            return SetGuiPresentation(definition, CreateTitleKey(name, prefix), CreateDescriptionKey(name, prefix), sprite);
+            definition.GuiPresentation = GuiPresentationBuilder.BuildGenerate(name, prefix, sprite);
+            return definition;
         }
 
-        // TODO: More SetGuiPresentation/Format(...) overloads as required
+        // TODO: More SetGuiPresentation/Generate(...) overloads as required
     }
 }

@@ -973,8 +973,6 @@ internal static class Witch
 
         void BuildWitchFamiliar()
         {
-            GuiPresentation blank = new GuiPresentationBuilder("Feature/&NoContentTitle", "Feature/&NoContentTitle").Build();
-
             var witchFamiliarAttackIteration = new MonsterAttackIteration(MonsterAttackDefinitions.Attack_EagleMatriarch_Talons, 1);
             // We remove the inherent bonus as we will be using the Witch's spell attack bonus
             witchFamiliarAttackIteration.MonsterAttackDefinition.SetToHitBonus(0);
@@ -1095,58 +1093,42 @@ internal static class Witch
 
             summoningAffinity.SetRequiredMonsterTag("WitchFamiliar");
             summoningAffinity.EffectForms.Clear();
-            summoningAffinity.AddedConditions.Clear();
+
+            var blank = GuiPresentationBuilder.NoContent;
 
             var acConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                    ConditionDefinitions.ConditionKindredSpiritBondAC,
-                    "ConditionWitchFamiliarAC",
-                    GuidHelper.Create(WITCH_BASE_GUID, "ConditionWitchFamiliarAC").ToString(),
-                    blank)
-                    .AddToDB();
-            acConditionDefinition.SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus);
+                    ConditionDefinitions.ConditionKindredSpiritBondAC, "ConditionWitchFamiliarAC", WITCH_BASE_GUID, blank)
+                .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
+                .AddToDB();
 
             var stConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                    ConditionDefinitions.ConditionKindredSpiritBondSavingThrows,
-                    "ConditionWitchFamiliarST",
-                    GuidHelper.Create(WITCH_BASE_GUID, "ConditionWitchFamiliarST").ToString(),
-                    blank)
-                    .AddToDB();
-            stConditionDefinition.SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus);
+                    ConditionDefinitions.ConditionKindredSpiritBondSavingThrows, "ConditionWitchFamiliarST", WITCH_BASE_GUID, blank)
+                .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
+                .AddToDB();
 
             var damageConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                    ConditionDefinitions.ConditionKindredSpiritBondMeleeDamage,
-                    "ConditionWitchFamiliarDamage",
-                    GuidHelper.Create(WITCH_BASE_GUID, "ConditionWitchFamiliarDamage").ToString(),
-                    blank)
-                    .AddToDB();
-            damageConditionDefinition.SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus);
+                    ConditionDefinitions.ConditionKindredSpiritBondMeleeDamage, "ConditionWitchFamiliarDamage", WITCH_BASE_GUID, blank)
+                .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
+                .AddToDB();
 
             var hitConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                    ConditionDefinitions.ConditionKindredSpiritBondMeleeAttack,
-                    "ConditionWitchFamiliarHit",
-                    GuidHelper.Create(WITCH_BASE_GUID, "ConditionWitchFamiliarHit").ToString(),
-                    blank)
-                    .AddToDB();
-            hitConditionDefinition.SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceSpellAttack);
+                    ConditionDefinitions.ConditionKindredSpiritBondMeleeAttack, "ConditionWitchFamiliarHit", WITCH_BASE_GUID, blank)
+                .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceSpellAttack)
+                .AddToDB();
 
             var hpConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                    ConditionDefinitions.ConditionKindredSpiritBondHP,
-                    "ConditionWitchFamiliarHP",
-                    GuidHelper.Create(WITCH_BASE_GUID, "ConditionWitchFamiliarHP").ToString(),
-                    blank)
-                    .AddToDB();
-            hpConditionDefinition.SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel);
+                    ConditionDefinitions.ConditionKindredSpiritBondHP, "ConditionWitchFamiliarHP", WITCH_BASE_GUID, blank)
+                .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel)
+                .AddToDB();
+
             hpConditionDefinition.SetAllowMultipleInstances(true);
 
             // Find a better place to put this in?
             hpConditionDefinition.SetAdditionalDamageType("ClassWitch");
 
-            summoningAffinity.AddedConditions.Add(acConditionDefinition);
-            summoningAffinity.AddedConditions.Add(stConditionDefinition);
-            summoningAffinity.AddedConditions.Add(damageConditionDefinition);
-            summoningAffinity.AddedConditions.Add(hitConditionDefinition);
-            summoningAffinity.AddedConditions.Add(hpConditionDefinition);
-            summoningAffinity.AddedConditions.Add(hpConditionDefinition);
+            summoningAffinity.AddedConditions.SetRange(
+                acConditionDefinition, stConditionDefinition, damageConditionDefinition,
+                hitConditionDefinition, hpConditionDefinition, hpConditionDefinition);
 
             FeatureDefinitionFeatureSetWitchFamiliar = new FeatureDefinitionFeatureSetBuilder(
                     FeatureDefinitionFeatureSets.FeatureSetHumanLanguages,
