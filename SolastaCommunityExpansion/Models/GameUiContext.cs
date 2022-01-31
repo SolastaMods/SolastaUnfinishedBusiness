@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using SolastaModApi.Infrastructure;
 using TA;
 using UnityEngine;
@@ -114,6 +115,7 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
 
+            [SuppressMessage("Minor Code Smell", "IDE0066:Use switch expression", Justification = "Prefer switch here")]
             GuiPanel GetInitiativeOrPartyPanel()
             {
                 switch (gameLocationBaseScreen)
@@ -127,6 +129,7 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
 
+            [SuppressMessage("Minor Code Smell", "IDE0066:Use switch expression", Justification = "Prefer switch here")]
             TimeAndNavigationPanel GetTimeAndNavigationPanel()
             {
                 switch (gameLocationBaseScreen)

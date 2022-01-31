@@ -159,10 +159,10 @@ dotnet_diagnostic.S2971.severity = silent
 dotnet_diagnostic.RCS1077.severity = silent
 
 # RCS1238: Avoid nested ?: operators.
-dotnet_diagnostic.RCS1238.severity = suggestion
+dotnet_diagnostic.RCS1238.severity = silent
 
 # S3358: Ternary operators should not be nested
-dotnet_diagnostic.S3358.severity = suggestion
+dotnet_diagnostic.S3358.severity = silent
 
 [*.vb]
 # Modifier preferences

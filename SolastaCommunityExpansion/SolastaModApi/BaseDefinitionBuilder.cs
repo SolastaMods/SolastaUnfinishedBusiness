@@ -365,7 +365,6 @@ namespace SolastaModApi
 
             var addedToAnyDB = false;
 
-#pragma warning disable S3267 // Loops should be simplified with "LINQ" expressions
             foreach (var type in types)
             {
                 if (AddToDB(type))
@@ -373,7 +372,6 @@ namespace SolastaModApi
                     addedToAnyDB = true;
                 }
             }
-#pragma warning restore S3267 // Loops should be simplified with "LINQ" expressions
 
             if (!addedToAnyDB)
             {

@@ -100,6 +100,6 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: SuppressMessage("", "RCS1224", Justification = "3rd party source", Scope = "namespaceanddescendants", Target = "~N:ModKit")]
 [assembly: SuppressMessage("", "RCS1226", Justification = "3rd party source", Scope = "namespaceanddescendants", Target = "~N:ModKit")]
 [assembly: SuppressMessage("", "RCS1234", Justification = "3rd party source", Scope = "namespaceanddescendants", Target = "~N:ModKit")]
+[assembly: SuppressMessage("", "RCS1238", Justification = "3rd party source", Scope = "namespaceanddescendants", Target = "~N:ModKit")]
 
 [assembly: SuppressMessage("Roslynator", "RCS1112:Combine 'Enumerable.Where' method chain.", Justification = "<Pending>", Scope = "namespaceanddescendants", Target = "~N:SolastaModApi")]
-
