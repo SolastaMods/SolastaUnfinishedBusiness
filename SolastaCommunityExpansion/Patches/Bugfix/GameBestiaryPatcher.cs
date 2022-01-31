@@ -5,9 +5,9 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
 {
     [HarmonyPatch(typeof(GameBestiary), "SplitByUnknownVsKnown")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [SuppressMessage("Minor Code Smell", "IDE0066:Use switch expression", Justification = "Prefer it as a switch")]
     internal static class GameBestiary_SplitByUnknownVsKnown
     {
+        [SuppressMessage("Minor Code Smell", "IDE0066:Use switch expression", Justification = "Prefer it as a switch")]
         public static bool Prefix(int leftLevel, int rightLevel, BestiaryDefinitions.SortCategory ___sortCategory, ref int __result)
         {
             if (!Main.Settings.BugFixBestiarySorting)
