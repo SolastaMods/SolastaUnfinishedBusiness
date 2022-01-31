@@ -111,9 +111,8 @@ namespace SolastaCommunityExpansion.Models
                 else
                 {
                     EnableDebugCamera = !EnableDebugCamera;
-                }
-
-                cameraService.DebugCameraEnabled = EnableDebugCamera;
+                    cameraService.DebugCameraEnabled = EnableDebugCamera;
+                }               
             }
 
             GuiPanel GetInitiativeOrPartyPanel()
