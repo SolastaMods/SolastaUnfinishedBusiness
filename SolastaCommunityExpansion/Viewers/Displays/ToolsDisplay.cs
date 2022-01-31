@@ -5,6 +5,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class ToolsDisplay
     {
+        private static bool IsUnityExplorerEnabled { get; set; }
+
         internal static void DisplayTools()
         {
             bool toggle;
@@ -12,6 +14,17 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
             UI.Label("Debug:".yellow());
+            UI.Label("");
+
+            UI.ActionButton("Enable Unity Explorer UI", () =>
+            {
+                if (!IsUnityExplorerEnabled)
+                {
+                    IsUnityExplorerEnabled = true;
+                    UnityExplorer.ExplorerStandalone.CreateInstance();
+                }
+            });
+
             UI.Label("");
 
             toggle = Main.Settings.EnableCheatMenu;
