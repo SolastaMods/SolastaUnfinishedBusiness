@@ -6,8 +6,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class CharacterDisplay
     {
-
-
         internal static void DisplayCharacter()
         {
             int intValue;
@@ -142,7 +140,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (Main.Settings.DisplayProgressionToggle)
             {
                 UI.Label("");
-
 
                 toggle = Main.Settings.EnablesAsiAndFeat;
                 if (UI.Toggle("Enable both ASI and feat", ref toggle, UI.AutoWidth()))

@@ -1,8 +1,8 @@
-﻿using ModKit;
+﻿using System.Collections.Generic;
+using System.Linq;
+using ModKit;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
@@ -18,13 +18,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
         private static bool Initialized { get; set; }
 
-        private static readonly List<SpellDefinition> SortedRegisteredSpells = new List<SpellDefinition>();
+        private static readonly List<SpellDefinition> SortedRegisteredSpells = new();
 
-        private static readonly List<bool> IsFromOtherModList = new List<bool>();
+        private static readonly List<bool> IsFromOtherModList = new();
 
         private static bool ExpandAllToggle { get; set; }
 
-        private static readonly Dictionary<string, bool> SpellNamesToggle = new Dictionary<string, bool>();
+        private static readonly Dictionary<string, bool> SpellNamesToggle = new();
 
         private static string WarningMessage => Main.Settings.AllowDisplayAllUnofficialContent ? ". Spells in " + "brown".color(RGBA.brown) + " were not created by this mod" : string.Empty;
 
@@ -136,7 +136,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 var spellName = spellDefinition.Name;
                 var spellTitle = $"{spellDefinition.SpellLevel} - {spellDefinition.FormatTitle()}";
 
-                if (IsFromOtherModList.ElementAt(i))
+                if (IsFromOtherModList[i])
                 {
                     spellTitle = spellTitle.color(RGBA.brown);
                 }
