@@ -102,17 +102,13 @@ namespace SolastaCommunityExpansion.Models
 
             void ToggleZoomCamera()
             {
-                IViewService viewService = ServiceRepository.GetService<IViewService>();
                 ICameraService cameraService = ServiceRepository.GetService<ICameraService>();
 
-                if (viewService == null || cameraService == null)
+                if (cameraService != null)
                 {
-                    EnableDebugCamera = false;
-                }
-                else
-                {
+                    EnableDebugCamera = !EnableDebugCamera;
                     cameraService.DebugCameraEnabled = EnableDebugCamera;
-                }
+                }               
             }
 
             [SuppressMessage("Minor Code Smell", "IDE0066:Use switch expression", Justification = "Prefer switch here")]
