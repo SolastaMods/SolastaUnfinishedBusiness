@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using TA.AI;
 using UnityEngine.AddressableAssets;
 using static ActionDefinitions;
@@ -15,6 +16,11 @@ namespace SolastaCommunityExpansion.Builders
     {
         public MonsterBuilder(string name, string guid, string title, string description, MonsterDefinition baseMonster)
             : base(baseMonster, name, guid, title, description)
+        {
+        }
+
+        public MonsterBuilder(string name, Guid namespaceGuid, MonsterDefinition baseMonster)
+            : base(baseMonster, name, namespaceGuid, null)
         {
         }
 
@@ -288,10 +294,26 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
+        public MonsterBuilder SetFeatures(params FeatureDefinition[] features)
+        {
+            return SetFeatures(features.AsEnumerable());
+        }
+
+        public MonsterBuilder SetFeatures(IEnumerable<FeatureDefinition> features)
+        {
+            Definition.Features.SetRange(features);
+            return this;
+        }
+
         public MonsterBuilder ClearSkillScores()
         {
             Definition.SkillScores.Clear();
             return this;
+        }
+
+        public MonsterBuilder AddSkillScores(params (string skillName, int bonus)[] skillScores)
+        {
+            return AddSkillScores(skillScores.Select(ss => new MonsterSkillProficiency (ss.skillName, ss.bonus)));
         }
 
         public MonsterBuilder AddSkillScores(params MonsterSkillProficiency[] skillScores)
@@ -302,6 +324,22 @@ namespace SolastaCommunityExpansion.Builders
         public MonsterBuilder AddSkillScores(IEnumerable<MonsterSkillProficiency> skillScores)
         {
             Definition.SkillScores.AddRange(skillScores);
+            return this;
+        }
+
+        public MonsterBuilder SetSkillScores(params (string skillName, int bonus)[] skillScores)
+        {
+            return SetSkillScores(skillScores.Select(ss => new MonsterSkillProficiency (ss.skillName, ss.bonus)));
+        }
+
+        public MonsterBuilder SetSkillScores(params MonsterSkillProficiency[] skillScores)
+        {
+            return SetSkillScores(skillScores.AsEnumerable());
+        }
+
+        public MonsterBuilder SetSkillScores(IEnumerable<MonsterSkillProficiency> skillScores)
+        {
+            Definition.SkillScores.SetRange(skillScores);
             return this;
         }
 

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Features;
 using SolastaCommunityExpansion.Models;
@@ -7,6 +6,7 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Spells
 {
@@ -43,12 +43,15 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildEldritchOrb()
         {
+            const string eldritchOrb = "EldritchOrb";
 #if false
+            // Before
             // Direct style - set name and guid
             var spellBuilder = new SpellBuilder(Fireball, "EldritchOrb", GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "EldritchOrb").ToString());
 #else
+            // After
             // Generate style - set name and namespace guid
-            var spellBuilder = new SpellBuilder(Fireball, "EldritchOrb", BAZOU_SPELLS_BASE_GUID);
+            var spellBuilder = new SpellBuilder(Fireball, eldritchOrb, BAZOU_SPELLS_BASE_GUID);
 #endif
 
             spellBuilder.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation);
@@ -58,40 +61,41 @@ namespace SolastaCommunityExpansion.Spells
             spellBuilder.SetSpellLevel(0);
 
 #if false
+            // Before
             // Direct style - set title & description
             spellBuilder.SetGuiPresentation("Spell/&EldritchOrbDescription", "Spell/&EldritchOrbTitle", Shine.GuiPresentation.SpriteReference);
 #else
-            // Generate style - set name & prefix 
-            spellBuilder.SetGuiPresentation("EldritchOrb", "Spell", Shine.GuiPresentation.SpriteReference);
+            // After
+            // Generate style - set name & prefix - title and description generated as "Spell/&EldritchOrbDescription", "Spell/&EldritchOrbTitle"
+            spellBuilder.SetGuiPresentationGenerate(eldritchOrb, "Spell", Shine.GuiPresentation.SpriteReference);
 #endif
-
 
             var spell = spellBuilder.AddToDB();
 
             // Not sure if I prefer copying and editing existing effect description
             // or creating one from scratch through API
-            spell.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
-            spell.EffectDescription.SetRangeParameter(12);
-            spell.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Instantaneous);
-            spell.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
-            spell.EffectDescription.SetTargetParameter(1);
-            spell.EffectDescription.SetHasSavingThrow(false);
-            spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Dexterity);
-            spell.EffectDescription.SetCanBeDispersed(true);
-            spell.EffectDescription.EffectAdvancement.SetAdditionalDicePerIncrement(1);
-            spell.EffectDescription.EffectAdvancement.SetIncrementMultiplier(5);
-            spell.EffectDescription.EffectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod.CasterLevelTable);
+            spell.EffectDescription
+                .SetRangeType(RuleDefinitions.RangeType.Distance)
+                .SetRangeParameter(12)
+                .SetDurationType(RuleDefinitions.DurationType.Instantaneous)
+                .SetTargetType(RuleDefinitions.TargetType.Sphere)
+                .SetTargetParameter(1)
+                .SetHasSavingThrow(false)
+                .SetSavingThrowAbility(AttributeDefinitions.Dexterity)
+                .SetCanBeDispersed(true);
+
+            spell.EffectDescription.EffectAdvancement
+                .SetAdditionalDicePerIncrement(1)
+                .SetIncrementMultiplier(5)
+                .SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod.CasterLevelTable);
 
             // Changing to a single damage effect with d4, as I am unsure how to implement 2 different effectDescriptions within the same spell
             // First one should be single target attack roll, d8 damage
             // Second one should be adjacent aoe to first target, half of damage of first effect, no damage on saving throw negates
-            spell.EffectDescription.EffectForms[0].SetHasSavingThrow(false);
-            spell.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(1);
-            spell.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D4);
-            spell.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeForce);
-            spell.EffectDescription.EffectForms[0].SetLevelMultiplier(1);
-            spell.EffectDescription.EffectForms[0].AlterationForm.SetMaximumIncrease(2);
-            spell.EffectDescription.EffectForms[0].AlterationForm.SetValueIncrease(2);
+            var effectForm = spell.EffectDescription.EffectForms[0];
+            effectForm.SetHasSavingThrow(false).SetLevelMultiplier(1);
+            effectForm.AlterationForm.SetMaximumIncrease(2).SetValueIncrease(2);
+            effectForm.DamageForm.SetDiceNumber(1).SetDieType(RuleDefinitions.DieType.D4).SetDamageType(RuleDefinitions.DamageTypeForce);
 
             // Not sure if I prefer copying and editing existing effect forms
             // or creating one from scratch through API
@@ -109,67 +113,58 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildFindFamiliar()
         {
-            var familiarMonsterBuilder = new MonsterBuilder(
-                    "Owl",
-                    GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "Owl").ToString(),
-                    "Owl",
-                    "Owl",
-                    DatabaseHelper.MonsterDefinitions.Eagle_Matriarch)
-                    .ClearFeatures()
-                    .AddFeatures(new List<FeatureDefinition>{
-                            DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
-                            DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision24,
-                            DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove2,
-                            DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
-                            DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenSight,
-                            DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenHearing,
-                            DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityFlyby,
-                            DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
-                            DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
-                            DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity,
-                            })
-                    .ClearAttackIterations()
-                    .ClearSkillScores()
-                    .AddSkillScores(new List<MonsterSkillProficiency>{
-                            new MonsterSkillProficiency(DatabaseHelper.SkillDefinitions.Perception.Name, 3),
-                            new MonsterSkillProficiency(DatabaseHelper.SkillDefinitions.Stealth.Name, 3)
-                    })
-                    .SetArmorClass(11)
-                    .SetAbilityScores(3, 13, 8, 2, 12, 7)
-                    .SetHitDiceNumber(1)
-                    .SetHitDiceType(RuleDefinitions.DieType.D4)
-                    .SetHitPointsBonus(-1)
-                    .SetStandardHitPoints(1)
-                    .SetSizeDefinition(DatabaseHelper.CharacterSizeDefinitions.Tiny)
-                    .SetAlignment(DatabaseHelper.AlignmentDefinitions.Neutral.Name)
-                    .SetCharacterFamily(DatabaseHelper.CharacterFamilyDefinitions.Fey.name)
-                    .SetChallengeRating(0)
-                    .SetDroppedLootDefinition(null)
-                    .SetDefaultBattleDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)
-                    .SetFullyControlledWhenAllied(true)
-                    .SetDefaultFaction("Party")
-                    .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
+            var familiarMonsterBuilder = new MonsterBuilder("Owl", BAZOU_SPELLS_BASE_GUID, DatabaseHelper.MonsterDefinitions.Eagle_Matriarch)
+                .SetGuiPresentation("Owl", "Owl") // Shouldn't this be in the usual style?
+                .SetFeatures(
+                    DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
+                    DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision24,
+                    DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove2,
+                    DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
+                    DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenSight,
+                    DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenHearing,
+                    DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityFlyby,
+                    DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
+                    DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
+                    DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity)
+                .ClearAttackIterations()
+                .SetSkillScores(
+                    (DatabaseHelper.SkillDefinitions.Perception.Name, 3),
+                    (DatabaseHelper.SkillDefinitions.Stealth.Name, 3)
+                )
+                .SetArmorClass(11)
+                .SetAbilityScores(3, 13, 8, 2, 12, 7)
+                .SetHitDiceNumber(1)
+                .SetHitDiceType(RuleDefinitions.DieType.D4)
+                .SetHitPointsBonus(-1)
+                .SetStandardHitPoints(1)
+                .SetSizeDefinition(DatabaseHelper.CharacterSizeDefinitions.Tiny)
+                .SetAlignment(DatabaseHelper.AlignmentDefinitions.Neutral.Name)
+                .SetCharacterFamily(DatabaseHelper.CharacterFamilyDefinitions.Fey.name)
+                .SetChallengeRating(0)
+                .SetDroppedLootDefinition(null)
+                .SetDefaultBattleDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)
+                .SetFullyControlledWhenAllied(true)
+                .SetDefaultFaction("Party")
+                .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
 
             if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out FeatureDefinition help))
             {
-                familiarMonsterBuilder.AddFeatures(new List<FeatureDefinition> { help });
+                familiarMonsterBuilder.AddFeatures(help);
             }
 
             var familiarMonster = familiarMonsterBuilder.AddToDB();
 
-            var spellBuilder = new SpellBuilder(Fireball, "FindFamiliar", BAZOU_SPELLS_BASE_GUID);
-
-            spellBuilder.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolConjuration);
-            spellBuilder.SetMaterialComponent(RuleDefinitions.MaterialComponentType.Specific);
-            spellBuilder.SetSomaticComponent(true);
-            spellBuilder.SetVerboseComponent(true);
-            spellBuilder.SetSpellLevel(1);
-            spellBuilder.SetCastingTime(RuleDefinitions.ActivationTime.Hours1);
-            // BUG: Unable to have 70 minutes ritual casting time... if set to 10 minutes, it really only takes 10 minutes, instead of 70
-            spellBuilder.SetRitualCasting(RuleDefinitions.ActivationTime.Hours1);
-            spellBuilder.SetGuiPresentation("Spell/&FindFamiliarDescription", "Spell/&FindFamiliarTitle", AnimalFriendship.GuiPresentation.SpriteReference);
-
-            var spell = spellBuilder.AddToDB();
+            var spell = new SpellBuilder(Fireball, "FindFamiliar", BAZOU_SPELLS_BASE_GUID)
+                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolConjuration)
+                .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Specific)
+                .SetSomaticComponent(true)
+                .SetVerboseComponent(true)
+                .SetSpellLevel(1)
+                .SetCastingTime(RuleDefinitions.ActivationTime.Hours1)
+                // BUG: Unable to have 70 minutes ritual casting time... if set to 10 minutes, it really only takes 10 minutes, instead of 70
+                .SetRitualCasting(RuleDefinitions.ActivationTime.Hours1)
+                .SetGuiPresentation("Spell/&FindFamiliarDescription", "Spell/&FindFamiliarTitle", AnimalFriendship.GuiPresentation.SpriteReference)
+                .AddToDB();
 
             spell.SetUniqueInstance(true);
 
@@ -219,14 +214,9 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.SetHasSavingThrow(true);
             spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
 
-            var conditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                    ConditionConfused,
-                    "ConditionFrenzied",
-                    GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "ConditionFrenzied").ToString(),
-                    GuiPresentationBuilder.Build("Condition/&FrenziedDescription", "Condition/&FrenziedTitle", ConditionConfusedAttack.GuiPresentation.SpriteReference))
-                    .AddToDB();
-
-            conditionDefinition.Features.Clear();
+            var conditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(ConditionConfused, "ConditionFrenzied", BAZOU_SPELLS_BASE_GUID)
+                .SetGuiPresentationGenerate("Frenzied", "Condition")
+                .AddToDB();
 
             // Some methods are missing like SetField or Copy
             var actionAffinity = new FeatureDefinitionActionAffinityBuilder(
@@ -245,7 +235,7 @@ namespace SolastaCommunityExpansion.Spells
             behaviorMode.SetWeight(10);
 
             actionAffinity.RandomBehaviourOptions.Add(behaviorMode);
-            conditionDefinition.Features.Add(actionAffinity);
+            conditionDefinition.Features.SetRange(actionAffinity);
 
             spell.EffectDescription.EffectForms[0].ConditionForm.SetConditionDefinition(conditionDefinition);
 
