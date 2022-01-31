@@ -1,7 +1,8 @@
-﻿using ModKit;
-using System.Linq;
+﻿using System.Linq;
+using ModKit;
 using UnityEngine;
 using UnityModManagerNet;
+using static SolastaCommunityExpansion.Viewers.Displays.CampaignsAndLocationsDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.ItemsAndCraftingDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.RulesDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.ToolsDisplay;
@@ -19,6 +20,7 @@ namespace SolastaCommunityExpansion.Viewers
         private static readonly NamedAction[] actions =
         {
             new NamedAction("Rules", DisplayRules),
+            new NamedAction("Campaigns & Locations", DisplayCampaignsAndLocations),
             new NamedAction("Items, Crafting & Merchants", DisplayItemsAndCrafting),
             new NamedAction("Tools", DisplayTools),
         };

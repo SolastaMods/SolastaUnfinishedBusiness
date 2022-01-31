@@ -10,7 +10,6 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class CharacterExportContext
     {
-        internal const InputCommands.Id CTRL_E = (InputCommands.Id)44440004;
         internal const string INPUT_MODAL_MARK = "Message/&CharacterExportModalContentDescription";
 
         internal static TMP_InputField InputField { get; private set; }
@@ -18,12 +17,6 @@ namespace SolastaCommunityExpansion.Models
         internal static bool InputModalVisible { get; set; }
 
         internal static void Load()
-        {
-            LoadInputField();
-            ServiceRepository.GetService<IInputService>().RegisterCommand(CTRL_E, (int)KeyCode.E, (int)KeyCode.LeftControl, -1, -1, -1, -1);
-        }
-
-        internal static void LoadInputField()
         {
             MessageModal messageModal = Gui.GuiService.GetScreen<MessageModal>();
             TMP_Text contentText = messageModal.transform.FindChildRecursive("Content").GetComponent<TMP_Text>();
@@ -192,60 +185,6 @@ namespace SolastaCommunityExpansion.Models
                 heroCharacter.SetCurrentHitPoints(hitPoints);
 
                 heroCharacter.Register(false);
-            }
-        }
-
-        /// <summary>
-        /// Required during de-serialization in the character inspection screen to prevent null-ref exceptions
-        /// </summary>
-        internal class DummyRulesetEntityService : IRulesetEntityService
-        {
-            public static IRulesetEntityService Instance => new DummyRulesetEntityService();
-
-            public bool Dirty { get; set; }
-
-            public Dictionary<ulong, RulesetEntity> RulesetEntities => new Dictionary<ulong, RulesetEntity>();
-
-            public ulong GenerateGuid()
-            {
-                return 0;
-            }
-
-            public void RegisterEntity(RulesetEntity rulesetEntity)
-            {
-                if (!RulesetEntities.ContainsKey(rulesetEntity.Guid))
-                {
-                    RulesetEntities.Add(rulesetEntity.Guid, rulesetEntity);
-                }
-            }
-
-            public bool TryGetEntityByGuid(ulong guid, out RulesetEntity rulesetEntity)
-            {
-                return RulesetEntities.TryGetValue(guid, out rulesetEntity);
-            }
-
-            public void UnregisterEntity(RulesetEntity rulesetEntity)
-            {
-                if (rulesetEntity != null)
-                {
-                    RulesetEntities.Remove(rulesetEntity.Guid);
-                }
-            }
-
-            public void SwapEntities(RulesetEntity oldRulesetEntity, RulesetEntity newRulesetEntity)
-            {
-                // Nothing to do
-            }
-
-            public void ResetCurrentGuid()
-            {
-                // Nothing to do
-            }
-
-            public bool TryGetEntityByGuidAndType<T>(ulong guid, out T rulesetEntity) where T : RulesetEntity
-            {
-                rulesetEntity = null;
-                return false;
             }
         }
     }

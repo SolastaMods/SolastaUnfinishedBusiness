@@ -9,9 +9,9 @@ namespace SolastaCommunityExpansion.Patches.Respec
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacterHero_EnumerateAfterRestActions
     {
-        internal static void Postfix(RuleDefinitions.RestType restType, List<RestActivityDefinition> ___afterRestActions)
+        internal static void Postfix(List<RestActivityDefinition> ___afterRestActions)
         {
-            if (Main.Settings.EnableRespec && restType == RuleDefinitions.RestType.LongRest)
+            if (Main.Settings.EnableRespec)
             {
                 foreach (var restActivityDefinition in DatabaseRepository.GetDatabase<RestActivityDefinition>().GetAllElements())
                 {

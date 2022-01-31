@@ -1,9 +1,8 @@
-﻿using ModKit;
+﻿using System.Linq;
+using ModKit;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Subclasses.Rogue;
 using SolastaCommunityExpansion.Subclasses.Wizard;
-using System.Linq;
-
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
@@ -70,7 +69,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                             while (current < classesCount && columns-- > 0)
                             {
                                 var keyValuePair = ClassesContext.Classes.ElementAt(current);
-                                var characterClass = keyValuePair.Value.GetClass();
+                                var characterClass = keyValuePair.Value;
                                 var title = characterClass.FormatTitle();
 
                                 if (flip)
@@ -233,5 +232,4 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
         }
     }
-
 }

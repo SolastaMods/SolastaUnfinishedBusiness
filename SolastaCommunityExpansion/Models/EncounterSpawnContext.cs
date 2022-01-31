@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using TA;
+using UnityEngine;
 using static SolastaModApi.DatabaseHelper.DecisionPackageDefinitions;
 using static SolastaModApi.DatabaseHelper.FactionDefinitions;
 using static SolastaModApi.DatabaseHelper.FormationDefinitions;
@@ -9,8 +10,6 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class EncountersSpawnContext
     {
-        private const InputCommands.Id CTRL_SHIFT_E = (InputCommands.Id)44440005;
-
         internal const int MAX_ENCOUNTER_CHARACTERS = 16;
 
         private static ulong EncounterId { get; set; } = 10000;
@@ -20,11 +19,6 @@ namespace SolastaCommunityExpansion.Models
         private static readonly List<MonsterDefinition> Monsters = new List<MonsterDefinition>();
 
         internal static readonly List<RulesetCharacter> EncounterCharacters = new List<RulesetCharacter>();
-
-        internal static void Load()
-        {
-            ServiceRepository.GetService<IInputService>().RegisterCommand(CTRL_SHIFT_E, 101, 304, 306, -1, -1, -1);
-        }
 
         internal static void AddToEncounter(RulesetCharacterHero hero)
         {
@@ -99,9 +93,11 @@ namespace SolastaCommunityExpansion.Models
             return Heroes;
         }
 
-        internal static void ConfirmStageEncounter(InputCommands.Id command)
+        internal static void ConfirmStageEncounter()
         {
-            if (command == CTRL_SHIFT_E && EncounterCharacters.Count > 0)
+            var isUserLocation = Gui.GameLocation?.LocationDefinition?.IsUserLocation == true;
+
+            if (isUserLocation)
             {
                 var position = GetEncounterPosition();
 

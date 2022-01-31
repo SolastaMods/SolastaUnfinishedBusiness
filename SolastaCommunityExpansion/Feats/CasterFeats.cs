@@ -14,19 +14,20 @@ namespace SolastaCommunityExpansion.Feats
         public static void CreateFeats(List<FeatDefinition> feats)
         {
             GuiPresentationBuilder intPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatIntIncrementDescription", "Feat/&FeatIntIncrementTitle");
+                "Feat/&FeatIntIncrementDescription",
+                "Feat/&FeatIntIncrementTitle");
             FeatureDefinition intIncrement = BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                 AttributeDefinitions.Intelligence, 1, "FeatIntIncrement", intPresentation.Build());
 
             GuiPresentationBuilder chaPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatIntIncrementDescription",
-                "Feat/&FeatIntIncrementTitle");
+                "Feat/&FeatChaIncrementDescription",
+                "Feat/&FeatChaIncrementTitle");
             FeatureDefinition chaIncrement = BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                 AttributeDefinitions.Charisma, 1, "FeatChaIncrement", chaPresentation.Build());
 
             GuiPresentationBuilder wisPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatIntIncrementDescription",
-                "Feat/&FeatIntIncrementTitle");
+                "Feat/&FeatWisIncrementDescription",
+                "Feat/&FeatWisIncrementTitle");
             FeatureDefinition wisIncrement = BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                 AttributeDefinitions.Wisdom, 1, "FeatWisIncrement", wisPresentation.Build());
 

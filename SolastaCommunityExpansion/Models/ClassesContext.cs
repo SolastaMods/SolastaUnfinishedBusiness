@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class ClassesContext
     {
-        internal static Dictionary<string, AbstractClass> Classes { get; private set; } = new Dictionary<string, AbstractClass>();
+        internal static Dictionary<string, CharacterClassDefinition> Classes { get; private set; } = new Dictionary<string, CharacterClassDefinition>();
 
         internal static void SortClassesFeatures()
         {
@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Models
         internal static void Load()
         {
             //LoadClass(new Tinkerer());
-            LoadClass(new Witch());
+            LoadClass(Witch.Instance);
 
             if (Main.Settings.EnableSortingFutureFeatures)
             {
@@ -41,23 +41,21 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        private static void LoadClass(AbstractClass classBuilder)
+        private static void LoadClass(CharacterClassDefinition characterClass)
         {
-            CharacterClassDefinition characterClass = classBuilder.GetClass();
-
             if (!Classes.ContainsKey(characterClass.Name))
             {
-                Classes.Add(characterClass.Name, classBuilder);
+                Classes.Add(characterClass.Name, characterClass);
             }
 
-            Classes = Classes.OrderBy(x => x.Value.GetClass().FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
+            Classes = Classes.OrderBy(x => x.Value.FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
 
             UpdateClassVisibility(characterClass.Name);
         }
 
         private static void UpdateClassVisibility(string className)
         {
-            Classes[className].GetClass().GuiPresentation.SetHidden(!Main.Settings.ClassEnabled.Contains(className));
+            Classes[className].GuiPresentation.SetHidden(!Main.Settings.ClassEnabled.Contains(className));
         }
 
         internal static void Switch(string className, bool active)
@@ -91,9 +89,9 @@ namespace SolastaCommunityExpansion.Models
             foreach (var characterClass in Classes.Values)
             {
                 outString.Append("\n[*][b]");
-                outString.Append(characterClass.GetClass().FormatTitle());
+                outString.Append(characterClass.FormatTitle());
                 outString.Append("[/b]: ");
-                outString.Append(characterClass.GetClass().FormatDescription());
+                outString.Append(characterClass.FormatDescription());
             }
 
             outString.Append("\n[/list]");

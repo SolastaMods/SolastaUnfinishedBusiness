@@ -25,7 +25,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (Main.Settings.DisplayAdventureLogToggle)
             {
                 UI.Label("");
-                UI.Label(". The settings below only work in custom campaigns or locations");
+                UI.Label(". These settings only work in custom campaigns or locations");
                 UI.Label("");
 
                 toggle = Main.Settings.EnableAdventureLogBanterLines;
@@ -53,7 +53,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.EnableAdventureLogPopups;
-                if (UI.Toggle("Record bottom and header popups", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Record header and bottom popups", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableAdventureLogPopups = toggle;
                 }
@@ -95,92 +95,46 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 {
                     Main.Settings.AutoPauseOnVictory = toggle;
                 }
-
-                toggle = Main.Settings.PermanentlySpeedBattleUp;
-                if (UI.Toggle("Permanently speeds battle up", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.PermanentlySpeedBattleUp = toggle;
-                }
-
-                UI.Label("");
-                floatValue = Main.Settings.BattleCustomTimeScale;
-                if (UI.Slider("Battle timescale modifier".white(), ref floatValue, 1f, 50f, 1f, 1, "M", UI.AutoWidth()))
-                {
-                    Main.Settings.BattleCustomTimeScale = floatValue;
-                }
             }
             #endregion
 
-            #region DungeonMaker
+            #region Campaign
             UI.Label("");
 
-            toggle = Main.Settings.DisplayDungeonMakerToggle;
-            if (UI.DisclosureToggle("Dungeon Maker: ".yellow(), ref toggle, 200))
+            toggle = Main.Settings.DisplayCampaignToggle;
+            if (UI.DisclosureToggle("Campaigns and locations:".yellow(), ref toggle, 200))
             {
-                Main.Settings.DisplayDungeonMakerToggle = toggle;
+                Main.Settings.DisplayCampaignToggle = toggle;
             }
 
-            if (Main.Settings.DisplayDungeonMakerToggle)
+            if (Main.Settings.DisplayCampaignToggle)
             {
                 UI.Label("");
 
-                toggle = Main.Settings.AllowGadgetsToBePlacedAnywhere;
-                if (UI.Toggle("Allow gadgets to be placed anywhere on the map " + RequiresRestart, ref toggle))
+                toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
+                if (UI.Toggle("Enable additional icons for camps, exits and teleporters on level map", ref toggle, UI.AutoWidth()))
                 {
-                    Main.Settings.AllowGadgetsToBePlacedAnywhere = toggle;
+                    Main.Settings.EnableAdditionalIconsOnLevelMap = toggle;
+
+                    if (toggle)
+                    {
+                        Main.Settings.MarkInvisibleTeleportersOnLevelMap = false;
+                    }
                 }
 
-                toggle = Main.Settings.AllowPropsToBePlacedAnywhere;
-                if (UI.Toggle("Allow props to be placed anywhere on the map " + RequiresRestart, ref toggle))
+                if (Main.Settings.EnableAdditionalIconsOnLevelMap)
                 {
-                    Main.Settings.AllowPropsToBePlacedAnywhere = toggle;
+                    toggle = Main.Settings.MarkInvisibleTeleportersOnLevelMap;
+                    if (UI.Toggle("+ Also mark the location of invisible teleporters on level map after discovery".italic(), ref toggle, UI.AutoWidth()))
+                    {
+                        Main.Settings.MarkInvisibleTeleportersOnLevelMap = toggle;
+                    }
                 }
 
-                UI.Label("");
-
-                toggle = Main.Settings.UnleashNpcAsEnemy;
-                if (UI.Toggle("Unleash NPCs as enemies " + "[press SHIFT while clicking Select on gadget panel]".italic().yellow(), ref toggle))
+                toggle = Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered;
+                if (UI.Toggle("Hide exits and teleporters visual effects if not discovered yet", ref toggle, UI.AutoWidth()))
                 {
-                    Main.Settings.UnleashNpcAsEnemy = toggle;
-                }
-
-                toggle = Main.Settings.UnleashEnemyAsNpc;
-                if (UI.Toggle("Unleash enemies as NPCs " + "[press SHIFT while clicking Select on gadget panel]".italic().yellow(), ref toggle))
-                {
-                    Main.Settings.UnleashEnemyAsNpc = toggle;
-                }
-            }
-            #endregion
-
-            #region Hotkeys
-            UI.Label("");
-
-            toggle = Main.Settings.DisplayHotkeysToggle;
-            if (UI.DisclosureToggle("Hotkey:".yellow(), ref toggle, 200))
-            {
-                Main.Settings.DisplayHotkeysToggle = toggle;
-            }
-
-            if (Main.Settings.DisplayHotkeysToggle)
-            {
-                UI.Label("");
-
-                toggle = Main.Settings.EnableCharacterExport;
-                if (UI.Toggle("Enable character export from the inventory screen using " + "ctrl-(E)xport".cyan(), ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableCharacterExport = toggle;
-                }
-
-                toggle = Main.Settings.EnableHotkeysToToggleHud;
-                if (UI.Toggle("Enable the hotkeys " + "ctrl-(C)ontrol Panel, ctrl-(L)og, ctrl-(M)ap and ctrl-(P)arty ".cyan() + "to toggle the HUD visibility", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableHotkeysToToggleHud = toggle;
-                }
-
-                toggle = Main.Settings.InvertAltBehaviorOnTooltips;
-                if (UI.Toggle("Invert ALT key behavior on tooltips", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.InvertAltBehaviorOnTooltips = toggle;
+                    Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered = toggle;
                 }
             }
             #endregion
@@ -199,9 +153,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 UI.Label("");
 
                 toggle = Main.Settings.EnableInventoryFilteringAndSorting;
-                if (UI.Toggle("Enable inventory filtering and sorting " + RequiresRestart, ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Enable inventory filtering and sorting", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableInventoryFilteringAndSorting = toggle;
+                    InventoryManagementContext.RefreshControlsVisibility();
                 }
 
                 toggle = Main.Settings.EnableInvisibleCrownOfTheMagister;

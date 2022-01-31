@@ -1,14 +1,12 @@
-﻿using ModKit;
+﻿using System.Linq;
+using ModKit;
 using SolastaCommunityExpansion.Models;
-using System.Linq;
 using static SolastaCommunityExpansion.Viewers.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class ItemsAndCraftingDisplay
     {
-
-
         private static void AddUIForWeaponKey(string key)
         {
             bool toggle;
@@ -212,7 +210,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.StockHugoStoreWithAdditionalFoci;
-                if (UI.Toggle("Stocks Hugo's store with " + "Wand of Identify".orange() + " and new foci items " + "[Arcane Staff, Druid Neck, Staff and Club]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Stocks Hugo's store with " + "Wand of Identify".orange() + ", " + "Arcane Staff".orange() + ", " + "Druid Neck".orange() + ", " + "Staff".orange() + " and " + "Club".orange() + " set as foci items", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.StockHugoStoreWithAdditionalFoci = toggle;
                     Main.Settings.EnableAdditionalFociInDungeonMaker = toggle;

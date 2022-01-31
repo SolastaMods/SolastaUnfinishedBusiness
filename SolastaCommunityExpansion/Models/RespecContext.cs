@@ -4,6 +4,7 @@ using System.Linq;
 using HarmonyLib;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using UnityEngine;
 using static SolastaModApi.DatabaseHelper.RestActivityDefinitions;
 
@@ -150,37 +151,37 @@ namespace SolastaCommunityExpansion.Models
             internal static void FinalizeRespec(RulesetCharacterHero oldHero, RulesetCharacterHero newHero)
             {
                 var guid = oldHero.Guid;
+                var tags = oldHero.Tags;
                 var experience = oldHero.GetAttribute(AttributeDefinitions.Experience);
                 var gameCampaignCharacters = Gui.GameCampaign.Party.CharactersList;
                 var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
-                oldHero.Unregister();
-                oldHero.ResetForOutgame();
                 newHero.SetGuid(guid);
+                newHero.Tags.AddRange(tags);
+                newHero.Attributes[AttributeDefinitions.Experience] = experience;
 
                 CopyInventoryOver(oldHero, newHero);
-
-                newHero.Register(false);
-                newHero.Attributes[AttributeDefinitions.Experience] = experience;
 
                 gameCampaignCharacters.Find(x => x.RulesetCharacter == oldHero).RulesetCharacter = newHero;
 
                 UpdateRestPanelUi(gameCampaignCharacters);
 
-                if (gameLocationCharacterService != null)
+                if (gameLocationCharacterService == null)
                 {
-                    var gameLocationCharacter = gameLocationCharacterService.PartyCharacters.Find(x => x.RulesetCharacter == oldHero);
-                    var worldLocationEntityFactoryService = ServiceRepository.GetService<IWorldLocationEntityFactoryService>();
-
-                    gameLocationCharacter.SetRuleset(newHero);
-
-                    if (worldLocationEntityFactoryService.TryFindWorldCharacter(gameLocationCharacter, out WorldLocationCharacter worldLocationCharacter))
-                    {
-                        worldLocationCharacter.GraphicsCharacter.RulesetCharacter = newHero;
-                    }
-
-                    AccessTools.Field(gameLocationCharacterService.GetType(), "dirtyParty").SetValue(gameLocationCharacterService, true);
+                    return;
                 }
+
+                var gameLocationCharacter = gameLocationCharacterService.PartyCharacters.Find(x => x.RulesetCharacter == oldHero);
+                var worldLocationEntityFactoryService = ServiceRepository.GetService<IWorldLocationEntityFactoryService>();
+
+                gameLocationCharacter.SetRuleset(newHero);
+
+                if (worldLocationEntityFactoryService.TryFindWorldCharacter(gameLocationCharacter, out WorldLocationCharacter worldLocationCharacter))
+                {
+                    worldLocationCharacter.GraphicsCharacter.RulesetCharacter = newHero;
+                }
+
+                gameLocationCharacterService.SetField("dirtyParty", true);
             }
 
             internal static void CopyInventoryOver(RulesetCharacterHero oldHero, RulesetCharacterHero newHero)
@@ -207,8 +208,8 @@ namespace SolastaCommunityExpansion.Models
             internal static void UpdateRestPanelUi(List<GameCampaignCharacter> gameCampaignCharacters)
             {
                 var restModalScreen = Gui.GuiService.GetScreen<RestModal>();
-                var restAfterPanel = AccessTools.Field(restModalScreen.GetType(), "restAfterPanel").GetValue(restModalScreen) as RestAfterPanel;
-                var characterPlatesTable = AccessTools.Field(restAfterPanel.GetType(), "characterPlatesTable").GetValue(restAfterPanel) as RectTransform;
+                var restAfterPanel = restModalScreen.GetField<RestModal, RestAfterPanel>("restAfterPanel");
+                var characterPlatesTable = restAfterPanel.GetField<RestAfterPanel, RectTransform>("characterPlatesTable");
 
                 for (int index = 0; index < characterPlatesTable.childCount; ++index)
                 {

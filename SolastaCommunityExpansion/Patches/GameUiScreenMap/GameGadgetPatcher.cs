@@ -5,7 +5,6 @@ using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Helpers;
 using TA;
-using static SolastaModApi.DatabaseHelper.GadgetBlueprints;
 
 namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
 {
@@ -14,15 +13,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameGadget_ComputeIsRevealed
     {
-        private static readonly GadgetBlueprint[] gadgetBlueprintsToRevealAfterDiscovery = new GadgetBlueprint[]
-        {
-            Exit,
-            ExitMultiple,
-            TeleporterIndividual,
-            TeleporterParty,
-            VirtualExit,
-            VirtualExitMultiple,
-        };
+
 
         internal static void Postfix(GameGadget __instance, ref bool ___revealed, ref bool __result)
         {
@@ -35,7 +26,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                 .SelectMany(a => a.UserGadgets)
                 .FirstOrDefault(b => b.UniqueName == __instance.UniqueNameId);
 
-            if (userGadget == null || Array.IndexOf(gadgetBlueprintsToRevealAfterDiscovery, userGadget.GadgetBlueprint) < 0)
+            if (userGadget == null || !Models.GameUiContext.IsGadgetExit(userGadget.GadgetBlueprint))
             {
                 return;
             }

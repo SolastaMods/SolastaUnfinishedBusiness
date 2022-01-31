@@ -1,8 +1,8 @@
-﻿using ModKit;
-using SolastaCommunityExpansion.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using ModKit;
+using SolastaCommunityExpansion.Models;
 using UnityEngine;
 using UnityModManagerNet;
 
@@ -20,11 +20,11 @@ namespace SolastaCommunityExpansion.Viewers
 
         private static bool showAttributes;
 
-        private static readonly Dictionary<MonsterDefinition, bool> currentFeaturesMonster = new Dictionary<MonsterDefinition, bool> { };
+        private static readonly Dictionary<MonsterDefinition, bool> currentFeaturesMonster = new();
 
-        private static readonly Dictionary<MonsterDefinition, bool> currentAttacksMonster = new Dictionary<MonsterDefinition, bool> { };
+        private static readonly Dictionary<MonsterDefinition, bool> currentAttacksMonster = new();
 
-        private static readonly Dictionary<RulesetCharacterHero, bool> currentItemsHeroes = new Dictionary<RulesetCharacterHero, bool> { };
+        private static readonly Dictionary<RulesetCharacterHero, bool> currentItemsHeroes = new();
 
         private static string SplitCamelCase(string str)
         {
@@ -70,9 +70,9 @@ namespace SolastaCommunityExpansion.Viewers
 
                 currentItemsHeroes.TryGetValue(hero, out flip);
 
-                if (UI.DisclosureToggle($"Inventory", ref flip, 132))
+                if (UI.DisclosureToggle("Inventory", ref flip, 132))
                 {
-                    currentItemsHeroes.AddOrReplace<RulesetCharacterHero, bool>(hero, flip);
+                    currentItemsHeroes.AddOrReplace(hero, flip);
                 }
             }
 
@@ -137,19 +137,18 @@ namespace SolastaCommunityExpansion.Viewers
                     UI.Label($"CR: {monsterDefinition.ChallengeRating}".yellow(), UI.Width(72));
                 }
 
-
                 currentAttacksMonster.TryGetValue(monsterDefinition, out flip);
 
                 if (UI.DisclosureToggle($"Attacks ({monsterDefinition.AttackIterations.Count:0#})", ref flip, 132))
                 {
-                    currentAttacksMonster.AddOrReplace<MonsterDefinition, bool>(monsterDefinition, flip);
+                    currentAttacksMonster.AddOrReplace(monsterDefinition, flip);
                 }
 
                 currentFeaturesMonster.TryGetValue(monsterDefinition, out flip);
 
                 if (UI.DisclosureToggle($"Features ({monsterDefinition.Features.Count:0#})", ref flip, 144))
                 {
-                    currentFeaturesMonster.AddOrReplace<MonsterDefinition, bool>(monsterDefinition, flip);
+                    currentFeaturesMonster.AddOrReplace(monsterDefinition, flip);
                 }
             }
 
@@ -209,7 +208,7 @@ namespace SolastaCommunityExpansion.Viewers
                             UI.Label($"hit bonus: {attackIteration.MonsterAttackDefinition.ToHitBonus}".green(), UI.Width(108));
                             if (attackIteration.MonsterAttackDefinition.MaxUses < 0)
                             {
-                                UI.Label($"max uses: inf".green(), UI.Width(108));
+                                UI.Label("max uses: inf".green(), UI.Width(108));
                             }
                             else
                             {
@@ -217,7 +216,7 @@ namespace SolastaCommunityExpansion.Viewers
                             }
                             if (attackIteration.MonsterAttackDefinition.Magical)
                             {
-                                UI.Label($"MAGICAL".green(), UI.Width(108));
+                                UI.Label("MAGICAL".green(), UI.Width(108));
                             }
                         }
                     }
@@ -280,10 +279,11 @@ namespace SolastaCommunityExpansion.Viewers
             UI.Label("Encounters:".yellow());
             UI.Label("");
 
+            UI.Label(". encounters only work in custom campaigns or locations");
             UI.Label(". use the Bestiary tab to add monsters to the challenge", UI.AutoWidth());
             UI.Label(". use the Characters Pool tab to add heroes as enemies to the challenge", UI.AutoWidth());
-            UI.Label(". click - to remove participants from the group");
-            UI.Label(". pan the camera to the desired encounter location and press " + "ctrl-shift-(E)ncounter".cyan() + " to spawn the group", UI.AutoWidth());
+            UI.Label(". click " + "minus".italic() + " to remove participants from the group");
+            UI.Label(". pan the camera to the desired encounter location and press " + "ctrl-shift-(S)".cyan() + "pawn to place the enemies", UI.AutoWidth());
             UI.Label("");
 
             if (EncountersSpawnContext.EncounterCharacters.Count == 0)
@@ -296,11 +296,11 @@ namespace SolastaCommunityExpansion.Viewers
                 {
                     if (EncountersSpawnContext.EncounterCharacters[index] is RulesetCharacterMonster rulesetCharacterMonster)
                     {
-                        DisplayMonsterStats(rulesetCharacterMonster.MonsterDefinition, "-", () => { EncountersSpawnContext.RemoveFromEncounter(index); });
+                        DisplayMonsterStats(rulesetCharacterMonster.MonsterDefinition, "-", () => EncountersSpawnContext.RemoveFromEncounter(index));
                     }
                     else if (EncountersSpawnContext.EncounterCharacters[index] is RulesetCharacterHero rulesetCharacterHero)
                     {
-                        DisplayHeroStats(rulesetCharacterHero, "-", () => { EncountersSpawnContext.RemoveFromEncounter(index); });
+                        DisplayHeroStats(rulesetCharacterHero, "-", () => EncountersSpawnContext.RemoveFromEncounter(index));
                     }
                 }
             }
@@ -316,7 +316,7 @@ namespace SolastaCommunityExpansion.Viewers
 
             foreach (var monsterDefinition in EncountersSpawnContext.GetMonsters())
             {
-                DisplayMonsterStats(monsterDefinition, "+", () => { EncountersSpawnContext.AddToEncounter(monsterDefinition); });
+                DisplayMonsterStats(monsterDefinition, "+", () => EncountersSpawnContext.AddToEncounter(monsterDefinition));
             }
         }
 
@@ -330,7 +330,7 @@ namespace SolastaCommunityExpansion.Viewers
 
                 foreach (var hero in EncountersSpawnContext.GetHeroes())
                 {
-                    DisplayHeroStats(hero, "+", () => { EncountersSpawnContext.AddToEncounter(hero); });
+                    DisplayHeroStats(hero, "+", () => EncountersSpawnContext.AddToEncounter(hero));
                 }
             }
         }

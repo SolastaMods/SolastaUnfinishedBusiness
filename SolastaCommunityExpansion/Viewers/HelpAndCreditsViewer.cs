@@ -22,11 +22,9 @@ namespace SolastaCommunityExpansion.Viewers
             //AddDumpDescriptionToLogButton();
         }
 
-#pragma warning disable IDE0051 // Remove unused private members
-#pragma warning disable S1144 // Remove unused private members
+#pragma warning disable IDE0051, S1144, RCS1213 // Remove unused private members
         private static void AddDumpDescriptionToLogButton()
-#pragma warning restore IDE0051 // Remove unused private members
-#pragma warning restore S1144 // Remove unused private members
+#pragma warning restore IDE0051, S1144, RCS1213 // Remove unused private members
         {
             UI.ActionButton("Dump Description to Logs", () =>
             {
@@ -72,8 +70,6 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append(Models.SubclassesContext.GenerateSubclassDescription());
                 collectedString.Append("\n[line]\n");
                 collectedString.Append(Models.FightingStyleContext.GenerateFightingStyleDescription());
-                collectedString.Append("\n[line]\n");
-                collectedString.Append(Models.ClassesContext.GenerateClassDescription());
                 collectedString.Append("\n[line]\n");
                 collectedString.Append(Models.SpellsContext.GenerateSpellsDescription());
                 collectedString.Append("\n[line]\n");
@@ -155,9 +151,9 @@ namespace SolastaCommunityExpansion.Viewers
                 collectedString.Append("\n[line]\n");
                 collectedString.Append("[heading]Credits[/heading]\n[list]");
                 collectedString.Append("\n[*]Chris John Digital");
-                foreach (var kvp in Displays.CreditsDisplay.CreditsTable)
+                foreach (var kvp in CreditsTable)
                 {
-                    collectedString.Append("\n[*]" + kvp.Key + ": " + kvp.Value);
+                    collectedString.Append("\n[*]").Append(kvp.Key).Append(": ").Append(kvp.Value);
                 }
                 collectedString.Append("\n[/list]");
                 collectedString.Append("\nSource code on [url=https://github.com/ChrisPJohn/SolastaCommunityExpansion]GitHub[/url].");
