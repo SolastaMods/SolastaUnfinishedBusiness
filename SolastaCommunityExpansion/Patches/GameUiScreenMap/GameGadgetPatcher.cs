@@ -26,7 +26,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiScreenMap
                 .SelectMany(a => a.UserGadgets)
                 .FirstOrDefault(b => b.UniqueName == __instance.UniqueNameId);
 
-            if (userGadget == null || Array.IndexOf(Models.GameUiContext.GadgetBlueprintsWithGizmos, userGadget.GadgetBlueprint) < 0)
+            if (userGadget == null || !Models.GameUiContext.IsGadgetExit(userGadget.GadgetBlueprint))
             {
                 return;
             }
