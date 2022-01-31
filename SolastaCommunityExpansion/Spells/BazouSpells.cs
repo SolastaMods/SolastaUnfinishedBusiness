@@ -65,7 +65,6 @@ namespace SolastaCommunityExpansion.Spells
             spellBuilder.SetGuiPresentation("EldritchOrb", "Spell", Shine.GuiPresentation.SpriteReference);
 #endif
 
-
             var spell = spellBuilder.AddToDB();
 
             // Not sure if I prefer copying and editing existing effect description

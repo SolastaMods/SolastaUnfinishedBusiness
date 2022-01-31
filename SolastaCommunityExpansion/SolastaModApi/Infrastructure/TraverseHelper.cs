@@ -37,11 +37,9 @@ namespace SolastaModApi.Infrastructure
 
             t.Field<V>(fieldName).Value = value;
 
-#pragma warning disable S125 // Sections of code should not be commented out
             // It's also possible to do this, which may be more efficient
             // but doesn't give as nice exception information.
             // AccessTools.FieldRefAccess<T, V>(instance, fieldName) = value;
-#pragma warning restore S125 // Sections of code should not be commented out
         }
 
         public static V GetField<T, V>(this T instance, string fieldName) where T : class

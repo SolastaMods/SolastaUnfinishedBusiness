@@ -3,7 +3,6 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaModApi.Extensions
 {
-#pragma warning disable S125 // Sections of code should not be commented out
     /*
         Allows code like
 
@@ -15,7 +14,6 @@ namespace SolastaModApi.Extensions
             .AddFeatureUnlock(PowerPaladinAuraOfCourage, 1)
             .AddFeatureUnlock(PowerPaladinAuraOfProtection, 1);
         */
-#pragma warning restore S125 // Sections of code should not be commented out
 
     public static partial class CharacterClassDefinitionExtensions
     {

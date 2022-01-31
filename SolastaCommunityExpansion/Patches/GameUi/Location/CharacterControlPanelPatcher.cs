@@ -65,48 +65,52 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
                 }
                 else if (__instance is CharacterControlPanelBattle battlePanel)
                 {
-#pragma warning disable IDE0066 // Convert switch statement to expression
-                    switch (actionId)
-                    {
-                        case ActionDefinitions.Id.CastMain:
-                        case ActionDefinitions.Id.AttackMain:
-                        case ActionDefinitions.Id.DashMain:
-                        case ActionDefinitions.Id.DisengageMain:
-                        case ActionDefinitions.Id.Dodge:
-                        case ActionDefinitions.Id.HideMain:
-                        case ActionDefinitions.Id.Manipulate:
-                        case ActionDefinitions.Id.LootGround:
-                        case ActionDefinitions.Id.PowerMain:
-                        case ActionDefinitions.Id.Shove:
-                        case ActionDefinitions.Id.UseItemMain:
-                        case ActionDefinitions.Id.AssignTargetMain:
-                        case ActionDefinitions.Id.Extinguish:
-                        case ActionDefinitions.Id.Awaken:
-                        case ActionDefinitions.Id.VampiricTouch:
-                        case ActionDefinitions.Id.Stabilize:
-                            panelToActivate = battlePanel.MainActionPanel;
-                            break;
-                        case ActionDefinitions.Id.CastBonus:
-                        case ActionDefinitions.Id.AttackOff:
-                        case ActionDefinitions.Id.CunningAction:
-                        case ActionDefinitions.Id.DashBonus:
-                        case ActionDefinitions.Id.DisengageBonus:
-                        case ActionDefinitions.Id.HideBonus:
-                        case ActionDefinitions.Id.PowerBonus:
-                        case ActionDefinitions.Id.UseItemBonus:
-                        case ActionDefinitions.Id.ShoveBonus:
-                        case ActionDefinitions.Id.AssignTargetBonus:
-                        case ActionDefinitions.Id.CunningActionFastHands:
-                        case ActionDefinitions.Id.ProxySpiritualWeapon:
-                        case ActionDefinitions.Id.ProxyFlamingSphere:
-                        case ActionDefinitions.Id.ProxyDancingLights:
-                            panelToActivate = battlePanel.GetField<CharacterActionPanel>("bonusActionPanel");
-                            break;
-                        default:
-                            panelToActivate = battlePanel.GetField<CharacterActionPanel>("otherActionPanel");
-                            break;
-                    }
-#pragma warning restore IDE0066 // Convert switch statement to expression
+                    ActivateBattlePanel(battlePanel);
+                }
+            }
+
+            [SuppressMessage("Minor Code Smell", "IDE0066:Use switch expression", Justification = "Prefer switch here")]
+            static void ActivateBattlePanel(CharacterControlPanelBattle battlePanel)
+            {
+                switch (actionId)
+                {
+                    case ActionDefinitions.Id.CastMain:
+                    case ActionDefinitions.Id.AttackMain:
+                    case ActionDefinitions.Id.DashMain:
+                    case ActionDefinitions.Id.DisengageMain:
+                    case ActionDefinitions.Id.Dodge:
+                    case ActionDefinitions.Id.HideMain:
+                    case ActionDefinitions.Id.Manipulate:
+                    case ActionDefinitions.Id.LootGround:
+                    case ActionDefinitions.Id.PowerMain:
+                    case ActionDefinitions.Id.Shove:
+                    case ActionDefinitions.Id.UseItemMain:
+                    case ActionDefinitions.Id.AssignTargetMain:
+                    case ActionDefinitions.Id.Extinguish:
+                    case ActionDefinitions.Id.Awaken:
+                    case ActionDefinitions.Id.VampiricTouch:
+                    case ActionDefinitions.Id.Stabilize:
+                        panelToActivate = battlePanel.MainActionPanel;
+                        break;
+                    case ActionDefinitions.Id.CastBonus:
+                    case ActionDefinitions.Id.AttackOff:
+                    case ActionDefinitions.Id.CunningAction:
+                    case ActionDefinitions.Id.DashBonus:
+                    case ActionDefinitions.Id.DisengageBonus:
+                    case ActionDefinitions.Id.HideBonus:
+                    case ActionDefinitions.Id.PowerBonus:
+                    case ActionDefinitions.Id.UseItemBonus:
+                    case ActionDefinitions.Id.ShoveBonus:
+                    case ActionDefinitions.Id.AssignTargetBonus:
+                    case ActionDefinitions.Id.CunningActionFastHands:
+                    case ActionDefinitions.Id.ProxySpiritualWeapon:
+                    case ActionDefinitions.Id.ProxyFlamingSphere:
+                    case ActionDefinitions.Id.ProxyDancingLights:
+                        panelToActivate = battlePanel.GetField<CharacterActionPanel>("bonusActionPanel");
+                        break;
+                    default:
+                        panelToActivate = battlePanel.GetField<CharacterActionPanel>("otherActionPanel");
+                        break;
                 }
             }
         }
