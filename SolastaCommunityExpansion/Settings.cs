@@ -54,6 +54,7 @@ namespace SolastaCommunityExpansion
         public bool BugFixExpandColorTables { get; set; } = true;
         public bool BugFixGameGadgetCheckIsEnabled { get; set; } = true;
         public bool BugFixItemFiltering { get; set; } = true;
+        public bool BugFixMainScreenInventoryPanelGround { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
         public bool BugFixOnCanSaveToggleChanged { get; set; } = true;
         public bool EnableCancelEditOnRightMouseClick { get; set; } = true;
