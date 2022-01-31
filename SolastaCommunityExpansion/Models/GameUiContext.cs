@@ -101,14 +101,9 @@ namespace SolastaCommunityExpansion.Models
 
             void ToggleZoomCamera()
             {
-                IViewService viewService = ServiceRepository.GetService<IViewService>();
                 ICameraService cameraService = ServiceRepository.GetService<ICameraService>();
 
-                if (viewService == null || cameraService == null)
-                {
-                    EnableDebugCamera = false;
-                }
-                else
+                if (cameraService != null)
                 {
                     EnableDebugCamera = !EnableDebugCamera;
                     cameraService.DebugCameraEnabled = EnableDebugCamera;
