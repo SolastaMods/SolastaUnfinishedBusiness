@@ -1,11 +1,11 @@
-﻿using ModKit;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using ModKit;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class CreditsDisplay
     {
-        internal static readonly Dictionary<string, string> CreditsTable = new Dictionary<string, string>
+        internal static readonly Dictionary<string, string> CreditsTable = new()
         {
             { "ChrisJohnDigital".orange().bold(), "head developer, crafting, faction relations, feats, fighting styles, items, subclasses, progression" },
             { "Zappastuff", "mod UI, integration, adventure log, dungeon maker, encounters, epic points, inventory sorting, level 20, party size, respec, surprise rules, teleport, tools" },

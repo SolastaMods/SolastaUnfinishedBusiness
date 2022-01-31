@@ -11,36 +11,55 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class GameUiContext
     {
-        internal static readonly GadgetBlueprint[] GadgetBlueprintsWithGizmos = new GadgetBlueprint[]
+        private const int EXITS_WITH_GIZMOS = 2;
+
+        private static readonly GadgetBlueprint[] GadgetExits = new GadgetBlueprint[]
         {
+            VirtualExit,
+            VirtualExitMultiple,
             Exit,
             ExitMultiple,
             TeleporterIndividual,
             TeleporterParty,
         };
 
+        private static bool EnableDebugCamera { get; set; }
+
+        internal static bool IsGadgetExit(GadgetBlueprint gadgetBlueprint, bool onlyWithGizmos = false)
+        {
+            return System.Array.IndexOf(GadgetExits, gadgetBlueprint) >= (onlyWithGizmos ? EXITS_WITH_GIZMOS : 0);
+        }
+
         internal static void Load()
         {
             var inputService = ServiceRepository.GetService<IInputService>();
 
+            // HUD
             inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_C, (int)KeyCode.C, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
             inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_L, (int)KeyCode.L, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
             inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_M, (int)KeyCode.M, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
             inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_P, (int)KeyCode.P, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
             inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_H, (int)KeyCode.H, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+
+            // Debug Overlay
             inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_D, (int)KeyCode.D, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
-            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_T, (int)KeyCode.T, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
 
             // Export Character
             inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_E, (int)KeyCode.E, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
 
             // Spawn Encounter
             inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_S, (int)KeyCode.S, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+
+            // Teleport
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_T, (int)KeyCode.T, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+
+            // Zoom Camera
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_Z, (int)KeyCode.Z, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
         }
 
         internal static void HandleInput(GameLocationBaseScreen gameLocationBaseScreen, InputCommands.Id command)
         {
-            if (Main.Settings.EnableHotkeysToToggleHud)
+            if (Main.Settings.EnableHotkeyToggleIndividualHud)
             {
                 switch (command)
                 {
@@ -59,14 +78,14 @@ namespace SolastaCommunityExpansion.Models
                     case Hotkeys.CTRL_SHIFT_P:
                         GameHud.TogglePanelVisibility(GetInitiativeOrPartyPanel());
                         return;
-
-                    case Hotkeys.CTRL_SHIFT_H:
-                        GameHud.ShowAll(gameLocationBaseScreen, GetInitiativeOrPartyPanel(), GetTimeAndNavigationPanel());
-                        return;
                 }
             }
 
-            if (Main.Settings.EnableDebugOverlay && command == Hotkeys.CTRL_SHIFT_D)
+            if (Main.Settings.EnableHotkeyToggleHud && command == Hotkeys.CTRL_SHIFT_H)
+            {
+                GameHud.ShowAll(gameLocationBaseScreen, GetInitiativeOrPartyPanel(), GetTimeAndNavigationPanel());
+            }
+            else if (Main.Settings.EnableHotkeyDebugOverlay && command == Hotkeys.CTRL_SHIFT_D)
             {
                 ServiceRepository.GetService<IDebugOverlayService>()?.ToggleActivation();
             }
@@ -74,40 +93,55 @@ namespace SolastaCommunityExpansion.Models
             {
                 Teleporter.ConfirmTeleportParty();
             }
+            else if (Main.Settings.EnableHotkeyZoomCamera && command == Hotkeys.CTRL_SHIFT_Z)
+            {
+                ToggleZoomCamera();
+            }
             else if (EncountersSpawnContext.EncounterCharacters.Count > 0 && command == Hotkeys.CTRL_SHIFT_S)
             {
                 EncountersSpawnContext.ConfirmStageEncounter();
             }
 
-            GuiPanel GetInitiativeOrPartyPanel()
+            void ToggleZoomCamera()
             {
-                if (gameLocationBaseScreen is GameLocationScreenExploration gameLocationScreenExploration)
+                IViewService viewService = ServiceRepository.GetService<IViewService>();
+                ICameraService cameraService = ServiceRepository.GetService<ICameraService>();
+
+                if (viewService == null || cameraService == null)
                 {
-                    return gameLocationScreenExploration.GetField<GameLocationScreenExploration, PartyControlPanel>("partyControlPanel");
-                }
-                else if (gameLocationBaseScreen is GameLocationScreenBattle gameLocationScreenBattle)
-                {
-                    return gameLocationScreenBattle.GetField<GameLocationScreenBattle, BattleInitiativeTable>("initiativeTable");
+                    EnableDebugCamera = false;
                 }
                 else
                 {
-                    return null;
+                    EnableDebugCamera = !EnableDebugCamera;
+                }
+
+                cameraService.DebugCameraEnabled = EnableDebugCamera;
+            }
+
+            GuiPanel GetInitiativeOrPartyPanel()
+            {
+                switch (gameLocationBaseScreen)
+                {
+                    case GameLocationScreenExploration gameLocationScreenExploration:
+                        return gameLocationScreenExploration.GetField<GameLocationScreenExploration, PartyControlPanel>("partyControlPanel");
+                    case GameLocationScreenBattle gameLocationScreenBattle:
+                        return gameLocationScreenBattle.GetField<GameLocationScreenBattle, BattleInitiativeTable>("initiativeTable");
+                    default:
+                        return null;
                 }
             }
 
             TimeAndNavigationPanel GetTimeAndNavigationPanel()
             {
-                if (gameLocationBaseScreen is GameLocationScreenExploration gameLocationScreenExploration)
+                switch (gameLocationBaseScreen)
                 {
-                    return gameLocationScreenExploration.GetField<GameLocationScreenExploration, TimeAndNavigationPanel>("timeAndNavigationPanel");
-                }
-                else if (gameLocationBaseScreen is GameLocationScreenBattle gameLocationScreenBattle)
-                {
-                    return gameLocationScreenBattle.GetField<GameLocationScreenBattle, TimeAndNavigationPanel>("timeAndNavigationPanel");
-                }
-                else
-                {
-                    return null;
+                    case GameLocationScreenExploration gameLocationScreenExploration:
+                        return gameLocationScreenExploration.GetField<GameLocationScreenExploration, TimeAndNavigationPanel>("timeAndNavigationPanel");
+                    case GameLocationScreenBattle gameLocationScreenBattle:
+                        return gameLocationScreenBattle.GetField<GameLocationScreenBattle, TimeAndNavigationPanel>("timeAndNavigationPanel");
+                    default:
+                        return null;
                 }
             }
         }
@@ -175,7 +209,7 @@ namespace SolastaCommunityExpansion.Models
                     "Message/&TeleportPartyTitle",
                     Gui.Format("Message/&TeleportPartyDescription", position.x.ToString(), position.x.ToString()),
                     "Message/&MessageYesTitle", "Message/&MessageNoTitle",
-                    new MessageModal.MessageValidatedHandler(() => { TeleportParty(position); }),
+                    new MessageModal.MessageValidatedHandler(() => TeleportParty(position)),
                     null);
             }
 
@@ -220,29 +254,28 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
         }
-
         internal static class RemoveInvalidFilenameChars
-        {
-            private static readonly HashSet<char> InvalidFilenameChars = new HashSet<char>(Path.GetInvalidFileNameChars());
-
-            public static bool Invoke(TMP_InputField textField)
             {
-                if (textField != null)
+                private static readonly HashSet<char> InvalidFilenameChars = new HashSet<char>(Path.GetInvalidFileNameChars());
+
+                public static bool Invoke(TMP_InputField textField)
                 {
-                    // Solasta original code disallows invalid filename chars and an additional list of illegal chars.
-                    // We're disallowing invalid filename chars only.
-                    // We're trimming whitespace from start only as per original method.
-                    // This allows the users to create a name with spaces inside, but also allows trailing space.
-                    textField.text = new string(
-                        textField.text
-                            .Where(n => !InvalidFilenameChars.Contains(n))
-                            .ToArray()).TrimStart();
+                    if (textField != null)
+                    {
+                        // Solasta original code disallows invalid filename chars and an additional list of illegal chars.
+                        // We're disallowing invalid filename chars only.
+                        // We're trimming whitespace from start only as per original method.
+                        // This allows the users to create a name with spaces inside, but also allows trailing space.
+                        textField.text = new string(
+                            textField.text
+                                .Where(n => !InvalidFilenameChars.Contains(n))
+                                .ToArray()).TrimStart();
 
-                    return false;
+                        return false;
+                    }
+
+                    return true;
                 }
-
-                return true;
             }
         }
-    }
 }

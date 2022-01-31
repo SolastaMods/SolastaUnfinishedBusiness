@@ -53,7 +53,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.EnableAdventureLogPopups;
-                if (UI.Toggle("Record bottom and header popups", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Record header and bottom popups", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableAdventureLogPopups = toggle;
                 }
@@ -98,76 +98,43 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
             #endregion
 
-            #region DungeonMaker
+            #region Campaign
             UI.Label("");
 
-            toggle = Main.Settings.DisplayDungeonMakerToggle;
-            if (UI.DisclosureToggle("Dungeon Maker: ".yellow(), ref toggle, 200))
+            toggle = Main.Settings.DisplayCampaignToggle;
+            if (UI.DisclosureToggle("Campaigns and locations:".yellow(), ref toggle, 200))
             {
-                Main.Settings.DisplayDungeonMakerToggle = toggle;
+                Main.Settings.DisplayCampaignToggle = toggle;
             }
 
-            if (Main.Settings.DisplayDungeonMakerToggle)
+            if (Main.Settings.DisplayCampaignToggle)
             {
                 UI.Label("");
 
-                toggle = Main.Settings.AllowGadgetsToBePlacedAnywhere;
-                if (UI.Toggle("Allow gadgets to be placed anywhere on the map " + RequiresRestart, ref toggle))
+                toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
+                if (UI.Toggle("Enable additional icons for camps, exits and teleporters on level map", ref toggle, UI.AutoWidth()))
                 {
-                    Main.Settings.AllowGadgetsToBePlacedAnywhere = toggle;
+                    Main.Settings.EnableAdditionalIconsOnLevelMap = toggle;
+
+                    if (toggle)
+                    {
+                        Main.Settings.MarkInvisibleTeleportersOnLevelMap = false;
+                    }
                 }
 
-                toggle = Main.Settings.AllowPropsToBePlacedAnywhere;
-                if (UI.Toggle("Allow props to be placed anywhere on the map " + RequiresRestart, ref toggle))
+                if (Main.Settings.EnableAdditionalIconsOnLevelMap)
                 {
-                    Main.Settings.AllowPropsToBePlacedAnywhere = toggle;
+                    toggle = Main.Settings.MarkInvisibleTeleportersOnLevelMap;
+                    if (UI.Toggle("+ Also mark the location of invisible teleporters on level map after discovery".italic(), ref toggle, UI.AutoWidth()))
+                    {
+                        Main.Settings.MarkInvisibleTeleportersOnLevelMap = toggle;
+                    }
                 }
 
-                UI.Label("");
-
-                toggle = Main.Settings.UnleashNpcAsEnemy;
-                if (UI.Toggle("Unleash NPCs as enemies " + "[press ".italic().yellow() + "SHIFT".italic().cyan() + " while clicking Select on gadget panel]".italic().yellow(), ref toggle))
+                toggle = Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered;
+                if (UI.Toggle("Hide exits and teleporters visual effects if not discovered yet", ref toggle, UI.AutoWidth()))
                 {
-                    Main.Settings.UnleashNpcAsEnemy = toggle;
-                }
-
-                toggle = Main.Settings.UnleashEnemyAsNpc;
-                if (UI.Toggle("Unleash enemies as NPCs " + "[press ".italic().yellow() + "SHIFT".italic().cyan() + " while clicking Select on gadget panel]".italic().yellow(), ref toggle))
-                {
-                    Main.Settings.UnleashEnemyAsNpc = toggle;
-                }
-            }
-            #endregion
-
-            #region Hotkeys
-            UI.Label("");
-
-            toggle = Main.Settings.DisplayHotkeysToggle;
-            if (UI.DisclosureToggle("Hotkeys:".yellow(), ref toggle, 200))
-            {
-                Main.Settings.DisplayHotkeysToggle = toggle;
-            }
-
-            if (Main.Settings.DisplayHotkeysToggle)
-            {
-                UI.Label("");
-
-                toggle = Main.Settings.EnableCharacterExport;
-                if (UI.Toggle("Enable character export from the inventory screen using " + "ctrl-shift-(E)".cyan() + "xport", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableCharacterExport = toggle;
-                }
-
-                toggle = Main.Settings.EnableHotkeysToToggleHud;
-                if (UI.Toggle("Enable the hotkeys " + "ctrl-shift-(C)".cyan() + "ontrol Panel, " + "ctrl-shift-(L)".cyan() + "og, " + "ctrl-shift-(M)".cyan() + "ap, " + "ctrl-shift-(P)".cyan() + "arty and " + "ctrl-shift-(H)".cyan() + "ud to toggle the UI panels visibility", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableHotkeysToToggleHud = toggle;
-                }
-
-                toggle = Main.Settings.InvertAltBehaviorOnTooltips;
-                if (UI.Toggle("Invert " + "ALT".cyan() + " key behavior on tooltips", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.InvertAltBehaviorOnTooltips = toggle;
+                    Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered = toggle;
                 }
             }
             #endregion

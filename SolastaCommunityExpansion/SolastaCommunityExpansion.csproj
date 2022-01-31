@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk" InitialTargets="CheckEnvironmentVars">
 
 	<PropertyGroup>
+	    <LangVersion>latest</LangVersion>
 		<TargetFramework>net472</TargetFramework>
 		<AssemblyVersion>1.2.15.8</AssemblyVersion>
 		<FileVersion>1.2.15.8</FileVersion>
