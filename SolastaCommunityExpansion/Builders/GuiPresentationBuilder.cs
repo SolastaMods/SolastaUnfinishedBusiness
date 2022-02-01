@@ -57,7 +57,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public static GuiPresentation BuildGenerate(string name, string prefix, AssetReferenceSprite sprite = null)
         {
-            return new GuiPresentationBuilder(CreateTitleKey(name, prefix), CreateDescriptionKey(name, prefix), sprite).Build();
+            return new GuiPresentationBuilder(CreateDescriptionKey(name, prefix), CreateTitleKey(name, prefix), sprite).Build();
         }
 
         // TODO: More Build/Generate(...) overloads as required
