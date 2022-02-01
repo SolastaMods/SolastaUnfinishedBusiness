@@ -15,7 +15,7 @@ class Asset:
         result = result.replace("&", "_")
         if re.match(r"\d", result):
             result = f"_{result}"
-        return result
+        return result 
 
 script_dir = os.path.dirname(os.path.realpath(__file__))
 solution_dir = os.path.dirname(script_dir)
@@ -45,7 +45,7 @@ def write_helper(file):
     write_line(file, "namespace SolastaModApi", 0)
     write_line(file, "{")
 
-    indent = 0
+    indent = 1
     write_line(file, "public static partial class DatabaseHelper", indent)
     write_line(file, "{", indent)
     for key in assets:
