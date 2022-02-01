@@ -13,8 +13,8 @@ namespace SolastaCommunityExpansion.Level20.Features
         protected IndomitableMightBuilder(string name, string guid) : base(name, guid)
         {
             var guiPresentationBuilder = new GuiPresentationBuilder(
-                "Feature/&BarbarianIndomitableMightDescription",
-                "Feature/&BarbarianIndomitableMightTitle");
+                "Feature/&BarbarianIndomitableMightTitle",
+                "Feature/&BarbarianIndomitableMightDescription");
 
             Definition.SetGuiPresentation(guiPresentationBuilder.Build());
         }

@@ -77,8 +77,8 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
                     "FeatureSetRedWitchMagic",
                     GuidHelper.Create(RW_BASE_GUID, "FeatureSetRedWitchMagic").ToString(),
                     new GuiPresentationBuilder(
-                            "Subclass/&RedWitchMagicDescription",
-                            "Subclass/&RedWitchMagicTitle").Build())
+                            "Subclass/&RedWitchMagicTitle",
+                            "Subclass/&RedWitchMagicDescription").Build())
                     .ClearFeatures()
                     .AddFeature(preparedSpells)
                     .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
@@ -96,8 +96,8 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
             WitchClass = witchClassDefinition;
 
             var subclassGuiPresentation = new GuiPresentationBuilder(
-                    "Subclass/&RedWitchDescription",
-                    "Subclass/&RedWitchTitle")
+                    "Subclass/&RedWitchTitle",
+                    "Subclass/&RedWitchDescription")
                     .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.DomainElementalFire.GuiPresentation.SpriteReference)
                     .Build();
 

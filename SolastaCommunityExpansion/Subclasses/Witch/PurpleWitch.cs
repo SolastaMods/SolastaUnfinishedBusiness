@@ -77,8 +77,8 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
                     "FeatureSetPurpleWitchMagic",
                     GuidHelper.Create(PW_BASE_GUID, "FeatureSetPurpleWitchMagic").ToString(),
                     new GuiPresentationBuilder(
-                            "Subclass/&PurpleWitchMagicDescription",
-                            "Subclass/&PurpleWitchMagicTitle").Build())
+                            "Subclass/&PurpleWitchMagicTitle",
+                            "Subclass/&PurpleWitchMagicDescription").Build())
                     .ClearFeatures()
                     .AddFeature(preparedSpells)
                     .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
@@ -96,8 +96,8 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
             WitchClass = witchClassDefinition;
 
             var subclassGuiPresentation = new GuiPresentationBuilder(
-                    "Subclass/&PurpleWitchDescription",
-                    "Subclass/&PurpleWitchTitle")
+                    "Subclass/&PurpleWitchTitle",
+                    "Subclass/&PurpleWitchDescription")
                     .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.DomainInsight.GuiPresentation.SpriteReference)
                     .Build();
 

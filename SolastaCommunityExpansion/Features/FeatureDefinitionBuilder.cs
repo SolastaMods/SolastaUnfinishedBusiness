@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Features
 
         public FeatureDefinitionBuilder(string name, string guid, string description, string title, Action<TDefinition> modifyDefinition = null) : base(name, guid)
         {
-            var guiPresentationBuilder = new GuiPresentationBuilder(description, title);
+            var guiPresentationBuilder = new GuiPresentationBuilder(title, description);
 
             Definition.SetGuiPresentation(guiPresentationBuilder.Build());
 

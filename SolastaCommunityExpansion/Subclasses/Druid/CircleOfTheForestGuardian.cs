@@ -35,8 +35,8 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         public static CharacterSubclassDefinition BuildAndAddSubclass()
         {
             var subclassGuiPresentation = new GuiPresentationBuilder(
-                    "Subclass/&DruidForestGuardianDruidSubclassDescription",
-                    "Subclass/&DruidForestGuardianSubclassTitle")
+                    "Subclass/&DruidForestGuardianSubclassTitle",
+                    "Subclass/&DruidForestGuardianDruidSubclassDescription")
                     .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.MartialMountaineer.GuiPresentation.SpriteReference)
                     .Build();
 
@@ -55,8 +55,8 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         private static FeatureDefinitionAutoPreparedSpells createDruidForestGuardianMagic()
         {
             GuiPresentationBuilder forestGuardianMagicGui = new GuiPresentationBuilder(
-                "Feature/&DruidForestGuardianMagicDescription",
-                "Feature/&DruidForestGuardianMagicTitle");
+                "Feature/&DruidForestGuardianMagicTitle",
+                "Feature/&DruidForestGuardianMagicDescription");
 
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup ForestGuardianSpells1 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
@@ -98,8 +98,8 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         private static FeatureDefinitionMagicAffinity createSylvanWarMagic()
         {
             GuiPresentationBuilder sylvanWarMagicGui = new GuiPresentationBuilder(
-                "Feature/&DruidForestGuardianSylvanWarMagicDescription",
-                "Feature/&DruidForestGuardianSylvanWarMagicTitle");
+                "Feature/&DruidForestGuardianSylvanWarMagicTitle",
+                "Feature/&DruidForestGuardianSylvanWarMagicDescription");
 
             return new FeatureDefinitionMagicAffinityBuilder(DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityBattleMagic,
                 "DruidForestGuardianSylvanWarMagic",
@@ -110,8 +110,8 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         private static FeatureDefinitionAttributeModifier createSylvanDurability()
         {
             GuiPresentationBuilder sylvanDurabilityGui = new GuiPresentationBuilder(
-               "Feature/&DruidForestGuardianSylvanDurabilityDescription",
-               "Feature/&DruidForestGuardianSylvanDurabilityTitle");
+               "Feature/&DruidForestGuardianSylvanDurabilityTitle",
+               "Feature/&DruidForestGuardianSylvanDurabilityDescription");
 
             return new FeatureDefinitionAttributeModifierBuilder(
                 "AttributeModifierDruidForestGuardianSylvanDurability",
@@ -126,18 +126,18 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         private static Dictionary<int, FeatureDefinitionPowerSharedPool> CreateBarkWard()
         {
             GuiPresentationBuilder barkWardGui = new GuiPresentationBuilder(
-               "Feature/&DruidForestGuardianBarkWardDescription",
-               "Feature/&DruidForestGuardianBarkWardTitle")
+               "Feature/&DruidForestGuardianBarkWardTitle",
+               "Feature/&DruidForestGuardianBarkWardDescription")
                 .SetSpriteReference(PowerDruidWildShape.GuiPresentation.SpriteReference);
 
             GuiPresentationBuilder improvedBarkWardGui = new GuiPresentationBuilder(
-               "Feature/&DruidForestGuardianImprovedBarkWardDescription",
-               "Feature/&DruidForestGuardianImprovedBarkWardTitle")
+               "Feature/&DruidForestGuardianImprovedBarkWardTitle",
+               "Feature/&DruidForestGuardianImprovedBarkWardDescription")
                 .SetSpriteReference(PowerDruidWildShape.GuiPresentation.SpriteReference);
 
             GuiPresentationBuilder superiorBarkWardGui = new GuiPresentationBuilder(
-               "Feature/&DruidForestGuardianSuperiorBarkWardDescription",
-               "Feature/&DruidForestGuardianSuperiorBarkWardTitle")
+               "Feature/&DruidForestGuardianSuperiorBarkWardTitle",
+               "Feature/&DruidForestGuardianSuperiorBarkWardDescription")
                 .SetSpriteReference(PowerDruidWildShape.GuiPresentation.SpriteReference);
 
             EffectFormBuilder tempHPEffect = new EffectFormBuilder();
@@ -235,8 +235,8 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         private static FeatureDefinitionAttributeModifier createExtraAttack()
         {
             GuiPresentationBuilder extraAttackGui = new GuiPresentationBuilder(
-               "Feature/&DruidForestGuardianExtraAttackDescription",
-               "Feature/&DruidForestGuardianExtraAttackTitle");
+               "Feature/&DruidForestGuardianExtraAttackTitle",
+               "Feature/&DruidForestGuardianExtraAttackDescription");
 
             return new FeatureDefinitionAttributeModifierBuilder(
                 "AttributeModifierDruidForestGuardianExtraAttack",

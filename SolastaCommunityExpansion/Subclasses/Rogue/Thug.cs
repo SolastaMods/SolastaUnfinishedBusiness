@@ -34,8 +34,8 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             var featureName = AdditionalDamageRogueSneakAttack.Name + "Remove";
 
             var guiPresentation = new GuiPresentationBuilder(
-                "Subclass/&KSRogueSubclassThugDescription",
-                "Subclass/&KSRogueSubclassThugTitle")
+                "Subclass/&KSRogueSubclassThugTitle",
+                "Subclass/&KSRogueSubclassThugDescription")
                 .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.MartialChampion.GuiPresentation.SpriteReference)
                 .Build();
 

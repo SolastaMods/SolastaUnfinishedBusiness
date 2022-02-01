@@ -26,14 +26,14 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             // Make Melee Wizard subclass
             CharacterSubclassDefinitionBuilder meleeWizard = new CharacterSubclassDefinitionBuilder("ArcaneFighter", GuidHelper.Create(SubclassNamespace, "ArcaneFighter").ToString());
             GuiPresentationBuilder meleePresentation = new GuiPresentationBuilder(
-                "Subclass/&TraditionArcaneFighterDescription",
-                "Subclass/&TraditionArcaneFighterTitle");
+                "Subclass/&TraditionArcaneFighterTitle",
+                "Subclass/&TraditionArcaneFighterDescription");
             meleePresentation.SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.MartialSpellblade.GuiPresentation.SpriteReference);
             meleeWizard.SetGuiPresentation(meleePresentation.Build());
 
             GuiPresentationBuilder weaponProfPresentation = new GuiPresentationBuilder(
-                "Subclass/&WeaponProfArcaneFighterDescription",
-                "Subclass/&WeaponProfArcaneFighterTitle");
+                "Subclass/&WeaponProfArcaneFighterTitle",
+                "Subclass/&WeaponProfArcaneFighterDescription");
             FeatureDefinitionProficiency weaponProf = BuildProficiency(RuleDefinitions.ProficiencyType.Weapon,
                 new List<string>() { EquipmentDefinitions.SimpleWeaponCategory, EquipmentDefinitions.MartialWeaponCategory },
                 "ProficiencyWeaponArcaneFighter", weaponProfPresentation.Build());
@@ -42,23 +42,23 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             meleeWizard.AddFeatureAtLevel(EnchantWeapon, 2);
 
             GuiPresentationBuilder concentrationAffinityGui = new GuiPresentationBuilder(
-                "Subclass/&MagicAffinityMeleeWizardConcentrationDescription",
-                "Subclass/&MagicAffinityMeleeWizardConcentrationTitle");
+                "Subclass/&MagicAffinityMeleeWizardConcentrationTitle",
+                "Subclass/&MagicAffinityMeleeWizardConcentrationDescription");
             FeatureDefinitionMagicAffinity concentrationAffinity = BuildMagicAffinityConcentration(RuleDefinitions.ConcentrationAffinity.Advantage, -1,
                 "MagicAffinityMeleeWizardConcentration", concentrationAffinityGui.Build());
             meleeWizard.AddFeatureAtLevel(concentrationAffinity, 2);
 
             GuiPresentationBuilder extraAttackGui = new GuiPresentationBuilder(
-                "Subclass/&AttributeModifierMeleeWizardExtraAttackDescription",
-                "Subclass/&AttributeModifierMeleeWizardExtraAttackTitle");
+                "Subclass/&AttributeModifierMeleeWizardExtraAttackTitle",
+                "Subclass/&AttributeModifierMeleeWizardExtraAttackDescription");
             FeatureDefinitionAttributeModifier extraAttack = BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                 AttributeDefinitions.AttacksNumber, 1,
                 "AttributeModifierMeleeWizardExtraAttack", extraAttackGui.Build());
             meleeWizard.AddFeatureAtLevel(extraAttack, 6);
 
             GuiPresentationBuilder bonusSpellGui = new GuiPresentationBuilder(
-                "Subclass/&ArcaneFighterAdditionalActionDescription",
-                "Subclass/&ArcaneFighterAdditionalActionTitle");
+                "Subclass/&ArcaneFighterAdditionalActionTitle",
+                "Subclass/&ArcaneFighterAdditionalActionDescription");
             FeatureDefinitionAdditionalAction bonusSpell = new FeatureDefinitionAdditionalActionBuilder("ArcaneFighterAdditionalAction",
                 GuidHelper.Create(SubclassNamespace, "ArcaneFighterAdditionalAction").ToString(), ActionDefinitions.ActionType.Main, new List<ActionDefinitions.Id>(),
                 new List<ActionDefinitions.Id>(), new List<ActionDefinitions.Id>()
@@ -69,8 +69,8 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             meleeWizard.AddFeatureAtLevel(bonusSpell, 10);
 
             GuiPresentationBuilder bonusWeaponDamageGui = new GuiPresentationBuilder(
-                "Subclass/&ArcaneFighterBonusWeaponDamageDescription",
-                "Subclass/&ArcaneFighterBonusWeaponDamageTitle");
+                "Subclass/&ArcaneFighterBonusWeaponDamageTitle",
+                "Subclass/&ArcaneFighterBonusWeaponDamageDescription");
             FeatureDefinitionAdditionalDamage bonusWeaponDamage = new FeatureDefinitionAdditionalDamageBuilder("ArcaneFighterBonusWeaponDamage",
                 GuidHelper.Create(SubclassNamespace, "ArcaneFighterBonusWeaponDamage").ToString(),
                 "ArcaneFighterBonusWeaponDamage",
@@ -88,12 +88,12 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         private static FeatureDefinitionPower BuildEnchantWeapon()
         {
             GuiPresentationBuilder attackModGui = new GuiPresentationBuilder(
-                "Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription",
-                "Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle");
+                "Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle",
+                "Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription");
             attackModGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference);
             GuiPresentationBuilder arcaneWeaponGui = new GuiPresentationBuilder(
-                   "Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription",
-                   "Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle");
+                   "Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle",
+                   "Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription");
             arcaneWeaponGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference);
             FeatureDefinitionAttackModifier weaponUseIntModifier = new FeatureDefinitionAttackModifierBuilder("AttackModifierMeleeWizard",
                  GuidHelper.Create(SubclassNamespace, "AttackModifierMeleeWizard").ToString(),

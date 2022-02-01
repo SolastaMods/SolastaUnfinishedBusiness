@@ -32,14 +32,14 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             // Make Control Master subclass
             CharacterSubclassDefinitionBuilder controlMaster = new CharacterSubclassDefinitionBuilder("MasterManipulator", GuidHelper.Create(SubclassNamespace, "MasterManipulator").ToString());
             GuiPresentationBuilder controlPresentation = new GuiPresentationBuilder(
-                "Subclass/&TraditionMasterManipulatorDescription",
-                "Subclass/&TraditionMasterManipulatorTitle");
+                "Subclass/&TraditionMasterManipulatorTitle",
+                "Subclass/&TraditionMasterManipulatorDescription");
             controlPresentation.SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.RoguishShadowCaster.GuiPresentation.SpriteReference);
             controlMaster.SetGuiPresentation(controlPresentation.Build());
 
             GuiPresentationBuilder arcaneControlAffinityGui = new GuiPresentationBuilder(
-                "Subclass/&MagicAffinityMasterManipulatorListDescription",
-                "Subclass/&MagicAffinityMasterManipulatorListTitle");
+                "Subclass/&MagicAffinityMasterManipulatorListTitle",
+                "Subclass/&MagicAffinityMasterManipulatorListDescription");
             FeatureDefinitionMagicAffinity arcaneControlAffinity = BuildMagicAffinityHeightenedList(new List<string>() {
                 DatabaseHelper.SpellDefinitions.CharmPerson.Name, // enchantment
                 DatabaseHelper.SpellDefinitions.Sleep.Name, // enchantment
@@ -62,13 +62,13 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 RuleDefinitions.ProficiencyType.SavingThrow,
                 new List<string>() { AttributeDefinitions.Charisma, AttributeDefinitions.Constitution },
                 new GuiPresentationBuilder(
-                    "Subclass/&ManipulatorMentalSavingThrowsDescription",
-                    "Subclass/&ManipulatorMentalSavingThrowsTitle").Build()).AddToDB();
+                    "Subclass/&ManipulatorMentalSavingThrowsTitle",
+                    "Subclass/&ManipulatorMentalSavingThrowsDescription").Build()).AddToDB();
             controlMaster.AddFeatureAtLevel(proficiency, 10);
 
             GuiPresentationBuilder DominatePower = new GuiPresentationBuilder(
-                "Subclass/&PowerManipulatorDominatePersonDescription",
-                "Subclass/&PowerManipulatorDominatePersonTitle");
+                "Subclass/&PowerManipulatorDominatePersonTitle",
+                "Subclass/&PowerManipulatorDominatePersonDescription");
             DominatePower.SetSpriteReference(DatabaseHelper.SpellDefinitions.DominatePerson.GuiPresentation.SpriteReference);
             FeatureDefinitionPower PowerDominate = new FeatureDefinitionPowerBuilder("PowerManipulatorDominatePerson", GuidHelper.Create(SubclassNamespace, "PowerManipulatorDominatePerson").ToString(),
                 0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.LongRest,
@@ -81,7 +81,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 
         private static GuiPresentationBuilder GetSpellDCPresentation()
         {
-            return new GuiPresentationBuilder("Subclass/&MagicAffinityMasterManipulatorDC" + Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc + "Description", "Subclass/&MagicAffinityMasterManipulatorDCTitle");
+            return new GuiPresentationBuilder("Subclass/&MagicAffinityMasterManipulatorDCTitle", "Subclass/&MagicAffinityMasterManipulatorDC" + Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc + "Description");
         }
 
         public static void UpdateSpellDCBoost()

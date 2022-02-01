@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Builders
     {
         private readonly GuiPresentation guiPresentation;
 
-        public GuiPresentationBuilder(string description = null, string title = null, AssetReferenceSprite sprite = null)
+        public GuiPresentationBuilder(string title = null, string description = null, AssetReferenceSprite sprite = null)
         {
             guiPresentation = new GuiPresentation
             {
@@ -52,12 +52,12 @@ namespace SolastaCommunityExpansion.Builders
 
         public static GuiPresentation Build(string title, string description, AssetReferenceSprite sprite = null)
         {
-            return new GuiPresentationBuilder(description, title, sprite).Build();
+            return new GuiPresentationBuilder(title, description, sprite).Build();
         }
 
         public static GuiPresentation BuildGenerate(string name, string prefix, AssetReferenceSprite sprite = null)
         {
-            return new GuiPresentationBuilder(CreateDescriptionKey(name, prefix), CreateTitleKey(name, prefix), sprite).Build();
+            return new GuiPresentationBuilder(CreateTitleKey(name, prefix), CreateDescriptionKey(name, prefix), sprite).Build();
         }
 
         // TODO: More Build/Generate(...) overloads as required
