@@ -36,7 +36,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         public static SpellListDefinition BuildAndAddToDB()
         {
             return new TinkererSpellList("SpellListTinkerer", GuidHelper.Create(TinkererClass.GuidNamespace, "SpellListTinkerer").ToString(),
-                new GuiPresentationBuilder("Feature/&NoContentTitle", "SpellList/&SpellListTinkererTitle").Build())
+                new GuiPresentationBuilder("SpellList/&SpellListTinkererTitle", "Feature/&NoContentTitle").Build())
                 .AddToDB();
         }
     }

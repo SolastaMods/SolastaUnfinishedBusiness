@@ -77,8 +77,8 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
                     "FeatureSetGreenWitchMagic",
                     GuidHelper.Create(GW_BASE_GUID, "FeatureSetGreenWitchMagic").ToString(),
                     new GuiPresentationBuilder(
-                            "Subclass/&GreenWitchMagicDescription",
-                            "Subclass/&GreenWitchMagicTitle").Build())
+                            "Subclass/&GreenWitchMagicTitle",
+                            "Subclass/&GreenWitchMagicDescription").Build())
                     .ClearFeatures()
                     .AddFeature(preparedSpells)
                     .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
@@ -96,8 +96,8 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
             WitchClass = witchClassDefinition;
 
             var subclassGuiPresentation = new GuiPresentationBuilder(
-                    "Subclass/&GreenWitchDescription",
-                    "Subclass/&GreenWitchTitle")
+                    "Subclass/&GreenWitchTitle",
+                    "Subclass/&GreenWitchDescription")
                     .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.TraditionGreenmage.GuiPresentation.SpriteReference)
                     .Build();
 

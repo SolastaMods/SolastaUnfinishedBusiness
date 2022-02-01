@@ -28,8 +28,8 @@ namespace SolastaCommunityExpansion.Level20.Features
             Definition.SetEffectDescription(restoration.Build());
 
             GuiPresentationBuilder gui = new GuiPresentationBuilder(
-               "Sorceror/&ZSSorcerousRestorationDescription",
-               "Sorceror/&ZSSorcerousRestorationTitle");
+               "Sorceror/&ZSSorcerousRestorationTitle",
+               "Sorceror/&ZSSorcerousRestorationDescription");
             gui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
             Definition.SetGuiPresentation(gui.Build());
 

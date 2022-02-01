@@ -35,8 +35,8 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
         public static CharacterSubclassDefinition BuildAndAddSubclass()
         {
             var subclassGuiPresentation = new GuiPresentationBuilder(
-                    "Subclass/&RangerArcanistRangerSubclassDescription",
-                    "Subclass/&RangerArcanistRangerSubclassTitle")
+                    "Subclass/&RangerArcanistRangerSubclassTitle",
+                    "Subclass/&RangerArcanistRangerSubclassDescription")
                     .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.RoguishShadowCaster.GuiPresentation.SpriteReference)
                     .Build();
 
@@ -99,7 +99,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
                 "MagicAffinityRangerArcanist",
                 GuidHelper.Create(RA_BASE_GUID, "MagicAffinityRangerArcanist").ToString(), blank).AddToDB();
 
-            GuiPresentation arcanistMagicGui = new GuiPresentationBuilder("Feature/&RangerArcanistMagicDescription", "Feature/&RangerArcanistMagicTitle").Build();
+            GuiPresentation arcanistMagicGui = new GuiPresentationBuilder("Feature/&RangerArcanistMagicTitle", "Feature/&RangerArcanistMagicDescription").Build();
             return new FeatureDefinitionFeatureSetBuilder("RangerArcanistMagic",
                 GuidHelper.Create(RA_BASE_GUID, "RangerArcanistManaTouchedGuardian").ToString(), // Oops, will have to live with this name being off)
                 new List<FeatureDefinition>() { preparedSpells, arcanist_affinity },
@@ -137,7 +137,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
                 DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageHuntersMark,
                 "AdditionalDamageArcanistMark",
                 GuidHelper.Create(RA_BASE_GUID, "AdditionalDamageArcanistMark").ToString(),
-                new GuiPresentationBuilder("Feature/&ArcanistMarkDescription", "Feature/&ArcanistMarkTitle").Build());
+                new GuiPresentationBuilder("Feature/&ArcanistMarkTitle", "Feature/&ArcanistMarkDescription").Build());
             mark_apply.SetSpecificDamageType("DamageForce");
             mark_apply.SetDamageDice(RuleDefinitions.DieType.D6, 0);
             mark_apply.SetNotificationTag("ArcanistMark");
@@ -166,7 +166,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
                 DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageHuntersMark,
                 "AdditionalDamageArcaneDetonation",
                 GuidHelper.Create(RA_BASE_GUID, "AdditionalDamageArcaneDetonation").ToString(),
-                new GuiPresentationBuilder("Feature/&ArcaneDetonationDescription", "Feature/&ArcaneDetonationTitle").Build());
+                new GuiPresentationBuilder("Feature/&ArcaneDetonationTitle", "Feature/&ArcaneDetonationDescription").Build());
             mark_damage.SetSpecificDamageType("DamageForce");
             mark_damage.SetDamageDice(RuleDefinitions.DieType.D6, 1);
             mark_damage.SetNotificationTag("ArcanistMark");
@@ -212,7 +212,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             // This is a blank feature. It does nothing except create a description for what happens at level 11.
             return new FeatureDefinitionBuilder("AdditionalDamageArcaneDetonationUpgrade",
                 GuidHelper.Create(RA_BASE_GUID, "AdditionalDamageArcaneDetonationUpgrade").ToString(),
-                new GuiPresentationBuilder("Feature/&ArcaneDetonationUpgradeDescription", "Feature/&ArcaneDetonationUpgradeTitle").Build()).AddToDB();
+                new GuiPresentationBuilder("Feature/&ArcaneDetonationUpgradeTitle", "Feature/&ArcaneDetonationUpgradeDescription").Build()).AddToDB();
         }
 
         private sealed class FeatureDefinitionBuilder : BaseDefinitionBuilder<FeatureDefinition>
@@ -286,7 +286,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             });
 
             return new FeatureDefinitionPowerBuilder(name, GuidHelper.Create(RA_BASE_GUID, name).ToString(),
-                new GuiPresentationBuilder(description, title)
+                new GuiPresentationBuilder(title, description)
                 .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsThunder.GuiPresentation.SpriteReference).Build())
                 .SetUsesAbility(0, AttributeDefinitions.Wisdom)
                 .SetShowCasting(true)

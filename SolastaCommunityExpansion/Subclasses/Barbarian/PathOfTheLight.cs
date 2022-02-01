@@ -81,7 +81,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
         private static GuiPresentation CreateSubclassGuiPresentation()
         {
-            var subclassGuiPresentation = new GuiPresentationBuilder("Subclass/&BarbarianPathOfTheLightDescription", "Subclass/&BarbarianPathOfTheLightTitle");
+            var subclassGuiPresentation = new GuiPresentationBuilder("Subclass/&BarbarianPathOfTheLightTitle", "Subclass/&BarbarianPathOfTheLightDescription");
 
             subclassGuiPresentation.SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.DomainSun.GuiPresentation.SpriteReference);
 
@@ -206,8 +206,8 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 definition =>
                 {
                     var gpb = new GuiPresentationBuilder(
-                        "Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription",
-                        "Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle");
+                        "Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle",
+                        "Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription");
 
                     gpb.SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionSeeInvisibility.GuiPresentation.SpriteReference);
 
@@ -244,8 +244,8 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 definition =>
                 {
                     var gpb = new GuiPresentationBuilder(
-                        "Subclass/&BarbarianPathOfTheLightEyesOfTruthDescription",
-                        "Subclass/&BarbarianPathOfTheLightEyesOfTruthTitle");
+                        "Subclass/&BarbarianPathOfTheLightEyesOfTruthTitle",
+                        "Subclass/&BarbarianPathOfTheLightEyesOfTruthDescription");
 
                     gpb.SetSpriteReference(DatabaseHelper.SpellDefinitions.SeeInvisibility.GuiPresentation.SpriteReference);
 
@@ -364,8 +364,8 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 definition =>
                 {
                     var gpb = new GuiPresentationBuilder(
-                        "Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription",
-                        "Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle");
+                        "Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle",
+                        "Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription");
 
                     gpb.SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionBranded.GuiPresentation.SpriteReference);
 
@@ -570,7 +570,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
             private static GuiPresentation CreatePowerGuiPresentation(string description, string title)
             {
-                var guiPresentationBuilder = new GuiPresentationBuilder(description, title);
+                var guiPresentationBuilder = new GuiPresentationBuilder(title, description);
 
                 guiPresentationBuilder.SetSpriteReference(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageDomainLifeDivineStrike.GuiPresentation.SpriteReference);
 
@@ -617,7 +617,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
             private static GuiPresentation CreatePowerGuiPresentation(string description, string title)
             {
-                var guiPresentationBuilder = new GuiPresentationBuilder(description, title);
+                var guiPresentationBuilder = new GuiPresentationBuilder(title, description);
 
                 guiPresentationBuilder.SetSpriteReference(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageDomainLifeDivineStrike.GuiPresentation.SpriteReference);
 
@@ -704,7 +704,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
             private static GuiPresentation CreatePowerGuiPresentation(string description, string title)
             {
-                var guiPresentationBuilder = new GuiPresentationBuilder(description, title);
+                var guiPresentationBuilder = new GuiPresentationBuilder(title, description);
 
                 guiPresentationBuilder.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun.GuiPresentation.SpriteReference);
 
@@ -733,8 +733,8 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                     definition =>
                     {
                         var gpb = new GuiPresentationBuilder(
-                            "Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription",
-                            "Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle");
+                            "Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle",
+                            "Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription");
 
                         gpb.SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionBranded.GuiPresentation.SpriteReference);
 
@@ -831,7 +831,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
             private static GuiPresentation CreatePowerGuiPresentation(string description, string title)
             {
-                var guiPresentationBuilder = new GuiPresentationBuilder(description, title);
+                var guiPresentationBuilder = new GuiPresentationBuilder(title, description);
 
                 var guiPresentation = guiPresentationBuilder.Build();
                 guiPresentation.SetHidden(true);

@@ -8,22 +8,22 @@ namespace SolastaCommunityExpansion.Models
     public static class FlexibleBackgroundsContext
     {
         private static readonly GuiPresentationBuilder skillThreeGui = new(
-            "FlexibleBackgrounds/&BackgroundSkillSelect3Description",
-            "FlexibleBackgrounds/&BackgroundSkillSelect3Title");
+            "FlexibleBackgrounds/&BackgroundSkillSelect3Title",
+            "FlexibleBackgrounds/&BackgroundSkillSelect3Description");
 
         private static readonly FeatureDefinition skillThree = new FeatureDefinitionPointPoolBuilder("BackgroundSkillSelect3",
             "e6f2ed65-a44e-4314-b38c-393abb4ad900", HeroDefinitions.PointsPoolType.Skill, 3, skillThreeGui.Build()).AddToDB();
 
         private static readonly GuiPresentationBuilder skillTwoGui = new(
-            "FlexibleBackgrounds/&BackgroundSkillSelect2Description",
-            "FlexibleBackgrounds/&BackgroundSkillSelect2Title");
+            "FlexibleBackgrounds/&BackgroundSkillSelect2Title",
+            "FlexibleBackgrounds/&BackgroundSkillSelect2Description");
 
         private static readonly FeatureDefinition skillTwo = new FeatureDefinitionPointPoolBuilder("BackgroundSkillSelect2",
             "77d6eb2c-d99f-4256-9bb6-c6395e440629", HeroDefinitions.PointsPoolType.Skill, 2, skillTwoGui.Build()).AddToDB();
 
         private static readonly GuiPresentationBuilder toolGui = new(
-            "FlexibleBackgrounds/&BackgroundToolSelectDescription",
-            "FlexibleBackgrounds/&BackgroundToolSelectTitle");
+            "FlexibleBackgrounds/&BackgroundToolSelectTitle",
+            "FlexibleBackgrounds/&BackgroundToolSelectDescription");
 
         private static readonly FeatureDefinition toolChoice = new FeatureDefinitionPointPoolBuilder("BackgroundToolSelect",
             "989ddb03-b915-42cc-9612-bc8be96b7476", HeroDefinitions.PointsPoolType.Tool, 1, toolGui.Build()).AddToDB();

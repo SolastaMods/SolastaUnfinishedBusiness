@@ -14,8 +14,8 @@ namespace SolastaCommunityExpansion.Feats
         {
             // Savage Attacker
             GuiPresentationBuilder savageAttackerPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatSavageAttackerDescription",
-                "Feat/&FeatSavageAttackerTitle");
+                "Feat/&FeatSavageAttackerTitle",
+                "Feat/&FeatSavageAttackerDescription");
 
             const string rerollKey = "Feat/&FeatSavageAttackerReroll";
             FeatureDefinitionDieRollModifier savageAttackDieRoll = BuildDieRollModifier(RuleDefinitions.RollContext.AttackDamageValueRoll,
@@ -34,8 +34,8 @@ namespace SolastaCommunityExpansion.Feats
 
             // Tough
             GuiPresentationBuilder toughPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatToughDescription",
-                "Feat/&FeatToughTitle");
+                "Feat/&FeatToughTitle",
+                "Feat/&FeatToughDescription");
 
             FeatureDefinitionAttributeModifier toughModifier = BuildAttributeModifier(
                 FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel,
@@ -50,8 +50,8 @@ namespace SolastaCommunityExpansion.Feats
 
             // War Caster
             GuiPresentationBuilder warCasterPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatWarCasterDescription",
-                "Feat/&FeatWarCasterTitle");
+                "Feat/&FeatWarCasterTitle",
+                "Feat/&FeatWarCasterDescription");
 
             FeatureDefinitionMagicAffinity warCasterModifier = BuildMagicAffinityWarCaster("MagicAffinityWarCasterFeat",
                 warCasterPresentation.Build());

@@ -64,7 +64,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             FeatureDefinitionPowerSharedPoolBuilder builder = new FeatureDefinitionPowerSharedPoolBuilder(name, guid,
                 TacticianFighterSubclassBuilder.GambitResourcePool, RuleDefinitions.RechargeRate.ShortRest, RuleDefinitions.ActivationTime.OnAttackHit,
                 1, true, true, AttributeDefinitions.Strength, newEffectDescription,
-                new GuiPresentationBuilder("Feature/&KnockDownPowerDescription", "Feature/&KnockDownPowerTitle")
+                new GuiPresentationBuilder("Feature/&KnockDownPowerTitle", "Feature/&KnockDownPowerDescription")
                 .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerFighterActionSurge.GuiPresentation.SpriteReference).Build(), false);
 
             return builder.AddToDB();
@@ -120,7 +120,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             FeatureDefinitionPowerSharedPoolBuilder builder = new FeatureDefinitionPowerSharedPoolBuilder(name, guid,
                 TacticianFighterSubclassBuilder.GambitResourcePool, RuleDefinitions.RechargeRate.ShortRest, RuleDefinitions.ActivationTime.BonusAction,
                 1, true, true, AttributeDefinitions.Strength, newEffectDescription,
-                new GuiPresentationBuilder("Feature/&InspirePowerDescription", "Feature/&InspirePowerTitle")
+                new GuiPresentationBuilder("Feature/&InspirePowerTitle", "Feature/&InspirePowerDescription")
                 .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLifePreserveLife.GuiPresentation.SpriteReference).Build(), false);
 
             builder.SetShortTitle("Feature/&InspirePowerTitle");
@@ -163,7 +163,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             FeatureDefinitionPowerSharedPoolBuilder builder = new FeatureDefinitionPowerSharedPoolBuilder(name, guid,
                 TacticianFighterSubclassBuilder.GambitResourcePool, RuleDefinitions.RechargeRate.ShortRest, RuleDefinitions.ActivationTime.Reaction,
                 1, true, true, AttributeDefinitions.Strength, newEffectDescription,
-                new GuiPresentationBuilder("Feature/&CounterStrikePowerDescription", "Feature/&CounterStrikePowerTitle")
+                new GuiPresentationBuilder("Feature/&CounterStrikePowerTitle", "Feature/&CounterStrikePowerDescription")
                 .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLawHolyRetribution.GuiPresentation.SpriteReference).Build(), false);
             builder.SetReaction(RuleDefinitions.ReactionTriggerContext.HitByMelee, string.Empty);
 
@@ -185,7 +185,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         {
             return new FeatureDefinitionPowerPoolBuilder(GambitResourcePoolName, GambitResourcePoolNameGuid,
                            4, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Dexterity, RuleDefinitions.RechargeRate.ShortRest,
-                           new GuiPresentationBuilder("Feature/&GambitResourcePoolDescription", "Feature/&GambitResourcePoolTitle").Build()).AddToDB();
+                           new GuiPresentationBuilder("Feature/&GambitResourcePoolTitle", "Feature/&GambitResourcePoolDescription").Build()).AddToDB();
         }
     }
 
@@ -207,7 +207,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         {
             return new FeatureDefinitionPowerPoolModifierBuilder(name, guid,
                            1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Dexterity, TacticianFighterSubclassBuilder.GambitResourcePool,
-                           new GuiPresentationBuilder("Feature/&GambitResourcePoolAddDescription", "Feature/&GambitResourcePoolAddTitle").Build()).AddToDB();
+                           new GuiPresentationBuilder("Feature/&GambitResourcePoolAddTitle", "Feature/&GambitResourcePoolAddDescription").Build()).AddToDB();
         }
 
         public static FeatureDefinitionPower GambitResourcePoolAdd()
@@ -239,8 +239,8 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         public static CharacterSubclassDefinition BuildAndAddSubclass()
         {
             var subclassGuiPresentation = new GuiPresentationBuilder(
-                    "Subclass/&TactitionFighterSubclassDescription",
-                    "Subclass/&TactitionFighterSubclassTitle")
+                    "Subclass/&TactitionFighterSubclassTitle",
+                    "Subclass/&TactitionFighterSubclassDescription")
                     .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.RoguishShadowCaster.GuiPresentation.SpriteReference)
                     .Build();
 

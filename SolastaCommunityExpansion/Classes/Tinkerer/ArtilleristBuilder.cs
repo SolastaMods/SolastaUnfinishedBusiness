@@ -16,8 +16,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             // Make Artillerist subclass
             CharacterSubclassDefinitionBuilder artillerist = new CharacterSubclassDefinitionBuilder("Artillerist", GuidHelper.Create(TinkererClass.GuidNamespace, "Artillerist").ToString());
             GuiPresentationBuilder meleePresentation = new GuiPresentationBuilder(
-                "Subclass/&ArtificerArtilleristDescription",
-                "Subclass/&ArtificerArtilleristTitle");
+                "Subclass/&ArtificerArtilleristTitle",
+                "Subclass/&ArtificerArtilleristDescription");
             meleePresentation.SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.TraditionShockArcanist.GuiPresentation.SpriteReference);
             artillerist.SetGuiPresentation(meleePresentation.Build());
 
@@ -37,8 +37,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 17, DatabaseHelper.SpellDefinitions.ConeOfCold, DatabaseHelper.SpellDefinitions.WallOfForce);
 
             GuiPresentationBuilder artilleristSpellsPresentation = new GuiPresentationBuilder(
-                "Feat/&ArtilleristSubclassSpellsDescription",
-                "Feat/&ArtilleristSubclassSpellsTitle");
+                "Feat/&ArtilleristSubclassSpellsTitle",
+                "Feat/&ArtilleristSubclassSpellsDescription");
             FeatureDefinitionAutoPreparedSpells ArtilleristPrepSpells = BuildAutoPreparedSpells(
                 new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>() {
                     artilleristSpells1, artilleristSpells2, artilleristSpells3, artilleristSpells4, artilleristSpells5 },
@@ -48,8 +48,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             // Level 3: Cannons
             // Flame
             GuiPresentationBuilder flameGui = new GuiPresentationBuilder(
-                "Feat/&ArtilleristFlameCannonDescription",
-                "Feat/&ArtilleristFlameCannonTitle");
+                "Feat/&ArtilleristFlameCannonTitle",
+                "Feat/&ArtilleristFlameCannonDescription");
             flameGui.SetSpriteReference(DatabaseHelper.SpellDefinitions.BurningHands.GuiPresentation.SpriteReference);
 
             EffectDescriptionBuilder fireEffect = new EffectDescriptionBuilder();
@@ -67,8 +67,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             //    artillerist.AddFeatureAtLevel(flameAttack, 3);
 
             GuiPresentationBuilder forceGui = new GuiPresentationBuilder(
-                "Feat/&ArtilleristForceCannonDescription",
-                "Feat/&ArtilleristForceCannonTitle");
+                "Feat/&ArtilleristForceCannonTitle",
+                "Feat/&ArtilleristForceCannonDescription");
             forceGui.SetSpriteReference(DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation.SpriteReference);
 
             EffectDescriptionBuilder forceEffect = new EffectDescriptionBuilder();
@@ -86,8 +86,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             // Protector
             GuiPresentationBuilder protectorGui = new GuiPresentationBuilder(
-                "Feat/&ArtilleristProtectorCannonDescription",
-                "Feat/&ArtilleristProtectorCannonTitle");
+                "Feat/&ArtilleristProtectorCannonTitle",
+                "Feat/&ArtilleristProtectorCannonDescription");
             protectorGui.SetSpriteReference(DatabaseHelper.SpellDefinitions.FalseLife.GuiPresentation.SpriteReference);
 
             EffectDescriptionBuilder protectorEffect = new EffectDescriptionBuilder();
@@ -105,8 +105,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             artillerist.AddFeatureAtLevel(ArtilleryConstructlevel03FeatureSetBuilder.ArtilleryConstructlevel03FeatureSet, 3);
 
             GuiPresentationBuilder ArtilleryConstructLevel03AutopreparedSpellsPresentation = new GuiPresentationBuilder(
-                 "Feat/&ArtilleryConstructLevel03AutopreparedSpellsDescription",
-                 "Feat/&ArtilleryConstructLevel03AutopreparedSpellsTitle");
+                 "Feat/&ArtilleryConstructLevel03AutopreparedSpellsTitle",
+                 "Feat/&ArtilleryConstructLevel03AutopreparedSpellsDescription");
             FeatureDefinitionAutoPreparedSpells ArtilleryConstructLevel03AutopreparedSpells = BuildAutoPreparedSpells(
                 new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>() {
                     new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup() {
@@ -120,8 +120,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             // Level 5: Arcane Firearm-- additional damage, school of evocation spells
             GuiPresentationBuilder arcaneFirearmGui = new GuiPresentationBuilder(
-                "Feat/&ArtificerArtilleristArcaneFirearmDescription",
-                "Feat/&ArtificerArtilleristArcaneFirearmTitle");
+                "Feat/&ArtificerArtilleristArcaneFirearmTitle",
+                "Feat/&ArtificerArtilleristArcaneFirearmDescription");
             FeatureDefinitionAdditionalDamage arcaneFirearm = new FeatureDefinitionAdditionalDamageBuilder("ArtificerArtilleristArcaneFirearm",
                  GuidHelper.Create(TinkererClass.GuidNamespace, "ArtificerArtilleristArcaneFirearm").ToString(), "ArcaneFirearm",
                 FeatureLimitedUsage.OncePerTurn, AdditionalDamageValueDetermination.Die, AdditionalDamageTriggerCondition.EvocationSpellDamage, AdditionalDamageRequiredProperty.None,
@@ -131,8 +131,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             artillerist.AddFeatureAtLevel(arcaneFirearm, 5);
 
             GuiPresentationBuilder detonationGui = new GuiPresentationBuilder(
-                "Feat/&ArtilleristCannonDetonationDescription",
-                "Feat/&ArtilleristCannonDetonationTitle");
+                "Feat/&ArtilleristCannonDetonationTitle",
+                "Feat/&ArtilleristCannonDetonationDescription");
 
             EffectDescriptionBuilder detonationEffect = new EffectDescriptionBuilder();
             detonationEffect.AddEffectForm(new EffectFormBuilder().SetDamageForm(false, DieType.D8, DamageTypeForce, 0, DieType.D8, 3, HealFromInflictedDamage.Never, new List<TrendInfo>())
@@ -154,8 +154,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             // TODO- add an option to enable the power/spell version of the Blaster (there have been some requests for this) instead of the summons
             GuiPresentationBuilder artilleristDetonationPreparedPresentation = new GuiPresentationBuilder(
-                "Feat/&ArtificerArtillerstDetonationSpellPreparedDescription",
-                "Feat/&ArtificerArtillerstDetonationSpellPreparedTitle");
+                "Feat/&ArtificerArtillerstDetonationSpellPreparedTitle",
+                "Feat/&ArtificerArtillerstDetonationSpellPreparedDescription");
 
             // TODO: unused
 #pragma warning disable IDE0059, S1481 // Unused local variables should be removed
@@ -169,8 +169,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             // cannons with boosted damage
             GuiPresentationBuilder flame9Gui = new GuiPresentationBuilder(
-                "Feat/&ArtilleristFlameCannon9Description",
-                "Feat/&ArtilleristFlameCannon9Title");
+                "Feat/&ArtilleristFlameCannon9Title",
+                "Feat/&ArtilleristFlameCannon9Description");
             flameGui.SetSpriteReference(DatabaseHelper.SpellDefinitions.BurningHands.GuiPresentation.SpriteReference);
 
             EffectDescriptionBuilder fire9Effect = new EffectDescriptionBuilder();
@@ -189,8 +189,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             // Force
             GuiPresentationBuilder force9Gui = new GuiPresentationBuilder(
-                "Feat/&ArtilleristForceCannon9Description",
-                "Feat/&ArtilleristForceCannon9Title");
+                "Feat/&ArtilleristForceCannon9Title",
+                "Feat/&ArtilleristForceCannon9Description");
             forceGui.SetSpriteReference(DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation.SpriteReference);
 
             EffectDescriptionBuilder force9Effect = new EffectDescriptionBuilder();
@@ -209,8 +209,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             artillerist.AddFeatureAtLevel(ArtilleryConstructlevel09FeatureSetBuilder.ArtilleryConstructlevel09FeatureSet, 9);
 
             GuiPresentationBuilder ArtilleryConstructLevel09AutopreparedSpellsPresentation = new GuiPresentationBuilder(
-                 "Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription",
-                 "Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle");
+                 "Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle",
+                 "Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription");
             FeatureDefinitionAutoPreparedSpells ArtilleryConstructLevel09AutopreparedSpells = BuildAutoPreparedSpells(
                 new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>() {
                     new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup() {
@@ -224,8 +224,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             // cannons doubled
             GuiPresentationBuilder flame15Gui = new GuiPresentationBuilder(
-                "Feat/&ArtilleristFlameCannon15Description",
-                "Feat/&ArtilleristFlameCannon15Title");
+                "Feat/&ArtilleristFlameCannon15Title",
+                "Feat/&ArtilleristFlameCannon15Description");
             flameGui.SetSpriteReference(DatabaseHelper.SpellDefinitions.BurningHands.GuiPresentation.SpriteReference);
 
             EffectDescriptionBuilder fire15Effect = new EffectDescriptionBuilder();
@@ -247,8 +247,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             // Force
             GuiPresentationBuilder force15Gui = new GuiPresentationBuilder(
-                "Feat/&ArtilleristForceCannon15Description",
-                "Feat/&ArtilleristForceCannon15Title");
+                "Feat/&ArtilleristForceCannon15Title",
+                "Feat/&ArtilleristForceCannon15Description");
             forceGui.SetSpriteReference(DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation.SpriteReference);
 
             EffectDescriptionBuilder force15Effect = new EffectDescriptionBuilder();
@@ -269,8 +269,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             // Protector
             GuiPresentationBuilder protector15Gui = new GuiPresentationBuilder(
-                "Feat/&ArtilleristProtectorCannon15Description",
-                "Feat/&ArtilleristProtectorCannon15Title");
+                "Feat/&ArtilleristProtectorCannon15Title",
+                "Feat/&ArtilleristProtectorCannon15Description");
             protectorGui.SetSpriteReference(DatabaseHelper.SpellDefinitions.FalseLife.GuiPresentation.SpriteReference);
 
             EffectDescriptionBuilder protector15Effect = new EffectDescriptionBuilder();
@@ -291,8 +291,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             artillerist.AddFeatureAtLevel(ArtilleryConstructlevel15FeatureSetBuilder.ArtilleryConstructlevel15FeatureSet, 15);
 
             GuiPresentationBuilder ArtilleryConstructLevel15AutopreparedSpellsPresentation = new GuiPresentationBuilder(
-    "Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription",
-    "Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle");
+    "Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle",
+    "Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription");
             FeatureDefinitionAutoPreparedSpells ArtilleryConstructLevel15AutopreparedSpells = BuildAutoPreparedSpells(
                 new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>() {
                     new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup() {

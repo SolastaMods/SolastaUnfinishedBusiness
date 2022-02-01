@@ -15,8 +15,8 @@ namespace SolastaCommunityExpansion.Feats
         {
             // Inspiring Leader- prereq charisma 13, spend 10 minutes inspiring folks to fit temp hp == level + charisma modifier (1/short rest)
             GuiPresentationBuilder inspiringLeaderPresentation = new GuiPresentationBuilder(
-                "Feat/&InspiringLeaderDescription",
-                "Feat/&InspiringLeaderTitle");
+                "Feat/&InspiringLeaderTitle",
+                "Feat/&InspiringLeaderDescription");
             inspiringLeaderPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerOathOfTirmarGoldenSpeech.GuiPresentation.SpriteReference);
 
             EffectDescription inspriringEffect = BuildEffectDescriptionTempHPForm(RuleDefinitions.RangeType.Distance, 10,
@@ -39,13 +39,13 @@ namespace SolastaCommunityExpansion.Feats
             // Healer- use a healer's kit to stabilize to 1hp, use an action to restore 1d6+4 hp, plus additional hp equal to creature's level (can only heal a given creature once per day)
             // thoughts- grant a stabilize power that sets them to 1hp (unlimited uses), prof per day a heal that does 1d6+4+"caster" level
             GuiPresentationBuilder healerPresentation = new GuiPresentationBuilder(
-                "Feat/&HealerDescription",
-                "Feat/&HealerTitle");
+                "Feat/&HealerTitle",
+                "Feat/&HealerDescription");
             healerPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionGoodberryHealingOther.GuiPresentation.SpriteReference);
 
             GuiPresentationBuilder medKitPresentation = new GuiPresentationBuilder(
-                "Feat/&HealerUseMedicineDescription",
-                "Feat/&HealerUseMedicineTitle");
+                "Feat/&HealerUseMedicineTitle",
+                "Feat/&HealerUseMedicineDescription");
             medKitPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionGoodberryHealingOther.GuiPresentation.SpriteReference);
 
             EffectDescription medKitEffect = BuildEffectDescriptionHealingForm(RuleDefinitions.RangeType.Touch, 1,
@@ -58,8 +58,8 @@ namespace SolastaCommunityExpansion.Feats
                 "PowerMedKitHealerFeat", medKitPresentation.Build());
 
             GuiPresentationBuilder resuscitatePresentation = new GuiPresentationBuilder(
-                "Feat/&HealerResuscitateDescription",
-                "Feat/&HealerResuscitateTitle");
+                "Feat/&HealerResuscitateTitle",
+                "Feat/&HealerResuscitateDescription");
             resuscitatePresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLifePreserveLife.GuiPresentation.SpriteReference);
 
             EffectDescription resuscitateEffect = BuildEffectDescriptionReviveForm(RuleDefinitions.RangeType.Touch, 1,
@@ -72,8 +72,8 @@ namespace SolastaCommunityExpansion.Feats
                 "PowerResuscitateHealerFeat", resuscitatePresentation.Build());
 
             GuiPresentationBuilder stabilizePresentation = new GuiPresentationBuilder(
-                "Feat/&HealerStabilizeDescription",
-                "Feat/&HealerStabilizeTitle");
+                "Feat/&HealerStabilizeTitle",
+                "Feat/&HealerStabilizeDescription");
             stabilizePresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLifePreserveLife.GuiPresentation.SpriteReference);
 
             FeatureDefinitionPower stabilizePower = BuildPowerFromEffectDescription(0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
@@ -82,8 +82,8 @@ namespace SolastaCommunityExpansion.Feats
                 "PowerStabilizeHealerFeat", stabilizePresentation.Build());
 
             GuiPresentationBuilder medicineExpertisePresentation = new GuiPresentationBuilder(
-                "Feat/&ProfHealerMedicineDescription",
-                "Feat/&ProfHealerMedicineTitle");
+                "Feat/&ProfHealerMedicineTitle",
+                "Feat/&ProfHealerMedicineDescription");
             FeatureDefinition medicineKnowledge = BuildProficiency(RuleDefinitions.ProficiencyType.SkillOrExpertise, new List<string>()
             {
                SkillDefinitions.Medecine,
@@ -105,8 +105,8 @@ namespace SolastaCommunityExpansion.Feats
 
             // define power(s) that treats have
             GuiPresentationBuilder treatEatPresentation = new GuiPresentationBuilder(
-                "Feat/&ProfChefTreatActionDescription",
-                "Feat/&ProfChefTreatActionTitle");
+                "Feat/&ProfChefTreatActionTitle",
+                "Feat/&ProfChefTreatActionDescription");
             treatEatPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionGoodberryHealing.GuiPresentation.SpriteReference);
             EffectDescription treatEffect = BuildEffectDescriptionTempHPForm(RuleDefinitions.RangeType.Self, 1,
                 RuleDefinitions.TargetType.Self, 1, RuleDefinitions.DurationType.Permanent, 0, RuleDefinitions.TurnOccurenceType.EndOfTurn,
@@ -117,8 +117,8 @@ namespace SolastaCommunityExpansion.Feats
 
             // define treats
             GuiPresentationBuilder treatPresentation = new GuiPresentationBuilder(
-                "Feat/&ProfChefTreatDescription",
-                "Feat/&ProfChefTreatTitle");
+                "Feat/&ProfChefTreatTitle",
+                "Feat/&ProfChefTreatDescription");
             treatPresentation.SetSpriteReference(DatabaseHelper.ItemDefinitions.Berry_Ration.GuiPresentation.SpriteReference);
             ItemDefinition treat = ItemBuilder.CopyFromItemSetFunctions(HealingFeatNamespace, new List<FeatureDefinitionPower>() { treatPower }, DatabaseHelper.ItemDefinitions.Berry_Ration,
                 "ChefSnackTreat", treatPresentation.Build());
@@ -130,8 +130,8 @@ namespace SolastaCommunityExpansion.Feats
 
             // make power using summon effect to make treats
             GuiPresentationBuilder treatCookPresentation = new GuiPresentationBuilder(
-                "Feat/&ProfChefTreatCookDescription",
-                "Feat/&ProfChefTreatCookTitle");
+                "Feat/&ProfChefTreatCookTitle",
+                "Feat/&ProfChefTreatCookDescription");
             treatEatPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionGoodberryHealingOther.GuiPresentation.SpriteReference);
             FeatureDefinitionPower cookTreatsPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
                 AttributeDefinitions.Wisdom, RuleDefinitions.ActivationTime.Hours1, 1, RuleDefinitions.RechargeRate.LongRest,
@@ -140,8 +140,8 @@ namespace SolastaCommunityExpansion.Feats
 
             // short rest activated ability to heal 1d8 (limit number of times this can be done)
             GuiPresentationBuilder shortRestFeastPresentation = new GuiPresentationBuilder(
-                "Feat/&ChefShortRestFeastDescription",
-                "Feat/&ChefShortRestFeastTitle");
+                "Feat/&ChefShortRestFeastTitle",
+                "Feat/&ChefShortRestFeastDescription");
             inspiringLeaderPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionGoodberryHealingOther.GuiPresentation.SpriteReference);
 
             EffectDescription shortRestFeastEffect = BuildEffectDescriptionHealingForm(RuleDefinitions.RangeType.Distance, 10,
@@ -156,20 +156,20 @@ namespace SolastaCommunityExpansion.Feats
             //    RestActivityDefinition.ActivityCondition.CanUsePower, "UsePower", shortRestFeast.Name, "ChefCookTreats", shortRestFeastPresentation.Build());
 
             GuiPresentationBuilder conPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatChefConIncrementDescription",
-                "Feat/&FeatChefConIncrementTitle");
+                "Feat/&FeatChefConIncrementTitle",
+                "Feat/&FeatChefConIncrementDescription");
             FeatureDefinition conIncrement = BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                 AttributeDefinitions.Constitution, 1, "FeatChefConIncrement", conPresentation.Build());
 
             GuiPresentationBuilder wisPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatChefWisIncrementDescription",
-                "Feat/&FeatChefWisIncrementTitle");
+                "Feat/&FeatChefWisIncrementTitle",
+                "Feat/&FeatChefWisIncrementDescription");
             FeatureDefinition wisIncrement = BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                 AttributeDefinitions.Wisdom, 1, "FeatChefWisIncrement", wisPresentation.Build());
 
             GuiPresentationBuilder chefConPresentation = new GuiPresentationBuilder(
-                "Feat/&ChefConDescription",
-                "Feat/&ChefConTitle");
+                "Feat/&ChefConTitle",
+                "Feat/&ChefConDescription");
             FeatDefinitionBuilder chefCon = new FeatDefinitionBuilder("FeatChefCon", GuidHelper.Create(HealingFeatNamespace, "FeatChefCon").ToString(),
                 new List<FeatureDefinition>()
             {
@@ -180,8 +180,8 @@ namespace SolastaCommunityExpansion.Feats
             feats.Add(chefCon.AddToDB());
 
             GuiPresentationBuilder chefWisPresentation = new GuiPresentationBuilder(
-                "Feat/&ChefWisDescription",
-                "Feat/&ChefWisTitle");
+                "Feat/&ChefWisTitle",
+                "Feat/&ChefWisDescription");
             FeatDefinitionBuilder chefWis = new FeatDefinitionBuilder("FeatChefWis", GuidHelper.Create(HealingFeatNamespace, "FeatChefWis").ToString(),
                 new List<FeatureDefinition>()
             {

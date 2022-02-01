@@ -16,8 +16,8 @@ namespace SolastaCommunityExpansion.Feats
         {
             // Two Weapon
             GuiPresentationBuilder twoWeaponPresentation = new GuiPresentationBuilder(
-             "Feat/&FightingStyleTwoWeaponDescription",
-             "Feat/&FightingStyleTwoWeaponTitle");
+             "Feat/&FightingStyleTwoWeaponTitle",
+             "Feat/&FightingStyleTwoWeaponDescription");
 
             FeatDefinitionBuilder twoWeapon = new FeatDefinitionBuilder("FeatFightingStyleTwoWeapon", GuidHelper.Create(FightingStyleFeatsNamespace, "FeatFightingStyleTwoWeapon").ToString(),
                 new List<FeatureDefinition>()
@@ -29,8 +29,8 @@ namespace SolastaCommunityExpansion.Feats
 
             // Protection
             GuiPresentationBuilder protectionPresentation = new GuiPresentationBuilder(
-                "Feat/&FightingStyleProtectionDescription",
-                "Feat/&FightingStyleProtectionTitle");
+                "Feat/&FightingStyleProtectionTitle",
+                "Feat/&FightingStyleProtectionDescription");
 
             FeatDefinitionBuilder protection = new FeatDefinitionBuilder("FeatFightingStyleProtection", GuidHelper.Create(FightingStyleFeatsNamespace, "FeatFightingStyleProtection").ToString(),
                 new List<FeatureDefinition>()
@@ -42,8 +42,8 @@ namespace SolastaCommunityExpansion.Feats
 
             // GreatWeapon
             GuiPresentationBuilder greatWeaponPresentation = new GuiPresentationBuilder(
-                "Feat/&FightingStyleGreatWeaponDescription",
-                "Feat/&FightingStyleGreatWeaponTitle");
+                "Feat/&FightingStyleGreatWeaponTitle",
+                "Feat/&FightingStyleGreatWeaponDescription");
 
             FeatDefinitionBuilder greatWeapon = new FeatDefinitionBuilder("FeatFightingStyleGreatWeapon", GuidHelper.Create(FightingStyleFeatsNamespace, "FeatFightingStyleGreatWeapon").ToString(),
                 new List<FeatureDefinition>()
@@ -55,8 +55,8 @@ namespace SolastaCommunityExpansion.Feats
 
             // Dueling
             GuiPresentationBuilder duelingPresentation = new GuiPresentationBuilder(
-                "Feat/&FightingStyleDuelingDescription",
-                "Feat/&FightingStyleDuelingTitle");
+                "Feat/&FightingStyleDuelingTitle",
+                "Feat/&FightingStyleDuelingDescription");
 
             FeatDefinitionBuilder dueling = new FeatDefinitionBuilder("FeatFightingStyleDueling", GuidHelper.Create(FightingStyleFeatsNamespace, "FeatFightingStyleDueling").ToString(),
                 new List<FeatureDefinition>()
@@ -68,8 +68,8 @@ namespace SolastaCommunityExpansion.Feats
 
             // Defense
             GuiPresentationBuilder defensePresentation = new GuiPresentationBuilder(
-                "Feat/&FightingStyleDefenseDescription",
-                "Feat/&FightingStyleDefenseTitle");
+                "Feat/&FightingStyleDefenseTitle",
+                "Feat/&FightingStyleDefenseDescription");
 
             FeatDefinitionBuilder defense = new FeatDefinitionBuilder("FeatFightingStyleDefense", GuidHelper.Create(FightingStyleFeatsNamespace, "FeatFightingStyleDefense").ToString(),
                 new List<FeatureDefinition>()
@@ -81,8 +81,8 @@ namespace SolastaCommunityExpansion.Feats
 
             // Archery
             GuiPresentationBuilder archeryPresentation = new GuiPresentationBuilder(
-                "Feat/&FightingStyleArcheryDescription",
-                "Feat/&FightingStyleArcheryTitle");
+                "Feat/&FightingStyleArcheryTitle",
+                "Feat/&FightingStyleArcheryDescription");
 
             FeatDefinitionBuilder archery = new FeatDefinitionBuilder("FeatFightingStyleArchery", GuidHelper.Create(FightingStyleFeatsNamespace, "FeatFightingStyleArchery").ToString(),
                 new List<FeatureDefinition>()

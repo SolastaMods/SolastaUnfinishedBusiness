@@ -22,7 +22,7 @@ namespace SolastaCommunityExpansion.FightingStyles
         {
             if (instance == null)
             {
-                GuiPresentationBuilder gui = new GuiPresentationBuilder("FightingStyle/&BlindFightingDescription", "FightingStyle/&BlindFightingTitle");
+                GuiPresentationBuilder gui = new GuiPresentationBuilder("FightingStyle/&BlindFightingTitle", "FightingStyle/&BlindFightingDescription");
                 gui.SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.RangerShadowTamer.GuiPresentation.SpriteReference);
                 CustomizableFightingStyleBuilder builder = new CustomizableFightingStyleBuilder("BlindFightingStlye", "a0df0cb6-640f-494e-b752-b746fa79bede",
                     new List<FeatureDefinition>() { DatabaseHelper.FeatureDefinitionSenses.SenseBlindSight2 },

@@ -100,7 +100,7 @@ namespace SolastaCommunityExpansion.Spells
             .SetSomaticComponent(false)
             .SetVerboseComponent(true)
             .SetSpellLevel(7)
-            .SetGuiPresentation(new GuiPresentationBuilder("Spell/&CJDivineWordDescription", "Spell/&CJDivineWordTitle")
+            .SetGuiPresentation(new GuiPresentationBuilder("Spell/&CJDivineWordTitle", "Spell/&CJDivineWordDescription")
                 .Build()
                 .SetSpriteReference(DatabaseHelper.SpellDefinitions.DivineFavor.GuiPresentation.SpriteReference))
             .SetEffectDescription(new EffectDescriptionBuilder()

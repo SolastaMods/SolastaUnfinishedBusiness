@@ -77,8 +77,8 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
                     "FeatureSetBloodWitchMagic",
                     GuidHelper.Create(BLOODW_BASE_GUID, "FeatureSetBloodWitchMagic").ToString(),
                     new GuiPresentationBuilder(
-                            "Subclass/&BloodWitchMagicDescription",
-                            "Subclass/&BloodWitchMagicTitle").Build())
+                            "Subclass/&BloodWitchMagicTitle",
+                            "Subclass/&BloodWitchMagicDescription").Build())
                     .ClearFeatures()
                     .AddFeature(preparedSpells)
                     .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
@@ -96,8 +96,8 @@ namespace SolastaCommunityExpansion.Subclasses.Witch
             WitchClass = witchClassDefinition;
 
             var subclassGuiPresentation = new GuiPresentationBuilder(
-                    "Subclass/&BloodWitchDescription",
-                    "Subclass/&BloodWitchTitle")
+                    "Subclass/&BloodWitchTitle",
+                    "Subclass/&BloodWitchDescription")
                     .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.DomainOblivion.GuiPresentation.SpriteReference)
                     .Build();
 

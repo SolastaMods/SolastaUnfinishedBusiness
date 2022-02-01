@@ -378,8 +378,8 @@ namespace SolastaCommunityExpansion.Classes
 
             classSpellCast.SetGuiPresentation(
                     new GuiPresentationBuilder(
-                            "Class/&WitchSpellcastingDescription",
-                            "Class/&WitchSpellcastingTitle")
+                            "Class/&WitchSpellcastingTitle",
+                            "Class/&WitchSpellcastingDescription")
                             .Build());
             classSpellCast.SetKnownCantrips(new List<int>{
                 4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6});
@@ -430,15 +430,15 @@ namespace SolastaCommunityExpansion.Classes
                     "WitchFeatureSetRitualCasting",
                     GuidHelper.Create(WITCH_BASE_GUID, "WitchFeatureSetRitualCasting").ToString(),
                     new GuiPresentationBuilder(
-                        "Class/&WitchFeatureSetRitualCastingDescription",
-                        "Class/&WitchFeatureSetRitualCastingTitle").Build())
+                        "Class/&WitchFeatureSetRitualCastingTitle",
+                        "Class/&WitchFeatureSetRitualCastingDescription").Build())
                     .ClearFeatures()
                     .AddFeature(new FeatureDefinitionMagicAffinityBuilder(
                             "WitchRitualCastingMagicAffinity",
                             GuidHelper.Create(WITCH_BASE_GUID, "WitchRitualCastingMagicAffinity").ToString(),
                             new GuiPresentationBuilder(
-                                    "Class/&WitchRitualCastingMagicAffinityDescription",
-                                    "Class/&WitchRitualCastingMagicAffinityTitle").Build())
+                                    "Class/&WitchRitualCastingMagicAffinityTitle",
+                                    "Class/&WitchRitualCastingMagicAffinityDescription").Build())
                             .SetRitualCasting((RuleDefinitions.RitualCasting)ExtraRitualCasting.Known).AddToDB())
                     .AddFeature(FeatureDefinitionActionAffinitys.ActionAffinityWizardRitualCasting)
                     .AddToDB();
@@ -468,16 +468,16 @@ namespace SolastaCommunityExpansion.Classes
                     "WitchBurnedFireResistance",
                     GuidHelper.Create(WITCH_BASE_GUID, "WitchBurnedFireResistance").ToString(),
                     new GuiPresentationBuilder(
-                            "Class/&WitchBurnedFireResistanceDescription",
-                            "Class/&WitchBurnedFireResistanceTitle").Build());
+                            "Class/&WitchBurnedFireResistanceTitle",
+                            "Class/&WitchBurnedFireResistanceDescription").Build());
 
             var burnedProduceFlame = new FeatureDefinitionBonusCantripsBuilder(
                     FeatureDefinitionBonusCantripss.BonusCantripsDomainElementaFire,
                     "WitchBurnedProduceFlame",
                     GuidHelper.Create(WITCH_BASE_GUID, "WitchBurnedProduceFlame").ToString(),
                     new GuiPresentationBuilder(
-                            "Class/&WitchBurnedProduceFlameDescription",
-                            "Class/&WitchBurnedProduceFlameTitle").Build())
+                            "Class/&WitchBurnedProduceFlameTitle",
+                            "Class/&WitchBurnedProduceFlameDescription").Build())
                     .ClearBonusCantrips()
                     .AddBonusCantrip(SpellDefinitions.ProduceFlame);
 
@@ -486,8 +486,8 @@ namespace SolastaCommunityExpansion.Classes
                     "WitchFeatureSetBurnedCurse",
                     GuidHelper.Create(WITCH_BASE_GUID, "WitchFeatureSetBurnedCurse").ToString(),
                     new GuiPresentationBuilder(
-                            "Class/&WitchFeatureSetBurnedCurseDescription",
-                            "Class/&WitchFeatureSetBurnedCurseTitle").Build())
+                            "Class/&WitchFeatureSetBurnedCurseTitle",
+                            "Class/&WitchFeatureSetBurnedCurseDescription").Build())
                     .ClearFeatures()
                     .AddFeature(burnedFireRes.AddToDB())
                     .AddFeature(burnedProduceFlame.AddToDB())
@@ -498,16 +498,16 @@ namespace SolastaCommunityExpansion.Classes
                     "WitchLovelessCharmImmunity",
                     GuidHelper.Create(WITCH_BASE_GUID, "WitchLovelessCharmImmunity").ToString(),
                     new GuiPresentationBuilder(
-                            "Class/&WitchLovelessCharmImmunityDescription",
-                            "Class/&WitchLovelessCharmImmunityTitle").Build());
+                            "Class/&WitchLovelessCharmImmunityTitle",
+                            "Class/&WitchLovelessCharmImmunityDescription").Build());
 
             var lovelessCurse = new FeatureDefinitionFeatureSetBuilder(
                     FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
                     "WitchFeatureSetLovelessCurse",
                     GuidHelper.Create(WITCH_BASE_GUID, "WitchFeatureSetLovelessCurse").ToString(),
                     new GuiPresentationBuilder(
-                            "Class/&WitchFeatureSetLovelessCurseDescription",
-                            "Class/&WitchFeatureSetLovelessCurseTitle").Build())
+                            "Class/&WitchFeatureSetLovelessCurseTitle",
+                            "Class/&WitchFeatureSetLovelessCurseDescription").Build())
                     .ClearFeatures()
                     .AddFeature(lovelessCharmImmunity.AddToDB())
                     .AddToDB();
@@ -520,8 +520,8 @@ namespace SolastaCommunityExpansion.Classes
                     AttributeDefinitions.Initiative,
                     3,
                     new GuiPresentationBuilder(
-                            "Class/&WitchVisionsInitiativeDescription",
-                            "Class/&WitchVisionsInitiativeTitle").Build())
+                            "Class/&WitchVisionsInitiativeTitle",
+                            "Class/&WitchVisionsInitiativeDescription").Build())
                     .SetModifierAbilityScore(AttributeDefinitions.Charisma);
 
             var visionsCurse = new FeatureDefinitionFeatureSetBuilder(
@@ -529,8 +529,8 @@ namespace SolastaCommunityExpansion.Classes
                     "WitchFeatureSetVisionsCurse",
                     GuidHelper.Create(WITCH_BASE_GUID, "WitchFeatureSetVisionsCurse").ToString(),
                     new GuiPresentationBuilder(
-                            "Class/&WitchFeatureSetVisionsCurseDescription",
-                            "Class/&WitchFeatureSetVisionsCurseTitle").Build())
+                            "Class/&WitchFeatureSetVisionsCurseTitle",
+                            "Class/&WitchFeatureSetVisionsCurseDescription").Build())
                     .ClearFeatures()
                     .AddFeature(visionsInitiative.AddToDB())
                     .AddToDB();
@@ -540,8 +540,8 @@ namespace SolastaCommunityExpansion.Classes
                     "WitchFeatureSetWitchCurse",
                     GuidHelper.Create(WITCH_BASE_GUID, "WitchFeatureSetWitchCurse").ToString(),
                     new GuiPresentationBuilder(
-                            "Class/&WitchFeatureSetWitchCurseDescription",
-                            "Class/&WitchFeatureSetWitchCurseTitle").Build())
+                            "Class/&WitchFeatureSetWitchCurseTitle",
+                            "Class/&WitchFeatureSetWitchCurseDescription").Build())
                     .ClearFeatures()
                     .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
                     .SetUniqueChoices(true)
@@ -625,8 +625,8 @@ namespace SolastaCommunityExpansion.Classes
                     AttributeDefinitions.Charisma,
                     abateEffectDescription,
                     new GuiPresentationBuilder(
-                            "Class/&WitchMaledictionAbateDescription",
-                            "Class/&WitchMaledictionAbateTitle").Build()
+                            "Class/&WitchMaledictionAbateTitle",
+                            "Class/&WitchMaledictionAbateDescription").Build()
                             .SetSpriteReference(SpellDefinitions.ShockingGrasp.GuiPresentation.SpriteReference),
                     true)
                     .AddToDB();
@@ -655,8 +655,8 @@ namespace SolastaCommunityExpansion.Classes
                     AttributeDefinitions.Charisma,
                     apathyEffectDescription,
                     new GuiPresentationBuilder(
-                            "Class/&WitchMaledictionApathyDescription",
-                            "Class/&WitchMaledictionApathyTitle").Build()
+                            "Class/&WitchMaledictionApathyTitle",
+                            "Class/&WitchMaledictionApathyDescription").Build()
                             .SetSpriteReference(SpellDefinitions.CalmEmotions.GuiPresentation.SpriteReference),
                     true)
                     .AddToDB();
@@ -686,8 +686,8 @@ namespace SolastaCommunityExpansion.Classes
                     AttributeDefinitions.Charisma,
                     charmEffectDescription,
                     new GuiPresentationBuilder(
-                            "Class/&WitchMaledictionCharmDescription",
-                            "Class/&WitchMaledictionCharmTitle").Build()
+                            "Class/&WitchMaledictionCharmTitle",
+                            "Class/&WitchMaledictionCharmDescription").Build()
                             .SetSpriteReference(SpellDefinitions.CharmPerson.GuiPresentation.SpriteReference),
                     true)
                     .AddToDB();
@@ -717,8 +717,8 @@ namespace SolastaCommunityExpansion.Classes
                     AttributeDefinitions.Charisma,
                     evileyeEffectDescription,
                     new GuiPresentationBuilder(
-                            "Class/&WitchMaledictionEvilEyeDescription",
-                            "Class/&WitchMaledictionEvilEyeTitle").Build()
+                            "Class/&WitchMaledictionEvilEyeTitle",
+                            "Class/&WitchMaledictionEvilEyeDescription").Build()
                             .SetSpriteReference(SpellDefinitions.Fear.GuiPresentation.SpriteReference),
                     true)
                     .AddToDB();
@@ -745,8 +745,8 @@ namespace SolastaCommunityExpansion.Classes
                     AttributeDefinitions.Charisma,
                     obfuscateEffectDescription,
                     new GuiPresentationBuilder(
-                            "Class/&WitchMaledictionObfuscateDescription",
-                            "Class/&WitchMaledictionObfuscateTitle").Build()
+                            "Class/&WitchMaledictionObfuscateTitle",
+                            "Class/&WitchMaledictionObfuscateDescription").Build()
                             .SetSpriteReference(SpellDefinitions.FogCloud.GuiPresentation.SpriteReference),
                     true)
                     .AddToDB();
@@ -786,8 +786,8 @@ namespace SolastaCommunityExpansion.Classes
                     AttributeDefinitions.Charisma,
                     poxEffectDescription,
                     new GuiPresentationBuilder(
-                            "Class/&WitchMaledictionPoxDescription",
-                            "Class/&WitchMaledictionPoxTitle").Build()
+                            "Class/&WitchMaledictionPoxTitle",
+                            "Class/&WitchMaledictionPoxDescription").Build()
                             .SetSpriteReference(SpellDefinitions.PoisonSpray.GuiPresentation.SpriteReference),
                     true)
                     .AddToDB();
@@ -805,8 +805,8 @@ namespace SolastaCommunityExpansion.Classes
                     "ConditionRuined",
                     GuidHelper.Create(WITCH_BASE_GUID, "ConditionRuined").ToString(),
                     new GuiPresentationBuilder(
-                            "Condition/&RuinedDescription",
-                            "Condition/&RuinedTitle")
+                            "Condition/&RuinedTitle",
+                            "Condition/&RuinedDescription")
                             .SetSpriteReference(ConditionDefinitions.ConditionAcidArrowed.GuiPresentation.SpriteReference)
                             .Build())
                     .AddToDB();
@@ -823,8 +823,8 @@ namespace SolastaCommunityExpansion.Classes
                     "ArmorClass",
                     -3,
                     new GuiPresentationBuilder(
-                            "Modifier/&RuinedDescription",
-                            "Modifier/&RuinedTitle")
+                            "Modifier/&RuinedTitle",
+                            "Modifier/&RuinedDescription")
                             .SetSpriteReference(ConditionDefinitions.ConditionAcidArrowed.GuiPresentation.SpriteReference)
                             .Build())
                     .AddToDB());
@@ -859,8 +859,8 @@ namespace SolastaCommunityExpansion.Classes
                     AttributeDefinitions.Charisma,
                     ruinEffectDescription,
                     new GuiPresentationBuilder(
-                            "Class/&WitchMaledictionRuinDescription",
-                            "Class/&WitchMaledictionRuinTitle").Build()
+                            "Class/&WitchMaledictionRuinTitle",
+                            "Class/&WitchMaledictionRuinDescription").Build()
                             .SetSpriteReference(SpellDefinitions.AcidSplash.GuiPresentation.SpriteReference),
                     true)
                     .AddToDB();
@@ -870,8 +870,8 @@ namespace SolastaCommunityExpansion.Classes
                     "WitchFeatureSetMaledictions",
                     GuidHelper.Create(WITCH_BASE_GUID, "WitchFeatureSetMaledictions").ToString(),
                     new GuiPresentationBuilder(
-                            "Class/&WitchFeatureSetMaledictionsDescription",
-                            "Class/&WitchFeatureSetMaledictionsTitle").Build())
+                            "Class/&WitchFeatureSetMaledictionsTitle",
+                            "Class/&WitchFeatureSetMaledictionsDescription").Build())
                     .ClearFeatures()
                     .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
                     .SetUniqueChoices(true)
@@ -934,8 +934,8 @@ namespace SolastaCommunityExpansion.Classes
                     AttributeDefinitions.Charisma,
                     effectDescription,
                     new GuiPresentationBuilder(
-                            "Class/&WitchCacklePowerDescription",
-                            "Class/&WitchCacklePowerTitle").Build()
+                            "Class/&WitchCacklePowerTitle",
+                            "Class/&WitchCacklePowerDescription").Build()
                             .SetSpriteReference(SpellDefinitions.HideousLaughter.GuiPresentation.SpriteReference),
                     true)
                     .AddToDB();
@@ -944,8 +944,8 @@ namespace SolastaCommunityExpansion.Classes
         private static CharacterClassDefinition BuildAndAddClass()
         {
             var classGuiPresentation = new GuiPresentationBuilder(
-                    "Class/&WitchDescription",
-                    "Class/&WitchTitle")
+                    "Class/&WitchTitle",
+                    "Class/&WitchDescription")
                     .SetSpriteReference(CharacterClassDefinitions.Sorcerer.GuiPresentation.SpriteReference)
                     .Build();
 
@@ -1044,8 +1044,8 @@ namespace SolastaCommunityExpansion.Classes
                 spellBuilder.SetRitualCasting(RuleDefinitions.ActivationTime.Hours1);
                 spellBuilder.SetGuiPresentation(
                         new GuiPresentationBuilder(
-                                "Spell/&WitchFamiliarDescription",
-                                "Spell/&WitchFamiliarTitle").Build()
+                                "Spell/&WitchFamiliarTitle",
+                                "Spell/&WitchFamiliarDescription").Build()
                                 .SetSpriteReference(SpellDefinitions.AnimalFriendship.GuiPresentation.SpriteReference));
 
                 var spell = spellBuilder.AddToDB();
@@ -1078,8 +1078,8 @@ namespace SolastaCommunityExpansion.Classes
                                 2,
                                 new List<SpellDefinition>{spell})},
                         new GuiPresentationBuilder(
-                                "Class/&WitchFamiliarPowerDescription",
-                                "Class/&WitchFamiliarPowerTitle").Build()
+                                "Class/&WitchFamiliarPowerTitle",
+                                "Class/&WitchFamiliarPowerDescription").Build()
                                 .SetSpriteReference(SpellDefinitions.AnimalFriendship.GuiPresentation.SpriteReference))
                         .SetCharacterClass(witch)
                         .SetAutoTag("Witch")
@@ -1135,8 +1135,8 @@ namespace SolastaCommunityExpansion.Classes
                         "FeatureSetWitchFamiliar",
                         GuidHelper.Create(WITCH_BASE_GUID, "FeatureSetWitchFamiliar").ToString(),
                         new GuiPresentationBuilder(
-                                "Class/&WitchFamiliarPowerDescription",
-                                "Class/&WitchFamiliarPowerTitle").Build())
+                                "Class/&WitchFamiliarPowerTitle",
+                                "Class/&WitchFamiliarPowerDescription").Build())
                         .ClearFeatures()
                         .AddFeature(preparedSpells)
                         .AddFeature(summoningAffinity)
@@ -1153,8 +1153,8 @@ namespace SolastaCommunityExpansion.Classes
                         false,
                         "SubclassChoiceWitchCovens",
                         new GuiPresentationBuilder(
-                                "Subclass/&WitchSubclassPathDescription",
-                                "Subclass/&WitchSubclassPathTitle")
+                                "Subclass/&WitchSubclassPathTitle",
+                                "Subclass/&WitchSubclassPathDescription")
                                 .Build(),
                         GuidHelper.Create(WITCH_BASE_GUID, "SubclassChoiceWitchCovens").ToString());
 
