@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         public FeatureDefinitionPointPoolBuilder(string name, Guid baseGuid,
-            HeroDefinitions.PointsPoolType poolType, int poolAmount, string keyPrefix = null) : base(name, baseGuid, keyPrefix)
+            HeroDefinitions.PointsPoolType poolType, int poolAmount, string category = null) : base(name, baseGuid, category)
         {
             Definition.SetPoolType(poolType);
             Definition.SetPoolAmount(poolAmount);
