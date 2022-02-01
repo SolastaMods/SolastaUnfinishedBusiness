@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Features
         }
 
         public FeatureDefinitionProficiencyBuilder(string name, Guid namespaceGuid,
-            RuleDefinitions.ProficiencyType type, IEnumerable<string> proficiencies, string keyPrefix) : base(name, namespaceGuid, keyPrefix)
+            RuleDefinitions.ProficiencyType type, IEnumerable<string> proficiencies, string category) : base(name, namespaceGuid, category)
         {
             Definition.SetProficiencyType(type);
             Definition.Proficiencies.AddRange(proficiencies);

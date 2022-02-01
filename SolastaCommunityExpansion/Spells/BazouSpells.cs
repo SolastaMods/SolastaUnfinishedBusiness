@@ -66,7 +66,7 @@ namespace SolastaCommunityExpansion.Spells
             spellBuilder.SetGuiPresentation("Spell/&EldritchOrbDescription", "Spell/&EldritchOrbTitle", Shine.GuiPresentation.SpriteReference);
 #else
             // After
-            // Generate style - set name & prefix - title and description generated as "Spell/&EldritchOrbDescription", "Spell/&EldritchOrbTitle"
+            // Generate style - set name & category - title and description generated as "Spell/&EldritchOrbDescription", "Spell/&EldritchOrbTitle"
             spellBuilder.SetGuiPresentationGenerate(eldritchOrb, "Spell", Shine.GuiPresentation.SpriteReference);
 #endif
 
