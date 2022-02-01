@@ -36,6 +36,18 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(RulesetContainer))]
     public static partial class RulesetContainerExtensions
     {
+        public static System.Collections.Generic.List<RulesetItem> GetEmptyStacks<T>(this T entity)
+            where T : RulesetContainer
+        {
+            return entity.GetField<System.Collections.Generic.List<RulesetItem>>("emptyStacks");
+        }
+
+        public static System.Collections.Generic.List<RulesetItem> GetItemsToReorder<T>(this T entity)
+            where T : RulesetContainer
+        {
+            return entity.GetField<System.Collections.Generic.List<RulesetItem>>("itemsToReorder");
+        }
+
         public static T SetContainerContentModified<T>(this T entity, RulesetContainer.ContainerContentModifiedHandler value)
             where T : RulesetContainer
         {

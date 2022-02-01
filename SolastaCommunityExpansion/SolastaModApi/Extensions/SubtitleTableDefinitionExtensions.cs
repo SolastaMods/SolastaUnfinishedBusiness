@@ -36,6 +36,12 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(SubtitleTableDefinition))]
     public static partial class SubtitleTableDefinitionExtensions
     {
+        public static System.Collections.Generic.List<SubtitleStyleDuplet> GetStyleDuplets<T>(this T entity)
+            where T : SubtitleTableDefinition
+        {
+            return entity.GetField<System.Collections.Generic.List<SubtitleStyleDuplet>>("styleDuplets");
+        }
+
         public static T SetLineHeight<T>(this T entity, System.Single value)
             where T : SubtitleTableDefinition
         {

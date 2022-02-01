@@ -36,6 +36,12 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(AdventureLogDefinition))]
     public static partial class AdventureLogDefinitionExtensions
     {
+        public static System.Collections.Generic.List<AdventureStyleDuplet> GetStyleDuplets<T>(this T entity)
+            where T : AdventureLogDefinition
+        {
+            return entity.GetField<System.Collections.Generic.List<AdventureStyleDuplet>>("styleDuplets");
+        }
+
         public static T SetBattleHeight<T>(this T entity, System.Single value)
             where T : AdventureLogDefinition
         {

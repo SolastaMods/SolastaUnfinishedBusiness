@@ -36,6 +36,12 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(DocumentTableDefinition))]
     public static partial class DocumentTableDefinitionExtensions
     {
+        public static System.Collections.Generic.List<DocumentStyleDuplet> GetStyleDuplets<T>(this T entity)
+            where T : DocumentTableDefinition
+        {
+            return entity.GetField<System.Collections.Generic.List<DocumentStyleDuplet>>("styleDuplets");
+        }
+
         public static T SetHeaderHeight<T>(this T entity, System.Single value)
             where T : DocumentTableDefinition
         {

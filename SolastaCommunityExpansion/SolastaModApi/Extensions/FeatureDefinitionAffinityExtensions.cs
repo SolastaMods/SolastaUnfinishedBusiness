@@ -33,20 +33,19 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionSocialAffinity))]
-    public static partial class FeatureDefinitionSocialAffinityExtensions
+    [TargetType(typeof(FeatureDefinitionAffinity))]
+    public static partial class FeatureDefinitionAffinityExtensions
     {
-        public static System.Collections.Generic.List<FeatureDefinitionSocialAffinity.SocialAffinityDuplet> GetSocialAffinityDuplets<T>(this T entity)
-            where T : FeatureDefinitionSocialAffinity
+        public static System.Collections.Generic.List<System.String> GetMyselfFamilyRestrictions<T>(this T entity)
+            where T : FeatureDefinitionAffinity
         {
-            return entity.GetField<System.Collections.Generic.List<FeatureDefinitionSocialAffinity.SocialAffinityDuplet>>("socialAffinityDuplets");
+            return entity.GetField<System.Collections.Generic.List<System.String>>("myselfFamilyRestrictions");
         }
 
-        public static T SetOrganizationType<T>(this T entity, System.String value)
-            where T : FeatureDefinitionSocialAffinity
+        public static System.Collections.Generic.List<System.String> GetOtherCharacterFamilyRestrictions<T>(this T entity)
+            where T : FeatureDefinitionAffinity
         {
-            entity.SetField("organizationType", value);
-            return entity;
+            return entity.GetField<System.Collections.Generic.List<System.String>>("otherCharacterFamilyRestrictions");
         }
     }
 }

@@ -36,6 +36,12 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(CreditsTableDefinition))]
     public static partial class CreditsTableDefinitionExtensions
     {
+        public static System.Collections.Generic.List<CreditsStyleDuplet> GetStyleDuplets<T>(this T entity)
+            where T : CreditsTableDefinition
+        {
+            return entity.GetField<System.Collections.Generic.List<CreditsStyleDuplet>>("styleDuplets");
+        }
+
         public static T SetBackersTextAsset<T>(this T entity, UnityEngine.TextAsset value)
             where T : CreditsTableDefinition
         {

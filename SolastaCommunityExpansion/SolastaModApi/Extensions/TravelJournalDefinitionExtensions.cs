@@ -36,6 +36,12 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(TravelJournalDefinition))]
     public static partial class TravelJournalDefinitionExtensions
     {
+        public static System.Collections.Generic.List<TravelStyleDuplet> GetStyleDuplets<T>(this T entity)
+            where T : TravelJournalDefinition
+        {
+            return entity.GetField<System.Collections.Generic.List<TravelStyleDuplet>>("styleDuplets");
+        }
+
         public static T SetIndentWidth<T>(this T entity, System.Single value)
             where T : TravelJournalDefinition
         {

@@ -36,6 +36,66 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(RulesetCharacterMonster))]
     public static partial class RulesetCharacterMonsterExtensions
     {
+        public static System.Collections.Generic.List<IAttackModificationProvider> GetAttackModifiers<T>(this T entity)
+            where T : RulesetCharacterMonster
+        {
+            return entity.GetField<System.Collections.Generic.List<IAttackModificationProvider>>("attackModifiers");
+        }
+
+        public static System.Collections.Generic.Dictionary<RulesetAttackMode, LegendaryActionDescription> GetLegendaryActionOfAttackMode<T>(this T entity)
+            where T : RulesetCharacterMonster
+        {
+            return entity.GetField<System.Collections.Generic.Dictionary<RulesetAttackMode, LegendaryActionDescription>>("legendaryActionOfAttackMode");
+        }
+
+        public static System.Collections.Generic.Dictionary<RulesetUsablePower, LegendaryActionDescription> GetLegendaryActionOfPower<T>(this T entity)
+            where T : RulesetCharacterMonster
+        {
+            return entity.GetField<System.Collections.Generic.Dictionary<RulesetUsablePower, LegendaryActionDescription>>("legendaryActionOfPower");
+        }
+
+        public static System.Collections.Generic.Dictionary<RulesetSpellRepertoire, LegendaryActionDescription> GetLegendaryActionOfSpellRepertoire<T>(this T entity)
+            where T : RulesetCharacterMonster
+        {
+            return entity.GetField<System.Collections.Generic.Dictionary<RulesetSpellRepertoire, LegendaryActionDescription>>("legendaryActionOfSpellRepertoire");
+        }
+
+        public static System.Collections.Generic.List<RulesetAttackMode> GetLegendaryAttackModes<T>(this T entity)
+            where T : RulesetCharacterMonster
+        {
+            return entity.GetField<System.Collections.Generic.List<RulesetAttackMode>>("legendaryAttackModes");
+        }
+
+        public static System.Collections.Generic.Dictionary<System.Int32, System.Int32> GetLegendaryMoveModes<T>(this T entity)
+            where T : RulesetCharacterMonster
+        {
+            return entity.GetField<System.Collections.Generic.Dictionary<System.Int32, System.Int32>>("legendaryMoveModes");
+        }
+
+        public static System.Collections.Generic.List<RulesetSpellRepertoire> GetLegendarySpellRepertoires<T>(this T entity)
+            where T : RulesetCharacterMonster
+        {
+            return entity.GetField<System.Collections.Generic.List<RulesetSpellRepertoire>>("legendarySpellRepertoires");
+        }
+
+        public static System.Collections.Generic.List<RulesetUsablePower> GetLegendaryUsablePowers<T>(this T entity)
+            where T : RulesetCharacterMonster
+        {
+            return entity.GetField<System.Collections.Generic.List<RulesetUsablePower>>("legendaryUsablePowers");
+        }
+
+        public static System.Collections.Generic.List<System.Int32> GetRemainingAttackUses<T>(this T entity)
+            where T : RulesetCharacterMonster
+        {
+            return entity.GetField<System.Collections.Generic.List<System.Int32>>("remainingAttackUses");
+        }
+
+        public static System.Collections.Generic.List<System.Boolean> GetUsedLegendaryActions<T>(this T entity)
+            where T : RulesetCharacterMonster
+        {
+            return entity.GetField<System.Collections.Generic.List<System.Boolean>>("usedLegendaryActions");
+        }
+
         public static T SetBodyAssetPrefix<T>(this T entity, System.String value)
             where T : RulesetCharacterMonster
         {

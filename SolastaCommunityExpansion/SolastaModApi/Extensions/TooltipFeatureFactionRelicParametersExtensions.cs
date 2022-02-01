@@ -36,6 +36,12 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(TooltipFeatureFactionRelicParameters))]
     public static partial class TooltipFeatureFactionRelicParametersExtensions
     {
+        public static System.Collections.Generic.List<GuiFactionDefinition> GetInterestedFactions<T>(this T entity)
+            where T : TooltipFeatureFactionRelicParameters
+        {
+            return entity.GetField<System.Collections.Generic.List<GuiFactionDefinition>>("interestedFactions");
+        }
+
         public static T SetFactionItemPrefab<T>(this T entity, UnityEngine.GameObject value)
             where T : TooltipFeatureFactionRelicParameters
         {

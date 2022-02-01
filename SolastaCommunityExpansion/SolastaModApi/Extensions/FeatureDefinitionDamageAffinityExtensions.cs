@@ -36,6 +36,12 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(FeatureDefinitionDamageAffinity))]
     public static partial class FeatureDefinitionDamageAffinityExtensions
     {
+        public static System.Collections.Generic.List<System.String> GetTagsIgnoringAffinity<T>(this T entity)
+            where T : FeatureDefinitionDamageAffinity
+        {
+            return entity.GetField<System.Collections.Generic.List<System.String>>("tagsIgnoringAffinity");
+        }
+
         public static T SetAncestryDefinesDamageType<T>(this T entity, System.Boolean value)
             where T : FeatureDefinitionDamageAffinity
         {

@@ -11,7 +11,7 @@ const string pattern = @"^(\<(?<name>.*)\>k__BackingField)|(m_(?<name>.*))$";
 static readonly Regex NameRegex = new Regex(pattern, RegexOptions.Singleline | RegexOptions.Compiled);
 
 // Where you want the files to be written to
-const string outputPath = @"C:\Users\USER_NAME\Repos\SolastaModApi\SolastaModApi\Extensions";
+const string outputPath = @"C:\Users\passp\source\repos\SolastaCommunityExpansion\SolastaCommunityExpansion\SolastaModApi\Extensions";
 
 // The path that contains Solasta_Data\Managed
 
@@ -19,7 +19,7 @@ const string outputPath = @"C:\Users\USER_NAME\Repos\SolastaModApi\SolastaModApi
 //readonly string installDir = Environment.GetEnvironmentVariable("SolastaInstallDir");
 
 // Or point at specific version - e.g. 0.5.42
-readonly string installDir = @"D:\Games\Slasta_COTM"; //_0_5_42";
+const string installDir = @"D:\Program Files (x86)\SteamLibrary\steamapps\common\Slasta_COTM";
 
 void Main()
 {
@@ -28,6 +28,8 @@ void Main()
 	var assembly = Assembly.LoadFrom(Path.Combine(assemblyDir, @"Assembly-CSharp.dll"));
 
 	var exclusions = new List<string>{
+		"PrefabPool",
+		"AnimatorSavedParameters",
 		"FunctorParametersDescription",
 		"TextFragmentStyleDescription",
 		"TrianglePool",
@@ -69,7 +71,7 @@ void Main()
 
 	types.Count().Dump("Total types");
 
-	types.ForEach(t => t.FullName.Dump());
+	//types.ForEach(t => t.FullName.Dump());
 
 	// TODO: delete everything from output path?
 
@@ -192,7 +194,7 @@ void CreateExtensions(Type t, bool createFiles = false)
 	var writeablePublicProperties = t
 		.GetProperties(BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.Public)
 		.Where(pg => pg.CanWrite)
-		.Select(pg => new { pg.Name, pg.PropertyType, Type = SimplifyType(pg.PropertyType), IsSetterProtected=pg.SetMethod.IsFamily });
+		.Select(pg => new { pg.Name, pg.PropertyType, Type = SimplifyType(pg.PropertyType), IsSetterProtected = pg.SetMethod.IsFamily });
 
 	var readablePublicProperties = t
 		.GetProperties(BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.Public)
@@ -208,8 +210,10 @@ void CreateExtensions(Type t, bool createFiles = false)
 		.ToHashSet(StringComparer.OrdinalIgnoreCase);
 
 	var privateFieldsThatNeedWriter = privateFields
-		.Where(f => !f.FieldType.IsGenericType)
-		.Where(f => !writeablePublicPropertiesByName.Contains(f.Name));
+		.Where(f => !f.FieldType.IsGenericType && !writeablePublicPropertiesByName.Contains(f.Name));
+
+	var genericPrivateFieldsThatNeedGetters = privateFields
+		.Where(f => f.FieldType.IsGenericType && !writeablePublicPropertiesByName.Contains(GetPropertyNameForField(f.FieldInfo)) && !readablePublicPropertiesByName.Contains(GetPropertyNameForField(f.FieldInfo)));
 
 	var methods = privateFieldsThatNeedWriter
 		.OrderBy(ftnw => ftnw.Name)
@@ -235,7 +239,7 @@ void CreateExtensions(Type t, bool createFiles = false)
 					   .AddModifiers(Token(SyntaxKind.PublicKeyword), Token(SyntaxKind.StaticKeyword))
 					   .AddTypeParameterListParameters(TypeParameter(Identifier("T")))
 					   .AddParameterListParameters(
-						   Parameter(Identifier("entity")).WithType(ParseTypeName("T")).AddModifiers(Token(SyntaxKind.ThisKeyword)),
+							Parameter(Identifier("entity")).WithType(ParseTypeName("T")).AddModifiers(Token(SyntaxKind.ThisKeyword)),
 							Parameter(Identifier("value")).WithType(ParseTypeName(SimplifyType(f.FieldType)))
 						)
 						.AddConstraintClauses(TypeParameterConstraintClause("T").WithConstraints(GetSL(t.Name)))
@@ -243,6 +247,17 @@ void CreateExtensions(Type t, bool createFiles = false)
 				}
 			}
 		);
+
+	var genericGeneratedGetters = genericPrivateFieldsThatNeedGetters
+		.Select(f => MethodDeclaration(ParseTypeName($"{SimplifyType(f.FieldType)}"), $"Get{GetPropertyNameForField(f.FieldInfo)}")
+			.AddModifiers(Token(SyntaxKind.PublicKeyword), Token(SyntaxKind.StaticKeyword))
+			.AddTypeParameterListParameters(TypeParameter(Identifier("T")))
+			.AddParameterListParameters(Parameter(Identifier("entity")).WithType(ParseTypeName("T")).AddModifiers(Token(SyntaxKind.ThisKeyword)))
+			.AddConstraintClauses(TypeParameterConstraintClause("T").WithConstraints(GetSL(t.Name)))
+			.WithBody(Block(ParseStatement($"return entity.GetField<{SimplifyType(f.FieldType)}>(\"{f.Name}\");")))
+		);
+
+	methods = methods.Concat(genericGeneratedGetters);
 
 	var generatedSetters =
 		privateFieldsThatNeedWriter.Select(f => GetPropertyNameForField(f.FieldInfo)).ToHashSet(StringComparer.OrdinalIgnoreCase);
@@ -267,8 +282,8 @@ void CreateExtensions(Type t, bool createFiles = false)
 							Parameter(Identifier("value"))
 								.WithType(ParseTypeName(p.Type))
 						)
-						.WithBody(p.IsSetterProtected 
-							? Block(ParseStatement($"entity.SetProperty(\"{p.Name}\", value);"), ParseStatement("return entity;")) 
+						.WithBody(p.IsSetterProtected
+							? Block(ParseStatement($"entity.SetProperty(\"{p.Name}\", value);"), ParseStatement("return entity;"))
 							: Block(ParseStatement($"entity.{p.Name} = value;"), ParseStatement("return entity;")));
 				}
 				else
@@ -281,8 +296,8 @@ void CreateExtensions(Type t, bool createFiles = false)
 							Parameter(Identifier("value")).WithType(ParseTypeName(p.Type))
 						)
 						.AddConstraintClauses(TypeParameterConstraintClause("T").WithConstraints(GetSL(t.Name)))
-						.WithBody(p.IsSetterProtected 
-							? Block(ParseStatement($"entity.SetProperty(\"{p.Name}\", value);"), ParseStatement("return entity;")) 
+						.WithBody(p.IsSetterProtected
+							? Block(ParseStatement($"entity.SetProperty(\"{p.Name}\", value);"), ParseStatement("return entity;"))
 							: Block(ParseStatement($"entity.{p.Name} = value;"), ParseStatement("return entity;")));
 				}
 			}
@@ -314,7 +329,7 @@ void CreateExtensions(Type t, bool createFiles = false)
 
 		code = code.Replace("    [TargetType", withComment);
 
-		code.Dump();
+		//code.Dump();
 
 		if (createFiles)
 		{
@@ -335,13 +350,12 @@ void CreateExtensions(Type t, bool createFiles = false)
 
 		if (match.Success)
 		{
-			f.Name.Dump("regex match");
+			//f.Name.Dump("regex match");
 
 			return Capitalize(match.Groups["name"].Value);
 		}
 		else
 		{
-
 			var type = SimplifyType(f.FieldType);
 
 			if (readablePublicPropertiesByName.Contains(type))
@@ -363,24 +377,22 @@ void CreateExtensions(Type t, bool createFiles = false)
 	}
 
 	string SimplifyType(Type t1)
-	{
+	{		
 		if (t1.IsGenericType)
 		{
-			var name = t1.FullName.Replace("`1", "").Replace("`2", "");
-			return $"{name}<{string.Join(",", t1.GenericTypeArguments.Select(ft1 => SimplifyName(ft1)))}>";
+			// This will fail on say Dictionary<string, int[]>
+			
+			return t1.ToString()
+				.Replace("`1", "") // generic type position 1
+				.Replace("`2", "") // generic type position 2
+				.Replace("[", "<") // same as < 
+				.Replace("]", ">") // same as >
+				.Replace("+", "."); // nested class
 		}
-
-		return SimplifyName(t1);
-	}
-
-	string SimplifyName(Type t2)
-	{
-		if (t2?.FullName?.Contains("+") ?? false)
+		else
 		{
-			return t2.FullName.Replace("+", ".");
+			return t1.ToString().Replace("+", ".");
 		}
-
-		return t2.FullName;
 	}
 
 	SyntaxTriviaList GetClassComment(string v)
