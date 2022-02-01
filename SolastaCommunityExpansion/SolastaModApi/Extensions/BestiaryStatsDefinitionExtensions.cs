@@ -36,6 +36,12 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(BestiaryStatsDefinition))]
     public static partial class BestiaryStatsDefinitionExtensions
     {
+        public static System.Collections.Generic.List<BestiaryStatStyleDuplet> GetStyleDuplets<T>(this T entity)
+            where T : BestiaryStatsDefinition
+        {
+            return entity.GetField<System.Collections.Generic.List<BestiaryStatStyleDuplet>>("styleDuplets");
+        }
+
         public static T SetLineHeight<T>(this T entity, System.Single value)
             where T : BestiaryStatsDefinition
         {

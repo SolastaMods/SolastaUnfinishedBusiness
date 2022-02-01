@@ -33,20 +33,19 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionSocialAffinity))]
-    public static partial class FeatureDefinitionSocialAffinityExtensions
+    [TargetType(typeof(GizmoDisplayParameters))]
+    public static partial class GizmoDisplayParametersExtensions
     {
-        public static System.Collections.Generic.List<FeatureDefinitionSocialAffinity.SocialAffinityDuplet> GetSocialAffinityDuplets<T>(this T entity)
-            where T : FeatureDefinitionSocialAffinity
+        public static System.Collections.Generic.List<GizmoDisplayParameters.ColorDescription> GetColorDescriptions<T>(this T entity)
+            where T : GizmoDisplayParameters
         {
-            return entity.GetField<System.Collections.Generic.List<FeatureDefinitionSocialAffinity.SocialAffinityDuplet>>("socialAffinityDuplets");
+            return entity.GetField<System.Collections.Generic.List<GizmoDisplayParameters.ColorDescription>>("colorDescriptions");
         }
 
-        public static T SetOrganizationType<T>(this T entity, System.String value)
-            where T : FeatureDefinitionSocialAffinity
+        public static System.Collections.Generic.List<GizmoDisplayParameters.ShapeDescription> GetShapeDescriptions<T>(this T entity)
+            where T : GizmoDisplayParameters
         {
-            entity.SetField("organizationType", value);
-            return entity;
+            return entity.GetField<System.Collections.Generic.List<GizmoDisplayParameters.ShapeDescription>>("shapeDescriptions");
         }
     }
 }

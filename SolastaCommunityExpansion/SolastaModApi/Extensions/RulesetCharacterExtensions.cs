@@ -36,6 +36,78 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(RulesetCharacter))]
     public static partial class RulesetCharacterExtensions
     {
+        public static System.Collections.Generic.List<RulesetItem> GetConsumedItems<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            return entity.GetField<System.Collections.Generic.List<RulesetItem>>("consumedItems");
+        }
+
+        public static System.Collections.Generic.List<FeatureDefinition> GetDeathTemperingFeatures<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            return entity.GetField<System.Collections.Generic.List<FeatureDefinition>>("deathTemperingFeatures");
+        }
+
+        public static System.Collections.Generic.List<FeatureDefinition> GetHealingFeatures<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            return entity.GetField<System.Collections.Generic.List<FeatureDefinition>>("healingFeatures");
+        }
+
+        public static System.Collections.Generic.List<RuleDefinitions.TrendInfo> GetMagicAttackTrends<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            return entity.GetField<System.Collections.Generic.List<RuleDefinitions.TrendInfo>>("magicAttackTrends");
+        }
+
+        public static System.Collections.Generic.List<FeatureDefinition> GetMagicFeatures<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            return entity.GetField<System.Collections.Generic.List<FeatureDefinition>>("magicFeatures");
+        }
+
+        public static System.Collections.Generic.List<RulesetEffectPower> GetPowersToTerminate<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            return entity.GetField<System.Collections.Generic.List<RulesetEffectPower>>("powersToTerminate");
+        }
+
+        public static System.Collections.Generic.List<SpellDefinition> GetSortedSpellsToBrowseCache<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            return entity.GetField<System.Collections.Generic.List<SpellDefinition>>("sortedSpellsToBrowseCache");
+        }
+
+        public static System.Collections.Generic.List<RuleDefinitions.TrendInfo> GetSortedTrends<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            return entity.GetField<System.Collections.Generic.List<RuleDefinitions.TrendInfo>>("sortedTrends");
+        }
+
+        public static System.Collections.Generic.List<SpellDefinition> GetSpellsToBrowse<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            return entity.GetField<System.Collections.Generic.List<SpellDefinition>>("spellsToBrowse");
+        }
+
+        public static System.Collections.Generic.List<RulesetEffectSpell> GetSpellsToTerminate<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            return entity.GetField<System.Collections.Generic.List<RulesetEffectSpell>>("spellsToTerminate");
+        }
+
+        public static System.Collections.Generic.List<RulesetCondition> GetToRemove<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            return entity.GetField<System.Collections.Generic.List<RulesetCondition>>("toRemove");
+        }
+
+        public static System.Collections.Generic.List<SpellDefinition> GetUsableSpells<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            return entity.GetField<System.Collections.Generic.List<SpellDefinition>>("usableSpells");
+        }
+
         public static T SetAbilityCheckRolled<T>(this T entity, RulesetCharacter.AbilityCheckRolledHandler value)
             where T : RulesetCharacter
         {

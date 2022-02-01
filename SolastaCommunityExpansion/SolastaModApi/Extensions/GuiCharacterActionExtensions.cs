@@ -36,6 +36,18 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(GuiCharacterAction))]
     public static partial class GuiCharacterActionExtensions
     {
+        public static System.Collections.Generic.List<RulesetItemDevice> GetAvailableDevices<T>(this T entity)
+            where T : GuiCharacterAction
+        {
+            return entity.GetField<System.Collections.Generic.List<RulesetItemDevice>>("availableDevices");
+        }
+
+        public static System.Collections.Generic.List<FeatureDefinition> GetFeatures<T>(this T entity)
+            where T : GuiCharacterAction
+        {
+            return entity.GetField<System.Collections.Generic.List<FeatureDefinition>>("features");
+        }
+
         public static T SetActingCharacter<T>(this T entity, GameLocationCharacter value)
             where T : GuiCharacterAction
         {

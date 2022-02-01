@@ -36,6 +36,18 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(HumanoidMonsterPresentationDefinition))]
     public static partial class HumanoidMonsterPresentationDefinitionExtensions
     {
+        public static System.Collections.Generic.Dictionary<MorphotypeElementDefinition.ElementCategory, System.String> GetMorphotypeElements<T>(this T entity)
+            where T : HumanoidMonsterPresentationDefinition
+        {
+            return entity.GetField<System.Collections.Generic.Dictionary<MorphotypeElementDefinition.ElementCategory, System.String>>("morphotypeElements");
+        }
+
+        public static System.Collections.Generic.Dictionary<MorphotypeElementDefinition.ElementCategory, System.Single> GetMorphotypeElementsAdditionalValues<T>(this T entity)
+            where T : HumanoidMonsterPresentationDefinition
+        {
+            return entity.GetField<System.Collections.Generic.Dictionary<MorphotypeElementDefinition.ElementCategory, System.Single>>("morphotypeElementsAdditionalValues");
+        }
+
         public static T SetAgeMorphotypeValue<T>(this T entity, System.Single value)
             where T : HumanoidMonsterPresentationDefinition
         {

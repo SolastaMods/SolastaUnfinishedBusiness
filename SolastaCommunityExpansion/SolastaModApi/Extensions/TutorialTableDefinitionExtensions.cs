@@ -36,6 +36,12 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(TutorialTableDefinition))]
     public static partial class TutorialTableDefinitionExtensions
     {
+        public static System.Collections.Generic.List<TutorialStyleDuplet> GetStyleDuplets<T>(this T entity)
+            where T : TutorialTableDefinition
+        {
+            return entity.GetField<System.Collections.Generic.List<TutorialStyleDuplet>>("styleDuplets");
+        }
+
         public static T SetSectionLineHeight<T>(this T entity, System.Single value)
             where T : TutorialTableDefinition
         {

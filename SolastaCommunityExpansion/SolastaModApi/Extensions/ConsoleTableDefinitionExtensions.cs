@@ -36,6 +36,12 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(ConsoleTableDefinition))]
     public static partial class ConsoleTableDefinitionExtensions
     {
+        public static System.Collections.Generic.List<ConsoleStyleDuplet> GetStyleDuplets<T>(this T entity)
+            where T : ConsoleTableDefinition
+        {
+            return entity.GetField<System.Collections.Generic.List<ConsoleStyleDuplet>>("styleDuplets");
+        }
+
         public static T SetIndentWidth<T>(this T entity, System.Single value)
             where T : ConsoleTableDefinition
         {

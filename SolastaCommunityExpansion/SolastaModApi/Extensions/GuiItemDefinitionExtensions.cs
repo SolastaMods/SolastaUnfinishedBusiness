@@ -36,6 +36,18 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(GuiItemDefinition))]
     public static partial class GuiItemDefinitionExtensions
     {
+        public static System.Collections.Generic.Dictionary<System.String, TagsDefinitions.Criticity> GetItemTags<T>(this T entity)
+            where T : GuiItemDefinition
+        {
+            return entity.GetField<System.Collections.Generic.Dictionary<System.String, TagsDefinitions.Criticity>>("itemTags");
+        }
+
+        public static System.Collections.Generic.List<ItemPropertyDescription> GetProperties<T>(this T entity)
+            where T : GuiItemDefinition
+        {
+            return entity.GetField<System.Collections.Generic.List<ItemPropertyDescription>>("properties");
+        }
+
         public static T SetItemDefinition<T>(this T entity, ItemDefinition value)
             where T : GuiItemDefinition
         {

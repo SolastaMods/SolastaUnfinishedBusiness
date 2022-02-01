@@ -36,6 +36,36 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(RulesetEffect))]
     public static partial class RulesetEffectExtensions
     {
+        public static System.Collections.Generic.List<ISavingThrowAffinityProvider> GetAccountedProviders<T>(this T entity)
+            where T : RulesetEffect
+        {
+            return entity.GetField<System.Collections.Generic.List<ISavingThrowAffinityProvider>>("accountedProviders");
+        }
+
+        public static System.Collections.Generic.List<RulesetCondition> GetConditionsToRemove<T>(this T entity)
+            where T : RulesetEffect
+        {
+            return entity.GetField<System.Collections.Generic.List<RulesetCondition>>("conditionsToRemove");
+        }
+
+        public static System.Collections.Generic.Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> GetFeaturesOrigin<T>(this T entity)
+            where T : RulesetEffect
+        {
+            return entity.GetField<System.Collections.Generic.Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>>("featuresOrigin");
+        }
+
+        public static System.Collections.Generic.List<FeatureDefinition> GetFeaturesToBrowse<T>(this T entity)
+            where T : RulesetEffect
+        {
+            return entity.GetField<System.Collections.Generic.List<FeatureDefinition>>("featuresToBrowse");
+        }
+
+        public static System.Collections.Generic.List<System.UInt64> GetInvalidConditionGuids<T>(this T entity)
+            where T : RulesetEffect
+        {
+            return entity.GetField<System.Collections.Generic.List<System.UInt64>>("invalidConditionGuids");
+        }
+
         public static T SetApplied<T>(this T entity, RulesetEffect.RulesetActiveEffectAppliedHandler value)
             where T : RulesetEffect
         {

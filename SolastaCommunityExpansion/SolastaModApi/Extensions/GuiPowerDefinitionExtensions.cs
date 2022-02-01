@@ -36,6 +36,12 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(GuiPowerDefinition))]
     public static partial class GuiPowerDefinitionExtensions
     {
+        public static System.Collections.Generic.Dictionary<System.String, TagsDefinitions.Criticity> GetTagsMap<T>(this T entity)
+            where T : GuiPowerDefinition
+        {
+            return entity.GetField<System.Collections.Generic.Dictionary<System.String, TagsDefinitions.Criticity>>("tagsMap");
+        }
+
         public static T SetPowerDefinition<T>(this T entity, FeatureDefinitionPower value)
             where T : GuiPowerDefinition
         {

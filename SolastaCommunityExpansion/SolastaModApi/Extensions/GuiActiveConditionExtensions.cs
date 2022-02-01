@@ -36,6 +36,12 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(GuiActiveCondition))]
     public static partial class GuiActiveConditionExtensions
     {
+        public static System.Collections.Generic.Dictionary<System.String, TagsDefinitions.Criticity> GetConditionTags<T>(this T entity)
+            where T : GuiActiveCondition
+        {
+            return entity.GetField<System.Collections.Generic.Dictionary<System.String, TagsDefinitions.Criticity>>("conditionTags");
+        }
+
         public static T SetActiveCondition<T>(this T entity, RulesetCondition value)
             where T : GuiActiveCondition
         {
