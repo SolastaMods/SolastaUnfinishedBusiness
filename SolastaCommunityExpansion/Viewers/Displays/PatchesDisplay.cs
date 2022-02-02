@@ -55,7 +55,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                                 _modID = null;
                                 RefreshPatchInfoOfAllMods();
                             }
-#pragma warning disable S3267 // Loops should be simplified with "LINQ" expressions
                             foreach (KeyValuePair<string, string> pair in _modIdsToColor)
                             {
                                 if (GUILayout.Button(pair.Key.Color(pair.Value).bold(), _buttonStyle))
@@ -65,7 +64,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                                     RefreshPatchInfoOfSelected();
                                 }
                             }
-#pragma warning restore S3267 // Loops should be simplified with "LINQ" expressions
                         }
 
                         // info selection

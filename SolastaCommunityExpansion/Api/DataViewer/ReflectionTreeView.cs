@@ -244,7 +244,6 @@ namespace SolastaModApi.DataViewer
             }
         }
 
-        [SuppressMessage("Major Code Smell", "S3358:Ternary operators should not be nested", Justification = "We like ternary operators :)")]
         private void DrawNodePrivate(Node node, int depth, ref ToggleState expanded)
         {
             _nodesCount++;
