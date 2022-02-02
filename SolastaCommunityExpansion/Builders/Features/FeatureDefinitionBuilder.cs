@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Builders.Features
             modifyDefinition?.Invoke(Definition);
         }
 
-        public FeatureDefinitionBuilder(string name, string guid, string description, string title, Action<TDefinition> modifyDefinition = null) : base(name, guid)
+        public FeatureDefinitionBuilder(string name, string guid, string title, string description, Action<TDefinition> modifyDefinition = null) : base(name, guid)
         {
             var guiPresentationBuilder = new GuiPresentationBuilder(title, description);
 
@@ -28,9 +28,9 @@ namespace SolastaCommunityExpansion.Builders.Features
             return featureDefinitionBuilder.AddToDB();
         }
 
-        public static TDefinition Build(string name, string guid, string description, string title, Action<TDefinition> modifyDefinition = null)
+        public static TDefinition Build(string name, string guid, string title, string description, Action<TDefinition> modifyDefinition = null)
         {
-            var featureDefinitionBuilder = new FeatureDefinitionBuilder<TDefinition>(name, guid, description, title, modifyDefinition);
+            var featureDefinitionBuilder = new FeatureDefinitionBuilder<TDefinition>(name, guid, title, description, modifyDefinition);
 
             return featureDefinitionBuilder.AddToDB();
         }

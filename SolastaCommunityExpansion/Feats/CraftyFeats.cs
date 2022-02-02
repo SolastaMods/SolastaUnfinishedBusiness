@@ -9,20 +9,20 @@ namespace SolastaCommunityExpansion.Feats
     {
         public class CraftyFeatBuilder : BaseDefinitionBuilder<FeatDefinition>
         {
-            protected CraftyFeatBuilder(string name, string guid, string title_string, string description_string, FeatDefinition base_Feat) : base(base_Feat, name, guid)
+            protected CraftyFeatBuilder(string name, string guid, string title, string description, FeatDefinition base_Feat) : base(base_Feat, name, guid)
             {
-                if (title_string != "")
+                if (title != "")
                 {
-                    Definition.GuiPresentation.Title = title_string;
+                    Definition.GuiPresentation.Title = title;
                 }
-                if (description_string != "")
+                if (description != "")
                 {
-                    Definition.GuiPresentation.Description = description_string;
+                    Definition.GuiPresentation.Description = description;
                 }
             }
-            public static FeatDefinition CreateCopyFrom(string name, string guid, string new_title_string, string new_description_string, FeatDefinition base_Feat)
+            public static FeatDefinition CreateCopyFrom(string name, string guid, string title, string description, FeatDefinition base_Feat)
             {
-                return new CraftyFeatBuilder(name, guid, new_title_string, new_description_string, base_Feat).AddToDB();
+                return new CraftyFeatBuilder(name, guid, title, description, base_Feat).AddToDB();
             }
         }
 
@@ -233,16 +233,16 @@ namespace SolastaCommunityExpansion.Feats
 
         public class CopyAndCreateNewBlueprint<TDefinition> : BaseDefinitionBuilder<TDefinition> where TDefinition : BaseDefinition
         {
-            protected CopyAndCreateNewBlueprint(string name, string guid, string title_string, string description_string, AssetReferenceSprite sprite_reference, TDefinition base_Blueprint) : base(base_Blueprint, name, guid)
+            protected CopyAndCreateNewBlueprint(string name, string guid, string title, string description, AssetReferenceSprite sprite_reference, TDefinition base_Blueprint) : base(base_Blueprint, name, guid)
             {
-                Definition.GuiPresentation.SetTitle(title_string);
-                Definition.GuiPresentation.SetDescription(description_string);
+                Definition.GuiPresentation.SetTitle(title);
+                Definition.GuiPresentation.SetDescription(description);
                 Definition.GuiPresentation.SetSpriteReference(sprite_reference);
             }
 
-            public static TDefinition CreateCopy(string name, string guid, string title_string, string description_string, AssetReferenceSprite sprite_reference, TDefinition base_Blueprint)
+            public static TDefinition CreateCopy(string name, string guid, string title, string description, AssetReferenceSprite sprite_reference, TDefinition base_Blueprint)
             {
-                return new CopyAndCreateNewBlueprint<TDefinition>(name, guid, title_string, description_string, sprite_reference, base_Blueprint).AddToDB();
+                return new CopyAndCreateNewBlueprint<TDefinition>(name, guid, title, description, sprite_reference, base_Blueprint).AddToDB();
             }
         }
 
