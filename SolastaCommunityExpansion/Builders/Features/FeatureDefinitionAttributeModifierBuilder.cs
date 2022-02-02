@@ -3,7 +3,7 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using static FeatureDefinitionAttributeModifier;
 
-namespace SolastaCommunityExpansion.Features
+namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionAttributeModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttributeModifier>
     {

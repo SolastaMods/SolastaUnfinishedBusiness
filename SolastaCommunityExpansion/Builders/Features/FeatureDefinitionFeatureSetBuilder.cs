@@ -1,7 +1,7 @@
-using SolastaModApi;
+﻿using SolastaModApi;
 using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.Features
+namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionFeatureSetBuilder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
     {

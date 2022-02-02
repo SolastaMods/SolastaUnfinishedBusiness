@@ -4,7 +4,7 @@ using System.Linq;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.Builders
+namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionPointPoolBuilder : BaseDefinitionBuilder<FeatureDefinitionPointPool>
     {

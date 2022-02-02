@@ -4,7 +4,7 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
-namespace SolastaCommunityExpansion.Builders
+namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionAdditionalActionBuilder : BaseDefinitionBuilder<FeatureDefinitionAdditionalAction>
     {

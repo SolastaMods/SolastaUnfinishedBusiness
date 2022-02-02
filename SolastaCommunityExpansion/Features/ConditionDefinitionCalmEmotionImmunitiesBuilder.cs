@@ -1,4 +1,5 @@
-﻿using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
+﻿using SolastaCommunityExpansion.Builders;
+using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 
 namespace SolastaCommunityExpansion.Features

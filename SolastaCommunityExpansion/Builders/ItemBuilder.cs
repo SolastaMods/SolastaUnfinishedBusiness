@@ -6,7 +6,7 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
-namespace SolastaCommunityExpansion.Features
+namespace SolastaCommunityExpansion.Builders
 {
     internal static class ItemBuilder
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
-using SolastaCommunityExpansion.Features;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Helpers;
 using SolastaCommunityExpansion.Level20;
 using SolastaCommunityExpansion.Subclasses.Witch;

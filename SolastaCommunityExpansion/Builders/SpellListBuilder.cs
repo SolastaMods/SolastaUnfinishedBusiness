@@ -2,7 +2,7 @@
 using System.Linq;
 using SolastaModApi;
 
-namespace SolastaCommunityExpansion.Features
+namespace SolastaCommunityExpansion.Builders
 {
     public class SpellListBuilder : BaseDefinitionBuilder<SpellListDefinition>
     {
