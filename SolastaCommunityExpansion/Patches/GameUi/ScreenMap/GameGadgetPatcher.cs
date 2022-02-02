@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
-using SolastaCommunityExpansion.Helpers;
+using SolastaModApi.Extensions;
 using TA;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
