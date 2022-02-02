@@ -11,7 +11,7 @@ const string pattern = @"^(\<(?<name>.*)\>k__BackingField)|(m_(?<name>.*))$";
 static readonly Regex NameRegex = new Regex(pattern, RegexOptions.Singleline | RegexOptions.Compiled);
 
 // Where you want the files to be written to
-const string outputPath = @"C:\Users\passp\source\repos\SolastaCommunityExpansion\SolastaCommunityExpansion\SolastaModApi\Extensions";
+const string outputPath = @"C:\Users\passp\source\repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Api\Extensions";
 
 // The path that contains Solasta_Data\Managed
 
@@ -57,6 +57,7 @@ void Main()
 		.Concat(GetTypesEndingIn(assembly, "Advancement"))
 		.Concat(GetTypesEndingIn(assembly, "ByTag"))
 		.Concat(GetTypesEndingIn(assembly, "Form", true))
+		.Concat(GetTypesEndingIn(assembly, "TreasureOption", true))
 
 		//.Concat(GetTypes(assembly, "EffectDescription"))
 		// Eliminate duplicates

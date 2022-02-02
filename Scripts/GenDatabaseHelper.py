@@ -67,7 +67,7 @@ def write_getter(file, asset, indent = 0):
     if asset.database_type == asset.asset_type:
         write_line(file, f"public static {asset.asset_type} {member_name} {{ get; }} = GetDefinition<{asset.database_type}>(\"{asset.name}\", \"{asset.guid}\");", indent)
 def gen_test_script():
-    path = os.path.join(solution_dir, "SolastaCommunityExpansion", "SolastaModApi", "DatabaseHelper", "DatabaseHelper.cs")
+    path = os.path.join(solution_dir, "SolastaCommunityExpansion", "Api", "DatabaseHelper", "DatabaseHelper.cs")
     with open(path, "w", encoding="utf8") as file:
         write_helper(file)
 
