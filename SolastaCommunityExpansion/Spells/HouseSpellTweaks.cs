@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using SolastaCommunityExpansion.Features;
+using SolastaCommunityExpansion.Spells.Features;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
