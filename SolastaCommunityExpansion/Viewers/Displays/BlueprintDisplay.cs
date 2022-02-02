@@ -6,7 +6,6 @@ using ModKit;
 using ModKit.Utility;
 using SolastaModApi.DataViewer;
 using UnityEngine;
-using UnityModManagerNet;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
@@ -24,7 +23,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
                 else
                 {
-                    BlueprintLoader.Shared.Load((bps) => { _allBlueprints = bps; });
+                    BlueprintLoader.Shared.Load((bps) => _allBlueprints = bps);
                 }
             }
             return _allBlueprints;
@@ -40,7 +39,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         private static int _bpTypeIndex;
 
         // blueprint selection
+#pragma warning disable RCS1187 // Use constant instead of field.
+        // REVIEW: is this required?
         private static readonly ToggleState _bpsExpanded = ToggleState.On;
+#pragma warning restore RCS1187 // Use constant instead of field.
 
         private static Vector2 _bpsScrollPosition;
 
@@ -171,17 +173,16 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         // Blueprint Picker List
                         if (_bpsExpanded.IsOn())
                         {
-                            using (var scrollView = new GUILayout.ScrollViewScope(_bpsScrollPosition, GUILayout.Width(450)))
+                            using var scrollView = new GUILayout.ScrollViewScope(_bpsScrollPosition, GUILayout.Width(450));
+
+                            _bpsScrollPosition = scrollView.scrollPosition;
+                            GUIHelper.SelectionGrid(ref _bpTypeIndex, _bpTypeNames, 1, () =>
                             {
-                                _bpsScrollPosition = scrollView.scrollPosition;
-                                GUIHelper.SelectionGrid(ref _bpTypeIndex, _bpTypeNames, 1, () =>
-                                {
-                                    _searchText = null;
-                                    RefreshBPSearchData();
-                                    _filteredBPs = _bpTypeIndex == 0 ? GetBlueprints() : GetBlueprints().Where(item => item.GetType() == _bpTypes[_bpTypeIndex]).ToList();
-                                    _treeView.SetRoot(_filteredBPs);
-                                }, _buttonStyle, GUILayout.Width(450));
-                            }
+                                _searchText = null;
+                                RefreshBPSearchData();
+                                _filteredBPs = _bpTypeIndex == 0 ? GetBlueprints() : GetBlueprints().Where(item => item.GetType() == _bpTypes[_bpTypeIndex]).ToList();
+                                _treeView.SetRoot(_filteredBPs);
+                            }, _buttonStyle, GUILayout.Width(450));
                         }
                     }
 
@@ -223,7 +224,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         {
                             // selection
                             GUIHelper.Div();
-                            var availableWidth = 960f - 550;
+                            const float availableWidth = 960f - 550;
                             int xCols = (int)Math.Ceiling(availableWidth / 300);
                             GUIHelper.SelectionGrid(ref _searchIndex, _bpChildNames, xCols, () => isDirty = true, _buttonStyle, GUILayout.Width(availableWidth));
                         }

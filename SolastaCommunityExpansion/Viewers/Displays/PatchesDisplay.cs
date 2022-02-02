@@ -55,7 +55,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                                 _modID = null;
                                 RefreshPatchInfoOfAllMods();
                             }
-#pragma warning disable S3267 // Loops should be simplified with "LINQ" expressions
                             foreach (KeyValuePair<string, string> pair in _modIdsToColor)
                             {
                                 if (GUILayout.Button(pair.Key.Color(pair.Value).bold(), _buttonStyle))
@@ -65,7 +64,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                                     RefreshPatchInfoOfSelected();
                                 }
                             }
-#pragma warning restore S3267 // Loops should be simplified with "LINQ" expressions
                         }
 
                         // info selection
@@ -106,7 +104,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         {
                             UI.ActionButton("Disable All", () =>
                             {
-                                var actions = new List<Action> { };
+                                var actions = new List<Action>();
                                 foreach (var method in methodBases)
                                 {
                                     var enabledPatches = EnabledPatchesForMethod(method);
@@ -120,7 +118,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         {
                             UI.ActionButton("Enable All", () =>
                             {
-                                var actions = new List<Action> { };
+                                var actions = new List<Action>();
                                 foreach (var method in methodBases)
                                 {
                                     var disabledPatches = DisabledPatchesForMethod(method);
@@ -192,12 +190,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                                 UI.Space(10);
                                 using (new GUILayout.VerticalScope())
                                 {
-#pragma warning disable S3267 // Loops should be simplified with "LINQ" expressions
                                     foreach (Patch patch in patches)
                                     {
                                         GUILayout.Label(patch.owner.Color(_modIdsToColor[patch.owner]).bold(), GUI.skin.label);
                                     }
-#pragma warning restore S3267 // Loops should be simplified with "LINQ" expressions
                                 }
                                 UI.Space(10);
                                 using (new GUILayout.VerticalScope())
@@ -238,11 +234,11 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         }
         private static List<Patch> EnabledPatchesForMethod(MethodBase method)
         {
-            return _patches.GetValueOrDefault(method, new List<Patch> { });
+            return _patches.GetValueOrDefault(method, new List<Patch>());
         }
         private static List<Patch> DisabledPatchesForMethod(MethodBase method)
         {
-            return _disabled.GetValueOrDefault(method, new List<Patch> { });
+            return _disabled.GetValueOrDefault(method, new List<Patch>());
         }
         private static void EnablePatchForMethod(bool enabled, Patch patch, MethodBase method)
         {
