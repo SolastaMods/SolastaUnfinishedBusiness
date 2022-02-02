@@ -51,7 +51,7 @@ namespace SolastaCommunityExpansion.Spells
 #else
             // After
             // Generate style - set name and namespace guid
-            var spellBuilder = new SpellBuilder(Fireball, eldritchOrb, BAZOU_SPELLS_BASE_GUID);
+            var spellBuilder = new SpellDefinitionBuilder(Fireball, eldritchOrb, BAZOU_SPELLS_BASE_GUID);
 #endif
 
             spellBuilder.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation);
@@ -113,7 +113,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildFindFamiliar()
         {
-            var familiarMonsterBuilder = new MonsterBuilder("Owl", BAZOU_SPELLS_BASE_GUID, DatabaseHelper.MonsterDefinitions.Eagle_Matriarch)
+            var familiarMonsterBuilder = new MonsterDefinitionBuilder("Owl", BAZOU_SPELLS_BASE_GUID, DatabaseHelper.MonsterDefinitions.Eagle_Matriarch)
                 .SetGuiPresentation("Owl", "Owl") // Shouldn't this be in the usual style?
                 .SetFeatures(
                     DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
@@ -154,7 +154,7 @@ namespace SolastaCommunityExpansion.Spells
 
             var familiarMonster = familiarMonsterBuilder.AddToDB();
 
-            var spell = new SpellBuilder(Fireball, "FindFamiliar", BAZOU_SPELLS_BASE_GUID)
+            var spell = new SpellDefinitionBuilder(Fireball, "FindFamiliar", BAZOU_SPELLS_BASE_GUID)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolConjuration)
                 .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Specific)
                 .SetSomaticComponent(true)
@@ -191,7 +191,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildFrenzy()
         {
-            var spellBuilder = new SpellBuilder(Confusion, "Frenzy", BAZOU_SPELLS_BASE_GUID);
+            var spellBuilder = new SpellDefinitionBuilder(Confusion, "Frenzy", BAZOU_SPELLS_BASE_GUID);
 
             spellBuilder.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEnchantment);
             spellBuilder.SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane);
@@ -244,7 +244,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildMinorLifesteal()
         {
-            var spellBuilder = new SpellBuilder(VampiricTouch, "MinorLifesteal", BAZOU_SPELLS_BASE_GUID);
+            var spellBuilder = new SpellDefinitionBuilder(VampiricTouch, "MinorLifesteal", BAZOU_SPELLS_BASE_GUID);
 
             spellBuilder.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolNecromancy);
             spellBuilder.SetMaterialComponent(RuleDefinitions.MaterialComponentType.None);
@@ -284,7 +284,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildPetalStorm()
         {
-            var spellBuilder = new SpellBuilder(InsectPlague, "PetalStorm", BAZOU_SPELLS_BASE_GUID);
+            var spellBuilder = new SpellDefinitionBuilder(InsectPlague, "PetalStorm", BAZOU_SPELLS_BASE_GUID);
 
             spellBuilder.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolConjuration);
             spellBuilder.SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane);
@@ -344,7 +344,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildProtectThreshold()
         {
-            var spellBuilder = new SpellBuilder(SpikeGrowth, "ProtectThreshold", BAZOU_SPELLS_BASE_GUID);
+            var spellBuilder = new SpellDefinitionBuilder(SpikeGrowth, "ProtectThreshold", BAZOU_SPELLS_BASE_GUID);
 
             spellBuilder.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolAbjuration);
             spellBuilder.SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane);

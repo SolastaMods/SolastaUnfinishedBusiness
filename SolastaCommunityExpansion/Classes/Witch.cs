@@ -148,7 +148,7 @@ namespace SolastaCommunityExpansion.Classes
         private static void BuildSpells()
         {
             // Keeping all spells listed here for ease to edit and see the big picture
-            var classSpellList = SpellListBuilder.CreateSpellList(
+            var classSpellList = SpellListDefinitionBuilder.CreateSpellList(
                     "WitchSpellList",
                     GuidHelper.Create(WITCH_BASE_GUID, "WitchSpellList").ToString(),
                     "",
@@ -371,7 +371,7 @@ namespace SolastaCommunityExpansion.Classes
             }
 
             // Build our spellCast object containing previously created spell list
-            var classSpellCast = new CastSpellBuilder(
+            var classSpellCast = new FeatureDefinitionCastSpellBuilder(
                     "CastSpellWitch",
                     GuidHelper.Create(WITCH_BASE_GUID, "CastSpellWitch").ToString());
 
@@ -979,7 +979,7 @@ namespace SolastaCommunityExpansion.Classes
                 witchFamiliarAttackIteration.MonsterAttackDefinition.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D1);
                 witchFamiliarAttackIteration.MonsterAttackDefinition.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(0);
 
-                var witchFamiliarMonsterBuilder = new MonsterBuilder(
+                var witchFamiliarMonsterBuilder = new MonsterDefinitionBuilder(
                         "WitchOwl",
                         GuidHelper.Create(WITCH_BASE_GUID, "WitchOwl").ToString(),
                         "Owl",
@@ -1028,7 +1028,7 @@ namespace SolastaCommunityExpansion.Classes
                 var witchFamiliarMonster = witchFamiliarMonsterBuilder.AddToDB();
                 witchFamiliarMonster.CreatureTags.Add("WitchFamiliar");
 
-                var spellBuilder = new SpellBuilder(
+                var spellBuilder = new SpellDefinitionBuilder(
                         SpellDefinitions.Fireball,
                         "WitchFamiliar",
                         GuidHelper.Create(WITCH_BASE_GUID, "WitchFamiliar").ToString());

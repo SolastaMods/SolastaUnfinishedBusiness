@@ -57,7 +57,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Feat/&ArtificerAlchemistHealElixirTitle",
                 "Feat/&ArtificerAlchemistHealElixirDescription");
             healingElixirGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionPotionOfHealing.GuiPresentation.SpriteReference);
-            SpellDefinition healElixirSpell = new SpellBuilder("AlchemistHealElixir", GuidHelper.Create(TinkererClass.GuidNamespace, "AlchemistHealElixir").ToString())
+            SpellDefinition healElixirSpell = new SpellDefinitionBuilder("AlchemistHealElixir", GuidHelper.Create(TinkererClass.GuidNamespace, "AlchemistHealElixir").ToString())
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(1)
                 .SetCastingTime(ActivationTime.BonusAction)
@@ -88,7 +88,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             swiftnessEffect.SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.None);
             swiftnessEffect.SetDurationData(DurationType.Hour, 1, TurnOccurenceType.EndOfTurn);
             swiftnessEffect.SetParticleEffectParameters(Longstrider.EffectDescription.EffectParticleParameters);
-            SpellDefinition swiftnessElixirSpell = new SpellBuilder("AlchemistSwiftnessElixir", GuidHelper.Create(TinkererClass.GuidNamespace, "AlchemistSwiftnessElixir").ToString())
+            SpellDefinition swiftnessElixirSpell = new SpellDefinitionBuilder("AlchemistSwiftnessElixir", GuidHelper.Create(TinkererClass.GuidNamespace, "AlchemistSwiftnessElixir").ToString())
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(1)
                 .SetCastingTime(ActivationTime.BonusAction)
@@ -117,7 +117,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             resilienceEffect.SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.None);
             resilienceEffect.SetDurationData(DurationType.Minute, 10, TurnOccurenceType.EndOfTurn);
             resilienceEffect.SetParticleEffectParameters(Blur.EffectDescription.EffectParticleParameters);
-            SpellDefinition resilienceElixirSpell = new SpellBuilder("AlchemistResilienceElixir", GuidHelper.Create(TinkererClass.GuidNamespace, "AlchemistResilienceElixir").ToString())
+            SpellDefinition resilienceElixirSpell = new SpellDefinitionBuilder("AlchemistResilienceElixir", GuidHelper.Create(TinkererClass.GuidNamespace, "AlchemistResilienceElixir").ToString())
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(1)
                 .SetCastingTime(ActivationTime.BonusAction)
@@ -138,7 +138,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             boldnessEffect.SetDurationData(DurationType.Minute, 1, TurnOccurenceType.EndOfTurn);
             boldnessEffect.SetParticleEffectParameters(Bless.EffectDescription.EffectParticleParameters);
 
-            SpellDefinition boldnessElixirSpell = new SpellBuilder("AlchemistBoldnessElixir", GuidHelper.Create(TinkererClass.GuidNamespace, "AlchemistBoldnessElixir").ToString())
+            SpellDefinition boldnessElixirSpell = new SpellDefinitionBuilder("AlchemistBoldnessElixir", GuidHelper.Create(TinkererClass.GuidNamespace, "AlchemistBoldnessElixir").ToString())
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(1)
                 .SetCastingTime(ActivationTime.BonusAction)
@@ -168,7 +168,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             flyEffect.SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.None);
             flyEffect.SetDurationData(DurationType.Minute, 10, TurnOccurenceType.EndOfTurn);
             flyEffect.SetParticleEffectParameters(Fly.EffectDescription.EffectParticleParameters);
-            SpellDefinition flyElixirSpell = new SpellBuilder("AlchemistFlyElixir", GuidHelper.Create(TinkererClass.GuidNamespace, "AlchemistFlyElixir").ToString())
+            SpellDefinition flyElixirSpell = new SpellDefinitionBuilder("AlchemistFlyElixir", GuidHelper.Create(TinkererClass.GuidNamespace, "AlchemistFlyElixir").ToString())
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(1)
                 .SetCastingTime(ActivationTime.BonusAction)
@@ -230,7 +230,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             emboldeningShotsEffect.SetDurationData(DurationType.Permanent, 1, TurnOccurenceType.EndOfTurn);
             emboldeningShotsEffect.SetParticleEffectParameters(FalseLife.EffectDescription.EffectParticleParameters);
 
-            SpellDefinition emboldeningShots = new SpellBuilder("CantripAlchemistEmboldeningShots", GuidHelper.Create(TinkererClass.GuidNamespace, "CantripAlchemistEmboldeningShots").ToString())
+            SpellDefinition emboldeningShots = new SpellDefinitionBuilder("CantripAlchemistEmboldeningShots", GuidHelper.Create(TinkererClass.GuidNamespace, "CantripAlchemistEmboldeningShots").ToString())
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSpellLevel(0)
                 .SetCastingTime(ActivationTime.BonusAction)

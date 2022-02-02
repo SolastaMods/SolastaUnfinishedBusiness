@@ -60,7 +60,7 @@ namespace SolastaCommunityExpansion.Models
             // Invisible Stalker
             if (!DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement(InvisibleStalkerSubspellName, out var _))
             {
-                var builder = new SpellBuilder(ConjureElementalFire, InvisibleStalkerSubspellName, CreateGuid(InvisibleStalkerSubspellName));
+                var builder = new SpellDefinitionBuilder(ConjureElementalFire, InvisibleStalkerSubspellName, CreateGuid(InvisibleStalkerSubspellName));
                 var definition = builder.AddToDB();
                 definition.GuiPresentation.Title = "Spell/&IPConjureInvisibleStalker";
 

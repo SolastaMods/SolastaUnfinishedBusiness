@@ -2,6 +2,7 @@
 
 namespace SolastaCommunityExpansion.Builders
 {
+    // TODO: merge with FeatureDefinitionAbilityCheckAffinity
     public class PickPocketAbilityCheckAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionAbilityCheckAffinity>
     {
         protected PickPocketAbilityCheckAffinityBuilder(string name, string guid, string title, string description, FeatureDefinitionAbilityCheckAffinity base_check_affinity) : base(base_check_affinity, name, guid)

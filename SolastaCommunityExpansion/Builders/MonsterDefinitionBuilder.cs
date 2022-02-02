@@ -12,149 +12,149 @@ using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class MonsterBuilder : BaseDefinitionBuilder<MonsterDefinition>
+    public class MonsterDefinitionBuilder : BaseDefinitionBuilder<MonsterDefinition>
     {
-        public MonsterBuilder(string name, string guid, string title, string description, MonsterDefinition baseMonster)
+        public MonsterDefinitionBuilder(string name, string guid, string title, string description, MonsterDefinition baseMonster)
             : base(baseMonster, name, guid, title, description)
         {
         }
 
-        public MonsterBuilder(string name, Guid namespaceGuid, MonsterDefinition baseMonster)
+        public MonsterDefinitionBuilder(string name, Guid namespaceGuid, MonsterDefinition baseMonster)
             : base(baseMonster, name, namespaceGuid, null)
         {
         }
 
-        public MonsterBuilder SetAlignment(string alignment)
+        public MonsterDefinitionBuilder SetAlignment(string alignment)
         {
             Definition.SetAlignment(alignment);
             return this;
         }
-        public MonsterBuilder SetAlwaysHideStats(bool value)
+        public MonsterDefinitionBuilder SetAlwaysHideStats(bool value)
         {
             Definition.SetAlwaysHideStats(value);
             return this;
         }
-        public MonsterBuilder SetArmor(string armor)
+        public MonsterDefinitionBuilder SetArmor(string armor)
         {
             Definition.SetArmor(armor);
             return this;
         }
-        public MonsterBuilder SetArmorClass(int armorClass)
+        public MonsterDefinitionBuilder SetArmorClass(int armorClass)
         {
             Definition.SetArmorClass(armorClass);
             return this;
         }
-        public MonsterBuilder SetAudioRaceRTPCValue(float audioRaceRTPCValue)
+        public MonsterDefinitionBuilder SetAudioRaceRTPCValue(float audioRaceRTPCValue)
         {
             Definition.SetAudioRaceRTPCValue(audioRaceRTPCValue);
             return this;
         }
-        public MonsterBuilder SetBestiaryEntry(BestiaryEntry entry)
+        public MonsterDefinitionBuilder SetBestiaryEntry(BestiaryEntry entry)
         {
             Definition.SetBestiaryEntry(entry);
             return this;
         }
-        public MonsterBuilder SetBestiaryReference(MonsterDefinition monster)
+        public MonsterDefinitionBuilder SetBestiaryReference(MonsterDefinition monster)
         {
             Definition.SetBestiaryReference(monster);
             return this;
         }
-        public MonsterBuilder SetBestiarySpriteReference(AssetReferenceSprite sprite)
+        public MonsterDefinitionBuilder SetBestiarySpriteReference(AssetReferenceSprite sprite)
         {
             Definition.SetBestiarySpriteReference(sprite);
             return this;
         }
-        public MonsterBuilder SetChallengeRating(float challengeRating)
+        public MonsterDefinitionBuilder SetChallengeRating(float challengeRating)
         {
             Definition.SetChallengeRating(challengeRating);
             return this;
         }
-        public MonsterBuilder SetCharacterFamily(string family)
+        public MonsterDefinitionBuilder SetCharacterFamily(string family)
         {
             Definition.SetCharacterFamily(family);
             return this;
         }
-        public MonsterBuilder SetDefaultBattleDecisionPackage(DecisionPackageDefinition decisionPackage)
+        public MonsterDefinitionBuilder SetDefaultBattleDecisionPackage(DecisionPackageDefinition decisionPackage)
         {
             Definition.SetDefaultBattleDecisionPackage(decisionPackage);
             return this;
         }
-        public MonsterBuilder SetDefaultFaction(string faction)
+        public MonsterDefinitionBuilder SetDefaultFaction(string faction)
         {
             Definition.SetDefaultFaction(faction);
             return this;
         }
-        public MonsterBuilder SetDifferentActionEachTurn(bool value)
+        public MonsterDefinitionBuilder SetDifferentActionEachTurn(bool value)
         {
             Definition.SetDifferentActionEachTurn(value);
             return this;
         }
-        public MonsterBuilder SetDroppedLootDefinition(LootPackDefinition lootPack)
+        public MonsterDefinitionBuilder SetDroppedLootDefinition(LootPackDefinition lootPack)
         {
             Definition.SetDroppedLootDefinition(lootPack);
             return this;
         }
-        public MonsterBuilder SetDualSex(bool value)
+        public MonsterDefinitionBuilder SetDualSex(bool value)
         {
             Definition.SetDualSex(value);
             return this;
         }
-        public MonsterBuilder SetFollowFloorAngle(bool value)
+        public MonsterDefinitionBuilder SetFollowFloorAngle(bool value)
         {
             Definition.SetFollowFloorAngle(value);
             return this;
         }
-        public MonsterBuilder SetForceCombatStartsAnimation(bool value)
+        public MonsterDefinitionBuilder SetForceCombatStartsAnimation(bool value)
         {
             Definition.SetForceCombatStartsAnimation(value);
             return this;
         }
-        public MonsterBuilder SetForceNoFlyAnimation(bool value)
+        public MonsterDefinitionBuilder SetForceNoFlyAnimation(bool value)
         {
             Definition.SetForceNoFlyAnimation(value);
             return this;
         }
-        public MonsterBuilder SetForcePersistentBody(bool value)
+        public MonsterDefinitionBuilder SetForcePersistentBody(bool value)
         {
             Definition.SetForcePersistentBody(value);
             return this;
         }
-        public MonsterBuilder SetFullyControlledWhenAllied(bool value)
+        public MonsterDefinitionBuilder SetFullyControlledWhenAllied(bool value)
         {
             Definition.SetFullyControlledWhenAllied(value);
             return this;
         }
-        public MonsterBuilder SetGroupAttacks(bool value)
+        public MonsterDefinitionBuilder SetGroupAttacks(bool value)
         {
             Definition.SetGroupAttacks(value);
             return this;
         }
-        public MonsterBuilder SetHasLookAt(bool value)
+        public MonsterDefinitionBuilder SetHasLookAt(bool value)
         {
             Definition.SetHasLookAt(value);
             return this;
         }
-        public MonsterBuilder SetHeight(int Height)
+        public MonsterDefinitionBuilder SetHeight(int Height)
         {
             Definition.SetHeight(Height);
             return this;
         }
-        public MonsterBuilder SetHitDiceNumber(int hitDice)
+        public MonsterDefinitionBuilder SetHitDiceNumber(int hitDice)
         {
             Definition.SetHitDice(hitDice);
             return this;
         }
-        public MonsterBuilder SetHitDiceType(DieType dieType)
+        public MonsterDefinitionBuilder SetHitDiceType(DieType dieType)
         {
             Definition.SetHitDiceType(dieType);
             return this;
         }
-        public MonsterBuilder SetHitPointsBonus(int bonus)
+        public MonsterDefinitionBuilder SetHitPointsBonus(int bonus)
         {
             Definition.SetHitPointsBonus(bonus);
             return this;
         }
-        public MonsterBuilder SetInDungeonEditor(bool value)
+        public MonsterDefinitionBuilder SetInDungeonEditor(bool value)
         {
             if (value)
             {
@@ -167,104 +167,104 @@ namespace SolastaCommunityExpansion.Builders
 
             return this;
         }
-        public MonsterBuilder SetInterceptStance(MoveStance interceptStance)
+        public MonsterDefinitionBuilder SetInterceptStance(MoveStance interceptStance)
         {
             Definition.SetInterceptStance(interceptStance);
             return this;
         }
-        public MonsterBuilder SetIsHusk(bool value)
+        public MonsterDefinitionBuilder SetIsHusk(bool value)
         {
             Definition.SetIsHusk(value);
             return this;
         }
-        public MonsterBuilder SetIsUnique(bool value)
+        public MonsterDefinitionBuilder SetIsUnique(bool value)
         {
             Definition.SetIsUnique(value);
             return this;
         }
-        public MonsterBuilder SetLegendaryCreature(bool value)
+        public MonsterDefinitionBuilder SetLegendaryCreature(bool value)
         {
             Definition.SetLegendaryCreature(value);
             return this;
         }
-        public MonsterBuilder SetMaximalAge(int Age)
+        public MonsterDefinitionBuilder SetMaximalAge(int Age)
         {
             Definition.SetMaximalAge(Age);
             return this;
         }
-        public MonsterBuilder SetMaxLegendaryActionPoints(int maxLegendaryActionPoints)
+        public MonsterDefinitionBuilder SetMaxLegendaryActionPoints(int maxLegendaryActionPoints)
         {
             Definition.SetMaxLegendaryActionPoints(maxLegendaryActionPoints);
             return this;
         }
-        public MonsterBuilder SetMaxLegendaryResistances(int maxLegendaryResistances)
+        public MonsterDefinitionBuilder SetMaxLegendaryResistances(int maxLegendaryResistances)
         {
             Definition.SetMaxLegendaryResistances(maxLegendaryResistances);
             return this;
         }
-        public MonsterBuilder SetMinimalAge(int minimalAge)
+        public MonsterDefinitionBuilder SetMinimalAge(int minimalAge)
         {
             Definition.SetMinimalAge(minimalAge);
             return this;
         }
-        public MonsterBuilder SetMonsterPresentation(MonsterPresentation monsterPresentation)
+        public MonsterDefinitionBuilder SetMonsterPresentation(MonsterPresentation monsterPresentation)
         {
             Definition.SetMonsterPresentation(monsterPresentation);
             return this;
         }
-        public MonsterBuilder SetNoExperienceGain(bool value)
+        public MonsterDefinitionBuilder SetNoExperienceGain(bool value)
         {
             Definition.SetNoExperienceGain(value);
             return this;
         }
-        public MonsterBuilder SetPatrolStance(MoveStance patrolStance)
+        public MonsterDefinitionBuilder SetPatrolStance(MoveStance patrolStance)
         {
             Definition.SetPatrolStance(patrolStance);
             return this;
         }
-        public MonsterBuilder SetSizeDefinition(CharacterSizeDefinition sizeDefinition)
+        public MonsterDefinitionBuilder SetSizeDefinition(CharacterSizeDefinition sizeDefinition)
         {
             Definition.SetSizeDefinition(sizeDefinition);
             return this;
         }
-        public MonsterBuilder SetSneakStance(MoveStance SneakStance)
+        public MonsterDefinitionBuilder SetSneakStance(MoveStance SneakStance)
         {
             Definition.SetSneakStance(SneakStance);
             return this;
         }
-        public MonsterBuilder SetStandardHitPoints(int Hp)
+        public MonsterDefinitionBuilder SetStandardHitPoints(int Hp)
         {
             Definition.SetStandardHitPoints(Hp);
             return this;
         }
-        public MonsterBuilder SetStealableLootDefinition(LootPackDefinition stealableLoot)
+        public MonsterDefinitionBuilder SetStealableLootDefinition(LootPackDefinition stealableLoot)
         {
             Definition.SetStealableLootDefinition(stealableLoot);
             return this;
         }
-        public MonsterBuilder SetThreatEvaluatorDefinition(ThreatEvaluatorDefinition threatEvaluator)
+        public MonsterDefinitionBuilder SetThreatEvaluatorDefinition(ThreatEvaluatorDefinition threatEvaluator)
         {
             Definition.SetThreatEvaluatorDefinition(threatEvaluator);
             return this;
         }
-        public MonsterBuilder SetUniqueNameId(string uniqueName)
+        public MonsterDefinitionBuilder SetUniqueNameId(string uniqueName)
         {
             Definition.SetUniqueNameId(uniqueName);
             return this;
         }
-        public MonsterBuilder SetWeight(int weight)
+        public MonsterDefinitionBuilder SetWeight(int weight)
         {
             Definition.SetWeight(weight);
             return this;
         }
 
-        public MonsterBuilder ClearAbilityScores()
+        public MonsterDefinitionBuilder ClearAbilityScores()
         {
             Array.Clear(Definition.AbilityScores, 0, Definition.AbilityScores.Length);
             return this;
         }
 
-        public MonsterBuilder SetAbilityScores(int STR, int DEX, int CON, int INT, int WIS, int CHA)
+        public MonsterDefinitionBuilder SetAbilityScores(int STR, int DEX, int CON, int INT, int WIS, int CHA)
         {
             ClearAbilityScores();
 
@@ -277,177 +277,177 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public MonsterBuilder ClearFeatures()
+        public MonsterDefinitionBuilder ClearFeatures()
         {
             Definition.Features.Clear();
             return this;
         }
 
-        public MonsterBuilder AddFeatures(params FeatureDefinition[] features)
+        public MonsterDefinitionBuilder AddFeatures(params FeatureDefinition[] features)
         {
             return AddFeatures(features.AsEnumerable());
         }
 
-        public MonsterBuilder AddFeatures(IEnumerable<FeatureDefinition> features)
+        public MonsterDefinitionBuilder AddFeatures(IEnumerable<FeatureDefinition> features)
         {
             Definition.Features.AddRange(features);
             return this;
         }
 
-        public MonsterBuilder SetFeatures(params FeatureDefinition[] features)
+        public MonsterDefinitionBuilder SetFeatures(params FeatureDefinition[] features)
         {
             return SetFeatures(features.AsEnumerable());
         }
 
-        public MonsterBuilder SetFeatures(IEnumerable<FeatureDefinition> features)
+        public MonsterDefinitionBuilder SetFeatures(IEnumerable<FeatureDefinition> features)
         {
             Definition.Features.SetRange(features);
             return this;
         }
 
-        public MonsterBuilder ClearSkillScores()
+        public MonsterDefinitionBuilder ClearSkillScores()
         {
             Definition.SkillScores.Clear();
             return this;
         }
 
-        public MonsterBuilder AddSkillScores(params (string skillName, int bonus)[] skillScores)
+        public MonsterDefinitionBuilder AddSkillScores(params (string skillName, int bonus)[] skillScores)
         {
             return AddSkillScores(skillScores.Select(ss => new MonsterSkillProficiency(ss.skillName, ss.bonus)));
         }
 
-        public MonsterBuilder AddSkillScores(params MonsterSkillProficiency[] skillScores)
+        public MonsterDefinitionBuilder AddSkillScores(params MonsterSkillProficiency[] skillScores)
         {
             return AddSkillScores(skillScores.AsEnumerable());
         }
 
-        public MonsterBuilder AddSkillScores(IEnumerable<MonsterSkillProficiency> skillScores)
+        public MonsterDefinitionBuilder AddSkillScores(IEnumerable<MonsterSkillProficiency> skillScores)
         {
             Definition.SkillScores.AddRange(skillScores);
             return this;
         }
 
-        public MonsterBuilder SetSkillScores(params (string skillName, int bonus)[] skillScores)
+        public MonsterDefinitionBuilder SetSkillScores(params (string skillName, int bonus)[] skillScores)
         {
             return SetSkillScores(skillScores.Select(ss => new MonsterSkillProficiency(ss.skillName, ss.bonus)));
         }
 
-        public MonsterBuilder SetSkillScores(params MonsterSkillProficiency[] skillScores)
+        public MonsterDefinitionBuilder SetSkillScores(params MonsterSkillProficiency[] skillScores)
         {
             return SetSkillScores(skillScores.AsEnumerable());
         }
 
-        public MonsterBuilder SetSkillScores(IEnumerable<MonsterSkillProficiency> skillScores)
+        public MonsterDefinitionBuilder SetSkillScores(IEnumerable<MonsterSkillProficiency> skillScores)
         {
             Definition.SkillScores.SetRange(skillScores);
             return this;
         }
 
-        public MonsterBuilder ClearAttackIterations()
+        public MonsterDefinitionBuilder ClearAttackIterations()
         {
             Definition.AttackIterations.Clear();
             return this;
         }
 
-        public MonsterBuilder AddAttackIterations(params MonsterAttackIteration[] monsterAttackIterations)
+        public MonsterDefinitionBuilder AddAttackIterations(params MonsterAttackIteration[] monsterAttackIterations)
         {
             return AddAttackIterations(monsterAttackIterations.AsEnumerable());
         }
 
-        public MonsterBuilder AddAttackIterations(IEnumerable<MonsterAttackIteration> monsterAttackIterations)
+        public MonsterDefinitionBuilder AddAttackIterations(IEnumerable<MonsterAttackIteration> monsterAttackIterations)
         {
             Definition.AttackIterations.AddRange(monsterAttackIterations);
             return this;
         }
 
-        public MonsterBuilder ClearLegendaryActionOptions()
+        public MonsterDefinitionBuilder ClearLegendaryActionOptions()
         {
             Definition.LegendaryActionOptions.Clear();
             return this;
         }
 
-        public MonsterBuilder AddLegendaryActionOptions(params LegendaryActionDescription[] legendaryActionDescriptions)
+        public MonsterDefinitionBuilder AddLegendaryActionOptions(params LegendaryActionDescription[] legendaryActionDescriptions)
         {
             return AddLegendaryActionOptions(legendaryActionDescriptions.AsEnumerable());
         }
 
-        public MonsterBuilder AddLegendaryActionOptions(IEnumerable<LegendaryActionDescription> legendaryActionDescriptions)
+        public MonsterDefinitionBuilder AddLegendaryActionOptions(IEnumerable<LegendaryActionDescription> legendaryActionDescriptions)
         {
             Definition.LegendaryActionOptions.AddRange(legendaryActionDescriptions);
             return this;
         }
 
-        public MonsterBuilder SetHasPhantomDistortion(bool value)
+        public MonsterDefinitionBuilder SetHasPhantomDistortion(bool value)
         {
             Definition.MonsterPresentation.SetHasPhantomDistortion(value);
             return this;
         }
 
-        public MonsterBuilder SetAttachedParticlesReference(AssetReference assetReference)
+        public MonsterDefinitionBuilder SetAttachedParticlesReference(AssetReference assetReference)
         {
             Definition.MonsterPresentation.SetAttachedParticlesReference(assetReference);
             return this;
         }
 
-        public MonsterBuilder SetSpriteReference(AssetReferenceSprite sprite)
+        public MonsterDefinitionBuilder SetSpriteReference(AssetReferenceSprite sprite)
         {
             Definition.GuiPresentation.SetSpriteReference(sprite);
             return this;
         }
 
-        public MonsterBuilder ClearSavingThrowScores()
+        public MonsterDefinitionBuilder ClearSavingThrowScores()
         {
             Definition.SavingThrowScores.Clear();
             return this;
         }
 
-        public MonsterBuilder SetSavingThrowScores(params (string attributeName, int bonus)[] savingThrowScores)
+        public MonsterDefinitionBuilder SetSavingThrowScores(params (string attributeName, int bonus)[] savingThrowScores)
         {
             Definition.SavingThrowScores.Clear();
             return AddSavingThrowScores(savingThrowScores.Select(s => new MonsterSavingThrowProficiency(s.attributeName, s.bonus)).AsEnumerable());
         }
 
-        public MonsterBuilder AddSavingThrowScores(params (string attributeName, int bonus)[] savingThrowScores)
+        public MonsterDefinitionBuilder AddSavingThrowScores(params (string attributeName, int bonus)[] savingThrowScores)
         {
             return AddSavingThrowScores(savingThrowScores.Select(s => new MonsterSavingThrowProficiency(s.attributeName, s.bonus)).AsEnumerable());
         }
 
-        public MonsterBuilder AddSavingThrowScores(params MonsterSavingThrowProficiency[] savingThrowScores)
+        public MonsterDefinitionBuilder AddSavingThrowScores(params MonsterSavingThrowProficiency[] savingThrowScores)
         {
             return AddSavingThrowScores(savingThrowScores.AsEnumerable());
         }
 
-        public MonsterBuilder AddSavingThrowScores(IEnumerable<MonsterSavingThrowProficiency> savingThrowScores)
+        public MonsterDefinitionBuilder AddSavingThrowScores(IEnumerable<MonsterSavingThrowProficiency> savingThrowScores)
         {
             Definition.SavingThrowScores.AddRange(savingThrowScores);
             return this;
         }
 
-        public MonsterBuilder SetHasMonsterPortraitBackground(bool value)
+        public MonsterDefinitionBuilder SetHasMonsterPortraitBackground(bool value)
         {
             Definition.MonsterPresentation.SetHasMonsterPortraitBackground(value);
             return this;
         }
 
-        public MonsterBuilder SetCanGeneratePortrait(bool value)
+        public MonsterDefinitionBuilder SetCanGeneratePortrait(bool value)
         {
             Definition.MonsterPresentation.SetCanGeneratePortrait(value);
             return this;
         }
 
-        public MonsterBuilder SetCustomShaderReference(MonsterDefinition baseMonsterShaderReference)
+        public MonsterDefinitionBuilder SetCustomShaderReference(MonsterDefinition baseMonsterShaderReference)
         {
             Definition.MonsterPresentation.SetCustomShaderReference(baseMonsterShaderReference.MonsterPresentation.CustomShaderReference);
             return this;
         }
-        public MonsterBuilder SetModelScale(float scale)
+        public MonsterDefinitionBuilder SetModelScale(float scale)
         {
             Definition.MonsterPresentation.SetFemaleModelScale(scale);
             Definition.MonsterPresentation.SetMaleModelScale(scale);
             return this;
         }
 
-        public MonsterBuilder SetPrefabReference(AssetReference assetReference)
+        public MonsterDefinitionBuilder SetPrefabReference(AssetReference assetReference)
         {
             Definition.MonsterPresentation.SetMalePrefabReference(assetReference);
             Definition.MonsterPresentation.SetFemalePrefabReference(assetReference);

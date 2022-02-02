@@ -203,7 +203,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             SpellListDefinition spellList = TinkererSpellList.BuildAndAddToDB();
 
             // spell casting (1)
-            CastSpellBuilder spellCasting = new CastSpellBuilder("CastSpellTinkerer", GuidHelper.Create(GuidNamespace, "CastSpellTinkerer").ToString());
+            FeatureDefinitionCastSpellBuilder spellCasting = new FeatureDefinitionCastSpellBuilder("CastSpellTinkerer", GuidHelper.Create(GuidNamespace, "CastSpellTinkerer").ToString());
             spellCasting.SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class);
             spellCasting.SetSpellCastingAbility(AttributeDefinitions.Intelligence);
             spellCasting.SetSpellList(spellList);
@@ -212,8 +212,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             spellCasting.SetSpellPreparationCount(RuleDefinitions.SpellPreparationCount.AbilityBonusPlusHalfLevel);
             spellCasting.SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest);
             spellCasting.SetSpellCastingLevel(1);
-            spellCasting.SetKnownCantrips(2, 1, CastSpellBuilder.CasterProgression.HALF_CASTER);
-            spellCasting.SetSlotsPerLevel(1, CastSpellBuilder.CasterProgression.HALF_CASTER);
+            spellCasting.SetKnownCantrips(2, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.HALF_CASTER);
+            spellCasting.SetSlotsPerLevel(1, FeatureDefinitionCastSpellBuilder.CasterProgression.HALF_CASTER);
             GuiPresentationBuilder spellcastGui = new GuiPresentationBuilder(
                 "Subclass/&ArtificerSpellcastingTitle",
                 "Subclass/&ArtificerSpellcastingDescription");

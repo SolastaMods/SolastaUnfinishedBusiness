@@ -91,7 +91,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildDivineWord()
         {
-            SpellBuilder spellBuilder = new SpellBuilder("CJDivineWord", "18ecba41-a8ac-4048-979e-2139e66934a7")
+            SpellDefinitionBuilder spellBuilder = new SpellDefinitionBuilder("CJDivineWord", "18ecba41-a8ac-4048-979e-2139e66934a7")
 
             .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
             .SetMaterialComponent(RuleDefinitions.MaterialComponentType.None)
@@ -308,7 +308,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.SpellDefinitions.RayOfEnfeeblement.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder fingerOfDeathSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+            SpellDefinitionBuilder fingerOfDeathSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(7)
@@ -420,7 +420,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.SpellDefinitions.Thunderwave.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder reverseGravitySpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+            SpellDefinitionBuilder reverseGravitySpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(7)
@@ -463,7 +463,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildConjureCelestial()
         {
-            SpellListDefinition CouatlSpellList = SpellListBuilder.CreateSpellList(
+            SpellListDefinition CouatlSpellList = SpellListDefinitionBuilder.CreateSpellList(
                  DhBaseString + "CouatlSpellList",
                  GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + "CouatlSpellList").ToString(),
                  "",
@@ -493,7 +493,7 @@ namespace SolastaCommunityExpansion.Spells
             CouatlSpellList.SetMaxSpellLevel(5);
 
             FeatureDefinitionCastSpell castSpellCouatl =
-                new CastSpellBuilder(DhBaseString + "CastSpellCouatl", GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + "CastSpellCouatl").ToString())
+                new FeatureDefinitionCastSpellBuilder(DhBaseString + "CastSpellCouatl", GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + "CastSpellCouatl").ToString())
                 .AddToDB()
                 .SetGuiPresentation(new GuiPresentationBuilder("Feature/&NoContentTitle", "Feature/&NoContentTitle").Build())
                 .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Monster)
@@ -664,7 +664,7 @@ namespace SolastaCommunityExpansion.Spells
             AssetReference AttachedParticlesReference = DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference");
             AssetReferenceSprite SpriteReference = DatabaseHelper.MonsterDefinitions.KindredSpiritViper.GuiPresentation.SpriteReference;
 
-            MonsterBuilder couatlBuilder = new MonsterBuilder(
+            MonsterDefinitionBuilder couatlBuilder = new MonsterDefinitionBuilder(
                 NewName,
                 "fc38ed74-3e2f-4960-86cc-3120d638410b",
                 "Monster/&" + DhBaseString + NewTitle,
@@ -746,7 +746,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.SpellDefinitions.Bless.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder conjureCelestialSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+            SpellDefinitionBuilder conjureCelestialSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(7)
@@ -859,7 +859,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.SpellDefinitions.DominatePerson.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder dominateMonsterSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+            SpellDefinitionBuilder dominateMonsterSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(8)
@@ -929,7 +929,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.SpellDefinitions.BestowCurse.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder feeblemindSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+            SpellDefinitionBuilder feeblemindSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(8)
@@ -1091,7 +1091,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLifePreserveLife.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder holyAuraSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+            SpellDefinitionBuilder holyAuraSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(8)
@@ -1296,7 +1296,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalFireBurst.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder IncendiaryCloudSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+            SpellDefinitionBuilder IncendiaryCloudSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(8)
@@ -1359,7 +1359,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.SpellDefinitions.IdentifyCreatures.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder mazeSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+            SpellDefinitionBuilder mazeSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(8)
@@ -1412,7 +1412,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.SpellDefinitions.MindTwist.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder mindBlankSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+            SpellDefinitionBuilder mindBlankSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(8)
@@ -1508,7 +1508,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.SpellDefinitions.Contagion.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder powerWordStunSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+            SpellDefinitionBuilder powerWordStunSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(8)
@@ -1592,7 +1592,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainSunIndomitableLight.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder sunBurstSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+            SpellDefinitionBuilder sunBurstSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(8)
@@ -1638,7 +1638,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.SpellDefinitions.TrueSeeing.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder foresightSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+            SpellDefinitionBuilder foresightSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(9)
@@ -1717,7 +1717,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.SpellDefinitions.Heal.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder massHealSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+            SpellDefinitionBuilder massHealSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(9)
@@ -1790,7 +1790,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.SpellDefinitions.FlamingSphere.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder meteorSwarmSingleTargetSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+            SpellDefinitionBuilder meteorSwarmSingleTargetSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(9)
@@ -1858,7 +1858,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.SpellDefinitions.HealingWord.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder powerWordHealSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+            SpellDefinitionBuilder powerWordHealSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(9)
@@ -1909,7 +1909,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.SpellDefinitions.Disintegrate.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder powerWordKillSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+            SpellDefinitionBuilder powerWordKillSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(9)
@@ -1977,7 +1977,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDruidWildShape.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder shapechangeSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+            SpellDefinitionBuilder shapechangeSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(9)
@@ -2024,7 +2024,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLawWordOfLaw.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder timeStopSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+            SpellDefinitionBuilder timeStopSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(9)
@@ -2109,7 +2109,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpriteReference(DatabaseHelper.SpellDefinitions.PhantasmalKiller.GuiPresentation.SpriteReference)
                 .SetSymbolChar("221E");
 
-            SpellBuilder weirdSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
+            SpellDefinitionBuilder weirdSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(9)

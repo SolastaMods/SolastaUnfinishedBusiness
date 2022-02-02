@@ -4,9 +4,9 @@ using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class SpellListBuilder : BaseDefinitionBuilder<SpellListDefinition>
+    public class SpellListDefinitionBuilder : BaseDefinitionBuilder<SpellListDefinition>
     {
-        public SpellListBuilder(string name, string guid, string title, SpellListDefinition baseSpellList, params List<SpellDefinition>[] spellsByLevel)
+        public SpellListDefinitionBuilder(string name, string guid, string title, SpellListDefinition baseSpellList, params List<SpellDefinition>[] spellsByLevel)
             : base(baseSpellList, name, guid)
         {
             if (!string.IsNullOrEmpty(title))
@@ -27,7 +27,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public static SpellListDefinition CreateSpellList(string name, string guid, string title, SpellListDefinition baseSpellList, params List<SpellDefinition>[] spellsByLevel)
         {
-            return new SpellListBuilder(name, guid, title, baseSpellList, spellsByLevel).AddToDB();
+            return new SpellListDefinitionBuilder(name, guid, title, baseSpellList, spellsByLevel).AddToDB();
         }
     }
 }
