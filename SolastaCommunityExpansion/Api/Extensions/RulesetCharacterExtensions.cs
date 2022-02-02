@@ -402,6 +402,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetFakeExperienceGained<T>(this T entity, RulesetCharacter.FakeExperienceGainedHandler value)
+            where T : RulesetCharacter
+        {
+            entity.SetField("<FakeExperienceGained>k__BackingField", value);
+            return entity;
+        }
+
         public static T SetForceAutoBehavior<T>(this T entity, System.Boolean value)
             where T : RulesetCharacter
         {

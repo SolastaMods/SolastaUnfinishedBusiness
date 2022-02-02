@@ -530,7 +530,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 carryingCapacityMultiplier, additionalCarryingCapacity, guiPresentation).AddToDB();
         }
 
-        public static FeatureDefinitionMagicAffinity BuildMagicAffinityConcentration(RuleDefinitions.ConcentrationAffinity concentrationAffinity, 
+        public static FeatureDefinitionMagicAffinity BuildMagicAffinityConcentration(RuleDefinitions.ConcentrationAffinity concentrationAffinity,
             int threshold, string name, GuiPresentation guiPresentation)
         {
             return new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),

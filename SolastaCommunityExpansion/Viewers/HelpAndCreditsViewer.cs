@@ -1,8 +1,14 @@
-﻿using System.Text;
+﻿using System.Linq;
 using ModKit;
+using UnityEngine;
 using UnityModManagerNet;
+using static SolastaCommunityExpansion.Viewers.Displays.BlueprintDisplay;
+using static SolastaCommunityExpansion.Viewers.Displays.RulesDisplay;
+using static SolastaCommunityExpansion.Viewers.Displays.PatchesDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.CreditsDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.Level20HelpDisplay;
+using System.Text;
+using System.Diagnostics;
 
 namespace SolastaCommunityExpansion.Viewers
 {
@@ -12,20 +18,43 @@ namespace SolastaCommunityExpansion.Viewers
 
         public int Priority => 40;
 
+        private static int selectedPane;
+
+        private static readonly NamedAction[] actions =
+        {
+            new NamedAction("Help & Credits", DisplayHelpAndCredits),
+            new NamedAction("Blueprints", DisplayBlueprints),
+            new NamedAction("Patches", DisplayPatches),
+        };
+
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
             UI.Label("Welcome to Solasta Community Expansion".yellow().bold());
             UI.Div();
 
-            DisplayLevel20Help();
-            DisplayCredits();
-            //AddDumpDescriptionToLogButton();
+            if (Main.Enabled)
+            {
+                var titles = actions.Select((a, i) => i == selectedPane ? a.name.orange().bold() : a.name).ToArray();
+
+                UI.SelectionGrid(ref selectedPane, titles, titles.Length, UI.ExpandWidth(true));
+                GUILayout.BeginVertical("box");
+                actions[selectedPane].action();
+                GUILayout.EndVertical();
+            }
         }
 
-#pragma warning disable IDE0051, S1144, RCS1213 // Remove unused private members
-        private static void AddDumpDescriptionToLogButton()
-#pragma warning restore IDE0051, S1144, RCS1213 // Remove unused private members
+        public static void DisplayHelpAndCredits()
         {
+            AddDumpDescriptionToLogButton();
+            DisplayLevel20Help();
+            DisplayCredits();
+        }
+
+        [Conditional("DEBUG")]
+        private static void AddDumpDescriptionToLogButton()
+        {
+            UI.Label("");
+
             UI.ActionButton("Dump Description to Logs", () =>
             {
                 var collectedString = new StringBuilder();

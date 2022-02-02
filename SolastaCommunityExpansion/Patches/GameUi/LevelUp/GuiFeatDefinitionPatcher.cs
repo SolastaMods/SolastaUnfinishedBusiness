@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
-using SolastaCommunityExpansion.Helpers;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 {

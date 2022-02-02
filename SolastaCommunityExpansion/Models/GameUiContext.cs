@@ -108,7 +108,7 @@ namespace SolastaCommunityExpansion.Models
                 {
                     EnableDebugCamera = !EnableDebugCamera;
                     cameraService.DebugCameraEnabled = EnableDebugCamera;
-                }               
+                }
             }
 
             [SuppressMessage("Minor Code Smell", "IDE0066:Use switch expression", Justification = "Prefer switch here")]

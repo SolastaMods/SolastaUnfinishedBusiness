@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Models

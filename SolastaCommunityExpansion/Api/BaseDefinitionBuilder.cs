@@ -15,10 +15,25 @@ namespace SolastaModApi
         }
 
         // NOTE: CreateGuid uses .ToString() which results in a guid of form b503ccb3-faac-4730-804c-d537bb61a582
-        public static string CreateGuid(Guid guid, string name) => GuidHelper.Create(guid, name).ToString();
-        public static string CreateGuid(string guid, string name) => GuidHelper.Create(new Guid(guid), name).ToString();
-        public static string CreateTitleKey(string name, string category) => $"{category}/&{name}Title";
-        public static string CreateDescriptionKey(string name, string category) => $"{category}/&{name}Description";
+        public static string CreateGuid(Guid guid, string name)
+        {
+            return GuidHelper.Create(guid, name).ToString();
+        }
+
+        public static string CreateGuid(string guid, string name)
+        {
+            return GuidHelper.Create(new Guid(guid), name).ToString();
+        }
+
+        public static string CreateTitleKey(string name, string category)
+        {
+            return $"{category}/&{name}Title";
+        }
+
+        public static string CreateDescriptionKey(string name, string category)
+        {
+            return $"{category}/&{name}Description";
+        }
 
         public static bool LogDefinitionCreation { get; set; }
 
@@ -294,11 +309,11 @@ namespace SolastaModApi
         /// </summary>
         /// <param name="name">The new unique name assigned to the definition (mandatory)</param>
         /// <param name="guid">The new unique guid assigned to the definition (mandatory)</param>
-        /// <param name="title_string">The title assigned to the GuiPresentation (optional)</param>
-        /// <param name="description_string">The description assigned to the GuiPresentation (optional)</param>
+        /// <param name="title">The title assigned to the GuiPresentation (optional)</param>
+        /// <param name="description">The description assigned to the GuiPresentation (optional)</param>
         /// <param name="base_Blueprint">The original definition to be cloned.</param>
-        protected BaseDefinitionBuilder(string name, string guid, string title_string, string description_string, TDefinition base_Blueprint)
-            : this(base_Blueprint, name, guid, title_string, description_string)
+        protected BaseDefinitionBuilder(string name, string guid, string title, string description, TDefinition base_Blueprint)
+            : this(base_Blueprint, name, guid, title, description)
         {
         }
 
