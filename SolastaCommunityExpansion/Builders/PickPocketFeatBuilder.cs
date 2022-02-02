@@ -2,6 +2,7 @@
 
 namespace SolastaCommunityExpansion.Builders
 {
+    // TODO: merge with FeatDefinitionBuilder
     public class PickPocketFeatBuilder : BaseDefinitionBuilder<FeatDefinition>
     {
         protected PickPocketFeatBuilder(string name, string guid, string title, string description, FeatDefinition base_Feat) : base(base_Feat, name, guid)

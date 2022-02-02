@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
                     ItemDefinition newItem = ItemBuilder.BuildNewMagicArmor(itemCollection.BaseGuid, baseItem, itemData.Item, itemData.Name);
                     // Generate recipes for items
                     string recipeName = "RecipeEnchanting" + newItem.Name;
-                    RecipeBuilder builder = new RecipeBuilder(recipeName, GuidHelper.Create(itemCollection.BaseGuid, recipeName).ToString());
+                    RecipeDefinitionBuilder builder = new RecipeDefinitionBuilder(recipeName, GuidHelper.Create(itemCollection.BaseGuid, recipeName).ToString());
                     builder.AddIngredient(baseItem);
                     foreach (IngredientOccurenceDescription ingredient in itemData.Recipe.Ingredients)
                     {
@@ -62,7 +62,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
                     ItemDefinition newItem = ItemBuilder.BuildNewMagicWeapon(itemCollection.BaseGuid, baseItem, itemData.Item, itemData.Name);
                     // Generate recipes for items
                     string recipeName = "RecipeEnchanting" + newItem.Name;
-                    RecipeBuilder builder = new RecipeBuilder(recipeName, GuidHelper.Create(itemCollection.BaseGuid, recipeName).ToString());
+                    RecipeDefinitionBuilder builder = new RecipeDefinitionBuilder(recipeName, GuidHelper.Create(itemCollection.BaseGuid, recipeName).ToString());
                     builder.AddIngredient(baseItem);
                     foreach (IngredientOccurenceDescription ingredient in itemData.Recipe.Ingredients)
                     {
@@ -139,7 +139,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
             foreach (ItemDefinition item in EnchantedToIngredient.Keys)
             {
                 string recipeName = "RecipeEnchanting" + item.Name;
-                RecipeBuilder builder = new RecipeBuilder(recipeName, GuidHelper.Create(baseGuid, recipeName).ToString());
+                RecipeDefinitionBuilder builder = new RecipeDefinitionBuilder(recipeName, GuidHelper.Create(baseGuid, recipeName).ToString());
                 builder.AddIngredient(EnchantedToIngredient[item]);
                 builder.SetCraftedItem(item);
                 builder.SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.EnchantingToolType);
@@ -233,7 +233,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
             foreach (ItemDefinition item in ForgeryToIngredient.Keys)
             {
                 string recipeName = "RecipeForgery" + item.Name;
-                RecipeBuilder builder = new RecipeBuilder(recipeName, GuidHelper.Create(baseGuid, recipeName).ToString());
+                RecipeDefinitionBuilder builder = new RecipeDefinitionBuilder(recipeName, GuidHelper.Create(baseGuid, recipeName).ToString());
                 builder.AddIngredient(ForgeryToIngredient[item]);
                 builder.SetCraftedItem(item);
                 builder.SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.ArtisanToolSmithToolsType);
@@ -254,7 +254,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
             foreach (ItemDefinition item in ScrollForgeries.Keys)
             {
                 string recipeName = "RecipeForgery" + item.Name;
-                RecipeBuilder builder = new RecipeBuilder(recipeName, GuidHelper.Create(baseGuid, recipeName).ToString());
+                RecipeDefinitionBuilder builder = new RecipeDefinitionBuilder(recipeName, GuidHelper.Create(baseGuid, recipeName).ToString());
                 builder.AddIngredient(ScrollForgeries[item]);
                 builder.SetCraftedItem(item);
                 builder.SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.ScrollKitType);
@@ -283,7 +283,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
         private static RecipeDefinition CreatePrimingRecipe(Guid baseGuid, ItemDefinition baseItem, ItemDefinition primed)
         {
             string recipeName = "RecipePriming" + baseItem.Name;
-            RecipeBuilder builder = new RecipeBuilder(recipeName, GuidHelper.Create(baseGuid, recipeName).ToString());
+            RecipeDefinitionBuilder builder = new RecipeDefinitionBuilder(recipeName, GuidHelper.Create(baseGuid, recipeName).ToString());
             builder.AddIngredient(baseItem);
             builder.SetCraftedItem(primed);
             builder.SetCraftingCheckData(8, 15, DatabaseHelper.ToolTypeDefinitions.EnchantingToolType);

@@ -5,31 +5,31 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class RecipeBuilder : BaseDefinitionBuilder<RecipeDefinition>
+    public class RecipeDefinitionBuilder : BaseDefinitionBuilder<RecipeDefinition>
     {
-        public RecipeBuilder(string name, string guid) : base(name, guid)
+        public RecipeDefinitionBuilder(string name, string guid) : base(name, guid)
         {
             Definition.SetField("ingredients", new List<IngredientOccurenceDescription>());
         }
 
-        public RecipeBuilder(RecipeDefinition original, string name, string guid) : base(original, name, guid)
+        public RecipeDefinitionBuilder(RecipeDefinition original, string name, string guid) : base(original, name, guid)
         {
         }
 
-        public RecipeBuilder SetCraftedItem(ItemDefinition craftedItem)
+        public RecipeDefinitionBuilder SetCraftedItem(ItemDefinition craftedItem)
         {
             Definition.SetCraftedItem(craftedItem);
             return this;
         }
 
-        public RecipeBuilder SetCraftedItem(ItemDefinition craftedItem, int stackCount)
+        public RecipeDefinitionBuilder SetCraftedItem(ItemDefinition craftedItem, int stackCount)
         {
             Definition.SetCraftedItem(craftedItem);
             Definition.SetStackCount(stackCount);
             return this;
         }
 
-        public RecipeBuilder SetCraftingCheckData(int craftingHours, int craftingDC, ToolTypeDefinition toolType)
+        public RecipeDefinitionBuilder SetCraftingCheckData(int craftingHours, int craftingDC, ToolTypeDefinition toolType)
         {
             Definition.SetCraftingHours(craftingHours);
             Definition.SetCraftingDC(craftingDC);
@@ -37,13 +37,13 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public RecipeBuilder AddIngredient(IngredientOccurenceDescription ingredient)
+        public RecipeDefinitionBuilder AddIngredient(IngredientOccurenceDescription ingredient)
         {
             Definition.Ingredients.Add(ingredient);
             return this;
         }
 
-        public RecipeBuilder AddIngredient(ItemDefinition ingredient)
+        public RecipeDefinitionBuilder AddIngredient(ItemDefinition ingredient)
         {
             IngredientOccurenceDescription description = new IngredientOccurenceDescription();
             description.SetItemDefinition(ingredient);
@@ -52,7 +52,7 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public RecipeBuilder AddIngredient(ItemDefinition ingredient, int amount)
+        public RecipeDefinitionBuilder AddIngredient(ItemDefinition ingredient, int amount)
         {
             IngredientOccurenceDescription description = new IngredientOccurenceDescription();
             description.SetItemDefinition(ingredient);
@@ -61,7 +61,7 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public RecipeBuilder SetSpellDefinition(SpellDefinition spellDefinition)
+        public RecipeDefinitionBuilder SetSpellDefinition(SpellDefinition spellDefinition)
         {
             Definition.SetSpellDefinition(spellDefinition);
             return this;

@@ -2,6 +2,7 @@
 
 namespace SolastaCommunityExpansion.Builders
 {
+    // TODO: merge with FeatureDefinitionProficiencyBuilder
     public class PickPocketProficiencyBuilder : BaseDefinitionBuilder<FeatureDefinitionProficiency>
     {
         protected PickPocketProficiencyBuilder(string name, string guid, string title, string description, FeatureDefinitionProficiency base_proficiency) : base(base_proficiency, name, guid)

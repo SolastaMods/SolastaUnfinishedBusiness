@@ -7,7 +7,7 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class CastSpellBuilder : BaseDefinitionBuilder<FeatureDefinitionCastSpell>
+    public class FeatureDefinitionCastSpellBuilder : BaseDefinitionBuilder<FeatureDefinitionCastSpell>
     {
         public enum CasterProgression
         {
@@ -16,12 +16,12 @@ namespace SolastaCommunityExpansion.Builders
             THIRD_CASTER
         }
 
-        public CastSpellBuilder(string name, string guid) : base(name, guid)
+        public FeatureDefinitionCastSpellBuilder(string name, string guid) : base(name, guid)
         {
             InitializeFields();
         }
 
-        public CastSpellBuilder(FeatureDefinitionCastSpell original, string name, string guid) : base(original, name, guid)
+        public FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name, string guid) : base(original, name, guid)
         {
         }
 
@@ -34,19 +34,19 @@ namespace SolastaCommunityExpansion.Builders
             SetScribedZero();
         }
 
-        public CastSpellBuilder SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin origin)
+        public FeatureDefinitionCastSpellBuilder SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin origin)
         {
             Definition.SetSpellCastingOrigin(origin);
             return this;
         }
 
-        public CastSpellBuilder SetSpellCastingAbility(string attribute)
+        public FeatureDefinitionCastSpellBuilder SetSpellCastingAbility(string attribute)
         {
             Definition.SetSpellcastingAbility(attribute);
             return this;
         }
 
-        public CastSpellBuilder SetStaticParameters(int dcValue, int toHitValue)
+        public FeatureDefinitionCastSpellBuilder SetStaticParameters(int dcValue, int toHitValue)
         {
             Definition.SetSpellcastingParametersComputation(RuleDefinitions.SpellcastingParametersComputation.Static);
             Definition.SetStaticDCValue(dcValue);
@@ -54,54 +54,54 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public CastSpellBuilder SetSpellList(SpellListDefinition spellList)
+        public FeatureDefinitionCastSpellBuilder SetSpellList(SpellListDefinition spellList)
         {
             Definition.SetSpellListDefinition(spellList);
             return this;
         }
 
-        public CastSpellBuilder SetSpellKnowledge(RuleDefinitions.SpellKnowledge knowledge)
+        public FeatureDefinitionCastSpellBuilder SetSpellKnowledge(RuleDefinitions.SpellKnowledge knowledge)
         {
             Definition.SetSpellKnowledge(knowledge);
             return this;
         }
 
-        public CastSpellBuilder SetSpellReadyness(RuleDefinitions.SpellReadyness readyness)
+        public FeatureDefinitionCastSpellBuilder SetSpellReadyness(RuleDefinitions.SpellReadyness readyness)
         {
             Definition.SetSpellReadyness(readyness);
             return this;
         }
 
-        public CastSpellBuilder SetSpellPreparationCount(RuleDefinitions.SpellPreparationCount prepCount)
+        public FeatureDefinitionCastSpellBuilder SetSpellPreparationCount(RuleDefinitions.SpellPreparationCount prepCount)
         {
             Definition.SetSpellPreparationCount(prepCount);
             return this;
         }
 
-        public CastSpellBuilder SetSlotsRecharge(RuleDefinitions.RechargeRate slotRecharge)
+        public FeatureDefinitionCastSpellBuilder SetSlotsRecharge(RuleDefinitions.RechargeRate slotRecharge)
         {
             Definition.SetSlotsRecharge(slotRecharge);
             return this;
         }
 
-        public CastSpellBuilder SetSpellCastingLevel(int level)
+        public FeatureDefinitionCastSpellBuilder SetSpellCastingLevel(int level)
         {
             Definition.SetSpellCastingLevel(level);
             return this;
         }
 
-        public CastSpellBuilder AddRestrictedSchool(SchoolOfMagicDefinition school)
+        public FeatureDefinitionCastSpellBuilder AddRestrictedSchool(SchoolOfMagicDefinition school)
         {
             Definition.RestrictedSchools.Add(school.Name);
             return this;
         }
 
-        public CastSpellBuilder SetScribed(params int[] scribedCount)
+        public FeatureDefinitionCastSpellBuilder SetScribed(params int[] scribedCount)
         {
             return SetScribed(scribedCount.AsEnumerable());
         }
 
-        public CastSpellBuilder SetScribed(IEnumerable<int> scribedCount)
+        public FeatureDefinitionCastSpellBuilder SetScribed(IEnumerable<int> scribedCount)
         {
             Definition.ScribedSpells.SetRange(scribedCount);
             return this;
@@ -116,18 +116,18 @@ namespace SolastaCommunityExpansion.Builders
             }
         }
 
-        public CastSpellBuilder SetKnownCantrips(params int[] cantripsCount)
+        public FeatureDefinitionCastSpellBuilder SetKnownCantrips(params int[] cantripsCount)
         {
             return SetKnownCantrips(cantripsCount.AsEnumerable());
         }
 
-        public CastSpellBuilder SetKnownCantrips(IEnumerable<int> cantripsCount)
+        public FeatureDefinitionCastSpellBuilder SetKnownCantrips(IEnumerable<int> cantripsCount)
         {
             Definition.KnownCantrips.SetRange(cantripsCount);
             return this;
         }
 
-        public CastSpellBuilder SetKnownCantrips(int startingAmount, int startingLevel, CasterProgression progression)
+        public FeatureDefinitionCastSpellBuilder SetKnownCantrips(int startingAmount, int startingLevel, CasterProgression progression)
         {
             Definition.KnownCantrips.Clear();
             int level = 1;
@@ -197,7 +197,7 @@ namespace SolastaCommunityExpansion.Builders
             }
         }
 
-        public CastSpellBuilder SetScribedSpells(int startingLevel, int initialAmount, int perLevelAfterFirst)
+        public FeatureDefinitionCastSpellBuilder SetScribedSpells(int startingLevel, int initialAmount, int perLevelAfterFirst)
         {
             Definition.ScribedSpells.Clear();
             int level = 1;
@@ -226,18 +226,18 @@ namespace SolastaCommunityExpansion.Builders
         private readonly int[] BonusSpellsKnownByCasterLevel = { 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 13, 13 };
         private readonly int[] BonusSpellsKnownThirdCaster = { 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4 };
 
-        public CastSpellBuilder SetKnownSpells(params int[] spellsCount)
+        public FeatureDefinitionCastSpellBuilder SetKnownSpells(params int[] spellsCount)
         {
             return SetKnownSpells(spellsCount.AsEnumerable());
         }
 
-        public CastSpellBuilder SetKnownSpells(IEnumerable<int> spellsCount)
+        public FeatureDefinitionCastSpellBuilder SetKnownSpells(IEnumerable<int> spellsCount)
         {
             Definition.KnownSpells.SetRange(spellsCount);
             return this;
         }
 
-        public CastSpellBuilder SetKnownSpells(int startingAmount, int startingLevel, CasterProgression progression)
+        public FeatureDefinitionCastSpellBuilder SetKnownSpells(int startingAmount, int startingLevel, CasterProgression progression)
         {
             Definition.KnownSpells.Clear();
             int level = 1;
@@ -276,7 +276,7 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public CastSpellBuilder SetReplacedZero()
+        public FeatureDefinitionCastSpellBuilder SetReplacedZero()
         {
             Definition.ReplacedSpells.Clear();
             for (int level = 1; level < 21; level++)
@@ -286,7 +286,7 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public CastSpellBuilder SetReplacedOne()
+        public FeatureDefinitionCastSpellBuilder SetReplacedOne()
         {
             Definition.ReplacedSpells.Clear();
             Definition.ReplacedSpells.Add(0);
@@ -297,12 +297,12 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public CastSpellBuilder SetReplacedSpells(params int[] spellsCount)
+        public FeatureDefinitionCastSpellBuilder SetReplacedSpells(params int[] spellsCount)
         {
             return SetReplacedSpells(spellsCount.AsEnumerable());
         }
 
-        public CastSpellBuilder SetReplacedSpells(IEnumerable<int> spellsCount)
+        public FeatureDefinitionCastSpellBuilder SetReplacedSpells(IEnumerable<int> spellsCount)
         {
             Definition.ReplacedSpells.SetRange(spellsCount);
             return this;
@@ -333,18 +333,18 @@ namespace SolastaCommunityExpansion.Builders
             new List<int> {4,3,3,3,3 },
         };
 
-        public CastSpellBuilder SetSlotsPerLevel(params FeatureDefinitionCastSpell.SlotsByLevelDuplet[] slotsPerLevels)
+        public FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(params FeatureDefinitionCastSpell.SlotsByLevelDuplet[] slotsPerLevels)
         {
             return SetSlotsPerLevel(slotsPerLevels.AsEnumerable());
         }
 
-        public CastSpellBuilder SetSlotsPerLevel(IEnumerable<FeatureDefinitionCastSpell.SlotsByLevelDuplet> slotsPerLevels)
+        public FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(IEnumerable<FeatureDefinitionCastSpell.SlotsByLevelDuplet> slotsPerLevels)
         {
             Definition.SlotsPerLevels.SetRange(slotsPerLevels);
             return this;
         }
 
-        public CastSpellBuilder SetSlotsPerLevel(int startingLevel, CasterProgression progression)
+        public FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(int startingLevel, CasterProgression progression)
         {
             int level = 1;
             for (; level < startingLevel; level++)
