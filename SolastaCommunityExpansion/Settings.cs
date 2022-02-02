@@ -18,6 +18,14 @@ namespace SolastaCommunityExpansion
         public const string GUID = "b1ffaca74824486ea74a68d45e6b1925";
 
         //
+        // Blueprints Viewer UI
+        //
+
+        internal int SelectedRawDataType = 0;
+        internal int MaxRows = 20;
+        internal int MaxSearchDepth = 3;
+
+        //
         // SETTINGS UI TOGGLES
         //
 
@@ -224,6 +232,8 @@ namespace SolastaCommunityExpansion
         //
 
         // Debug
+        public bool EnableBlueprintsPanel { get; set; }
+        public bool EnablePatchesPanel { get; set; }
         public bool EnableCheatMenu { get; set; }
         public bool NoExperienceOnLevelUp { get; set; }
 

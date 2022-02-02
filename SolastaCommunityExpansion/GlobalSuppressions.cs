@@ -10,6 +10,7 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: SuppressMessage("Roslynator", "ROS0003")]
 
 // namespaces
+[assembly: SuppressMessage("", "IDE0130", Justification = "3rd party source", Scope = "namespaceanddescendants", Target = "~N:DataViewer")]
 [assembly: SuppressMessage("", "IDE0130", Justification = "3rd party source", Scope = "namespaceanddescendants", Target = "~N:ModKit")]
 [assembly: SuppressMessage("", "IDE0130", Justification = "3rd party source", Scope = "namespaceanddescendants", Target = "~N:SolastaModApi")]
 
