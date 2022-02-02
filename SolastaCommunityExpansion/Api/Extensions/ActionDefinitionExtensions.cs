@@ -71,6 +71,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetCanTriggerBattle<T>(this T entity, System.Boolean value)
+            where T : ActionDefinition
+        {
+            entity.SetField("canTriggerBattle", value);
+            return entity;
+        }
+
         public static T SetClassNameOverride<T>(this T entity, System.String value)
             where T : ActionDefinition
         {

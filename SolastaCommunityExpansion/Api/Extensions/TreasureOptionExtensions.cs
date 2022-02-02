@@ -33,41 +33,27 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(EditableStateDescription))]
-    public static partial class EditableStateDescriptionExtensions
+    [TargetType(typeof(TreasureOption))]
+    public static partial class TreasureOptionExtensions
     {
-        public static T SetChildrenStates<T>(this T entity, EditableStateDescription[] value)
-            where T : EditableStateDescription
+        public static T SetAmount<T>(this T entity, System.Int32 value)
+            where T : TreasureOption
         {
-            entity.ChildrenStates = value;
+            entity.SetField("amount", value);
             return entity;
         }
 
-        public static T SetChildrenStatesIndexes<T>(this T entity, System.Int32[] value)
-            where T : EditableStateDescription
+        public static T SetItemDefinition<T>(this T entity, ItemDefinition value)
+            where T : TreasureOption
         {
-            entity.ChildrenStatesIndexes = value;
+            entity.SetField("itemDefinition", value);
             return entity;
         }
 
-        public static T SetEditionColor<T>(this T entity, UnityEngine.Color value)
-            where T : EditableStateDescription
+        public static T SetOdds<T>(this T entity, System.Int32 value)
+            where T : TreasureOption
         {
-            entity.EditionColor = value;
-            return entity;
-        }
-
-        public static T SetEditionPosition<T>(this T entity, UnityEngine.Vector2 value)
-            where T : EditableStateDescription
-        {
-            entity.EditionPosition = value;
-            return entity;
-        }
-
-        public static T SetIndex<T>(this T entity, System.Int32 value)
-            where T : EditableStateDescription
-        {
-            entity.SetField("<Index>k__BackingField", value);
+            entity.SetField("odds", value);
             return entity;
         }
     }

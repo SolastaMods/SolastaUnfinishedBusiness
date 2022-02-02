@@ -15,10 +15,25 @@ namespace SolastaModApi
         }
 
         // NOTE: CreateGuid uses .ToString() which results in a guid of form b503ccb3-faac-4730-804c-d537bb61a582
-        public static string CreateGuid(Guid guid, string name) => GuidHelper.Create(guid, name).ToString();
-        public static string CreateGuid(string guid, string name) => GuidHelper.Create(new Guid(guid), name).ToString();
-        public static string CreateTitleKey(string name, string category) => $"{category}/&{name}Title";
-        public static string CreateDescriptionKey(string name, string category) => $"{category}/&{name}Description";
+        public static string CreateGuid(Guid guid, string name)
+        {
+            return GuidHelper.Create(guid, name).ToString();
+        }
+
+        public static string CreateGuid(string guid, string name)
+        {
+            return GuidHelper.Create(new Guid(guid), name).ToString();
+        }
+
+        public static string CreateTitleKey(string name, string category)
+        {
+            return $"{category}/&{name}Title";
+        }
+
+        public static string CreateDescriptionKey(string name, string category)
+        {
+            return $"{category}/&{name}Description";
+        }
 
         public static bool LogDefinitionCreation { get; set; }
 

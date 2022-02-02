@@ -809,9 +809,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 //DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondAC,
                 DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondHP,
                 DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondMeleeAttack
-                //DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondMeleeDamage,
-                //DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondSkillProficiency,
-                //DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondSavingThrows
+            //DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondMeleeDamage,
+            //DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondSkillProficiency,
+            //DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondSavingThrows
             );
         }
 

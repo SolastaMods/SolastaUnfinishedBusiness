@@ -313,7 +313,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public MonsterBuilder AddSkillScores(params (string skillName, int bonus)[] skillScores)
         {
-            return AddSkillScores(skillScores.Select(ss => new MonsterSkillProficiency (ss.skillName, ss.bonus)));
+            return AddSkillScores(skillScores.Select(ss => new MonsterSkillProficiency(ss.skillName, ss.bonus)));
         }
 
         public MonsterBuilder AddSkillScores(params MonsterSkillProficiency[] skillScores)
@@ -329,7 +329,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public MonsterBuilder SetSkillScores(params (string skillName, int bonus)[] skillScores)
         {
-            return SetSkillScores(skillScores.Select(ss => new MonsterSkillProficiency (ss.skillName, ss.bonus)));
+            return SetSkillScores(skillScores.Select(ss => new MonsterSkillProficiency(ss.skillName, ss.bonus)));
         }
 
         public MonsterBuilder SetSkillScores(params MonsterSkillProficiency[] skillScores)

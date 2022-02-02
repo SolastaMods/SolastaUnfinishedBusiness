@@ -1,8 +1,5 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using static SolastaModApi.DatabaseHelper.QuestTreeDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.DisableAutoEquip
 {
