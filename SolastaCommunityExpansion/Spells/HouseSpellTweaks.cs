@@ -1,7 +1,10 @@
 ﻿using System.Linq;
-using SolastaCommunityExpansion.Spells.Features;
+using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
+using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Spells
 {
@@ -52,7 +55,6 @@ namespace SolastaCommunityExpansion.Spells
                 Main.Error("Unable to find form of type Condition in GreaterRestoration");
             }
         }
-
         public static void BugFixCalmEmotionsOnAlly()
         {
             if (!Main.Settings.BugFixCalmEmotionsOnAlly)
@@ -70,8 +72,17 @@ namespace SolastaCommunityExpansion.Spells
             {
                 Main.Log("BugFixCalmEmotionsOnAlly: Fixing invalid form.");
 
-                invalidForm.ConditionForm.ConditionDefinition =
-                    ConditionDefinitionCalmEmotionImmunitiesBuilder.ConditionCalmEmotionImmunities;
+                invalidForm.ConditionForm.ConditionsList.Clear();
+
+                if (ConditionCalmedByCalmEmotionsAlly.ConditionType == RuleDefinitions.ConditionType.Detrimental)
+                {
+                    ConditionCalmedByCalmEmotionsAlly.SetConditionType(RuleDefinitions.ConditionType.Beneficial);
+                    ConditionCalmedByCalmEmotionsAlly.SetField("features",
+                        new List<FeatureDefinition> {
+                            ConditionAffinityFrightenedImmunity,
+                            ConditionAffinityCharmImmunity
+                        });
+                }
             }
         }
     }
