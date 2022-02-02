@@ -5,7 +5,7 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static FeatureDefinitionAutoPreparedSpells;
 
-namespace SolastaCommunityExpansion.Builders
+namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionAutoPreparedSpellsBuilder : BaseDefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
     {

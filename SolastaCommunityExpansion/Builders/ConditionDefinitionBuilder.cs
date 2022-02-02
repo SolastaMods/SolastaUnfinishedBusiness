@@ -5,7 +5,7 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 
-namespace SolastaCommunityExpansion.Features
+namespace SolastaCommunityExpansion.Builders
 {
     public class ConditionDefinitionBuilder<TDefinition> : BaseDefinitionBuilder<TDefinition> where TDefinition : ConditionDefinition
     {

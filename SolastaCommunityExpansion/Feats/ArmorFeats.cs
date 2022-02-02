@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.Builders;
-using SolastaCommunityExpansion.Features;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Infrastructure;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;

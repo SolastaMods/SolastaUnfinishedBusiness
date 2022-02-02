@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaCommunityExpansion.Helpers;
+using SolastaModApi.Extensions;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap

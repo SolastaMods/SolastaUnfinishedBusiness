@@ -3,8 +3,8 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using SolastaCommunityExpansion.Helpers;
 using SolastaCommunityExpansion.Models;
+using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures

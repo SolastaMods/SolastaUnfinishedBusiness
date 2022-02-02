@@ -3,26 +3,8 @@ using System.Linq;
 using System.Reflection;
 using SolastaModApi.Infrastructure;
 
-namespace SolastaCommunityExpansion.Helpers
+namespace SolastaModApi.Extensions
 {
-    internal static class RulesetActorExtensions
-    {
-        /// <summary>
-        /// Makes using RulesetActor.EnumerateFeaturesToBrowse simpler
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="actor"></param>
-        /// <param name="populateActorFeaturesToBrowse">Set to true to populate actor.FeaturesToBrowse as well as returning features.  false to just return features.</param>
-        /// <param name="featuresOrigin"></param>
-        public static ICollection<T> EnumerateFeaturesToBrowse<T>(
-            this RulesetActor actor, bool populateActorFeaturesToBrowse = false, Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin = null)
-        {
-            var features = populateActorFeaturesToBrowse ? actor.FeaturesToBrowse : new List<FeatureDefinition>();
-            actor.EnumerateFeaturesToBrowse<T>(features, featuresOrigin);
-            return features.OfType<T>().ToList();
-        }
-    }
-
     internal static class GameGadgetExtensions
     {
         public const string Enabled = "Enabled";
@@ -54,7 +36,7 @@ namespace SolastaCommunityExpansion.Helpers
             var enabled = gadget.CheckConditionName(Enabled, true, false);
             var paramEnabled = gadget.CheckConditionName(ParamEnabled, true, false);
 
-            Main.Log($"{gadget.UniqueNameId}, Enabled={enabled}, ParamEnabled={paramEnabled}");
+            SolastaCommunityExpansion.Main.Log($"{gadget.UniqueNameId}, Enabled={enabled}, ParamEnabled={paramEnabled}");
 
             return enabled || paramEnabled;
         }

@@ -1,6 +1,6 @@
 ﻿using SolastaModApi;
 
-namespace SolastaCommunityExpansion.Features
+namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionSummoningAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionSummoningAffinity>
     {

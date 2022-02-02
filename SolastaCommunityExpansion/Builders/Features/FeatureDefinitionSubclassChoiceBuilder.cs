@@ -1,7 +1,7 @@
 ﻿using SolastaModApi;
 using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.Builders
+namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionSubclassChoiceBuilder : BaseDefinitionBuilder<FeatureDefinitionSubclassChoice>
     {
