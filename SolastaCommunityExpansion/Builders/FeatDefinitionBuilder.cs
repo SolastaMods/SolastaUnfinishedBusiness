@@ -24,13 +24,13 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetGuiPresentation(guiPresentation);
         }
 
-        public FeatDefinitionBuilder(string name, Guid namespaceGuid, string keyPrefix, params FeatureDefinition[] features)
-            : this(name, namespaceGuid, keyPrefix, features.AsEnumerable())
+        public FeatDefinitionBuilder(string name, Guid namespaceGuid, string category, params FeatureDefinition[] features)
+            : this(name, namespaceGuid, category, features.AsEnumerable())
         {
         }
 
-        public FeatDefinitionBuilder(string name, Guid namespaceGuid, string keyPrefix, IEnumerable<FeatureDefinition> features)
-            : base(name, namespaceGuid, keyPrefix)
+        public FeatDefinitionBuilder(string name, Guid namespaceGuid, string category, IEnumerable<FeatureDefinition> features)
+            : base(name, namespaceGuid, category)
         {
             InitializePrerequisiteCollectionFields();
 

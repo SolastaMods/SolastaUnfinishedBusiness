@@ -33,27 +33,26 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(BestiaryStatsDefinition))]
-    public static partial class BestiaryStatsDefinitionExtensions
+    [TargetType(typeof(GuiActiveCondition))]
+    public static partial class GuiActiveConditionExtensions
     {
-        public static T SetLineHeight<T>(this T entity, System.Single value)
-            where T : BestiaryStatsDefinition
+        public static System.Collections.Generic.Dictionary<System.String, TagsDefinitions.Criticity> GetConditionTags<T>(this T entity)
+            where T : GuiActiveCondition
         {
-            entity.SetField("lineHeight", value);
+            return entity.GetField<System.Collections.Generic.Dictionary<System.String, TagsDefinitions.Criticity>>("conditionTags");
+        }
+
+        public static T SetActiveCondition<T>(this T entity, RulesetCondition value)
+            where T : GuiActiveCondition
+        {
+            entity.SetField("activeCondition", value);
             return entity;
         }
 
-        public static T SetLineSpacing<T>(this T entity, System.Single value)
-            where T : BestiaryStatsDefinition
+        public static T SetConditionDefinition<T>(this T entity, ConditionDefinition value)
+            where T : GuiActiveCondition
         {
-            entity.SetField("lineSpacing", value);
-            return entity;
-        }
-
-        public static T SetWordSpacing<T>(this T entity, System.Single value)
-            where T : BestiaryStatsDefinition
-        {
-            entity.SetField("wordSpacing", value);
+            entity.SetField("conditionDefinition", value);
             return entity;
         }
     }

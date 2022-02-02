@@ -36,6 +36,90 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(RulesetCharacterHero))]
     public static partial class RulesetCharacterHeroExtensions
     {
+        public static System.Collections.Generic.Dictionary<ItemDefinition, System.Collections.Generic.List<FeatureDefinition>> GetActiveItemFeatures<T>(this T entity)
+            where T : RulesetCharacterHero
+        {
+            return entity.GetField<System.Collections.Generic.Dictionary<ItemDefinition, System.Collections.Generic.List<FeatureDefinition>>>("activeItemFeatures");
+        }
+
+        public static System.Collections.Generic.List<System.String> GetAlignmentOptionalPersonalityFlags<T>(this T entity)
+            where T : RulesetCharacterHero
+        {
+            return entity.GetField<System.Collections.Generic.List<System.String>>("alignmentOptionalPersonalityFlags");
+        }
+
+        public static System.Collections.Generic.List<IAttackModificationProvider> GetAttackModifiers<T>(this T entity)
+            where T : RulesetCharacterHero
+        {
+            return entity.GetField<System.Collections.Generic.List<IAttackModificationProvider>>("attackModifiers");
+        }
+
+        public static System.Collections.Generic.Dictionary<ItemDefinition, System.Int32> GetBonusByItem<T>(this T entity)
+            where T : RulesetCharacterHero
+        {
+            return entity.GetField<System.Collections.Generic.Dictionary<ItemDefinition, System.Int32>>("bonusByItem");
+        }
+
+        public static System.Collections.Generic.List<RulesetItem> GetCarriedItems<T>(this T entity)
+            where T : RulesetCharacterHero
+        {
+            return entity.GetField<System.Collections.Generic.List<RulesetItem>>("carriedItems");
+        }
+
+        public static System.Collections.Generic.Dictionary<CharacterClassDefinition, CharacterSubclassDefinition> GetClassesAndSublasses<T>(this T entity)
+            where T : RulesetCharacterHero
+        {
+            return entity.GetField<System.Collections.Generic.Dictionary<CharacterClassDefinition, CharacterSubclassDefinition>>("classesAndSublasses");
+        }
+
+        public static System.Collections.Generic.List<RulesetItem> GetDestroyedItems<T>(this T entity)
+            where T : RulesetCharacterHero
+        {
+            return entity.GetField<System.Collections.Generic.List<RulesetItem>>("destroyedItems");
+        }
+
+        public static System.Collections.Generic.List<FeatureDefinition> GetEquipmentBrowseList<T>(this T entity)
+            where T : RulesetCharacterHero
+        {
+            return entity.GetField<System.Collections.Generic.List<FeatureDefinition>>("equipmentBrowseList");
+        }
+
+        public static System.Collections.Generic.List<System.String> GetForbiddenArmorTags<T>(this T entity)
+            where T : RulesetCharacterHero
+        {
+            return entity.GetField<System.Collections.Generic.List<System.String>>("forbiddenArmorTags");
+        }
+
+        public static System.Collections.Generic.List<System.Int32> GetHitPointsGainHistory<T>(this T entity)
+            where T : RulesetCharacterHero
+        {
+            return entity.GetField<System.Collections.Generic.List<System.Int32>>("hitPointsGainHistory");
+        }
+
+        public static System.Collections.Generic.List<RulesetAttributeModifier> GetModifiers<T>(this T entity)
+            where T : RulesetCharacterHero
+        {
+            return entity.GetField<System.Collections.Generic.List<RulesetAttributeModifier>>("modifiers");
+        }
+
+        public static System.Collections.Generic.Dictionary<RuleDefinitions.DieType, System.Int32> GetSpentHitDice<T>(this T entity)
+            where T : RulesetCharacterHero
+        {
+            return entity.GetField<System.Collections.Generic.Dictionary<RuleDefinitions.DieType, System.Int32>>("spentHitDice");
+        }
+
+        public static System.Collections.Generic.Dictionary<System.String, TagsDefinitions.Criticity> GetTagsMap<T>(this T entity)
+            where T : RulesetCharacterHero
+        {
+            return entity.GetField<System.Collections.Generic.Dictionary<System.String, TagsDefinitions.Criticity>>("tagsMap");
+        }
+
+        public static System.Collections.Generic.List<FeatureDefinition> GetWeaponModifiers<T>(this T entity)
+            where T : RulesetCharacterHero
+        {
+            return entity.GetField<System.Collections.Generic.List<FeatureDefinition>>("weaponModifiers");
+        }
+
         public static T SetAdditionalBackstory<T>(this T entity, System.String value)
             where T : RulesetCharacterHero
         {

@@ -36,6 +36,12 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(UserFunctorParametersDescription))]
     public static partial class UserFunctorParametersDescriptionExtensions
     {
+        public static System.Collections.Generic.List<System.String> GetValidStepNames<T>(this T entity)
+            where T : UserFunctorParametersDescription
+        {
+            return entity.GetField<System.Collections.Generic.List<System.String>>("validStepNames");
+        }
+
         public static T SetBoolParameter<T>(this T entity, System.Boolean value)
             where T : UserFunctorParametersDescription
         {

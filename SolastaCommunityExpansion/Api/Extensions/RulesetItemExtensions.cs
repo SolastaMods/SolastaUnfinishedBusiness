@@ -36,6 +36,18 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(RulesetItem))]
     public static partial class RulesetItemExtensions
     {
+        public static System.Collections.Generic.List<FeatureDefinition> GetAttackModifiers<T>(this T entity)
+            where T : RulesetItem
+        {
+            return entity.GetField<System.Collections.Generic.List<FeatureDefinition>>("attackModifiers");
+        }
+
+        public static System.Collections.Generic.List<RulesetItemProperty> GetToRemove<T>(this T entity)
+            where T : RulesetItem
+        {
+            return entity.GetField<System.Collections.Generic.List<RulesetItemProperty>>("toRemove");
+        }
+
         public static T SetAttunedToCharacter<T>(this T entity, System.String value)
             where T : RulesetItem
         {

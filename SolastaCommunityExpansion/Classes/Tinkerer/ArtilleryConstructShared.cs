@@ -25,8 +25,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         private static FeatureDefinitionPowerSharedPool CreateTempHPShield03ModePower()
         {
             GuiPresentationBuilder guiPresentationTempHPShield03 = new GuiPresentationBuilder(
-                "Feature/&TempHPShieldModePowerDescription",
-                "Feature/&TempHPShieldModePowerTitle");
+                "Feature/&TempHPShieldModePowerTitle",
+                "Feature/&TempHPShieldModePowerDescription");
             guiPresentationTempHPShield03.SetSpriteReference(Aid.GuiPresentation.SpriteReference);
 
             EffectDescriptionBuilder effectTempHPShieldmode03 = new EffectDescriptionBuilder();
@@ -54,8 +54,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         private static FeatureDefinitionPowerSharedPool CreateFlameArtillery03ModePower()
         {
             GuiPresentationBuilder guiPresentationFlameArtillery03 = new GuiPresentationBuilder(
-               "Feature/&FlameArtilleryModePowerDescription",
-               "Feature/&FlameArtilleryModePowerTitle");
+               "Feature/&FlameArtilleryModePowerTitle",
+               "Feature/&FlameArtilleryModePowerDescription");
             guiPresentationFlameArtillery03.SetSpriteReference(BurningHands.GuiPresentation.SpriteReference);
 
             EffectDescriptionBuilder effectFlameArtillerymode03 = new EffectDescriptionBuilder();
@@ -82,8 +82,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         private static FeatureDefinitionPowerSharedPool CreateForceArtillery03ModePower()
         {
             GuiPresentationBuilder guiPresentationForceArtillery03 = new GuiPresentationBuilder(
-                "Feature/&ForceArtilleryModePowerDescription",
-                "Feature/&ForceArtilleryModePowerTitle");
+                "Feature/&ForceArtilleryModePowerTitle",
+                "Feature/&ForceArtilleryModePowerDescription");
             guiPresentationForceArtillery03.SetSpriteReference(MagicMissile.GuiPresentation.SpriteReference);
 
             EffectDescriptionBuilder effectForceArtillerymode03 = new EffectDescriptionBuilder();
@@ -166,8 +166,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         private static FeatureDefinitionPowerSharedPool CreateFlameArtillery09ModePower()
         {
             GuiPresentationBuilder guiPresentationFlameArtillery09 = new GuiPresentationBuilder(
-                "Feature/&FlameArtillery_09ModePowerDescription",
-                "Feature/&FlameArtillery_09ModePowerTitle");
+                "Feature/&FlameArtillery_09ModePowerTitle",
+                "Feature/&FlameArtillery_09ModePowerDescription");
             guiPresentationFlameArtillery09.SetSpriteReference(BurningHands.GuiPresentation.SpriteReference);
 
             EffectDescriptionBuilder effectFlameArtillerymode09 = new EffectDescriptionBuilder();
@@ -198,8 +198,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         private static FeatureDefinitionPowerSharedPool CreateForceArtillery09ModePower()
         {
             GuiPresentationBuilder guiPresentationForceArtillery09 = new GuiPresentationBuilder(
-                "Feature/&ForceArtillery_09ModePowerDescription",
-                "Feature/&ForceArtillery_09ModePowerTitle");
+                "Feature/&ForceArtillery_09ModePowerTitle",
+                "Feature/&ForceArtillery_09ModePowerDescription");
             guiPresentationForceArtillery09.SetSpriteReference(MagicMissile.GuiPresentation.SpriteReference);
 
             EffectDescriptionBuilder effectForceArtillerymode09 = new EffectDescriptionBuilder();
@@ -231,8 +231,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         private static FeatureDefinitionPowerSharedPool CreateTempHPShield09ModePower()
         {
             GuiPresentationBuilder guiPresentationTempHPShield09 = new GuiPresentationBuilder(
-                "Feature/&TempHPShield_09ModePowerDescription",
-                "Feature/&TempHPShield_09ModePowerTitle");
+                "Feature/&TempHPShield_09ModePowerTitle",
+                "Feature/&TempHPShield_09ModePowerDescription");
             guiPresentationTempHPShield09.SetSpriteReference(Aid.GuiPresentation.SpriteReference);
 
             EffectDescriptionBuilder effectTempHPShieldmode09 = new EffectDescriptionBuilder();
@@ -295,8 +295,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         private static FeatureDefinitionPowerSharedPool CreateFlameArtillery15ModePower()
         {
             GuiPresentationBuilder guiPresentationFlameArtillery15 = new GuiPresentationBuilder(
-                "Feature/&FlameArtillery_15ModePowerDescription",
-                "Feature/&FlameArtillery_15ModePowerTitle");
+                "Feature/&FlameArtillery_15ModePowerTitle",
+                "Feature/&FlameArtillery_15ModePowerDescription");
             guiPresentationFlameArtillery15.SetSpriteReference(BurningHands.GuiPresentation.SpriteReference);
 
             EffectDescriptionBuilder effectFlameArtillerymode15 = new EffectDescriptionBuilder();
@@ -327,8 +327,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         private static FeatureDefinitionPowerSharedPool CreateForceArtillery15ModePower()
         {
             GuiPresentationBuilder guiPresentationForceArtillery15 = new GuiPresentationBuilder(
-                "Feature/&ForceArtillery_15ModePowerDescription",
-                "Feature/&ForceArtillery_15ModePowerTitle");
+                "Feature/&ForceArtillery_15ModePowerTitle",
+                "Feature/&ForceArtillery_15ModePowerDescription");
             guiPresentationForceArtillery15.SetSpriteReference(MagicMissile.GuiPresentation.SpriteReference);
 
             EffectDescriptionBuilder effectForceArtillerymode15 = new EffectDescriptionBuilder();
@@ -360,8 +360,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         private static FeatureDefinitionPowerSharedPool CreateTempHPShield15ModePower()
         {
             GuiPresentationBuilder guiPresentationTempHPShield15 = new GuiPresentationBuilder(
-                "Feature/&TempHPShield_15ModePowerDescription",
-                "Feature/&TempHPShield_15ModePowerTitle");
+                "Feature/&TempHPShield_15ModePowerTitle",
+                "Feature/&TempHPShield_15ModePowerDescription");
             guiPresentationTempHPShield15.SetSpriteReference(Aid.GuiPresentation.SpriteReference);
 
             EffectDescriptionBuilder effectTempHPShieldmode15 = new EffectDescriptionBuilder();
@@ -395,8 +395,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.GuiPresentation.Description = "Feat/&SummonArtilleryConstructlevel15Description";
 
             GuiPresentationBuilder artilleryPoolIncreaseGui = new GuiPresentationBuilder(
-                "Subclass/&HArtilleryIncreaseDescription",
-                "Subclass/&HArtilleryIncreaseTitle");
+                "Subclass/&HArtilleryIncreaseTitle",
+                "Subclass/&HArtilleryIncreaseDescription");
 
             FeatureDefinitionPowerPoolModifier artilleryPoolIncrease = new FeatureDefinitionPowerPoolModifierBuilder(
                 "AttributeModiferArtilleryPoolIncrease",

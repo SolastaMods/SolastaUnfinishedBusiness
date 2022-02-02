@@ -24,8 +24,8 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 static GuiPresentation Build()
                 {
                     var spellRecoveryGui = new GuiPresentationBuilder(
-                        "Subclass/&MagicAffinitySpellMasterRecoveryDescription",
-                        "Subclass/&MagicAffinitySpellMasterRecoveryTitle");
+                        "Subclass/&MagicAffinitySpellMasterRecoveryTitle",
+                        "Subclass/&MagicAffinitySpellMasterRecoveryDescription");
                     spellRecoveryGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
 
                     return spellRecoveryGui.Build();
@@ -55,21 +55,21 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             // Make Spell Master subclass
             CharacterSubclassDefinitionBuilder spellMaster = new CharacterSubclassDefinitionBuilder("SpellMaster", GuidHelper.Create(SubclassNamespace, "SpellMaster").ToString());
             GuiPresentationBuilder spellPresentation = new GuiPresentationBuilder(
-                "Subclass/&TraditionSpellMasterDescription",
-                "Subclass/&TraditionSpellMasterTitle");
+                "Subclass/&TraditionSpellMasterTitle",
+                "Subclass/&TraditionSpellMasterDescription");
             spellPresentation.SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.DomainInsight.GuiPresentation.SpriteReference);
             spellMaster.SetGuiPresentation(spellPresentation.Build());
 
             GuiPresentationBuilder preparedGui = new GuiPresentationBuilder(
-                "Subclass/&TraditionSpellMasterPreparedDescription",
-                "Subclass/&TraditionSpellMasterPreparedTitle");
+                "Subclass/&TraditionSpellMasterPreparedTitle",
+                "Subclass/&TraditionSpellMasterPreparedDescription");
             FeatureDefinitionMagicAffinity prepared = PreparedSpellModifier(RuleDefinitions.PreparedSpellsModifier.ProficiencyBonus,
                 "MagicAffinitySpellMasterPrepared", preparedGui.Build());
             spellMaster.AddFeatureAtLevel(prepared, 2);
 
             GuiPresentationBuilder extraKnownGui = new GuiPresentationBuilder(
-                "Subclass/&MagicAffinitySpellMasterBonusScribingDescription",
-                "Subclass/&MagicAffinitySpellMasterBonusScribingTitle");
+                "Subclass/&MagicAffinitySpellMasterBonusScribingTitle",
+                "Subclass/&MagicAffinitySpellMasterBonusScribingDescription");
             FeatureDefinitionMagicAffinity extraKnown = BuildMagicAffinityScribing(1f, 1f, 1,
                 RuleDefinitions.AdvantageType.None, "MagicAffinitySpellMasterKnowledge", extraKnownGui.Build());
             spellMaster.AddFeatureAtLevel(extraKnown, 2);
@@ -81,30 +81,30 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 RestActivityDefinition.ActivityCondition.CanUsePower, "UsePower", BonusRecovery.Name, "ArcaneDepth", SpellRecoveryGui);
 
             GuiPresentationBuilder spellKnowledgeAffinity = new GuiPresentationBuilder(
-                "Subclass/&MagicAffinitySpellMasterScribingDescription",
-                "Subclass/&MagicAffinitySpellMasterScribingTitle");
+                "Subclass/&MagicAffinitySpellMasterScribingTitle",
+                "Subclass/&MagicAffinitySpellMasterScribingDescription");
             FeatureDefinitionMagicAffinity knowledgeAffinity = BuildMagicAffinityScribing(0.25f, 0.25f, 0,
                 RuleDefinitions.AdvantageType.Advantage, "MagicAffinitySpellMasterScriber", spellKnowledgeAffinity.Build());
             spellMaster.AddFeatureAtLevel(knowledgeAffinity, 6);
 
             GuiPresentationBuilder bonusCantripsGui = new GuiPresentationBuilder(
-                "Subclass/&TraditionSpellMasterBonusCantripsDescription",
-                "Subclass/&TraditionSpellMasterBonusCantripsTitle");
+                "Subclass/&TraditionSpellMasterBonusCantripsTitle",
+                "Subclass/&TraditionSpellMasterBonusCantripsDescription");
             FeatureDefinitionPointPool bonusCantrips = new FeatureDefinitionPointPoolBuilder("TraditionSpellMasterBonusCantrips",
                 GuidHelper.Create(SubclassNamespace, "TraditionSpellMasterBonusCantrips").ToString(),
                 HeroDefinitions.PointsPoolType.Cantrip, 2, bonusCantripsGui.Build()).OnlyUniqueChoices().AddToDB();
             spellMaster.AddFeatureAtLevel(bonusCantrips, 6);
 
             GuiPresentationBuilder extraPreparedGui = new GuiPresentationBuilder(
-                "Subclass/&TraditionSpellMasterExtraPreparedDescription",
-                "Subclass/&TraditionSpellMasterExtraPreparedTitle");
+                "Subclass/&TraditionSpellMasterExtraPreparedTitle",
+                "Subclass/&TraditionSpellMasterExtraPreparedDescription");
             FeatureDefinitionMagicAffinity extraPrepared = PreparedSpellModifier(RuleDefinitions.PreparedSpellsModifier.SpellcastingAbilityBonus,
                 "MagicAffinitySpellMasterExtraPrepared", extraPreparedGui.Build());
             spellMaster.AddFeatureAtLevel(extraPrepared, 10);
 
             GuiPresentationBuilder spellResistanceGui = new GuiPresentationBuilder(
-                "Subclass/&TraditionSpellMasterSpellResistanceDescription",
-                "Subclass/&TraditionSpellMasterSpellResistanceTitle");
+                "Subclass/&TraditionSpellMasterSpellResistanceTitle",
+                "Subclass/&TraditionSpellMasterSpellResistanceDescription");
             FeatureDefinitionSavingThrowAffinity spellResistance = new FeatureDefinitionSavingThrowAffinityBuilder("TraditionSpellMasterSpellResistance",
                 GuidHelper.Create(SubclassNamespace, "TraditionSpellMasterSpellResistance").ToString(),
                 new List<string>()
@@ -179,8 +179,8 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             if (Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster)
             {
                 GuiPresentationBuilder spellRecoveryGui = new GuiPresentationBuilder(
-                    "Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedDescription",
-                    "Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedTitle");
+                    "Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedTitle",
+                    "Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedDescription");
                 spellRecoveryGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
 
                 BonusRecovery.SetGuiPresentation(spellRecoveryGui.Build());
@@ -190,8 +190,8 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             else
             {
                 GuiPresentationBuilder spellRecoveryGui = new GuiPresentationBuilder(
-                    "Subclass/&MagicAffinitySpellMasterRecoveryDescription",
-                    "Subclass/&MagicAffinitySpellMasterRecoveryTitle");
+                    "Subclass/&MagicAffinitySpellMasterRecoveryTitle",
+                    "Subclass/&MagicAffinitySpellMasterRecoveryDescription");
                 spellRecoveryGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
                 BonusRecovery.SetGuiPresentation(spellRecoveryGui.Build());
                 BonusRecovery.SetCostPerUse(1);

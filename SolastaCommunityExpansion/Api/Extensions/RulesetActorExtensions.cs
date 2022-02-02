@@ -36,6 +36,66 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(RulesetActor))]
     public static partial class RulesetActorExtensions
     {
+        public static System.Collections.Generic.List<ISavingThrowAffinityProvider> GetAccountedProviders<T>(this T entity)
+            where T : RulesetActor
+        {
+            return entity.GetField<System.Collections.Generic.List<ISavingThrowAffinityProvider>>("accountedProviders");
+        }
+
+        public static System.Collections.Generic.List<RulesetCondition> GetAllConditionsForEnumeration<T>(this T entity)
+            where T : RulesetActor
+        {
+            return entity.GetField<System.Collections.Generic.List<RulesetCondition>>("allConditionsForEnumeration");
+        }
+
+        public static System.Collections.Generic.List<RulesetCondition> GetConditionsToExecute<T>(this T entity)
+            where T : RulesetActor
+        {
+            return entity.GetField<System.Collections.Generic.List<RulesetCondition>>("conditionsToExecute");
+        }
+
+        public static System.Collections.Generic.List<RulesetCondition> GetConditionsToTerminate<T>(this T entity)
+            where T : RulesetActor
+        {
+            return entity.GetField<System.Collections.Generic.List<RulesetCondition>>("conditionsToTerminate");
+        }
+
+        public static System.Collections.Generic.List<EffectForm> GetDummyEffectForms<T>(this T entity)
+            where T : RulesetActor
+        {
+            return entity.GetField<System.Collections.Generic.List<EffectForm>>("dummyEffectForms");
+        }
+
+        public static System.Collections.Generic.List<RulesetCondition> GetMatchingCancellingConditions<T>(this T entity)
+            where T : RulesetActor
+        {
+            return entity.GetField<System.Collections.Generic.List<RulesetCondition>>("matchingCancellingConditions");
+        }
+
+        public static System.Collections.Generic.List<RulesetCondition> GetMatchingInterruptionConditions<T>(this T entity)
+            where T : RulesetActor
+        {
+            return entity.GetField<System.Collections.Generic.List<RulesetCondition>>("matchingInterruptionConditions");
+        }
+
+        public static System.Collections.Generic.List<RulesetCondition> GetMatchingOccurenceConditions<T>(this T entity)
+            where T : RulesetActor
+        {
+            return entity.GetField<System.Collections.Generic.List<RulesetCondition>>("matchingOccurenceConditions");
+        }
+
+        public static System.Collections.Generic.List<RulesetCondition> GetMatchingRealTimeLaspeConditions<T>(this T entity)
+            where T : RulesetActor
+        {
+            return entity.GetField<System.Collections.Generic.List<RulesetCondition>>("matchingRealTimeLaspeConditions");
+        }
+
+        public static System.Collections.Generic.List<RulesetCondition> GetMatchingRestConditions<T>(this T entity)
+            where T : RulesetActor
+        {
+            return entity.GetField<System.Collections.Generic.List<RulesetCondition>>("matchingRestConditions");
+        }
+
         public static T SetAbilityScoreIncreased<T>(this T entity, RulesetActor.AbilityScoreIncreasedHandler value)
             where T : RulesetActor
         {

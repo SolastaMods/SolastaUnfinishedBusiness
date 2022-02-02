@@ -58,7 +58,7 @@ namespace SolastaCommunityExpansion.FightingStyles
         {
             if (instance == null)
             {
-                GuiPresentationBuilder gui = new GuiPresentationBuilder("FightingStyle/&PugilistFightingDescription", "FightingStyle/&PugilistFightingTitle");
+                GuiPresentationBuilder gui = new GuiPresentationBuilder("FightingStyle/&PugilistFightingTitle", "FightingStyle/&PugilistFightingDescription");
                 gui.SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.PathBerserker.GuiPresentation.SpriteReference);
 
                 EffectDescriptionBuilder offhandEffect = new EffectDescriptionBuilder();

@@ -33,28 +33,19 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(TooltipFeatureFactionRelicParameters))]
-    public static partial class TooltipFeatureFactionRelicParametersExtensions
+    [TargetType(typeof(GizmoDisplayParameters))]
+    public static partial class GizmoDisplayParametersExtensions
     {
-        public static T SetFactionItemPrefab<T>(this T entity, UnityEngine.GameObject value)
-            where T : TooltipFeatureFactionRelicParameters
+        public static System.Collections.Generic.List<GizmoDisplayParameters.ColorDescription> GetColorDescriptions<T>(this T entity)
+            where T : GizmoDisplayParameters
         {
-            entity.SetField("factionItemPrefab", value);
-            return entity;
+            return entity.GetField<System.Collections.Generic.List<GizmoDisplayParameters.ColorDescription>>("colorDescriptions");
         }
 
-        public static T SetFactionItemsTable<T>(this T entity, UnityEngine.RectTransform value)
-            where T : TooltipFeatureFactionRelicParameters
+        public static System.Collections.Generic.List<GizmoDisplayParameters.ShapeDescription> GetShapeDescriptions<T>(this T entity)
+            where T : GizmoDisplayParameters
         {
-            entity.SetField("factionItemsTable", value);
-            return entity;
-        }
-
-        public static T SetVecticalLayoutGroup<T>(this T entity, UnityEngine.RectTransform value)
-            where T : TooltipFeatureFactionRelicParameters
-        {
-            entity.SetField("vecticalLayoutGroup", value);
-            return entity;
+            return entity.GetField<System.Collections.Generic.List<GizmoDisplayParameters.ShapeDescription>>("shapeDescriptions");
         }
     }
 }

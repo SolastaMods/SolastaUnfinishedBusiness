@@ -33,32 +33,31 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(ConsoleTableDefinition))]
-    public static partial class ConsoleTableDefinitionExtensions
+    [TargetType(typeof(SubtitleTableDefinition))]
+    public static partial class SubtitleTableDefinitionExtensions
     {
-        public static T SetIndentWidth<T>(this T entity, System.Single value)
-            where T : ConsoleTableDefinition
+        public static System.Collections.Generic.List<SubtitleStyleDuplet> GetStyleDuplets<T>(this T entity)
+            where T : SubtitleTableDefinition
         {
-            entity.SetField("indentWidth", value);
-            return entity;
+            return entity.GetField<System.Collections.Generic.List<SubtitleStyleDuplet>>("styleDuplets");
         }
 
         public static T SetLineHeight<T>(this T entity, System.Single value)
-            where T : ConsoleTableDefinition
+            where T : SubtitleTableDefinition
         {
             entity.SetField("lineHeight", value);
             return entity;
         }
 
         public static T SetLineSpacing<T>(this T entity, System.Single value)
-            where T : ConsoleTableDefinition
+            where T : SubtitleTableDefinition
         {
             entity.SetField("lineSpacing", value);
             return entity;
         }
 
         public static T SetWordSpacing<T>(this T entity, System.Single value)
-            where T : ConsoleTableDefinition
+            where T : SubtitleTableDefinition
         {
             entity.SetField("wordSpacing", value);
             return entity;

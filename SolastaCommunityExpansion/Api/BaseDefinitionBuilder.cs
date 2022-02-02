@@ -17,8 +17,8 @@ namespace SolastaModApi
         // NOTE: CreateGuid uses .ToString() which results in a guid of form b503ccb3-faac-4730-804c-d537bb61a582
         public static string CreateGuid(Guid guid, string name) => GuidHelper.Create(guid, name).ToString();
         public static string CreateGuid(string guid, string name) => GuidHelper.Create(new Guid(guid), name).ToString();
-        public static string CreateTitleKey(string name, string prefix) => $"{prefix}/&{name}Title";
-        public static string CreateDescriptionKey(string name, string prefix) => $"{prefix}/&{name}Description";
+        public static string CreateTitleKey(string name, string category) => $"{category}/&{name}Title";
+        public static string CreateDescriptionKey(string name, string category) => $"{category}/&{name}Description";
 
         public static bool LogDefinitionCreation { get; set; }
 
@@ -72,12 +72,12 @@ namespace SolastaModApi
         /// </summary>
         /// <param name="name">The name assigned to the definition (mandatory)</param>
         /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition, based on baseGuid+name (mandatory)</param>
-        /// <param name="keyPrefix">Used to generate title and description on the GuiPresentation.  The generated fields if
-        /// name="MyDefinition" and keyPrefix="MyPrefix" are: MyPrefix/&amp;MyDefinitionTitle and MyPrefix/&amp;MyDefinitionDescription.
-        /// If keyPrefix=null then no GuiPresentation is created.
+        /// <param name="category">Used to generate title and description on the GuiPresentation.  The generated fields if
+        /// name="MyDefinition" and category="MyCategory" are: MyCategory/&amp;MyDefinitionTitle and MyCategory/&amp;MyDefinitionDescription.
+        /// If category=null then no GuiPresentation is created.
         /// </param>
-        protected BaseDefinitionBuilder(string name, Guid namespaceGuid, string keyPrefix) :
-            this(name, null, namespaceGuid, true, keyPrefix)
+        protected BaseDefinitionBuilder(string name, Guid namespaceGuid, string category) :
+            this(name, null, namespaceGuid, true, category)
         {
         }
 
@@ -87,24 +87,24 @@ namespace SolastaModApi
         /// </summary>
         /// <param name="name">The name assigned to the definition (mandatory)</param>
         /// <param name="definitionGuid">The guid for this definition (mandatory)</param>
-        /// <param name="keyPrefix">Used to generate title and description on the GuiPresentation.  The generated fields if
-        /// name="MyDefinition" and keyPrefix="MyPrefix" are: MyPrefix/&amp;MyDefinitionTitle and MyPrefix/&amp;MyDefinitionDescription.
-        /// If keyPrefix=null then no GuiPresentation is created.
+        /// <param name="category">Used to generate title and description on the GuiPresentation.  The generated fields if
+        /// name="MyDefinition" and category="MyCategory" are: MyCategory/&amp;MyDefinitionTitle and MyCategory/&amp;MyDefinitionDescription.
+        /// If category=null then no GuiPresentation is created.
         /// </param>
-        protected BaseDefinitionBuilder(string name, string definitionGuid, string keyPrefix) :
-            this(name, definitionGuid, Guid.Empty, false, keyPrefix)
+        protected BaseDefinitionBuilder(string name, string definitionGuid, string category) :
+            this(name, definitionGuid, Guid.Empty, false, category)
         {
             Preconditions.IsNotNullOrWhiteSpace(definitionGuid, nameof(definitionGuid));
         }
 
-        private BaseDefinitionBuilder(string name, string definitionGuid, Guid namespaceGuid, bool useNamespaceGuid, string keyPrefix)
+        private BaseDefinitionBuilder(string name, string definitionGuid, Guid namespaceGuid, bool useNamespaceGuid, string category)
         {
             Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
 
             // allow null (to indicate no gui presentation) but not whitespace
-            if (keyPrefix != null)
+            if (category != null)
             {
-                Preconditions.IsNotNullOrWhiteSpace(keyPrefix, nameof(keyPrefix));
+                Preconditions.IsNotNullOrWhiteSpace(category, nameof(category));
             }
 
             Definition = ScriptableObject.CreateInstance<TDefinition>();
@@ -135,9 +135,9 @@ namespace SolastaModApi
                 LogDefinition($"New-Creating definition: ({name}, guid={Definition.GUID})");
             }
 
-            if (keyPrefix != null)
+            if (category != null)
             {
-                Definition.GuiPresentation = BuildGuiPresentation(CreateTitleKey(name, keyPrefix), CreateDescriptionKey(name, keyPrefix));
+                Definition.GuiPresentation = BuildGuiPresentation(CreateTitleKey(name, category), CreateDescriptionKey(name, category));
             }
         }
 
@@ -148,12 +148,12 @@ namespace SolastaModApi
         /// <param name="original"></param>
         /// <param name="name">The name assigned to the definition (mandatory)</param>
         /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition, based on baseGuid+name (mandatory)</param>
-        /// <param name="keyPrefix">Used to generate title and description on the GuiPresentation.  The generated fields if
-        /// name="MyDefinition" and keyPrefix="MyPrefix" are: MyPrefix/&amp;MyDefinitionTitle and MyPrefix/&amp;MyDefinitionDescription.
-        /// If keyPrefix=null then the copied GuiPresentation is not altered.
+        /// <param name="category">Used to generate title and description on the GuiPresentation.  The generated fields if
+        /// name="MyDefinition" and category="MyCategory" are: MyCategory/&amp;MyDefinitionTitle and MyCategory/&amp;MyDefinitionDescription.
+        /// If category=null then the copied GuiPresentation is not altered.
         /// </param>
-        protected BaseDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid, string keyPrefix) :
-            this(original, name, null, namespaceGuid, true, keyPrefix)
+        protected BaseDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid, string category) :
+            this(original, name, null, namespaceGuid, true, category)
         {
         }
 
@@ -164,24 +164,24 @@ namespace SolastaModApi
         /// <param name="original"></param>
         /// <param name="name">The name assigned to the definition (mandatory)</param>
         /// <param name="definitionGuid">The guid for this definition (mandatory)</param>
-        /// <param name="keyPrefix">Used to generate title and description on the GuiPresentation.  The generated fields if
-        /// name="MyDefinition" and keyPrefix="MyPrefix" are: MyPrefix/&amp;MyDefinitionTitle and MyPrefix/&amp;MyDefinitionDescription.
-        /// If keyPrefix=null then the copied GuiPresentation is not altered.
+        /// <param name="category">Used to generate title and description on the GuiPresentation.  The generated fields if
+        /// name="MyDefinition" and category="MyCategory" are: MyCategory/&amp;MyDefinitionTitle and MyCategory/&amp;MyDefinitionDescription.
+        /// If category=null then the copied GuiPresentation is not altered.
         /// </param>
-        protected BaseDefinitionBuilder(TDefinition original, string name, string definitionGuid, string keyPrefix) :
-            this(original, name, definitionGuid, Guid.Empty, false, keyPrefix)
+        protected BaseDefinitionBuilder(TDefinition original, string name, string definitionGuid, string category) :
+            this(original, name, definitionGuid, Guid.Empty, false, category)
         {
         }
 
-        private BaseDefinitionBuilder(TDefinition original, string name, string definitionGuid, Guid namespaceGuid, bool useNamespaceGuid, string keyPrefix)
+        private BaseDefinitionBuilder(TDefinition original, string name, string definitionGuid, Guid namespaceGuid, bool useNamespaceGuid, string category)
         {
             Preconditions.IsNotNull(original, nameof(original));
             Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
 
             // allow null (to indicate no gui presentation) but not whitespace
-            if (keyPrefix != null)
+            if (category != null)
             {
-                Preconditions.IsNotNullOrWhiteSpace(keyPrefix, nameof(keyPrefix));
+                Preconditions.IsNotNullOrWhiteSpace(category, nameof(category));
             }
 
             var originalName = original.name;
@@ -206,17 +206,17 @@ namespace SolastaModApi
                 LogDefinition($"New-Cloning definition: original({originalName}, {originalGuid}) => ({name}, {Definition.GUID})");
             }
 
-            if (keyPrefix != null)
+            if (category != null)
             {
                 if (Definition.GuiPresentation != null)
                 {
-                    Definition.GuiPresentation.Title = CreateTitleKey(name, keyPrefix);
-                    Definition.GuiPresentation.Description = CreateDescriptionKey(name, keyPrefix);
+                    Definition.GuiPresentation.Title = CreateTitleKey(name, category);
+                    Definition.GuiPresentation.Description = CreateDescriptionKey(name, category);
                 }
                 else
                 {
                     Definition.GuiPresentation =
-                        BuildGuiPresentation(CreateTitleKey(name, keyPrefix), CreateDescriptionKey(name, keyPrefix));
+                        BuildGuiPresentation(CreateTitleKey(name, category), CreateDescriptionKey(name, category));
                 }
             }
         }

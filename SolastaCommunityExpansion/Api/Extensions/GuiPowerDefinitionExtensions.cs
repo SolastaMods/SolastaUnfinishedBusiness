@@ -33,13 +33,19 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionSocialAffinity))]
-    public static partial class FeatureDefinitionSocialAffinityExtensions
+    [TargetType(typeof(GuiPowerDefinition))]
+    public static partial class GuiPowerDefinitionExtensions
     {
-        public static T SetOrganizationType<T>(this T entity, System.String value)
-            where T : FeatureDefinitionSocialAffinity
+        public static System.Collections.Generic.Dictionary<System.String, TagsDefinitions.Criticity> GetTagsMap<T>(this T entity)
+            where T : GuiPowerDefinition
         {
-            entity.SetField("organizationType", value);
+            return entity.GetField<System.Collections.Generic.Dictionary<System.String, TagsDefinitions.Criticity>>("tagsMap");
+        }
+
+        public static T SetPowerDefinition<T>(this T entity, FeatureDefinitionPower value)
+            where T : GuiPowerDefinition
+        {
+            entity.SetField("<PowerDefinition>k__BackingField", value);
             return entity;
         }
     }

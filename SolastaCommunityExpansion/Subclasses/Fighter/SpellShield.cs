@@ -26,14 +26,14 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             // Make Spell Shield subclass
             CharacterSubclassDefinitionBuilder spellShield = new CharacterSubclassDefinitionBuilder("FighterSpellShield", GuidHelper.Create(SubclassNamespace, "FighterSpellShield").ToString());
             GuiPresentationBuilder spellShieldPresentation = new GuiPresentationBuilder(
-                "Subclass/&FighterSpellShieldDescription",
-                "Subclass/&FighterSpellShieldTitle");
+                "Subclass/&FighterSpellShieldTitle",
+                "Subclass/&FighterSpellShieldDescription");
             spellShieldPresentation.SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.DomainBattle.GuiPresentation.SpriteReference);
             spellShield.SetGuiPresentation(spellShieldPresentation.Build());
 
             GuiPresentationBuilder combatCastingPresentation = new GuiPresentationBuilder(
-                "Subclass/&MagicAffinityFighterSpellShieldDescription",
-                "Subclass/&MagicAffinityFighterSpellShieldTitle");
+                "Subclass/&MagicAffinityFighterSpellShieldTitle",
+                "Subclass/&MagicAffinityFighterSpellShieldDescription");
             FeatureDefinitionMagicAffinity magicAffinity = new FeatureDefinitionMagicAffinityBuilder("MagicAffinityFighterSpellShield",
                 GuidHelper.Create(SubclassNamespace, "MagicAffinityFighterSpellShield").ToString(),
                 combatCastingPresentation.Build()).SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0).SetHandsFullCastingModifiers(true, true, true)
@@ -55,14 +55,14 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             spellCasting.SetKnownSpells(4, 3, CastSpellBuilder.CasterProgression.THIRD_CASTER);
             spellCasting.SetSlotsPerLevel(3, CastSpellBuilder.CasterProgression.THIRD_CASTER);
             GuiPresentationBuilder spellcastGui = new GuiPresentationBuilder(
-                "Subclass/&FighterSpellShieldSpellcastingDescription",
-                "Subclass/&FighterSpellShieldSpellcastingTitle");
+                "Subclass/&FighterSpellShieldSpellcastingTitle",
+                "Subclass/&FighterSpellShieldSpellcastingDescription");
             spellCasting.SetGuiPresentation(spellcastGui.Build());
             spellShield.AddFeatureAtLevel(spellCasting.AddToDB(), 3);
 
             GuiPresentationBuilder spellResistance = new GuiPresentationBuilder(
-                "Subclass/&FighterSpellShieldSpellResistanceDescription",
-                "Subclass/&FighterSpellShieldSpellResistanceTitle");
+                "Subclass/&FighterSpellShieldSpellResistanceTitle",
+                "Subclass/&FighterSpellShieldSpellResistanceDescription");
             // add a saving throw affinity against spells or something?
             FeatureDefinitionSavingThrowAffinity spellShieldResistance = BuildSavingThrowAffinity(new List<string>()
             {
@@ -77,8 +77,8 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             // or maybe some boost to the spell shield spells?
 
             GuiPresentationBuilder bonusSpellGui = new GuiPresentationBuilder(
-                "Subclass/&SpellShieldAdditionalActionDescription",
-                "Subclass/&SpellShieldAdditionalActionTitle");
+                "Subclass/&SpellShieldAdditionalActionTitle",
+                "Subclass/&SpellShieldAdditionalActionDescription");
             FeatureDefinitionAdditionalAction bonusSpell = new FeatureDefinitionAdditionalActionBuilder("SpellShieldAdditionalAction",
                 GuidHelper.Create(SubclassNamespace, "SpellShieldAdditionalAction").ToString(), ActionDefinitions.ActionType.Main, new List<ActionDefinitions.Id>(),
                 new List<ActionDefinitions.Id>(), new List<ActionDefinitions.Id>()
@@ -89,8 +89,8 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             spellShield.AddFeatureAtLevel(bonusSpell, 10);
 
             GuiPresentationBuilder arcaneDeflectionGuiCondition = new GuiPresentationBuilder(
-                "Subclass/&ConditionSpellShieldArcaneDeflectionDescription",
-                "Subclass/&ConditionSpellShieldArcaneDeflectionTitle");
+                "Subclass/&ConditionSpellShieldArcaneDeflectionTitle",
+                "Subclass/&ConditionSpellShieldArcaneDeflectionDescription");
             arcaneDeflectionGuiCondition.SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionShielded.GuiPresentation.SpriteReference);
             EffectDescriptionBuilder arcaneDeflection = new EffectDescriptionBuilder();
             arcaneDeflection.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self, 1, 0, ActionDefinitions.ItemSelectionType.None);
@@ -103,8 +103,8 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 true, true, new List<ConditionDefinition>()).Build());
 
             GuiPresentationBuilder arcaneDeflectionGuiPower = new GuiPresentationBuilder(
-                "Subclass/&PowerSpellShieldArcaneDeflectionDescription",
-                "Subclass/&PowerSpellShieldArcaneDeflectionTitle");
+                "Subclass/&PowerSpellShieldArcaneDeflectionTitle",
+                "Subclass/&PowerSpellShieldArcaneDeflectionDescription");
             arcaneDeflectionGuiCondition.SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionShielded.GuiPresentation.SpriteReference);
             FeatureDefinitionPower arcaneDeflectionPower = new FeatureDefinitionPowerBuilder("PowerSpellShieldArcaneDeflection", GuidHelper.Create(SubclassNamespace, "PowerSpellShieldArcaneDeflection").ToString(),
                 0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, RuleDefinitions.ActivationTime.Reaction, 0, RuleDefinitions.RechargeRate.AtWill,
@@ -112,8 +112,8 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             spellShield.AddFeatureAtLevel(arcaneDeflectionPower, 15);
 
             GuiPresentationBuilder rangedDeflectionGuiPower = new GuiPresentationBuilder(
-                "Subclass/&PowerSpellShieldRangedDeflectionDescription",
-                "Subclass/&PowerSpellShieldRangedDeflectionTitle");
+                "Subclass/&PowerSpellShieldRangedDeflectionTitle",
+                "Subclass/&PowerSpellShieldRangedDeflectionDescription");
             spellShield.AddFeatureAtLevel(new SpellShieldRangedDeflection(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinityTraditionGreenMageLeafScales,
                 "ActionAffinitySpellShieldRangedDefense", GuidHelper.Create(SubclassNamespace, "ActionAffinitySpellShieldRangedDefense").ToString(), rangedDeflectionGuiPower.Build()).AddToDB(),
                 18);

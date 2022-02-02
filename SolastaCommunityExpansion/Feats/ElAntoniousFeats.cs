@@ -44,7 +44,7 @@ namespace SolastaCommunityExpansion.Feats
         {
             FeatureDefinitionOnAttackHitEffectBuilder builder = new FeatureDefinitionOnAttackHitEffectBuilder(
                 "FeatureDualFlurry", GuidHelper.Create(DualFlurryGuid, "FeatureDualFlurry").ToString(),
-                OnAttackHit, new GuiPresentationBuilder("Feature/&DualFlurryDescription", "Feature/&DualFlurryTitle").Build());
+                OnAttackHit, new GuiPresentationBuilder("Feature/&DualFlurryTitle", "Feature/&DualFlurryDescription").Build());
 
             return builder.AddToDB();
         }
@@ -135,8 +135,8 @@ namespace SolastaCommunityExpansion.Feats
         }
         private static FeatureDefinition BuildAdditionalActionDualFlurry()
         {
-            GuiPresentationBuilder guiBuilder = new GuiPresentationBuilder("Feature/&AdditionalActionDualFlurryDescription",
-                "Feature/&AdditionalActionDualFlurryTitle")
+            GuiPresentationBuilder guiBuilder = new GuiPresentationBuilder("Feature/&AdditionalActionDualFlurryTitle",
+                "Feature/&AdditionalActionDualFlurryDescription")
                 .SetSpriteReference(DatabaseHelper.FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain.GuiPresentation.SpriteReference);
             FeatureDefinitionAdditionalActionBuilder flurryBuilder = new FeatureDefinitionAdditionalActionBuilder(
                 DatabaseHelper.FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain, "AdditionalActionDualFlurry",
@@ -205,7 +205,7 @@ namespace SolastaCommunityExpansion.Feats
 
             FeatureDefinitionConditionalPowerBuilder powerFeature = new FeatureDefinitionConditionalPowerBuilder("PowerTorchbearer",
                 GuidHelper.Create(TorchbearerGuid, "PowerTorchbearer").ToString(),
-                new GuiPresentationBuilder("Feature/&PowerTorchbearerDescription", "Feature/&PowerTorchbearerTitle").Build());
+                new GuiPresentationBuilder("Feature/&PowerTorchbearerTitle", "Feature/&PowerTorchbearerDescription").Build());
             powerFeature.SetActivation(RuleDefinitions.ActivationTime.BonusAction, 0);
             powerFeature.SetEffect(burn_description);
             powerFeature.SetUsesFixed(1);

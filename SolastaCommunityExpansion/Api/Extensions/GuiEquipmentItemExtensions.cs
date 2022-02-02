@@ -33,48 +33,46 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(DocumentTableDefinition))]
-    public static partial class DocumentTableDefinitionExtensions
+    [TargetType(typeof(GuiEquipmentItem))]
+    public static partial class GuiEquipmentItemExtensions
     {
-        public static T SetHeaderHeight<T>(this T entity, System.Single value)
-            where T : DocumentTableDefinition
+        public static System.Collections.Generic.Dictionary<System.String, TagsDefinitions.Criticity> GetItemTags<T>(this T entity)
+            where T : GuiEquipmentItem
         {
-            entity.SetField("headerHeight", value);
+            return entity.GetField<System.Collections.Generic.Dictionary<System.String, TagsDefinitions.Criticity>>("itemTags");
+        }
+
+        public static System.Collections.Generic.List<ItemPropertyDescription> GetProperties<T>(this T entity)
+            where T : GuiEquipmentItem
+        {
+            return entity.GetField<System.Collections.Generic.List<ItemPropertyDescription>>("properties");
+        }
+
+        public static T SetCompareason<T>(this T entity, System.Boolean value)
+            where T : GuiEquipmentItem
+        {
+            entity.SetField("compareason", value);
             return entity;
         }
 
-        public static T SetIndentWidth<T>(this T entity, System.Single value)
-            where T : DocumentTableDefinition
+        public static T SetEquipmentItem<T>(this T entity, RulesetItem value)
+            where T : GuiEquipmentItem
         {
-            entity.SetField("indentWidth", value);
+            entity.SetField("equipmentItem", value);
             return entity;
         }
 
-        public static T SetLineHeight<T>(this T entity, System.Single value)
-            where T : DocumentTableDefinition
+        public static T SetGuiItemDefinition<T>(this T entity, GuiItemDefinition value)
+            where T : GuiEquipmentItem
         {
-            entity.SetField("lineHeight", value);
+            entity.SetField("guiItemDefinition", value);
             return entity;
         }
 
-        public static T SetPageHeight<T>(this T entity, System.Single value)
-            where T : DocumentTableDefinition
+        public static T SetInventorySlot<T>(this T entity, RulesetInventorySlot value)
+            where T : GuiEquipmentItem
         {
-            entity.SetField("pageHeight", value);
-            return entity;
-        }
-
-        public static T SetParagraphSpacing<T>(this T entity, System.Single value)
-            where T : DocumentTableDefinition
-        {
-            entity.SetField("paragraphSpacing", value);
-            return entity;
-        }
-
-        public static T SetWordSpacing<T>(this T entity, System.Single value)
-            where T : DocumentTableDefinition
-        {
-            entity.SetField("wordSpacing", value);
+            entity.SetField("inventorySlot", value);
             return entity;
         }
     }

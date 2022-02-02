@@ -36,6 +36,12 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(ConditionDefinition))]
     public static partial class ConditionDefinitionExtensions
     {
+        public static System.Collections.Generic.List<FeatureDefinition> GetFeaturesToBrowse<T>(this T entity)
+            where T : ConditionDefinition
+        {
+            return entity.GetField<System.Collections.Generic.List<FeatureDefinition>>("featuresToBrowse");
+        }
+
         public static T SetAcidParticleParameters<T>(this T entity, ConditionParticleParameters value)
             where T : ConditionDefinition
         {

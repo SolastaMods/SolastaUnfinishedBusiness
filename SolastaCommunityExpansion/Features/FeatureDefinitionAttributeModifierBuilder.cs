@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Features
         }
 
         public FeatureDefinitionAttributeModifierBuilder(string name, Guid namespaceGuid, AttributeModifierOperation modifierType,
-            string attribute, int amount, string keyPrefix) : base(name, namespaceGuid, keyPrefix)
+            string attribute, int amount, string category) : base(name, namespaceGuid, category)
         {
             Definition.SetModifierType2(modifierType);
             Definition.SetModifiedAttribute(attribute);

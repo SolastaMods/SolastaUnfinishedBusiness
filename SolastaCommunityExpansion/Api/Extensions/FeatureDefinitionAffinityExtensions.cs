@@ -33,21 +33,19 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(GuiActiveCondition))]
-    public static partial class GuiActiveConditionExtensions
+    [TargetType(typeof(FeatureDefinitionAffinity))]
+    public static partial class FeatureDefinitionAffinityExtensions
     {
-        public static T SetActiveCondition<T>(this T entity, RulesetCondition value)
-            where T : GuiActiveCondition
+        public static System.Collections.Generic.List<System.String> GetMyselfFamilyRestrictions<T>(this T entity)
+            where T : FeatureDefinitionAffinity
         {
-            entity.SetField("activeCondition", value);
-            return entity;
+            return entity.GetField<System.Collections.Generic.List<System.String>>("myselfFamilyRestrictions");
         }
 
-        public static T SetConditionDefinition<T>(this T entity, ConditionDefinition value)
-            where T : GuiActiveCondition
+        public static System.Collections.Generic.List<System.String> GetOtherCharacterFamilyRestrictions<T>(this T entity)
+            where T : FeatureDefinitionAffinity
         {
-            entity.SetField("conditionDefinition", value);
-            return entity;
+            return entity.GetField<System.Collections.Generic.List<System.String>>("otherCharacterFamilyRestrictions");
         }
     }
 }

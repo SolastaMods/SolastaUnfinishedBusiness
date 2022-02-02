@@ -33,34 +33,19 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(GuiEquipmentItem))]
-    public static partial class GuiEquipmentItemExtensions
+    [TargetType(typeof(FeatureDefinitionSocialAffinity))]
+    public static partial class FeatureDefinitionSocialAffinityExtensions
     {
-        public static T SetCompareason<T>(this T entity, System.Boolean value)
-            where T : GuiEquipmentItem
+        public static System.Collections.Generic.List<FeatureDefinitionSocialAffinity.SocialAffinityDuplet> GetSocialAffinityDuplets<T>(this T entity)
+            where T : FeatureDefinitionSocialAffinity
         {
-            entity.SetField("compareason", value);
-            return entity;
+            return entity.GetField<System.Collections.Generic.List<FeatureDefinitionSocialAffinity.SocialAffinityDuplet>>("socialAffinityDuplets");
         }
 
-        public static T SetEquipmentItem<T>(this T entity, RulesetItem value)
-            where T : GuiEquipmentItem
+        public static T SetOrganizationType<T>(this T entity, System.String value)
+            where T : FeatureDefinitionSocialAffinity
         {
-            entity.SetField("equipmentItem", value);
-            return entity;
-        }
-
-        public static T SetGuiItemDefinition<T>(this T entity, GuiItemDefinition value)
-            where T : GuiEquipmentItem
-        {
-            entity.SetField("guiItemDefinition", value);
-            return entity;
-        }
-
-        public static T SetInventorySlot<T>(this T entity, RulesetInventorySlot value)
-            where T : GuiEquipmentItem
-        {
-            entity.SetField("inventorySlot", value);
+            entity.SetField("organizationType", value);
             return entity;
         }
     }

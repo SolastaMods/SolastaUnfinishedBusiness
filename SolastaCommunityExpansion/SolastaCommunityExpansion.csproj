@@ -72,30 +72,30 @@
       <HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\Assembly-CSharp.dll'))</HintPath>
       <Private>false</Private>
     </Reference>
-    		<Reference Include="UnityEngine">
-			<HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\UnityEngine.dll'))</HintPath>
-			<Private>false</Private>
-		</Reference>
-		<Reference Include="Unity.Addressables">
-			<HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\Unity.Addressables.dll'))</HintPath>
-			<Private>false</Private>
-		</Reference>
-		<Reference Include="UnityEngine.CoreModule">
-			<HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\UnityEngine.CoreModule.dll'))</HintPath>
-			<Private>false</Private>
-		</Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\UnityEngine.dll'))</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Unity.Addressables">
+      <HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\Unity.Addressables.dll'))</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\UnityEngine.CoreModule.dll'))</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="UnityEngine.ImageConversionModule">
       <HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\UnityEngine.ImageConversionModule.dll'))</HintPath>
       <Private>false</Private>
     </Reference>
-		<Reference Include="UnityEngine.IMGUIModule">
-			<HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\UnityEngine.IMGUIModule.dll'))</HintPath>
-			<Private>false</Private>
-		</Reference>
-		<Reference Include="UnityEngine.InputLegacyModule">
-			<HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\UnityEngine.InputLegacyModule.dll'))</HintPath>
-			<Private>false</Private>
-		</Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\UnityEngine.IMGUIModule.dll'))</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\UnityEngine.InputLegacyModule.dll'))</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
       <HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\UnityEngine.TextRenderingModule.dll'))</HintPath>
       <Private>false</Private>
@@ -104,14 +104,14 @@
       <HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\Unity.Timeline.dll'))</HintPath>
       <Private>false</Private>
     </Reference>
-		<Reference Include="UnityEngine.UI">
-			<HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\UnityEngine.UI.dll'))</HintPath>
-			<Private>false</Private>
-		</Reference>
-		<Reference Include="UnityEngine.UIModule">
-			<HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\UnityEngine.UIModule.dll'))</HintPath>
-			<Private>false</Private>
-		</Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\UnityEngine.UI.dll'))</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\UnityEngine.UIModule.dll'))</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
       <HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\Unity.Postprocessing.Runtime.dll'))</HintPath>
       <Private>false</Private>
@@ -120,31 +120,31 @@
       <HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\UnityEngine.TerrainModule.dll'))</HintPath>
       <Private>false</Private>
     </Reference>
-		<Reference Include="Unity.TextMeshPro">
-			<HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\Unity.TextMeshPro.dll'))</HintPath>
-			<Private>false</Private>
-		</Reference>
-    <Reference Include='Ak.Wwise.Api.WAAPI.dll'>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\Unity.TextMeshPro.dll'))</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Ak.Wwise.Api.WAAPI.dll">
       <HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\Ak.Wwise.Api.WAAPI.dll'))</HintPath>
       <Private>false</Private>
     </Reference>
-    <Reference Include='AK.Wwise.Unity.API.dll'>
+    <Reference Include="AK.Wwise.Unity.API.dll">
       <HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\AK.Wwise.Unity.API.dll'))</HintPath>
       <Private>false</Private>
     </Reference>
-    <Reference Include='AK.Wwise.Unity.API.WwiseTypes.dll'>
+    <Reference Include="AK.Wwise.Unity.API.WwiseTypes.dll">
       <HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\AK.Wwise.Unity.API.WwiseTypes.dll'))</HintPath>
       <Private>false</Private>
     </Reference>
-    <Reference Include='AK.Wwise.Unity.MonoBehaviour.dll'>
+    <Reference Include="AK.Wwise.Unity.MonoBehaviour.dll">
       <HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\AK.Wwise.Unity.MonoBehaviour.dll'))</HintPath>
       <Private>false</Private>
     </Reference>
-    <Reference Include='AK.Wwise.Unity.Timeline.dll'>
+    <Reference Include="AK.Wwise.Unity.Timeline.dll">
       <HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\AK.Wwise.Unity.Timeline.dll'))</HintPath>
       <Private>false</Private>
     </Reference>
-    <Reference Include='Aura2_Core.dll'>
+    <Reference Include="Aura2_Core.dll">
       <HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\Aura2_Core.dll'))</HintPath>
       <Private>false</Private>
     </Reference>
@@ -152,10 +152,10 @@
       <HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\AwesomeTechnologies.VegetationStudioPro.Runtime.dll'))</HintPath>
       <Private>false</Private>
     </Reference>
-		<Reference Include="I2">
-			<HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\I2.dll'))</HintPath>
-			<Private>False</Private>
-		</Reference>
+    <Reference Include="I2">
+      <HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\I2.dll'))</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="UnityModManager">
       <HintPath>$([System.IO.Path]::Combine($(SolastaInstallDir), 'Solasta_Data\Managed\UnityModManager\UnityModManager.dll'))</HintPath>
       <Private>false</Private>

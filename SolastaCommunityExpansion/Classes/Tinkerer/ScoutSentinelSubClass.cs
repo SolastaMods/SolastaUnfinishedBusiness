@@ -131,8 +131,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         public static void BuildAndAddSubclass()
         {
             var subclassGuiPresentation = new GuiPresentationBuilder(
-                "Subclass/&ScoutSentinelTinkererSubclassDescription",
-                "Subclass/&ScoutSentinelTinkererSubclassTitle")
+                "Subclass/&ScoutSentinelTinkererSubclassTitle",
+                "Subclass/&ScoutSentinelTinkererSubclassDescription")
                 .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.MartialMountaineer.GuiPresentation.SpriteReference)
                 .Build();
 

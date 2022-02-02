@@ -73,8 +73,8 @@ namespace SolastaCommunityExpansion.Models
                 AttributeDefinitions.Charisma,
                 effectDescription,
                 new GuiPresentationBuilder(
-                    "Power/&HelpActionDescription",
-                    "Power/&HelpActionTitle")
+                    "Power/&HelpActionTitle",
+                    "Power/&HelpActionDescription")
                     .Build()
                     .SetSpriteReference(DatabaseHelper.SpellDefinitions.Aid.GuiPresentation.SpriteReference),
                 true)

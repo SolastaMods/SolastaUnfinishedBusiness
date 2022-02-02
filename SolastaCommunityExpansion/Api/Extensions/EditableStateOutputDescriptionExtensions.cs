@@ -33,14 +33,13 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(GuiItemDefinition))]
-    public static partial class GuiItemDefinitionExtensions
+    [TargetType(typeof(EditableStateOutputDescription))]
+    public static partial class EditableStateOutputDescriptionExtensions
     {
-        public static T SetItemDefinition<T>(this T entity, ItemDefinition value)
-            where T : GuiItemDefinition
+        public static System.Collections.Generic.List<System.Int32> GetChildrenStateIndexes<T>(this T entity)
+            where T : EditableStateOutputDescription
         {
-            entity.SetField("<ItemDefinition>k__BackingField", value);
-            return entity;
+            return entity.GetField<System.Collections.Generic.List<System.Int32>>("childrenStateIndexes");
         }
     }
 }

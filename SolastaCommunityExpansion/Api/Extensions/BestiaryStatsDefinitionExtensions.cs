@@ -33,13 +33,33 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(GuiPowerDefinition))]
-    public static partial class GuiPowerDefinitionExtensions
+    [TargetType(typeof(BestiaryStatsDefinition))]
+    public static partial class BestiaryStatsDefinitionExtensions
     {
-        public static T SetPowerDefinition<T>(this T entity, FeatureDefinitionPower value)
-            where T : GuiPowerDefinition
+        public static System.Collections.Generic.List<BestiaryStatStyleDuplet> GetStyleDuplets<T>(this T entity)
+            where T : BestiaryStatsDefinition
         {
-            entity.SetField("<PowerDefinition>k__BackingField", value);
+            return entity.GetField<System.Collections.Generic.List<BestiaryStatStyleDuplet>>("styleDuplets");
+        }
+
+        public static T SetLineHeight<T>(this T entity, System.Single value)
+            where T : BestiaryStatsDefinition
+        {
+            entity.SetField("lineHeight", value);
+            return entity;
+        }
+
+        public static T SetLineSpacing<T>(this T entity, System.Single value)
+            where T : BestiaryStatsDefinition
+        {
+            entity.SetField("lineSpacing", value);
+            return entity;
+        }
+
+        public static T SetWordSpacing<T>(this T entity, System.Single value)
+            where T : BestiaryStatsDefinition
+        {
+            entity.SetField("wordSpacing", value);
             return entity;
         }
     }

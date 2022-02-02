@@ -33,41 +33,25 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(TravelJournalDefinition))]
-    public static partial class TravelJournalDefinitionExtensions
+    [TargetType(typeof(GuiItemDefinition))]
+    public static partial class GuiItemDefinitionExtensions
     {
-        public static T SetIndentWidth<T>(this T entity, System.Single value)
-            where T : TravelJournalDefinition
+        public static System.Collections.Generic.Dictionary<System.String, TagsDefinitions.Criticity> GetItemTags<T>(this T entity)
+            where T : GuiItemDefinition
         {
-            entity.SetField("indentWidth", value);
-            return entity;
+            return entity.GetField<System.Collections.Generic.Dictionary<System.String, TagsDefinitions.Criticity>>("itemTags");
         }
 
-        public static T SetLineHeight<T>(this T entity, System.Single value)
-            where T : TravelJournalDefinition
+        public static System.Collections.Generic.List<ItemPropertyDescription> GetProperties<T>(this T entity)
+            where T : GuiItemDefinition
         {
-            entity.SetField("lineHeight", value);
-            return entity;
+            return entity.GetField<System.Collections.Generic.List<ItemPropertyDescription>>("properties");
         }
 
-        public static T SetLineSpacing<T>(this T entity, System.Single value)
-            where T : TravelJournalDefinition
+        public static T SetItemDefinition<T>(this T entity, ItemDefinition value)
+            where T : GuiItemDefinition
         {
-            entity.SetField("lineSpacing", value);
-            return entity;
-        }
-
-        public static T SetMinHeight<T>(this T entity, System.Single value)
-            where T : TravelJournalDefinition
-        {
-            entity.SetField("minHeight", value);
-            return entity;
-        }
-
-        public static T SetWordSpacing<T>(this T entity, System.Single value)
-            where T : TravelJournalDefinition
-        {
-            entity.SetField("wordSpacing", value);
+            entity.SetField("<ItemDefinition>k__BackingField", value);
             return entity;
         }
     }

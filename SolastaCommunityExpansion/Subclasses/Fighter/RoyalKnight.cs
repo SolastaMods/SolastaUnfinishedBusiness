@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
         internal RoyalKnight()
         {
-            GuiPresentationBuilder royalKnightPresentation = new GuiPresentationBuilder("Subclass/&FighterRoyalKnightDescription", "Subclass/&FighterRoyalKnightTitle")
+            GuiPresentationBuilder royalKnightPresentation = new GuiPresentationBuilder("Subclass/&FighterRoyalKnightTitle", "Subclass/&FighterRoyalKnightDescription")
                 .SetSpriteReference(DatabaseHelper.FightingStyleDefinitions.Protection.GuiPresentation.SpriteReference);
 
             Subclass = new CharacterSubclassDefinitionBuilder("FighterRoyalKnight", GuidHelper.Create(SubclassNamespace, "FighterRoyalKnight").ToString())

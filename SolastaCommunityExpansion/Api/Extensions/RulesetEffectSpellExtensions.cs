@@ -36,6 +36,12 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(RulesetEffectSpell))]
     public static partial class RulesetEffectSpellExtensions
     {
+        public static System.Collections.Generic.List<FeatureDefinition> GetFeaturesToBrowse<T>(this T entity)
+            where T : RulesetEffectSpell
+        {
+            return entity.GetField<System.Collections.Generic.List<FeatureDefinition>>("featuresToBrowse");
+        }
+
         public static T SetCaster<T>(this T entity, RulesetCharacter value)
             where T : RulesetEffectSpell
         {
