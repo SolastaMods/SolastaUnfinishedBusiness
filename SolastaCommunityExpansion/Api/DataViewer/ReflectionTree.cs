@@ -281,9 +281,9 @@ namespace SolastaModApi.DataViewer
                 }
             }
         }
-#pragma warning disable S3358 // Ternary operators should not be nested
+
         public override string ValueText => IsException ? "<exception>" : IsNull ? "<null>" : Value.ToString();
-#pragma warning restore S3358 // Ternary operators should not be nested
+
         public override Type InstType
         {
             get
