@@ -190,12 +190,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                                 UI.Space(10);
                                 using (new GUILayout.VerticalScope())
                                 {
-#pragma warning disable S3267 // Loops should be simplified with "LINQ" expressions
                                     foreach (Patch patch in patches)
                                     {
                                         GUILayout.Label(patch.owner.Color(_modIdsToColor[patch.owner]).bold(), GUI.skin.label);
                                     }
-#pragma warning restore S3267 // Loops should be simplified with "LINQ" expressions
                                 }
                                 UI.Space(10);
                                 using (new GUILayout.VerticalScope())

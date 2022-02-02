@@ -452,9 +452,7 @@ namespace SolastaModApi.DataViewer
                 return;
             }
 
-#pragma warning disable S3358 // Ternary operators should not be nested
             Type nodeType = InstType.IsValueType ? !IsNullable ? typeof(FieldOfStructNode<,,>) : typeof(FieldOfNullableNode<,,>) : typeof(FieldOfClassNode<,,>);
-#pragma warning restore S3358 // Ternary operators should not be nested
 
             _fieldNodes = GetFields(InstType).Select(child => FindOrCreateChildForValue(nodeType.MakeGenericType(Type, InstType, child.FieldType), this, child.Name)).ToList();
             _fieldNodes.Sort((x, y) => x.Name.CompareTo(y.Name));
