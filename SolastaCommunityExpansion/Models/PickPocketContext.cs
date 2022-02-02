@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -7,29 +8,6 @@ using static SolastaModApi.DatabaseHelper.LootPackDefinitions;
 
 namespace SolastaCommunityExpansion.Models
 {
-    [TargetType(typeof(TreasureOption))]
-    public static partial class TreasureOptionsExtension
-    {
-        public static T SetOdds<T>(this T entity, int value)
-           where T : TreasureOption
-        {
-            entity.SetField("odds", value);
-            return entity;
-        }
-        public static T SetItemDefinition<T>(this T entity, ItemDefinition value)
-            where T : TreasureOption
-        {
-            entity.SetField("itemDefinition", value);
-            return entity;
-        }
-        public static T SetAmount<T>(this T entity, int value)
-            where T : TreasureOption
-        {
-            entity.SetField("amount", value);
-            return entity;
-        }
-    }
-
     public static class PickPocketContext
     {
         internal static void CreateFeats(List<FeatDefinition> feats)
@@ -190,12 +168,12 @@ namespace SolastaCommunityExpansion.Models
             loot_pickpocket_undead.SetTreasureTableDefinition(pick_pocket_table_undead);
             loot_pickpocket_undead.SetDiceNumber(1);
 
-            LootPackDefinition pick_pocket_loot = LootPackDefinitionBuilder.createCopyFrom("PickPocketLoot", "30c308db-1ad7-4f93-9431-43ce32358493", "", "", Tutorial_04_Loot_Stealable);
+            LootPackDefinition pick_pocket_loot = LootPackDefinitionBuilder.CreateCopyFrom("PickPocketLoot", "30c308db-1ad7-4f93-9431-43ce32358493", "", "", Tutorial_04_Loot_Stealable);
             pick_pocket_loot.SetLootChallengeMode(LootPackDefinition.LootChallenge.ByPartyLevel);
             pick_pocket_loot.ItemOccurencesList.Clear();
             pick_pocket_loot.ItemOccurencesList.Add(loot_pickpocket_table);
 
-            LootPackDefinition pick_pocket_undead = LootPackDefinitionBuilder.createCopyFrom("PickPocketUndead", "af2eb8e0-6a5a-40e2-8a62-160f80e2453e", "", "", Tutorial_04_Loot_Stealable);
+            LootPackDefinition pick_pocket_undead = LootPackDefinitionBuilder.CreateCopyFrom("PickPocketUndead", "af2eb8e0-6a5a-40e2-8a62-160f80e2453e", "", "", Tutorial_04_Loot_Stealable);
             pick_pocket_undead.SetLootChallengeMode(LootPackDefinition.LootChallenge.ByPartyLevel);
             pick_pocket_undead.ItemOccurencesList.Clear();
             pick_pocket_undead.ItemOccurencesList.Add(loot_pickpocket_undead);
@@ -238,106 +216,6 @@ namespace SolastaCommunityExpansion.Models
 
             MonsterDefinition skeleton_sorcerer = DatabaseHelper.MonsterDefinitions.Skeleton_Sorcerer;
             skeleton_sorcerer.SetStealableLootDefinition(pick_pocket_undead);
-        }
-    }
-
-    // TODO move complete builders to ModAPI, move reusable builders to the Features folder so they can be shared.
-    public class LootPackDefinitionBuilder : BaseDefinitionBuilder<LootPackDefinition>
-    {
-        protected LootPackDefinitionBuilder(string name, string guid, string title_string, string description_string, LootPackDefinition base_loot) : base(base_loot, name, guid)
-        {
-            // ?? would these be better as !string.IsNullOr...
-            if (title_string != "")
-            {
-                Definition.GuiPresentation.Title = title_string;
-            }
-            if (description_string != "")
-            {
-                Definition.GuiPresentation.Description = description_string;
-            }
-        }
-
-        // TODO: should be capitalized - breaking change?
-        public static LootPackDefinition createCopyFrom(string name, string guid, string new_title_string, string new_description_string, LootPackDefinition base_loot)
-        {
-            return new LootPackDefinitionBuilder(name, guid, new_title_string, new_description_string, base_loot).AddToDB();
-        }
-    }
-
-    public class TreasureTableDefinitionBuilder : BaseDefinitionBuilder<TreasureTableDefinition>
-    {
-        protected TreasureTableDefinitionBuilder(string name, string guid, string title_string, string description_string, TreasureTableDefinition base_table) : base(base_table, name, guid)
-        {
-            if (title_string != "")
-            {
-                Definition.GuiPresentation.Title = title_string;
-            }
-            if (description_string != "")
-            {
-                Definition.GuiPresentation.Description = description_string;
-            }
-        }
-
-        public static TreasureTableDefinition createCopyFrom(string name, string guid, string new_title_string, string new_description_string, TreasureTableDefinition base_table)
-        {
-            return new TreasureTableDefinitionBuilder(name, guid, new_title_string, new_description_string, base_table).AddToDB();
-        }
-    }
-
-    public class PickPocketAbilityCheckAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionAbilityCheckAffinity>
-    {
-        protected PickPocketAbilityCheckAffinityBuilder(string name, string guid, string title_string, string description_string, FeatureDefinitionAbilityCheckAffinity base_check_affinity) : base(base_check_affinity, name, guid)
-        {
-            if (title_string != "")
-            {
-                Definition.GuiPresentation.Title = title_string;
-            }
-            if (description_string != "")
-            {
-                Definition.GuiPresentation.Description = description_string;
-            }
-        }
-        public static FeatureDefinitionAbilityCheckAffinity CreateCopyFrom(string name, string guid, string new_title_string, string new_description_string, FeatureDefinitionAbilityCheckAffinity base_check_affinity)
-        {
-            return new PickPocketAbilityCheckAffinityBuilder(name, guid, new_title_string, new_description_string, base_check_affinity).AddToDB();
-        }
-    }
-
-    public class PickPocketProficiencyBuilder : BaseDefinitionBuilder<FeatureDefinitionProficiency>
-    {
-        protected PickPocketProficiencyBuilder(string name, string guid, string title_string, string description_string, FeatureDefinitionProficiency base_proficiency) : base(base_proficiency, name, guid)
-        {
-            if (title_string != "")
-            {
-                Definition.GuiPresentation.Title = title_string;
-            }
-            if (description_string != "")
-            {
-                Definition.GuiPresentation.Description = description_string;
-            }
-        }
-        public static FeatureDefinitionProficiency CreateCopyFrom(string name, string guid, string new_title_string, string new_description_string, FeatureDefinitionProficiency base_proficiency)
-        {
-            return new PickPocketProficiencyBuilder(name, guid, new_title_string, new_description_string, base_proficiency).AddToDB();
-        }
-    }
-
-    public class PickPocketFeatBuilder : BaseDefinitionBuilder<FeatDefinition>
-    {
-        protected PickPocketFeatBuilder(string name, string guid, string title_string, string description_string, FeatDefinition base_Feat) : base(base_Feat, name, guid)
-        {
-            if (title_string != "")
-            {
-                Definition.GuiPresentation.Title = title_string;
-            }
-            if (description_string != "")
-            {
-                Definition.GuiPresentation.Description = description_string;
-            }
-        }
-        public static FeatDefinition CreateCopyFrom(string name, string guid, string new_title_string, string new_description_string, FeatDefinition base_Feat)
-        {
-            return new PickPocketFeatBuilder(name, guid, new_title_string, new_description_string, base_Feat).AddToDB();
         }
     }
 }

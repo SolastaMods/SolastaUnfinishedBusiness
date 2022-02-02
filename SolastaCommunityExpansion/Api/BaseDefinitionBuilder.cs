@@ -294,11 +294,11 @@ namespace SolastaModApi
         /// </summary>
         /// <param name="name">The new unique name assigned to the definition (mandatory)</param>
         /// <param name="guid">The new unique guid assigned to the definition (mandatory)</param>
-        /// <param name="title_string">The title assigned to the GuiPresentation (optional)</param>
-        /// <param name="description_string">The description assigned to the GuiPresentation (optional)</param>
+        /// <param name="title">The title assigned to the GuiPresentation (optional)</param>
+        /// <param name="description">The description assigned to the GuiPresentation (optional)</param>
         /// <param name="base_Blueprint">The original definition to be cloned.</param>
-        protected BaseDefinitionBuilder(string name, string guid, string title_string, string description_string, TDefinition base_Blueprint)
-            : this(base_Blueprint, name, guid, title_string, description_string)
+        protected BaseDefinitionBuilder(string name, string guid, string title, string description, TDefinition base_Blueprint)
+            : this(base_Blueprint, name, guid, title, description)
         {
         }
 
