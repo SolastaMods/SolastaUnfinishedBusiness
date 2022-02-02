@@ -57,9 +57,7 @@ namespace SolastaCommunityExpansion
         public bool BugFixButtonActivatorTriggerIssue { get; set; } = true;
         public bool BugFixCharacterPanelSorting { get; set; } = true;
         public bool BugFixExpandColorTables { get; set; } = true;
-        public bool BugFixMainScreenInventoryPanelGround { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
-        public bool BugFixWieldedConfigurationSelector { get; set; } = true;
         public bool EnableCancelEditOnRightMouseClick { get; set; } = true;
         public bool EnableDungeonMakerPro { get; set; } = true;
         public bool EnableDungeonMakerRotationHotkeys { get; set; } = true;

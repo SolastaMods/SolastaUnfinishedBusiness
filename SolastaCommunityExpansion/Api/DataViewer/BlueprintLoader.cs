@@ -49,17 +49,17 @@ namespace SolastaModApi.DataViewer
             int total = databases.Count;
 
             // iterate over all DBs / BPs and collect them
-            var blueprints = new List<BaseDefinition> { };
+            var blueprints = new List<BaseDefinition>();
             foreach (IEnumerable<BaseDefinition> db in databases.Values.OrderBy(db => db.GetType().GetGenericArguments()[0].Name))
             {
                 yield return null;
-                loaded += 1;
+                loaded++;
                 var items = 0;
                 foreach (BaseDefinition baseDefinition in db.OrderBy(def => def.Name))
                 {
                     blueprints.Add(baseDefinition);
                     UpdateProgress(loaded, total);
-                    items += 1;
+                    items++;
                     if (items % 100 == 0)
                     {
                         yield return null;
@@ -89,11 +89,7 @@ namespace SolastaModApi.DataViewer
 
         public bool LoadInProgress()
         {
-            if (coroutine != null)
-            {
-                return true;
-            }
-            return false;
+            return coroutine != null;
         }
     }
 }

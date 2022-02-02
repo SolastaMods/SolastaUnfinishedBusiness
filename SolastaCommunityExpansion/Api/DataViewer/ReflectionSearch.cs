@@ -7,35 +7,34 @@ using static ModKit.Utility.StringExtensions;
 
 namespace SolastaModApi.DataViewer
 {
-
     /**
      * Strategy For Async Deep Search
-     * 
+     *
      * --- update
-     * 
+     *
      * duh can't do real async/Task need to use unity coroutines ala https://docs.unity3d.com/ScriptReference/MonoBehaviour.StartCoroutine.html
-     * 
+     *
      * two coroutines implemented with Task() and async/await
      *      Render Path - regular OnGUI on the main thread
      *      Search Loop
      *          background thread posting updates using IProgress on the main thread using something like
-     *              private async void Button_Click(object sender, EventArgs e) 
+     *              private async void Button_Click(object sender, EventArgs e)
      *              here https://stackoverflow.com/questions/12414601/async-await-vs-backgroundworker
-     * 
+     *
      * Store Node.searchText as a static
-     * 
+     *
      * Add to node
      *      HashSet<String> matches
      *      searchText
-     * 
+     *
      * Node.Render(depth) - main thread (UI)
      *      if (!autoExpandKeys.IsEmpty), foreach (key, value) display {key}, {value | Render(children+1) )
      *      if (isExpanded) foreach (key, value) display {key}, {value | Render(children+1) )
       *     yield
-     * 
+     *
      * Node.Search(string[] keyPath, Func<Node,Bool> matches, int depth) - background thread
      *      autoMatchKeys.Clear()
-     *      foreach (key, value) 
+     *      foreach (key, value)
      *          if (matches(key) matches += key
      *          if (value.isAtomic && matches(value))  matches += key
      *          if we added any keys to matches then {
@@ -47,16 +46,16 @@ namespace SolastaModApi.DataViewer
      *              }
      *          }
      *          else (value as Node).Search(keyPath + key, matches)
-     *          
-     *          
+     *
+     *
      * Bool Matches(text)
      *      if (text.contains(searchText) return true
-     * 
+     *
      * On User click expand for Node, Node.isExpanded = !Node.isExpanded
-     *      
+     *
      * On searchText change
      *      foreach Node in Tree, this.matches.Clear()
-     *      
+     *
      */
     public partial class ReflectionSearch : MonoBehaviour
     {
@@ -124,7 +123,7 @@ namespace SolastaModApi.DataViewer
                 yield return null;
             }
 
-            var newTodo = new List<Node> { };
+            var newTodo = new List<Node>();
             var breadth = todo.Count;
             foreach (var node in todo)
             {
