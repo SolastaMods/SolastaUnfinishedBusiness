@@ -31,7 +31,7 @@ namespace SolastaModApi.DataViewer
 
         public HashSet<TNode> matches { get { return Children.Select(c => c.Node).ToHashSet(); } }
 
-        public List<ResultNode<TNode>> Children { get; private set; } = new();
+        public List<ResultNode<TNode>> Children { get; } = new();
 
         public ToggleState ToggleState { get; set; } = ToggleState.Off;
 

@@ -139,7 +139,7 @@ namespace SolastaModApi.DataViewer
                     GUILayout.Space(10f);
                     GUILayout.Label($"Scroll: {_startIndex} / {_totalNodeCount}", GUILayout.ExpandWidth(false));
                     GUILayout.Space(10f);
-                    UI.ActionTextField(ref searchText, "searhText", (text) => { }, () =>
+                    UI.ActionTextField(ref searchText, "searhText", (_) => { }, () =>
                     {
                         searchText = searchText.Trim();
                         ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, updateCounts, _searchResults);
@@ -251,21 +251,18 @@ namespace SolastaModApi.DataViewer
 
             if (_nodesCount > _startIndex && _nodesCount <= _startIndex + MaxRows)
             {
-
                 using (new GUILayout.HorizontalScope())
                 {
                     // title
                     GUILayout.Space(DepthDelta * (depth - _skipLevels));
                     var name = node.Name;
-                    var instText = "";
                     name = name.MarkedSubstring(searchText);
                     UI.ToggleButton(ref expanded,
                         $"[{node.NodeTypePrefix}] ".color(RGBA.grey) +
                         name + " : " + node.Type.Name.color(
                             node.IsBaseType ? RGBA.grey :
                             node.IsGameObject ? RGBA.magenta :
-                            node.IsEnumerable ? RGBA.cyan : RGBA.orange)
-                        + instText,
+                            node.IsEnumerable ? RGBA.cyan : RGBA.orange),
                         _buttonStyle, GUILayout.ExpandWidth(false), GUILayout.MinWidth(TitleMinWidth));
 
                     // value
@@ -330,7 +327,7 @@ namespace SolastaModApi.DataViewer
             var toHoist = new List<Node>();
             var others = new List<Node>();
             var nodesCount = _nodesCount;
-            var maxNodeCount = _startIndex + MaxRows * 2;
+            var maxNodeCount = _startIndex + (MaxRows * 2);
             foreach (var child in node.GetItemNodes())
             {
                 if (nodesCount > maxNodeCount)

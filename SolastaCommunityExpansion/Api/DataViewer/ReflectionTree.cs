@@ -61,7 +61,7 @@ namespace SolastaModApi.DataViewer
         public readonly Type Type;
         public readonly bool IsNullable;
         // the graph will not show any child nodes of following types
-        internal static readonly HashSet<Type> BASE_TYPES = new HashSet<Type>()
+        internal static readonly HashSet<Type> BASE_TYPES = new()
         {
             typeof(object),
             typeof(DBNull),
@@ -97,19 +97,14 @@ namespace SolastaModApi.DataViewer
         {
             get
             {
-                switch (NodeType)
+                return NodeType switch
                 {
-                    case NodeType.Component:
-                        return "c";
-                    case NodeType.Item:
-                        return "i";
-                    case NodeType.Field:
-                        return "f";
-                    case NodeType.Property:
-                        return "p";
-                    default:
-                        return string.Empty;
-                }
+                    NodeType.Component => "c",
+                    NodeType.Item => "i",
+                    NodeType.Field => "f",
+                    NodeType.Property => "p",
+                    _ => string.Empty,
+                };
             }
         }
         public int ExpandedNodeCount
@@ -374,7 +369,7 @@ namespace SolastaModApi.DataViewer
         }
         private static Node FindOrCreateChildForValue(Type type, params object[] childArgs)
         {
-            return (Activator.CreateInstance(type, ALL_FLAGS, null, childArgs, null) as Node);
+            return Activator.CreateInstance(type, ALL_FLAGS, null, childArgs, null) as Node;
         }
         private void UpdateComponentNodes()
         {
@@ -386,11 +381,9 @@ namespace SolastaModApi.DataViewer
 
             _componentIsDirty = false;
 
-            if (_componentNodes == null)
-            {
-                _componentNodes = new List<Node>();
-            }
+            _componentNodes ??= new List<Node>();
             _componentNodes.Clear();
+
             if (IsException || IsNull || !IsGameObject)
             {
                 return;
@@ -398,12 +391,17 @@ namespace SolastaModApi.DataViewer
 
             Type nodeType = typeof(ComponentNode);
             int i = 0;
-            foreach (Component item in (Value as GameObject).GetComponents<Component>())
+
+            if (Value is GameObject gameObject)
             {
-                _componentNodes.Add(FindOrCreateChildForValue(nodeType, this, "<component_" + i + ">", item));
-                i++;
+                foreach (Component item in gameObject.GetComponents<Component>())
+                {
+                    _componentNodes.Add(FindOrCreateChildForValue(nodeType, this, "<component_" + i + ">", item));
+                    i++;
+                }
             }
         }
+
         private void UpdateItemNodes()
         {
             UpdateValue();
@@ -415,12 +413,9 @@ namespace SolastaModApi.DataViewer
 
             _itemIsDirty = false;
 
-            if (_itemNodes == null)
-            {
-                _itemNodes = new List<Node>();
-            }
-
+            _itemNodes ??= new List<Node>();
             _itemNodes.Clear();
+
             if (IsException || IsNull || !IsEnumerable)
             {
                 return;
@@ -449,12 +444,9 @@ namespace SolastaModApi.DataViewer
 
             _fieldIsDirty = false;
 
-            if (_fieldNodes == null)
-            {
-                _fieldNodes = new List<Node>();
-            }
-
+            _fieldNodes ??= new List<Node>();
             _fieldNodes.Clear();
+
             if (IsException || IsNull)
             {
                 return;
@@ -478,12 +470,9 @@ namespace SolastaModApi.DataViewer
 
             _propertyIsDirty = false;
 
-            if (_propertyNodes == null)
-            {
-                _propertyNodes = new List<Node>();
-            }
-
+            _propertyNodes ??= new List<Node>();
             _propertyNodes.Clear();
+
             if (IsException || IsNull)
             {
                 return;

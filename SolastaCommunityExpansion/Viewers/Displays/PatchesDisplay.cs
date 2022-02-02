@@ -106,7 +106,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         {
                             UI.ActionButton("Disable All", () =>
                             {
-                                var actions = new List<Action> { };
+                                var actions = new List<Action>();
                                 foreach (var method in methodBases)
                                 {
                                     var enabledPatches = EnabledPatchesForMethod(method);
@@ -120,7 +120,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         {
                             UI.ActionButton("Enable All", () =>
                             {
-                                var actions = new List<Action> { };
+                                var actions = new List<Action>();
                                 foreach (var method in methodBases)
                                 {
                                     var disabledPatches = DisabledPatchesForMethod(method);
@@ -238,11 +238,11 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         }
         private static List<Patch> EnabledPatchesForMethod(MethodBase method)
         {
-            return _patches.GetValueOrDefault(method, new List<Patch> { });
+            return _patches.GetValueOrDefault(method, new List<Patch>());
         }
         private static List<Patch> DisabledPatchesForMethod(MethodBase method)
         {
-            return _disabled.GetValueOrDefault(method, new List<Patch> { });
+            return _disabled.GetValueOrDefault(method, new List<Patch>());
         }
         private static void EnablePatchForMethod(bool enabled, Patch patch, MethodBase method)
         {
