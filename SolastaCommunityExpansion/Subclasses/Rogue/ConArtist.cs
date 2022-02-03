@@ -54,7 +54,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                 RuleDefinitions.CharacterAbilityCheckAffinity.Advantage, "AbilityAffinityRogueConArtist", conAffinity.Build());
             conArtist.AddFeatureAtLevel(abilityAffinity, 3);
 
-            CastSpellBuilder spellCasting = new CastSpellBuilder("CastSpellConArtist", GuidHelper.Create(SubclassNamespace, "CastSpellConArtist").ToString());
+            FeatureDefinitionCastSpellBuilder spellCasting = new FeatureDefinitionCastSpellBuilder("CastSpellConArtist", GuidHelper.Create(SubclassNamespace, "CastSpellConArtist").ToString());
             spellCasting.SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass);
             spellCasting.SetSpellCastingAbility(AttributeDefinitions.Charisma);
             spellCasting.SetSpellList(DatabaseHelper.SpellListDefinitions.SpellListWizard);
@@ -65,9 +65,9 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             spellCasting.SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection);
             spellCasting.SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
             spellCasting.SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest);
-            spellCasting.SetKnownCantrips(3, 3, CastSpellBuilder.CasterProgression.THIRD_CASTER);
-            spellCasting.SetKnownSpells(4, 3, CastSpellBuilder.CasterProgression.THIRD_CASTER);
-            spellCasting.SetSlotsPerLevel(3, CastSpellBuilder.CasterProgression.THIRD_CASTER);
+            spellCasting.SetKnownCantrips(3, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER);
+            spellCasting.SetKnownSpells(4, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER);
+            spellCasting.SetSlotsPerLevel(3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER);
             GuiPresentationBuilder spellcastGui = new GuiPresentationBuilder(
                 "Subclass/&RoguishConArtistSpellcastingTitle",
                 "Subclass/&RoguishConArtistSpellcastingDescription");

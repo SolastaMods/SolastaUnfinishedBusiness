@@ -40,7 +40,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 .SetCastingModifiers(0, 0, true, false, false).AddToDB();
             spellShield.AddFeatureAtLevel(magicAffinity, 3);
 
-            CastSpellBuilder spellCasting = new CastSpellBuilder("CastSpellSpellShield", GuidHelper.Create(SubclassNamespace, "CastSpellSpellShield").ToString());
+            FeatureDefinitionCastSpellBuilder spellCasting = new FeatureDefinitionCastSpellBuilder("CastSpellSpellShield", GuidHelper.Create(SubclassNamespace, "CastSpellSpellShield").ToString());
             spellCasting.SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass);
             spellCasting.SetSpellCastingAbility(AttributeDefinitions.Intelligence);
             spellCasting.SetSpellList(DatabaseHelper.SpellListDefinitions.SpellListWizard);
@@ -51,9 +51,9 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             spellCasting.SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection);
             spellCasting.SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
             spellCasting.SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest);
-            spellCasting.SetKnownCantrips(3, 3, CastSpellBuilder.CasterProgression.THIRD_CASTER);
-            spellCasting.SetKnownSpells(4, 3, CastSpellBuilder.CasterProgression.THIRD_CASTER);
-            spellCasting.SetSlotsPerLevel(3, CastSpellBuilder.CasterProgression.THIRD_CASTER);
+            spellCasting.SetKnownCantrips(3, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER);
+            spellCasting.SetKnownSpells(4, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER);
+            spellCasting.SetSlotsPerLevel(3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER);
             GuiPresentationBuilder spellcastGui = new GuiPresentationBuilder(
                 "Subclass/&FighterSpellShieldSpellcastingTitle",
                 "Subclass/&FighterSpellShieldSpellcastingDescription");

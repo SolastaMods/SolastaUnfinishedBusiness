@@ -143,7 +143,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             detonationEffect.SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 4, 4, ActionDefinitions.ItemSelectionType.None);
             detonationEffect.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters);
 
-            SpellDefinition detonation = new SpellBuilder("ArtilleristCannonDetonation", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristCannonDetonation").ToString())
+            SpellDefinition detonation = new SpellDefinitionBuilder("ArtilleristCannonDetonation", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristCannonDetonation").ToString())
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSpellLevel(1)
                 .SetCastingTime(ActivationTime.Action)
