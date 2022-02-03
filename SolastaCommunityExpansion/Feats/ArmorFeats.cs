@@ -44,12 +44,17 @@ namespace SolastaCommunityExpansion.Feats
 
         public static FeatDefinition BuildFeat(string name, ArmorCategoryDefinition prerequisite, params FeatureDefinition[] features)
         {
-            return new FeatDefinitionBuilder(name, ArmorNamespace, "Feat", features).SetArmorProficiencyPrerequisite(prerequisite).AddToDB();
+            return new FeatDefinitionBuilder(name, ArmorNamespace, "Feat")
+                .SetFeatures(features)
+                .SetArmorProficiencyPrerequisite(prerequisite)
+                .AddToDB();
         }
 
         public static FeatDefinition BuildFeat(string name, params FeatureDefinition[] features)
         {
-            return new FeatDefinitionBuilder(name, ArmorNamespace, "Feat", features).AddToDB();
+            return new FeatDefinitionBuilder(name, ArmorNamespace, "Feat")
+                .SetFeatures(features)
+                .AddToDB();
         }
 
         public static FeatureDefinitionProficiency BuildProficiency(string name, ProficiencyType type, params string[] proficiencies)

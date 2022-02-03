@@ -2,25 +2,20 @@
 
 namespace SolastaCommunityExpansion.Builders
 {
-    // TODO move complete builders to ModAPI, move reusable builders to the Features folder so they can be shared.
     public class LootPackDefinitionBuilder : BaseDefinitionBuilder<LootPackDefinition>
     {
-        protected LootPackDefinitionBuilder(string name, string guid, string title, string description, LootPackDefinition base_loot) : base(base_loot, name, guid)
+        protected LootPackDefinitionBuilder(LootPackDefinition original, string name, string guid) : base(original, name, guid)
         {
-            // ?? would these be better as !string.IsNullOr...
-            if (title != "")
-            {
-                Definition.GuiPresentation.Title = title;
-            }
-            if (description != "")
-            {
-                Definition.GuiPresentation.Description = description;
-            }
         }
 
-        public static LootPackDefinition CreateCopyFrom(string name, string guid, string title, string description, LootPackDefinition base_loot)
+        public static LootPackDefinition CreateCopyFrom(LootPackDefinition original, string name, string guid, string title, string description)
         {
-            return new LootPackDefinitionBuilder(name, guid, title, description, base_loot).AddToDB();
+            return new LootPackDefinitionBuilder(original, name, guid).SetGuiPresentation(title, description).AddToDB();
+        }
+
+        public static LootPackDefinition CreateCopyFrom(LootPackDefinition original, string name, string guid)
+        {
+            return new LootPackDefinitionBuilder(original, name, guid).AddToDB();
         }
     }
 }

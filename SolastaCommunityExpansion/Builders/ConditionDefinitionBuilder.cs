@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class ConditionDefinitionBuilder<TDefinition> : BaseDefinitionBuilder<TDefinition> where TDefinition : ConditionDefinition
     {
-        public ConditionDefinitionBuilder(string name, string guid, Action<TDefinition> modifyDefinition = null) : base(name, guid)
+        public ConditionDefinitionBuilder(string name, string guid, Action<TDefinition> modifyDefinition) : base(name, guid)
         {
             Definition
                 .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
@@ -27,24 +27,30 @@ namespace SolastaCommunityExpansion.Builders
             modifyDefinition?.Invoke(Definition);
         }
 
-        public ConditionDefinitionBuilder(TDefinition toCopy, string name, string guid)
-            : base(toCopy, name, guid)
+        public ConditionDefinitionBuilder(string name, string guid) : base(name, guid)
         {
         }
 
-        public ConditionDefinitionBuilder(TDefinition toCopy, string name, Guid guidNamespace)
-            : base(toCopy, name, guidNamespace, null)
+        public ConditionDefinitionBuilder(TDefinition original, string name, string guid)
+            : base(original, name, guid)
         {
         }
 
-        public ConditionDefinitionBuilder(TDefinition toCopy, string name, string guid, GuiPresentation guiPresentation)
-            : base(toCopy, name, guid)
+        public ConditionDefinitionBuilder(TDefinition original, string name, Guid guidNamespace, string category = null)
+            : base(original, name, guidNamespace, category)
+        {
+        }
+
+        // TODO: remove
+        public ConditionDefinitionBuilder(TDefinition original, string name, string guid, GuiPresentation guiPresentation)
+            : base(original, name, guid)
         {
             Definition.SetGuiPresentation(guiPresentation);
         }
 
-        public ConditionDefinitionBuilder(TDefinition toCopy, string name, Guid guidNamespace, GuiPresentation guiPresentation)
-            : base(toCopy, name, guidNamespace, null)
+        // TODO: remove
+        public ConditionDefinitionBuilder(TDefinition original, string name, Guid guidNamespace, GuiPresentation guiPresentation)
+            : base(original, name, guidNamespace, null)
         {
             Definition.SetGuiPresentation(guiPresentation);
         }
@@ -63,6 +69,8 @@ namespace SolastaCommunityExpansion.Builders
 
     public class ConditionDefinitionBuilder : ConditionDefinitionBuilder<ConditionDefinition>
     {
+        // TODO: additional ctors
+
         public ConditionDefinitionBuilder(string name, string guid, Action<ConditionDefinition> modifyDefinition = null) : base(name, guid, modifyDefinition)
         {
         }

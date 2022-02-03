@@ -1,4 +1,5 @@
-﻿using SolastaModApi;
+﻿using System;
+using SolastaModApi;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
@@ -25,10 +26,30 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetUniqueInstance(uniqueInstance);
         }
 
-        public FeatureDefinitionPowerBuilder(string name, string guid,
-            GuiPresentation guiPresentation) : base(name, guid)
+        public FeatureDefinitionPowerBuilder(string name, string guid, GuiPresentation guiPresentation)
+            : base(name, guid)
         {
             Definition.SetGuiPresentation(guiPresentation);
+        }
+
+        public FeatureDefinitionPowerBuilder(string name, string guid)
+            : base(name, guid)
+        {
+        }
+
+        public FeatureDefinitionPowerBuilder(string name, Guid namespaceGuid, string category = null)
+            : base(name, namespaceGuid, category)
+        {
+        }
+
+        public FeatureDefinitionPowerBuilder(FeatureDefinitionPower original, string name, string guid)
+            : base(original, name, guid)
+        {
+        }
+
+        public FeatureDefinitionPowerBuilder(FeatureDefinitionPower original, string name, Guid namespaceGuid, string category = null)
+            : base(original, name, namespaceGuid, category)
+        {
         }
 
         public FeatureDefinitionPowerBuilder SetEffect(EffectDescription effect)

@@ -22,11 +22,23 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetPoolAmount(poolAmount);
         }
 
-        public FeatureDefinitionPointPoolBuilder(string name, string guid) : base(name, guid)
+        public FeatureDefinitionPointPoolBuilder(string name, string guid)
+            : base(name, guid)
         {
         }
 
-        public FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, string guid) : base(original, name, guid)
+        public FeatureDefinitionPointPoolBuilder(string name, Guid namespaceGuid, string category = null)
+            : base(name, namespaceGuid, category)
+        {
+        }
+
+        public FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, string guid)
+            : base(original, name, guid)
+        {
+        }
+
+        public FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, Guid namespaceGuid, string category = null)
+            : base(original, name, namespaceGuid, category)
         {
         }
 

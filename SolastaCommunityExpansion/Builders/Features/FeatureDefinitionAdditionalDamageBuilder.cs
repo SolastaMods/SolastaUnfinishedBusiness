@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -8,13 +10,33 @@ namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionAdditionalDamageBuilder : BaseDefinitionBuilder<FeatureDefinitionAdditionalDamage>
     {
+        public FeatureDefinitionAdditionalDamageBuilder(string name, string guid)
+            : base(name, guid)
+        {
+        }
+
+        public FeatureDefinitionAdditionalDamageBuilder(string name, Guid namespaceGuid, string category = null)
+            : base(name, namespaceGuid, category)
+        {
+        }
+
+        public FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original, string name, string guid)
+            : base(original, name, guid)
+        {
+        }
+
+        public FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original, string name, Guid namespaceGuid, string category = null)
+            : base(original, name, namespaceGuid, category)
+        {
+        }
+
         public FeatureDefinitionAdditionalDamageBuilder(string name, string guid,
             string notificationTag, RuleDefinitions.FeatureLimitedUsage limitedUsage,
-        RuleDefinitions.AdditionalDamageValueDetermination damageValueDetermination,
-        RuleDefinitions.AdditionalDamageTriggerCondition triggerCondition, RuleDefinitions.AdditionalDamageRequiredProperty requiredProperty,
-        bool attackModeOnly, RuleDefinitions.DieType damageDieType, int damageDiceNumber, RuleDefinitions.AdditionalDamageType additionalDamageType,
-        string specificDamageType, RuleDefinitions.AdditionalDamageAdvancement damageAdvancement, List<DiceByRank> diceByRankTable,
-        GuiPresentation guiPresentation) : base(name, guid)
+            RuleDefinitions.AdditionalDamageValueDetermination damageValueDetermination,
+            RuleDefinitions.AdditionalDamageTriggerCondition triggerCondition, RuleDefinitions.AdditionalDamageRequiredProperty requiredProperty,
+            bool attackModeOnly, RuleDefinitions.DieType damageDieType, int damageDiceNumber, RuleDefinitions.AdditionalDamageType additionalDamageType,
+            string specificDamageType, RuleDefinitions.AdditionalDamageAdvancement damageAdvancement, List<DiceByRank> diceByRankTable,
+            GuiPresentation guiPresentation) : base(name, guid)
         {
             Definition.SetNotificationTag(notificationTag);
             Definition.SetLimitedUsage(limitedUsage);
@@ -32,12 +54,6 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetGuiPresentation(guiPresentation);
             Definition.SetField("conditionOperations", new List<ConditionOperationDescription>());
             Definition.SetField("familiesWithAdditionalDice", new List<string>());
-        }
-
-        public FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage toCopy, string name, string guid,
-            GuiPresentation guiPresentation) : base(toCopy, name, guid)
-        {
-            Definition.SetGuiPresentation(guiPresentation);
         }
 
         public FeatureDefinitionAdditionalDamageBuilder SetSpecificDamageType(string damageType)
@@ -61,17 +77,21 @@ namespace SolastaCommunityExpansion.Builders.Features
             return this;
         }
 
-        public FeatureDefinitionAdditionalDamageBuilder NoAdvancement()
+        public FeatureDefinitionAdditionalDamageBuilder SetNoAdvancement()
         {
             Definition.SetDamageAdvancement(RuleDefinitions.AdditionalDamageAdvancement.None);
             return this;
         }
 
-        public FeatureDefinitionAdditionalDamageBuilder SetClassAdvancement(List<DiceByRank> diceByRanks)
+        public FeatureDefinitionAdditionalDamageBuilder SetClassAdvancement(params DiceByRank[] diceByRanks)
+        {
+            return SetClassAdvancement(diceByRanks.AsEnumerable());
+        }
+
+        public FeatureDefinitionAdditionalDamageBuilder SetClassAdvancement(IEnumerable<DiceByRank> diceByRanks)
         {
             Definition.SetDamageAdvancement(RuleDefinitions.AdditionalDamageAdvancement.ClassLevel);
-            Definition.DiceByRankTable.Clear();
-            Definition.DiceByRankTable.AddRange(diceByRanks);
+            Definition.DiceByRankTable.SetRange(diceByRanks);
             return this;
         }
 
@@ -87,10 +107,14 @@ namespace SolastaCommunityExpansion.Builders.Features
             return this;
         }
 
-        public FeatureDefinitionAdditionalDamageBuilder SetConditionOperations(List<ConditionOperationDescription> operations)
+        public FeatureDefinitionAdditionalDamageBuilder SetConditionOperations(params ConditionOperationDescription[] operations)
         {
-            Definition.ConditionOperations.Clear();
-            Definition.ConditionOperations.AddRange(operations);
+            return SetConditionOperations(operations.AsEnumerable());
+        }
+
+        public FeatureDefinitionAdditionalDamageBuilder SetConditionOperations(IEnumerable<ConditionOperationDescription> operations)
+        {
+            Definition.ConditionOperations.SetRange(operations);
             return this;
         }
 

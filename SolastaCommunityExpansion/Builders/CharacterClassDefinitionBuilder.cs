@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using TA.AI;
 using UnityEngine.AddressableAssets;
 using static CharacterClassDefinition;
@@ -15,7 +17,17 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public CharacterClassDefinitionBuilder(CharacterClassDefinition original, string name, string guid) : base(original, name, guid)
+        public CharacterClassDefinitionBuilder(string name, Guid namespaceGuid, string category = null) : base(name, namespaceGuid, category)
+        {
+        }
+
+        public CharacterClassDefinitionBuilder(CharacterClassDefinition original, string name, string guid)
+            : base(original, name, guid)
+        {
+        }
+
+        public CharacterClassDefinitionBuilder(CharacterClassDefinition original, string name, Guid namespaceGuid, string category = null)
+            : base(original, name, namespaceGuid, category)
         {
         }
 
@@ -27,8 +39,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public CharacterClassDefinitionBuilder SetAbilityScorePriorities(string first, string second, string third, string fourth, string fifth, string sixth)
         {
-            Definition.AbilityScoresPriority.Clear();
-            Definition.AbilityScoresPriority.AddRange(new[] { first, second, third, fourth, fifth, sixth });
+            Definition.AbilityScoresPriority.SetRange(new[] { first, second, third, fourth, fifth, sixth });
             return this;
         }
 

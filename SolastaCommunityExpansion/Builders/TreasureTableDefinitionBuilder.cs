@@ -4,21 +4,18 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class TreasureTableDefinitionBuilder : BaseDefinitionBuilder<TreasureTableDefinition>
     {
-        protected TreasureTableDefinitionBuilder(string name, string guid, string title, string description, TreasureTableDefinition base_table) : base(base_table, name, guid)
+        protected TreasureTableDefinitionBuilder(TreasureTableDefinition original, string name, string guid) : base(original, name, guid)
         {
-            if (title != "")
-            {
-                Definition.GuiPresentation.Title = title;
-            }
-            if (description != "")
-            {
-                Definition.GuiPresentation.Description = description;
-            }
         }
 
-        public static TreasureTableDefinition createCopyFrom(string name, string guid, string title, string description, TreasureTableDefinition base_table)
+        public static TreasureTableDefinition CreateCopyFrom(TreasureTableDefinition original, string name, string guid)
         {
-            return new TreasureTableDefinitionBuilder(name, guid, title, description, base_table).AddToDB();
+            return new TreasureTableDefinitionBuilder(original, name, guid).AddToDB();
+        }
+
+        public static TreasureTableDefinition CreateCopyFrom(TreasureTableDefinition original, string name, string guid, string title, string description)
+        {
+            return new TreasureTableDefinitionBuilder(original, name, guid).SetGuiPresentation(title, description).AddToDB();
         }
     }
 }

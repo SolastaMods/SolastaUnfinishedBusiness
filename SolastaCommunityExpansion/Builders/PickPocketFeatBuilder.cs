@@ -5,20 +5,18 @@ namespace SolastaCommunityExpansion.Builders
     // TODO: merge with FeatDefinitionBuilder
     public class PickPocketFeatBuilder : BaseDefinitionBuilder<FeatDefinition>
     {
-        protected PickPocketFeatBuilder(string name, string guid, string title, string description, FeatDefinition base_Feat) : base(base_Feat, name, guid)
+        protected PickPocketFeatBuilder(FeatDefinition original, string name, string guid) : base(original, name, guid)
         {
-            if (title != "")
-            {
-                Definition.GuiPresentation.Title = title;
-            }
-            if (description != "")
-            {
-                Definition.GuiPresentation.Description = description;
-            }
         }
-        public static FeatDefinition CreateCopyFrom(string name, string guid, string title, string description, FeatDefinition base_Feat)
+
+        public static FeatDefinition CreateCopyFrom(FeatDefinition original, string name, string guid)
         {
-            return new PickPocketFeatBuilder(name, guid, title, description, base_Feat).AddToDB();
+            return new PickPocketFeatBuilder(original, name, guid).AddToDB();
+        }
+
+        public static FeatDefinition CreateCopyFrom(FeatDefinition original, string name, string guid, string title, string description)
+        {
+            return new PickPocketFeatBuilder(original, name, guid).SetGuiPresentation(title, description).AddToDB();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using SolastaModApi;
+﻿using System;
+using SolastaModApi;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders
@@ -8,8 +9,15 @@ namespace SolastaCommunityExpansion.Builders
         public CharacterSubclassDefinitionBuilder(string name, string guid) : base(name, guid)
         {
         }
+        public CharacterSubclassDefinitionBuilder(string name, Guid namespaceGuid, string category = null) : base(name, namespaceGuid, category)
+        {
+        }
 
         public CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, string guid) : base(original, name, guid)
+        {
+        }
+        public CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, Guid namespaceGuid, string category = null)
+            : base(original, name, namespaceGuid, category)
         {
         }
 

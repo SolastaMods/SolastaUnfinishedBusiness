@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -13,7 +14,18 @@ namespace SolastaCommunityExpansion.Builders
             InitializeFields();
         }
 
-        public EffectProxyDefinitionBuilder(EffectProxyDefinition original, string name, string guid) : base(original, name, guid)
+        public EffectProxyDefinitionBuilder(string name, Guid namespaceGuid, string category = null) : base(name, namespaceGuid, category)
+        {
+            InitializeFields();
+        }
+
+        public EffectProxyDefinitionBuilder(EffectProxyDefinition original, string name, string guid)
+            : base(original, name, guid)
+        {
+        }
+
+        public EffectProxyDefinitionBuilder(EffectProxyDefinition original, string name, Guid namespaceGuid, string category = null)
+            : base(original, name, namespaceGuid, category)
         {
         }
 
