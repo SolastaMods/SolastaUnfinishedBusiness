@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionAutoPreparedSpellsBuilder : BaseDefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
     {
         public FeatureDefinitionAutoPreparedSpellsBuilder(string name, string guid)
-    : base(name, guid)
+            : base(name, guid)
         {
         }
 

@@ -155,17 +155,15 @@ namespace SolastaCommunityExpansion.Feats
             //RestActivityBuilder.BuildRestActivity(RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.ShortRest,
             //    RestActivityDefinition.ActivityCondition.CanUsePower, "UsePower", shortRestFeast.Name, "ChefCookTreats", shortRestFeastPresentation.Build());
 
-            GuiPresentationBuilder conPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatChefConIncrementTitle",
-                "Feat/&FeatChefConIncrementDescription");
-            FeatureDefinition conIncrement = BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.Constitution, 1, "FeatChefConIncrement", conPresentation.Build());
+            FeatureDefinition conIncrement = BuildAdditiveAttributeModifier("FeatChefConIncrement", AttributeDefinitions.Constitution, 1);
+            FeatureDefinition wisIncrement = BuildAdditiveAttributeModifier("FeatChefWisIncrement", AttributeDefinitions.Wisdom, 1);
 
-            GuiPresentationBuilder wisPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatChefWisIncrementTitle",
-                "Feat/&FeatChefWisIncrementDescription");
-            FeatureDefinition wisIncrement = BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.Wisdom, 1, "FeatChefWisIncrement", wisPresentation.Build());
+            static FeatureDefinitionAttributeModifier BuildAdditiveAttributeModifier(string name, string attribute, int amount)
+            {
+                return new FeatureDefinitionAttributeModifierBuilder(name, HealingFeatNamespace, Category.Feat)
+                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, attribute, amount)
+                    .AddToDB();
+            }
 
             GuiPresentationBuilder chefConPresentation = new GuiPresentationBuilder(
                 "Feat/&ChefConTitle",
@@ -190,14 +188,6 @@ namespace SolastaCommunityExpansion.Feats
                 cookTreatsPower,
             }, chefWisPresentation.Build());
             feats.Add(chefWis.AddToDB());
-        }
-
-        public static FeatureDefinitionAttributeModifier BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation modifierType,
-            string attribute, int amount, string name, GuiPresentation guiPresentation)
-        {
-            FeatureDefinitionAttributeModifierBuilder builder = new FeatureDefinitionAttributeModifierBuilder(name, GuidHelper.Create(HealingFeatNamespace, name).ToString(),
-                modifierType, attribute, amount, guiPresentation);
-            return builder.AddToDB();
         }
 
         public static FeatureDefinitionProficiency BuildProficiency(RuleDefinitions.ProficiencyType type,

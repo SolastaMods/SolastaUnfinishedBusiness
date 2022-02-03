@@ -27,20 +27,20 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
+        // TODO: drop these ctors
         public FeatureDefinitionAttributeModifierBuilder(string name, string guid, AttributeModifierOperation modifierType,
             string attribute, int amount, GuiPresentation guiPresentation) : base(name, guid, guiPresentation)
         {
-            Definition.SetModifierType2(modifierType);
-            Definition.SetModifiedAttribute(attribute);
-            Definition.SetModifierValue(amount);
+            SetModifier(modifierType, attribute, amount);
         }
+        // -- to here
 
-        public FeatureDefinitionAttributeModifierBuilder(string name, Guid namespaceGuid, AttributeModifierOperation modifierType,
-            string attribute, int amount, string category) : base(name, namespaceGuid, category)
+        public FeatureDefinitionAttributeModifierBuilder SetModifier(AttributeModifierOperation modifierType, string attribute, int amount)
         {
             Definition.SetModifierType2(modifierType);
             Definition.SetModifiedAttribute(attribute);
             Definition.SetModifierValue(amount);
+            return this;
         }
 
         public FeatureDefinitionAttributeModifierBuilder SetModifierAbilityScore(string abilityScore)

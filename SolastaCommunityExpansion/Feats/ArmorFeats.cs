@@ -44,7 +44,7 @@ namespace SolastaCommunityExpansion.Feats
 
         public static FeatDefinition BuildFeat(string name, ArmorCategoryDefinition prerequisite, params FeatureDefinition[] features)
         {
-            return new FeatDefinitionBuilder(name, ArmorNamespace, "Feat")
+            return new FeatDefinitionBuilder(name, ArmorNamespace, Category.Feat)
                 .SetFeatures(features)
                 .SetArmorProficiencyPrerequisite(prerequisite)
                 .AddToDB();
@@ -52,19 +52,21 @@ namespace SolastaCommunityExpansion.Feats
 
         public static FeatDefinition BuildFeat(string name, params FeatureDefinition[] features)
         {
-            return new FeatDefinitionBuilder(name, ArmorNamespace, "Feat")
+            return new FeatDefinitionBuilder(name, ArmorNamespace, Category.Feat)
                 .SetFeatures(features)
                 .AddToDB();
         }
 
         public static FeatureDefinitionProficiency BuildProficiency(string name, ProficiencyType type, params string[] proficiencies)
         {
-            return new FeatureDefinitionProficiencyBuilder(name, ArmorNamespace, type, proficiencies.AsEnumerable(), "Feat").AddToDB();
+            return new FeatureDefinitionProficiencyBuilder(name, ArmorNamespace, type, proficiencies.AsEnumerable(), Category.Feat).AddToDB();
         }
 
         public static FeatureDefinitionAttributeModifier BuildAttributeModifier(string name, AttributeModifierOperation modifierType, string attribute, int amount)
         {
-            return new FeatureDefinitionAttributeModifierBuilder(name, ArmorNamespace, modifierType, attribute, amount, "Feat").AddToDB();
+            return new FeatureDefinitionAttributeModifierBuilder(name, ArmorNamespace, Category.Feat)
+                .SetModifier(modifierType, attribute, amount)
+                .AddToDB();
         }
     }
 }

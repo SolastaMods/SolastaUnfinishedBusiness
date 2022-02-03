@@ -27,6 +27,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
+        // TODO: remove/refactor this ctor
         public FeatureDefinitionAbilityCheckAffinityBuilder(string name, string guid, IEnumerable<(string abilityScoreName, string proficiencyName)> abilityProficiencyPairs,
             int diceNumber, RuleDefinitions.DieType dieType, RuleDefinitions.CharacterAbilityCheckAffinity affinityType, GuiPresentation guiPresentation)
             : base(name, guid)

@@ -28,6 +28,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
+        // TODO: remove/refactor this ctor
         public FeatureDefinitionAdditionalActionBuilder(string name, string guid, ActionDefinitions.ActionType actionType,
             IEnumerable<ActionDefinitions.Id> forbiddenActions, IEnumerable<ActionDefinitions.Id> authorizedActions,
             IEnumerable<ActionDefinitions.Id> restrictedActions, int maxAttacksNumber, RuleDefinitions.AdditionalActionTriggerCondition triggerCondition,
