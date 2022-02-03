@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -27,13 +28,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         public FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original, string name, Guid namespaceGuid, string category = null)
             : base(original, name, namespaceGuid, category)
         {
-        }
-
-        // TODO: remove this ctor
-        public FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage toCopy, string name, string guid,
-            GuiPresentation guiPresentation) : base(toCopy, name, guid)
-        {
-            Definition.SetGuiPresentation(guiPresentation);
         }
 
         public FeatureDefinitionAdditionalDamageBuilder(string name, string guid,
@@ -83,13 +77,18 @@ namespace SolastaCommunityExpansion.Builders.Features
             return this;
         }
 
-        public FeatureDefinitionAdditionalDamageBuilder NoAdvancement()
+        public FeatureDefinitionAdditionalDamageBuilder SetNoAdvancement()
         {
             Definition.SetDamageAdvancement(RuleDefinitions.AdditionalDamageAdvancement.None);
             return this;
         }
 
-        public FeatureDefinitionAdditionalDamageBuilder SetClassAdvancement(List<DiceByRank> diceByRanks)
+        public FeatureDefinitionAdditionalDamageBuilder SetClassAdvancement(params DiceByRank[] diceByRanks)
+        {
+            return SetClassAdvancement(diceByRanks.AsEnumerable());
+        }
+
+        public FeatureDefinitionAdditionalDamageBuilder SetClassAdvancement(IEnumerable<DiceByRank> diceByRanks)
         {
             Definition.SetDamageAdvancement(RuleDefinitions.AdditionalDamageAdvancement.ClassLevel);
             Definition.DiceByRankTable.SetRange(diceByRanks);
@@ -108,7 +107,12 @@ namespace SolastaCommunityExpansion.Builders.Features
             return this;
         }
 
-        public FeatureDefinitionAdditionalDamageBuilder SetConditionOperations(List<ConditionOperationDescription> operations)
+        public FeatureDefinitionAdditionalDamageBuilder SetConditionOperations(params ConditionOperationDescription[] operations)
+        {
+            return SetConditionOperations(operations.AsEnumerable());
+        }
+
+        public FeatureDefinitionAdditionalDamageBuilder SetConditionOperations(IEnumerable<ConditionOperationDescription> operations)
         {
             Definition.ConditionOperations.SetRange(operations);
             return this;
