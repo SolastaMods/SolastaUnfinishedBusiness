@@ -7,6 +7,7 @@
     {
         public const string Feat = "Feat";
         public const string Class = "Class";
+        public const string Condition = "Condition";
         public const string Modifier = "Modifier";
     }
 }

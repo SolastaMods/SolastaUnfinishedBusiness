@@ -90,6 +90,13 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         // TODO: More SetGuiPresentation/Generate(...) overloads as required
+
+        public static TBuilder SetGuiPresentationNoContent<TBuilder>(this TBuilder builder)
+            where TBuilder : IBaseDefinitionBuilder
+        {
+            ((IBaseDefinitionBuilder)builder).SetGuiPresentation(GuiPresentationBuilder.NoContent);
+            return builder;
+        }
     }
 
     internal static class BaseDefinitionGuiPresentationExtensions
@@ -109,5 +116,12 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         // TODO: More SetGuiPresentation/Generate(...) overloads as required
+
+        public static TDefinition SetGuiPresentationNoContent<TDefinition>(this TDefinition definition)
+            where TDefinition : BaseDefinition
+        {
+            definition.GuiPresentation = GuiPresentationBuilder.NoContent;
+            return definition;
+        }
     }
 }

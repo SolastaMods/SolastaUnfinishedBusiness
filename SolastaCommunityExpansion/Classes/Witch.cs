@@ -754,20 +754,15 @@ namespace SolastaCommunityExpansion.Classes
             ruinEffectForm.SetCreatedByCharacter(true);
 
             var ruinConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                    ConditionDefinitions.ConditionAcidArrowed,
-                    "ConditionRuined",
-                    GuidHelper.Create(WITCH_BASE_GUID, "ConditionRuined").ToString(),
-                    new GuiPresentationBuilder(
-                            "Condition/&RuinedTitle",
-                            "Condition/&RuinedDescription")
-                            .SetSpriteReference(ConditionDefinitions.ConditionAcidArrowed.GuiPresentation.SpriteReference)
-                            .Build())
-                    .AddToDB();
-            ruinConditionDefinition.SetConditionType(RuleDefinitions.ConditionType.Detrimental);
-            ruinConditionDefinition.SetDurationParameter(1);
-            ruinConditionDefinition.SetDurationType(RuleDefinitions.DurationType.Round);
+                ConditionDefinitions.ConditionAcidArrowed, "ConditionRuined", WITCH_BASE_GUID)
+                    .SetGuiPresentationGenerate("Ruined", Category.Condition, ConditionDefinitions.ConditionAcidArrowed.GuiPresentation.SpriteReference)
+                    .AddToDB()
+                .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+                .SetDurationParameter(1)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+
             ruinConditionDefinition.RecurrentEffectForms.Clear();
-            ruinConditionDefinition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
             ruinConditionDefinition.Features.Clear();
             ruinConditionDefinition.Features.Add(
                 new FeatureDefinitionAttributeModifierBuilder("Ruined", WITCH_BASE_GUID)
@@ -1021,30 +1016,33 @@ namespace SolastaCommunityExpansion.Classes
                 summoningAffinity.SetRequiredMonsterTag("WitchFamiliar");
                 summoningAffinity.EffectForms.Clear();
 
-                var blank = GuiPresentationBuilder.NoContent;
-
                 var acConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                        ConditionDefinitions.ConditionKindredSpiritBondAC, "ConditionWitchFamiliarAC", WITCH_BASE_GUID, blank)
+                        ConditionDefinitions.ConditionKindredSpiritBondAC, "ConditionWitchFamiliarAC", WITCH_BASE_GUID)
+                    .SetGuiPresentationNoContent()
                     .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
                     .AddToDB();
 
                 var stConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                        ConditionDefinitions.ConditionKindredSpiritBondSavingThrows, "ConditionWitchFamiliarST", WITCH_BASE_GUID, blank)
+                        ConditionDefinitions.ConditionKindredSpiritBondSavingThrows, "ConditionWitchFamiliarST", WITCH_BASE_GUID)
+                    .SetGuiPresentationNoContent()
                     .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
                     .AddToDB();
 
                 var damageConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                        ConditionDefinitions.ConditionKindredSpiritBondMeleeDamage, "ConditionWitchFamiliarDamage", WITCH_BASE_GUID, blank)
+                        ConditionDefinitions.ConditionKindredSpiritBondMeleeDamage, "ConditionWitchFamiliarDamage", WITCH_BASE_GUID)
+                    .SetGuiPresentationNoContent()
                     .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
                     .AddToDB();
 
                 var hitConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                        ConditionDefinitions.ConditionKindredSpiritBondMeleeAttack, "ConditionWitchFamiliarHit", WITCH_BASE_GUID, blank)
+                        ConditionDefinitions.ConditionKindredSpiritBondMeleeAttack, "ConditionWitchFamiliarHit", WITCH_BASE_GUID)
+                    .SetGuiPresentationNoContent()
                     .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceSpellAttack)
                     .AddToDB();
 
                 var hpConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                        ConditionDefinitions.ConditionKindredSpiritBondHP, "ConditionWitchFamiliarHP", WITCH_BASE_GUID, blank)
+                        ConditionDefinitions.ConditionKindredSpiritBondHP, "ConditionWitchFamiliarHP", WITCH_BASE_GUID)
+                    .SetGuiPresentationNoContent()
                     .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel)
                     .AddToDB();
 

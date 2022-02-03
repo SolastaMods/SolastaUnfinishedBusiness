@@ -41,20 +41,6 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        // TODO: remove
-        public ConditionDefinitionBuilder(TDefinition original, string name, string guid, GuiPresentation guiPresentation)
-            : base(original, name, guid)
-        {
-            Definition.SetGuiPresentation(guiPresentation);
-        }
-
-        // TODO: remove
-        public ConditionDefinitionBuilder(TDefinition original, string name, Guid guidNamespace, GuiPresentation guiPresentation)
-            : base(original, name, guidNamespace, null)
-        {
-            Definition.SetGuiPresentation(guiPresentation);
-        }
-
         public ConditionDefinitionBuilder<TDefinition> SetAmountOrigin(ConditionDefinition.OriginOfAmount value)
         {
             Definition.SetAmountOrigin(value);
