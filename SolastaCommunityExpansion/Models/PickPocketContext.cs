@@ -13,8 +13,8 @@ namespace SolastaCommunityExpansion.Models
         internal static void CreateFeats(List<FeatDefinition> feats)
         {
             FeatureDefinitionAbilityCheckAffinity pickpocket_check_affinity = PickPocketAbilityCheckAffinityBuilder.CreateCopyFrom(
-                "AbilityCheckAffinityFeatPickPocket", "30b1492a-053f-412e-b247-798fbc255038", "Feat/&PickPocketFeatTitle", "Feat/&PickPocketFeatDescription",
-                DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityFeatLockbreaker);
+                DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityFeatLockbreaker, "AbilityCheckAffinityFeatPickPocket", "30b1492a-053f-412e-b247-798fbc255038", "Feat/&PickPocketFeatTitle",
+                "Feat/&PickPocketFeatDescription");
 
             // TODO make the set field calls type safe by using extensions annd/or builders
             FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup pickpocketAbilityCheckAffinityGroup = new FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup();
@@ -26,16 +26,16 @@ namespace SolastaCommunityExpansion.Models
             pickpocket_check_affinity.AffinityGroups.Add(pickpocketAbilityCheckAffinityGroup);
 
             FeatureDefinitionProficiency pickpocket_proficiency = PickPocketProficiencyBuilder.CreateCopyFrom(
-                "ProficiencyFeatPickPocket", "d8046b0c-2f93-4b47-b2dd-110234a4a848", "Feat/&PickPocketFeatTitle", "Feat/&PickPocketFeatDescription",
-                DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyFeatLockbreaker);
+                DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyFeatLockbreaker, "ProficiencyFeatPickPocket", "d8046b0c-2f93-4b47-b2dd-110234a4a848", "Feat/&PickPocketFeatTitle",
+                "Feat/&PickPocketFeatDescription");
 
             pickpocket_proficiency.SetProficiencyType(ProficiencyType.SkillOrExpertise);
             pickpocket_proficiency.Proficiencies.Clear();
             pickpocket_proficiency.Proficiencies.Add("SleightOfHand");
 
             FeatDefinition PickPocketFeat = PickPocketFeatBuilder.CreateCopyFrom(
-                "PickPocketFeat", "947a31fc-4990-45a5-bcfd-6c478b4dff8a", "Feat/&PickPocketFeatTitle", "Feat/&PickPocketFeatDescription",
-                DatabaseHelper.FeatDefinitions.Lockbreaker);
+                DatabaseHelper.FeatDefinitions.Lockbreaker, "PickPocketFeat", "947a31fc-4990-45a5-bcfd-6c478b4dff8a", "Feat/&PickPocketFeatTitle",
+                "Feat/&PickPocketFeatDescription");
 
             PickPocketFeat.Features.Clear();
             PickPocketFeat.Features.Add(pickpocket_check_affinity);
@@ -137,7 +137,7 @@ namespace SolastaCommunityExpansion.Models
             treasure_amethyst.SetItemDefinition(DatabaseHelper.ItemDefinitions._20_GP_Amethyst);
             treasure_amethyst.SetAmount(1);
 
-            TreasureTableDefinition pick_pocket_table = TreasureTableDefinitionBuilder.createCopyFrom("PickPocketTable", "79cac3e5-0f00-4062-b263-adbc854223d7", "", "", DatabaseHelper.TreasureTableDefinitions.RandomTreasureTableG_25_GP_Art_Items);
+            TreasureTableDefinition pick_pocket_table = TreasureTableDefinitionBuilder.CreateCopyFrom(DatabaseHelper.TreasureTableDefinitions.RandomTreasureTableG_25_GP_Art_Items, "PickPocketTable", "79cac3e5-0f00-4062-b263-adbc854223d7", "", "");
             pick_pocket_table.TreasureOptions.Add(treasure_copper);
             pick_pocket_table.TreasureOptions.Add(treasure_silver);
             pick_pocket_table.TreasureOptions.Add(treasure_gold);
@@ -152,7 +152,7 @@ namespace SolastaCommunityExpansion.Models
             pick_pocket_table.TreasureOptions.Add(treasure_acid);
             pick_pocket_table.TreasureOptions.Add(treasure_amethyst);
 
-            TreasureTableDefinition pick_pocket_table_undead = TreasureTableDefinitionBuilder.createCopyFrom("PickPocketTableC", "f1bbd8e5-3e05-48da-9c70-2db676a280b4", "", "", DatabaseHelper.TreasureTableDefinitions.RandomTreasureTableG_25_GP_Art_Items);
+            TreasureTableDefinition pick_pocket_table_undead = TreasureTableDefinitionBuilder.CreateCopyFrom(DatabaseHelper.TreasureTableDefinitions.RandomTreasureTableG_25_GP_Art_Items, "PickPocketTableC", "f1bbd8e5-3e05-48da-9c70-2db676a280b4", "", "");
             pick_pocket_table_undead.TreasureOptions.Add(treasure_copper);
             pick_pocket_table_undead.TreasureOptions.Add(treasure_abyss_moss);
             pick_pocket_table_undead.TreasureOptions.Add(treasure_deeproot_lichen);
@@ -168,12 +168,12 @@ namespace SolastaCommunityExpansion.Models
             loot_pickpocket_undead.SetTreasureTableDefinition(pick_pocket_table_undead);
             loot_pickpocket_undead.SetDiceNumber(1);
 
-            LootPackDefinition pick_pocket_loot = LootPackDefinitionBuilder.CreateCopyFrom("PickPocketLoot", "30c308db-1ad7-4f93-9431-43ce32358493", "", "", Tutorial_04_Loot_Stealable);
+            LootPackDefinition pick_pocket_loot = LootPackDefinitionBuilder.CreateCopyFrom(Tutorial_04_Loot_Stealable, "PickPocketLoot", "30c308db-1ad7-4f93-9431-43ce32358493", "", "");
             pick_pocket_loot.SetLootChallengeMode(LootPackDefinition.LootChallenge.ByPartyLevel);
             pick_pocket_loot.ItemOccurencesList.Clear();
             pick_pocket_loot.ItemOccurencesList.Add(loot_pickpocket_table);
 
-            LootPackDefinition pick_pocket_undead = LootPackDefinitionBuilder.CreateCopyFrom("PickPocketUndead", "af2eb8e0-6a5a-40e2-8a62-160f80e2453e", "", "", Tutorial_04_Loot_Stealable);
+            LootPackDefinition pick_pocket_undead = LootPackDefinitionBuilder.CreateCopyFrom(Tutorial_04_Loot_Stealable, "PickPocketUndead", "af2eb8e0-6a5a-40e2-8a62-160f80e2453e", "", "");
             pick_pocket_undead.SetLootChallengeMode(LootPackDefinition.LootChallenge.ByPartyLevel);
             pick_pocket_undead.ItemOccurencesList.Clear();
             pick_pocket_undead.ItemOccurencesList.Add(loot_pickpocket_undead);

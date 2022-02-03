@@ -113,7 +113,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildFindFamiliar()
         {
-            var familiarMonsterBuilder = new MonsterDefinitionBuilder("Owl", BAZOU_SPELLS_BASE_GUID, DatabaseHelper.MonsterDefinitions.Eagle_Matriarch)
+            var familiarMonsterBuilder = new MonsterDefinitionBuilder(DatabaseHelper.MonsterDefinitions.Eagle_Matriarch, "Owl", BAZOU_SPELLS_BASE_GUID)
                 .SetGuiPresentation("Owl", "Owl") // Shouldn't this be in the usual style?
                 .SetFeatures(
                     DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,

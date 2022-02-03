@@ -1,12 +1,28 @@
-﻿using SolastaModApi;
+﻿using System;
+using SolastaModApi;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders
 {
     public class MonsterAttackDefinitionBuilder : BaseDefinitionBuilder<MonsterAttackDefinition>
     {
-        public MonsterAttackDefinitionBuilder(string name, string guid, MonsterAttackDefinition baseDefinition) :
-            base(baseDefinition, name, guid)
+        public MonsterAttackDefinitionBuilder(string name, string guid) :
+            base(name, guid)
+        {
+        }
+
+        public MonsterAttackDefinitionBuilder(string name, Guid namespaceGuid, string category = null) :
+            base(name, namespaceGuid, category)
+        {
+        }
+
+        public MonsterAttackDefinitionBuilder(MonsterAttackDefinition original, string name, string guid) :
+            base(original, name, guid)
+        {
+        }
+
+        public MonsterAttackDefinitionBuilder(MonsterAttackDefinition original, string name, Guid namespaceGuid, string category = null) :
+            base(original, name, namespaceGuid, category)
         {
         }
 

@@ -14,13 +14,23 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class MonsterDefinitionBuilder : BaseDefinitionBuilder<MonsterDefinition>
     {
-        public MonsterDefinitionBuilder(string name, string guid, string title, string description, MonsterDefinition baseMonster)
-            : base(baseMonster, name, guid, title, description)
+        public MonsterDefinitionBuilder(string name, string guid, string title, string description)
+            : base(name, guid, title, description)
         {
         }
 
-        public MonsterDefinitionBuilder(string name, Guid namespaceGuid, MonsterDefinition baseMonster)
-            : base(baseMonster, name, namespaceGuid, null)
+        public MonsterDefinitionBuilder(string name, Guid namespaceGuid, string category = null)
+            : base(name, namespaceGuid, category)
+        {
+        }
+
+        public MonsterDefinitionBuilder(MonsterDefinition original, string name, string guid, string title, string description)
+            : base(original, name, guid, title, description)
+        {
+        }
+
+        public MonsterDefinitionBuilder(MonsterDefinition original, string name, Guid namespaceGuid, string category = null)
+            : base(original, name, namespaceGuid, category)
         {
         }
 
@@ -435,11 +445,12 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public MonsterDefinitionBuilder SetCustomShaderReference(MonsterDefinition baseMonsterShaderReference)
+        public MonsterDefinitionBuilder SetCustomShaderReference(AssetReference shaderReference)
         {
-            Definition.MonsterPresentation.SetCustomShaderReference(baseMonsterShaderReference.MonsterPresentation.CustomShaderReference);
+            Definition.MonsterPresentation.SetCustomShaderReference(shaderReference);
             return this;
         }
+
         public MonsterDefinitionBuilder SetModelScale(float scale)
         {
             Definition.MonsterPresentation.SetFemaleModelScale(scale);

@@ -16,6 +16,7 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetField("compatibleClassesPrerequisite", new List<string>());
         }
 
+        // TODO: remove this constructor
         public FeatDefinitionBuilder(string name, string guid, IEnumerable<FeatureDefinition> features, GuiPresentation guiPresentation) : base(name, guid)
         {
             InitializePrerequisiteCollectionFields();
@@ -24,25 +25,24 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetGuiPresentation(guiPresentation);
         }
 
-        public FeatDefinitionBuilder(string name, Guid namespaceGuid, string category, params FeatureDefinition[] features)
-            : this(name, namespaceGuid, category, features.AsEnumerable())
-        {
-        }
-
-        public FeatDefinitionBuilder(string name, Guid namespaceGuid, string category, IEnumerable<FeatureDefinition> features)
-            : base(name, namespaceGuid, category)
-        {
-            InitializePrerequisiteCollectionFields();
-
-            Definition.SetField("features", features.ToList());
-        }
-
         public FeatDefinitionBuilder(string name, string guid) : base(name, guid)
         {
             InitializePrerequisiteCollectionFields();
         }
 
-        public FeatDefinitionBuilder(FeatDefinition original, string name, string guid) : base(original, name, guid)
+        public FeatDefinitionBuilder(string name, Guid namespaceGuid, string category = null)
+            : base(name, namespaceGuid, category)
+        {
+            InitializePrerequisiteCollectionFields();
+        }
+
+        public FeatDefinitionBuilder(FeatDefinition original, string name, string guid)
+            : base(original, name, guid)
+        {
+        }
+
+        public FeatDefinitionBuilder(FeatDefinition original, string name, Guid namespaceGuid, string category = null)
+            : base(original, name, namespaceGuid, category)
         {
         }
 
