@@ -6,14 +6,17 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class CharacterSubclassDefinitionBuilder : BaseDefinitionBuilder<CharacterSubclassDefinition>
     {
-        public CharacterSubclassDefinitionBuilder(string name, string guid) : base(name, guid)
+        public CharacterSubclassDefinitionBuilder(string name, string guid)
+            : base(name, guid)
         {
         }
-        public CharacterSubclassDefinitionBuilder(string name, Guid namespaceGuid, string category = null) : base(name, namespaceGuid, category)
+        public CharacterSubclassDefinitionBuilder(string name, Guid namespaceGuid, string category = null)
+            : base(name, namespaceGuid, category)
         {
         }
 
-        public CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, string guid) : base(original, name, guid)
+        public CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, string guid)
+            : base(original, name, guid)
         {
         }
         public CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, Guid namespaceGuid, string category = null)

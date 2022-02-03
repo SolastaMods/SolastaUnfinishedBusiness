@@ -14,8 +14,8 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class MonsterDefinitionBuilder : BaseDefinitionBuilder<MonsterDefinition>
     {
-        public MonsterDefinitionBuilder(string name, string guid, string title, string description)
-            : base(name, guid, title, description)
+        public MonsterDefinitionBuilder(string name, string guid)
+            : base(name, guid)
         {
         }
 
@@ -24,8 +24,8 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public MonsterDefinitionBuilder(MonsterDefinition original, string name, string guid, string title, string description)
-            : base(original, name, guid, title, description)
+        public MonsterDefinitionBuilder(MonsterDefinition original, string name, string guid)
+            : base(original, name, guid)
         {
         }
 
@@ -367,6 +367,17 @@ namespace SolastaCommunityExpansion.Builders
         public MonsterDefinitionBuilder AddAttackIterations(IEnumerable<MonsterAttackIteration> monsterAttackIterations)
         {
             Definition.AttackIterations.AddRange(monsterAttackIterations);
+            return this;
+        }
+
+        public MonsterDefinitionBuilder SetAttackIterations(params MonsterAttackIteration[] monsterAttackIterations)
+        {
+            return SetAttackIterations(monsterAttackIterations.AsEnumerable());
+        }
+
+        public MonsterDefinitionBuilder SetAttackIterations(IEnumerable<MonsterAttackIteration> monsterAttackIterations)
+        {
+            Definition.AttackIterations.SetRange(monsterAttackIterations);
             return this;
         }
 
