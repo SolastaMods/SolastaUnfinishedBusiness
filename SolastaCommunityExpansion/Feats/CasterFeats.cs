@@ -13,23 +13,16 @@ namespace SolastaCommunityExpansion.Feats
 
         public static void CreateFeats(List<FeatDefinition> feats)
         {
-            GuiPresentationBuilder intPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatIntIncrementTitle",
-                "Feat/&FeatIntIncrementDescription");
-            FeatureDefinition intIncrement = BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.Intelligence, 1, "FeatIntIncrement", intPresentation.Build());
+            FeatureDefinition intIncrement = BuildAdditiveAttributeModifier("FeatIntIncrement", AttributeDefinitions.Intelligence, 1);
+            FeatureDefinition chaIncrement = BuildAdditiveAttributeModifier("FeatChaIncrement", AttributeDefinitions.Charisma, 1);
+            FeatureDefinition wisIncrement = BuildAdditiveAttributeModifier("FeatWisIncrement", AttributeDefinitions.Wisdom, 1);
 
-            GuiPresentationBuilder chaPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatChaIncrementTitle",
-                "Feat/&FeatChaIncrementDescription");
-            FeatureDefinition chaIncrement = BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.Charisma, 1, "FeatChaIncrement", chaPresentation.Build());
-
-            GuiPresentationBuilder wisPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatWisIncrementTitle",
-                "Feat/&FeatWisIncrementDescription");
-            FeatureDefinition wisIncrement = BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.Wisdom, 1, "FeatWisIncrement", wisPresentation.Build());
+            static FeatureDefinitionAttributeModifier BuildAdditiveAttributeModifier(string name, string attribute, int amount)
+            {
+                return new FeatureDefinitionAttributeModifierBuilder(name, CasterFeatsNamespace, Category.Feat)
+                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, attribute, amount)
+                    .AddToDB();
+            }
 
             // Note it seems that feats can't currently grant bonus cantrips (which is kind of fine since the game doesn't have mage hand).
             //GuiPresentationBuilder telekineticBonusCantripPresentation = new GuiPresentationBuilder(
@@ -324,7 +317,7 @@ namespace SolastaCommunityExpansion.Feats
             // diviner: detect magic + identify
         }
 
-        private static List<FeatureDefinition> AutoPreparedClassLists(CharacterClassDefinition[] classes, FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup spellGroup,
+        private static List<FeatureDefinition> AutoPreparedClassLists(IEnumerable<CharacterClassDefinition> classes, FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup spellGroup,
             GuiPresentationBuilder learnShadowTouchedPresentation, string namePrefix, string autoPrepTag)
         {
             List<FeatureDefinition> autoPrepList = new List<FeatureDefinition>();
@@ -335,12 +328,6 @@ namespace SolastaCommunityExpansion.Feats
                             namePrefix + klass.Name, autoPrepTag, learnShadowTouchedPresentation.Build()));
             }
             return autoPrepList;
-        }
-
-        public static FeatureDefinitionAttributeModifier BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation modifierType,
-            string attribute, int amount, string name, GuiPresentation guiPresentation)
-        {
-            return new FeatureDefinitionAttributeModifierBuilder(name, GuidHelper.Create(CasterFeatsNamespace, name).ToString(), modifierType, attribute, amount, guiPresentation).AddToDB();
         }
 
         public static FeatureDefinitionPower BuildMotionFormPower(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,

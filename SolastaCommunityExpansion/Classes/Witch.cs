@@ -31,10 +31,6 @@ namespace SolastaCommunityExpansion.Classes
         public static FeatureDefinitionPower FeatureDefinitionPowerCackle { get; private set; }
         public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetWitchFamiliar { get; private set; }
 
-        // TODO: centralize categories Category.Class, .Modifier, .. etc
-        const string ClassCategory = "Class";
-        const string ModifierCategory = "Modifier";
-
         private static void BuildClassStats(CharacterClassDefinitionBuilder classBuilder)
         {
             classBuilder.SetAnimationId(AnimationDefinitions.ClassAnimationId.Wizard);
@@ -430,12 +426,12 @@ namespace SolastaCommunityExpansion.Classes
         private static void BuildRitualCasting()
         {
             var witchRitualCastingMagicAffinity
-                = new FeatureDefinitionMagicAffinityBuilder("WitchRitualCastingMagicAffinity", WITCH_BASE_GUID, ClassCategory)
+                = new FeatureDefinitionMagicAffinityBuilder("WitchRitualCastingMagicAffinity", WITCH_BASE_GUID, Category.Class)
                     .SetRitualCasting((RuleDefinitions.RitualCasting)ExtraRitualCasting.Known)
                     .AddToDB();
 
             FeatureDefinitionFeatureSetRitualCasting = new FeatureDefinitionFeatureSetBuilder(
-                FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetRitualCasting", WITCH_BASE_GUID, ClassCategory)
+                FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetRitualCasting", WITCH_BASE_GUID, Category.Class)
                     .SetFeatures(witchRitualCastingMagicAffinity)
                     .AddFeature(FeatureDefinitionActionAffinitys.ActionAffinityWizardRitualCasting)
                     .AddToDB();
@@ -462,46 +458,46 @@ namespace SolastaCommunityExpansion.Classes
 
             var burnedFireRes = new FeatureDefinitionDamageAffinityBuilder(
                 FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
-                "WitchBurnedFireResistance", WITCH_BASE_GUID, ClassCategory)
+                "WitchBurnedFireResistance", WITCH_BASE_GUID, Category.Class)
                 .AddToDB();
 
             var burnedProduceFlame = new FeatureDefinitionBonusCantripsBuilder(
                 FeatureDefinitionBonusCantripss.BonusCantripsDomainElementaFire,
-                "WitchBurnedProduceFlame", WITCH_BASE_GUID, ClassCategory)
+                "WitchBurnedProduceFlame", WITCH_BASE_GUID, Category.Class)
                     .SetBonusCantrips(SpellDefinitions.ProduceFlame)
                     .AddToDB();
 
             var burnedCurse = new FeatureDefinitionFeatureSetBuilder(
                 FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
-                "WitchFeatureSetBurnedCurse", WITCH_BASE_GUID, ClassCategory)
+                "WitchFeatureSetBurnedCurse", WITCH_BASE_GUID, Category.Class)
                     .SetFeatures(burnedFireRes, burnedProduceFlame)
                     .AddToDB();
 
             var lovelessCharmImmunity = new FeatureDefinitionConditionAffinityBuilder(
                 FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
-                "WitchLovelessCharmImmunity", WITCH_BASE_GUID, ClassCategory)
+                "WitchLovelessCharmImmunity", WITCH_BASE_GUID, Category.Class)
                 .AddToDB();
 
             var lovelessCurse = new FeatureDefinitionFeatureSetBuilder(
                 FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
-                "WitchFeatureSetLovelessCurse", WITCH_BASE_GUID, ClassCategory)
+                "WitchFeatureSetLovelessCurse", WITCH_BASE_GUID, Category.Class)
                     .SetFeatures(lovelessCharmImmunity)
                     .AddToDB();
 
             // NOTE: I have no idea how to apply a Charisma bonus, so setting the initiative bonus to 3. It seems like only the "Additive" operation works
             var visionsInitiative = new FeatureDefinitionAttributeModifierBuilder(
-                "WitchVisionsInitiative", WITCH_BASE_GUID, ClassCategory)
+                "WitchVisionsInitiative", WITCH_BASE_GUID, Category.Class)
                     .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Initiative, 3)
                     .SetModifierAbilityScore(AttributeDefinitions.Charisma)
                     .AddToDB();
 
             var visionsCurse = new FeatureDefinitionFeatureSetBuilder(
-                FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetVisionsCurse", WITCH_BASE_GUID, ClassCategory)
+                FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetVisionsCurse", WITCH_BASE_GUID, Category.Class)
                     .SetFeatures(visionsInitiative)
                     .AddToDB();
 
             FeatureDefinitionFeatureSetWitchCurses = new FeatureDefinitionFeatureSetBuilder(
-                FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetWitchCurse", WITCH_BASE_GUID, ClassCategory)
+                FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetWitchCurse", WITCH_BASE_GUID, Category.Class)
                     .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
                     .SetUniqueChoices(true)
                     .SetFeatures(burnedCurse, lovelessCurse, visionsCurse)
@@ -775,7 +771,7 @@ namespace SolastaCommunityExpansion.Classes
             ruinConditionDefinition.Features.Clear();
             ruinConditionDefinition.Features.Add(
                 new FeatureDefinitionAttributeModifierBuilder("Ruined", WITCH_BASE_GUID)
-                    .SetGuiPresentationGenerate("Ruined", ModifierCategory, ConditionDefinitions.ConditionAcidArrowed.GuiPresentation.SpriteReference)
+                    .SetGuiPresentationGenerate("Ruined", Category.Modifier, ConditionDefinitions.ConditionAcidArrowed.GuiPresentation.SpriteReference)
                     .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, -3)
                     .AddToDB());
 
@@ -816,7 +812,7 @@ namespace SolastaCommunityExpansion.Classes
                     .AddToDB();
 
             FeatureDefinitionFeatureSetMaledictions = new FeatureDefinitionFeatureSetBuilder(
-                FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetMaledictions", WITCH_BASE_GUID, ClassCategory)
+                FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetMaledictions", WITCH_BASE_GUID, Category.Class)
                     .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
                     .SetUniqueChoices(true)
                     .SetFeatures(abate, apathy, charm, evileye, obfuscate, pox, ruin)
@@ -1063,7 +1059,7 @@ namespace SolastaCommunityExpansion.Classes
 
                 FeatureDefinitionFeatureSetWitchFamiliar = new FeatureDefinitionFeatureSetBuilder(
                     FeatureDefinitionFeatureSets.FeatureSetHumanLanguages, "FeatureSetWitchFamiliar", WITCH_BASE_GUID)
-                        .SetGuiPresentationGenerate("WitchFamiliarPower", ClassCategory)
+                        .SetGuiPresentationGenerate("WitchFamiliarPower", Category.Class)
                         .SetFeatures(preparedSpells, summoningAffinity)
                         .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                         .SetUniqueChoices(true)
