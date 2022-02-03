@@ -30,6 +30,8 @@ namespace SolastaCommunityExpansion.Classes
         public static FeatureDefinitionPower FeatureDefinitionPowerCackle { get; private set; }
         public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetWitchFamiliar { get; private set; }
 
+        const string ClassCategory = "Class";
+
         private static void BuildClassStats(CharacterClassDefinitionBuilder classBuilder)
         {
             classBuilder.SetAnimationId(AnimationDefinitions.ClassAnimationId.Wizard);
@@ -463,50 +465,30 @@ namespace SolastaCommunityExpansion.Classes
             //- Whispers: can communicate telepathically 30 feet
 
             var burnedFireRes = new FeatureDefinitionDamageAffinityBuilder(
-                    FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
-                    "WitchBurnedFireResistance",
-                    GuidHelper.Create(WITCH_BASE_GUID, "WitchBurnedFireResistance").ToString(),
-                    new GuiPresentationBuilder(
-                            "Class/&WitchBurnedFireResistanceTitle",
-                            "Class/&WitchBurnedFireResistanceDescription").Build());
+                FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
+                "WitchBurnedFireResistance", WITCH_BASE_GUID, ClassCategory);
 
             var burnedProduceFlame = new FeatureDefinitionBonusCantripsBuilder(
-                    FeatureDefinitionBonusCantripss.BonusCantripsDomainElementaFire,
-                    "WitchBurnedProduceFlame",
-                    GuidHelper.Create(WITCH_BASE_GUID, "WitchBurnedProduceFlame").ToString(),
-                    new GuiPresentationBuilder(
-                            "Class/&WitchBurnedProduceFlameTitle",
-                            "Class/&WitchBurnedProduceFlameDescription").Build())
+                FeatureDefinitionBonusCantripss.BonusCantripsDomainElementaFire,
+                "WitchBurnedProduceFlame", WITCH_BASE_GUID, ClassCategory)
                     .ClearBonusCantrips()
                     .AddBonusCantrip(SpellDefinitions.ProduceFlame);
 
             var burnedCurse = new FeatureDefinitionFeatureSetBuilder(
-                    FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
-                    "WitchFeatureSetBurnedCurse",
-                    GuidHelper.Create(WITCH_BASE_GUID, "WitchFeatureSetBurnedCurse").ToString(),
-                    new GuiPresentationBuilder(
-                            "Class/&WitchFeatureSetBurnedCurseTitle",
-                            "Class/&WitchFeatureSetBurnedCurseDescription").Build())
+                FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
+                "WitchFeatureSetBurnedCurse", WITCH_BASE_GUID, ClassCategory)
                     .ClearFeatures()
                     .AddFeature(burnedFireRes.AddToDB())
                     .AddFeature(burnedProduceFlame.AddToDB())
                     .AddToDB();
 
             var lovelessCharmImmunity = new FeatureDefinitionConditionAffinityBuilder(
-                    FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
-                    "WitchLovelessCharmImmunity",
-                    GuidHelper.Create(WITCH_BASE_GUID, "WitchLovelessCharmImmunity").ToString(),
-                    new GuiPresentationBuilder(
-                            "Class/&WitchLovelessCharmImmunityTitle",
-                            "Class/&WitchLovelessCharmImmunityDescription").Build());
+                FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
+                "WitchLovelessCharmImmunity", WITCH_BASE_GUID, ClassCategory);
 
             var lovelessCurse = new FeatureDefinitionFeatureSetBuilder(
-                    FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
-                    "WitchFeatureSetLovelessCurse",
-                    GuidHelper.Create(WITCH_BASE_GUID, "WitchFeatureSetLovelessCurse").ToString(),
-                    new GuiPresentationBuilder(
-                            "Class/&WitchFeatureSetLovelessCurseTitle",
-                            "Class/&WitchFeatureSetLovelessCurseDescription").Build())
+                FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
+                "WitchFeatureSetLovelessCurse", WITCH_BASE_GUID, ClassCategory)
                     .ClearFeatures()
                     .AddFeature(lovelessCharmImmunity.AddToDB())
                     .AddToDB();

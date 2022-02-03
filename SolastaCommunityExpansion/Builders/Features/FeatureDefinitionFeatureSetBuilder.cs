@@ -6,8 +6,8 @@ namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionFeatureSetBuilder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
     {
-        public FeatureDefinitionFeatureSetBuilder(FeatureDefinitionFeatureSet original, string name, string guid,
-           GuiPresentation guiPresentation) : base(original, name, guid)
+        public FeatureDefinitionFeatureSetBuilder(FeatureDefinitionFeatureSet original, string name, string guid, GuiPresentation guiPresentation)
+            : base(original, name, guid)
         {
             Definition.SetGuiPresentation(guiPresentation);
         }

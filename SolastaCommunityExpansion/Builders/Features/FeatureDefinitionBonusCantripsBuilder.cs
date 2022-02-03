@@ -1,17 +1,10 @@
 ﻿using System;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionBonusCantripsBuilder : BaseDefinitionBuilder<FeatureDefinitionBonusCantrips>
     {
-        public FeatureDefinitionBonusCantripsBuilder(FeatureDefinitionBonusCantrips original, string name, string guid,
-            GuiPresentation guiPresentation) : base(original, name, guid)
-        {
-            Definition.SetGuiPresentation(guiPresentation);
-        }
-
         public FeatureDefinitionBonusCantripsBuilder(string name, string guid)
             : base(name, guid)
         {
