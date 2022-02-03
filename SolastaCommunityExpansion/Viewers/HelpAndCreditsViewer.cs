@@ -3,7 +3,7 @@ using ModKit;
 using UnityEngine;
 using UnityModManagerNet;
 using static SolastaCommunityExpansion.Viewers.Displays.BlueprintDisplay;
-using static SolastaCommunityExpansion.Viewers.Displays.RulesDisplay;
+using static SolastaCommunityExpansion.Viewers.Displays.GameServicesDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.PatchesDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.CreditsDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.Level20HelpDisplay;
@@ -24,6 +24,7 @@ namespace SolastaCommunityExpansion.Viewers
         {
             new NamedAction("Help & Credits", DisplayHelpAndCredits),
             new NamedAction("Blueprints", DisplayBlueprints),
+            new NamedAction("Services", DisplayGameServices),
             new NamedAction("Patches", DisplayPatches),
         };
 
