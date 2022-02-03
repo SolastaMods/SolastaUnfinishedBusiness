@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using SolastaModApi;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
@@ -34,6 +37,18 @@ namespace SolastaCommunityExpansion.Builders.Features
         public FeatureDefinitionBonusCantripsBuilder AddBonusCantrip(SpellDefinition spellDefinition)
         {
             Definition.BonusCantrips.Add(spellDefinition);
+            return this;
+        }
+
+        public FeatureDefinitionBonusCantripsBuilder SetBonusCantrips(params SpellDefinition[] spellDefinitions)
+        {
+            SetBonusCantrips(spellDefinitions.AsEnumerable());
+            return this;
+        }
+
+        public FeatureDefinitionBonusCantripsBuilder SetBonusCantrips(IEnumerable<SpellDefinition> spellDefinitions)
+        {
+            Definition.BonusCantrips.SetRange(spellDefinitions);
             return this;
         }
     }

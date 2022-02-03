@@ -33,12 +33,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
             SetModifier(modifierType, attribute, amount);
         }
-
-        public FeatureDefinitionAttributeModifierBuilder(string name, Guid namespaceGuid, AttributeModifierOperation modifierType,
-            string attribute, int amount, string category) : base(name, namespaceGuid, category)
-        {
-            SetModifier(modifierType, attribute, amount);
-        }
         // -- to here
 
         public FeatureDefinitionAttributeModifierBuilder SetModifier(AttributeModifierOperation modifierType, string attribute, int amount)

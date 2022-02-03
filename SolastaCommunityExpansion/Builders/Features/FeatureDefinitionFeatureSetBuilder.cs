@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
@@ -41,6 +44,17 @@ namespace SolastaCommunityExpansion.Builders.Features
         public FeatureDefinitionFeatureSetBuilder AddFeature(FeatureDefinition featureDefinition)
         {
             Definition.FeatureSet.Add(featureDefinition);
+            return this;
+        }
+
+        public FeatureDefinitionFeatureSetBuilder SetFeatures(params FeatureDefinition[] featureDefinitions)
+        {
+            return SetFeatures(featureDefinitions.AsEnumerable());
+        }
+
+        public FeatureDefinitionFeatureSetBuilder SetFeatures(IEnumerable<FeatureDefinition> featureDefinitions)
+        {
+            Definition.FeatureSet.SetRange(featureDefinitions);
             return this;
         }
 

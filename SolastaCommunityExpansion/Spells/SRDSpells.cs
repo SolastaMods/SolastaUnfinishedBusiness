@@ -663,11 +663,8 @@ namespace SolastaCommunityExpansion.Spells
             AssetReferenceSprite spriteReference = KindredSpiritViper.GuiPresentation.SpriteReference;
 
             MonsterDefinitionBuilder couatlBuilder = new MonsterDefinitionBuilder(
-                KindredSpiritViper,
-                NewName,
-                "fc38ed74-3e2f-4960-86cc-3120d638410b",
-                "Monster/&" + DhBaseString + NewTitle,
-                "Monster/&" + DhBaseString + NewDescription);
+                KindredSpiritViper, NewName, "fc38ed74-3e2f-4960-86cc-3120d638410b")
+                .SetGuiPresentation("Monster/&" + DhBaseString + NewTitle, "Monster/&" + DhBaseString + NewDescription);
 
             couatlBuilder.SetInDungeonEditor(false);
             couatlBuilder.SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);

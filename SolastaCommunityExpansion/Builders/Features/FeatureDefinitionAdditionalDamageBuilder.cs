@@ -30,6 +30,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
+        // TODO: remove this ctor
         public FeatureDefinitionAdditionalDamageBuilder(string name, string guid,
             string notificationTag, RuleDefinitions.FeatureLimitedUsage limitedUsage,
             RuleDefinitions.AdditionalDamageValueDetermination damageValueDetermination,
