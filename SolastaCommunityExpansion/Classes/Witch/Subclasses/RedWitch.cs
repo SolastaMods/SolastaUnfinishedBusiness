@@ -4,7 +4,7 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 
-namespace SolastaCommunityExpansion.Subclasses.Witch
+namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
 {
     internal class RedWitch
     {

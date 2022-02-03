@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Level20;
-using SolastaCommunityExpansion.Subclasses.Witch;
+using SolastaCommunityExpansion.Classes.Witch.Subclasses;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -12,7 +12,7 @@ using static FeatureDefinitionCastSpell;
 using static SolastaModApi.DatabaseHelper;
 using static FeatureDefinitionAttributeModifier;
 
-namespace SolastaCommunityExpansion.Classes
+namespace SolastaCommunityExpansion.Classes.Witch
 {
     internal static class Witch
     {
