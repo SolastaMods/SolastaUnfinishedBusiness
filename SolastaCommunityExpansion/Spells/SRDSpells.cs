@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
+using static SolastaModApi.DatabaseHelper.MonsterDefinitions;
 
 namespace SolastaCommunityExpansion.Spells
 {
@@ -539,9 +541,6 @@ namespace SolastaCommunityExpansion.Spells
 
             const string text = "ConjureCelestialSpell";
 
-            MonsterDefinition BaseTemplateName = DatabaseHelper.MonsterDefinitions.KindredSpiritViper;
-            MonsterDefinition MonsterShaderReference = DatabaseHelper.MonsterDefinitions.KindredSpiritViper;
-
             const string NewName = "CustomCouatl";
             const string NewTitle = "CustomCouatlTitle";
             const string NewDescription = "CustomCouatlDescription";
@@ -651,7 +650,7 @@ namespace SolastaCommunityExpansion.Spells
 
             List<MonsterAttackIteration> AttackIterations = new List<MonsterAttackIteration>
             {
-                DatabaseHelper.MonsterDefinitions.Tiger_Drake.AttackIterations[0]
+                Tiger_Drake.AttackIterations[0]
                 // CouatlBite_Attack
             };
 
@@ -661,15 +660,15 @@ namespace SolastaCommunityExpansion.Spells
 
             const bool PhantomDistortion = true;
             // AttachedParticlesReference = "0286006526f6f9c4fa61ed8ead4f72cc"
-            AssetReference AttachedParticlesReference = DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference");
-            AssetReferenceSprite SpriteReference = DatabaseHelper.MonsterDefinitions.KindredSpiritViper.GuiPresentation.SpriteReference;
+            AssetReference attachedParticlesReference = FeyBear.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference");
+            AssetReferenceSprite spriteReference = KindredSpiritViper.GuiPresentation.SpriteReference;
 
             MonsterDefinitionBuilder couatlBuilder = new MonsterDefinitionBuilder(
+                KindredSpiritViper,
                 NewName,
                 "fc38ed74-3e2f-4960-86cc-3120d638410b",
                 "Monster/&" + DhBaseString + NewTitle,
-                "Monster/&" + DhBaseString + NewDescription,
-                BaseTemplateName);
+                "Monster/&" + DhBaseString + NewDescription);
 
             couatlBuilder.SetInDungeonEditor(false);
             couatlBuilder.SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
@@ -710,13 +709,13 @@ namespace SolastaCommunityExpansion.Spells
             couatlBuilder.SetGroupAttacks(GroupAttacks);
             couatlBuilder.ClearLegendaryActionOptions();
             couatlBuilder.AddLegendaryActionOptions(LegendaryActionOptions);
-            couatlBuilder.SetSpriteReference(SpriteReference);
+            couatlBuilder.SetSpriteReference(spriteReference);
             couatlBuilder.SetHasPhantomDistortion(PhantomDistortion);
-            couatlBuilder.SetAttachedParticlesReference(AttachedParticlesReference);
+            couatlBuilder.SetAttachedParticlesReference(attachedParticlesReference);
             couatlBuilder.SetNoExperienceGain(false);
             couatlBuilder.SetHasMonsterPortraitBackground(true);
             couatlBuilder.SetCanGeneratePortrait(true);
-            couatlBuilder.SetCustomShaderReference(MonsterShaderReference);
+            couatlBuilder.SetCustomShaderReference(KindredSpiritViper.MonsterPresentation.CustomShaderReference);
 
             MonsterDefinition Couatl = couatlBuilder.AddToDB();
 
@@ -1234,7 +1233,7 @@ namespace SolastaCommunityExpansion.Spells
                         SummonForm.Type.EffectProxy,
                         DatabaseHelper.ItemDefinitions.Dart,
                         1,
-                        DatabaseHelper.MonsterDefinitions.Adam_The_Twelth.name,
+                        Adam_The_Twelth.name,
                         null,
                         false,
                         DatabaseHelper.DecisionPackageDefinitions.IdleGuard_Default,
@@ -1933,16 +1932,16 @@ namespace SolastaCommunityExpansion.Spells
 
             shapeChangeForm.ShapeOptions.AddRange
             (
-                new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.GoldDragon_AerElai),
-                new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.Divine_Avatar),
-                new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Tshar_Boss),
-                new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.GreenDragon_MasterOfConjuration),
-                new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.BlackDragon_MasterOfNecromancy),
-                new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.Remorhaz),
-                new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.Emperor_Laethar),
-                new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.Giant_Ape),
-                new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.Spider_Queen),
-                new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Shikkath)
+                new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(GoldDragon_AerElai),
+                new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(Divine_Avatar),
+                new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(Sorr_Akkath_Tshar_Boss),
+                new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(GreenDragon_MasterOfConjuration),
+                new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(BlackDragon_MasterOfNecromancy),
+                new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(Remorhaz),
+                new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(Emperor_Laethar),
+                new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(Giant_Ape),
+                new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(Spider_Queen),
+                new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(Sorr_Akkath_Shikkath)
             );
 
             EffectForm effectForm = new EffectForm()

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi;
 using SolastaModApi.Extensions;
@@ -8,6 +9,25 @@ namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionAdditionalActionBuilder : BaseDefinitionBuilder<FeatureDefinitionAdditionalAction>
     {
+        public FeatureDefinitionAdditionalActionBuilder(string name, string guid) : base(name, guid)
+        {
+        }
+
+        public FeatureDefinitionAdditionalActionBuilder(string name, Guid namespaceGuid, string category = null)
+            : base(name, namespaceGuid, category)
+        {
+        }
+
+        public FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original, string name, string guid)
+            : base(original, name, guid)
+        {
+        }
+
+        public FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original, string name, Guid namespaceGuid, string category = null)
+            : base(original, name, namespaceGuid, category)
+        {
+        }
+
         public FeatureDefinitionAdditionalActionBuilder(string name, string guid, ActionDefinitions.ActionType actionType,
             IEnumerable<ActionDefinitions.Id> forbiddenActions, IEnumerable<ActionDefinitions.Id> authorizedActions,
             IEnumerable<ActionDefinitions.Id> restrictedActions, int maxAttacksNumber, RuleDefinitions.AdditionalActionTriggerCondition triggerCondition,
@@ -20,14 +40,6 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetMaxAttacksNumber(maxAttacksNumber);
             Definition.SetTriggerCondition(triggerCondition);
             Definition.SetGuiPresentation(guiPresentation);
-        }
-
-        public FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original, string name, string guid) : base(original, name, guid)
-        {
-        }
-
-        public FeatureDefinitionAdditionalActionBuilder(string name, string guid) : base(name, guid)
-        {
         }
 
         public FeatureDefinitionAdditionalActionBuilder SetActionType(ActionDefinitions.ActionType actionType)

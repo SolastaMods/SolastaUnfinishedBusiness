@@ -14,12 +14,19 @@ namespace SolastaCommunityExpansion.Builders
             InitializeFields();
         }
 
+        public SpellDefinitionBuilder(string name, Guid guidNamespace, string category = null)
+            : base(name, guidNamespace, category)
+        {
+            InitializeFields();
+        }
+
         public SpellDefinitionBuilder(SpellDefinition original, string name, string guid) : base(original, name, guid)
         {
             InitializeFields();
         }
 
-        public SpellDefinitionBuilder(SpellDefinition original, string name, Guid guidNamespace) : base(original, name, guidNamespace, null)
+        public SpellDefinitionBuilder(SpellDefinition original, string name, Guid guidNamespace, string category = null)
+            : base(original, name, guidNamespace, category)
         {
             InitializeFields();
         }

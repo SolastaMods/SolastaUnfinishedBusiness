@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi;
 using SolastaModApi.Extensions;
@@ -9,13 +10,24 @@ namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionAutoPreparedSpellsBuilder : BaseDefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
     {
-        public static AutoPreparedSpellsGroup BuildAutoPreparedSpellGroup(int classLevel, IEnumerable<SpellDefinition> spellnames)
+        public FeatureDefinitionAutoPreparedSpellsBuilder(string name, string guid)
+    : base(name, guid)
         {
-            return new AutoPreparedSpellsGroup
-            {
-                ClassLevel = classLevel,
-                SpellsList = new List<SpellDefinition>(spellnames)
-            };
+        }
+
+        public FeatureDefinitionAutoPreparedSpellsBuilder(string name, Guid namespaceGuid, string category = null)
+            : base(name, namespaceGuid, category)
+        {
+        }
+
+        public FeatureDefinitionAutoPreparedSpellsBuilder(FeatureDefinitionAutoPreparedSpells original, string name, string guid)
+            : base(original, name, guid)
+        {
+        }
+
+        public FeatureDefinitionAutoPreparedSpellsBuilder(FeatureDefinitionAutoPreparedSpells original, string name, Guid namespaceGuid, string category = null)
+            : base(original, name, namespaceGuid, category)
+        {
         }
 
         public FeatureDefinitionAutoPreparedSpellsBuilder(string name, string guid, IEnumerable<AutoPreparedSpellsGroup> autospelllists,
@@ -25,12 +37,13 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetGuiPresentation(guiPresentation);
         }
 
-        public FeatureDefinitionAutoPreparedSpellsBuilder(string name, string guid) : base(name, guid)
+        public static AutoPreparedSpellsGroup BuildAutoPreparedSpellGroup(int classLevel, IEnumerable<SpellDefinition> spellnames)
         {
-        }
-
-        public FeatureDefinitionAutoPreparedSpellsBuilder(FeatureDefinitionAutoPreparedSpells original, string name, string guid) : base(original, name, guid)
-        {
+            return new AutoPreparedSpellsGroup
+            {
+                ClassLevel = classLevel,
+                SpellsList = new List<SpellDefinition>(spellnames)
+            };
         }
 
         public FeatureDefinitionAutoPreparedSpellsBuilder SetPreparedSpellGroups(params AutoPreparedSpellsGroup[] autospelllists)

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -12,7 +13,18 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetField("ingredients", new List<IngredientOccurenceDescription>());
         }
 
+        public RecipeDefinitionBuilder(string name, Guid namespaceGuid, string category = null)
+            : base(name, namespaceGuid, category)
+        {
+            Definition.SetField("ingredients", new List<IngredientOccurenceDescription>());
+        }
+
         public RecipeDefinitionBuilder(RecipeDefinition original, string name, string guid) : base(original, name, guid)
+        {
+        }
+
+        public RecipeDefinitionBuilder(RecipeDefinition original, string name, Guid namespaceGuid, string category = null)
+            : base(original, name, namespaceGuid, category)
         {
         }
 

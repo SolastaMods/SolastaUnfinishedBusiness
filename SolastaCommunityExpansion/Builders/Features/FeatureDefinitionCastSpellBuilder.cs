@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi;
 using SolastaModApi.Diagnostics;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
-namespace SolastaCommunityExpansion.Builders
+namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionCastSpellBuilder : BaseDefinitionBuilder<FeatureDefinitionCastSpell>
     {
@@ -21,7 +22,19 @@ namespace SolastaCommunityExpansion.Builders
             InitializeFields();
         }
 
-        public FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name, string guid) : base(original, name, guid)
+        public FeatureDefinitionCastSpellBuilder(string name, Guid namespaceGuid, string category = null)
+            : base(name, namespaceGuid, category)
+        {
+            InitializeFields();
+        }
+
+        public FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name, string guid)
+            : base(original, name, guid)
+        {
+        }
+
+        public FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name, Guid namespaceGuid, string category = null)
+            : base(original, name, namespaceGuid, category)
         {
         }
 

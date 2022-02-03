@@ -980,11 +980,11 @@ namespace SolastaCommunityExpansion.Classes
                 witchFamiliarAttackIteration.MonsterAttackDefinition.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(0);
 
                 var witchFamiliarMonsterBuilder = new MonsterDefinitionBuilder(
+                        MonsterDefinitions.Eagle_Matriarch,
                         "WitchOwl",
                         GuidHelper.Create(WITCH_BASE_GUID, "WitchOwl").ToString(),
                         "Owl",
-                        "Owl",
-                        MonsterDefinitions.Eagle_Matriarch)
+                        "Owl")
                         .ClearFeatures()
                         .AddFeatures(
                             FeatureDefinitionSenses.SenseNormalVision,

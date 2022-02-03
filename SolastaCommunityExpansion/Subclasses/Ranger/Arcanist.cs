@@ -6,6 +6,8 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalDamages;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Ranger
 {
@@ -37,7 +39,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             var subclassGuiPresentation = new GuiPresentationBuilder(
                     "Subclass/&RangerArcanistRangerSubclassTitle",
                     "Subclass/&RangerArcanistRangerSubclassDescription")
-                    .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.RoguishShadowCaster.GuiPresentation.SpriteReference)
+                    .SetSpriteReference(RoguishShadowCaster.GuiPresentation.SpriteReference)
                     .Build();
 
             return new CharacterSubclassDefinitionBuilder(RangerArcanistRangerSubclassName, RangerArcanistRangerSubclassGuid)
@@ -109,7 +111,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
         private sealed class FeatureDefinitionAutoPreparedSpellsBuilder : BaseDefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
         {
             public FeatureDefinitionAutoPreparedSpellsBuilder(string name, string guid, List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> autospelllists,
-            CharacterClassDefinition characterclass, GuiPresentation guiPresentation) : base(name, guid)
+                CharacterClassDefinition characterclass, GuiPresentation guiPresentation) : base(name, guid)
             {
                 Definition.AutoPreparedSpellsGroups.SetRange(autospelllists);
                 Definition.SetSpellcastingClass(characterclass);
@@ -133,26 +135,22 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
         {
             var marked_condition = ConditionMarkedByArcanistBuilder.GetOrAdd();
 
-            var mark_apply = new FeatureDefinitionAdditionalDamageBuilder(
-                DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageHuntersMark,
-                "AdditionalDamageArcanistMark",
-                GuidHelper.Create(RA_BASE_GUID, "AdditionalDamageArcanistMark").ToString(),
-                new GuiPresentationBuilder("Feature/&ArcanistMarkTitle", "Feature/&ArcanistMarkDescription").Build());
-            mark_apply.SetSpecificDamageType("DamageForce");
-            mark_apply.SetDamageDice(RuleDefinitions.DieType.D6, 0);
-            mark_apply.SetNotificationTag("ArcanistMark");
-            mark_apply.SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive);
-            mark_apply.SetNoSave();
-            mark_apply.NoAdvancement();
-            mark_apply.SetConditionOperations(new List<ConditionOperationDescription>(){
-                new ConditionOperationDescription()
-                        {
-                            ConditionDefinition = marked_condition,
-                            Operation = ConditionOperationDescription.ConditionOperation.Add
-                        }
-            });
-
-            return mark_apply.AddToDB();
+            return new FeatureDefinitionAdditionalDamageBuilder(AdditionalDamageHuntersMark, "AdditionalDamageArcanistMark", RA_BASE_GUID)
+                .SetGuiPresentation("Feature/&ArcanistMarkTitle", "Feature/&ArcanistMarkDescription")
+                .SetSpecificDamageType("DamageForce")
+                .SetDamageDice(RuleDefinitions.DieType.D6, 0)
+                .SetNotificationTag("ArcanistMark")
+                .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
+                .SetNoSave()
+                .SetNoAdvancement()
+                .SetConditionOperations(
+                    new ConditionOperationDescription
+                    {
+                        ConditionDefinition = marked_condition,
+                        Operation = ConditionOperationDescription.ConditionOperation.Add
+                    }
+                )
+                .AddToDB();
         }
 
         private static FeatureDefinitionAdditionalDamage CreateArcaneDetonation()
@@ -162,49 +160,44 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             var asset_reference = new AssetReference();
             asset_reference.SetField("m_AssetGUID", "9f1fe10e6ef8c9c43b6b2ef91b2ad38a");
 
-            var mark_damage = new FeatureDefinitionAdditionalDamageBuilder(
-                DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageHuntersMark,
-                "AdditionalDamageArcaneDetonation",
-                GuidHelper.Create(RA_BASE_GUID, "AdditionalDamageArcaneDetonation").ToString(),
-                new GuiPresentationBuilder("Feature/&ArcaneDetonationTitle", "Feature/&ArcaneDetonationDescription").Build());
-            mark_damage.SetSpecificDamageType("DamageForce");
-            mark_damage.SetDamageDice(RuleDefinitions.DieType.D6, 1);
-            mark_damage.SetNotificationTag("ArcanistMark");
-            mark_damage.SetTargetCondition(marked_condition, RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasConditionCreatedByMe);
-            mark_damage.SetNoSave();
-            mark_damage.SetConditionOperations(new List<ConditionOperationDescription>(){
-               new ConditionOperationDescription()
-                        {
-                            ConditionDefinition = marked_condition,
-                            Operation = ConditionOperationDescription.ConditionOperation.Remove
-                        }
-            });
-            mark_damage.SetClassAdvancement(new List<DiceByRank>
+            return new FeatureDefinitionAdditionalDamageBuilder(AdditionalDamageHuntersMark, "AdditionalDamageArcaneDetonation", RA_BASE_GUID)
+                .SetGuiPresentation("Feature/&ArcaneDetonationTitle", "Feature/&ArcaneDetonationDescription")
+                .SetSpecificDamageType("DamageForce")
+                .SetDamageDice(RuleDefinitions.DieType.D6, 1)
+                .SetNotificationTag("ArcanistMark")
+                .SetTargetCondition(marked_condition, RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasConditionCreatedByMe)
+                .SetNoSave()
+                .SetConditionOperations(
+                    new ConditionOperationDescription
                     {
-                        BuildDiceByRank(1, 1),
-                        BuildDiceByRank(2, 1),
-                        BuildDiceByRank(3, 1),
-                        BuildDiceByRank(4, 1),
-                        BuildDiceByRank(5, 1),
-                        BuildDiceByRank(6, 1),
-                        BuildDiceByRank(7, 1),
-                        BuildDiceByRank(8, 1),
-                        BuildDiceByRank(9, 1),
-                        BuildDiceByRank(10, 1),
-                        BuildDiceByRank(11, 2),
-                        BuildDiceByRank(12, 2),
-                        BuildDiceByRank(13, 2),
-                        BuildDiceByRank(14, 2),
-                        BuildDiceByRank(15, 2),
-                        BuildDiceByRank(16, 2),
-                        BuildDiceByRank(17, 2),
-                        BuildDiceByRank(18, 2),
-                        BuildDiceByRank(19, 2),
-                        BuildDiceByRank(20, 2)
-                    });
-            mark_damage.SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.None);
-            mark_damage.SetImpactParticleReference(asset_reference);
-            return mark_damage.AddToDB();
+                        ConditionDefinition = marked_condition,
+                        Operation = ConditionOperationDescription.ConditionOperation.Remove
+                    }
+                )
+                .SetClassAdvancement(
+                    BuildDiceByRank(1, 1),
+                    BuildDiceByRank(2, 1),
+                    BuildDiceByRank(3, 1),
+                    BuildDiceByRank(4, 1),
+                    BuildDiceByRank(5, 1),
+                    BuildDiceByRank(6, 1),
+                    BuildDiceByRank(7, 1),
+                    BuildDiceByRank(8, 1),
+                    BuildDiceByRank(9, 1),
+                    BuildDiceByRank(10, 1),
+                    BuildDiceByRank(11, 2),
+                    BuildDiceByRank(12, 2),
+                    BuildDiceByRank(13, 2),
+                    BuildDiceByRank(14, 2),
+                    BuildDiceByRank(15, 2),
+                    BuildDiceByRank(16, 2),
+                    BuildDiceByRank(17, 2),
+                    BuildDiceByRank(18, 2),
+                    BuildDiceByRank(19, 2),
+                    BuildDiceByRank(20, 2))
+                .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.None)
+                .SetImpactParticleReference(asset_reference)
+                .AddToDB();
         }
 
         private static FeatureDefinition CreateArcaneDetonationUpgrade()

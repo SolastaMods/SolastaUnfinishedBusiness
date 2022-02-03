@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 
@@ -6,9 +7,29 @@ namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionAbilityCheckAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionAbilityCheckAffinity>
     {
-        public FeatureDefinitionAbilityCheckAffinityBuilder(string name, string guid, List<(string abilityScoreName, string proficiencyName)> abilityProficiencyPairs,
-            int diceNumber, RuleDefinitions.DieType dieType, RuleDefinitions.CharacterAbilityCheckAffinity affinityType,
-        GuiPresentation guiPresentation) : base(name, guid)
+        public FeatureDefinitionAbilityCheckAffinityBuilder(string name, string guid)
+            : base(name, guid)
+        {
+        }
+
+        public FeatureDefinitionAbilityCheckAffinityBuilder(string name, Guid namespaceGuid, string category = null)
+            : base(name, namespaceGuid, category)
+        {
+        }
+
+        public FeatureDefinitionAbilityCheckAffinityBuilder(FeatureDefinitionAbilityCheckAffinity original, string name, string guid)
+            : base(original, name, guid)
+        {
+        }
+
+        public FeatureDefinitionAbilityCheckAffinityBuilder(FeatureDefinitionAbilityCheckAffinity original, string name, Guid namespaceGuid, string category = null)
+            : base(original, name, namespaceGuid, category)
+        {
+        }
+
+        public FeatureDefinitionAbilityCheckAffinityBuilder(string name, string guid, IEnumerable<(string abilityScoreName, string proficiencyName)> abilityProficiencyPairs,
+            int diceNumber, RuleDefinitions.DieType dieType, RuleDefinitions.CharacterAbilityCheckAffinity affinityType, GuiPresentation guiPresentation)
+            : base(name, guid)
         {
             foreach ((string abilityScoreName, string proficiencyName) in abilityProficiencyPairs)
             {
