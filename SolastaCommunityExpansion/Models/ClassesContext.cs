@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text;
 using SolastaCommunityExpansion.Classes;
 using SolastaCommunityExpansion.Classes.Tinkerer;
+using SolastaCommunityExpansion.Classes.Witch;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Models
