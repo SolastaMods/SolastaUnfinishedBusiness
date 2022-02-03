@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -8,7 +9,7 @@ namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionSavingThrowAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionSavingThrowAffinity>
     {
-        public FeatureDefinitionSavingThrowAffinityBuilder(string name, string guid, List<string> abilityScores,
+        public FeatureDefinitionSavingThrowAffinityBuilder(string name, string guid, IEnumerable<string> abilityScores,
             RuleDefinitions.CharacterSavingThrowAffinity affinityType, bool againstMagic, GuiPresentation guiPresentation) : base(name, guid)
         {
             foreach (string ability in abilityScores)
@@ -36,6 +37,26 @@ namespace SolastaCommunityExpansion.Builders.Features
             }
 
             Definition.SetGuiPresentation(guiPresentation);
+        }
+
+        public FeatureDefinitionSavingThrowAffinityBuilder(string name, string guid)
+            : base(name, guid)
+        {
+        }
+
+        public FeatureDefinitionSavingThrowAffinityBuilder(string name, Guid namespaceGuid, string category = null)
+            : base(name, namespaceGuid, category)
+        {
+        }
+
+        public FeatureDefinitionSavingThrowAffinityBuilder(FeatureDefinitionSavingThrowAffinity original, string name, string guid)
+            : base(original, name, guid)
+        {
+        }
+
+        public FeatureDefinitionSavingThrowAffinityBuilder(FeatureDefinitionSavingThrowAffinity original, string name, Guid namespaceGuid, string category = null)
+            : base(original, name, namespaceGuid, category)
+        {
         }
     }
 }
