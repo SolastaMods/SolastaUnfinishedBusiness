@@ -258,6 +258,7 @@ namespace SolastaModApi
         /// <param name="guid">The unique guid assigned to the definition (mandatory)</param>
         /// <param name="title">The title assigned to the GuiPresentation (optional)</param>
         /// <param name="description">The description assigned to the GuiPresentation (optional)</param>
+        [Obsolete("Use one of the preferred constructors plus GuiPresentation extensions.")]
         protected BaseDefinitionBuilder(string name, string guid, string title, string description)
             : this(name, guid, BuildGuiPresentation(title, description))
         {
@@ -300,7 +301,7 @@ namespace SolastaModApi
         /// <param name="original">The original definition to be cloned.</param>
         /// <param name="name">The new unique name assigned to the definition (mandatory)</param>
         /// <param name="guid">The new unique guid assigned to the definition (mandatory)</param>
-        protected BaseDefinitionBuilder(TDefinition original, string name, string guid) : this(original, name, guid, null, null)
+        protected BaseDefinitionBuilder(TDefinition original, string name, string guid) : this(original, name, guid, null)
         {
         }
 
@@ -312,6 +313,7 @@ namespace SolastaModApi
         /// <param name="title">The title assigned to the GuiPresentation (optional)</param>
         /// <param name="description">The description assigned to the GuiPresentation (optional)</param>
         /// <param name="base_Blueprint">The original definition to be cloned.</param>
+        [Obsolete("Use one of the preferred constructors plus GuiPresentation extensions.")]
         protected BaseDefinitionBuilder(string name, string guid, string title, string description, TDefinition base_Blueprint)
             : this(base_Blueprint, name, guid, title, description)
         {
@@ -325,6 +327,7 @@ namespace SolastaModApi
         /// <param name="guid">The new unique guid assigned to the definition (mandatory)</param>
         /// <param name="title">The title assigned to the GuiPresentation (optional)</param>
         /// <param name="description">The description assigned to the GuiPresentation (optional)</param>
+        [Obsolete("Use one of the preferred constructors plus GuiPresentation extensions.")]
         protected BaseDefinitionBuilder(TDefinition original, string name, string guid, string title, string description)
         {
             Preconditions.IsNotNull(original, nameof(original));
