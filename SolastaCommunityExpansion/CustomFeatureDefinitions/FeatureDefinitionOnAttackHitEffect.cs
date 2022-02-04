@@ -39,14 +39,4 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
             onHit?.Invoke(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
         }
     }
-
-    public class FeatureDefinitionOnAttackHitEffectBuilder : BaseDefinitionBuilder<FeatureDefinitionOnAttackHitEffect>
-    {
-        public FeatureDefinitionOnAttackHitEffectBuilder(string name, string guid,
-            OnAttackHitDelegate onHit, GuiPresentation guiPresentation) : base(name, guid)
-        {
-            Definition.SetOnAttackHitDelegate(onHit);
-            Definition.SetGuiPresentation(guiPresentation);
-        }
-    }
 }
