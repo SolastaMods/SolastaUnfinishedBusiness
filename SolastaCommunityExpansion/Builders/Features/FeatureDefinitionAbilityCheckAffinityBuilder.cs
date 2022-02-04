@@ -36,7 +36,7 @@ namespace SolastaCommunityExpansion.Builders.Features
 
         // TODO: is this a method good name?
         public FeatureDefinitionAbilityCheckAffinityBuilder SetAbilityAffinities(
-            IEnumerable<(string abilityScoreName, string proficiencyName)> abilityProficiencyPairs, 
+            IEnumerable<(string abilityScoreName, string proficiencyName)> abilityProficiencyPairs,
             int diceNumber, RuleDefinitions.DieType dieType, RuleDefinitions.CharacterAbilityCheckAffinity affinityType)
         {
             Definition.AffinityGroups.SetRange(

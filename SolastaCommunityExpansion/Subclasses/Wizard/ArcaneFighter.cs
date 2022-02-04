@@ -56,16 +56,14 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 "AttributeModifierMeleeWizardExtraAttack", extraAttackGui.Build());
             meleeWizard.AddFeatureAtLevel(extraAttack, 6);
 
-            GuiPresentationBuilder bonusSpellGui = new GuiPresentationBuilder(
-                "Subclass/&ArcaneFighterAdditionalActionTitle",
-                "Subclass/&ArcaneFighterAdditionalActionDescription");
-            FeatureDefinitionAdditionalAction bonusSpell = new FeatureDefinitionAdditionalActionBuilder("ArcaneFighterAdditionalAction",
-                GuidHelper.Create(SubclassNamespace, "ArcaneFighterAdditionalAction").ToString(), ActionDefinitions.ActionType.Main, new List<ActionDefinitions.Id>(),
-                new List<ActionDefinitions.Id>(), new List<ActionDefinitions.Id>()
-                {
-                    ActionDefinitions.Id.CastMain,
-                }, -1, RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy,
-                bonusSpellGui.Build()).AddToDB();
+            FeatureDefinitionAdditionalAction bonusSpell = new FeatureDefinitionAdditionalActionBuilder("ArcaneFighterAdditionalAction", SubclassNamespace)
+                .SetGuiPresentationGenerate("ArcaneFighterAdditionalAction", Category.Subclass)
+                .SetActionType(ActionDefinitions.ActionType.Main)
+                .SetRestrictedActions(ActionDefinitions.Id.CastMain)
+                .SetMaxAttacksNumber(-1)
+                .SetTriggerCondition(RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy)
+                .AddToDB();
+
             meleeWizard.AddFeatureAtLevel(bonusSpell, 10);
 
             GuiPresentationBuilder bonusWeaponDamageGui = new GuiPresentationBuilder(
@@ -127,9 +125,10 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         private static FeatureDefinitionAttributeModifier BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation modifierType,
             string attribute, int amount, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionAttributeModifierBuilder builder = new FeatureDefinitionAttributeModifierBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
-                modifierType, attribute, amount, guiPresentation);
-            return builder.AddToDB();
+            return new FeatureDefinitionAttributeModifierBuilder(name, SubclassNamespace)
+                .SetGuiPresentation(guiPresentation)
+                .SetModifier(modifierType, attribute, amount)
+                .AddToDB();
         }
 
         // TODO: Should concentrationAffinity be used?  If not remove.

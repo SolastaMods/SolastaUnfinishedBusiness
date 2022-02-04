@@ -27,14 +27,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        // TODO: drop these ctors
-        public FeatureDefinitionAttributeModifierBuilder(string name, string guid, AttributeModifierOperation modifierType,
-            string attribute, int amount, GuiPresentation guiPresentation) : base(name, guid, guiPresentation)
-        {
-            SetModifier(modifierType, attribute, amount);
-        }
-        // -- to here
-
         public FeatureDefinitionAttributeModifierBuilder SetModifier(AttributeModifierOperation modifierType, string attribute, int amount)
         {
             Definition.SetModifierType2(modifierType);

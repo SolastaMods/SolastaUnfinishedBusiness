@@ -83,6 +83,9 @@ namespace SolastaCommunityExpansion.Builders
             return SetGuiPresentation(builder, GuiPresentationBuilder.Build(title, description, sprite));
         }
 
+        // TODO: add xml comments
+        // TODO: change category to an enum - less overload conflict and can rename to SetGuiPresentation
+        // TODO: add SetGuiPresentationGenerate<TBuilder>(this TBuilder builder, Category category, ... ) and get name from builder
         public static TBuilder SetGuiPresentationGenerate<TBuilder>(this TBuilder builder, string name, string category, AssetReferenceSprite sprite = null)
            where TBuilder : IBaseDefinitionBuilder
         {

@@ -4,6 +4,7 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using static FeatureDefinitionAbilityCheckAffinity;
 using static RuleDefinitions;
 using static SolastaModApi.DatabaseHelper.LootPackDefinitions;
 
@@ -18,11 +19,12 @@ namespace SolastaCommunityExpansion.Models
                 .SetGuiPresentationGenerate("PickPocketFeat", Category.Feat)
                 .AddToDB();
 
-            FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup pickpocketAbilityCheckAffinityGroup = new FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup();
-
-            pickpocketAbilityCheckAffinityGroup.abilityScoreName = AttributeDefinitions.Dexterity;
-            pickpocketAbilityCheckAffinityGroup.proficiencyName = SkillDefinitions.SleightOfHand;
-            pickpocketAbilityCheckAffinityGroup.affinity = CharacterAbilityCheckAffinity.Advantage;
+            AbilityCheckAffinityGroup pickpocketAbilityCheckAffinityGroup = new AbilityCheckAffinityGroup
+            {
+                abilityScoreName = AttributeDefinitions.Dexterity,
+                proficiencyName = SkillDefinitions.SleightOfHand,
+                affinity = CharacterAbilityCheckAffinity.Advantage
+            };
 
             pickpocket_check_affinity.AffinityGroups.SetRange(pickpocketAbilityCheckAffinityGroup);
 
