@@ -110,23 +110,23 @@ namespace SolastaCommunityExpansion.Classes.Witch
         {
             FeatureDefinitionProficiencyArmor = new FeatureDefinitionProficiencyBuilder(
                         "ProficiencyWitchArmor", WITCH_BASE_GUID, RuleDefinitions.ProficiencyType.Armor, EquipmentDefinitions.LightArmorCategory)
-                    .SetGuiPresentationGenerate("WitchArmorProficiency", "Class")
+                    .SetGuiPresentation("WitchArmorProficiency", Category.Class)
                     .AddToDB();
 
             FeatureDefinitionProficiencyWeapon = new FeatureDefinitionProficiencyBuilder(
                         "ProficiencyWitchWeapon", WITCH_BASE_GUID, RuleDefinitions.ProficiencyType.Weapon, EquipmentDefinitions.SimpleWeaponCategory)
-                    .SetGuiPresentationGenerate("WitchWeaponProficiency", "Class")
+                    .SetGuiPresentation("WitchWeaponProficiency", Category.Class)
                     .AddToDB();
 
             FeatureDefinitionProficiencySavingThrow = new FeatureDefinitionProficiencyBuilder(
                         "ProficiencyWitchSavingthrow", WITCH_BASE_GUID, RuleDefinitions.ProficiencyType.SavingThrow,
                          AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom).
-                     SetGuiPresentationGenerate("WitchSavingthrowProficiency", "Class")
+                     SetGuiPresentation("WitchSavingthrowProficiency", Category.Class)
                     .AddToDB();
 
             FeatureDefinitionPointPoolSkills = new FeatureDefinitionPointPoolBuilder(
                         "PointPoolWitchSkillPoints", WITCH_BASE_GUID, HeroDefinitions.PointsPoolType.Skill, 2)
-                    .SetGuiPresentationGenerate("WitchSkillProficiency", "Class")
+                    .SetGuiPresentation("WitchSkillProficiency", Category.Class)
                     .RestrictChoices(
                         SkillDefinitions.Arcana,
                         SkillDefinitions.Deception,
@@ -139,7 +139,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             FeatureDefinitionPointPoolTools = new FeatureDefinitionPointPoolBuilder(
                         "ProficiencyWitchTool", WITCH_BASE_GUID, HeroDefinitions.PointsPoolType.Tool, 1)
-                    .SetGuiPresentationGenerate("WitchToolProficiency", "Class")
+                    .SetGuiPresentation("WitchToolProficiency", Category.Class)
                     .RestrictChoices(
                         ToolTypeDefinitions.HerbalismKitType.Name,
                         ToolTypeDefinitions.PoisonersKitType.Name)
@@ -755,7 +755,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             var ruinConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
                 ConditionDefinitions.ConditionAcidArrowed, "ConditionRuined", WITCH_BASE_GUID)
-                    .SetGuiPresentationGenerate("Ruined", Category.Condition, ConditionDefinitions.ConditionAcidArrowed.GuiPresentation.SpriteReference)
+                    .SetGuiPresentation("Ruined", Category.Condition, ConditionDefinitions.ConditionAcidArrowed.GuiPresentation.SpriteReference)
                     .AddToDB()
                 .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
                 .SetDurationParameter(1)
@@ -766,7 +766,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             ruinConditionDefinition.Features.Clear();
             ruinConditionDefinition.Features.Add(
                 new FeatureDefinitionAttributeModifierBuilder("Ruined", WITCH_BASE_GUID)
-                    .SetGuiPresentationGenerate("Ruined", Category.Modifier, ConditionDefinitions.ConditionAcidArrowed.GuiPresentation.SpriteReference)
+                    .SetGuiPresentation("Ruined", Category.Modifier, ConditionDefinitions.ConditionAcidArrowed.GuiPresentation.SpriteReference)
                     .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, -3)
                     .AddToDB());
 
@@ -993,7 +993,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 spell.EffectDescription.EffectForms.Add(effectForm);
 
                 var preparedSpells = new FeatureDefinitionAutoPreparedSpellsBuilder("WitchFamiliarAutoPreparedSpell", WITCH_BASE_GUID)
-                    .SetGuiPresentationGenerate("WitchFamiliarPower", Category.Class, SpellDefinitions.AnimalFriendship.GuiPresentation.SpriteReference)
+                    .SetGuiPresentation("WitchFamiliarPower", Category.Class, SpellDefinitions.AnimalFriendship.GuiPresentation.SpriteReference)
                     .SetPreparedSpellGroups(AutoPreparedSpellsGroupBuilder.Build(2, spell))
                     .SetCharacterClass(witch)
                     .SetAutoTag("Witch")
@@ -1049,7 +1049,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
                 FeatureDefinitionFeatureSetWitchFamiliar = new FeatureDefinitionFeatureSetBuilder(
                     FeatureDefinitionFeatureSets.FeatureSetHumanLanguages, "FeatureSetWitchFamiliar", WITCH_BASE_GUID)
-                        .SetGuiPresentationGenerate("WitchFamiliarPower", Category.Class)
+                        .SetGuiPresentation("WitchFamiliarPower", Category.Class)
                         .SetFeatures(preparedSpells, summoningAffinity)
                         .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                         .SetUniqueChoices(true)

@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public FeatureDefinitionAdditionalDamageBuilder(string name, Guid namespaceGuid, string category = null)
+        public FeatureDefinitionAdditionalDamageBuilder(string name, Guid namespaceGuid, Category category = Category.None)
             : base(name, namespaceGuid, category)
         {
         }
@@ -25,7 +25,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original, string name, Guid namespaceGuid, string category = null)
+        public FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original, string name, Guid namespaceGuid, Category category = Category.None)
             : base(original, name, namespaceGuid, category)
         {
         }

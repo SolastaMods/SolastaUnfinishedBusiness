@@ -22,7 +22,7 @@ namespace SolastaCommunityExpansion.Builders.Features
             InitializeFields();
         }
 
-        public FeatureDefinitionCastSpellBuilder(string name, Guid namespaceGuid, string category = null)
+        public FeatureDefinitionCastSpellBuilder(string name, Guid namespaceGuid, Category category = Category.None)
             : base(name, namespaceGuid, category)
         {
             InitializeFields();
@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name, Guid namespaceGuid, string category = null)
+        public FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name, Guid namespaceGuid, Category category = Category.None)
             : base(original, name, namespaceGuid, category)
         {
         }

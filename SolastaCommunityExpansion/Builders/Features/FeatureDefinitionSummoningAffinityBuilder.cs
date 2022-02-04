@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public FeatureDefinitionSummoningAffinityBuilder(string name, Guid namespaceGuid, string category = null)
+        public FeatureDefinitionSummoningAffinityBuilder(string name, Guid namespaceGuid, Category category = Category.None)
             : base(name, namespaceGuid, category)
         {
         }
@@ -20,7 +20,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public FeatureDefinitionSummoningAffinityBuilder(FeatureDefinitionSummoningAffinity original, string name, Guid namespaceGuid, string category = null)
+        public FeatureDefinitionSummoningAffinityBuilder(FeatureDefinitionSummoningAffinity original, string name, Guid namespaceGuid, Category category = Category.None)
             : base(original, name, namespaceGuid, category)
         {
         }

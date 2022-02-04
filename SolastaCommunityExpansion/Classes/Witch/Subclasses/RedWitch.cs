@@ -35,14 +35,14 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
 
             var featureDefinitionFeatureSetRedMagic = new FeatureDefinitionFeatureSetBuilder(
                     DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHumanLanguages, "FeatureSetRedWitchMagic", Namespace)
-                .SetGuiPresentationGenerate("RedWitchMagic", Category.Subclass)
+                .SetGuiPresentation("RedWitchMagic", Category.Subclass)
                 .SetFeatures(preparedSpells)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 .SetUniqueChoices(true)
                 .AddToDB();
 
             return new CharacterSubclassDefinitionBuilder("RedWitch", Namespace)
-                .SetGuiPresentationGenerate("RedWitch", Category.Subclass, DomainElementalFire.GuiPresentation.SpriteReference)
+                .SetGuiPresentation("RedWitch", Category.Subclass, DomainElementalFire.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(featureDefinitionFeatureSetRedMagic, 3)
                 .AddToDB();
         }

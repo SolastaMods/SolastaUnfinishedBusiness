@@ -42,14 +42,14 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
 
             var featureDefinitionFeatureSetGreenMagic = new FeatureDefinitionFeatureSetBuilder(
                     DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHumanLanguages, "FeatureSetGreenWitchMagic", Namespace)
-                .SetGuiPresentationGenerate("GreenWitchMagic", Category.Subclass)
+                .SetGuiPresentation("GreenWitchMagic", Category.Subclass)
                 .SetFeatures(preparedSpells)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 .SetUniqueChoices(true)
                 .AddToDB();
 
             return new CharacterSubclassDefinitionBuilder("GreenWitch", Namespace)
-                .SetGuiPresentationGenerate("GreenWitch", Category.Subclass, TraditionGreenmage.GuiPresentation.SpriteReference)
+                .SetGuiPresentation("GreenWitch", Category.Subclass, TraditionGreenmage.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(featureDefinitionFeatureSetGreenMagic, 3)
                 .AddToDB();
         }

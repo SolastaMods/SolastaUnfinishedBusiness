@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public FeatureDefinitionAdditionalActionBuilder(string name, Guid namespaceGuid, string category = null)
+        public FeatureDefinitionAdditionalActionBuilder(string name, Guid namespaceGuid, Category category = Category.None)
             : base(name, namespaceGuid, category)
         {
         }
@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original, string name, Guid namespaceGuid, string category = null)
+        public FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original, string name, Guid namespaceGuid, Category category = Category.None)
             : base(original, name, namespaceGuid, category)
         {
         }

@@ -38,14 +38,14 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
 
             var featureDefinitionFeatureSetBloodMagic = new FeatureDefinitionFeatureSetBuilder(
                     DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHumanLanguages, "FeatureSetBloodWitchMagic", Namespace)
-                .SetGuiPresentationGenerate("BloodWitchMagic", Category.Subclass)
+                .SetGuiPresentation("BloodWitchMagic", Category.Subclass)
                 .SetFeatures(preparedSpells)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 .SetUniqueChoices(true)
                 .AddToDB();
 
             return new CharacterSubclassDefinitionBuilder("BloodWitch", Namespace)
-                .SetGuiPresentationGenerate("BloodWitch", Category.Subclass, DomainOblivion.GuiPresentation.SpriteReference)
+                .SetGuiPresentation("BloodWitch", Category.Subclass, DomainOblivion.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(featureDefinitionFeatureSetBloodMagic, 3)
                 .AddToDB();
         }

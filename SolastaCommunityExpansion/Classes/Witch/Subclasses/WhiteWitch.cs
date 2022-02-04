@@ -34,14 +34,14 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
 
             var featureDefinitionFeatureSetWhiteMagic = new FeatureDefinitionFeatureSetBuilder(
                     DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHumanLanguages, "FeatureSetWhiteWitchMagic", Namespace)
-                .SetGuiPresentationGenerate("WhiteWitchMagic", Category.Subclass)
+                .SetGuiPresentation("WhiteWitchMagic", Category.Subclass)
                 .SetFeatures(preparedSpells)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 .SetUniqueChoices(true)
                 .AddToDB();
 
             return new CharacterSubclassDefinitionBuilder("WhiteWitch", Namespace)
-                .SetGuiPresentationGenerate("WhiteWitch", Category.Subclass, DomainLife.GuiPresentation.SpriteReference)
+                .SetGuiPresentation("WhiteWitch", Category.Subclass, DomainLife.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(featureDefinitionFeatureSetWhiteMagic, 3)
                 .AddToDB();
         }

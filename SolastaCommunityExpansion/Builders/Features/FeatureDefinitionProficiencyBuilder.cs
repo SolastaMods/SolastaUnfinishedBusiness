@@ -17,14 +17,14 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         public FeatureDefinitionProficiencyBuilder(string name, Guid namespaceGuid,
-            RuleDefinitions.ProficiencyType type, IEnumerable<string> proficiencies, string category) : base(name, namespaceGuid, category)
+            RuleDefinitions.ProficiencyType type, IEnumerable<string> proficiencies, Category category) : base(name, namespaceGuid, category)
         {
             Definition.SetProficiencyType(type);
             Definition.Proficiencies.AddRange(proficiencies);
         }
 
         public FeatureDefinitionProficiencyBuilder(string name, Guid namespaceGuid,
-            RuleDefinitions.ProficiencyType type, IEnumerable<string> proficiencies) : this(name, namespaceGuid, type, proficiencies, null)
+            RuleDefinitions.ProficiencyType type, IEnumerable<string> proficiencies) : this(name, namespaceGuid, type, proficiencies, Category.None)
         {
             Definition.SetProficiencyType(type);
             Definition.Proficiencies.AddRange(proficiencies);
@@ -41,7 +41,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public FeatureDefinitionProficiencyBuilder(string name, Guid namespaceGuid, string category = null)
+        public FeatureDefinitionProficiencyBuilder(string name, Guid namespaceGuid, Category category = Category.None)
             : base(name, namespaceGuid, category)
         {
         }
@@ -51,7 +51,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public FeatureDefinitionProficiencyBuilder(FeatureDefinitionProficiency original, string name, Guid namespaceGuid, string category = null)
+        public FeatureDefinitionProficiencyBuilder(FeatureDefinitionProficiency original, string name, Guid namespaceGuid, Category category = Category.None)
             : base(original, name, namespaceGuid, category)
         {
         }

@@ -3,15 +3,15 @@
     /// <summary>
     /// Localization string categories.  Eg Class/&WitchTitle, Class/&WitchDescription
     /// </summary>
-    internal static class Category
+    public enum Category
     {
-        // TODO: change to enum
-
-        public const string Feat = "Feat";
-        public const string Feature = "Feature";
-        public const string Class = "Class";
-        public const string Condition = "Condition";
-        public const string Modifier = "Modifier";
-        public const string Subclass = "Subclass";
+        None = 0,
+        Feat,
+        Feature,
+        Class,
+        Condition,
+        Modifier,
+        Subclass,
+        Spell
     }
 }
