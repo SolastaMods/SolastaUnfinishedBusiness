@@ -108,24 +108,24 @@ namespace SolastaCommunityExpansion.Classes.Warden
             FeatureDefinitionProficiencyArmor = new FeatureDefinitionProficiencyBuilder(
                         "ProficiencyWardenArmor", WARDEN_BASE_GUID, RuleDefinitions.ProficiencyType.Armor, 
                         EquipmentDefinitions.LightArmorCategory, EquipmentDefinitions.MediumArmorCategory, EquipmentDefinitions.ShieldCategory)
-                    .SetGuiPresentationGenerate("WardenArmorProficiency", Category.Class)
+                    .SetGuiPresentation("WardenArmorProficiency", Category.Class)
                     .AddToDB();
 
             FeatureDefinitionProficiencyWeapon = new FeatureDefinitionProficiencyBuilder(
                         "ProficiencyWardenWeapon", WARDEN_BASE_GUID, RuleDefinitions.ProficiencyType.Weapon, 
                         EquipmentDefinitions.SimpleWeaponCategory, EquipmentDefinitions.MartialWeaponCategory)
-                    .SetGuiPresentationGenerate("WardenWeaponProficiency", Category.Class)
+                    .SetGuiPresentation("WardenWeaponProficiency", Category.Class)
                     .AddToDB();
 
             FeatureDefinitionProficiencySavingThrow = new FeatureDefinitionProficiencyBuilder(
                         "ProficiencyWardenSavingthrow", WARDEN_BASE_GUID, RuleDefinitions.ProficiencyType.SavingThrow,
                          AttributeDefinitions.Strength, AttributeDefinitions.Constitution).
-                     SetGuiPresentationGenerate("WardenSavingthrowProficiency", Category.Class)
+                     SetGuiPresentation("WardenSavingthrowProficiency", Category.Class)
                     .AddToDB();
 
             FeatureDefinitionPointPoolSkills = new FeatureDefinitionPointPoolBuilder(
                         "PointPoolWardenSkillPoints", WARDEN_BASE_GUID, HeroDefinitions.PointsPoolType.Skill, 2)
-                    .SetGuiPresentationGenerate("WardenSkillProficiency", Category.Class)
+                    .SetGuiPresentation("WardenSkillProficiency", Category.Class)
                     .RestrictChoices(
                         SkillDefinitions.AnimalHandling,
                         SkillDefinitions.Athletics,
@@ -141,7 +141,7 @@ namespace SolastaCommunityExpansion.Classes.Warden
             var heavyArmorProficiency = new FeatureDefinitionProficiencyBuilder(
                 "ProficiencyWardenHeavyArmor", WARDEN_BASE_GUID, RuleDefinitions.ProficiencyType.Armor, 
                 EquipmentDefinitions.HeavyArmorCategory)
-                    .SetGuiPresentationGenerate("WardenHeavyArmorProficiency", Category.Class)
+                    .SetGuiPresentation("WardenHeavyArmorProficiency", Category.Class)
                     .AddToDB();
 
             // Like Witch Vision Curse, this would need to depend on the character's CON bonus. Setting to 3 for now
@@ -164,25 +164,25 @@ namespace SolastaCommunityExpansion.Classes.Warden
             var stalwartDexterity = new FeatureDefinitionProficiencyBuilder(
                 "ProficiencyWardenSavingThrowDexterity", WARDEN_BASE_GUID, RuleDefinitions.ProficiencyType.SavingThrow, 
                 AttributeDefinitions.Dexterity)
-                    .SetGuiPresentationGenerate("WardenDexteritySavingThrowProficiency", Category.Class)
+                    .SetGuiPresentation("WardenDexteritySavingThrowProficiency", Category.Class)
                     .AddToDB();
 
             var stalwartIntelligence = new FeatureDefinitionProficiencyBuilder(
                 "ProficiencyWardenSavingThrowIntelligence", WARDEN_BASE_GUID, RuleDefinitions.ProficiencyType.SavingThrow, 
                 AttributeDefinitions.Intelligence)
-                    .SetGuiPresentationGenerate("WardenIntelligenceSavingThrowProficiency", Category.Class)
+                    .SetGuiPresentation("WardenIntelligenceSavingThrowProficiency", Category.Class)
                     .AddToDB();
 
             var stalwartWisdom = new FeatureDefinitionProficiencyBuilder(
                 "ProficiencyWardenSavingThrowWisdom", WARDEN_BASE_GUID, RuleDefinitions.ProficiencyType.SavingThrow, 
                 AttributeDefinitions.Wisdom)
-                    .SetGuiPresentationGenerate("WardenWisdomSavingThrowProficiency", Category.Class)
+                    .SetGuiPresentation("WardenWisdomSavingThrowProficiency", Category.Class)
                     .AddToDB();
 
             var stalwartCharisma = new FeatureDefinitionProficiencyBuilder(
                 "ProficiencyWardenSavingThrowCharisma", WARDEN_BASE_GUID, RuleDefinitions.ProficiencyType.SavingThrow, 
                 AttributeDefinitions.Charisma)
-                    .SetGuiPresentationGenerate("WardenCharismaSavingThrowProficiency", Category.Class)
+                    .SetGuiPresentation("WardenCharismaSavingThrowProficiency", Category.Class)
                     .AddToDB();
 
             FeatureDefinitionFeatureSetSentinelStand = new FeatureDefinitionFeatureSetBuilder(
@@ -199,12 +199,12 @@ namespace SolastaCommunityExpansion.Classes.Warden
 
             var wardenGraspMovementAffinity = new FeatureDefinitionBuilder<FeatureDefinitionMovementAffinity>(
                 FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained, "MovementWardenGrasp", WARDEN_BASE_GUID)
-                    .SetGuiPresentationGenerate("MovementWardenGrasp", Category.Modifier)
+                    .SetGuiPresentation("MovementWardenGrasp", Category.Modifier)
                     .AddToDB();
 
             var wardenGraspConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
                 ConditionDefinitions.ConditionHeavilyEncumbered, "ConditionWardenGrasp", WARDEN_BASE_GUID)
-                    .SetGuiPresentationGenerate("WardenGrasp", Category.Condition, ConditionDefinitions.ConditionRestrained.GuiPresentation.SpriteReference)
+                    .SetGuiPresentation("WardenGrasp", Category.Condition, ConditionDefinitions.ConditionRestrained.GuiPresentation.SpriteReference)
                     .AddToDB()
                 .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
                 .SetDurationParameter(1)
@@ -247,7 +247,7 @@ namespace SolastaCommunityExpansion.Classes.Warden
             FeatureDefinitionPowerWardenGrasp = new FeatureDefinitionPowerBuilder(
                 FeatureDefinitionPowers.PowerMountaineerCloseQuarters, "WardenGrasp", WARDEN_BASE_GUID, Category.Class)
                     .SetActivation(RuleDefinitions.ActivationTime.BonusAction, 0)
-                    .SetGuiPresentationGenerate("WardenGrasp", Category.Class, SpellDefinitions.Entangle.GuiPresentation.SpriteReference)
+                    .SetGuiPresentation("WardenGrasp", Category.Class, SpellDefinitions.Entangle.GuiPresentation.SpriteReference)
                     .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
                     .SetUsesFixed(1)
                     .SetEffect(wardenGraspEffectDescription)
@@ -260,7 +260,7 @@ namespace SolastaCommunityExpansion.Classes.Warden
 
             FeatureDefinitionFightingStyleChoiceWarden = new FeatureDefinitionBuilder<FeatureDefinitionFightingStyleChoice>(
                 FeatureDefinitionFightingStyleChoices.FightingStyleFighter, "FightingStyleWarden", WARDEN_BASE_GUID)
-                    .SetGuiPresentationGenerate("FightingStyleWarden", Category.Class)
+                    .SetGuiPresentation("FightingStyleWarden", Category.Class)
                     .AddToDB();
 
             FeatureDefinitionFightingStyleChoiceWarden.FightingStyles.Clear();
