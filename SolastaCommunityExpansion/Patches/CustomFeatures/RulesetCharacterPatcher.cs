@@ -251,8 +251,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
 
         private static CharacterClassDefinition GetClassForSubclass(CharacterSubclassDefinition subclass)
         {
-            CharacterClassDefinition[] classes = DatabaseRepository.GetDatabase<CharacterClassDefinition>().GetAllElements();
-            return classes.FirstOrDefault(klass =>
+            return DatabaseRepository.GetDatabase<CharacterClassDefinition>().FirstOrDefault(klass =>
             {
                 return klass.FeatureUnlocks.Any(unlock =>
                 {
