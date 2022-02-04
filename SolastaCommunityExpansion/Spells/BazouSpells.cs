@@ -67,7 +67,7 @@ namespace SolastaCommunityExpansion.Spells
 #else
             // After
             // Generate style - set name & category - title and description generated as "Spell/&EldritchOrbDescription", "Spell/&EldritchOrbTitle"
-            spellBuilder.SetGuiPresentationGenerate(eldritchOrb, "Spell", Shine.GuiPresentation.SpriteReference);
+            spellBuilder.SetGuiPresentation(eldritchOrb, Category.Spell, Shine.GuiPresentation.SpriteReference);
 #endif
 
             var spell = spellBuilder.AddToDB();
@@ -215,7 +215,7 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
 
             var conditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(ConditionConfused, "ConditionFrenzied", BAZOU_SPELLS_BASE_GUID)
-                .SetGuiPresentationGenerate("Frenzied", "Condition")
+                .SetGuiPresentation("Frenzied", Category.Condition)
                 .AddToDB();
 
             // Some methods are missing like SetField or Copy

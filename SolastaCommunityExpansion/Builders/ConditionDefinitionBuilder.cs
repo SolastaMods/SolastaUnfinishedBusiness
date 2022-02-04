@@ -27,7 +27,8 @@ namespace SolastaCommunityExpansion.Builders
             modifyDefinition?.Invoke(Definition);
         }
 
-        public ConditionDefinitionBuilder(string name, string guid) : base(name, guid)
+        public ConditionDefinitionBuilder(string name, string guid) 
+            : base(name, guid)
         {
         }
 
@@ -36,7 +37,7 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public ConditionDefinitionBuilder(TDefinition original, string name, Guid guidNamespace, string category = null)
+        public ConditionDefinitionBuilder(TDefinition original, string name, Guid guidNamespace, Category category = Category.None)
             : base(original, name, guidNamespace, category)
         {
         }

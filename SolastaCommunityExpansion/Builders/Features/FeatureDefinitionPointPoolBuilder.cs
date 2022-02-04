@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         public FeatureDefinitionPointPoolBuilder(string name, Guid baseGuid,
-            HeroDefinitions.PointsPoolType poolType, int poolAmount, string category = null) : base(name, baseGuid, category)
+            HeroDefinitions.PointsPoolType poolType, int poolAmount, Category category = Category.None) : base(name, baseGuid, category)
         {
             Definition.SetPoolType(poolType);
             Definition.SetPoolAmount(poolAmount);
@@ -27,7 +27,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public FeatureDefinitionPointPoolBuilder(string name, Guid namespaceGuid, string category = null)
+        public FeatureDefinitionPointPoolBuilder(string name, Guid namespaceGuid, Category category = Category.None)
             : base(name, namespaceGuid, category)
         {
         }
@@ -37,7 +37,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, Guid namespaceGuid, string category = null)
+        public FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, Guid namespaceGuid, Category category = Category.None)
             : base(original, name, namespaceGuid, category)
         {
         }

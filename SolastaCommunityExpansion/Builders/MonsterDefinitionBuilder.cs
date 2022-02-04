@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public MonsterDefinitionBuilder(string name, Guid namespaceGuid, string category = null)
+        public MonsterDefinitionBuilder(string name, Guid namespaceGuid, Category category = Category.None)
             : base(name, namespaceGuid, category)
         {
         }
@@ -29,7 +29,7 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public MonsterDefinitionBuilder(MonsterDefinition original, string name, Guid namespaceGuid, string category = null)
+        public MonsterDefinitionBuilder(MonsterDefinition original, string name, Guid namespaceGuid, Category category = Category.None)
             : base(original, name, namespaceGuid, category)
         {
         }

@@ -58,7 +58,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         private static FeatureDefinitionAutoPreparedSpells CreateDruidForestGuardianMagic()
         {
             return new FeatureDefinitionAutoPreparedSpellsBuilder("ForestGuardianAutoPreparedSpells", DFG_BASE_GUID)
-                .SetGuiPresentationGenerate("DruidForestGuardianMagic", Category.Feature)
+                .SetGuiPresentation("DruidForestGuardianMagic", Category.Feature)
                 .SetPreparedSpellGroups(
                     AutoPreparedSpellsGroupBuilder.Build(2, Shield, FogCloud),
                     AutoPreparedSpellsGroupBuilder.Build(3, Blur, FlameBlade),
@@ -88,7 +88,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
                     "AttributeModifierDruidForestGuardianSylvanDurability",
                     GuidHelper.Create(DFG_BASE_GUID, "DruidForestGuardianSylvanDurability").ToString())
                 .SetModifier(Additive, AttributeDefinitions.HitPointBonusPerLevel, 1)
-                .SetGuiPresentationGenerate("DruidForestGuardianSylvanDurability", Category.Feature)
+                .SetGuiPresentation("DruidForestGuardianSylvanDurability", Category.Feature)
                 .AddToDB();
         }
 
@@ -207,7 +207,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             return new FeatureDefinitionAttributeModifierBuilder(
                     "AttributeModifierDruidForestGuardianExtraAttack",
                     GuidHelper.Create(DFG_BASE_GUID, "DruidForestGuardianExtraAttack").ToString())
-                .SetGuiPresentationGenerate("DruidForestGuardianExtraAttack", Category.Feature)
+                .SetGuiPresentation("DruidForestGuardianExtraAttack", Category.Feature)
                 .SetModifier(Additive, AttributeDefinitions.AttacksNumber, 1)
                 .AddToDB();
         }
