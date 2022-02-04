@@ -532,16 +532,10 @@ namespace SolastaCommunityExpansion.Classes.Warden
 
         private static CharacterClassDefinition BuildAndAddClass()
         {
-            var classGuiPresentation = new GuiPresentationBuilder(
-                    "Class/&WardenDescription",
-                    "Class/&WardenTitle")
-                    .SetSpriteReference(CharacterClassDefinitions.Fighter.GuiPresentation.SpriteReference)
-                    .Build();
 
             var classBuilder = new CharacterClassDefinitionBuilder(
-                    "ClassWarden",
-                    GuidHelper.Create(WARDEN_BASE_GUID, "ClassWarden").ToString())
-                    .SetGuiPresentation(classGuiPresentation);
+                "ClassWarden", WARDEN_BASE_GUID, Category.Class)
+                    .SetGuiPresentation("Warden", Category.Class, CharacterClassDefinitions.Fighter.GuiPresentation.SpriteReference);
 
             BuildClassStats(classBuilder);
             BuildEquipment(classBuilder);
@@ -568,15 +562,15 @@ namespace SolastaCommunityExpansion.Classes.Warden
             void BuildSubclasses()
             {
                 var subClassChoices = classBuilder.BuildSubclassChoice(
-                        3,
-                        "ChampionCall",
-                        false,
-                        "SubclassChoiceWardenChampionCalls",
-                        new GuiPresentationBuilder(
-                                "Subclass/&WardenSubclassPathDescription",
-                                "Subclass/&WardenSubclassPathTitle")
-                                .Build(),
-                        GuidHelper.Create(WARDEN_BASE_GUID, "SubclassChoiceWardenChampionCalls").ToString());
+                    3,
+                    "ChampionCall",
+                    false,
+                    "SubclassChoiceWardenChampionCalls",
+                    new GuiPresentationBuilder(
+                            "Subclass/&WardenSubclassPathDescription",
+                            "Subclass/&WardenSubclassPathTitle")
+                            .Build(),
+                    GuidHelper.Create(WARDEN_BASE_GUID, "SubclassChoiceWardenChampionCalls").ToString());
 
                 subClassChoices.Subclasses.Add(new GreyWatchman().GetSubclass(warden).name);
             }
@@ -588,29 +582,30 @@ namespace SolastaCommunityExpansion.Classes.Warden
                     classBuilder.AddFeatureAtLevel(help, 1);
                 }
 
-                classBuilder.AddFeaturesAtLevel(1,
-                    FeatureDefinitionProficiencyArmor,
-                    FeatureDefinitionProficiencyWeapon,
-                    FeatureDefinitionProficiencySavingThrow,
-                    FeatureDefinitionPointPoolSkills,
-                    FeatureDefinitionFeatureSetSentinelStand,
-                    FeatureDefinitionPowerWardenGrasp);
-//                classBuilder.AddFeaturesAtLevel(2,
-//                  FeatureDefinitionFightingStyleChoiceWarden);
-//                  FeatureDefinitionPowerWardenMark);
-//                classBuilder.AddFeatureAtLevel(FeatureDefinitionDamageAffinityWardenResolve, 3);
-                classBuilder.AddFeaturesAtLevel(4,
-                    FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
-                    FeatureDefinitionPowerFontOfLife);
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionAttributeModifierExtraAttack, 5);
-//                classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetSentinelStep, 7);
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 8);
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionDamageAffinityUndying, 9);
-//                classBuilder.AddFeatureAtLevel(FeatureDefinitionPowerInterrupt, 10);
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 12);
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 16);
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetSentinelSoul, 18);
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 19);
+                classBuilder
+                    .AddFeaturesAtLevel(1,
+                        FeatureDefinitionProficiencyArmor,
+                        FeatureDefinitionProficiencyWeapon,
+                        FeatureDefinitionProficiencySavingThrow,
+                        FeatureDefinitionPointPoolSkills,
+                        FeatureDefinitionFeatureSetSentinelStand,
+                        FeatureDefinitionPowerWardenGrasp)
+//                    .AddFeaturesAtLevel(2,
+//                        FeatureDefinitionFightingStyleChoiceWarden,
+//                        FeatureDefinitionPowerWardenMark)
+//                    .AddFeatureAtLevel(FeatureDefinitionDamageAffinityWardenResolve, 3)
+                    .AddFeaturesAtLevel(4,
+                        FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
+                        FeatureDefinitionPowerFontOfLife)
+                    .AddFeatureAtLevel(FeatureDefinitionAttributeModifierExtraAttack, 5)
+//                    .AddFeatureAtLevel(FeatureDefinitionFeatureSetSentinelStep, 7)
+                    .AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 8)
+                    .AddFeatureAtLevel(FeatureDefinitionDamageAffinityUndying, 9)
+//                    .AddFeatureAtLevel(FeatureDefinitionPowerInterrupt, 10)
+                    .AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 12)
+                    .AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 16)
+                    .AddFeatureAtLevel(FeatureDefinitionFeatureSetSentinelSoul, 18)
+                    .AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 19);
 
             }
         }
