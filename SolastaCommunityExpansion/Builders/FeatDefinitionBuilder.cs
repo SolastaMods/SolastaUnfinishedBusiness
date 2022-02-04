@@ -46,6 +46,11 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
+        public static FeatDefinitionBuilder CreateCopyFrom(FeatDefinition original, string name, string guid)
+        {
+            return new FeatDefinitionBuilder(original, name, guid);
+        }
+
         public FeatDefinitionBuilder SetFeatures(params FeatureDefinition[] features)
         {
             return SetFeatures(features.AsEnumerable());

@@ -1,8 +1,9 @@
-﻿using SolastaModApi;
+﻿using System;
+using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    // TODO: merge with FeatureDefinitionProficiencyBuilder
+    [Obsolete("Use FeatureDefinitionProficiencyBuilder")]
     public class PickPocketProficiencyBuilder : BaseDefinitionBuilder<FeatureDefinitionProficiency>
     {
         protected PickPocketProficiencyBuilder(FeatureDefinitionProficiency original, string name, string guid) : base(original, name, guid)

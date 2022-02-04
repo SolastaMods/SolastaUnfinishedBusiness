@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
@@ -14,7 +15,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
          * spells are shown to the user during level up. For the inspection/spell preparation binding a different method to collect the auto
          * prepared spells is used which works properly.
          */
-        internal static void Prefix(SpellsByLevelGroup __instance, RulesetCharacter caster, ref List<SpellDefinition> auToPreparedSpells)
+        internal static void Prefix(SpellsByLevelGroup __instance, RulesetCharacter caster,
+            ref List<SpellDefinition> allSpells, ref List<SpellDefinition> auToPreparedSpells)
         {
             if (!Main.Settings.ShowAllAutoPreparedSpells)
             {
@@ -29,18 +31,26 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
                 caster = characterBuildingService.HeroCharacter;
             }
 
-            // Collect the auto prepared spells for all spell repertoirs (we also could have enumerated features and iterated through all)
-            // either way works.
+            // Collect all the auto prepared spells.
             // Also filter the prepped spells by level this group is displaying.
-            foreach (RulesetSpellRepertoire rulesetSpellRepertoire in caster.SpellRepertoires)
-            {
-                foreach (SpellDefinition item in rulesetSpellRepertoire.AutoPreparedSpells)
-                {
-                    var flag = !auToPreparedSpells.Contains(item) && __instance.SpellLevel == item.SpellLevel;
+            caster.EnumerateFeaturesToBrowse<FeatureDefinitionAutoPreparedSpells>(caster.FeaturesToBrowse);
 
-                    if (flag)
+            foreach (var autoPreparedSpells in caster.FeaturesToBrowse.OfType<FeatureDefinitionAutoPreparedSpells>())
+            {
+                foreach (FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup preparedSpellsGroup in autoPreparedSpells.AutoPreparedSpellsGroups)
+                {
+                    foreach (SpellDefinition spell in preparedSpellsGroup.SpellsList)
                     {
-                        auToPreparedSpells.Add(item);
+                        var flag = !auToPreparedSpells.Contains(spell) && __instance.SpellLevel == spell.SpellLevel;
+
+                        if (flag)
+                        {
+                            auToPreparedSpells.Add(spell);
+
+                            // If a spell is not in all spells it won't be shown in the UI.
+                            // Add the auto prepared spells here to make sure the user sees them.
+                            allSpells.TryAdd(spell);
+                        }
                     }
                 }
             }

@@ -51,5 +51,11 @@ namespace SolastaCommunityExpansion.Builders.Features
             }
             Definition.SetGuiPresentation(guiPresentation);
         }
+
+        public static FeatureDefinitionAbilityCheckAffinityBuilder CreateCopyFrom(
+            FeatureDefinitionAbilityCheckAffinity original, string name, string guid)
+        {
+            return new FeatureDefinitionAbilityCheckAffinityBuilder(original, name, guid);
+        }
     }
 }

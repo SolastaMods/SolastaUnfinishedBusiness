@@ -150,10 +150,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
         {
             // Keeping all spells listed here for ease to edit and see the big picture
             var classSpellList = SpellListDefinitionBuilder.CreateSpellList(
+                    SpellListDefinitions.SpellListWizard,
                     "WitchSpellList",
                     GuidHelper.Create(WITCH_BASE_GUID, "WitchSpellList").ToString(),
                     "",
-                    SpellListDefinitions.SpellListWizard,
                     new List<SpellDefinition>
                     {
                     SpellDefinitions.AcidSplash,
@@ -992,20 +992,12 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
                 spell.EffectDescription.EffectForms.Add(effectForm);
 
-                var preparedSpells = new FeatureDefinitionAutoPreparedSpellsBuilder(
-                        "WitchFamiliarAutoPreparedSpell",
-                        GuidHelper.Create(WITCH_BASE_GUID, "WitchFamiliarAutoPreparedSpell").ToString(),
-                        new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>{
-                        FeatureDefinitionAutoPreparedSpellsBuilder.BuildAutoPreparedSpellGroup(
-                                2,
-                                new List<SpellDefinition>{spell})},
-                        new GuiPresentationBuilder(
-                                "Class/&WitchFamiliarPowerTitle",
-                                "Class/&WitchFamiliarPowerDescription").Build()
-                                .SetSpriteReference(SpellDefinitions.AnimalFriendship.GuiPresentation.SpriteReference))
-                        .SetCharacterClass(witch)
-                        .SetAutoTag("Witch")
-                        .AddToDB();
+                var preparedSpells = new FeatureDefinitionAutoPreparedSpellsBuilder("WitchFamiliarAutoPreparedSpell", WITCH_BASE_GUID)
+                    .SetGuiPresentationGenerate("WitchFamiliarPower", Category.Class, SpellDefinitions.AnimalFriendship.GuiPresentation.SpriteReference)
+                    .SetPreparedSpellGroups(AutoPreparedSpellsGroupBuilder.Build(2, spell))
+                    .SetCharacterClass(witch)
+                    .SetAutoTag("Witch")
+                    .AddToDB();
 
                 var summoningAffinity = new FeatureDefinitionSummoningAffinityBuilder(
                         FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritBond,
@@ -1077,11 +1069,11 @@ namespace SolastaCommunityExpansion.Classes.Witch
                                 .Build(),
                         GuidHelper.Create(WITCH_BASE_GUID, "SubclassChoiceWitchCovens").ToString());
 
-                //            subClassChoices.Subclasses.Add(new BloodWitch().GetSubclass(classDef).name);
-                subClassChoices.Subclasses.Add(new GreenWitch().GetSubclass(witch).name);
-                //            subClassChoices.Subclasses.Add(new PurpleWitch().GetSubclass(classDef).name);
-                subClassChoices.Subclasses.Add(new RedWitch().GetSubclass(witch).name);
-                subClassChoices.Subclasses.Add(new WhiteWitch().GetSubclass(witch).name);
+                //            subClassChoices.Subclasses.Add(BloodWitch.GetSubclass(witch).name);
+                subClassChoices.Subclasses.Add(GreenWitch.GetSubclass(witch).name);
+                //            subClassChoices.Subclasses.Add(PurpleWitch.GetSubclass(witch).name);
+                subClassChoices.Subclasses.Add(RedWitch.GetSubclass(witch).name);
+                subClassChoices.Subclasses.Add(WhiteWitch.GetSubclass(witch).name);
             }
 
             void BuildProgression()

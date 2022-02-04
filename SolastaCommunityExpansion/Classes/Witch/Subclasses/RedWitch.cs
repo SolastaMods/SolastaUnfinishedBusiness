@@ -1,115 +1,50 @@
 ﻿using System;
-using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
 {
-    internal class RedWitch
+    internal static class RedWitch
     {
-        public static readonly Guid RW_BASE_GUID = new("3cc83deb-e681-4670-9340-33d08b61f599");
-        private CharacterSubclassDefinition Subclass;
-        public static CharacterClassDefinition WitchClass { get; private set; }
-        public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetRedMagic { get; private set; }
+        private static readonly Guid Namespace = new("3cc83deb-e681-4670-9340-33d08b61f599");
 
-        internal CharacterSubclassDefinition GetSubclass(CharacterClassDefinition witchClass)
+        private static CharacterSubclassDefinition Subclass;
+
+        internal static CharacterSubclassDefinition GetSubclass(CharacterClassDefinition witchClass)
         {
             return Subclass ??= BuildAndAddSubclass(witchClass);
         }
 
-        private static void BuildRedMagic()
+        public static CharacterSubclassDefinition BuildAndAddSubclass(CharacterClassDefinition witchClass)
         {
-            GuiPresentation blank = new GuiPresentationBuilder("Feature/&NoContentTitle", "Feature/&NoContentTitle").Build();
+            var preparedSpells = new FeatureDefinitionAutoPreparedSpellsBuilder("RedMagicAutoPreparedSpell", Namespace)
+                .SetGuiPresentationNoContent()
+                .SetPreparedSpellGroups(
+                    AutoPreparedSpellsGroupBuilder.Build(1, BurningHands, MagicMissile),
+                    AutoPreparedSpellsGroupBuilder.Build(3, AcidArrow, ScorchingRay),
+                    AutoPreparedSpellsGroupBuilder.Build(5, Fireball, ProtectionFromEnergy),
+                    AutoPreparedSpellsGroupBuilder.Build(7, IceStorm, WallOfFire),
+                    AutoPreparedSpellsGroupBuilder.Build(9, ConeOfCold,
+                        MindTwist))// This should be Telekinesis
+                .SetCharacterClass(witchClass)
+                .SetAutoTag("Coven")
+                .AddToDB();
 
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup redMagicSpells1 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
-            {
-                ClassLevel = 1,
-                SpellsList = new List<SpellDefinition>() {
-                        DatabaseHelper.SpellDefinitions.BurningHands,
-                        DatabaseHelper.SpellDefinitions.MagicMissile, }
-            };
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup redMagicSpells2 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
-            {
-                ClassLevel = 3,
-                SpellsList = new List<SpellDefinition>() {
-                        DatabaseHelper.SpellDefinitions.AcidArrow,
-                        DatabaseHelper.SpellDefinitions.ScorchingRay, }
-            };
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup redMagicSpells3 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
-            {
-                ClassLevel = 5,
-                SpellsList = new List<SpellDefinition>() {
-                        DatabaseHelper.SpellDefinitions.Fireball,
-                        DatabaseHelper.SpellDefinitions.ProtectionFromEnergy, }
-            };
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup redMagicSpells4 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
-            {
-                ClassLevel = 7,
-                SpellsList = new List<SpellDefinition>() {
-                        DatabaseHelper.SpellDefinitions.IceStorm,
-                        DatabaseHelper.SpellDefinitions.WallOfFire, }
-            };
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup redMagicSpells5 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
-            {
-                ClassLevel = 9,
-                SpellsList = new List<SpellDefinition>() {
-                        DatabaseHelper.SpellDefinitions.ConeOfCold,
-                        DatabaseHelper.SpellDefinitions.MindTwist, }    // This should be Telekinesis
-            };
+            var featureDefinitionFeatureSetRedMagic = new FeatureDefinitionFeatureSetBuilder(
+                    DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHumanLanguages, "FeatureSetRedWitchMagic", Namespace)
+                .SetGuiPresentationGenerate("RedWitchMagic", Category.Subclass)
+                .SetFeatures(preparedSpells)
+                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+                .SetUniqueChoices(true)
+                .AddToDB();
 
-            var preparedSpells = new FeatureDefinitionAutoPreparedSpellsBuilder(
-                    "RedMagicAutoPreparedSpell",
-                    GuidHelper.Create(RW_BASE_GUID, "RedMagicAutoPreparedSpell").ToString(),
-                    new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>(){
-                            redMagicSpells1,
-                            redMagicSpells2,
-                            redMagicSpells3,
-                            redMagicSpells4,
-                            redMagicSpells5},
-                    blank)
-                    .SetCharacterClass(WitchClass)
-                    .SetAutoTag("Coven")
-                    .AddToDB();
-
-            FeatureDefinitionFeatureSetRedMagic = new FeatureDefinitionFeatureSetBuilder(
-                    DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHumanLanguages,
-                    "FeatureSetRedWitchMagic",
-                    GuidHelper.Create(RW_BASE_GUID, "FeatureSetRedWitchMagic").ToString(),
-                    new GuiPresentationBuilder(
-                            "Subclass/&RedWitchMagicTitle",
-                            "Subclass/&RedWitchMagicDescription").Build())
-                    .ClearFeatures()
-                    .AddFeature(preparedSpells)
-                    .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                    .SetUniqueChoices(true)
-                    .AddToDB();
-        }
-
-        private static void BuildProgression(CharacterSubclassDefinitionBuilder subclassBuilder)
-        {
-            subclassBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetRedMagic, 3);
-        }
-
-        public static CharacterSubclassDefinition BuildAndAddSubclass(CharacterClassDefinition witchClassDefinition)
-        {
-            WitchClass = witchClassDefinition;
-
-            var subclassGuiPresentation = new GuiPresentationBuilder(
-                    "Subclass/&RedWitchTitle",
-                    "Subclass/&RedWitchDescription")
-                    .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.DomainElementalFire.GuiPresentation.SpriteReference)
-                    .Build();
-
-            var subclassBuilder = new CharacterSubclassDefinitionBuilder(
-                    "RedWitch",
-                    GuidHelper.Create(RW_BASE_GUID, "RedWitch").ToString())
-                    .SetGuiPresentation(subclassGuiPresentation);
-
-            BuildRedMagic();
-            BuildProgression(subclassBuilder);
-
-            return subclassBuilder.AddToDB();
+            return new CharacterSubclassDefinitionBuilder("RedWitch", Namespace)
+                .SetGuiPresentationGenerate("RedWitch", Category.Subclass, DomainElementalFire.GuiPresentation.SpriteReference)
+                .AddFeatureAtLevel(featureDefinitionFeatureSetRedMagic, 3)
+                .AddToDB();
         }
     }
 }

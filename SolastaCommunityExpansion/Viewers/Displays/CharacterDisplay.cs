@@ -153,12 +153,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 {
                     Main.Settings.EnableLevel20 = toggle;
                 }
-
-                toggle = Main.Settings.EnableRespec;
-                if (UI.Toggle("Enable RESPEC", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableRespec = toggle;
-                }
             }
 
             UI.Label("");

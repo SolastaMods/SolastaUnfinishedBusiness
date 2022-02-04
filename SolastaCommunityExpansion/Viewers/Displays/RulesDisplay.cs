@@ -135,7 +135,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (UI.Toggle("Allow " + "Druid".orange() + " to wear metal armor", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.AllowDruidToWearMetalArmor = toggle;
-                    DruidArmorContext.Switch(toggle);
+                    ItemOptionsContext.SwitchDruidAllowMetalArmor();
                 }
 
                 toggle = Main.Settings.DisableAutoEquip;

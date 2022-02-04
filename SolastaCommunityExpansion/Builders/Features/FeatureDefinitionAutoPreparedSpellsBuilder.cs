@@ -30,22 +30,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public FeatureDefinitionAutoPreparedSpellsBuilder(string name, string guid, IEnumerable<AutoPreparedSpellsGroup> autospelllists,
-            GuiPresentation guiPresentation) : base(name, guid)
-        {
-            Definition.AutoPreparedSpellsGroups.SetRange(autospelllists);
-            Definition.SetGuiPresentation(guiPresentation);
-        }
-
-        public static AutoPreparedSpellsGroup BuildAutoPreparedSpellGroup(int classLevel, IEnumerable<SpellDefinition> spellnames)
-        {
-            return new AutoPreparedSpellsGroup
-            {
-                ClassLevel = classLevel,
-                SpellsList = new List<SpellDefinition>(spellnames)
-            };
-        }
-
         public FeatureDefinitionAutoPreparedSpellsBuilder SetPreparedSpellGroups(params AutoPreparedSpellsGroup[] autospelllists)
         {
             return SetPreparedSpellGroups(autospelllists.AsEnumerable());
@@ -78,6 +62,29 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
             Definition.SetAutopreparedTag(tag);
             return this;
+        }
+
+        public FeatureDefinitionAutoPreparedSpellsBuilder SetSpellcastingClass(CharacterClassDefinition characterClass)
+        {
+            Definition.SetSpellcastingClass(characterClass);
+            return this;
+        }
+    }
+
+    public static class AutoPreparedSpellsGroupBuilder
+    {
+        public static AutoPreparedSpellsGroup Build(int classLevel, params SpellDefinition[] spellnames)
+        {
+            return Build(classLevel, spellnames.AsEnumerable());
+        }
+
+        public static AutoPreparedSpellsGroup Build(int classLevel, IEnumerable<SpellDefinition> spellnames)
+        {
+            return new AutoPreparedSpellsGroup
+            {
+                ClassLevel = classLevel,
+                SpellsList = spellnames.ToList()
+            };
         }
     }
 }

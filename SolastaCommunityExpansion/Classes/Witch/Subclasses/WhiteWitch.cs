@@ -1,115 +1,49 @@
 ﻿using System;
-using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
 {
-    internal class WhiteWitch
+    internal static class WhiteWitch
     {
-        public static readonly Guid WW_BASE_GUID = new("2d849694-5cc9-4333-944b-e40cc1e0d0fd");
-        private CharacterSubclassDefinition Subclass;
-        public static CharacterClassDefinition WitchClass { get; private set; }
-        public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetWhiteMagic { get; private set; }
+        private static readonly Guid Namespace = new("2d849694-5cc9-4333-944b-e40cc1e0d0fd");
 
-        internal CharacterSubclassDefinition GetSubclass(CharacterClassDefinition witchClass)
+        private static CharacterSubclassDefinition Subclass;
+
+        internal static CharacterSubclassDefinition GetSubclass(CharacterClassDefinition witchClass)
         {
             return Subclass ??= BuildAndAddSubclass(witchClass);
         }
 
-        private static void BuildWhiteMagic()
+        private static CharacterSubclassDefinition BuildAndAddSubclass(CharacterClassDefinition witchClass)
         {
-            GuiPresentation blank = new GuiPresentationBuilder("Feature/&NoContentTitle", "Feature/&NoContentTitle").Build();
+            var preparedSpells = new FeatureDefinitionAutoPreparedSpellsBuilder("WhiteMagicAutoPreparedSpell", Namespace)
+                .SetGuiPresentationNoContent()
+                .SetPreparedSpellGroups(
+                    AutoPreparedSpellsGroupBuilder.Build(1, Bless, CureWounds),
+                    AutoPreparedSpellsGroupBuilder.Build(3, LesserRestoration, PrayerOfHealing),
+                    AutoPreparedSpellsGroupBuilder.Build(5, BeaconOfHope, Revivify),
+                    AutoPreparedSpellsGroupBuilder.Build(7, DeathWard, GuardianOfFaith),
+                    AutoPreparedSpellsGroupBuilder.Build(9, MassCureWounds, RaiseDead))
+                .SetCharacterClass(witchClass)
+                .SetAutoTag("Coven")
+                .AddToDB();
 
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup whiteMagicSpells1 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
-            {
-                ClassLevel = 1,
-                SpellsList = new List<SpellDefinition>() {
-                        DatabaseHelper.SpellDefinitions.Bless,
-                        DatabaseHelper.SpellDefinitions.CureWounds, }
-            };
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup whiteMagicSpells2 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
-            {
-                ClassLevel = 3,
-                SpellsList = new List<SpellDefinition>() {
-                        DatabaseHelper.SpellDefinitions.LesserRestoration,
-                        DatabaseHelper.SpellDefinitions.PrayerOfHealing, }
-            };
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup whiteMagicSpells3 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
-            {
-                ClassLevel = 5,
-                SpellsList = new List<SpellDefinition>() {
-                        DatabaseHelper.SpellDefinitions.BeaconOfHope,
-                        DatabaseHelper.SpellDefinitions.Revivify, }
-            };
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup whiteMagicSpells4 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
-            {
-                ClassLevel = 7,
-                SpellsList = new List<SpellDefinition>() {
-                        DatabaseHelper.SpellDefinitions.DeathWard,
-                        DatabaseHelper.SpellDefinitions.GuardianOfFaith, }
-            };
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup whiteMagicSpells5 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
-            {
-                ClassLevel = 9,
-                SpellsList = new List<SpellDefinition>() {
-                        DatabaseHelper.SpellDefinitions.MassCureWounds,
-                        DatabaseHelper.SpellDefinitions.RaiseDead, }
-            };
+            var featureDefinitionFeatureSetWhiteMagic = new FeatureDefinitionFeatureSetBuilder(
+                    DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHumanLanguages, "FeatureSetWhiteWitchMagic", Namespace)
+                .SetGuiPresentationGenerate("WhiteWitchMagic", Category.Subclass)
+                .SetFeatures(preparedSpells)
+                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+                .SetUniqueChoices(true)
+                .AddToDB();
 
-            var preparedSpells = new FeatureDefinitionAutoPreparedSpellsBuilder(
-                    "WhiteMagicAutoPreparedSpell",
-                    GuidHelper.Create(WW_BASE_GUID, "WhiteMagicAutoPreparedSpell").ToString(),
-                    new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>(){
-                            whiteMagicSpells1,
-                            whiteMagicSpells2,
-                            whiteMagicSpells3,
-                            whiteMagicSpells4,
-                            whiteMagicSpells5},
-                    blank)
-                    .SetCharacterClass(WitchClass)
-                    .SetAutoTag("Coven")
-                    .AddToDB();
-
-            FeatureDefinitionFeatureSetWhiteMagic = new FeatureDefinitionFeatureSetBuilder(
-                    DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHumanLanguages,
-                    "FeatureSetWhiteWitchMagic",
-                    GuidHelper.Create(WW_BASE_GUID, "FeatureSetWhiteWitchMagic").ToString(),
-                    new GuiPresentationBuilder(
-                            "Subclass/&WhiteWitchMagicTitle",
-                            "Subclass/&WhiteWitchMagicDescription").Build())
-                    .ClearFeatures()
-                    .AddFeature(preparedSpells)
-                    .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                    .SetUniqueChoices(true)
-                    .AddToDB();
-        }
-
-        private static void BuildProgression(CharacterSubclassDefinitionBuilder subclassBuilder)
-        {
-            subclassBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetWhiteMagic, 3);
-        }
-
-        private static CharacterSubclassDefinition BuildAndAddSubclass(CharacterClassDefinition witchClassDefinition)
-        {
-            WitchClass = witchClassDefinition;
-
-            var subclassGuiPresentation = new GuiPresentationBuilder(
-                    "Subclass/&WhiteWitchTitle",
-                    "Subclass/&WhiteWitchDescription")
-                    .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.DomainLife.GuiPresentation.SpriteReference)
-                    .Build();
-
-            var subclassBuilder = new CharacterSubclassDefinitionBuilder(
-                    "WhiteWitch",
-                    GuidHelper.Create(WW_BASE_GUID, "WhiteWitch").ToString())
-                    .SetGuiPresentation(subclassGuiPresentation);
-
-            BuildWhiteMagic();
-            BuildProgression(subclassBuilder);
-
-            return subclassBuilder.AddToDB();
+            return new CharacterSubclassDefinitionBuilder("WhiteWitch", Namespace)
+                .SetGuiPresentationGenerate("WhiteWitch", Category.Subclass, DomainLife.GuiPresentation.SpriteReference)
+                .AddFeatureAtLevel(featureDefinitionFeatureSetWhiteMagic, 3)
+                .AddToDB();
         }
     }
 }
