@@ -51,14 +51,14 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public static FeatureDefinitionProficiencyBuilder CreateCopyFrom(FeatureDefinitionProficiency original, string name, string guid)
-        {
-            return new FeatureDefinitionProficiencyBuilder(original, name, guid);
-        }
-
         public FeatureDefinitionProficiencyBuilder(FeatureDefinitionProficiency original, string name, Guid namespaceGuid, string category = null)
             : base(original, name, namespaceGuid, category)
         {
+        }
+
+        public static FeatureDefinitionProficiencyBuilder CreateCopyFrom(FeatureDefinitionProficiency original, string name, string guid)
+        {
+            return new FeatureDefinitionProficiencyBuilder(original, name, guid);
         }
 
         public FeatureDefinitionProficiencyBuilder AddProficiencies(RuleDefinitions.ProficiencyType type, params string[] proficiencies)

@@ -217,13 +217,13 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             foreach (FeatureDefinition featureDefinition in __instance.FeaturesToBrowse)
             {
                 FeatureDefinitionAutoPreparedSpells autoPreparedSpells = featureDefinition as FeatureDefinitionAutoPreparedSpells;
-                if ((BaseDefinition)autoPreparedSpells.SpellcastingClass == (BaseDefinition)spellcastingClass)
+                if (autoPreparedSpells.SpellcastingClass == spellcastingClass)
                 {
                     foreach (FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup preparedSpellsGroup in autoPreparedSpells.AutoPreparedSpellsGroups)
                     {
                         if (preparedSpellsGroup.ClassLevel <= GetSpellcastingLevel(__instance, spellRepertoire))
                         {
-                            spellRepertoire.AutoPreparedSpells.AddRange((IEnumerable<SpellDefinition>)preparedSpellsGroup.SpellsList);
+                            spellRepertoire.AutoPreparedSpells.AddRange(preparedSpellsGroup.SpellsList);
                             spellRepertoire.AutoPreparedTag = autoPreparedSpells.AutoPreparedTag;
                         }
                     }
@@ -237,11 +237,11 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         {
             if (character is RulesetCharacterHero hero)
             {
-                if ((BaseDefinition)spellRepertoire.SpellCastingClass != (BaseDefinition)null)
+                if (spellRepertoire.SpellCastingClass != null)
                 {
                     return hero.ClassesAndLevels[spellRepertoire.SpellCastingClass];
                 }
-                if ((BaseDefinition)spellRepertoire.SpellCastingSubclass != (BaseDefinition)null)
+                if (spellRepertoire.SpellCastingSubclass != null)
                 {
                     return hero.ComputeSubclassLevel(spellRepertoire.SpellCastingSubclass);
                 }
@@ -258,7 +258,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
                     if (unlock.FeatureDefinition is FeatureDefinitionSubclassChoice subclassChoice)
                     {
                         return subclassChoice.Subclasses.Contains(subclass.Name);
-
                     }
                     return false;
                 });
