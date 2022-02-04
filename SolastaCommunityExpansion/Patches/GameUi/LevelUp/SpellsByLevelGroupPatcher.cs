@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
@@ -14,7 +15,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
          * spells are shown to the user during level up. For the inspection/spell preparation binding a different method to collect the auto
          * prepared spells is used which works properly.
          */
-        internal static void Prefix(SpellsByLevelGroup __instance, RulesetCharacter caster,ref List<SpellDefinition> allSpells, ref List<SpellDefinition> auToPreparedSpells)
+        internal static void Prefix(SpellsByLevelGroup __instance, RulesetCharacter caster,
+            ref List<SpellDefinition> allSpells, ref List<SpellDefinition> auToPreparedSpells)
         {
             if (!Main.Settings.ShowAllAutoPreparedSpells)
             {
@@ -32,9 +34,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
             // Collect all the auto prepared spells.
             // Also filter the prepped spells by level this group is displaying.
             caster.EnumerateFeaturesToBrowse<FeatureDefinitionAutoPreparedSpells>(caster.FeaturesToBrowse);
-            foreach (FeatureDefinition featureDefinition in caster.FeaturesToBrowse)
+
+            foreach (var autoPreparedSpells in caster.FeaturesToBrowse.OfType<FeatureDefinitionAutoPreparedSpells>())
             {
-                FeatureDefinitionAutoPreparedSpells autoPreparedSpells = featureDefinition as FeatureDefinitionAutoPreparedSpells;
                 foreach (FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup preparedSpellsGroup in autoPreparedSpells.AutoPreparedSpellsGroups)
                 {
                     foreach (SpellDefinition spell in preparedSpellsGroup.SpellsList)
@@ -44,12 +46,10 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
                         if (flag)
                         {
                             auToPreparedSpells.Add(spell);
-                            if (!allSpells.Contains(spell))
-                            {
-                                // If a spell is not in all spells it won't be shown in the UI.
-                                // Add the auto prepared spells here to make sure the user sees them.
-                                allSpells.Add(spell);
-                            }
+
+                            // If a spell is not in all spells it won't be shown in the UI.
+                            // Add the auto prepared spells here to make sure the user sees them.
+                            allSpells.TryAdd(spell);
                         }
                     }
                 }

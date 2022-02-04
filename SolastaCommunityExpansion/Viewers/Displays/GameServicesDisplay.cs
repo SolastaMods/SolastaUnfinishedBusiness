@@ -76,10 +76,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 // target selection
-                GUIHelper.SelectionGrid(ref Main.Settings.SelectedRawDataType, _targetNames, 5, () =>
-                {
-                    ResetTree();
-                });
+                GUIHelper.SelectionGrid(ref Main.Settings.SelectedRawDataType, _targetNames, 5, () => ResetTree());
 
                 // tree view
                 if (Main.Settings.SelectedRawDataType != 0)
