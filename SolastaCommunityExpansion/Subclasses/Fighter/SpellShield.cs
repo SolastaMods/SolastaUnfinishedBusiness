@@ -76,36 +76,32 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             spellShield.AddFeatureAtLevel(spellShieldResistance, 7);
             // or maybe some boost to the spell shield spells?
 
-            GuiPresentationBuilder bonusSpellGui = new GuiPresentationBuilder(
-                "Subclass/&SpellShieldAdditionalActionTitle",
-                "Subclass/&SpellShieldAdditionalActionDescription");
-            FeatureDefinitionAdditionalAction bonusSpell = new FeatureDefinitionAdditionalActionBuilder("SpellShieldAdditionalAction",
-                GuidHelper.Create(SubclassNamespace, "SpellShieldAdditionalAction").ToString(), ActionDefinitions.ActionType.Main, new List<ActionDefinitions.Id>(),
-                new List<ActionDefinitions.Id>(), new List<ActionDefinitions.Id>()
-                {
-                    ActionDefinitions.Id.CastMain,
-                }, -1, RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy,
-                bonusSpellGui.Build()).AddToDB();
+            FeatureDefinitionAdditionalAction bonusSpell = new FeatureDefinitionAdditionalActionBuilder("SpellShieldAdditionalAction", SubclassNamespace)
+                .SetGuiPresentationGenerate("SpellShieldAdditionalAction", Category.Subclass)
+                .SetActionType(ActionDefinitions.ActionType.Main)
+                .SetRestrictedActions(ActionDefinitions.Id.CastMain)
+                .SetMaxAttacksNumber(-1)
+                .SetTriggerCondition(RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy)
+                .AddToDB();
             spellShield.AddFeatureAtLevel(bonusSpell, 10);
 
-            GuiPresentationBuilder arcaneDeflectionGuiCondition = new GuiPresentationBuilder(
-                "Subclass/&ConditionSpellShieldArcaneDeflectionTitle",
-                "Subclass/&ConditionSpellShieldArcaneDeflectionDescription");
-            arcaneDeflectionGuiCondition.SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionShielded.GuiPresentation.SpriteReference);
             EffectDescriptionBuilder arcaneDeflection = new EffectDescriptionBuilder();
             arcaneDeflection.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self, 1, 0, ActionDefinitions.ItemSelectionType.None);
             ConditionDefinition deflectionCondition = new ConditionDefinitionBuilder("ConditionSpellShieldArcaneDeflection", GuidHelper.Create(SubclassNamespace, "ConditionSpellShieldArcaneDeflection").ToString(),
                 new List<FeatureDefinition>() {
-                    new FeatureDefinitionAttributeModifierBuilder("AttributeSpellShieldArcaneDeflection", GuidHelper.Create(SubclassNamespace, "AttributeSpellShieldArcaneDeflection").ToString(),
-                    FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 3, arcaneDeflectionGuiCondition.Build()).AddToDB(),
-                }, RuleDefinitions.DurationType.Round, 1, false, arcaneDeflectionGuiCondition.Build()).AddToDB();
+                    new FeatureDefinitionAttributeModifierBuilder("AttributeSpellShieldArcaneDeflection", SubclassNamespace)
+                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 3)
+                    .SetGuiPresentationGenerate("ConditionSpellShieldArcaneDeflection", Category.Subclass, DatabaseHelper.ConditionDefinitions.ConditionShielded.GuiPresentation.SpriteReference)
+                    .AddToDB(),
+                },
+                RuleDefinitions.DurationType.Round, 1, false).AddToDB();
             arcaneDeflection.AddEffectForm(new EffectFormBuilder().CreatedByCharacter().SetConditionForm(deflectionCondition, ConditionForm.ConditionOperation.Add,
                 true, true, new List<ConditionDefinition>()).Build());
 
             GuiPresentationBuilder arcaneDeflectionGuiPower = new GuiPresentationBuilder(
                 "Subclass/&PowerSpellShieldArcaneDeflectionTitle",
                 "Subclass/&PowerSpellShieldArcaneDeflectionDescription");
-            arcaneDeflectionGuiCondition.SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionShielded.GuiPresentation.SpriteReference);
+            arcaneDeflectionGuiPower.SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionShielded.GuiPresentation.SpriteReference);
             FeatureDefinitionPower arcaneDeflectionPower = new FeatureDefinitionPowerBuilder("PowerSpellShieldArcaneDeflection", GuidHelper.Create(SubclassNamespace, "PowerSpellShieldArcaneDeflection").ToString(),
                 0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, RuleDefinitions.ActivationTime.Reaction, 0, RuleDefinitions.RechargeRate.AtWill,
                 false, false, AttributeDefinitions.Intelligence, arcaneDeflection.Build(), arcaneDeflectionGuiPower.Build(), false /* unique instance */).AddToDB();

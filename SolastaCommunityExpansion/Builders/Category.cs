@@ -5,6 +5,8 @@
     /// </summary>
     internal static class Category
     {
+        // TODO: change to enum
+
         public const string Feat = "Feat";
         public const string Feature = "Feature";
         public const string Class = "Class";

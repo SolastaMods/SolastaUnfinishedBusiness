@@ -7,6 +7,8 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
+using static FeatureDefinitionAttributeModifier.AttributeModifierOperation;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Druid
 {
@@ -26,10 +28,10 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         private const string DruidForestGuardianDruidSubclassGuid = "45a7595b-5d5f-4351-b7f1-cb78c9d0a136";
 
         public static readonly Guid DFG_BASE_GUID = new(DruidForestGuardianDruidSubclassGuid);
-        public static readonly FeatureDefinitionAutoPreparedSpells druid_forestGuardian_magic = createDruidForestGuardianMagic();
-        public static readonly FeatureDefinitionAttributeModifier extra_attack = createExtraAttack();
-        public static readonly FeatureDefinitionAttributeModifier sylvan_resistance = createSylvanDurability();
-        public static readonly FeatureDefinitionMagicAffinity sylvan_war_magic = createSylvanWarMagic();
+        public static readonly FeatureDefinitionAutoPreparedSpells druid_forestGuardian_magic = CreateDruidForestGuardianMagic();
+        public static readonly FeatureDefinitionAttributeModifier extra_attack = CreateExtraAttack();
+        public static readonly FeatureDefinitionAttributeModifier sylvan_resistance = CreateSylvanDurability();
+        public static readonly FeatureDefinitionMagicAffinity sylvan_war_magic = CreateSylvanWarMagic();
         public static readonly Dictionary<int, FeatureDefinitionPowerSharedPool> bark_ward_dict = CreateBarkWard();
 
         public static CharacterSubclassDefinition BuildAndAddSubclass()
@@ -37,7 +39,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             var subclassGuiPresentation = new GuiPresentationBuilder(
                     "Subclass/&DruidForestGuardianSubclassTitle",
                     "Subclass/&DruidForestGuardianDruidSubclassDescription")
-                    .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.MartialMountaineer.GuiPresentation.SpriteReference)
+                    .SetSpriteReference(MartialMountaineer.GuiPresentation.SpriteReference)
                     .Build();
 
             return new CharacterSubclassDefinitionBuilder(DruidForestGuardianDruidSubclassName, DruidForestGuardianDruidSubclassGuid)
@@ -53,7 +55,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         }
 
         // Create Auto-prepared Spell list
-        private static FeatureDefinitionAutoPreparedSpells createDruidForestGuardianMagic()
+        private static FeatureDefinitionAutoPreparedSpells CreateDruidForestGuardianMagic()
         {
             return new FeatureDefinitionAutoPreparedSpellsBuilder("ForestGuardianAutoPreparedSpells", DFG_BASE_GUID)
                 .SetGuiPresentationGenerate("DruidForestGuardianMagic", Category.Feature)
@@ -68,7 +70,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         }
 
         // Create Sylvan War Magic
-        private static FeatureDefinitionMagicAffinity createSylvanWarMagic()
+        private static FeatureDefinitionMagicAffinity CreateSylvanWarMagic()
         {
             GuiPresentationBuilder sylvanWarMagicGui = new GuiPresentationBuilder(
                 "Feature/&DruidForestGuardianSylvanWarMagicTitle",
@@ -80,19 +82,14 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         }
 
         // Create Sylvan Durability
-        private static FeatureDefinitionAttributeModifier createSylvanDurability()
+        private static FeatureDefinitionAttributeModifier CreateSylvanDurability()
         {
-            GuiPresentationBuilder sylvanDurabilityGui = new GuiPresentationBuilder(
-               "Feature/&DruidForestGuardianSylvanDurabilityTitle",
-               "Feature/&DruidForestGuardianSylvanDurabilityDescription");
-
             return new FeatureDefinitionAttributeModifierBuilder(
-                "AttributeModifierDruidForestGuardianSylvanDurability",
-                GuidHelper.Create(DFG_BASE_GUID, "DruidForestGuardianSylvanDurability").ToString(),
-                FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.HitPointBonusPerLevel,
-                1,
-                sylvanDurabilityGui.Build()).AddToDB();
+                    "AttributeModifierDruidForestGuardianSylvanDurability",
+                    GuidHelper.Create(DFG_BASE_GUID, "DruidForestGuardianSylvanDurability").ToString())
+                .SetModifier(Additive, AttributeDefinitions.HitPointBonusPerLevel, 1)
+                .SetGuiPresentationGenerate("DruidForestGuardianSylvanDurability", Category.Feature)
+                .AddToDB();
         }
 
         // Create Bark Ward Wild Shape Power (and the two higher variants, improved and superior)
@@ -205,19 +202,14 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         }
 
         // Create Extra Attack
-        private static FeatureDefinitionAttributeModifier createExtraAttack()
+        private static FeatureDefinitionAttributeModifier CreateExtraAttack()
         {
-            GuiPresentationBuilder extraAttackGui = new GuiPresentationBuilder(
-               "Feature/&DruidForestGuardianExtraAttackTitle",
-               "Feature/&DruidForestGuardianExtraAttackDescription");
-
             return new FeatureDefinitionAttributeModifierBuilder(
-                "AttributeModifierDruidForestGuardianExtraAttack",
-                GuidHelper.Create(DFG_BASE_GUID, "DruidForestGuardianExtraAttack").ToString(),
-                FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.AttacksNumber,
-                1,
-                extraAttackGui.Build()).AddToDB();
+                    "AttributeModifierDruidForestGuardianExtraAttack",
+                    GuidHelper.Create(DFG_BASE_GUID, "DruidForestGuardianExtraAttack").ToString())
+                .SetGuiPresentationGenerate("DruidForestGuardianExtraAttack", Category.Feature)
+                .SetModifier(Additive, AttributeDefinitions.AttacksNumber, 1)
+                .AddToDB();
         }
 
         // A builder to help us build a custom damage affinity for our Bark Ward conditions

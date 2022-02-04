@@ -45,10 +45,13 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetTriggerCondition(triggerCondition);
             Definition.SetRequiredProperty(requiredProperty);
             Definition.SetAttackModeOnly(attackModeOnly);
-            Definition.SetDamageDieType(damageDieType);
-            Definition.SetDamageDiceNumber(damageDiceNumber);
+
+            SetDamageDice(damageDieType, damageDiceNumber);
+
+            // Does this conflict with SetSpecificDamageType below?
             Definition.SetAdditionalDamageType(additionalDamageType);
             Definition.SetSpecificDamageType(specificDamageType);
+
             Definition.SetDamageAdvancement(damageAdvancement);
             Definition.SetField("diceByRankTable", diceByRankTable);
             Definition.SetDamageDieType(damageDieType);

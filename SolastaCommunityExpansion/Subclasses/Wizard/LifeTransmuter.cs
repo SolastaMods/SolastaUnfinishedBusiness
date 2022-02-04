@@ -174,9 +174,10 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         private static ConditionDefinition BuildCondition(List<FeatureDefinition> conditionFeatures, RuleDefinitions.DurationType durationType,
             int durationParameter, string name, GuiPresentation guiPresentation)
         {
-            ConditionDefinitionBuilder builder = new ConditionDefinitionBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
-                conditionFeatures, durationType, durationParameter, false, guiPresentation);
-            return builder.AddToDB();
+            return new ConditionDefinitionBuilder
+                    (name, GuidHelper.Create(SubclassNamespace, name).ToString(), conditionFeatures, durationType, durationParameter, false)
+                .SetGuiPresentation(guiPresentation)
+                .AddToDB();
         }
 
         private static FeatureDefinitionPowerSharedPool BuildActionTransmuteConditionPower(FeatureDefinitionPower poolPower,

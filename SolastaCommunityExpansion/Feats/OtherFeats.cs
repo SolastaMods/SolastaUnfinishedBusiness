@@ -78,12 +78,14 @@ namespace SolastaCommunityExpansion.Feats
             return builder.AddToDB();
         }
 
+        // TODO: centralize various version of these helpers
         public static FeatureDefinitionAttributeModifier BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation modifierType,
             string attribute, int amount, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionAttributeModifierBuilder builder = new FeatureDefinitionAttributeModifierBuilder(name, GuidHelper.Create(OtherFeatNamespace, name).ToString(),
-                modifierType, attribute, amount, guiPresentation);
-            return builder.AddToDB();
+            return new FeatureDefinitionAttributeModifierBuilder(name, OtherFeatNamespace)
+                .SetGuiPresentation(guiPresentation)
+                .SetModifier(modifierType, attribute, amount)
+                .AddToDB();
         }
     }
 }
