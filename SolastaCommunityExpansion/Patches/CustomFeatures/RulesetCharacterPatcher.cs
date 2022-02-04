@@ -194,4 +194,76 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             }
         }
     }
+
+    [HarmonyPatch(typeof(RulesetCharacter), "ComputeAutopreparedSpells")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetCharacter_ComputeAutopreparedSpells_Patch
+    {
+        internal static bool Prefix(RulesetCharacter __instance, RulesetSpellRepertoire spellRepertoire)
+        {
+            if (!Main.Settings.SupportAutoPreparedSpellsOnSubclassCasters)
+            {
+                return true;
+            }
+
+            CharacterClassDefinition spellcastingClass = spellRepertoire.SpellCastingClass;
+            if (spellRepertoire.SpellCastingSubclass != null)
+            {
+                spellcastingClass = GetClassForSubclass(spellRepertoire.SpellCastingSubclass);
+            }
+
+            spellRepertoire.AutoPreparedSpells.Clear();
+            __instance.EnumerateFeaturesToBrowse<FeatureDefinitionAutoPreparedSpells>(__instance.FeaturesToBrowse);
+            foreach (FeatureDefinition featureDefinition in __instance.FeaturesToBrowse)
+            {
+                FeatureDefinitionAutoPreparedSpells autoPreparedSpells = featureDefinition as FeatureDefinitionAutoPreparedSpells;
+                if ((BaseDefinition)autoPreparedSpells.SpellcastingClass == (BaseDefinition)spellcastingClass)
+                {
+                    foreach (FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup preparedSpellsGroup in autoPreparedSpells.AutoPreparedSpellsGroups)
+                    {
+                        if (preparedSpellsGroup.ClassLevel <= GetSpellcastingLevel(__instance, spellRepertoire))
+                        {
+                            spellRepertoire.AutoPreparedSpells.AddRange((IEnumerable<SpellDefinition>)preparedSpellsGroup.SpellsList);
+                            spellRepertoire.AutoPreparedTag = autoPreparedSpells.AutoPreparedTag;
+                        }
+                    }
+                }
+            }
+            // This includes all the logic for the base function and a little extra, so skip it.
+            return false;
+        }
+
+        private static int GetSpellcastingLevel(RulesetCharacter character, RulesetSpellRepertoire spellRepertoire)
+        {
+            if (character is RulesetCharacterHero hero)
+            {
+                if ((BaseDefinition)spellRepertoire.SpellCastingClass != (BaseDefinition)null)
+                {
+                    return hero.ClassesAndLevels[spellRepertoire.SpellCastingClass];
+                }
+                if ((BaseDefinition)spellRepertoire.SpellCastingSubclass != (BaseDefinition)null)
+                {
+                    return hero.ComputeSubclassLevel(spellRepertoire.SpellCastingSubclass);
+                }
+            }
+            return character.GetAttribute("CharacterLevel").BaseValue;
+        }
+
+        private static CharacterClassDefinition GetClassForSubclass(CharacterSubclassDefinition subclass)
+        {
+            CharacterClassDefinition[] classes = DatabaseRepository.GetDatabase<CharacterClassDefinition>().GetAllElements();
+            return classes.FirstOrDefault(klass =>
+            {
+                return klass.FeatureUnlocks.Any(unlock =>
+                {
+                    if (unlock.FeatureDefinition is FeatureDefinitionSubclassChoice subclassChoice)
+                    {
+                        return subclassChoice.Subclasses.Contains(subclass.Name);
+
+                    }
+                    return false;
+                });
+            });
+        }
+    }
 }
