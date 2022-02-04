@@ -13,10 +13,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             int intValue;
 
             UI.Label("");
-            UI.Label("Debug:".yellow());
+            UI.Label("General:".yellow());
             UI.Label("");
 
-            UI.ActionButton("Enable Unity Explorer UI", () =>
+            UI.ActionButton("Enable the Unity Explorer UI", () =>
             {
                 if (!IsUnityExplorerEnabled)
                 {
@@ -26,6 +26,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             });
 
             UI.Label("");
+
+            toggle = Main.Settings.EnableRespec;
+            if (UI.Toggle("Enable RESPEC", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableRespec = toggle;
+            }
 
             toggle = Main.Settings.EnableCheatMenu;
             if (UI.Toggle("Enable the cheats menu", ref toggle, UI.AutoWidth()))
