@@ -378,69 +378,57 @@ namespace SolastaCommunityExpansion.Classes.Warden
 
         private static void BuildInterrupt()
         {
-/*
-            EffectForm wardenInterruptEffectForm = new EffectForm
-            {
-                FormType = EffectForm.EffectFormType.Condition
-            };
-            ConditionForm wardenInterruptConditionForm = new ConditionForm();
-            wardenInterruptEffectForm.SetConditionForm(wardenInterruptConditionForm);
-            wardenInterruptEffectForm.SetCreatedByCharacter(true);
+
+            var wardenInterruptAttributeModifier = new FeatureDefinitionAttributeModifierBuilder(
+                "ModifierWardenInterrupt", WARDEN_BASE_GUID, Category.Modifier)
+                    .SetGuiPresentation("WardenInterrupt", Category.Modifier, ConditionDefinitions.ConditionSlowed.GuiPresentation.SpriteReference)
+                    .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.AttacksNumber, -1)
+                    .AddToDB();
 
             var wardenInterruptConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
                 ConditionDefinitions.ConditionSlowed, "ConditionWardenInterrupt", WARDEN_BASE_GUID)
-                    .SetGuiPresentationGenerate("WardenInterrupt", Category.Condition, ConditionDefinitions.ConditionSlowed.GuiPresentation.SpriteReference)
+                    .SetGuiPresentation("WardenInterrupt", Category.Condition, ConditionDefinitions.ConditionSlowed.GuiPresentation.SpriteReference)
                     .AddToDB()
                 .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
                 .SetDurationParameter(1)
                 .SetDurationType(RuleDefinitions.DurationType.Round)
                 .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
-
             wardenInterruptConditionDefinition.RecurrentEffectForms.Clear();
             wardenInterruptConditionDefinition.Features.Clear();
-            wardenInterruptConditionDefinition.Features.Add(
-                new FeatureDefinitionAttributeModifierBuilder("WardenInterrupt", WARDEN_BASE_GUID)
-                    .SetGuiPresentationGenerate("WardenInterrupt", Category.Modifier, ConditionDefinitions.ConditionSlowed.GuiPresentation.SpriteReference)
-                    .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.AttacksNumber, -1)
-                    .AddToDB());
+            wardenInterruptConditionDefinition.Features.Add(wardenInterruptAttributeModifier);
 
-            wardenInterruptEffectForm.ConditionForm.SetConditionDefinition(wardenInterruptConditionDefinition);
+            var wardenInterruptConditionForm = new ConditionForm()
+                .SetConditionDefinition(wardenInterruptConditionDefinition);
+
+            var wardenInterruptEffectForm = new EffectForm()
+                .SetFormType(EffectForm.EffectFormType.Condition)
+                .SetCreatedByCharacter(true)
+                .SetConditionForm(wardenInterruptConditionForm);
 
             var wardenInterruptEffectDescription = new EffectDescription();
             wardenInterruptEffectDescription.Copy(FeatureDefinitionPowers.PowerDomainLawHolyRetribution.EffectDescription);
-            wardenInterruptEffectDescription.SetDurationParameter(1);
-            wardenInterruptEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
-            wardenInterruptEffectDescription.SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            wardenInterruptEffectDescription.SetHasSavingThrow(false);
-            wardenInterruptEffectDescription.SetRangeParameter(1);
-            wardenInterruptEffectDescription.SetRangeType(RuleDefinitions.RangeType.MeleeHit);
-            wardenInterruptEffectDescription.SetSavingThrowAbility(AttributeDefinitions.Constitution);
-            wardenInterruptEffectDescription.SetTargetParameter(1);
-            wardenInterruptEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
+            wardenInterruptEffectDescription
+                .SetDurationParameter(1)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .SetHasSavingThrow(false)
+                .SetRangeParameter(1)
+                .SetRangeType(RuleDefinitions.RangeType.MeleeHit)
+                .SetTargetParameter(1)
+                .SetTargetType(RuleDefinitions.TargetType.Individuals);
             wardenInterruptEffectDescription.EffectForms.Clear();
             wardenInterruptEffectDescription.EffectForms.Add(wardenInterruptEffectForm);
 
             FeatureDefinitionPowerInterrupt = new FeatureDefinitionPowerBuilder(
-                "WardenInterrupt",
-                GuidHelper.Create(WARDEN_BASE_GUID, "WardenInterrupt").ToString(),
-                1,
-                RuleDefinitions.UsesDetermination.Fixed,
-                AttributeDefinitions.Strength,
-                RuleDefinitions.ActivationTime.Reaction,
-                0,
-                RuleDefinitions.RechargeRate.AtWill,
-                true,
-                true,
-                AttributeDefinitions.Strength,
-                wardenInterruptEffectDescription,
-                new GuiPresentationBuilder(
-                    "Class/&WardenInterruptDescription",
-                    "Class/&WardenInterruptTitle").Build()
-                    .SetSpriteReference(SpellDefinitions.Slow.GuiPresentation.SpriteReference),
-                true)
-                .SetReaction(RuleDefinitions.ReactionTriggerContext.HitByMelee, string.Empty)
-                .AddToDB();                
-*/
+                FeatureDefinitionPowers.PowerDomainLawHolyRetribution, "WardenInterrupt", WARDEN_BASE_GUID, Category.Class)
+                    .SetActivation(RuleDefinitions.ActivationTime.Reaction, 0)
+                    .SetGuiPresentation("WardenInterrupt", Category.Class, SpellDefinitions.Slow.GuiPresentation.SpriteReference)
+                    .SetReaction(RuleDefinitions.ReactionTriggerContext.HitByMelee, string.Empty)
+                    .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+                    .SetUsesFixed(1)
+                    .SetEffect(wardenInterruptEffectDescription)
+                    .AddToDB();
+
         }
 
         private static void BuildSentinelSoul()
