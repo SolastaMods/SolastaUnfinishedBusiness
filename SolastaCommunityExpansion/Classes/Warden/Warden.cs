@@ -282,12 +282,6 @@ namespace SolastaCommunityExpansion.Classes.Warden
         private static void BuildFontOfLife()
         {
 
-            EffectForm fontOfLifeEffectForm = new EffectForm
-            {
-                FormType = EffectForm.EffectFormType.Condition
-            };
-
-            ConditionForm fontOfLifeConditionForm = new ConditionForm();
             List<ConditionDefinition> healedConditions = new List<ConditionDefinition>();
             healedConditions.Add(ConditionDefinitions.ConditionBlinded);
             healedConditions.Add(ConditionDefinitions.ConditionCharmed);
@@ -296,46 +290,40 @@ namespace SolastaCommunityExpansion.Classes.Warden
             healedConditions.Add(ConditionDefinitions.ConditionFrightened);
             healedConditions.Add(ConditionDefinitions.ConditionParalyzed);
             healedConditions.Add(ConditionDefinitions.ConditionPoisoned);
-            fontOfLifeConditionForm.ConditionsList.AddRange(healedConditions);
-            fontOfLifeConditionForm.SetOperation(ConditionForm.ConditionOperation.RemoveDetrimentalRandom);
 
-            fontOfLifeEffectForm.SetConditionForm(fontOfLifeConditionForm);
-            fontOfLifeEffectForm.SetCreatedByCharacter(true);
-            fontOfLifeEffectForm.ConditionForm.SetConditionDefinition(ConditionDefinitions.ConditionParalyzed);
+            var fontOfLifeConditionForm = new ConditionForm()
+                .SetConditionDefinition(ConditionDefinitions.ConditionParalyzed)
+                .SetOperation(ConditionForm.ConditionOperation.RemoveDetrimentalRandom);
+            fontOfLifeConditionForm.ConditionsList.AddRange(healedConditions);
+
+            var fontOfLifeEffectForm = new EffectForm()
+                .SetCreatedByCharacter(true)
+                .SetFormType(EffectForm.EffectFormType.Condition)
+                .SetConditionForm(fontOfLifeConditionForm);
 
             var fontOfLifeEffectDescription = new EffectDescription();
             fontOfLifeEffectDescription.Copy(SpellDefinitions.LesserRestoration.EffectDescription);
-            fontOfLifeEffectDescription.SetDurationParameter(1);
-            fontOfLifeEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
-            fontOfLifeEffectDescription.SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            fontOfLifeEffectDescription.SetHasSavingThrow(false);
-            fontOfLifeEffectDescription.SetRangeParameter(1);
-            fontOfLifeEffectDescription.SetRangeType(RuleDefinitions.RangeType.Self);
-            fontOfLifeEffectDescription.SetSavingThrowAbility(AttributeDefinitions.Constitution);
-            fontOfLifeEffectDescription.SetTargetParameter(1);
-            fontOfLifeEffectDescription.SetTargetType(RuleDefinitions.TargetType.Self);
+            fontOfLifeEffectDescription
+                .SetDurationParameter(1)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .SetHasSavingThrow(false)
+                .SetRangeParameter(1)
+                .SetRangeType(RuleDefinitions.RangeType.Self)
+                .SetSavingThrowAbility(AttributeDefinitions.Constitution)
+                .SetTargetParameter(1)
+                .SetTargetType(RuleDefinitions.TargetType.Self);
             fontOfLifeEffectDescription.EffectForms.Clear();
             fontOfLifeEffectDescription.EffectForms.Add(fontOfLifeEffectForm);
 
             FeatureDefinitionPowerFontOfLife = new FeatureDefinitionPowerBuilder(
-                "FontOfLife",
-                GuidHelper.Create(WARDEN_BASE_GUID, "FontOfLife").ToString(),
-                1,
-                RuleDefinitions.UsesDetermination.Fixed,
-                AttributeDefinitions.Constitution,
-                RuleDefinitions.ActivationTime.Action,
-                1,
-                RuleDefinitions.RechargeRate.ShortRest,
-                false,
-                false,
-                AttributeDefinitions.Constitution,
-                fontOfLifeEffectDescription,
-                new GuiPresentationBuilder(
-                    "Class/&FontOfLifeDescription",
-                    "Class/&FontOfLifeTitle").Build()
-                    .SetSpriteReference(SpellDefinitions.LesserRestoration.GuiPresentation.SpriteReference),
-                true)
-                .AddToDB();
+                FeatureDefinitionPowers.PowerPaladinLayOnHands, "FontOfLife", WARDEN_BASE_GUID, Category.Class)
+                    .SetActivation(RuleDefinitions.ActivationTime.Action, 1)
+                    .SetGuiPresentation("FontOfLife", Category.Class, SpellDefinitions.LesserRestoration.GuiPresentation.SpriteReference)
+                    .SetRecharge(RuleDefinitions.RechargeRate.ShortRest)
+                    .SetUsesFixed(1)
+                    .SetEffect(fontOfLifeEffectDescription)
+                    .AddToDB();
 
         }
 
