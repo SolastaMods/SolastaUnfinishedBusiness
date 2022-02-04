@@ -766,7 +766,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             ruinConditionDefinition.Features.Clear();
             ruinConditionDefinition.Features.Add(
                 new FeatureDefinitionAttributeModifierBuilder("Ruined", WITCH_BASE_GUID)
-                    .SetGuiPresentation("Ruined", Category.Modifier, ConditionDefinitions.ConditionAcidArrowed.GuiPresentation.SpriteReference)
+                    .SetGuiPresentation(Category.Modifier, ConditionDefinitions.ConditionAcidArrowed.GuiPresentation.SpriteReference)
                     .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, -3)
                     .AddToDB());
 
@@ -911,7 +911,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
                 var witchFamiliarMonsterBuilder = new MonsterDefinitionBuilder(
                         MonsterDefinitions.Eagle_Matriarch, "WitchOwl", WITCH_BASE_GUID)
-                        .SetGuiPresentation("Owl", "Owl") // TODO: category?
+                        .SetGuiPresentation("WitchOwlFamiliar", Category.Monster)
                         .SetFeatures(
                             FeatureDefinitionSenses.SenseNormalVision,
                             FeatureDefinitionSenses.SenseDarkvision24,

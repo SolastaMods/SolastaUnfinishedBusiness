@@ -42,7 +42,7 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
                 .AddToDB();
 
             return new CharacterSubclassDefinitionBuilder("RedWitch", Namespace)
-                .SetGuiPresentation("RedWitch", Category.Subclass, DomainElementalFire.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Subclass, DomainElementalFire.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(featureDefinitionFeatureSetRedMagic, 3)
                 .AddToDB();
         }
