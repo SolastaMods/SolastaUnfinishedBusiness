@@ -140,7 +140,11 @@ namespace SolastaCommunityExpansion.Models
             treasure_amethyst.SetItemDefinition(DatabaseHelper.ItemDefinitions._20_GP_Amethyst);
             treasure_amethyst.SetAmount(1);
 
-            TreasureTableDefinition pick_pocket_table = TreasureTableDefinitionBuilder.CreateCopyFrom(DatabaseHelper.TreasureTableDefinitions.RandomTreasureTableG_25_GP_Art_Items, "PickPocketTable", "79cac3e5-0f00-4062-b263-adbc854223d7", "", "");
+            TreasureTableDefinition pick_pocket_table = TreasureTableDefinitionBuilder
+                .CreateCopyFrom(DatabaseHelper.TreasureTableDefinitions.RandomTreasureTableG_25_GP_Art_Items, "PickPocketTable", "79cac3e5-0f00-4062-b263-adbc854223d7")
+                .SetGuiPresentationNoContent()
+                .AddToDB();
+
             pick_pocket_table.TreasureOptions.Add(treasure_copper);
             pick_pocket_table.TreasureOptions.Add(treasure_silver);
             pick_pocket_table.TreasureOptions.Add(treasure_gold);
@@ -155,11 +159,12 @@ namespace SolastaCommunityExpansion.Models
             pick_pocket_table.TreasureOptions.Add(treasure_acid);
             pick_pocket_table.TreasureOptions.Add(treasure_amethyst);
 
-            TreasureTableDefinition pick_pocket_table_undead = TreasureTableDefinitionBuilder.CreateCopyFrom(DatabaseHelper.TreasureTableDefinitions.RandomTreasureTableG_25_GP_Art_Items, "PickPocketTableC", "f1bbd8e5-3e05-48da-9c70-2db676a280b4", "", "");
-            pick_pocket_table_undead.TreasureOptions.Add(treasure_copper);
-            pick_pocket_table_undead.TreasureOptions.Add(treasure_abyss_moss);
-            pick_pocket_table_undead.TreasureOptions.Add(treasure_deeproot_lichen);
-            pick_pocket_table_undead.TreasureOptions.Add(treasure_goblinhair_fungus);
+            // TODO: more refactoring
+            TreasureTableDefinition pick_pocket_table_undead = TreasureTableDefinitionBuilder
+                .CreateCopyFrom(DatabaseHelper.TreasureTableDefinitions.RandomTreasureTableG_25_GP_Art_Items, "PickPocketTableC", "f1bbd8e5-3e05-48da-9c70-2db676a280b4")
+                .SetGuiPresentationNoContent()
+                .AddTreasureOptions(treasure_copper, treasure_abyss_moss, treasure_deeproot_lichen, treasure_goblinhair_fungus)
+                .AddToDB();
 
             ItemOccurence loot_pickpocket_table = new ItemOccurence(Zombie_loot_drop.ItemOccurencesList[0]);
             loot_pickpocket_table.SetItemMode(ItemOccurence.SelectionMode.TreasureTable);
@@ -171,12 +176,18 @@ namespace SolastaCommunityExpansion.Models
             loot_pickpocket_undead.SetTreasureTableDefinition(pick_pocket_table_undead);
             loot_pickpocket_undead.SetDiceNumber(1);
 
-            LootPackDefinition pick_pocket_loot = LootPackDefinitionBuilder.CreateCopyFrom(Tutorial_04_Loot_Stealable, "PickPocketLoot", "30c308db-1ad7-4f93-9431-43ce32358493", "", "");
+            LootPackDefinition pick_pocket_loot = LootPackDefinitionBuilder.CreateCopyFrom(Tutorial_04_Loot_Stealable, "PickPocketLoot", "30c308db-1ad7-4f93-9431-43ce32358493")
+                .SetGuiPresentationNoContent()
+                .AddToDB();
+
             pick_pocket_loot.SetLootChallengeMode(LootPackDefinition.LootChallenge.ByPartyLevel);
             pick_pocket_loot.ItemOccurencesList.Clear();
             pick_pocket_loot.ItemOccurencesList.Add(loot_pickpocket_table);
 
-            LootPackDefinition pick_pocket_undead = LootPackDefinitionBuilder.CreateCopyFrom(Tutorial_04_Loot_Stealable, "PickPocketUndead", "af2eb8e0-6a5a-40e2-8a62-160f80e2453e", "", "");
+            LootPackDefinition pick_pocket_undead = LootPackDefinitionBuilder.CreateCopyFrom(Tutorial_04_Loot_Stealable, "PickPocketUndead", "af2eb8e0-6a5a-40e2-8a62-160f80e2453e")
+                .SetGuiPresentationNoContent()
+                .AddToDB();
+
             pick_pocket_undead.SetLootChallengeMode(LootPackDefinition.LootChallenge.ByPartyLevel);
             pick_pocket_undead.ItemOccurencesList.Clear();
             pick_pocket_undead.ItemOccurencesList.Add(loot_pickpocket_undead);
