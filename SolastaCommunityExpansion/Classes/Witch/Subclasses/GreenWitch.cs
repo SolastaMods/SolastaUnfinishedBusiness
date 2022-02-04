@@ -49,7 +49,7 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
                 .AddToDB();
 
             return new CharacterSubclassDefinitionBuilder("GreenWitch", Namespace)
-                .SetGuiPresentation("GreenWitch", Category.Subclass, TraditionGreenmage.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Subclass, TraditionGreenmage.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(featureDefinitionFeatureSetGreenMagic, 3)
                 .AddToDB();
         }

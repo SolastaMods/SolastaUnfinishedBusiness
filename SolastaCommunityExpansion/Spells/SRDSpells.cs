@@ -541,9 +541,7 @@ namespace SolastaCommunityExpansion.Spells
 
             const string text = "ConjureCelestialSpell";
 
-            const string NewName = "CustomCouatl";
-            const string NewTitle = "CustomCouatlTitle";
-            const string NewDescription = "CustomCouatlDescription";
+            const string CustomCouatlName = "CustomCouatl";
             CharacterSizeDefinition Size = DatabaseHelper.CharacterSizeDefinitions.Medium;
             const string Alignment = "LawfulGood";
             const int ArmorClass = 19;
@@ -664,8 +662,8 @@ namespace SolastaCommunityExpansion.Spells
             AssetReferenceSprite spriteReference = KindredSpiritViper.GuiPresentation.SpriteReference;
 
             MonsterDefinitionBuilder couatlBuilder = new MonsterDefinitionBuilder(
-                KindredSpiritViper, NewName, "fc38ed74-3e2f-4960-86cc-3120d638410b")
-                .SetGuiPresentation("Monster/&" + DhBaseString + NewTitle, "Monster/&" + DhBaseString + NewDescription);
+                    KindredSpiritViper, CustomCouatlName, "fc38ed74-3e2f-4960-86cc-3120d638410b")
+                .SetGuiPresentation(DhBaseString + CustomCouatlName, Category.Monster);
 
             couatlBuilder.SetInDungeonEditor(false);
             couatlBuilder.SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
@@ -726,7 +724,7 @@ namespace SolastaCommunityExpansion.Spells
                         SummonForm.Type.Creature,
                         DatabaseHelper.ItemDefinitions.Dagger,
                         1,
-                        NewName,
+                        CustomCouatlName,
                         DatabaseHelper.ConditionDefinitions.ConditionMindDominatedByCaster,
                         false,
                         DatabaseHelper.DecisionPackageDefinitions.IdleGuard_Default,

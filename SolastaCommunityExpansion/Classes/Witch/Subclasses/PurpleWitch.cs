@@ -52,7 +52,7 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
                     .AddToDB();
 
             return new CharacterSubclassDefinitionBuilder("PurpleWitch", Namespace)
-                .SetGuiPresentation("PurpleWitch", Category.Subclass, DomainInsight.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Subclass, DomainInsight.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(featureDefinitionFeatureSetPurpleMagic, 3)
                 .AddToDB();
         }

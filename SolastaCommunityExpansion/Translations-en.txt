@@ -1173,3 +1173,7 @@ Tooltip/&TagScoutSentinelWeaponTitle	Uses Int for attack & damage
 Screen/&EditorLocationSize3Title	Huge [MODDED]
 Screen/&EditorLocationSize4Title	Gargantuan [MODDED]
 BlueprintCategory/&FlatRoomsTitle	Flat Rooms
+Monster/&WitchOwlFamiliarTitle Owl
+Monster/&WitchOwlFamiliarDescription Owl familiar
+Monster/&OwlFamiliarTitle Owl
+Monster/&OwlFamiliarDescription Owl familiar

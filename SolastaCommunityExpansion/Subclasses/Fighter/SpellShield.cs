@@ -77,7 +77,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             // or maybe some boost to the spell shield spells?
 
             FeatureDefinitionAdditionalAction bonusSpell = new FeatureDefinitionAdditionalActionBuilder("SpellShieldAdditionalAction", SubclassNamespace)
-                .SetGuiPresentation("SpellShieldAdditionalAction", Category.Subclass)
+                .SetGuiPresentation(Category.Subclass)
                 .SetActionType(ActionDefinitions.ActionType.Main)
                 .SetRestrictedActions(ActionDefinitions.Id.CastMain)
                 .SetMaxAttacksNumber(-1)

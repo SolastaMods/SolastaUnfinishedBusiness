@@ -6,12 +6,13 @@
     public enum Category
     {
         None = 0,
-        Feat,
-        Feature,
         Class,
         Condition,
+        Feat,
+        Feature,
         Modifier,
-        Subclass,
-        Spell
+        Monster,
+        Spell,
+        Subclass
     }
 }
