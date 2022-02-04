@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using SolastaCommunityExpansion.Classes;
 using SolastaCommunityExpansion.Classes.Tinkerer;
+using SolastaCommunityExpansion.Classes.Warden;
 using SolastaCommunityExpansion.Classes.Witch;
 using SolastaModApi.Extensions;
 
@@ -35,6 +35,7 @@ namespace SolastaCommunityExpansion.Models
         internal static void Load()
         {
             LoadClass(TinkererClass.BuildTinkererClass());
+            LoadClass(Warden.Instance);
             LoadClass(Witch.Instance);
 
             if (Main.Settings.EnableSortingFutureFeatures)

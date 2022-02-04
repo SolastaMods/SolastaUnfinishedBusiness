@@ -137,5 +137,11 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetImpactParticleReference(asset);
             return this;
         }
+
+        public FeatureDefinitionAdditionalDamageBuilder SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty property)
+        {
+            Definition.SetRequiredProperty(property);
+            return this;
+        }
     }
 }
