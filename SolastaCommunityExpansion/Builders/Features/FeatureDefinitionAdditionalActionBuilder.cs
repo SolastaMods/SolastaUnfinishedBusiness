@@ -28,34 +28,19 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        // TODO: remove/refactor this ctor
-        public FeatureDefinitionAdditionalActionBuilder(string name, string guid, ActionDefinitions.ActionType actionType,
-            IEnumerable<ActionDefinitions.Id> forbiddenActions, IEnumerable<ActionDefinitions.Id> authorizedActions,
-            IEnumerable<ActionDefinitions.Id> restrictedActions, int maxAttacksNumber, RuleDefinitions.AdditionalActionTriggerCondition triggerCondition,
-            GuiPresentation guiPresentation) : base(name, guid)
-        {
-            Definition.SetActionType(actionType);
-            Definition.ForbiddenActions.AddRange(forbiddenActions);
-            Definition.AuthorizedActions.AddRange(authorizedActions);
-            Definition.RestrictedActions.AddRange(restrictedActions);
-            Definition.SetMaxAttacksNumber(maxAttacksNumber);
-            Definition.SetTriggerCondition(triggerCondition);
-            Definition.SetGuiPresentation(guiPresentation);
-        }
-
         public FeatureDefinitionAdditionalActionBuilder SetActionType(ActionDefinitions.ActionType actionType)
         {
             Definition.SetActionType(actionType);
             return this;
         }
 
-        public FeatureDefinitionAdditionalActionBuilder SetMaxAttacks(int maxAttacksNumber)
+        public FeatureDefinitionAdditionalActionBuilder SetMaxAttacksNumber(int maxAttacksNumber)
         {
             Definition.SetMaxAttacksNumber(maxAttacksNumber);
             return this;
         }
 
-        public FeatureDefinitionAdditionalActionBuilder SetTrigger(RuleDefinitions.AdditionalActionTriggerCondition triggerCondition)
+        public FeatureDefinitionAdditionalActionBuilder SetTriggerCondition(RuleDefinitions.AdditionalActionTriggerCondition triggerCondition)
         {
             Definition.SetTriggerCondition(triggerCondition);
             return this;

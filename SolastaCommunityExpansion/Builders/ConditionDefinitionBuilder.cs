@@ -61,8 +61,9 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
+        // TODO: refactor/remove
         public ConditionDefinitionBuilder(string name, string guid, IEnumerable<FeatureDefinition> conditionFeatures, RuleDefinitions.DurationType durationType,
-            int durationParameter, bool silent, GuiPresentation guiPresentation) : base(name, guid)
+            int durationParameter, bool silent) : base(name, guid)
         {
             Definition.Features.AddRange(conditionFeatures);
             Definition.SetConditionType(RuleDefinitions.ConditionType.Beneficial);
@@ -80,7 +81,6 @@ namespace SolastaCommunityExpansion.Builders
             }
             Definition.SetField("recurrentEffectForms", new List<EffectForm>());
             Definition.SetField("cancellingConditions", new List<ConditionDefinition>());
-            Definition.SetGuiPresentation(guiPresentation);
         }
     }
 }

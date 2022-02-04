@@ -132,9 +132,10 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
         public static FeatureDefinitionAbilityCheckAffinity BuildAbilityAffinity(IEnumerable<(string abilityScoreName, string proficiencyName)> abilityProficiencyPairs,
             RuleDefinitions.CharacterAbilityCheckAffinity affinityType, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionAbilityCheckAffinityBuilder builder = new FeatureDefinitionAbilityCheckAffinityBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
-                abilityProficiencyPairs, 0, RuleDefinitions.DieType.D8, affinityType, guiPresentation);
-            return builder.AddToDB();
+            return new FeatureDefinitionAbilityCheckAffinityBuilder(name,SubclassNamespace)
+                .SetGuiPresentation(guiPresentation)
+                .SetAbilityAffinities(abilityProficiencyPairs, 0, RuleDefinitions.DieType.D8, affinityType)
+                .AddToDB();
         }
 
         public static void UpdateSpellDCBoost()

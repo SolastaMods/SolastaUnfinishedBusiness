@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using SolastaModApi;
-using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
@@ -27,35 +28,28 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        // TODO: remove/refactor this ctor
-        public FeatureDefinitionAbilityCheckAffinityBuilder(string name, string guid, IEnumerable<(string abilityScoreName, string proficiencyName)> abilityProficiencyPairs,
-            int diceNumber, RuleDefinitions.DieType dieType, RuleDefinitions.CharacterAbilityCheckAffinity affinityType, GuiPresentation guiPresentation)
-            : base(name, guid)
-        {
-            foreach ((string abilityScoreName, string proficiencyName) in abilityProficiencyPairs)
-            {
-                var group = new FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup
-                {
-                    abilityScoreName = abilityScoreName
-                };
-
-                if (!string.IsNullOrEmpty(proficiencyName))
-                {
-                    group.proficiencyName = proficiencyName;
-                }
-
-                group.affinity = affinityType;
-                group.abilityCheckModifierDiceNumber = diceNumber;
-                group.abilityCheckModifierDieType = dieType;
-                Definition.AffinityGroups.Add(group);
-            }
-            Definition.SetGuiPresentation(guiPresentation);
-        }
-
         public static FeatureDefinitionAbilityCheckAffinityBuilder CreateCopyFrom(
             FeatureDefinitionAbilityCheckAffinity original, string name, string guid)
         {
             return new FeatureDefinitionAbilityCheckAffinityBuilder(original, name, guid);
+        }
+
+        // TODO: is this a method good name?
+        public FeatureDefinitionAbilityCheckAffinityBuilder SetAbilityAffinities(
+            IEnumerable<(string abilityScoreName, string proficiencyName)> abilityProficiencyPairs,
+            int diceNumber, RuleDefinitions.DieType dieType, RuleDefinitions.CharacterAbilityCheckAffinity affinityType)
+        {
+            Definition.AffinityGroups.SetRange(
+                abilityProficiencyPairs.Select(pair => new FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup
+                {
+                    abilityScoreName = pair.abilityScoreName,
+                    proficiencyName = (pair.proficiencyName ?? string.Empty).Trim(),
+                    affinity = affinityType,
+                    abilityCheckModifierDiceNumber = diceNumber,
+                    abilityCheckModifierDieType = dieType
+                }));
+
+            return this;
         }
     }
 }
