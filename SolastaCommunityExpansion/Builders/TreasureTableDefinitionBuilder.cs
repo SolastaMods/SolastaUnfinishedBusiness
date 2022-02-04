@@ -1,4 +1,6 @@
-﻿using SolastaModApi;
+﻿using System.Collections.Generic;
+using System.Linq;
+using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Builders
 {
@@ -8,14 +10,20 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public static TreasureTableDefinition CreateCopyFrom(TreasureTableDefinition original, string name, string guid)
+        public static TreasureTableDefinitionBuilder CreateCopyFrom(TreasureTableDefinition original, string name, string guid)
         {
-            return new TreasureTableDefinitionBuilder(original, name, guid).AddToDB();
+            return new TreasureTableDefinitionBuilder(original, name, guid);
         }
 
-        public static TreasureTableDefinition CreateCopyFrom(TreasureTableDefinition original, string name, string guid, string title, string description)
+        public TreasureTableDefinitionBuilder AddTreasureOptions(params TreasureOption[] treasureOptions)
         {
-            return new TreasureTableDefinitionBuilder(original, name, guid).SetGuiPresentation(title, description).AddToDB();
+            return AddTreasureOptions(treasureOptions.AsEnumerable());
+        }
+
+        public TreasureTableDefinitionBuilder AddTreasureOptions(IEnumerable<TreasureOption> treasureOptions)
+        {
+            Definition.TreasureOptions.AddRange(treasureOptions);
+            return this;
         }
     }
 }

@@ -45,7 +45,7 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
                 .AddToDB();
 
             return new CharacterSubclassDefinitionBuilder("BloodWitch", Namespace)
-                .SetGuiPresentation("BloodWitch", Category.Subclass, DomainOblivion.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Subclass, DomainOblivion.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(featureDefinitionFeatureSetBloodMagic, 3)
                 .AddToDB();
         }

@@ -1,4 +1,5 @@
-﻿using SolastaModApi;
+﻿using System;
+using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
@@ -84,6 +85,7 @@ namespace SolastaCommunityExpansion.Builders
         /// <summary>
         /// Create and set a GuiPresentation from the provided title, description and AssetReferenceSprite.
         /// </summary>
+        [Obsolete("Use alternative method.")]
         public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, string title, string description, AssetReferenceSprite sprite = null)
             where TBuilder : IBaseDefinitionBuilder
         {
@@ -126,6 +128,8 @@ namespace SolastaCommunityExpansion.Builders
         }
     }
 
+    // NOTE: not used at all - remove?
+    [Obsolete("Use BaseDefinitionBuilderGuiPresentationExtensions.")]
     internal static class BaseDefinitionGuiPresentationExtensions
     {
         /// <summary>

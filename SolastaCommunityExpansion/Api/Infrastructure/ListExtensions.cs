@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace SolastaModApi.Infrastructure
 {
@@ -6,7 +7,7 @@ namespace SolastaModApi.Infrastructure
     {
         public static void AddRange<T>(this List<T> list, params T[] range)
         {
-            list.AddRange(range);
+            list.AddRange(range.AsEnumerable());
         }
 
         public static void SetRange<T>(this List<T> list, params T[] range)

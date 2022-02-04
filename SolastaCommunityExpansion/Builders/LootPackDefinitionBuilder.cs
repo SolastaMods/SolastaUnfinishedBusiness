@@ -8,14 +8,9 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public static LootPackDefinition CreateCopyFrom(LootPackDefinition original, string name, string guid, string title, string description)
+        public static LootPackDefinitionBuilder CreateCopyFrom(LootPackDefinition original, string name, string guid)
         {
-            return new LootPackDefinitionBuilder(original, name, guid).SetGuiPresentation(title, description).AddToDB();
-        }
-
-        public static LootPackDefinition CreateCopyFrom(LootPackDefinition original, string name, string guid)
-        {
-            return new LootPackDefinitionBuilder(original, name, guid).AddToDB();
+            return new LootPackDefinitionBuilder(original, name, guid);
         }
     }
 }

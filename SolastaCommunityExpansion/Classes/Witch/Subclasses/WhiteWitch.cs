@@ -41,7 +41,7 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
                 .AddToDB();
 
             return new CharacterSubclassDefinitionBuilder("WhiteWitch", Namespace)
-                .SetGuiPresentation("WhiteWitch", Category.Subclass, DomainLife.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Subclass, DomainLife.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(featureDefinitionFeatureSetWhiteMagic, 3)
                 .AddToDB();
         }
