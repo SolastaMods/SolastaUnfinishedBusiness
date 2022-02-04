@@ -1,8 +1,9 @@
-﻿using SolastaModApi;
+﻿using System;
+using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    // TODO: merge with FeatureDefinitionAbilityCheckAffinity
+    [Obsolete("Use FeatureDefinitionAbilityCheckAffinityBuilder")]
     public class PickPocketAbilityCheckAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionAbilityCheckAffinity>
     {
         protected PickPocketAbilityCheckAffinityBuilder(FeatureDefinitionAbilityCheckAffinity original, string name, string guid)

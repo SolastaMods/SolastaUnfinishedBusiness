@@ -466,10 +466,10 @@ namespace SolastaCommunityExpansion.Spells
         private static SpellDefinition BuildConjureCelestial()
         {
             SpellListDefinition CouatlSpellList = SpellListDefinitionBuilder.CreateSpellList(
+                 DatabaseHelper.SpellListDefinitions.SpellListCleric,
                  DhBaseString + "CouatlSpellList",
                  GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + "CouatlSpellList").ToString(),
                  "",
-                 DatabaseHelper.SpellListDefinitions.SpellListCleric,
                  new List<SpellDefinition>(),
                  new List<SpellDefinition>
                  {

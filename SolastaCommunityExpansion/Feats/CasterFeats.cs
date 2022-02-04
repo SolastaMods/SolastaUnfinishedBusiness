@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
+using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Feats
 {
@@ -137,8 +137,7 @@ namespace SolastaCommunityExpansion.Feats
             // Power that mimics misty step once per short rest
             // DatabaseHelper.LanguageDefinitions.Language_Tirmarian
             // restrict to elf??
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup mistyStepGroup = BuildAutoPreparedSpellGroup(0,
-                new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.MistyStep });
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup mistyStepGroup = AutoPreparedSpellsGroupBuilder.Build(0, MistyStep);
 
             CharacterClassDefinition[] classes = DatabaseRepository.GetDatabase<CharacterClassDefinition>().GetAllElements();
 
@@ -152,11 +151,11 @@ namespace SolastaCommunityExpansion.Feats
             GuiPresentationBuilder mistyStepBonusPresentation = new GuiPresentationBuilder(
                 "Feat/&PowerMistyStepFromFeatTitle",
                 "Feat/&PowerMistyStepFromFeatDescription");
-            mistyStepBonusPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.MistyStep.GuiPresentation.SpriteReference);
+            mistyStepBonusPresentation.SetSpriteReference(MistyStep.GuiPresentation.SpriteReference);
             FeatureDefinitionPower mistyStepPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
                 RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.ShortRest,
                 false, false, AttributeDefinitions.Intelligence,
-                DatabaseHelper.SpellDefinitions.MistyStep.EffectDescription,
+                MistyStep.EffectDescription,
                 "PowerMistyStepFromFeat", mistyStepBonusPresentation.Build());
 
             GuiPresentationBuilder feyTeleportationLanguagePresentation = new GuiPresentationBuilder(
@@ -214,8 +213,8 @@ namespace SolastaCommunityExpansion.Feats
             // auto prepared spells- see list ^
             // power that mimics ^^ spells once per long rest
 
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup shadowTouchedGroup = BuildAutoPreparedSpellGroup(0,
-                new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.Invisibility, DatabaseHelper.SpellDefinitions.FalseLife, DatabaseHelper.SpellDefinitions.InflictWounds });
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup shadowTouchedGroup =
+                AutoPreparedSpellsGroupBuilder.Build(0, Invisibility, FalseLife, InflictWounds);
 
             GuiPresentationBuilder learnShadowTouchedPresentation = new GuiPresentationBuilder(
                 "Feat/&PowerShadowTouchedFromFeatTitle",
@@ -227,40 +226,40 @@ namespace SolastaCommunityExpansion.Feats
             GuiPresentationBuilder invisibilityBonusPresentation = new GuiPresentationBuilder(
                 "Feat/&PowerInvisibilityFromFeatTitle",
                 "Feat/&PowerInvisibilityFromFeatDescription");
-            invisibilityBonusPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Invisibility.GuiPresentation.SpriteReference);
+            invisibilityBonusPresentation.SetSpriteReference(Invisibility.GuiPresentation.SpriteReference);
             FeatureDefinitionPower invisibilityPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
                 RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
                 false, false, AttributeDefinitions.Intelligence,
-                DatabaseHelper.SpellDefinitions.Invisibility.EffectDescription, "PowerInvisibilityFromFeat", invisibilityBonusPresentation.Build());
+                Invisibility.EffectDescription, "PowerInvisibilityFromFeat", invisibilityBonusPresentation.Build());
 
             GuiPresentationBuilder falseLifeBonusPresentation = new GuiPresentationBuilder(
                 "Feat/&PowerFalseLifeFromFeatTitle",
                 "Feat/&PowerFalseLifeFromFeatDescription");
-            falseLifeBonusPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.FalseLife.GuiPresentation.SpriteReference);
+            falseLifeBonusPresentation.SetSpriteReference(FalseLife.GuiPresentation.SpriteReference);
             FeatureDefinitionPower falseLifePower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
                 RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
                 false, false, AttributeDefinitions.Intelligence,
-                DatabaseHelper.SpellDefinitions.FalseLife.EffectDescription, "PowerFalseLifeFromFeat", falseLifeBonusPresentation.Build());
+                FalseLife.EffectDescription, "PowerFalseLifeFromFeat", falseLifeBonusPresentation.Build());
 
             GuiPresentationBuilder inflictWoundsBonusPresentation = new GuiPresentationBuilder(
                 "Feat/&PowerInflictWoundsFromFeatTitle",
                 "Feat/&PowerInflictWoundsFromFeatDescription");
-            inflictWoundsBonusPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.InflictWounds.GuiPresentation.SpriteReference);
+            inflictWoundsBonusPresentation.SetSpriteReference(InflictWounds.GuiPresentation.SpriteReference);
 
             FeatureDefinitionPower inflictWoundsPowerInt = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
                 RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
                 true, true, AttributeDefinitions.Intelligence,
-                DatabaseHelper.SpellDefinitions.InflictWounds.EffectDescription, "PowerInflictWoundsIntFromFeat", inflictWoundsBonusPresentation.Build());
+                InflictWounds.EffectDescription, "PowerInflictWoundsIntFromFeat", inflictWoundsBonusPresentation.Build());
 
             FeatureDefinitionPower inflictWoundsPowerWis = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
                 RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
                 true, true, AttributeDefinitions.Wisdom,
-                DatabaseHelper.SpellDefinitions.InflictWounds.EffectDescription, "PowerInflictWoundsWisFromFeat", inflictWoundsBonusPresentation.Build());
+                InflictWounds.EffectDescription, "PowerInflictWoundsWisFromFeat", inflictWoundsBonusPresentation.Build());
 
             FeatureDefinitionPower inflictWoundsPowerCha = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
                 RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
                 true, true, AttributeDefinitions.Charisma,
-                DatabaseHelper.SpellDefinitions.InflictWounds.EffectDescription, "PowerInflictWoundsChaFromFeat", inflictWoundsBonusPresentation.Build());
+                InflictWounds.EffectDescription, "PowerInflictWoundsChaFromFeat", inflictWoundsBonusPresentation.Build());
 
             // shadow touched int
             GuiPresentationBuilder intShadowTouchedPresentation = new GuiPresentationBuilder(
@@ -367,20 +366,16 @@ namespace SolastaCommunityExpansion.Feats
                 abilityScore, effectDescription, guiPresentation, false /* unique */).AddToDB();
         }
 
-        public static FeatureDefinitionAutoPreparedSpells BuildAutoPreparedSpells(List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> autospelllists,
+        public static FeatureDefinitionAutoPreparedSpells BuildAutoPreparedSpells(
+            IEnumerable<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> autospelllists,
             CharacterClassDefinition characterclass, string name, string tag, GuiPresentation guiPresentation)
         {
-            return new FeatureDefinitionAutoPreparedSpellsBuilder(name, GuidHelper.Create(CasterFeatsNamespace, name).ToString(),
-                autospelllists, guiPresentation).SetCharacterClass(characterclass).SetAutoTag(tag).AddToDB();
-        }
-
-        public static FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup BuildAutoPreparedSpellGroup(int classLevel, List<SpellDefinition> spellnames)
-        {
-            return new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
-            {
-                ClassLevel = classLevel,
-                SpellsList = spellnames.ToList()
-            };
+            return new FeatureDefinitionAutoPreparedSpellsBuilder(name, CasterFeatsNamespace)
+                .SetGuiPresentation(guiPresentation)
+                .SetPreparedSpellGroups(autospelllists)
+                .SetCharacterClass(characterclass)
+                .SetAutoTag(tag)
+                .AddToDB();
         }
 
         public static FeatureDefinitionProficiency BuildProficiency(RuleDefinitions.ProficiencyType type,

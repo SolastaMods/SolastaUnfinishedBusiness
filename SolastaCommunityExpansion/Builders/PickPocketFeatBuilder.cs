@@ -1,8 +1,9 @@
-﻿using SolastaModApi;
+﻿using System;
+using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    // TODO: merge with FeatDefinitionBuilder
+    [Obsolete("Use FeatDefinitionBuilder")]
     public class PickPocketFeatBuilder : BaseDefinitionBuilder<FeatDefinition>
     {
         protected PickPocketFeatBuilder(FeatDefinition original, string name, string guid) : base(original, name, guid)
