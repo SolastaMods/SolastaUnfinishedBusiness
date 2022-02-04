@@ -6,14 +6,16 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class SpellListDefinitionBuilder : BaseDefinitionBuilder<SpellListDefinition>
     {
-        public SpellListDefinitionBuilder(string name, string guid, string title, SpellListDefinition baseSpellList, params List<SpellDefinition>[] spellsByLevel)
-            : base(baseSpellList, name, guid)
+        public SpellListDefinitionBuilder(SpellListDefinition original, string name, string guid, string title, params List<SpellDefinition>[] spellsByLevel)
+            : base(original, name, guid)
         {
+            // TODO: split out
             if (!string.IsNullOrEmpty(title))
             {
                 Definition.GuiPresentation.Title = title;
             }
 
+            // TODO: split out
             for (int i = 0; i < Definition.SpellsByLevel.Count; i++)
             {
                 Definition.SpellsByLevel[i].Spells.Clear();
@@ -25,9 +27,9 @@ namespace SolastaCommunityExpansion.Builders
             }
         }
 
-        public static SpellListDefinition CreateSpellList(string name, string guid, string title, SpellListDefinition baseSpellList, params List<SpellDefinition>[] spellsByLevel)
+        public static SpellListDefinition CreateSpellList(SpellListDefinition original, string name, string guid, string title, params List<SpellDefinition>[] spellsByLevel)
         {
-            return new SpellListDefinitionBuilder(name, guid, title, baseSpellList, spellsByLevel).AddToDB();
+            return new SpellListDefinitionBuilder(original, name, guid, title, spellsByLevel).AddToDB();
         }
     }
 }

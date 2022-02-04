@@ -51,47 +51,20 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
                     .AddFeatureAtLevel(bark_ward_dict[14], 14)
                     .AddToDB();
         }
+
         // Create Auto-prepared Spell list
         private static FeatureDefinitionAutoPreparedSpells createDruidForestGuardianMagic()
         {
-            GuiPresentationBuilder forestGuardianMagicGui = new GuiPresentationBuilder(
-                "Feature/&DruidForestGuardianMagicTitle",
-                "Feature/&DruidForestGuardianMagicDescription");
-
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup ForestGuardianSpells1 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
-            {
-                ClassLevel = 2,
-                SpellsList = new List<SpellDefinition>() { Shield, FogCloud, }
-            };
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup ForestGuardianSpells2 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
-            {
-                ClassLevel = 3,
-                SpellsList = new List<SpellDefinition>() { Blur, FlameBlade, }
-            };
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup ForestGuardianSpells3 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
-            {
-                ClassLevel = 5,
-                SpellsList = new List<SpellDefinition>() { ProtectionFromEnergy, DispelMagic, }
-            };
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup ForestGuardianSpells4 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
-            {
-                ClassLevel = 7,
-                SpellsList = new List<SpellDefinition>() { FireShield, DeathWard, }
-            };
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup ForestGuardianSpells5 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
-            {
-                ClassLevel = 9,
-                SpellsList = new List<SpellDefinition>() { HoldMonster, GreaterRestoration, }
-            };
-
-            var ForestGuardianSpells = new FeatureDefinitionAutoPreparedSpellsBuilder("ForestGuardianAutoPreparedSpells",
-                GuidHelper.Create(DFG_BASE_GUID, "ForestGuardianAutoPreparedSpells").ToString(),
-                new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>() {
-                    ForestGuardianSpells1, ForestGuardianSpells2, ForestGuardianSpells3, ForestGuardianSpells4, ForestGuardianSpells5 },
-                forestGuardianMagicGui.Build()).AddToDB();
-            ForestGuardianSpells.SetSpellcastingClass(DatabaseHelper.CharacterClassDefinitions.Druid);
-
-            return ForestGuardianSpells;
+            return new FeatureDefinitionAutoPreparedSpellsBuilder("ForestGuardianAutoPreparedSpells", DFG_BASE_GUID)
+                .SetGuiPresentationGenerate("DruidForestGuardianMagic", Category.Feature)
+                .SetPreparedSpellGroups(
+                    AutoPreparedSpellsGroupBuilder.Build(2, Shield, FogCloud),
+                    AutoPreparedSpellsGroupBuilder.Build(3, Blur, FlameBlade),
+                    AutoPreparedSpellsGroupBuilder.Build(5, ProtectionFromEnergy, DispelMagic),
+                    AutoPreparedSpellsGroupBuilder.Build(7, FireShield, DeathWard),
+                    AutoPreparedSpellsGroupBuilder.Build(9, HoldMonster, GreaterRestoration))
+                .SetSpellcastingClass(DatabaseHelper.CharacterClassDefinitions.Druid)
+                .AddToDB();
         }
 
         // Create Sylvan War Magic

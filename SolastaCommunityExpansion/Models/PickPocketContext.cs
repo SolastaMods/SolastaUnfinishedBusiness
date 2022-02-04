@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -10,38 +11,38 @@ namespace SolastaCommunityExpansion.Models
 {
     public static class PickPocketContext
     {
-        internal static void CreateFeats(List<FeatDefinition> feats)
+        internal static void CreateFeats(ICollection<FeatDefinition> feats)
         {
-            FeatureDefinitionAbilityCheckAffinity pickpocket_check_affinity = PickPocketAbilityCheckAffinityBuilder.CreateCopyFrom(
-                DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityFeatLockbreaker, "AbilityCheckAffinityFeatPickPocket", "30b1492a-053f-412e-b247-798fbc255038", "Feat/&PickPocketFeatTitle",
-                "Feat/&PickPocketFeatDescription");
+            FeatureDefinitionAbilityCheckAffinity pickpocket_check_affinity = FeatureDefinitionAbilityCheckAffinityBuilder
+                .CreateCopyFrom(DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityFeatLockbreaker, "AbilityCheckAffinityFeatPickPocket", "30b1492a-053f-412e-b247-798fbc255038")
+                .SetGuiPresentationGenerate("PickPocketFeat", Category.Feat)
+                .AddToDB();
 
-            // TODO make the set field calls type safe by using extensions annd/or builders
             FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup pickpocketAbilityCheckAffinityGroup = new FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup();
 
-            pickpocketAbilityCheckAffinityGroup.SetField("abilityScoreName", "Dexterity");
-            pickpocketAbilityCheckAffinityGroup.SetField("proficiencyName", "SleightOfHand");
-            pickpocketAbilityCheckAffinityGroup.SetField("affinity", CharacterAbilityCheckAffinity.Advantage);
-            pickpocket_check_affinity.AffinityGroups.Clear();
-            pickpocket_check_affinity.AffinityGroups.Add(pickpocketAbilityCheckAffinityGroup);
+            pickpocketAbilityCheckAffinityGroup.abilityScoreName = AttributeDefinitions.Dexterity;
+            pickpocketAbilityCheckAffinityGroup.proficiencyName = SkillDefinitions.SleightOfHand;
+            pickpocketAbilityCheckAffinityGroup.affinity = CharacterAbilityCheckAffinity.Advantage;
 
-            FeatureDefinitionProficiency pickpocket_proficiency = PickPocketProficiencyBuilder.CreateCopyFrom(
-                DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyFeatLockbreaker, "ProficiencyFeatPickPocket", "d8046b0c-2f93-4b47-b2dd-110234a4a848", "Feat/&PickPocketFeatTitle",
-                "Feat/&PickPocketFeatDescription");
+            pickpocket_check_affinity.AffinityGroups.SetRange(pickpocketAbilityCheckAffinityGroup);
+
+            FeatureDefinitionProficiency pickpocket_proficiency = FeatureDefinitionProficiencyBuilder
+                .CreateCopyFrom(DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyFeatLockbreaker, "ProficiencyFeatPickPocket", "d8046b0c-2f93-4b47-b2dd-110234a4a848")
+                .SetGuiPresentationGenerate("ProficiencyFeatPickPocket", Category.Feat)
+                .AddToDB();
 
             pickpocket_proficiency.SetProficiencyType(ProficiencyType.SkillOrExpertise);
             pickpocket_proficiency.Proficiencies.Clear();
-            pickpocket_proficiency.Proficiencies.Add("SleightOfHand");
+            pickpocket_proficiency.Proficiencies.Add(SkillDefinitions.SleightOfHand);
 
-            FeatDefinition PickPocketFeat = PickPocketFeatBuilder.CreateCopyFrom(
-                DatabaseHelper.FeatDefinitions.Lockbreaker, "PickPocketFeat", "947a31fc-4990-45a5-bcfd-6c478b4dff8a", "Feat/&PickPocketFeatTitle",
-                "Feat/&PickPocketFeatDescription");
+            FeatDefinition pickPocketFeat = FeatDefinitionBuilder
+                .CreateCopyFrom(DatabaseHelper.FeatDefinitions.Lockbreaker, "PickPocketFeat", "947a31fc-4990-45a5-bcfd-6c478b4dff8a")
+                .SetGuiPresentationGenerate("PickPocketFeat", Category.Feat)
+                .AddToDB();
 
-            PickPocketFeat.Features.Clear();
-            PickPocketFeat.Features.Add(pickpocket_check_affinity);
-            PickPocketFeat.Features.Add(pickpocket_proficiency);
+            pickPocketFeat.Features.SetRange(pickpocket_check_affinity, pickpocket_proficiency);
 
-            feats.Add(PickPocketFeat);
+            feats.Add(pickPocketFeat);
         }
 
         private static bool initialized;
