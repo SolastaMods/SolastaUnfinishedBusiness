@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
 using SolastaModApi.Extensions;
@@ -325,7 +326,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             addBlindingCondition.SetSaveAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
             addBlindingCondition.SetConditionName(ConditionDefinitions.ConditionBlinded.Name);
 
-            FeatureDefinitionAdditionalDamage radiantDamage = new FeatureDefinitionAdditionalDamageBuilder("AdditionalDamageRadiantWeapon",
+            FeatureDefinitionAdditionalDamage radiantDamage = new FeatureHelpers.FeatureDefinitionAdditionalDamageBuilder("AdditionalDamageRadiantWeapon",
                 GuidHelper.Create(TinkererClass.GuidNamespace, "AdditionalDamageRadiantWeapon").ToString(), "BlindingWeaponStrike",
                 RuleDefinitions.FeatureLimitedUsage.OncePerTurn, RuleDefinitions.AdditionalDamageValueDetermination.Die,
                 RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive, RuleDefinitions.AdditionalDamageRequiredProperty.None, true, RuleDefinitions.DieType.D4, 1, RuleDefinitions.AdditionalDamageType.Specific,
