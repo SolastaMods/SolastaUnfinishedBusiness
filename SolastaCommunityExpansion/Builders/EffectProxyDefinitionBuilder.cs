@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Builders
             InitializeFields();
         }
 
-        public EffectProxyDefinitionBuilder(string name, Guid namespaceGuid, string category = null) : base(name, namespaceGuid, category)
+        public EffectProxyDefinitionBuilder(string name, Guid namespaceGuid, Category category = Category.None) : base(name, namespaceGuid, category)
         {
             InitializeFields();
         }
@@ -24,7 +24,7 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public EffectProxyDefinitionBuilder(EffectProxyDefinition original, string name, Guid namespaceGuid, string category = null)
+        public EffectProxyDefinitionBuilder(EffectProxyDefinition original, string name, Guid namespaceGuid, Category category = Category.None)
             : base(original, name, namespaceGuid, category)
         {
         }

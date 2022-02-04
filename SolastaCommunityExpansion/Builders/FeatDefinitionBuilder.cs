@@ -30,7 +30,7 @@ namespace SolastaCommunityExpansion.Builders
             InitializePrerequisiteCollectionFields();
         }
 
-        public FeatDefinitionBuilder(string name, Guid namespaceGuid, string category = null)
+        public FeatDefinitionBuilder(string name, Guid namespaceGuid, Category category = Category.None)
             : base(name, namespaceGuid, category)
         {
             InitializePrerequisiteCollectionFields();
@@ -41,7 +41,7 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public FeatDefinitionBuilder(FeatDefinition original, string name, Guid namespaceGuid, string category = null)
+        public FeatDefinitionBuilder(FeatDefinition original, string name, Guid namespaceGuid, Category category = Category.None)
             : base(original, name, namespaceGuid, category)
         {
         }

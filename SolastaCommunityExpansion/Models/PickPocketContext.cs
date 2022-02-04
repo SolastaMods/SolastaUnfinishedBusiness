@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Models
         {
             FeatureDefinitionAbilityCheckAffinity pickpocket_check_affinity = FeatureDefinitionAbilityCheckAffinityBuilder
                 .CreateCopyFrom(DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityFeatLockbreaker, "AbilityCheckAffinityFeatPickPocket", "30b1492a-053f-412e-b247-798fbc255038")
-                .SetGuiPresentationGenerate("PickPocketFeat", Category.Feat)
+                .SetGuiPresentation("PickPocketFeat", Category.Feat)
                 .AddToDB();
 
             AbilityCheckAffinityGroup pickpocketAbilityCheckAffinityGroup = new AbilityCheckAffinityGroup
@@ -30,7 +30,7 @@ namespace SolastaCommunityExpansion.Models
 
             FeatureDefinitionProficiency pickpocket_proficiency = FeatureDefinitionProficiencyBuilder
                 .CreateCopyFrom(DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyFeatLockbreaker, "ProficiencyFeatPickPocket", "d8046b0c-2f93-4b47-b2dd-110234a4a848")
-                .SetGuiPresentationGenerate("ProficiencyFeatPickPocket", Category.Feat)
+                .SetGuiPresentation("ProficiencyFeatPickPocket", Category.Feat)
                 .AddToDB();
 
             pickpocket_proficiency.SetProficiencyType(ProficiencyType.SkillOrExpertise);
@@ -39,7 +39,7 @@ namespace SolastaCommunityExpansion.Models
 
             FeatDefinition pickPocketFeat = FeatDefinitionBuilder
                 .CreateCopyFrom(DatabaseHelper.FeatDefinitions.Lockbreaker, "PickPocketFeat", "947a31fc-4990-45a5-bcfd-6c478b4dff8a")
-                .SetGuiPresentationGenerate("PickPocketFeat", Category.Feat)
+                .SetGuiPresentation("PickPocketFeat", Category.Feat)
                 .AddToDB();
 
             pickPocketFeat.Features.SetRange(pickpocket_check_affinity, pickpocket_proficiency);

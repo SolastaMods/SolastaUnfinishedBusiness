@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetField("ingredients", new List<IngredientOccurenceDescription>());
         }
 
-        public RecipeDefinitionBuilder(string name, Guid namespaceGuid, string category = null)
+        public RecipeDefinitionBuilder(string name, Guid namespaceGuid, Category category = Category.None)
             : base(name, namespaceGuid, category)
         {
             Definition.SetField("ingredients", new List<IngredientOccurenceDescription>());
@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public RecipeDefinitionBuilder(RecipeDefinition original, string name, Guid namespaceGuid, string category = null)
+        public RecipeDefinitionBuilder(RecipeDefinition original, string name, Guid namespaceGuid, Category category = Category.None)
             : base(original, name, namespaceGuid, category)
         {
         }

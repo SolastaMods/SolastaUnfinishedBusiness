@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public FeatureDefinitionDieRollModifierBuilder(string name, Guid namespaceGuid, string category = null)
+        public FeatureDefinitionDieRollModifierBuilder(string name, Guid namespaceGuid, Category category = Category.None)
             : base(name, namespaceGuid, category)
         {
         }
@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public FeatureDefinitionDieRollModifierBuilder(FeatureDefinitionDieRollModifier original, string name, Guid namespaceGuid, string category = null)
+        public FeatureDefinitionDieRollModifierBuilder(FeatureDefinitionDieRollModifier original, string name, Guid namespaceGuid, Category category = Category.None)
             : base(original, name, namespaceGuid, category)
         {
         }

@@ -45,14 +45,14 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
 
             var featureDefinitionFeatureSetPurpleMagic = new FeatureDefinitionFeatureSetBuilder(
                     DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHumanLanguages, "FeatureSetPurpleWitchMagic", Namespace)
-                    .SetGuiPresentationGenerate("PurpleWitchMagic", Category.Subclass)
+                    .SetGuiPresentation("PurpleWitchMagic", Category.Subclass)
                     .SetFeatures(preparedSpells)
                     .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                     .SetUniqueChoices(true)
                     .AddToDB();
 
             return new CharacterSubclassDefinitionBuilder("PurpleWitch", Namespace)
-                .SetGuiPresentationGenerate("PurpleWitch", Category.Subclass, DomainInsight.GuiPresentation.SpriteReference)
+                .SetGuiPresentation("PurpleWitch", Category.Subclass, DomainInsight.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(featureDefinitionFeatureSetPurpleMagic, 3)
                 .AddToDB();
         }

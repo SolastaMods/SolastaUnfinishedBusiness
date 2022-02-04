@@ -1,5 +1,6 @@
 ﻿using SolastaModApi;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using static SolastaModApi.BaseDefinitionBuilder;
@@ -55,7 +56,7 @@ namespace SolastaCommunityExpansion.Builders
             return new GuiPresentationBuilder(title, description, sprite).Build();
         }
 
-        public static GuiPresentation BuildGenerate(string name, string category, AssetReferenceSprite sprite = null)
+        public static GuiPresentation BuildGenerate(string name, Category category, AssetReferenceSprite sprite = null)
         {
             return new GuiPresentationBuilder(CreateTitleKey(name, category), CreateDescriptionKey(name, category), sprite).Build();
         }
@@ -70,6 +71,9 @@ namespace SolastaCommunityExpansion.Builders
 
     internal static class BaseDefinitionBuilderGuiPresentationExtensions
     {
+        /// <summary>
+        /// Set the provided GuiPresentation instance on the definition owned by the builder.
+        /// </summary>
         public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, GuiPresentation guiPresentation)
             where TBuilder : IBaseDefinitionBuilder
         {
@@ -77,23 +81,43 @@ namespace SolastaCommunityExpansion.Builders
             return builder;
         }
 
+        /// <summary>
+        /// Create and set a GuiPresentation from the provided title, description and AssetReferenceSprite.
+        /// </summary>
         public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, string title, string description, AssetReferenceSprite sprite = null)
             where TBuilder : IBaseDefinitionBuilder
         {
             return SetGuiPresentation(builder, GuiPresentationBuilder.Build(title, description, sprite));
         }
 
-        // TODO: add xml comments
-        // TODO: change category to an enum - less overload conflict and can rename to SetGuiPresentation
-        // TODO: add SetGuiPresentationGenerate<TBuilder>(this TBuilder builder, Category category, ... ) and get name from builder
-        public static TBuilder SetGuiPresentationGenerate<TBuilder>(this TBuilder builder, string name, string category, AssetReferenceSprite sprite = null)
+        /// <summary>
+        /// Create and set a GuiPresentation from the provided name, category and AssetReferenceSprite.<br/>
+        /// The Title is generated as "{category}/&amp;{name}Title".<br/>
+        /// The Description is generated as "{category}/&amp;{name}Description".<br/>
+        /// </summary>
+        public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, string name, Category category, AssetReferenceSprite sprite = null)
            where TBuilder : IBaseDefinitionBuilder
         {
             return SetGuiPresentation(builder, GuiPresentationBuilder.BuildGenerate(name, category, sprite));
         }
 
+        /// <summary>
+        /// Create and set a GuiPresentation from the provided builder, category and AssetReferenceSprite.<br/>
+        /// The Title is generated as "{category}/&amp;{builder.Definition.Name}Title".<br/>
+        /// The Description is generated as "{category}/&amp;{builder.Definition.Name}Description".<br/>
+        /// </summary>
+        /// <typeparam name="TBuilder"></typeparam>
+        public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, Category category, AssetReferenceSprite sprite = null)
+           where TBuilder : IBaseDefinitionBuilder
+        {
+            return SetGuiPresentation(builder, GuiPresentationBuilder.BuildGenerate(((IBaseDefinitionBuilder)builder).Name, category, sprite));
+        }
+
         // TODO: More SetGuiPresentation/Generate(...) overloads as required
 
+        /// <summary>
+        /// Create a GuiPresentation with Title=Feature/&amp;NoContentTitle, Description=Feature/&amp;NoContentDescription.
+        /// </summary>
         public static TBuilder SetGuiPresentationNoContent<TBuilder>(this TBuilder builder)
             where TBuilder : IBaseDefinitionBuilder
         {
@@ -104,6 +128,9 @@ namespace SolastaCommunityExpansion.Builders
 
     internal static class BaseDefinitionGuiPresentationExtensions
     {
+        /// <summary>
+        /// Create a GuiPresentation from the provided title, description and AssetReferenceSprite.
+        /// </summary>
         public static TDefinition SetGuiPresentation<TDefinition>(this TDefinition definition, string title, string description, AssetReferenceSprite sprite = null)
             where TDefinition : BaseDefinition
         {
@@ -111,15 +138,36 @@ namespace SolastaCommunityExpansion.Builders
             return definition;
         }
 
-        public static TDefinition SetGuiPresentationGenerate<TDefinition>(this TDefinition definition, string name, string category, AssetReferenceSprite sprite = null)
+        /// <summary>
+        /// Create a GuiPresentation from the provided name, category and AssetReferenceSprite.<br/>
+        /// The Title is generated as "{category}/&amp;{name}Title".<br/>
+        /// The Description is generated as "{category}/&amp;{name}Description".<br/>
+        /// </summary>
+        public static TDefinition SetGuiPresentation<TDefinition>(this TDefinition definition, string name, Category category, AssetReferenceSprite sprite = null)
             where TDefinition : BaseDefinition
         {
             definition.GuiPresentation = GuiPresentationBuilder.BuildGenerate(name, category, sprite);
             return definition;
         }
 
+        /// <summary>
+        /// Create a GuiPresentation from the provided name, category and AssetReferenceSprite.<br/>
+        /// The Title is generated as "{category}/&amp;{definition.Name}Title".<br/>
+        /// The Description is generated as "{category}/&amp;{definition.Name}Description".<br/>
+        /// </summary>
+        public static TDefinition SetGuiPresentation<TDefinition>(this TDefinition definition, Category category, AssetReferenceSprite sprite = null)
+            where TDefinition : BaseDefinition
+        {
+            Preconditions.IsNotNull(definition, nameof(definition));
+            definition.GuiPresentation = GuiPresentationBuilder.BuildGenerate(definition.Name, category, sprite);
+            return definition;
+        }
+
         // TODO: More SetGuiPresentation/Generate(...) overloads as required
 
+        /// <summary>
+        /// Create a GuiPresentation with Title=Feature/&amp;NoContentTitle, Description=Feature/&amp;NoContentDescription.
+        /// </summary>
         public static TDefinition SetGuiPresentationNoContent<TDefinition>(this TDefinition definition)
             where TDefinition : BaseDefinition
         {

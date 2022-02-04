@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Diagnostics;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
@@ -22,17 +23,34 @@ namespace SolastaModApi
 
         public static string CreateGuid(string guid, string name)
         {
+            Preconditions.IsNotNullOrWhiteSpace(guid, nameof(guid));
+            Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
+
             return GuidHelper.Create(new Guid(guid), name).ToString();
         }
 
-        public static string CreateTitleKey(string name, string category)
+        public static string CreateTitleKey(string name, Category category)
         {
+            Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
+
+            if (category == Category.None)
+            {
+                throw new ArgumentException("The parameter must not be Category.None.", nameof(category));
+            }
+
             return $"{category}/&{name}Title";
         }
 
-        public static string CreateDescriptionKey(string name, string category)
+        public static string CreateDescriptionKey(string description, Category category)
         {
-            return $"{category}/&{name}Description";
+            Preconditions.IsNotNullOrWhiteSpace(description, nameof(description));
+
+            if (category == Category.None)
+            {
+                throw new ArgumentException("The parameter must not be Category.None.", nameof(category));
+            }
+
+            return $"{category}/&{description}Description";
         }
 
         public static bool LogDefinitionCreation { get; set; }
@@ -52,6 +70,7 @@ namespace SolastaModApi
     public interface IBaseDefinitionBuilder
     {
         void SetGuiPresentation(GuiPresentation presentation);
+        string Name { get; }
     }
 
     /// <summary>
@@ -77,6 +96,8 @@ namespace SolastaModApi
             Definition.GuiPresentation = presentation;
         }
 
+        string IBaseDefinitionBuilder.Name => Definition?.Name ?? string.Empty;
+
         #endregion
 
         #region Preferred constructors (for future development)
@@ -91,7 +112,7 @@ namespace SolastaModApi
         /// name="MyDefinition" and category="MyCategory" are: MyCategory/&amp;MyDefinitionTitle and MyCategory/&amp;MyDefinitionDescription.
         /// If category=null then no GuiPresentation is created.
         /// </param>
-        protected BaseDefinitionBuilder(string name, Guid namespaceGuid, string category) :
+        protected BaseDefinitionBuilder(string name, Guid namespaceGuid, Category category) :
             this(name, null, namespaceGuid, true, category)
         {
         }
@@ -106,21 +127,15 @@ namespace SolastaModApi
         /// name="MyDefinition" and category="MyCategory" are: MyCategory/&amp;MyDefinitionTitle and MyCategory/&amp;MyDefinitionDescription.
         /// If category=null then no GuiPresentation is created.
         /// </param>
-        protected BaseDefinitionBuilder(string name, string definitionGuid, string category) :
+        protected BaseDefinitionBuilder(string name, string definitionGuid, Category category) :
             this(name, definitionGuid, Guid.Empty, false, category)
         {
             Preconditions.IsNotNullOrWhiteSpace(definitionGuid, nameof(definitionGuid));
         }
 
-        private BaseDefinitionBuilder(string name, string definitionGuid, Guid namespaceGuid, bool useNamespaceGuid, string category)
+        private BaseDefinitionBuilder(string name, string definitionGuid, Guid namespaceGuid, bool useNamespaceGuid, Category category)
         {
             Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
-
-            // allow null (to indicate no gui presentation) but not whitespace
-            if (category != null)
-            {
-                Preconditions.IsNotNullOrWhiteSpace(category, nameof(category));
-            }
 
             Definition = ScriptableObject.CreateInstance<TDefinition>();
             Definition.name = name;
@@ -150,7 +165,7 @@ namespace SolastaModApi
                 LogDefinition($"New-Creating definition: ({name}, guid={Definition.GUID})");
             }
 
-            if (category != null)
+            if (category != Category.None)
             {
                 Definition.GuiPresentation = BuildGuiPresentation(CreateTitleKey(name, category), CreateDescriptionKey(name, category));
             }
@@ -167,7 +182,7 @@ namespace SolastaModApi
         /// name="MyDefinition" and category="MyCategory" are: MyCategory/&amp;MyDefinitionTitle and MyCategory/&amp;MyDefinitionDescription.
         /// If category=null then the copied GuiPresentation is not altered.
         /// </param>
-        protected BaseDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid, string category) :
+        protected BaseDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid, Category category) :
             this(original, name, null, namespaceGuid, true, category)
         {
         }
@@ -183,21 +198,15 @@ namespace SolastaModApi
         /// name="MyDefinition" and category="MyCategory" are: MyCategory/&amp;MyDefinitionTitle and MyCategory/&amp;MyDefinitionDescription.
         /// If category=null then the copied GuiPresentation is not altered.
         /// </param>
-        protected BaseDefinitionBuilder(TDefinition original, string name, string definitionGuid, string category) :
+        protected BaseDefinitionBuilder(TDefinition original, string name, string definitionGuid, Category category) :
             this(original, name, definitionGuid, Guid.Empty, false, category)
         {
         }
 
-        private BaseDefinitionBuilder(TDefinition original, string name, string definitionGuid, Guid namespaceGuid, bool useNamespaceGuid, string category)
+        private BaseDefinitionBuilder(TDefinition original, string name, string definitionGuid, Guid namespaceGuid, bool useNamespaceGuid, Category category)
         {
             Preconditions.IsNotNull(original, nameof(original));
             Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
-
-            // allow null (to indicate no gui presentation) but not whitespace
-            if (category != null)
-            {
-                Preconditions.IsNotNullOrWhiteSpace(category, nameof(category));
-            }
 
             var originalName = original.name;
             var originalGuid = original.GUID;
@@ -221,7 +230,7 @@ namespace SolastaModApi
                 LogDefinition($"New-Cloning definition: original({originalName}, {originalGuid}) => ({name}, {Definition.GUID})");
             }
 
-            if (category != null)
+            if (category != Category.None)
             {
                 if (Definition.GuiPresentation != null)
                 {
@@ -301,7 +310,7 @@ namespace SolastaModApi
         /// <param name="original">The original definition to be cloned.</param>
         /// <param name="name">The new unique name assigned to the definition (mandatory)</param>
         /// <param name="guid">The new unique guid assigned to the definition (mandatory)</param>
-        protected BaseDefinitionBuilder(TDefinition original, string name, string guid) : this(original, name, guid, null)
+        protected BaseDefinitionBuilder(TDefinition original, string name, string guid) : this(original, name, guid, Category.None)
         {
         }
 
