@@ -1,6 +1,6 @@
-﻿using HarmonyLib;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {
@@ -9,12 +9,12 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     internal static class SpellsByLevelGroup_CommonBind
     {
         /*
-         * So this patch seems like it should be unneceary, however when collecting the autoprepared spells TA only looks at the FIRST
+         * So this patch seems like it should be unnecessary, however when collecting the autoprepared spells TA only looks at the FIRST
          * feature returned from enumerate features rather than iterate over all of them. This means only 1 feature worth of auto prepared
          * spells are shown to the user during level up. For the inspection/spell preparation binding a different method to collect the auto
          * prepared spells is used which works properly.
          */
-        internal static void Prefix(SpellsByLevelGroup __instance, RulesetCharacter caster, ref List<SpellDefinition> auToPreparedSpells)
+        internal static void Prefix(SpellsByLevelGroup __instance, RulesetCharacter caster,ref List<SpellDefinition> allSpells, ref List<SpellDefinition> auToPreparedSpells)
         {
             if (!Main.Settings.ShowAllAutoPreparedSpells)
             {
@@ -29,18 +29,28 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
                 caster = characterBuildingService.HeroCharacter;
             }
 
-            // Collect the auto prepared spells for all spell repertoirs (we also could have enumerated features and iterated through all)
-            // either way works.
+            // Collect all the auto prepared spells.
             // Also filter the prepped spells by level this group is displaying.
-            foreach (RulesetSpellRepertoire rulesetSpellRepertoire in caster.SpellRepertoires)
+            caster.EnumerateFeaturesToBrowse<FeatureDefinitionAutoPreparedSpells>(caster.FeaturesToBrowse);
+            foreach (FeatureDefinition featureDefinition in caster.FeaturesToBrowse)
             {
-                foreach (SpellDefinition item in rulesetSpellRepertoire.AutoPreparedSpells)
+                FeatureDefinitionAutoPreparedSpells autoPreparedSpells = featureDefinition as FeatureDefinitionAutoPreparedSpells;
+                foreach (FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup preparedSpellsGroup in autoPreparedSpells.AutoPreparedSpellsGroups)
                 {
-                    var flag = !auToPreparedSpells.Contains(item) && __instance.SpellLevel == item.SpellLevel;
-
-                    if (flag)
+                    foreach (SpellDefinition spell in preparedSpellsGroup.SpellsList)
                     {
-                        auToPreparedSpells.Add(item);
+                        var flag = !auToPreparedSpells.Contains(spell) && __instance.SpellLevel == spell.SpellLevel;
+
+                        if (flag)
+                        {
+                            auToPreparedSpells.Add(spell);
+                            if (!allSpells.Contains(spell))
+                            {
+                                // If a spell is not in all spells it won't be shown in the UI.
+                                // Add the auto prepared spells here to make sure the user sees them.
+                                allSpells.Add(spell);
+                            }
+                        }
                     }
                 }
             }
