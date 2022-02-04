@@ -18,6 +18,8 @@ namespace SolastaCommunityExpansion.Viewers
 
         public int Priority => 40;
 
+        private static bool IsUnityExplorerEnabled { get; set; }
+
         private static int selectedPane;
 
         private static readonly NamedAction[] actions =
@@ -46,9 +48,24 @@ namespace SolastaCommunityExpansion.Viewers
 
         public static void DisplayHelpAndCredits()
         {
+            EnableUnityExplorerUi();
             AddDumpDescriptionToLogButton();
             DisplayLevel20Help();
             DisplayCredits();
+        }
+
+        private static void EnableUnityExplorerUi()
+        {
+            UI.Label("");
+
+            UI.ActionButton("Enable the Unity Explorer UI", () =>
+            {
+                if (!IsUnityExplorerEnabled)
+                {
+                    IsUnityExplorerEnabled = true;
+                    UnityExplorer.ExplorerStandalone.CreateInstance();
+                }
+            });
         }
 
         [Conditional("DEBUG")]

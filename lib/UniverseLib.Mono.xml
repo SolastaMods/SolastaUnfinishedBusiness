@@ -1,0 +1,1245 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UniverseLib.Mono</name>
+    </assembly>
+    <members>
+        <member name="T:UniverseLib.Config.ConfigManager">
+            <summary>
+            Contains properties used by UniverseLib to act as a "config", although it is not really a full config implementation. Changing 
+            property values in this class has a direct and immediate effect on UniverseLib.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Config.ConfigManager.LoadConfig(UniverseLib.Config.UniverseLibConfig)">
+            <summary>
+            Applies the values from the provided <paramref name="config"/> which are not null.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.Config.ConfigManager.Disable_EventSystem_Override">
+            <summary>If true, disables UniverseLib from overriding the EventSystem from the game when a UniversalUI is in use.</summary>
+        </member>
+        <member name="P:UniverseLib.Config.ConfigManager.Force_Unlock_Mouse">
+            <summary>If true, attempts to force-unlock the mouse (<see cref="T:UnityEngine.Cursor"/>) when a UniversalUI is in use.</summary>
+        </member>
+        <member name="P:UniverseLib.Config.ConfigManager.Unhollowed_Modules_Folder">
+            <summary>For IL2CPP games, this should be the full path to a folder containing the Unhollowed assemblies.
+            This property is only used during the intial startup process.</summary>
+        </member>
+        <member name="F:UniverseLib.Config.UniverseLibConfig.Disable_EventSystem_Override">
+            <summary>If true, disables UniverseLib from overriding the EventSystem from the game when a UniversalUI is in use.</summary>
+        </member>
+        <member name="F:UniverseLib.Config.UniverseLibConfig.Force_Unlock_Mouse">
+            <summary>If true, attempts to force-unlock the mouse (<see cref="T:UnityEngine.Cursor"/>) when a UniversalUI is in use.</summary>
+        </member>
+        <member name="F:UniverseLib.Config.UniverseLibConfig.Unhollowed_Modules_Folder">
+            <summary>For IL2CPP games, this should be the full path to a folder containing the Unhollowed assemblies.</summary>
+        </member>
+        <member name="T:UniverseLib.Input.CursorUnlocker">
+            <summary>
+            Handles taking control of the mouse/cursor and EventSystem (depending on Config settings) when a UniversalUI is being used.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.Input.CursorUnlocker.ShouldUnlock">
+            <summary>
+            True if a UI is being displayed and <see cref="P:UniverseLib.Config.ConfigManager.Force_Unlock_Mouse"/> is true.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.Input.CursorUnlocker.CurrentEventSystem">
+            <summary>
+            The value of "EventSystem.current", or "EventSystem.main" in some older games.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Input.CursorUnlocker.UnlockCoroutine">
+            <summary>
+            Uses WaitForEndOfFrame in a Coroutine to aggressively set the Cursor state every frame.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Input.CursorUnlocker.UpdateCursorControl">
+            <summary>
+            Checks current ShouldUnlock state and sets the Cursor and EventSystem as required.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Input.CursorUnlocker.EnableEventSystem">
+            <summary>
+            If the UniverseLib EventSystem is not enabled, this enables it and sets EventSystem.current to it, and stores the previous EventSystem.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Input.CursorUnlocker.ReleaseEventSystem">
+            <summary>
+            If the UniverseLib EventSystem is enabled, this disables it and sets EventSystem.current to the previous EventSystem which was enabled.
+            </summary>
+        </member>
+        <member name="T:UniverseLib.Input.IHandleInput">
+            <summary>
+            Interface for handling Unity Input API.
+            </summary>
+        </member>
+        <member name="T:UniverseLib.Input.InputManager">
+            <summary>
+            A universal Input handler which works with both legacy Input and the new InputSystem.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.Input.InputManager.CurrentType">
+            <summary>
+            The current Input package which is being used by the game.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.Input.InputManager.MousePosition">
+            <summary>
+            The current user Cursor position, with (0,0) being the bottom-left of the game display window.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.Input.InputManager.MouseScrollDelta">
+            <summary>
+            The current mouse scroll delta from this frame. x is horizontal, y is vertical.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Input.InputManager.GetKeyDown(UnityEngine.KeyCode)">
+            <summary>
+            Returns true if the provided KeyCode was pressed this frame. Translates KeyCodes into Key if InputSystem is being used.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Input.InputManager.GetKey(UnityEngine.KeyCode)">
+            <summary>
+            Returns true if the provided KeyCode is being held down (not necessarily just pressed). Translates KeyCodes into Key if InputSystem is being used.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Input.InputManager.GetMouseButtonDown(System.Int32)">
+            <summary>
+            Returns true if the provided mouse button was pressed this frame. 0 is left click, 1 is right button, 2 is middle button, etc.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Input.InputManager.GetMouseButton(System.Int32)">
+            <summary>
+            Returns true if the provided mouse button is being held down (not necessarily just pressed). 0 is left click, 1 is right button, 2 is middle button, etc.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.Input.InputManager.UIInput">
+            <summary>
+            The current BaseInputModule being used for the UI.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.Input.InputManager.Rebinding">
+            <summary>
+            Whether anything is currently using the Rebinding feature.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.Input.InputManager.LastRebindKey">
+            <summary>
+            The last pressed Key during rebinding.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Input.InputManager.BeginRebind(System.Action{UnityEngine.KeyCode},System.Action{System.Nullable{UnityEngine.KeyCode}})">
+            <summary>
+            Begins the Rebinding process, keys pressed will be recorded. Call <see cref="M:UniverseLib.Input.InputManager.EndRebind"/> to finish rebinding.
+            </summary>
+            <param name="onSelection">Will be invoked whenever any key is pressed, even if rebinding has not finished yet.</param>
+            <param name="onFinished">Invoked when EndRebind is called.</param>
+        </member>
+        <member name="M:UniverseLib.Input.InputManager.EndRebind">
+            <summary>
+            Call this to finish Rebinding. The onFinished Action supplied to <see cref="M:UniverseLib.Input.InputManager.BeginRebind(System.Action{UnityEngine.KeyCode},System.Action{System.Nullable{UnityEngine.KeyCode}})"/> will be invoked if we are currently Rebinding.
+            </summary>
+        </member>
+        <member name="T:UniverseLib.Runtime.AmbiguousMemberHandler`2">
+            <summary>
+            Handles getting/setting arbitrary field/property members which may have different names or member types in different Unity versions.
+            </summary>
+            <typeparam name="TClass">The containing Type for the member.</typeparam>
+            <typeparam name="TValue">The Type of the value for the member.</typeparam>
+        </member>
+        <member name="M:UniverseLib.Runtime.AmbiguousMemberHandler`2.GetValue(System.Object)">
+            <summary>
+            Gets the value of a non-static (instance) value from the provided instance.
+            </summary>
+            <param name="instance">The instance to get from.</param>
+            <returns>The value from the member, if successful.</returns>
+        </member>
+        <member name="M:UniverseLib.Runtime.AmbiguousMemberHandler`2.GetValue">
+            <summary>
+            Gets the value of a static member.
+            </summary>
+            <returns>The value from the member, if successful.</returns>
+        </member>
+        <member name="M:UniverseLib.Runtime.AmbiguousMemberHandler`2.SetValue(System.Object,`1)">
+            <summary>
+            Sets the value of a non-static (instance) member.
+            </summary>
+            <param name="instance">The instance to set to.</param>
+            <param name="value">The value to set to the instance.</param>
+        </member>
+        <member name="M:UniverseLib.Runtime.AmbiguousMemberHandler`2.SetValue(`1)">
+            <summary>
+            Sets the value of a static member.
+            </summary>
+            <param name="value">The value to set to the instance.</param>
+        </member>
+        <member name="M:UniverseLib.Runtime.Mono.MonoProvider.Internal_StartCoroutine(System.Collections.IEnumerator)">
+            <inheritdoc/>
+        </member>
+        <member name="M:UniverseLib.Runtime.Mono.MonoProvider.Internal_StopCoroutine(UnityEngine.Coroutine)">
+            <inheritdoc/>
+        </member>
+        <member name="M:UniverseLib.Runtime.Mono.MonoProvider.Internal_AddComponent``1(UnityEngine.GameObject,System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:UniverseLib.Runtime.Mono.MonoProvider.Internal_CreateScriptable(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:UniverseLib.Runtime.Mono.MonoProvider.Internal_GraphicRaycast(UnityEngine.UI.GraphicRaycaster,UnityEngine.EventSystems.PointerEventData,System.Collections.Generic.List{UnityEngine.EventSystems.RaycastResult})">
+            <inheritdoc/>
+        </member>
+        <member name="M:UniverseLib.Runtime.Mono.MonoProvider.Internal_LayerToName(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:UniverseLib.Runtime.Mono.MonoProvider.Internal_FindObjectsOfTypeAll(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:UniverseLib.Runtime.Mono.MonoProvider.Internal_GetRootGameObjects(UnityEngine.SceneManagement.Scene)">
+            <inheritdoc/>
+        </member>
+        <member name="M:UniverseLib.Runtime.Mono.MonoProvider.Internal_GetRootCount(UnityEngine.SceneManagement.Scene)">
+            <inheritdoc/>
+        </member>
+        <member name="M:UniverseLib.Runtime.Mono.MonoProvider.Internal_SetColorBlock(UnityEngine.UI.Selectable,UnityEngine.UI.ColorBlock)">
+            <inheritdoc/>
+        </member>
+        <member name="M:UniverseLib.Runtime.Mono.MonoProvider.Internal_SetColorBlock(UnityEngine.UI.Selectable,System.Nullable{UnityEngine.Color},System.Nullable{UnityEngine.Color},System.Nullable{UnityEngine.Color},System.Nullable{UnityEngine.Color})">
+            <inheritdoc/>
+        </member>
+        <member name="M:UniverseLib.Runtime.Mono.MonoTextureHelper.Internal_Blit(UnityEngine.Texture2D,UnityEngine.RenderTexture)">
+            <inheritdoc/>
+        </member>
+        <member name="M:UniverseLib.Runtime.Mono.MonoTextureHelper.Internal_CreateSprite(UnityEngine.Texture2D)">
+            <inheritdoc/>
+        </member>
+        <member name="M:UniverseLib.Runtime.Mono.MonoTextureHelper.Internal_CreateSprite(UnityEngine.Texture2D,UnityEngine.Rect,UnityEngine.Vector2,System.Single,System.UInt32,UnityEngine.Vector4)">
+            <inheritdoc/>
+        </member>
+        <member name="M:UniverseLib.Runtime.Mono.MonoTextureHelper.Internal_NewTexture2D(System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:UniverseLib.Runtime.Mono.MonoTextureHelper.Internal_EncodeToPNG(UnityEngine.Texture2D)">
+            <inheritdoc/>
+        </member>
+        <member name="T:UniverseLib.Runtime.TextureHelper">
+            <summary>
+            Helper class for working with <see cref="T:UnityEngine.Texture2D"/>s, including some runtime-specific helpers and some general utility.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Runtime.TextureHelper.EncodeToPNG(UnityEngine.Texture2D)">
+            <summary>
+            Helper for invoking Unity's <c>ImageConversion.EncodeToPNG</c> method.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Runtime.TextureHelper.NewTexture2D(System.Int32,System.Int32)">
+            <summary>
+            Helper for creating a new <see cref="T:UnityEngine.Texture2D"/>.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Runtime.TextureHelper.Blit(UnityEngine.Texture2D,UnityEngine.RenderTexture)">
+            <summary>
+            Helper for calling Unity's <see cref="M:UnityEngine.Graphics.Blit(UnityEngine.Texture,UnityEngine.RenderTexture)"/> method.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Runtime.TextureHelper.CreateSprite(UnityEngine.Texture2D)">
+            <summary>
+            Helper for creating a <see cref="T:UnityEngine.Sprite" /> from the provided <paramref name="texture"/>.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Runtime.TextureHelper.CreateSprite(UnityEngine.Texture2D,UnityEngine.Rect,UnityEngine.Vector2,System.Single,System.UInt32,UnityEngine.Vector4)">
+            <summary>
+            Helper for creating a <see cref="T:UnityEngine.Sprite" /> from the provided <paramref name="texture"/>.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Runtime.TextureHelper.IsReadable(UnityEngine.Texture2D)">
+            <summary>
+            Helper for checking <c>Texture2D.isReadable</c>.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Runtime.TextureHelper.Copy(UnityEngine.Texture2D)">
+            <summary>
+            Creates a pixel copy of the provided <paramref name="orig"/>.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Runtime.TextureHelper.Copy(UnityEngine.Texture2D,UnityEngine.Rect)">
+            <summary>
+            Creates a pixel copy of the provided <paramref name="orig"/>, within the <paramref name="rect"/> dimensions.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Runtime.TextureHelper.ForceReadTexture(UnityEngine.Texture2D,UnityEngine.Rect)">
+            <summary>
+            Copies the provided <paramref name="origTex"/> into a readable <see cref="T:UnityEngine.Texture2D"/>.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Runtime.TextureHelper.SaveTextureAsPNG(UnityEngine.Texture2D,System.String,System.String)">
+            <summary>
+            Saves the provided <paramref name="tex"/> as a PNG file, into the provided <paramref name="dir"/> as "<paramref name="name"/>.png"
+            </summary>
+        </member>
+        <member name="T:UniverseLib.UI.ObjectPool.IPooledObject">
+            <summary>
+            An object which can be pooled by a <see cref="T:UniverseLib.UI.ObjectPool.Pool"/>.
+            </summary>
+        </member>
+        <member name="T:UniverseLib.UI.ObjectPool.Pool">
+            <summary>
+            Abstract base class to handle interfacing with a generic <see cref="T:UniverseLib.UI.ObjectPool.Pool`1"/>, without the generic parameter at compile time.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.ObjectPool.Pool.Borrow(System.Type)">
+            <summary>
+            Borrow an object from the pool, creating a new object if none are available.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.ObjectPool.Pool.Borrow``1">
+            <summary>
+            Borrow an object from the pool, creating a new object if none are available.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.ObjectPool.Pool.Return(System.Type,UniverseLib.UI.ObjectPool.IPooledObject)">
+            <summary>
+            Return the object to the pool.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.ObjectPool.Pool.Return``1(``0)">
+            <summary>
+            Return the object to the pool.
+            </summary>
+        </member>
+        <member name="T:UniverseLib.UI.ObjectPool.Pool`1">
+            <summary>
+            Handles object pooling for all <typeparamref name="T"/> objects. Each <typeparamref name="T"/> has its own <see cref="T:UniverseLib.UI.ObjectPool.Pool`1"/> instance.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.ObjectPool.Pool`1.Borrow">
+            <summary>
+            Borrow an object from the pool, creating a new object if none are available.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.ObjectPool.Pool`1.Return(`0)">
+            <summary>
+            Return the object to the pool.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.ObjectPool.Pool`1.InactiveHolder">
+            <summary>
+            Holds all returned objects in the pool.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.ObjectPool.Pool`1.DefaultHeight">
+            <summary>
+            Optional default height for the object, necessary if this object can be used by a <see cref="T:UniverseLib.UI.Widgets.ScrollView.ScrollPool`1"/>.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.ObjectPool.Pool`1.AvailableCount">
+            <summary>
+            How many objects are available in the pool.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.ObjectPool.Pool`1.BorrowObject">
+            <summary>
+            Borrow an object from the pool, creating a new object if none are available. 
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.ObjectPool.Pool`1.ReturnObject(`0)">
+            <summary>
+            Return the object to the pool.
+            </summary>
+        </member>
+        <member name="T:UniverseLib.UI.UIBase">
+            <summary>
+            A simple wrapper to handle a UI created with <see cref="M:UniverseLib.UI.UniversalUI.RegisterUI(System.String,System.Action)"/>.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.UIBase.Enabled">
+            <summary>
+            Whether this UI is currently being displayed or not. Disabled UIs will not receive Update calls.
+            </summary>
+        </member>
+        <member name="T:UniverseLib.UI.UniversalUI">
+            <summary>
+            Handles all <see cref="T:UniverseLib.UI.UIBase"/> UIs on the UniverseLib UI canvas.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.UniversalUI.Initializing">
+            <summary>
+            Returns true if UniverseLib is currently initializing it's UI.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.UniversalUI.AnyUIShowing">
+            <summary>
+            Returns true if any <see cref="T:UniverseLib.UI.UIBase"/> is being displayed.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.UniversalUI.CanvasRoot">
+            <summary>
+            The UniverseLib global Canvas root.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.UniversalUI.EventSys">
+            <summary>
+            The UniverseLib global EventSystem.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.UniversalUI.ConsoleFont">
+            <summary>
+            The Consola font asset, if it was successfully loaded.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.UniversalUI.DefaultFont">
+            <summary>
+            The default font asset.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.UniversalUI.BackupShader">
+            <summary>
+            The backup UI shader, if it was loaded.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.UniversalUI.EnabledButtonColor">
+            <summary>
+            The default color used by UniverseLib for enabled buttons.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.UniversalUI.DisabledButtonColor">
+            <summary>
+            The default color used by UniverseLib for disabled buttons.
+            </summary>
+        </member>
+        <member name="F:UniverseLib.UI.UniversalUI.MAX_INPUTFIELD_CHARS">
+            <summary>
+            A safe value for the maximum amount of characters allowed in an InputField.
+            </summary>
+        </member>
+        <member name="F:UniverseLib.UI.UniversalUI.MAX_TEXT_VERTS">
+            <summary>
+            The maximum amount of vertices allowed in an InputField's UI mesh.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.UniversalUI.RegisterUI(System.String,System.Action)">
+            <summary>
+            Create and register a <see cref="T:UniverseLib.UI.UIBase"/> with the provided ID, and optional update method.
+            </summary>
+            <param name="id">A unique ID for your UI.</param>
+            <param name="updateMethod">An optional method to receive Update calls with, invoked when your UI is displayed.</param>
+            <returns>Your newly created <see cref="T:UniverseLib.UI.UIBase"/>, if successful.</returns>
+        </member>
+        <member name="M:UniverseLib.UI.UniversalUI.SetUIActive(System.String,System.Boolean)">
+            <summary>
+            Sets the <see cref="T:UniverseLib.UI.UIBase"/> with the corresponding <paramref name="id"/> to be active or disabled.
+            </summary>
+        </member>
+        <member name="T:UniverseLib.UI.Models.ButtonRef">
+            <summary>
+            A simple helper class to handle a button's OnClick more effectively, along with some helpers.
+            </summary>
+        </member>
+        <member name="F:UniverseLib.UI.Models.ButtonRef.OnClick">
+            <summary>
+            Invoked when the Button is clicked.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.Models.ButtonRef.Component">
+            <summary>
+            The actual Button component this object is a reference to.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.Models.ButtonRef.ButtonText">
+            <summary>
+            The Text component on the button.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.Models.ButtonRef.GameObject">
+            <summary>
+            The GameObject this Button is attached to.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.Models.ButtonRef.Transform">
+            <summary>
+            The RectTransform for this Button.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.Models.ButtonRef.Enabled">
+            <summary>
+            Helper for <c>Button.enabled</c>.
+            </summary>
+        </member>
+        <member name="T:UniverseLib.UI.Models.InputFieldRef">
+            <summary>
+            A simple wrapper class for working with InputFields, with some helpers and performance improvements.
+            </summary>
+        </member>
+        <member name="E:UniverseLib.UI.Models.InputFieldRef.OnValueChanged">
+            <summary>
+            Invoked at most once per frame, if the input was changed in the previous frame.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.Models.InputFieldRef.Component">
+            <summary>
+            The actual InputField component which this object is a reference to.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.Models.InputFieldRef.PlaceholderText">
+            <summary>
+            The placeholder Text component.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.Models.InputFieldRef.UIRoot">
+            <summary>
+            The GameObject which the InputField is attached to.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.Models.InputFieldRef.GameObject">
+            <summary>
+            The GameObject which the InputField is attached to.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.Models.InputFieldRef.Transform">
+            <summary>
+            The RectTransform for this InputField.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.Models.InputFieldRef.Text">
+            <summary>
+            The Text set to the InputField.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.Models.InputFieldRef.TextGenerator">
+            <summary>
+            A reference to the InputField's cachedInputTextGenerator.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.Models.InputFieldRef.ReachedMaxVerts">
+            <summary>
+            Returns true if the InputField's vertex count has reached the <see cref="F:UniverseLib.UI.UniversalUI.MAX_TEXT_VERTS"/> limit.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.Models.InputFieldRef.ConstructUI(UnityEngine.GameObject)">
+            <summary>
+            Not implemented.
+            </summary>
+        </member>
+        <member name="T:UniverseLib.UI.Models.UIBehaviourModel">
+            <summary>
+            A class which can be used as an abstract UI object, which does not exist as a Component but which can receive Update calls.
+            </summary>
+        </member>
+        <member name="T:UniverseLib.UI.Models.UIModel">
+            <summary>
+            An abstract UI object which does not exist as an actual UI Component, but which may be a reference to one.
+            </summary>
+        </member>
+        <member name="T:UniverseLib.UI.UIFactory">
+            <summary>
+            Helper class to create Unity uGUI UI objects at runtime, as well as use some custom UniverseLib UI classes such as ScrollPool, InputFieldScroller and AutoSliderScrollbar.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.UIFactory.CreateUIObject(System.String,UnityEngine.GameObject,UnityEngine.Vector2)">
+            <summary>
+            Create a simple UI object with a RectTransform. <paramref name="parent"/> can be null.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.UIFactory.SetLayoutElement(UnityEngine.GameObject,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Boolean})">
+            <summary>
+            Get and/or Add a LayoutElement component to the GameObject, and set any of the values on it.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.UIFactory.SetLayoutGroup``1(UnityEngine.GameObject,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{UnityEngine.TextAnchor})">
+            <summary>
+            Get and/or Add a HorizontalOrVerticalLayoutGroup (must pick one) to the GameObject, and set the values on it.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.UIFactory.SetLayoutGroup``1(``0,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{UnityEngine.TextAnchor})">
+            <summary>
+            Set the values on a HorizontalOrVerticalLayoutGroup.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.UIFactory.CreatePanel(System.String,UnityEngine.GameObject,UnityEngine.GameObject@,System.Nullable{UnityEngine.Color})">
+            <summary>
+            Create a simple UI Object with a VerticalLayoutGroup and an Image component.
+            </summary>
+            <param name="name">The name of the panel GameObject, useful for debugging purposes</param>
+            <param name="parent">The parent GameObject to attach this to</param>
+            <param name="bgColor">The background color of your panel. Defaults to dark grey if null.</param>
+            <param name="contentHolder">The GameObject which you should add your actual content on to.</param>
+            <returns>The base panel GameObject (not for adding content to).</returns>
+        </member>
+        <member name="M:UniverseLib.UI.UIFactory.CreateVerticalGroup(UnityEngine.GameObject,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32,UnityEngine.Vector4,UnityEngine.Color,System.Nullable{UnityEngine.TextAnchor})">
+            <summary>
+            Create a VerticalLayoutGroup object with an Image component. Use SetLayoutGroup to create one without an image.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.UIFactory.CreateHorizontalGroup(UnityEngine.GameObject,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32,UnityEngine.Vector4,UnityEngine.Color,System.Nullable{UnityEngine.TextAnchor})">
+            <summary>
+            Create a HorizontalLayoutGroup object with an Image component. Use SetLayoutGroup to create one without an image.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.UIFactory.CreateGridGroup(UnityEngine.GameObject,System.String,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color)">
+            <summary>
+            Create a GridLayoutGroup object with an Image component. 
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.UIFactory.CreateLabel(UnityEngine.GameObject,System.String,System.String,UnityEngine.TextAnchor,UnityEngine.Color,System.Boolean,System.Int32)">
+            <summary>
+            Create a Text component.
+            </summary>
+            <param name="parent">The parent object to build onto</param>
+            <param name="name">The GameObject name of your label</param>
+            <param name="defaultText">The default text of the label</param>
+            <param name="alignment">The alignment of the Text component</param>
+            <param name="color">The Text color (default is White)</param>
+            <param name="supportRichText">Should the Text support rich text? (Can be changed afterwards)</param>
+            <param name="fontSize">The default font size</param>
+            <returns>Your new Text component</returns>
+        </member>
+        <member name="M:UniverseLib.UI.UIFactory.CreateButton(UnityEngine.GameObject,System.String,System.String,System.Nullable{UnityEngine.Color})">
+            <summary>
+            Create a ButtonRef wrapper and a Button component, providing only the default Color (highlighted and pressed colors generated automatically).
+            </summary>
+            <param name="parent">The parent object to build onto</param>
+            <param name="name">The GameObject name of your button</param>
+            <param name="text">The default button text</param>
+            <param name="normalColor">The base color for your button, with the highlighted and pressed colors generated from this.</param>
+            <returns>A ButtonRef wrapper for your Button component.</returns>
+        </member>
+        <member name="M:UniverseLib.UI.UIFactory.CreateButton(UnityEngine.GameObject,System.String,System.String,UnityEngine.UI.ColorBlock)">
+            <summary>
+            Create a ButtonRef wrapper and a Button component.
+            </summary>
+            <param name="parent">The parent object to build onto</param>
+            <param name="name">The GameObject name of your button</param>
+            <param name="text">The default button text</param>
+            <param name="colors">The ColorBlock used for your Button component</param>
+            <returns>A ButtonRef wrapper for your Button component.</returns>
+        </member>
+        <member name="M:UniverseLib.UI.UIFactory.CreateSlider(UnityEngine.GameObject,System.String,UnityEngine.UI.Slider@)">
+            <summary>
+            Create a Slider control component.
+            </summary>
+            <param name="parent">The parent object to build onto</param>
+            <param name="name">The GameObject name of your slider</param>
+            <param name="slider">Returns the created Slider component</param>
+            <returns>The root GameObject for your Slider</returns>
+        </member>
+        <member name="M:UniverseLib.UI.UIFactory.CreateScrollbar(UnityEngine.GameObject,System.String,UnityEngine.UI.Scrollbar@)">
+            <summary>
+            Create a standard Unity Scrollbar component.
+            </summary>
+            <param name="parent">The parent object to build onto</param>
+            <param name="name">The GameObject name of your scrollbar</param>
+            <param name="scrollbar">Returns the created Scrollbar component</param>
+            <returns>The root GameObject for your Scrollbar</returns>
+        </member>
+        <member name="M:UniverseLib.UI.UIFactory.CreateToggle(UnityEngine.GameObject,System.String,UnityEngine.UI.Toggle@,UnityEngine.UI.Text@,UnityEngine.Color,System.Int32,System.Int32)">
+            <summary>
+            Create a Toggle control component.
+            </summary>
+            <param name="parent">The parent object to build onto</param>
+            <param name="name">The GameObject name of your toggle</param>
+            <param name="toggle">Returns the created Toggle component</param>
+            <param name="text">Returns the Text component for your Toggle</param>
+            <param name="bgColor">The background color of the checkbox</param>
+            <param name="checkWidth">The width of your checkbox</param>
+            <param name="checkHeight">The height of your checkbox</param>
+            <returns>The root GameObject for your Toggle control</returns>
+        </member>
+        <member name="M:UniverseLib.UI.UIFactory.CreateInputField(UnityEngine.GameObject,System.String,System.String)">
+            <summary>
+            Create a standard InputField control and an InputFieldRef wrapper for it.
+            </summary>
+            <param name="parent">The parent object to build onto</param>
+            <param name="name">The GameObject name of your InputField</param>
+            <param name="placeHolderText">The placeholder text for your InputField component</param>
+            <returns>An InputFieldRef wrapper for your InputField</returns>
+        </member>
+        <member name="M:UniverseLib.UI.UIFactory.CreateDropdown(UnityEngine.GameObject,System.String,UnityEngine.UI.Dropdown@,System.String,System.Int32,System.Action{System.Int32},System.String[])">
+            <summary>
+            Create a standard DropDown control.
+            </summary>
+            <param name="parent">The parent object to build onto</param>
+            <param name="name">The GameObject name of your Dropdown</param>
+            <param name="dropdown">Returns your created Dropdown component</param>
+            <param name="defaultItemText">The default displayed text (suggested is 14)</param>
+            <param name="itemFontSize">The font size of the displayed text</param>
+            <param name="onValueChanged">Invoked when your Dropdown value is changed</param>
+            <param name="defaultOptions">Optional default options for the dropdown</param>
+            <returns>The root GameObject for your Dropdown control</returns>
+        </member>
+        <member name="M:UniverseLib.UI.UIFactory.CreateScrollPool``1(UnityEngine.GameObject,System.String,UnityEngine.GameObject@,UnityEngine.GameObject@,System.Nullable{UnityEngine.Color})">
+            <summary>
+            Create a ScrollPool for the <typeparamref name="T"/> ICell. You should call scrollPool.Initialize(handler) after this.
+            </summary>
+            <typeparam name="T">The ICell type which will be used for the ScrollPool.</typeparam>
+            <param name="parent">The parent GameObject which the ScrollPool will be built on to.</param>
+            <param name="name">The GameObject name for your ScrollPool</param>
+            <param name="uiRoot">Returns the root GameObject for your ScrollPool</param>
+            <param name="content">Returns the content GameObject for your ScrollPool (where cells will be populated)</param>
+            <param name="bgColor">The background color for your ScrollPool. If default, it will be dark grey.</param>
+            <returns>Your created ScrollPool instance.</returns>
+        </member>
+        <member name="M:UniverseLib.UI.UIFactory.CreateSliderScrollbar(UnityEngine.GameObject,UnityEngine.UI.Slider@)">
+            <summary>
+            Create a SliderScrollbar, using a Slider to mimic a Scrollbar. This fixes several issues with Unity's Scrollbar implementation.<br/><br/>
+            
+            Note that this will not have any actual functionality. Use this along with an <see cref="T:UniverseLib.UI.Widgets.AutoSliderScrollbar"/> to automate the functionality.
+            </summary>
+            <param name="parent">The parent to create on to.</param>
+            <param name="slider">Your created Slider component</param>
+            <returns>The root GameObject for your SliderScrollbar.</returns>
+        </member>
+        <member name="M:UniverseLib.UI.UIFactory.CreateScrollView(UnityEngine.GameObject,System.String,UnityEngine.GameObject@,UniverseLib.UI.Widgets.AutoSliderScrollbar@,UnityEngine.Color)">
+            <summary>
+            Create a ScrollView and a SliderScrollbar for non-pooled content.
+            </summary>
+            <param name="parent">The parent GameObject to build on to.</param>
+            <param name="name">The GameObject name for your ScrollView.</param>
+            <param name="content">The GameObject for your content to be placed on.</param>
+            <param name="autoScrollbar">A created AutoSliderScrollbar instance for your ScrollView.</param>
+            <param name="color">The background color, defaults to grey.</param>
+            <returns>The root GameObject for your ScrollView.</returns>
+        </member>
+        <member name="M:UniverseLib.UI.UIFactory.CreateScrollInputField(UnityEngine.GameObject,System.String,System.String,UniverseLib.UI.Widgets.InputFieldScroller@,System.Int32,UnityEngine.Color)">
+            <summary>
+            Create a Scrollable Input Field control, using an AutoSliderScrollbar for the scroll bar.
+            </summary>
+            <param name="parent">The parent GameObject to build on to.</param>
+            <param name="name">The GameObject name for your InputField.</param>
+            <param name="placeHolderText">Optional placeholder text for your InputField</param>
+            <param name="inputScroll">An InputFieldScroller, you don't need to do anything with this necessarily, it will automate itself.</param>
+            <param name="fontSize">The font size for your InputField</param>
+            <param name="color">The text color for your InputField</param>
+            <returns>The root GameObject for your ScrollInputField</returns>
+        </member>
+        <member name="T:UniverseLib.UI.Widgets.AutoSliderScrollbar">
+            <summary>
+            A scrollbar which automatically resizes itself (and its handle) depending on the size of the content and viewport.
+            </summary>
+        </member>
+        <member name="T:UniverseLib.UI.Widgets.ButtonList.ButtonCell">
+            <summary>
+            Represents the base cell used by a <see cref="T:UniverseLib.UI.Widgets.ButtonList.ButtonListHandler`2"/>.
+            </summary>
+        </member>
+        <member name="T:UniverseLib.UI.Widgets.ButtonList.ButtonListHandler`2">
+            <summary>
+            A helper to create and handle a simple <see cref="T:UniverseLib.UI.Widgets.ScrollView.ScrollPool`1"/> of Buttons, which can be backed by any data.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.Widgets.ButtonList.ButtonListHandler`2.#ctor(UniverseLib.UI.Widgets.ScrollView.ScrollPool{`1},System.Func{System.Collections.Generic.List{`0}},System.Action{`1,System.Int32},System.Func{`0,System.String,System.Boolean},System.Action{System.Int32})">
+            <summary>
+            Create a wrapper to handle your Button ScrollPool.
+            </summary>
+            <param name="scrollPool">The ScrollPool&lt;ButtonCell&gt; you have already created.</param>
+            <param name="getEntriesMethod">A method which should return your current data values.</param>
+            <param name="setICellMethod">A method which should set the data at the int index to the cell.</param>
+            <param name="shouldDisplayMethod">A method which should determine if the data at the index should be displayed, with an optional string filter from CurrentFilter.</param>
+            <param name="onCellClickedMethod">A method invoked when a cell is clicked, containing the data index assigned to the cell.</param>
+        </member>
+        <member name="T:UniverseLib.UI.Widgets.InputFieldScroller">
+            <summary>
+            A wrapper for a scrollable InputField created with <see cref="M:UniverseLib.UI.UIFactory.CreateScrollInputField(UnityEngine.GameObject,System.String,System.String,UniverseLib.UI.Widgets.InputFieldScroller@,System.Int32,UnityEngine.Color)"/>.<br/><br/>
+            
+            This is otherwise a normal InputField, but which handles scrolling more nicely than a vanilla one.
+            </summary>
+        </member>
+        <member name="F:UniverseLib.UI.Widgets.InputFieldScroller.OnScroll">
+            <summary>
+            Invoked whenever this InputField is scrolled through (ie, 
+            </summary>
+        </member>
+        <member name="T:UniverseLib.UI.Widgets.ScrollView.DataHeightCache`1">
+            <summary>
+            Used to handle the underlying height data for a scroll pool, tracking which data values are at which position and how far they span.<br/><br/>
+            
+            A DataHeightCache is created and managed automatically by a ScrollPool, you do not need to use this class yourself.
+            </summary>
+        </member>
+        <member name="F:UniverseLib.UI.Widgets.ScrollView.DataHeightCache`1.rangeCache">
+            <summary>
+            Lookup table for "which data index first appears at this position"<br/>
+            Index: DefaultHeight * index from top of data<br/>
+            Value: the first data index at this position<br/>
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.Widgets.ScrollView.DataHeightCache`1.GetRangeCeilingOfPosition(System.Single)">
+            <summary>Same as GetRangeIndexOfPosition, except this rounds up to the next division if there was remainder from the previous cell.</summary>
+        </member>
+        <member name="M:UniverseLib.UI.Widgets.ScrollView.DataHeightCache`1.GetRangeFloorOfPosition(System.Single)">
+            <summary>Get the first range (division of DefaultHeight) which the position appears in.</summary>
+        </member>
+        <member name="M:UniverseLib.UI.Widgets.ScrollView.DataHeightCache`1.GetRangeSpread(System.Single,System.Single)">
+            <summary>
+            Get the spread of the height, starting from the start position.<br/><br/>
+            The "spread" begins at the start of the next interval of the DefaultHeight, then increases for
+            every interval beyond that.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.Widgets.ScrollView.DataHeightCache`1.Add(System.Single)">
+            <summary>Append a data index to the cache with the provided height value.</summary>
+        </member>
+        <member name="M:UniverseLib.UI.Widgets.ScrollView.DataHeightCache`1.RemoveLast">
+            <summary>Remove the last (highest count) index from the height cache.</summary>
+        </member>
+        <member name="M:UniverseLib.UI.Widgets.ScrollView.DataHeightCache`1.SetIndex(System.Int32,System.Single)">
+            <summary>Set a given data index with the specified value.</summary>
+        </member>
+        <member name="T:UniverseLib.UI.Widgets.ScrollView.ICellPoolDataSource`1">
+            <summary>
+            A data source for a ScrollPool.
+            </summary>
+        </member>
+        <member name="T:UniverseLib.UI.Widgets.ScrollView.ScrollPool`1">
+            <summary>
+            An object-pooled ScrollRect, attempts to support content of any size and provide a scrollbar for it.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.Widgets.ScrollView.ScrollPool`1.DataSource">
+            <summary>
+            The data source backing this scroll pool.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.Widgets.ScrollView.ScrollPool`1.CellPool">
+            <summary>
+            The cells used by this ScrollPool.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.Widgets.ScrollView.ScrollPool`1.UIRoot">
+            <summary>
+            The GameObject which the ScrollRect is attached to.
+            </summary>
+        </member>
+        <member name="F:UniverseLib.UI.Widgets.ScrollView.ScrollPool`1.bottomDataIndex">
+            <summary>
+            The first and last pooled indices relative to the DataSource's list
+            </summary>
+        </member>
+        <member name="F:UniverseLib.UI.Widgets.ScrollView.ScrollPool`1.topPoolIndex">
+            <summary>
+            The first and last indices of our CellPool in the transform heirarchy
+            </summary>
+        </member>
+        <member name="F:UniverseLib.UI.Widgets.ScrollView.ScrollPool`1.bottomPoolIndex">
+            <summary>
+            The first and last indices of our CellPool in the transform heirarchy
+            </summary>
+        </member>
+        <member name="F:UniverseLib.UI.Widgets.ScrollView.ScrollPool`1.writingLockedListeners">
+            <summary>
+            Global listeners to determine whether any ScrollPool should be in a readonly state or not. Add to this only if you understand what it does.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.UI.Widgets.ScrollView.ScrollPool`1.WritingLocked">
+            <summary>
+            If true, prevents the ScrollPool for writing any values, essentially making it readonly.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.Widgets.ScrollView.ScrollPool`1.Update">
+            <summary>
+            Invoked by UIBehaviourModel.UpdateInstances
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.Widgets.ScrollView.ScrollPool`1.Refresh(System.Boolean,System.Boolean)">
+            <summary>
+            Refresh the ScrollPool, optionally forcing a rebuild of cell data, and optionally jumping to the top.
+            </summary>
+            <param name="setCellData">If true, will call SetCell for the data source on each displayed cell.</param>
+            <param name="jumpToTop">If true, will jump to the top of the data.</param>
+        </member>
+        <member name="M:UniverseLib.UI.Widgets.ScrollView.ScrollPool`1.JumpToIndex(System.Int32,System.Action{`0})">
+            <summary>
+            Jump to the cell at the provided index, and invoke onJumped after completion.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.Widgets.ScrollView.ScrollPool`1.Initialize(UniverseLib.UI.Widgets.ScrollView.ICellPoolDataSource{`0},System.Action)">
+            <summary>Should be called only once, when the scroll pool is created.</summary>
+        </member>
+        <member name="M:UniverseLib.UI.Widgets.ScrollView.ScrollPool`1.CheckRecycleViewBounds(System.Boolean)">
+            <summary>
+            Returns true if the viewport changed height since last check.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.UI.Widgets.ScrollView.ScrollPool`1.ConstructUI(UnityEngine.GameObject)">
+            <summary>Use <see cref="M:UniverseLib.UI.UIFactory.CreateScrollPool``1(UnityEngine.GameObject,System.String,UnityEngine.GameObject@,UnityEngine.GameObject@,System.Nullable{UnityEngine.Color})"/></summary>
+        </member>
+        <member name="T:UniverseLib.UniversalBehaviour">
+            <summary>
+            Used for receiving Update events and starting Coroutines.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.ReflectionExtensions.GetActualType(System.Object)">
+            <summary>
+            Get the true underlying Type of the provided object.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.ReflectionExtensions.TryCast(System.Object)">
+            <summary>
+            Attempt to cast the provided object to it's true underlying Type.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.ReflectionExtensions.TryCast(System.Object,System.Type)">
+            <summary>
+            Attempt to cast the provided object to the provided Type <paramref name="castTo"/>.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.ReflectionExtensions.TryCast``1(System.Object)">
+            <summary>
+            Attempt to cast the provided object to Type <typeparamref name="T"/>.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.ReflectionExtensions.TryGetTypes(System.Reflection.Assembly)">
+            <summary>
+            Safely try to get all Types inside an Assembly, catching any and all exceptions, and with fallback methods should exceptions occur.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.ReflectionExtensions.ReferenceEqual(System.Object,System.Object)">
+            <summary>
+            Check if the two objects are reference-equal, including checking for UnityEngine.Object-equality and Il2CppSystem.Object-equality.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.ReflectionExtensions.ReflectionExToString(System.Exception,System.Boolean)">
+            <summary>
+            Helper to display a simple "{ExceptionType}: {Message}" of the exception, and optionally use the inner-most exception.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.ReflectionExtensions.GetInnerMostException(System.Exception)">
+            <summary>
+            Get the inner-most exception from the provided exception, if there are any. This is recursive.
+            </summary>
+            <param name="e"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniverseLib.ReflectionUtility">
+            <summary>
+            Helper class for general Reflection API.
+            </summary>
+        </member>
+        <member name="F:UniverseLib.ReflectionUtility.FLAGS">
+            <summary>
+            Shorthand for BF.Public | BF.Instance | BF.NonPublic | BF.Static
+            </summary>
+        </member>
+        <member name="F:UniverseLib.ReflectionUtility.AllTypes">
+            <summary>Key: Type.FullName</summary>
+        </member>
+        <member name="M:UniverseLib.ReflectionUtility.GetTypeByName(System.String)">
+            <summary>
+            Find a <see cref="T:System.Type"/> in the current AppDomain whose <see cref="P:System.Type.FullName"/> matches the provided <paramref name="fullName"/>.
+            </summary>
+            <param name="fullName">The <see cref="P:System.Type.FullName"/> you want to search for - case sensitive and full matches only.</param>
+            <returns>The Type if found, otherwise null.</returns>
+        </member>
+        <member name="M:UniverseLib.ReflectionUtility.ProcessTypeInString(System.Type,System.String)">
+            <summary>
+            Sanitize <paramref name="theString"/> which contains the obfuscated name of the provided <paramref name="type"/>. Returns the sanitized string.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.ReflectionUtility.FindSingleton(System.String[],System.Type,System.Reflection.BindingFlags,System.Collections.Generic.List{System.Object})">
+            <summary>
+            Used by UnityExplorer's Singleton search. Checks all <paramref name="possibleNames"/> as field members (and properties in IL2CPP) for instances of the <paramref name="type"/>, 
+            and populates the <paramref name="instances"/> list with non-null values.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.ReflectionUtility.GetAllBaseTypes(System.Object)">
+            <summary>
+            Get all base types of the Type of the provided object, including itself.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.ReflectionUtility.GetAllBaseTypes(System.Type)">
+            <summary>
+            Get all base types of the provided Type, including itself.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.ReflectionUtility.GetImplementationKey(System.Type)">
+            <summary>
+            Returns the key used for checking implementations of this type.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.ReflectionUtility.GetImplementationsOf(System.Type,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Get all implementations of the provided type (include itself, if not abstract) in the current AppDomain.
+            Also works for generic parameters by analyzing the constraints.
+            </summary>
+            <param name="baseType">The base type, which can optionally be abstract / interface.</param>
+            <returns>All implementations of the type in the current AppDomain.</returns>
+        </member>
+        <member name="M:UniverseLib.ReflectionUtility.IsEnumerable(System.Type)">
+            <summary>
+            Returns true if the provided type is an IEnumerable, including Il2Cpp IEnumerables.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.ReflectionUtility.TryGetEnumerator(System.Object,System.Collections.IEnumerator@)">
+            <summary>
+            Attempts to get the <see cref="T:System.Collections.IEnumerator"/> from the provided <see cref="T:System.Collections.IEnumerable"/> <paramref name="ienumerable"/>.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.ReflectionUtility.TryGetEntryType(System.Type,System.Type@)">
+            <summary>
+            Attempts to get the entry type (the Type of the entries) from the provided <paramref name="enumerableType"/>.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.ReflectionUtility.IsDictionary(System.Type)">
+            <summary>
+            Returns true if the provided type implements IDictionary, or Il2CPP IDictionary.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.ReflectionUtility.TryGetDictEnumerator(System.Object,System.Collections.Generic.IEnumerator{System.Collections.DictionaryEntry}@)">
+            <summary>
+            Try to get a DictionaryEnumerator for the provided IDictionary.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.ReflectionUtility.TryGetEntryTypes(System.Type,System.Type@,System.Type@)">
+            <summary>
+            Try to get the Type of Keys and Values in the provided dictionary type.
+            </summary>
+        </member>
+        <member name="T:UniverseLib.RuntimeHelper">
+            <summary>
+            Class to help with some differences between Mono and Il2Cpp Runtimes.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.RuntimeHelper.StartCoroutine(System.Collections.IEnumerator)">
+            <summary>
+            Start any <see cref="T:System.Collections.IEnumerator"/> as a <see cref="T:UnityEngine.Coroutine"/>, handled by UniverseLib's <see cref="T:UnityEngine.MonoBehaviour"/> Instance.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.RuntimeHelper.StopCoroutine(UnityEngine.Coroutine)">
+            <summary>
+            Stop a <see cref="T:UnityEngine.Coroutine"/>, which needs to have been started with <see cref="M:UniverseLib.RuntimeHelper.StartCoroutine(System.Collections.IEnumerator)"/>.
+            </summary>
+            <param name="coroutine"></param>
+        </member>
+        <member name="M:UniverseLib.RuntimeHelper.AddComponent``1(UnityEngine.GameObject,System.Type)">
+            <summary>
+            Helper to add a component of Type <paramref name="type"/>, and return it as Type <typeparamref name="T"/> (provided <typeparamref name="T"/> is assignable from <paramref name="type"/>).
+            </summary>
+        </member>
+        <member name="M:UniverseLib.RuntimeHelper.CreateScriptable(System.Type)">
+            <summary>
+            Helper to create an instance of the ScriptableObject of Type <paramref name="type"/>.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.RuntimeHelper.LayerToName(System.Int32)">
+            <summary>
+            Helper to invoke Unity's <see cref="M:UnityEngine.LayerMask.LayerToName(System.Int32)"/> method.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.RuntimeHelper.FindObjectsOfTypeAll``1">
+            <summary>
+            Helper to invoke Unity's <see cref="M:UnityEngine.Resources.FindObjectsOfTypeAll(System.Type)"/> method.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.RuntimeHelper.FindObjectsOfTypeAll(System.Type)">
+            <summary>
+            Helper to invoke Unity's <see cref="!:Resources.FindObjectsOfTypeAll&gt;"/> method.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.RuntimeHelper.GraphicRaycast(UnityEngine.UI.GraphicRaycaster,UnityEngine.EventSystems.PointerEventData,System.Collections.Generic.List{UnityEngine.EventSystems.RaycastResult})">
+            <summary>
+            Helper to invoke Unity's <see cref="M:UnityEngine.UI.GraphicRaycaster.Raycast(UnityEngine.EventSystems.PointerEventData,System.Collections.Generic.List{UnityEngine.EventSystems.RaycastResult})"/> method.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.RuntimeHelper.GetRootGameObjects(UnityEngine.SceneManagement.Scene)">
+            <summary>
+            Helper to invoke Unity's <see cref="M:UnityEngine.SceneManagement.Scene.GetRootGameObjects"/> method.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.RuntimeHelper.GetRootCount(UnityEngine.SceneManagement.Scene)">
+            <summary>
+            Helper to get the value of Unity's <see cref="P:UnityEngine.SceneManagement.Scene.rootCount"/> property.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.RuntimeHelper.SetColorBlockAuto(UnityEngine.UI.Selectable,UnityEngine.Color)">
+            <summary>
+            Automatically sets the base, highlighted and pressed values of the <paramref name="selectable"/>'s <see cref="T:UnityEngine.UI.ColorBlock"/>, 
+            with <paramref name="baseColor"/> * 1.2f for the highlighted color and * 0.8f for the pressed color.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.RuntimeHelper.SetColorBlock(UnityEngine.UI.Selectable,UnityEngine.UI.ColorBlock)">
+            <summary>
+            Sets the <paramref name="colors"/> to the <paramref name="selectable"/>.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.RuntimeHelper.SetColorBlock(UnityEngine.UI.Selectable,System.Nullable{UnityEngine.Color},System.Nullable{UnityEngine.Color},System.Nullable{UnityEngine.Color},System.Nullable{UnityEngine.Color})">
+            <summary>
+            Sets the provided non-<see langword="null"/> colors to the <paramref name="selectable"/>.
+            </summary>
+        </member>
+        <member name="F:UniverseLib.Utility.ArgumentUtility.EmptyTypes">
+            <summary>
+            Equivalent to <c>new Type[0]</c>
+            </summary>
+        </member>
+        <member name="F:UniverseLib.Utility.ArgumentUtility.EmptyArgs">
+            <summary>
+            Equivalent to <c>new object[0]</c>
+            </summary>
+        </member>
+        <member name="F:UniverseLib.Utility.ArgumentUtility.ParseArgs">
+            <summary>
+            Equivalent to <c>new Type[] { typeof(string) }</c>
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Utility.IOUtility.EnsureValidFilePath(System.String)">
+            <summary>
+            Ensures the path contains no invalid characters and that the containing directory exists.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Utility.IOUtility.EnsureValidFilename(System.String)">
+            <summary>
+            Ensures the file name contains no invalid characters.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Utility.MiscUtility.ContainsIgnoreCase(System.String,System.String)">
+            <summary>
+            Check if a string contains another string, case-insensitive.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Utility.MiscUtility.HasFlag(System.Enum,System.Enum)">
+            <summary>
+            Just to allow Enum to do .HasFlag() in NET 3.5
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Utility.MiscUtility.EndsWith(System.Text.StringBuilder,System.String)">
+            <summary>
+            Returns true if the StringBuilder ends with the provided string.
+            </summary>
+        </member>
+        <member name="F:UniverseLib.Utility.ParseUtility.NumberFormatString">
+            <summary>
+            Equivalent to <c>$"0.####"</c>.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Utility.ParseUtility.FormatDecimalSequence(System.Object[])">
+            <summary>
+            Formats the array of float, double or decimal numbers into a formatted string.
+            </summary>
+            <param name="numbers"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniverseLib.Utility.ParseUtility.CanParse(System.Type)">
+            <summary>
+            Returns true if ParseUtility is able to parse the provided Type.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Utility.ParseUtility.TryParse(System.String,System.Type,System.Object@,System.Exception@)">
+            <summary>
+            Attempt to parse the provided input into an object of the provided Type. Returns true if successful, false if not.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Utility.ParseUtility.ToStringForInput(System.Object,System.Type)">
+            <summary>
+            Returns the obj.ToString() result, formatted into the format which ParseUtility would expect for user input.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Utility.ParseUtility.GetExampleInput(System.Type)">
+            <summary>
+            Gets a default example input which can be displayed to users, for example for Vector2 this would return "0 0".
+            </summary>
+        </member>
+        <member name="T:UniverseLib.Utility.SignatureHighlighter">
+            <summary>
+            For Unity rich-text syntax highlighting of Types and Members.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Utility.SignatureHighlighter.Parse(System.Type,System.Boolean,System.Reflection.MemberInfo)">
+            <summary>
+            Highlight the full signature of the Type, including optionally the Namespace, and optionally combined with a MemberInfo.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Utility.SignatureHighlighter.ParseGenericArgs(System.Type[],System.Boolean)">
+            <summary>
+            Highlight the provided Types into a generic-arguments formatted rich-text string, optionally formatted as unbound generic parameters.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Utility.SignatureHighlighter.HighlightMethod(System.Reflection.MethodInfo)">
+            <summary>
+            Highlight the provided method's signature with it's containing Type, and all arguments.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Utility.SignatureHighlighter.GetMemberInfoColor(System.Reflection.MemberInfo,System.Boolean@)">
+            <summary>
+            Get the color used by SignatureHighlighter for the provided member, and whether it is static or not.
+            </summary>
+        </member>
+        <member name="T:UniverseLib.Utility.ToStringUtility">
+            <summary>
+            Provides utility for displaying an object's ToString result in a more user-friendly format.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Utility.ToStringUtility.PruneString(System.String,System.Int32,System.Int32)">
+            <summary>
+            Constrains the provided string to a maximum length, and maximum number of lines.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Utility.ToStringUtility.ToStringWithType(System.Object,System.Type,System.Boolean)">
+            <summary>
+            Returns the ToString result with a rich-text highlighted Type in trailing brackets. 
+            If the object does not implement ToString, then only the trailing highlighted Type will be returned.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Utility.UnityHelpers.OccuredEarlierThanDefault(System.Single)">
+            <summary>
+            Returns true if the provided <paramref name="time"/> occured more than 10ms before <see cref="P:UnityEngine.Time.realtimeSinceStartup"/>.
+            </summary>
+            <param name="time">Should be a value from <see cref="P:UnityEngine.Time.realtimeSinceStartup"/> which you stored earlier.</param>
+        </member>
+        <member name="M:UniverseLib.Utility.UnityHelpers.OccuredEarlierThan(System.Single,System.Single)">
+            <summary>
+            Returns true if the provided <paramref name="time"/> occured at least <paramref name="secondsAgo"/> before <see cref="P:UnityEngine.Time.realtimeSinceStartup"/>.
+            </summary>
+            <param name="time">Should be a value from <see cref="P:UnityEngine.Time.realtimeSinceStartup"/> which you stored earlier.</param>
+        </member>
+        <member name="M:UniverseLib.Utility.UnityHelpers.IsNullOrDestroyed(System.Object,System.Boolean)">
+            <summary>
+            Check if an object is null, and if it's a UnityEngine.Object then also check if it was destroyed.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Utility.UnityHelpers.GetTransformPath(UnityEngine.Transform,System.Boolean)">
+            <summary>
+            Get the full Transform heirarchy path for this provided Transform.
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Utility.UnityHelpers.ToHex(UnityEngine.Color)">
+            <summary>
+            Converts Color to 6-digit RGB hex code (without # symbol). Eg, RGBA(1,0,0,1) -> FF0000
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Utility.UnityHelpers.ToColor(System.String)">
+            <summary>
+            Assumes the string is a 6-digit RGB Hex color code (with optional leading #) which it will parse into a UnityEngine.Color.
+            Eg, FF0000 -> RGBA(1,0,0,1)
+            </summary>
+        </member>
+        <member name="M:UniverseLib.Utility.UnityHelpers.GetOnEndEdit(UnityEngine.UI.InputField)">
+            <summary>
+            Returns the onEndEdit event as a <see cref="T:UnityEngine.Events.UnityEvent`1"/> for greater compatibility with all Unity versions.
+            </summary>
+        </member>
+        <member name="P:UniverseLib.Universe.Context">
+            <summary>The current runtime context (Mono or IL2CPP).</summary>
+        </member>
+        <member name="P:UniverseLib.Universe.CurrentGlobalState">
+            <summary>The current setup state of UniverseLib.</summary>
+        </member>
+        <member name="M:UniverseLib.Universe.Init(System.Action,System.Action{System.String,UnityEngine.LogType})">
+            <summary>
+            Initialize UniverseLib with default settings, if you don't require any finer control over the startup process.
+            </summary>
+            <param name="onInitialized">Invoked after the <c>startupDelay</c>and after UniverseLib has finished initializing.</param>
+            <param name="logHandler">Should be used for printing UniverseLib's own internal logs. Your listener will only be used if no listener has 
+            yet been provided to handle it. It is not required to implement this but it may be useful to diagnose internal errors.</param>
+        </member>
+        <member name="M:UniverseLib.Universe.Init(System.Single,System.Action,System.Action{System.String,UnityEngine.LogType},UniverseLib.Config.UniverseLibConfig)">
+            <summary>
+            Initialize UniverseLib with the provided parameters.
+            </summary>
+            <param name="startupDelay">Will be used only if it is the highest value supplied to this method compared to other assemblies.
+            If another assembly calls this Init method with a higher startupDelay, their value will be used instead.</param>
+            <param name="onInitialized">Invoked after the <paramref name="startupDelay"/> and after UniverseLib has finished initializing.</param>
+            <param name="logHandler">Should be used for printing UniverseLib's own internal logs. Your listener will only be used if no listener has 
+            yet been provided to handle it. It is not required to implement this but it may be useful to diagnose internal errors.</param>
+            <param name="config">Can be used to set certain values of UniverseLib's configuration. Null config values will be ignored.</param>
+        </member>
+    </members>
+</doc>
