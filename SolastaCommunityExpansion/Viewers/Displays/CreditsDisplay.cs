@@ -21,7 +21,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             { "RedOrca", "Path of the Light subclass, Indomitable Might" },
             { "Krisys", "Thug subclass" },
             { "Dreadmaker", "Circle of the Forest Guardian subclass" },
-            { "Narria", "modKit creator, developer" }
+            { "Narria", "modKit creator, developer" },
+            { "sinai-dev", "Unity Explorer UI standalone" }
         };
 
         internal static void DisplayCredits()

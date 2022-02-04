@@ -201,6 +201,23 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
+        internal static void SwitchDruidAllowMetalArmor()
+        {
+            var active = Main.Settings.AllowDruidToWearMetalArmor;
+
+            if (active)
+            {
+                DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Clear();
+            }
+            else
+            {
+                if (!DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Contains(TagsDefinitions.ItemTagMetal))
+                {
+                    DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Add(TagsDefinitions.ItemTagMetal);
+                }
+            }
+        }
+
         internal static void SwitchEmpressGarb()
         {
             if (EmpressGarbOriginalItemPresentation == null)
@@ -363,6 +380,7 @@ namespace SolastaCommunityExpansion.Models
             LoadClothingGorimStock();
             SwitchSetBeltOfDwarvenKindBeardChances();
             SwitchCrownOfTheMagister();
+            SwitchDruidAllowMetalArmor();
             SwitchEmpressGarb();
             SwitchFociItems();
             SwitchFociItemsDungeonMaker();

@@ -99,7 +99,6 @@ namespace SolastaCommunityExpansion
         // Progression
         public bool EnablesAsiAndFeat { get; set; }
         public bool EnableLevel20 { get; set; }
-        public bool EnableRespec { get; set; }
 
         // Visuals
         public bool UnlockAllNpcFaces { get; set; }
@@ -231,8 +230,7 @@ namespace SolastaCommunityExpansion
         //
 
         // Debug
-        public bool EnableBlueprintsPanel { get; set; }
-        public bool EnablePatchesPanel { get; set; }
+        public bool EnableRespec { get; set; }
         public bool EnableCheatMenu { get; set; }
         public bool NoExperienceOnLevelUp { get; set; }
 
