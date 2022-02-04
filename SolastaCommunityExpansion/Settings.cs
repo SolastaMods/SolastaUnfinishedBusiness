@@ -74,6 +74,7 @@ namespace SolastaCommunityExpansion
         public bool KeepCharactersPanelOpenAndHeroSelectedOnLevelUp { get; set; } = true;
         public bool KeepSpellsOpenSwitchingEquipment { get; set; } = true;
         public bool ShowAllAutoPreparedSpells { get; set; } = true;
+        public bool SupportAutoPreparedSpellsOnSubclassCasters { get; set; } = true;
 
         //
         // Character - General
