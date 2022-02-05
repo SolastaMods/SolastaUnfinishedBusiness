@@ -58,6 +58,9 @@ void Main()
 		.Concat(GetTypesEndingIn(assembly, "ByTag"))
 		.Concat(GetTypesEndingIn(assembly, "Form", true))
 		.Concat(GetTypesEndingIn(assembly, "TreasureOption", true))
+		.Concat(GetTypesEndingIn(assembly, "HeroEquipmentOption", true))
+		.Concat(GetTypesEndingIn(assembly, "HeroEquipmentRow", true))
+		.Concat(GetTypesEndingIn(assembly, "HeroEquipmentColumn", true))
 
 		//.Concat(GetTypes(assembly, "EffectDescription"))
 		// Eliminate duplicates

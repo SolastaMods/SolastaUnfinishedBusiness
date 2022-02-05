@@ -56,7 +56,8 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 "AttributeModifierMeleeWizardExtraAttack", extraAttackGui.Build());
             meleeWizard.AddFeatureAtLevel(extraAttack, 6);
 
-            FeatureDefinitionAdditionalAction bonusSpell = new FeatureDefinitionAdditionalActionBuilder("ArcaneFighterAdditionalAction", SubclassNamespace)
+            FeatureDefinitionAdditionalAction bonusSpell = FeatureDefinitionAdditionalActionBuilder
+                .Create("ArcaneFighterAdditionalAction", SubclassNamespace)
                 .SetGuiPresentation(Category.Subclass)
                 .SetActionType(ActionDefinitions.ActionType.Main)
                 .SetRestrictedActions(ActionDefinitions.Id.CastMain)

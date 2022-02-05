@@ -1,7 +1,5 @@
 ﻿using System;
-using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
@@ -14,9 +12,7 @@ namespace SolastaCommunityExpansion.Builders.Features
 
         public FeatureDefinitionBuilder(string name, string guid, string title, string description, Action<TDefinition> modifyDefinition = null) : base(name, guid)
         {
-            var guiPresentationBuilder = new GuiPresentationBuilder(title, description);
-
-            Definition.SetGuiPresentation(guiPresentationBuilder.Build());
+            Definition.SetGuiPresentation(title, description);
 
             modifyDefinition?.Invoke(Definition);
         }

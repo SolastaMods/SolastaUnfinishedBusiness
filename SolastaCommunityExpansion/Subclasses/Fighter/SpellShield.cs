@@ -76,7 +76,8 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             spellShield.AddFeatureAtLevel(spellShieldResistance, 7);
             // or maybe some boost to the spell shield spells?
 
-            FeatureDefinitionAdditionalAction bonusSpell = new FeatureDefinitionAdditionalActionBuilder("SpellShieldAdditionalAction", SubclassNamespace)
+            FeatureDefinitionAdditionalAction bonusSpell = FeatureDefinitionAdditionalActionBuilder
+                .Create("SpellShieldAdditionalAction", SubclassNamespace)
                 .SetGuiPresentation(Category.Subclass)
                 .SetActionType(ActionDefinitions.ActionType.Main)
                 .SetRestrictedActions(ActionDefinitions.Id.CastMain)

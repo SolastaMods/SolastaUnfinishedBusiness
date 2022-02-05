@@ -7,10 +7,10 @@ using SolastaCommunityExpansion.Classes.Witch.Subclasses;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using static CharacterClassDefinition;
 using static FeatureDefinitionCastSpell;
 using static SolastaModApi.DatabaseHelper;
 using static FeatureDefinitionAttributeModifier;
+using static SolastaCommunityExpansion.Builders.EquipmentOptionsBuilder;
 
 namespace SolastaCommunityExpansion.Classes.Witch
 {
@@ -66,44 +66,25 @@ namespace SolastaCommunityExpansion.Classes.Witch
         private static void BuildEquipment(CharacterClassDefinitionBuilder classBuilder)
         {
             classBuilder.AddEquipmentRow(
-                new List<HeroEquipmentOption>
-                {
-                EquipmentOptionsBuilder.Option(ItemDefinitions.LightCrossbow, EquipmentDefinitions.OptionWeapon, 1),
-                EquipmentOptionsBuilder.Option(ItemDefinitions.Bolt, EquipmentDefinitions.OptionAmmoPack, 1),
-                },
-                new List<HeroEquipmentOption>
-                {
-                EquipmentOptionsBuilder.Option(ItemDefinitions.Dagger, EquipmentDefinitions.OptionWeaponSimpleChoice, 1),
-                });
+                Column(
+                    Option(ItemDefinitions.LightCrossbow, EquipmentDefinitions.OptionWeapon, 1),
+                    Option(ItemDefinitions.Bolt, EquipmentDefinitions.OptionAmmoPack, 1)),
+                Column(
+                    Option(ItemDefinitions.Dagger, EquipmentDefinitions.OptionWeaponSimpleChoice, 1)));
 
             classBuilder.AddEquipmentRow(
-                new List<HeroEquipmentOption>
-                {
-                EquipmentOptionsBuilder.Option(ItemDefinitions.ScholarPack, EquipmentDefinitions.OptionStarterPack, 1),
-                },
-                new List<HeroEquipmentOption>
-                {
-                EquipmentOptionsBuilder.Option(ItemDefinitions.DungeoneerPack, EquipmentDefinitions.OptionStarterPack, 1),
-                });
+                Column(Option(ItemDefinitions.ScholarPack, EquipmentDefinitions.OptionStarterPack, 1)),
+                Column(Option(ItemDefinitions.DungeoneerPack, EquipmentDefinitions.OptionStarterPack, 1)));
 
             classBuilder.AddEquipmentRow(
-                new List<HeroEquipmentOption>
-                {
-                EquipmentOptionsBuilder.Option(ItemDefinitions.ComponentPouch, EquipmentDefinitions.OptionFocus, 1),
-                },
-                new List<HeroEquipmentOption>
-                {
-                EquipmentOptionsBuilder.Option(ItemDefinitions.ArcaneFocusWand, EquipmentDefinitions.OptionArcaneFocusChoice, 1),
-                });
+                Column(Option(ItemDefinitions.ComponentPouch, EquipmentDefinitions.OptionFocus, 1)),
+                Column(Option(ItemDefinitions.ArcaneFocusWand, EquipmentDefinitions.OptionArcaneFocusChoice, 1)));
 
             classBuilder.AddEquipmentRow(
-                new List<HeroEquipmentOption>
-                {
-                EquipmentOptionsBuilder.Option(ItemDefinitions.SorcererArmor, EquipmentDefinitions.OptionArmor, 1),
-                EquipmentOptionsBuilder.Option(ItemDefinitions.Leather, EquipmentDefinitions.OptionArmor, 1),
-                EquipmentOptionsBuilder.Option(ItemDefinitions.Dagger, EquipmentDefinitions.OptionWeapon, 1),
-                EquipmentOptionsBuilder.Option(ItemDefinitions.Dagger, EquipmentDefinitions.OptionWeaponSimpleChoice, 1),
-                });
+                Option(ItemDefinitions.SorcererArmor, EquipmentDefinitions.OptionArmor, 1),
+                Option(ItemDefinitions.Leather, EquipmentDefinitions.OptionArmor, 1),
+                Option(ItemDefinitions.Dagger, EquipmentDefinitions.OptionWeapon, 1),
+                Option(ItemDefinitions.Dagger, EquipmentDefinitions.OptionWeaponSimpleChoice, 1));
         }
 
         private static void BuildProficiencies()
@@ -372,41 +353,32 @@ namespace SolastaCommunityExpansion.Classes.Witch
             }
 
             // Build our spellCast object containing previously created spell list
-            var classSpellCast = new FeatureDefinitionCastSpellBuilder(
-                    "CastSpellWitch",
-                    GuidHelper.Create(WITCH_BASE_GUID, "CastSpellWitch").ToString());
-
-            classSpellCast.SetGuiPresentation(
-                    new GuiPresentationBuilder(
-                            "Class/&WitchSpellcastingTitle",
-                            "Class/&WitchSpellcastingDescription")
-                            .Build());
-            classSpellCast.SetKnownCantrips(new List<int>{
-                4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6});
-            classSpellCast.SetKnownSpells(new List<int>{
-                2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 13, 13, 14, 14, 15, 15, 15, 15});
+            var classSpellCast = new FeatureDefinitionCastSpellBuilder("CastSpellWitch", WITCH_BASE_GUID)
+                .SetGuiPresentation("WitchSpellcasting", Category.Spell)
+                .SetKnownCantrips(4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6)
+                .SetKnownSpells(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 13, 13, 14, 14, 15, 15, 15, 15);
 
             List<SlotsByLevelDuplet> witchCastingSlots = new List<SlotsByLevelDuplet>{
-                new SlotsByLevelDuplet() { Slots = new List<int> {2,0,0,0,0,0,0,0,0,0}, Level = 01 },
-                new SlotsByLevelDuplet() { Slots = new List<int> {3,0,0,0,0,0,0,0,0,0}, Level = 02 },
-                new SlotsByLevelDuplet() { Slots = new List<int> {4,2,0,0,0,0,0,0,0,0}, Level = 03 },
-                new SlotsByLevelDuplet() { Slots = new List<int> {4,3,0,0,0,0,0,0,0,0}, Level = 04 },
-                new SlotsByLevelDuplet() { Slots = new List<int> {4,3,2,0,0,0,0,0,0,0}, Level = 05 },
-                new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,0,0,0,0,0,0,0}, Level = 06 },
-                new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,1,0,0,0,0,0,0}, Level = 07 },
-                new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,2,0,0,0,0,0,0}, Level = 08 },
-                new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,1,0,0,0,0,0}, Level = 09 },
-                new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,0,0,0,0,0}, Level = 10 },
-                new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,0,0,0,0}, Level = 11 },
-                new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,0,0,0,0}, Level = 12 },
-                new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,0,0,0}, Level = 13 },
-                new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,0,0,0}, Level = 14 },
-                new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,1,0,0}, Level = 15 },
-                new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,1,0,0}, Level = 16 },
-                new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,1,1,0}, Level = 17 },
-                new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,3,1,1,1,1,0}, Level = 18 },
-                new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,3,2,1,1,1,0}, Level = 19 },
-                new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,3,2,2,1,1,0}, Level = 20 },};
+                new () { Slots = new () {2,0,0,0,0,0,0,0,0,0}, Level = 01 },
+                new () { Slots = new () {3,0,0,0,0,0,0,0,0,0}, Level = 02 },
+                new () { Slots = new () {4,2,0,0,0,0,0,0,0,0}, Level = 03 },
+                new () { Slots = new () {4,3,0,0,0,0,0,0,0,0}, Level = 04 },
+                new () { Slots = new () {4,3,2,0,0,0,0,0,0,0}, Level = 05 },
+                new () { Slots = new () {4,3,3,0,0,0,0,0,0,0}, Level = 06 },
+                new () { Slots = new () {4,3,3,1,0,0,0,0,0,0}, Level = 07 },
+                new () { Slots = new () {4,3,3,2,0,0,0,0,0,0}, Level = 08 },
+                new () { Slots = new () {4,3,3,3,1,0,0,0,0,0}, Level = 09 },
+                new () { Slots = new () {4,3,3,3,2,0,0,0,0,0}, Level = 10 },
+                new () { Slots = new () {4,3,3,3,2,1,0,0,0,0}, Level = 11 },
+                new () { Slots = new () {4,3,3,3,2,1,0,0,0,0}, Level = 12 },
+                new () { Slots = new () {4,3,3,3,2,1,1,0,0,0}, Level = 13 },
+                new () { Slots = new () {4,3,3,3,2,1,1,0,0,0}, Level = 14 },
+                new () { Slots = new () {4,3,3,3,2,1,1,1,0,0}, Level = 15 },
+                new () { Slots = new () {4,3,3,3,2,1,1,1,0,0}, Level = 16 },
+                new () { Slots = new () {4,3,3,3,2,1,1,1,1,0}, Level = 17 },
+                new () { Slots = new () {4,3,3,3,3,1,1,1,1,0}, Level = 18 },
+                new () { Slots = new () {4,3,3,3,3,2,1,1,1,0}, Level = 19 },
+                new () { Slots = new () {4,3,3,3,3,2,2,1,1,0}, Level = 20 }};
 
             classSpellCast.SetSlotsPerLevel(witchCastingSlots);
             classSpellCast.SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest);
@@ -473,9 +445,9 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     .SetFeatures(burnedFireRes, burnedProduceFlame)
                     .AddToDB();
 
-            var lovelessCharmImmunity = new FeatureDefinitionConditionAffinityBuilder(
-                FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
-                "WitchLovelessCharmImmunity", WITCH_BASE_GUID, Category.Class)
+            var lovelessCharmImmunity = FeatureDefinitionConditionAffinityBuilder
+                .Create(FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity, "WitchLovelessCharmImmunity", WITCH_BASE_GUID)
+                .SetGuiPresentation(Category.Class)
                 .AddToDB();
 
             var lovelessCurse = new FeatureDefinitionFeatureSetBuilder(

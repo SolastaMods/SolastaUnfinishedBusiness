@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalActions;
 
 namespace SolastaCommunityExpansion.Feats
 {
@@ -29,7 +29,7 @@ namespace SolastaCommunityExpansion.Feats
             Definition.GuiPresentation.Description = "Feat/&DualFlurryDescription";
 
             Definition.Features.Clear();
-            Definition.Features.Add(buildFeatureDualFlurry());
+            Definition.Features.Add(BuildFeatureDualFlurry());
 
             Definition.SetMinimalAbilityScorePrerequisite(false);
         }
@@ -41,13 +41,13 @@ namespace SolastaCommunityExpansion.Feats
 
         public static readonly FeatDefinition DualFlurryFeat = CreateAndAddToDB(DualFlurryFeatName, DualFlurryFeatNameGuid);
 
-        private static FeatureDefinition buildFeatureDualFlurry()
+        private static FeatureDefinition BuildFeatureDualFlurry()
         {
-            FeatureDefinitionOnAttackHitEffectBuilder builder = new FeatureDefinitionOnAttackHitEffectBuilder(
-                "FeatureDualFlurry", GuidHelper.Create(DualFlurryGuid, "FeatureDualFlurry").ToString(),
-                OnAttackHit, new GuiPresentationBuilder("Feature/&DualFlurryTitle", "Feature/&DualFlurryDescription").Build());
-
-            return builder.AddToDB();
+            return FeatureDefinitionOnAttackHitEffectBuilder
+                .Create("FeatureDualFlurry", DualFlurryGuid)
+                .SetGuiPresentation("DualFlurry", Category.Feature)
+                .SetOnAttackHitDelegate(OnAttackHit)
+                .AddToDB();
         }
 
         private static void OnAttackHit(GameLocationCharacter attacker,
@@ -136,18 +136,12 @@ namespace SolastaCommunityExpansion.Feats
         }
         private static FeatureDefinition BuildAdditionalActionDualFlurry()
         {
-            GuiPresentationBuilder guiBuilder = new GuiPresentationBuilder("Feature/&AdditionalActionDualFlurryTitle",
-                "Feature/&AdditionalActionDualFlurryDescription")
-                .SetSpriteReference(DatabaseHelper.FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain.GuiPresentation.SpriteReference);
-            FeatureDefinitionAdditionalActionBuilder flurryBuilder = new FeatureDefinitionAdditionalActionBuilder(
-                DatabaseHelper.FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain, "AdditionalActionDualFlurry",
-                GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "AdditionalActionDualFlurry").ToString())
-                .SetGuiPresentation(guiBuilder.Build())
+            return FeatureDefinitionAdditionalActionBuilder
+                .Create(AdditionalActionSurgedMain, "AdditionalActionDualFlurry", DualFlurryFeatBuilder.DualFlurryGuid)
+                .SetGuiPresentation(Category.Feature, AdditionalActionSurgedMain.GuiPresentation.SpriteReference)
                 .SetActionType(ActionDefinitions.ActionType.Bonus)
-                .SetAuthorizedActions(new List<ActionDefinitions.Id>())
-                .SetForbiddenActions(new List<ActionDefinitions.Id>())
-                .SetRestrictedActions(new List<ActionDefinitions.Id>() { ActionDefinitions.Id.AttackOff });
-            return flurryBuilder.AddToDB();
+                .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
+                .AddToDB();
         }
     }
 
@@ -163,7 +157,7 @@ namespace SolastaCommunityExpansion.Feats
             Definition.GuiPresentation.Description = "Feat/&TorchbearerDescription";
 
             Definition.Features.Clear();
-            Definition.Features.Add(buildFeatureTorchbearer());
+            Definition.Features.Add(BuildFeatureTorchbearer());
 
             Definition.SetMinimalAbilityScorePrerequisite(false);
         }
@@ -175,7 +169,7 @@ namespace SolastaCommunityExpansion.Feats
 
         public static readonly FeatDefinition TorchbearerFeat = CreateAndAddToDB(TorchbearerFeatName, TorchbearerFeatNameGuid);
 
-        private static FeatureDefinition buildFeatureTorchbearer()
+        private static FeatureDefinition BuildFeatureTorchbearer()
         {
             var burn_effect = new EffectForm();
             burn_effect.SetFormType(EffectForm.EffectFormType.Condition);
@@ -204,17 +198,15 @@ namespace SolastaCommunityExpansion.Feats
             burn_description.EffectForms.Clear();
             burn_description.EffectForms.Add(burn_effect);
 
-            FeatureDefinitionConditionalPowerBuilder powerFeature = new FeatureDefinitionConditionalPowerBuilder("PowerTorchbearer",
-                GuidHelper.Create(TorchbearerGuid, "PowerTorchbearer").ToString(),
-                new GuiPresentationBuilder("Feature/&PowerTorchbearerTitle", "Feature/&PowerTorchbearerDescription").Build());
-            powerFeature.SetActivation(RuleDefinitions.ActivationTime.BonusAction, 0);
-            powerFeature.SetEffect(burn_description);
-            powerFeature.SetUsesFixed(1);
-            powerFeature.SetRecharge(RuleDefinitions.RechargeRate.AtWill);
-            powerFeature.SetShowCasting(false);
-            powerFeature.SetIsActive(IsActive);
-
-            return powerFeature.AddToDB();
+            return FeatureDefinitionConditionalPowerBuilder
+                .Create("PowerTorchbearer", TorchbearerGuid)
+                .SetGuiPresentation(Category.Feature)
+                .SetActivation(RuleDefinitions.ActivationTime.BonusAction, 0)
+                .SetEffect(burn_description)
+                .SetUsesFixed(1)
+                .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+                .SetShowCasting(false)
+                .SetIsActive(IsActive).AddToDB();
         }
 
         private static bool IsActive(RulesetCharacterHero hero)
