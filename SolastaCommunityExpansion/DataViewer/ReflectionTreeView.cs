@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using ModKit;
 using ModKit.Utility;
-using SolastaCommunityExpansion;
 using UnityEngine;
 using static ModKit.Utility.StringExtensions;
 
-namespace SolastaModApi.DataViewer
+namespace SolastaCommunityExpansion.DataViewer
 {
     public class ReflectionTreeView
     {
