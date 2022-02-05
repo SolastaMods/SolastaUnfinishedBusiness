@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
-using SolastaCommunityExpansion;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.DataViewer
@@ -13,6 +12,7 @@ namespace SolastaCommunityExpansion.DataViewer
         public delegate void LoadBlueprintsCallback(IEnumerable<BaseDefinition> blueprints);
 
         private LoadBlueprintsCallback callback;
+
         private static BlueprintLoader _shared;
 
         public static BlueprintLoader Shared
@@ -31,6 +31,7 @@ namespace SolastaCommunityExpansion.DataViewer
         public float Progress { get; set; }
 
         private IEnumerator coroutine;
+
         private void UpdateProgress(int loaded, int total)
         {
             if (total <= 0)
@@ -82,6 +83,7 @@ namespace SolastaCommunityExpansion.DataViewer
                 StopCoroutine(coroutine);
                 coroutine = null;
             }
+
             this.callback = callback;
             coroutine = LoadBlueprints();
             StartCoroutine(coroutine);

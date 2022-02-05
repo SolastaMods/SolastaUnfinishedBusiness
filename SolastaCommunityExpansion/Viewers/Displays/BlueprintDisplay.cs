@@ -26,6 +26,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     BlueprintLoader.Shared.Load((bps) => _allBlueprints = bps);
                 }
             }
+
             return _allBlueprints;
         }
 
@@ -37,12 +38,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         // tree view
         private static readonly ReflectionTreeView _treeView = new();
         private static int _bpTypeIndex;
-
-        // blueprint selection
-#pragma warning disable RCS1187 // Use constant instead of field.
-        // REVIEW: is this required?
-        private static readonly ToggleState _bpsExpanded = ToggleState.On;
-#pragma warning restore RCS1187 // Use constant instead of field.
 
         private static Vector2 _bpsScrollPosition;
 
@@ -60,11 +55,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         // search selection
         private static ToggleState _searchExpanded;
 
-        private static GUIStyle _buttonStyle;
+        private static GUIStyle _buttonStyle = new(GUI.skin.button) { alignment = TextAnchor.MiddleLeft };
 
         private static void RefreshBPSearchData()
         {
             _filteredBPs = GetBlueprints();
+
             if (_filteredBPs != null)
             {
                 _treeView.SetRoot(_filteredBPs);
@@ -82,12 +78,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
         public static void RefreshTypeNames()
         {
-            _bpTypes = new Type[] { null }.Concat(GetBlueprints()
-                .Select(bp => bp.GetType()).Distinct().OrderBy(type => type.Name)).ToArray();
+            _bpTypes = new Type[] { null }.Concat(GetBlueprints().Select(bp => bp.GetType()).Distinct().OrderBy(type => type.Name)).ToArray();
+
             if (!string.IsNullOrEmpty(_selectionSearchText))
             {
                 _bpTypes = _bpTypes.Where(type => type == null || StringExtensions.Matches(type.Name, _selectionSearchText)).ToArray();
             }
+
             _bpTypeNames = _bpTypes.Select(type => type?.Name).ToArray();
             _bpTypeNames[0] = "All";
             _bpTypes[0] = typeof(BaseDefinition);
@@ -103,20 +100,29 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             else
             {
                 var searchText = _searchText.ToLower();
+
                 if (_bpFields.TryGetValue(_bpChildNames[_searchIndex], out FieldInfo f))
                 {
                     _treeView.SetRoot(_filteredBPs.Where(bp =>
                     {
-                        try { return (f.GetValue(bp)?.ToString()?.ToLower().Contains(searchText) ?? false) != _searchReversed; }
-                        catch { return _searchReversed; }
+                        try { 
+                            return (f.GetValue(bp)?.ToString()?.ToLower().Contains(searchText) ?? false) != _searchReversed; 
+                        }
+                        catch { 
+                            return _searchReversed; 
+                        }
                     }).ToList());
                 }
                 else if (_bpProperties.TryGetValue(_bpChildNames[_searchIndex], out PropertyInfo p))
                 {
                     _treeView.SetRoot(_filteredBPs.Where(bp =>
                     {
-                        try { return (p.GetValue(bp)?.ToString()?.ToLower().Contains(searchText) ?? false) != _searchReversed; }
-                        catch { return _searchReversed; }
+                        try { 
+                            return (p.GetValue(bp)?.ToString()?.ToLower().Contains(searchText) ?? false) != _searchReversed; 
+                        }
+                        catch { 
+                            return _searchReversed; 
+                        }
                     }).ToList());
                 }
             }
@@ -127,11 +133,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (!Main.Enabled)
             {
                 return;
-            }
-
-            if (_buttonStyle == null)
-            {
-                _buttonStyle = new GUIStyle(GUI.skin.button) { alignment = TextAnchor.MiddleLeft };
             }
 
             try
@@ -147,6 +148,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     RefreshTypeNames();
                     RefreshBPSearchData();
                 }
+
                 using (new GUILayout.HorizontalScope())
                 {
                     bool isDirty = false;
@@ -160,10 +162,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         {
                             // Header and Search Field
                             GUILayout.Label($"{_bpTypeNames[_bpTypeIndex]}".Cyan(), GUILayout.Width(300));
-
                             GUILayout.Space(10);
                             GUIHelper.TextField(ref _selectionSearchText, () => blueprintListIsDirty = true, null, GUILayout.MinWidth(150));
                         }
+
                         if (blueprintListIsDirty)
                         {
                             RefreshTypeNames();
@@ -171,8 +173,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                         GUIHelper.Div();
                         // Blueprint Picker List
-                        if (_bpsExpanded.IsOn())
-                        {
+
                             using var scrollView = new GUILayout.ScrollViewScope(_bpsScrollPosition, GUILayout.Width(450));
 
                             _bpsScrollPosition = scrollView.scrollPosition;
@@ -183,7 +184,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                                 _filteredBPs = _bpTypeIndex == 0 ? GetBlueprints() : GetBlueprints().Where(item => item.GetType() == _bpTypes[_bpTypeIndex]).ToList();
                                 _treeView.SetRoot(_filteredBPs);
                             }, _buttonStyle, GUILayout.Width(450));
-                        }
+
                     }
 
                     using (new GUILayout.VerticalScope(GUI.skin.box))
