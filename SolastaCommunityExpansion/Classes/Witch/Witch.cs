@@ -7,10 +7,10 @@ using SolastaCommunityExpansion.Classes.Witch.Subclasses;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using static CharacterClassDefinition;
 using static FeatureDefinitionCastSpell;
 using static SolastaModApi.DatabaseHelper;
 using static FeatureDefinitionAttributeModifier;
+using static SolastaCommunityExpansion.Builders.EquipmentOptionsBuilder;
 
 namespace SolastaCommunityExpansion.Classes.Witch
 {
@@ -66,44 +66,25 @@ namespace SolastaCommunityExpansion.Classes.Witch
         private static void BuildEquipment(CharacterClassDefinitionBuilder classBuilder)
         {
             classBuilder.AddEquipmentRow(
-                new List<HeroEquipmentOption>
-                {
-                EquipmentOptionsBuilder.Option(ItemDefinitions.LightCrossbow, EquipmentDefinitions.OptionWeapon, 1),
-                EquipmentOptionsBuilder.Option(ItemDefinitions.Bolt, EquipmentDefinitions.OptionAmmoPack, 1),
-                },
-                new List<HeroEquipmentOption>
-                {
-                EquipmentOptionsBuilder.Option(ItemDefinitions.Dagger, EquipmentDefinitions.OptionWeaponSimpleChoice, 1),
-                });
+                Column(
+                    Option(ItemDefinitions.LightCrossbow, EquipmentDefinitions.OptionWeapon, 1),
+                    Option(ItemDefinitions.Bolt, EquipmentDefinitions.OptionAmmoPack, 1)),
+                Column(
+                    Option(ItemDefinitions.Dagger, EquipmentDefinitions.OptionWeaponSimpleChoice, 1)));
 
             classBuilder.AddEquipmentRow(
-                new List<HeroEquipmentOption>
-                {
-                EquipmentOptionsBuilder.Option(ItemDefinitions.ScholarPack, EquipmentDefinitions.OptionStarterPack, 1),
-                },
-                new List<HeroEquipmentOption>
-                {
-                EquipmentOptionsBuilder.Option(ItemDefinitions.DungeoneerPack, EquipmentDefinitions.OptionStarterPack, 1),
-                });
+                Column(Option(ItemDefinitions.ScholarPack, EquipmentDefinitions.OptionStarterPack, 1)),
+                Column(Option(ItemDefinitions.DungeoneerPack, EquipmentDefinitions.OptionStarterPack, 1)));
 
             classBuilder.AddEquipmentRow(
-                new List<HeroEquipmentOption>
-                {
-                EquipmentOptionsBuilder.Option(ItemDefinitions.ComponentPouch, EquipmentDefinitions.OptionFocus, 1),
-                },
-                new List<HeroEquipmentOption>
-                {
-                EquipmentOptionsBuilder.Option(ItemDefinitions.ArcaneFocusWand, EquipmentDefinitions.OptionArcaneFocusChoice, 1),
-                });
+                Column(Option(ItemDefinitions.ComponentPouch, EquipmentDefinitions.OptionFocus, 1)),
+                Column(Option(ItemDefinitions.ArcaneFocusWand, EquipmentDefinitions.OptionArcaneFocusChoice, 1)));
 
             classBuilder.AddEquipmentRow(
-                new List<HeroEquipmentOption>
-                {
-                EquipmentOptionsBuilder.Option(ItemDefinitions.SorcererArmor, EquipmentDefinitions.OptionArmor, 1),
-                EquipmentOptionsBuilder.Option(ItemDefinitions.Leather, EquipmentDefinitions.OptionArmor, 1),
-                EquipmentOptionsBuilder.Option(ItemDefinitions.Dagger, EquipmentDefinitions.OptionWeapon, 1),
-                EquipmentOptionsBuilder.Option(ItemDefinitions.Dagger, EquipmentDefinitions.OptionWeaponSimpleChoice, 1),
-                });
+                Option(ItemDefinitions.SorcererArmor, EquipmentDefinitions.OptionArmor, 1),
+                Option(ItemDefinitions.Leather, EquipmentDefinitions.OptionArmor, 1),
+                Option(ItemDefinitions.Dagger, EquipmentDefinitions.OptionWeapon, 1),
+                Option(ItemDefinitions.Dagger, EquipmentDefinitions.OptionWeaponSimpleChoice, 1));
         }
 
         private static void BuildProficiencies()
