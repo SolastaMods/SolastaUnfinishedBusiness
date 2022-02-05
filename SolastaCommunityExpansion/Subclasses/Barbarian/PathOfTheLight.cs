@@ -591,11 +591,12 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 return lightSourceForm;
             }
 
+            // Common helper: factor out
             private static DiceByRank BuildDiceByRank(int rank, int dice)
             {
                 DiceByRank diceByRank = new DiceByRank();
-                diceByRank.SetField("rank", rank);
-                diceByRank.SetField("diceNumber", dice);
+                diceByRank.SetRank(rank);
+                diceByRank.SetDiceNumber(dice);
                 return diceByRank;
             }
         }

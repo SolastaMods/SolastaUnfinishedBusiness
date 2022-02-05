@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using SolastaModApi.Infrastructure;
+using SolastaModApi.Extensions;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Models
@@ -49,7 +49,7 @@ namespace SolastaCommunityExpansion.Models
                 if (pointPoolPowerDefinitions.Contains(poolPower.PowerDefinition))
                 {
                     int poolSize = GetMaxUsesForPool(poolPower, character);
-                    poolPower.SetField("remainingUses", poolSize);
+                    poolPower.SetRemainingUses(poolSize);
 
                     AssignUsesToSharedPowersForPool(character, poolPower, poolSize, poolSize);
                 }
@@ -66,8 +66,8 @@ namespace SolastaCommunityExpansion.Models
                     FeatureDefinitionPower pointPoolPower = pool.GetUsagePoolPower();
                     if (pointPoolPower == poolPower.PowerDefinition)
                     {
-                        usablePower.SetField("maxUses", totalUses / usablePower.PowerDefinition.CostPerUse);
-                        usablePower.SetField("remainingUses", remainingUses / usablePower.PowerDefinition.CostPerUse);
+                        usablePower.SetMaxUses(totalUses / usablePower.PowerDefinition.CostPerUse);
+                        usablePower.SetRemainingUses(remainingUses / usablePower.PowerDefinition.CostPerUse);
                     }
                 }
             }
@@ -103,7 +103,7 @@ namespace SolastaCommunityExpansion.Models
                 {
                     int maxUses = GetMaxUsesForPool(poolPower, character);
                     int remainingUses = Mathf.Clamp(poolPower.RemainingUses - poolUsage, 0, maxUses);
-                    poolPower.SetField("remainingUses", remainingUses);
+                    poolPower.SetRemainingUses(remainingUses);
                     AssignUsesToSharedPowersForPool(character, poolPower, remainingUses, maxUses);
                     return;
                 }
