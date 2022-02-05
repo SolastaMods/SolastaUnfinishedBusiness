@@ -339,27 +339,14 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             //replaced by new bond methods?
             //assume PB=4
-            MonsterSavingThrowProficiency Con = new MonsterSavingThrowProficiency();
-            Con.SetField("abilityScoreName", "Constitution");
-            Con.SetField("bonus", 2);
-            MonsterSavingThrowProficiency Dex = new MonsterSavingThrowProficiency();
-            Dex.SetField("abilityScoreName", "Dexterity");
-            Dex.SetField("bonus", 1);
 
-            MonsterSkillProficiency Athletics = new MonsterSkillProficiency();
-            Athletics.SetField("skillName", "Athletics");
-            Athletics.SetField("bonus", 2);
-            MonsterSkillProficiency Perception = new MonsterSkillProficiency();
-            Perception.SetField("skillName", "Perception");
-            Perception.SetField("bonus", 4);
+            Definition.SavingThrowScores.SetRange(
+                new MonsterSavingThrowProficiency(AttributeDefinitions.Constitution, 2),
+                new MonsterSavingThrowProficiency(AttributeDefinitions.Dexterity, 1));
 
-            Definition.SavingThrowScores.Empty();
-            Definition.SavingThrowScores.Add(Con);
-            Definition.SavingThrowScores.Add(Dex);
-            Definition.SkillScores.Empty();
-            Definition.SkillScores.Clear();
-            Definition.SkillScores.Add(Athletics);
-            Definition.SkillScores.Add(Perception);
+            Definition.SkillScores.SetRange(
+                new MonsterSkillProficiency(SkillDefinitions.Athletics, 2),
+                new MonsterSkillProficiency(SkillDefinitions.Perception, 4));
 
             Definition.SetFullyControlledWhenAllied(true);
             Definition.SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None);

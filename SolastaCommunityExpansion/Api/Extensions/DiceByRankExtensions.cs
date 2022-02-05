@@ -34,13 +34,20 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionLoreExpertise)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatureDefinitionLoreExpertiseExtensions
+    [TargetType(typeof(DiceByRank)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static partial class DiceByRankExtensions
     {
-        public static T SetExpertiseType<T>(this T entity, FeatureDefinitionLoreExpertise.ExpertiseType value)
-            where T : FeatureDefinitionLoreExpertise
+        public static T SetDiceNumber<T>(this T entity, System.Int32 value)
+            where T : DiceByRank
         {
-            entity.SetField("expertiseType", value);
+            entity.SetField("diceNumber", value);
+            return entity;
+        }
+
+        public static T SetRank<T>(this T entity, System.Int32 value)
+            where T : DiceByRank
+        {
+            entity.SetField("rank", value);
             return entity;
         }
     }

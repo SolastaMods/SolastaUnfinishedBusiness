@@ -34,62 +34,62 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(RulesetEffectPower)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class RulesetEffectPowerExtensions
+    [TargetType(typeof(RulesetUsablePower)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static partial class RulesetUsablePowerExtensions
     {
-        public static T SetName<T>(this T entity, System.String value)
-            where T : RulesetEffectPower
+        public static T SetMaxUses<T>(this T entity, System.Int32 value)
+            where T : RulesetUsablePower
         {
-            entity.Name = value;
+            entity.SetField("maxUses", value);
             return entity;
         }
 
-        public static T SetOriginItem<T>(this T entity, RulesetItemDevice value)
-            where T : RulesetEffectPower
+        public static T SetOriginClass<T>(this T entity, CharacterClassDefinition value)
+            where T : RulesetUsablePower
         {
-            entity.SetField("originItem", value);
+            entity.SetField("originClass", value);
             return entity;
         }
 
-        public static T SetOriginItemGuid<T>(this T entity, System.UInt64 value)
-            where T : RulesetEffectPower
+        public static T SetOriginRace<T>(this T entity, CharacterRaceDefinition value)
+            where T : RulesetUsablePower
         {
-            entity.SetField("originItemGuid", value);
+            entity.SetField("originRace", value);
             return entity;
         }
 
-        public static T SetSourceDefinition<T>(this T entity, FeatureDefinitionPower value)
-            where T : RulesetEffectPower
+        public static T SetPowerDefinition<T>(this T entity, FeatureDefinitionPower value)
+            where T : RulesetUsablePower
         {
-            entity.SetField("sourceDefinition", value);
+            entity.SetField("powerDefinition", value);
             return entity;
         }
 
-        public static T SetUsableDeviceFunction<T>(this T entity, RulesetDeviceFunction value)
-            where T : RulesetEffectPower
+        public static T SetRemainingUses<T>(this T entity, System.Int32 value)
+            where T : RulesetUsablePower
         {
-            entity.SetField("usableDeviceFunction", value);
+            entity.SetField("remainingUses", value);
             return entity;
         }
 
-        public static T SetUsablePower<T>(this T entity, RulesetUsablePower value)
-            where T : RulesetEffectPower
+        public static T SetSaveDC<T>(this T entity, System.Int32 value)
+            where T : RulesetUsablePower
         {
-            entity.SetField("usablePower", value);
+            entity.SaveDC = value;
             return entity;
         }
 
-        public static T SetUser<T>(this T entity, RulesetCharacter value)
-            where T : RulesetEffectPower
+        public static T SetSpentPoints<T>(this T entity, System.Int32 value)
+            where T : RulesetUsablePower
         {
-            entity.SetField("user", value);
+            entity.SetField("spentPoints", value);
             return entity;
         }
 
-        public static T SetUserId<T>(this T entity, System.UInt64 value)
-            where T : RulesetEffectPower
+        public static T SetUsesAttribute<T>(this T entity, RulesetAttribute value)
+            where T : RulesetUsablePower
         {
-            entity.SetField("userId", value);
+            entity.UsesAttribute = value;
             return entity;
         }
     }
