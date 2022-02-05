@@ -2,7 +2,7 @@
 using System.Reflection.Emit;
 using ModKit.Utility;
 
-namespace SolastaModApi.DataViewer
+namespace SolastaCommunityExpansion.DataViewer
 {
     internal static class UnsafeForceCast
     {

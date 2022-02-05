@@ -6,7 +6,7 @@ using System.Text;
 using ModKit;
 using ModKit.Utility;
 
-namespace SolastaModApi.DataViewer
+namespace SolastaCommunityExpansion.DataViewer
 {
     public abstract class ResultNode
     {

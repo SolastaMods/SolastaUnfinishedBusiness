@@ -6,7 +6,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion;
 using UnityEngine;
 
-namespace SolastaModApi.DataViewer
+namespace SolastaCommunityExpansion.DataViewer
 {
     public class BlueprintLoader : MonoBehaviour
     {

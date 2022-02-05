@@ -7,7 +7,7 @@ using SolastaCommunityExpansion;
 using UnityEngine;
 using static ModKit.Utility.StringExtensions;
 
-namespace SolastaModApi.DataViewer
+namespace SolastaCommunityExpansion.DataViewer
 {
     public class ReflectionTreeView
     {
