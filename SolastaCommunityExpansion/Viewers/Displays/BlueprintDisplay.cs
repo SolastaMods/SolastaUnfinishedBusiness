@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         // blueprint info
         private static Type[] _bpTypes;
         private static string[] _bpTypeNames;
-        private static IEnumerable<BaseDefinition> _filteredBPs = null;
+        private static IEnumerable<BaseDefinition> _filteredBPs;
 
         // tree view
         private static readonly ReflectionTreeView _treeView = new();
@@ -55,7 +55,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         // search selection
         private static ToggleState _searchExpanded;
 
-        private static GUIStyle _buttonStyle = new(GUI.skin.button) { alignment = TextAnchor.MiddleLeft };
+        private static readonly GUIStyle _buttonStyle = new(GUI.skin.button) { alignment = TextAnchor.MiddleLeft };
 
         private static void RefreshBPSearchData()
         {
@@ -105,11 +105,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 {
                     _treeView.SetRoot(_filteredBPs.Where(bp =>
                     {
-                        try { 
-                            return (f.GetValue(bp)?.ToString()?.ToLower().Contains(searchText) ?? false) != _searchReversed; 
+                        try
+                        {
+                            return (f.GetValue(bp)?.ToString()?.ToLower().Contains(searchText) ?? false) != _searchReversed;
                         }
-                        catch { 
-                            return _searchReversed; 
+                        catch
+                        {
+                            return _searchReversed;
                         }
                     }).ToList());
                 }
@@ -117,11 +119,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 {
                     _treeView.SetRoot(_filteredBPs.Where(bp =>
                     {
-                        try { 
-                            return (p.GetValue(bp)?.ToString()?.ToLower().Contains(searchText) ?? false) != _searchReversed; 
+                        try
+                        {
+                            return (p.GetValue(bp)?.ToString()?.ToLower().Contains(searchText) ?? false) != _searchReversed;
                         }
-                        catch { 
-                            return _searchReversed; 
+                        catch
+                        {
+                            return _searchReversed;
                         }
                     }).ToList());
                 }
@@ -174,17 +178,16 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         GUIHelper.Div();
                         // Blueprint Picker List
 
-                            using var scrollView = new GUILayout.ScrollViewScope(_bpsScrollPosition, GUILayout.Width(450));
+                        using var scrollView = new GUILayout.ScrollViewScope(_bpsScrollPosition, GUILayout.Width(450));
 
-                            _bpsScrollPosition = scrollView.scrollPosition;
-                            GUIHelper.SelectionGrid(ref _bpTypeIndex, _bpTypeNames, 1, () =>
-                            {
-                                _searchText = null;
-                                RefreshBPSearchData();
-                                _filteredBPs = _bpTypeIndex == 0 ? GetBlueprints() : GetBlueprints().Where(item => item.GetType() == _bpTypes[_bpTypeIndex]).ToList();
-                                _treeView.SetRoot(_filteredBPs);
-                            }, _buttonStyle, GUILayout.Width(450));
-
+                        _bpsScrollPosition = scrollView.scrollPosition;
+                        GUIHelper.SelectionGrid(ref _bpTypeIndex, _bpTypeNames, 1, () =>
+                        {
+                            _searchText = null;
+                            RefreshBPSearchData();
+                            _filteredBPs = _bpTypeIndex == 0 ? GetBlueprints() : GetBlueprints().Where(item => item.GetType() == _bpTypes[_bpTypeIndex]).ToList();
+                            _treeView.SetRoot(_filteredBPs);
+                        }, _buttonStyle, GUILayout.Width(450));
                     }
 
                     using (new GUILayout.VerticalScope(GUI.skin.box))
