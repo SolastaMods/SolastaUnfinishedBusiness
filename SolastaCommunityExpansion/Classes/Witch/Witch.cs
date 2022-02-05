@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Level20;
 using SolastaCommunityExpansion.Classes.Witch.Subclasses;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -506,6 +508,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
         private static void BuildMaledictions()
         {
+
             // Maledictions are actions unless mentioned otherwise
             // If a Malediction calls for an attack roll or saving throw, it uses your spell attack bonus or spell save DC, unless mentioned otherwise. 
             // All Maledictions require verbal or somatic components
@@ -530,7 +533,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             //+ Charm: 60 feet WIS save, Charm Person/Monster effect on fail
             // Dire Familiar: for 1 minute, Familiar gains double witch level in hp and CHA mod bonus on dmg rolls 
             //                can cast other maledictions while active -> This should be a power or lvl 7 Improved Familiar feature?
-            // Disorient: 60 feet CON save, -1d6 on attack rolls on fail
+            //+ Disorient: 60 feet CON save, -1d6 on attack rolls on fail
             // Doomward: 60 feet friendly creature, Death Ward effect, cannot target that creature again until short or long rest (i.e. add a Doomward fatigue debuff?)
             // Duplicity: single mirror image effect, odd roll the iamge image abosrbs the hit and disappears
             //+ Evil Eye: 60 feet WIS save, frightened on fail
@@ -551,303 +554,368 @@ namespace SolastaCommunityExpansion.Classes.Witch
             // Tremors: 10 feet radius centered on you, DEX save, creatures on ground become prone if fail, instant duration
             // Ward: 60 feet 1 creature other than you, reduce damage taken by 3 for every hit
 
-            // NEED TO MAKE IT LESS SHOCKING GRASPY
-            var abateEffectDescription = new EffectDescription();
-            abateEffectDescription.Copy(SpellDefinitions.ShockingGrasp.EffectDescription);
-            abateEffectDescription.EffectForms.RemoveAt(0);
-            abateEffectDescription.SetDurationParameter(1);
-            abateEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
-            abateEffectDescription.SetHasSavingThrow(true);
-            abateEffectDescription.SetRangeParameter(12);
-            abateEffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
-            abateEffectDescription.SetSavingThrowAbility(AttributeDefinitions.Charisma);
-            abateEffectDescription.SetTargetParameter(1);
-            abateEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
-
-            var abate = new FeatureDefinitionPowerBuilder(
-                    "WitchMaledictionAbate",
-                    GuidHelper.Create(WITCH_BASE_GUID, "WitchMaledictionAbate").ToString(),
-                    1,
-                    RuleDefinitions.UsesDetermination.Fixed,
-                    AttributeDefinitions.Charisma,
-                    RuleDefinitions.ActivationTime.Action,
-                    0,
-                    RuleDefinitions.RechargeRate.AtWill,
-                    false,
-                    false,
-                    AttributeDefinitions.Charisma,
-                    abateEffectDescription,
-                    new GuiPresentationBuilder(
-                            "Class/&WitchMaledictionAbateTitle",
-                            "Class/&WitchMaledictionAbateDescription").Build()
-                            .SetSpriteReference(SpellDefinitions.ShockingGrasp.GuiPresentation.SpriteReference),
-                    true)
-                    .AddToDB();
-
-            var apathyEffectDescription = new EffectDescription();
-            apathyEffectDescription.Copy(SpellDefinitions.CalmEmotionsOnEnemy.EffectDescription);
-            apathyEffectDescription.SetDurationParameter(1);
-            apathyEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
-            apathyEffectDescription.SetHasSavingThrow(true);
-            apathyEffectDescription.SetRangeParameter(12);
-            apathyEffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
-            apathyEffectDescription.SetSavingThrowAbility(AttributeDefinitions.Charisma);
-            apathyEffectDescription.SetTargetParameter(1);
-            apathyEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
-
-            var apathy = new FeatureDefinitionPowerBuilder("WitchMaledictionApathy",
-                    GuidHelper.Create(WITCH_BASE_GUID, "WitchMaledictionApathy").ToString(),
-                    1,
-                    RuleDefinitions.UsesDetermination.Fixed,
-                    AttributeDefinitions.Charisma,
-                    RuleDefinitions.ActivationTime.Action,
-                    0,
-                    RuleDefinitions.RechargeRate.AtWill,
-                    false,
-                    false,
-                    AttributeDefinitions.Charisma,
-                    apathyEffectDescription,
-                    new GuiPresentationBuilder(
-                            "Class/&WitchMaledictionApathyTitle",
-                            "Class/&WitchMaledictionApathyDescription").Build()
-                            .SetSpriteReference(SpellDefinitions.CalmEmotions.GuiPresentation.SpriteReference),
-                    true)
-                    .AddToDB();
-
-            var charmEffectDescription = new EffectDescription();
-            charmEffectDescription.Copy(SpellDefinitions.CharmPerson.EffectDescription);
-            charmEffectDescription.SetDurationParameter(1);
-            charmEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
-            charmEffectDescription.SetHasSavingThrow(true);
-            charmEffectDescription.SetRangeParameter(12);
-            charmEffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
-            charmEffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
-            charmEffectDescription.SetTargetParameter(1);
-            charmEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
-
-            var charm = new FeatureDefinitionPowerBuilder(
-                    "WitchMaledictionCharm",
-                    GuidHelper.Create(WITCH_BASE_GUID, "WitchMaledictionCharm").ToString(),
-                    1,
-                    RuleDefinitions.UsesDetermination.Fixed,
-                    AttributeDefinitions.Charisma,
-                    RuleDefinitions.ActivationTime.Action,
-                    0,
-                    RuleDefinitions.RechargeRate.AtWill,
-                    false,
-                    false,
-                    AttributeDefinitions.Charisma,
-                    charmEffectDescription,
-                    new GuiPresentationBuilder(
-                            "Class/&WitchMaledictionCharmTitle",
-                            "Class/&WitchMaledictionCharmDescription").Build()
-                            .SetSpriteReference(SpellDefinitions.CharmPerson.GuiPresentation.SpriteReference),
-                    true)
-                    .AddToDB();
-
-            var evileyeEffectDescription = new EffectDescription();
-            evileyeEffectDescription.Copy(SpellDefinitions.Fear.EffectDescription);
-            evileyeEffectDescription.SetDurationParameter(1);
-            evileyeEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
-            evileyeEffectDescription.SetHasSavingThrow(true);
-            evileyeEffectDescription.SetRangeParameter(12);
-            evileyeEffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
-            evileyeEffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
-            evileyeEffectDescription.SetTargetParameter(1);
-            evileyeEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
-
-            var evileye = new FeatureDefinitionPowerBuilder(
-                    "WitchMaledictionEvilEye",
-                    GuidHelper.Create(WITCH_BASE_GUID, "WitchMaledictionEvilEye").ToString(),
-                    1,
-                    RuleDefinitions.UsesDetermination.Fixed,
-                    AttributeDefinitions.Charisma,
-                    RuleDefinitions.ActivationTime.Action,
-                    0,
-                    RuleDefinitions.RechargeRate.AtWill,
-                    false,
-                    false,
-                    AttributeDefinitions.Charisma,
-                    evileyeEffectDescription,
-                    new GuiPresentationBuilder(
-                            "Class/&WitchMaledictionEvilEyeTitle",
-                            "Class/&WitchMaledictionEvilEyeDescription").Build()
-                            .SetSpriteReference(SpellDefinitions.Fear.GuiPresentation.SpriteReference),
-                    true)
-                    .AddToDB();
-
-            var obfuscateEffectDescription = new EffectDescription();
-            obfuscateEffectDescription.Copy(SpellDefinitions.FogCloud.EffectDescription);
-            obfuscateEffectDescription.SetCanBePlacedOnCharacter(true);
-            obfuscateEffectDescription.SetDurationParameter(1);
-            obfuscateEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
-            obfuscateEffectDescription.SetRangeParameter(0);
-            obfuscateEffectDescription.SetRangeType(RuleDefinitions.RangeType.Self);
-
-            var obfuscate = new FeatureDefinitionPowerBuilder(
-                    "WitchMaledictionObfuscate",
-                    GuidHelper.Create(WITCH_BASE_GUID, "WitchMaledictionObfuscate").ToString(),
-                    1,
-                    RuleDefinitions.UsesDetermination.Fixed,
-                    AttributeDefinitions.Charisma,
-                    RuleDefinitions.ActivationTime.Action,
-                    0,
-                    RuleDefinitions.RechargeRate.AtWill,
-                    false,
-                    false,
-                    AttributeDefinitions.Charisma,
-                    obfuscateEffectDescription,
-                    new GuiPresentationBuilder(
-                            "Class/&WitchMaledictionObfuscateTitle",
-                            "Class/&WitchMaledictionObfuscateDescription").Build()
-                            .SetSpriteReference(SpellDefinitions.FogCloud.GuiPresentation.SpriteReference),
-                    true)
-                    .AddToDB();
-
-            EffectForm poxEffectForm = new EffectForm
-            {
-                FormType = EffectForm.EffectFormType.Condition
-            };
-            ConditionForm poxConditionForm = new ConditionForm();
-            poxEffectForm.SetConditionForm(poxConditionForm);
-            poxEffectForm.ConditionForm.SetConditionDefinition(ConditionDefinitions.ConditionPoisoned);
-
-            var poxEffectDescription = new EffectDescription();
-            poxEffectDescription.Copy(SpellDefinitions.PoisonSpray.EffectDescription);
-            poxEffectDescription.SetDurationParameter(1);
-            poxEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
-            poxEffectDescription.SetHasSavingThrow(true);
-            poxEffectDescription.SetRangeParameter(1);
-            poxEffectDescription.SetRangeType(RuleDefinitions.RangeType.Touch);
-            poxEffectDescription.SetSavingThrowAbility(AttributeDefinitions.Constitution);
-            poxEffectDescription.SetTargetParameter(1);
-            poxEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
-            poxEffectDescription.EffectForms.Clear();
-            poxEffectDescription.EffectForms.Add(poxEffectForm);
-
-            var pox = new FeatureDefinitionPowerBuilder(
-                    "WitchMaledictionPox",
-                    GuidHelper.Create(WITCH_BASE_GUID, "WitchMaledictionPox").ToString(),
-                    1,
-                    RuleDefinitions.UsesDetermination.Fixed,
-                    AttributeDefinitions.Charisma,
-                    RuleDefinitions.ActivationTime.Action,
-                    0,
-                    RuleDefinitions.RechargeRate.AtWill,
-                    false,
-                    false,
-                    AttributeDefinitions.Charisma,
-                    poxEffectDescription,
-                    new GuiPresentationBuilder(
-                            "Class/&WitchMaledictionPoxTitle",
-                            "Class/&WitchMaledictionPoxDescription").Build()
-                            .SetSpriteReference(SpellDefinitions.PoisonSpray.GuiPresentation.SpriteReference),
-                    true)
-                    .AddToDB();
-
-            EffectForm ruinEffectForm = new EffectForm
-            {
-                FormType = EffectForm.EffectFormType.Condition
-            };
-            ConditionForm ruinConditionForm = new ConditionForm();
-            ruinEffectForm.SetConditionForm(ruinConditionForm);
-            ruinEffectForm.SetCreatedByCharacter(true);
-
-            var ruinConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                ConditionDefinitions.ConditionAcidArrowed, "ConditionRuined", WITCH_BASE_GUID)
-                    .SetGuiPresentation("Ruined", Category.Condition, ConditionDefinitions.ConditionAcidArrowed.GuiPresentation.SpriteReference)
+            // Abate
+            var abateConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
+                ConditionDefinitions.ConditionShocked, "ConditionAbate", WITCH_BASE_GUID)
+                    .SetGuiPresentation("Abate", Category.Condition, ConditionDefinitions.ConditionShocked.GuiPresentation.SpriteReference)
                     .AddToDB()
                 .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
                 .SetDurationParameter(1)
                 .SetDurationType(RuleDefinitions.DurationType.Round)
                 .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            abateConditionDefinition.ConditionTags.Add("Malediction");
 
-            ruinConditionDefinition.RecurrentEffectForms.Clear();
-            ruinConditionDefinition.Features.Clear();
-            ruinConditionDefinition.Features.Add(
-                new FeatureDefinitionAttributeModifierBuilder("Ruined", WITCH_BASE_GUID)
-                    .SetGuiPresentation(Category.Modifier, ConditionDefinitions.ConditionAcidArrowed.GuiPresentation.SpriteReference)
+            var abateConditionForm = new ConditionForm()
+                .SetConditionDefinition(abateConditionDefinition);
+
+            var abateEffectForm = new EffectForm()
+                .SetFormType(EffectForm.EffectFormType.Condition)
+                .SetCreatedByCharacter(true)
+                .SetConditionForm(abateConditionForm);
+
+            var abateEffectDescription = new EffectDescription();
+            abateEffectDescription.Copy(SpellDefinitions.ShockingGrasp.EffectDescription);
+            abateEffectDescription
+                .SetDurationParameter(1)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetHasSavingThrow(true)
+                .SetRangeParameter(12)
+                .SetRangeType(RuleDefinitions.RangeType.Distance)
+                .SetSavingThrowAbility(AttributeDefinitions.Charisma)
+                .SetTargetParameter(1)
+                .SetTargetType(RuleDefinitions.TargetType.Individuals);
+            abateEffectDescription.EffectForms.Clear();
+            abateEffectDescription.EffectForms.Add(abateEffectForm);
+
+            var abate = new FeatureDefinitionPowerBuilder(
+                "WitchMaledictionAbate", WITCH_BASE_GUID, Category.Class)
+                    .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
+                    .SetGuiPresentation("WitchMaledictionAbate", Category.Class, SpellDefinitions.ShockingGrasp.GuiPresentation.SpriteReference)
+                    .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+                    .SetUsesFixed(1)
+                    .SetEffect(abateEffectDescription)
+                    .AddToDB();
+
+            // Apathy
+            var apathyConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
+                ConditionDefinitions.ConditionCalmedByCalmEmotionsEnemy, "ConditionApathy", WITCH_BASE_GUID)
+                    .SetGuiPresentation("Apathy", Category.Condition, ConditionDefinitions.ConditionCalmedByCalmEmotionsEnemy.GuiPresentation.SpriteReference)
+                    .AddToDB()
+                .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+                .SetDurationParameter(1)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            apathyConditionDefinition.ConditionTags.Add("Malediction");
+
+            var apathyConditionForm = new ConditionForm()
+                .SetConditionDefinition(apathyConditionDefinition);
+
+            var apathyEffectForm = new EffectForm()
+                .SetFormType(EffectForm.EffectFormType.Condition)
+                .SetCreatedByCharacter(true)
+                .SetConditionForm(apathyConditionForm);
+
+            var apathyEffectDescription = new EffectDescription();
+            apathyEffectDescription.Copy(SpellDefinitions.CalmEmotionsOnEnemy.EffectDescription);
+            apathyEffectDescription
+                .SetDurationParameter(1)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetHasSavingThrow(true)
+                .SetRangeParameter(12)
+                .SetRangeType(RuleDefinitions.RangeType.Distance)
+                .SetSavingThrowAbility(AttributeDefinitions.Charisma)
+                .SetTargetParameter(1)
+                .SetTargetType(RuleDefinitions.TargetType.Individuals);
+            apathyEffectDescription.EffectForms.Clear();
+            apathyEffectDescription.EffectForms.Add(apathyEffectForm);
+
+            var apathy = new FeatureDefinitionPowerBuilder(
+                "WitchMaledictionApathy", WITCH_BASE_GUID, Category.Class)
+                    .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
+                    .SetGuiPresentation("WitchMaledictionApathy", Category.Class, SpellDefinitions.CalmEmotions.GuiPresentation.SpriteReference)
+                    .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+                    .SetUsesFixed(1)
+                    .SetEffect(apathyEffectDescription)
+                    .AddToDB();
+
+            // Charm
+            var charmConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
+                ConditionDefinitions.ConditionCharmed, "ConditionCharm", WITCH_BASE_GUID)
+                    .SetGuiPresentation("Charm", Category.Condition, ConditionDefinitions.ConditionCharmed.GuiPresentation.SpriteReference)
+                    .AddToDB()
+                .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+                .SetDurationParameter(1)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            charmConditionDefinition.ConditionTags.Add("Malediction");
+
+            var charmConditionForm = new ConditionForm()
+                .SetConditionDefinition(charmConditionDefinition);
+
+            var charmEffectForm = new EffectForm()
+                .SetFormType(EffectForm.EffectFormType.Condition)
+                .SetCreatedByCharacter(true)
+                .SetConditionForm(charmConditionForm);
+
+            var charmEffectDescription = new EffectDescription();
+            charmEffectDescription.Copy(SpellDefinitions.CharmPerson.EffectDescription);
+            charmEffectDescription
+                .SetDurationParameter(1)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetHasSavingThrow(true)
+                .SetRangeParameter(12)
+                .SetRangeType(RuleDefinitions.RangeType.Distance)
+                .SetSavingThrowAbility(AttributeDefinitions.Charisma)
+                .SetTargetParameter(1)
+                .SetTargetType(RuleDefinitions.TargetType.Individuals);
+            charmEffectDescription.EffectForms.Clear();
+            charmEffectDescription.EffectForms.Add(charmEffectForm);
+
+            var charm = new FeatureDefinitionPowerBuilder(
+                "WitchMaledictionCharm", WITCH_BASE_GUID, Category.Class)
+                    .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
+                    .SetGuiPresentation("WitchMaledictionCharm", Category.Class, SpellDefinitions.CharmPerson.GuiPresentation.SpriteReference)
+                    .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+                    .SetUsesFixed(1)
+                    .SetEffect(charmEffectDescription)
+                    .AddToDB();
+
+            // Disorient
+            var disorientCombatAffinity = new FeatureDefinitionBuilder<FeatureDefinitionCombatAffinity>(
+                FeatureDefinitionCombatAffinitys.CombatAffinityBaned, "CombatAffinityDisorient", WITCH_BASE_GUID)
+                    .SetGuiPresentation("Disorient", Category.Modifier)
+                    .AddToDB()
+                .SetMyAttackModifierDieType(RuleDefinitions.DieType.D6);
+
+            var disorientConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
+                ConditionDefinitions.ConditionBaned, "ConditionDisorient", WITCH_BASE_GUID)
+                    .SetGuiPresentation("Disorient", Category.Condition, ConditionDefinitions.ConditionBaned.GuiPresentation.SpriteReference)
+                    .AddToDB()
+                .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+                .SetDurationParameter(1)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            disorientConditionDefinition.ConditionTags.Add("Malediction");
+            disorientConditionDefinition.Features.Clear();
+            disorientConditionDefinition.Features.Add(disorientCombatAffinity);
+
+            var disorientConditionForm = new ConditionForm()
+                .SetConditionDefinition(disorientConditionDefinition);
+
+            var disorientEffectForm = new EffectForm()
+                .SetFormType(EffectForm.EffectFormType.Condition)
+                .SetCreatedByCharacter(true)
+                .SetConditionForm(disorientConditionForm);
+
+            var disorientEffectDescription = new EffectDescription();
+            disorientEffectDescription.Copy(SpellDefinitions.Bane.EffectDescription);
+            disorientEffectDescription
+                .SetDurationParameter(1)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetHasSavingThrow(true)
+                .SetRangeParameter(12)
+                .SetRangeType(RuleDefinitions.RangeType.Distance)
+                .SetSavingThrowAbility(AttributeDefinitions.Constitution)
+                .SetTargetParameter(1)
+                .SetTargetType(RuleDefinitions.TargetType.Individuals);
+            disorientEffectDescription.EffectForms.Clear();
+            disorientEffectDescription.EffectForms.Add(disorientEffectForm);
+
+            var disorient = new FeatureDefinitionPowerBuilder(
+                "WitchMaledictionDisorient", WITCH_BASE_GUID, Category.Class)
+                    .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
+                    .SetGuiPresentation("WitchMaledictionDisorient", Category.Class, SpellDefinitions.Bane.GuiPresentation.SpriteReference)
+                    .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+                    .SetUsesFixed(1)
+                    .SetEffect(disorientEffectDescription)
+                    .AddToDB();
+
+            // Evil Eye
+            var evileyeConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
+                ConditionDefinitions.ConditionFrightenedFear, "ConditionEvilEye", WITCH_BASE_GUID)
+                    .SetGuiPresentation("EvilEye", Category.Condition, ConditionDefinitions.ConditionFrightenedFear.GuiPresentation.SpriteReference)
+                    .AddToDB()
+                .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+                .SetDurationParameter(1)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            evileyeConditionDefinition.RecurrentEffectForms.Clear();
+            evileyeConditionDefinition.ConditionTags.Add("Malediction");
+
+            var evileyeConditionForm = new ConditionForm()
+                .SetConditionDefinition(evileyeConditionDefinition);
+
+            var evileyeEffectForm = new EffectForm()
+                .SetFormType(EffectForm.EffectFormType.Condition)
+                .SetCreatedByCharacter(true)
+                .SetConditionForm(evileyeConditionForm);
+
+            var evileyeEffectDescription = new EffectDescription();
+            evileyeEffectDescription.Copy(SpellDefinitions.Fear.EffectDescription);
+            evileyeEffectDescription
+                .SetDurationParameter(1)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetHasSavingThrow(true)
+                .SetRangeParameter(12)
+                .SetRangeType(RuleDefinitions.RangeType.Distance)
+                .SetSavingThrowAbility(AttributeDefinitions.Wisdom)
+                .SetTargetParameter(1)
+                .SetTargetType(RuleDefinitions.TargetType.Individuals);
+            evileyeEffectDescription.EffectForms.Clear();
+            evileyeEffectDescription.EffectForms.Add(evileyeEffectForm);
+
+            var evileye = new FeatureDefinitionPowerBuilder(
+                "WitchMaledictionEvilEye", WITCH_BASE_GUID, Category.Class)
+                    .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
+                    .SetGuiPresentation("WitchMaledictionEvilEye", Category.Class, SpellDefinitions.Fear.GuiPresentation.SpriteReference)
+                    .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+                    .SetUsesFixed(1)
+                    .SetEffect(evileyeEffectDescription)
+                    .AddToDB();
+
+            // Obfuscate
+            var obfuscateEffectDescription = new EffectDescription();
+            obfuscateEffectDescription.Copy(SpellDefinitions.FogCloud.EffectDescription);
+            obfuscateEffectDescription
+                .SetCanBePlacedOnCharacter(true)
+                .SetDurationParameter(1)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetRangeParameter(0)
+                .SetRangeType(RuleDefinitions.RangeType.Self);
+
+            var obfuscate = new FeatureDefinitionPowerBuilder(
+                "WitchMaledictionObfuscate", WITCH_BASE_GUID, Category.Class)
+                    .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
+                    .SetGuiPresentation("WitchMaledictionObfuscate", Category.Class, SpellDefinitions.FogCloud.GuiPresentation.SpriteReference)
+                    .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+                    .SetUsesFixed(1)
+                    .SetEffect(obfuscateEffectDescription)
+                    .AddToDB();
+
+            // Pox
+            var poxConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
+                ConditionDefinitions.ConditionPoisoned, "ConditionPox", WITCH_BASE_GUID)
+                    .SetGuiPresentation("Pox", Category.Condition, ConditionDefinitions.ConditionPoisoned.GuiPresentation.SpriteReference)
+                    .AddToDB()
+                .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+                .SetDurationParameter(1)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            poxConditionDefinition.RecurrentEffectForms.Clear();
+            poxConditionDefinition.ConditionTags.Add("Malediction");
+
+            var poxConditionForm = new ConditionForm()
+                .SetConditionDefinition(poxConditionDefinition);
+
+            var poxEffectForm = new EffectForm()
+                .SetFormType(EffectForm.EffectFormType.Condition)
+                .SetCreatedByCharacter(true)
+                .SetConditionForm(poxConditionForm);
+
+            var poxEffectDescription = new EffectDescription();
+            poxEffectDescription.Copy(SpellDefinitions.PoisonSpray.EffectDescription);
+            poxEffectDescription
+                .SetDurationParameter(1)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetHasSavingThrow(true)
+                .SetRangeParameter(1)
+                .SetRangeType(RuleDefinitions.RangeType.Touch)
+                .SetSavingThrowAbility(AttributeDefinitions.Constitution)
+                .SetTargetParameter(1)
+                .SetTargetType(RuleDefinitions.TargetType.Individuals);
+            poxEffectDescription.EffectForms.Clear();
+            poxEffectDescription.EffectForms.Add(poxEffectForm);
+
+            var pox = new FeatureDefinitionPowerBuilder(
+                "WitchMaledictionPox", WITCH_BASE_GUID, Category.Class)
+                    .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
+                    .SetGuiPresentation("WitchMaledictionPox", Category.Class, SpellDefinitions.PoisonSpray.GuiPresentation.SpriteReference)
+                    .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+                    .SetUsesFixed(1)
+                    .SetEffect(poxEffectDescription)
+                    .AddToDB();
+
+            // Ruin
+            var ruinAttributeModifier = new FeatureDefinitionAttributeModifierBuilder(
+                "AttributeModifierRuin", WITCH_BASE_GUID)
+                    .SetGuiPresentation("Ruin", Category.Modifier)
                     .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, -3)
-                    .AddToDB());
+                    .AddToDB();
 
-            ruinEffectForm.ConditionForm.SetConditionDefinition(ruinConditionDefinition);
+            var ruinConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
+                ConditionDefinitions.ConditionAcidArrowed, "ConditionRuin", WITCH_BASE_GUID)
+                    .SetGuiPresentation("Ruin", Category.Condition, ConditionDefinitions.ConditionAcidArrowed.GuiPresentation.SpriteReference)
+                    .AddToDB()
+                .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+                .SetDurationParameter(1)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            ruinConditionDefinition.RecurrentEffectForms.Clear();
+            ruinConditionDefinition.ConditionTags.Add("Malediction");
+            ruinConditionDefinition.Features.Clear();
+            ruinConditionDefinition.Features.Add(ruinAttributeModifier);
+
+            var ruinConditionForm = new ConditionForm()
+                .SetConditionDefinition(ruinConditionDefinition);
+
+            var ruinEffectForm = new EffectForm()
+                .SetFormType(EffectForm.EffectFormType.Condition)
+                .SetCreatedByCharacter(true)
+                .SetConditionForm(ruinConditionForm);
 
             var ruinEffectDescription = new EffectDescription();
             ruinEffectDescription.Copy(SpellDefinitions.AcidArrow.EffectDescription);
-            ruinEffectDescription.SetDurationParameter(1);
-            ruinEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
-            ruinEffectDescription.SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            ruinEffectDescription.SetHasSavingThrow(true);
-            ruinEffectDescription.SetRangeParameter(12);
-            ruinEffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
-            ruinEffectDescription.SetSavingThrowAbility(AttributeDefinitions.Constitution);
-            ruinEffectDescription.SetTargetParameter(1);
-            ruinEffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
+            ruinEffectDescription
+                .SetDurationParameter(1)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetHasSavingThrow(true)
+                .SetRangeParameter(12)
+                .SetRangeType(RuleDefinitions.RangeType.Distance)
+                .SetSavingThrowAbility(AttributeDefinitions.Constitution)
+                .SetTargetParameter(1)
+                .SetTargetType(RuleDefinitions.TargetType.Individuals);
             ruinEffectDescription.EffectForms.Clear();
             ruinEffectDescription.EffectForms.Add(ruinEffectForm);
 
             var ruin = new FeatureDefinitionPowerBuilder(
-                    "WitchMaledictionRuin",
-                    GuidHelper.Create(WITCH_BASE_GUID, "WitchMaledictionRuin").ToString(),
-                    1,
-                    RuleDefinitions.UsesDetermination.Fixed,
-                    AttributeDefinitions.Charisma,
-                    RuleDefinitions.ActivationTime.Action,
-                    0,
-                    RuleDefinitions.RechargeRate.AtWill,
-                    false,
-                    false,
-                    AttributeDefinitions.Charisma,
-                    ruinEffectDescription,
-                    new GuiPresentationBuilder(
-                            "Class/&WitchMaledictionRuinTitle",
-                            "Class/&WitchMaledictionRuinDescription").Build()
-                            .SetSpriteReference(SpellDefinitions.AcidSplash.GuiPresentation.SpriteReference),
-                    true)
+                "WitchMaledictionRuin", WITCH_BASE_GUID, Category.Class)
+                    .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
+                    .SetGuiPresentation("WitchMaledictionRuin", Category.Class, SpellDefinitions.AcidArrow.GuiPresentation.SpriteReference)
+                    .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+                    .SetUsesFixed(1)
+                    .SetEffect(ruinEffectDescription)
                     .AddToDB();
 
             FeatureDefinitionFeatureSetMaledictions = new FeatureDefinitionFeatureSetBuilder(
                 FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetMaledictions", WITCH_BASE_GUID, Category.Class)
+                    .SetGuiPresentation("WitchFeatureSetMaledictions", Category.Class)
                     .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
                     .SetUniqueChoices(true)
-                    .SetFeatures(abate, apathy, charm, evileye, obfuscate, pox, ruin)
+                    .SetFeatures(abate, apathy, charm, disorient, evileye, obfuscate, pox, ruin)
                     .AddToDB();
+
         }
 
         private static void BuildCackle()
         {
+
             // At 2nd level, you can use your bonus action to cackle. 
             // The duration of your Malediction extends by 1 round for each creature affected within 60 feet of you. 
             // Not all witches laugh maniacally when they cackle, but all cackles require a verbal component, as a spell. 
             // These range from mundane curses and insults, to the murmuring of dead languages and speaking backwards.
 
-            var effectForm = new EffectForm
-            {
-                FormType = EffectForm.EffectFormType.Condition
-            };
-            effectForm.SetCreatedByCharacter(true);
-
-            ConditionForm conditionForm = new ConditionForm();
-            conditionForm.SetConditionDefinition(ConditionDefinitions.ConditionDeafened);
-            effectForm.SetConditionForm(conditionForm);
-
             //Add to our new effect
             var effectDescription = new EffectDescription();
-            effectDescription.Copy(SpellDefinitions.HideousLaughter.EffectDescription);
+            effectDescription.Copy(DatabaseHelper.SpellDefinitions.HideousLaughter.EffectDescription);
             effectDescription.SetDurationParameter(1);
             effectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
             effectDescription.SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectDescription.SetHasSavingThrow(false);
             effectDescription.SetRangeType(RuleDefinitions.RangeType.Self);
-            // Target by tag?
-            //            effectDescription.SetTargetFilteringTag(RuleDefinitions.TargetFilteringTag.CursedByMalediction);
             effectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
             effectDescription.SetTargetParameter(12);
             effectDescription.EffectForms.Clear();
-            // Can we add a Condition dynamically? i.e. can we detect what kind of condition a creature has, and then add that condition here?
-            // And/or can we add a new "CackleCondition" which gets evaluated at end of turn and would search for any 
-            // RuleDefinitions.TargetFilteringTag.CursedByMalediction condition on the creature and reapply the condition?
-            effectDescription.EffectForms.Add(effectForm);
+            effectDescription.EffectForms.Add(new CackleEffectForm());
 
             FeatureDefinitionPowerCackle = new FeatureDefinitionPowerBuilder(
                     "WitchCacklePower",
@@ -863,11 +931,59 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     AttributeDefinitions.Charisma,
                     effectDescription,
                     new GuiPresentationBuilder(
-                            "Class/&WitchCacklePowerTitle",
-                            "Class/&WitchCacklePowerDescription").Build()
-                            .SetSpriteReference(SpellDefinitions.HideousLaughter.GuiPresentation.SpriteReference),
+                            "Class/&WitchCacklePowerDescription",
+                            "Class/&WitchCacklePowerTitle").Build()
+                            .SetSpriteReference(DatabaseHelper.SpellDefinitions.HideousLaughter.GuiPresentation.SpriteReference),
                     true)
                     .AddToDB();
+
+        }
+
+        private sealed class CackleEffectForm : CustomEffectForm
+        {
+
+            public override void ApplyForm(RulesetImplementationDefinitions.ApplyFormsParams formsParams, bool retargeting, bool proxyOnly, bool forceSelfConditionOnly)
+            {
+
+                List<RulesetCondition> conditions = formsParams.targetCharacter.AllConditions;
+
+                var activeMaledictions = conditions.Where(i => i.ConditionDefinition.ConditionTags.Contains("Malediction")).ToList();
+                if (activeMaledictions != null){
+                    foreach (RulesetCondition malediction in activeMaledictions){
+                        // Remove the condition in order to refresh it
+                        formsParams.targetCharacter.RemoveCondition(malediction);
+                        // Refresh the condition
+                        ApplyCondition(formsParams, malediction.ConditionDefinition, RuleDefinitions.DurationType.Round, 1);
+                    }
+                }
+
+            }
+
+            public override void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap)
+            {
+                // Nothing
+            }
+
+            private static void ApplyCondition(RulesetImplementationDefinitions.ApplyFormsParams formsParams, ConditionDefinition condition, RuleDefinitions.DurationType durationType, int durationParam)
+            {
+                // Prepare params for inflicting conditions
+                ulong sourceGuid = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.Guid : 0L;
+                string sourceFaction = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.CurrentFaction.Name : string.Empty;
+                string effectDefinitionName = string.Empty;
+
+                if (formsParams.attackMode != null)
+                {
+                    effectDefinitionName = formsParams.attackMode.SourceDefinition.Name;
+                }
+                else if (formsParams.activeEffect != null)
+                {
+                    effectDefinitionName = formsParams.activeEffect.SourceDefinition.Name;
+                }
+
+                int sourceAbilityBonus = formsParams.activeEffect != null ? formsParams.activeEffect.ComputeSourceAbilityBonus(formsParams.sourceCharacter) : 0;
+
+                formsParams.targetCharacter.InflictCondition(condition.Name, durationType, durationParam, RuleDefinitions.TurnOccurenceType.EndOfTurn, "11Effect", sourceGuid, sourceFaction, formsParams.effectLevel, effectDefinitionName, 0, sourceAbilityBonus);
+            }
         }
 
         private static CharacterClassDefinition BuildAndAddClass()
