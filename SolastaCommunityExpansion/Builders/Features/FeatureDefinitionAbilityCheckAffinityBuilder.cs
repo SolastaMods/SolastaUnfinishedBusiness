@@ -6,29 +6,25 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionAbilityCheckAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionAbilityCheckAffinity>
+    public sealed class FeatureDefinitionAbilityCheckAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionAbilityCheckAffinity>
     {
-        public FeatureDefinitionAbilityCheckAffinityBuilder(string name, string guid)
-            : base(name, guid)
-        {
-        }
-
-        public FeatureDefinitionAbilityCheckAffinityBuilder(string name, Guid namespaceGuid, Category category = Category.None)
+        private FeatureDefinitionAbilityCheckAffinityBuilder(string name, Guid namespaceGuid, Category category = Category.None)
             : base(name, namespaceGuid, category)
         {
         }
 
-        public FeatureDefinitionAbilityCheckAffinityBuilder(FeatureDefinitionAbilityCheckAffinity original, string name, string guid)
+        private FeatureDefinitionAbilityCheckAffinityBuilder(FeatureDefinitionAbilityCheckAffinity original, string name, string guid)
             : base(original, name, guid)
         {
         }
 
-        public FeatureDefinitionAbilityCheckAffinityBuilder(FeatureDefinitionAbilityCheckAffinity original, string name, Guid namespaceGuid, Category category = Category.None)
-            : base(original, name, namespaceGuid, category)
+        public static FeatureDefinitionAbilityCheckAffinityBuilder Create(
+            string name, Guid namespaceGuid, Category category = Category.None)
         {
+            return new FeatureDefinitionAbilityCheckAffinityBuilder(name, namespaceGuid, category);
         }
 
-        public static FeatureDefinitionAbilityCheckAffinityBuilder CreateCopyFrom(
+        public static FeatureDefinitionAbilityCheckAffinityBuilder Create(
             FeatureDefinitionAbilityCheckAffinity original, string name, string guid)
         {
             return new FeatureDefinitionAbilityCheckAffinityBuilder(original, name, guid);

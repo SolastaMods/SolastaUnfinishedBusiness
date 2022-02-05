@@ -57,7 +57,7 @@ namespace SolastaCommunityExpansion.Builders
             return new GuiPresentationBuilder(title, description, sprite).Build();
         }
 
-        public static GuiPresentation BuildGenerate(string name, Category category, AssetReferenceSprite sprite = null)
+        public static GuiPresentation Build(string name, Category category, AssetReferenceSprite sprite = null)
         {
             return new GuiPresentationBuilder(CreateTitleKey(name, category), CreateDescriptionKey(name, category), sprite).Build();
         }
@@ -67,7 +67,7 @@ namespace SolastaCommunityExpansion.Builders
         /// <summary>
         /// GuiPresentation representing 'No content title and description'
         /// </summary>
-        public static GuiPresentation NoContent { get; } = Build("Feature/&NoContentTitle", "Feature/&NoContentTitle");
+        public static GuiPresentation NoContent { get; } = Build("NoContent", Category.Feature);
     }
 
     internal static class BaseDefinitionBuilderGuiPresentationExtensions
@@ -100,7 +100,7 @@ namespace SolastaCommunityExpansion.Builders
         public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, string name, Category category, AssetReferenceSprite sprite = null)
            where TBuilder : IBaseDefinitionBuilder
         {
-            return SetGuiPresentation(builder, GuiPresentationBuilder.BuildGenerate(name, category, sprite));
+            return SetGuiPresentation(builder, GuiPresentationBuilder.Build(name, category, sprite));
         }
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace SolastaCommunityExpansion.Builders
         public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, Category category, AssetReferenceSprite sprite = null)
            where TBuilder : IBaseDefinitionBuilder
         {
-            return SetGuiPresentation(builder, GuiPresentationBuilder.BuildGenerate(((IBaseDefinitionBuilder)builder).Name, category, sprite));
+            return SetGuiPresentation(builder, GuiPresentationBuilder.Build(((IBaseDefinitionBuilder)builder).Name, category, sprite));
         }
 
         // TODO: More SetGuiPresentation/Generate(...) overloads as required
@@ -150,7 +150,7 @@ namespace SolastaCommunityExpansion.Builders
         public static TDefinition SetGuiPresentation<TDefinition>(this TDefinition definition, string name, Category category, AssetReferenceSprite sprite = null)
             where TDefinition : BaseDefinition
         {
-            definition.GuiPresentation = GuiPresentationBuilder.BuildGenerate(name, category, sprite);
+            definition.GuiPresentation = GuiPresentationBuilder.Build(name, category, sprite);
             return definition;
         }
 
@@ -163,7 +163,7 @@ namespace SolastaCommunityExpansion.Builders
             where TDefinition : BaseDefinition
         {
             Preconditions.IsNotNull(definition, nameof(definition));
-            definition.GuiPresentation = GuiPresentationBuilder.BuildGenerate(definition.Name, category, sprite);
+            definition.GuiPresentation = GuiPresentationBuilder.Build(definition.Name, category, sprite);
             return definition;
         }
 

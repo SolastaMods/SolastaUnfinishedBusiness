@@ -1,15 +1,20 @@
-﻿using SolastaCommunityExpansion.CustomFeatureDefinitions;
+﻿using System;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionConditionalPowerBuilder : BaseDefinitionBuilder<FeatureDefinitionConditionalPower>
+    public sealed class FeatureDefinitionConditionalPowerBuilder : BaseDefinitionBuilder<FeatureDefinitionConditionalPower>
     {
-        public FeatureDefinitionConditionalPowerBuilder(string name, string guid,
-            GuiPresentation guiPresentation) : base(name, guid)
+        private FeatureDefinitionConditionalPowerBuilder(string name, Guid namespaceGuid, Category category = Category.None)
+            : base(name, namespaceGuid, category)
         {
-            Definition.SetGuiPresentation(guiPresentation);
+        }
+
+        public static FeatureDefinitionConditionalPowerBuilder Create(string name, Guid namespaceGuid, Category category = Category.None)
+        {
+            return new FeatureDefinitionConditionalPowerBuilder(name, namespaceGuid, category);
         }
 
         public FeatureDefinitionConditionalPowerBuilder SetEffect(EffectDescription effect)

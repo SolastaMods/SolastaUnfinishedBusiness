@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Models
         internal static void CreateFeats(ICollection<FeatDefinition> feats)
         {
             FeatureDefinitionAbilityCheckAffinity pickpocket_check_affinity = FeatureDefinitionAbilityCheckAffinityBuilder
-                .CreateCopyFrom(DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityFeatLockbreaker, "AbilityCheckAffinityFeatPickPocket", "30b1492a-053f-412e-b247-798fbc255038")
+                .Create(DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityFeatLockbreaker, "AbilityCheckAffinityFeatPickPocket", "30b1492a-053f-412e-b247-798fbc255038")
                 .SetGuiPresentation("PickPocketFeat", Category.Feat)
                 .AddToDB();
 
