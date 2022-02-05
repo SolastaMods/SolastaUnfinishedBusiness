@@ -9,7 +9,7 @@ using ModKit;
 using UnityEngine;
 using static ModKit.Utility.ReflectionCache;
 
-namespace SolastaModApi.DataViewer
+namespace SolastaCommunityExpansion.DataViewer
 {
     public enum NodeType
     {

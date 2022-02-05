@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using SolastaCommunityExpansion;
 using UnityEngine;
 using static ModKit.Utility.StringExtensions;
 
-namespace SolastaModApi.DataViewer
+namespace SolastaCommunityExpansion.DataViewer
 {
     /**
      * Strategy For Async Deep Search
@@ -73,7 +72,7 @@ namespace SolastaModApi.DataViewer
                 if (_shared == null)
                 {
                     _shared = new GameObject().AddComponent<ReflectionSearch>();
-                    UnityEngine.Object.DontDestroyOnLoad(_shared.gameObject);
+                    DontDestroyOnLoad(_shared.gameObject);
                 }
                 return _shared;
             }

@@ -1,14 +1,9 @@
-﻿using HarmonyLib;
-using ModKit;
-using ModKit.Utility;
-using SolastaModApi.DataViewer;
+﻿using ModKit.Utility;
+using SolastaCommunityExpansion.DataViewer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using static ModKit.Utility.RichTextExtensions;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
