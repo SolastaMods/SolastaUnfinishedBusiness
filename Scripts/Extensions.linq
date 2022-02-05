@@ -148,7 +148,7 @@ void CreateExtensions(Type t, bool createFiles = false)
 			GetUsingSyntax("UnityEngine.AddressableAssets"),
 			GetUsingSyntax("System"),
 			GetUsingSyntax("System.Text"),
-			//GetUsingSyntax("System.CodeDom.Compiler"),
+			GetUsingSyntax("System.CodeDom.Compiler"),
 			GetUsingSyntax("TA.AI"),
 			GetUsingSyntax("TA"),
 			GetUsingSyntax("System.Collections.Generic"),
@@ -192,22 +192,24 @@ void CreateExtensions(Type t, bool createFiles = false)
 							)
 						)
 					)
-				//.Add(
-				//	Attribute(
-				//		IdentifierName("GeneratedCode"),
-				//		AttributeArgumentList(
-				//			new SeparatedSyntaxList<AttributeArgumentSyntax>()
-				//				.Add(
-				//					AttributeArgument(
-				//						ParseExpression($"\"Community Expansion Extension Generator\""))
-				//					)
-				//				.Add(
-				//					AttributeArgument(
-				//						ParseExpression($"\"1.3.12\""))
-				//					)
-				//				)
-				//		)
-				//	)
+				.Add(
+					Attribute(
+						IdentifierName("GeneratedCode"),
+						AttributeArgumentList(
+							new SeparatedSyntaxList<AttributeArgumentSyntax>()
+								.Add(
+									AttributeArgument(
+										ParseExpression($"\"Community Expansion Extension Generator\""))
+									)
+								.Add(
+									// probably best not to change the version often since that makes 
+									// it impossible to detect changes to extensions
+									AttributeArgument(
+										ParseExpression($"\"1.0.0\"")) 
+									)
+								)
+						)
+					)
 			);
 	}
 
