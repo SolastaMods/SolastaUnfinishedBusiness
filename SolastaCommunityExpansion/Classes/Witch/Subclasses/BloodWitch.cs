@@ -1,7 +1,5 @@
 ﻿using System;
-using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
@@ -20,34 +18,21 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
 
         public static CharacterSubclassDefinition BuildAndAddSubclass(CharacterClassDefinition witchClass)
         {
-            var preparedSpells = new FeatureDefinitionAutoPreparedSpellsBuilder("BloodMagicAutoPreparedSpell", Namespace)
-                .SetGuiPresentationNoContent()
-                .SetPreparedSpellGroups(
-                    AutoPreparedSpellsGroupBuilder.Build(1,
-                        FalseLife, // This should be Hellish Rebuke
-                        InflictWounds),// This should be Hollowing Curse,
-                    AutoPreparedSpellsGroupBuilder.Build(3, AcidArrow, HoldPerson),
-                    AutoPreparedSpellsGroupBuilder.Build(5,
-                        BestowCurse, // This should be Rube-Eye Curse
-                        VampiricTouch),
-                    AutoPreparedSpellsGroupBuilder.Build(7, Blight, DominateBeast),
-                    AutoPreparedSpellsGroupBuilder.Build(9, CloudKill, DominatePerson))
-                .SetCharacterClass(witchClass)
-                .SetAutoTag("Coven")
-                .AddToDB();
-
-            var featureDefinitionFeatureSetBloodMagic = new FeatureDefinitionFeatureSetBuilder(
-                    DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHumanLanguages, "FeatureSetBloodWitchMagic", Namespace)
-                .SetGuiPresentation("BloodWitchMagic", Category.Subclass)
-                .SetFeatures(preparedSpells)
-                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                .SetUniqueChoices(true)
-                .AddToDB();
-
-            return new CharacterSubclassDefinitionBuilder("BloodWitch", Namespace)
-                .SetGuiPresentation(Category.Subclass, DomainOblivion.GuiPresentation.SpriteReference)
-                .AddFeatureAtLevel(featureDefinitionFeatureSetBloodMagic, 3)
-                .AddToDB();
+            return WitchSubclassHelper.BuildAndAddSubclass(
+                "Blood",
+                DomainOblivion.GuiPresentation.SpriteReference,
+                witchClass,
+                Namespace,
+                AutoPreparedSpellsGroupBuilder.Build(1,
+                    FalseLife, // This should be Hellish Rebuke
+                    InflictWounds),// This should be Hollowing Curse,
+                AutoPreparedSpellsGroupBuilder.Build(3, AcidArrow, HoldPerson),
+                AutoPreparedSpellsGroupBuilder.Build(5,
+                    BestowCurse, // This should be Rube-Eye Curse
+                    VampiricTouch),
+                AutoPreparedSpellsGroupBuilder.Build(7, Blight, DominateBeast),
+                AutoPreparedSpellsGroupBuilder.Build(9, CloudKill, DominatePerson)
+            );
         }
     }
 }

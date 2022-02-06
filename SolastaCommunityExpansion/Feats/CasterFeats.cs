@@ -316,7 +316,8 @@ namespace SolastaCommunityExpansion.Feats
             IEnumerable<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> autospelllists,
             CharacterClassDefinition characterclass, string name, string tag, GuiPresentation guiPresentation)
         {
-            return new FeatureDefinitionAutoPreparedSpellsBuilder(name, CasterFeatsNamespace)
+            return FeatureDefinitionAutoPreparedSpellsBuilder
+                .Create(name, CasterFeatsNamespace)
                 .SetGuiPresentation(guiPresentation)
                 .SetPreparedSpellGroups(autospelllists)
                 .SetCharacterClass(characterclass)
