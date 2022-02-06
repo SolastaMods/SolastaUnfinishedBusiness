@@ -423,6 +423,11 @@ namespace SolastaModApi
             Preconditions.IsNotNullOrWhiteSpace(Definition.Name, nameof(Definition.Name));
             Preconditions.IsNotNullOrWhiteSpace(Definition.GUID, nameof(Definition.GUID));
 
+            if (!Guid.TryParse(Definition.GUID, out Guid guid))
+            {
+                throw new SolastaModApiException($"The string in Definition.GUID '{Definition.GUID}' is not a GUID.");
+            }
+
             // Get all base types for the target definition.  The definition needs to be added to all matching databases.
             // e.g. ConditionAffinityBlindnessImmunity is added to dbs: FeatureDefinitionConditionAffinity, FeatureDefinitionAffinity, FeatureDefinition
             var types = GetBaseTypes(Definition.GetType());

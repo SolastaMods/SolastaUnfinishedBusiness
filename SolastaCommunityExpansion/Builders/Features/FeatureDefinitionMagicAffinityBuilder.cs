@@ -40,6 +40,11 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
+        public static FeatureDefinitionMagicAffinityBuilder Create(string name, Guid namespaceGuid)
+        {
+            return new FeatureDefinitionMagicAffinityBuilder(name, namespaceGuid);
+        }
+
         public FeatureDefinitionMagicAffinityBuilder SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity concentrationAffinity,
                int threshold)
         {

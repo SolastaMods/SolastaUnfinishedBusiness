@@ -9,15 +9,8 @@ namespace SolastaCommunityExpansion.Builders
 {
     public sealed class FeatDefinitionBuilder : BaseDefinitionBuilder<FeatDefinition>
     {
-        // TODO: remove this constructor
-        public FeatDefinitionBuilder(string name, string guid, IEnumerable<FeatureDefinition> features, GuiPresentation guiPresentation) : base(name, guid)
-        {
-            Definition.Features.SetRange(features);
-            Definition.SetGuiPresentation(guiPresentation);
-        }
-
-        private FeatDefinitionBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
+        private FeatDefinitionBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid, Category.None)
         {
         }
 
@@ -26,9 +19,19 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
+        private FeatDefinitionBuilder(FeatDefinition original, string name, Guid namespaceGuid)
+            : base(original, name, namespaceGuid, Category.None)
+        {
+        }
+
         public static FeatDefinitionBuilder Create(FeatDefinition original, string name, string guid)
         {
             return new FeatDefinitionBuilder(original, name, guid);
+        }
+
+        public static FeatDefinitionBuilder Create(FeatDefinition original, string name, Guid namespaceGuid)
+        {
+            return new FeatDefinitionBuilder(original, name, namespaceGuid);
         }
 
         public static FeatDefinitionBuilder Create(string name, Guid namespaceGuid)
