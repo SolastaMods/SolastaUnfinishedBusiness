@@ -4,38 +4,29 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionDieRollModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionDieRollModifier>
+    public sealed class FeatureDefinitionDieRollModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionDieRollModifier>
     {
-        public FeatureDefinitionDieRollModifierBuilder(string name, string guid,
-                RuleDefinitions.RollContext context, int rerollCount, int minRerollValue,
-                string consoleLocalizationKey, GuiPresentation guiPresentation) : base(name, guid)
+        private FeatureDefinitionDieRollModifierBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid, Category.None)
+        {
+        }
+
+        // Add other standard Create methods and constructors as required.
+
+        public static FeatureDefinitionDieRollModifierBuilder Create(string name, Guid namespaceGuid)
+        {
+            return new FeatureDefinitionDieRollModifierBuilder(name, namespaceGuid);
+        }
+
+        public FeatureDefinitionDieRollModifierBuilder SetModifiers(
+            RuleDefinitions.RollContext context, int rerollCount, int minRerollValue, string consoleLocalizationKey)
         {
             Definition.SetValidityContext(context);
             Definition.SetRerollLocalizationKey(consoleLocalizationKey);
             Definition.SetRerollCount(rerollCount);
             Definition.SetMinRerollValue(minRerollValue);
             Definition.SetMinRollValue(minRerollValue);
-            Definition.SetGuiPresentation(guiPresentation);
-        }
-
-        public FeatureDefinitionDieRollModifierBuilder(string name, string guid)
-            : base(name, guid)
-        {
-        }
-
-        public FeatureDefinitionDieRollModifierBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
-        {
-        }
-
-        public FeatureDefinitionDieRollModifierBuilder(FeatureDefinitionDieRollModifier original, string name, string guid)
-            : base(original, name, guid)
-        {
-        }
-
-        public FeatureDefinitionDieRollModifierBuilder(FeatureDefinitionDieRollModifier original, string name, Guid namespaceGuid, Category category = Category.None)
-            : base(original, name, namespaceGuid, category)
-        {
+            return this;
         }
     }
 }

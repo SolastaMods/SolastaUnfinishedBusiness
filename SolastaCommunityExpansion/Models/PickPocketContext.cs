@@ -38,7 +38,7 @@ namespace SolastaCommunityExpansion.Models
             pickpocket_proficiency.Proficiencies.Add(SkillDefinitions.SleightOfHand);
 
             FeatDefinition pickPocketFeat = FeatDefinitionBuilder
-                .CreateCopyFrom(DatabaseHelper.FeatDefinitions.Lockbreaker, "PickPocketFeat", "947a31fc-4990-45a5-bcfd-6c478b4dff8a")
+                .Create(DatabaseHelper.FeatDefinitions.Lockbreaker, "PickPocketFeat", "947a31fc-4990-45a5-bcfd-6c478b4dff8a")
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 

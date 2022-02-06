@@ -32,6 +32,11 @@ namespace SolastaCommunityExpansion.Builders.Features
             return new FeatureDefinitionAttributeModifierBuilder(name, namespaceGuid);
         }
 
+        public static FeatureDefinitionAttributeModifierBuilder Create(string name, string guid)
+        {
+            return new FeatureDefinitionAttributeModifierBuilder(name, guid);
+        }
+
         public static FeatureDefinitionAttributeModifierBuilder Create(FeatureDefinitionAttributeModifier original, string name, Guid namespaceGuid)
         {
             return new FeatureDefinitionAttributeModifierBuilder(original, name, namespaceGuid);

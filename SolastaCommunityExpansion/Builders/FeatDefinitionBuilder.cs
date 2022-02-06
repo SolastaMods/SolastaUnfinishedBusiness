@@ -7,37 +7,36 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class FeatDefinitionBuilder : BaseDefinitionBuilder<FeatDefinition>
+    public sealed class FeatDefinitionBuilder : BaseDefinitionBuilder<FeatDefinition>
     {
-        // TODO: remove this constructor
-        public FeatDefinitionBuilder(string name, string guid, IEnumerable<FeatureDefinition> features, GuiPresentation guiPresentation) : base(name, guid)
-        {
-            Definition.Features.SetRange(features);
-            Definition.SetGuiPresentation(guiPresentation);
-        }
-
-        public FeatDefinitionBuilder(string name, string guid) : base(name, guid)
+        private FeatDefinitionBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid, Category.None)
         {
         }
 
-        public FeatDefinitionBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
-        {
-        }
-
-        public FeatDefinitionBuilder(FeatDefinition original, string name, string guid)
+        private FeatDefinitionBuilder(FeatDefinition original, string name, string guid)
             : base(original, name, guid)
         {
         }
 
-        public FeatDefinitionBuilder(FeatDefinition original, string name, Guid namespaceGuid, Category category = Category.None)
-            : base(original, name, namespaceGuid, category)
+        private FeatDefinitionBuilder(FeatDefinition original, string name, Guid namespaceGuid)
+            : base(original, name, namespaceGuid, Category.None)
         {
         }
 
-        public static FeatDefinitionBuilder CreateCopyFrom(FeatDefinition original, string name, string guid)
+        public static FeatDefinitionBuilder Create(FeatDefinition original, string name, string guid)
         {
             return new FeatDefinitionBuilder(original, name, guid);
+        }
+
+        public static FeatDefinitionBuilder Create(FeatDefinition original, string name, Guid namespaceGuid)
+        {
+            return new FeatDefinitionBuilder(original, name, namespaceGuid);
+        }
+
+        public static FeatDefinitionBuilder Create(string name, Guid namespaceGuid)
+        {
+            return new FeatDefinitionBuilder(name, namespaceGuid);
         }
 
         public FeatDefinitionBuilder SetFeatures(params FeatureDefinition[] features)
@@ -48,6 +47,17 @@ namespace SolastaCommunityExpansion.Builders
         public FeatDefinitionBuilder SetFeatures(IEnumerable<FeatureDefinition> features)
         {
             Definition.Features.SetRange(features);
+            return this;
+        }
+
+        public FeatDefinitionBuilder AddFeatures(params FeatureDefinition[] features)
+        {
+            return AddFeatures(features.AsEnumerable());
+        }
+
+        public FeatDefinitionBuilder AddFeatures(IEnumerable<FeatureDefinition> features)
+        {
+            Definition.Features.AddRange(features);
             return this;
         }
 
