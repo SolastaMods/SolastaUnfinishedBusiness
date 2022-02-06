@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Utils
     {
         const string CUSTOM_ICON_PREFIX = "CUSTOM_ICON_PREFIX_";
 
-        internal static Dictionary<string, Sprite> LoadedIcons = new();
+        internal static readonly Dictionary<string, Sprite> LoadedIcons = new();
 
         internal static Sprite ImageToSprite(string filePath, int sizeX, int sizeY)
         {
@@ -40,7 +40,9 @@ namespace SolastaCommunityExpansion.Utils
                 return newText;
             }
             else
+            {
                 return sprite.texture;
+            }
         }
 
         internal static Texture2D DuplicateTexture(Texture2D source)
@@ -144,9 +146,9 @@ namespace SolastaCommunityExpansion.Utils
 
         //puts scaled inner image into specified postion of base image and stores it to a file
         internal static void Merge2Images(
-            string baseImageFile, 
-            string innerImageFile, 
-            (int, int) innerImageScale, 
+            string baseImageFile,
+            string innerImageFile,
+            (int, int) innerImageScale,
             (int, int) innerImagePosition,
             string finalImageFilename)
         {
@@ -167,17 +169,12 @@ namespace SolastaCommunityExpansion.Utils
 
                 base_image.Save(finalImageFilename);
             }
-            catch (Exception)
-            {
-                throw;
-            }
             finally
             {
                 base_image?.Dispose();
                 inner_image?.Dispose();
             }
         }
-
 
         internal static AssetReferenceSprite StoreCustomIcon(string name, string filePath, int sizeX, int sizeY)
         {
@@ -188,7 +185,6 @@ namespace SolastaCommunityExpansion.Utils
             return new AssetReferenceSprite(CUSTOM_ICON_PREFIX + name);
         }
 
-
         internal static Sprite LoadStoredCustomIcon(string guid)
         {
             if (!LoadedIcons.ContainsKey(guid))
@@ -198,7 +194,6 @@ namespace SolastaCommunityExpansion.Utils
 
             return LoadedIcons[guid];
         }
-
 
         internal static bool IsCustomIcon(Sprite sprite)
         {
