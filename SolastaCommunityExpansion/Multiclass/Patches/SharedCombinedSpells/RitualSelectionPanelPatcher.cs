@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using HarmonyLib;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
@@ -24,7 +25,6 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                 }
 
                 var rulesetCharacter = caster.RulesetCharacter;
-                var ritualType = RuleDefinitions.RitualCasting.None;
 
                 __instance.Caster = caster;
                 __instance.RitualCastCancelled = ritualCastCancelled;
@@ -39,19 +39,17 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
 
                 ritualSpells.Clear();
 
-                foreach (var featureDefinition in rulesetCharacter.FeaturesToBrowse)
+                foreach (var featureDefinitionMagicAffinity in rulesetCharacter
+                    .FeaturesToBrowse.OfType<FeatureDefinitionMagicAffinity>()
+                    .Where(f => f.RitualCasting != RuleDefinitions.RitualCasting.None))
                 {
-                    if (featureDefinition is FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity && featureDefinitionMagicAffinity.RitualCasting != RuleDefinitions.RitualCasting.None)
-                    {
-                        ritualType = featureDefinitionMagicAffinity.RitualCasting;
-                        __instance.Caster.RulesetCharacter.EnumerateUsableRitualSpells(ritualType, ritualSpellsCache);
+                    __instance.Caster.RulesetCharacter.EnumerateUsableRitualSpells(featureDefinitionMagicAffinity.RitualCasting, ritualSpellsCache);
 
-                        foreach (var ritualSpell in ritualSpellsCache)
+                    foreach (var ritualSpell in ritualSpellsCache)
+                    {
+                        if (!ritualSpells.Contains(ritualSpell))
                         {
-                            if (!ritualSpells.Contains(ritualSpell))
-                            {
-                                ritualSpells.Add(ritualSpell);
-                            }
+                            ritualSpells.Add(ritualSpell);
                         }
                     }
                 }
@@ -84,7 +82,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
 
                 LayoutRebuilder.ForceRebuildLayoutImmediate(labelTransform);
 
-                var a = labelTransform.rect.width + 2f * labelTransform.anchoredPosition.x;
+                var a = labelTransform.rect.width + (2f * labelTransform.anchoredPosition.x);
 
                 LayoutRebuilder.ForceRebuildLayoutImmediate(ritualBoxesTable);
 

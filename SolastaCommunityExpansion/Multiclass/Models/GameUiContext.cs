@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text;
+using SolastaModApi.Infrastructure;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Multiclass.Models
@@ -32,7 +33,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
                 foreach (var characterClassDefinition in hero.ClassesAndLevels.Keys)
                 {
                     builder.Append(characterClassDefinition.FormatTitle());
-                    builder.Append("/");
+                    builder.Append('/');
                     builder.Append(hero.ClassesAndLevels[characterClassDefinition]);
                     builder.Append(separator);
                 }
@@ -47,10 +48,12 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
         internal static string GetAllClassesHitDiceLabel(GuiCharacter character, out int dieTypeCount)
         {
+            Assert.IsNotNull(character, nameof(character));
+
             var builder = new StringBuilder();
-            var hero = character?.RulesetCharacterHero;
+            var hero = character.RulesetCharacterHero;
             var dieTypesCount = new Dictionary<RuleDefinitions.DieType, int>();
-            var separator = " ";
+            const string separator = " ";
 
             foreach (var characterClassDefinition in hero.ClassesAndLevels.Keys)
             {
@@ -64,9 +67,11 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
             foreach (var dieType in dieTypesCount.Keys)
             {
-                builder.Append(dieTypesCount[dieType].ToString());
+                builder.Append(dieTypesCount[dieType]);
                 builder.Append(Gui.GetDieSymbol(dieType));
+#pragma warning disable CA1834 // Consider using 'StringBuilder.Append(char)' when applicable
                 builder.Append(separator);
+#pragma warning restore CA1834 // Consider using 'StringBuilder.Append(char)' when applicable
             }
 
             dieTypeCount = dieTypesCount.Count;
@@ -101,14 +106,19 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
             if (hero.ClassesAndLevels.Count > 1) // cannot use InspectionPanelContext here as this method happens before that context is set
             {
-                builder.Append("\n");
+                builder.Append('\n');
 
                 for (var i = 0; i < hero.ClassesHistory.Count; i++)
                 {
                     var characterClassDefinition = hero.ClassesHistory[i];
 
                     hero.ClassesAndSubclasses.TryGetValue(characterClassDefinition, out var characterSubclassDefinition);
-                    builder.Append($"\n{i + 1:00} - {characterClassDefinition.FormatTitle()} {characterSubclassDefinition?.FormatTitle()}");
+
+                    builder.Append('\n')
+                        .AppendFormat("{0:00}", i + 1)
+                        .Append(" - ")
+                        .Append(characterClassDefinition.FormatTitle())
+                        .Append(' ').Append(characterSubclassDefinition?.FormatTitle());
                 }
             }
 
