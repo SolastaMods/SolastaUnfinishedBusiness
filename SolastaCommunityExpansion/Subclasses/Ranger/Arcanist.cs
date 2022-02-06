@@ -136,7 +136,8 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
         {
             var marked_condition = ConditionMarkedByArcanistBuilder.GetOrAdd();
 
-            return new FeatureDefinitionAdditionalDamageBuilder(AdditionalDamageHuntersMark, "AdditionalDamageArcanistMark", RA_BASE_GUID)
+            return FeatureDefinitionAdditionalDamageBuilder
+                .Create(AdditionalDamageHuntersMark, "AdditionalDamageArcanistMark", RA_BASE_GUID)
                 .SetGuiPresentation("ArcanistMark", Category.Feature)
                 .SetSpecificDamageType("DamageForce")
                 .SetDamageDice(RuleDefinitions.DieType.D6, 0)
@@ -161,7 +162,8 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             var asset_reference = new AssetReference();
             asset_reference.SetField("m_AssetGUID", "9f1fe10e6ef8c9c43b6b2ef91b2ad38a");
 
-            return new FeatureDefinitionAdditionalDamageBuilder(AdditionalDamageHuntersMark, "AdditionalDamageArcaneDetonation", RA_BASE_GUID)
+            return FeatureDefinitionAdditionalDamageBuilder
+                .Create(AdditionalDamageHuntersMark, "AdditionalDamageArcaneDetonation", RA_BASE_GUID)
                 .SetGuiPresentation("ArcaneDetonation", Category.Feature)
                 .SetSpecificDamageType("DamageForce")
                 .SetDamageDice(RuleDefinitions.DieType.D6, 1)

@@ -6,19 +6,21 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class FlexibleRacesContext
     {
-        private static readonly GuiPresentationBuilder attributeThreeGui = new(
-            "FlexibleRaces/&PointPoolAbilityScore3Title",
-            "FlexibleRaces/&PointPoolAbilityScore3Description");
+        private static readonly FeatureUnlockByLevel attributeChoiceThree = new(
+            FeatureDefinitionPointPoolBuilder
+                .Create("PointPoolAbilityScore3", "89708d7d-a16a-44a1-b480-733d1ae932a4")
+                .SetGuiPresentation(Category.FlexibleRaces)
+                .SetPool(HeroDefinitions.PointsPoolType.AbilityScore, 3)
+                .AddToDB(),
+            1);
 
-        private static readonly FeatureUnlockByLevel attributeChoiceThree = new(new FeatureDefinitionPointPoolBuilder("PointPoolAbilityScore3",
-            "89708d7d-a16a-44a1-b480-733d1ae932a4", HeroDefinitions.PointsPoolType.AbilityScore, 3, attributeThreeGui.Build()).AddToDB(), 1);
-
-        private static readonly GuiPresentationBuilder attributeFourGui = new(
-            "FlexibleRaces/&PointPoolAbilityScore4Title",
-            "FlexibleRaces/&PointPoolAbilityScore4Description");
-
-        private static readonly FeatureUnlockByLevel attributeChoiceFour = new(new FeatureDefinitionPointPoolBuilder("PointPoolAbilityScore4",
-            "dcdd35a8-f1ca-475a-b5a4-a0426292688c", HeroDefinitions.PointsPoolType.AbilityScore, 4, attributeFourGui.Build()).AddToDB(), 1);
+        private static readonly FeatureUnlockByLevel attributeChoiceFour = new(
+            FeatureDefinitionPointPoolBuilder
+                .Create("PointPoolAbilityScore4", "dcdd35a8-f1ca-475a-b5a4-a0426292688c")
+                .SetGuiPresentation(Category.FlexibleRaces)
+                .SetPool(HeroDefinitions.PointsPoolType.AbilityScore, 4)
+                .AddToDB(),
+            1);
 
         private static readonly Dictionary<string, FeatureUnlockByLevel> addedFeatures = new()
         {

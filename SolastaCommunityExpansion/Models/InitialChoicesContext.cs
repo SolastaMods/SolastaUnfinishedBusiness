@@ -16,17 +16,21 @@ namespace SolastaCommunityExpansion.Models
         internal static void Load()
         {
             // keep this outside loop for backward compatibility
-            _ = new FeatureDefinitionPointPoolBuilder("PointPool2BonusFeats", "dbec86c7-468f-4569-917b-2d96d21f9ddf", HeroDefinitions.PointsPoolType.Feat, 2,
-                    new GuiPresentationBuilder("Race/&PointPoolSelect2FeatsTitle", "Race/&PointPoolSelect2FeatsDescription").Build()).AddToDB(true);
+            _ = FeatureDefinitionPointPoolBuilder
+                .Create("PointPool2BonusFeats", "dbec86c7-468f-4569-917b-2d96d21f9ddf")
+                .SetGuiPresentation("PointPoolSelect2Feats", Category.Race)
+                .SetPool(HeroDefinitions.PointsPoolType.Feat, 2)
+                .AddToDB();
 
             // 11 here as need to count the Alternate Human Feat
             for (var i = 3; i <= 11; i++)
             {
                 var name = $"PointPool{i}BonusFeats";
-                var guid = GuidHelper.Create(new System.Guid(Settings.GUID), name).ToString();
 
-                _ = new FeatureDefinitionPointPoolBuilder(name, guid, HeroDefinitions.PointsPoolType.Feat, i,
-                        new GuiPresentationBuilder($"Race/&PointPoolSelect{i}FeatsTitle", $"Race/&PointPoolSelect{i}FeatsDescription").Build()).AddToDB(true);
+                _ = FeatureDefinitionPointPoolBuilder.Create(name, new System.Guid(Settings.GUID))
+                    .SetGuiPresentation("Race/&PointPoolSelect{i}Feats", Category.Race)
+                    .SetPool(HeroDefinitions.PointsPoolType.Feat, i)
+                    .AddToDB();
             }
         }
 

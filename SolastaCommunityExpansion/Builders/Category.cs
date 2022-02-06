@@ -10,9 +10,12 @@
         Condition,
         Feat,
         Feature,
+        FlexibleBackgrounds,
+        FlexibleRaces,
         Modifier,
         Monster,
+        Race,
         Spell,
-        Subclass
+        Subclass,
     }
 }

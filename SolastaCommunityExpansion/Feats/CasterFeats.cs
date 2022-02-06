@@ -20,7 +20,9 @@ namespace SolastaCommunityExpansion.Feats
 
             static FeatureDefinitionAttributeModifier BuildAdditiveAttributeModifier(string name, string attribute, int amount)
             {
-                return new FeatureDefinitionAttributeModifierBuilder(name, CasterFeatsNamespace, Category.Feat)
+                return FeatureDefinitionAttributeModifierBuilder
+                    .Create(name, CasterFeatsNamespace)
+                    .SetGuiPresentation(Category.Feat)
                     .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, attribute, amount)
                     .AddToDB();
             }
