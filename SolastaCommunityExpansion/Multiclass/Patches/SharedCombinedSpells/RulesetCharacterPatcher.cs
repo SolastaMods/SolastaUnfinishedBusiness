@@ -86,6 +86,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                     __instance.SetField("usedIndomitableResistances", 0);
                 }
 
+#pragma warning disable S1066 // Collapsible "if" statements should be merged
                 if (!simulate)
                 {
                     if (__instance.TryGetAttribute("RelentlessRageDC", out var rulesetAttribute))
@@ -103,6 +104,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                         rulesetAttribute.Refresh();
                     }
                 }
+#pragma warning restore S1066 // Collapsible "if" statements should be merged
 
                 foreach (RulesetSpellRepertoire spellRepertoire in __instance.SpellRepertoires)
                 {
@@ -112,7 +114,6 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                         {
                             spellRepertoire.RestoreAllSpellSlots();
                         }
-
 
                         __instance.RecoveredFeatures.Add(spellRepertoire.SpellCastingFeature);
                     }

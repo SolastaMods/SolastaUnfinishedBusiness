@@ -207,8 +207,11 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         // Create Extra Attack
         private static FeatureDefinitionAttributeModifier CreateExtraAttack()
         {
+            var guid = GuidHelper.Create(DFG_BASE_GUID, "DruidForestGuardianExtraAttack").ToString();
+
+            // NOTE: unable to use preferred ctor because of legacy guid generation
             return FeatureDefinitionAttributeModifierBuilder
-                .Create("AttributeModifierDruidForestGuardianExtraAttack", DFG_BASE_GUID)
+                .Create("AttributeModifierDruidForestGuardianExtraAttack", guid)
                 .SetGuiPresentation("DruidForestGuardianExtraAttack", Category.Feature)
                 .SetModifier(Additive, AttributeDefinitions.AttacksNumber, 1)
                 .AddToDB();
