@@ -242,7 +242,7 @@ namespace SolastaCommunityExpansion
         // MULTICLASS
         //
 
-        public bool EnableMulticlass { get; set; };
+        public bool EnableMulticlass { get; set; }
 
         public int MaxAllowedClasses { get; set; } = 3;
 
