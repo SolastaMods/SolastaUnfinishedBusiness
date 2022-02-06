@@ -1,17 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionOnAttackHitEffectBuilder : BaseDefinitionBuilder<FeatureDefinitionOnAttackHitEffect>
+    public sealed class FeatureDefinitionOnAttackHitEffectBuilder : BaseDefinitionBuilder<FeatureDefinitionOnAttackHitEffect>
     {
-        public FeatureDefinitionOnAttackHitEffectBuilder(string name, string guid,
-            OnAttackHitDelegate onHit, GuiPresentation guiPresentation) : base(name, guid)
+        private FeatureDefinitionOnAttackHitEffectBuilder(string name, Guid namespaceGuid, Category category = Category.None)
+            : base(name, namespaceGuid, category)
+        {
+        }
+
+        public static FeatureDefinitionOnAttackHitEffectBuilder Create(string name, Guid namespaceGuid, Category category = Category.None)
+        {
+            return new FeatureDefinitionOnAttackHitEffectBuilder(name, namespaceGuid, category);
+        }
+
+        public FeatureDefinitionOnAttackHitEffectBuilder SetOnAttackHitDelegate(OnAttackHitDelegate onHit)
         {
             Definition.SetOnAttackHitDelegate(onHit);
-            Definition.SetGuiPresentation(guiPresentation);
+            return this;
         }
     }
 }

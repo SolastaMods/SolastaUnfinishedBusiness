@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using SolastaCommunityExpansion;
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Diagnostics;
 using SolastaModApi.Infrastructure;
@@ -19,14 +20,6 @@ namespace SolastaModApi
         public static string CreateGuid(Guid guid, string name)
         {
             return GuidHelper.Create(guid, name).ToString();
-        }
-
-        public static string CreateGuid(string guid, string name)
-        {
-            Preconditions.IsNotNullOrWhiteSpace(guid, nameof(guid));
-            Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
-
-            return GuidHelper.Create(new Guid(guid), name).ToString();
         }
 
         public static string CreateTitleKey(string name, Category category)
@@ -59,7 +52,7 @@ namespace SolastaModApi
         {
             if (LogDefinitionCreation)
             {
-                SolastaCommunityExpansion.Main.Log(msg);
+                Main.Log(msg);
             }
         }
     }
@@ -97,6 +90,44 @@ namespace SolastaModApi
         }
 
         string IBaseDefinitionBuilder.Name => Definition?.Name ?? string.Empty;
+
+        private void InitializeCollectionFields()
+        {
+            Assert.IsNotNull(Definition);
+
+            InitializeCollectionFields(Definition.GetType());
+
+#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
+            void InitializeCollectionFields(Type type)
+            {
+                if (type == null || type == typeof(object) || type == typeof(BaseDefinition) || type == typeof(UnityEngine.Object))
+                {
+                    return;
+                }
+
+                // Reflection will only return private fields declared on this type, not base classes
+                foreach (var field in type
+                    .GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
+                    .Where(f => f.FieldType.IsGenericType)
+                    .Where(f => f.GetValue(Definition) == null))
+                {
+                    try
+                    {
+                        Main.Log($"Initializing field {field.Name} on Type={Definition.GetType().Name}, Name={Definition.Name}");
+
+                        field.SetValue(Definition, Activator.CreateInstance(field.FieldType));
+                    }
+                    catch (Exception ex)
+                    {
+                        Main.Error(ex);
+                    }
+                }
+
+                // So travel down the hierarchy
+                InitializeCollectionFields(type.BaseType);
+            }
+#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
+        }
 
         #endregion
 
@@ -139,6 +170,8 @@ namespace SolastaModApi
 
             Definition = ScriptableObject.CreateInstance<TDefinition>();
             Definition.name = name;
+
+            InitializeCollectionFields();
 
             if (useNamespaceGuid)
             {
@@ -212,8 +245,9 @@ namespace SolastaModApi
             var originalGuid = original.GUID;
 
             Definition = UnityEngine.Object.Instantiate(original);
-
             Definition.name = name;
+
+            InitializeCollectionFields();
 
             if (useNamespaceGuid)
             {
@@ -295,9 +329,10 @@ namespace SolastaModApi
             Preconditions.IsNotNullOrWhiteSpace(guid, nameof(guid));
 
             Definition = ScriptableObject.CreateInstance<TDefinition>();
-
             Definition.name = name;
             Definition.SetField("guid", guid);
+
+            InitializeCollectionFields();
 
             Definition.GuiPresentation = guiPresentation;
 
@@ -350,6 +385,8 @@ namespace SolastaModApi
 
             Definition.name = name;
             Definition.SetField("guid", guid);
+
+            InitializeCollectionFields();
 
             if (Definition.GuiPresentation != null)
             {

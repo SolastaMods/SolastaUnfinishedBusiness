@@ -114,9 +114,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             public AdvantageBuilder(string name, string guid, ConditionDefinition original, GuiPresentation guiPresentation) : base(original, name, guid)
             {
                 Definition.SetGuiPresentation(guiPresentation);
-                Definition.SetField("specialInterruptions", new List<RuleDefinitions.ConditionInterruption>() {
-                    RuleDefinitions.ConditionInterruption.Attacked,
-                });
+                Definition.SpecialInterruptions.SetRange(RuleDefinitions.ConditionInterruption.Attacked);
                 Definition.SetAdditionalDamageWhenHit(true);
                 Definition.SetAdditionalDamageDieType(RuleDefinitions.DieType.D8);
                 Definition.SetAdditionalDamageDieNumber(3);
@@ -132,7 +130,8 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
         public static FeatureDefinitionAbilityCheckAffinity BuildAbilityAffinity(IEnumerable<(string abilityScoreName, string proficiencyName)> abilityProficiencyPairs,
             RuleDefinitions.CharacterAbilityCheckAffinity affinityType, string name, GuiPresentation guiPresentation)
         {
-            return new FeatureDefinitionAbilityCheckAffinityBuilder(name,SubclassNamespace)
+            return FeatureDefinitionAbilityCheckAffinityBuilder
+                .Create(name, SubclassNamespace)
                 .SetGuiPresentation(guiPresentation)
                 .SetAbilityAffinities(abilityProficiencyPairs, 0, RuleDefinitions.DieType.D8, affinityType)
                 .AddToDB();

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
 using System.Text;
+using System.CodeDom.Compiler;
 using TA.AI;
 using TA;
 using System.Collections.Generic;
@@ -33,7 +34,7 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(CharacterActionItemForm))]
+    [TargetType(typeof(CharacterActionItemForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class CharacterActionItemFormExtensions
     {
         public static T SetActionActivated<T>(this T entity, CharacterActionItemForm.ActionActivatedHandler value)

@@ -34,11 +34,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         private static FeatureDefinitionPowerSharedPool CreateScoutModePower()
         {
             GuiPresentation guiPresentationScout = new GuiPresentation();
-            guiPresentationScout.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
             guiPresentationScout.SetDescription("Feature/&ScoutModePowerDescription");
             guiPresentationScout.SetTitle("Feature/&ScoutModePowerTitle");
             guiPresentationScout.SetSpriteReference(ShadowArmor.GuiPresentation.SpriteReference);
-            guiPresentationScout.SetSymbolChar("221E");
             guiPresentationScout.SetSortOrder(1);
 
             EffectDescription effectScoutMode = new EffectDescription();
@@ -85,11 +83,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             effectsentinelmode.EffectForms.Add(CreateEffectItem());
 
             GuiPresentation guiPresentationSentinel = new GuiPresentation();
-            guiPresentationSentinel.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
             guiPresentationSentinel.SetDescription("Feature/&SentinelModePowerDescription");
             guiPresentationSentinel.SetTitle("Feature/&SentinelModePowerTitle");
             guiPresentationSentinel.SetSpriteReference(MageArmor.GuiPresentation.SpriteReference);
-            guiPresentationSentinel.SetSymbolChar("221E");
 
             return new FeatureDefinitionPowerSharedPoolBuilder
                 (
@@ -111,11 +107,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         private static FeatureDefinitionPower CreateArmorModePool()
         {
             GuiPresentation guiPresentationArmorMode = new GuiPresentation();
-            guiPresentationArmorMode.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
             guiPresentationArmorMode.SetDescription("Feat/&ArmorModePoolDescription");
             guiPresentationArmorMode.SetTitle("Feat/&ArmorModePoolTitle");
-            guiPresentationArmorMode.SetSpriteReference(null);
-            guiPresentationArmorMode.SetSymbolChar("221E");
 
             return new FeatureDefinitionPowerPoolBuilder(
                     "ArmorModePool",
@@ -131,16 +124,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public static void BuildAndAddSubclass()
         {
-            var subclassGuiPresentation = new GuiPresentationBuilder(
-                "Subclass/&ScoutSentinelTinkererSubclassTitle",
-                "Subclass/&ScoutSentinelTinkererSubclassDescription")
-                .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.MartialMountaineer.GuiPresentation.SpriteReference)
-                .Build();
-
-            // TODO: @Chris - review
 #pragma warning disable S1481, IDE0059 // Unused local variables should be removed
             var definition = new CharacterSubclassDefinitionBuilder(Name, Guid)
-                .SetGuiPresentation(subclassGuiPresentation)
+                .SetGuiPresentation("ScoutSentinelTinkererSubclass", Category.Subclass, DatabaseHelper.CharacterSubclassDefinitions.MartialMountaineer.GuiPresentation.SpriteReference)
 
             // level 3
             .AddFeatureAtLevel(ScoutSentinelFeatureSet03Builder.ScoutSentinelFeatureSet03, 3)
@@ -216,11 +202,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.GuiPresentation.Description = "Feat/&ScoutSentinelFeatureSet_level09Description";
 
             GuiPresentation guiPresentation = new GuiPresentation();
-            guiPresentation.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
             guiPresentation.SetDescription("Feat/&ExtraInfusionSlotsTitle");
             guiPresentation.SetTitle("Feat/&ExtraInfusionSlotsDescription");
-            guiPresentation.SetSpriteReference(null);
-            guiPresentation.SetSymbolChar("221E");
             guiPresentation.SetSortOrder(1);
 
             FeatureDefinitionPowerPoolModifier ExtraInfusionSlots = new FeatureDefinitionPowerPoolModifierBuilder(
@@ -257,11 +240,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.FeatureSet.Clear();
 
             GuiPresentation guiPresentationImprovedSentinel = new GuiPresentation();
-            guiPresentationImprovedSentinel.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
             guiPresentationImprovedSentinel.SetDescription("Feature/&ImprovedSentinelModePowerDescription");
             guiPresentationImprovedSentinel.SetTitle("Feature/&ImprovedSentinelModePowerTitle");
             guiPresentationImprovedSentinel.SetSpriteReference(MageArmor.GuiPresentation.SpriteReference);
-            guiPresentationImprovedSentinel.SetSymbolChar("221E");
 
             ItemPropertyForm itemPropertyForm = new ItemPropertyForm();
             itemPropertyForm.FeatureBySlotLevel.Add(new FeatureUnlockByLevel(IntToAttackAndDamageBuilder.IntToAttackAndDamage, 0));
@@ -303,11 +284,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Improvedsentinelmodepower.SetOverriddenPower(ScoutSentinelTinkererSubclassBuilder.SentinelModePower);
 
             GuiPresentation guiPresentationImprovedScout = new GuiPresentation();
-            guiPresentationImprovedScout.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
             guiPresentationImprovedScout.SetDescription("Feature/&ImprovedScoutModePowerDescription");
             guiPresentationImprovedScout.SetTitle("Feature/&ImprovedScoutModePowerTitle");
             guiPresentationImprovedScout.SetSpriteReference(ShadowArmor.GuiPresentation.SpriteReference);
-            guiPresentationImprovedScout.SetSymbolChar("221E");
             guiPresentationImprovedScout.SetSortOrder(1);
 
             EffectDescription effectImprovedScoutMode = new EffectDescription();

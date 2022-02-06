@@ -21,13 +21,10 @@ namespace SolastaCommunityExpansion.Builders
                 .SetConditionEndParticleReference(new AssetReference())
                 .SetCharacterShaderReference(new AssetReference());
 
-            Definition.SetField("recurrentEffectForms", new List<EffectForm>());
-            Definition.SetField("cancellingConditions", new List<ConditionDefinition>());
-
             modifyDefinition?.Invoke(Definition);
         }
 
-        public ConditionDefinitionBuilder(string name, string guid) 
+        public ConditionDefinitionBuilder(string name, string guid)
             : base(name, guid)
         {
         }
@@ -80,8 +77,6 @@ namespace SolastaCommunityExpansion.Builders
                 Definition.SetSilentWhenAdded(true);
                 Definition.SetSilentWhenRemoved(true);
             }
-            Definition.SetField("recurrentEffectForms", new List<EffectForm>());
-            Definition.SetField("cancellingConditions", new List<ConditionDefinition>());
         }
     }
 }

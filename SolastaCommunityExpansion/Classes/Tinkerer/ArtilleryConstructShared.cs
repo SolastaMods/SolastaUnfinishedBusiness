@@ -112,11 +112,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         private static FeatureDefinitionPower CreateArtilleryModePool()
         {
             GuiPresentation guiPresentationArtilleryMode = new GuiPresentation();
-            guiPresentationArtilleryMode.SetColor(new Color(1f, 1f, 1f, 1f));
             guiPresentationArtilleryMode.SetDescription("Feat/&ArtilleryModePoolDescription");
             guiPresentationArtilleryMode.SetTitle("Feat/&ArtilleryModePoolTitle");
-            guiPresentationArtilleryMode.SetSpriteReference(null);
-            guiPresentationArtilleryMode.SetSymbolChar("221E");
 
             return new FeatureDefinitionPowerPoolBuilder(
                 "ArtilleryModePool",

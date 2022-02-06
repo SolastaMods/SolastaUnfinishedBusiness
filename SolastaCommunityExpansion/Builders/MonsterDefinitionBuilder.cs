@@ -410,12 +410,6 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public MonsterDefinitionBuilder SetSpriteReference(AssetReferenceSprite sprite)
-        {
-            Definition.GuiPresentation.SetSpriteReference(sprite);
-            return this;
-        }
-
         public MonsterDefinitionBuilder ClearSavingThrowScores()
         {
             Definition.SavingThrowScores.Clear();

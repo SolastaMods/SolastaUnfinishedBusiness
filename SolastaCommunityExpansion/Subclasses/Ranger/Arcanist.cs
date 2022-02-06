@@ -53,11 +53,12 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
                     .AddToDB();
         }
 
+        // Common helper: factor out
         private static DiceByRank BuildDiceByRank(int rank, int dice)
         {
             DiceByRank diceByRank = new DiceByRank();
-            diceByRank.SetField("rank", rank);
-            diceByRank.SetField("diceNumber", dice);
+            diceByRank.SetRank(rank);
+            diceByRank.SetDiceNumber(dice);
             return diceByRank;
         }
 
@@ -124,7 +125,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             public FeatureDefinitionFeatureSetBuilder(string name, string guid, List<FeatureDefinition> features,
                 FeatureDefinitionFeatureSet.FeatureSetMode mode, GuiPresentation guiPresentation) : base(name, guid)
             {
-                Definition.SetField("featureSet", features);
+                Definition.FeatureSet.SetRange(features);
                 Definition.SetMode(mode);
                 Definition.SetGuiPresentation(guiPresentation);
                 // enumerateInDescription and uniqueChoices default to false.

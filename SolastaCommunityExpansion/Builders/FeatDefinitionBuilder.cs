@@ -9,31 +9,20 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class FeatDefinitionBuilder : BaseDefinitionBuilder<FeatDefinition>
     {
-        private void InitializePrerequisiteCollectionFields()
-        {
-            Definition.SetField("knownFeatsPrerequisite", new List<string>());
-            Definition.SetField("compatibleRacesPrerequisite", new List<string>());
-            Definition.SetField("compatibleClassesPrerequisite", new List<string>());
-        }
-
         // TODO: remove this constructor
         public FeatDefinitionBuilder(string name, string guid, IEnumerable<FeatureDefinition> features, GuiPresentation guiPresentation) : base(name, guid)
         {
-            InitializePrerequisiteCollectionFields();
-
-            Definition.SetField("features", features.ToList());
+            Definition.Features.SetRange(features);
             Definition.SetGuiPresentation(guiPresentation);
         }
 
         public FeatDefinitionBuilder(string name, string guid) : base(name, guid)
         {
-            InitializePrerequisiteCollectionFields();
         }
 
         public FeatDefinitionBuilder(string name, Guid namespaceGuid, Category category = Category.None)
             : base(name, namespaceGuid, category)
         {
-            InitializePrerequisiteCollectionFields();
         }
 
         public FeatDefinitionBuilder(FeatDefinition original, string name, string guid)
@@ -58,7 +47,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public FeatDefinitionBuilder SetFeatures(IEnumerable<FeatureDefinition> features)
         {
-            Definition.SetField("features", features.ToList());
+            Definition.Features.SetRange(features);
             return this;
         }
 

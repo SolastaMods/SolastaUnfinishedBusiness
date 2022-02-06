@@ -58,6 +58,11 @@ void Main()
 		.Concat(GetTypesEndingIn(assembly, "ByTag"))
 		.Concat(GetTypesEndingIn(assembly, "Form", true))
 		.Concat(GetTypesEndingIn(assembly, "TreasureOption", true))
+		.Concat(GetTypesEndingIn(assembly, "HeroEquipmentOption", true))
+		.Concat(GetTypesEndingIn(assembly, "HeroEquipmentRow", true))
+		.Concat(GetTypesEndingIn(assembly, "HeroEquipmentColumn", true))
+		.Concat(GetTypesEndingIn(assembly, "DiceByRank", true))
+		.Concat(GetTypesEndingIn(assembly, "RulesetUsablePower", true))
 
 		//.Concat(GetTypes(assembly, "EffectDescription"))
 		// Eliminate duplicates
@@ -143,6 +148,7 @@ void CreateExtensions(Type t, bool createFiles = false)
 			GetUsingSyntax("UnityEngine.AddressableAssets"),
 			GetUsingSyntax("System"),
 			GetUsingSyntax("System.Text"),
+			GetUsingSyntax("System.CodeDom.Compiler"),
 			GetUsingSyntax("TA.AI"),
 			GetUsingSyntax("TA"),
 			GetUsingSyntax("System.Collections.Generic"),
@@ -174,17 +180,36 @@ void CreateExtensions(Type t, bool createFiles = false)
 	AttributeListSyntax GetALS(string typeName)
 	{
 		return SyntaxFactory.AttributeList(
-			new SeparatedSyntaxList<AttributeSyntax>().Add(
-				Attribute(
-					IdentifierName("TargetType"),
-					AttributeArgumentList(
-						new SeparatedSyntaxList<AttributeArgumentSyntax>().Add(
-							AttributeArgument(
-								ParseExpression($"typeof({typeName})"))
+			new SeparatedSyntaxList<AttributeSyntax>()
+				.Add(
+					Attribute(
+						IdentifierName("TargetType"),
+						AttributeArgumentList(
+							new SeparatedSyntaxList<AttributeArgumentSyntax>().Add(
+								AttributeArgument(
+									ParseExpression($"typeof({typeName})"))
+								)
 							)
 						)
 					)
-				)
+				.Add(
+					Attribute(
+						IdentifierName("GeneratedCode"),
+						AttributeArgumentList(
+							new SeparatedSyntaxList<AttributeArgumentSyntax>()
+								.Add(
+									AttributeArgument(
+										ParseExpression($"\"Community Expansion Extension Generator\""))
+									)
+								.Add(
+									// probably best not to change the version often since that makes 
+									// it impossible to detect changes to extensions
+									AttributeArgument(
+										ParseExpression($"\"1.0.0\"")) 
+									)
+								)
+						)
+					)
 			);
 	}
 

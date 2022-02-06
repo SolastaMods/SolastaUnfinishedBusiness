@@ -1,4 +1,6 @@
-﻿using SolastaModApi.Infrastructure;
+﻿using System.Collections.Generic;
+using System.Linq;
+using SolastaModApi.Extensions;
 using static CharacterClassDefinition;
 
 namespace SolastaCommunityExpansion.Builders
@@ -8,19 +10,24 @@ namespace SolastaCommunityExpansion.Builders
         public static HeroEquipmentOption Option(ItemDefinition itemType, string optionType, int number)
         {
             var itemOption = new HeroEquipmentOption();
-            itemOption.SetField("number", number);
-            itemOption.SetField("optionType", optionType);
-            itemOption.SetField("itemReference", itemType);
+            itemOption.SetNumber(number);
+            itemOption.SetOptionType(optionType);
+            itemOption.SetItemDefinition(itemType);
             return itemOption;
         }
 
         public static HeroEquipmentOption Option(string defaultChoice, string optionType, int number)
         {
             var itemOption = new HeroEquipmentOption();
-            itemOption.SetField("number", number);
-            itemOption.SetField("optionType", optionType);
-            itemOption.SetField("defaultChoice", defaultChoice);
+            itemOption.SetNumber(number);
+            itemOption.SetOptionType(optionType);
+            itemOption.SetDefaultChoice(defaultChoice);
             return itemOption;
+        }
+
+        public static IEnumerable<HeroEquipmentOption> Column(params HeroEquipmentOption[] options)
+        {
+            return options.AsEnumerable();
         }
     }
 }
