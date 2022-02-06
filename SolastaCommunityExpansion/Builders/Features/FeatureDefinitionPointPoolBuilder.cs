@@ -6,7 +6,7 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionPointPoolBuilder : BaseDefinitionBuilder<FeatureDefinitionPointPool>
+    public sealed class FeatureDefinitionPointPoolBuilder : BaseDefinitionBuilder<FeatureDefinitionPointPool>
     {
 /*        private FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, string guid)
             : base(original, name, guid)
