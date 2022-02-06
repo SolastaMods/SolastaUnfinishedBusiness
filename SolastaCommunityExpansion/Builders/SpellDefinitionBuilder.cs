@@ -56,7 +56,7 @@ namespace SolastaCommunityExpansion.Builders
         public SpellDefinitionBuilder SetSubSpells(IEnumerable<SpellDefinition> subspells)
         {
             Definition.SetSpellsBundle(true);
-            Definition.SetField("subspellsList", subspells.ToList());
+            Definition.SubspellsList.SetRange(subspells);
             return this;
         }
 

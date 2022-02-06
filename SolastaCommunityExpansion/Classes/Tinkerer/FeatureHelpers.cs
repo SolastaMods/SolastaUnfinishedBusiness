@@ -182,8 +182,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                     Definition.SetSilentWhenRemoved(true);
                 }
 
-                Definition.SetField("recurrentEffectForms", new List<EffectForm>());
-                Definition.SetField("cancellingConditions", new List<ConditionDefinition>());
                 Definition.SetGuiPresentation(guiPresentation);
             }
         }
@@ -365,7 +363,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 Definition.SetSavingThrowAbility(savingThrowAbility);
                 Definition.SetSavingThrowDC(savingThrowDC);
                 Definition.SetDamageSaveAffinity(damageSaveAffinity);
-                Definition.SetField("conditionOperations", new List<ConditionOperationDescription>(conditionOperations));
+                Definition.ConditionOperations.SetRange(conditionOperations);
                 Definition.SetGuiPresentation(guiPresentation);
             }
         }
@@ -552,7 +550,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 FeatureDefinitionFeatureSet.FeatureSetMode mode, int defaultSelection, bool uniqueChoices,
                 bool enumerateInDescription, GuiPresentation guiPresentation) : base(name, guid)
             {
-                Definition.SetField("featureSet", featureSet.ToList());
+                Definition.FeatureSet.SetRange(featureSet);
                 Definition.SetMode(mode);
                 Definition.SetDefaultSelection(defaultSelection);
                 Definition.SetUniqueChoices(uniqueChoices);

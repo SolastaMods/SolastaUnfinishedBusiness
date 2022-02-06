@@ -10,13 +10,11 @@ namespace SolastaCommunityExpansion.Builders
     {
         public RecipeDefinitionBuilder(string name, string guid) : base(name, guid)
         {
-            Definition.SetField("ingredients", new List<IngredientOccurenceDescription>());
         }
 
         public RecipeDefinitionBuilder(string name, Guid namespaceGuid, Category category = Category.None)
             : base(name, namespaceGuid, category)
         {
-            Definition.SetField("ingredients", new List<IngredientOccurenceDescription>());
         }
 
         public RecipeDefinitionBuilder(RecipeDefinition original, string name, string guid) : base(original, name, guid)

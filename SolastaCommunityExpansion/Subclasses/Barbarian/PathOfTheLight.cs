@@ -102,8 +102,6 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                         .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                         .SetUniqueChoices(false);
 
-                    featureSetDefinition.SetField("featureSet", new List<FeatureDefinition>());
-
                     var illuminatingStrikeInitiatorBuilder = new IlluminatingStrikeInitiatorBuilder(
                         "PathOfTheLightIlluminatingStrikeInitiator",
                         CreateNamespacedGuid("PathOfTheLightIlluminatingStrikeInitiator"),
@@ -140,8 +138,6 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                         .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                         .SetUniqueChoices(false);
 
-                    featureSetDefinition.SetField("featureSet", new List<FeatureDefinition>());
-
                     featureSetDefinition.FeatureSet.Add(DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision);
                 });
         }
@@ -159,8 +155,6 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                         .SetEnumerateInDescription(false)
                         .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                         .SetUniqueChoices(false);
-
-                    featureSetDefinition.SetField("featureSet", new List<FeatureDefinition>());
 
                     var conditionalOpportunityAttackImmunity = FeatureDefinitionBuilder<FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition>.Build(
                         "PathOfTheLightLightsProtectionOpportunityAttackImmunity",
@@ -269,8 +263,6 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                         .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                         .SetUniqueChoices(false);
 
-                    featureSetDefinition.SetField("featureSet", new List<FeatureDefinition>());
-
                     featureSetDefinition.FeatureSet.Add(seeInvisiblePower);
                 });
         }
@@ -288,8 +280,6 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                         .SetEnumerateInDescription(false)
                         .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                         .SetUniqueChoices(false);
-
-                    featureSetDefinition.SetField("featureSet", new List<FeatureDefinition>());
 
                     ConditionDefinition illuminatingBurstSuppressedCondition = CreateIlluminatingBurstSuppressedCondition();
 
@@ -408,8 +398,6 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                         .SetEnumerateInDescription(false)
                         .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                         .SetUniqueChoices(false);
-
-                    featureSetDefinition.SetField("featureSet", new List<FeatureDefinition>());
 
                     foreach (var invisibleConditionName in InvisibleConditions.Select(ic => ic.Name))
                     {
@@ -547,8 +535,6 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                     BuildDiceByRank(19, 2),
                     BuildDiceByRank(20, 2)
                 });
-
-                Definition.SetField("conditionOperations", new List<ConditionOperationDescription>());
 
                 Definition.ConditionOperations.Add(
                     new ConditionOperationDescription

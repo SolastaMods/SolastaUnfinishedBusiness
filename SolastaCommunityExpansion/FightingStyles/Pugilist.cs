@@ -49,7 +49,7 @@ namespace SolastaCommunityExpansion.FightingStyles
                 Definition.SetSavingThrowAbility(savingThrowAbility);
                 Definition.SetSavingThrowDC(savingThrowDC);
                 Definition.SetDamageSaveAffinity(damageSaveAffinity);
-                Definition.SetField("conditionOperations", conditionOperations);
+                Definition.ConditionOperations.SetRange(conditionOperations);
                 Definition.SetGuiPresentation(guiPresentation);
             }
         }

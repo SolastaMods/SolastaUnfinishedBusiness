@@ -125,7 +125,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             public FeatureDefinitionFeatureSetBuilder(string name, string guid, List<FeatureDefinition> features,
                 FeatureDefinitionFeatureSet.FeatureSetMode mode, GuiPresentation guiPresentation) : base(name, guid)
             {
-                Definition.SetField("featureSet", features);
+                Definition.FeatureSet.SetRange(features);
                 Definition.SetMode(mode);
                 Definition.SetGuiPresentation(guiPresentation);
                 // enumerateInDescription and uniqueChoices default to false.
