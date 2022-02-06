@@ -8,7 +8,7 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionCastSpellBuilder : BaseDefinitionBuilder<FeatureDefinitionCastSpell>
+    public sealed class FeatureDefinitionCastSpellBuilder : BaseDefinitionBuilder<FeatureDefinitionCastSpell>
     {
         public enum CasterProgression
         {
@@ -17,25 +17,35 @@ namespace SolastaCommunityExpansion.Builders.Features
             THIRD_CASTER
         }
 
-        public FeatureDefinitionCastSpellBuilder(string name, string guid) : base(name, guid)
+/*        private FeatureDefinitionCastSpellBuilder(string name, string guid) : base(name, guid)
         {
             InitializeFields();
         }
 
-        public FeatureDefinitionCastSpellBuilder(string name, Guid namespaceGuid, Category category = Category.None)
+        private FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name, string guid)
+            : base(original, name, guid)
+        {
+        }
+*/
+        private FeatureDefinitionCastSpellBuilder(string name, Guid namespaceGuid, Category category = Category.None)
             : base(name, namespaceGuid, category)
         {
             InitializeFields();
         }
 
-        public FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name, string guid)
-            : base(original, name, guid)
+        private FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name, Guid namespaceGuid, Category category = Category.None)
+            : base(original, name, namespaceGuid, category)
         {
         }
 
-        public FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name, Guid namespaceGuid, Category category = Category.None)
-            : base(original, name, namespaceGuid, category)
+        public static FeatureDefinitionCastSpellBuilder Create(FeatureDefinitionCastSpell original, string name, Guid namespaceGuid)
         {
+            return new FeatureDefinitionCastSpellBuilder(original, name, namespaceGuid);
+        }
+
+        public static FeatureDefinitionCastSpellBuilder Create(string name, Guid namespaceGuid)
+        {
+            return new FeatureDefinitionCastSpellBuilder(name, namespaceGuid);
         }
 
         private void InitializeFields()
@@ -104,6 +114,16 @@ namespace SolastaCommunityExpansion.Builders.Features
         public FeatureDefinitionCastSpellBuilder AddRestrictedSchool(SchoolOfMagicDefinition school)
         {
             Definition.RestrictedSchools.Add(school.Name);
+            return this;
+        }
+
+        public FeatureDefinitionCastSpellBuilder AddRestrictedSchools(params SchoolOfMagicDefinition[] schools)
+        {
+            foreach(var school in schools)
+            {
+                AddRestrictedSchool(school);
+            }
+
             return this;
         }
 

@@ -89,7 +89,6 @@ namespace SolastaCommunityExpansion.Builders
         /// <summary>
         /// Create and set a GuiPresentation from the provided title, description and AssetReferenceSprite.
         /// </summary>
-        [Obsolete("Use alternative method.")]
         public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, string title, string description, AssetReferenceSprite sprite = null)
             where TBuilder : IBaseDefinitionBuilder
         {

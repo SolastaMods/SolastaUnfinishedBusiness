@@ -7,6 +7,7 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
+using static FeatureDefinitionCastSpell;
 using static SolastaModApi.DatabaseHelper.MonsterDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
@@ -487,49 +488,50 @@ namespace SolastaCommunityExpansion.Spells
             CouatlSpellList.SetHasCantrips(false);
             CouatlSpellList.SetMaxSpellLevel(5);
 
-            FeatureDefinitionCastSpell castSpellCouatl =
-                new FeatureDefinitionCastSpellBuilder(DhBaseString + "CastSpellCouatl", GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + "CastSpellCouatl").ToString())
-                .AddToDB()
-                .SetGuiPresentation(new GuiPresentationBuilder("Feature/&NoContentTitle", "Feature/&NoContentTitle").Build())
-                .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Monster)
-                .SetSpellcastingAbility(AttributeDefinitions.Charisma)
-                .SetSpellcastingParametersComputation(RuleDefinitions.SpellcastingParametersComputation.Static)
-                .SetStaticDCValue(14)
-                .SetStaticToHitValue(8)
-                .SetSpellListDefinition(CouatlSpellList)
+            FeatureDefinitionCastSpell castSpellCouatl = FeatureDefinitionCastSpellBuilder
+                .Create(DhBaseString + "CastSpellCouatl", new System.Guid(DhBaseGuid))
+                .SetGuiPresentationNoContent()
+                .SetSpellCastingOrigin(CastingOrigin.Monster)
+                .SetSpellCastingAbility(AttributeDefinitions.Charisma)
                 .SetSpellKnowledge(RuleDefinitions.SpellKnowledge.FixedList)
                 .SetSlotsRecharge(RuleDefinitions.RechargeRate.ShortRest)
                 .SetSpellCastingLevel(9)
                 .SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown)
-                .SetFocusType(EquipmentDefinitions.FocusType.None);
+                .AddToDB()
+                // TODO: Move these onto builder
+                .SetFocusType(EquipmentDefinitions.FocusType.None)
+                .SetSpellListDefinition(CouatlSpellList)
+                .SetStaticToHitValue(8)
+                .SetStaticDCValue(14)
+                .SetSpellcastingParametersComputation(RuleDefinitions.SpellcastingParametersComputation.Static);
 
             int[] castSpellCouatlKnownSpells = { 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20 };
 
             castSpellCouatl.RestrictedSchools.Clear();
             castSpellCouatl.KnownSpells.Clear();
             castSpellCouatl.KnownSpells.AddRange(castSpellCouatlKnownSpells);
-            castSpellCouatl.SlotsPerLevels.AddRange(new List<FeatureDefinitionCastSpell.SlotsByLevelDuplet>
+            castSpellCouatl.SlotsPerLevels.AddRange(new List<SlotsByLevelDuplet>
             {
-                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 01 },
-                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 02 },
-                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 03 },
-                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 04 },
-                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 05 },
-                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 06 },
-                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 07 },
-                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 08 },
-                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 09 },
-                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 10 },
-                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 11 },
-                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 12 },
-                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 13 },
-                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 14 },
-                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 15 },
-                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 16 },
-                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 17 },
-                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 18 },
-                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 19 },
-                new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 20 },
+                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 01 },
+                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 02 },
+                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 03 },
+                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 04 },
+                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 05 },
+                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 06 },
+                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 07 },
+                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 08 },
+                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 09 },
+                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 10 },
+                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 11 },
+                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 12 },
+                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 13 },
+                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 14 },
+                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 15 },
+                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 16 },
+                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 17 },
+                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 18 },
+                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 19 },
+                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 20 },
             });
 
             const string text = "ConjureCelestialSpell";

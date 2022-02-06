@@ -87,12 +87,13 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 RuleDefinitions.AdvantageType.Advantage, "MagicAffinitySpellMasterScriber", spellKnowledgeAffinity.Build());
             spellMaster.AddFeatureAtLevel(knowledgeAffinity, 6);
 
-            GuiPresentationBuilder bonusCantripsGui = new GuiPresentationBuilder(
-                "Subclass/&TraditionSpellMasterBonusCantripsTitle",
-                "Subclass/&TraditionSpellMasterBonusCantripsDescription");
-            FeatureDefinitionPointPool bonusCantrips = new FeatureDefinitionPointPoolBuilder("TraditionSpellMasterBonusCantrips",
-                GuidHelper.Create(SubclassNamespace, "TraditionSpellMasterBonusCantrips").ToString(),
-                HeroDefinitions.PointsPoolType.Cantrip, 2, bonusCantripsGui.Build()).OnlyUniqueChoices().AddToDB();
+            FeatureDefinitionPointPool bonusCantrips = FeatureDefinitionPointPoolBuilder
+                .Create("TraditionSpellMasterBonusCantrips", SubclassNamespace)
+                .SetGuiPresentation(Category.Subclass)
+                .SetPool(HeroDefinitions.PointsPoolType.Cantrip, 2)
+                .OnlyUniqueChoices()
+                .AddToDB();
+
             spellMaster.AddFeatureAtLevel(bonusCantrips, 6);
 
             GuiPresentationBuilder extraPreparedGui = new GuiPresentationBuilder(

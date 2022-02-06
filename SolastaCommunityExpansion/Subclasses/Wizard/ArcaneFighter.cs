@@ -126,7 +126,8 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         private static FeatureDefinitionAttributeModifier BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation modifierType,
             string attribute, int amount, string name, GuiPresentation guiPresentation)
         {
-            return new FeatureDefinitionAttributeModifierBuilder(name, SubclassNamespace)
+            return FeatureDefinitionAttributeModifierBuilder
+                .Create(name, SubclassNamespace)
                 .SetGuiPresentation(guiPresentation)
                 .SetModifier(modifierType, attribute, amount)
                 .AddToDB();

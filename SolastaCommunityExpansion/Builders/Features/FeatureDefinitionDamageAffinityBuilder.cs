@@ -3,26 +3,31 @@ using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionDamageAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionDamageAffinity>
+    public sealed class FeatureDefinitionDamageAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionDamageAffinity>
     {
-        public FeatureDefinitionDamageAffinityBuilder(string name, string guid)
+/*        private FeatureDefinitionDamageAffinityBuilder(string name, string guid)
             : base(name, guid)
         {
         }
 
-        public FeatureDefinitionDamageAffinityBuilder(string name, Guid namespaceGuid, Category category = Category.None)
+        private FeatureDefinitionDamageAffinityBuilder(string name, Guid namespaceGuid, Category category = Category.None)
             : base(name, namespaceGuid, category)
         {
         }
 
-        public FeatureDefinitionDamageAffinityBuilder(FeatureDefinitionDamageAffinity original, string name, string guid)
+        private FeatureDefinitionDamageAffinityBuilder(FeatureDefinitionDamageAffinity original, string name, string guid)
             : base(original, name, guid)
         {
         }
-
-        public FeatureDefinitionDamageAffinityBuilder(FeatureDefinitionDamageAffinity original, string name, Guid namespaceGuid, Category category = Category.None)
-            : base(original, name, namespaceGuid, category)
+*/
+        private FeatureDefinitionDamageAffinityBuilder(FeatureDefinitionDamageAffinity original, string name, Guid namespaceGuid)
+            : base(original, name, namespaceGuid, Category.None)
         {
+        }
+
+        public static FeatureDefinitionDamageAffinityBuilder Create(FeatureDefinitionDamageAffinity original, string name, Guid namespaceGuid)
+        {
+            return new FeatureDefinitionDamageAffinityBuilder(original, name, namespaceGuid);
         }
     }
 }
