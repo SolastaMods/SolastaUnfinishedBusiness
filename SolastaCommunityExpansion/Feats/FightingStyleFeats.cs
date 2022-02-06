@@ -8,7 +8,7 @@ using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Feats
 {
-    internal static class FightingStlyeFeats
+    internal static class FightingStyleFeats
     {
         public static readonly Guid FightingStyleFeatsNamespace = new("db157827-0f8a-4fbb-bb87-6d54689a587a");
 

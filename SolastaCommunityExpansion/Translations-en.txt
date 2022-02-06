@@ -390,15 +390,15 @@ Feat/&FeatTelekineticIntPushDescription	Telekinetically shove a creature away fr
 Feat/&FeatTelekineticWisDescription	Increase Wisdom attribute by 1. Gain a bonus action ability to shove or pull creatures.
 Feat/&FeatTelekineticWisPullDescription	Telekinetically pull a creature toward you.
 Feat/&FeatTelekineticWisPushDescription	Telekinetically shove a creature away from you.
-Feat/&FeatTelkineticChaPullTitle	Telekinetic Pull
-Feat/&FeatTelkineticChaPushTitle	Telekinetic Push
-Feat/&FeatTelkineticChaTitle	Telekinetic (Charisma)
-Feat/&FeatTelkineticIntPullTitle	Telekinetic Pull
-Feat/&FeatTelkineticIntPushTitle	Telekinetic Push
-Feat/&FeatTelkineticIntTitle	Telekinetic (Intelligence)
-Feat/&FeatTelkineticWisPullTitle	Telekinetic Pull
-Feat/&FeatTelkineticWisPushTitle	Telekinetic Push
-Feat/&FeatTelkineticWisTitle	Telekinetic (Wisdom)
+Feat/&FeatTelekineticChaPullTitle	Telekinetic Pull
+Feat/&FeatTelekineticChaPushTitle	Telekinetic Push
+Feat/&FeatTelekineticChaTitle	Telekinetic (Charisma)
+Feat/&FeatTelekineticIntPullTitle	Telekinetic Pull
+Feat/&FeatTelekineticIntPushTitle	Telekinetic Push
+Feat/&FeatTelekineticIntTitle	Telekinetic (Intelligence)
+Feat/&FeatTelekineticWisPullTitle	Telekinetic Pull
+Feat/&FeatTelekineticWisPushTitle	Telekinetic Push
+Feat/&FeatTelekineticWisTitle	Telekinetic (Wisdom)
 Feat/&FeatToughDescription	Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.
 Feat/&FeatToughTitle	Tough
 Feat/&FeatWarCasterDescription	You gain advantage on checks to maintain concentration. You gain the ability to perform the somatic component of spells even with full hands. You gain +2 on spell attack rolls.

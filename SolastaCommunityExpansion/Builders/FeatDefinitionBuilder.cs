@@ -40,6 +40,11 @@ namespace SolastaCommunityExpansion.Builders
             return new FeatDefinitionBuilder(original, name, guid);
         }
 
+        public static FeatDefinitionBuilder Create(string name, Guid namespaceGuid)
+        {
+            return new FeatDefinitionBuilder(name, namespaceGuid);
+        }
+
         public FeatDefinitionBuilder SetFeatures(params FeatureDefinition[] features)
         {
             return SetFeatures(features.AsEnumerable());
@@ -48,6 +53,17 @@ namespace SolastaCommunityExpansion.Builders
         public FeatDefinitionBuilder SetFeatures(IEnumerable<FeatureDefinition> features)
         {
             Definition.Features.SetRange(features);
+            return this;
+        }
+
+        public FeatDefinitionBuilder AddFeatures(params FeatureDefinition[] features)
+        {
+            return AddFeatures(features.AsEnumerable());
+        }
+
+        public FeatDefinitionBuilder AddFeatures(IEnumerable<FeatureDefinition> features)
+        {
+            Definition.Features.AddRange(features);
             return this;
         }
 
