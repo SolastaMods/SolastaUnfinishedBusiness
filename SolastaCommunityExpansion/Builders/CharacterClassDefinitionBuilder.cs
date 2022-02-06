@@ -39,7 +39,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public CharacterClassDefinitionBuilder SetAbilityScorePriorities(string first, string second, string third, string fourth, string fifth, string sixth)
         {
-            Definition.AbilityScoresPriority.SetRange(new[] { first, second, third, fourth, fifth, sixth });
+            Definition.AbilityScoresPriority.SetRange(first, second, third, fourth, fifth, sixth);
             return this;
         }
 

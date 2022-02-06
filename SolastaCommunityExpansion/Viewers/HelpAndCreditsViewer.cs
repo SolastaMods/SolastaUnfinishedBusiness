@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Viewers
     {
         public string Name => "Help & Credits";
 
-        public int Priority => 40;
+        public int Priority => 999;
 
         private static bool IsUnityExplorerEnabled { get; set; }
 

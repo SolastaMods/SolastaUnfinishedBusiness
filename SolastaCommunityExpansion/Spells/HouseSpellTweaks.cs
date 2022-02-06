@@ -77,6 +77,8 @@ namespace SolastaCommunityExpansion.Spells
                 if (ConditionCalmedByCalmEmotionsAlly.ConditionType == RuleDefinitions.ConditionType.Detrimental)
                 {
                     ConditionCalmedByCalmEmotionsAlly.SetConditionType(RuleDefinitions.ConditionType.Beneficial);
+
+                    // Note: Features is null and needs to be set with SetField
                     ConditionCalmedByCalmEmotionsAlly.SetField("features",
                         new List<FeatureDefinition> {
                             ConditionAffinityFrightenedImmunity,

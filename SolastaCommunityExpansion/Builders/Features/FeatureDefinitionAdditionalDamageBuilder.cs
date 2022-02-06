@@ -53,11 +53,9 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetSpecificDamageType(specificDamageType);
 
             Definition.SetDamageAdvancement(damageAdvancement);
-            Definition.SetField("diceByRankTable", diceByRankTable);
+            Definition.DiceByRankTable.SetRange(diceByRankTable);
             Definition.SetDamageDieType(damageDieType);
             Definition.SetGuiPresentation(guiPresentation);
-            Definition.SetField("conditionOperations", new List<ConditionOperationDescription>());
-            Definition.SetField("familiesWithAdditionalDice", new List<string>());
         }
 
         public FeatureDefinitionAdditionalDamageBuilder SetSpecificDamageType(string damageType)

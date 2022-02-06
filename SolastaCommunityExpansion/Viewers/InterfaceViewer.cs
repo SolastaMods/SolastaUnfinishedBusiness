@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Viewers
     {
         public string Name => "Interface";
 
-        public int Priority => 30;
+        public int Priority => 40;
 
         private static int selectedPane;
 

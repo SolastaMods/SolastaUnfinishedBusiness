@@ -301,11 +301,9 @@ namespace SolastaCommunityExpansion.Spells
                     new List<SaveAffinityBySenseDescription>());
 
             GuiPresentation guiPresentationSpell = new GuiPresentation()
-                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
                 .SetDescription(GetSpellDescriptionTerm(text))
                 .SetTitle(GetSpellTitleTerm(text))
-                .SetSpriteReference(RayOfEnfeeblement.GuiPresentation.SpriteReference)
-                .SetSymbolChar("221E");
+                .SetSpriteReference(RayOfEnfeeblement.GuiPresentation.SpriteReference);
 
             SpellDefinitionBuilder fingerOfDeathSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
@@ -413,11 +411,9 @@ namespace SolastaCommunityExpansion.Spells
                 .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect);
 
             GuiPresentation guiPresentationSpell = new GuiPresentation()
-                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
                 .SetDescription(GetSpellDescriptionTerm(text))
                 .SetTitle(GetSpellTitleTerm(text))
-                .SetSpriteReference(Thunderwave.GuiPresentation.SpriteReference)
-                .SetSymbolChar("221E");
+                .SetSpriteReference(Thunderwave.GuiPresentation.SpriteReference);
 
             SpellDefinitionBuilder reverseGravitySpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
@@ -660,7 +656,7 @@ namespace SolastaCommunityExpansion.Spells
 
             MonsterDefinitionBuilder couatlBuilder = new MonsterDefinitionBuilder(
                     KindredSpiritViper, CustomCouatlName, "fc38ed74-3e2f-4960-86cc-3120d638410b")
-                .SetGuiPresentation(DhBaseString + CustomCouatlName, Category.Monster);
+                .SetGuiPresentation(DhBaseString + CustomCouatlName, Category.Monster, spriteReference);
 
             couatlBuilder.SetInDungeonEditor(false);
             couatlBuilder.SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
@@ -701,7 +697,6 @@ namespace SolastaCommunityExpansion.Spells
             couatlBuilder.SetGroupAttacks(GroupAttacks);
             couatlBuilder.ClearLegendaryActionOptions();
             couatlBuilder.AddLegendaryActionOptions(LegendaryActionOptions);
-            couatlBuilder.SetSpriteReference(spriteReference);
             couatlBuilder.SetHasPhantomDistortion(PhantomDistortion);
             couatlBuilder.SetAttachedParticlesReference(attachedParticlesReference);
             couatlBuilder.SetNoExperienceGain(false);
@@ -731,11 +726,9 @@ namespace SolastaCommunityExpansion.Spells
                 .SetParticleEffectParameters(ConjureElementalAir.EffectDescription.EffectParticleParameters);
 
             GuiPresentation guiPresentationSpell = new GuiPresentation()
-                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
                 .SetDescription(GetSpellDescriptionTerm(text))
                 .SetTitle(GetSpellTitleTerm(text))
-                .SetSpriteReference(Bless.GuiPresentation.SpriteReference)
-                .SetSymbolChar("221E");
+                .SetSpriteReference(Bless.GuiPresentation.SpriteReference);
 
             SpellDefinitionBuilder conjureCelestialSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
@@ -811,11 +804,9 @@ namespace SolastaCommunityExpansion.Spells
 
 
                     GuiPresentation guiPresentationSpell = new GuiPresentation();
-                    guiPresentationSpell.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
                     guiPresentationSpell.SetDescription(GetSpellDescriptionTerm(text));
                     guiPresentationSpell.SetTitle(GetSpellTitleTerm(text));
                     guiPresentationSpell.SetSpriteReference(DatabaseHelper.SpellDefinitions.ConjureFey.GuiPresentation.SpriteReference);
-                    guiPresentationSpell.SetSymbolChar("221E");
 
                     SpellBuilder AnimalShapesSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString());
                     AnimalShapesSpell.SetGuiPresentation(guiPresentationSpell);
@@ -844,11 +835,9 @@ namespace SolastaCommunityExpansion.Spells
             effectDescription.SetDurationType(RuleDefinitions.DurationType.Hour);
 
             GuiPresentation guiPresentationSpell = new GuiPresentation()
-                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
                 .SetDescription(GetSpellDescriptionTerm(text))
                 .SetTitle(GetSpellTitleTerm(text))
-                .SetSpriteReference(DominatePerson.GuiPresentation.SpriteReference)
-                .SetSymbolChar("221E");
+                .SetSpriteReference(DominatePerson.GuiPresentation.SpriteReference);
 
             SpellDefinitionBuilder dominateMonsterSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
@@ -914,11 +903,9 @@ namespace SolastaCommunityExpansion.Spells
                 .Build());
 
             GuiPresentation guiPresentationSpell = new GuiPresentation()
-                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
                 .SetDescription(GetSpellDescriptionTerm(text))
                 .SetTitle(GetSpellTitleTerm(text))
-                .SetSpriteReference(BestowCurse.GuiPresentation.SpriteReference)
-                .SetSymbolChar("221E");
+                .SetSpriteReference(BestowCurse.GuiPresentation.SpriteReference);
 
             SpellDefinitionBuilder feeblemindSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
@@ -1076,11 +1063,9 @@ namespace SolastaCommunityExpansion.Spells
                     .Build());
 
             GuiPresentation guiPresentationSpell = new GuiPresentation()
-                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
                 .SetDescription(GetSpellDescriptionTerm(text))
                 .SetTitle(GetSpellTitleTerm(text))
-                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLifePreserveLife.GuiPresentation.SpriteReference)
-                .SetSymbolChar("221E");
+                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLifePreserveLife.GuiPresentation.SpriteReference);
 
             SpellDefinitionBuilder holyAuraSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
@@ -1281,11 +1266,9 @@ namespace SolastaCommunityExpansion.Spells
             neweffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions.Dexterity.name);
 
             GuiPresentation guiPresentationSpell = new GuiPresentation()
-                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
                 .SetDescription(GetSpellDescriptionTerm(text))
                 .SetTitle(GetSpellTitleTerm(text))
-                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalFireBurst.GuiPresentation.SpriteReference)
-                .SetSymbolChar("221E");
+                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalFireBurst.GuiPresentation.SpriteReference);
 
             SpellDefinitionBuilder IncendiaryCloudSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
@@ -1344,11 +1327,9 @@ namespace SolastaCommunityExpansion.Spells
                 .Build());
 
             GuiPresentation guiPresentationSpell = new GuiPresentation()
-                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
                 .SetDescription(GetSpellDescriptionTerm(text))
                 .SetTitle(GetSpellTitleTerm(text))
-                .SetSpriteReference(IdentifyCreatures.GuiPresentation.SpriteReference)
-                .SetSymbolChar("221E");
+                .SetSpriteReference(IdentifyCreatures.GuiPresentation.SpriteReference);
 
             SpellDefinitionBuilder mazeSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
@@ -1397,11 +1378,9 @@ namespace SolastaCommunityExpansion.Spells
             effectDescription.Build();
 
             GuiPresentation guiPresentationSpell = new GuiPresentation()
-                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
                 .SetDescription(GetSpellDescriptionTerm(text))
                 .SetTitle(GetSpellTitleTerm(text))
-                .SetSpriteReference(MindTwist.GuiPresentation.SpriteReference)
-                .SetSymbolChar("221E");
+                .SetSpriteReference(MindTwist.GuiPresentation.SpriteReference);
 
             SpellDefinitionBuilder mindBlankSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
@@ -1493,11 +1472,9 @@ namespace SolastaCommunityExpansion.Spells
                     new List<SaveAffinityBySenseDescription>());
 
             GuiPresentation guiPresentationSpell = new GuiPresentation()
-                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
                 .SetDescription(GetSpellDescriptionTerm(text))
                 .SetTitle(GetSpellTitleTerm(text))
-                .SetSpriteReference(Contagion.GuiPresentation.SpriteReference)
-                .SetSymbolChar("221E");
+                .SetSpriteReference(Contagion.GuiPresentation.SpriteReference);
 
             SpellDefinitionBuilder powerWordStunSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
@@ -1577,11 +1554,9 @@ namespace SolastaCommunityExpansion.Spells
             effect.SavingThrowAffinitiesByFamily.AddRange(SaveAffinityByFamilyDescription, SaveAffinityByFamilyDescriptionUndead);
 
             GuiPresentation guiPresentationSpell = new GuiPresentation()
-                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
                 .SetDescription(GetSpellDescriptionTerm(text))
                 .SetTitle(GetSpellTitleTerm(text))
-                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainSunIndomitableLight.GuiPresentation.SpriteReference)
-                .SetSymbolChar("221E");
+                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainSunIndomitableLight.GuiPresentation.SpriteReference);
 
             SpellDefinitionBuilder sunBurstSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
@@ -1623,11 +1598,9 @@ namespace SolastaCommunityExpansion.Spells
                     .Build());
 
             GuiPresentation guiPresentationSpell = new GuiPresentation()
-                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
                 .SetDescription(GetSpellDescriptionTerm(text))
                 .SetTitle(GetSpellTitleTerm(text))
-                .SetSpriteReference(TrueSeeing.GuiPresentation.SpriteReference)
-                .SetSymbolChar("221E");
+                .SetSpriteReference(TrueSeeing.GuiPresentation.SpriteReference);
 
             SpellDefinitionBuilder foresightSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
@@ -1702,11 +1675,9 @@ namespace SolastaCommunityExpansion.Spells
                     .Build());
 
             GuiPresentation guiPresentationSpell = new GuiPresentation()
-                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
                 .SetDescription(GetSpellDescriptionTerm(text))
                 .SetTitle(GetSpellTitleTerm(text))
-                .SetSpriteReference(Heal.GuiPresentation.SpriteReference)
-                .SetSymbolChar("221E");
+                .SetSpriteReference(Heal.GuiPresentation.SpriteReference);
 
             SpellDefinitionBuilder massHealSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
@@ -1775,11 +1746,9 @@ namespace SolastaCommunityExpansion.Spells
                 .SetParticleEffectParameters(FlameStrike.EffectDescription.EffectParticleParameters);
 
             GuiPresentation guiPresentationSpell = new GuiPresentation()
-                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
                 .SetDescription(GetSpellDescriptionTerm(text))
                 .SetTitle(GetSpellTitleTerm(text))
-                .SetSpriteReference(FlamingSphere.GuiPresentation.SpriteReference)
-                .SetSymbolChar("221E");
+                .SetSpriteReference(FlamingSphere.GuiPresentation.SpriteReference);
 
             SpellDefinitionBuilder meteorSwarmSingleTargetSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
@@ -1843,11 +1812,9 @@ namespace SolastaCommunityExpansion.Spells
                 .Build());
 
             GuiPresentation guiPresentationSpell = new GuiPresentation()
-                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
                 .SetDescription(GetSpellDescriptionTerm(text))
                 .SetTitle(GetSpellTitleTerm(text))
-                .SetSpriteReference(HealingWord.GuiPresentation.SpriteReference)
-                .SetSymbolChar("221E");
+                .SetSpriteReference(HealingWord.GuiPresentation.SpriteReference);
 
             SpellDefinitionBuilder powerWordHealSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
@@ -1894,11 +1861,9 @@ namespace SolastaCommunityExpansion.Spells
             .AddEffectForm(effectForm);
 
             GuiPresentation guiPresentationSpell = new GuiPresentation()
-                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
                 .SetDescription(GetSpellDescriptionTerm(text))
                 .SetTitle(GetSpellTitleTerm(text))
-                .SetSpriteReference(Disintegrate.GuiPresentation.SpriteReference)
-                .SetSymbolChar("221E");
+                .SetSpriteReference(Disintegrate.GuiPresentation.SpriteReference);
 
             SpellDefinitionBuilder powerWordKillSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
@@ -1962,11 +1927,9 @@ namespace SolastaCommunityExpansion.Spells
                 .SetParticleEffectParameters(DatabaseHelper.FeatureDefinitionPowers.PowerDruidWildShape.EffectDescription.EffectParticleParameters);
 
             GuiPresentation guiPresentationSpell = new GuiPresentation()
-                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
                 .SetDescription(GetSpellDescriptionTerm(text))
                 .SetTitle(GetSpellTitleTerm(text))
-                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDruidWildShape.GuiPresentation.SpriteReference)
-                .SetSymbolChar("221E");
+                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDruidWildShape.GuiPresentation.SpriteReference);
 
             SpellDefinitionBuilder shapechangeSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
@@ -2009,11 +1972,9 @@ namespace SolastaCommunityExpansion.Spells
             .ExcludeCaster();
 
             GuiPresentation guiPresentationSpell = new GuiPresentation()
-                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
                 .SetDescription(GetSpellDescriptionTerm(text))
                 .SetTitle(GetSpellTitleTerm(text))
-                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLawWordOfLaw.GuiPresentation.SpriteReference)
-                .SetSymbolChar("221E");
+                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLawWordOfLaw.GuiPresentation.SpriteReference);
 
             SpellDefinitionBuilder timeStopSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
@@ -2094,11 +2055,9 @@ namespace SolastaCommunityExpansion.Spells
                     .Build());
 
             GuiPresentation guiPresentationSpell = new GuiPresentation()
-                .SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f))
                 .SetDescription(GetSpellDescriptionTerm(text))
                 .SetTitle(GetSpellTitleTerm(text))
-                .SetSpriteReference(PhantasmalKiller.GuiPresentation.SpriteReference)
-                .SetSymbolChar("221E");
+                .SetSpriteReference(PhantasmalKiller.GuiPresentation.SpriteReference);
 
             SpellDefinitionBuilder weirdSpell = new SpellDefinitionBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString())
                 .SetGuiPresentation(guiPresentationSpell)
@@ -2158,11 +2117,9 @@ namespace SolastaCommunityExpansion.Spells
                     effectDescription.Build();
 
                     GuiPresentation guiPresentationSpell = new GuiPresentation();
-                    guiPresentationSpell.SetColor(new UnityEngine.Color(1f, 1f, 1f, 1f));
                     guiPresentationSpell.SetDescription(GetSpellDescriptionTerm(text));
                     guiPresentationSpell.SetTitle(GetSpellTitleTerm(text));
                     guiPresentationSpell.SetSpriteReference(DatabaseHelper.SpellDefinitions.Banishment.GuiPresentation.SpriteReference);
-                    guiPresentationSpell.SetSymbolChar("221E");
 
                     SpellBuilder Wish_overallSpell = new SpellBuilder(DhBaseString + text, GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + text).ToString());
                     Wish_overallSpell.SetGuiPresentation(guiPresentationSpell);

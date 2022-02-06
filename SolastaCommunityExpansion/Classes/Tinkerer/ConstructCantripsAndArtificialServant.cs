@@ -209,24 +209,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             //assume PB=4
 
-            MonsterSavingThrowProficiency Dex = new MonsterSavingThrowProficiency();
-            Dex.SetField("abilityScoreName", "Dexterity");
-            Dex.SetField("bonus", 2);
+            Definition.SavingThrowScores.SetRange(
+                new MonsterSavingThrowProficiency(AttributeDefinitions.Dexterity, 2));
 
-            MonsterSkillProficiency Stealth = new MonsterSkillProficiency();
-            Stealth.SetField("skillName", "Stealth");
-            Stealth.SetField("bonus", 2);
-            MonsterSkillProficiency Perception = new MonsterSkillProficiency();
-            Perception.SetField("skillName", "Perception");
-            Perception.SetField("bonus", 4);
-
-            Definition.SavingThrowScores.Empty();
-            Definition.SavingThrowScores.Clear();
-            Definition.SavingThrowScores.Add(Dex);
-            Definition.SkillScores.Empty();
-            Definition.SkillScores.Clear();
-            Definition.SkillScores.Add(Stealth);
-            Definition.SkillScores.Add(Perception);
+            Definition.SkillScores.SetRange(
+                new MonsterSkillProficiency(SkillDefinitions.Stealth, 2),
+                new MonsterSkillProficiency(SkillDefinitions.Perception, 4));
 
             Definition.SetFullyControlledWhenAllied(true);
             Definition.SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None);
@@ -249,11 +237,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             Definition.Features.Add(DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity);
             // Definition.Features.Add(DatabaseHelper.);
 
-            Definition.AttackIterations.Clear();
-            MonsterAttackIteration monsterAttackIteration = new MonsterAttackIteration();
-            monsterAttackIteration.SetField("monsterAttackDefinition", ArtificialServantAttackBuilder.ArtificialServantAttack);
-            monsterAttackIteration.SetField("number", 1);
-            Definition.AttackIterations.AddRange(monsterAttackIteration);
+            Definition.AttackIterations.SetRange(new MonsterAttackIteration(ArtificialServantAttackBuilder.ArtificialServantAttack, 1));
 
             Definition.MonsterPresentation.SetMalePrefabReference(new UnityEngine.AddressableAssets.AssetReference("ab0501343e8629149ae0aa4dace755f5"));
             Definition.MonsterPresentation.SetFemalePrefabReference(new UnityEngine.AddressableAssets.AssetReference("ab0501343e8629149ae0aa4dace755f5"));

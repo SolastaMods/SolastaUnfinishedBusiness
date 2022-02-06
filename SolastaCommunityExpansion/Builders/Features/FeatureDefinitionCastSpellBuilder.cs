@@ -40,8 +40,6 @@ namespace SolastaCommunityExpansion.Builders.Features
 
         private void InitializeFields()
         {
-            Definition.SetField("restrictedSchools", new List<string>());
-
             SetKnownCantripsZero();
             SetKnownZero();
             SetScribedZero();

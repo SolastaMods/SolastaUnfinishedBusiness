@@ -7,25 +7,28 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionAdditionalActionBuilder : BaseDefinitionBuilder<FeatureDefinitionAdditionalAction>
+    public sealed class FeatureDefinitionAdditionalActionBuilder : BaseDefinitionBuilder<FeatureDefinitionAdditionalAction>
     {
-        public FeatureDefinitionAdditionalActionBuilder(string name, string guid) : base(name, guid)
-        {
-        }
-
-        public FeatureDefinitionAdditionalActionBuilder(string name, Guid namespaceGuid, Category category = Category.None)
+        private FeatureDefinitionAdditionalActionBuilder(string name, Guid namespaceGuid, Category category = Category.None)
             : base(name, namespaceGuid, category)
         {
         }
 
-        public FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original, string name, string guid)
-            : base(original, name, guid)
+        private FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original, string name, Guid namespaceGuid, Category category = Category.None)
+            : base(original, name, namespaceGuid, category)
         {
         }
 
-        public FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original, string name, Guid namespaceGuid, Category category = Category.None)
-            : base(original, name, namespaceGuid, category)
+        public static FeatureDefinitionAdditionalActionBuilder Create(
+            string name, Guid namespaceGuid, Category category = Category.None)
         {
+            return new FeatureDefinitionAdditionalActionBuilder(name, namespaceGuid, category);
+        }
+
+        public static FeatureDefinitionAdditionalActionBuilder Create(
+            FeatureDefinitionAdditionalAction original, string name, Guid namespaceGuid, Category category = Category.None)
+        {
+            return new FeatureDefinitionAdditionalActionBuilder(original, name, namespaceGuid, category);
         }
 
         public FeatureDefinitionAdditionalActionBuilder SetActionType(ActionDefinitions.ActionType actionType)
