@@ -103,15 +103,19 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
                     Register(spellListDefinition);
                 }
+
                 else if (featureDefinition is FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity)
                 {
                     var spellListDefinition = featureDefinitionMagicAffinity.ExtendedSpellList;
 
                     Register(spellListDefinition);
                 }
+
                 else if (featureDefinition is FeatureDefinitionAutoPreparedSpells featureDefinitionAutoPreparedSpells)
                 {
-                    foreach (var autoPreparedSpellsGroup in featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups)
+                    var autoPreparedSpellsGroups = featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups;
+
+                    foreach (var autoPreparedSpellsGroup in autoPreparedSpellsGroups)
                     {
                         var level = autoPreparedSpellsGroup.ClassLevel;
                         var spellList = autoPreparedSpellsGroup.SpellsList;
@@ -119,6 +123,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
                         RegisterSpell(name, level, spellList, isSubClass);
                     }
                 }
+
                 else if (featureDefinition is FeatureDefinitionBonusCantrips featureDefinitionBonusCantrips)
                 {
                     var level = featureUnlock.Level;
@@ -126,6 +131,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
                     RegisterSpell(name, level, spellList, isSubClass);
                 }
+
                 // unofficial
                 else if (featureDefinitionTypeName == "FeatureDefinitionExtraSpellSelection")
                 {
@@ -161,8 +167,8 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             var selectedSubclass = LevelUpContext.SelectedSubclass;
 
             return
-                (rulesetSpellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class && rulesetSpellRepertoire.SpellCastingClass == selectedClass) ||
-                (rulesetSpellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Subclass && rulesetSpellRepertoire.SpellCastingSubclass == selectedSubclass);
+                rulesetSpellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class && rulesetSpellRepertoire.SpellCastingClass == selectedClass ||
+                rulesetSpellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Subclass && rulesetSpellRepertoire.SpellCastingSubclass == selectedSubclass;
         }
 
         internal static bool IsSpellKnownBySelectedClassSubclass(SpellDefinition spellDefinition)
@@ -171,8 +177,8 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             var selectedClass = LevelUpContext.SelectedClass;
             var selectedSubclass = LevelUpContext.SelectedSubclass;
             var spellRepertoire = selectedHero.SpellRepertoires.Find(sr =>
-                (sr.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class && sr.SpellCastingClass == selectedClass) ||
-                (sr.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Subclass && sr.SpellCastingSubclass == selectedSubclass));
+                sr.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class && sr.SpellCastingClass == selectedClass ||
+                sr.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Subclass && sr.SpellCastingSubclass == selectedSubclass);
 
             return spellRepertoire?.HasKnowledgeOfSpell(spellDefinition) == true;
         }

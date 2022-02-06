@@ -8,172 +8,103 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 {
     internal static class LevelUpContext
     {
-        private static readonly Dictionary<string, Dictionary<string, string>> featuresToReplace = new()
+        private static readonly Dictionary<string, Dictionary<string, string>> featuresToReplace = new Dictionary<string, Dictionary<string, string>>
         {
-            {
-                RuleDefinitions.BarbarianClass,
-                new Dictionary<string, string> {
-                { "ProficiencyBarbarianArmor", "BarbarianArmorProficiencyMulticlass"} }
-            },
+            { RuleDefinitions.BarbarianClass, new Dictionary<string, string> {
+                { "ProficiencyBarbarianArmor", "BarbarianArmorProficiencyMulticlass"} } },
 
-            {
-                RuleDefinitions.FighterClass,
-                new Dictionary<string, string> {
-                { "ProficiencyFighterArmor", "FighterArmorProficiencyMulticlass"} }
-            },
+            { RuleDefinitions.FighterClass, new Dictionary<string, string> {
+                { "ProficiencyFighterArmor", "FighterArmorProficiencyMulticlass"} } },
 
-            {
-                RuleDefinitions.PaladinClass,
-                new Dictionary<string, string> {
-                 { "ProficiencyPaladinArmor", "PaladinArmorProficiencyMulticlass"} }
-            },
+            { RuleDefinitions.PaladinClass, new Dictionary<string, string> {
+                 { "ProficiencyPaladinArmor", "PaladinArmorProficiencyMulticlass"} } },
 
-            {
-                RuleDefinitions.RangerClass,
-                new Dictionary<string, string> {
-                { "PointPoolRangerSkillPoints", "PointPoolRangerSkillPointsMulticlass"} }
-            },
+            { RuleDefinitions.RangerClass, new Dictionary<string, string> {
+                { "PointPoolRangerSkillPoints", "PointPoolRangerSkillPointsMulticlass"} } },
 
-            {
-                RuleDefinitions.RogueClass,
-                new Dictionary<string, string> {
-                { "PointPoolRogueSkillPoints", "PointPoolRogueSkillPointsMulticlass"} }
-            },
+            { RuleDefinitions.RogueClass, new Dictionary<string, string> {
+                { "PointPoolRogueSkillPoints", "PointPoolRogueSkillPointsMulticlass"} } },
 
-            {
-                CLASS_BARD,
-                new Dictionary<string, string> {
-                { "BardSkillProficiency", "PointPoolBardSkillPointsMulticlass"} }
-            },
+            { CLASS_BARD, new Dictionary<string, string> {
+                { "BardSkillProficiency", "PointPoolBardSkillPointsMulticlass"} } },
 
-            {
-                CLASS_WARDEN,
-                new Dictionary<string, string> {
-                { "ProficiencyWardenArmor", "WardenArmorProficiencyMulticlass"} }
-            },
+            { CLASS_WARDEN, new Dictionary<string, string> {
+                { "ProficiencyWardenArmor", "WardenArmorProficiencyMulticlass"} } },
         };
 
-        private static readonly Dictionary<string, List<string>> featuresToExclude = new()
+        private static readonly Dictionary<string, List<string>> featuresToExclude = new Dictionary<string, List<string>>
         {
-            {
-                RuleDefinitions.BarbarianClass,
-                new List<string> {
+            { RuleDefinitions.BarbarianClass, new List<string> {
                 "PointPoolBarbarianrSkillPoints",
-                "ProficiencyBarbarianSavingThrow" }
-            },
+                "ProficiencyBarbarianSavingThrow" } },
 
-            {
-                RuleDefinitions.ClericClass,
-                new List<string> {
+            { RuleDefinitions.ClericClass, new List<string> {
                 "ProficiencyClericWeapon",
                 "PointPoolClericSkillPoints",
-                "ProficiencyClericSavingThrow" }
-            },
+                "ProficiencyClericSavingThrow" } },
 
-            {
-                RuleDefinitions.DruidClass,
-                new List<string> {
+            { RuleDefinitions.DruidClass, new List<string> {
                 "PointPoolDruidSkillPoints",
-                "ProficiencyDruidSavingThrow" }
-            },
+                "ProficiencyDruidSavingThrow" } },
 
-            {
-                RuleDefinitions.FighterClass,
-                new List<string> {
+            { RuleDefinitions.FighterClass, new List<string> {
                 "PointPoolFighterSkillPoints",
-                "ProficiencyFighterSavingThrow" }
-            },
+                "ProficiencyFighterSavingThrow" } },
 
-            {
-                RuleDefinitions.PaladinClass,
-                new List<string> {
+            { RuleDefinitions.PaladinClass, new List<string> {
                 "PointPoolPaladinSkillPoints",
-                "ProficiencyPaladinSavingThrow" }
-            },
+                "ProficiencyPaladinSavingThrow" } },
 
-            {
-                RuleDefinitions.RangerClass,
-                new List<string> {
-                "ProficiencyRangerSavingThrow" }
-            },
+            { RuleDefinitions.RangerClass, new List<string> {
+                "ProficiencyRangerSavingThrow" } },
 
-            {
-                RuleDefinitions.RogueClass,
-                new List<string> {
+            { RuleDefinitions.RogueClass, new List<string> {
                 "ProficiencyRogueWeapon",
-                "ProficiencyRogueSavingThrow" }
-            },
+                "ProficiencyRogueSavingThrow" } },
 
-            {
-                RuleDefinitions.SorcererClass,
-                new List<string> {
+            { RuleDefinitions.SorcererClass, new List<string> {
                 "ProficiencySorcererWeapon",
                 "ProficiencySorcererArmor",
                 "PointPoolSorcererSkillPoints",
-                "ProficiencySorcererSavingThrow"}
-            },
+                "ProficiencySorcererSavingThrow"} },
 
-            {
-                RuleDefinitions.WizardClass,
-                new List<string> {
+            { RuleDefinitions.WizardClass, new List<string> {
                 "ProficiencyWizardWeapon",
                 "ProficiencyWizardArmor",
                 "PointPoolWizardSkillPoints",
-                "ProficiencyWizardSavingThrow"}
-            },
+                "ProficiencyWizardSavingThrow"} },
 
-            {
-                CLASS_TINKERER,
-                new List<string> {
+            { CLASS_TINKERER, new List<string> {
                 "ProficiencyWeaponTinkerer",
                 "PointPoolTinkererSkillPoints",
-                "ProficiencyTinkererSavingThrow"}
-            },
+                "ProficiencyTinkererSavingThrow"} },
 
-            {
-                CLASS_WARDEN,
-                new List<string> {
+            { CLASS_WARDEN, new List<string> {
                 "PointPoolWardenSkillPoints",
-                "ProficiencyWardenSavingthrow" }
-            },
+                "ProficiencyWardenSavingthrow" } },
 
-            {
-                CLASS_WITCH,
-                new List<string> {
+            { CLASS_WITCH, new List<string> {
                 "ProficiencyWitchWeapon",
                 "PointPoolWitchSkillPoints",
-                "ProficiencyWitchSavingthrow"}
-            },
+                "ProficiencyWitchSavingthrow"} },
 
-            {
-                CLASS_ALCHEMIST,
-                new List<string> {
+            { CLASS_ALCHEMIST, new List<string> {
                 "AlchemistWeaponProficiency",
                 "AlchemistSkillProficiency",
-                "AlchemistSavingthrowProficiency" }
-            },
+                "AlchemistSavingthrowProficiency" } },
 
-            {
-                CLASS_BARD,
-                new List<string> {
+            { CLASS_BARD, new List<string> {
                 "BardWeaponProficiency",
-                "BardSavingthrowProficiency" }
-            },
+                "BardSavingthrowProficiency" } },
 
-            {
-                CLASS_MONK,
-                new List<string> {
+            { CLASS_MONK, new List<string> {
                 "MonkSkillProficiency",
-                "MonkSavingthrowProficiency" }
-            },
+                "MonkSavingthrowProficiency" } },
 
-            {
-                CLASS_WARLOCK,
-                new List<string> {
+            { CLASS_WARLOCK, new List<string> {
                 "WarlockWeaponProficiency",
                 "WarlockSkillProficiency",
-                "WarlockSavingthrowProficiency" }
-            },
+                "WarlockSavingthrowProficiency" } },
         };
 
         private static bool levelingUp { get; set; }
@@ -274,7 +205,13 @@ namespace SolastaCommunityExpansion.Multiclass.Models
                         classesAndLevels.ContainsKey(WarlockClass)
                     );
 
-                requiresDruidicFocus = (selectedClass == Druid) && !classesAndLevels.ContainsKey(Druid);
+                requiresDruidicFocus =
+                    (
+                        selectedClass == Druid
+                    ) &&
+                    !(
+                        classesAndLevels.ContainsKey(Druid)
+                    );
 
                 requiresSpellbook =
                     !classesAndLevels.ContainsKey(Wizard) && selectedClass == Wizard;
@@ -283,7 +220,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
         internal static CharacterSubclassDefinition SelectedSubclass { get => selectedSubclass; set => selectedSubclass = value; }
 
-        internal static int SelectedHeroLevel => (selectedHero?.ClassesHistory.Count) ?? 0;
+        internal static int SelectedHeroLevel => selectedHero != null ? selectedHero.ClassesHistory.Count : 0;
 
         internal static int SelectedClassLevel
         {
@@ -306,7 +243,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
         internal static bool RequiresDeity => requiresDeity;
 
-        internal static bool IsMulticlass => selectedHero?.ClassesAndLevels?.Count > 1 || (selectedHero?.ClassesAndLevels.Count > 0 && selectedHero?.ClassesAndLevels.ContainsKey(selectedClass) != true);
+        internal static bool IsMulticlass => selectedHero?.ClassesAndLevels?.Count > 1 || selectedHero?.ClassesAndLevels.Count > 0 && selectedHero?.ClassesAndLevels.ContainsKey(selectedClass) != true;
 
         internal static List<FeatureUnlockByLevel> FilteredFeaturesUnlocks(List<FeatureUnlockByLevel> featureUnlockByLevels)
         {
@@ -350,7 +287,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
                 // check if extra attacks should be excluded
                 foundExtraAttackToExclude = attacksNumber.ActiveModifiers.Count > 0
                     && featureDefinition is FeatureDefinitionAttributeModifier featureDefinitionAttributeModifier
-                    && featureDefinitionAttributeModifier.ModifiedAttribute == AttributeDefinitions.AttacksNumber
+                    && featureDefinitionAttributeModifier.ModifiedAttribute == AttributeDefinitions.AttacksNumber 
                     && !(selectedClass == Fighter && SelectedClassLevel >= 11);
 
                 // only add if not supposed to be excluded, replaced or an invalid extra attack

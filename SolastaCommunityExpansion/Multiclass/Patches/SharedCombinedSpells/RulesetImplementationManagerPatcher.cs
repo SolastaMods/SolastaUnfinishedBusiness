@@ -52,6 +52,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                 }
                 else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSpellSlot || spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSorceryPoints)
                 {
+#pragma warning disable S125 // Sections of code should not be commented out
                     //var sourceCharacter = formsParams.sourceCharacter as RulesetCharacterHero;
                     //foreach (RulesetSpellRepertoire spellRepertoire in sourceCharacter.SpellRepertoires)
                     //{
@@ -61,6 +62,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                     //        break;
                     //    }
                     //}
+#pragma warning restore S125 // Sections of code should not be commented out
 
                     HeroWithSpellRepertoire = formsParams.sourceCharacter as RulesetCharacterHero;
                     SpellRepertoire = HeroWithSpellRepertoire.SpellRepertoires.Find(sr => sr.SpellCastingClass == Sorcerer);
@@ -76,8 +78,10 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                 }
                 else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.RecovererSorceryHalfLevelUp)
                 {
+#pragma warning disable S125 // Sections of code should not be commented out
                     //var sourceCharacter = formsParams.sourceCharacter as RulesetCharacterHero;
                     //int currentValue = sourceCharacter.GetAttribute("CharacterLevel").CurrentValue;
+#pragma warning restore S125 // Sections of code should not be commented out
 
                     HeroWithSpellRepertoire = formsParams.sourceCharacter as RulesetCharacterHero;
                     SpellRepertoire = HeroWithSpellRepertoire.SpellRepertoires.Find(sr => sr.SpellCastingClass == Sorcerer);

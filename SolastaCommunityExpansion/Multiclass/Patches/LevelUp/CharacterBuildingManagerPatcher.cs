@@ -124,7 +124,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
         [HarmonyPatch(typeof(CharacterBuildingManager), "UnassignLastClassLevel")]
         internal static class CharacterBuildingManagerUnassignLastClassLevel
         {
-            internal static bool Prefix()
+            internal static bool Prefix(CharacterBuildingManager __instance)
             {
                 if (!Main.Settings.EnableMulticlass)
                 {
@@ -167,7 +167,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                             if (!spellDefinitionList.Contains(spell) &&
                                 (
                                     isRepertoireFromSelectedClassSubclass ||
-                                    (!Main.Settings.EnableRelearnSpells && SpellsContext.IsSpellOfferedBySelectedClassSubclass(spell))
+                                    !Main.Settings.EnableRelearnSpells && SpellsContext.IsSpellOfferedBySelectedClassSubclass(spell)
                                 ))
                             {
                                 spellDefinitionList.Add(spell);
@@ -186,7 +186,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                                     if (!spellDefinitionList.Contains(spell) &&
                                         (
                                             isRepertoireFromSelectedClassSubclass ||
-                                            (!Main.Settings.EnableRelearnSpells && SpellsContext.IsSpellOfferedBySelectedClassSubclass(spell))
+                                            !Main.Settings.EnableRelearnSpells && SpellsContext.IsSpellOfferedBySelectedClassSubclass(spell)
                                         ))
                                     {
                                         spellDefinitionList.Add(spell);
@@ -201,7 +201,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                                 if (!spellDefinitionList.Contains(spell) &&
                                     (
                                         isRepertoireFromSelectedClassSubclass ||
-                                        (!Main.Settings.EnableRelearnSpells && SpellsContext.IsSpellOfferedBySelectedClassSubclass(spell))
+                                        !Main.Settings.EnableRelearnSpells && SpellsContext.IsSpellOfferedBySelectedClassSubclass(spell)
                                     ))
                                 {
                                     spellDefinitionList.Add(spell);
@@ -212,7 +212,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                                 if (!spellDefinitionList.Contains(spell) &&
                                     (
                                         isRepertoireFromSelectedClassSubclass ||
-                                        (!Main.Settings.EnableRelearnSpells && SpellsContext.IsSpellOfferedBySelectedClassSubclass(spell))
+                                        !Main.Settings.EnableRelearnSpells && SpellsContext.IsSpellOfferedBySelectedClassSubclass(spell)
                                     ))
                                 {
                                     spellDefinitionList.Add(spell);
@@ -232,7 +232,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                             if (!spellDefinitionList.Contains(spell) &&
                                 (
                                     LevelUpContext.SelectedClass == Wizard ||
-                                    (!Main.Settings.EnableRelearnSpells && SpellsContext.IsSpellOfferedBySelectedClassSubclass(spell))
+                                    !Main.Settings.EnableRelearnSpells && SpellsContext.IsSpellOfferedBySelectedClassSubclass(spell)
                                 ))
                             {
                                 spellDefinitionList.Add(spell);

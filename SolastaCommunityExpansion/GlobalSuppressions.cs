@@ -103,5 +103,3 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: SuppressMessage("", "RCS1238", Justification = "3rd party source", Scope = "namespaceanddescendants", Target = "~N:ModKit")]
 
 [assembly: SuppressMessage("Roslynator", "RCS1112:Combine 'Enumerable.Where' method chain.", Justification = "<Pending>", Scope = "namespaceanddescendants", Target = "~N:SolastaModApi")]
-[assembly: SuppressMessage("Major Code Smell", "S3011:Reflection should not be used to increase accessibility of classes, methods, or fields",
-    Justification = "Reflection is required", Scope = "namespaceanddescendants", Target = "~N:SolastaCommunityExpansion")]

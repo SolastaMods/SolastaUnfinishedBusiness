@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using static FeatureDefinitionCastSpell;
 
@@ -15,7 +14,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
         OneThird
     }
 
-    internal static class SharedSpellsContext
+    internal class SharedSpellsContext
     {
         internal static Dictionary<string, CasterType> ClassCasterType { get; } = new()
         {
@@ -72,7 +71,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
                 // Tinkerer / ...
                 if (levels[CasterType.HalfRoundUp] == 1)
                 {
-                    casterLevel++;
+                    casterLevel += 1;
                 }
                 // Half Casters
                 else
@@ -173,7 +172,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
         internal static bool IsMulticaster(RulesetCharacterHero rulesetCharacterHero)
         {
-            var repertoires = rulesetCharacterHero?.SpellRepertoires?.FindAll(sr => sr.SpellCastingFeature.SpellCastingOrigin == CastingOrigin.Class || sr.SpellCastingFeature.SpellCastingOrigin == CastingOrigin.Subclass);
+            var repertoires = rulesetCharacterHero?.SpellRepertoires?.FindAll(sr => (sr.SpellCastingFeature.SpellCastingOrigin == CastingOrigin.Class || sr.SpellCastingFeature.SpellCastingOrigin == CastingOrigin.Subclass));
 
             return repertoires?.Count > 1;
         }
@@ -287,8 +286,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
                 rulesetCharacterHero.ClassesAndSubclasses.TryGetValue(currentCharacterClassDefinition, out var currentCharacterSubclassDefinition);
 
-                if (filterCharacterClassDefinition == currentCharacterClassDefinition
-                    || (filterCharacterSublassDefinition != null && filterCharacterSublassDefinition == currentCharacterSubclassDefinition))
+                if (filterCharacterClassDefinition == currentCharacterClassDefinition || filterCharacterSublassDefinition != null && filterCharacterSublassDefinition == currentCharacterSubclassDefinition)
                 {
                     var casterType = GetCasterTypeForClassOrSubclass(currentCharacterClassDefinition, currentCharacterSubclassDefinition);
 
@@ -299,7 +297,6 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             return casterLevelContext.GetCasterLevel();
         }
 
-        [SuppressMessage("Unnecessary assignment", "RCS1179")]
         internal static int GetClassSpellLevel(
             RulesetCharacterHero rulesetCharacterHero,
             CharacterClassDefinition filterCharacterClassDefinition,
@@ -323,8 +320,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
                         rulesetCharacterHero.ClassesAndSubclasses.TryGetValue(currentCharacterClassDefinition, out var currentCharacterSubclassDefinition);
 
-                        if (filterCharacterClassDefinition == currentCharacterClassDefinition
-                            || (filterCharacterSubclassDefinition != null && filterCharacterSubclassDefinition == currentCharacterSubclassDefinition))
+                        if (filterCharacterClassDefinition == currentCharacterClassDefinition || filterCharacterSubclassDefinition != null && filterCharacterSubclassDefinition == currentCharacterSubclassDefinition)
                         {
                             var casterType = GetCasterTypeForClassOrSubclass(currentCharacterClassDefinition, currentCharacterSubclassDefinition);
 
@@ -357,26 +353,26 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
         internal static readonly List<SlotsByLevelDuplet> FullCastingSlots = new()
         {
-            new() { Slots = new List<int> { 2, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, Level = 01 },
-            new() { Slots = new List<int> { 3, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, Level = 02 },
-            new() { Slots = new List<int> { 4, 2, 0, 0, 0, 0, 0, 0, 0, 0 }, Level = 03 },
-            new() { Slots = new List<int> { 4, 3, 0, 0, 0, 0, 0, 0, 0, 0 }, Level = 04 },
-            new() { Slots = new List<int> { 4, 3, 2, 0, 0, 0, 0, 0, 0, 0 }, Level = 05 },
-            new() { Slots = new List<int> { 4, 3, 3, 0, 0, 0, 0, 0, 0, 0 }, Level = 06 },
-            new() { Slots = new List<int> { 4, 3, 3, 1, 0, 0, 0, 0, 0, 0 }, Level = 07 },
-            new() { Slots = new List<int> { 4, 3, 3, 2, 0, 0, 0, 0, 0, 0 }, Level = 08 },
-            new() { Slots = new List<int> { 4, 3, 3, 3, 1, 0, 0, 0, 0, 0 }, Level = 09 },
-            new() { Slots = new List<int> { 4, 3, 3, 3, 2, 0, 0, 0, 0, 0 }, Level = 10 },
-            new() { Slots = new List<int> { 4, 3, 3, 3, 2, 1, 0, 0, 0, 0 }, Level = 11 },
-            new() { Slots = new List<int> { 4, 3, 3, 3, 2, 1, 0, 0, 0, 0 }, Level = 12 },
-            new() { Slots = new List<int> { 4, 3, 3, 3, 2, 1, 1, 0, 0, 0 }, Level = 13 },
-            new() { Slots = new List<int> { 4, 3, 3, 3, 2, 1, 1, 0, 0, 0 }, Level = 14 },
-            new() { Slots = new List<int> { 4, 3, 3, 3, 2, 1, 1, 1, 0, 0 }, Level = 15 },
-            new() { Slots = new List<int> { 4, 3, 3, 3, 2, 1, 1, 1, 0, 0 }, Level = 16 },
-            new() { Slots = new List<int> { 4, 3, 3, 3, 2, 1, 1, 1, 1, 0 }, Level = 17 },
-            new() { Slots = new List<int> { 4, 3, 3, 3, 3, 1, 1, 1, 1, 0 }, Level = 18 },
-            new() { Slots = new List<int> { 4, 3, 3, 3, 3, 2, 1, 1, 1, 0 }, Level = 19 },
-            new() { Slots = new List<int> { 4, 3, 3, 3, 3, 2, 2, 1, 1, 0 }, Level = 20 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {2,0,0,0,0,0,0,0,0,0}, Level = 01 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {3,0,0,0,0,0,0,0,0,0}, Level = 02 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {4,2,0,0,0,0,0,0,0,0}, Level = 03 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {4,3,0,0,0,0,0,0,0,0}, Level = 04 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {4,3,2,0,0,0,0,0,0,0}, Level = 05 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,0,0,0,0,0,0,0}, Level = 06 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,1,0,0,0,0,0,0}, Level = 07 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,2,0,0,0,0,0,0}, Level = 08 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,1,0,0,0,0,0}, Level = 09 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,0,0,0,0,0}, Level = 10 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,0,0,0,0}, Level = 11 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,0,0,0,0}, Level = 12 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,0,0,0}, Level = 13 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,0,0,0}, Level = 14 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,1,0,0}, Level = 15 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,1,0,0}, Level = 16 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,1,1,0}, Level = 17 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,3,1,1,1,1,0}, Level = 18 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,3,2,1,1,1,0}, Level = 19 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,3,2,2,1,1,0}, Level = 20 },
         };
 
         internal const int WARLOCK_MAX_PACT_MAGIC_SPELL_LEVEL = 5; // above this is Mystic Arcanum and should be treated as long rest slots with same consumption logic as pact magic
@@ -385,26 +381,26 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
         internal static readonly List<SlotsByLevelDuplet> WarlockCastingSlots = new()
         {
-            new() { Slots = new List<int> { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, Level = 01 },
-            new() { Slots = new List<int> { 2, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, Level = 02 },
-            new() { Slots = new List<int> { 2, 2, 0, 0, 0, 0, 0, 0, 0, 0 }, Level = 03 },
-            new() { Slots = new List<int> { 2, 2, 0, 0, 0, 0, 0, 0, 0, 0 }, Level = 04 },
-            new() { Slots = new List<int> { 2, 2, 2, 0, 0, 0, 0, 0, 0, 0 }, Level = 05 },
-            new() { Slots = new List<int> { 2, 2, 2, 0, 0, 0, 0, 0, 0, 0 }, Level = 06 },
-            new() { Slots = new List<int> { 2, 2, 2, 2, 0, 0, 0, 0, 0, 0 }, Level = 07 },
-            new() { Slots = new List<int> { 2, 2, 2, 2, 0, 0, 0, 0, 0, 0 }, Level = 08 },
-            new() { Slots = new List<int> { 2, 2, 2, 2, 2, 0, 0, 0, 0, 0 }, Level = 09 },
-            new() { Slots = new List<int> { 2, 2, 2, 2, 2, 0, 0, 0, 0, 0 }, Level = 10 },
-            new() { Slots = new List<int> { 3, 3, 3, 3, 3, 1, 0, 0, 0, 0 }, Level = 11 },
-            new() { Slots = new List<int> { 3, 3, 3, 3, 3, 1, 0, 0, 0, 0 }, Level = 12 },
-            new() { Slots = new List<int> { 3, 3, 3, 3, 3, 1, 1, 0, 0, 0 }, Level = 13 },
-            new() { Slots = new List<int> { 3, 3, 3, 3, 3, 1, 1, 0, 0, 0 }, Level = 14 },
-            new() { Slots = new List<int> { 3, 3, 3, 3, 3, 1, 1, 1, 0, 0 }, Level = 15 },
-            new() { Slots = new List<int> { 3, 3, 3, 3, 3, 1, 1, 1, 0, 0 }, Level = 16 },
-            new() { Slots = new List<int> { 4, 4, 4, 4, 4, 1, 1, 1, 1, 0 }, Level = 17 },
-            new() { Slots = new List<int> { 4, 4, 4, 4, 4, 1, 1, 1, 1, 0 }, Level = 18 },
-            new() { Slots = new List<int> { 4, 4, 4, 4, 4, 1, 1, 1, 1, 1 }, Level = 19 },
-            new() { Slots = new List<int> { 4, 4, 4, 4, 4, 1, 1, 1, 1, 1 }, Level = 20 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {1,0,0,0,0,0,0,0,0,0}, Level = 01 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {2,0,0,0,0,0,0,0,0,0}, Level = 02 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {2,2,0,0,0,0,0,0,0,0}, Level = 03 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {2,2,0,0,0,0,0,0,0,0}, Level = 04 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {2,2,2,0,0,0,0,0,0,0}, Level = 05 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {2,2,2,0,0,0,0,0,0,0}, Level = 06 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {2,2,2,2,0,0,0,0,0,0}, Level = 07 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {2,2,2,2,0,0,0,0,0,0}, Level = 08 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {2,2,2,2,2,0,0,0,0,0}, Level = 09 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {2,2,2,2,2,0,0,0,0,0}, Level = 10 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {3,3,3,3,3,1,0,0,0,0}, Level = 11 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {3,3,3,3,3,1,0,0,0,0}, Level = 12 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {3,3,3,3,3,1,1,0,0,0}, Level = 13 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {3,3,3,3,3,1,1,0,0,0}, Level = 14 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {3,3,3,3,3,1,1,1,0,0}, Level = 15 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {3,3,3,3,3,1,1,1,0,0}, Level = 16 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {4,4,4,4,4,1,1,1,1,0}, Level = 17 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {4,4,4,4,4,1,1,1,1,0}, Level = 18 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {4,4,4,4,4,1,1,1,1,1}, Level = 19 },
+            new SlotsByLevelDuplet() { Slots = new List<int> {4,4,4,4,4,1,1,1,1,1}, Level = 20 },
         };
     }
 }

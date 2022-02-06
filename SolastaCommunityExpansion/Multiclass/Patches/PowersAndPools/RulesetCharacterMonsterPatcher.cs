@@ -25,7 +25,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.PowersAndPools
                     return;
                 }
 
-                if (Gui.GameCampaign.Party.CharactersList.Find(x => x.RulesetCharacter.Name == __instance.Name)?.RulesetCharacter is not RulesetCharacterHero hero)
+                if (!(Gui.GameCampaign.Party.CharactersList.Find(x => x.RulesetCharacter.Name == __instance.Name)?.RulesetCharacter is RulesetCharacterHero hero))
                 {
                     return;
                 }
@@ -49,7 +49,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.PowersAndPools
                     return;
                 }
 
-                if (Gui.GameCampaign.Party.CharactersList.Find(x => x.RulesetCharacter.Name == __instance.Name)?.RulesetCharacter is not RulesetCharacterHero hero)
+                if (!(Gui.GameCampaign.Party.CharactersList.Find(x => x.RulesetCharacter.Name == __instance.Name)?.RulesetCharacter is RulesetCharacterHero hero))
                 {
                     return;
                 }
@@ -74,6 +74,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.PowersAndPools
                 }
 
                 // adds additional AC from Unarmored Defense
+                var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
                 var modifier = 0;
 
                 if (hero.ClassesAndLevels.ContainsKey(Models.IntegrationContext.MonkClass))
