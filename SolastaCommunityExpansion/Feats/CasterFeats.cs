@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
+using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Feats
@@ -27,7 +28,7 @@ namespace SolastaCommunityExpansion.Feats
             // Note it seems that feats can't currently grant bonus cantrips (which is kind of fine since the game doesn't have mage hand).
             //GuiPresentationBuilder telekineticBonusCantripPresentation = new GuiPresentationBuilder(
             //    "Feat/&FeatTelekineticBonusCantripDescription", ""),
-            //    "Feat/&FeatTelkineticBonusCantripTitle", ""));
+            //    "Feat/&FeatTelekineticBonusCantripTitle", ""));
             //FeatureDefinitionBonusCantrips telekineticBonusCantrips = FeatureBuilder.BuildBonusCantrips(new List<SpellDefinition>()
             //{
             //    DatabaseHelper.SpellDefinitions.AnnoyingBee,
@@ -37,7 +38,7 @@ namespace SolastaCommunityExpansion.Feats
 
             // telekinetic int
             GuiPresentationBuilder intPushPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatTelkineticIntPushTitle",
+                "Feat/&FeatTelekineticIntPushTitle",
                 "Feat/&FeatTelekineticIntPushDescription");
             intPushPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerVampiricTouch.GuiPresentation.SpriteReference);
             FeatureDefinitionPower intPush = BuildMotionFormPower(1, RuleDefinitions.UsesDetermination.Fixed,
@@ -46,7 +47,7 @@ namespace SolastaCommunityExpansion.Feats
                 AttributeDefinitions.Intelligence, MotionForm.MotionType.PushFromOrigin, 1, 10, "PowerTelekineticIntPush", intPushPresentation.Build());
 
             GuiPresentationBuilder intPullPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatTelkineticIntPullTitle",
+                "Feat/&FeatTelekineticIntPullTitle",
                 "Feat/&FeatTelekineticIntPullDescription");
             intPullPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerVampiricTouch.GuiPresentation.SpriteReference);
             FeatureDefinitionPower intPull = BuildMotionFormPower(1, RuleDefinitions.UsesDetermination.Fixed,
@@ -54,23 +55,16 @@ namespace SolastaCommunityExpansion.Feats
                 RuleDefinitions.Side.All, true, true, AttributeDefinitions.Strength, RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                 AttributeDefinitions.Intelligence, MotionForm.MotionType.DragToOrigin, 1, 10, "PowerTelekineticIntPull", intPullPresentation.Build());
 
-            GuiPresentationBuilder telekineticIntPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatTelkineticIntTitle",
-                "Feat/&FeatTelekineticIntDescription");
+            FeatDefinitionBuilder intTelekineticFeat = FeatDefinitionBuilder
+                .Create("FeatTelekineticInt", CasterFeatsNamespace)
+                .SetGuiPresentation(Category.Feat)
+                .SetFeatures(intPush, intPull, intIncrement); /* telekineticBonusCantrips, */
 
-            FeatDefinitionBuilder intTelekineticFeat = new FeatDefinitionBuilder("FeatTelekineticInt", GuidHelper.Create(CasterFeatsNamespace, "FeatTelekineticInt").ToString(),
-                new List<FeatureDefinition>()
-            {
-                intPush,
-                intPull,
-                //telekineticBonusCantrips,
-                intIncrement,
-            }, telekineticIntPresentation.Build());
             feats.Add(intTelekineticFeat.AddToDB());
 
             // telekinetic cha
             GuiPresentationBuilder chaPushPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatTelkineticChaPushTitle",
+                "Feat/&FeatTelekineticChaPushTitle",
                 "Feat/&FeatTelekineticChaPushDescription");
             chaPushPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerVampiricTouch.GuiPresentation.SpriteReference);
             FeatureDefinitionPower chaPush = BuildMotionFormPower(1, RuleDefinitions.UsesDetermination.Fixed,
@@ -79,7 +73,7 @@ namespace SolastaCommunityExpansion.Feats
                 AttributeDefinitions.Charisma, MotionForm.MotionType.PushFromOrigin, 1, 10, "PowerTelekineticChaPush", chaPushPresentation.Build());
 
             GuiPresentationBuilder chaPullPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatTelkineticChaPullTitle",
+                "Feat/&FeatTelekineticChaPullTitle",
                 "Feat/&FeatTelekineticChaPullDescription");
             chaPullPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerVampiricTouch.GuiPresentation.SpriteReference);
             FeatureDefinitionPower chaPull = BuildMotionFormPower(1, RuleDefinitions.UsesDetermination.Fixed,
@@ -87,22 +81,16 @@ namespace SolastaCommunityExpansion.Feats
                 RuleDefinitions.Side.All, true, true, AttributeDefinitions.Strength, RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                 AttributeDefinitions.Charisma, MotionForm.MotionType.DragToOrigin, 1, 10, "PowerTelekineticChaPull", chaPullPresentation.Build());
 
-            GuiPresentationBuilder telekineticChaPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatTelkineticChaTitle",
-                "Feat/&FeatTelekineticChaDescription");
-            FeatDefinitionBuilder chaTelekineticFeat = new FeatDefinitionBuilder("FeatTelekineticCha", GuidHelper.Create(CasterFeatsNamespace, "FeatTelekineticCha").ToString(),
-                new List<FeatureDefinition>()
-            {
-                chaPush,
-                chaPull,
-                //telekineticBonusCantrips,
-                chaIncrement,
-            }, telekineticChaPresentation.Build());
+            FeatDefinitionBuilder chaTelekineticFeat = FeatDefinitionBuilder
+                .Create("FeatTelekineticCha", CasterFeatsNamespace)
+                .SetGuiPresentation(Category.Feat)
+                .SetFeatures(chaPush, chaPull, chaIncrement); /* telekineticBonusCantrips, */
+
             feats.Add(chaTelekineticFeat.AddToDB());
 
             // telekinetic wis
             GuiPresentationBuilder wisPushPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatTelkineticWisPushTitle",
+                "Feat/&FeatTelekineticWisPushTitle",
                 "Feat/&FeatTelekineticWisPushDescription");
             wisPushPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerVampiricTouch.GuiPresentation.SpriteReference);
             FeatureDefinitionPower wisPush = BuildMotionFormPower(1, RuleDefinitions.UsesDetermination.Fixed,
@@ -111,7 +99,7 @@ namespace SolastaCommunityExpansion.Feats
                 AttributeDefinitions.Wisdom, MotionForm.MotionType.PushFromOrigin, 1, 10, "PowerTelekineticWisPush", wisPushPresentation.Build());
 
             GuiPresentationBuilder wisPullPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatTelkineticWisPullTitle",
+                "Feat/&FeatTelekineticWisPullTitle",
                 "Feat/&FeatTelekineticWisPullDescription");
             wisPullPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerVampiricTouch.GuiPresentation.SpriteReference);
             FeatureDefinitionPower wisPull = BuildMotionFormPower(1, RuleDefinitions.UsesDetermination.Fixed,
@@ -119,17 +107,11 @@ namespace SolastaCommunityExpansion.Feats
                 RuleDefinitions.Side.All, true, true, AttributeDefinitions.Strength, RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                 AttributeDefinitions.Wisdom, MotionForm.MotionType.DragToOrigin, 1, 10, "PowerTelekineticWisPull", wisPullPresentation.Build());
 
-            GuiPresentationBuilder telekineticWisPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatTelkineticWisTitle",
-                "Feat/&FeatTelekineticWisDescription");
-            FeatDefinitionBuilder wisTelekineticFeat = new FeatDefinitionBuilder("FeatTelekineticWis", GuidHelper.Create(CasterFeatsNamespace, "FeatTelekineticWis").ToString(),
-                new List<FeatureDefinition>()
-            {
-                wisPush,
-                wisPull,
-                //telekineticBonusCantrips,
-                wisIncrement,
-            }, telekineticWisPresentation.Build());
+            FeatDefinitionBuilder wisTelekineticFeat = FeatDefinitionBuilder
+                .Create("FeatTelekineticWis", CasterFeatsNamespace)
+                .SetGuiPresentation(Category.Feat)
+                .SetFeatures(wisPush, wisPull, wisIncrement); /* telekineticBonusCantrips, */
+
             feats.Add(wisTelekineticFeat.AddToDB());
 
             // fey teleportation, misty step short rest, a language, an ability score
@@ -171,43 +153,29 @@ namespace SolastaCommunityExpansion.Feats
             };
             feyFeatures.AddRange(mistyStepClassesPreparedSpells);
 
-            // fey teleportation int
-            GuiPresentationBuilder intFeyTeleportationPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatFeyTeleportationIntTitle",
-                "Feat/&FeatFeyTeleportationIntDescription");
-            List<FeatureDefinition> feyIntFeatures = new List<FeatureDefinition>()
-            {
-                intIncrement,
-            };
-            feyIntFeatures.AddRange(feyFeatures);
-            FeatDefinitionBuilder intFeyTeleportation = new FeatDefinitionBuilder("FeatFeyTeleportationInt", GuidHelper.Create(CasterFeatsNamespace, "FeatFeyTeleportationInt").ToString(),
-               feyIntFeatures, intFeyTeleportationPresentation.Build());
-            feats.Add(intFeyTeleportation.AddToDB());
-
-            // fey teleportation cha
-            GuiPresentationBuilder chaFeyTeleportationPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatFeyTeleportationChaTitle",
-                "Feat/&FeatFeyTeleportationChaDescription");
-            List<FeatureDefinition> feyChaFeatures = new List<FeatureDefinition>()
-            {
-                chaIncrement,
-            };
-            feyChaFeatures.AddRange(feyFeatures);
-            FeatDefinitionBuilder chaFeyTeleportation = new FeatDefinitionBuilder("FeatFeyTeleportationCha", GuidHelper.Create(CasterFeatsNamespace, "FeatFeyTeleportationCha").ToString(),
-                feyChaFeatures, chaFeyTeleportationPresentation.Build());
-            feats.Add(chaFeyTeleportation.AddToDB());
-
-            GuiPresentationBuilder wisFeyTeleportationPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatFeyTeleportationWisTitle",
-                "Feat/&FeatFeyTeleportationWisDescription");
-            List<FeatureDefinition> feyWisFeatures = new List<FeatureDefinition>()
-            {
-                wisIncrement,
-            };
-            feyWisFeatures.AddRange(feyFeatures);
-            FeatDefinitionBuilder wisFeyTeleportation = new FeatDefinitionBuilder("FeatFeyTeleportationWis", GuidHelper.Create(CasterFeatsNamespace, "FeatFeyTeleportationWis").ToString(),
-                feyWisFeatures, wisFeyTeleportationPresentation.Build());
-            feats.Add(wisFeyTeleportation.AddToDB());
+            feats.AddRange(
+                // fey teleportation int
+                FeatDefinitionBuilder
+                    .Create("FeatFeyTeleportationInt", CasterFeatsNamespace)
+                    .SetFeatures(intIncrement)
+                    .AddFeatures(feyFeatures)
+                    .SetGuiPresentation(Category.Feat)
+                    .AddToDB(),
+                // fey teleportation cha
+                FeatDefinitionBuilder
+                    .Create("FeatFeyTeleportationCha", CasterFeatsNamespace)
+                    .SetFeatures(chaIncrement)
+                    .AddFeatures(feyFeatures)
+                    .SetGuiPresentation(Category.Feat)
+                    .AddToDB(),
+                // fey teleportation wis
+                FeatDefinitionBuilder
+                    .Create("FeatFeyTeleportationWis", CasterFeatsNamespace)
+                    .SetFeatures(wisIncrement)
+                    .AddFeatures(feyFeatures)
+                    .SetGuiPresentation(Category.Feat)
+                    .AddToDB()
+            );
 
             // shadow touched: invisibility, false life, inflict wounds-- note inflict wounds is an attack that relies on casting stat, for the free cast power, tie it to the increment stat
             // auto prepared spells- see list ^
@@ -261,51 +229,29 @@ namespace SolastaCommunityExpansion.Feats
                 true, true, AttributeDefinitions.Charisma,
                 InflictWounds.EffectDescription, "PowerInflictWoundsChaFromFeat", inflictWoundsBonusPresentation.Build());
 
-            // shadow touched int
-            GuiPresentationBuilder intShadowTouchedPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatShadowTouchedIntTitle",
-                "Feat/&FeatShadowTouchedIntDescription");
-            List<FeatureDefinition> shadowIntFeatures = new List<FeatureDefinition>()
-            {
-                invisibilityPower,
-                inflictWoundsPowerInt,
-                falseLifePower,
-                intIncrement,
-            };
-            shadowIntFeatures.AddRange(shadowTouchedClassesPreparedSpells);
-            FeatDefinitionBuilder intShadowTouched = new FeatDefinitionBuilder("FeatShadowTouchedInt", GuidHelper.Create(CasterFeatsNamespace, "FeatShadowTouchedInt").ToString(),
-                shadowIntFeatures, intShadowTouchedPresentation.Build());
-            feats.Add(intShadowTouched.AddToDB());
-            // shadow touched wis
-            GuiPresentationBuilder wisShadowTouchedPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatShadowTouchedWisTitle",
-                "Feat/&FeatShadowTouchedWisDescription");
-            List<FeatureDefinition> shadowWisFeatures = new List<FeatureDefinition>()
-            {
-                invisibilityPower,
-                inflictWoundsPowerWis,
-                falseLifePower,
-                wisIncrement,
-            };
-            shadowWisFeatures.AddRange(shadowTouchedClassesPreparedSpells);
-            FeatDefinitionBuilder wisShadowTouched = new FeatDefinitionBuilder("FeatShadowTouchedWis", GuidHelper.Create(CasterFeatsNamespace, "FeatShadowTouchedWis").ToString(),
-              shadowWisFeatures, wisShadowTouchedPresentation.Build());
-            feats.Add(wisShadowTouched.AddToDB());
-            // shadow touched cha
-            GuiPresentationBuilder chaShadowTouchedPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatShadowTouchedChaTitle",
-                "Feat/&FeatShadowTouchedChaDescription");
-            List<FeatureDefinition> shadowChaFeatures = new List<FeatureDefinition>()
-            {
-                invisibilityPower,
-                inflictWoundsPowerCha,
-                falseLifePower,
-                chaIncrement,
-            };
-            shadowChaFeatures.AddRange(shadowTouchedClassesPreparedSpells);
-            FeatDefinitionBuilder chaShadowTouched = new FeatDefinitionBuilder("FeatShadowTouchedCha", GuidHelper.Create(CasterFeatsNamespace, "FeatShadowTouchedCha").ToString(),
-                shadowChaFeatures, chaShadowTouchedPresentation.Build());
-            feats.Add(chaShadowTouched.AddToDB());
+            feats.AddRange(
+                // shadow touched int
+                FeatDefinitionBuilder
+                    .Create("FeatShadowTouchedInt", CasterFeatsNamespace)
+                    .SetFeatures(invisibilityPower, inflictWoundsPowerInt, falseLifePower, intIncrement)
+                    .AddFeatures(shadowTouchedClassesPreparedSpells)
+                    .SetGuiPresentation(Category.Feat)
+                    .AddToDB(),
+                // shadow touched wis
+                FeatDefinitionBuilder
+                    .Create("FeatShadowTouchedWis", CasterFeatsNamespace)
+                    .SetFeatures(invisibilityPower, inflictWoundsPowerWis, falseLifePower, wisIncrement)
+                    .AddFeatures(shadowTouchedClassesPreparedSpells)
+                    .SetGuiPresentation(Category.Feat)
+                    .AddToDB(),
+                // shadow touched cha
+                FeatDefinitionBuilder
+                    .Create("FeatShadowTouchedCha", CasterFeatsNamespace)
+                    .SetFeatures(invisibilityPower, inflictWoundsPowerCha, falseLifePower, chaIncrement)
+                    .AddFeatures(shadowTouchedClassesPreparedSpells)
+                    .SetGuiPresentation(Category.Feat)
+                    .AddToDB()
+            );
 
             // fey touched? but it'd be 12 feats
             // fey touched: misty step, animal friendship, bane, bless, charm person, detect magic, hideous laughter, hunter's mark, identify, sleep, 

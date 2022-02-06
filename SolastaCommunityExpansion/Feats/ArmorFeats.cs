@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Infrastructure;
@@ -44,7 +43,9 @@ namespace SolastaCommunityExpansion.Feats
 
         public static FeatDefinition BuildFeat(string name, ArmorCategoryDefinition prerequisite, params FeatureDefinition[] features)
         {
-            return new FeatDefinitionBuilder(name, ArmorNamespace, Category.Feat)
+            return FeatDefinitionBuilder
+                .Create(name, ArmorNamespace)
+                .SetGuiPresentation(Category.Feat)
                 .SetFeatures(features)
                 .SetArmorProficiencyPrerequisite(prerequisite)
                 .AddToDB();
@@ -52,19 +53,27 @@ namespace SolastaCommunityExpansion.Feats
 
         public static FeatDefinition BuildFeat(string name, params FeatureDefinition[] features)
         {
-            return new FeatDefinitionBuilder(name, ArmorNamespace, Category.Feat)
+            return FeatDefinitionBuilder
+                .Create(name, ArmorNamespace)
+                .SetGuiPresentation(Category.Feat)
                 .SetFeatures(features)
                 .AddToDB();
         }
 
         public static FeatureDefinitionProficiency BuildProficiency(string name, ProficiencyType type, params string[] proficiencies)
         {
-            return new FeatureDefinitionProficiencyBuilder(name, ArmorNamespace, type, proficiencies.AsEnumerable(), Category.Feat).AddToDB();
+            return FeatureDefinitionProficiencyBuilder
+                .Create(name, ArmorNamespace)
+                .SetGuiPresentation(Category.Feat)
+                .SetProficiencies(type, proficiencies)
+                .AddToDB();
         }
 
         public static FeatureDefinitionAttributeModifier BuildAttributeModifier(string name, AttributeModifierOperation modifierType, string attribute, int amount)
         {
-            return new FeatureDefinitionAttributeModifierBuilder(name, ArmorNamespace, Category.Feat)
+            return FeatureDefinitionAttributeModifierBuilder
+                .Create(name, ArmorNamespace)
+                .SetGuiPresentation(Category.Feat)
                 .SetModifier(modifierType, attribute, amount)
                 .AddToDB();
         }

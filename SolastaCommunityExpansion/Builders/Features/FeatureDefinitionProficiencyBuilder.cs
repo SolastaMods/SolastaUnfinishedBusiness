@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
@@ -61,15 +62,20 @@ namespace SolastaCommunityExpansion.Builders.Features
             return new FeatureDefinitionProficiencyBuilder(original, name, guid);
         }
 
-        public FeatureDefinitionProficiencyBuilder AddProficiencies(RuleDefinitions.ProficiencyType type, params string[] proficiencies)
+        public static FeatureDefinitionProficiencyBuilder Create(string name, Guid namespaceGuid)
         {
-            return AddProficiencies(type, proficiencies.AsEnumerable());
+            return new FeatureDefinitionProficiencyBuilder(name, namespaceGuid);
         }
 
-        public FeatureDefinitionProficiencyBuilder AddProficiencies(RuleDefinitions.ProficiencyType type, IEnumerable<string> proficiencies)
+        public FeatureDefinitionProficiencyBuilder SetProficiencies(RuleDefinitions.ProficiencyType type, params string[] proficiencies)
+        {
+            return SetProficiencies(type, proficiencies.AsEnumerable());
+        }
+
+        public FeatureDefinitionProficiencyBuilder SetProficiencies(RuleDefinitions.ProficiencyType type, IEnumerable<string> proficiencies)
         {
             Definition.SetProficiencyType(type);
-            Definition.Proficiencies.AddRange(proficiencies);
+            Definition.Proficiencies.SetRange(proficiencies);
             return this;
         }
     }
