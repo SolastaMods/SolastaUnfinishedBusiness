@@ -57,7 +57,8 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         // Create Auto-prepared Spell list
         private static FeatureDefinitionAutoPreparedSpells CreateDruidForestGuardianMagic()
         {
-            return new FeatureDefinitionAutoPreparedSpellsBuilder("ForestGuardianAutoPreparedSpells", DFG_BASE_GUID)
+            return FeatureDefinitionAutoPreparedSpellsBuilder
+                .Create("ForestGuardianAutoPreparedSpells", DFG_BASE_GUID)
                 .SetGuiPresentation("DruidForestGuardianMagic", Category.Feature)
                 .SetPreparedSpellGroups(
                     AutoPreparedSpellsGroupBuilder.Build(2, Shield, FogCloud),

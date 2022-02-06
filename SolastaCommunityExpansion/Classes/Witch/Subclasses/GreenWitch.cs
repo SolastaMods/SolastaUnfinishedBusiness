@@ -1,7 +1,5 @@
 ﻿using System;
-using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
@@ -20,38 +18,25 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
 
         public static CharacterSubclassDefinition BuildAndAddSubclass(CharacterClassDefinition witchClass)
         {
-            var preparedSpells = new FeatureDefinitionAutoPreparedSpellsBuilder("GreenMagicAutoPreparedSpell", Namespace)
-                .SetGuiPresentationNoContent()
-                .SetPreparedSpellGroups(
-                    AutoPreparedSpellsGroupBuilder.Build(1, Entangle, Goodberry),
-                    AutoPreparedSpellsGroupBuilder.Build(3,
-                        Barkskin,
-                        ProtectionFromPoison),// This should be Beast Sense
-                    AutoPreparedSpellsGroupBuilder.Build(5,
-                        ConjureAnimals,
-                        CreateFood), // This should be Plant Growth
-                    AutoPreparedSpellsGroupBuilder.Build(7,
-                        GiantInsect, // This should be Conjure Woodland Beings
-                        Stoneskin),
-                    AutoPreparedSpellsGroupBuilder.Build(9,
-                        DispelEvilAndGood, // This should be Awaken
-                        InsectPlague))   // This should be Tree Stride
-                .SetCharacterClass(witchClass)
-                .SetAutoTag("Coven")
-                .AddToDB();
-
-            var featureDefinitionFeatureSetGreenMagic = new FeatureDefinitionFeatureSetBuilder(
-                    DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHumanLanguages, "FeatureSetGreenWitchMagic", Namespace)
-                .SetGuiPresentation("GreenWitchMagic", Category.Subclass)
-                .SetFeatures(preparedSpells)
-                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                .SetUniqueChoices(true)
-                .AddToDB();
-
-            return new CharacterSubclassDefinitionBuilder("GreenWitch", Namespace)
-                .SetGuiPresentation(Category.Subclass, TraditionGreenmage.GuiPresentation.SpriteReference)
-                .AddFeatureAtLevel(featureDefinitionFeatureSetGreenMagic, 3)
-                .AddToDB();
+            return WitchSubclassHelper.BuildAndAddSubclass(
+                "Green",
+                TraditionGreenmage.GuiPresentation.SpriteReference,
+                witchClass,
+                Namespace,
+                AutoPreparedSpellsGroupBuilder.Build(1, Entangle, Goodberry),
+                AutoPreparedSpellsGroupBuilder.Build(3,
+                    Barkskin,
+                    ProtectionFromPoison),// This should be Beast Sense
+                AutoPreparedSpellsGroupBuilder.Build(5,
+                    ConjureAnimals,
+                    CreateFood), // This should be Plant Growth
+                AutoPreparedSpellsGroupBuilder.Build(7,
+                    GiantInsect, // This should be Conjure Woodland Beings
+                    Stoneskin),
+                AutoPreparedSpellsGroupBuilder.Build(9,
+                    DispelEvilAndGood, // This should be Awaken
+                    InsectPlague)   // This should be Tree Stride
+            );
         }
     }
 }

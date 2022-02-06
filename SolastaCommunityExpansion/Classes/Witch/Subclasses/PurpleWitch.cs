@@ -1,7 +1,5 @@
 ﻿using System;
-using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
@@ -20,41 +18,27 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
 
         public static CharacterSubclassDefinition BuildAndAddSubclass(CharacterClassDefinition witchClass)
         {
-            var preparedSpells = new FeatureDefinitionAutoPreparedSpellsBuilder("PurpleMagicAutoPreparedSpell", Namespace)
-                .SetGuiPresentationNoContent()
-                .SetPreparedSpellGroups(
-                    AutoPreparedSpellsGroupBuilder.Build(1,
-                        CharmPerson,
-                        HideousLaughter),   // This should be Silent Image
-                    AutoPreparedSpellsGroupBuilder.Build(3,
-                        CalmEmotions, // This should be Enthrall
-                        Invisibility),
-                    AutoPreparedSpellsGroupBuilder.Build(5,
-                        HypnoticPattern,
-                        Fear),  // This should be Major Image
-                    AutoPreparedSpellsGroupBuilder.Build(7,
-                        Confusion,
-                        PhantasmalKiller),   // This should be Private Sanctum
-                    AutoPreparedSpellsGroupBuilder.Build(9,
-                        DominatePerson, // This should be Modify Memory
-                        HoldMonster)    // This should be Seeming
-                )
-                .SetCharacterClass(witchClass)
-                .SetAutoTag("Coven")
-                .AddToDB();
-
-            var featureDefinitionFeatureSetPurpleMagic = new FeatureDefinitionFeatureSetBuilder(
-                    DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHumanLanguages, "FeatureSetPurpleWitchMagic", Namespace)
-                    .SetGuiPresentation("PurpleWitchMagic", Category.Subclass)
-                    .SetFeatures(preparedSpells)
-                    .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                    .SetUniqueChoices(true)
-                    .AddToDB();
-
-            return new CharacterSubclassDefinitionBuilder("PurpleWitch", Namespace)
-                .SetGuiPresentation(Category.Subclass, DomainInsight.GuiPresentation.SpriteReference)
-                .AddFeatureAtLevel(featureDefinitionFeatureSetPurpleMagic, 3)
-                .AddToDB();
+            return WitchSubclassHelper.BuildAndAddSubclass(
+                "Purple",
+                DomainInsight.GuiPresentation.SpriteReference,
+                witchClass,
+                Namespace,
+                AutoPreparedSpellsGroupBuilder.Build(1,
+                    CharmPerson,
+                    HideousLaughter),   // This should be Silent Image
+                AutoPreparedSpellsGroupBuilder.Build(3,
+                    CalmEmotions, // This should be Enthrall
+                    Invisibility),
+                AutoPreparedSpellsGroupBuilder.Build(5,
+                    HypnoticPattern,
+                    Fear),  // This should be Major Image
+                AutoPreparedSpellsGroupBuilder.Build(7,
+                    Confusion,
+                    PhantasmalKiller),   // This should be Private Sanctum
+                AutoPreparedSpellsGroupBuilder.Build(9,
+                    DominatePerson, // This should be Modify Memory
+                    HoldMonster)    // This should be Seeming
+            );
         }
     }
 }
