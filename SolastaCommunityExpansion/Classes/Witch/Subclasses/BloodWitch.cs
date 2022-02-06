@@ -20,7 +20,7 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
         {
             return WitchSubclassHelper.BuildAndAddSubclass(
                 "Blood",
-                DomainOblivion.GuiPresentation.SpriteReference, 
+                DomainOblivion.GuiPresentation.SpriteReference,
                 witchClass,
                 Namespace,
                 AutoPreparedSpellsGroupBuilder.Build(1,
