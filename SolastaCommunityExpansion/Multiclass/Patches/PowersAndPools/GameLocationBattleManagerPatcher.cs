@@ -69,12 +69,12 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.PowersAndPools
                     while (values.MoveNext())
                     {
                         yield return values.Current;
-                    };
+                    }
 
                     yield break;
                 }
 
-                if (!(Gui.GameCampaign.Party.CharactersList.Find(x => x.RulesetCharacter.Name == attacker.Name)?.RulesetCharacter is RulesetCharacterHero rulesetCharacterHero))
+                if (Gui.GameCampaign.Party.CharactersList.Find(x => x.RulesetCharacter.Name == attacker.Name)?.RulesetCharacter is not RulesetCharacterHero rulesetCharacterHero)
                 {
                     yield break;
                 }
@@ -91,7 +91,8 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.PowersAndPools
 
                 attacker.RulesetCharacter.EnumerateFeaturesToBrowse<IAdditionalDamageProvider>(featuresToBrowseReaction);
 
-                foreach (var featureDefinition in featuresToBrowseReaction.Where(x => !(x as IAdditionalDamageProvider).AttackModeOnly))
+                foreach (var featureDefinition in featuresToBrowseReaction
+                    .Where(x => !((IAdditionalDamageProvider)x).AttackModeOnly))
                 {
                     var hasAditionalDamage = false;
                     var provider = featureDefinition as IAdditionalDamageProvider;
@@ -101,7 +102,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.PowersAndPools
                     // only had a chance to test Divine Smite and Rage damage integrations with wildshape. not sure if all other IFs will ever trigger
                     if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
                     {
-                        if (advantageType == RuleDefinitions.AdvantageType.Advantage || advantageType != RuleDefinitions.AdvantageType.Disadvantage && __instance.IsConsciousCharacterOfSideNextToCharacter(defender, attacker.Side, attacker))
+                        if (advantageType == RuleDefinitions.AdvantageType.Advantage || (advantageType != RuleDefinitions.AdvantageType.Disadvantage && __instance.IsConsciousCharacterOfSideNextToCharacter(defender, attacker.Side, attacker)))
                         {
                             hasAditionalDamage = true;
                         }
@@ -206,12 +207,12 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.PowersAndPools
                     {
                         hasAditionalDamage = true;
                     }
-                    else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.RagingAndTargetIsSpellcaster)
+                    else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.RagingAndTargetIsSpellcaster
+                        && defender.RulesetCharacter != null
+                        && attacker.RulesetCharacter.HasConditionOfType("ConditionRaging")
+                        && defender.RulesetCharacter.SpellRepertoires.Count > 0)
                     {
-                        if (defender.RulesetCharacter != null && (attacker.RulesetCharacter.HasConditionOfType("ConditionRaging") && defender.RulesetCharacter.SpellRepertoires.Count > 0))
-                        {
-                            hasAditionalDamage = true;
-                        }
+                        hasAditionalDamage = true;
                     }
 
                     if (hasAditionalDamage)

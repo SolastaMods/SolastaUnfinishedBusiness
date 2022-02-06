@@ -20,7 +20,8 @@ namespace SolastaCommunityExpansion.Multiclass.Models
                     MessageModal.Severity.Attention2,
                     "Message/&ZSLevelDownConfirmationTitle", GetConfirmationDescription(rulesetCharacterHero),
                     "Message/&MessageYesTitle", "Message/&MessageNoTitle",
-                    new MessageModal.MessageValidatedHandler(() => { state = 1; }), new MessageModal.MessageCancelledHandler(() => { state = 0; }));
+                    new MessageModal.MessageValidatedHandler(() => state = 1),
+                    new MessageModal.MessageCancelledHandler(() => state = 0));
 
                 while (state < 0)
                 {
@@ -217,7 +218,6 @@ namespace SolastaCommunityExpansion.Multiclass.Models
                                         break;
                                 }
                             }
-
                         }
                     }
 
