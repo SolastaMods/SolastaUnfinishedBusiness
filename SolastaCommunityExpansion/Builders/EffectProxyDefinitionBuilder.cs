@@ -11,12 +11,10 @@ namespace SolastaCommunityExpansion.Builders
     {
         public EffectProxyDefinitionBuilder(string name, string guid) : base(name, guid)
         {
-            InitializeFields();
         }
 
         public EffectProxyDefinitionBuilder(string name, Guid namespaceGuid, Category category = Category.None) : base(name, namespaceGuid, category)
         {
-            InitializeFields();
         }
 
         public EffectProxyDefinitionBuilder(EffectProxyDefinition original, string name, string guid)
@@ -27,11 +25,6 @@ namespace SolastaCommunityExpansion.Builders
         public EffectProxyDefinitionBuilder(EffectProxyDefinition original, string name, Guid namespaceGuid, Category category = Category.None)
             : base(original, name, namespaceGuid, category)
         {
-        }
-
-        private void InitializeFields()
-        {
-            Definition.SetField("additionalFeatures", new List<FeatureDefinition>());
         }
 
         public EffectProxyDefinitionBuilder SetAttack(bool canAttack, RuleDefinitions.ProxyAttackMethod attackMethod,
