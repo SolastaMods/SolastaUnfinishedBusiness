@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace SolastaCommunityExpansion.Multiclass.Models
 {
@@ -11,7 +12,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             allowedClasses.Clear();
 
             // only allows to leave a class if it is a supported one with required In/Out attributes
-            if (!IsSupported(currentClass) || Main.Settings.EnableMinInOutAttributes && !ApproveMultiClassInOut(hero, currentClass))
+            if (!IsSupported(currentClass) || (Main.Settings.EnableMinInOutAttributes && !ApproveMultiClassInOut(hero, currentClass)))
             {
                 allowedClasses.Add(currentClass);
             }
@@ -44,6 +45,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             selectedClass = allowedClasses.IndexOf(hero.ClassesHistory[hero.ClassesHistory.Count - 1]);
         }
 
+        [SuppressMessage("Convert switch statement to expression", "IDE0066")]
         internal static bool ApproveMultiClassInOut(RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
         {
             var strength = hero.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
@@ -96,6 +98,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             }
         }
 
+        [SuppressMessage("Convert switch statement to expression", "IDE0066")]
         internal static bool IsSupported(CharacterClassDefinition classDefinition)
         {
             if (classDefinition.GuiPresentation.Hidden)

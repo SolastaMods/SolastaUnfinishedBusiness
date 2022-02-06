@@ -38,4 +38,3 @@ namespace ModKit {
         public static string SizePercent(this string s, int percent) => _ = $"<size={percent}%>{s}</size>";
     }
 }
-
