@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using HarmonyLib;
 using I2.Loc;
@@ -102,6 +103,14 @@ namespace SolastaCommunityExpansion.Models
                     }
                 }
             }
+
+            // Keep record of generated names and guids.
+            File.WriteAllLines($"Definitions-{DateTime.Now:yyyy-MM-dd_HH-mm}.txt",
+                allDefinitions
+                    .Except(TABaseDefinitions)
+                    .OrderBy(x => x.Name)
+                    .ThenBy(x => x.GetType().Name)
+                    .Select(d => $"{d.Name}, {d.GUID}"));
 
             Main.Log("PostCELoad GuiPresentation Check end --------------------------------------------------");
         }
