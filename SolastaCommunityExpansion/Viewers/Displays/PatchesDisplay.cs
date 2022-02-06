@@ -174,7 +174,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                                     foreach (Patch patch in patches)
                                     {
                                         bool enabled = enabledPatches.Contains(patch);
-                                        if (ModKit.Private.UI.CheckBox("", enabled))
+                                        if (ModKit.Private.UI.CheckBox("", enabled, false))
                                         {
                                             EnablePatchForMethod(!enabled, patch, method);
                                         }
