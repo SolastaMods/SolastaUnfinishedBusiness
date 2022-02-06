@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Viewers
     {
         public string Name => "Encounters";
 
-        public int Priority => 15;
+        public int Priority => 50;
 
         private static int selectedPane;
 

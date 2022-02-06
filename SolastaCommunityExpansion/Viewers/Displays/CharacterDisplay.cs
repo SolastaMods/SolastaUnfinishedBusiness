@@ -106,31 +106,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            toggle = Main.Settings.DisplayMiscellaneousToggle;
-            if (UI.DisclosureToggle("Miscellaneous:".yellow(), ref toggle, 200))
-            {
-                Main.Settings.DisplayMiscellaneousToggle = toggle;
-            }
-
-            if (Main.Settings.DisplayMiscellaneousToggle)
-            {
-                UI.Label("");
-
-                toggle = Main.Settings.AllowExtraKeyboardCharactersInAllNames;
-                if (UI.Toggle("Allow extra keyboard characters in all name inputs (character, location, campaign, etc...)", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.AllowExtraKeyboardCharactersInAllNames = toggle;
-                }
-
-                toggle = Main.Settings.OfferAdditionalLoreFriendlyNames;
-                if (UI.Toggle("Offer additional lore friendly names on character creation " + RequiresRestart, ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.OfferAdditionalLoreFriendlyNames = toggle;
-                }
-            }
-
-            UI.Label("");
-
             toggle = Main.Settings.DisplayProgressionToggle;
             if (UI.DisclosureToggle("Progression:".yellow(), ref toggle, 200))
             {
@@ -157,14 +132,28 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            toggle = Main.Settings.DisplayFaceUnlockSettings;
+            toggle = Main.Settings.DisplayVisualsToggle;
             if (UI.DisclosureToggle("Visuals: ".yellow() + RequiresRestart, ref toggle, 200))
             {
-                Main.Settings.DisplayFaceUnlockSettings = toggle;
+                Main.Settings.DisplayVisualsToggle = toggle;
             }
 
-            if (Main.Settings.DisplayFaceUnlockSettings)
+            if (Main.Settings.DisplayVisualsToggle)
             {
+                UI.Label("");
+
+                toggle = Main.Settings.AllowExtraKeyboardCharactersInAllNames;
+                if (UI.Toggle("Allow extra keyboard characters in all name inputs (character, location, campaign, etc...)", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.AllowExtraKeyboardCharactersInAllNames = toggle;
+                }
+
+                toggle = Main.Settings.OfferAdditionalLoreFriendlyNames;
+                if (UI.Toggle("Offer additional lore friendly names on character creation " + RequiresRestart, ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.OfferAdditionalLoreFriendlyNames = toggle;
+                }
+
                 UI.Label("");
 
                 toggle = Main.Settings.UnlockAllNpcFaces;

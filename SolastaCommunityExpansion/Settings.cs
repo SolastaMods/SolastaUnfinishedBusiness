@@ -30,9 +30,8 @@ namespace SolastaCommunityExpansion
         //
 
         public bool DisplayInitialChoicesToggle { get; set; }
-        public bool DisplayMiscellaneousToggle { get; set; }
         public bool DisplayProgressionToggle { get; set; }
-        public bool DisplayFaceUnlockSettings { get; set; }
+        public bool DisplayVisualsToggle { get; set; }
         public bool DisplayClassesToggle { get; set; }
         public bool DisplaySubclassesToggle { get; set; }
         public bool DisplayFeatsToggle { get; set; }
@@ -238,6 +237,26 @@ namespace SolastaCommunityExpansion
         public bool ShowCEDefinitionsWithMissingGuiPresentation { get; set; } = true;
 
         // Faction Relations
+
+        //
+        // MULTICLASS
+        //
+
+        public bool EnableMulticlass { get; set; }
+
+        public int MaxAllowedClasses { get; set; } = 3;
+
+        public bool EnableMinInOutAttributes { get; set; } = true;
+        public bool EnableSharedSpellCasting { get; set; } = true;
+        public bool EnableCombinedSpellCasting { get; set; } = true;
+
+        public bool EnableGrantHolySymbol { get; set; } = true;
+        public bool EnableGrantComponentPouch { get; set; } = true;
+        public bool EnableGrantDruidicFocus { get; set; } = true;
+        public bool EnableGrantCLothesWizard { get; set; }
+
+        public bool EnableRelearnSpells { get; set; }
+        public bool EnableDisplayAllKnownSpellsOnLevelUp { get; set; } = true;
 
         //
         // Interface - Dungeon Maker
