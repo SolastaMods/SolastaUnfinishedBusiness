@@ -1177,3 +1177,16 @@ Monster/&WitchOwlFamiliarTitle Owl
 Monster/&WitchOwlFamiliarDescription Owl familiar
 Monster/&OwlFamiliarTitle Owl
 Monster/&OwlFamiliarDescription Owl familiar
+Feature/&BardSkillsTitle	Bard Skills
+Format/&LevelAndExperienceFormat	Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
+Format/&LevelAndExperienceMaxedFormat	Level: {0}\nExperience: {1}\nmax level reached.
+Message/&ZSLevelDownConfirmationDescription	Level down this Hero?
+Message/&ZSLevelDownWarnedConfirmationDescription	Class {0} still in beta support. Level down this Hero?
+Message/&ZSLevelDownConfirmationTitle	Level Down
+RestActivity/&ZSLevelDownDescription	Level down this Hero
+RestActivity/&ZSLevelDownTitle	Level Down
+Screen/&SpellSlotsUsedLongDescription	You have expended {0} long-rest slot(s) of this level.
+Screen/&SpellSlotsUsedShortDescription	You have expended {0} short-rest slot(s) of this level.
+Screen/&SpellSlotsUsedShortLongDescription	You have expended {0} short-rest slot(s) and {1} long-rest slot(s) of this level.
+MainMenu/&ExportPdfDescription	Level down the selected character
+MainMenu/&ExportPdfTitle	Level Down
