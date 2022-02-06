@@ -84,7 +84,10 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         // Create Sylvan Durability
         private static FeatureDefinitionAttributeModifier CreateSylvanDurability()
         {
-            return FeatureDefinitionAttributeModifierBuilder.Create("AttributeModifierDruidForestGuardianSylvanDurability", DFG_BASE_GUID)
+            var guid = GuidHelper.Create(DFG_BASE_GUID, "DruidForestGuardianSylvanDurability").ToString();
+
+            // NOTE: unable to use preferred ctor because of legacy guid generation
+            return FeatureDefinitionAttributeModifierBuilder.Create("AttributeModifierDruidForestGuardianSylvanDurability", guid)
                 .SetGuiPresentation("DruidForestGuardianSylvanDurability", Category.Feature)
                 .SetModifier(Additive, AttributeDefinitions.HitPointBonusPerLevel, 1)
                 .AddToDB();

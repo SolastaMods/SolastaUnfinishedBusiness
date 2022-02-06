@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Models
             AcehighFeats.CreateFeats(feats);
             ArmorFeats.CreateArmorFeats(feats);
             CasterFeats.CreateFeats(feats);
-            FightingStlyeFeats.CreateFeats(feats);
+            FightingStyleFeats.CreateFeats(feats);
             OtherFeats.CreateFeats(feats);
             HealingFeats.CreateFeats(feats);
             PickPocketContext.CreateFeats(feats);
