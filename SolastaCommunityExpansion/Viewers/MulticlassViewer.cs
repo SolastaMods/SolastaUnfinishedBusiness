@@ -9,18 +9,6 @@ namespace SolastaCommunityExpansion.Viewers
 
         public int Priority => 30;
 
-        private static void DisplayMulticlassHelp()
-        {
-            UI.Label("Features:".yellow());
-            UI.Label("");
-            UI.Label(". combines up to 4 different classes");
-            UI.Label(". implements a shared slots system " + "[also supports Warlock pact magic integration]".yellow().italic());
-            UI.Label(". enforces ability scores minimum in & out pre-requisites");
-            UI.Label(". enforces a subset of starting proficiencies");
-            UI.Label(". " + "extra attacks".orange() + ", " + "unarmored defenses".orange() + " and " + "channel divinity".orange() + " don't stack");
-            UI.Label("");
-        }
-
         private static void DisplayMainSettings()
         {
             bool toggle;
@@ -37,6 +25,14 @@ namespace SolastaCommunityExpansion.Viewers
 
             if (!Main.Settings.EnableMulticlass)
             {
+                UI.Label(". combines up to 4 different classes");
+                UI.Label(". implements a shared slots system " + "[also supports Warlock pact magic integration]".yellow().italic());
+                UI.Label(". enforces ability scores minimum in & out pre-requisites");
+                UI.Label(". enforces a subset of starting proficiencies");
+                UI.Label(". " + "extra attacks".orange() + ", " + "unarmored defenses".orange() + " and " + "channel divinity".orange() + " don't stack");
+                
+                UI.Label("");
+
                 return;
             }
 
@@ -133,7 +129,6 @@ namespace SolastaCommunityExpansion.Viewers
             if (Main.Enabled)
             {
                 DisplayMainSettings();
-                DisplayMulticlassHelp();
             }
         }
     }
