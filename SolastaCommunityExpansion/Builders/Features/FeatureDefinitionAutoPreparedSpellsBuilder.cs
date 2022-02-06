@@ -30,6 +30,11 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
+        public static FeatureDefinitionAutoPreparedSpellsBuilder Create(string name, Guid namespaceGuid)
+        {
+            return new FeatureDefinitionAutoPreparedSpellsBuilder(name, namespaceGuid);
+        }
+
         public FeatureDefinitionAutoPreparedSpellsBuilder SetPreparedSpellGroups(params AutoPreparedSpellsGroup[] autospelllists)
         {
             return SetPreparedSpellGroups(autospelllists.AsEnumerable());

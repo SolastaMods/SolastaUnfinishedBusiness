@@ -35,6 +35,11 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
+        public static FeatureDefinitionFeatureSetBuilder Create(FeatureDefinitionFeatureSet original, string name, Guid namespaceGuid)
+        {
+            return new FeatureDefinitionFeatureSetBuilder(original, name, namespaceGuid);
+        }
+
         public FeatureDefinitionFeatureSetBuilder ClearFeatures()
         {
             Definition.FeatureSet.Clear();

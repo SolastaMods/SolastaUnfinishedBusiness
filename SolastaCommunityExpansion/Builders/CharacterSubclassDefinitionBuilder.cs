@@ -10,6 +10,7 @@ namespace SolastaCommunityExpansion.Builders
             : base(name, guid)
         {
         }
+
         public CharacterSubclassDefinitionBuilder(string name, Guid namespaceGuid, Category category = Category.None)
             : base(name, namespaceGuid, category)
         {
@@ -19,9 +20,15 @@ namespace SolastaCommunityExpansion.Builders
             : base(original, name, guid)
         {
         }
+
         public CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, Guid namespaceGuid, Category category = Category.None)
             : base(original, name, namespaceGuid, category)
         {
+        }
+
+        public static CharacterSubclassDefinitionBuilder Create(string name, Guid namespaceGuid)
+        {
+            return new CharacterSubclassDefinitionBuilder(name, namespaceGuid);
         }
 
         public CharacterSubclassDefinitionBuilder AddPersonality(PersonalityFlagDefinition personalityType, int weight)
