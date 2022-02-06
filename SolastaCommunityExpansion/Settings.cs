@@ -30,9 +30,8 @@ namespace SolastaCommunityExpansion
         //
 
         public bool DisplayInitialChoicesToggle { get; set; }
-        public bool DisplayMiscellaneousToggle { get; set; }
         public bool DisplayProgressionToggle { get; set; }
-        public bool DisplayFaceUnlockSettings { get; set; }
+        public bool DisplayVisualsToggle { get; set; }
         public bool DisplayClassesToggle { get; set; }
         public bool DisplaySubclassesToggle { get; set; }
         public bool DisplayFeatsToggle { get; set; }
@@ -243,7 +242,7 @@ namespace SolastaCommunityExpansion
         // MULTICLASS
         //
 
-        public bool EnableMulticlass { get; set; } = true;
+        public bool EnableMulticlass { get; set; };
 
         public int MaxAllowedClasses { get; set; } = 3;
 
