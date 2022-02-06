@@ -7,7 +7,7 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class FeatDefinitionBuilder : BaseDefinitionBuilder<FeatDefinition>
+    public sealed class FeatDefinitionBuilder : BaseDefinitionBuilder<FeatDefinition>
     {
         // TODO: remove this constructor
         public FeatDefinitionBuilder(string name, string guid, IEnumerable<FeatureDefinition> features, GuiPresentation guiPresentation) : base(name, guid)
@@ -16,26 +16,17 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetGuiPresentation(guiPresentation);
         }
 
-        public FeatDefinitionBuilder(string name, string guid) : base(name, guid)
-        {
-        }
-
-        public FeatDefinitionBuilder(string name, Guid namespaceGuid, Category category = Category.None)
+        private FeatDefinitionBuilder(string name, Guid namespaceGuid, Category category = Category.None)
             : base(name, namespaceGuid, category)
         {
         }
 
-        public FeatDefinitionBuilder(FeatDefinition original, string name, string guid)
+        private FeatDefinitionBuilder(FeatDefinition original, string name, string guid)
             : base(original, name, guid)
         {
         }
 
-        public FeatDefinitionBuilder(FeatDefinition original, string name, Guid namespaceGuid, Category category = Category.None)
-            : base(original, name, namespaceGuid, category)
-        {
-        }
-
-        public static FeatDefinitionBuilder CreateCopyFrom(FeatDefinition original, string name, string guid)
+        public static FeatDefinitionBuilder Create(FeatDefinition original, string name, string guid)
         {
             return new FeatDefinitionBuilder(original, name, guid);
         }
