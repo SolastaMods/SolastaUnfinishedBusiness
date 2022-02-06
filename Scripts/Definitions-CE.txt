@@ -29,6 +29,7 @@ AlchemistSwiftnessElixirCondition, 08593981-1cfd-5156-be03-249dcce4ed27
 AlchemistSwiftnessMovementAffinity, 7e5f6439-75fa-5e49-804f-a6376870e771
 ApothecaryInt, ef387249-45e0-4899-aadd-44810f8aeb6d
 ApothecaryWis, 4fd80bf9-7749-4c01-9d95-6eb56c644fe2
+ArcaneDepth, 184c2fd1-6153-5edf-a059-c8a59059f5b7
 ArcaneFighter, 781e7978-cae9-51b0-9d07-44b249c19ac6
 ArcaneFighterAdditionalAction, f4c14d99-a831-52bd-a354-7ade44ee417d
 ArcaneFighterBonusWeaponDamage, 7992f290-70ea-5fe6-90da-966962d0ad5f
