@@ -211,6 +211,13 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
             {
                 if (!Main.Settings.EnableMulticlass)
                 {
+                    if (Main.Settings.EnableLevel20 && __instance.SpellCastingFeature != null && __instance.SpellCastingLevel > 0)
+                    {
+                        var slotsPerLevel = __instance.SpellCastingFeature.SlotsPerLevels[__instance.SpellCastingLevel - 1];
+
+                        __result = slotsPerLevel.Slots.IndexOf(0);
+                    }
+
                     return;
                 }
 
