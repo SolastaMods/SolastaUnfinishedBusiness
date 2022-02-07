@@ -23,8 +23,6 @@ namespace SolastaModApi
             return GuidHelper.Create(guid, name).ToString();
         }
 
-        public static bool LogDefinitionCreation { get; set; }
-
         [Conditional("DEBUG")]
         protected static void LogDefinition(string msg)
         {
