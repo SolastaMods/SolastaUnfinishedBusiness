@@ -138,11 +138,6 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
         internal static void Load()
         {
-            if (!Main.Settings.EnableRespec || !Main.Settings.EnableMulticlass)
-            {
-                return;
-            }
-
             foreach (var characterClassDefinition in DatabaseRepository.GetDatabase<CharacterClassDefinition>())
             {
                 var className = characterClassDefinition.Name;
