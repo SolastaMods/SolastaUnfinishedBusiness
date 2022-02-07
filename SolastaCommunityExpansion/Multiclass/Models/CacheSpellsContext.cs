@@ -5,7 +5,7 @@ using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Multiclass.Models
 {
-    internal static class SpellsContext
+    internal static class CacheSpellsContext
     {
         public static readonly Dictionary<string, Dictionary<int, List<SpellDefinition>>> classSpellList = new();
         public static readonly Dictionary<string, Dictionary<int, List<SpellDefinition>>> subclassSpellList = new();
