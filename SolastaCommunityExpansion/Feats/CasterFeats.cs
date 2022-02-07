@@ -5,6 +5,7 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Feats
 {
@@ -39,82 +40,73 @@ namespace SolastaCommunityExpansion.Feats
             //}, "FeatTelekineticBonusCantrip", telekineticBonusCantripPresentation.Build());
 
             // telekinetic int
-            GuiPresentationBuilder intPushPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatTelekineticIntPushTitle",
-                "Feat/&FeatTelekineticIntPushDescription");
-            intPushPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerVampiricTouch.GuiPresentation.SpriteReference);
+            var intPushPresentation = GuiPresentationBuilder.Build("FeatTelekineticIntPush", Category.Feat, PowerVampiricTouch.GuiPresentation.SpriteReference);
+
             FeatureDefinitionPower intPush = BuildMotionFormPower(1, RuleDefinitions.UsesDetermination.Fixed,
                 RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill, RuleDefinitions.RangeType.Distance, 6, RuleDefinitions.TargetType.Individuals,
                 RuleDefinitions.Side.All, true, true, AttributeDefinitions.Strength, RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                AttributeDefinitions.Intelligence, MotionForm.MotionType.PushFromOrigin, 1, 10, "PowerTelekineticIntPush", intPushPresentation.Build());
+                AttributeDefinitions.Intelligence, MotionForm.MotionType.PushFromOrigin, 1, 10, "PowerTelekineticIntPush", intPushPresentation);
 
-            GuiPresentationBuilder intPullPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatTelekineticIntPullTitle",
-                "Feat/&FeatTelekineticIntPullDescription");
-            intPullPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerVampiricTouch.GuiPresentation.SpriteReference);
+            var intPullPresentation = GuiPresentationBuilder.Build("FeatTelekineticIntPull", Category.Feat, PowerVampiricTouch.GuiPresentation.SpriteReference);
+
             FeatureDefinitionPower intPull = BuildMotionFormPower(1, RuleDefinitions.UsesDetermination.Fixed,
                 RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill, RuleDefinitions.RangeType.Distance, 6, RuleDefinitions.TargetType.Individuals,
                 RuleDefinitions.Side.All, true, true, AttributeDefinitions.Strength, RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                AttributeDefinitions.Intelligence, MotionForm.MotionType.DragToOrigin, 1, 10, "PowerTelekineticIntPull", intPullPresentation.Build());
+                AttributeDefinitions.Intelligence, MotionForm.MotionType.DragToOrigin, 1, 10, "PowerTelekineticIntPull", intPullPresentation);
 
-            FeatDefinitionBuilder intTelekineticFeat = FeatDefinitionBuilder
+            var intTelekineticFeat = FeatDefinitionBuilder
                 .Create("FeatTelekineticInt", CasterFeatsNamespace)
                 .SetGuiPresentation(Category.Feat)
-                .SetFeatures(intPush, intPull, intIncrement); /* telekineticBonusCantrips, */
+                .SetFeatures(intPush, intPull, intIncrement) /* telekineticBonusCantrips, */
+                .AddToDB();
 
-            feats.Add(intTelekineticFeat.AddToDB());
+            feats.Add(intTelekineticFeat);
 
             // telekinetic cha
-            GuiPresentationBuilder chaPushPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatTelekineticChaPushTitle",
-                "Feat/&FeatTelekineticChaPushDescription");
-            chaPushPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerVampiricTouch.GuiPresentation.SpriteReference);
+            var chaPushPresentation = GuiPresentationBuilder.Build("FeatTelekineticChaPush", Category.Feat, PowerVampiricTouch.GuiPresentation.SpriteReference);
+
             FeatureDefinitionPower chaPush = BuildMotionFormPower(1, RuleDefinitions.UsesDetermination.Fixed,
                 RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill, RuleDefinitions.RangeType.Distance, 6, RuleDefinitions.TargetType.Individuals,
                 RuleDefinitions.Side.All, true, true, AttributeDefinitions.Strength, RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                AttributeDefinitions.Charisma, MotionForm.MotionType.PushFromOrigin, 1, 10, "PowerTelekineticChaPush", chaPushPresentation.Build());
+                AttributeDefinitions.Charisma, MotionForm.MotionType.PushFromOrigin, 1, 10, "PowerTelekineticChaPush", chaPushPresentation);
 
-            GuiPresentationBuilder chaPullPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatTelekineticChaPullTitle",
-                "Feat/&FeatTelekineticChaPullDescription");
-            chaPullPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerVampiricTouch.GuiPresentation.SpriteReference);
+            var chaPullPresentation = GuiPresentationBuilder.Build("FeatTelekineticChaPull", Category.Feat, PowerVampiricTouch.GuiPresentation.SpriteReference);
+
             FeatureDefinitionPower chaPull = BuildMotionFormPower(1, RuleDefinitions.UsesDetermination.Fixed,
                 RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill, RuleDefinitions.RangeType.Distance, 6, RuleDefinitions.TargetType.Individuals,
                 RuleDefinitions.Side.All, true, true, AttributeDefinitions.Strength, RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                AttributeDefinitions.Charisma, MotionForm.MotionType.DragToOrigin, 1, 10, "PowerTelekineticChaPull", chaPullPresentation.Build());
+                AttributeDefinitions.Charisma, MotionForm.MotionType.DragToOrigin, 1, 10, "PowerTelekineticChaPull", chaPullPresentation);
 
-            FeatDefinitionBuilder chaTelekineticFeat = FeatDefinitionBuilder
+            var chaTelekineticFeat = FeatDefinitionBuilder
                 .Create("FeatTelekineticCha", CasterFeatsNamespace)
                 .SetGuiPresentation(Category.Feat)
-                .SetFeatures(chaPush, chaPull, chaIncrement); /* telekineticBonusCantrips, */
+                .SetFeatures(chaPush, chaPull, chaIncrement) /* telekineticBonusCantrips, */
+                .AddToDB();
 
-            feats.Add(chaTelekineticFeat.AddToDB());
+            feats.Add(chaTelekineticFeat);
 
             // telekinetic wis
-            GuiPresentationBuilder wisPushPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatTelekineticWisPushTitle",
-                "Feat/&FeatTelekineticWisPushDescription");
-            wisPushPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerVampiricTouch.GuiPresentation.SpriteReference);
+            var wisPushPresentation = GuiPresentationBuilder.Build("FeatTelekineticWisPush", Category.Feat, PowerVampiricTouch.GuiPresentation.SpriteReference);
+
             FeatureDefinitionPower wisPush = BuildMotionFormPower(1, RuleDefinitions.UsesDetermination.Fixed,
                 RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill, RuleDefinitions.RangeType.Distance, 6, RuleDefinitions.TargetType.Individuals,
                 RuleDefinitions.Side.All, true, true, AttributeDefinitions.Strength, RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                AttributeDefinitions.Wisdom, MotionForm.MotionType.PushFromOrigin, 1, 10, "PowerTelekineticWisPush", wisPushPresentation.Build());
+                AttributeDefinitions.Wisdom, MotionForm.MotionType.PushFromOrigin, 1, 10, "PowerTelekineticWisPush", wisPushPresentation);
 
-            GuiPresentationBuilder wisPullPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatTelekineticWisPullTitle",
-                "Feat/&FeatTelekineticWisPullDescription");
-            wisPullPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerVampiricTouch.GuiPresentation.SpriteReference);
+            var wisPullPresentation = GuiPresentationBuilder.Build("FeatTelekineticWisPull", Category.Feat, PowerVampiricTouch.GuiPresentation.SpriteReference);
+
             FeatureDefinitionPower wisPull = BuildMotionFormPower(1, RuleDefinitions.UsesDetermination.Fixed,
                 RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill, RuleDefinitions.RangeType.Distance, 6, RuleDefinitions.TargetType.Individuals,
                 RuleDefinitions.Side.All, true, true, AttributeDefinitions.Strength, RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                AttributeDefinitions.Wisdom, MotionForm.MotionType.DragToOrigin, 1, 10, "PowerTelekineticWisPull", wisPullPresentation.Build());
+                AttributeDefinitions.Wisdom, MotionForm.MotionType.DragToOrigin, 1, 10, "PowerTelekineticWisPull", wisPullPresentation);
 
-            FeatDefinitionBuilder wisTelekineticFeat = FeatDefinitionBuilder
+            var wisTelekineticFeat = FeatDefinitionBuilder
                 .Create("FeatTelekineticWis", CasterFeatsNamespace)
                 .SetGuiPresentation(Category.Feat)
-                .SetFeatures(wisPush, wisPull, wisIncrement); /* telekineticBonusCantrips, */
+                .SetFeatures(wisPush, wisPull, wisIncrement) /* telekineticBonusCantrips, */
+                .AddToDB();
 
-            feats.Add(wisTelekineticFeat.AddToDB());
+            feats.Add(wisTelekineticFeat);
 
             // fey teleportation, misty step short rest, a language, an ability score
             // auto prepared spells: Misty Step
@@ -125,30 +117,26 @@ namespace SolastaCommunityExpansion.Feats
 
             CharacterClassDefinition[] classes = DatabaseRepository.GetDatabase<CharacterClassDefinition>().GetAllElements();
 
-            GuiPresentationBuilder learnMistyStepPresentation = new GuiPresentationBuilder(
-                "Feat/&PowerMistyStepFromFeatTitle",
-                "Feat/&PowerMistyStepFromFeatDescription");
+            var learnMistyStepPresentation = GuiPresentationBuilder.Build("PowerMistyStepFromFeat", Category.Feat);
 
             List<FeatureDefinition> mistyStepClassesPreparedSpells = AutoPreparedClassLists(classes,
                 mistyStepGroup, learnMistyStepPresentation, "FeyTeleportationAutoPrepMisty", "FeyTeleport");
 
-            GuiPresentationBuilder mistyStepBonusPresentation = new GuiPresentationBuilder(
-                "Feat/&PowerMistyStepFromFeatTitle",
-                "Feat/&PowerMistyStepFromFeatDescription");
-            mistyStepBonusPresentation.SetSpriteReference(MistyStep.GuiPresentation.SpriteReference);
+            var mistyStepBonusPresentation = GuiPresentationBuilder.Build(
+                "PowerMistyStepFromFeat", Category.Feat, MistyStep.GuiPresentation.SpriteReference);
             FeatureDefinitionPower mistyStepPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
                 RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.ShortRest,
                 false, false, AttributeDefinitions.Intelligence,
                 MistyStep.EffectDescription,
-                "PowerMistyStepFromFeat", mistyStepBonusPresentation.Build());
+                "PowerMistyStepFromFeat", mistyStepBonusPresentation);
 
-            GuiPresentationBuilder feyTeleportationLanguagePresentation = new GuiPresentationBuilder(
-                "Feat/&FeyTeleportationLanguageTirmarianTitle",
-                "Feat/&FeyTeleportationLanguageTirmarianDescription");
-            FeatureDefinitionProficiency feyTeleportationLanguage = BuildProficiency(RuleDefinitions.ProficiencyType.Language, new List<string>() { DatabaseHelper.LanguageDefinitions.Language_Tirmarian.Name },
-                "FeyTeleportationLanguageTirmarian", feyTeleportationLanguagePresentation.Build());
+            FeatureDefinitionProficiency feyTeleportationLanguage = FeatureDefinitionProficiencyBuilder
+                .Create("FeyTeleportationLanguageTirmarian", CasterFeatsNamespace)
+                .SetGuiPresentation(Category.Feat)
+                .SetProficiencies(RuleDefinitions.ProficiencyType.Language, DatabaseHelper.LanguageDefinitions.Language_Tirmarian.Name)
+                .AddToDB();
 
-            List<FeatureDefinition> feyFeatures = new List<FeatureDefinition>()
+            var feyFeatures = new List<FeatureDefinition>()
             {
                 feyTeleportationLanguage,
                 mistyStepPower,
@@ -186,50 +174,41 @@ namespace SolastaCommunityExpansion.Feats
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup shadowTouchedGroup =
                 AutoPreparedSpellsGroupBuilder.Build(0, Invisibility, FalseLife, InflictWounds);
 
-            GuiPresentationBuilder learnShadowTouchedPresentation = new GuiPresentationBuilder(
-                "Feat/&PowerShadowTouchedFromFeatTitle",
-                "Feat/&PowerShadowTouchedFromFeatDescription");
+            var learnShadowTouchedPresentation = GuiPresentationBuilder.Build("PowerShadowTouchedFromFeat", Category.Feat);
 
             List<FeatureDefinition> shadowTouchedClassesPreparedSpells = AutoPreparedClassLists(classes,
                 shadowTouchedGroup, learnShadowTouchedPresentation, "ShadowTouchedAutoPrep", "ShadowTouched");
 
-            GuiPresentationBuilder invisibilityBonusPresentation = new GuiPresentationBuilder(
-                "Feat/&PowerInvisibilityFromFeatTitle",
-                "Feat/&PowerInvisibilityFromFeatDescription");
-            invisibilityBonusPresentation.SetSpriteReference(Invisibility.GuiPresentation.SpriteReference);
+            var invisibilityBonusPresentation = GuiPresentationBuilder.Build("", Category.Feat, Invisibility.GuiPresentation.SpriteReference);
+
             FeatureDefinitionPower invisibilityPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
                 RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
                 false, false, AttributeDefinitions.Intelligence,
-                Invisibility.EffectDescription, "PowerInvisibilityFromFeat", invisibilityBonusPresentation.Build());
+                Invisibility.EffectDescription, "PowerInvisibilityFromFeat", invisibilityBonusPresentation);
 
-            GuiPresentationBuilder falseLifeBonusPresentation = new GuiPresentationBuilder(
-                "Feat/&PowerFalseLifeFromFeatTitle",
-                "Feat/&PowerFalseLifeFromFeatDescription");
-            falseLifeBonusPresentation.SetSpriteReference(FalseLife.GuiPresentation.SpriteReference);
+            var falseLifeBonusPresentation = GuiPresentationBuilder.Build("PowerFalseLifeFromFeat", Category.Feat, FalseLife.GuiPresentation.SpriteReference);
+
             FeatureDefinitionPower falseLifePower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
                 RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
                 false, false, AttributeDefinitions.Intelligence,
-                FalseLife.EffectDescription, "PowerFalseLifeFromFeat", falseLifeBonusPresentation.Build());
+                FalseLife.EffectDescription, "PowerFalseLifeFromFeat", falseLifeBonusPresentation);
 
-            GuiPresentationBuilder inflictWoundsBonusPresentation = new GuiPresentationBuilder(
-                "Feat/&PowerInflictWoundsFromFeatTitle",
-                "Feat/&PowerInflictWoundsFromFeatDescription");
-            inflictWoundsBonusPresentation.SetSpriteReference(InflictWounds.GuiPresentation.SpriteReference);
+            var inflictWoundsBonusPresentation = GuiPresentationBuilder.Build("PowerInflictWoundsFromFeat", Category.Feat, InflictWounds.GuiPresentation.SpriteReference);
 
             FeatureDefinitionPower inflictWoundsPowerInt = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
                 RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
                 true, true, AttributeDefinitions.Intelligence,
-                InflictWounds.EffectDescription, "PowerInflictWoundsIntFromFeat", inflictWoundsBonusPresentation.Build());
+                InflictWounds.EffectDescription, "PowerInflictWoundsIntFromFeat", inflictWoundsBonusPresentation);
 
             FeatureDefinitionPower inflictWoundsPowerWis = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
                 RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
                 true, true, AttributeDefinitions.Wisdom,
-                InflictWounds.EffectDescription, "PowerInflictWoundsWisFromFeat", inflictWoundsBonusPresentation.Build());
+                InflictWounds.EffectDescription, "PowerInflictWoundsWisFromFeat", inflictWoundsBonusPresentation);
 
             FeatureDefinitionPower inflictWoundsPowerCha = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
                 RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
                 true, true, AttributeDefinitions.Charisma,
-                InflictWounds.EffectDescription, "PowerInflictWoundsChaFromFeat", inflictWoundsBonusPresentation.Build());
+                InflictWounds.EffectDescription, "PowerInflictWoundsChaFromFeat", inflictWoundsBonusPresentation);
 
             feats.AddRange(
                 // shadow touched int
@@ -265,14 +244,14 @@ namespace SolastaCommunityExpansion.Feats
         }
 
         private static List<FeatureDefinition> AutoPreparedClassLists(IEnumerable<CharacterClassDefinition> classes, FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup spellGroup,
-            GuiPresentationBuilder learnShadowTouchedPresentation, string namePrefix, string autoPrepTag)
+            GuiPresentation learnShadowTouchedPresentation, string namePrefix, string autoPrepTag)
         {
             List<FeatureDefinition> autoPrepList = new List<FeatureDefinition>();
             foreach (CharacterClassDefinition klass in classes)
             {
                 autoPrepList.Add(BuildAutoPreparedSpells(
                             new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>() { spellGroup }, klass,
-                            namePrefix + klass.Name, autoPrepTag, learnShadowTouchedPresentation.Build()));
+                            namePrefix + klass.Name, autoPrepTag, learnShadowTouchedPresentation));
             }
             return autoPrepList;
         }
@@ -288,8 +267,10 @@ namespace SolastaCommunityExpansion.Feats
             EffectDescriptionBuilder effectDescriptionBuilder = new EffectDescriptionBuilder();
             effectDescriptionBuilder.SetTargetingData(target, rangeType, rangeParameter, targetType, 1, 0, ActionDefinitions.ItemSelectionType.None);
             effectDescriptionBuilder.SetCreatedByCharacter();
-            effectDescriptionBuilder.SetSavingThrowData(hasSavingThrow, disableSavingThrowOnAllies, savingThrowAbility, true, difficultyClassComputation,
-                savingThrowDifficultyAbility, fixedSavingThrowDifficultyClass, false, new List<SaveAffinityBySenseDescription>());
+            effectDescriptionBuilder.SetSavingThrowData(
+                hasSavingThrow, disableSavingThrowOnAllies, savingThrowAbility, true, difficultyClassComputation,
+                savingThrowDifficultyAbility, fixedSavingThrowDifficultyClass, false);
+
             EffectFormBuilder effectFormBuilder = new EffectFormBuilder();
             effectFormBuilder.SetMotionForm(motionType, motionDistance);
             effectDescriptionBuilder.AddEffectForm(effectFormBuilder.Build());
@@ -297,14 +278,14 @@ namespace SolastaCommunityExpansion.Feats
             effectDescriptionBuilder.SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None, 1, 0, 0, 0, 0, 0, 0, 0, 0, RuleDefinitions.AdvancementDuration.None);
 
             EffectParticleParameters particleParams = new EffectParticleParameters();
-            particleParams.Copy(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters);
+            particleParams.Copy(PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters);
             effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
 
             return BuildPowerFromEffectDescription(usesPerRecharge, usesDetermination, activationTime, costPerUse, recharge,
                 false, false, savingThrowDifficultyAbility, effectDescriptionBuilder.Build(), name, guiPresentation);
         }
 
-        public static FeatureDefinitionPower BuildPowerFromEffectDescription(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
+        private static FeatureDefinitionPower BuildPowerFromEffectDescription(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
             RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge,
             bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
             EffectDescription effectDescription, string name, GuiPresentation guiPresentation)
@@ -314,7 +295,7 @@ namespace SolastaCommunityExpansion.Feats
                 abilityScore, effectDescription, guiPresentation, false /* unique */).AddToDB();
         }
 
-        public static FeatureDefinitionAutoPreparedSpells BuildAutoPreparedSpells(
+        private static FeatureDefinitionAutoPreparedSpells BuildAutoPreparedSpells(
             IEnumerable<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> autospelllists,
             CharacterClassDefinition characterclass, string name, string tag, GuiPresentation guiPresentation)
         {
@@ -324,16 +305,6 @@ namespace SolastaCommunityExpansion.Feats
                 .SetPreparedSpellGroups(autospelllists)
                 .SetCharacterClass(characterclass)
                 .SetAutoTag(tag)
-                .AddToDB();
-        }
-
-        public static FeatureDefinitionProficiency BuildProficiency(RuleDefinitions.ProficiencyType type,
-            List<string> proficiencies, string name, GuiPresentation guiPresentation)
-        {
-            return FeatureDefinitionProficiencyBuilder
-                .Create(name, CasterFeatsNamespace)
-                .SetProficiencies(type, proficiencies)
-                .SetGuiPresentation(guiPresentation)
                 .AddToDB();
         }
     }
