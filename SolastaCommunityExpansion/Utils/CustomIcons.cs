@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Utils
     // Loosely based on https://forum.unity.com/threads/generating-sprites-dynamically-from-png-or-jpeg-files-in-c.343735/
     internal static class CustomIcons
     {
-        const string CUSTOM_ICON_PREFIX = "CUSTOM_ICON_PREFIX_";
+        private const string CUSTOM_ICON_PREFIX = "CUSTOM_ICON_PREFIX_";
 
         internal static readonly Dictionary<string, Sprite> LoadedIcons = new();
 

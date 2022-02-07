@@ -1,5 +1,5 @@
-﻿using HarmonyLib;
-using System.Linq;
+﻿using System.Linq;
+using HarmonyLib;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaCommunityExpansion.Multiclass.Patches.PowersAndPools
@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.PowersAndPools
                     return;
                 }
 
-                if (!(__instance is RulesetCharacterHero hero))
+                if (__instance is not RulesetCharacterHero hero)
                 {
                     return;
                 }

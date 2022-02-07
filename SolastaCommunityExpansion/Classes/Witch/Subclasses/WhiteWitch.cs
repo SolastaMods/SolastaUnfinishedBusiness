@@ -29,6 +29,6 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
                 AutoPreparedSpellsGroupBuilder.Build(7, DeathWard, GuardianOfFaith),
                 AutoPreparedSpellsGroupBuilder.Build(9, MassCureWounds, RaiseDead)
            );
-       }
+        }
     }
 }

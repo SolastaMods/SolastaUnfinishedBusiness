@@ -93,20 +93,14 @@ namespace SolastaCommunityExpansion.DataViewer
         public ToggleState Expanded { get; set; }
         [Obsolete("TODO - move this into a proper view model", false)]
         public bool Matches { get; set; }
-        public string NodeTypePrefix
+        public string NodeTypePrefix => NodeType switch
         {
-            get
-            {
-                return NodeType switch
-                {
-                    NodeType.Component => "c",
-                    NodeType.Item => "i",
-                    NodeType.Field => "f",
-                    NodeType.Property => "p",
-                    _ => string.Empty,
-                };
-            }
-        }
+            NodeType.Component => "c",
+            NodeType.Item => "i",
+            NodeType.Field => "f",
+            NodeType.Property => "p",
+            _ => string.Empty,
+        };
         public int ExpandedNodeCount
         {
             get

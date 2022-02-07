@@ -17,8 +17,8 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                 if (Models.LevelUpContext.LevelingUp && Models.LevelUpContext.IsMulticlass)
                 {
                     __result = Models.SharedSpellsContext.GetClassSpellLevel(
-                        Models.LevelUpContext.SelectedHero, 
-                        Models.LevelUpContext.SelectedClass, 
+                        Models.LevelUpContext.SelectedHero,
+                        Models.LevelUpContext.SelectedClass,
                         Models.LevelUpContext.SelectedSubclass);
                 }
             }

@@ -34,7 +34,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
 
                 foreach (var usablePower in __instance.UsablePowers)
                 {
-                    if ((usablePower.PowerDefinition.RechargeRate == RuleDefinitions.RechargeRate.ShortRest && (restType == RuleDefinitions.RestType.ShortRest || restType == RuleDefinitions.RestType.LongRest) || usablePower.PowerDefinition.RechargeRate == RuleDefinitions.RechargeRate.LongRest && restType == RuleDefinitions.RestType.LongRest) && usablePower.RemainingUses < usablePower.MaxUses)
+                    if (((usablePower.PowerDefinition.RechargeRate == RuleDefinitions.RechargeRate.ShortRest && (restType == RuleDefinitions.RestType.ShortRest || restType == RuleDefinitions.RestType.LongRest)) || (usablePower.PowerDefinition.RechargeRate == RuleDefinitions.RechargeRate.LongRest && restType == RuleDefinitions.RestType.LongRest)) && usablePower.RemainingUses < usablePower.MaxUses)
                     {
                         if (!simulate)
                         {
@@ -100,7 +100,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
 
                 foreach (RulesetSpellRepertoire spellRepertoire in __instance.SpellRepertoires)
                 {
-                    if (spellRepertoire.SpellCastingFeature.SlotsRecharge == RuleDefinitions.RechargeRate.ShortRest && (restType == RuleDefinitions.RestType.ShortRest || restType == RuleDefinitions.RestType.LongRest) || spellRepertoire.SpellCastingFeature.SlotsRecharge == RuleDefinitions.RechargeRate.LongRest && restType == RuleDefinitions.RestType.LongRest)
+                    if ((spellRepertoire.SpellCastingFeature.SlotsRecharge == RuleDefinitions.RechargeRate.ShortRest && (restType == RuleDefinitions.RestType.ShortRest || restType == RuleDefinitions.RestType.LongRest)) || (spellRepertoire.SpellCastingFeature.SlotsRecharge == RuleDefinitions.RechargeRate.LongRest && restType == RuleDefinitions.RestType.LongRest))
                     {
                         if (!simulate)
                         {

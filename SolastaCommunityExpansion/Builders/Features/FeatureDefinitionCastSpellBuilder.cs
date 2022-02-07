@@ -17,16 +17,16 @@ namespace SolastaCommunityExpansion.Builders.Features
             THIRD_CASTER
         }
 
-/*        private FeatureDefinitionCastSpellBuilder(string name, string guid) : base(name, guid)
-        {
-            InitializeFields();
-        }
+        /*        private FeatureDefinitionCastSpellBuilder(string name, string guid) : base(name, guid)
+                {
+                    InitializeFields();
+                }
 
-        private FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name, string guid)
-            : base(original, name, guid)
-        {
-        }
-*/
+                private FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name, string guid)
+                    : base(original, name, guid)
+                {
+                }
+        */
         private FeatureDefinitionCastSpellBuilder(string name, Guid namespaceGuid, Category category = Category.None)
             : base(name, namespaceGuid, category)
         {
@@ -119,7 +119,7 @@ namespace SolastaCommunityExpansion.Builders.Features
 
         public FeatureDefinitionCastSpellBuilder AddRestrictedSchools(params SchoolOfMagicDefinition[] schools)
         {
-            foreach(var school in schools)
+            foreach (var school in schools)
             {
                 AddRestrictedSchool(school);
             }

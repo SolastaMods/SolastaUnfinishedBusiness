@@ -1,14 +1,14 @@
-﻿using System.Linq;
+﻿using System.Diagnostics;
+using System.Linq;
+using System.Text;
 using ModKit;
 using UnityEngine;
 using UnityModManagerNet;
 using static SolastaCommunityExpansion.Viewers.Displays.BlueprintDisplay;
-using static SolastaCommunityExpansion.Viewers.Displays.GameServicesDisplay;
-using static SolastaCommunityExpansion.Viewers.Displays.PatchesDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.CreditsDisplay;
+using static SolastaCommunityExpansion.Viewers.Displays.GameServicesDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.Level20HelpDisplay;
-using System.Text;
-using System.Diagnostics;
+using static SolastaCommunityExpansion.Viewers.Displays.PatchesDisplay;
 
 namespace SolastaCommunityExpansion.Viewers
 {

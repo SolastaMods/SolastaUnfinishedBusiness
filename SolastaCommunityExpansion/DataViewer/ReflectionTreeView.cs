@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.DataViewer
         private Rect _viewerRect;
         public float DepthDelta { get; set; } = 30f;
 
-        public static int MaxRows { get { return Main.Settings.MaxRows; } }
+        public static int MaxRows => Main.Settings.MaxRows;
 
         public object Root => _tree.Root;
 

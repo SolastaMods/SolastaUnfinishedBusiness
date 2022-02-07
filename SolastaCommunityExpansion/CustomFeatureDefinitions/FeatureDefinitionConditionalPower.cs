@@ -1,7 +1,4 @@
-﻿using SolastaModApi;
-using SolastaModApi.Extensions;
-
-namespace SolastaCommunityExpansion.CustomFeatureDefinitions
+﻿namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 {
     public interface IConditionalPower
     {
