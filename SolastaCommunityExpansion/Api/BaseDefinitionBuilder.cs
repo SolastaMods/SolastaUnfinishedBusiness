@@ -295,20 +295,6 @@ namespace SolastaModApi
         /// </summary>
         /// <param name="name">The unique name assigned to the definition (mandatory)</param>
         /// <param name="guid">The unique guid assigned to the definition (mandatory)</param>
-        /// <param name="title">The title assigned to the GuiPresentation (optional)</param>
-        /// <param name="description">The description assigned to the GuiPresentation (optional)</param>
-        [Obsolete("Use one of the preferred constructors plus GuiPresentation extensions.")]
-        protected BaseDefinitionBuilder(string name, string guid, string title, string description)
-            : this(name, guid, BuildGuiPresentation(title, description))
-        {
-        }
-
-        /// <summary>
-        /// Create a new instance of TDefinition.
-        /// A GuiPresentation will be assigned to the definition with the provided title and description.
-        /// </summary>
-        /// <param name="name">The unique name assigned to the definition (mandatory)</param>
-        /// <param name="guid">The unique guid assigned to the definition (mandatory)</param>
         protected BaseDefinitionBuilder(string name, string guid)
             : this(name, guid, BuildGuiPresentation(null, null))
         {
@@ -333,65 +319,6 @@ namespace SolastaModApi
             Definition.GuiPresentation = guiPresentation;
 
             LogDefinition($"Old-Creating definition: ({name}, guid={Definition.GUID})");
-        }
-
-        /// <summary>
-        /// Create clone and rename - compatibility
-        /// </summary>
-        /// <param name="name">The new unique name assigned to the definition (mandatory)</param>
-        /// <param name="guid">The new unique guid assigned to the definition (mandatory)</param>
-        /// <param name="title">The title assigned to the GuiPresentation (optional)</param>
-        /// <param name="description">The description assigned to the GuiPresentation (optional)</param>
-        /// <param name="base_Blueprint">The original definition to be cloned.</param>
-        [Obsolete("Use one of the preferred constructors plus GuiPresentation extensions.")]
-        protected BaseDefinitionBuilder(string name, string guid, string title, string description, TDefinition base_Blueprint)
-            : this(base_Blueprint, name, guid, title, description)
-        {
-        }
-
-        /// <summary>
-        /// Create clone and rename
-        /// </summary>
-        /// <param name="original">The original definition to be cloned.</param>
-        /// <param name="name">The new unique name assigned to the definition (mandatory)</param>
-        /// <param name="guid">The new unique guid assigned to the definition (mandatory)</param>
-        /// <param name="title">The title assigned to the GuiPresentation (optional)</param>
-        /// <param name="description">The description assigned to the GuiPresentation (optional)</param>
-        [Obsolete("Use one of the preferred constructors plus GuiPresentation extensions.")]
-        protected BaseDefinitionBuilder(TDefinition original, string name, string guid, string title, string description)
-        {
-            Preconditions.IsNotNull(original, nameof(original));
-            Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
-            Preconditions.IsNotNullOrWhiteSpace(guid, nameof(guid));
-
-            var originalName = original.name;
-            var originalGuid = original.GUID;
-
-            Definition = UnityEngine.Object.Instantiate(original);
-
-            Definition.name = name;
-            Definition.SetField("guid", guid);
-
-            InitializeCollectionFields();
-
-            if (Definition.GuiPresentation != null)
-            {
-                if (title != null)
-                {
-                    Definition.GuiPresentation.Title = title;
-                }
-
-                if (description != null)
-                {
-                    Definition.GuiPresentation.Description = description;
-                }
-            }
-            else
-            {
-                Definition.GuiPresentation = BuildGuiPresentation(title, description);
-            }
-
-            LogDefinition($"Old-Cloning definition: original({originalName}, {originalGuid}) => ({name}, {Definition.GUID})");
         }
 
         #endregion
@@ -524,6 +451,7 @@ namespace SolastaModApi
                 }
             }
         }
+
         #endregion
 
         protected TDefinition Definition { get; }
