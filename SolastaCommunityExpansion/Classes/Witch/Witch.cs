@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaCommunityExpansion.Level20;
 using SolastaCommunityExpansion.Classes.Witch.Subclasses;
+using SolastaCommunityExpansion.Level20;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using static FeatureDefinitionCastSpell;
-using static SolastaModApi.DatabaseHelper;
 using static FeatureDefinitionAttributeModifier;
+using static FeatureDefinitionCastSpell;
 using static SolastaCommunityExpansion.Builders.EquipmentOptionsBuilder;
+using static SolastaModApi.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Classes.Witch
 {
