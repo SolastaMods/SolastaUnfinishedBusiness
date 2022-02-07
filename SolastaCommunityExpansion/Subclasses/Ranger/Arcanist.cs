@@ -8,6 +8,7 @@ using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalDamages;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Subclasses.Ranger
 {
@@ -281,9 +282,9 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
                 marked_effect
             });
 
-            return new FeatureDefinitionPowerBuilder(name, GuidHelper.Create(RA_BASE_GUID, name).ToString(),
-                new GuiPresentationBuilder(title, description)
-                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsThunder.GuiPresentation.SpriteReference).Build())
+            return FeatureDefinitionPowerBuilder
+                .Create(name, RA_BASE_GUID)
+                .SetGuiPresentation(title, description, PowerDomainElementalHeraldOfTheElementsThunder.GuiPresentation.SpriteReference)
                 .SetUsesAbility(0, AttributeDefinitions.Wisdom)
                 .SetShowCasting(true)
                 .SetRecharge(RuleDefinitions.RechargeRate.LongRest)
