@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using SolastaCommunityExpansion;
-using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Diagnostics;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
@@ -20,30 +19,6 @@ namespace SolastaModApi
         public static string CreateGuid(Guid guid, string name)
         {
             return GuidHelper.Create(guid, name).ToString();
-        }
-
-        public static string CreateTitleKey(string name, Category category)
-        {
-            Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
-
-            if (category == Category.None)
-            {
-                throw new ArgumentException("The parameter must not be Category.None.", nameof(category));
-            }
-
-            return $"{category}/&{name}Title";
-        }
-
-        public static string CreateDescriptionKey(string description, Category category)
-        {
-            Preconditions.IsNotNullOrWhiteSpace(description, nameof(description));
-
-            if (category == Category.None)
-            {
-                throw new ArgumentException("The parameter must not be Category.None.", nameof(category));
-            }
-
-            return $"{category}/&{description}Description";
         }
 
         public static bool LogDefinitionCreation { get; set; }
@@ -73,15 +48,6 @@ namespace SolastaModApi
     public abstract class BaseDefinitionBuilder<TDefinition> : BaseDefinitionBuilder, IBaseDefinitionBuilder where TDefinition : BaseDefinition
     {
         #region Helpers
-
-        private static GuiPresentation BuildGuiPresentation(string title, string description)
-        {
-            return new GuiPresentation
-            {
-                Description = description ?? string.Empty,
-                Title = title ?? string.Empty
-            };
-        }
 
         // Explicit implementation not visible by default so doesn't clash with other extension methods
         void IBaseDefinitionBuilder.SetGuiPresentation(GuiPresentation presentation)
@@ -140,7 +106,7 @@ namespace SolastaModApi
         /// <param name="name">The name assigned to the definition (mandatory)</param>
         /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition, based on baseGuid+name (mandatory)</param>
         protected BaseDefinitionBuilder(string name, Guid namespaceGuid) :
-            this(name, null, namespaceGuid, true, Category.None)
+            this(name, null, namespaceGuid, true)
         {
         }
 
@@ -151,12 +117,12 @@ namespace SolastaModApi
         /// <param name="name">The name assigned to the definition (mandatory)</param>
         /// <param name="definitionGuid">The guid for this definition (mandatory)</param>
         protected BaseDefinitionBuilder(string name, string definitionGuid) :
-            this(name, definitionGuid, Guid.Empty, false, Category.None)
+            this(name, definitionGuid, Guid.Empty, false)
         {
             Preconditions.IsNotNullOrWhiteSpace(definitionGuid, nameof(definitionGuid));
         }
 
-        private BaseDefinitionBuilder(string name, string definitionGuid, Guid namespaceGuid, bool useNamespaceGuid, Category category)
+        private BaseDefinitionBuilder(string name, string definitionGuid, Guid namespaceGuid, bool useNamespaceGuid)
         {
             Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
 
@@ -189,11 +155,6 @@ namespace SolastaModApi
 
                 LogDefinition($"New-Creating definition: ({name}, guid={Definition.GUID})");
             }
-
-            if (category != Category.None)
-            {
-                Definition.GuiPresentation = BuildGuiPresentation(CreateTitleKey(name, category), CreateDescriptionKey(name, category));
-            }
         }
 
         /// <summary>
@@ -203,7 +164,7 @@ namespace SolastaModApi
         /// <param name="name">The name assigned to the definition (mandatory).</param>
         /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition, based on baseGuid+name (mandatory).</param>
         protected BaseDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) :
-            this(original, name, null, namespaceGuid, true, Category.None)
+            this(original, name, null, namespaceGuid, true)
         {
         }
 
@@ -215,11 +176,11 @@ namespace SolastaModApi
         /// <param name="name">The name assigned to the definition (mandatory).</param>
         /// <param name="definitionGuid">The guid for this definition (mandatory).</param>
         protected BaseDefinitionBuilder(TDefinition original, string name, string definitionGuid) :
-            this(original, name, definitionGuid, Guid.Empty, false, Category.None)
+            this(original, name, definitionGuid, Guid.Empty, false)
         {
         }
 
-        private BaseDefinitionBuilder(TDefinition original, string name, string definitionGuid, Guid namespaceGuid, bool useNamespaceGuid, Category category)
+        private BaseDefinitionBuilder(TDefinition original, string name, string definitionGuid, Guid namespaceGuid, bool useNamespaceGuid)
         {
             Preconditions.IsNotNull(original, nameof(original));
             Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
@@ -250,20 +211,6 @@ namespace SolastaModApi
                 Definition.SetField("guid", definitionGuid);
 
                 LogDefinition($"New-Cloning definition: original({originalName}, {originalGuid}) => ({name}, {Definition.GUID})");
-            }
-
-            if (category != Category.None)
-            {
-                if (Definition.GuiPresentation != null)
-                {
-                    Definition.GuiPresentation.Title = CreateTitleKey(name, category);
-                    Definition.GuiPresentation.Description = CreateDescriptionKey(name, category);
-                }
-                else
-                {
-                    Definition.GuiPresentation =
-                        BuildGuiPresentation(CreateTitleKey(name, category), CreateDescriptionKey(name, category));
-                }
             }
         }
 
