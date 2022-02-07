@@ -5,7 +5,7 @@ using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Multiclass.Models
 {
-    internal static class SpellsContext
+    internal static class CacheSpellsContext
     {
         public static readonly Dictionary<string, Dictionary<int, List<SpellDefinition>>> classSpellList = new();
         public static readonly Dictionary<string, Dictionary<int, List<SpellDefinition>>> subclassSpellList = new();
@@ -138,6 +138,11 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
         internal static void Load()
         {
+            if (!Main.Settings.EnableRespec || !Main.Settings.EnableMulticlass)
+            {
+                return;
+            }
+
             foreach (var characterClassDefinition in DatabaseRepository.GetDatabase<CharacterClassDefinition>())
             {
                 var className = characterClassDefinition.Name;
