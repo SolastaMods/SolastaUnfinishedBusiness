@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Builders.Features
     public sealed class FeatureDefinitionAdditionalActionBuilder : BaseDefinitionBuilder<FeatureDefinitionAdditionalAction>
     {
         private FeatureDefinitionAdditionalActionBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid, Category.None)
+            : base(name, namespaceGuid)
         {
         }
 

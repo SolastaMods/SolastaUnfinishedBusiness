@@ -14,8 +14,8 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public ItemDefinitionBuilder(string name, Guid namespaceGuid, Category category)
-            : base(name, namespaceGuid, category)
+        public ItemDefinitionBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
         {
         }
 

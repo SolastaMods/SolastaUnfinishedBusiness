@@ -17,8 +17,8 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        private FeatureDefinitionAttributeModifierBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
+        private FeatureDefinitionAttributeModifierBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
         {
         }
 

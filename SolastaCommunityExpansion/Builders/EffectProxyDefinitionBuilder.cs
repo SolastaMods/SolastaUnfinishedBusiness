@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public EffectProxyDefinitionBuilder(string name, Guid namespaceGuid, Category category = Category.None) : base(name, namespaceGuid, category)
+        public EffectProxyDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 

@@ -400,10 +400,11 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
         private static void BuildRitualCasting()
         {
-            var witchRitualCastingMagicAffinity
-                = new FeatureDefinitionMagicAffinityBuilder("WitchRitualCastingMagicAffinity", WITCH_BASE_GUID, Category.Class)
-                    .SetRitualCasting((RuleDefinitions.RitualCasting)ExtraRitualCasting.Known)
-                    .AddToDB();
+            var witchRitualCastingMagicAffinity = FeatureDefinitionMagicAffinityBuilder
+                .Create("WitchRitualCastingMagicAffinity", WITCH_BASE_GUID)
+                .SetGuiPresentation(Category.Class)
+                .SetRitualCasting((RuleDefinitions.RitualCasting)ExtraRitualCasting.Known)
+                .AddToDB();
 
             FeatureDefinitionFeatureSetRitualCasting = FeatureDefinitionFeatureSetBuilder
                 .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetRitualCasting", WITCH_BASE_GUID)

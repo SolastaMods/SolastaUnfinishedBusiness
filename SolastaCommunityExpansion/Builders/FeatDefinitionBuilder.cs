@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Builders
     public sealed class FeatDefinitionBuilder : BaseDefinitionBuilder<FeatDefinition>
     {
         private FeatDefinitionBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid, Category.None)
+            : base(name, namespaceGuid)
         {
         }
 

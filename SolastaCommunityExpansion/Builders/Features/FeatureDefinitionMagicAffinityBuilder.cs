@@ -25,8 +25,8 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public FeatureDefinitionMagicAffinityBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
+        public FeatureDefinitionMagicAffinityBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
         {
         }
 

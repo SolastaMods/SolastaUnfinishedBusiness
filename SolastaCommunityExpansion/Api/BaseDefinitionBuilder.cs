@@ -139,12 +139,8 @@ namespace SolastaModApi
         /// </summary>
         /// <param name="name">The name assigned to the definition (mandatory)</param>
         /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition, based on baseGuid+name (mandatory)</param>
-        /// <param name="category">Used to generate title and description on the GuiPresentation.  The generated fields if
-        /// name="MyDefinition" and category="MyCategory" are: MyCategory/&amp;MyDefinitionTitle and MyCategory/&amp;MyDefinitionDescription.
-        /// If category=null then no GuiPresentation is created.
-        /// </param>
-        protected BaseDefinitionBuilder(string name, Guid namespaceGuid, Category category) :
-            this(name, null, namespaceGuid, true, category)
+        protected BaseDefinitionBuilder(string name, Guid namespaceGuid) :
+            this(name, null, namespaceGuid, true, Category.None)
         {
         }
 

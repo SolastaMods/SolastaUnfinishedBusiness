@@ -13,8 +13,8 @@ namespace SolastaCommunityExpansion.Builders.Features
                 {
                 }
 
-                private FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, Guid namespaceGuid, Category category = Category.None)
-                    : base(original, name, namespaceGuid, category)
+                private FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, Guid namespaceGuid)
+                    : base(original, name, namespaceGuid)
                 {
                 }*/
 
@@ -24,7 +24,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         private FeatureDefinitionPointPoolBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid, Category.None)
+            : base(name, namespaceGuid)
         {
         }
 

@@ -37,8 +37,8 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public FeatureDefinitionPowerBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
+        public FeatureDefinitionPowerBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
         {
         }
 

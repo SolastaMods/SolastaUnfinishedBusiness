@@ -11,8 +11,8 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public MonsterAttackDefinitionBuilder(string name, Guid namespaceGuid, Category category = Category.None) :
-            base(name, namespaceGuid, category)
+        public MonsterAttackDefinitionBuilder(string name, Guid namespaceGuid) :
+            base(name, namespaceGuid)
         {
         }
 

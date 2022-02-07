@@ -10,8 +10,8 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public FeatureDefinitionSummoningAffinityBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
+        public FeatureDefinitionSummoningAffinityBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
         {
         }
 

@@ -44,8 +44,8 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public FeatureDefinitionSavingThrowAffinityBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
+        public FeatureDefinitionSavingThrowAffinityBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
         {
         }
 

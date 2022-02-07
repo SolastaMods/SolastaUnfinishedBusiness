@@ -7,14 +7,14 @@ namespace SolastaCommunityExpansion.Builders.Features
 {
     public sealed class FeatureDefinitionConditionalPowerBuilder : BaseDefinitionBuilder<FeatureDefinitionConditionalPower>
     {
-        private FeatureDefinitionConditionalPowerBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
+        private FeatureDefinitionConditionalPowerBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
         {
         }
 
-        public static FeatureDefinitionConditionalPowerBuilder Create(string name, Guid namespaceGuid, Category category = Category.None)
+        public static FeatureDefinitionConditionalPowerBuilder Create(string name, Guid namespaceGuid)
         {
-            return new FeatureDefinitionConditionalPowerBuilder(name, namespaceGuid, category);
+            return new FeatureDefinitionConditionalPowerBuilder(name, namespaceGuid);
         }
 
         public FeatureDefinitionConditionalPowerBuilder SetEffect(EffectDescription effect)

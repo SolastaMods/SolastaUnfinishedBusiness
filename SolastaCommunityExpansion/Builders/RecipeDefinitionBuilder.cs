@@ -10,8 +10,8 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public RecipeDefinitionBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
+        public RecipeDefinitionBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
         {
         }
 

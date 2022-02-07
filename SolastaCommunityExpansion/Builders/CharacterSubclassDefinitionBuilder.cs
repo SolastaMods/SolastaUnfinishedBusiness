@@ -11,8 +11,8 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public CharacterSubclassDefinitionBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
+        public CharacterSubclassDefinitionBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
         {
         }
 

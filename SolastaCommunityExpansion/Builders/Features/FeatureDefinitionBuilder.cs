@@ -22,8 +22,8 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public FeatureDefinitionBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
+        public FeatureDefinitionBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
         {
         }
 
@@ -32,7 +32,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public FeatureDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid, Category category = Category.None)
+        public FeatureDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid)
             : base(original, name, namespaceGuid)
         {
         }

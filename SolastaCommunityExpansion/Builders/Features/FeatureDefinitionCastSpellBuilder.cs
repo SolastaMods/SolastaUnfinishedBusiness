@@ -27,8 +27,8 @@ namespace SolastaCommunityExpansion.Builders.Features
                 {
                 }
         */
-        private FeatureDefinitionCastSpellBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
+        private FeatureDefinitionCastSpellBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
         {
             InitializeFields();
         }
