@@ -179,7 +179,7 @@ namespace SolastaCommunityExpansion.Feats
             List<FeatureDefinition> shadowTouchedClassesPreparedSpells = AutoPreparedClassLists(classes,
                 shadowTouchedGroup, learnShadowTouchedPresentation, "ShadowTouchedAutoPrep", "ShadowTouched");
 
-            var invisibilityBonusPresentation = GuiPresentationBuilder.Build("", Category.Feat, Invisibility.GuiPresentation.SpriteReference);
+            var invisibilityBonusPresentation = GuiPresentationBuilder.Build("PowerInvisibilityFromFeat", Category.Feat, Invisibility.GuiPresentation.SpriteReference);
 
             FeatureDefinitionPower invisibilityPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
                 RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
