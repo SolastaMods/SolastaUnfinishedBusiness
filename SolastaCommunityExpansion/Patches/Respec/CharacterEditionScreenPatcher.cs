@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.Respec
 {
@@ -13,7 +14,10 @@ namespace SolastaCommunityExpansion.Patches.Respec
     {
         internal static void Postfix()
         {
-            Models.RespecContext.FunctorRespec.AbortRespec();
+            if (Main.Settings.EnableRespec && RespecContext.FunctorRespec.IsRespecing)
+            {
+                RespecContext.FunctorRespec.AbortRespec();
+            }
         }
     }
 }
