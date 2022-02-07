@@ -193,7 +193,10 @@ namespace SolastaCommunityExpansion.Models
                         newGadgetBlueprint.PrefabsByEnvironment.Add(myPrefabByEnvironment);
                     }
 
-                    newGadgets.Add(newGadgetBlueprint);
+                    if (!newGadgets.Exists(x => x.Name == newGadgetBlueprint.Name))
+                    {
+                        newGadgets.Add(newGadgetBlueprint);
+                    }
                 }
             }
 
@@ -231,7 +234,10 @@ namespace SolastaCommunityExpansion.Models
                         newPropBlueprint.PrefabsByEnvironment.Add(myPrefabByEnvironment);
                     }
 
-                    newProps.Add(newPropBlueprint);
+                    if (!newProps.Exists(x => x.Name == newPropBlueprint.Name))
+                    {
+                        newProps.Add(newPropBlueprint);
+                    }
                 }
             }
 
