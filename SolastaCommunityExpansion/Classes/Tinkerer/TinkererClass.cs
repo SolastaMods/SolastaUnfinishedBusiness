@@ -153,7 +153,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 new GuiPresentationBuilder(
                     "Feature/&TinkererArmorProficiencyTitle",
                     "Feature/&TinkererArmorTrainingShortDescription").Build());
-            ArtificerBuilder.AddFeatureAtLevel(armorProf, 1);
+            ArtificerBuilder.AddFeatureAtLevel(1, armorProf);
 
             FeatureDefinitionProficiency weaponProf = FeatureHelpers.BuildProficiency(RuleDefinitions.ProficiencyType.Weapon,
                 new List<string>() { EquipmentDefinitions.SimpleWeaponCategory },
@@ -161,7 +161,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 new GuiPresentationBuilder(
                     "Feature/&TinkererWeaponProficiencyTitle",
                     "Feature/&TinkererWeaponTrainingShortDescription").Build());
-            ArtificerBuilder.AddFeatureAtLevel(weaponProf, 1);
+            ArtificerBuilder.AddFeatureAtLevel(1, weaponProf);
 
             FeatureDefinitionProficiency toolProf = FeatureHelpers.BuildProficiency(RuleDefinitions.ProficiencyType.Tool,
                 new List<string>() { ToolTypeDefinitions.ThievesToolsType.Name, ToolTypeDefinitions.ScrollKitType.Name,
@@ -171,7 +171,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 new GuiPresentationBuilder(
                     "Feature/&TinkererToolsProficiencyTitle",
                     "Feature/&TinkererToolProficiencyPluralShortDescription").Build());
-            ArtificerBuilder.AddFeatureAtLevel(toolProf, 1);
+            ArtificerBuilder.AddFeatureAtLevel(1, toolProf);
 
             FeatureDefinitionProficiency saveProf = FeatureHelpers.BuildProficiency(RuleDefinitions.ProficiencyType.SavingThrow,
                 new List<string>() { AttributeDefinitions.Constitution, AttributeDefinitions.Intelligence },
@@ -179,7 +179,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 new GuiPresentationBuilder(
                     "Feature/&SavingThrowTinkererProficiencyTitle",
                     "Feature/&SavingThrowTinkererProficiencyDescription").Build());
-            ArtificerBuilder.AddFeatureAtLevel(saveProf, 1);
+            ArtificerBuilder.AddFeatureAtLevel(1, saveProf);
 
             // skill point pool (1)
             FeatureDefinitionPointPool skillPoints = FeatureHelpers.BuildPointPool(HeroDefinitions.PointsPoolType.Skill, 2,
@@ -189,7 +189,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 new GuiPresentationBuilder(
                     "Feature/&TinkererSkillPointsTitle",
                     "Feature/&TinkererSkillGainChoicesPluralDescription").Build());
-            ArtificerBuilder.AddFeatureAtLevel(skillPoints, 1);
+            ArtificerBuilder.AddFeatureAtLevel(1, skillPoints);
 
             SpellListDefinition spellList = TinkererSpellList.BuildAndAddToDB();
 
@@ -209,32 +209,32 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 .SetSlotsPerLevel(1, FeatureDefinitionCastSpellBuilder.CasterProgression.HALF_CASTER)
                 .AddToDB();
 
-            ArtificerBuilder.AddFeatureAtLevel(featureSpellCasting, 1);
+            ArtificerBuilder.AddFeatureAtLevel(1, featureSpellCasting);
 
             // ritual casting (1)
-            ArtificerBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetClericRitualCasting, 1);
+            ArtificerBuilder.AddFeatureAtLevel(1, FeatureDefinitionFeatureSets.FeatureSetClericRitualCasting);
 
             // Artificers can cast with "hands full" because they can cast while holding an infused item, just blanket saying ignore that requirement
             // is the closest reasonable option we have right now.
-            ArtificerBuilder.AddFeatureAtLevel(BuildMagicAffinityHandsFull("MagicAffinityArtificerInfusionCasting", new GuiPresentationBuilder(
+            ArtificerBuilder.AddFeatureAtLevel(1, BuildMagicAffinityHandsFull("MagicAffinityArtificerInfusionCasting", new GuiPresentationBuilder(
                 "Feature/&ArtificerInfusionCastingTitle",
                 "Feature/&ArtificerInfusionCastingDescription").Build()
-                ), 1);
+                ));
 
             GuiPresentationBuilder magicalTinkeringGui = new GuiPresentationBuilder(
                 "Subclass/&TinkererMagicalTinkeringTitle",
                 "Subclass/&TinkererMagicalTinkeringDescription");
-            ArtificerBuilder.AddFeatureAtLevel(FeatureHelpers.BuildBonusCantrips(new List<SpellDefinition>()
+            ArtificerBuilder.AddFeatureAtLevel(2, FeatureHelpers.BuildBonusCantrips(new List<SpellDefinition>()
             {
                 SpellDefinitions.Shine,
                 SpellDefinitions.Sparkle,
                 SpellDefinitions.Dazzle,
-            }, "TinkererMagicalTinkering", magicalTinkeringGui.Build()), 2);
+            }, "TinkererMagicalTinkering", magicalTinkeringGui.Build()));
 
             // infuse item (level 2)
             // potentially give them "healing pool" points for the number of infusions, then abilities that provide a bonus for 24hrs which the player activates each day
 
-            ArtificerBuilder.AddFeatureAtLevel(InfusionPool, 2);
+            ArtificerBuilder.AddFeatureAtLevel(2, InfusionPool);
 
             // Infusions -- Focus, Weapon, Mind Sharpener, Armor of Magical Strength are given in subclasses
             // Defense
@@ -245,10 +245,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 GuidHelper.Create(GuidNamespace, "TinkererLevel2InfusionChoice").ToString(),
                 Level2InfusionList, FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion, 0, false, false, infusionChoiceGui.Build()
                 ).AddToDB();
-            ArtificerBuilder.AddFeatureAtLevel(level2Infusions, 2);
-            ArtificerBuilder.AddFeatureAtLevel(level2Infusions, 2);
-            ArtificerBuilder.AddFeatureAtLevel(level2Infusions, 2);
-            ArtificerBuilder.AddFeatureAtLevel(level2Infusions, 2);
+            ArtificerBuilder.AddFeatureAtLevel(2, level2Infusions);
+            ArtificerBuilder.AddFeatureAtLevel(2, level2Infusions);
+            ArtificerBuilder.AddFeatureAtLevel(2, level2Infusions);
+            ArtificerBuilder.AddFeatureAtLevel(2, level2Infusions);
 
             // Repeating Shot-- no point it seems
             // Returning Weapon-- not currently do-able
@@ -263,7 +263,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 GuidHelper.Create(GuidNamespace, "SubclassChoiceArtificerSpecialistArchetypes").ToString());
 
             // ASI (4)
-            ArtificerBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 4);
+            ArtificerBuilder.AddFeatureAtLevel(4, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
 
             // Tool expertise (level 6)
             FeatureDefinitionProficiency toolExpertise = FeatureHelpers.BuildProficiency(RuleDefinitions.ProficiencyType.ToolOrExpertise,
@@ -274,7 +274,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 new GuiPresentationBuilder(
                     "Feature/&TinkererToolsExpertiseTitle",
                     "Feature/&TinkererToolsExpertisePluralShortDescription").Build());
-            ArtificerBuilder.AddFeatureAtLevel(toolExpertise, 6);
+            ArtificerBuilder.AddFeatureAtLevel(6, toolExpertise);
 
             GuiPresentationBuilder InfusionPoolIncreaseGui = new GuiPresentationBuilder(
                 "Subclass/&HealingPoolArtificerInfusionsIncreaseTitle",
@@ -282,14 +282,14 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             FeatureDefinitionPowerPoolModifier InfusionPoolIncrease = new FeatureDefinitionPowerPoolModifierBuilder("AttributeModiferArtificerInfusionIncreaseHealingPool",
                 GuidHelper.Create(GuidNamespace, "AttributeModiferArtificerInfusionIncreaseHealingPool").ToString(),
                 1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool, InfusionPoolIncreaseGui.Build()).AddToDB();
-            ArtificerBuilder.AddFeatureAtLevel(InfusionPoolIncrease, 6);
+            ArtificerBuilder.AddFeatureAtLevel(6, InfusionPoolIncrease);
 
             FeatureDefinitionFeatureSet level6Infusions = new FeatureHelpers.FeatureDefinitionFeatureSetBuilder("TinkererLevel6InfusionChoice",
                 GuidHelper.Create(GuidNamespace, "TinkererLevel6InfusionChoice").ToString(), Level6InfusionList,
                 FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion, 0, true, false, infusionChoiceGui.Build()
                 ).AddToDB();
-            ArtificerBuilder.AddFeatureAtLevel(level6Infusions, 6);
-            ArtificerBuilder.AddFeatureAtLevel(level6Infusions, 6);
+            ArtificerBuilder.AddFeatureAtLevel(6, level6Infusions);
+            ArtificerBuilder.AddFeatureAtLevel(6, level6Infusions);
             // Infusions
             // Repulsion Shield, +1 shield, reaction (charges) to push enemy away on hit, otherwise... unsure?
 
@@ -338,10 +338,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             FeatureDefinitionPower flashOfGenius = new FeatureHelpers.FeatureDefinitionPowerBuilder("TinkererFlashOfGeniusPower", GuidHelper.Create(GuidNamespace, "TinkererFlashOfGeniusPower").ToString(),
                 -1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, RuleDefinitions.ActivationTime.PermanentUnlessIncapacitated,
                 -1, RuleDefinitions.RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence, flashEffect.Build(), flashOfGeniusPresentation.Build()).AddToDB();
-            ArtificerBuilder.AddFeatureAtLevel(flashOfGenius, 7);
+            ArtificerBuilder.AddFeatureAtLevel(7, flashOfGenius);
 
             // ASI (8)
-            ArtificerBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 8);
+            ArtificerBuilder.AddFeatureAtLevel(8, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
 
             // Magic Item Adept (10)
             GuiPresentationBuilder CraftingTinkererMagicItemAdeptPresentation = new GuiPresentationBuilder(
@@ -354,22 +354,22 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                     ToolTypeDefinitions.PoisonersKitType, ToolTypeDefinitions.HerbalismKitType,
                     ToolTypeDefinitions.EnchantingToolType, ToolTypeDefinitions.ArtisanToolSmithToolsType,
                 }, 0.25f, true, CraftingTinkererMagicItemAdeptPresentation.Build()).AddToDB();
-            ArtificerBuilder.AddFeatureAtLevel(craftingAffinity, 10);
+            ArtificerBuilder.AddFeatureAtLevel(10, craftingAffinity);
             // boost to infusions (many of the +1s become +2s)
             FeatureDefinitionPowerPoolModifier InfusionPoolIncrease10 = new FeatureDefinitionPowerPoolModifierBuilder("AttributeModiferArtificerInfusionIncreaseHealingPool10",
                 GuidHelper.Create(GuidNamespace, "AttributeModiferArtificerInfusionIncreaseHealingPool10").ToString(),
                 1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool, InfusionPoolIncreaseGui.Build()).AddToDB();
-            ArtificerBuilder.AddFeatureAtLevel(InfusionPoolIncrease10, 10);
+            ArtificerBuilder.AddFeatureAtLevel(10, InfusionPoolIncrease10);
 
             FeatureDefinitionFeatureSet level10Infusions = new FeatureHelpers.FeatureDefinitionFeatureSetBuilder("TinkererLevel10InfusionChoice",
                 GuidHelper.Create(GuidNamespace, "TinkererLevel10InfusionChoice").ToString(), Level10InfusionList,
                 FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion, 0, true, false, infusionChoiceGui.Build()
                 ).AddToDB();
-            ArtificerBuilder.AddFeatureAtLevel(level10Infusions, 10);
-            ArtificerBuilder.AddFeatureAtLevel(level10Infusions, 10);
-            ArtificerBuilder.AddFeatureAtLevel(InfusionHelpers.ImprovedEnhancedDefense, 10);
-            ArtificerBuilder.AddFeatureAtLevel(InfusionHelpers.ImprovedEnhancedFocus, 10);
-            ArtificerBuilder.AddFeatureAtLevel(InfusionHelpers.ImprovedEnhancedWeapon, 10);
+            ArtificerBuilder.AddFeatureAtLevel(10, level10Infusions);
+            ArtificerBuilder.AddFeatureAtLevel(10, level10Infusions);
+            ArtificerBuilder.AddFeatureAtLevel(10, InfusionHelpers.ImprovedEnhancedDefense);
+            ArtificerBuilder.AddFeatureAtLevel(10, InfusionHelpers.ImprovedEnhancedFocus);
+            ArtificerBuilder.AddFeatureAtLevel(10, InfusionHelpers.ImprovedEnhancedWeapon);
             // helm of awareness
             // winged boots-- probably not- it's a real complicated item
 
@@ -387,44 +387,44 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, RuleDefinitions.ActivationTime.BonusAction,
                 1, RuleDefinitions.RechargeRate.LongRest, false, false, AttributeDefinitions.Intelligence, spellEffect.Build(),
                 SpellStoringItemGui.Build()).AddToDB();
-            ArtificerBuilder.AddFeatureAtLevel(spellStoringItem, 11);
+            ArtificerBuilder.AddFeatureAtLevel(11, spellStoringItem);
 
-            ArtificerBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 12);
+            ArtificerBuilder.AddFeatureAtLevel(12, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
 
             // 14- magic item savant another attunement slot and ignore requirements on magic items
             // also another infusion slot
             FeatureDefinitionPowerPoolModifier InfusionPoolIncrease14 = new FeatureDefinitionPowerPoolModifierBuilder("AttributeModiferArtificerInfusionIncreaseHealingPool14",
                 GuidHelper.Create(GuidNamespace, "AttributeModiferArtificerInfusionIncreaseHealingPool14").ToString(),
                 1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool, InfusionPoolIncreaseGui.Build()).AddToDB();
-            ArtificerBuilder.AddFeatureAtLevel(InfusionPoolIncrease14, 14);
+            ArtificerBuilder.AddFeatureAtLevel(14, InfusionPoolIncrease14);
             FeatureDefinitionFeatureSet level14Infusions = new FeatureHelpers.FeatureDefinitionFeatureSetBuilder("TinkererLevel14InfusionChoice",
                 GuidHelper.Create(GuidNamespace, "TinkererLevel14InfusionChoice").ToString(), Level14InfusionList,
                 FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion, 0, true, false, infusionChoiceGui.Build()
                 ).AddToDB();
-            ArtificerBuilder.AddFeatureAtLevel(level14Infusions, 14);
-            ArtificerBuilder.AddFeatureAtLevel(level14Infusions, 14);
+            ArtificerBuilder.AddFeatureAtLevel(14, level14Infusions);
+            ArtificerBuilder.AddFeatureAtLevel(14, level14Infusions);
             // probably give several infusions another boost here
             // arcane propulsion armor
 
-            ArtificerBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 16);
+            ArtificerBuilder.AddFeatureAtLevel(16, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
 
             // 18 - magic item master another attunement slot
             // also another infusion slot
             FeatureDefinitionPowerPoolModifier InfusionPoolIncrease18 = new FeatureDefinitionPowerPoolModifierBuilder("AttributeModiferArtificerInfusionIncreaseHealingPool18",
                 GuidHelper.Create(GuidNamespace, "AttributeModiferArtificerInfusionIncreaseHealingPool18").ToString(),
                 1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool, InfusionPoolIncreaseGui.Build()).AddToDB();
-            ArtificerBuilder.AddFeatureAtLevel(InfusionPoolIncrease18, 18);
-            ArtificerBuilder.AddFeatureAtLevel(level14Infusions, 18);
-            ArtificerBuilder.AddFeatureAtLevel(level14Infusions, 18);
+            ArtificerBuilder.AddFeatureAtLevel(18, InfusionPoolIncrease18);
+            ArtificerBuilder.AddFeatureAtLevel(18, level14Infusions);
+            ArtificerBuilder.AddFeatureAtLevel(18, level14Infusions);
 
-            ArtificerBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 19);
+            ArtificerBuilder.AddFeatureAtLevel(19, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
 
             GuiPresentationBuilder SoulOfArtificeGui = new GuiPresentationBuilder(
                 "Subclass/&PowerTinkererSoulOfArtificeSavesTitle",
                 "Subclass/&PowerTinkererSoulOfArtificeSavesDescription");
             FeatureDefinitionSavingThrowAffinity soulOfArtificeSaves = FeatureHelpers.BuildSavingThrowAffinity(AbilityScores, RuleDefinitions.CharacterSavingThrowAffinity.None, FeatureDefinitionSavingThrowAffinity.ModifierType.AddDice, 3, RuleDefinitions.DieType.D4, false,
             "TinkererSoulOfArtificeSavingThrow", SoulOfArtificeGui.Build());
-            ArtificerBuilder.AddFeatureAtLevel(soulOfArtificeSaves, 20);
+            ArtificerBuilder.AddFeatureAtLevel(20, soulOfArtificeSaves);
 
             // 20 - soul of artifice, +1 to saving throws for each attuned item (probably just give +6)
             // also an ability that lets you drop to 1 instead of 0 as an reaction, supposed to end one of your infusions, but maybe just use some other resource?

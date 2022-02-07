@@ -986,11 +986,9 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     .SetAutoTag("Witch")
                     .AddToDB();
 
-                var summoningAffinity = new FeatureDefinitionSummoningAffinityBuilder(
-                        FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritBond,
-                        "SummoningAffinityWitchFamiliar",
-                        GuidHelper.Create(WITCH_BASE_GUID, "SummoningAffinityWitchFamiliar").ToString())
-                        .AddToDB();
+                var summoningAffinity = FeatureDefinitionSummoningAffinityBuilder
+                    .Create(FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritBond, "SummoningAffinityWitchFamiliar", WITCH_BASE_GUID)
+                    .AddToDB();
 
                 summoningAffinity.SetRequiredMonsterTag("WitchFamiliar");
                 summoningAffinity.EffectForms.Clear();
@@ -1067,7 +1065,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             {
                 if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out FeatureDefinition help))
                 {
-                    classBuilder.AddFeatureAtLevel(help, 1);
+                    classBuilder.AddFeatureAtLevel(1, help);
                 }
 
                 classBuilder.AddFeaturesAtLevel(1,
@@ -1087,15 +1085,16 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     FeatureDefinitionFeatureSetWitchFamiliar,
                     FeatureDefinitionFeatureSetMaledictions);
 
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 4);
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetMaledictions, 5);
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 8);
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetMaledictions, 9);
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 12);
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetMaledictions, 13);
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 16);
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetMaledictions, 17);
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 19);
+                classBuilder
+                    .AddFeatureAtLevel(4, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+                    .AddFeatureAtLevel(5, FeatureDefinitionFeatureSetMaledictions)
+                    .AddFeatureAtLevel(8, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+                    .AddFeatureAtLevel(9, FeatureDefinitionFeatureSetMaledictions)
+                    .AddFeatureAtLevel(12, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+                    .AddFeatureAtLevel(13, FeatureDefinitionFeatureSetMaledictions)
+                    .AddFeatureAtLevel(16, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+                    .AddFeatureAtLevel(17, FeatureDefinitionFeatureSetMaledictions)
+                    .AddFeatureAtLevel(19, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
 
                 // TODO: Maledictions should now apply a debuff for disadvantage on saving throw like Force Of Law
                 //            witch.AddFeatureAtLevel(InsidiousSpell,5);

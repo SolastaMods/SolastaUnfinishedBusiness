@@ -258,7 +258,7 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public CharacterClassDefinitionBuilder AddFeatureAtLevel(FeatureDefinition feature, int level)
+        public CharacterClassDefinitionBuilder AddFeatureAtLevel(int level, FeatureDefinition feature)
         {
             Definition.FeatureUnlocks.Add(new FeatureUnlockByLevel(feature, level));
             return this;
@@ -280,7 +280,7 @@ namespace SolastaCommunityExpansion.Builders
                 .SetGuiPresentation(guiPresentation)
                 .AddToDB();
 
-            AddFeatureAtLevel(subclassChoice, level);
+            AddFeatureAtLevel(level, subclassChoice);
 
             return subclassChoice;
         }
