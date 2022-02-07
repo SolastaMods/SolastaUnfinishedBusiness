@@ -823,34 +823,34 @@ Screen/&ShadowTouchedSpellTitle	Shadow
 Screen/&WitchSpellDescription	Spell known as a Witch
 Screen/&WitchSpellHeader	Witch
 Screen/&WitchSpellTitle	Witch
-SolastaCraftyFeats/&ApothecaryIntFeatDescription	+1 Intelligence, Proficiency or Expertise with Herbalism Kit and Arcana
-SolastaCraftyFeats/&ApothecaryIntFeatTitle	Apothecary (Intelligence)
-SolastaCraftyFeats/&ApothecaryWisFeatDescription	+1 Wisdom, Proficiency or Expertise with Herbalism Kit and Medicine
-SolastaCraftyFeats/&ApothecaryWisFeatTitle	Apothecary (Wisdom)
-SolastaCraftyFeats/&AttributeDexDescription	+1 Dexterity
-SolastaCraftyFeats/&AttributeDexTitle	Dexterity
-SolastaCraftyFeats/&AttributeIntDescription	+1 Intelligence
-SolastaCraftyFeats/&AttributeIntTitle	Intelligence
-SolastaCraftyFeats/&AttributeWisDescription	+1 Wisdom
-SolastaCraftyFeats/&AttributeWisTitle	Wisdom
-SolastaCraftyFeats/&CraftyArcanaDescription	Arcana proficiency or expertise
-SolastaCraftyFeats/&CraftyBowsDescription	Proficiency with all bows and crossbows
-SolastaCraftyFeats/&CraftyBowsTitle	Bow Proficiency
-SolastaCraftyFeats/&CraftyFletcherFeatDescription	+1 Dexterity, Proficiency or Expertise with Smith's Tools, Proficiency with bows and crossbows
-SolastaCraftyFeats/&CraftyFletcherFeatTitle	Fletcher
-SolastaCraftyFeats/&CraftyHerbalismKitDescription	Herbalism Kit proficiency or expertise
-SolastaCraftyFeats/&CraftyMedicineDescription	Medicine proficiency or expertise
-SolastaCraftyFeats/&CraftyNatureDescription	Nature proficiency or expertise
-SolastaCraftyFeats/&CraftyScribeFeatDescription	+1 Intelligence, Proficiency or Expertise with Scroll Kit and Arcana, Requires the ability to cast spells
-SolastaCraftyFeats/&CraftyScribeFeatTitle	Scribe
-SolastaCraftyFeats/&CraftySkillsTitle	Skills
-SolastaCraftyFeats/&CraftyToolsTitle	Tools
-SolastaCraftyFeats/&ManacalonCrafterFeatDescription	+1 Intelligence, Proficiency or Expertise with Manacalon Rosary and Arcana, Requires the ability to cast spells
-SolastaCraftyFeats/&ManacalonCrafterFeatTitle	Manacalon Crafter
-SolastaCraftyFeats/&ToxicologistIntFeatDescription	+1 Intelligence, Proficiency or Expertise with Poisoner's Kit and Nature
-SolastaCraftyFeats/&ToxicologistIntFeatTitle	Toxicologist (Intelligence)
-SolastaCraftyFeats/&ToxicologistWisFeatDescription	+1 Wisdom, Proficiency or Expertise with Poisoner's Kit and Medicine
-SolastaCraftyFeats/&ToxicologistWisFeatTitle	Toxicologist (Wisdom)
+CraftyFeats/&ApothecaryIntFeatDescription	+1 Intelligence, Proficiency or Expertise with Herbalism Kit and Arcana
+CraftyFeats/&ApothecaryIntFeatTitle	Apothecary (Intelligence)
+CraftyFeats/&ApothecaryWisFeatDescription	+1 Wisdom, Proficiency or Expertise with Herbalism Kit and Medicine
+CraftyFeats/&ApothecaryWisFeatTitle	Apothecary (Wisdom)
+CraftyFeats/&AttributeDexDescription	+1 Dexterity
+CraftyFeats/&AttributeDexTitle	Dexterity
+CraftyFeats/&AttributeIntDescription	+1 Intelligence
+CraftyFeats/&AttributeIntTitle	Intelligence
+CraftyFeats/&AttributeWisDescription	+1 Wisdom
+CraftyFeats/&AttributeWisTitle	Wisdom
+CraftyFeats/&CraftyArcanaDescription	Arcana proficiency or expertise
+CraftyFeats/&CraftyBowsDescription	Proficiency with all bows and crossbows
+CraftyFeats/&CraftyBowsTitle	Bow Proficiency
+CraftyFeats/&CraftyFletcherFeatDescription	+1 Dexterity, Proficiency or Expertise with Smith's Tools, Proficiency with bows and crossbows
+CraftyFeats/&CraftyFletcherFeatTitle	Fletcher
+CraftyFeats/&CraftyHerbalismKitDescription	Herbalism Kit proficiency or expertise
+CraftyFeats/&CraftyMedicineDescription	Medicine proficiency or expertise
+CraftyFeats/&CraftyNatureDescription	Nature proficiency or expertise
+CraftyFeats/&CraftyScribeFeatDescription	+1 Intelligence, Proficiency or Expertise with Scroll Kit and Arcana, Requires the ability to cast spells
+CraftyFeats/&CraftyScribeFeatTitle	Scribe
+CraftyFeats/&CraftySkillsTitle	Skills
+CraftyFeats/&CraftyToolsTitle	Tools
+CraftyFeats/&ManacalonCrafterFeatDescription	+1 Intelligence, Proficiency or Expertise with Manacalon Rosary and Arcana, Requires the ability to cast spells
+CraftyFeats/&ManacalonCrafterFeatTitle	Manacalon Crafter
+CraftyFeats/&ToxicologistIntFeatDescription	+1 Intelligence, Proficiency or Expertise with Poisoner's Kit and Nature
+CraftyFeats/&ToxicologistIntFeatTitle	Toxicologist (Intelligence)
+CraftyFeats/&ToxicologistWisFeatDescription	+1 Wisdom, Proficiency or Expertise with Poisoner's Kit and Medicine
+CraftyFeats/&ToxicologistWisFeatTitle	Toxicologist (Wisdom)
 Sorceror/&ZSSorcerousRestorationDescription	Regain 4 sorcery points during a short rest.
 Sorceror/&ZSSorcerousRestorationTitle	Sorcerous Restoration
 Spell/&CJDivineWordDescription	You utter a divine word, imbued with the power that shaped the world at the dawn of creation. Choose any number of creatures you can see within range. Each creature that can hear you must make a Charisma saving throw. On a failed save, a creature suffers an effect based on its current hit points:\n50 hit points or fewer: deafened for 1 minute\n40 hit points or fewer: deafened and blinded for 10 minutes\n30 hit points or fewer: blinded, deafened, and stunned for 1 hour\n20 hit points or fewer: killed instantly\nRegardless of its current hit points, a celestial, an elemental, a fey, or a fiend that fails its save is forced back to its plane of origin (if it isn’t there already) and can’t return to your current plane for 24 hours by any means short of a wish spell.\n
