@@ -6,8 +6,8 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
-using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Spells
 {

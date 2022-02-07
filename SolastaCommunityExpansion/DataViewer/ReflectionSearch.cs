@@ -59,7 +59,7 @@ namespace SolastaCommunityExpansion.DataViewer
     public partial class ReflectionSearch : MonoBehaviour
     {
         public delegate void SearchProgress(int visitCount, int depth, int breadth);
-        public bool IsSearching { get { return searchCoroutine != null; } }
+        public bool IsSearching => searchCoroutine != null;
         private static readonly HashSet<int> VisitedInstanceIDs = new() { };
         public static int SequenceNumber { get; private set; }
         private IEnumerator searchCoroutine;

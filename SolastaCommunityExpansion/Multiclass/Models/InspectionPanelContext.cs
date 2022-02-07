@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
         private static int selectedClass { get; set; }
 
-        private static readonly List<string> classesWithDeity = new List<string> { RuleDefinitions.ClericClass, RuleDefinitions.PaladinClass };
+        private static readonly List<string> classesWithDeity = new () { RuleDefinitions.ClericClass, RuleDefinitions.PaladinClass };
 
         internal static RulesetCharacterHero SelectedHero
         {
@@ -48,7 +48,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
         public static void EnumerateClassBadges(CharacterInformationPanel __instance)
         {
             var badgeDefinitions = __instance.GetField<CharacterInformationPanel, List<BaseDefinition>>("badgeDefinitions");
-            var classBadgesTable = __instance.GetField<CharacterInformationPanel,RectTransform>("classBadgesTable");
+            var classBadgesTable = __instance.GetField<CharacterInformationPanel, RectTransform>("classBadgesTable");
             var classBadgePrefab = __instance.GetField<CharacterInformationPanel, GameObject>("classBadgePrefab");
 
             badgeDefinitions.Clear();

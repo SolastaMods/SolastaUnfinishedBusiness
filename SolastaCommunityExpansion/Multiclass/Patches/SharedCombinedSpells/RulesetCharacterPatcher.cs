@@ -5,15 +5,11 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaModApi.Infrastructure;
-using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
 {
     internal static class RulesetCharacterPatcher
     {
-        //
-        // had to use a bool Prefix here to bypass ModHelpers transpiler on this method... All I really need is set my RestType state
-        //
         [HarmonyPatch(typeof(RulesetCharacter), "ApplyRest")]
         internal static class RulesetCharacterApplyRest
         {
@@ -30,11 +26,15 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
 
                 Models.SharedSpellsContext.RestType = restType;
 
+                //
+                // default game code from here. had to use a bool Prefix here to bypass ModHelpers transpiler on this method...
+                //
+
                 __instance.RecoveredFeatures.Clear();
 
                 foreach (var usablePower in __instance.UsablePowers)
                 {
-                    if ((usablePower.PowerDefinition.RechargeRate == RuleDefinitions.RechargeRate.ShortRest && (restType == RuleDefinitions.RestType.ShortRest || restType == RuleDefinitions.RestType.LongRest) || usablePower.PowerDefinition.RechargeRate == RuleDefinitions.RechargeRate.LongRest && restType == RuleDefinitions.RestType.LongRest) && usablePower.RemainingUses < usablePower.MaxUses)
+                    if (((usablePower.PowerDefinition.RechargeRate == RuleDefinitions.RechargeRate.ShortRest && (restType == RuleDefinitions.RestType.ShortRest || restType == RuleDefinitions.RestType.LongRest)) || (usablePower.PowerDefinition.RechargeRate == RuleDefinitions.RechargeRate.LongRest && restType == RuleDefinitions.RestType.LongRest)) && usablePower.RemainingUses < usablePower.MaxUses)
                     {
                         if (!simulate)
                         {
@@ -45,7 +45,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                     }
                 }
 
-                if (__instance.TryGetAttributeValue("ChannelDivinityNumber") > 0 && __instance.UsedChannelDivinity > 0)
+                if (__instance.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber) > 0 && __instance.UsedChannelDivinity > 0)
                 {
                     if (!simulate)
                     {
@@ -58,7 +58,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                     {
                         var attributeModifier = featureDefinition as FeatureDefinitionAttributeModifier;
 
-                        if (attributeModifier.ModifiedAttribute == "ChannelDivinityNumber")
+                        if (attributeModifier.ModifiedAttribute == AttributeDefinitions.ChannelDivinityNumber)
                         {
                             __instance.RecoveredFeatures.Add(attributeModifier);
                             break;
@@ -66,49 +66,41 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                     }
                 }
 
-                if (restType == RuleDefinitions.RestType.LongRest && __instance.TryGetAttributeValue("HealingPool") > 0 && (__instance.UsedHealingPool > 0 && !simulate))
+                if (restType == RuleDefinitions.RestType.LongRest && __instance.TryGetAttributeValue(AttributeDefinitions.HealingPool) > 0 && (__instance.UsedHealingPool > 0 && !simulate))
                 {
                     __instance.SetField("usedHealingPool", 0);
                 }
 
-                if (restType == RuleDefinitions.RestType.LongRest && __instance.TryGetAttributeValue("SorceryPoints") > 0 && (__instance.UsedSorceryPoints > 0 && !simulate))
+                if (restType == RuleDefinitions.RestType.LongRest && __instance.TryGetAttributeValue(AttributeDefinitions.SorceryPoints) > 0 && (__instance.UsedSorceryPoints > 0 && !simulate))
                 {
                     __instance.SetField("usedSorceryPoints", 0);
                 }
 
-                if (restType == RuleDefinitions.RestType.LongRest && __instance.TryGetAttributeValue("RagePoints") > 0 && (__instance.UsedRagePoints > 0 && !simulate))
+                if (restType == RuleDefinitions.RestType.LongRest && __instance.TryGetAttributeValue(AttributeDefinitions.RagePoints) > 0 && (__instance.UsedRagePoints > 0 && !simulate))
                 {
                     __instance.SetField("usedRagePoints", 0);
                 }
 
-                if (restType == RuleDefinitions.RestType.LongRest && __instance.TryGetAttributeValue("IndomitableResistances") > 0 && (__instance.UsedIndomitableResistances > 0 && !simulate))
+                if (restType == RuleDefinitions.RestType.LongRest && __instance.TryGetAttributeValue(AttributeDefinitions.IndomitableResistances) > 0 && (__instance.UsedIndomitableResistances > 0 && !simulate))
                 {
                     __instance.SetField("usedIndomitableResistances", 0);
                 }
 
-#pragma warning disable S1066 // Collapsible "if" statements should be merged
-                if (!simulate)
+                if (!simulate && __instance.TryGetAttribute(AttributeDefinitions.RelentlessRageDC, out var rulesetAttribute))
                 {
-                    if (__instance.TryGetAttribute("RelentlessRageDC", out var rulesetAttribute))
-                    {
-                        rulesetAttribute.RemoveModifiersByTags("09Health");
-                        rulesetAttribute.Refresh();
-                    }
+                    rulesetAttribute.RemoveModifiersByTags(AttributeDefinitions.TagHealth);
+                    rulesetAttribute.Refresh();
                 }
 
-                if (!simulate)
+                if (!simulate && __instance.TryGetAttribute(AttributeDefinitions.FrenzyExhaustionDC, out var rulesetAttribute1))
                 {
-                    if (__instance.TryGetAttribute("FrenzyExhaustionDC", out var rulesetAttribute))
-                    {
-                        rulesetAttribute.RemoveModifiersByTags("09Health");
-                        rulesetAttribute.Refresh();
-                    }
+                    rulesetAttribute1.RemoveModifiersByTags(AttributeDefinitions.TagHealth);
+                    rulesetAttribute1.Refresh();
                 }
-#pragma warning restore S1066 // Collapsible "if" statements should be merged
 
                 foreach (RulesetSpellRepertoire spellRepertoire in __instance.SpellRepertoires)
                 {
-                    if (spellRepertoire.SpellCastingFeature.SlotsRecharge == RuleDefinitions.RechargeRate.ShortRest && (restType == RuleDefinitions.RestType.ShortRest || restType == RuleDefinitions.RestType.LongRest) || spellRepertoire.SpellCastingFeature.SlotsRecharge == RuleDefinitions.RechargeRate.LongRest && restType == RuleDefinitions.RestType.LongRest)
+                    if ((spellRepertoire.SpellCastingFeature.SlotsRecharge == RuleDefinitions.RechargeRate.ShortRest && (restType == RuleDefinitions.RestType.ShortRest || restType == RuleDefinitions.RestType.LongRest)) || (spellRepertoire.SpellCastingFeature.SlotsRecharge == RuleDefinitions.RechargeRate.LongRest && restType == RuleDefinitions.RestType.LongRest))
                     {
                         if (!simulate)
                         {
@@ -149,7 +141,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                     return;
                 }
 
-                if (!(__instance is RulesetCharacterHero heroWithSpellRepertoire))
+                if (__instance is not RulesetCharacterHero heroWithSpellRepertoire)
                 {
                     return;
                 }
@@ -208,7 +200,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
         [HarmonyPatch(typeof(RulesetCharacter), "RefreshSpellRepertoires")]
         internal static class RulesetCharacterRefreshSpellRepertoires
         {
-            private static readonly Dictionary<int, int> affinityProviderAdditionalSlots = new Dictionary<int, int>();
+            private static readonly Dictionary<int, int> affinityProviderAdditionalSlots = new();
 
             internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
@@ -224,7 +216,6 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                     }
                     else if (instruction.Calls(computeSpellSlotsMethod))
                     {
-                        yield return new CodeInstruction(OpCodes.Ldarg_0);
                         yield return new CodeInstruction(OpCodes.Call, myComputeSpellSlotsMethod);
                     }
                     else if (instruction.opcode == OpCodes.Brtrue_S)
@@ -241,7 +232,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
             }
 
             // custom implementation that keeps a tab on additional spell slots that are granted from ISpellCastingAffinityProvider
-            public static void MyComputeSpellSlots(RulesetSpellRepertoire spellRepertoire, List<FeatureDefinition> spellCastingAffinities, RulesetCharacter heroWithSpellRepertoire)
+            public static void MyComputeSpellSlots(RulesetSpellRepertoire spellRepertoire, List<FeatureDefinition> spellCastingAffinities)
             {
                 if (!Models.SharedSpellsContext.IsEnabled || spellCastingAffinities == null)
                 {
@@ -289,7 +280,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                     return;
                 }
 
-                if (!(rulesetCharacter is RulesetCharacterHero heroWithSpellRepertoire))
+                if (rulesetCharacter is not RulesetCharacterHero heroWithSpellRepertoire)
                 {
                     return;
                 }

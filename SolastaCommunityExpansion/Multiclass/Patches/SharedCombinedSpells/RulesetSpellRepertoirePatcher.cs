@@ -211,6 +211,13 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
             {
                 if (!Main.Settings.EnableMulticlass)
                 {
+                    if (Main.Settings.EnableLevel20 && __instance.SpellCastingFeature != null && __instance.SpellCastingLevel > 0)
+                    {
+                        var slotsPerLevel = __instance.SpellCastingFeature.SlotsPerLevels[__instance.SpellCastingLevel - 1];
+
+                        __result = slotsPerLevel.Slots.IndexOf(0);
+                    }
+
                     return;
                 }
 
@@ -275,8 +282,8 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                         var usedSpellsSlots = spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
                         var spellsSlotCapacities = spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("spellsSlotCapacities");
 
-                        if (usedSpellsSlots.ContainsKey(key) 
-                            && spellsSlotCapacities.ContainsKey(key) 
+                        if (usedSpellsSlots.ContainsKey(key)
+                            && spellsSlotCapacities.ContainsKey(key)
                             && usedSpellsSlots[key] > 0)
                         {
                             usedSpellsSlots[key] = UnityEngine.Mathf.Max(0, usedSpellsSlots[key] - recoveredSlot.Value);
@@ -326,7 +333,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
 
                     if (!Models.SharedSpellsContext.IsCombined && spellRepertoire.SpellCastingClass != Models.IntegrationContext.WarlockClass)
                     {
-                        continue;  
+                        continue;
                     }
 
                     var usedSpellsSlots = spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");

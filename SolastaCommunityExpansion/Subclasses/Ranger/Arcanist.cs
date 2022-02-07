@@ -6,8 +6,8 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 
 namespace SolastaCommunityExpansion.Subclasses.Ranger
 {

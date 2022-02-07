@@ -24,10 +24,13 @@ namespace SolastaCommunityExpansion.Models
                 Definition.GuiPresentation.Description = "RestActivity/&ZSLevelDownDescription";
                 Definition.SetCondition(ActivityConditionCanLevelDown);
                 Definition.SetFunctor(LevelDownName);
-                ServiceRepository.GetService<IFunctorService>().RegisterFunctor(LevelDownName, new Models.LevelDownContext.FunctorLevelDown());
+                ServiceRepository.GetService<IFunctorService>().RegisterFunctor(LevelDownName, new FunctorLevelDown());
             }
 
-            private static RestActivityDefinition CreateAndAddToDB(string name, string guid) => new RestActivityLevelDownBuilder(name, guid).AddToDB();
+            private static RestActivityDefinition CreateAndAddToDB(string name, string guid)
+            {
+                return new RestActivityLevelDownBuilder(name, guid).AddToDB();
+            }
 
             internal static readonly RestActivityDefinition RestActivityLevelDown = CreateAndAddToDB(LevelDownName, LevelDownGuid);
         }
@@ -36,7 +39,7 @@ namespace SolastaCommunityExpansion.Models
         {
             public override IEnumerator Execute(
               FunctorParametersDescription functorParameters,
-              Functor.FunctorExecutionContext context)
+              FunctorExecutionContext context)
             {
                 var rulesetCharacterHero = functorParameters.RestingHero;
                 var state = -1;

@@ -185,7 +185,10 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             return repertoires?.Count > 1;
         }
 
-        internal static bool IsWarlock(CharacterClassDefinition characterClassDefinition) => characterClassDefinition == IntegrationContext.WarlockClass;
+        internal static bool IsWarlock(CharacterClassDefinition characterClassDefinition)
+        {
+            return characterClassDefinition == IntegrationContext.WarlockClass;
+        }
 
         internal static int GetWarlockLevel(RulesetCharacterHero rulesetCharacterHero)
         {
@@ -224,7 +227,10 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             return 0;
         }
 
-        internal static RulesetSpellRepertoire GetWarlockSpellRepertoire(RulesetCharacterHero rulesetCharacterHero) => rulesetCharacterHero?.SpellRepertoires.FirstOrDefault(x => IsWarlock(x.SpellCastingClass));
+        internal static RulesetSpellRepertoire GetWarlockSpellRepertoire(RulesetCharacterHero rulesetCharacterHero)
+        {
+            return rulesetCharacterHero?.SpellRepertoires.FirstOrDefault(x => IsWarlock(x.SpellCastingClass));
+        }
 
         internal static int GetSharedCasterLevel(RulesetCharacterHero rulesetCharacterHero)
         {
@@ -339,7 +345,10 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             return classCasterLevel;
         }
 
-        internal static int GetCombinedSpellLevel(RulesetCharacterHero rulesetCharacterHero) => Math.Max(GetWarlockSpellLevel(rulesetCharacterHero), GetSharedSpellLevel(rulesetCharacterHero));
+        internal static int GetCombinedSpellLevel(RulesetCharacterHero rulesetCharacterHero)
+        {
+            return Math.Max(GetWarlockSpellLevel(rulesetCharacterHero), GetSharedSpellLevel(rulesetCharacterHero));
+        }
 
         // allows casters to use slots above their caster level if multiclassed
         internal static void Load()

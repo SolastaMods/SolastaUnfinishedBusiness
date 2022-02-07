@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                 if (Models.LevelUpContext.LevelingUp && Models.LevelUpContext.IsMulticlass)
                 {
                     __result = Models.LevelUpContext.FilteredFeaturesUnlocks(__result);
-                }  
+                }
             }
         }
     }

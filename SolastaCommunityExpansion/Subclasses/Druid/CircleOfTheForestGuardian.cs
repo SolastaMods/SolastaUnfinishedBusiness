@@ -5,10 +5,10 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
 using SolastaModApi.Extensions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
-using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 using static FeatureDefinitionAttributeModifier.AttributeModifierOperation;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Druid
 {
