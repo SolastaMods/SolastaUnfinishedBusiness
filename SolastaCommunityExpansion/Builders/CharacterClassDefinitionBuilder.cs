@@ -31,6 +31,11 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
+        public static CharacterClassDefinitionBuilder Create(string name, Guid namespaceGuid)
+        {
+            return new CharacterClassDefinitionBuilder(name, namespaceGuid);
+        }
+
         public CharacterClassDefinitionBuilder SetHitDice(RuleDefinitions.DieType die)
         {
             Definition.SetHitDice(die);
