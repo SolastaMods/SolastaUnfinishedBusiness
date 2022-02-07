@@ -96,7 +96,9 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                         .SetGuiPresentation("ConditionSpellShieldArcaneDeflection", Category.Subclass, ConditionDefinitions.ConditionShielded.GuiPresentation.SpriteReference)
                         .AddToDB(),
                 },
-                RuleDefinitions.DurationType.Round, 1, false).AddToDB();
+                RuleDefinitions.DurationType.Round, 1, false)
+                .SetGuiPresentation(Category.Subclass)
+                .AddToDB();
             arcaneDeflection.AddEffectForm(new EffectFormBuilder().CreatedByCharacter().SetConditionForm(deflectionCondition, ConditionForm.ConditionOperation.Add,
                 true, true, new List<ConditionDefinition>()).Build());
 

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using SolastaCommunityExpansion;
+using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Diagnostics;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
@@ -21,11 +23,10 @@ namespace SolastaModApi
             return GuidHelper.Create(guid, name).ToString();
         }
 
-        public static bool LogDefinitionCreation { get; set; }
-
+        [Conditional("DEBUG")]
         protected static void LogDefinition(string msg)
         {
-            if (LogDefinitionCreation)
+            if (Main.Settings.DebugLogDefinitionCreation)
             {
                 Main.Log(msg);
             }
@@ -79,7 +80,7 @@ namespace SolastaModApi
                 {
                     try
                     {
-                        Main.Log($"Initializing field {field.Name} on Type={Definition.GetType().Name}, Name={Definition.Name}");
+                        LogFieldInitialization($"Initializing field {field.Name} on Type={Definition.GetType().Name}, Name={Definition.Name}");
 
                         field.SetValue(Definition, Activator.CreateInstance(field.FieldType));
                     }
@@ -91,6 +92,15 @@ namespace SolastaModApi
 
                 // So travel down the hierarchy
                 InitializeCollectionFields(type.BaseType);
+
+                [Conditional("DEBUG")]
+                static void LogFieldInitialization(string message)
+                {
+                    if (Main.Settings.DebugLogFieldInitialization)
+                    {
+                        Main.Log(message);
+                    }
+                }
             }
 #pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
         }
@@ -244,6 +254,8 @@ namespace SolastaModApi
                 throw new SolastaModApiException($"The string in Definition.GUID '{Definition.GUID}' is not a GUID.");
             }
 
+            VerifyGuiPresentation();
+
             // Get all base types for the target definition.  The definition needs to be added to all matching databases.
             // e.g. ConditionAffinityBlindnessImmunity is added to dbs: FeatureDefinitionConditionAffinity, FeatureDefinitionAffinity, FeatureDefinition
             var types = GetBaseTypes(Definition.GetType());
@@ -351,6 +363,32 @@ namespace SolastaModApi
                 else
                 {
                     return Enumerable.Empty<Type>();
+                }
+            }
+
+            void VerifyGuiPresentation()
+            {
+                if (Definition.GuiPresentation == null)
+                {
+                    Main.Log($"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation, setting to NoContent.");
+
+                    Definition.GuiPresentation = GuiPresentationBuilder.NoContent;
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(Definition.GuiPresentation.Title))
+                    {
+                        Main.Log($"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Title, setting to NoContent.");
+
+                        Definition.GuiPresentation.Title = GuiPresentationBuilder.NoContentTitle;
+                    }
+
+                    if (string.IsNullOrEmpty(Definition.GuiPresentation.Description))
+                    {
+                        Main.Log($"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Description, setting to NoContent.");
+
+                        Definition.GuiPresentation.Description = GuiPresentationBuilder.NoContentDescription;
+                    }
                 }
             }
         }

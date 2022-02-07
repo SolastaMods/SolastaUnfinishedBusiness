@@ -233,8 +233,14 @@ namespace SolastaCommunityExpansion
         public bool EnableCheatMenu { get; set; }
         public bool NoExperienceOnLevelUp { get; set; }
 
-        public bool ShowTADefinitionsWithMissingGuiPresentation { get; set; }
-        public bool ShowCEDefinitionsWithMissingGuiPresentation { get; set; } = true;
+#if DEBUG
+        public bool DebugShowTADefinitionsWithMissingGuiPresentation { get; set; }
+        public bool DebugShowCEDefinitionsWithMissingGuiPresentation { get; set; } = true;
+        public bool DebugLogCEDefinitionsToFile { get; set; } = true;
+        public bool DebugLogCEGuiPresentationsToFile { get; set; } = true;
+        public bool DebugLogDefinitionCreation { get; set; }
+        public bool DebugLogFieldInitialization { get; set; }
+#endif
 
         // Faction Relations
 

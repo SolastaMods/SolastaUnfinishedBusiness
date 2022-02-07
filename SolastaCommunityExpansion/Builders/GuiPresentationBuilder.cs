@@ -91,10 +91,15 @@ namespace SolastaCommunityExpansion.Builders
 
         // TODO: More Build/Generate(...) overloads as required
 
+        private const string NothingToSee = "NoContent";
+
+        public static readonly string NoContentTitle = CreateTitleKey(NothingToSee, Category.Feature);
+        public static readonly string NoContentDescription = CreateDescriptionKey(NothingToSee, Category.Feature);
+
         /// <summary>
         /// GuiPresentation representing 'No content title and description'
         /// </summary>
-        public static GuiPresentation NoContent { get; } = Build("NoContent", Category.Feature);
+        public static GuiPresentation NoContent { get; } = Build(NothingToSee, Category.Feature);
     }
 
     internal static class BaseDefinitionBuilderGuiPresentationExtensions
