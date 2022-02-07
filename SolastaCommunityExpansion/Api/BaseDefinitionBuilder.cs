@@ -207,9 +207,9 @@ namespace SolastaModApi
         /// <summary>
         /// Create clone and rename. Automatically generate a guid from baseGuid plus name.
         /// </summary>
-        /// <param name="original">The definition being copied</param>
-        /// <param name="name">The name assigned to the definition (mandatory)</param>
-        /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition, based on baseGuid+name (mandatory)</param>
+        /// <param name="original">The definition being copied.</param>
+        /// <param name="name">The name assigned to the definition (mandatory).</param>
+        /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition, based on baseGuid+name (mandatory).</param>
         protected BaseDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) :
             this(original, name, null, namespaceGuid, true, Category.None)
         {
@@ -219,15 +219,11 @@ namespace SolastaModApi
         /// Create clone and rename. Assign the supplied guid as the definition guid.
         /// Assigns a GuiPresentation with a generated title key and description key.
         /// </summary>
-        /// <param name="original"></param>
-        /// <param name="name">The name assigned to the definition (mandatory)</param>
-        /// <param name="definitionGuid">The guid for this definition (mandatory)</param>
-        /// <param name="category">Used to generate title and description on the GuiPresentation.  The generated fields if
-        /// name="MyDefinition" and category="MyCategory" are: MyCategory/&amp;MyDefinitionTitle and MyCategory/&amp;MyDefinitionDescription.
-        /// If category=null then the copied GuiPresentation is not altered.
-        /// </param>
-        protected BaseDefinitionBuilder(TDefinition original, string name, string definitionGuid, Category category) :
-            this(original, name, definitionGuid, Guid.Empty, false, category)
+        /// <param name="original">The definition being copied.</param>
+        /// <param name="name">The name assigned to the definition (mandatory).</param>
+        /// <param name="definitionGuid">The guid for this definition (mandatory).</param>
+        protected BaseDefinitionBuilder(TDefinition original, string name, string definitionGuid) :
+            this(original, name, definitionGuid, Guid.Empty, false, Category.None)
         {
         }
 
@@ -246,7 +242,7 @@ namespace SolastaModApi
 
             if (useNamespaceGuid)
             {
-                if(namespaceGuid == Guid.Empty)
+                if (namespaceGuid == Guid.Empty)
                 {
                     throw new ArgumentException("Please supply a non-empty Guid", nameof(namespaceGuid));
                 }
@@ -337,16 +333,6 @@ namespace SolastaModApi
             Definition.GuiPresentation = guiPresentation;
 
             LogDefinition($"Old-Creating definition: ({name}, guid={Definition.GUID})");
-        }
-
-        /// <summary>
-        /// Create clone and rename
-        /// </summary>
-        /// <param name="original">The original definition to be cloned.</param>
-        /// <param name="name">The new unique name assigned to the definition (mandatory)</param>
-        /// <param name="guid">The new unique guid assigned to the definition (mandatory)</param>
-        protected BaseDefinitionBuilder(TDefinition original, string name, string guid) : this(original, name, guid, Category.None)
-        {
         }
 
         /// <summary>
