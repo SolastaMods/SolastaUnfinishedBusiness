@@ -29,7 +29,7 @@ namespace SolastaCommunityExpansion.Models
             pickpocket_check_affinity.AffinityGroups.SetRange(pickpocketAbilityCheckAffinityGroup);
 
             FeatureDefinitionProficiency pickpocket_proficiency = FeatureDefinitionProficiencyBuilder
-                .CreateCopyFrom(DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyFeatLockbreaker, "ProficiencyFeatPickPocket", "d8046b0c-2f93-4b47-b2dd-110234a4a848")
+                .Create(DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyFeatLockbreaker, "ProficiencyFeatPickPocket", "d8046b0c-2f93-4b47-b2dd-110234a4a848")
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 

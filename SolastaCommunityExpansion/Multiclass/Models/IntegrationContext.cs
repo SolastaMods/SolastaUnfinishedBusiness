@@ -83,7 +83,6 @@ namespace SolastaCommunityExpansion.Multiclass.Models
                     {
                         return false;
                     }
-
                 }
             }
 

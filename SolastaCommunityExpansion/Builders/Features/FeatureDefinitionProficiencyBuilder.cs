@@ -57,7 +57,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public static FeatureDefinitionProficiencyBuilder CreateCopyFrom(FeatureDefinitionProficiency original, string name, string guid)
+        public static FeatureDefinitionProficiencyBuilder Create(FeatureDefinitionProficiency original, string name, string guid)
         {
             return new FeatureDefinitionProficiencyBuilder(original, name, guid);
         }
