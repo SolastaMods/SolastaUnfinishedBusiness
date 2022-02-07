@@ -112,6 +112,13 @@ namespace SolastaCommunityExpansion.Models
                     .ThenBy(x => x.GetType().Name)
                     .Select(d => $"{d.Name}, {d.GUID}"));
 
+            File.WriteAllLines($"GuiPresentations-{DateTime.Now:yyyy-MM-dd_HH-mm}.txt",
+                allDefinitions
+                    .Except(TABaseDefinitions)
+                    .OrderBy(x => x.Name)
+                    .ThenBy(x => x.GetType().Name)
+                    .Select(d => $"{d.Name}-{d.GetType().Name}: {d?.GuiPresentation?.Title ?? string.Empty}, {d?.GuiPresentation?.Description ?? string.Empty}"));
+
             Main.Log("PostCELoad GuiPresentation Check end --------------------------------------------------");
         }
     }

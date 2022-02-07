@@ -6,26 +6,33 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionBonusCantripsBuilder : BaseDefinitionBuilder<FeatureDefinitionBonusCantrips>
+    public sealed class FeatureDefinitionBonusCantripsBuilder : BaseDefinitionBuilder<FeatureDefinitionBonusCantrips>
     {
-        public FeatureDefinitionBonusCantripsBuilder(string name, string guid)
+/*        private FeatureDefinitionBonusCantripsBuilder(string name, string guid)
             : base(name, guid)
         {
         }
 
-        public FeatureDefinitionBonusCantripsBuilder(string name, Guid namespaceGuid, Category category = Category.None)
+        private FeatureDefinitionBonusCantripsBuilder(string name, Guid namespaceGuid, Category category = Category.None)
             : base(name, namespaceGuid, category)
         {
         }
 
-        public FeatureDefinitionBonusCantripsBuilder(FeatureDefinitionBonusCantrips original, string name, string guid)
+        private FeatureDefinitionBonusCantripsBuilder(FeatureDefinitionBonusCantrips original, string name, string guid)
             : base(original, name, guid)
         {
         }
-
-        public FeatureDefinitionBonusCantripsBuilder(FeatureDefinitionBonusCantrips original, string name, Guid namespaceGuid, Category category = Category.None)
-            : base(original, name, namespaceGuid, category)
+*/
+        private FeatureDefinitionBonusCantripsBuilder(FeatureDefinitionBonusCantrips original, string name, Guid namespaceGuid)
+            : base(original, name, namespaceGuid, Category.None)
         {
+        }
+
+        // Add other standard Create methods and constructors as required.
+
+        public static FeatureDefinitionBonusCantripsBuilder Create(FeatureDefinitionBonusCantrips original, string name, Guid namespaceGuid)
+        {
+            return new FeatureDefinitionBonusCantripsBuilder(original, name, namespaceGuid);
         }
 
         public FeatureDefinitionBonusCantripsBuilder ClearBonusCantrips()

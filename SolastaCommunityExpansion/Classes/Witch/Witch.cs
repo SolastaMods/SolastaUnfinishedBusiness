@@ -105,26 +105,28 @@ namespace SolastaCommunityExpansion.Classes.Witch
                      SetGuiPresentation("WitchSavingthrowProficiency", Category.Class)
                     .AddToDB();
 
-            FeatureDefinitionPointPoolSkills = new FeatureDefinitionPointPoolBuilder(
-                        "PointPoolWitchSkillPoints", WITCH_BASE_GUID, HeroDefinitions.PointsPoolType.Skill, 2)
-                    .SetGuiPresentation("WitchSkillProficiency", Category.Class)
-                    .RestrictChoices(
-                        SkillDefinitions.Arcana,
-                        SkillDefinitions.Deception,
-                        SkillDefinitions.Insight,
-                        SkillDefinitions.Intimidation,
-                        SkillDefinitions.Persuasion,
-                        SkillDefinitions.Nature,
-                        SkillDefinitions.Religion)
-                    .AddToDB();
+            FeatureDefinitionPointPoolSkills = FeatureDefinitionPointPoolBuilder
+                .Create("PointPoolWitchSkillPoints", WITCH_BASE_GUID)
+                .SetGuiPresentation("WitchSkillProficiency", Category.Class)
+                .SetPool(HeroDefinitions.PointsPoolType.Skill, 2)
+                .RestrictChoices(
+                    SkillDefinitions.Arcana,
+                    SkillDefinitions.Deception,
+                    SkillDefinitions.Insight,
+                    SkillDefinitions.Intimidation,
+                    SkillDefinitions.Persuasion,
+                    SkillDefinitions.Nature,
+                    SkillDefinitions.Religion)
+                .AddToDB();
 
-            FeatureDefinitionPointPoolTools = new FeatureDefinitionPointPoolBuilder(
-                        "ProficiencyWitchTool", WITCH_BASE_GUID, HeroDefinitions.PointsPoolType.Tool, 1)
-                    .SetGuiPresentation("WitchToolProficiency", Category.Class)
-                    .RestrictChoices(
-                        ToolTypeDefinitions.HerbalismKitType.Name,
-                        ToolTypeDefinitions.PoisonersKitType.Name)
-                    .AddToDB();
+            FeatureDefinitionPointPoolTools = FeatureDefinitionPointPoolBuilder
+                .Create("ProficiencyWitchTool", WITCH_BASE_GUID)
+                .SetGuiPresentation("WitchToolProficiency", Category.Class)
+                .SetPool(HeroDefinitions.PointsPoolType.Tool, 1)
+                .RestrictChoices(
+                    ToolTypeDefinitions.HerbalismKitType.Name,
+                    ToolTypeDefinitions.PoisonersKitType.Name)
+                .AddToDB();
         }
 
         private static void BuildSpells()
@@ -353,8 +355,9 @@ namespace SolastaCommunityExpansion.Classes.Witch
             }
 
             // Build our spellCast object containing previously created spell list
-            var classSpellCast = new FeatureDefinitionCastSpellBuilder("CastSpellWitch", WITCH_BASE_GUID)
-                .SetGuiPresentation("WitchSpellcasting", Category.Spell)
+            var classSpellCast = FeatureDefinitionCastSpellBuilder
+                .Create("CastSpellWitch", WITCH_BASE_GUID)
+                .SetGuiPresentation("WitchSpellcasting", Category.Class)
                 .SetKnownCantrips(4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6)
                 .SetKnownSpells(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 13, 13, 14, 14, 15, 15, 15, 15);
 
@@ -429,16 +432,16 @@ namespace SolastaCommunityExpansion.Classes.Witch
             //+ Visions: Add CHA to initiative, on top of DEX
             //- Whispers: can communicate telepathically 30 feet
 
-            var burnedFireRes = new FeatureDefinitionDamageAffinityBuilder(
-                FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
-                "WitchBurnedFireResistance", WITCH_BASE_GUID, Category.Class)
+            var burnedFireRes = FeatureDefinitionDamageAffinityBuilder
+                .Create(FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance, "WitchBurnedFireResistance", WITCH_BASE_GUID)
+                .SetGuiPresentation(Category.Class)
                 .AddToDB();
 
-            var burnedProduceFlame = new FeatureDefinitionBonusCantripsBuilder(
-                FeatureDefinitionBonusCantripss.BonusCantripsDomainElementaFire,
-                "WitchBurnedProduceFlame", WITCH_BASE_GUID, Category.Class)
-                    .SetBonusCantrips(SpellDefinitions.ProduceFlame)
-                    .AddToDB();
+            var burnedProduceFlame = FeatureDefinitionBonusCantripsBuilder
+                .Create(FeatureDefinitionBonusCantripss.BonusCantripsDomainElementaFire, "WitchBurnedProduceFlame", WITCH_BASE_GUID)
+                .SetGuiPresentation(Category.Class)
+                .SetBonusCantrips(SpellDefinitions.ProduceFlame)
+                .AddToDB();
 
             var burnedCurse = FeatureDefinitionFeatureSetBuilder
                 .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
@@ -743,7 +746,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
             ruinConditionDefinition.RecurrentEffectForms.Clear();
             ruinConditionDefinition.Features.Clear();
             ruinConditionDefinition.Features.Add(
-                new FeatureDefinitionAttributeModifierBuilder("Ruined", WITCH_BASE_GUID)
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create("Ruined", WITCH_BASE_GUID)
                     .SetGuiPresentation(Category.Modifier, ConditionDefinitions.ConditionAcidArrowed.GuiPresentation.SpriteReference)
                     .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, -3)
                     .AddToDB());

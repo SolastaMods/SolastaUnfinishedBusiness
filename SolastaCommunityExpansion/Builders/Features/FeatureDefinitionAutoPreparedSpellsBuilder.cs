@@ -32,6 +32,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
+        // Add other standard Create methods and constructors as required.
 
         public static FeatureDefinitionAutoPreparedSpellsBuilder Create(string name, Guid namespaceGuid)
         {

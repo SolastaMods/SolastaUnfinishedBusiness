@@ -5,27 +5,29 @@ using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionAttributeModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttributeModifier>
+    public sealed class FeatureDefinitionAttributeModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttributeModifier>
     {
-        public FeatureDefinitionAttributeModifierBuilder(string name, string guid)
+/*        private FeatureDefinitionAttributeModifierBuilder(FeatureDefinitionAttributeModifier original, string name, string guid)
+            : base(original, name, guid)
+        {
+        }
+*/
+        private FeatureDefinitionAttributeModifierBuilder(string name, string guid)
             : base(name, guid)
         {
         }
 
-        public FeatureDefinitionAttributeModifierBuilder(string name, Guid namespaceGuid, Category category = Category.None)
+        private FeatureDefinitionAttributeModifierBuilder(string name, Guid namespaceGuid, Category category = Category.None)
             : base(name, namespaceGuid, category)
         {
         }
 
-        public FeatureDefinitionAttributeModifierBuilder(FeatureDefinitionAttributeModifier original, string name, string guid)
-            : base(original, name, guid)
-        {
-        }
-
-        public FeatureDefinitionAttributeModifierBuilder(FeatureDefinitionAttributeModifier original, string name, Guid namespaceGuid, Category category = Category.None)
+        private FeatureDefinitionAttributeModifierBuilder(FeatureDefinitionAttributeModifier original, string name, Guid namespaceGuid, Category category = Category.None)
             : base(original, name, namespaceGuid, category)
         {
         }
+
+        // Add other standard Create methods and constructors as required.
 
         public static FeatureDefinitionAttributeModifierBuilder Create(string name, Guid namespaceGuid)
         {

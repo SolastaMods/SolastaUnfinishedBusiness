@@ -537,7 +537,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             {
                 var result = new List<RulesetSpellRepertoire>();
 
-                result.AddRange(rulesetCharacter.SpellRepertoires.Where(x => SpellsContext.IsRepertoireFromSelectedClassSubclass(x)));
+                result.AddRange(rulesetCharacter.SpellRepertoires.Where(x => CacheSpellsContext.IsRepertoireFromSelectedClassSubclass(x)));
 
                 return result;
             }

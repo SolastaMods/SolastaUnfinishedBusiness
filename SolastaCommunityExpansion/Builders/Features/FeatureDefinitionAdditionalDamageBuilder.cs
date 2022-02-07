@@ -10,27 +10,29 @@ namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionAdditionalDamageBuilder : BaseDefinitionBuilder<FeatureDefinitionAdditionalDamage>
     {
-        public FeatureDefinitionAdditionalDamageBuilder(string name, string guid)
+        /*
+        private FeatureDefinitionAdditionalDamageBuilder(string name, string guid)
             : base(name, guid)
         {
         }
 
-        public FeatureDefinitionAdditionalDamageBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
-        {
-        }
-
-        public FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original, string name, string guid)
+        private FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original, string name, string guid)
             : base(original, name, guid)
         {
         }
 
-        public FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original, string name, Guid namespaceGuid, Category category = Category.None)
-            : base(original, name, namespaceGuid, category)
+        public FeatureDefinitionAdditionalDamageBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid, Category.None)
+        {
+        }
+        */
+
+        private FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original, string name, Guid namespaceGuid)
+            : base(original, name, namespaceGuid, Category.None)
         {
         }
 
-        // TODO: remove this ctor
+        // TODO: remove this ctor (replace with smaller methods)
         public FeatureDefinitionAdditionalDamageBuilder(string name, string guid,
             string notificationTag, RuleDefinitions.FeatureLimitedUsage limitedUsage,
             RuleDefinitions.AdditionalDamageValueDetermination damageValueDetermination,
@@ -56,6 +58,13 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.DiceByRankTable.SetRange(diceByRankTable);
             Definition.SetDamageDieType(damageDieType);
             Definition.SetGuiPresentation(guiPresentation);
+        }
+
+        // Add other standard Create methods and constructors as required.
+
+        public static FeatureDefinitionAdditionalDamageBuilder Create(FeatureDefinitionAdditionalDamage original, string name, Guid namespaceGuid)
+        {
+            return new FeatureDefinitionAdditionalDamageBuilder(original, name, namespaceGuid);
         }
 
         public FeatureDefinitionAdditionalDamageBuilder SetSpecificDamageType(string damageType)
