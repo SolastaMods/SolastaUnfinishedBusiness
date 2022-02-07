@@ -16,6 +16,16 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro
         //
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
+            if (!Main.Settings.EnableMulticlass)
+            {
+                foreach (var instruction in instructions)
+                {
+                    yield return instruction;
+                }
+
+                yield break;
+            }
+
             var found = 0;
             var setLocalPositionMethod = typeof(Transform).GetMethod("set_localPosition");
             var getTemplateVegetationMaskAreaMethod = typeof(Models.DmProRendererContext).GetMethod("GetTemplateVegetationMaskArea");
@@ -33,11 +43,7 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro
 
             foreach (var instruction in instructions)
             {
-                if (!Main.Settings.EnableDungeonMakerPro)
-                {
-                    yield return instruction;
-                }
-                else if (instruction.Calls(setLocalPositionMethod) && ++found == 1)
+                if (instruction.Calls(setLocalPositionMethod) && ++found == 1)
                 {
                     yield return new CodeInstruction(OpCodes.Ldloc_S, 8); // roomTransform 4
                     yield return new CodeInstruction(OpCodes.Ldloc_S, 4); // userRoom 2
