@@ -219,26 +219,29 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         var spellListName = spellListDefinition.Name;
                         var spellListTitle = spellListsTitles.ElementAt(current);
 
-                        if (spellDefinition.SpellLevel != 0 || spellListDefinition.HasCantrips)
+                        if (spellDefinition.SpellLevel > spellListDefinition.MaxSpellLevel
+                            || (spellDefinition.SpellLevel == 0 && !spellListDefinition.HasCantrips))
                         {
-                            toggle = Main.Settings.SpellSpellListEnabled[spellName].Contains(spellListName);
-                            if (UI.Toggle(spellListTitle, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
-                            {
-                                if (toggle)
-                                {
-                                    Main.Settings.SpellSpellListEnabled[spellName].Add(spellListName);
-                                }
-                                else
-                                {
-                                    Main.Settings.SpellSpellListEnabled[spellName].Remove(spellListName);
-                                }
-
-                                SpellsContext.SwitchSpellList(spellDefinition, spellListDefinition);
-                            }
-
-                            columns--;
+                            current++;
+                            continue;
                         }
 
+                        toggle = Main.Settings.SpellSpellListEnabled[spellName].Contains(spellListName);
+                        if (UI.Toggle(spellListTitle, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                        {
+                            if (toggle)
+                            {
+                                Main.Settings.SpellSpellListEnabled[spellName].Add(spellListName);
+                            }
+                            else
+                            {
+                                Main.Settings.SpellSpellListEnabled[spellName].Remove(spellListName);
+                            }
+
+                            SpellsContext.SwitchSpellList(spellDefinition, spellListDefinition);
+                        }
+
+                        columns--;
                         current++;
                     }
                 }
