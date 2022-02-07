@@ -1143,8 +1143,8 @@ namespace SolastaCommunityExpansion.Spells
         {
             private const string Name = "DHHolyAuraSpellBlindingPower";
             private const string Guid = "40366ca2-00a0-471a-b370-8c81f6283ce1";
-            private const string TitleString = "Feature/&DHHolyAura_BlindingPower_Title";
-            private const string DescriptionString = "Feataure/&DHHolyAura_BlindingPower_Description";
+            private const string TitleString = "Feature/&DHHolyAuraBlindingPowerTitle";
+            private const string DescriptionString = "Feature/&DHHolyAuraBlindingPowerDescription";
 
             protected HolyAuraBlindingPowerBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionPowers.PowerOathOfMotherlandFieryPresence, name, guid)
             {

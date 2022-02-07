@@ -558,7 +558,7 @@ Feat/&UseArmorWeaponsAsFocusDescription	You can use the armor's weapons as a spe
 Feat/&UseArmorWeaponsAsFocusTitle	Spellcasting focus
 Feat/&UsingitemPowerDescription	Allows weapon power to be used on bonus action
 Feat/&UsingitemPowerTitle	Use Weapon Power
-Feataure/&DHHolyAura_BlindingPower_Description	When a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends
+Feature/&DHHolyAuraBlindingPowerDescription	When a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends
 Feature/&AdditionalActionDualFlurryDescription	You may make an additional off-hand attack.
 Feature/&AdditionalActionDualFlurryTitle	Dual Flurry!
 Feature/&AftificerSpecialistArchetypesTitle Tinkerer Specializations
@@ -578,7 +578,7 @@ Feature/&BarbarianIndomitableMightDescription	If your total for a Strength check
 Feature/&BarbarianIndomitableMightTitle	Indomitable Might
 Feature/&CounterStrikePowerDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
 Feature/&CounterStrikePowerTitle	Counter Strike
-Feature/&DHHolyAura_BlindingPower_Title	Holy Aura Retaliation
+Feature/&DHHolyAuraBlindingPowerTitle	Holy Aura Retaliation
 Feature/&DruidForestGuardianBarkWardDescription	You gain the ability to summon a Bark Ward to protect you. As a bonus action, you can expend a use of your Wild Shape to gain 5 temporary hit points for each level you have in this class. These temporary hit points last for 10 minutes, or until you use your Wild Shape again.
 Feature/&DruidForestGuardianBarkWardTitle	Bark Ward
 Feature/&DruidForestGuardianExtraAttackDescription	Starting at 6th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.
