@@ -6,16 +6,27 @@
     public enum Category
     {
         None = 0,
+        Action,
+        ActionAffinity,
+        AttributeModifier,
+        CharacterFamily,
         Class,
         Condition,
+        CraftyFeats,
+        DamageAffinity,
+        Equipment,
         Feat,
         Feature,
+        FightingStyle,
         FlexibleBackgrounds,
         FlexibleRaces,
         Modifier,
         Monster,
+        Power,
         Race,
+        RestActivity,
         Spell,
+        SpellList,
         Subclass,
     }
 }

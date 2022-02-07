@@ -72,7 +72,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.HeroInspection
 
                     case Models.InspectionPanelContext.PLAIN_DOWN:
                         Models.InspectionPanelContext.PickNextHeroClass();
-                        
+
                         if (characterInformationPanel.gameObject.activeSelf)
                         {
                             characterInformationPanel.RefreshNow();

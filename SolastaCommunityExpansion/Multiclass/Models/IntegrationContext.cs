@@ -27,7 +27,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
         private static void GetReferencesOnUnofficialClasses()
         {
             var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
-            
+
             dbCharacterClassDefinition.TryGetElement(CLASS_TINKERER, out var unofficialTinkerer);
             dbCharacterClassDefinition.TryGetElement(CLASS_WARDEN, out var unofficialWarden);
             dbCharacterClassDefinition.TryGetElement(CLASS_WITCH, out var unofficialWitch);

@@ -357,7 +357,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             // Build our spellCast object containing previously created spell list
             var classSpellCast = FeatureDefinitionCastSpellBuilder
                 .Create("CastSpellWitch", WITCH_BASE_GUID)
-                .SetGuiPresentation("WitchSpellcasting", Category.Spell)
+                .SetGuiPresentation("WitchSpellcasting", Category.Class)
                 .SetKnownCantrips(4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6)
                 .SetKnownSpells(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 13, 13, 14, 14, 15, 15, 15, 15);
 
