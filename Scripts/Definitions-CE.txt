@@ -960,4 +960,5 @@ WitchOwl, e1248fb5-f611-5f42-8643-d6defb1768be
 WitchRitualCastingMagicAffinity, 4385a40d-40c6-55b8-90c7-087a0414d8a1
 WitchSpellList, 2c02f236-7ebc-5063-84ac-0ea562968319
 WitchVisionsInitiative, cb1d3f52-bfa7-5c7c-a094-46e17979b40e
+ZSLevelDown, fdb4d86eaef942d1a22dbf1fb5a7299f
 ZSRespec, 40824029eb224fb581f0d4e5989b6735

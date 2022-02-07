@@ -7,11 +7,11 @@ namespace SolastaCommunityExpansion.Builders.Features
 {
     public sealed class FeatureDefinitionAttributeModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttributeModifier>
     {
-/*        private FeatureDefinitionAttributeModifierBuilder(FeatureDefinitionAttributeModifier original, string name, string guid)
+        private FeatureDefinitionAttributeModifierBuilder(FeatureDefinitionAttributeModifier original, string name, string guid)
             : base(original, name, guid)
         {
         }
-*/
+
         private FeatureDefinitionAttributeModifierBuilder(string name, string guid)
             : base(name, guid)
         {
@@ -27,8 +27,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        // Add other standard Create methods and constructors as required.
-
         public static FeatureDefinitionAttributeModifierBuilder Create(string name, Guid namespaceGuid)
         {
             return new FeatureDefinitionAttributeModifierBuilder(name, namespaceGuid);
@@ -42,6 +40,11 @@ namespace SolastaCommunityExpansion.Builders.Features
         public static FeatureDefinitionAttributeModifierBuilder Create(FeatureDefinitionAttributeModifier original, string name, Guid namespaceGuid)
         {
             return new FeatureDefinitionAttributeModifierBuilder(original, name, namespaceGuid);
+        }
+
+        public static FeatureDefinitionAttributeModifierBuilder Create(FeatureDefinitionAttributeModifier original, string name, string guid)
+        {
+            return new FeatureDefinitionAttributeModifierBuilder(original, name, guid);
         }
 
         public FeatureDefinitionAttributeModifierBuilder SetModifier(AttributeModifierOperation modifierType, string attribute, int amount)
