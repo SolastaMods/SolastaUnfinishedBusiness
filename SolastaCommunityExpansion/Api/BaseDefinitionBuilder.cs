@@ -154,12 +154,8 @@ namespace SolastaModApi
         /// </summary>
         /// <param name="name">The name assigned to the definition (mandatory)</param>
         /// <param name="definitionGuid">The guid for this definition (mandatory)</param>
-        /// <param name="category">Used to generate title and description on the GuiPresentation.  The generated fields if
-        /// name="MyDefinition" and category="MyCategory" are: MyCategory/&amp;MyDefinitionTitle and MyCategory/&amp;MyDefinitionDescription.
-        /// If category=null then no GuiPresentation is created.
-        /// </param>
-        protected BaseDefinitionBuilder(string name, string definitionGuid, Category category) :
-            this(name, definitionGuid, Guid.Empty, false, category)
+        protected BaseDefinitionBuilder(string name, string definitionGuid) :
+            this(name, definitionGuid, Guid.Empty, false, Category.None)
         {
             Preconditions.IsNotNullOrWhiteSpace(definitionGuid, nameof(definitionGuid));
         }
@@ -288,17 +284,6 @@ namespace SolastaModApi
         #endregion
 
         #region Backward compatibility constructors
-
-        /// <summary>
-        /// Create a new instance of TDefinition.
-        /// A GuiPresentation will be assigned to the definition with the provided title and description.
-        /// </summary>
-        /// <param name="name">The unique name assigned to the definition (mandatory)</param>
-        /// <param name="guid">The unique guid assigned to the definition (mandatory)</param>
-        protected BaseDefinitionBuilder(string name, string guid)
-            : this(name, guid, BuildGuiPresentation(null, null))
-        {
-        }
 
         /// <summary>
         /// Create a new instance of TDefinition. Assign the GuiPresentation provided.
