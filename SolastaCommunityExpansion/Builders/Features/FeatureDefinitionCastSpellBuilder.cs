@@ -33,8 +33,8 @@ namespace SolastaCommunityExpansion.Builders.Features
             InitializeFields();
         }
 
-        private FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name, Guid namespaceGuid, Category category = Category.None)
-            : base(original, name, namespaceGuid, category)
+        private FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name, Guid namespaceGuid)
+            : base(original, name, namespaceGuid)
         {
         }
 

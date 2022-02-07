@@ -33,8 +33,8 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public ConditionDefinitionBuilder(TDefinition original, string name, Guid guidNamespace, Category category = Category.None)
-            : base(original, name, guidNamespace, category)
+        public ConditionDefinitionBuilder(TDefinition original, string name, Guid guidNamespace)
+            : base(original, name, guidNamespace)
         {
         }
 

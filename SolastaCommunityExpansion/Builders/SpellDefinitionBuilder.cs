@@ -25,8 +25,8 @@ namespace SolastaCommunityExpansion.Builders
             InitializeFields();
         }
 
-        public SpellDefinitionBuilder(SpellDefinition original, string name, Guid guidNamespace, Category category = Category.None)
-            : base(original, name, guidNamespace, category)
+        public SpellDefinitionBuilder(SpellDefinition original, string name, Guid guidNamespace)
+            : base(original, name, guidNamespace)
         {
             InitializeFields();
         }
