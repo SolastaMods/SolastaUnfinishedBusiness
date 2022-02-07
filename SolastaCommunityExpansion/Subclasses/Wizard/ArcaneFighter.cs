@@ -117,10 +117,12 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         }
 
         private static FeatureDefinitionProficiency BuildProficiency(RuleDefinitions.ProficiencyType type,
-            List<string> proficiencies, string name, GuiPresentation guiPresentation)
+            IEnumerable<string> proficiencies, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionProficiencyBuilder builder = new FeatureDefinitionProficiencyBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(), type, proficiencies, guiPresentation);
-            return builder.AddToDB();
+            return FeatureDefinitionProficiencyBuilder
+                .Create(name, SubclassNamespace)
+                .SetProficiencies(type, proficiencies)
+                .SetGuiPresentation(guiPresentation).AddToDB();
         }
 
         private static FeatureDefinitionAttributeModifier BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation modifierType,

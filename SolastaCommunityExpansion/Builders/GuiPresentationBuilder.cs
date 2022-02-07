@@ -4,13 +4,36 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using static SolastaModApi.BaseDefinitionBuilder;
 
 namespace SolastaCommunityExpansion.Builders
 {
     public class GuiPresentationBuilder
     {
         private readonly GuiPresentation guiPresentation;
+
+        public static string CreateTitleKey(string name, Category category)
+        {
+            Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
+
+            if (category == Category.None)
+            {
+                throw new ArgumentException("The parameter must not be Category.None.", nameof(category));
+            }
+
+            return $"{category}/&{name}Title";
+        }
+
+        public static string CreateDescriptionKey(string description, Category category)
+        {
+            Preconditions.IsNotNullOrWhiteSpace(description, nameof(description));
+
+            if (category == Category.None)
+            {
+                throw new ArgumentException("The parameter must not be Category.None.", nameof(category));
+            }
+
+            return $"{category}/&{description}Description";
+        }
 
         public GuiPresentationBuilder(string title = null, string description = null, AssetReferenceSprite sprite = null)
         {

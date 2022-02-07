@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Builders.Features
     public sealed class FeatureDefinitionAbilityCheckAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionAbilityCheckAffinity>
     {
         private FeatureDefinitionAbilityCheckAffinityBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid, Category.None)
+            : base(name, namespaceGuid)
         {
         }
 

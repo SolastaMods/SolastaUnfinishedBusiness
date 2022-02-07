@@ -23,8 +23,8 @@ namespace SolastaCommunityExpansion.Builders.Features
 
         // Add other standard Create methods and constructors as required.
 
-        private FeatureDefinitionActionAffinityBuilder(FeatureDefinitionActionAffinity original, string name, Guid namespaceGuid, Category category = Category.None)
-            : base(original, name, namespaceGuid, category)
+        private FeatureDefinitionActionAffinityBuilder(FeatureDefinitionActionAffinity original, string name, Guid namespaceGuid)
+            : base(original, name, namespaceGuid)
         {
         }
 

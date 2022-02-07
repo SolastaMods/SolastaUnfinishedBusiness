@@ -24,7 +24,7 @@ namespace SolastaCommunityExpansion.Builders.Features
                 }
         */
         private FeatureDefinitionBonusCantripsBuilder(FeatureDefinitionBonusCantrips original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid, Category.None)
+            : base(original, name, namespaceGuid)
         {
         }
 
