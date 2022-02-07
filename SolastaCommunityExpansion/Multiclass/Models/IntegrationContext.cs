@@ -1,6 +1,7 @@
-﻿//using System;
-//using System.Linq;
-//using System.Reflection;
+﻿using System;
+using System.Linq;
+using System.Reflection;
+using SolastaCommunityExpansion.Builders;
 
 namespace SolastaCommunityExpansion.Multiclass.Models
 {
@@ -35,13 +36,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             dbCharacterClassDefinition.TryGetElement(CLASS_MONK, out CharacterClassDefinition unofficialMonk);
             dbCharacterClassDefinition.TryGetElement(CLASS_WARLOCK, out CharacterClassDefinition unofficialWarlock);
 
-            // sentinel
-            DummyClass = new CharacterClassDefinition
-            {
-                name = "DummyClass",
-                //guid = "062d696ab44146e0b316188f943d8079"
-            };
-
+            DummyClass = new CharacterClassDefinitionBuilder("DummyClass", "062d696ab44146e0b316188f943d8079").AddToDB();
             TinkererClass = unofficialTinkerer ?? DummyClass;
             WardenClass = unofficialWarden ?? DummyClass;
             WitchClass = unofficialWitch ?? DummyClass;
@@ -59,40 +54,40 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             Main.Logger.Log(WarlockClass != DummyClass ? "Pact magic integration enabled." : "Pact magic integration disabled.");
         }
 
-        //private static Assembly GetModAssembly(string modName)
-        //{
-        //    return AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(x => x.FullName.Contains(modName));
-        //}
+        internal static Assembly GetModAssembly(string modName)
+        {
+            return AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(x => x.FullName.Contains(modName));
+        }
 
-        //private static Type GetModType(string modName, string typeName)
-        //{
-        //    return GetModAssembly(modName)?.GetExportedTypes().FirstOrDefault(x => x.FullName.Contains(typeName));
-        //}
+        internal static Type GetModType(string modName, string typeName)
+        {
+            return GetModAssembly(modName)?.GetExportedTypes().FirstOrDefault(x => x.FullName.Contains(typeName));
+        }
 
-        //private static bool SetModField(string modName, string typeName, string fieldName, object value)
-        //{
-        //    var type = GetModType(modName, typeName);
+        internal static bool SetModField(string modName, string typeName, string fieldName, object value)
+        {
+            var type = GetModType(modName, typeName);
 
-        //    if (type != null)
-        //    {
-        //        var fieldInfo = type.GetField(fieldName);
+            if (type != null)
+            {
+                var fieldInfo = type.GetField(fieldName);
 
-        //        if (fieldInfo != null)
-        //        {
-        //            try
-        //            {
-        //                fieldInfo.SetValue(type, value);
-        //                return true;
-        //            }
-        //            catch
-        //            {
-        //                return false;
-        //            }
+                if (fieldInfo != null)
+                {
+                    try
+                    {
+                        fieldInfo.SetValue(type, value);
+                        return true;
+                    }
+                    catch
+                    {
+                        return false;
+                    }
 
-        //        }
-        //    }
+                }
+            }
 
-        //    return false;
-        //}
+            return false;
+        }
     }
 }

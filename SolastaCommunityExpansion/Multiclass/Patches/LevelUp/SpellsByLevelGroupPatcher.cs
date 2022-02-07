@@ -20,11 +20,11 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                 {
                     if (bindMode == SpellBox.BindMode.Learning && !Main.Settings.EnableDisplayAllKnownSpellsOnLevelUp)
                     {
-                        allSpells.RemoveAll(s => !Models.SpellsContext.IsSpellOfferedBySelectedClassSubclass(s));
+                        allSpells.RemoveAll(s => !Models.CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(s));
                     }
                     else if (bindMode == SpellBox.BindMode.Unlearn)
                     {
-                        allSpells.RemoveAll(s => !Models.SpellsContext.IsSpellOfferedBySelectedClassSubclass(s) || !Models.SpellsContext.IsSpellKnownBySelectedClassSubclass(s));
+                        allSpells.RemoveAll(s => !Models.CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(s) || !Models.CacheSpellsContext.IsSpellKnownBySelectedClassSubclass(s));
                     }
                 }
             }
