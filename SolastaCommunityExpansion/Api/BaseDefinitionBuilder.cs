@@ -131,7 +131,7 @@ namespace SolastaModApi
 
         #endregion
 
-        #region Preferred constructors (for future development)
+        #region Constructors
 
         /// <summary>
         /// Create a new instance of TDefinition.  Automatically generate a guid from namespaceGuid plus name.
@@ -275,31 +275,6 @@ namespace SolastaModApi
         {
             Preconditions.IsNotNull(original, nameof(original));
             Definition = original;
-        }
-
-        #endregion
-
-        #region Backward compatibility constructors
-
-        /// <summary>
-        /// Create a new instance of TDefinition. Assign the GuiPresentation provided.
-        /// </summary>
-        /// <param name="name">The unique name assigned to the definition (mandatory)</param>
-        /// <param name="guid">The unique guid assigned to the definition (mandatory)</param>
-        protected BaseDefinitionBuilder(string name, string guid, GuiPresentation guiPresentation)
-        {
-            Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
-            Preconditions.IsNotNullOrWhiteSpace(guid, nameof(guid));
-
-            Definition = ScriptableObject.CreateInstance<TDefinition>();
-            Definition.name = name;
-            Definition.SetField("guid", guid);
-
-            InitializeCollectionFields();
-
-            Definition.GuiPresentation = guiPresentation;
-
-            LogDefinition($"Old-Creating definition: ({name}, guid={Definition.GUID})");
         }
 
         #endregion

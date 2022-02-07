@@ -330,7 +330,11 @@ namespace SolastaCommunityExpansion.Feats
         public static FeatureDefinitionProficiency BuildProficiency(RuleDefinitions.ProficiencyType type,
             List<string> proficiencies, string name, GuiPresentation guiPresentation)
         {
-            return new FeatureDefinitionProficiencyBuilder(name, GuidHelper.Create(CasterFeatsNamespace, name).ToString(), type, proficiencies, guiPresentation).AddToDB();
+            return FeatureDefinitionProficiencyBuilder
+                .Create(name, CasterFeatsNamespace)
+                .SetProficiencies(type, proficiencies)
+                .SetGuiPresentation(guiPresentation)
+                .AddToDB();
         }
     }
 }

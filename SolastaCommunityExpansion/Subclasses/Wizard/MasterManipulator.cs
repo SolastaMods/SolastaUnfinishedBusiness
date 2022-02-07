@@ -58,12 +58,12 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             controlMaster.AddFeatureAtLevel(arcaneControlAffinity, 2);
             controlMaster.AddFeatureAtLevel(DcIncreaseAffinity, 6);
 
-            FeatureDefinitionProficiency proficiency = new FeatureDefinitionProficiencyBuilder("ManipulatorMentalSavingThrows", GuidHelper.Create(SubclassNamespace, "ManipulatorMentalSavingThrows").ToString(),
-                RuleDefinitions.ProficiencyType.SavingThrow,
-                new List<string>() { AttributeDefinitions.Charisma, AttributeDefinitions.Constitution },
-                new GuiPresentationBuilder(
-                    "Subclass/&ManipulatorMentalSavingThrowsTitle",
-                    "Subclass/&ManipulatorMentalSavingThrowsDescription").Build()).AddToDB();
+            FeatureDefinitionProficiency proficiency = FeatureDefinitionProficiencyBuilder
+                .Create("ManipulatorMentalSavingThrows", SubclassNamespace)
+                .SetGuiPresentation(Category.Subclass)
+                .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma, AttributeDefinitions.Constitution)
+                .AddToDB();
+
             controlMaster.AddFeatureAtLevel(proficiency, 10);
 
             GuiPresentationBuilder DominatePower = new GuiPresentationBuilder(

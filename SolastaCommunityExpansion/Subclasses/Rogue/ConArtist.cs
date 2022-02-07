@@ -95,12 +95,12 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             conArtist.AddFeatureAtLevel(feint, 9);
             conArtist.AddFeatureAtLevel(DcIncreaseAffinity, 13);
 
-            FeatureDefinitionProficiency proficiency = new FeatureDefinitionProficiencyBuilder("RoguishConArtistMentalSavingThrows", GuidHelper.Create(SubclassNamespace, "RoguishConArtistMentalSavingThrows").ToString(),
-                RuleDefinitions.ProficiencyType.SavingThrow,
-                new List<string>() { AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom },
-                new GuiPresentationBuilder(
-                    "Subclass/&RoguishConArtistMentalSavingThrowsTitle",
-                    "Subclass/&RoguishConArtistMentalSavingThrowsDescription").Build()).AddToDB();
+            FeatureDefinitionProficiency proficiency = FeatureDefinitionProficiencyBuilder
+                .Create("RoguishConArtistMentalSavingThrows", SubclassNamespace)
+                .SetGuiPresentation(Category.Subclass)
+                .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom)
+                .AddToDB();
+
             conArtist.AddFeatureAtLevel(proficiency, 17);
 
             // add subclass to db and add subclass to rogue class

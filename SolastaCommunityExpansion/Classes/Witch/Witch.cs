@@ -89,21 +89,23 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
         private static void BuildProficiencies()
         {
-            FeatureDefinitionProficiencyArmor = new FeatureDefinitionProficiencyBuilder(
-                        "ProficiencyWitchArmor", WITCH_BASE_GUID, RuleDefinitions.ProficiencyType.Armor, EquipmentDefinitions.LightArmorCategory)
-                    .SetGuiPresentation("WitchArmorProficiency", Category.Class)
-                    .AddToDB();
+            FeatureDefinitionProficiencyArmor = FeatureDefinitionProficiencyBuilder
+                .Create("ProficiencyWitchArmor", WITCH_BASE_GUID)
+                .SetGuiPresentation("WitchArmorProficiency", Category.Class)
+                .SetProficiencies(RuleDefinitions.ProficiencyType.Armor, EquipmentDefinitions.LightArmorCategory)
+                .AddToDB();
 
-            FeatureDefinitionProficiencyWeapon = new FeatureDefinitionProficiencyBuilder(
-                        "ProficiencyWitchWeapon", WITCH_BASE_GUID, RuleDefinitions.ProficiencyType.Weapon, EquipmentDefinitions.SimpleWeaponCategory)
-                    .SetGuiPresentation("WitchWeaponProficiency", Category.Class)
-                    .AddToDB();
+            FeatureDefinitionProficiencyWeapon = FeatureDefinitionProficiencyBuilder
+                .Create("ProficiencyWitchWeapon", WITCH_BASE_GUID)
+                .SetGuiPresentation("WitchWeaponProficiency", Category.Class)
+                .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon, EquipmentDefinitions.SimpleWeaponCategory)
+                .AddToDB();
 
-            FeatureDefinitionProficiencySavingThrow = new FeatureDefinitionProficiencyBuilder(
-                        "ProficiencyWitchSavingthrow", WITCH_BASE_GUID, RuleDefinitions.ProficiencyType.SavingThrow,
-                         AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom).
-                     SetGuiPresentation("WitchSavingthrowProficiency", Category.Class)
-                    .AddToDB();
+            FeatureDefinitionProficiencySavingThrow = FeatureDefinitionProficiencyBuilder
+                .Create("ProficiencyWitchSavingthrow", WITCH_BASE_GUID)
+                .SetGuiPresentation("WitchSavingthrowProficiency", Category.Class)
+                .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom)
+                .AddToDB();
 
             FeatureDefinitionPointPoolSkills = FeatureDefinitionPointPoolBuilder
                 .Create("PointPoolWitchSkillPoints", WITCH_BASE_GUID)
