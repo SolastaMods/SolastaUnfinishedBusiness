@@ -379,11 +379,15 @@ namespace SolastaModApi
                     if (string.IsNullOrEmpty(Definition.GuiPresentation.Title))
                     {
                         Main.Log($"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Title, setting to NoContent.");
+
+                        Definition.GuiPresentation.Title = GuiPresentationBuilder.NoContentTitle;
                     }
 
                     if (string.IsNullOrEmpty(Definition.GuiPresentation.Description))
                     {
                         Main.Log($"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Description, setting to NoContent.");
+
+                        Definition.GuiPresentation.Description = GuiPresentationBuilder.NoContentDescription;
                     }
                 }
             }
