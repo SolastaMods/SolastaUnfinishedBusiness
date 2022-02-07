@@ -313,5 +313,6 @@ namespace SolastaCommunityExpansion
         public bool EnableHotkeyToggleIndividualHud { get; set; }
         public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
         public bool InvertAltBehaviorOnTooltips { get; set; }
+        public bool EnableCtrlClickBypassMetamagicPanel { get; set; }
     }
 }

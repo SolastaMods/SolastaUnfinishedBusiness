@@ -69,6 +69,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             {
                 Main.Settings.InvertAltBehaviorOnTooltips = toggle;
             }
+
+            toggle = Main.Settings.EnableCtrlClickBypassMetamagicPanel;
+            if (UI.Toggle("Enable " + "CTRL".cyan() + " click on spells to auto ignore " + "Sorcerer".orange() + " metamagic panel", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableCtrlClickBypassMetamagicPanel = toggle;
+            }
             #endregion
 
             UI.Label("");
