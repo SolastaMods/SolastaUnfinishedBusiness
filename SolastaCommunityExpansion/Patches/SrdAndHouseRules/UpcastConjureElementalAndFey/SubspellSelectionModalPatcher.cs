@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaModApi;
+using SolastaModApi.Infrastructure;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElementalAndFey
@@ -13,23 +17,91 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElemen
         typeof(SpellsByLevelBox.SpellCastEngagedHandler), typeof(int), typeof(RectTransform)})]
     internal static class SubspellSelectionModal_Bind
     {
-        public static void Prefix(SpellDefinition masterSpell, int slotLevel)
+        internal static List<SpellDefinition> MySubspellsListCache { get; set; }
+
+        public static List<SpellDefinition> MySubspellsList()
         {
-            if (!Main.Settings.EnableUpcastConjureElementalAndFey)
+            return MySubspellsListCache;
+        }
+
+        public static void CacheMySubspellsList(SubspellSelectionModal subspellSelectionModal, SpellDefinition masterSpell)
+        {
+            MySubspellsListCache = masterSpell.SubspellsList;
+
+            if (!Main.Settings.EnableUpcastConjureElementalAndFey
+                || MySubspellsListCache == null
+                || masterSpell.Name != DatabaseHelper.SpellDefinitions.ConjureElemental.Name
+                || masterSpell.Name != DatabaseHelper.SpellDefinitions.ConjureFey.Name)
             {
                 return;
             }
 
-            SpellDefinition_SubspellsList.FilterBySlotLevel =
-                masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureElemental.Name
-                || masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureFey.Name
-                ? slotLevel
-                : null;
+            var slotLevel = subspellSelectionModal.GetField<SubspellSelectionModal, int>("slotLevel");
+
+            var subspellsGroupedAndFilteredByCR = MySubspellsListCache
+                .Select(s =>
+                    new
+                    {
+                        SpellDefinition = s,
+                        s.EffectDescription
+                            .GetFirstFormOfType(EffectForm.EffectFormType.Summon)
+                            .SummonForm
+                            .MonsterDefinitionName
+                    }
+                )
+                .Select(s => new
+                {
+                    s.SpellDefinition,
+                    s.MonsterDefinitionName,
+                    ChallengeRating =
+                        DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(s.MonsterDefinitionName, out var monsterDefinition)
+                        ? monsterDefinition.ChallengeRating
+                        : int.MaxValue
+                })
+                .GroupBy(s => s.ChallengeRating)
+                .Select(g => new
+                {
+                    ChallengeRating = g.Key,
+                    SpellDefinitions = g.Select(s => s.SpellDefinition).OrderBy(s => Gui.Format(s.GuiPresentation.Title))
+                })
+                .Where(s => s.ChallengeRating <= slotLevel)
+                .OrderByDescending(s => s.ChallengeRating)
+                .ToList();
+
+            var allOrMostPowerful = Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey
+                ? subspellsGroupedAndFilteredByCR.Take(1).ToList()
+                : subspellsGroupedAndFilteredByCR;
+
+            MySubspellsListCache = allOrMostPowerful.SelectMany(s => s.SpellDefinitions).ToList();
+            MySubspellsListCache.ForEach(s => Main.Log($"{Gui.Format(s.GuiPresentation.Title)}"));
         }
 
-        public static void Postfix()
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            SpellDefinition_SubspellsList.FilterBySlotLevel = null;
+            var subspellsListMethod = typeof(SpellDefinition).GetMethod("get_SubspellsList");
+            var cacheMySubspellsListMethod = typeof(SubspellSelectionModal_Bind).GetMethod("CacheMySubspellsList");
+            var mySubspellsListMethod = typeof(SubspellSelectionModal_Bind).GetMethod("MySubspellsList");
+
+            //
+            // caches the result from masterSpell.SubspellsList
+            //
+
+            yield return new CodeInstruction(OpCodes.Ldarg_0); // SubspellSelectionModal (this)
+            yield return new CodeInstruction(OpCodes.Ldarg_1); // SpellDefinition (masterSpell)
+            yield return new CodeInstruction(OpCodes.Call, cacheMySubspellsListMethod);
+
+            foreach (CodeInstruction instruction in instructions)
+            {
+                if (instruction.Calls(subspellsListMethod))
+                {
+                    yield return new CodeInstruction(OpCodes.Pop); // remove SubspellSelectionModal (this)
+                    yield return new CodeInstruction(OpCodes.Call, mySubspellsListMethod); // returns the cached result
+                }
+                else
+                {
+                    yield return instruction;
+                }
+            }
         }
     }
 
@@ -37,21 +109,21 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElemen
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SubspellSelectionModal_OnActivate
     {
-        public static bool Prefix(SubspellSelectionModal __instance, int index, int ___slotLevel,
+        internal static bool Prefix(SubspellSelectionModal __instance, int index, int ___slotLevel,
             RulesetSpellRepertoire ___spellRepertoire, SpellsByLevelBox.SpellCastEngagedHandler ___spellCastEngaged)
         {
             if (!Main.Settings.EnableUpcastConjureElementalAndFey ||
-                SpellDefinition_SubspellsList.FilteredSubspells == null ||
-                SpellDefinition_SubspellsList.FilteredSubspells.Count == 0)
+                SubspellSelectionModal_Bind.MySubspellsListCache == null ||
+                SubspellSelectionModal_Bind.MySubspellsListCache.Count == 0)
             {
                 return true;
             }
 
-            var subspells = SpellDefinition_SubspellsList.FilteredSubspells;
+            var subspells = SubspellSelectionModal_Bind.MySubspellsListCache;
 
             if (subspells.Count > index)
             {
-                ___spellCastEngaged?.Invoke(___spellRepertoire, SpellDefinition_SubspellsList.FilteredSubspells[index], ___slotLevel);
+                ___spellCastEngaged?.Invoke(___spellRepertoire, SubspellSelectionModal_Bind.MySubspellsListCache[index], ___slotLevel);
 
                 // If a device had the summon function, implement here
 
