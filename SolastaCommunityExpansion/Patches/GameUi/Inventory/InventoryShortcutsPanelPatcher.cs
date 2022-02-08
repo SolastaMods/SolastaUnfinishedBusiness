@@ -22,7 +22,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Inventory
                 return;
             }
 
-            if (!Main.Settings.EnableInventoryTertiaryEquipmentRow && (rank == LIGHT_SOURCE || currentRank == LIGHT_SOURCE))
+            if (rank == LIGHT_SOURCE || currentRank == LIGHT_SOURCE)
             {
                 return;
             }
