@@ -559,7 +559,7 @@ namespace SolastaCommunityExpansion.Classes.Warden
             {
                 if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out FeatureDefinition help))
                 {
-                    classBuilder.AddFeatureAtLevel(help, 1);
+                    classBuilder.AddFeatureAtLevel(1, help);
                 }
 
                 classBuilder
@@ -573,19 +573,19 @@ namespace SolastaCommunityExpansion.Classes.Warden
 //                    .AddFeaturesAtLevel(2,
 //                        FeatureDefinitionFightingStyleChoiceWarden,
 //                        FeatureDefinitionPowerWardenMark)
-//                    .AddFeatureAtLevel(FeatureDefinitionDamageAffinityWardenResolve, 3)
+//                    .AddFeatureAtLevel(3, FeatureDefinitionDamageAffinityWardenResolve)
                     .AddFeaturesAtLevel(4,
                         FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
                         FeatureDefinitionPowerFontOfLife)
-                    .AddFeatureAtLevel(FeatureDefinitionAttributeModifierExtraAttack, 5)
-//                    .AddFeatureAtLevel(FeatureDefinitionFeatureSetSentinelStep, 7)
-                    .AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 8)
-                    .AddFeatureAtLevel(FeatureDefinitionDamageAffinityUndying, 9)
-//                    .AddFeatureAtLevel(FeatureDefinitionPowerInterrupt, 10)
-                    .AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 12)
-                    .AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 16)
-                    .AddFeatureAtLevel(FeatureDefinitionFeatureSetSentinelSoul, 18)
-                    .AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 19);
+                    .AddFeatureAtLevel(5, FeatureDefinitionAttributeModifierExtraAttack)
+//                    .AddFeatureAtLevel(7, FeatureDefinitionFeatureSetSentinelStep)
+                    .AddFeatureAtLevel(8, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+                    .AddFeatureAtLevel(9, FeatureDefinitionDamageAffinityUndying)
+//                    .AddFeatureAtLevel(10, FeatureDefinitionPowerInterrupt)
+                    .AddFeatureAtLevel(12, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+                    .AddFeatureAtLevel(16, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+                    .AddFeatureAtLevel(18, FeatureDefinitionFeatureSetSentinelSoul)
+                    .AddFeatureAtLevel(19, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
 
             }
         }
