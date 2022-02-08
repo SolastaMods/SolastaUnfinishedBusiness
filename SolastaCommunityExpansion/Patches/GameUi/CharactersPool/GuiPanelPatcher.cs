@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharactersPool
     {
         internal static void Postfix(GuiPanel __instance)
         {
-            if (__instance is MainMenuScreen mainMenuScreen && CharacterEditionScreen_OnFinishCb.HeroName != null)
+            if (__instance is MainMenuScreen mainMenuScreen && CharacterPoolManagerPatcher.HeroName != null)
             {
                 var charactersPanel = AccessTools.Field(mainMenuScreen.GetType(), "charactersPanel").GetValue(mainMenuScreen) as CharactersPanel;
 

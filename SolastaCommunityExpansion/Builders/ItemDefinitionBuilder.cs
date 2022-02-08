@@ -24,17 +24,23 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public ItemDefinitionBuilder(ItemDefinition original, string name, Guid namespaceGuid)
+        private ItemDefinitionBuilder(ItemDefinition original, string name, Guid namespaceGuid)
             : base(original, name, namespaceGuid)
         {
         }
 
-        public void SetDocumentInformation(RecipeDefinition recipeDefinition, params ContentFragmentDescription[] contentFragments)
+        public static ItemDefinitionBuilder Create(ItemDefinition original, string name, Guid namespaceGuid)
         {
-            SetDocumentInformation(recipeDefinition, contentFragments.AsEnumerable());
+            return new ItemDefinitionBuilder(original, name, namespaceGuid);
         }
 
-        public void SetDocumentInformation(RecipeDefinition recipeDefinition, IEnumerable<ContentFragmentDescription> contentFragments)
+        public ItemDefinitionBuilder SetDocumentInformation(RecipeDefinition recipeDefinition, params ContentFragmentDescription[] contentFragments)
+        {
+            SetDocumentInformation(recipeDefinition, contentFragments.AsEnumerable());
+            return this;
+        }
+
+        public ItemDefinitionBuilder SetDocumentInformation(RecipeDefinition recipeDefinition, IEnumerable<ContentFragmentDescription> contentFragments)
         {
             if (Definition.DocumentDescription == null)
             {
@@ -47,52 +53,61 @@ namespace SolastaCommunityExpansion.Builders
             Definition.DocumentDescription.SetDestroyAfterReading(true);
             Definition.DocumentDescription.SetLocationKnowledgeLevel(GameCampaignDefinitions.NodeKnowledge.Known);
             Definition.DocumentDescription.ContentFragments.SetRange(contentFragments);
+            return this;
         }
 
-        public void SetGuiTitleAndDescription(string title, string description)
+        public ItemDefinitionBuilder SetGuiTitleAndDescription(string title, string description)
         {
             Definition.GuiPresentation.Title = title;
             Definition.GuiPresentation.Description = description;
+            return this;
         }
 
-        public void SetGold(int gold)
+        public ItemDefinitionBuilder SetGold(int gold)
         {
             Definition.SetCosts(new int[] { 0, gold, 0, 0, 0 });
+            return this;
         }
 
-        public void SetCosts(int[] costs)
+        public ItemDefinitionBuilder SetCosts(int[] costs)
         {
             Definition.SetCosts(costs);
+            return this;
         }
 
-        public void MakeMagical()
+        public ItemDefinitionBuilder MakeMagical()
         {
             Definition.ItemTags.Remove("Standard");
             Definition.SetMagical(true);
+            return this;
         }
 
-        public void SetStaticProperties(IEnumerable<ItemPropertyDescription> staticProperties)
+        public ItemDefinitionBuilder SetStaticProperties(IEnumerable<ItemPropertyDescription> staticProperties)
         {
             Definition.StaticProperties.SetRange(staticProperties);
+            return this;
         }
 
-        public void MergeStaticProperties(IEnumerable<ItemPropertyDescription> staticProperties)
+        public ItemDefinitionBuilder MergeStaticProperties(IEnumerable<ItemPropertyDescription> staticProperties)
         {
             Definition.StaticProperties.AddRange(staticProperties);
+            return this;
         }
 
-        public void AddWeaponEffect(EffectForm effect)
+        public ItemDefinitionBuilder AddWeaponEffect(EffectForm effect)
         {
             Definition.WeaponDescription.EffectDescription.EffectForms.Add(effect);
+            return this;
         }
 
-        public void SetUsableDeviceDescription(UsableDeviceDescription usableDescription)
+        public ItemDefinitionBuilder SetUsableDeviceDescription(UsableDeviceDescription usableDescription)
         {
             Definition.IsUsableDevice = true;
             Definition.SetUsableDeviceDescription(usableDescription);
+            return this;
         }
 
-        public void SetUsableDeviceDescription(IEnumerable<FeatureDefinitionPower> functions)
+        public ItemDefinitionBuilder SetUsableDeviceDescription(IEnumerable<FeatureDefinitionPower> functions)
         {
             Definition.IsUsableDevice = true;
             Definition.SetUsableDeviceDescription(new UsableDeviceDescription());
@@ -104,6 +119,7 @@ namespace SolastaCommunityExpansion.Builders
                 functionDescription.SetFeatureDefinitionPower(power);
                 Definition.UsableDeviceDescription.DeviceFunctions.Add(functionDescription);
             }
+            return this;
         }
     }
 }

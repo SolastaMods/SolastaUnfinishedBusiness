@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
         [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "OnBeginShow")]
         internal static class CharacterStageClassSelectionPanelOnBeginShow
         {
-            internal static void Prefix(CharacterStageClassSelectionPanel __instance)
+            internal static void Prefix(CharacterStageClassSelectionPanel __instance, ref int ___selectedClass)
             {
                 if (!Main.Settings.EnableMulticlass)
                 {
@@ -23,10 +23,9 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                 if (Models.LevelUpContext.LevelingUp)
                 {
                     var compatibleClasses = __instance.GetField<CharacterStageClassSelectionPanel, List<CharacterClassDefinition>>("compatibleClasses");
-                    var selectedClass = __instance.GetField<CharacterStageClassSelectionPanel, int>("selectedClass");
 
                     Models.LevelUpContext.DisplayingClassPanel = true;
-                    Models.InOutRulesContext.EnumerateHeroAllowedClassDefinitions(Models.LevelUpContext.SelectedHero, compatibleClasses, ref selectedClass);
+                    Models.InOutRulesContext.EnumerateHeroAllowedClassDefinitions(Models.LevelUpContext.SelectedHero, compatibleClasses, ref ___selectedClass);
                     __instance.CommonData.AttackModesPanel?.RefreshNow();
                     __instance.CommonData.PersonalityMapPanel?.RefreshNow();
                 }
