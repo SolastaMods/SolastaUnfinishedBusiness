@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
@@ -8,6 +9,7 @@ namespace SolastaCommunityExpansion.FightingStyles
 {
     internal class TitanFighting : AbstractFightingStyle
     {
+        public readonly Guid TITAN_FIGHTING_BASE_GUID = new("3f7f25de-0ff9-4b63-b38d-8cd7f3a381fc");
         private CustomizableFightingStyle instance;
 
         internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
@@ -28,10 +30,8 @@ namespace SolastaCommunityExpansion.FightingStyles
                 // Perhaps adding a new TriggerConditionAdditionalDamage to check for enemy size (Large or more)?
                 // This feels like deja vu with doing some patchwork in a very long function
                 // For now, give a flat +2 melee dmg
-                var additionalDamage = new FeatureDefinitionAdditionalDamageBuilder(
-                    DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageBracersOfArchery,
-                    "TitanFighting",
-                    "3f7f25de-0ff9-4b63-b38d-8cd7f3a381fc")
+                var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
+                    .Create(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageBracersOfArchery, "TitanFighting", TITAN_FIGHTING_BASE_GUID)
                     // to extend with new condition? something like
 //                        .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.IsSizeLargeOrMore)
                     .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
