@@ -677,43 +677,27 @@ namespace SolastaCommunityExpansion.Classes.Witch
         private static void BuildCackle()
         {
 
-            // At 2nd level, you can use your bonus action to cackle. 
-            // The duration of your Malediction extends by 1 round for each creature affected within 60 feet of you. 
-            // Not all witches laugh maniacally when they cackle, but all cackles require a verbal component, as a spell. 
-            // These range from mundane curses and insults, to the murmuring of dead languages and speaking backwards.
-
-            //Add to our new effect
             var effectDescription = new EffectDescription();
             effectDescription.Copy(HideousLaughter.EffectDescription);
-            effectDescription.SetDurationParameter(1);
-            effectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
-            effectDescription.SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            effectDescription.SetHasSavingThrow(false);
-            effectDescription.SetRangeType(RuleDefinitions.RangeType.Self);
-            effectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
-            effectDescription.SetTargetParameter(12);
+            effectDescription
+                .SetDurationParameter(1)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .SetHasSavingThrow(false)
+                .SetRangeType(RuleDefinitions.RangeType.Self)
+                .SetTargetType(RuleDefinitions.TargetType.Sphere)
+                .SetTargetParameter(12);
             effectDescription.EffectForms.Clear();
             effectDescription.EffectForms.Add(new CackleEffectForm());
 
-            FeatureDefinitionPowerCackle = new FeatureDefinitionPowerBuilder(
-                    "WitchCacklePower",
-                    GuidHelper.Create(WITCH_BASE_GUID, "WitchCacklePower").ToString(),
-                    1,
-                    RuleDefinitions.UsesDetermination.Fixed,
-                    AttributeDefinitions.Charisma,
-                    RuleDefinitions.ActivationTime.BonusAction,
-                    0,
-                    RuleDefinitions.RechargeRate.AtWill,
-                    false,
-                    true,
-                    AttributeDefinitions.Charisma,
-                    effectDescription,
-                    new GuiPresentationBuilder(
-                            "Class/&WitchCacklePowerTitle",
-                            "Class/&WitchCacklePowerDescription").Build()
-                            .SetSpriteReference(HideousLaughter.GuiPresentation.SpriteReference),
-                    true)
-                    .AddToDB();
+            FeatureDefinitionPowerCackle = FeatureDefinitionPowerBuilder
+                .Create("WitchCacklePower", WITCH_BASE_GUID)
+                .SetActivation(RuleDefinitions.ActivationTime.BonusAction, 0)
+                .SetGuiPresentation(Category.Class, HideousLaughter.GuiPresentation.SpriteReference)
+                .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+                .SetUsesFixed(1)
+                .SetEffect(effectDescription)
+                .AddToDB();
 
         }
 
