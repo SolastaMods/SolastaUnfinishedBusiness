@@ -24,6 +24,11 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElemen
             return MySubspellsListCache;
         }
 
+        public static void ResetMySubspellsList()
+        {
+            MySubspellsListCache = null;
+        }
+
         public static void CacheMySubspellsList(SubspellSelectionModal subspellSelectionModal, SpellDefinition masterSpell)
         {
             MySubspellsListCache = masterSpell.SubspellsList;
@@ -81,6 +86,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElemen
             var subspellsListMethod = typeof(SpellDefinition).GetMethod("get_SubspellsList");
             var cacheMySubspellsListMethod = typeof(SubspellSelectionModal_Bind).GetMethod("CacheMySubspellsList");
             var mySubspellsListMethod = typeof(SubspellSelectionModal_Bind).GetMethod("MySubspellsList");
+            var resetMySubspellsListMethod = typeof(SubspellSelectionModal_Bind).GetMethod("ResetMySubspellsList");
 
             //
             // caches the result from masterSpell.SubspellsList
@@ -97,7 +103,11 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElemen
                     yield return new CodeInstruction(OpCodes.Pop); // remove SubspellSelectionModal (this)
                     yield return new CodeInstruction(OpCodes.Call, mySubspellsListMethod); // returns the cached result
                 }
-                else
+                else if (instruction.opcode == OpCodes.Ret) 
+                {
+                    yield return new CodeInstruction(OpCodes.Call, cacheMySubspellsListMethod);
+                    yield return instruction;
+                }
                 {
                     yield return instruction;
                 }
