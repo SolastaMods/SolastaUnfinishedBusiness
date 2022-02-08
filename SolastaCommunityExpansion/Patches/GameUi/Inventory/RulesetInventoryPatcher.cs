@@ -1,40 +1,60 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.Inventory
 {
-    [HarmonyPatch(typeof(InventoryShortcutsPanel), "OnConfigurationSwitched")]
+    [HarmonyPatch(typeof(RulesetInventory), "BuildSlots")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class InventoryShortcutsPanel_OnConfigurationSwitched
+    internal static class RulesetInventory_BuildSlots
     {
-        private const int LIGHT_SOURCE = 2;
-
-        internal static void Postfix(InventoryShortcutsPanel __instance, int rank)
+        internal static void Postfix(RulesetInventory __instance)
         {
-            var isCtrlPressed = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
-            var characterInventory = __instance.GuiCharacter.RulesetCharacterHero.CharacterInventory;
-
-            if (Main.Settings.EnableCtrlClickOnlySwapsMainHand && isCtrlPressed 
-                && rank < LIGHT_SOURCE && characterInventory.CurrentConfiguration < LIGHT_SOURCE)
+            if (!Main.Settings.EnableInventoryTertiaryEquipmentRow)
             {
-                var itemsConfigurations = characterInventory.WieldedItemsConfigurations;
-
-                if (itemsConfigurations.Count < 2 || itemsConfigurations[0].OffHandSlot.Disabled || itemsConfigurations[1].OffHandSlot.Disabled)
-                {
-                    return;
-                }
-
-                var equipedItem0 = itemsConfigurations[0].OffHandSlot.EquipedItem;
-                var equipedItem1 = itemsConfigurations[1].OffHandSlot.EquipedItem;
-
-                itemsConfigurations[0].OffHandSlot.UnequipItem();
-                itemsConfigurations[1].OffHandSlot.UnequipItem();
-                itemsConfigurations[0].OffHandSlot.EquipItem(equipedItem1);
-                itemsConfigurations[1].OffHandSlot.EquipItem(equipedItem0);
-
-                characterInventory.RefreshWieldedItemsConfigurations();
+                return;
             }
+
+            var tertiaryWieldedConfiguration = __instance.WieldedItemsConfigurations[EquipmentDefinitions.MaxWieldedItemsConfigurations - 1];
+
+            tertiaryWieldedConfiguration.MainHandSlot.Disabled = false;
+            tertiaryWieldedConfiguration.MainHandSlot.DisabledReason = RulesetInventorySlot.DisableReason.None;
+            tertiaryWieldedConfiguration.OffHandSlot.RestrictedItemTags.Clear();
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetInventory), "RefreshWieldedItemsConfigurations")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetInventory_RefreshWieldedItemsConfigurations
+    {
+        internal static void Postfix(RulesetInventory __instance)
+        {
+            if (!Main.Settings.EnableInventoryTertiaryEquipmentRow)
+            {
+                return;
+            }
+
+            var tertiaryWieldedConfiguration = __instance.WieldedItemsConfigurations[EquipmentDefinitions.MaxWieldedItemsConfigurations - 1];
+
+            tertiaryWieldedConfiguration.MainHandSlot.Disabled = false;
+            tertiaryWieldedConfiguration.MainHandSlot.ShadowedSlot = null;
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetInventory), "UpdateLightSourceConfigurations")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetInventory_UpdateLightSourceConfigurations
+    {
+        internal static void Postfix(RulesetInventory __instance)
+        {
+            if (!Main.Settings.EnableInventoryTertiaryEquipmentRow)
+            {
+                return;
+            }
+
+            var tertiaryWieldedConfiguration = __instance.WieldedItemsConfigurations[EquipmentDefinitions.MaxWieldedItemsConfigurations - 1];
+
+            tertiaryWieldedConfiguration.MainHandSlot.Disabled = false;
+            tertiaryWieldedConfiguration.MainHandSlot.ShadowedSlot = null;
         }
     }
 }
