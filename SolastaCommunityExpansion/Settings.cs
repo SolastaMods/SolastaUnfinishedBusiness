@@ -301,6 +301,7 @@ namespace SolastaCommunityExpansion
 
         // Inventory and Items
         public bool EnableInventoryFilteringAndSorting { get; set; } = true;
+        public bool EnableInventoryTertiaryEquipmentRow { get; set; }
         public bool EnableInvisibleCrownOfTheMagister { get; set; }
         public string EmpressGarbAppearance { get; set; } = "Normal";
 
@@ -324,5 +325,6 @@ namespace SolastaCommunityExpansion
         public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
         public bool InvertAltBehaviorOnTooltips { get; set; }
         public bool EnableCtrlClickBypassMetamagicPanel { get; set; }
+        public bool EnableCtrlClickOnlySwapsMainHand { get; set; }
     }
 }
