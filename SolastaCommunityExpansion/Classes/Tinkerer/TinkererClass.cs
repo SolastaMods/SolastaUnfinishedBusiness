@@ -245,10 +245,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 GuidHelper.Create(GuidNamespace, "TinkererLevel2InfusionChoice").ToString(),
                 Level2InfusionList, FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion, 0, false, false, infusionChoiceGui.Build()
                 ).AddToDB();
-            ArtificerBuilder.AddFeatureAtLevel(2, level2Infusions);
-            ArtificerBuilder.AddFeatureAtLevel(2, level2Infusions);
-            ArtificerBuilder.AddFeatureAtLevel(2, level2Infusions);
-            ArtificerBuilder.AddFeatureAtLevel(2, level2Infusions);
+            ArtificerBuilder.AddFeatureAtLevel(2, level2Infusions, 4);
 
             // Repeating Shot-- no point it seems
             // Returning Weapon-- not currently do-able
@@ -288,8 +285,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 GuidHelper.Create(GuidNamespace, "TinkererLevel6InfusionChoice").ToString(), Level6InfusionList,
                 FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion, 0, true, false, infusionChoiceGui.Build()
                 ).AddToDB();
-            ArtificerBuilder.AddFeatureAtLevel(6, level6Infusions);
-            ArtificerBuilder.AddFeatureAtLevel(6, level6Infusions);
+            ArtificerBuilder.AddFeatureAtLevel(6, level6Infusions, 2);
             // Infusions
             // Repulsion Shield, +1 shield, reaction (charges) to push enemy away on hit, otherwise... unsure?
 
@@ -365,11 +361,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 GuidHelper.Create(GuidNamespace, "TinkererLevel10InfusionChoice").ToString(), Level10InfusionList,
                 FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion, 0, true, false, infusionChoiceGui.Build()
                 ).AddToDB();
-            ArtificerBuilder.AddFeatureAtLevel(10, level10Infusions);
-            ArtificerBuilder.AddFeatureAtLevel(10, level10Infusions);
-            ArtificerBuilder.AddFeatureAtLevel(10, InfusionHelpers.ImprovedEnhancedDefense);
-            ArtificerBuilder.AddFeatureAtLevel(10, InfusionHelpers.ImprovedEnhancedFocus);
-            ArtificerBuilder.AddFeatureAtLevel(10, InfusionHelpers.ImprovedEnhancedWeapon);
+            ArtificerBuilder.AddFeaturesAtLevel(10,
+                level10Infusions,
+                level10Infusions,
+                InfusionHelpers.ImprovedEnhancedDefense,
+                InfusionHelpers.ImprovedEnhancedFocus,
+                InfusionHelpers.ImprovedEnhancedWeapon);
             // helm of awareness
             // winged boots-- probably not- it's a real complicated item
 
@@ -401,8 +398,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 GuidHelper.Create(GuidNamespace, "TinkererLevel14InfusionChoice").ToString(), Level14InfusionList,
                 FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion, 0, true, false, infusionChoiceGui.Build()
                 ).AddToDB();
-            ArtificerBuilder.AddFeatureAtLevel(14, level14Infusions);
-            ArtificerBuilder.AddFeatureAtLevel(14, level14Infusions);
+            ArtificerBuilder.AddFeatureAtLevel(14, level14Infusions, 2);
             // probably give several infusions another boost here
             // arcane propulsion armor
 
@@ -414,8 +410,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 GuidHelper.Create(GuidNamespace, "AttributeModiferArtificerInfusionIncreaseHealingPool18").ToString(),
                 1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool, InfusionPoolIncreaseGui.Build()).AddToDB();
             ArtificerBuilder.AddFeatureAtLevel(18, InfusionPoolIncrease18);
-            ArtificerBuilder.AddFeatureAtLevel(18, level14Infusions);
-            ArtificerBuilder.AddFeatureAtLevel(18, level14Infusions);
+            ArtificerBuilder.AddFeatureAtLevel(18, level14Infusions, 2);
 
             ArtificerBuilder.AddFeatureAtLevel(19, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
 

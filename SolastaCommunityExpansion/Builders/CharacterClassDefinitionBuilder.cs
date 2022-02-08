@@ -263,9 +263,12 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public CharacterClassDefinitionBuilder AddFeatureAtLevel(int level, FeatureDefinition feature)
+        public CharacterClassDefinitionBuilder AddFeatureAtLevel(int level, FeatureDefinition feature, int number = 1)
         {
-            Definition.FeatureUnlocks.Add(new FeatureUnlockByLevel(feature, level));
+            for (int i = 0; i < number; i++)
+            {
+                Definition.FeatureUnlocks.Add(new FeatureUnlockByLevel(feature, level));
+            }
             return this;
         }
 
