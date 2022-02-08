@@ -982,7 +982,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public static FeatureDefinitionMovementAffinity CreateAndAddToDB(string name, string guid)
         {
-            return new LightningCloakMovementAffinitiesBuilder(name, guid).AddToDB();
+            return new LightningCloakMovementAffinitiesBuilder(name, guid)
+                .SetGuiPresentationNoContent()
+                .AddToDB();
         }
 
         public static readonly FeatureDefinitionMovementAffinity LightningCloakMovementAffinities = CreateAndAddToDB(LightningCloakMovementAffinitiesName, LightningCloakMovementAffinitiesGuid);
@@ -1005,7 +1007,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public static FeatureDefinitionAbilityCheckAffinity CreateAndAddToDB(string name, string guid)
         {
-            return new LightningCloakAbilityCheckAffinityBuilder(name, guid).AddToDB();
+            return new LightningCloakAbilityCheckAffinityBuilder(name, guid)
+                .SetGuiPresentationNoContent()
+                .AddToDB();
         }
 
         public static readonly FeatureDefinitionAbilityCheckAffinity LightningCloakAbilityCheckAffinity = CreateAndAddToDB(LightningCloakAbilityCheckAffinityName, LightningCloakAbilityCheckAffinityGuid);

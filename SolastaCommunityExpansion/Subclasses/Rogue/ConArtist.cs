@@ -5,6 +5,8 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using static SolastaModApi.DatabaseHelper;
+using static SolastaModApi.DatabaseHelper.SchoolOfMagicDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Rogue
 {
@@ -24,7 +26,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
-            return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
+            return FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
         }
         internal override CharacterSubclassDefinition GetSubclass()
         {
@@ -38,7 +40,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             GuiPresentationBuilder conPresentation = new GuiPresentationBuilder(
                 "Subclass/&RoguishConArtistTitle",
                 "Subclass/&RoguishConArtistDescription");
-            conPresentation.SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.DomainInsight.GuiPresentation.SpriteReference);
+            conPresentation.SetSpriteReference(CharacterSubclassDefinitions.DomainInsight.GuiPresentation.SpriteReference);
             conArtist.SetGuiPresentation(conPresentation.Build());
 
             GuiPresentationBuilder conAffinity = new GuiPresentationBuilder(
@@ -54,24 +56,20 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                 RuleDefinitions.CharacterAbilityCheckAffinity.Advantage, "AbilityAffinityRogueConArtist", conAffinity.Build());
             conArtist.AddFeatureAtLevel(abilityAffinity, 3);
 
-            FeatureDefinitionCastSpellBuilder spellCasting = new FeatureDefinitionCastSpellBuilder("CastSpellConArtist", GuidHelper.Create(SubclassNamespace, "CastSpellConArtist").ToString());
-            spellCasting.SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass);
-            spellCasting.SetSpellCastingAbility(AttributeDefinitions.Charisma);
-            spellCasting.SetSpellList(DatabaseHelper.SpellListDefinitions.SpellListWizard);
-            spellCasting.AddRestrictedSchool(DatabaseHelper.SchoolOfMagicDefinitions.SchoolConjuration);
-            spellCasting.AddRestrictedSchool(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation);
-            spellCasting.AddRestrictedSchool(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEnchantment);
-            spellCasting.AddRestrictedSchool(DatabaseHelper.SchoolOfMagicDefinitions.SchoolIllusion);
-            spellCasting.SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection);
-            spellCasting.SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
-            spellCasting.SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest);
-            spellCasting.SetKnownCantrips(3, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER);
-            spellCasting.SetKnownSpells(4, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER);
-            spellCasting.SetSlotsPerLevel(3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER);
-            GuiPresentationBuilder spellcastGui = new GuiPresentationBuilder(
-                "Subclass/&RoguishConArtistSpellcastingTitle",
-                "Subclass/&RoguishConArtistSpellcastingDescription");
-            spellCasting.SetGuiPresentation(spellcastGui.Build());
+            FeatureDefinitionCastSpellBuilder spellCasting = FeatureDefinitionCastSpellBuilder
+                .Create("CastSpellConArtist", SubclassNamespace)
+                .SetGuiPresentation("RoguishConArtistSpellcasting", Category.Subclass)
+                .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass)
+                .SetSpellCastingAbility(AttributeDefinitions.Charisma)
+                .SetSpellList(SpellListDefinitions.SpellListWizard)
+                .AddRestrictedSchools(SchoolConjuration, SchoolTransmutation, SchoolEnchantment, SchoolIllusion)
+                .SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection)
+                .SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown)
+                .SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest)
+                .SetKnownCantrips(3, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER)
+                .SetKnownSpells(4, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER)
+                .SetSlotsPerLevel(3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER);
+
             conArtist.AddFeatureAtLevel(spellCasting.AddToDB(), 3);
 
             GuiPresentationBuilder feintGui = new GuiPresentationBuilder(
@@ -85,10 +83,10 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             GuiPresentationBuilder feintGuiCondition = new GuiPresentationBuilder(
                 "Subclass/&RoguishConArtistFeintConditionTitle",
                 "Subclass/&RoguishConArtistFeintConditionDescription");
-            feintGuiCondition.SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionTrueStrike.GuiPresentation.SpriteReference);
+            feintGuiCondition.SetSpriteReference(ConditionDefinitions.ConditionTrueStrike.GuiPresentation.SpriteReference);
             feintBuilder.AddEffectForm(new EffectFormBuilder().CreatedByCharacter().SetConditionForm(new AdvantageBuilder("RogueConArtistFeintCondition",
                 GuidHelper.Create(SubclassNamespace, "RogueConArtistFeintCondition").ToString(),
-                DatabaseHelper.ConditionDefinitions.ConditionTrueStrike, feintGuiCondition.Build()).AddToDB(), ConditionForm.ConditionOperation.Add,
+                ConditionDefinitions.ConditionTrueStrike, feintGuiCondition.Build()).AddToDB(), ConditionForm.ConditionOperation.Add,
                 false, false, new List<ConditionDefinition>()).Build());
             //feintBuilder.AddEffectForm(new EffectFormBuilder().SetConditionForm(DatabaseHelper.ConditionDefinitions.))
             FeatureDefinitionPower feint = new FeatureDefinitionPowerBuilder("RoguishConArtistFeint", GuidHelper.Create(SubclassNamespace, "RoguishConArtistFeint").ToString(),
@@ -97,12 +95,12 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             conArtist.AddFeatureAtLevel(feint, 9);
             conArtist.AddFeatureAtLevel(DcIncreaseAffinity, 13);
 
-            FeatureDefinitionProficiency proficiency = new FeatureDefinitionProficiencyBuilder("RoguishConArtistMentalSavingThrows", GuidHelper.Create(SubclassNamespace, "RoguishConArtistMentalSavingThrows").ToString(),
-                RuleDefinitions.ProficiencyType.SavingThrow,
-                new List<string>() { AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom },
-                new GuiPresentationBuilder(
-                    "Subclass/&RoguishConArtistMentalSavingThrowsTitle",
-                    "Subclass/&RoguishConArtistMentalSavingThrowsDescription").Build()).AddToDB();
+            FeatureDefinitionProficiency proficiency = FeatureDefinitionProficiencyBuilder
+                .Create("RoguishConArtistMentalSavingThrows", SubclassNamespace)
+                .SetGuiPresentation(Category.Subclass)
+                .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom)
+                .AddToDB();
+
             conArtist.AddFeatureAtLevel(proficiency, 17);
 
             // add subclass to db and add subclass to rogue class

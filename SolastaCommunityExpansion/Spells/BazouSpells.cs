@@ -6,6 +6,7 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Spells
@@ -200,11 +201,9 @@ namespace SolastaCommunityExpansion.Spells
                 .AddToDB();
 
             // Some methods are missing like SetField or Copy
-            var actionAffinity = new FeatureDefinitionActionAffinityBuilder(
-                    DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinityConditionConfused,
-                    "ActionAffinityConditionFrenzied",
-                    GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "ActionAffinityConditionFrenzied").ToString())
-                    .AddToDB();
+            var actionAffinity = FeatureDefinitionActionAffinityBuilder
+                .Create(ActionAffinityConditionConfused, "ActionAffinityConditionFrenzied", BAZOU_SPELLS_BASE_GUID)
+                .AddToDB();
 
             actionAffinity.RandomBehaviourOptions.Clear();
 

@@ -2,6 +2,9 @@
 
 namespace SolastaCommunityExpansion.Multiclass.Patches.HeroInspection
 {
+    //
+    // none of these patches should be protected by multiclass global toggle
+    //
     internal static class GuiCharacterPatcher
     {
         [HarmonyPatch(typeof(GuiCharacter), "MainClassDefinition", MethodType.Getter)]
@@ -9,11 +12,6 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.HeroInspection
         {
             internal static void Postfix(ref CharacterClassDefinition __result)
             {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    return;
-                }
-
                 __result = Models.InspectionPanelContext.SelectedClass ?? __result;
             }
         }
@@ -23,11 +21,6 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.HeroInspection
         {
             internal static void Postfix(GuiCharacter __instance, ref string __result)
             {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    return;
-                }
-
                 __result = Models.GameUiContext.GetAllClassesLabel(__instance, " - ") ?? __result;
             }
         }
@@ -37,11 +30,6 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.HeroInspection
         {
             internal static void Postfix(GuiCharacter __instance, ref string __result)
             {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    return;
-                }
-
                 __result = Models.GameUiContext.GetAllClassesLabel(__instance, " - ") ?? __result;
             }
         }
@@ -51,11 +39,6 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.HeroInspection
         {
             internal static void Postfix(GuiCharacter __instance, ref string __result)
             {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    return;
-                }
-
                 __result = Models.GameUiContext.GetLevelAndExperienceTooltip(__instance) ?? __result;
             }
         }

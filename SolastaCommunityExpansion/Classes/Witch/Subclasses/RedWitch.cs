@@ -1,7 +1,5 @@
 ﻿using System;
-using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
@@ -20,31 +18,17 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
 
         public static CharacterSubclassDefinition BuildAndAddSubclass(CharacterClassDefinition witchClass)
         {
-            var preparedSpells = new FeatureDefinitionAutoPreparedSpellsBuilder("RedMagicAutoPreparedSpell", Namespace)
-                .SetGuiPresentationNoContent()
-                .SetPreparedSpellGroups(
-                    AutoPreparedSpellsGroupBuilder.Build(1, BurningHands, MagicMissile),
-                    AutoPreparedSpellsGroupBuilder.Build(3, AcidArrow, ScorchingRay),
-                    AutoPreparedSpellsGroupBuilder.Build(5, Fireball, ProtectionFromEnergy),
-                    AutoPreparedSpellsGroupBuilder.Build(7, IceStorm, WallOfFire),
-                    AutoPreparedSpellsGroupBuilder.Build(9, ConeOfCold,
-                        MindTwist))// This should be Telekinesis
-                .SetCharacterClass(witchClass)
-                .SetAutoTag("Coven")
-                .AddToDB();
-
-            var featureDefinitionFeatureSetRedMagic = new FeatureDefinitionFeatureSetBuilder(
-                    DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHumanLanguages, "FeatureSetRedWitchMagic", Namespace)
-                .SetGuiPresentation("RedWitchMagic", Category.Subclass)
-                .SetFeatures(preparedSpells)
-                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                .SetUniqueChoices(true)
-                .AddToDB();
-
-            return new CharacterSubclassDefinitionBuilder("RedWitch", Namespace)
-                .SetGuiPresentation(Category.Subclass, DomainElementalFire.GuiPresentation.SpriteReference)
-                .AddFeatureAtLevel(featureDefinitionFeatureSetRedMagic, 3)
-                .AddToDB();
+            return WitchSubclassHelper.BuildAndAddSubclass(
+                "Red",
+                DomainElementalFire.GuiPresentation.SpriteReference,
+                witchClass,
+                Namespace,
+                AutoPreparedSpellsGroupBuilder.Build(1, BurningHands, MagicMissile),
+                AutoPreparedSpellsGroupBuilder.Build(3, AcidArrow, ScorchingRay),
+                AutoPreparedSpellsGroupBuilder.Build(5, Fireball, ProtectionFromEnergy),
+                AutoPreparedSpellsGroupBuilder.Build(7, IceStorm, WallOfFire),
+                AutoPreparedSpellsGroupBuilder.Build(9, ConeOfCold, MindTwist)// This should be Telekinesis
+            );
         }
     }
 }

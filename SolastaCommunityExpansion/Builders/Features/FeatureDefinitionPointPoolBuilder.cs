@@ -6,40 +6,36 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionPointPoolBuilder : BaseDefinitionBuilder<FeatureDefinitionPointPool>
+    public sealed class FeatureDefinitionPointPoolBuilder : BaseDefinitionBuilder<FeatureDefinitionPointPool>
     {
-        public FeatureDefinitionPointPoolBuilder(string name, string guid, HeroDefinitions.PointsPoolType poolType, int poolAmount,
-             GuiPresentation guiPresentation) : base(name, guid, guiPresentation)
-        {
-            Definition.SetPoolType(poolType);
-            Definition.SetPoolAmount(poolAmount);
-        }
+        /*        private FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, string guid)
+                    : base(original, name, guid)
+                {
+                }
 
-        public FeatureDefinitionPointPoolBuilder(string name, Guid baseGuid,
-            HeroDefinitions.PointsPoolType poolType, int poolAmount, Category category = Category.None) : base(name, baseGuid, category)
-        {
-            Definition.SetPoolType(poolType);
-            Definition.SetPoolAmount(poolAmount);
-        }
+                private FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, Guid namespaceGuid)
+                    : base(original, name, namespaceGuid)
+                {
+                }*/
 
-        public FeatureDefinitionPointPoolBuilder(string name, string guid)
+        private FeatureDefinitionPointPoolBuilder(string name, string guid)
             : base(name, guid)
         {
         }
 
-        public FeatureDefinitionPointPoolBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
+        private FeatureDefinitionPointPoolBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
         {
         }
 
-        public FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, string guid)
-            : base(original, name, guid)
+        public static FeatureDefinitionPointPoolBuilder Create(string name, Guid namespaceGuid)
         {
+            return new FeatureDefinitionPointPoolBuilder(name, namespaceGuid);
         }
 
-        public FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, Guid namespaceGuid, Category category = Category.None)
-            : base(original, name, namespaceGuid, category)
+        public static FeatureDefinitionPointPoolBuilder Create(string name, string guid)
         {
+            return new FeatureDefinitionPointPoolBuilder(name, guid);
         }
 
         public FeatureDefinitionPointPoolBuilder SetPool(HeroDefinitions.PointsPoolType poolType, int poolAmount)

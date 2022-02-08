@@ -35,6 +35,7 @@ namespace SolastaCommunityExpansion.Patches
             PowersContext.AddToDB();
             RemoveBugVisualModelsContext.Load();
             RemoveIdentificationContext.Load();
+            LevelDownContext.Load();
             RespecContext.Load();
             // There are spells that rely on new monster definitions with powers loaded during the PowersContext. So spells should get added to db after powers.
             SpellsContext.AddToDB();
@@ -59,18 +60,19 @@ namespace SolastaCommunityExpansion.Patches
                 // Spells context needs character classes (specifically spell lists) in the db in order to do it's work.
                 SpellsContext.Load();
 
+                // the spells cache is required by both level down or multiclass
+                Multiclass.Models.CacheSpellsContext.Load();
+
                 GuiPresentationCheck.PostCELoadCheck();
 
                 GuiWrapperContext.Recache();
 
                 if (Main.Settings.EnableMulticlass)
                 {
-                    SolastaCommunityExpansion.Multiclass.Models.IntegrationContext.Load();
+                    Multiclass.Models.IntegrationContext.Load();
                     Multiclass.Models.InspectionPanelContext.Load();
-                    Multiclass.Models.LevelDownContext.Load();
                     Multiclass.Models.LevelUpContext.Load();
                     Multiclass.Models.SharedSpellsContext.Load();
-                    Multiclass.Models.SpellsContext.Load();
                 }
 
                 Main.Enabled = true;

@@ -3,26 +3,31 @@ using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionDamageAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionDamageAffinity>
+    public sealed class FeatureDefinitionDamageAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionDamageAffinity>
     {
-        public FeatureDefinitionDamageAffinityBuilder(string name, string guid)
-            : base(name, guid)
+        /*        private FeatureDefinitionDamageAffinityBuilder(string name, string guid)
+                    : base(name, guid)
+                {
+                }
+
+                private FeatureDefinitionDamageAffinityBuilder(string name, Guid namespaceGuid, Category category = Category.None)
+                    : base(name, namespaceGuid, category)
+                {
+                }
+
+                private FeatureDefinitionDamageAffinityBuilder(FeatureDefinitionDamageAffinity original, string name, string guid)
+                    : base(original, name, guid)
+                {
+                }
+        */
+        private FeatureDefinitionDamageAffinityBuilder(FeatureDefinitionDamageAffinity original, string name, Guid namespaceGuid)
+            : base(original, name, namespaceGuid)
         {
         }
 
-        public FeatureDefinitionDamageAffinityBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
+        public static FeatureDefinitionDamageAffinityBuilder Create(FeatureDefinitionDamageAffinity original, string name, Guid namespaceGuid)
         {
-        }
-
-        public FeatureDefinitionDamageAffinityBuilder(FeatureDefinitionDamageAffinity original, string name, string guid)
-            : base(original, name, guid)
-        {
-        }
-
-        public FeatureDefinitionDamageAffinityBuilder(FeatureDefinitionDamageAffinity original, string name, Guid namespaceGuid, Category category = Category.None)
-            : base(original, name, namespaceGuid, category)
-        {
+            return new FeatureDefinitionDamageAffinityBuilder(original, name, namespaceGuid);
         }
     }
 }

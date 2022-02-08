@@ -30,7 +30,6 @@ namespace SolastaCommunityExpansion.Viewers
                 UI.Label(". enforces ability scores minimum in & out pre-requisites");
                 UI.Label(". enforces a subset of starting proficiencies");
                 UI.Label(". " + "extra attacks".orange() + ", " + "unarmored defenses".orange() + " and " + "channel divinity".orange() + " don't stack");
-                
                 UI.Label("");
 
                 return;
@@ -39,7 +38,7 @@ namespace SolastaCommunityExpansion.Viewers
             UI.Label(". press the " + "up".cyan() + " arrow to hide / unhide the character panel selector " + "[useful with more than 2 spell repertoires]".yellow().italic());
             UI.Label(". press the " + "down".cyan() + " arrow to switch to other classes details " + "[while in the character panel]".yellow().italic());
             UI.Label(". " + "SHIFT".cyan() + " click on a spell to consume a long rest slot " + "[default behavior consumes short level slots first]".yellow().italic());
-            
+
             UI.Label("");
 
             int value = Main.Settings.MaxAllowedClasses;

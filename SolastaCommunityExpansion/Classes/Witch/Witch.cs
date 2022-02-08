@@ -2,15 +2,15 @@ using System;
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaCommunityExpansion.Level20;
 using SolastaCommunityExpansion.Classes.Witch.Subclasses;
+using SolastaCommunityExpansion.Level20;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using static FeatureDefinitionCastSpell;
-using static SolastaModApi.DatabaseHelper;
 using static FeatureDefinitionAttributeModifier;
+using static FeatureDefinitionCastSpell;
 using static SolastaCommunityExpansion.Builders.EquipmentOptionsBuilder;
+using static SolastaModApi.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Classes.Witch
 {
@@ -89,35 +89,37 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
         private static void BuildProficiencies()
         {
-            FeatureDefinitionProficiencyArmor = new FeatureDefinitionProficiencyBuilder(
-                        "ProficiencyWitchArmor", WITCH_BASE_GUID, RuleDefinitions.ProficiencyType.Armor, EquipmentDefinitions.LightArmorCategory)
-                    .SetGuiPresentation("WitchArmorProficiency", Category.Class)
-                    .AddToDB();
+            FeatureDefinitionProficiencyArmor = FeatureDefinitionProficiencyBuilder
+                .Create("ProficiencyWitchArmor", WITCH_BASE_GUID)
+                .SetGuiPresentation("WitchArmorProficiency", Category.Class)
+                .SetProficiencies(RuleDefinitions.ProficiencyType.Armor, EquipmentDefinitions.LightArmorCategory)
+                .AddToDB();
 
-            FeatureDefinitionProficiencyWeapon = new FeatureDefinitionProficiencyBuilder(
-                        "ProficiencyWitchWeapon", WITCH_BASE_GUID, RuleDefinitions.ProficiencyType.Weapon, EquipmentDefinitions.SimpleWeaponCategory)
-                    .SetGuiPresentation("WitchWeaponProficiency", Category.Class)
-                    .AddToDB();
+            FeatureDefinitionProficiencyWeapon = FeatureDefinitionProficiencyBuilder
+                .Create("ProficiencyWitchWeapon", WITCH_BASE_GUID)
+                .SetGuiPresentation("WitchWeaponProficiency", Category.Class)
+                .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon, EquipmentDefinitions.SimpleWeaponCategory)
+                .AddToDB();
 
-            FeatureDefinitionProficiencySavingThrow = new FeatureDefinitionProficiencyBuilder(
-                        "ProficiencyWitchSavingthrow", WITCH_BASE_GUID, RuleDefinitions.ProficiencyType.SavingThrow,
-                         AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom).
-                     SetGuiPresentation("WitchSavingthrowProficiency", Category.Class)
-                    .AddToDB();
+            FeatureDefinitionProficiencySavingThrow = FeatureDefinitionProficiencyBuilder
+                .Create("ProficiencyWitchSavingthrow", WITCH_BASE_GUID)
+                .SetGuiPresentation("WitchSavingthrowProficiency", Category.Class)
+                .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom)
+                .AddToDB();
 
             FeatureDefinitionPointPoolSkills = FeatureDefinitionPointPoolBuilder
                 .Create("PointPoolWitchSkillPoints", WITCH_BASE_GUID)
                 .SetGuiPresentation("WitchSkillProficiency", Category.Class)
                 .SetPool(HeroDefinitions.PointsPoolType.Skill, 2)
-                    .RestrictChoices(
-                        SkillDefinitions.Arcana,
-                        SkillDefinitions.Deception,
-                        SkillDefinitions.Insight,
-                        SkillDefinitions.Intimidation,
-                        SkillDefinitions.Persuasion,
-                        SkillDefinitions.Nature,
-                        SkillDefinitions.Religion)
-                    .AddToDB();
+                .RestrictChoices(
+                    SkillDefinitions.Arcana,
+                    SkillDefinitions.Deception,
+                    SkillDefinitions.Insight,
+                    SkillDefinitions.Intimidation,
+                    SkillDefinitions.Persuasion,
+                    SkillDefinitions.Nature,
+                    SkillDefinitions.Religion)
+                .AddToDB();
 
             FeatureDefinitionPointPoolTools = FeatureDefinitionPointPoolBuilder
                 .Create("ProficiencyWitchTool", WITCH_BASE_GUID)
@@ -357,7 +359,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             // Build our spellCast object containing previously created spell list
             var classSpellCast = FeatureDefinitionCastSpellBuilder
                 .Create("CastSpellWitch", WITCH_BASE_GUID)
-                .SetGuiPresentation("WitchSpellcasting", Category.Spell)
+                .SetGuiPresentation("WitchSpellcasting", Category.Class)
                 .SetKnownCantrips(4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6)
                 .SetKnownSpells(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 13, 13, 14, 14, 15, 15, 15, 15);
 
@@ -400,10 +402,11 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
         private static void BuildRitualCasting()
         {
-            var witchRitualCastingMagicAffinity
-                = new FeatureDefinitionMagicAffinityBuilder("WitchRitualCastingMagicAffinity", WITCH_BASE_GUID, Category.Class)
-                    .SetRitualCasting((RuleDefinitions.RitualCasting)ExtraRitualCasting.Known)
-                    .AddToDB();
+            var witchRitualCastingMagicAffinity = FeatureDefinitionMagicAffinityBuilder
+                .Create("WitchRitualCastingMagicAffinity", WITCH_BASE_GUID)
+                .SetGuiPresentation(Category.Class)
+                .SetRitualCasting((RuleDefinitions.RitualCasting)ExtraRitualCasting.Known)
+                .AddToDB();
 
             FeatureDefinitionFeatureSetRitualCasting = FeatureDefinitionFeatureSetBuilder
                 .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetRitualCasting", WITCH_BASE_GUID)
@@ -864,14 +867,13 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     .SetEffect(ruinEffectDescription)
                     .AddToDB();
 
-            FeatureDefinitionFeatureSetMaledictions = new FeatureDefinitionFeatureSetBuilder(
-                FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetMaledictions", WITCH_BASE_GUID, Category.Class)
-                    .SetGuiPresentation("WitchFeatureSetMaledictions", Category.Class)
-                    .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
-                    .SetUniqueChoices(true)
-                    .SetFeatures(abate, apathy, charm, disorient, evileye, obfuscate, pox, ruin)
-                    .AddToDB();
-
+            FeatureDefinitionFeatureSetMaledictions = FeatureDefinitionFeatureSetBuilder
+                .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetMaledictions", WITCH_BASE_GUID)
+                .SetGuiPresentation(Category.Class)
+                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+                .SetUniqueChoices(true)
+                .SetFeatures(abate, apathy, charm, evileye, obfuscate, pox, ruin)
+                .AddToDB();
         }
 
         private static void BuildCackle()

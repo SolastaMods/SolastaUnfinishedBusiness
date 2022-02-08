@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaModApi.Extensions;
 using static FeatureDefinitionCastSpell;
 using static SolastaCommunityExpansion.Models.Level20Context;
 
@@ -37,13 +38,16 @@ namespace SolastaCommunityExpansion.Level20
         {
             var dbSpellListDefinition = DatabaseRepository.GetDatabase<SpellListDefinition>();
 
-            foreach (var spellListDefinitionName in SpellListDefinitionList)
+            foreach (var kvp in SpellListDefinitionList)
             {
+                var spellListDefinitionName = kvp.Key;
+                var maxSpellLevel = kvp.Value;
+
                 if (dbSpellListDefinition.TryGetElement(spellListDefinitionName, out SpellListDefinition spellListDefinition))
                 {
                     var accountForCantrips = spellListDefinition.HasCantrips ? 1 : 0;
 
-                    while (spellListDefinition.SpellsByLevel.Count < MAX_SPELL_LEVEL + accountForCantrips)
+                    while (spellListDefinition.SpellsByLevel.Count < maxSpellLevel + accountForCantrips)
                     {
                         spellListDefinition.SpellsByLevel.Add(
                             new SpellListDefinition.SpellsByLevelDuplet
@@ -52,20 +56,22 @@ namespace SolastaCommunityExpansion.Level20
                                 Spells = new List<SpellDefinition>()
                             });
                     }
+
+                    spellListDefinition.SetMaxSpellLevel(maxSpellLevel);
                 }
             }
         }
 
-        internal static readonly List<string> SpellListDefinitionList = new()
+        internal static readonly Dictionary<string, int> SpellListDefinitionList = new()
         {
-            "SpellListCleric",
-            "SpellListDruid",
-            "SpellListPaladin",
-            "SpellListRanger",
-            "SpellListShockArcanist",
-            "SpellListSorcerer",
-            "SpellListWizard",
-            "SpellListWizardGreenmage",
+            { "SpellListCleric", 9 },
+            { "SpellListDruid", 9 },
+            { "SpellListPaladin", 5 },
+            { "SpellListRanger", 5 },
+            { "SpellListShockArcanist", 9 },
+            { "SpellListSorcerer", 9 },
+            { "SpellListWizard", 9 },
+            { "SpellListWizardGreenmage", 9 },
         };
 
         // game uses IndexOf(0) on these sub lists reason why the last 0 there

@@ -8,8 +8,8 @@ namespace SolastaCommunityExpansion.Builders.Features
 {
     public sealed class FeatureDefinitionAbilityCheckAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionAbilityCheckAffinity>
     {
-        private FeatureDefinitionAbilityCheckAffinityBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
+        private FeatureDefinitionAbilityCheckAffinityBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
         {
         }
 
@@ -18,10 +18,11 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public static FeatureDefinitionAbilityCheckAffinityBuilder Create(
-            string name, Guid namespaceGuid, Category category = Category.None)
+        // Add other standard Create methods and constructors as required.
+
+        public static FeatureDefinitionAbilityCheckAffinityBuilder Create(string name, Guid namespaceGuid)
         {
-            return new FeatureDefinitionAbilityCheckAffinityBuilder(name, namespaceGuid, category);
+            return new FeatureDefinitionAbilityCheckAffinityBuilder(name, namespaceGuid);
         }
 
         public static FeatureDefinitionAbilityCheckAffinityBuilder Create(

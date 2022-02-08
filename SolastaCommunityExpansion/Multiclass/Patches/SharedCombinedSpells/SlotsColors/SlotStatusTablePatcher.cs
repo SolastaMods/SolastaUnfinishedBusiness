@@ -55,7 +55,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells.Slot
 
                         if (warlockSpellRepertoire != null)
                         {
-                            var usedSpellsSlots = warlockSpellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int,int>>("usedSpellsSlots");
+                            var usedSpellsSlots = warlockSpellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
 
                             usedSpellsSlots.TryGetValue(-1, out shortRestSlotsUsedCount);
                         }

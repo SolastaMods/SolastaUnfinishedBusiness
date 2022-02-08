@@ -117,7 +117,10 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
         [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "Refresh")]
         internal static class CharacterStageClassSelectionPanelRefresh
         {
-            public static bool SetActive() => !(Models.LevelUpContext.LevelingUp && Models.LevelUpContext.DisplayingClassPanel);
+            public static bool SetActive()
+            {
+                return !(Models.LevelUpContext.LevelingUp && Models.LevelUpContext.DisplayingClassPanel);
+            }
 
             internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {

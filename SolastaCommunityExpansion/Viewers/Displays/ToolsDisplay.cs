@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableRespec;
-            if (UI.Toggle("Enable RESPEC", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable RESPEC and Level Down", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableRespec = toggle;
             }
@@ -27,7 +27,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             toggle = Main.Settings.NoExperienceOnLevelUp;
-            if (UI.Toggle("No experience is required to level up", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("No experience is required to Level Up", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.NoExperienceOnLevelUp = toggle;
             }

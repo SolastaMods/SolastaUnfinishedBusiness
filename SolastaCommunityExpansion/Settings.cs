@@ -233,8 +233,18 @@ namespace SolastaCommunityExpansion
         public bool EnableCheatMenu { get; set; }
         public bool NoExperienceOnLevelUp { get; set; }
 
-        public bool ShowTADefinitionsWithMissingGuiPresentation { get; set; }
-        public bool ShowCEDefinitionsWithMissingGuiPresentation { get; set; } = true;
+        public bool DebugShowTADefinitionsWithMissingGuiPresentation { get; set; }
+        public bool DebugLogDefinitionCreation { get; set; }
+        public bool DebugLogFieldInitialization { get; set; }
+#if DEBUG
+        public bool DebugShowCEDefinitionsWithMissingGuiPresentation { get; set; } = true;
+        public bool DebugLogCEDefinitionsToFile { get; set; } = true;
+        public bool DebugLogCEGuiPresentationsToFile { get; set; } = true;
+#else
+        public bool DebugShowCEDefinitionsWithMissingGuiPresentation { get; set; }
+        public bool DebugLogCEDefinitionsToFile { get; set; }
+        public bool DebugLogCEGuiPresentationsToFile { get; set; }
+#endif
 
         // Faction Relations
 
@@ -313,5 +323,6 @@ namespace SolastaCommunityExpansion
         public bool EnableHotkeyToggleIndividualHud { get; set; }
         public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
         public bool InvertAltBehaviorOnTooltips { get; set; }
+        public bool EnableCtrlClickBypassMetamagicPanel { get; set; }
     }
 }

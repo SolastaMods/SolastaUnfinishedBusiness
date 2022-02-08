@@ -4,13 +4,36 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using static SolastaModApi.BaseDefinitionBuilder;
 
 namespace SolastaCommunityExpansion.Builders
 {
     public class GuiPresentationBuilder
     {
         private readonly GuiPresentation guiPresentation;
+
+        public static string CreateTitleKey(string name, Category category)
+        {
+            Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
+
+            if (category == Category.None)
+            {
+                throw new ArgumentException("The parameter must not be Category.None.", nameof(category));
+            }
+
+            return $"{category}/&{name}Title";
+        }
+
+        public static string CreateDescriptionKey(string description, Category category)
+        {
+            Preconditions.IsNotNullOrWhiteSpace(description, nameof(description));
+
+            if (category == Category.None)
+            {
+                throw new ArgumentException("The parameter must not be Category.None.", nameof(category));
+            }
+
+            return $"{category}/&{description}Description";
+        }
 
         public GuiPresentationBuilder(string title = null, string description = null, AssetReferenceSprite sprite = null)
         {
@@ -68,10 +91,15 @@ namespace SolastaCommunityExpansion.Builders
 
         // TODO: More Build/Generate(...) overloads as required
 
+        private const string NothingToSee = "NoContent";
+
+        public static readonly string NoContentTitle = CreateTitleKey(NothingToSee, Category.Feature);
+        public static readonly string NoContentDescription = CreateDescriptionKey(NothingToSee, Category.Feature);
+
         /// <summary>
         /// GuiPresentation representing 'No content title and description'
         /// </summary>
-        public static GuiPresentation NoContent { get; } = Build("NoContent", Category.Feature);
+        public static GuiPresentation NoContent { get; } = Build(NothingToSee, Category.Feature);
     }
 
     internal static class BaseDefinitionBuilderGuiPresentationExtensions
@@ -89,7 +117,6 @@ namespace SolastaCommunityExpansion.Builders
         /// <summary>
         /// Create and set a GuiPresentation from the provided title, description and AssetReferenceSprite.
         /// </summary>
-        [Obsolete("Use alternative method.")]
         public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, string title, string description, AssetReferenceSprite sprite = null)
             where TBuilder : IBaseDefinitionBuilder
         {

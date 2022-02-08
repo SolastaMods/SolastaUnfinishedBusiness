@@ -6,8 +6,9 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalDamages;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Subclasses.Ranger
 {
@@ -136,7 +137,8 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
         {
             var marked_condition = ConditionMarkedByArcanistBuilder.GetOrAdd();
 
-            return new FeatureDefinitionAdditionalDamageBuilder(AdditionalDamageHuntersMark, "AdditionalDamageArcanistMark", RA_BASE_GUID)
+            return FeatureDefinitionAdditionalDamageBuilder
+                .Create(AdditionalDamageHuntersMark, "AdditionalDamageArcanistMark", RA_BASE_GUID)
                 .SetGuiPresentation("ArcanistMark", Category.Feature)
                 .SetSpecificDamageType("DamageForce")
                 .SetDamageDice(RuleDefinitions.DieType.D6, 0)
@@ -161,7 +163,8 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             var asset_reference = new AssetReference();
             asset_reference.SetField("m_AssetGUID", "9f1fe10e6ef8c9c43b6b2ef91b2ad38a");
 
-            return new FeatureDefinitionAdditionalDamageBuilder(AdditionalDamageHuntersMark, "AdditionalDamageArcaneDetonation", RA_BASE_GUID)
+            return FeatureDefinitionAdditionalDamageBuilder
+                .Create(AdditionalDamageHuntersMark, "AdditionalDamageArcaneDetonation", RA_BASE_GUID)
                 .SetGuiPresentation("ArcaneDetonation", Category.Feature)
                 .SetSpecificDamageType("DamageForce")
                 .SetDamageDice(RuleDefinitions.DieType.D6, 1)
@@ -279,9 +282,9 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
                 marked_effect
             });
 
-            return new FeatureDefinitionPowerBuilder(name, GuidHelper.Create(RA_BASE_GUID, name).ToString(),
-                new GuiPresentationBuilder(title, description)
-                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsThunder.GuiPresentation.SpriteReference).Build())
+            return FeatureDefinitionPowerBuilder
+                .Create(name, RA_BASE_GUID)
+                .SetGuiPresentation(title, description, PowerDomainElementalHeraldOfTheElementsThunder.GuiPresentation.SpriteReference)
                 .SetUsesAbility(0, AttributeDefinitions.Wisdom)
                 .SetShowCasting(true)
                 .SetRecharge(RuleDefinitions.RechargeRate.LongRest)

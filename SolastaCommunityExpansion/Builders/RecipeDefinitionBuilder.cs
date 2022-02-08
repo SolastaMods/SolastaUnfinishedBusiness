@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using SolastaModApi;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders
 {
@@ -12,8 +10,8 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public RecipeDefinitionBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
+        public RecipeDefinitionBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
         {
         }
 
@@ -21,8 +19,8 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public RecipeDefinitionBuilder(RecipeDefinition original, string name, Guid namespaceGuid, Category category = Category.None)
-            : base(original, name, namespaceGuid, category)
+        public RecipeDefinitionBuilder(RecipeDefinition original, string name, Guid namespaceGuid)
+            : base(original, name, namespaceGuid)
         {
         }
 

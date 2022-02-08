@@ -7,32 +7,31 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionFeatureSetBuilder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
+    public sealed class FeatureDefinitionFeatureSetBuilder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
     {
-        public FeatureDefinitionFeatureSetBuilder(FeatureDefinitionFeatureSet original, string name, string guid, GuiPresentation guiPresentation)
-            : base(original, name, guid)
+        /*        private FeatureDefinitionFeatureSetBuilder(string name, string guid)
+                    : base(name, guid)
+                {
+                }
+
+                private FeatureDefinitionFeatureSetBuilder(string name, Guid namespaceGuid, Category category = Category.None)
+                    : base(name, namespaceGuid, category)
+                {
+                }
+
+                private FeatureDefinitionFeatureSetBuilder(FeatureDefinitionFeatureSet original, string name, string guid)
+                    : base(original, name, guid)
+                {
+                }*/
+
+        private FeatureDefinitionFeatureSetBuilder(FeatureDefinitionFeatureSet original, string name, Guid namespaceGuid)
+            : base(original, name, namespaceGuid)
         {
-            Definition.SetGuiPresentation(guiPresentation);
         }
 
-        public FeatureDefinitionFeatureSetBuilder(string name, string guid)
-            : base(name, guid)
+        public static FeatureDefinitionFeatureSetBuilder Create(FeatureDefinitionFeatureSet original, string name, Guid namespaceGuid)
         {
-        }
-
-        public FeatureDefinitionFeatureSetBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
-        {
-        }
-
-        public FeatureDefinitionFeatureSetBuilder(FeatureDefinitionFeatureSet original, string name, string guid)
-            : base(original, name, guid)
-        {
-        }
-
-        public FeatureDefinitionFeatureSetBuilder(FeatureDefinitionFeatureSet original, string name, Guid namespaceGuid, Category category = Category.None)
-            : base(original, name, namespaceGuid, category)
-        {
+            return new FeatureDefinitionFeatureSetBuilder(original, name, namespaceGuid);
         }
 
         public FeatureDefinitionFeatureSetBuilder ClearFeatures()

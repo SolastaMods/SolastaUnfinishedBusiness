@@ -29,7 +29,7 @@ namespace SolastaCommunityExpansion.DataViewer
 
         public TNode Node { get; set; }
 
-        public HashSet<TNode> matches { get { return Children.Select(c => c.Node).ToHashSet(); } }
+        public HashSet<TNode> matches => Children.Select(c => c.Node).ToHashSet();
 
         public List<ResultNode<TNode>> Children { get; } = new();
 
@@ -105,10 +105,10 @@ namespace SolastaCommunityExpansion.DataViewer
 
     public class ReflectionSearchResult : ResultNode<Node>
     {
-        public override string Name { get { return Node.Name; } }
-        public override Type Type { get { return Node.Type; } }
-        public override string NodeTypePrefix { get { return Node.NodeTypePrefix; } }
-        public override string ValueText { get { return Node.ValueText; } }
+        public override string Name => Node.Name;
+        public override Type Type => Node.Type;
+        public override string NodeTypePrefix => Node.NodeTypePrefix;
+        public override string ValueText => Node.ValueText;
 
         public void AddSearchResult(Node node)
         {

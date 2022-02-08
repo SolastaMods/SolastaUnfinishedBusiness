@@ -5,25 +5,25 @@ using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionAttributeModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttributeModifier>
+    public sealed class FeatureDefinitionAttributeModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionAttributeModifier>
     {
-        public FeatureDefinitionAttributeModifierBuilder(string name, string guid)
-            : base(name, guid)
-        {
-        }
-
-        public FeatureDefinitionAttributeModifierBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
-        {
-        }
-
-        public FeatureDefinitionAttributeModifierBuilder(FeatureDefinitionAttributeModifier original, string name, string guid)
+        private FeatureDefinitionAttributeModifierBuilder(FeatureDefinitionAttributeModifier original, string name, string guid)
             : base(original, name, guid)
         {
         }
 
-        public FeatureDefinitionAttributeModifierBuilder(FeatureDefinitionAttributeModifier original, string name, Guid namespaceGuid, Category category = Category.None)
-            : base(original, name, namespaceGuid, category)
+        private FeatureDefinitionAttributeModifierBuilder(string name, string guid)
+            : base(name, guid)
+        {
+        }
+
+        private FeatureDefinitionAttributeModifierBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
+        {
+        }
+
+        private FeatureDefinitionAttributeModifierBuilder(FeatureDefinitionAttributeModifier original, string name, Guid namespaceGuid)
+            : base(original, name, namespaceGuid)
         {
         }
 
@@ -40,6 +40,11 @@ namespace SolastaCommunityExpansion.Builders.Features
         public static FeatureDefinitionAttributeModifierBuilder Create(FeatureDefinitionAttributeModifier original, string name, Guid namespaceGuid)
         {
             return new FeatureDefinitionAttributeModifierBuilder(original, name, namespaceGuid);
+        }
+
+        public static FeatureDefinitionAttributeModifierBuilder Create(FeatureDefinitionAttributeModifier original, string name, string guid)
+        {
+            return new FeatureDefinitionAttributeModifierBuilder(original, name, guid);
         }
 
         public FeatureDefinitionAttributeModifierBuilder SetModifier(AttributeModifierOperation modifierType, string attribute, int amount)

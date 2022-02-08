@@ -1,10 +1,10 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
-using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.Spells
 {

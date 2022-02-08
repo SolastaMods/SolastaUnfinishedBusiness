@@ -159,7 +159,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
 
                     foreach (var spellRepertoire in __instance.HeroCharacter.SpellRepertoires)
                     {
-                        var isRepertoireFromSelectedClassSubclass = SpellsContext.IsRepertoireFromSelectedClassSubclass(spellRepertoire);
+                        var isRepertoireFromSelectedClassSubclass = CacheSpellsContext.IsRepertoireFromSelectedClassSubclass(spellRepertoire);
 
                         // PATCH: don't allow cantrips to be re-learned
                         foreach (var spell in spellRepertoire.KnownCantrips)
@@ -167,7 +167,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                             if (!spellDefinitionList.Contains(spell) &&
                                 (
                                     isRepertoireFromSelectedClassSubclass ||
-                                    (!Main.Settings.EnableRelearnSpells && SpellsContext.IsSpellOfferedBySelectedClassSubclass(spell))
+                                    (!Main.Settings.EnableRelearnSpells && CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(spell))
                                 ))
                             {
                                 spellDefinitionList.Add(spell);
@@ -186,7 +186,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                                     if (!spellDefinitionList.Contains(spell) &&
                                         (
                                             isRepertoireFromSelectedClassSubclass ||
-                                            (!Main.Settings.EnableRelearnSpells && SpellsContext.IsSpellOfferedBySelectedClassSubclass(spell))
+                                            (!Main.Settings.EnableRelearnSpells && CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(spell))
                                         ))
                                     {
                                         spellDefinitionList.Add(spell);
@@ -201,7 +201,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                                 if (!spellDefinitionList.Contains(spell) &&
                                     (
                                         isRepertoireFromSelectedClassSubclass ||
-                                        (!Main.Settings.EnableRelearnSpells && SpellsContext.IsSpellOfferedBySelectedClassSubclass(spell))
+                                        (!Main.Settings.EnableRelearnSpells && CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(spell))
                                     ))
                                 {
                                     spellDefinitionList.Add(spell);
@@ -212,7 +212,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                                 if (!spellDefinitionList.Contains(spell) &&
                                     (
                                         isRepertoireFromSelectedClassSubclass ||
-                                        (!Main.Settings.EnableRelearnSpells && SpellsContext.IsSpellOfferedBySelectedClassSubclass(spell))
+                                        (!Main.Settings.EnableRelearnSpells && CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(spell))
                                     ))
                                 {
                                     spellDefinitionList.Add(spell);
@@ -232,7 +232,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                             if (!spellDefinitionList.Contains(spell) &&
                                 (
                                     LevelUpContext.SelectedClass == Wizard ||
-                                    (!Main.Settings.EnableRelearnSpells && SpellsContext.IsSpellOfferedBySelectedClassSubclass(spell))
+                                    (!Main.Settings.EnableRelearnSpells && CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(spell))
                                 ))
                             {
                                 spellDefinitionList.Add(spell);

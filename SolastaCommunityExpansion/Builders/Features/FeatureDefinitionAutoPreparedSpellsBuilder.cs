@@ -8,26 +8,35 @@ using static FeatureDefinitionAutoPreparedSpells;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionAutoPreparedSpellsBuilder : BaseDefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
+    public sealed class FeatureDefinitionAutoPreparedSpellsBuilder : BaseDefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
     {
-        public FeatureDefinitionAutoPreparedSpellsBuilder(string name, string guid)
+        /*
+        private FeatureDefinitionAutoPreparedSpellsBuilder(string name, string guid)
             : base(name, guid)
         {
         }
 
-        public FeatureDefinitionAutoPreparedSpellsBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
-        {
-        }
-
-        public FeatureDefinitionAutoPreparedSpellsBuilder(FeatureDefinitionAutoPreparedSpells original, string name, string guid)
+        private FeatureDefinitionAutoPreparedSpellsBuilder(FeatureDefinitionAutoPreparedSpells original, string name, string guid)
             : base(original, name, guid)
         {
         }
 
-        public FeatureDefinitionAutoPreparedSpellsBuilder(FeatureDefinitionAutoPreparedSpells original, string name, Guid namespaceGuid, Category category = Category.None)
-            : base(original, name, namespaceGuid, category)
+        private FeatureDefinitionAutoPreparedSpellsBuilder(FeatureDefinitionAutoPreparedSpells original, string name, Guid namespaceGuid)
+            : base(original, name, namespaceGuid)
         {
+        }
+        */
+
+        private FeatureDefinitionAutoPreparedSpellsBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
+        {
+        }
+
+        // Add other standard Create methods and constructors as required.
+
+        public static FeatureDefinitionAutoPreparedSpellsBuilder Create(string name, Guid namespaceGuid)
+        {
+            return new FeatureDefinitionAutoPreparedSpellsBuilder(name, namespaceGuid);
         }
 
         public FeatureDefinitionAutoPreparedSpellsBuilder SetPreparedSpellGroups(params AutoPreparedSpellsGroup[] autospelllists)

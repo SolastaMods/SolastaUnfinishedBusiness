@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -180,6 +181,16 @@ namespace SolastaCommunityExpansion.Builders
             effect.DurationParameter = durationParameter;
             effect.SetEndOfEffect(endOfEffect);
             return this;
+        }
+
+        public EffectDescriptionBuilder SetSavingThrowData(bool hasSavingThrow, bool disableSavingThrowOnAllies, string savingThrowAbility, bool ignoreCover,
+            RuleDefinitions.EffectDifficultyClassComputation difficultyClassComputation, string savingThrowDifficultyAbility,
+            int fixedSavingThrowDifficultyClass, bool advantageForEnemies, params SaveAffinityBySenseDescription[] savingThrowAffinitiesBySense)
+        {
+            return SetSavingThrowData(
+                hasSavingThrow, disableSavingThrowOnAllies, savingThrowAbility,
+                ignoreCover, difficultyClassComputation, savingThrowDifficultyAbility,
+                fixedSavingThrowDifficultyClass, advantageForEnemies, savingThrowAffinitiesBySense.AsEnumerable());
         }
 
         public EffectDescriptionBuilder SetSavingThrowData(bool hasSavingThrow, bool disableSavingThrowOnAllies, string savingThrowAbility, bool ignoreCover,

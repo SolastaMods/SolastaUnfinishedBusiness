@@ -1,9 +1,9 @@
-﻿using HarmonyLib;
-using ModKit;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using HarmonyLib;
+using ModKit;
 using UnityEngine;
 using static ModKit.Utility.RichTextExtensions;
 
@@ -22,7 +22,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         internal static void DisplayPatches()
         {
             if (_buttonStyle == null)
+            {
                 _buttonStyle = new GUIStyle(GUI.skin.button) { alignment = TextAnchor.MiddleLeft };
+            }
+
             if (firstTime)
             {
                 RefreshListOfPatchOwners();
@@ -109,9 +112,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                                 {
                                     var enabledPatches = EnabledPatchesForMethod(method);
                                     foreach (var patch in enabledPatches)
+                                    {
                                         actions.Add(() => EnablePatchForMethod(false, patch, method));
+                                    }
                                 }
-                                foreach (var action in actions) action();
+                                foreach (var action in actions)
+                                {
+                                    action();
+                                }
                             });
                         }
                         if (_disabled.Sum(entry => entry.Value.Count) > 0)
@@ -123,9 +131,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                                 {
                                     var disabledPatches = DisabledPatchesForMethod(method);
                                     foreach (var patch in disabledPatches)
+                                    {
                                         actions.Add(() => EnablePatchForMethod(true, patch, method));
+                                    }
                                 }
-                                foreach (var action in actions) action();
+                                foreach (var action in actions)
+                                {
+                                    action();
+                                }
                             });
                         }
                     }
@@ -260,7 +273,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         private static void RefreshListOfPatchOwners(bool reset = true)
         {
             if (reset || _modIdsToColor == null)
+            {
                 _modIdsToColor = new Dictionary<string, string>();
+            }
+
             var patches = Harmony.GetAllPatchedMethods().SelectMany(method =>
             {
                 var patchInfo = Harmony.GetPatchInfo(method);

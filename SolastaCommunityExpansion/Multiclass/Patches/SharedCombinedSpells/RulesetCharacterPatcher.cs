@@ -5,15 +5,11 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaModApi.Infrastructure;
-using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
 {
     internal static class RulesetCharacterPatcher
     {
-        //
-        // had to use a bool Prefix here to bypass ModHelpers transpiler on this method... All I really need is set my RestType state
-        //
         [HarmonyPatch(typeof(RulesetCharacter), "ApplyRest")]
         internal static class RulesetCharacterApplyRest
         {
@@ -30,6 +26,10 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
 
                 Models.SharedSpellsContext.RestType = restType;
 
+                //
+                // default game code from here. had to use a bool Prefix here to bypass ModHelpers transpiler on this method...
+                //
+
                 __instance.RecoveredFeatures.Clear();
 
                 foreach (var usablePower in __instance.UsablePowers)
@@ -45,7 +45,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                     }
                 }
 
-                if (__instance.TryGetAttributeValue("ChannelDivinityNumber") > 0 && __instance.UsedChannelDivinity > 0)
+                if (__instance.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber) > 0 && __instance.UsedChannelDivinity > 0)
                 {
                     if (!simulate)
                     {
@@ -58,7 +58,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                     {
                         var attributeModifier = featureDefinition as FeatureDefinitionAttributeModifier;
 
-                        if (attributeModifier.ModifiedAttribute == "ChannelDivinityNumber")
+                        if (attributeModifier.ModifiedAttribute == AttributeDefinitions.ChannelDivinityNumber)
                         {
                             __instance.RecoveredFeatures.Add(attributeModifier);
                             break;
@@ -66,39 +66,36 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                     }
                 }
 
-                if (restType == RuleDefinitions.RestType.LongRest && __instance.TryGetAttributeValue("HealingPool") > 0 && (__instance.UsedHealingPool > 0 && !simulate))
+                if (restType == RuleDefinitions.RestType.LongRest && __instance.TryGetAttributeValue(AttributeDefinitions.HealingPool) > 0 && (__instance.UsedHealingPool > 0 && !simulate))
                 {
                     __instance.SetField("usedHealingPool", 0);
                 }
 
-                if (restType == RuleDefinitions.RestType.LongRest && __instance.TryGetAttributeValue("SorceryPoints") > 0 && (__instance.UsedSorceryPoints > 0 && !simulate))
+                if (restType == RuleDefinitions.RestType.LongRest && __instance.TryGetAttributeValue(AttributeDefinitions.SorceryPoints) > 0 && (__instance.UsedSorceryPoints > 0 && !simulate))
                 {
                     __instance.SetField("usedSorceryPoints", 0);
                 }
 
-                if (restType == RuleDefinitions.RestType.LongRest && __instance.TryGetAttributeValue("RagePoints") > 0 && (__instance.UsedRagePoints > 0 && !simulate))
+                if (restType == RuleDefinitions.RestType.LongRest && __instance.TryGetAttributeValue(AttributeDefinitions.RagePoints) > 0 && (__instance.UsedRagePoints > 0 && !simulate))
                 {
                     __instance.SetField("usedRagePoints", 0);
                 }
 
-                if (restType == RuleDefinitions.RestType.LongRest && __instance.TryGetAttributeValue("IndomitableResistances") > 0 && (__instance.UsedIndomitableResistances > 0 && !simulate))
+                if (restType == RuleDefinitions.RestType.LongRest && __instance.TryGetAttributeValue(AttributeDefinitions.IndomitableResistances) > 0 && (__instance.UsedIndomitableResistances > 0 && !simulate))
                 {
                     __instance.SetField("usedIndomitableResistances", 0);
                 }
 
-                if (!simulate)
+                if (!simulate && __instance.TryGetAttribute(AttributeDefinitions.RelentlessRageDC, out var rulesetAttribute))
                 {
-                    if (__instance.TryGetAttribute("RelentlessRageDC", out var rulesetAttribute))
-                    {
-                        rulesetAttribute.RemoveModifiersByTags(AttributeDefinitions.TagHealth);
-                        rulesetAttribute.Refresh();
-                    }
+                    rulesetAttribute.RemoveModifiersByTags(AttributeDefinitions.TagHealth);
+                    rulesetAttribute.Refresh();
+                }
 
-                    if (__instance.TryGetAttribute("FrenzyExhaustionDC", out rulesetAttribute))
-                    {
-                        rulesetAttribute.RemoveModifiersByTags(AttributeDefinitions.TagHealth);
-                        rulesetAttribute.Refresh();
-                    }
+                if (!simulate && __instance.TryGetAttribute(AttributeDefinitions.FrenzyExhaustionDC, out var rulesetAttribute1))
+                {
+                    rulesetAttribute1.RemoveModifiersByTags(AttributeDefinitions.TagHealth);
+                    rulesetAttribute1.Refresh();
                 }
 
                 foreach (RulesetSpellRepertoire spellRepertoire in __instance.SpellRepertoires)
@@ -203,23 +200,28 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
         [HarmonyPatch(typeof(RulesetCharacter), "RefreshSpellRepertoires")]
         internal static class RulesetCharacterRefreshSpellRepertoires
         {
-            private static readonly Dictionary<int, int> affinityProviderAdditionalSlots = new ();
+            private static readonly Dictionary<int, int> affinityProviderAdditionalSlots = new();
 
             internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    foreach (var instruction in instructions)
+                    {
+                        yield return instruction;
+                    }
+
+                    yield break;
+                }
+
                 var computeSpellSlotsMethod = typeof(RulesetSpellRepertoire).GetMethod("ComputeSpellSlots");
                 var myComputeSpellSlotsMethod = typeof(RulesetCharacterRefreshSpellRepertoires).GetMethod("MyComputeSpellSlots");
                 var finishRepertoiresRefreshMethod = typeof(RulesetCharacterRefreshSpellRepertoires).GetMethod("FinishRepertoiresRefresh");
 
                 foreach (var instruction in instructions)
                 {
-                    if (!Main.Settings.EnableMulticlass)
+                    if (instruction.Calls(computeSpellSlotsMethod))
                     {
-                        yield return instruction;
-                    }
-                    else if (instruction.Calls(computeSpellSlotsMethod))
-                    {
-                        yield return new CodeInstruction(OpCodes.Ldarg_0);
                         yield return new CodeInstruction(OpCodes.Call, myComputeSpellSlotsMethod);
                     }
                     else if (instruction.opcode == OpCodes.Brtrue_S)

@@ -2,16 +2,44 @@
 using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
+using SolastaCommunityExpansion.Multiclass.Models;
+using SolastaModApi;
+using SolastaModApi.Extensions;
+using static SolastaModApi.DatabaseHelper.RestActivityDefinitions;
 
-namespace SolastaCommunityExpansion.Multiclass.Models
+namespace SolastaCommunityExpansion.Models
 {
     internal static class LevelDownContext
     {
+        internal class RestActivityLevelDownBuilder : BaseDefinitionBuilder<RestActivityDefinition>
+        {
+            private const string LevelDownName = "ZSLevelDown";
+            private const string LevelDownGuid = "fdb4d86eaef942d1a22dbf1fb5a7299f";
+
+            private const RestActivityDefinition.ActivityCondition ActivityConditionCanLevelDown = (RestActivityDefinition.ActivityCondition)(-1002);
+
+            protected RestActivityLevelDownBuilder(string name, string guid) : base(LevelUp, name, guid)
+            {
+                Definition.GuiPresentation.Title = "RestActivity/&ZSLevelDownTitle";
+                Definition.GuiPresentation.Description = "RestActivity/&ZSLevelDownDescription";
+                Definition.SetCondition(ActivityConditionCanLevelDown);
+                Definition.SetFunctor(LevelDownName);
+                ServiceRepository.GetService<IFunctorService>().RegisterFunctor(LevelDownName, new FunctorLevelDown());
+            }
+
+            private static RestActivityDefinition CreateAndAddToDB(string name, string guid)
+            {
+                return new RestActivityLevelDownBuilder(name, guid).AddToDB();
+            }
+
+            internal static readonly RestActivityDefinition RestActivityLevelDown = CreateAndAddToDB(LevelDownName, LevelDownGuid);
+        }
+
         public class FunctorLevelDown : Functor
         {
             public override IEnumerator Execute(
               FunctorParametersDescription functorParameters,
-              Functor.FunctorExecutionContext context)
+              FunctorExecutionContext context)
             {
                 var rulesetCharacterHero = functorParameters.RestingHero;
                 var state = -1;
@@ -37,7 +65,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
         internal static void Load()
         {
-            _ = CustomDefinitions.RestActivityLevelDownBuilder.RestActivityLevelDown;
+            _ = RestActivityLevelDownBuilder.RestActivityLevelDown;
         }
 
         internal static void ConfirmAndExecute(string filename)
@@ -243,7 +271,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
         private static void UnlearnSpells(RulesetCharacterHero hero, int indexLevel)
         {
-            var heroRepertoire = hero.SpellRepertoires.FirstOrDefault(x => SpellsContext.IsRepertoireFromSelectedClassSubclass(x));
+            var heroRepertoire = hero.SpellRepertoires.FirstOrDefault(x => CacheSpellsContext.IsRepertoireFromSelectedClassSubclass(x));
 
             if (heroRepertoire == null)
             {
@@ -299,7 +327,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             }
 
             var classLevel = hero.ClassesAndLevels[characterClassDefinition];
-            var heroRepertoire = hero.SpellRepertoires.FirstOrDefault(x => SpellsContext.IsRepertoireFromSelectedClassSubclass(x));
+            var heroRepertoire = hero.SpellRepertoires.FirstOrDefault(x => CacheSpellsContext.IsRepertoireFromSelectedClassSubclass(x));
 
             foreach (var featureDefinition in hero.ActiveFeatures[tag])
             {

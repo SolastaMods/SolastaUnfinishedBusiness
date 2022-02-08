@@ -9,7 +9,10 @@ namespace SolastaCommunityExpansion.Multiclass.Models
     {
         private static readonly float[] fontSizes = new float[] { 17f, 17f, 16f, 15f, 12.5f };
 
-        internal static float GetFontSize(int classesCount) => fontSizes[classesCount % 5];
+        internal static float GetFontSize(int classesCount)
+        {
+            return fontSizes[classesCount % 5];
+        }
 
         internal static string GetAllClassesLabel(GuiCharacter character, string separator = "\n")
         {

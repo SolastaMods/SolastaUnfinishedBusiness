@@ -6,14 +6,14 @@ namespace SolastaCommunityExpansion.Builders.Features
 {
     public sealed class FeatureDefinitionOnAttackHitEffectBuilder : BaseDefinitionBuilder<FeatureDefinitionOnAttackHitEffect>
     {
-        private FeatureDefinitionOnAttackHitEffectBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
+        private FeatureDefinitionOnAttackHitEffectBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
         {
         }
 
-        public static FeatureDefinitionOnAttackHitEffectBuilder Create(string name, Guid namespaceGuid, Category category = Category.None)
+        public static FeatureDefinitionOnAttackHitEffectBuilder Create(string name, Guid namespaceGuid)
         {
-            return new FeatureDefinitionOnAttackHitEffectBuilder(name, namespaceGuid, category);
+            return new FeatureDefinitionOnAttackHitEffectBuilder(name, namespaceGuid);
         }
 
         public FeatureDefinitionOnAttackHitEffectBuilder SetOnAttackHitDelegate(OnAttackHitDelegate onHit)

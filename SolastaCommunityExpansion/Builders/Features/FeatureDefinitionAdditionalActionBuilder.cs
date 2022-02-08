@@ -9,26 +9,28 @@ namespace SolastaCommunityExpansion.Builders.Features
 {
     public sealed class FeatureDefinitionAdditionalActionBuilder : BaseDefinitionBuilder<FeatureDefinitionAdditionalAction>
     {
-        private FeatureDefinitionAdditionalActionBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
+        private FeatureDefinitionAdditionalActionBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
         {
         }
 
-        private FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original, string name, Guid namespaceGuid, Category category = Category.None)
-            : base(original, name, namespaceGuid, category)
+        private FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original, string name, Guid namespaceGuid)
+            : base(original, name, namespaceGuid)
         {
+        }
+
+        // Add other standard Create methods and constructors as required.
+
+        public static FeatureDefinitionAdditionalActionBuilder Create(
+            string name, Guid namespaceGuid)
+        {
+            return new FeatureDefinitionAdditionalActionBuilder(name, namespaceGuid);
         }
 
         public static FeatureDefinitionAdditionalActionBuilder Create(
-            string name, Guid namespaceGuid, Category category = Category.None)
+            FeatureDefinitionAdditionalAction original, string name, Guid namespaceGuid)
         {
-            return new FeatureDefinitionAdditionalActionBuilder(name, namespaceGuid, category);
-        }
-
-        public static FeatureDefinitionAdditionalActionBuilder Create(
-            FeatureDefinitionAdditionalAction original, string name, Guid namespaceGuid, Category category = Category.None)
-        {
-            return new FeatureDefinitionAdditionalActionBuilder(original, name, namespaceGuid, category);
+            return new FeatureDefinitionAdditionalActionBuilder(original, name, namespaceGuid);
         }
 
         public FeatureDefinitionAdditionalActionBuilder SetActionType(ActionDefinitions.ActionType actionType)

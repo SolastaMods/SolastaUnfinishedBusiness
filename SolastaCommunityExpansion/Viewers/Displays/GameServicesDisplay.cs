@@ -1,8 +1,8 @@
-﻿using ModKit.Utility;
-using SolastaCommunityExpansion.DataViewer;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ModKit.Utility;
+using SolastaCommunityExpansion.DataViewer;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
@@ -12,37 +12,37 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         private static readonly Dictionary<string, Func<object>> TARGET_LIST = new()
         {
             { "None", null },
-            { "IGameCampaignService",() => ServiceRepository.GetService<IGameCampaignService>() },
-            { "IGameFactionService",() => ServiceRepository.GetService<IGameFactionService>() },
-            { "IGameLocationActionService",() => ServiceRepository.GetService<IGameLocationActionService>() },
-            { "IGameLocationAudioService",() => ServiceRepository.GetService<IGameLocationAudioService>() },
-            { "IGameLocationBanterService",() => ServiceRepository.GetService<IGameLocationBanterService>() },
-            { "IGameLocationBattleService",() => ServiceRepository.GetService<IGameLocationBattleService>() },
-            { "IGameLocationCharacterService",() => ServiceRepository.GetService<IGameLocationCharacterService>() },
-            { "IGameLocationEnvironmentService",() => ServiceRepository.GetService<IGameLocationEnvironmentService>() },
-            { "IGameLocationGadgetService",() => ServiceRepository.GetService<IGameLocationGadgetService>() },
-            { "IGameLocationItemService",() => ServiceRepository.GetService<IGameLocationItemService>() },
-            { "IGameLocationMapService",() => ServiceRepository.GetService<IGameLocationMapService>() },
-            { "IGameLocationPathfindingService",() => ServiceRepository.GetService<IGameLocationPathfindingService>() },
-            { "IGameLocationPositioningService",() => ServiceRepository.GetService<IGameLocationPositioningService>() },
-            { "IGameLocationSelectionService",() => ServiceRepository.GetService<IGameLocationSelectionService>() },
-            { "IGameLocationService",() => ServiceRepository.GetService<IGameLocationService>() },
-            { "IGameLocationTargetingService",() => ServiceRepository.GetService<IGameLocationTargetingService>() },
-            { "IGameLocationTimelineService",() => ServiceRepository.GetService<IGameLocationTimelineService>() },
-            { "IGameLocationVisibilityService",() => ServiceRepository.GetService<IGameLocationVisibilityService>() },
-            { "IGameLoreService",() => ServiceRepository.GetService<IGameLoreService>() },
-            { "IGameQuestService",() => ServiceRepository.GetService<IGameQuestService>() },
-            { "IGameRestingService",() => ServiceRepository.GetService<IGameRestingService>() },
-            { "IGameScavengerService",() => ServiceRepository.GetService<IGameScavengerService>() },
-            { "IGameSerializationService",() => ServiceRepository.GetService<IGameSerializationService>() },
-            { "IGameService",() => ServiceRepository.GetService<IGameService>() },
-            { "IGameSettingsService",() => ServiceRepository.GetService<IGameSettingsService>() },
-            { "IGameVariableService",() => ServiceRepository.GetService<IGameVariableService>() },
-       };
+            { "IGameCampaignService", () => ServiceRepository.GetService<IGameCampaignService>() },
+            { "IGameFactionService", () => ServiceRepository.GetService<IGameFactionService>() },
+            { "IGameLocationActionService", () => ServiceRepository.GetService<IGameLocationActionService>() },
+            { "IGameLocationAudioService", () => ServiceRepository.GetService<IGameLocationAudioService>() },
+            { "IGameLocationBanterService", () => ServiceRepository.GetService<IGameLocationBanterService>() },
+            { "IGameLocationBattleService", () => ServiceRepository.GetService<IGameLocationBattleService>() },
+            { "IGameLocationCharacterService", () => ServiceRepository.GetService<IGameLocationCharacterService>() },
+            { "IGameLocationEnvironmentService", () => ServiceRepository.GetService<IGameLocationEnvironmentService>() },
+            { "IGameLocationGadgetService", () => ServiceRepository.GetService<IGameLocationGadgetService>() },
+            { "IGameLocationItemService", () => ServiceRepository.GetService<IGameLocationItemService>() },
+            { "IGameLocationMapService", () => ServiceRepository.GetService<IGameLocationMapService>() },
+            { "IGameLocationPathfindingService", () => ServiceRepository.GetService<IGameLocationPathfindingService>() },
+            { "IGameLocationPositioningService", () => ServiceRepository.GetService<IGameLocationPositioningService>() },
+            { "IGameLocationSelectionService", () => ServiceRepository.GetService<IGameLocationSelectionService>() },
+            { "IGameLocationService", () => ServiceRepository.GetService<IGameLocationService>() },
+            { "IGameLocationTargetingService", () => ServiceRepository.GetService<IGameLocationTargetingService>() },
+            { "IGameLocationTimelineService", () => ServiceRepository.GetService<IGameLocationTimelineService>() },
+            { "IGameLocationVisibilityService", () => ServiceRepository.GetService<IGameLocationVisibilityService>() },
+            { "IGameLoreService", () => ServiceRepository.GetService<IGameLoreService>() },
+            { "IGameQuestService", () => ServiceRepository.GetService<IGameQuestService>() },
+            { "IGameRestingService", () => ServiceRepository.GetService<IGameRestingService>() },
+            { "IGameScavengerService", () => ServiceRepository.GetService<IGameScavengerService>() },
+            { "IGameSerializationService", () => ServiceRepository.GetService<IGameSerializationService>() },
+            { "IGameService", () => ServiceRepository.GetService<IGameService>() },
+            { "IGameSettingsService", () => ServiceRepository.GetService<IGameSettingsService>() },
+            { "IGameVariableService", () => ServiceRepository.GetService<IGameVariableService>() }
+        };
 
         private static readonly string[] _targetNames = TARGET_LIST.Keys.ToArray();
 
-        private static ReflectionTreeView _treeView = null;
+        private static ReflectionTreeView _treeView;
 
         private static void ResetTree()
         {
