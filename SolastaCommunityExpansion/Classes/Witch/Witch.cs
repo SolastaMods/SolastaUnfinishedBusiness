@@ -1,9 +1,11 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Witch.Subclasses;
 using SolastaCommunityExpansion.Level20;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -447,8 +449,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .AddToDB();
 
             var burnedCurse = FeatureDefinitionFeatureSetBuilder
-                .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
-                "WitchFeatureSetBurnedCurse", WITCH_BASE_GUID)
+                .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetBurnedCurse", WITCH_BASE_GUID)
                 .SetGuiPresentation(Category.Class)
                 .SetFeatures(burnedFireRes, burnedProduceFlame)
                 .AddToDB();
@@ -459,8 +460,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .AddToDB();
 
             var lovelessCurse = FeatureDefinitionFeatureSetBuilder
-                .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting,
-                "WitchFeatureSetLovelessCurse", WITCH_BASE_GUID)
+                .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetLovelessCurse", WITCH_BASE_GUID)
                 .SetGuiPresentation(Category.Class)
                 .SetFeatures(lovelessCharmImmunity)
                 .AddToDB();
@@ -568,14 +568,14 @@ namespace SolastaCommunityExpansion.Classes.Witch
             abateEffectDescription.EffectForms.Clear();
             abateEffectDescription.EffectForms.Add(abateEffectForm);
 
-            var abate = new FeatureDefinitionPowerBuilder(
-                "WitchMaledictionAbate", WITCH_BASE_GUID, Category.Class)
-                    .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
-                    .SetGuiPresentation("WitchMaledictionAbate", Category.Class, SpellDefinitions.ShockingGrasp.GuiPresentation.SpriteReference)
-                    .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
-                    .SetUsesFixed(1)
-                    .SetEffect(abateEffectDescription)
-                    .AddToDB();
+            var abate = FeatureDefinitionPowerBuilder
+                .Create("WitchMaledictionAbate", WITCH_BASE_GUID)
+                .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
+                .SetGuiPresentation(Category.Class, SpellDefinitions.ShockingGrasp.GuiPresentation.SpriteReference)
+                .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+                .SetUsesFixed(1)
+                .SetEffect(abateEffectDescription)
+                .AddToDB();
 
             // Apathy
             var apathyConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
@@ -610,14 +610,14 @@ namespace SolastaCommunityExpansion.Classes.Witch
             apathyEffectDescription.EffectForms.Clear();
             apathyEffectDescription.EffectForms.Add(apathyEffectForm);
 
-            var apathy = new FeatureDefinitionPowerBuilder(
-                "WitchMaledictionApathy", WITCH_BASE_GUID, Category.Class)
-                    .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
-                    .SetGuiPresentation("WitchMaledictionApathy", Category.Class, SpellDefinitions.CalmEmotions.GuiPresentation.SpriteReference)
-                    .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
-                    .SetUsesFixed(1)
-                    .SetEffect(apathyEffectDescription)
-                    .AddToDB();
+            var apathy = FeatureDefinitionPowerBuilder
+                .Create("WitchMaledictionApathy", WITCH_BASE_GUID)
+                .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
+                .SetGuiPresentation(Category.Class, SpellDefinitions.CalmEmotions.GuiPresentation.SpriteReference)
+                .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+                .SetUsesFixed(1)
+                .SetEffect(apathyEffectDescription)
+                .AddToDB();
 
             // Charm
             var charmConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
@@ -652,14 +652,14 @@ namespace SolastaCommunityExpansion.Classes.Witch
             charmEffectDescription.EffectForms.Clear();
             charmEffectDescription.EffectForms.Add(charmEffectForm);
 
-            var charm = new FeatureDefinitionPowerBuilder(
-                "WitchMaledictionCharm", WITCH_BASE_GUID, Category.Class)
-                    .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
-                    .SetGuiPresentation("WitchMaledictionCharm", Category.Class, SpellDefinitions.CharmPerson.GuiPresentation.SpriteReference)
-                    .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
-                    .SetUsesFixed(1)
-                    .SetEffect(charmEffectDescription)
-                    .AddToDB();
+            var charm = FeatureDefinitionPowerBuilder
+                .Create("WitchMaledictionCharm", WITCH_BASE_GUID)
+                .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
+                .SetGuiPresentation(Category.Class, SpellDefinitions.CharmPerson.GuiPresentation.SpriteReference)
+                .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+                .SetUsesFixed(1)
+                .SetEffect(charmEffectDescription)
+                .AddToDB();
 
             // Disorient
             var disorientCombatAffinity = new FeatureDefinitionBuilder<FeatureDefinitionCombatAffinity>(
@@ -702,14 +702,14 @@ namespace SolastaCommunityExpansion.Classes.Witch
             disorientEffectDescription.EffectForms.Clear();
             disorientEffectDescription.EffectForms.Add(disorientEffectForm);
 
-            var disorient = new FeatureDefinitionPowerBuilder(
-                "WitchMaledictionDisorient", WITCH_BASE_GUID, Category.Class)
-                    .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
-                    .SetGuiPresentation("WitchMaledictionDisorient", Category.Class, SpellDefinitions.Bane.GuiPresentation.SpriteReference)
-                    .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
-                    .SetUsesFixed(1)
-                    .SetEffect(disorientEffectDescription)
-                    .AddToDB();
+            var disorient = FeatureDefinitionPowerBuilder
+                .Create("WitchMaledictionDisorient", WITCH_BASE_GUID)
+                .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
+                .SetGuiPresentation(Category.Class, SpellDefinitions.Bane.GuiPresentation.SpriteReference)
+                .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+                .SetUsesFixed(1)
+                .SetEffect(disorientEffectDescription)
+                .AddToDB();
 
             // Evil Eye
             var evileyeConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
@@ -745,14 +745,14 @@ namespace SolastaCommunityExpansion.Classes.Witch
             evileyeEffectDescription.EffectForms.Clear();
             evileyeEffectDescription.EffectForms.Add(evileyeEffectForm);
 
-            var evileye = new FeatureDefinitionPowerBuilder(
-                "WitchMaledictionEvilEye", WITCH_BASE_GUID, Category.Class)
-                    .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
-                    .SetGuiPresentation("WitchMaledictionEvilEye", Category.Class, SpellDefinitions.Fear.GuiPresentation.SpriteReference)
-                    .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
-                    .SetUsesFixed(1)
-                    .SetEffect(evileyeEffectDescription)
-                    .AddToDB();
+            var evileye = FeatureDefinitionPowerBuilder
+                .Create("WitchMaledictionEvilEye", WITCH_BASE_GUID)
+                .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
+                .SetGuiPresentation(Category.Class, SpellDefinitions.Fear.GuiPresentation.SpriteReference)
+                .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+                .SetUsesFixed(1)
+                .SetEffect(evileyeEffectDescription)
+                .AddToDB();
 
             // Obfuscate
             var obfuscateEffectDescription = new EffectDescription();
@@ -764,14 +764,14 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetRangeParameter(0)
                 .SetRangeType(RuleDefinitions.RangeType.Self);
 
-            var obfuscate = new FeatureDefinitionPowerBuilder(
-                "WitchMaledictionObfuscate", WITCH_BASE_GUID, Category.Class)
-                    .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
-                    .SetGuiPresentation("WitchMaledictionObfuscate", Category.Class, SpellDefinitions.FogCloud.GuiPresentation.SpriteReference)
-                    .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
-                    .SetUsesFixed(1)
-                    .SetEffect(obfuscateEffectDescription)
-                    .AddToDB();
+            var obfuscate = FeatureDefinitionPowerBuilder
+                .Create("WitchMaledictionObfuscate", WITCH_BASE_GUID)
+                .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
+                .SetGuiPresentation(Category.Class, SpellDefinitions.FogCloud.GuiPresentation.SpriteReference)
+                .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+                .SetUsesFixed(1)
+                .SetEffect(obfuscateEffectDescription)
+                .AddToDB();
 
             // Pox
             var poxConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
@@ -807,21 +807,21 @@ namespace SolastaCommunityExpansion.Classes.Witch
             poxEffectDescription.EffectForms.Clear();
             poxEffectDescription.EffectForms.Add(poxEffectForm);
 
-            var pox = new FeatureDefinitionPowerBuilder(
-                "WitchMaledictionPox", WITCH_BASE_GUID, Category.Class)
-                    .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
-                    .SetGuiPresentation("WitchMaledictionPox", Category.Class, SpellDefinitions.PoisonSpray.GuiPresentation.SpriteReference)
-                    .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
-                    .SetUsesFixed(1)
-                    .SetEffect(poxEffectDescription)
-                    .AddToDB();
+            var pox = FeatureDefinitionPowerBuilder
+                .Create("WitchMaledictionPox", WITCH_BASE_GUID)
+                .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
+                .SetGuiPresentation(Category.Class, SpellDefinitions.PoisonSpray.GuiPresentation.SpriteReference)
+                .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+                .SetUsesFixed(1)
+                .SetEffect(poxEffectDescription)
+                .AddToDB();
 
             // Ruin
-            var ruinAttributeModifier = new FeatureDefinitionAttributeModifierBuilder(
-                "AttributeModifierRuin", WITCH_BASE_GUID)
-                    .SetGuiPresentation("Ruin", Category.Modifier)
-                    .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, -3)
-                    .AddToDB();
+            var ruinAttributeModifier = FeatureDefinitionAttributeModifierBuilder
+                .Create("AttributeModifierRuin", WITCH_BASE_GUID)
+                .SetGuiPresentation(Category.Modifier)
+                .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, -3)
+                .AddToDB();
 
             var ruinConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
                 ConditionDefinitions.ConditionAcidArrowed, "ConditionRuin", WITCH_BASE_GUID)
@@ -858,14 +858,14 @@ namespace SolastaCommunityExpansion.Classes.Witch
             ruinEffectDescription.EffectForms.Clear();
             ruinEffectDescription.EffectForms.Add(ruinEffectForm);
 
-            var ruin = new FeatureDefinitionPowerBuilder(
-                "WitchMaledictionRuin", WITCH_BASE_GUID, Category.Class)
-                    .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
-                    .SetGuiPresentation("WitchMaledictionRuin", Category.Class, SpellDefinitions.AcidArrow.GuiPresentation.SpriteReference)
-                    .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
-                    .SetUsesFixed(1)
-                    .SetEffect(ruinEffectDescription)
-                    .AddToDB();
+            var ruin = FeatureDefinitionPowerBuilder
+                .Create("WitchMaledictionRuin", WITCH_BASE_GUID)
+                .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
+                .SetGuiPresentation(Category.Class, SpellDefinitions.AcidArrow.GuiPresentation.SpriteReference)
+                .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+                .SetUsesFixed(1)
+                .SetEffect(ruinEffectDescription)
+                .AddToDB();
 
             FeatureDefinitionFeatureSetMaledictions = FeatureDefinitionFeatureSetBuilder
                 .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetMaledictions", WITCH_BASE_GUID)
