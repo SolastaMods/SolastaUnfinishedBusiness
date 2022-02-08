@@ -105,9 +105,10 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElemen
                 }
                 else if (instruction.opcode == OpCodes.Ret) 
                 {
-                    yield return new CodeInstruction(OpCodes.Call, cacheMySubspellsListMethod);
+                    yield return new CodeInstruction(OpCodes.Call, resetMySubspellsListMethod);
                     yield return instruction;
                 }
+                else
                 {
                     yield return instruction;
                 }
