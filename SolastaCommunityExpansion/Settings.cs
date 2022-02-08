@@ -301,7 +301,6 @@ namespace SolastaCommunityExpansion
 
         // Inventory and Items
         public bool EnableInventoryFilteringAndSorting { get; set; } = true;
-        public bool EnableInventoryTertiaryEquipmentRow { get; set; }
         public bool EnableInvisibleCrownOfTheMagister { get; set; }
         public string EmpressGarbAppearance { get; set; } = "Normal";
 
