@@ -252,13 +252,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             // right tool for the job (level 3) (can I just give enchanting tool at level 3?)-- tools are available in the store, just skipping for now
 
-            // Subclasses
-            FeatureDefinitionSubclassChoice subclasses = ArtificerBuilder.BuildSubclassChoice(3, "Specialist", false, "SubclassChoiceArtificerSpecialistArchetypes",
-                new GuiPresentationBuilder(
-                    "Feature/&AftificerSpecialistArchetypesTitle",
-                    "Feature/&ArtificerSpecialistArchetypesDescription").Build(),
-                GuidHelper.Create(GuidNamespace, "SubclassChoiceArtificerSpecialistArchetypes").ToString());
-
             // ASI (4)
             ArtificerBuilder.AddFeatureAtLevel(4, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
 
@@ -426,17 +419,20 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             CharacterClassDefinition tinkerer = ArtificerBuilder.AddToDB();
 
-            CharacterSubclassDefinition alchemist = AlchemistBuilder.Build(tinkerer);
-            subclasses.Subclasses.Add(alchemist.Name);
+            // Subclasses
+            var subclasses = FeatureDefinitionSubclassChoiceBuilder
+                .Create("SubclassChoiceArtificerSpecialistArchetypes", GuidNamespace)
+                .SetGuiPresentation("ArtificerSpecialistArchetypes", Category.Feature)
+                .SetSubclassSuffix("Specialist")
+                .SetFilterByDeity(false)
+                .SetSubclasses(
+                    AlchemistBuilder.Build(tinkerer),
+                    ArtilleristBuilder.Build(tinkerer, featureSpellCasting),
+                    BattleSmithBuilder.Build(tinkerer),
+                    ScoutSentinelTinkererSubclassBuilder.BuildAndAddSubclass())
+                .AddToDB();
 
-            CharacterSubclassDefinition artillerist = ArtilleristBuilder.Build(tinkerer, featureSpellCasting);
-            subclasses.Subclasses.Add(artillerist.Name);
-
-            CharacterSubclassDefinition battleSmith = BattleSmithBuilder.Build(tinkerer);
-            subclasses.Subclasses.Add(battleSmith.Name);
-
-            ScoutSentinelTinkererSubclassBuilder.BuildAndAddSubclass();
-            subclasses.Subclasses.Add(ScoutSentinelTinkererSubclassBuilder.Name);
+            ArtificerBuilder.AddFeatureAtLevel(3, subclasses);
 
             return tinkerer;
         }

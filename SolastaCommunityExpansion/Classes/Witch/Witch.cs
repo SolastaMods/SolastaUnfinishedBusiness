@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
@@ -353,7 +353,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetConditionForm(abateConditionForm);
 
             var abateEffectDescription = new EffectDescription();
-            abateEffectDescription.Copy(SpellDefinitions.ShockingGrasp.EffectDescription);
+            abateEffectDescription.Copy(ShockingGrasp.EffectDescription);
             abateEffectDescription
                 .SetDurationParameter(1)
                 .SetDurationType(RuleDefinitions.DurationType.Round)
@@ -369,7 +369,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var abate = FeatureDefinitionPowerBuilder
                 .Create("WitchMaledictionAbate", WITCH_BASE_GUID)
                 .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
-                .SetGuiPresentation(Category.Class, SpellDefinitions.ShockingGrasp.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Class, ShockingGrasp.GuiPresentation.SpriteReference)
                 .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
                 .SetUsesFixed(1)
                 .SetEffect(abateEffectDescription)
@@ -395,7 +395,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetConditionForm(apathyConditionForm);
 
             var apathyEffectDescription = new EffectDescription();
-            apathyEffectDescription.Copy(SpellDefinitions.CalmEmotionsOnEnemy.EffectDescription);
+            apathyEffectDescription.Copy(CalmEmotionsOnEnemy.EffectDescription);
             apathyEffectDescription
                 .SetDurationParameter(1)
                 .SetDurationType(RuleDefinitions.DurationType.Round)
@@ -411,7 +411,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var apathy = FeatureDefinitionPowerBuilder
                 .Create("WitchMaledictionApathy", WITCH_BASE_GUID)
                 .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
-                .SetGuiPresentation(Category.Class, SpellDefinitions.CalmEmotions.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Class, CalmEmotions.GuiPresentation.SpriteReference)
                 .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
                 .SetUsesFixed(1)
                 .SetEffect(apathyEffectDescription)
@@ -437,7 +437,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetConditionForm(charmConditionForm);
 
             var charmEffectDescription = new EffectDescription();
-            charmEffectDescription.Copy(SpellDefinitions.CharmPerson.EffectDescription);
+            charmEffectDescription.Copy(CharmPerson.EffectDescription);
             charmEffectDescription
                 .SetDurationParameter(1)
                 .SetDurationType(RuleDefinitions.DurationType.Round)
@@ -453,7 +453,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var charm = FeatureDefinitionPowerBuilder
                 .Create("WitchMaledictionCharm", WITCH_BASE_GUID)
                 .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
-                .SetGuiPresentation(Category.Class, SpellDefinitions.CharmPerson.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Class, CharmPerson.GuiPresentation.SpriteReference)
                 .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
                 .SetUsesFixed(1)
                 .SetEffect(charmEffectDescription)
@@ -487,7 +487,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetConditionForm(disorientConditionForm);
 
             var disorientEffectDescription = new EffectDescription();
-            disorientEffectDescription.Copy(SpellDefinitions.Bane.EffectDescription);
+            disorientEffectDescription.Copy(Bane.EffectDescription);
             disorientEffectDescription
                 .SetDurationParameter(1)
                 .SetDurationType(RuleDefinitions.DurationType.Round)
@@ -503,7 +503,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var disorient = FeatureDefinitionPowerBuilder
                 .Create("WitchMaledictionDisorient", WITCH_BASE_GUID)
                 .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
-                .SetGuiPresentation(Category.Class, SpellDefinitions.Bane.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Class, Bane.GuiPresentation.SpriteReference)
                 .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
                 .SetUsesFixed(1)
                 .SetEffect(disorientEffectDescription)
@@ -530,7 +530,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetConditionForm(evileyeConditionForm);
 
             var evileyeEffectDescription = new EffectDescription();
-            evileyeEffectDescription.Copy(SpellDefinitions.Fear.EffectDescription);
+            evileyeEffectDescription.Copy(Fear.EffectDescription);
             evileyeEffectDescription
                 .SetDurationParameter(1)
                 .SetDurationType(RuleDefinitions.DurationType.Round)
@@ -546,7 +546,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var evileye = FeatureDefinitionPowerBuilder
                 .Create("WitchMaledictionEvilEye", WITCH_BASE_GUID)
                 .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
-                .SetGuiPresentation(Category.Class, SpellDefinitions.Fear.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Class, Fear.GuiPresentation.SpriteReference)
                 .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
                 .SetUsesFixed(1)
                 .SetEffect(evileyeEffectDescription)
@@ -554,7 +554,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             // Obfuscate
             var obfuscateEffectDescription = new EffectDescription();
-            obfuscateEffectDescription.Copy(SpellDefinitions.FogCloud.EffectDescription);
+            obfuscateEffectDescription.Copy(FogCloud.EffectDescription);
             obfuscateEffectDescription
                 .SetCanBePlacedOnCharacter(true)
                 .SetDurationParameter(1)
@@ -565,7 +565,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var obfuscate = FeatureDefinitionPowerBuilder
                 .Create("WitchMaledictionObfuscate", WITCH_BASE_GUID)
                 .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
-                .SetGuiPresentation(Category.Class, SpellDefinitions.FogCloud.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Class, FogCloud.GuiPresentation.SpriteReference)
                 .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
                 .SetUsesFixed(1)
                 .SetEffect(obfuscateEffectDescription)
@@ -592,7 +592,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetConditionForm(poxConditionForm);
 
             var poxEffectDescription = new EffectDescription();
-            poxEffectDescription.Copy(SpellDefinitions.PoisonSpray.EffectDescription);
+            poxEffectDescription.Copy(PoisonSpray.EffectDescription);
             poxEffectDescription
                 .SetDurationParameter(1)
                 .SetDurationType(RuleDefinitions.DurationType.Round)
@@ -608,7 +608,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var pox = FeatureDefinitionPowerBuilder
                 .Create("WitchMaledictionPox", WITCH_BASE_GUID)
                 .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
-                .SetGuiPresentation(Category.Class, SpellDefinitions.PoisonSpray.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Class, PoisonSpray.GuiPresentation.SpriteReference)
                 .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
                 .SetUsesFixed(1)
                 .SetEffect(poxEffectDescription)
@@ -643,7 +643,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetConditionForm(ruinConditionForm);
 
             var ruinEffectDescription = new EffectDescription();
-            ruinEffectDescription.Copy(SpellDefinitions.AcidArrow.EffectDescription);
+            ruinEffectDescription.Copy(AcidArrow.EffectDescription);
             ruinEffectDescription
                 .SetDurationParameter(1)
                 .SetDurationType(RuleDefinitions.DurationType.Round)
@@ -659,7 +659,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var ruin = FeatureDefinitionPowerBuilder
                 .Create("WitchMaledictionRuin", WITCH_BASE_GUID)
                 .SetActivation(RuleDefinitions.ActivationTime.Action, 0)
-                .SetGuiPresentation(Category.Class, SpellDefinitions.AcidArrow.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Class, AcidArrow.GuiPresentation.SpriteReference)
                 .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
                 .SetUsesFixed(1)
                 .SetEffect(ruinEffectDescription)
@@ -670,13 +670,12 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetGuiPresentation(Category.Class)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
                 .SetUniqueChoices(true)
-                .SetFeatures(abate, apathy, charm, evileye, obfuscate, pox, ruin)
+                .SetFeatures(abate, apathy, charm, disorient, evileye, obfuscate, pox, ruin)
                 .AddToDB();
         }
 
         private static void BuildCackle()
         {
-
             var effectDescription = new EffectDescription();
             effectDescription.Copy(HideousLaughter.EffectDescription);
             effectDescription
@@ -698,27 +697,25 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetUsesFixed(1)
                 .SetEffect(effectDescription)
                 .AddToDB();
-
         }
 
         private sealed class CackleEffectForm : CustomEffectForm
         {
-
             public override void ApplyForm(RulesetImplementationDefinitions.ApplyFormsParams formsParams, bool retargeting, bool proxyOnly, bool forceSelfConditionOnly)
             {
-
                 List<RulesetCondition> conditions = formsParams.targetCharacter.AllConditions;
 
                 var activeMaledictions = conditions.Where(i => i.ConditionDefinition.ConditionTags.Contains("Malediction")).ToList();
-                if (activeMaledictions != null){
-                    foreach (RulesetCondition malediction in activeMaledictions){
+                if (activeMaledictions != null)
+                {
+                    foreach (RulesetCondition malediction in activeMaledictions)
+                    {
                         // Remove the condition in order to refresh it
                         formsParams.targetCharacter.RemoveCondition(malediction);
                         // Refresh the condition
                         ApplyCondition(formsParams, malediction.ConditionDefinition, RuleDefinitions.DurationType.Round, 1);
                     }
                 }
-
             }
 
             public override void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap)
@@ -742,7 +739,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     effectDefinitionName = formsParams.activeEffect.SourceDefinition.Name;
                 }
 
-                int sourceAbilityBonus = formsParams.activeEffect != null ? formsParams.activeEffect.ComputeSourceAbilityBonus(formsParams.sourceCharacter) : 0;
+                int sourceAbilityBonus = (formsParams.activeEffect?.ComputeSourceAbilityBonus(formsParams.sourceCharacter)) ?? 0;
 
                 formsParams.targetCharacter.InflictCondition(condition.Name, durationType, durationParam, RuleDefinitions.TurnOccurenceType.EndOfTurn, "11Effect", sourceGuid, sourceFaction, formsParams.effectLevel, effectDefinitionName, 0, sourceAbilityBonus);
             }
@@ -928,22 +925,18 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             void BuildSubclasses()
             {
-                var subClassChoices = classBuilder.BuildSubclassChoice(
-                        3,
-                        "Coven",
-                        false,
-                        "SubclassChoiceWitchCovens",
-                        new GuiPresentationBuilder(
-                                "Subclass/&WitchSubclassPathTitle",
-                                "Subclass/&WitchSubclassPathDescription")
-                                .Build(),
-                        GuidHelper.Create(WITCH_BASE_GUID, "SubclassChoiceWitchCovens").ToString());
+                var subclassChoices = FeatureDefinitionSubclassChoiceBuilder
+                    .Create("SubclassChoiceWitchCovens", WITCH_BASE_GUID)
+                    .SetGuiPresentation("WitchSubclassPath", Category.Subclass)
+                    .SetSubclassSuffix("Coven")
+                    .SetFilterByDeity(false)
+                    .SetSubclasses(
+                        GreenWitch.GetSubclass(witch),
+                        RedWitch.GetSubclass(witch),
+                        WhiteWitch.GetSubclass(witch))
+                    .AddToDB();
 
-                //            subClassChoices.Subclasses.Add(BloodWitch.GetSubclass(witch).name);
-                subClassChoices.Subclasses.Add(GreenWitch.GetSubclass(witch).name);
-                //            subClassChoices.Subclasses.Add(PurpleWitch.GetSubclass(witch).name);
-                subClassChoices.Subclasses.Add(RedWitch.GetSubclass(witch).name);
-                subClassChoices.Subclasses.Add(WhiteWitch.GetSubclass(witch).name);
+                classBuilder.AddFeatureAtLevel(3, subclassChoices);
             }
 
             void BuildProgression()

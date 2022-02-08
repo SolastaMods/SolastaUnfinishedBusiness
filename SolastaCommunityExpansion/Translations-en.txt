@@ -35,6 +35,8 @@ Class/&WitchMaledictionApathyDescription	As an action, choose one creature you c
 Class/&WitchMaledictionApathyTitle	Apathy Malediction
 Class/&WitchMaledictionCharmDescription	As an action, choose one creature you can see within 60 feet to make a Wisdom saving throw. On a failed save, the creature is charmed by you until the end of your next turn.
 Class/&WitchMaledictionCharmTitle	Charm Malediction
+Class/&WitchMaledictionDisorientDescription	As an action, choose one creature that you can see within 60 feet to make a Constitution saving throw. On a failed save, whenever this target makes an attack roll before the end of your next turn, it must roll a d6 and subtract the number rolled from the attack roll.
+Class/&WitchMaledictionDisorientTitle	Disorient Malediction
 Class/&WitchMaledictionEvilEyeDescription	As an action, choose one creature you can see that can see you within 60 feet to make a Wisdom saving throw. On a failed save, the creature is frightened of you until the end of your next turn.
 Class/&WitchMaledictionEvilEyeTitle	Evil Eye Malediction
 Class/&WitchMaledictionObfuscateDescription	As an action, you create a 20-foot radius sphere of fog centered on yourself. The sphere spreads around corners, and its area is heavily obscured. This effect lasts until the end of your next turn or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it.
@@ -80,6 +82,8 @@ Condition/&DHTimeStopSpellDescription	Frozen by Time Stop
 Condition/&DHTimeStopSpellTitle	Frozen by Time Stop
 Condition/&DHWeirdSpellDescription	The illusion calls on the creature's deepest fears, manifesting its worst nightmares as an implacable threat. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take 4d10 psychic damage. On a successful save, the spell ends for that creature.
 Condition/&DHWeirdSpellTitle	Weirded
+Condition/&DisorientDescription	This creature's accuracy is reduced.
+Condition/&DisorientTitle	Disoriented
 Condition/&Frenzied	This creature is frenzied and will attack the closest creature.
 Condition/&FrenziedTitle	Frenzied
 Condition/&HelpActionDescription	This creature has been distracted.
@@ -561,7 +565,8 @@ Feat/&UsingitemPowerTitle	Use Weapon Power
 Feature/&DHHolyAuraBlindingPowerDescription	When a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends
 Feature/&AdditionalActionDualFlurryDescription	You may make an additional off-hand attack.
 Feature/&AdditionalActionDualFlurryTitle	Dual Flurry!
-Feature/&AftificerSpecialistArchetypesTitle Tinkerer Specializations
+Feature/&ArtificerSpecialistArchetypesTitle Tinkerer Specializations
+Feature/&ArtificerSpecialistArchetypesDescription Tinkerer Specializations
 Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!
 Feature/&ArcaneDetonationDescription	When you hit a creature that has your Arcanist's Mark with a weapon attack, the mark detonates, dealing 1d6 force damage and destroying the mark.
 Feature/&ArcaneDetonationTitle	Arcane Detonation
@@ -745,6 +750,8 @@ Message/&SpawnCustomEncounterDescription	Spawn encounter at coordinates ({0}, {1
 Message/&SpawnCustomEncounterTitle	Encounter
 Message/&TeleportPartyDescription	Teleport party to coordinates ({0}, {1})?\nYou might break quests or maps if you teleport to an undiscovered place
 Message/&TeleportPartyTitle	Teleport
+Modifier/&DisorientDescription	-1d6 to attack rolls
+Modifier/&DisorientTitle	Disoriented
 Modifier/&RuinedDescription	-3 to Armor Class
 Modifier/&RuinedTitle	Ruined
 Monster/&DHCustomCouatlDescription	Couatls are benevolent serpentine beings of great intellect and insight. Their brilliantly colored wings and gentle manner speak to their celestial origins.
@@ -1168,6 +1175,7 @@ Subclass/&WhiteWitchMagicTitle	White Magic
 Subclass/&WhiteWitchTitle	White Witch
 Subclass/&WitchSubclassPathDescription	Your knowledge of magic has culminated in joining a Coven, an innate circle of Witches who delve down a specific path of witchdom and curses.
 Subclass/&WitchSubclassPathTitle	Witch Covens
+Tooltip/&TagMaledictionTitle	Malediction
 Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagScoutSentinelWeaponTitle	Uses Int for attack & damage
 Screen/&EditorLocationSize3Title	Huge [MODDED]
