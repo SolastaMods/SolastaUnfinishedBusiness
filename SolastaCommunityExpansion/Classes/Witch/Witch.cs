@@ -160,28 +160,6 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     Eyebite, TrueSeeing)
                 .AddToDB();
 
-            // How to check if additional spells are enabled? For now, I check if it exists in the DB
-            if (DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("EldritchOrb", out SpellDefinition eldritchOrb))
-            {
-                classSpellList.SpellsByLevel[eldritchOrb.SpellLevel].Spells.Add(eldritchOrb);
-            }
-            if (DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("Frenzy", out SpellDefinition frenzy))
-            {
-                classSpellList.SpellsByLevel[frenzy.SpellLevel].Spells.Add(frenzy);
-            }
-            if (DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("MinorLifesteal", out SpellDefinition minorLifesteal))
-            {
-                classSpellList.SpellsByLevel[minorLifesteal.SpellLevel].Spells.Add(minorLifesteal);
-            }
-            if (DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("PetalStorm", out SpellDefinition petalStorm))
-            {
-                classSpellList.SpellsByLevel[petalStorm.SpellLevel].Spells.Add(petalStorm);
-            }
-            if (DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("ProtectThreshold", out SpellDefinition protectThreshold))
-            {
-                classSpellList.SpellsByLevel[protectThreshold.SpellLevel].Spells.Add(protectThreshold);
-            }
-
             // Build our spellCast object containing previously created spell list
             List<SlotsByLevelDuplet> witchCastingSlots = new List<SlotsByLevelDuplet>{
                 new () { Slots = new () {2,0,0,0,0,0,0,0,0,0}, Level = 01 },
