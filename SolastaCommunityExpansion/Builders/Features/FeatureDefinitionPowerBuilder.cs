@@ -26,19 +26,13 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetUniqueInstance(uniqueInstance);
         }
 
-        public FeatureDefinitionPowerBuilder(string name, string guid, GuiPresentation guiPresentation)
-            : base(name, guid)
-        {
-            Definition.SetGuiPresentation(guiPresentation);
-        }
-
         public FeatureDefinitionPowerBuilder(string name, string guid)
             : base(name, guid)
         {
         }
 
-        public FeatureDefinitionPowerBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
+        public FeatureDefinitionPowerBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
         {
         }
 
@@ -47,9 +41,14 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public FeatureDefinitionPowerBuilder(FeatureDefinitionPower original, string name, Guid namespaceGuid, Category category = Category.None)
-            : base(original, name, namespaceGuid, category)
+        public FeatureDefinitionPowerBuilder(FeatureDefinitionPower original, string name, Guid namespaceGuid)
+            : base(original, name, namespaceGuid)
         {
+        }
+
+        public static FeatureDefinitionPowerBuilder Create(string name, Guid namespaceGuid)
+        {
+            return new FeatureDefinitionPowerBuilder(name, namespaceGuid);
         }
 
         public FeatureDefinitionPowerBuilder SetEffect(EffectDescription effect)

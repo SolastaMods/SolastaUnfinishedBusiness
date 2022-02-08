@@ -204,17 +204,23 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
 
             internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    foreach (var instruction in instructions)
+                    {
+                        yield return instruction;
+                    }
+
+                    yield break;
+                }
+
                 var computeSpellSlotsMethod = typeof(RulesetSpellRepertoire).GetMethod("ComputeSpellSlots");
                 var myComputeSpellSlotsMethod = typeof(RulesetCharacterRefreshSpellRepertoires).GetMethod("MyComputeSpellSlots");
                 var finishRepertoiresRefreshMethod = typeof(RulesetCharacterRefreshSpellRepertoires).GetMethod("FinishRepertoiresRefresh");
 
                 foreach (var instruction in instructions)
                 {
-                    if (!Main.Settings.EnableMulticlass)
-                    {
-                        yield return instruction;
-                    }
-                    else if (instruction.Calls(computeSpellSlotsMethod))
+                    if (instruction.Calls(computeSpellSlotsMethod))
                     {
                         yield return new CodeInstruction(OpCodes.Call, myComputeSpellSlotsMethod);
                     }

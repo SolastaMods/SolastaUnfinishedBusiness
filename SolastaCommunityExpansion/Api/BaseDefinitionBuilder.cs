@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using SolastaCommunityExpansion;
@@ -22,35 +23,10 @@ namespace SolastaModApi
             return GuidHelper.Create(guid, name).ToString();
         }
 
-        public static string CreateTitleKey(string name, Category category)
-        {
-            Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
-
-            if (category == Category.None)
-            {
-                throw new ArgumentException("The parameter must not be Category.None.", nameof(category));
-            }
-
-            return $"{category}/&{name}Title";
-        }
-
-        public static string CreateDescriptionKey(string description, Category category)
-        {
-            Preconditions.IsNotNullOrWhiteSpace(description, nameof(description));
-
-            if (category == Category.None)
-            {
-                throw new ArgumentException("The parameter must not be Category.None.", nameof(category));
-            }
-
-            return $"{category}/&{description}Description";
-        }
-
-        public static bool LogDefinitionCreation { get; set; }
-
+        [Conditional("DEBUG")]
         protected static void LogDefinition(string msg)
         {
-            if (LogDefinitionCreation)
+            if (Main.Settings.DebugLogDefinitionCreation)
             {
                 Main.Log(msg);
             }
@@ -73,15 +49,6 @@ namespace SolastaModApi
     public abstract class BaseDefinitionBuilder<TDefinition> : BaseDefinitionBuilder, IBaseDefinitionBuilder where TDefinition : BaseDefinition
     {
         #region Helpers
-
-        private static GuiPresentation BuildGuiPresentation(string title, string description)
-        {
-            return new GuiPresentation
-            {
-                Description = description ?? string.Empty,
-                Title = title ?? string.Empty
-            };
-        }
 
         // Explicit implementation not visible by default so doesn't clash with other extension methods
         void IBaseDefinitionBuilder.SetGuiPresentation(GuiPresentation presentation)
@@ -113,7 +80,7 @@ namespace SolastaModApi
                 {
                     try
                     {
-                        Main.Log($"Initializing field {field.Name} on Type={Definition.GetType().Name}, Name={Definition.Name}");
+                        LogFieldInitialization($"Initializing field {field.Name} on Type={Definition.GetType().Name}, Name={Definition.Name}");
 
                         field.SetValue(Definition, Activator.CreateInstance(field.FieldType));
                     }
@@ -125,13 +92,22 @@ namespace SolastaModApi
 
                 // So travel down the hierarchy
                 InitializeCollectionFields(type.BaseType);
+
+                [Conditional("DEBUG")]
+                static void LogFieldInitialization(string message)
+                {
+                    if (Main.Settings.DebugLogFieldInitialization)
+                    {
+                        Main.Log(message);
+                    }
+                }
             }
 #pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
         }
 
         #endregion
 
-        #region Preferred constructors (for future development)
+        #region Constructors
 
         /// <summary>
         /// Create a new instance of TDefinition.  Automatically generate a guid from namespaceGuid plus name.
@@ -139,12 +115,8 @@ namespace SolastaModApi
         /// </summary>
         /// <param name="name">The name assigned to the definition (mandatory)</param>
         /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition, based on baseGuid+name (mandatory)</param>
-        /// <param name="category">Used to generate title and description on the GuiPresentation.  The generated fields if
-        /// name="MyDefinition" and category="MyCategory" are: MyCategory/&amp;MyDefinitionTitle and MyCategory/&amp;MyDefinitionDescription.
-        /// If category=null then no GuiPresentation is created.
-        /// </param>
-        protected BaseDefinitionBuilder(string name, Guid namespaceGuid, Category category) :
-            this(name, null, namespaceGuid, true, category)
+        protected BaseDefinitionBuilder(string name, Guid namespaceGuid) :
+            this(name, null, namespaceGuid, true)
         {
         }
 
@@ -154,17 +126,13 @@ namespace SolastaModApi
         /// </summary>
         /// <param name="name">The name assigned to the definition (mandatory)</param>
         /// <param name="definitionGuid">The guid for this definition (mandatory)</param>
-        /// <param name="category">Used to generate title and description on the GuiPresentation.  The generated fields if
-        /// name="MyDefinition" and category="MyCategory" are: MyCategory/&amp;MyDefinitionTitle and MyCategory/&amp;MyDefinitionDescription.
-        /// If category=null then no GuiPresentation is created.
-        /// </param>
-        protected BaseDefinitionBuilder(string name, string definitionGuid, Category category) :
-            this(name, definitionGuid, Guid.Empty, false, category)
+        protected BaseDefinitionBuilder(string name, string definitionGuid) :
+            this(name, definitionGuid, Guid.Empty, false)
         {
             Preconditions.IsNotNullOrWhiteSpace(definitionGuid, nameof(definitionGuid));
         }
 
-        private BaseDefinitionBuilder(string name, string definitionGuid, Guid namespaceGuid, bool useNamespaceGuid, Category category)
+        private BaseDefinitionBuilder(string name, string definitionGuid, Guid namespaceGuid, bool useNamespaceGuid)
         {
             Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
 
@@ -197,26 +165,16 @@ namespace SolastaModApi
 
                 LogDefinition($"New-Creating definition: ({name}, guid={Definition.GUID})");
             }
-
-            if (category != Category.None)
-            {
-                Definition.GuiPresentation = BuildGuiPresentation(CreateTitleKey(name, category), CreateDescriptionKey(name, category));
-            }
         }
 
         /// <summary>
         /// Create clone and rename. Automatically generate a guid from baseGuid plus name.
-        /// Assign a GuiPresentation with a generated title key and description key.
         /// </summary>
-        /// <param name="original"></param>
-        /// <param name="name">The name assigned to the definition (mandatory)</param>
-        /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition, based on baseGuid+name (mandatory)</param>
-        /// <param name="category">Used to generate title and description on the GuiPresentation.  The generated fields if
-        /// name="MyDefinition" and category="MyCategory" are: MyCategory/&amp;MyDefinitionTitle and MyCategory/&amp;MyDefinitionDescription.
-        /// If category=null then the copied GuiPresentation is not altered.
-        /// </param>
-        protected BaseDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid, Category category) :
-            this(original, name, null, namespaceGuid, true, category)
+        /// <param name="original">The definition being copied.</param>
+        /// <param name="name">The name assigned to the definition (mandatory).</param>
+        /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition, based on baseGuid+name (mandatory).</param>
+        protected BaseDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) :
+            this(original, name, null, namespaceGuid, true)
         {
         }
 
@@ -224,19 +182,15 @@ namespace SolastaModApi
         /// Create clone and rename. Assign the supplied guid as the definition guid.
         /// Assigns a GuiPresentation with a generated title key and description key.
         /// </summary>
-        /// <param name="original"></param>
-        /// <param name="name">The name assigned to the definition (mandatory)</param>
-        /// <param name="definitionGuid">The guid for this definition (mandatory)</param>
-        /// <param name="category">Used to generate title and description on the GuiPresentation.  The generated fields if
-        /// name="MyDefinition" and category="MyCategory" are: MyCategory/&amp;MyDefinitionTitle and MyCategory/&amp;MyDefinitionDescription.
-        /// If category=null then the copied GuiPresentation is not altered.
-        /// </param>
-        protected BaseDefinitionBuilder(TDefinition original, string name, string definitionGuid, Category category) :
-            this(original, name, definitionGuid, Guid.Empty, false, category)
+        /// <param name="original">The definition being copied.</param>
+        /// <param name="name">The name assigned to the definition (mandatory).</param>
+        /// <param name="definitionGuid">The guid for this definition (mandatory).</param>
+        protected BaseDefinitionBuilder(TDefinition original, string name, string definitionGuid) :
+            this(original, name, definitionGuid, Guid.Empty, false)
         {
         }
 
-        private BaseDefinitionBuilder(TDefinition original, string name, string definitionGuid, Guid namespaceGuid, bool useNamespaceGuid, Category category)
+        private BaseDefinitionBuilder(TDefinition original, string name, string definitionGuid, Guid namespaceGuid, bool useNamespaceGuid)
         {
             Preconditions.IsNotNull(original, nameof(original));
             Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
@@ -251,6 +205,11 @@ namespace SolastaModApi
 
             if (useNamespaceGuid)
             {
+                if (namespaceGuid == Guid.Empty)
+                {
+                    throw new ArgumentException("Please supply a non-empty Guid", nameof(namespaceGuid));
+                }
+
                 // create guid from namespace+name
                 Definition.SetField("guid", CreateGuid(namespaceGuid, name));
 
@@ -263,20 +222,6 @@ namespace SolastaModApi
 
                 LogDefinition($"New-Cloning definition: original({originalName}, {originalGuid}) => ({name}, {Definition.GUID})");
             }
-
-            if (category != Category.None)
-            {
-                if (Definition.GuiPresentation != null)
-                {
-                    Definition.GuiPresentation.Title = CreateTitleKey(name, category);
-                    Definition.GuiPresentation.Description = CreateDescriptionKey(name, category);
-                }
-                else
-                {
-                    Definition.GuiPresentation =
-                        BuildGuiPresentation(CreateTitleKey(name, category), CreateDescriptionKey(name, category));
-                }
-            }
         }
 
         /// <summary>
@@ -287,125 +232,6 @@ namespace SolastaModApi
         {
             Preconditions.IsNotNull(original, nameof(original));
             Definition = original;
-        }
-
-        #endregion
-
-        #region Backward compatibility constructors
-
-        /// <summary>
-        /// Create a new instance of TDefinition.
-        /// A GuiPresentation will be assigned to the definition with the provided title and description.
-        /// </summary>
-        /// <param name="name">The unique name assigned to the definition (mandatory)</param>
-        /// <param name="guid">The unique guid assigned to the definition (mandatory)</param>
-        /// <param name="title">The title assigned to the GuiPresentation (optional)</param>
-        /// <param name="description">The description assigned to the GuiPresentation (optional)</param>
-        [Obsolete("Use one of the preferred constructors plus GuiPresentation extensions.")]
-        protected BaseDefinitionBuilder(string name, string guid, string title, string description)
-            : this(name, guid, BuildGuiPresentation(title, description))
-        {
-        }
-
-        /// <summary>
-        /// Create a new instance of TDefinition.
-        /// A GuiPresentation will be assigned to the definition with the provided title and description.
-        /// </summary>
-        /// <param name="name">The unique name assigned to the definition (mandatory)</param>
-        /// <param name="guid">The unique guid assigned to the definition (mandatory)</param>
-        protected BaseDefinitionBuilder(string name, string guid)
-            : this(name, guid, BuildGuiPresentation(null, null))
-        {
-        }
-
-        /// <summary>
-        /// Create a new instance of TDefinition. Assign the GuiPresentation provided.
-        /// </summary>
-        /// <param name="name">The unique name assigned to the definition (mandatory)</param>
-        /// <param name="guid">The unique guid assigned to the definition (mandatory)</param>
-        protected BaseDefinitionBuilder(string name, string guid, GuiPresentation guiPresentation)
-        {
-            Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
-            Preconditions.IsNotNullOrWhiteSpace(guid, nameof(guid));
-
-            Definition = ScriptableObject.CreateInstance<TDefinition>();
-            Definition.name = name;
-            Definition.SetField("guid", guid);
-
-            InitializeCollectionFields();
-
-            Definition.GuiPresentation = guiPresentation;
-
-            LogDefinition($"Old-Creating definition: ({name}, guid={Definition.GUID})");
-        }
-
-        /// <summary>
-        /// Create clone and rename
-        /// </summary>
-        /// <param name="original">The original definition to be cloned.</param>
-        /// <param name="name">The new unique name assigned to the definition (mandatory)</param>
-        /// <param name="guid">The new unique guid assigned to the definition (mandatory)</param>
-        protected BaseDefinitionBuilder(TDefinition original, string name, string guid) : this(original, name, guid, Category.None)
-        {
-        }
-
-        /// <summary>
-        /// Create clone and rename - compatibility
-        /// </summary>
-        /// <param name="name">The new unique name assigned to the definition (mandatory)</param>
-        /// <param name="guid">The new unique guid assigned to the definition (mandatory)</param>
-        /// <param name="title">The title assigned to the GuiPresentation (optional)</param>
-        /// <param name="description">The description assigned to the GuiPresentation (optional)</param>
-        /// <param name="base_Blueprint">The original definition to be cloned.</param>
-        [Obsolete("Use one of the preferred constructors plus GuiPresentation extensions.")]
-        protected BaseDefinitionBuilder(string name, string guid, string title, string description, TDefinition base_Blueprint)
-            : this(base_Blueprint, name, guid, title, description)
-        {
-        }
-
-        /// <summary>
-        /// Create clone and rename
-        /// </summary>
-        /// <param name="original">The original definition to be cloned.</param>
-        /// <param name="name">The new unique name assigned to the definition (mandatory)</param>
-        /// <param name="guid">The new unique guid assigned to the definition (mandatory)</param>
-        /// <param name="title">The title assigned to the GuiPresentation (optional)</param>
-        /// <param name="description">The description assigned to the GuiPresentation (optional)</param>
-        [Obsolete("Use one of the preferred constructors plus GuiPresentation extensions.")]
-        protected BaseDefinitionBuilder(TDefinition original, string name, string guid, string title, string description)
-        {
-            Preconditions.IsNotNull(original, nameof(original));
-            Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
-            Preconditions.IsNotNullOrWhiteSpace(guid, nameof(guid));
-
-            var originalName = original.name;
-            var originalGuid = original.GUID;
-
-            Definition = UnityEngine.Object.Instantiate(original);
-
-            Definition.name = name;
-            Definition.SetField("guid", guid);
-
-            InitializeCollectionFields();
-
-            if (Definition.GuiPresentation != null)
-            {
-                if (title != null)
-                {
-                    Definition.GuiPresentation.Title = title;
-                }
-
-                if (description != null)
-                {
-                    Definition.GuiPresentation.Description = description;
-                }
-            }
-            else
-            {
-                Definition.GuiPresentation = BuildGuiPresentation(title, description);
-            }
-
-            LogDefinition($"Old-Cloning definition: original({originalName}, {originalGuid}) => ({name}, {Definition.GUID})");
         }
 
         #endregion
@@ -427,6 +253,8 @@ namespace SolastaModApi
             {
                 throw new SolastaModApiException($"The string in Definition.GUID '{Definition.GUID}' is not a GUID.");
             }
+
+            VerifyGuiPresentation();
 
             // Get all base types for the target definition.  The definition needs to be added to all matching databases.
             // e.g. ConditionAffinityBlindnessImmunity is added to dbs: FeatureDefinitionConditionAffinity, FeatureDefinitionAffinity, FeatureDefinition
@@ -537,7 +365,34 @@ namespace SolastaModApi
                     return Enumerable.Empty<Type>();
                 }
             }
+
+            void VerifyGuiPresentation()
+            {
+                if (Definition.GuiPresentation == null)
+                {
+                    Main.Log($"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation, setting to NoContent.");
+
+                    Definition.GuiPresentation = GuiPresentationBuilder.NoContent;
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(Definition.GuiPresentation.Title))
+                    {
+                        Main.Log($"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Title, setting to NoContent.");
+
+                        Definition.GuiPresentation.Title = GuiPresentationBuilder.NoContentTitle;
+                    }
+
+                    if (string.IsNullOrEmpty(Definition.GuiPresentation.Description))
+                    {
+                        Main.Log($"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Description, setting to NoContent.");
+
+                        Definition.GuiPresentation.Description = GuiPresentationBuilder.NoContentDescription;
+                    }
+                }
+            }
         }
+
         #endregion
 
         protected TDefinition Definition { get; }

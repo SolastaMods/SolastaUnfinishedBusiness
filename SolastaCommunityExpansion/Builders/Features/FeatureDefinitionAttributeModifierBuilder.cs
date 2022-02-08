@@ -17,13 +17,13 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        private FeatureDefinitionAttributeModifierBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-            : base(name, namespaceGuid, category)
+        private FeatureDefinitionAttributeModifierBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
         {
         }
 
-        private FeatureDefinitionAttributeModifierBuilder(FeatureDefinitionAttributeModifier original, string name, Guid namespaceGuid, Category category = Category.None)
-            : base(original, name, namespaceGuid, category)
+        private FeatureDefinitionAttributeModifierBuilder(FeatureDefinitionAttributeModifier original, string name, Guid namespaceGuid)
+            : base(original, name, namespaceGuid)
         {
         }
 

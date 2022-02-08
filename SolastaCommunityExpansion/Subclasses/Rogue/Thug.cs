@@ -46,7 +46,9 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                     GuidHelper.Create(SubclassNamespace, featureName).ToString(),
                     AdditionalDamageRogueSneakAttack,
                     1,
-                    DatabaseHelper.CharacterClassDefinitions.Rogue).AddToDB(), 3)
+                    DatabaseHelper.CharacterClassDefinitions.Rogue)
+                    .SetGuiPresentationNoContent()
+                    .AddToDB(), 3)
                 .AddFeatureAtLevel(RogueSubclassThugExploitVulnerabilitiesSneakAttackBuilder.ExploitVulnerabilities, 3)
                 .AddFeatureAtLevel(RogueSubclassThugProficienciesBuilder.ThugProficiencies, 3)
                 .AddFeatureAtLevel(RogueSubclassThugBrutalMethodsBuilder.ThugBrutalMethods, 9)

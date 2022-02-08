@@ -38,7 +38,7 @@ namespace SolastaCommunityExpansion.Models
 
             TABaseDefinitions = GetAllDefinitions();
 
-            if (!Main.Settings.ShowTADefinitionsWithMissingGuiPresentation)
+            if (!Main.Settings.DebugShowTADefinitionsWithMissingGuiPresentation)
             {
                 return;
             }
@@ -63,7 +63,7 @@ namespace SolastaCommunityExpansion.Models
         {
             Main.Log("PostCELoad GuiPresentation Check start ------------------------------------------------");
 
-            if (!Main.Settings.ShowCEDefinitionsWithMissingGuiPresentation)
+            if (!Main.Settings.DebugShowCEDefinitionsWithMissingGuiPresentation)
             {
                 return;
             }
@@ -104,20 +104,26 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
 
-            // Keep record of generated names and guids.
-            File.WriteAllLines($"Definitions-{DateTime.Now:yyyy-MM-dd_HH-mm}.txt",
-                allDefinitions
-                    .Except(TABaseDefinitions)
-                    .OrderBy(x => x.Name)
-                    .ThenBy(x => x.GetType().Name)
-                    .Select(d => $"{d.Name}, {d.GUID}"));
+            if (Main.Settings.DebugLogCEDefinitionsToFile)
+            {
+                // Keep record of generated names and guids.
+                File.WriteAllLines($"Definitions-{DateTime.Now:yyyy-MM-dd_HH-mm}.txt",
+                    allDefinitions
+                        .Except(TABaseDefinitions)
+                        .OrderBy(x => x.Name)
+                        .ThenBy(x => x.GetType().Name)
+                        .Select(d => $"{d.Name}, {d.GUID}"));
+            }
 
-            File.WriteAllLines($"GuiPresentations-{DateTime.Now:yyyy-MM-dd_HH-mm}.txt",
-                allDefinitions
-                    .Except(TABaseDefinitions)
-                    .OrderBy(x => x.Name)
-                    .ThenBy(x => x.GetType().Name)
-                    .Select(d => $"{d.Name}-{d.GetType().Name}: {d?.GuiPresentation?.Title ?? string.Empty}, {d?.GuiPresentation?.Description ?? string.Empty}"));
+            if (Main.Settings.DebugLogCEGuiPresentationsToFile)
+            {
+                File.WriteAllLines($"GuiPresentations-{DateTime.Now:yyyy-MM-dd_HH-mm}.txt",
+                    allDefinitions
+                        .Except(TABaseDefinitions)
+                        .OrderBy(x => x.Name)
+                        .ThenBy(x => x.GetType().Name)
+                        .Select(d => $"{d.Name}-{d.GetType().Name}: {d?.GuiPresentation?.Title ?? string.Empty}, {d?.GuiPresentation?.Description ?? string.Empty}"));
+            }
 
             Main.Log("PostCELoad GuiPresentation Check end --------------------------------------------------");
         }
