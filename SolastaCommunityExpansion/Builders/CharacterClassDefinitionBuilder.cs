@@ -31,6 +31,11 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
+        public static CharacterClassDefinitionBuilder Create(string name, Guid namespaceGuid)
+        {
+            return new CharacterClassDefinitionBuilder(name, namespaceGuid);
+        }
+
         public CharacterClassDefinitionBuilder SetHitDice(RuleDefinitions.DieType die)
         {
             Definition.SetHitDice(die);
@@ -258,9 +263,12 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public CharacterClassDefinitionBuilder AddFeatureAtLevel(FeatureDefinition feature, int level)
+        public CharacterClassDefinitionBuilder AddFeatureAtLevel(int level, FeatureDefinition feature, int number = 1)
         {
-            Definition.FeatureUnlocks.Add(new FeatureUnlockByLevel(feature, level));
+            for (int i = 0; i < number; i++)
+            {
+                Definition.FeatureUnlocks.Add(new FeatureUnlockByLevel(feature, level));
+            }
             return this;
         }
 
@@ -280,7 +288,7 @@ namespace SolastaCommunityExpansion.Builders
                 .SetGuiPresentation(guiPresentation)
                 .AddToDB();
 
-            AddFeatureAtLevel(subclassChoice, level);
+            AddFeatureAtLevel(level, subclassChoice);
 
             return subclassChoice;
         }
