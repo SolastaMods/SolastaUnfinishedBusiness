@@ -459,34 +459,15 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildConjureCelestial()
         {
-            SpellListDefinition CouatlSpellList = SpellListDefinitionBuilder.CreateSpellList(
-                 DatabaseHelper.SpellListDefinitions.SpellListCleric,
-                 DhBaseString + "CouatlSpellList",
-                 GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + "CouatlSpellList").ToString(),
-                 "",
-                 new List<SpellDefinition>(),
-                 new List<SpellDefinition>
-                 {
-                     Bless,
-                     CureWounds,
-                     DetectEvilAndGood,
-                     DetectMagic,
-                     Shield
-                 },
-                 new List<SpellDefinition>
-                 {
-                     LesserRestoration,
-                     ProtectionFromPoison
-                 },
-                 new List<SpellDefinition>(),
-                 new List<SpellDefinition>(),
-                 new List<SpellDefinition>
-                 {
-                     GreaterRestoration
-                 });
-
-            CouatlSpellList.SetHasCantrips(false);
-            CouatlSpellList.SetMaxSpellLevel(5);
+            SpellListDefinition couatlSpellList = SpellListDefinitionBuilder
+                .Create(DatabaseHelper.SpellListDefinitions.SpellListCleric, DhBaseString + "CouatlSpellList", new System.Guid(DhBaseGuid))
+                .SetGuiPresentationNoContent()
+                .ClearSpells()
+                .SetSpellsAtLevel(1, Bless, CureWounds, DetectEvilAndGood, DetectMagic, Shield)
+                .SetSpellsAtLevel(2, LesserRestoration, ProtectionFromPoison)
+                .SetSpellsAtLevel(5, GreaterRestoration)
+                .SetMaxSpellLevel(5, false)
+                .AddToDB();
 
             FeatureDefinitionCastSpell castSpellCouatl = FeatureDefinitionCastSpellBuilder
                 .Create(DhBaseString + "CastSpellCouatl", new System.Guid(DhBaseGuid))
@@ -500,7 +481,7 @@ namespace SolastaCommunityExpansion.Spells
                 .AddToDB()
                 // TODO: Move these onto builder
                 .SetFocusType(EquipmentDefinitions.FocusType.None)
-                .SetSpellListDefinition(CouatlSpellList)
+                .SetSpellListDefinition(couatlSpellList)
                 .SetStaticToHitValue(8)
                 .SetStaticDCValue(14)
                 .SetSpellcastingParametersComputation(RuleDefinitions.SpellcastingParametersComputation.Static);
