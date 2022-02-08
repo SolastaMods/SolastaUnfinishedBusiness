@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Inventory
             var characterInventory = __instance.GuiCharacter.RulesetCharacterHero.CharacterInventory;
 
             if (Main.Settings.EnableCtrlClickOnlySwapsMainHand && isCtrlPressed 
-                && rank != characterInventory.CurrentConfiguration && rank < LIGHT_SOURCE && characterInventory.CurrentConfiguration < LIGHT_SOURCE)
+                && rank < LIGHT_SOURCE && characterInventory.CurrentConfiguration < LIGHT_SOURCE)
             {
                 var itemsConfigurations = characterInventory.WieldedItemsConfigurations;
 
