@@ -565,7 +565,8 @@ Feat/&UsingitemPowerTitle	Use Weapon Power
 Feature/&DHHolyAuraBlindingPowerDescription	When a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends
 Feature/&AdditionalActionDualFlurryDescription	You may make an additional off-hand attack.
 Feature/&AdditionalActionDualFlurryTitle	Dual Flurry!
-Feature/&AftificerSpecialistArchetypesTitle Tinkerer Specializations
+Feature/&ArtificerSpecialistArchetypesTitle Tinkerer Specializations
+Feature/&ArtificerSpecialistArchetypesDescription Tinkerer Specializations
 Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!
 Feature/&ArcaneDetonationDescription	When you hit a creature that has your Arcanist's Mark with a weapon attack, the mark detonates, dealing 1d6 force damage and destroying the mark.
 Feature/&ArcaneDetonationTitle	Arcane Detonation

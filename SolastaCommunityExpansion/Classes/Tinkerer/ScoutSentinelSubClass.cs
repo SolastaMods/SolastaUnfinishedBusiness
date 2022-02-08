@@ -6,6 +6,7 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
@@ -122,22 +123,16 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 .AddToDB();
         }
 
-        public static void BuildAndAddSubclass()
+        public static CharacterSubclassDefinition BuildAndAddSubclass()
         {
-#pragma warning disable S1481, IDE0059 // Unused local variables should be removed
-            var definition = new CharacterSubclassDefinitionBuilder(Name, Guid)
-                .SetGuiPresentation("ScoutSentinelTinkererSubclass", Category.Subclass, DatabaseHelper.CharacterSubclassDefinitions.MartialMountaineer.GuiPresentation.SpriteReference)
-
-            // level 3
-            .AddFeatureAtLevel(ScoutSentinelFeatureSet03Builder.ScoutSentinelFeatureSet03, 3)
-            // level 5
-            .AddFeatureAtLevel(ScoutSentinelFeatureSet05Builder.ScoutSentinelFeatureSet05, 5)
-            // level 10
-            .AddFeatureAtLevel(ScoutSentinelFeatureSet09Builder.ScoutSentinelFeatureSet09, 9)
-            // level 14
-            .AddFeatureAtLevel(ScoutSentinelFeatureSet15Builder.ScoutSentinelFeatureSet15, 15)
-           .AddToDB(true);
-#pragma warning restore S1481 // Unused local variables should be removed
+            return CharacterSubclassDefinitionBuilder
+                .Create(Name, Guid)
+                .SetGuiPresentation("ScoutSentinelTinkererSubclass", Category.Subclass, MartialMountaineer.GuiPresentation.SpriteReference)
+                .AddFeatureAtLevel(ScoutSentinelFeatureSet03Builder.ScoutSentinelFeatureSet03, 3)
+                .AddFeatureAtLevel(ScoutSentinelFeatureSet05Builder.ScoutSentinelFeatureSet05, 5)
+                .AddFeatureAtLevel(ScoutSentinelFeatureSet09Builder.ScoutSentinelFeatureSet09, 9)
+                .AddFeatureAtLevel(ScoutSentinelFeatureSet15Builder.ScoutSentinelFeatureSet15, 15)
+               .AddToDB(true);
         }
     }
 
