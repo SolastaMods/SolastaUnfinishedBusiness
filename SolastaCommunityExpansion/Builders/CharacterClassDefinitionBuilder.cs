@@ -280,10 +280,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public FeatureDefinitionSubclassChoice BuildSubclassChoice(int level, string subclassSuffix, bool requireDeity, string name, GuiPresentation guiPresentation, string guid)
         {
-            var builder = new FeatureDefinitionSubclassChoiceBuilder(name, guid);
-
-            var subclassChoice = builder
-                .SetSubclassSuffix(subclassSuffix)
+            var subclassChoice = new FeatureDefinitionSubclassChoiceBuilder(name, guid).SetSubclassSuffix(subclassSuffix)
                 .SetFilterByDeity(requireDeity)
                 .SetGuiPresentation(guiPresentation)
                 .AddToDB();

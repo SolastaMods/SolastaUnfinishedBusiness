@@ -25,6 +25,15 @@ namespace SolastaCommunityExpansion.Builders.Features
             : base(original, name, namespaceGuid)
         {
         }
+        public static FeatureDefinitionSubclassChoiceBuilder Create(string name, string guid)
+        {
+            return new FeatureDefinitionSubclassChoiceBuilder(name, guid);
+        }
+
+        public static FeatureDefinitionSubclassChoiceBuilder Create(string name, Guid namespaceGuid)
+        {
+            return new FeatureDefinitionSubclassChoiceBuilder(name, namespaceGuid);
+        }
 
         public FeatureDefinitionSubclassChoiceBuilder SetFilterByDeity(bool requireDeity)
         {
