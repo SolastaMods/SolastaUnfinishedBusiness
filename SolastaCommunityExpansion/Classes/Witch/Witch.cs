@@ -11,6 +11,8 @@ using static FeatureDefinitionAttributeModifier;
 using static FeatureDefinitionCastSpell;
 using static SolastaCommunityExpansion.Builders.EquipmentOptionsBuilder;
 using static SolastaModApi.DatabaseHelper;
+using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Witch
 {
@@ -19,72 +21,67 @@ namespace SolastaCommunityExpansion.Classes.Witch
         public static readonly Guid WITCH_BASE_GUID = new("ea7715dd-00cb-45a3-a8c4-458d0639d72c");
 
         public static readonly CharacterClassDefinition Instance = BuildAndAddClass();
-        public static FeatureDefinitionProficiency FeatureDefinitionProficiencyArmor { get; private set; }
-        public static FeatureDefinitionProficiency FeatureDefinitionProficiencyWeapon { get; private set; }
-        public static FeatureDefinitionProficiency FeatureDefinitionProficiencySavingThrow { get; private set; }
-        public static FeatureDefinitionPointPool FeatureDefinitionPointPoolSkills { get; private set; }
-        public static FeatureDefinitionPointPool FeatureDefinitionPointPoolTools { get; private set; }
-        public static FeatureDefinitionCastSpell FeatureDefinitionCastSpellWitch { get; private set; }
-        public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetRitualCasting { get; private set; }
-        public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetWitchCurses { get; private set; }
-        public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetMaledictions { get; private set; }
-        public static FeatureDefinitionPower FeatureDefinitionPowerCackle { get; private set; }
-        public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetWitchFamiliar { get; private set; }
+        private static FeatureDefinitionProficiency FeatureDefinitionProficiencyArmor { get; set; }
+        private static FeatureDefinitionProficiency FeatureDefinitionProficiencyWeapon { get; set; }
+        private static FeatureDefinitionProficiency FeatureDefinitionProficiencySavingThrow { get; set; }
+        private static FeatureDefinitionPointPool FeatureDefinitionPointPoolSkills { get; set; }
+        private static FeatureDefinitionPointPool FeatureDefinitionPointPoolTools { get; set; }
+        private static FeatureDefinitionCastSpell FeatureDefinitionCastSpellWitch { get; set; }
+        private static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetRitualCasting { get; set; }
+        private static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetWitchCurses { get; set; }
+        private static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetMaledictions { get; set; }
+        private static FeatureDefinitionPower FeatureDefinitionPowerCackle { get; set; }
+        private static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetWitchFamiliar { get; set; }
 
         private static void BuildClassStats(CharacterClassDefinitionBuilder classBuilder)
         {
-            classBuilder.SetAnimationId(AnimationDefinitions.ClassAnimationId.Wizard);
-            classBuilder.SetPictogram(CharacterClassDefinitions.Sorcerer.ClassPictogramReference);
-            classBuilder.SetBattleAI(CharacterClassDefinitions.Sorcerer.DefaultBattleDecisions);
-            classBuilder.SetHitDice(RuleDefinitions.DieType.D8);
-            classBuilder.SetIngredientGatheringOdds(CharacterClassDefinitions.Sorcerer.IngredientGatheringOdds);
-
-            classBuilder.SetAbilityScorePriorities(
+            classBuilder
+                .SetAnimationId(AnimationDefinitions.ClassAnimationId.Wizard)
+                .SetPictogram(Sorcerer.ClassPictogramReference)
+                .SetBattleAI(Sorcerer.DefaultBattleDecisions)
+                .SetHitDice(RuleDefinitions.DieType.D8)
+                .SetIngredientGatheringOdds(Sorcerer.IngredientGatheringOdds)
+                .SetAbilityScorePriorities(
                     AttributeDefinitions.Charisma,
                     AttributeDefinitions.Constitution,
                     AttributeDefinitions.Dexterity,
                     AttributeDefinitions.Wisdom,
                     AttributeDefinitions.Intelligence,
-                    AttributeDefinitions.Strength);
-
-            classBuilder.AddFeatPreference(FeatDefinitions.PowerfulCantrip);
-
-            classBuilder.AddToolPreferences(
-                ToolTypeDefinitions.HerbalismKitType,
-                ToolTypeDefinitions.PoisonersKitType);
-
-            classBuilder.AddSkillPreferences(
-                DatabaseHelper.SkillDefinitions.Arcana,
-                DatabaseHelper.SkillDefinitions.Deception,
-                DatabaseHelper.SkillDefinitions.Insight,
-                DatabaseHelper.SkillDefinitions.Intimidation,
-                DatabaseHelper.SkillDefinitions.Persuasion,
-                DatabaseHelper.SkillDefinitions.Nature,
-                DatabaseHelper.SkillDefinitions.Religion);
+                    AttributeDefinitions.Strength)
+                .AddFeatPreference(FeatDefinitions.PowerfulCantrip)
+                .AddToolPreferences(
+                    ToolTypeDefinitions.HerbalismKitType,
+                    ToolTypeDefinitions.PoisonersKitType)
+                .AddSkillPreferences(
+                    DatabaseHelper.SkillDefinitions.Arcana,
+                    DatabaseHelper.SkillDefinitions.Deception,
+                    DatabaseHelper.SkillDefinitions.Insight,
+                    DatabaseHelper.SkillDefinitions.Intimidation,
+                    DatabaseHelper.SkillDefinitions.Persuasion,
+                    DatabaseHelper.SkillDefinitions.Nature,
+                    DatabaseHelper.SkillDefinitions.Religion);
         }
 
         private static void BuildEquipment(CharacterClassDefinitionBuilder classBuilder)
         {
-            classBuilder.AddEquipmentRow(
-                Column(
-                    Option(ItemDefinitions.LightCrossbow, EquipmentDefinitions.OptionWeapon, 1),
-                    Option(ItemDefinitions.Bolt, EquipmentDefinitions.OptionAmmoPack, 1)),
-                Column(
-                    Option(ItemDefinitions.Dagger, EquipmentDefinitions.OptionWeaponSimpleChoice, 1)));
-
-            classBuilder.AddEquipmentRow(
-                Column(Option(ItemDefinitions.ScholarPack, EquipmentDefinitions.OptionStarterPack, 1)),
-                Column(Option(ItemDefinitions.DungeoneerPack, EquipmentDefinitions.OptionStarterPack, 1)));
-
-            classBuilder.AddEquipmentRow(
-                Column(Option(ItemDefinitions.ComponentPouch, EquipmentDefinitions.OptionFocus, 1)),
-                Column(Option(ItemDefinitions.ArcaneFocusWand, EquipmentDefinitions.OptionArcaneFocusChoice, 1)));
-
-            classBuilder.AddEquipmentRow(
-                Option(ItemDefinitions.SorcererArmor, EquipmentDefinitions.OptionArmor, 1),
-                Option(ItemDefinitions.Leather, EquipmentDefinitions.OptionArmor, 1),
-                Option(ItemDefinitions.Dagger, EquipmentDefinitions.OptionWeapon, 1),
-                Option(ItemDefinitions.Dagger, EquipmentDefinitions.OptionWeaponSimpleChoice, 1));
+            classBuilder
+                .AddEquipmentRow(
+                    Column(
+                        Option(ItemDefinitions.LightCrossbow, EquipmentDefinitions.OptionWeapon, 1),
+                        Option(ItemDefinitions.Bolt, EquipmentDefinitions.OptionAmmoPack, 1)),
+                    Column(
+                        Option(ItemDefinitions.Dagger, EquipmentDefinitions.OptionWeaponSimpleChoice, 1)))
+                .AddEquipmentRow(
+                    Column(Option(ItemDefinitions.ScholarPack, EquipmentDefinitions.OptionStarterPack, 1)),
+                    Column(Option(ItemDefinitions.DungeoneerPack, EquipmentDefinitions.OptionStarterPack, 1)))
+                .AddEquipmentRow(
+                    Column(Option(ItemDefinitions.ComponentPouch, EquipmentDefinitions.OptionFocus, 1)),
+                    Column(Option(ItemDefinitions.ArcaneFocusWand, EquipmentDefinitions.OptionArcaneFocusChoice, 1)))
+                .AddEquipmentRow(
+                    Option(ItemDefinitions.SorcererArmor, EquipmentDefinitions.OptionArmor, 1),
+                    Option(ItemDefinitions.Leather, EquipmentDefinitions.OptionArmor, 1),
+                    Option(ItemDefinitions.Dagger, EquipmentDefinitions.OptionWeapon, 1),
+                    Option(ItemDefinitions.Dagger, EquipmentDefinitions.OptionWeaponSimpleChoice, 1));
         }
 
         private static void BuildProficiencies()
@@ -133,206 +130,33 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
         private static void BuildSpells()
         {
-            // Keeping all spells listed here for ease to edit and see the big picture
-            var classSpellList = SpellListDefinitionBuilder.CreateSpellList(
-                    SpellListDefinitions.SpellListWizard,
-                    "WitchSpellList",
-                    GuidHelper.Create(WITCH_BASE_GUID, "WitchSpellList").ToString(),
-                    "",
-                    new List<SpellDefinition>
-                    {
-                    SpellDefinitions.AcidSplash,
-//?                                                                                    DatabaseHelper.SpellDefinitions.AnnoyingBee,
-                    SpellDefinitions.ChillTouch,
-                    SpellDefinitions.DancingLights,
-//?                                                                                    DatabaseHelper.SpellDefinitions.Dazzle,
-//                                                                                    DatabaseHelper.SpellDefinitions.FireBolt,
-//                                                                                    DatabaseHelper.SpellDefinitions.Guidance,
-//                                                                                    DatabaseHelper.SpellDefinitions.Light,
-//                                                                                    DatabaseHelper.SpellDefinitions.PoisonSpray,
-                    SpellDefinitions.ProduceFlame,
-//                                                                                    DatabaseHelper.SpellDefinitions.RayOfFrost,
-                    SpellDefinitions.Resistance,
-//                                                                                    DatabaseHelper.SpellDefinitions.SacredFlame,
-//?                                                                                    DatabaseHelper.SpellDefinitions.ShadowArmor,
-//?                                                                                    DatabaseHelper.SpellDefinitions.ShadowDagger,
-//                                                                                    DatabaseHelper.SpellDefinitions.Shillelagh,
-//?                                                                                    DatabaseHelper.SpellDefinitions.Shine,
-//                                                                                    DatabaseHelper.SpellDefinitions.ShockingGrasp,
-                    SpellDefinitions.SpareTheDying,
-//?                                                                                    DatabaseHelper.SpellDefinitions.Sparkle,
-                    SpellDefinitions.TrueStrike
-                        //                                                                                    DatabaseHelper.SpellDefinitions.VenomousSpike
-                    },
-                    new List<SpellDefinition>
-                    {
-                    SpellDefinitions.AnimalFriendship,
-                    SpellDefinitions.Bane,
-//                                                                                    DatabaseHelper.SpellDefinitions.Bless,
-//                                                                                    DatabaseHelper.SpellDefinitions.BurningHands,
-                    SpellDefinitions.CharmPerson,
-//                                                                                    DatabaseHelper.SpellDefinitions.ColorSpray,
-//                                                                                    DatabaseHelper.SpellDefinitions.Command,
-                    SpellDefinitions.ComprehendLanguages,
-//                                                                                    DatabaseHelper.SpellDefinitions.CureWounds,
-//                                                                                    DatabaseHelper.SpellDefinitions.DetectEvilAndGood,
-                    SpellDefinitions.DetectMagic,
-//                                                                                    DatabaseHelper.SpellDefinitions.DetectPoisonAndDisease,
-//                                                                                    DatabaseHelper.SpellDefinitions.DivineFavor,
-//                                                                                    DatabaseHelper.SpellDefinitions.Entangle,
-                    SpellDefinitions.ExpeditiousRetreat,
-                    SpellDefinitions.FaerieFire,
-//                                                                                    DatabaseHelper.SpellDefinitions.FalseLife,
-//                                                                                    DatabaseHelper.SpellDefinitions.FeatherFall,
-//                                                                                    DatabaseHelper.SpellDefinitions.FogCloud,
-//                                                                                    DatabaseHelper.SpellDefinitions.Goodberry,
-//                                                                                    DatabaseHelper.SpellDefinitions.Grease,
-//                                                                                    DatabaseHelper.SpellDefinitions.GuidingBolt,
-//                                                                                    DatabaseHelper.SpellDefinitions.HealingWord,
-//                                                                                    DatabaseHelper.SpellDefinitions.Heroism,
-                    SpellDefinitions.HideousLaughter,
-//                                                                                    DatabaseHelper.SpellDefinitions.HuntersMark,
-//                                                                                    DatabaseHelper.SpellDefinitions.Identify,
-//                                                                                    DatabaseHelper.SpellDefinitions.InflictWounds,
-//                                                                                    DatabaseHelper.SpellDefinitions.Jump,
-//                                                                                    DatabaseHelper.SpellDefinitions.Longstrider,
-//                                                                                    DatabaseHelper.SpellDefinitions.MageArmor,
-//                                                                                    DatabaseHelper.SpellDefinitions.MagicMissile,
-                    SpellDefinitions.ProtectionFromEvilGood,
-//                                                                                    DatabaseHelper.SpellDefinitions.Shield,
-//                                                                                    DatabaseHelper.SpellDefinitions.ShieldOfFaith,
-                    SpellDefinitions.Sleep,
-                    SpellDefinitions.Thunderwave
-                    },
-                    new List<SpellDefinition>
-                    {
-//                                                                                    DatabaseHelper.SpellDefinitions.AcidArrow,
-//                                                                                    DatabaseHelper.SpellDefinitions.Aid,
-//                                                                                    DatabaseHelper.SpellDefinitions.Barkskin,
-                    SpellDefinitions.Blindness,
-//                                                                                    DatabaseHelper.SpellDefinitions.Blur,
-//                                                                                    DatabaseHelper.SpellDefinitions.BrandingSmite,
-                    SpellDefinitions.CalmEmotions,
-//?                                                                                    DatabaseHelper.SpellDefinitions.ConjureGoblinoids,
-                    SpellDefinitions.Darkness,
-                    SpellDefinitions.Darkvision,
-//                                                                                    DatabaseHelper.SpellDefinitions.EnhanceAbility,
-//                                                                                    DatabaseHelper.SpellDefinitions.FindTraps,
-//                                                                                    DatabaseHelper.SpellDefinitions.FlameBlade,
-//                                                                                    DatabaseHelper.SpellDefinitions.FlamingSphere,
-//                                                                                    DatabaseHelper.SpellDefinitions.HeatMetal,
-                    SpellDefinitions.HoldPerson,
-                    SpellDefinitions.Invisibility,
-                    SpellDefinitions.Knock,
-//                                                                                    DatabaseHelper.SpellDefinitions.LesserRestoration,
-                    SpellDefinitions.Levitate,
-//                                                                                    DatabaseHelper.SpellDefinitions.MagicWeapon,
-//                                                                                    DatabaseHelper.SpellDefinitions.MirrorImage,
-                    SpellDefinitions.MistyStep,
-//                                                                                    DatabaseHelper.SpellDefinitions.MoonBeam,
-//                                                                                    DatabaseHelper.SpellDefinitions.PassWithoutTrace,
-//                                                                                    DatabaseHelper.SpellDefinitions.PrayerOfHealing,
-//                                                                                    DatabaseHelper.SpellDefinitions.ProtectionFromPoison,
-                    SpellDefinitions.RayOfEnfeeblement,
-//                                                                                    DatabaseHelper.SpellDefinitions.ScorchingRay,
-                    SpellDefinitions.SeeInvisibility,
-                    SpellDefinitions.Shatter,
-//                                                                                    DatabaseHelper.SpellDefinitions.Silence,
-                    SpellDefinitions.SpiderClimb
-                        //                                                                                    DatabaseHelper.SpellDefinitions.SpikeGrowth,
-                        //                                                                                    DatabaseHelper.SpellDefinitions.SpiritualWeapon,
-                        //                                                                                    DatabaseHelper.SpellDefinitions.WardingBond
-                    },
-                    new List<SpellDefinition>
-                    {
-//                                                                                    DatabaseHelper.SpellDefinitions.AnimateDead,                                                                                    DatabaseHelper.SpellDefinitions.BeaconOfHope,                                                                                    DatabaseHelper.SpellDefinitions.BeaconOfHope,
-//                                                                                    DatabaseHelper.SpellDefinitions.BeaconOfHope,                                                                                    DatabaseHelper.SpellDefinitions.BeaconOfHope,                                                                                    DatabaseHelper.SpellDefinitions.BeaconOfHope,
-                    SpellDefinitions.BestowCurse,
-//                                                                                    DatabaseHelper.SpellDefinitions.CallLightning,
-//                                                                                    DatabaseHelper.SpellDefinitions.ConjureAnimals,
-                    SpellDefinitions.Counterspell,
-//                                                                                    DatabaseHelper.SpellDefinitions.CreateFood,
-//                                                                                    DatabaseHelper.SpellDefinitions.Daylight,
-                    SpellDefinitions.DispelMagic,
-                    SpellDefinitions.Fear,
-//                                                                                    DatabaseHelper.SpellDefinitions.Fireball,
-                    SpellDefinitions.Fly,
-//                                                                                    DatabaseHelper.SpellDefinitions.Haste,
-                    SpellDefinitions.HypnoticPattern,
-//                                                                                    DatabaseHelper.SpellDefinitions.LightningBolt,
-//                                                                                    DatabaseHelper.SpellDefinitions.MassHealingWord,
-//                                                                                    DatabaseHelper.SpellDefinitions.ProtectionFromEnergy,
-                    SpellDefinitions.RemoveCurse,
-//                                                                                    DatabaseHelper.SpellDefinitions.Revivify,
-//                                                                                    DatabaseHelper.SpellDefinitions.SleetStorm,
-                    SpellDefinitions.Slow,
-//                                                                                    DatabaseHelper.SpellDefinitions.SpiritGuardians,
-                    SpellDefinitions.StinkingCloud,
-                    SpellDefinitions.Tongues
-                        //                                                                                    DatabaseHelper.SpellDefinitions.VampiricTouch,
-                        //                                                                                    DatabaseHelper.SpellDefinitions.WaterBreathing,
-                        //                                                                                    DatabaseHelper.SpellDefinitions.WaterWalk,
-                        //                                                                                    DatabaseHelper.SpellDefinitions.WindWall
-                    },
-                    new List<SpellDefinition>
-                    {
-                    SpellDefinitions.Banishment,
-                    SpellDefinitions.BlackTentacles,
-//                                                                                    DatabaseHelper.SpellDefinitions.Blight,
-                    SpellDefinitions.Confusion,
-//                                                                                    DatabaseHelper.SpellDefinitions.ConjureMinorElementals,
-//                                                                                    DatabaseHelper.SpellDefinitions.DeathWard,
-                    SpellDefinitions.DimensionDoor,
-                    SpellDefinitions.DominateBeast,
-//                                                                                    DatabaseHelper.SpellDefinitions.FireShield,
-//                                                                                    DatabaseHelper.SpellDefinitions.FreedomOfMovement,
-//                                                                                    DatabaseHelper.SpellDefinitions.GiantInsect,
-                    SpellDefinitions.GreaterInvisibility,
-//                                                                                    DatabaseHelper.SpellDefinitions.GuardianOfFaith,
-//                                                                                    DatabaseHelper.SpellDefinitions.IceStorm,
-//?                                                                                    DatabaseHelper.SpellDefinitions.IdentifyCreatures,
-                    SpellDefinitions.PhantasmalKiller
-                        //                                                                                    DatabaseHelper.SpellDefinitions.Stoneskin,
-                        //                                                                                    DatabaseHelper.SpellDefinitions.WallOfFire
-                    },
-                    new List<SpellDefinition>
-                    {
-//                                                                                    DatabaseHelper.SpellDefinitions.CloudKill,
-//                                                                                    DatabaseHelper.SpellDefinitions.ConeOfCold,
-//                                                                                    DatabaseHelper.SpellDefinitions.ConjureElemental,
-                    SpellDefinitions.Contagion,
-                    SpellDefinitions.DispelEvilAndGood,
-                    SpellDefinitions.DominatePerson,
-//                                                                                    DatabaseHelper.SpellDefinitions.FlameStrike,
-//                                                                                    DatabaseHelper.SpellDefinitions.GreaterRestoration,
-                    SpellDefinitions.HoldMonster,
-                        //                                                                                    DatabaseHelper.SpellDefinitions.InsectPlague,
-                        //                                                                                    DatabaseHelper.SpellDefinitions.MassCureWounds,
-                        //?                                                                                    DatabaseHelper.SpellDefinitions.MindTwist,
-                        //                                                                                    DatabaseHelper.SpellDefinitions.RaiseDead,
-                        //                                                                                    DatabaseHelper.SpellDefinitions.WallOfForce
-                    },
-                    new List<SpellDefinition>
-                    {
-//                                                                                    DatabaseHelper.SpellDefinitions.BladeBarrier,
-//                                                                                    DatabaseHelper.SpellDefinitions.ChainLightning,
-//                                                                                    DatabaseHelper.SpellDefinitions.CircleOfDeath,
-//                                                                                    DatabaseHelper.SpellDefinitions.ConjureFey,
-//                                                                                    DatabaseHelper.SpellDefinitions.Disintegrate,
-                    SpellDefinitions.Eyebite,
-//                                                                                    DatabaseHelper.SpellDefinitions.FreezingSphere,
-//                                                                                    DatabaseHelper.SpellDefinitions.GlobeOfInvulnerability,
-//                                                                                    DatabaseHelper.SpellDefinitions.Harm,
-//                                                                                    DatabaseHelper.SpellDefinitions.Heal,
-//                                                                                    DatabaseHelper.SpellDefinitions.HeroesFeast,
-//                                                                                    DatabaseHelper.SpellDefinitions.Sunbeam,
-                    SpellDefinitions.TrueSeeing
-                        //                                                                                    DatabaseHelper.SpellDefinitions.WallOfThorns
-                        //                                                                                },
-                        //                                                                                new List<SpellDefinition>
-                        //                                                                                {
-                        //                                                                                    DatabaseHelper.SpellDefinitions.Resurrection
-                    });
+            var classSpellList = SpellListDefinitionBuilder
+                .Create(SpellListDefinitions.SpellListWizard, "WitchSpellList", WITCH_BASE_GUID)
+                .SetGuiPresentationNoContent()
+                .ClearSpells()
+                .SetSpellsAtLevel(0,
+                    AcidSplash, ChillTouch, DancingLights, ProduceFlame,
+                    Resistance, SpareTheDying, TrueStrike)
+                .SetSpellsAtLevel(1,
+                    AnimalFriendship, Bane, CharmPerson, ComprehendLanguages,
+                    DetectMagic, ExpeditiousRetreat, FaerieFire, HideousLaughter,
+                    ProtectionFromEvilGood, Sleep, Thunderwave)
+                .SetSpellsAtLevel(2,
+                    Blindness, CalmEmotions, Darkness, Darkvision,
+                    HoldPerson, Invisibility, Knock, Levitate,
+                    MistyStep, RayOfEnfeeblement, SeeInvisibility, Shatter, SpiderClimb)
+                .SetSpellsAtLevel(3,
+                    BestowCurse, Counterspell, DispelMagic, Fear,
+                    Fly, HypnoticPattern, RemoveCurse, Slow,
+                    StinkingCloud, Tongues)
+                .SetSpellsAtLevel(4,
+                    Banishment, BlackTentacles, Confusion, DimensionDoor,
+                    DominateBeast, GreaterInvisibility, PhantasmalKiller)
+                .SetSpellsAtLevel(5,
+                    Contagion, DispelEvilAndGood, DominatePerson, HoldMonster)
+                .SetSpellsAtLevel(6,
+                    Eyebite, TrueSeeing)
+                .AddToDB();
 
             // How to check if additional spells are enabled? For now, I check if it exists in the DB
             if (DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("EldritchOrb", out SpellDefinition eldritchOrb))
@@ -357,12 +181,6 @@ namespace SolastaCommunityExpansion.Classes.Witch
             }
 
             // Build our spellCast object containing previously created spell list
-            var classSpellCast = FeatureDefinitionCastSpellBuilder
-                .Create("CastSpellWitch", WITCH_BASE_GUID)
-                .SetGuiPresentation("WitchSpellcasting", Category.Class)
-                .SetKnownCantrips(4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6)
-                .SetKnownSpells(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 13, 13, 14, 14, 15, 15, 15, 15);
-
             List<SlotsByLevelDuplet> witchCastingSlots = new List<SlotsByLevelDuplet>{
                 new () { Slots = new () {2,0,0,0,0,0,0,0,0,0}, Level = 01 },
                 new () { Slots = new () {3,0,0,0,0,0,0,0,0,0}, Level = 02 },
@@ -385,19 +203,21 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 new () { Slots = new () {4,3,3,3,3,2,1,1,1,0}, Level = 19 },
                 new () { Slots = new () {4,3,3,3,3,2,2,1,1,0}, Level = 20 }};
 
-            classSpellCast.SetSlotsPerLevel(witchCastingSlots);
-            classSpellCast.SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest);
-            classSpellCast.SetSpellCastingOrigin(CastingOrigin.Class);
-            classSpellCast.SetSpellCastingAbility(AttributeDefinitions.Charisma);
-            classSpellCast.SetSpellCastingLevel(9);
-            classSpellCast.SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection);
-            classSpellCast.SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
-            classSpellCast.SetSpellList(classSpellList);
-
-            FeatureDefinitionCastSpellWitch = classSpellCast.AddToDB();
-
-            // Waiting for addition of the interface to change replaced spells. Until then, assign directly. (??)
-            FeatureDefinitionCastSpellWitch.ReplacedSpells.SetRange(SpellsHelper.FullCasterReplacedSpells);
+            FeatureDefinitionCastSpellWitch = FeatureDefinitionCastSpellBuilder
+                .Create("CastSpellWitch", WITCH_BASE_GUID)
+                .SetGuiPresentation("WitchSpellcasting", Category.Class)
+                .SetKnownCantrips(4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6)
+                .SetKnownSpells(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 13, 13, 14, 14, 15, 15, 15, 15)
+                .SetSlotsPerLevel(witchCastingSlots)
+                .SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest)
+                .SetSpellCastingOrigin(CastingOrigin.Class)
+                .SetSpellCastingAbility(AttributeDefinitions.Charisma)
+                .SetSpellCastingLevel(9)
+                .SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection)
+                .SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown)
+                .SetSpellList(classSpellList)
+                .SetReplacedSpells(SpellsHelper.FullCasterReplacedSpells)
+                .AddToDB();
         }
 
         private static void BuildRitualCasting()
@@ -443,7 +263,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var burnedProduceFlame = FeatureDefinitionBonusCantripsBuilder
                 .Create(FeatureDefinitionBonusCantripss.BonusCantripsDomainElementaFire, "WitchBurnedProduceFlame", WITCH_BASE_GUID)
                 .SetGuiPresentation(Category.Class)
-                .SetBonusCantrips(SpellDefinitions.ProduceFlame)
+                .SetBonusCantrips(ProduceFlame)
                 .AddToDB();
 
             var burnedCurse = FeatureDefinitionFeatureSetBuilder
@@ -537,7 +357,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             // NEED TO MAKE IT LESS SHOCKING GRASPY
             var abateEffectDescription = new EffectDescription();
-            abateEffectDescription.Copy(SpellDefinitions.ShockingGrasp.EffectDescription);
+            abateEffectDescription.Copy(ShockingGrasp.EffectDescription);
             abateEffectDescription.EffectForms.RemoveAt(0);
             abateEffectDescription.SetDurationParameter(1);
             abateEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
@@ -564,12 +384,12 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     new GuiPresentationBuilder(
                             "Class/&WitchMaledictionAbateTitle",
                             "Class/&WitchMaledictionAbateDescription").Build()
-                            .SetSpriteReference(SpellDefinitions.ShockingGrasp.GuiPresentation.SpriteReference),
+                            .SetSpriteReference(ShockingGrasp.GuiPresentation.SpriteReference),
                     true)
                     .AddToDB();
 
             var apathyEffectDescription = new EffectDescription();
-            apathyEffectDescription.Copy(SpellDefinitions.CalmEmotionsOnEnemy.EffectDescription);
+            apathyEffectDescription.Copy(CalmEmotionsOnEnemy.EffectDescription);
             apathyEffectDescription.SetDurationParameter(1);
             apathyEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
             apathyEffectDescription.SetHasSavingThrow(true);
@@ -594,12 +414,12 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     new GuiPresentationBuilder(
                             "Class/&WitchMaledictionApathyTitle",
                             "Class/&WitchMaledictionApathyDescription").Build()
-                            .SetSpriteReference(SpellDefinitions.CalmEmotions.GuiPresentation.SpriteReference),
+                            .SetSpriteReference(CalmEmotions.GuiPresentation.SpriteReference),
                     true)
                     .AddToDB();
 
             var charmEffectDescription = new EffectDescription();
-            charmEffectDescription.Copy(SpellDefinitions.CharmPerson.EffectDescription);
+            charmEffectDescription.Copy(CharmPerson.EffectDescription);
             charmEffectDescription.SetDurationParameter(1);
             charmEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
             charmEffectDescription.SetHasSavingThrow(true);
@@ -625,12 +445,12 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     new GuiPresentationBuilder(
                             "Class/&WitchMaledictionCharmTitle",
                             "Class/&WitchMaledictionCharmDescription").Build()
-                            .SetSpriteReference(SpellDefinitions.CharmPerson.GuiPresentation.SpriteReference),
+                            .SetSpriteReference(CharmPerson.GuiPresentation.SpriteReference),
                     true)
                     .AddToDB();
 
             var evileyeEffectDescription = new EffectDescription();
-            evileyeEffectDescription.Copy(SpellDefinitions.Fear.EffectDescription);
+            evileyeEffectDescription.Copy(Fear.EffectDescription);
             evileyeEffectDescription.SetDurationParameter(1);
             evileyeEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
             evileyeEffectDescription.SetHasSavingThrow(true);
@@ -656,12 +476,12 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     new GuiPresentationBuilder(
                             "Class/&WitchMaledictionEvilEyeTitle",
                             "Class/&WitchMaledictionEvilEyeDescription").Build()
-                            .SetSpriteReference(SpellDefinitions.Fear.GuiPresentation.SpriteReference),
+                            .SetSpriteReference(Fear.GuiPresentation.SpriteReference),
                     true)
                     .AddToDB();
 
             var obfuscateEffectDescription = new EffectDescription();
-            obfuscateEffectDescription.Copy(SpellDefinitions.FogCloud.EffectDescription);
+            obfuscateEffectDescription.Copy(FogCloud.EffectDescription);
             obfuscateEffectDescription.SetCanBePlacedOnCharacter(true);
             obfuscateEffectDescription.SetDurationParameter(1);
             obfuscateEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
@@ -684,7 +504,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     new GuiPresentationBuilder(
                             "Class/&WitchMaledictionObfuscateTitle",
                             "Class/&WitchMaledictionObfuscateDescription").Build()
-                            .SetSpriteReference(SpellDefinitions.FogCloud.GuiPresentation.SpriteReference),
+                            .SetSpriteReference(FogCloud.GuiPresentation.SpriteReference),
                     true)
                     .AddToDB();
 
@@ -697,7 +517,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             poxEffectForm.ConditionForm.SetConditionDefinition(ConditionDefinitions.ConditionPoisoned);
 
             var poxEffectDescription = new EffectDescription();
-            poxEffectDescription.Copy(SpellDefinitions.PoisonSpray.EffectDescription);
+            poxEffectDescription.Copy(PoisonSpray.EffectDescription);
             poxEffectDescription.SetDurationParameter(1);
             poxEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
             poxEffectDescription.SetHasSavingThrow(true);
@@ -725,7 +545,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     new GuiPresentationBuilder(
                             "Class/&WitchMaledictionPoxTitle",
                             "Class/&WitchMaledictionPoxDescription").Build()
-                            .SetSpriteReference(SpellDefinitions.PoisonSpray.GuiPresentation.SpriteReference),
+                            .SetSpriteReference(PoisonSpray.GuiPresentation.SpriteReference),
                     true)
                     .AddToDB();
 
@@ -758,7 +578,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             ruinEffectForm.ConditionForm.SetConditionDefinition(ruinConditionDefinition);
 
             var ruinEffectDescription = new EffectDescription();
-            ruinEffectDescription.Copy(SpellDefinitions.AcidArrow.EffectDescription);
+            ruinEffectDescription.Copy(AcidArrow.EffectDescription);
             ruinEffectDescription.SetDurationParameter(1);
             ruinEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
             ruinEffectDescription.SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn);
@@ -787,7 +607,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     new GuiPresentationBuilder(
                             "Class/&WitchMaledictionRuinTitle",
                             "Class/&WitchMaledictionRuinDescription").Build()
-                            .SetSpriteReference(SpellDefinitions.AcidSplash.GuiPresentation.SpriteReference),
+                            .SetSpriteReference(AcidSplash.GuiPresentation.SpriteReference),
                     true)
                     .AddToDB();
 
@@ -819,7 +639,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             //Add to our new effect
             var effectDescription = new EffectDescription();
-            effectDescription.Copy(SpellDefinitions.HideousLaughter.EffectDescription);
+            effectDescription.Copy(HideousLaughter.EffectDescription);
             effectDescription.SetDurationParameter(1);
             effectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
             effectDescription.SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn);
@@ -851,23 +671,16 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     new GuiPresentationBuilder(
                             "Class/&WitchCacklePowerTitle",
                             "Class/&WitchCacklePowerDescription").Build()
-                            .SetSpriteReference(SpellDefinitions.HideousLaughter.GuiPresentation.SpriteReference),
+                            .SetSpriteReference(HideousLaughter.GuiPresentation.SpriteReference),
                     true)
                     .AddToDB();
         }
 
         private static CharacterClassDefinition BuildAndAddClass()
         {
-            var classGuiPresentation = new GuiPresentationBuilder(
-                    "Class/&WitchTitle",
-                    "Class/&WitchDescription")
-                    .SetSpriteReference(CharacterClassDefinitions.Sorcerer.GuiPresentation.SpriteReference)
-                    .Build();
-
-            var classBuilder = new CharacterClassDefinitionBuilder(
-                    "ClassWitch",
-                    GuidHelper.Create(WITCH_BASE_GUID, "ClassWitch").ToString())
-                    .SetGuiPresentation(classGuiPresentation);
+            var classBuilder = CharacterClassDefinitionBuilder
+                .Create("ClassWitch", WITCH_BASE_GUID)
+                .SetGuiPresentation("Witch", Category.Class, Sorcerer.GuiPresentation.SpriteReference);
 
             BuildClassStats(classBuilder);
             BuildEquipment(classBuilder);
@@ -938,7 +751,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 witchFamiliarMonster.CreatureTags.Add("WitchFamiliar");
 
                 var spellBuilder = new SpellDefinitionBuilder(
-                        SpellDefinitions.Fireball,
+                        Fireball,
                         "WitchFamiliar",
                         GuidHelper.Create(WITCH_BASE_GUID, "WitchFamiliar").ToString());
 
@@ -954,13 +767,13 @@ namespace SolastaCommunityExpansion.Classes.Witch
                         new GuiPresentationBuilder(
                                 "Spell/&WitchFamiliarTitle",
                                 "Spell/&WitchFamiliarDescription").Build()
-                                .SetSpriteReference(SpellDefinitions.AnimalFriendship.GuiPresentation.SpriteReference));
+                                .SetSpriteReference(AnimalFriendship.GuiPresentation.SpriteReference));
 
                 var spell = spellBuilder.AddToDB();
 
                 spell.SetUniqueInstance(true);
 
-                spell.EffectDescription.Copy(SpellDefinitions.ConjureAnimalsOneBeast.EffectDescription);
+                spell.EffectDescription.Copy(ConjureAnimalsOneBeast.EffectDescription);
                 spell.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
                 spell.EffectDescription.SetRangeParameter(2);
                 spell.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Permanent);
@@ -980,17 +793,15 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
                 var preparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
                     .Create("WitchFamiliarAutoPreparedSpell", WITCH_BASE_GUID)
-                    .SetGuiPresentation("WitchFamiliarPower", Category.Class, SpellDefinitions.AnimalFriendship.GuiPresentation.SpriteReference)
+                    .SetGuiPresentation("WitchFamiliarPower", Category.Class, AnimalFriendship.GuiPresentation.SpriteReference)
                     .SetPreparedSpellGroups(AutoPreparedSpellsGroupBuilder.Build(2, spell))
                     .SetCharacterClass(witch)
                     .SetAutoTag("Witch")
                     .AddToDB();
 
-                var summoningAffinity = new FeatureDefinitionSummoningAffinityBuilder(
-                        FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritBond,
-                        "SummoningAffinityWitchFamiliar",
-                        GuidHelper.Create(WITCH_BASE_GUID, "SummoningAffinityWitchFamiliar").ToString())
-                        .AddToDB();
+                var summoningAffinity = FeatureDefinitionSummoningAffinityBuilder
+                    .Create(FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritBond, "SummoningAffinityWitchFamiliar", WITCH_BASE_GUID)
+                    .AddToDB();
 
                 summoningAffinity.SetRequiredMonsterTag("WitchFamiliar");
                 summoningAffinity.EffectForms.Clear();
@@ -1067,7 +878,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             {
                 if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out FeatureDefinition help))
                 {
-                    classBuilder.AddFeatureAtLevel(help, 1);
+                    classBuilder.AddFeatureAtLevel(1, help);
                 }
 
                 classBuilder.AddFeaturesAtLevel(1,
@@ -1087,15 +898,16 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     FeatureDefinitionFeatureSetWitchFamiliar,
                     FeatureDefinitionFeatureSetMaledictions);
 
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 4);
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetMaledictions, 5);
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 8);
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetMaledictions, 9);
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 12);
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetMaledictions, 13);
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 16);
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSetMaledictions, 17);
-                classBuilder.AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice, 19);
+                classBuilder
+                    .AddFeatureAtLevel(4, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+                    .AddFeatureAtLevel(5, FeatureDefinitionFeatureSetMaledictions)
+                    .AddFeatureAtLevel(8, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+                    .AddFeatureAtLevel(9, FeatureDefinitionFeatureSetMaledictions)
+                    .AddFeatureAtLevel(12, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+                    .AddFeatureAtLevel(13, FeatureDefinitionFeatureSetMaledictions)
+                    .AddFeatureAtLevel(16, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+                    .AddFeatureAtLevel(17, FeatureDefinitionFeatureSetMaledictions)
+                    .AddFeatureAtLevel(19, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
 
                 // TODO: Maledictions should now apply a debuff for disadvantage on saving throw like Force Of Law
                 //            witch.AddFeatureAtLevel(InsidiousSpell,5);

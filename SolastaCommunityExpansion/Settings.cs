@@ -241,9 +241,9 @@ namespace SolastaCommunityExpansion
         public bool DebugLogCEDefinitionsToFile { get; set; } = true;
         public bool DebugLogCEGuiPresentationsToFile { get; set; } = true;
 #else
-        public bool DebugShowCEDefinitionsWithMissingGuiPresentation { get; set; }
-        public bool DebugLogCEDefinitionsToFile { get; set; }
-        public bool DebugLogCEGuiPresentationsToFile { get; set; }
+        internal bool DebugShowCEDefinitionsWithMissingGuiPresentation { get; set; }
+        internal bool DebugLogCEDefinitionsToFile { get; set; }
+        internal bool DebugLogCEGuiPresentationsToFile { get; set; }
 #endif
 
         // Faction Relations
@@ -301,6 +301,7 @@ namespace SolastaCommunityExpansion
 
         // Inventory and Items
         public bool EnableInventoryFilteringAndSorting { get; set; } = true;
+        public bool EnableInventoryTertiaryEquipmentRow { get; set; }
         public bool EnableInvisibleCrownOfTheMagister { get; set; }
         public string EmpressGarbAppearance { get; set; } = "Normal";
 
@@ -324,5 +325,6 @@ namespace SolastaCommunityExpansion
         public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
         public bool InvertAltBehaviorOnTooltips { get; set; }
         public bool EnableCtrlClickBypassMetamagicPanel { get; set; }
+        public bool EnableCtrlClickOnlySwapsMainHand { get; set; }
     }
 }

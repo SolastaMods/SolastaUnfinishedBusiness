@@ -9,11 +9,12 @@ namespace SolastaCommunityExpansion.Builders
     {
         public static ItemDefinition BuilderCopyFromItemSetRecipe(Guid collectionGuid, RecipeDefinition recipeDefinition, ItemDefinition toCopy, string name, GuiPresentation guiPresentation, int gold)
         {
-            ItemDefinitionBuilder builder = new ItemDefinitionBuilder(toCopy, name, GuidHelper.Create(collectionGuid, name).ToString());
-            builder.SetDocumentInformation(recipeDefinition, toCopy.DocumentDescription.ContentFragments);
-            builder.SetGuiPresentation(guiPresentation);
-            builder.SetGold(gold);
-            return builder.AddToDB();
+            return ItemDefinitionBuilder
+                .Create(toCopy, name, collectionGuid)
+                .SetDocumentInformation(recipeDefinition, toCopy.DocumentDescription.ContentFragments)
+                .SetGuiPresentation(guiPresentation)
+                .SetGold(gold)
+                .AddToDB();
         }
 
         public static ItemDefinition BuildNewMagicWeapon(Guid collectionGuid, ItemDefinition baseItem, ItemDefinition magicalExample, string name)

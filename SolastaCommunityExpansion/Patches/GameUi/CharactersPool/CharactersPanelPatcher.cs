@@ -21,11 +21,11 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharactersPool
         internal static void Postfix(CharactersPanel __instance,
             ScrollRect ___charactersScrollview, List<CharacterPlateToggle> ___characterPlates, float __state)
         {
-            if (CharacterEditionScreen_OnFinishCb.HeroName != null)
+            if (CharacterPoolManagerPatcher.HeroName != null)
             {
-                __instance.OnSelectPlate(___characterPlates.Find(x => x.GuiCharacter.Name == CharacterEditionScreen_OnFinishCb.HeroName));
+                __instance.OnSelectPlate(___characterPlates.Find(x => x.GuiCharacter.Name == CharacterPoolManagerPatcher.HeroName));
 
-                CharacterEditionScreen_OnFinishCb.HeroName = null;
+                CharacterPoolManagerPatcher.HeroName = null;
 
                 Main.Log($"setting position to {__state}");
 

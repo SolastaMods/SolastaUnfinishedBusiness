@@ -153,6 +153,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     InventoryManagementContext.RefreshControlsVisibility();
                 }
 
+                toggle = Main.Settings.EnableInventoryTertiaryEquipmentRow;
+                if (UI.Toggle("Enable light source row as a tertiary equipment one", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableInventoryTertiaryEquipmentRow = toggle;
+                    InventoryManagementContext.RefreshControlsVisibility();
+                }
+
                 toggle = Main.Settings.EnableInvisibleCrownOfTheMagister;
                 if (UI.Toggle("Hide the " + "Crown of the Magister".orange() + " on game UI", ref toggle, UI.AutoWidth()))
                 {
