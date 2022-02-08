@@ -70,10 +70,18 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.InvertAltBehaviorOnTooltips = toggle;
             }
 
+            UI.Label("");
+
             toggle = Main.Settings.EnableCtrlClickBypassMetamagicPanel;
             if (UI.Toggle("Enable " + "CTRL".cyan() + " click on spells to auto ignore " + "Sorcerer".orange() + " metamagic panel", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableCtrlClickBypassMetamagicPanel = toggle;
+            }
+
+            toggle = Main.Settings.EnableCtrlClickOnlySwapsMainHand;
+            if (UI.Toggle("Enable " + "CTRL".cyan() + " click to keep off hand items when swapping wielded configurations", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableCtrlClickOnlySwapsMainHand = toggle;
             }
             #endregion
 
