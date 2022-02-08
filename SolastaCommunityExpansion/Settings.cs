@@ -241,9 +241,9 @@ namespace SolastaCommunityExpansion
         public bool DebugLogCEDefinitionsToFile { get; set; } = true;
         public bool DebugLogCEGuiPresentationsToFile { get; set; } = true;
 #else
-        public bool DebugShowCEDefinitionsWithMissingGuiPresentation { get; set; }
-        public bool DebugLogCEDefinitionsToFile { get; set; }
-        public bool DebugLogCEGuiPresentationsToFile { get; set; }
+        internal bool DebugShowCEDefinitionsWithMissingGuiPresentation { get; set; }
+        internal bool DebugLogCEDefinitionsToFile { get; set; }
+        internal bool DebugLogCEGuiPresentationsToFile { get; set; }
 #endif
 
         // Faction Relations
