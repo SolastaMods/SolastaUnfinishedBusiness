@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -276,18 +275,6 @@ namespace SolastaCommunityExpansion.Builders
         {
             Definition.FeatureUnlocks.AddRange(features.Select(f => new FeatureUnlockByLevel(f, level)));
             return this;
-        }
-
-        public FeatureDefinitionSubclassChoice BuildSubclassChoice(int level, string subclassSuffix, bool requireDeity, string name, GuiPresentation guiPresentation, string guid)
-        {
-            var subclassChoice = new FeatureDefinitionSubclassChoiceBuilder(name, guid).SetSubclassSuffix(subclassSuffix)
-                .SetFilterByDeity(requireDeity)
-                .SetGuiPresentation(guiPresentation)
-                .AddToDB();
-
-            AddFeatureAtLevel(level, subclassChoice);
-
-            return subclassChoice;
         }
     }
 }

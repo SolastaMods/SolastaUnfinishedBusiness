@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
@@ -44,6 +47,17 @@ namespace SolastaCommunityExpansion.Builders.Features
         public FeatureDefinitionSubclassChoiceBuilder SetSubclassSuffix(string subclassSuffix)
         {
             Definition.SetSubclassSuffix(subclassSuffix);
+            return this;
+        }
+
+        public FeatureDefinitionSubclassChoiceBuilder SetSubclasses(params CharacterSubclassDefinition[] subclasses)
+        {
+            return SetSubclasses(subclasses.AsEnumerable());
+        }
+
+        public FeatureDefinitionSubclassChoiceBuilder SetSubclasses(IEnumerable<CharacterSubclassDefinition> subclasses)
+        {
+            Definition.Subclasses.SetRange(subclasses.Select(sc => sc.Name));
             return this;
         }
     }

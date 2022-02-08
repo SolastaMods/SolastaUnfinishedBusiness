@@ -706,8 +706,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 List<RulesetCondition> conditions = formsParams.targetCharacter.AllConditions;
 
                 var activeMaledictions = conditions.Where(i => i.ConditionDefinition.ConditionTags.Contains("Malediction")).ToList();
-                if (activeMaledictions != null){
-                    foreach (RulesetCondition malediction in activeMaledictions){
+                if (activeMaledictions != null)
+                {
+                    foreach (RulesetCondition malediction in activeMaledictions)
+                    {
                         // Remove the condition in order to refresh it
                         formsParams.targetCharacter.RemoveCondition(malediction);
                         // Refresh the condition
@@ -923,22 +925,18 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             void BuildSubclasses()
             {
-                var subClassChoices = classBuilder.BuildSubclassChoice(
-                        3,
-                        "Coven",
-                        false,
-                        "SubclassChoiceWitchCovens",
-                        new GuiPresentationBuilder(
-                                "Subclass/&WitchSubclassPathTitle",
-                                "Subclass/&WitchSubclassPathDescription")
-                                .Build(),
-                        GuidHelper.Create(WITCH_BASE_GUID, "SubclassChoiceWitchCovens").ToString());
+                var subclassChoices = FeatureDefinitionSubclassChoiceBuilder
+                    .Create("SubclassChoiceWitchCovens", WITCH_BASE_GUID)
+                    .SetGuiPresentation("WitchSubclassPath", Category.Subclass)
+                    .SetSubclassSuffix("Coven")
+                    .SetFilterByDeity(false)
+                    .SetSubclasses(
+                        GreenWitch.GetSubclass(witch),
+                        RedWitch.GetSubclass(witch),
+                        WhiteWitch.GetSubclass(witch))
+                    .AddToDB();
 
-                //            subClassChoices.Subclasses.Add(BloodWitch.GetSubclass(witch).name);
-                subClassChoices.Subclasses.Add(GreenWitch.GetSubclass(witch).name);
-                //            subClassChoices.Subclasses.Add(PurpleWitch.GetSubclass(witch).name);
-                subClassChoices.Subclasses.Add(RedWitch.GetSubclass(witch).name);
-                subClassChoices.Subclasses.Add(WhiteWitch.GetSubclass(witch).name);
+                classBuilder.AddFeatureAtLevel(3, subclassChoices);
             }
 
             void BuildProgression()
