@@ -670,7 +670,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetGuiPresentation(Category.Class)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
                 .SetUniqueChoices(true)
-                .SetFeatures(abate, apathy, charm, evileye, obfuscate, pox, ruin)
+                .SetFeatures(abate, apathy, charm, disorient, evileye, obfuscate, pox, ruin)
                 .AddToDB();
         }
 
