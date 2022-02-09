@@ -50,34 +50,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         }
     }
 
-    [HarmonyPatch(typeof(RulesetActor), "InflictCondition")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-
-    internal static class RulesetActor_InflictCondition
-    {
-        internal static void Prefix(string conditionDefinitionName,
-            ref int sourceAmount)
-        {
-            if (RulesetImplementationManagerLocation_ApplySummonForm.ConditionToAmount.ContainsKey(conditionDefinitionName))
-            {
-                sourceAmount = RulesetImplementationManagerLocation_ApplySummonForm.ConditionToAmount[conditionDefinitionName];
-            }
-        }
-    }
-
-    [HarmonyPatch(typeof(RulesetActor), "RemoveCondition")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetActor_RemoveCondition
-    {
-        internal static void Postfix(RulesetActor __instance, RulesetCondition rulesetCondition)
-        {
-            if (rulesetCondition?.ConditionDefinition is INotifyConditionRemoval notifiedDefinition)
-            {
-                notifiedDefinition.AfterConditionRemoved(__instance, rulesetCondition);
-            }
-        }
-    }
-
     [HarmonyPatch(typeof(RulesetActor), "RollDie")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetActor_RollDie

@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures
@@ -13,9 +15,39 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     {
         internal static Dictionary<string, int> ConditionToAmount { get; } = new Dictionary<string, int>();
 
-        internal static void Prefix(
-            EffectForm effectForm,
-            RulesetImplementationDefinitions.ApplyFormsParams formsParams)
+        public static RulesetCondition ExtendInflictCondition(
+            RulesetActor rulesetActor,
+            string conditionDefinitionName,
+            RuleDefinitions.DurationType durationType,
+            int durationParameter,
+            RuleDefinitions.TurnOccurenceType endOccurence,
+            string tag,
+            ulong sourceGuid,
+            string sourceFaction,
+            int effectLevel,
+            string effectDefinitionName,
+            int sourceAmount,
+            int sourceAbilityBonus)
+        {
+            if (ConditionToAmount.ContainsKey(conditionDefinitionName))
+            {
+                sourceAmount = ConditionToAmount[conditionDefinitionName];
+            }
+
+            return rulesetActor.InflictCondition(conditionDefinitionName, durationType, durationParameter, endOccurence, tag, sourceGuid, sourceFaction, effectLevel, effectDefinitionName, sourceAmount, sourceAbilityBonus);
+        }
+
+        public static void ExtendRemoveCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition, bool refresh = true, bool showGraphics = true)
+        {
+            rulesetActor.RemoveCondition(rulesetCondition, refresh, showGraphics);
+
+            if (rulesetCondition?.ConditionDefinition is INotifyConditionRemoval notifiedDefinition)
+            {
+                notifiedDefinition.AfterConditionRemoved(rulesetActor, rulesetCondition);
+            }
+        }
+
+        public static void RegisterConditionToAmount(EffectForm effectForm, RulesetImplementationDefinitions.ApplyFormsParams formsParams)
         {
             SummonForm summonForm = effectForm.SummonForm;
             if (summonForm.SummonType == SummonForm.Type.Creature && !string.IsNullOrEmpty(summonForm.MonsterDefinitionName) && DatabaseRepository.GetDatabase<MonsterDefinition>().HasElement(summonForm.MonsterDefinitionName))
@@ -64,9 +96,46 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             }
         }
 
-        internal static void Postfix()
+        public static void UnregisterConditionToAmount()
         {
             ConditionToAmount.Clear();
+        }
+
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            var inflictConditionMethod = typeof(RulesetActor).GetMethod("InflictCondition");
+            var removeConditionMethod = typeof(RulesetActor).GetMethod("RemoveCondition");
+            var extendInflictConditionMethod = typeof(RulesetImplementationManagerLocation_ApplySummonForm).GetMethod("ExtendInflictCondition");
+            var extendRemoveConditionMethod = typeof(RulesetImplementationManagerLocation_ApplySummonForm).GetMethod("ExtendRemoveCondition");
+            var registerConditionToAmountMethod = typeof(RulesetImplementationManagerLocation_ApplySummonForm).GetMethod("RegisterConditionToAmount");
+            var unregisterConditionToAmountMethod = typeof(RulesetImplementationManagerLocation_ApplySummonForm).GetMethod("UnregisterConditionToAmount");
+
+            yield return new CodeInstruction(OpCodes.Ldarg_1); // effectForm
+            yield return new CodeInstruction(OpCodes.Ldarg_2); // formsParam
+            yield return new CodeInstruction(OpCodes.Call, registerConditionToAmountMethod);
+
+            foreach (CodeInstruction instruction in instructions)
+            {
+                if (instruction.Calls(inflictConditionMethod))
+                {
+                    //yield return instruction;
+                    yield return new CodeInstruction(OpCodes.Call, extendInflictConditionMethod);
+                }
+                else if (instruction.Calls(removeConditionMethod))
+                {
+                    //yield return instruction;
+                    yield return new CodeInstruction(OpCodes.Call, extendRemoveConditionMethod);
+                }
+                else if (instruction.opcode == OpCodes.Ret)
+                {
+                    yield return new CodeInstruction(OpCodes.Call, unregisterConditionToAmountMethod);
+                    yield return instruction;
+                }
+                else
+                {
+                    yield return instruction;
+                }
+            }
         }
     }
 }
