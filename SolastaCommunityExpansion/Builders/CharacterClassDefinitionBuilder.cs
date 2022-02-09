@@ -10,30 +10,48 @@ using static CharacterClassDefinition;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class CharacterClassDefinitionBuilder : BaseDefinitionBuilder<CharacterClassDefinition>
+    public sealed class CharacterClassDefinitionBuilder : BaseDefinitionBuilder<CharacterClassDefinition>
     {
-        public CharacterClassDefinitionBuilder(string name, string guid) : base(name, guid)
+        #region Constructors
+        private CharacterClassDefinitionBuilder(string name, string guid) : base(name, guid)
         {
         }
 
-        public CharacterClassDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        private CharacterClassDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        public CharacterClassDefinitionBuilder(CharacterClassDefinition original, string name, string guid)
+        private CharacterClassDefinitionBuilder(CharacterClassDefinition original, string name, string guid)
             : base(original, name, guid)
         {
         }
 
-        public CharacterClassDefinitionBuilder(CharacterClassDefinition original, string name, Guid namespaceGuid)
+        private CharacterClassDefinitionBuilder(CharacterClassDefinition original, string name, Guid namespaceGuid)
             : base(original, name, namespaceGuid)
         {
+        }
+        #endregion
+
+        #region Factory methods
+        public static CharacterClassDefinitionBuilder Create(string name, string guid)
+        {
+            return new CharacterClassDefinitionBuilder(name, guid);
         }
 
         public static CharacterClassDefinitionBuilder Create(string name, Guid namespaceGuid)
         {
             return new CharacterClassDefinitionBuilder(name, namespaceGuid);
         }
+        public static CharacterClassDefinitionBuilder Create(CharacterClassDefinition original, string name, string guid)
+        {
+            return new CharacterClassDefinitionBuilder(original, name, guid);
+        }
+
+        public static CharacterClassDefinitionBuilder Create(CharacterClassDefinition original, string name, Guid namespaceGuid)
+        {
+            return new CharacterClassDefinitionBuilder(original, name, namespaceGuid);
+        }
+        #endregion
 
         public CharacterClassDefinitionBuilder SetHitDice(RuleDefinitions.DieType die)
         {
