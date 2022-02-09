@@ -5,6 +5,9 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using UnityEngine;
+using static SolastaModApi.DatabaseHelper;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard
 {
@@ -26,7 +29,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                     var spellRecoveryGui = new GuiPresentationBuilder(
                         "Subclass/&MagicAffinitySpellMasterRecoveryTitle",
                         "Subclass/&MagicAffinitySpellMasterRecoveryDescription");
-                    spellRecoveryGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
+                    spellRecoveryGui.SetSpriteReference(PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
 
                     return spellRecoveryGui.Build();
                 }
@@ -43,7 +46,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
-            return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
+            return FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
         }
         internal override CharacterSubclassDefinition GetSubclass()
         {
@@ -52,61 +55,43 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 
         internal SpellMaster()
         {
-            // Make Spell Master subclass
-            CharacterSubclassDefinitionBuilder spellMaster = new CharacterSubclassDefinitionBuilder("SpellMaster", GuidHelper.Create(SubclassNamespace, "SpellMaster").ToString());
-            GuiPresentationBuilder spellPresentation = new GuiPresentationBuilder(
-                "Subclass/&TraditionSpellMasterTitle",
-                "Subclass/&TraditionSpellMasterDescription");
-            spellPresentation.SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.DomainInsight.GuiPresentation.SpriteReference);
-            spellMaster.SetGuiPresentation(spellPresentation.Build());
+            var prepared = FeatureDefinitionMagicAffinityBuilder
+                .Create("MagicAffinitySpellMasterPrepared", SubclassNamespace)
+                .SetGuiPresentation("TraditionSpellMasterPrepared", Category.Subclass)
+                .SetSpellLearnAndPrepModifiers(1f, 1f, 0, RuleDefinitions.AdvantageType.None, RuleDefinitions.PreparedSpellsModifier.ProficiencyBonus)
+                .AddToDB();
 
-            GuiPresentationBuilder preparedGui = new GuiPresentationBuilder(
-                "Subclass/&TraditionSpellMasterPreparedTitle",
-                "Subclass/&TraditionSpellMasterPreparedDescription");
-            FeatureDefinitionMagicAffinity prepared = PreparedSpellModifier(RuleDefinitions.PreparedSpellsModifier.ProficiencyBonus,
-                "MagicAffinitySpellMasterPrepared", preparedGui.Build());
-            spellMaster.AddFeatureAtLevel(prepared, 2);
+            var extraPrepared = FeatureDefinitionMagicAffinityBuilder
+                .Create("MagicAffinitySpellMasterExtraPrepared", SubclassNamespace)
+                .SetGuiPresentation("TraditionSpellMasterExtraPrepared", Category.Subclass)
+                .SetSpellLearnAndPrepModifiers(1f, 1f, 0, RuleDefinitions.AdvantageType.None, RuleDefinitions.PreparedSpellsModifier.SpellcastingAbilityBonus)
+                .AddToDB();
 
-            GuiPresentationBuilder extraKnownGui = new GuiPresentationBuilder(
-                "Subclass/&MagicAffinitySpellMasterBonusScribingTitle",
-                "Subclass/&MagicAffinitySpellMasterBonusScribingDescription");
-            FeatureDefinitionMagicAffinity extraKnown = BuildMagicAffinityScribing(1f, 1f, 1,
-                RuleDefinitions.AdvantageType.None, "MagicAffinitySpellMasterKnowledge", extraKnownGui.Build());
-            spellMaster.AddFeatureAtLevel(extraKnown, 2);
+            var extraKnown = FeatureDefinitionMagicAffinityBuilder
+                .Create("MagicAffinitySpellMasterKnowledge", SubclassNamespace)
+                .SetGuiPresentation("MagicAffinitySpellMasterBonusScribing", Category.Subclass)
+                .SetSpellLearnAndPrepModifiers(1f, 1f, 1, RuleDefinitions.AdvantageType.None, RuleDefinitions.PreparedSpellsModifier.None)
+                .AddToDB();
 
-            spellMaster.AddFeatureAtLevel(BonusRecovery, 2);
-            UpdateRecoveryLimited();
+            var knowledgeAffinity = FeatureDefinitionMagicAffinityBuilder
+                .Create("MagicAffinitySpellMasterScriber", SubclassNamespace)
+                .SetGuiPresentation("MagicAffinitySpellMasterScribing", Category.Subclass)
+                .SetSpellLearnAndPrepModifiers(0.25f, 0.25f, 0, RuleDefinitions.AdvantageType.Advantage, RuleDefinitions.PreparedSpellsModifier.None)
+                .AddToDB();
 
-            BuildRestActivity(RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.ShortRest,
-                RestActivityDefinition.ActivityCondition.CanUsePower, "UsePower", BonusRecovery.Name, "ArcaneDepth", SpellRecoveryGui);
-
-            GuiPresentationBuilder spellKnowledgeAffinity = new GuiPresentationBuilder(
-                "Subclass/&MagicAffinitySpellMasterScribingTitle",
-                "Subclass/&MagicAffinitySpellMasterScribingDescription");
-            FeatureDefinitionMagicAffinity knowledgeAffinity = BuildMagicAffinityScribing(0.25f, 0.25f, 0,
-                RuleDefinitions.AdvantageType.Advantage, "MagicAffinitySpellMasterScriber", spellKnowledgeAffinity.Build());
-            spellMaster.AddFeatureAtLevel(knowledgeAffinity, 6);
-
-            FeatureDefinitionPointPool bonusCantrips = FeatureDefinitionPointPoolBuilder
+            var bonusCantrips = FeatureDefinitionPointPoolBuilder
                 .Create("TraditionSpellMasterBonusCantrips", SubclassNamespace)
                 .SetGuiPresentation(Category.Subclass)
                 .SetPool(HeroDefinitions.PointsPoolType.Cantrip, 2)
                 .OnlyUniqueChoices()
                 .AddToDB();
 
-            spellMaster.AddFeatureAtLevel(bonusCantrips, 6);
-
-            GuiPresentationBuilder extraPreparedGui = new GuiPresentationBuilder(
-                "Subclass/&TraditionSpellMasterExtraPreparedTitle",
-                "Subclass/&TraditionSpellMasterExtraPreparedDescription");
-            FeatureDefinitionMagicAffinity extraPrepared = PreparedSpellModifier(RuleDefinitions.PreparedSpellsModifier.SpellcastingAbilityBonus,
-                "MagicAffinitySpellMasterExtraPrepared", extraPreparedGui.Build());
-            spellMaster.AddFeatureAtLevel(extraPrepared, 10);
-
             GuiPresentationBuilder spellResistanceGui = new GuiPresentationBuilder(
                 "Subclass/&TraditionSpellMasterSpellResistanceTitle",
                 "Subclass/&TraditionSpellMasterSpellResistanceDescription");
-            FeatureDefinitionSavingThrowAffinity spellResistance = new FeatureDefinitionSavingThrowAffinityBuilder("TraditionSpellMasterSpellResistance",
+
+            var spellResistance = FeatureDefinitionSavingThrowAffinityBuilder
+                .Create("TraditionSpellMasterSpellResistance",
                 GuidHelper.Create(SubclassNamespace, "TraditionSpellMasterSpellResistance").ToString(),
                 new List<string>()
                 {
@@ -119,25 +104,30 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 }, RuleDefinitions.CharacterSavingThrowAffinity.Advantage, true, spellResistanceGui.Build()).AddToDB();
             spellMaster.AddFeatureAtLevel(spellResistance, 14);
 
-            Subclass = spellMaster.AddToDB();
+
+            // Make Spell Master subclass
+            var spellMaster = CharacterSubclassDefinitionBuilder
+                .Create("SpellMaster", SubclassNamespace)
+                .SetGuiPresentation("TraditionSpellMaster", Category.Subclass, DomainInsight.GuiPresentation.SpriteReference)
+                .AddFeatureAtLevel(prepared, 2)
+                .AddFeatureAtLevel(extraKnown, 2)
+                .AddFeatureAtLevel(BonusRecovery, 2)
+                .AddFeatureAtLevel(knowledgeAffinity, 6)
+                .AddFeatureAtLevel(bonusCantrips, 6)
+                .AddFeatureAtLevel(extraPrepared, 10)
+                .AddToDB();
+
+
+
+            UpdateRecoveryLimited();
+
+            BuildRestActivity(RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.ShortRest,
+                RestActivityDefinition.ActivityCondition.CanUsePower, "UsePower", BonusRecovery.Name, "ArcaneDepth", SpellRecoveryGui);
+
+            Subclass = spellMaster;
         }
 
-        public static FeatureDefinitionMagicAffinity PreparedSpellModifier(RuleDefinitions.PreparedSpellsModifier preparedModifier, string name, GuiPresentation guiPresentation)
-        {
-            FeatureDefinitionMagicAffinityBuilder builder = new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
-                guiPresentation).SetSpellLearnAndPrepModifiers(1f, 1f, 0, RuleDefinitions.AdvantageType.None, preparedModifier);
-            return builder.AddToDB();
-        }
-
-        public static FeatureDefinitionMagicAffinity BuildMagicAffinityScribing(float scribeDurationMultiplier, float scribeCostMultiplier,
-            int additionalScribedSpells, RuleDefinitions.AdvantageType scribeAdvantage, string name, GuiPresentation guiPresentation)
-        {
-            FeatureDefinitionMagicAffinityBuilder builder = new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
-                guiPresentation).SetSpellLearnAndPrepModifiers(scribeDurationMultiplier, scribeCostMultiplier, additionalScribedSpells, scribeAdvantage, RuleDefinitions.PreparedSpellsModifier.None);
-            return builder.AddToDB();
-        }
-
-        public static FeatureDefinitionPower BuildSpellFormPower(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
+        private static FeatureDefinitionPower BuildSpellFormPower(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
             RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge, string name, GuiPresentation guiPresentation)
         {
             EffectDescriptionBuilder effectDescriptionBuilder = new EffectDescriptionBuilder();
@@ -150,7 +140,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             effectDescriptionBuilder.SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None, 1, 0, 0, 0, 0, 0, 0, 0, 0, RuleDefinitions.AdvancementDuration.None);
 
             EffectParticleParameters particleParams = new EffectParticleParameters();
-            particleParams.Copy(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters);
+            particleParams.Copy(PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters);
             effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
 
             FeatureDefinitionPowerBuilder builder = new FeatureDefinitionPowerBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
@@ -158,7 +148,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             return builder.AddToDB();
         }
 
-        public static RestActivityDefinition BuildRestActivity(RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType, RestActivityDefinition.ActivityCondition condition,
+        private static RestActivityDefinition BuildRestActivity(RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType, RestActivityDefinition.ActivityCondition condition,
             string functor, string stringParameter, string name, GuiPresentation guiPresentation)
         {
             RestActivityDefinition restActivity = ScriptableObject.CreateInstance<RestActivityDefinition>();
@@ -175,26 +165,23 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             return restActivity;
         }
 
-        public static void UpdateRecoveryLimited()
+        private static void UpdateRecoveryLimited()
         {
             if (Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster)
             {
-                GuiPresentationBuilder spellRecoveryGui = new GuiPresentationBuilder(
-                    "Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedTitle",
-                    "Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedDescription");
-                spellRecoveryGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
-
-                BonusRecovery.SetGuiPresentation(spellRecoveryGui.Build());
+                BonusRecovery.SetGuiPresentation(
+                    GuiPresentationBuilder.Build(
+                        "MagicAffinitySpellMasterRecoveryUnlimited",
+                        Category.Subclass, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference));
                 BonusRecovery.SetCostPerUse(0);
                 BonusRecovery.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
             }
             else
             {
-                GuiPresentationBuilder spellRecoveryGui = new GuiPresentationBuilder(
-                    "Subclass/&MagicAffinitySpellMasterRecoveryTitle",
-                    "Subclass/&MagicAffinitySpellMasterRecoveryDescription");
-                spellRecoveryGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
-                BonusRecovery.SetGuiPresentation(spellRecoveryGui.Build());
+                BonusRecovery.SetGuiPresentation(
+                    GuiPresentationBuilder.Build(
+                        "MagicAffinitySpellMasterRecovery",
+                        Category.Subclass, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference));
                 BonusRecovery.SetCostPerUse(1);
                 BonusRecovery.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
             }

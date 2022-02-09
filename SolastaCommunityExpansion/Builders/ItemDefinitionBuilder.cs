@@ -107,6 +107,11 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
+        public ItemDefinitionBuilder SetUsableDeviceDescription(params FeatureDefinitionPower[] functions)
+        {
+            return SetUsableDeviceDescription(functions.AsEnumerable());
+        }
+
         public ItemDefinitionBuilder SetUsableDeviceDescription(IEnumerable<FeatureDefinitionPower> functions)
         {
             Definition.IsUsableDevice = true;
