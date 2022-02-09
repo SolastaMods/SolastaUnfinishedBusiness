@@ -380,10 +380,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 ConditionDefinitions.ConditionCalmedByCalmEmotionsEnemy, "ConditionApathy", WITCH_BASE_GUID)
                     .SetGuiPresentation("Apathy", Category.Condition, ConditionDefinitions.ConditionCalmedByCalmEmotionsEnemy.GuiPresentation.SpriteReference)
                     .AddToDB()
-                .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
-                .SetDurationParameter(1)
-                .SetDurationType(RuleDefinitions.DurationType.Round)
-                .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+                    .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+                    .SetDurationParameter(1)
+                    .SetDurationType(RuleDefinitions.DurationType.Round)
+                    .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
             apathyConditionDefinition.ConditionTags.Add("Malediction");
 
             var apathyConditionForm = new ConditionForm()
@@ -819,26 +819,19 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 var witchFamiliarMonster = witchFamiliarMonsterBuilder.AddToDB();
                 witchFamiliarMonster.CreatureTags.Add("WitchFamiliar");
 
-                var spellBuilder = new SpellDefinitionBuilder(
-                        Fireball,
-                        "WitchFamiliar",
-                        GuidHelper.Create(WITCH_BASE_GUID, "WitchFamiliar").ToString());
+                var spell = SpellDefinitionBuilder
+                    .Create(Fireball, "WitchFamiliar", WITCH_BASE_GUID)
+                    .SetGuiPresentation(Category.Spell)
+                    .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+                    .SetMaterialComponent(RuleDefinitions.MaterialComponentType.None)
+                    .SetSomaticComponent(true)
+                    .SetVerboseComponent(true)
+                    .SetSpellLevel(1)
+                    .SetCastingTime(RuleDefinitions.ActivationTime.Hours1)
+                    // BUG: Unable to have 70 minutes ritual casting time... if set to 10 minutes, it really only takes 10 minutes, instead of 70
+                    .SetRitualCasting(RuleDefinitions.ActivationTime.Hours1)
 
-                spellBuilder.SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration);
-                spellBuilder.SetMaterialComponent(RuleDefinitions.MaterialComponentType.None);
-                spellBuilder.SetSomaticComponent(true);
-                spellBuilder.SetVerboseComponent(true);
-                spellBuilder.SetSpellLevel(1);
-                spellBuilder.SetCastingTime(RuleDefinitions.ActivationTime.Hours1);
-                // BUG: Unable to have 70 minutes ritual casting time... if set to 10 minutes, it really only takes 10 minutes, instead of 70
-                spellBuilder.SetRitualCasting(RuleDefinitions.ActivationTime.Hours1);
-                spellBuilder.SetGuiPresentation(
-                        new GuiPresentationBuilder(
-                                "Spell/&WitchFamiliarTitle",
-                                "Spell/&WitchFamiliarDescription").Build()
-                                .SetSpriteReference(AnimalFriendship.GuiPresentation.SpriteReference));
-
-                var spell = spellBuilder.AddToDB();
+                .AddToDB();
 
                 spell.SetUniqueInstance(true);
 

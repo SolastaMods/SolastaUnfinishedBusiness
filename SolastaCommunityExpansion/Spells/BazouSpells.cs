@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Spells
 {
     internal static class BazouSpells
     {
-        public static readonly Guid BAZOU_SPELLS_BASE_GUID = new("91384db5-6659-4384-bf2c-3a41160343f4");
+        internal static readonly Guid BAZOU_SPELLS_BASE_GUID = new("91384db5-6659-4384-bf2c-3a41160343f4");
 
         private static readonly SpellDefinition EldritchOrb = BuildEldritchOrb();
         private static readonly SpellDefinition FindFamiliar = BuildFindFamiliar();
@@ -22,7 +22,7 @@ namespace SolastaCommunityExpansion.Spells
         private static readonly SpellDefinition PetalStorm = BuildPetalStorm();
         private static readonly SpellDefinition ProtectThreshold = BuildProtectThreshold();
 
-        public static void AddToDB()
+        internal static void AddToDB()
         {
             _ = EldritchOrb;
             _ = FindFamiliar;
@@ -32,7 +32,7 @@ namespace SolastaCommunityExpansion.Spells
             _ = ProtectThreshold;
         }
 
-        public static void Register()
+        internal static void Register()
         {
             SpellsContext.RegisterSpell(EldritchOrb, isFromOtherMod: false, "WitchSpellList", "WarlockClassSpelllist");
             SpellsContext.RegisterSpell(FindFamiliar, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListWizard");
@@ -44,15 +44,15 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildEldritchOrb()
         {
-            var spellBuilder = new SpellDefinitionBuilder(Fireball, "EldritchOrb", BAZOU_SPELLS_BASE_GUID)
+            var spell = SpellDefinitionBuilder
+                .Create(Fireball, "EldritchOrb", BAZOU_SPELLS_BASE_GUID)
                 .SetGuiPresentation(Category.Spell, Shine.GuiPresentation.SpriteReference)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetMaterialComponent(RuleDefinitions.MaterialComponentType.None)
                 .SetSomaticComponent(true)
                 .SetVerboseComponent(true)
-                .SetSpellLevel(0);
-
-            var spell = spellBuilder.AddToDB();
+                .SetSpellLevel(0)
+                .AddToDB();
 
             // Not sure if I prefer copying and editing existing effect description
             // or creating one from scratch through API
@@ -136,7 +136,7 @@ namespace SolastaCommunityExpansion.Spells
 
             var familiarMonster = familiarMonsterBuilder.AddToDB();
 
-            var spell = new SpellDefinitionBuilder(Fireball, "FindFamiliar", BAZOU_SPELLS_BASE_GUID)
+            var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar", BAZOU_SPELLS_BASE_GUID)
                 .SetGuiPresentation(Category.Spell, AnimalFriendship.GuiPresentation.SpriteReference)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolConjuration)
                 .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Specific)
@@ -173,17 +173,16 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildFrenzy()
         {
-            var spellBuilder = new SpellDefinitionBuilder(Confusion, "Frenzy", BAZOU_SPELLS_BASE_GUID);
-
-            spellBuilder.SetGuiPresentation(Category.Spell, Confusion.GuiPresentation.SpriteReference);
-            spellBuilder.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEnchantment);
-            spellBuilder.SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane);
-            spellBuilder.SetSomaticComponent(true);
-            spellBuilder.SetVerboseComponent(true);
-            spellBuilder.SetSpellLevel(6);
-            spellBuilder.SetConcentration();
-
-            var spell = spellBuilder.AddToDB();
+            var spell = SpellDefinitionBuilder
+                .Create(Confusion, "Frenzy", BAZOU_SPELLS_BASE_GUID)
+                .SetGuiPresentation(Category.Spell, Confusion.GuiPresentation.SpriteReference)
+                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEnchantment)
+                .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane)
+                .SetSomaticComponent(true)
+                .SetVerboseComponent(true)
+                .SetSpellLevel(6)
+                .SetRequiresConcentration(true)
+                .AddToDB();
 
             // Not sure if I prefer copying and editing existing effect description
             // or creating one from scratch through API
@@ -224,19 +223,16 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildMinorLifesteal()
         {
-            var spellBuilder = new SpellDefinitionBuilder(VampiricTouch, "MinorLifesteal", BAZOU_SPELLS_BASE_GUID);
-
-            spellBuilder.SetGuiPresentation(Category.Spell, VampiricTouch.GuiPresentation.SpriteReference);
-            spellBuilder.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolNecromancy);
-            spellBuilder.SetMaterialComponent(RuleDefinitions.MaterialComponentType.None);
-            spellBuilder.SetSomaticComponent(true);
-            spellBuilder.SetVerboseComponent(false);
-            spellBuilder.SetSpellLevel(0);
-
-            var spell = spellBuilder.AddToDB();
-
-            // Missing method in the API to set concentration to FALSE
-            spell.SetRequiresConcentration(false);
+            var spell = SpellDefinitionBuilder
+                .Create(VampiricTouch, "MinorLifesteal", BAZOU_SPELLS_BASE_GUID)
+                .SetGuiPresentation(Category.Spell, VampiricTouch.GuiPresentation.SpriteReference)
+                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolNecromancy)
+                .SetMaterialComponent(RuleDefinitions.MaterialComponentType.None)
+                .SetSomaticComponent(true)
+                .SetVerboseComponent(false)
+                .SetSpellLevel(0)
+                .SetRequiresConcentration(false)
+                .AddToDB();
 
             spell.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
             spell.EffectDescription.SetRangeParameter(12);
@@ -264,17 +260,16 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildPetalStorm()
         {
-            var spellBuilder = new SpellDefinitionBuilder(InsectPlague, "PetalStorm", BAZOU_SPELLS_BASE_GUID);
-
-            spellBuilder.SetGuiPresentation(Category.Spell, WindWall.GuiPresentation.SpriteReference);
-            spellBuilder.SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolConjuration);
-            spellBuilder.SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane);
-            spellBuilder.SetSomaticComponent(true);
-            spellBuilder.SetVerboseComponent(true);
-            spellBuilder.SetSpellLevel(2);
-            spellBuilder.SetConcentration();
-
-            var spell = spellBuilder.AddToDB();
+            var spell = SpellDefinitionBuilder
+                .Create(InsectPlague, "PetalStorm", BAZOU_SPELLS_BASE_GUID)
+                .SetGuiPresentation(Category.Spell, WindWall.GuiPresentation.SpriteReference)
+                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolConjuration)
+                .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane)
+                .SetSomaticComponent(true)
+                .SetVerboseComponent(true)
+                .SetSpellLevel(2)
+                .SetRequiresConcentration(true)
+                .AddToDB();
 
             // Not sure if I prefer copying and editing existing effect description
             // or creating one from scratch through API
@@ -324,17 +319,16 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildProtectThreshold()
         {
-            var spellBuilder = new SpellDefinitionBuilder(SpikeGrowth, "ProtectThreshold", BAZOU_SPELLS_BASE_GUID)
+            var spell = SpellDefinitionBuilder
+                .Create(SpikeGrowth, "ProtectThreshold", BAZOU_SPELLS_BASE_GUID)
                 .SetGuiPresentation(Category.Spell, Bane.GuiPresentation.SpriteReference)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolAbjuration)
                 .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane)
                 .SetSomaticComponent(true)
                 .SetVerboseComponent(true)
                 .SetSpellLevel(2)
-                .SetRitualCasting(RuleDefinitions.ActivationTime.Minute10);
-
-            var spell = spellBuilder.AddToDB();
-            spell.SetRequiresConcentration(false);
+                .SetRequiresConcentration(false)
+                .SetRitualCasting(RuleDefinitions.ActivationTime.Minute10).AddToDB();
 
             // Not sure if I prefer copying and editing existing effect description
             // or creating one from scratch through API

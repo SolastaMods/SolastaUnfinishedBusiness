@@ -9,6 +9,7 @@
         Action,
         ActionAffinity,
         AttributeModifier,
+        Blueprint,
         CharacterFamily,
         Class,
         Condition,

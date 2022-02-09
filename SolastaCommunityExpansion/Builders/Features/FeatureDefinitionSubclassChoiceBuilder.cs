@@ -7,27 +7,31 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionSubclassChoiceBuilder : BaseDefinitionBuilder<FeatureDefinitionSubclassChoice>
+    public sealed class FeatureDefinitionSubclassChoiceBuilder : BaseDefinitionBuilder<FeatureDefinitionSubclassChoice>
     {
-        public FeatureDefinitionSubclassChoiceBuilder(string name, string guid)
+        #region Constructors
+        private FeatureDefinitionSubclassChoiceBuilder(string name, string guid)
             : base(name, guid)
         {
         }
 
-        public FeatureDefinitionSubclassChoiceBuilder(string name, Guid namespaceGuid)
+        private FeatureDefinitionSubclassChoiceBuilder(string name, Guid namespaceGuid)
             : base(name, namespaceGuid)
         {
         }
 
-        public FeatureDefinitionSubclassChoiceBuilder(FeatureDefinitionSubclassChoice original, string name, string guid)
+        private FeatureDefinitionSubclassChoiceBuilder(FeatureDefinitionSubclassChoice original, string name, string guid)
             : base(original, name, guid)
         {
         }
 
-        public FeatureDefinitionSubclassChoiceBuilder(FeatureDefinitionSubclassChoice original, string name, Guid namespaceGuid)
+        private FeatureDefinitionSubclassChoiceBuilder(FeatureDefinitionSubclassChoice original, string name, Guid namespaceGuid)
             : base(original, name, namespaceGuid)
         {
         }
+        #endregion
+
+        #region Factory methods
         public static FeatureDefinitionSubclassChoiceBuilder Create(string name, string guid)
         {
             return new FeatureDefinitionSubclassChoiceBuilder(name, guid);
@@ -36,6 +40,17 @@ namespace SolastaCommunityExpansion.Builders.Features
         public static FeatureDefinitionSubclassChoiceBuilder Create(string name, Guid namespaceGuid)
         {
             return new FeatureDefinitionSubclassChoiceBuilder(name, namespaceGuid);
+        }
+
+        public static FeatureDefinitionSubclassChoiceBuilder Create(FeatureDefinitionSubclassChoice original, string name, string guid)
+        {
+            return new FeatureDefinitionSubclassChoiceBuilder(original, name, guid);
+        }
+        #endregion
+
+        public static FeatureDefinitionSubclassChoiceBuilder Create(FeatureDefinitionSubclassChoice original, string name, Guid namespaceGuid)
+        {
+            return new FeatureDefinitionSubclassChoiceBuilder(original, name, namespaceGuid);
         }
 
         public FeatureDefinitionSubclassChoiceBuilder SetFilterByDeity(bool requireDeity)

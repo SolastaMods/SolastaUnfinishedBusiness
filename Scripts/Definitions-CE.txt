@@ -106,6 +106,7 @@ AttributeModifierFeatCraftyInt, b23c3b73-7690-42ba-aa49-7ca3451daa05
 AttributeModifierFeatCraftyWis, 23f944c7-2359-43cc-8bdc-71833bf35302
 AttributeModifierImprovedArmorInfusion, 9ba23c8d-28de-517b-a27e-63593c9a008b
 AttributeModifierMeleeWizardExtraAttack, 51476c8a-052b-56a6-9152-3f65ef323d42
+AttributeModifierRuin, d2818238-8f23-5523-9f63-a2eca12f484a
 AttributeModifierToughFeat, b9e60c25-e3d1-5c77-ac00-7afdccad09d9
 AttributeSpellShieldArcaneDeflection, f6ccc8d6-db4d-535d-b324-b3b0ac585c9f
 BackgroundSkillSelect2, 77d6eb2c-d99f-4256-9bb6-c6395e440629
@@ -129,6 +130,12 @@ ChefTreatEatPower, 31ea87c9-f446-59ba-a422-6855c1b372bf
 CJDivineWord, 18ecba41-a8ac-4048-979e-2139e66934a7
 ClassTinkerer, 0bd993c5-be32-535c-96b5-70db46ed2ca8
 ClassWitch, dedb5cef-3036-5d46-92b7-d1fbbfa265f1
+CombatAffinityDisorient, c53bf112-a3ad-51d7-9ed0-0de5d2a87f95
+ConditionAbate, 00927056-4bb0-51dc-8cad-65c3e17275b2
+ConditionApathy, 04423dbb-9940-5f93-8475-717645b130a9
+ConditionCharm, bcbe10ad-80bc-5777-a157-03056360e789
+ConditionDisorient, 6af55055-ba7b-504a-8a18-c904eeae27ea
+ConditionEvilEye, b8d95cb9-d3c2-5f3c-9bee-83975745dad0
 ConditionFrenzied, 09a5ca8a-6f64-51f0-ae67-ec6da8c0204e
 ConditionInfuseAmuletOfHealth, 1987d833-9460-5472-812a-cf673836cacf
 ConditionInfuseBeltOfGiantHillStrength, 3a3a1fa8-fa39-52fa-913c-b6cbe3dbbdad
@@ -146,7 +153,8 @@ ConditionPowerArtificerResistantArmor, 642d9b30-b807-5c1e-9190-55914c957ee5
 ConditionPowerTransmuteConstitution, 0f07bac0-5a2c-57e5-a8d8-1ec3120e7b61
 ConditionPowerTransmuteDarkvision, 88e5ac08-cc10-530c-94f2-e28a41d5bf85
 ConditionPowerTransmutePoison, 2cbaf2df-504d-5e2e-be5d-a3e3d7a686a1
-ConditionRuined, fba68c1c-ea53-5cd5-9e06-0e37251187f7
+ConditionPox, b9f07c91-f494-57d9-95fe-dc9f3a990e2f
+ConditionRuin, 444c1178-cef0-5710-9d2c-bc4a9c3fb12c
 ConditionSpellShieldArcaneDeflection, 3a1982dd-3a02-5746-88dc-2ef0be504f77
 ConditionWitchFamiliarAC, 3a684474-c7e0-5c6b-896b-20a34127211b
 ConditionWitchFamiliarDamage, 6df5fa51-a8fc-5517-9a87-5a95f2e77d2d
@@ -546,7 +554,7 @@ InfusionBagOfHolding, 422f596d-763d-5b06-9bb1-feee9470d31c
 InspirePower, 163c28de-48e5-4f75-bdd0-d42374a75ef8
 InspiringSurgePower, c2930ad2-dd02-4ff3-bad8-46d93e328fbd
 IntToAttackAndDamage, ebb243f7-382c-4caf-9d7f-40c80dab4623
-InvisibleStalker_CE_SubSpell_CR6, fb7c721915ae57b8881d1419926088ce
+InvisibleStalker_CE_SubSpell_CR6, fb7c7219-15ae-57b8-881d-1419926088ce
 KnockDownPower, 90dd5e81-40d7-4824-89b4-45bcf4c05218
 KSRogueSubclassThug, eff5c8b6-a8b4-5323-baa2-d11ac7265c49
 KSRogueSubclassThugBrutalMethods, 2444519e-fdc2-57f7-a1f6-fb717542fab2
@@ -845,7 +853,6 @@ RoguishConArtistFeint, 0f085afa-c18b-574f-b1d4-e7e933410b1a
 RoguishConArtistMentalSavingThrows, f2be4d53-1cc4-5146-a822-1c94456266f2
 RoyalEnvoyAbilityCheckAffinity, b16f8b68-0dab-49e5-b1a2-6fdfd8836849
 RoyalEnvoyFeature, c8299685-d806-4e20-aff0-ca3dd4000e05
-Ruined, 9c92a29c-0f2a-50e0-b651-10f260475625
 SaveAffinityInfusionMagicalStrength, ad73a087-d666-522b-8bbd-03d700f3004b
 ScoutModePower, ff6b9eb1-01ad-4100-ab12-7d6dc38ccc70
 ScoutSentinel, fb2e5f73-d552-430f-b329-1f0a2ecdf6bd
@@ -952,6 +959,7 @@ WitchLovelessCharmImmunity, 1cf5a377-af27-579b-9112-d617a682e2cd
 WitchMaledictionAbate, ad0e93d8-84c7-56db-8aac-eb25c0a7c3f4
 WitchMaledictionApathy, 6a3fddc2-6a9a-5465-ba2c-5d16c509417d
 WitchMaledictionCharm, 24df9a7b-8b77-548a-b3c1-facd8ce5a424
+WitchMaledictionDisorient, a7043beb-6681-558f-8ed6-0fb8215900b2
 WitchMaledictionEvilEye, 33f61a13-9f1c-5616-a3d8-bc2e592a02eb
 WitchMaledictionObfuscate, db00bd44-6b09-5f73-b3bb-0c6bbfdf18cf
 WitchMaledictionPox, f53945c2-dfa4-53a4-844e-a46c0dc04659

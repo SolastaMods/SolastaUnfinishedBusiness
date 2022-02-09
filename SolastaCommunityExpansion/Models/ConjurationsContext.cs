@@ -45,24 +45,44 @@ namespace SolastaCommunityExpansion.Models
             FeyBear.SetFullyControlledWhenAllied(controlled); // CR 4
             Green_Hag.SetFullyControlledWhenAllied(controlled); // CR 3
             FeyWolf.SetFullyControlledWhenAllied(controlled); // CR 2
-            Dryad.SetFullyControlledWhenAllied(controlled); // CR 1
+            FeyDriad.SetFullyControlledWhenAllied(controlled); // CR 1
 
-            CreateAdditionalSummons();
-            AddSummonsSubSpells();
+            if (Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration)
+            {
+                // Change conjured Fey to persist and become hostile when concentration accidentally dropped
+                SetPersist(ConjureFey_Ape);
+                SetPersist(ConjureFey_Bear);
+                SetPersist(ConjureFey_Dryad);
+                SetPersist(ConjureFey_Eagle);
+                SetPersist(ConjureFey_GreenHag);
+                SetPersist(ConjureFey_Wolf);
+
+                static void SetPersist(SpellDefinition spell)
+                {
+                    spell.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Summon).SummonForm.SetPersistOnConcentrationLoss(true);
+                }
+            }
+
+            if (Main.Settings.EnableUpcastConjureElementalAndFey)
+            {
+                CreateAdditionalSummons();
+                AddSummonsSubSpells();
+            }
         }
 
         private static readonly Guid Namespace = new("de4539b8e0194684b1d0585100dd94e5");
 
-        private const string InvisibleStalkerSubspellName = "InvisibleStalker_CE_SubSpell_CR6";
+        private const string InvisibleStalkerSubspellName = "ConjureElementalInvisibleStalker_CE_SubSpell_CR6";
 
         internal static void AddSummonsSubSpells()
         {
             // Invisible Stalker
             if (!DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement(InvisibleStalkerSubspellName, out var _))
             {
-                var builder = new SpellDefinitionBuilder(ConjureElementalFire, InvisibleStalkerSubspellName, CreateGuid(InvisibleStalkerSubspellName));
-                var definition = builder.AddToDB();
-                definition.GuiPresentation.Title = "Spell/&IPConjureInvisibleStalker";
+                var definition = SpellDefinitionBuilder
+                    .Create(ConjureElementalFire, InvisibleStalkerSubspellName, Namespace)
+                    .SetGuiPresentation("IPConjureInvisibleStalker", Category.Spell)
+                    .AddToDB();
 
                 var summonForm = definition.EffectDescription
                     .GetFirstFormOfType(EffectForm.EffectFormType.Summon)?.SummonForm;
@@ -185,11 +205,6 @@ namespace SolastaCommunityExpansion.Models
                             return builder.AddToDB();
                         }
             */
-        }
-
-        private static string CreateGuid(string name)
-        {
-            return GuidHelper.Create(Namespace, name).ToString("N");
         }
     }
 }
