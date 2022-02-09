@@ -36,7 +36,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             dbCharacterClassDefinition.TryGetElement(CLASS_MONK, out CharacterClassDefinition unofficialMonk);
             dbCharacterClassDefinition.TryGetElement(CLASS_WARLOCK, out CharacterClassDefinition unofficialWarlock);
 
-            DummyClass = new CharacterClassDefinitionBuilder("DummyClass", "062d696ab44146e0b316188f943d8079").AddToDB();
+            DummyClass = CharacterClassDefinitionBuilder.Create("DummyClass", "062d696ab44146e0b316188f943d8079").AddToDB();
             TinkererClass = unofficialTinkerer ?? DummyClass;
             WardenClass = unofficialWarden ?? DummyClass;
             WitchClass = unofficialWitch ?? DummyClass;

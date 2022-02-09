@@ -34,6 +34,11 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
+        public static MonsterDefinitionBuilder Create(MonsterDefinition original, string name, string guid)
+        {
+            return new MonsterDefinitionBuilder(original, name, guid);
+        }
+
         public MonsterDefinitionBuilder SetAlignment(string alignment)
         {
             Definition.SetAlignment(alignment);

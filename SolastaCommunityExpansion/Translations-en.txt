@@ -1,7 +1,5 @@
-ActionAffinity/&DHFeeblemindSpellDescription	unable to cast spells
+ActionAffinity/&DHFeeblemindSpellDescription	Unable to cast spells
 ActionAffinity/&DHFeeblemindSpellTitle	Feeble spellcasting
-ArcaneFighterBonusWeaponDamage	Magically Powered Attacks
-ArcaneFirearm Arcane Firearm Damage
 AttributeModifier/&DHFeeblemindChaSpellDescription	Charisma score equals 1
 AttributeModifier/&DHFeeblemindChaSpellTitle	Feeble Charisma
 AttributeModifier/&DHFeeblemindIntSpellDescription	Intelligence score equals 1

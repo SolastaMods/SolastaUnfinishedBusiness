@@ -46,7 +46,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.GuiPresentation.Title = "Feat/&ProtectorConstructLevel3AutopreparedSpellsTitle";
             Definition.GuiPresentation.Description = "Feat/&ProtectorConstructLevel3AutopreparedSpellsDescription";
 
-            // TODO: @Chris - review
 #pragma warning disable S1481, IDE0059 // Unused local variables should be removed
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup autoPreparedSpellsGroup = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
