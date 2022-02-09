@@ -26,6 +26,11 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
+        public static CharacterSubclassDefinitionBuilder Create(string name, string guid)
+        {
+            return new CharacterSubclassDefinitionBuilder(name, guid);
+        }
+
         public static CharacterSubclassDefinitionBuilder Create(string name, Guid namespaceGuid)
         {
             return new CharacterSubclassDefinitionBuilder(name, namespaceGuid);
