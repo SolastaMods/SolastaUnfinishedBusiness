@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using HarmonyLib;
+using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.FullyControlConjurations
 {
@@ -9,18 +9,18 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.FullyControlConjura
     internal static class ActiveCharacterPanel_OnStopConcentratingCb
     {
         /// <summary>
-        /// Dismiss a summoned Elemental when deliberately dropping concentration (as per my understanding of SRD).
-        /// Elemental still turns hostile when concentration broken by enemy or when casting another concentration spell
+        /// Set both summoned Elemental and Feys to be dismissed or turn hostile
+        /// when deliberately dropping concentration (as per my understanding of SRD).
+        /// TA implementation is Elemental=hostile, Fey=dismissed.
+        /// Elemental and Fey turn hostile when concentration broken by enemy or when casting another concentration spell
         /// without first dropping concentration.
         /// </summary>
         internal static void Prefix(ActiveCharacterPanel __instance)
         {
-            if (!Main.Settings.FullyControlConjurations || !Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration)
+            if (!Main.Settings.FullyControlConjurations)
             {
                 return;
             }
-
-            Main.Log($"ActiveCharacterPanel_OnStopConcentratingCb: {__instance.GuiCharacter.RulesetCharacter.ConcentratedSpell?.SpellDefinition.Name ?? "(none)"}");
 
             // Check we have a concentration spell
             var spell = __instance.GuiCharacter.RulesetCharacterHero?.ConcentratedSpell;
@@ -30,32 +30,19 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.FullyControlConjura
                 return;
             }
 
+            Main.Log($"ActiveCharacterPanel_OnStopConcentratingCb: {spell.SpellDefinition.Name}");
+
             var spellDefinition = spell.SpellDefinition;
 
-            // Only interested in specific summoning spells
-            if (spellDefinition.Name.StartsWith("ConjureElemental") // TODO: ConjureFey
-                && spellDefinition.SpellLevel >= 5
-                && spellDefinition.EffectDescription.EffectForms
-                    .SingleOrDefault(ef => ef.FormType == EffectForm.EffectFormType.Summon)
-                    ?.SummonForm.PersistOnConcentrationLoss == true)
+            if (spellDefinition.Name.StartsWith("ConjureElemental") || spellDefinition.Name.StartsWith("ConjureFey"))
             {
-                // locate and remove all beneficial conditions of type 'conjuration'
-                foreach (var guid in __instance.GuiCharacter.RulesetCharacterHero.ConcentratedSpell.TrackedConditionGuids)
+                foreach (var guid in spell.TrackedConditionGuids)
                 {
-                    if (RulesetEntity.TryGetEntity<RulesetCondition>(guid, out var condition))
+                    if (RulesetEntity.TryGetEntity<RulesetCondition>(guid, out var condition)
+                        && condition.ConditionDefinition == ConditionConjuredCreature)
                     {
-                        Main.Log($"Condition={condition.Name}, target={condition.TargetGuid}");
-
-                        if (RulesetEntity.TryGetEntity<RulesetCharacter>(condition.TargetGuid, out var monster))
-                        {
-                            Main.Log($"Monster={monster.Name}");
-
-                            // clear all conditions.  Tried clearing just the conjuration condition but didn't work.
-                            foreach (var rulesetCondition in monster.ConditionsByCategory.SelectMany(c => c.Value))
-                            {
-                                rulesetCondition.Clear();
-                            }
-                        }
+                        Main.Log($"Condition={condition.Name}, target={condition.TargetGuid}, setting TerminationKillsConjured={Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration}");
+                        condition.TerminationKillsConjured = Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration;
                     }
                 }
             }
