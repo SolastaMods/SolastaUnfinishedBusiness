@@ -4,7 +4,7 @@ using SolastaModApi;
 using static RuleDefinitions;
 using static SolastaCommunityExpansion.Classes.Tinkerer.FeatureHelpers;
 
-namespace SolastaCommunityExpansion.Classes.Tinkerer
+namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 {
     public static class ArtilleristBuilder
     {

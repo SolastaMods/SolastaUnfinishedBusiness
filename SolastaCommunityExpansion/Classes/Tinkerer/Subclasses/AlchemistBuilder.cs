@@ -7,7 +7,7 @@ using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 
-namespace SolastaCommunityExpansion.Classes.Tinkerer
+namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 {
     public static class AlchemistBuilder
     {

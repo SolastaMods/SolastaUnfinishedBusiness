@@ -6,7 +6,7 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using static RuleDefinitions;
 
-namespace SolastaCommunityExpansion.Classes.Tinkerer
+namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 {
     public static class BattleSmithBuilder
     {

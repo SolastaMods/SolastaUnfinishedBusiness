@@ -7,7 +7,7 @@ using SolastaModApi.Infrastructure;
 using UnityEngine;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
-namespace SolastaCommunityExpansion.Classes.Tinkerer
+namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 {
     //*****************************************************************************************************************************************
     //***********************************		ArtilleryConstructlevel03FeatureSetBuilder		***********************************************************
