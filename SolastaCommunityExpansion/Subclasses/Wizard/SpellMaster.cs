@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
-using UnityEngine;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
@@ -22,17 +20,8 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         {
             get
             {
-                return _spellRecoveryGui ??= Build();
-
-                static GuiPresentation Build()
-                {
-                    var spellRecoveryGui = new GuiPresentationBuilder(
-                        "Subclass/&MagicAffinitySpellMasterRecoveryTitle",
-                        "Subclass/&MagicAffinitySpellMasterRecoveryDescription");
-                    spellRecoveryGui.SetSpriteReference(PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
-
-                    return spellRecoveryGui.Build();
-                }
+                return _spellRecoveryGui ??= GuiPresentationBuilder
+                    .Build("MagicAffinitySpellMasterRecovery", Category.Subclass, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
             }
         }
         #endregion
@@ -86,16 +75,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 .OnlyUniqueChoices()
                 .AddToDB();
 
-            spellMaster.AddFeatureAtLevel(bonusCantrips, 6);
-
-            GuiPresentationBuilder extraPreparedGui = new GuiPresentationBuilder(
-                "Subclass/&TraditionSpellMasterExtraPreparedTitle",
-                "Subclass/&TraditionSpellMasterExtraPreparedDescription");
-            FeatureDefinitionMagicAffinity extraPrepared = PreparedSpellModifier(RuleDefinitions.PreparedSpellsModifier.SpellcastingAbilityBonus,
-                "MagicAffinitySpellMasterExtraPrepared", extraPreparedGui.Build());
-            spellMaster.AddFeatureAtLevel(extraPrepared, 10);
-
-            FeatureDefinitionSavingThrowAffinity spellResistance = FeatureDefinitionSavingThrowAffinityBuilder
+            var spellResistance = FeatureDefinitionSavingThrowAffinityBuilder
                 .Create("TraditionSpellMasterSpellResistance", SubclassNamespace)
                 .SetGuiPresentation(Category.Spell)
                 .SetAffinities(
@@ -109,9 +89,6 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 )
                 .AddToDB();
 
-            spellMaster.AddFeatureAtLevel(spellResistance, 14);
-
-
             // Make Spell Master subclass
             var spellMaster = CharacterSubclassDefinitionBuilder
                 .Create("SpellMaster", SubclassNamespace)
@@ -122,14 +99,18 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 .AddFeatureAtLevel(knowledgeAffinity, 6)
                 .AddFeatureAtLevel(bonusCantrips, 6)
                 .AddFeatureAtLevel(extraPrepared, 10)
+                .AddFeatureAtLevel(spellResistance, 14)
                 .AddToDB();
-
-
 
             UpdateRecoveryLimited();
 
-            BuildRestActivity(RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.ShortRest,
-                RestActivityDefinition.ActivityCondition.CanUsePower, "UsePower", BonusRecovery.Name, "ArcaneDepth", SpellRecoveryGui);
+            RestActivityDefinitionBuilder
+                .Create("ArcaneDepth", SubclassNamespace)
+                .Configure(
+                    RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.ShortRest, 
+                    RestActivityDefinition.ActivityCondition.CanUsePower, "UsePower", BonusRecovery.Name)
+                .SetGuiPresentation(SpellRecoveryGui)
+                .AddToDB();
 
             Subclass = spellMaster;
         }
@@ -150,29 +131,11 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             particleParams.Copy(PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters);
             effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
 
-            FeatureDefinitionPowerBuilder builder = new FeatureDefinitionPowerBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
-                usesPerRecharge, usesDetermination, AttributeDefinitions.Intelligence, activationTime, costPerUse, recharge, false, false, AttributeDefinitions.Intelligence, effectDescriptionBuilder.Build(), guiPresentation, false);
-            return builder.AddToDB();
+            return new FeatureDefinitionPowerBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
+                usesPerRecharge, usesDetermination, AttributeDefinitions.Intelligence, activationTime, costPerUse, recharge, false, false, AttributeDefinitions.Intelligence, effectDescriptionBuilder.Build(), guiPresentation, false).AddToDB();
         }
 
-        private static RestActivityDefinition BuildRestActivity(RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType, RestActivityDefinition.ActivityCondition condition,
-            string functor, string stringParameter, string name, GuiPresentation guiPresentation)
-        {
-            RestActivityDefinition restActivity = ScriptableObject.CreateInstance<RestActivityDefinition>();
-            restActivity.SetRestStage(restStage);
-            restActivity.SetRestType(restType);
-            restActivity.SetCondition(condition);
-            restActivity.SetFunctor(functor);
-            restActivity.SetStringParameter(stringParameter);
-
-            restActivity.name = name;
-            restActivity.SetGuiPresentation(guiPresentation);
-            restActivity.SetGuid(GuidHelper.Create(SubclassNamespace, name).ToString());
-            DatabaseRepository.GetDatabase<RestActivityDefinition>().Add(restActivity);
-            return restActivity;
-        }
-
-        private static void UpdateRecoveryLimited()
+        internal static void UpdateRecoveryLimited()
         {
             if (Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster)
             {
@@ -191,6 +154,31 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                         Category.Subclass, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference));
                 BonusRecovery.SetCostPerUse(1);
                 BonusRecovery.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
+            }
+        }
+
+        private sealed class RestActivityDefinitionBuilder : BaseDefinitionBuilder<RestActivityDefinition>
+        {
+            private RestActivityDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+            {
+            }
+
+            internal static RestActivityDefinitionBuilder Create(string name, Guid namespaceGuid)
+            {
+                return new RestActivityDefinitionBuilder(name, namespaceGuid);
+            }
+
+            internal RestActivityDefinitionBuilder Configure(
+                RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType,
+                RestActivityDefinition.ActivityCondition condition, string functor, string stringParameter)
+            {
+                Definition.SetRestStage(restStage);
+                Definition.SetRestType(restType);
+                Definition.SetCondition(condition);
+                Definition.SetFunctor(functor);
+                Definition.SetStringParameter(stringParameter);
+
+                return this;
             }
         }
     }
