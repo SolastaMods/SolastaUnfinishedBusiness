@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
 
     internal static class RulesetImplementationManagerLocation_ApplySummonForm
     {
-        internal static Dictionary<string, int> ConditionToAmount { get; } = new Dictionary<string, int>();
+        internal static Dictionary<string, int> ConditionToAmount { get; } = new();
 
         public static RulesetCondition ExtendInflictCondition(
             RulesetActor rulesetActor,
@@ -49,38 +49,43 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
 
         public static void RegisterConditionToAmount(EffectForm effectForm, RulesetImplementationDefinitions.ApplyFormsParams formsParams)
         {
-            SummonForm summonForm = effectForm.SummonForm;
-            if (summonForm.SummonType == SummonForm.Type.Creature && !string.IsNullOrEmpty(summonForm.MonsterDefinitionName) && DatabaseRepository.GetDatabase<MonsterDefinition>().HasElement(summonForm.MonsterDefinitionName))
+            var summonForm = effectForm.SummonForm;
+
+            if (summonForm.SummonType == SummonForm.Type.Creature && !string.IsNullOrEmpty(summonForm.MonsterDefinitionName) 
+                && DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(summonForm.MonsterDefinitionName, out MonsterDefinition monsterDefinition))
             {
-                MonsterDefinition element = DatabaseRepository.GetDatabase<MonsterDefinition>().GetElement(summonForm.MonsterDefinitionName);
                 for (int index = 0; index < summonForm.Number; ++index)
                 {
                     formsParams.sourceCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionSummoningAffinity>(formsParams.sourceCharacter.FeaturesToBrowse);
+
                     foreach (FeatureDefinitionSummoningAffinity summoningAffinity in formsParams.sourceCharacter.FeaturesToBrowse.OfType<FeatureDefinitionSummoningAffinity>())
                     {
-                        if (string.IsNullOrEmpty(summoningAffinity.RequiredMonsterTag) || element.CreatureTags.Contains(summoningAffinity.RequiredMonsterTag))
+                        if (string.IsNullOrEmpty(summoningAffinity.RequiredMonsterTag) || monsterDefinition.CreatureTags.Contains(summoningAffinity.RequiredMonsterTag))
                         {
                             foreach (ConditionDefinition addedCondition in summoningAffinity.AddedConditions)
                             {
                                 int sourceAmount = 0;
+
                                 switch (addedCondition.AmountOrigin)
                                 {
                                     case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus:
                                         sourceAmount = formsParams.sourceCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
                                         ConditionToAmount.AddOrReplace(addedCondition.Name, sourceAmount);
                                         break;
+
                                     case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceCharacterLevel:
                                         sourceAmount = formsParams.sourceCharacter.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
                                         ConditionToAmount.AddOrReplace(addedCondition.Name, sourceAmount);
                                         break;
+
                                     case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel:
                                         var sourceCharacter = (RulesetCharacterHero)formsParams.sourceCharacter;
                                         // Find a better place to put this in?
                                         string classType = addedCondition.AdditionalDamageType;
-                                        if (DatabaseRepository.GetDatabase<CharacterClassDefinition>().TryGetElement(classType, out CharacterClassDefinition classDef))
+                                        if (DatabaseRepository.GetDatabase<CharacterClassDefinition>().TryGetElement(classType, out CharacterClassDefinition characterClassDefinition))
                                         {
                                             if (sourceCharacter.ClassesAndLevels != null
-                                                && sourceCharacter.ClassesAndLevels.TryGetValue(classDef, out int classLevel))
+                                                && sourceCharacter.ClassesAndLevels.TryGetValue(characterClassDefinition, out int classLevel))
                                             {
                                                 sourceAmount = classLevel;
                                             }
@@ -118,12 +123,10 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             {
                 if (instruction.Calls(inflictConditionMethod))
                 {
-                    //yield return instruction;
                     yield return new CodeInstruction(OpCodes.Call, extendInflictConditionMethod);
                 }
                 else if (instruction.Calls(removeConditionMethod))
                 {
-                    //yield return instruction;
                     yield return new CodeInstruction(OpCodes.Call, extendRemoveConditionMethod);
                 }
                 else if (instruction.opcode == OpCodes.Ret)
