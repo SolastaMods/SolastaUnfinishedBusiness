@@ -7,29 +7,52 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class SpellDefinitionBuilder : BaseDefinitionBuilder<SpellDefinition>
+    public sealed class SpellDefinitionBuilder : BaseDefinitionBuilder<SpellDefinition>
     {
-        public SpellDefinitionBuilder(string name, string guid) : base(name, guid)
+        #region Constructors
+        private SpellDefinitionBuilder(string name, string guid) : base(name, guid)
         {
             InitializeFields();
         }
 
-        public SpellDefinitionBuilder(string name, Guid guidNamespace)
-            : base(name, guidNamespace)
+        private SpellDefinitionBuilder(string name, Guid guidNamespace) : base(name, guidNamespace)
         {
             InitializeFields();
         }
 
-        public SpellDefinitionBuilder(SpellDefinition original, string name, string guid) : base(original, name, guid)
+        private SpellDefinitionBuilder(SpellDefinition original, string name, string guid) : base(original, name, guid)
         {
             InitializeFields();
         }
 
-        public SpellDefinitionBuilder(SpellDefinition original, string name, Guid guidNamespace)
+        private SpellDefinitionBuilder(SpellDefinition original, string name, Guid guidNamespace)
             : base(original, name, guidNamespace)
         {
             InitializeFields();
         }
+        #endregion
+
+        #region Factory methods
+        public static SpellDefinitionBuilder Create(string name, string guid)
+        {
+            return new SpellDefinitionBuilder(name, guid);
+        }
+
+        public static SpellDefinitionBuilder Create(string name, Guid guidNamespace)
+        {
+            return new SpellDefinitionBuilder(name, guidNamespace);
+        }
+
+        public static SpellDefinitionBuilder Create(SpellDefinition original, string name, string guid)
+        {
+            return new SpellDefinitionBuilder(original, name, guid);
+        }
+
+        public static SpellDefinitionBuilder Create(SpellDefinition original, string name, Guid guidNamespace)
+        {
+            return new SpellDefinitionBuilder(original, name, guidNamespace);
+        }
+        #endregion
 
         private void InitializeFields()
         {
@@ -39,6 +62,12 @@ namespace SolastaCommunityExpansion.Builders
         public SpellDefinitionBuilder SetSpellLevel(int spellLevel)
         {
             Definition.SetSpellLevel(spellLevel);
+            return this;
+        }
+
+        public SpellDefinitionBuilder SetRequiresConcentration(bool value)
+        {
+            Definition.SetRequiresConcentration(value);
             return this;
         }
 
@@ -70,12 +99,6 @@ namespace SolastaCommunityExpansion.Builders
         {
             Definition.SetRitual(true);
             Definition.SetRitualCastingTime(ritualCastingTime);
-            return this;
-        }
-
-        public SpellDefinitionBuilder SetConcentration()
-        {
-            Definition.SetRequiresConcentration(true);
             return this;
         }
 
