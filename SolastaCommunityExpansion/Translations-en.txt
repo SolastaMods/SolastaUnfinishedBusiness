@@ -7,6 +7,7 @@ AttributeModifier/&DHFeeblemindChaSpellTitle	Feeble Charisma
 AttributeModifier/&DHFeeblemindIntSpellDescription	Intelligence score equals 1
 AttributeModifier/&DHFeeblemindIntSpellTitle	Feeble intelligence
 BlindingWeaponStrike Blinding Weapon
+BlueprintCategory/&FlatRoomsTitle	Flat Rooms
 Caption/&GadgetParametersCustomRemoveDescription	Remove:\n{0}
 Class/&TinkererDescription Tinkerers are inventors, alchemists, and more. They bridge the space between magic and technology
 Class/&TinkererTitle Tinkerer
@@ -90,6 +91,34 @@ Condition/&HelpActionDescription	This creature has been distracted.
 Condition/&HelpActionTitle	Distracted
 Condition/&RuinedDescription	This creature's defence is reduced.
 Condition/&RuinedTitle	Ruined
+CraftyFeats/&ApothecaryIntFeatDescription	+1 Intelligence, Proficiency or Expertise with Herbalism Kit and Arcana
+CraftyFeats/&ApothecaryIntFeatTitle	Apothecary (Intelligence)
+CraftyFeats/&ApothecaryWisFeatDescription	+1 Wisdom, Proficiency or Expertise with Herbalism Kit and Medicine
+CraftyFeats/&ApothecaryWisFeatTitle	Apothecary (Wisdom)
+CraftyFeats/&AttributeDexDescription	+1 Dexterity
+CraftyFeats/&AttributeDexTitle	Dexterity
+CraftyFeats/&AttributeIntDescription	+1 Intelligence
+CraftyFeats/&AttributeIntTitle	Intelligence
+CraftyFeats/&AttributeWisDescription	+1 Wisdom
+CraftyFeats/&AttributeWisTitle	Wisdom
+CraftyFeats/&CraftyArcanaDescription	Arcana proficiency or expertise
+CraftyFeats/&CraftyBowsDescription	Proficiency with all bows and crossbows
+CraftyFeats/&CraftyBowsTitle	Bow Proficiency
+CraftyFeats/&CraftyFletcherFeatDescription	+1 Dexterity, Proficiency or Expertise with Smith's Tools, Proficiency with bows and crossbows
+CraftyFeats/&CraftyFletcherFeatTitle	Fletcher
+CraftyFeats/&CraftyHerbalismKitDescription	Herbalism Kit proficiency or expertise
+CraftyFeats/&CraftyMedicineDescription	Medicine proficiency or expertise
+CraftyFeats/&CraftyNatureDescription	Nature proficiency or expertise
+CraftyFeats/&CraftyScribeFeatDescription	+1 Intelligence, Proficiency or Expertise with Scroll Kit and Arcana, Requires the ability to cast spells
+CraftyFeats/&CraftyScribeFeatTitle	Scribe
+CraftyFeats/&CraftySkillsTitle	Skills
+CraftyFeats/&CraftyToolsTitle	Tools
+CraftyFeats/&ManacalonCrafterFeatDescription	+1 Intelligence, Proficiency or Expertise with Manacalon Rosary and Arcana, Requires the ability to cast spells
+CraftyFeats/&ManacalonCrafterFeatTitle	Manacalon Crafter
+CraftyFeats/&ToxicologistIntFeatDescription	+1 Intelligence, Proficiency or Expertise with Poisoner's Kit and Nature
+CraftyFeats/&ToxicologistIntFeatTitle	Toxicologist (Intelligence)
+CraftyFeats/&ToxicologistWisFeatDescription	+1 Wisdom, Proficiency or Expertise with Poisoner's Kit and Medicine
+CraftyFeats/&ToxicologistWisFeatTitle	Toxicologist (Wisdom)
 DamageAffinity/&DHHolyAuraSpellDescription	When a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends
 DamageAffinity/&DHHolyAuraSpellTitle	Holy Aura Retaliation
 Equipment/&ArcaneStaffDescription	This staff is inscribed with magical writing and can be used as a focus for Arcane spell casting.
@@ -372,8 +401,20 @@ Feat/&FeatFeyTeleportationIntDescription	Increase Intelligence attribute by 1. G
 Feat/&FeatFeyTeleportationIntTitle	Fey Teleportation (Intelligence)
 Feat/&FeatFeyTeleportationWisDescription	Increase Wisdom attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell.  Gain proficiency in Tirmarian.
 Feat/&FeatFeyTeleportationWisTitle	Fey Teleportation (Wisdom)
+Feat/&FeatHeavyArmorMasterClassDescription	Resistance to Bludgeoning, Slashing, and Piercing damage.
+Feat/&FeatHeavyArmorMasterClassTitle	Heavy Defense Mastery
 Feat/&FeatIntIncrementDescription	+1 Intelligence
 Feat/&FeatIntIncrementTitle	Intelligence Attribute Increase
+Feat/&FeatLightArmorDescription	Gain proficiency with Light Armor and +1 Dexterity
+Feat/&FeatLightArmorProficiencyDescription	Gain proficiency with Light Armor
+Feat/&FeatLightArmorProficiencyTitle	Light Armor
+Feat/&FeatLightArmorTitle	Light Armor
+Feat/&FeatMediumArmorDexDescription	Gain proficiency with Medium Armor and Shields and +1 Dexterity
+Feat/&FeatMediumArmorDexTitle	Medium Armor (Dexterity)
+Feat/&FeatMediumArmorProficiencyDescription	Gain proficiency with Medium Armor and Shields
+Feat/&FeatMediumArmorProficiencyTitle	Medium Armor
+Feat/&FeatMediumArmorStrengthDescription	Gain proficiency with Medium Armor and Shields and +1 Strength
+Feat/&FeatMediumArmorStrengthTitle	Medium Armor (Strength)
 Feat/&FeatSavageAttackerDescription	Reroll weapon and spell damage dice when they roll a 1 (does not reroll all damage sources, for example excludes Sneak Attack and Smite).
 Feat/&FeatSavageAttackerReroll	Due to being a Savage Attacker {0} rerolls the {1} die from a {2} to a {3}
 Feat/&FeatSavageAttackerTitle	Savage Attacker
@@ -387,20 +428,20 @@ Feat/&FeatStrengthIncrementDescription	+1 Strength
 Feat/&FeatStrengthIncrementTitle	Attribute Increase
 Feat/&FeatTelekineticChaDescription	Increase Charisma attribute by 1. Gain a bonus action ability to shove or pull creatures.
 Feat/&FeatTelekineticChaPullDescription	Telekinetically pull a creature toward you.
-Feat/&FeatTelekineticChaPushDescription	Telekinetically shove a creature away from you.
-Feat/&FeatTelekineticIntDescription	Increase Intelligence attribute by 1. Gain a bonus action ability to shove or pull creatures.
-Feat/&FeatTelekineticIntPullDescription	Telekinetically pull a creature toward you.
-Feat/&FeatTelekineticIntPushDescription	Telekinetically shove a creature away from you.
-Feat/&FeatTelekineticWisDescription	Increase Wisdom attribute by 1. Gain a bonus action ability to shove or pull creatures.
-Feat/&FeatTelekineticWisPullDescription	Telekinetically pull a creature toward you.
-Feat/&FeatTelekineticWisPushDescription	Telekinetically shove a creature away from you.
 Feat/&FeatTelekineticChaPullTitle	Telekinetic Pull
+Feat/&FeatTelekineticChaPushDescription	Telekinetically shove a creature away from you.
 Feat/&FeatTelekineticChaPushTitle	Telekinetic Push
 Feat/&FeatTelekineticChaTitle	Telekinetic (Charisma)
+Feat/&FeatTelekineticIntDescription	Increase Intelligence attribute by 1. Gain a bonus action ability to shove or pull creatures.
+Feat/&FeatTelekineticIntPullDescription	Telekinetically pull a creature toward you.
 Feat/&FeatTelekineticIntPullTitle	Telekinetic Pull
+Feat/&FeatTelekineticIntPushDescription	Telekinetically shove a creature away from you.
 Feat/&FeatTelekineticIntPushTitle	Telekinetic Push
 Feat/&FeatTelekineticIntTitle	Telekinetic (Intelligence)
+Feat/&FeatTelekineticWisDescription	Increase Wisdom attribute by 1. Gain a bonus action ability to shove or pull creatures.
+Feat/&FeatTelekineticWisPullDescription	Telekinetically pull a creature toward you.
 Feat/&FeatTelekineticWisPullTitle	Telekinetic Pull
+Feat/&FeatTelekineticWisPushDescription	Telekinetically shove a creature away from you.
 Feat/&FeatTelekineticWisPushTitle	Telekinetic Push
 Feat/&FeatTelekineticWisTitle	Telekinetic (Wisdom)
 Feat/&FeatToughDescription	Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.
@@ -457,20 +498,12 @@ Feat/&HealerStabilizeTitle	Stabilize
 Feat/&HealerTitle	Healer
 Feat/&HealerUseMedicineDescription	You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 Feat/&HealerUseMedicineTitle	Use Medicine
-Feat/&FeatHeavyArmorMasterClassDescription	Resistance to Bludgeoning, Slashing, and Piercing damage.
-Feat/&FeatHeavyArmorMasterClassTitle	Heavy Defense Mastery
 Feat/&IncreaseConstructSelectingDescription You can now summon two Artillery Constructs. The constructs can be of the same or different modes
 Feat/&IncreaseConstructSelectingTitle Reinforcements
 Feat/&InspiringLeaderDescription	Spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier. Useable once per short rest.
 Feat/&InspiringLeaderTitle	Inspiring Leader
 Feat/&IntToAttackAndDamageDescription Add Int instead of Str or Dex to your Armor Weapons
 Feat/&IntToAttackAndDamageTitle Amror Weapon
-Feat/&FeatLightArmorDescription	Gain proficiency with Light Armor and +1 Dexterity
-Feat/&FeatLightArmorTitle	Light Armor
-Feat/&FeatMediumArmorDexDescription	Gain proficiency with Medium Armor and Shields and +1 Dexterity
-Feat/&FeatMediumArmorDexTitle	Medium Armor (Dexterity)
-Feat/&FeatMediumArmorStrengthDescription	Gain proficiency with Medium Armor and Shields and +1 Strength
-Feat/&FeatMediumArmorStrengthTitle	Medium Armor (Strength)
 Feat/&MendingConstructDescription	Repair your construct for 2D6 over 1 min
 Feat/&MendingConstructTitle	Mending Construct
 Feat/&ModeSwitchingPoolDescription	You can switch between modes once per day by creating and using temporary weapons
@@ -505,10 +538,6 @@ Feat/&ProfChefTreatDescription	Eat as a bonus action and gain 5 temporary hit po
 Feat/&ProfChefTreatTitle	Chef's Treat
 Feat/&ProfHealerMedicineDescription	Gain Proficiency in Medicine, or Expertise if you are already proficient.
 Feat/&ProfHealerMedicineTitle	Medicine Knowledge
-Feat/&FeatLightArmorProficiencyDescription	Gain proficiency with Light Armor
-Feat/&FeatLightArmorProficiencyTitle	Light Armor
-Feat/&FeatMediumArmorProficiencyDescription	Gain proficiency with Medium Armor and Shields
-Feat/&FeatMediumArmorProficiencyTitle	Medium Armor
 Feat/&ProtectorConstructAttackDescription	Melee 1d10 force damage from the protector construct
 Feat/&ProtectorConstructAttackTitle	Force Rend
 Feat/&ProtectorConstructDescription	It is friendly to you and your companions, and it obeys your commands
@@ -562,11 +591,8 @@ Feat/&UseArmorWeaponsAsFocusDescription	You can use the armor's weapons as a spe
 Feat/&UseArmorWeaponsAsFocusTitle	Spellcasting focus
 Feat/&UsingitemPowerDescription	Allows weapon power to be used on bonus action
 Feat/&UsingitemPowerTitle	Use Weapon Power
-Feature/&DHHolyAuraBlindingPowerDescription	When a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends
 Feature/&AdditionalActionDualFlurryDescription	You may make an additional off-hand attack.
 Feature/&AdditionalActionDualFlurryTitle	Dual Flurry!
-Feature/&ArtificerSpecialistArchetypesTitle Tinkerer Specializations
-Feature/&ArtificerSpecialistArchetypesDescription Tinkerer Specializations
 Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!
 Feature/&ArcaneDetonationDescription	When you hit a creature that has your Arcanist's Mark with a weapon attack, the mark detonates, dealing 1d6 force damage and destroying the mark.
 Feature/&ArcaneDetonationTitle	Arcane Detonation
@@ -579,10 +605,13 @@ Feature/&ArcanistMarkTitle	Arcanist's Mark
 Feature/&ArtificerInfusionCastingDescription You can perform the somatic components of spells while holding weapons and shields
 Feature/&ArtificerInfusionCastingTitle Infusion Casting
 Feature/&ArtificerSpecialistArchetypesDescription What field of study do you specialize in? Tinkerers can be damage dealers, healers, and martial specialists
+Feature/&ArtificerSpecialistArchetypesTitle Tinkerer Specializations
 Feature/&BarbarianIndomitableMightDescription	If your total for a Strength check is less than your Strength score, you can use that score in place of the total.
 Feature/&BarbarianIndomitableMightTitle	Indomitable Might
+Feature/&BardSkillsTitle	Bard Skills
 Feature/&CounterStrikePowerDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
 Feature/&CounterStrikePowerTitle	Counter Strike
+Feature/&DHHolyAuraBlindingPowerDescription	When a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends
 Feature/&DHHolyAuraBlindingPowerTitle	Holy Aura Retaliation
 Feature/&DruidForestGuardianBarkWardDescription	You gain the ability to summon a Bark Ward to protect you. As a bonus action, you can expend a use of your Wild Shape to gain 5 temporary hit points for each level you have in this class. These temporary hit points last for 10 minutes, or until you use your Wild Shape again.
 Feature/&DruidForestGuardianBarkWardTitle	Bark Ward
@@ -742,6 +771,10 @@ FlexibleRaces/&PointPoolAbilityScore3Description	Use three boosts on ability sco
 FlexibleRaces/&PointPoolAbilityScore3Title	Ability Score Increase
 FlexibleRaces/&PointPoolAbilityScore4Description	Use four boosts on ability scores in any combination of your choosing.
 FlexibleRaces/&PointPoolAbilityScore4Title	Ability Score Increase
+Format/&LevelAndExperienceFormat	Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
+Format/&LevelAndExperienceMaxedFormat	Level: {0}\nExperience: {1}\nmax level reached.
+MainMenu/&ExportPdfDescription	Level down the selected character
+MainMenu/&ExportPdfTitle	Level Down
 Message/&CharacterExportDuplicateNameErrorDescription	Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name.
 Message/&CharacterExportEmptyNameErrorDescription	Export Cancelled:\n\nPlease try a non empty name.
 Message/&CharacterExportModalContentDescription	Enter the hero name to export:
@@ -750,12 +783,19 @@ Message/&SpawnCustomEncounterDescription	Spawn encounter at coordinates ({0}, {1
 Message/&SpawnCustomEncounterTitle	Encounter
 Message/&TeleportPartyDescription	Teleport party to coordinates ({0}, {1})?\nYou might break quests or maps if you teleport to an undiscovered place
 Message/&TeleportPartyTitle	Teleport
+Message/&ZSLevelDownConfirmationDescription	Level down this Hero?
+Message/&ZSLevelDownConfirmationTitle	Level Down
+Message/&ZSLevelDownWarnedConfirmationDescription	Class {0} still in beta support. Level down this Hero?
 Modifier/&DisorientDescription	-1d6 to attack rolls
 Modifier/&DisorientTitle	Disoriented
 Modifier/&RuinedDescription	-3 to Armor Class
 Modifier/&RuinedTitle	Ruined
 Monster/&DHCustomCouatlDescription	Couatls are benevolent serpentine beings of great intellect and insight. Their brilliantly colored wings and gentle manner speak to their celestial origins.
 Monster/&DHCustomCouatlTitle	Couatl
+Monster/&OwlFamiliarDescription Owl familiar
+Monster/&OwlFamiliarTitle Owl
+Monster/&WitchOwlFamiliarDescription Owl familiar
+Monster/&WitchOwlFamiliarTitle Owl
 MonsterAttack/&DHCouatlBiteAttackDescription	Piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 24 hours. Until this poison ends, the target is unconscious.
 MonsterAttack/&DHCouatlBiteAttackTitle	Bite
 Power/&HelpActionDescription	You can aid a friendly creature in attacking a creature within 5 feet of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
@@ -799,6 +839,8 @@ Reaction/&UseZSPowerRangerFoeSlayerAttackDescription	Add your Wisdom modifier to
 Reaction/&UseZSPowerRangerFoeSlayerAttackReactTitle	Foe Slayer
 Reaction/&UseZSPowerRangerFoeSlayerAttackTitle	Foe Slayer
 Reaction/&UseZSPowerRangerFoeSlayerDamageReactDescription	Add your Wisdom modifier to your attack roll.
+RestActivity/&ZSLevelDownDescription	Level down this Hero
+RestActivity/&ZSLevelDownTitle	Level Down
 RestActivity/&ZSRespecDescription	Respec this Hero
 RestActivity/&ZSRespecTitle	Respec
 RestActivity/&ZSSorcerousRestorationDescription	Regain 4 sorcery points during a short rest.
@@ -823,41 +865,18 @@ Rules/&ThunderStruckTitle	Thunderstruck(Distracted)
 Screen/&CovenSpellDescription	Spell known because part of a Coven
 Screen/&CovenSpellHeader	Coven
 Screen/&CovenSpellTitle	Coven
+Screen/&EditorLocationSize3Title	Huge [MODDED]
+Screen/&EditorLocationSize4Title	Gargantuan [MODDED]
 Screen/&FeyTeleportSpellDescription	This Fey spell is always prepared.
 Screen/&FeyTeleportSpellTitle	Fey
 Screen/&ShadowTouchedSpellDescription	This Shadow spell is always prepared.
 Screen/&ShadowTouchedSpellTitle	Shadow
+Screen/&SpellSlotsUsedLongDescription	You have expended {0} long-rest slot(s) of this level.
+Screen/&SpellSlotsUsedShortDescription	You have expended {0} short-rest slot(s) of this level.
+Screen/&SpellSlotsUsedShortLongDescription	You have expended {0} short-rest slot(s) and {1} long-rest slot(s) of this level.
 Screen/&WitchSpellDescription	Spell known as a Witch
 Screen/&WitchSpellHeader	Witch
 Screen/&WitchSpellTitle	Witch
-CraftyFeats/&ApothecaryIntFeatDescription	+1 Intelligence, Proficiency or Expertise with Herbalism Kit and Arcana
-CraftyFeats/&ApothecaryIntFeatTitle	Apothecary (Intelligence)
-CraftyFeats/&ApothecaryWisFeatDescription	+1 Wisdom, Proficiency or Expertise with Herbalism Kit and Medicine
-CraftyFeats/&ApothecaryWisFeatTitle	Apothecary (Wisdom)
-CraftyFeats/&AttributeDexDescription	+1 Dexterity
-CraftyFeats/&AttributeDexTitle	Dexterity
-CraftyFeats/&AttributeIntDescription	+1 Intelligence
-CraftyFeats/&AttributeIntTitle	Intelligence
-CraftyFeats/&AttributeWisDescription	+1 Wisdom
-CraftyFeats/&AttributeWisTitle	Wisdom
-CraftyFeats/&CraftyArcanaDescription	Arcana proficiency or expertise
-CraftyFeats/&CraftyBowsDescription	Proficiency with all bows and crossbows
-CraftyFeats/&CraftyBowsTitle	Bow Proficiency
-CraftyFeats/&CraftyFletcherFeatDescription	+1 Dexterity, Proficiency or Expertise with Smith's Tools, Proficiency with bows and crossbows
-CraftyFeats/&CraftyFletcherFeatTitle	Fletcher
-CraftyFeats/&CraftyHerbalismKitDescription	Herbalism Kit proficiency or expertise
-CraftyFeats/&CraftyMedicineDescription	Medicine proficiency or expertise
-CraftyFeats/&CraftyNatureDescription	Nature proficiency or expertise
-CraftyFeats/&CraftyScribeFeatDescription	+1 Intelligence, Proficiency or Expertise with Scroll Kit and Arcana, Requires the ability to cast spells
-CraftyFeats/&CraftyScribeFeatTitle	Scribe
-CraftyFeats/&CraftySkillsTitle	Skills
-CraftyFeats/&CraftyToolsTitle	Tools
-CraftyFeats/&ManacalonCrafterFeatDescription	+1 Intelligence, Proficiency or Expertise with Manacalon Rosary and Arcana, Requires the ability to cast spells
-CraftyFeats/&ManacalonCrafterFeatTitle	Manacalon Crafter
-CraftyFeats/&ToxicologistIntFeatDescription	+1 Intelligence, Proficiency or Expertise with Poisoner's Kit and Nature
-CraftyFeats/&ToxicologistIntFeatTitle	Toxicologist (Intelligence)
-CraftyFeats/&ToxicologistWisFeatDescription	+1 Wisdom, Proficiency or Expertise with Poisoner's Kit and Medicine
-CraftyFeats/&ToxicologistWisFeatTitle	Toxicologist (Wisdom)
 Sorceror/&ZSSorcerousRestorationDescription	Regain 4 sorcery points during a short rest.
 Sorceror/&ZSSorcerousRestorationTitle	Sorcerous Restoration
 Spell/&CJDivineWordDescription	You utter a divine word, imbued with the power that shaped the world at the dawn of creation. Choose any number of creatures you can see within range. Each creature that can hear you must make a Charisma saving throw. On a failed save, a creature suffers an effect based on its current hit points:\n50 hit points or fewer: deafened for 1 minute\n40 hit points or fewer: deafened and blinded for 10 minutes\n30 hit points or fewer: blinded, deafened, and stunned for 1 hour\n20 hit points or fewer: killed instantly\nRegardless of its current hit points, a celestial, an elemental, a fey, or a fiend that fails its save is forced back to its plane of origin (if it isn’t there already) and can’t return to your current plane for 24 hours by any means short of a wish spell.\n
@@ -1175,26 +1194,6 @@ Subclass/&WhiteWitchMagicTitle	White Magic
 Subclass/&WhiteWitchTitle	White Witch
 Subclass/&WitchSubclassPathDescription	Your knowledge of magic has culminated in joining a Coven, an innate circle of Witches who delve down a specific path of witchdom and curses.
 Subclass/&WitchSubclassPathTitle	Witch Covens
-Tooltip/&TagMaledictionTitle	Malediction
 Tooltip/&Tag9000Title	Custom Effect
+Tooltip/&TagMaledictionTitle	Malediction
 Tooltip/&TagScoutSentinelWeaponTitle	Uses Int for attack & damage
-Screen/&EditorLocationSize3Title	Huge [MODDED]
-Screen/&EditorLocationSize4Title	Gargantuan [MODDED]
-BlueprintCategory/&FlatRoomsTitle	Flat Rooms
-Monster/&WitchOwlFamiliarTitle Owl
-Monster/&WitchOwlFamiliarDescription Owl familiar
-Monster/&OwlFamiliarTitle Owl
-Monster/&OwlFamiliarDescription Owl familiar
-Feature/&BardSkillsTitle	Bard Skills
-Format/&LevelAndExperienceFormat	Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
-Format/&LevelAndExperienceMaxedFormat	Level: {0}\nExperience: {1}\nmax level reached.
-Message/&ZSLevelDownConfirmationDescription	Level down this Hero?
-Message/&ZSLevelDownWarnedConfirmationDescription	Class {0} still in beta support. Level down this Hero?
-Message/&ZSLevelDownConfirmationTitle	Level Down
-RestActivity/&ZSLevelDownDescription	Level down this Hero
-RestActivity/&ZSLevelDownTitle	Level Down
-Screen/&SpellSlotsUsedLongDescription	You have expended {0} long-rest slot(s) of this level.
-Screen/&SpellSlotsUsedShortDescription	You have expended {0} short-rest slot(s) of this level.
-Screen/&SpellSlotsUsedShortLongDescription	You have expended {0} short-rest slot(s) and {1} long-rest slot(s) of this level.
-MainMenu/&ExportPdfDescription	Level down the selected character
-MainMenu/&ExportPdfTitle	Level Down
