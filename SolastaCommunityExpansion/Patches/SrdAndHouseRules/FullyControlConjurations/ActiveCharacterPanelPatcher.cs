@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using HarmonyLib;
+using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.FullyControlConjurations
 {
@@ -36,18 +36,13 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.FullyControlConjura
 
             if (spellDefinition.Name.StartsWith("ConjureElemental") || spellDefinition.Name.StartsWith("ConjureFey"))
             {
-                foreach (var guid in __instance.GuiCharacter.RulesetCharacterHero.ConcentratedSpell.TrackedConditionGuids)
+                foreach (var guid in spell.TrackedConditionGuids)
                 {
-                    if (RulesetEntity.TryGetEntity<RulesetCondition>(guid, out var condition))
+                    if (RulesetEntity.TryGetEntity<RulesetCondition>(guid, out var condition) 
+                        && condition.ConditionDefinition == ConditionConjuredCreature)
                     {
-                        Main.Log($"Condition={condition.Name}, target={condition.TargetGuid}");
-
-                        if (RulesetEntity.TryGetEntity<RulesetCharacter>(condition.TargetGuid, out var monster)
-                            && monster.TryGetConditionOfCategoryAndType(
-                                AttributeDefinitions.TagConjure, RuleDefinitions.ConditionConjuredCreature, out var conjuredCreatureCondition))
-                        {
-                            conjuredCreatureCondition.TerminationKillsConjured = Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration;
-                        }
+                        Main.Log($"Condition={condition.Name}, target={condition.TargetGuid}, setting TerminationKillsConjured={Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration}");
+                        condition.TerminationKillsConjured = Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration;
                     }
                 }
             }
