@@ -38,7 +38,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.FullyControlConjura
             {
                 foreach (var guid in spell.TrackedConditionGuids)
                 {
-                    if (RulesetEntity.TryGetEntity<RulesetCondition>(guid, out var condition) 
+                    if (RulesetEntity.TryGetEntity<RulesetCondition>(guid, out var condition)
                         && condition.ConditionDefinition == ConditionConjuredCreature)
                     {
                         Main.Log($"Condition={condition.Name}, target={condition.TargetGuid}, setting TerminationKillsConjured={Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration}");
