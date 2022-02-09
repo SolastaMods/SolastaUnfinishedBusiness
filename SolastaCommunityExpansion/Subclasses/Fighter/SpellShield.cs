@@ -60,19 +60,17 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
             spellShield.AddFeatureAtLevel(spellCasting.AddToDB(), 3);
 
-            GuiPresentationBuilder spellResistance = new GuiPresentationBuilder(
-                "Subclass/&FighterSpellShieldSpellResistanceTitle",
-                "Subclass/&FighterSpellShieldSpellResistanceDescription");
-            // add a saving throw affinity against spells or something?
-            FeatureDefinitionSavingThrowAffinity spellShieldResistance = BuildSavingThrowAffinity(new List<string>()
-            {
-                AttributeDefinitions.Strength,
-                AttributeDefinitions.Dexterity,
-                AttributeDefinitions.Constitution,
-                AttributeDefinitions.Wisdom,
-                AttributeDefinitions.Intelligence,
-                AttributeDefinitions.Charisma,
-            }, RuleDefinitions.CharacterSavingThrowAffinity.Advantage, true, "SpellShieldSpellResistance", spellResistance.Build());
+            FeatureDefinitionSavingThrowAffinity spellShieldResistance = FeatureDefinitionSavingThrowAffinityBuilder.Create("SpellShieldSpellResistance", SubclassNamespace)
+                .SetGuiPresentation("FighterSpellShieldSpellResistance", Category.Subclass)
+                .SetAffinities(RuleDefinitions.CharacterSavingThrowAffinity.Advantage, true,
+                    AttributeDefinitions.Strength,
+                    AttributeDefinitions.Dexterity,
+                    AttributeDefinitions.Constitution,
+                    AttributeDefinitions.Wisdom,
+                    AttributeDefinitions.Intelligence,
+                    AttributeDefinitions.Charisma)
+                .AddToDB();
+
             spellShield.AddFeatureAtLevel(spellShieldResistance, 7);
             // or maybe some boost to the spell shield spells?
 
@@ -127,14 +125,6 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             {
                 Definition.SetGuiPresentation(guiPresentation);
             }
-        }
-
-        public static FeatureDefinitionSavingThrowAffinity BuildSavingThrowAffinity(List<string> abilityScores,
-            RuleDefinitions.CharacterSavingThrowAffinity affinityType, bool againstMagic, string name, GuiPresentation guiPresentation)
-        {
-            FeatureDefinitionSavingThrowAffinityBuilder builder = new FeatureDefinitionSavingThrowAffinityBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
-                abilityScores, affinityType, againstMagic, guiPresentation);
-            return builder.AddToDB();
         }
     }
 }

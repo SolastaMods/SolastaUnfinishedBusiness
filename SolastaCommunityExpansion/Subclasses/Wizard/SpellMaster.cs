@@ -103,20 +103,20 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 "MagicAffinitySpellMasterExtraPrepared", extraPreparedGui.Build());
             spellMaster.AddFeatureAtLevel(extraPrepared, 10);
 
-            GuiPresentationBuilder spellResistanceGui = new GuiPresentationBuilder(
-                "Subclass/&TraditionSpellMasterSpellResistanceTitle",
-                "Subclass/&TraditionSpellMasterSpellResistanceDescription");
-            FeatureDefinitionSavingThrowAffinity spellResistance = new FeatureDefinitionSavingThrowAffinityBuilder("TraditionSpellMasterSpellResistance",
-                GuidHelper.Create(SubclassNamespace, "TraditionSpellMasterSpellResistance").ToString(),
-                new List<string>()
-                {
+            FeatureDefinitionSavingThrowAffinity spellResistance = FeatureDefinitionSavingThrowAffinityBuilder
+                .Create("TraditionSpellMasterSpellResistance", SubclassNamespace)
+                .SetGuiPresentation(Category.Spell)
+                .SetAffinities(
+                    RuleDefinitions.CharacterSavingThrowAffinity.Advantage, true,
                     AttributeDefinitions.Strength,
                     AttributeDefinitions.Dexterity,
                     AttributeDefinitions.Constitution,
                     AttributeDefinitions.Wisdom,
                     AttributeDefinitions.Intelligence,
-                    AttributeDefinitions.Charisma,
-                }, RuleDefinitions.CharacterSavingThrowAffinity.Advantage, true, spellResistanceGui.Build()).AddToDB();
+                    AttributeDefinitions.Charisma
+                )
+                .AddToDB();
+
             spellMaster.AddFeatureAtLevel(spellResistance, 14);
 
             Subclass = spellMaster.AddToDB();
