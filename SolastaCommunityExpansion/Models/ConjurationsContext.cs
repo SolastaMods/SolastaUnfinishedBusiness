@@ -72,7 +72,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static readonly Guid Namespace = new("de4539b8e0194684b1d0585100dd94e5");
 
-        private const string InvisibleStalkerSubspellName = "InvisibleStalker_CE_SubSpell_CR6";
+        private const string InvisibleStalkerSubspellName = "ConjureElementalInvisibleStalker_CE_SubSpell_CR6";
 
         internal static void AddSummonsSubSpells()
         {
