@@ -60,9 +60,10 @@ namespace SolastaCommunityExpansion.Models
             // Invisible Stalker
             if (!DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement(InvisibleStalkerSubspellName, out var _))
             {
-                var builder = new SpellDefinitionBuilder(ConjureElementalFire, InvisibleStalkerSubspellName, CreateGuid(InvisibleStalkerSubspellName));
-                var definition = builder.AddToDB();
-                definition.GuiPresentation.Title = "Spell/&IPConjureInvisibleStalker";
+                var definition = SpellDefinitionBuilder
+                    .Create(ConjureElementalFire, InvisibleStalkerSubspellName, Namespace)
+                    .SetGuiPresentation("IPConjureInvisibleStalker", Category.Spell)
+                    .AddToDB();
 
                 var summonForm = definition.EffectDescription
                     .GetFirstFormOfType(EffectForm.EffectFormType.Summon)?.SummonForm;
@@ -185,11 +186,6 @@ namespace SolastaCommunityExpansion.Models
                             return builder.AddToDB();
                         }
             */
-        }
-
-        private static string CreateGuid(string name)
-        {
-            return GuidHelper.Create(Namespace, name).ToString("N");
         }
     }
 }
