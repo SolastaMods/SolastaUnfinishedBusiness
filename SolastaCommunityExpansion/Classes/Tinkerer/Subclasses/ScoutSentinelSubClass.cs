@@ -9,7 +9,7 @@ using UnityEngine.AddressableAssets;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
-namespace SolastaCommunityExpansion.Classes.Tinkerer
+namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 {
     public static class ScoutSentinelTinkererSubclassBuilder
     {
