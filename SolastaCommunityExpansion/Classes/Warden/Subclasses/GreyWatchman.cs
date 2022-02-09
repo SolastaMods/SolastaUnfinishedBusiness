@@ -4,61 +4,63 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
+using SolastaModApi.Extensions;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaModApi.DatabaseHelper.DamageDefinitions;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
 {
-    internal class GreyWatchman
+    internal static class GreyWatchman
     {
-        public static readonly Guid WARDEN_GW_BASE_GUID = new("0503f780-2d85-4926-8114-8e07f79090e7");
-        private CharacterSubclassDefinition Subclass;
-        public static CharacterClassDefinition WardenClass { get; private set; }
+        private static readonly Guid Namespace = new("0503f780-2d85-4926-8114-8e07f79090e7");
+
+        private static CharacterSubclassDefinition Subclass;
         public static FeatureDefinitionPower FeatureDefinitionPowerBattleTactics { get; private set; }
         public static FeatureDefinitionPowerSharedPool FeatureDefinitionPowerSharedPoolManeuverBullRush { get; private set; }
-        internal CharacterSubclassDefinition GetSubclass(CharacterClassDefinition wardenClass)
+
+        internal static CharacterSubclassDefinition GetSubclass(CharacterClassDefinition wardenClass)
         {
             return Subclass ??= BuildAndAddSubclass(wardenClass);
         }
 
         private static void BuildBattleTacticsPool()
         {
-            
-            var builder = new FeatureDefinitionPowerPoolBuilder(
+            FeatureDefinitionPowerBattleTactics = new FeatureDefinitionPowerPoolBuilder(
                 "BattleTacticsPool",
-                GuidHelper.Create(WARDEN_GW_BASE_GUID, "BattleTacticsPool").ToString(),
+                GuidHelper.Create(Namespace, "BattleTacticsPool").ToString(),
                 2,
                 RuleDefinitions.UsesDetermination.Fixed, 
                 AttributeDefinitions.Strength, 
                 RuleDefinitions.RechargeRate.ShortRest,
                 new GuiPresentationBuilder(
                     "Feature/&BattleTacticsPoolDescription",
-                    "Feature/&BattleTacticsPoolTitle").Build());
-
-            FeatureDefinitionPowerBattleTactics = builder.AddToDB();
+                    "Feature/&BattleTacticsPoolTitle").Build())
+                .AddToDB();
         }
 
         private static void BuildBattleTacticsManeuvers()
         {
-            EffectForm damageEffect = new EffectForm
-            {
-                DamageForm = new DamageForm
-                {
-                    DiceNumber = 1,
-                    DieType = RuleDefinitions.DieType.D8,
-                    BonusDamage = 2,
-                    DamageType = "DamageBludgeoning"
-                },
-                SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.None
-            };
+            var bullRushDamageForm = new DamageForm()
+                .SetBonusDamage(2)
+                .SetDamageType(DatabaseHelper.DamageDefinitions.DamageBludgeoning.ToString())
+                .SetDiceNumber(1)
+                .SetDieType(RuleDefinitions.DieType.D8);
 
-            //Add to our new effect
-            EffectDescription newEffectDescription = new EffectDescription();
-            newEffectDescription.Copy(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLawHolyRetribution.EffectDescription);
-            newEffectDescription.EffectForms.Clear();
-            newEffectDescription.EffectForms.Add(damageEffect);
+            var bullRushEffectForm = new EffectForm()
+                .SetFormType(EffectForm.EffectFormType.Damage)
+                .SetCreatedByCharacter(true)
+                .SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.None)
+                .SetDamageForm(bullRushDamageForm);
 
-            var bullRush = new FeatureDefinitionPowerSharedPoolBuilder(
+            var bullRushEffectDescription = new EffectDescription();
+            bullRushEffectDescription.Copy(PowerDomainLawHolyRetribution.EffectDescription);
+            bullRushEffectDescription.EffectForms.Clear();
+            bullRushEffectDescription.EffectForms.Add(bullRushEffectForm);
+
+            FeatureDefinitionPowerSharedPoolManeuverBullRush = new FeatureDefinitionPowerSharedPoolBuilder(
                 "BattleTacticsManeuverBullRush",
-                GuidHelper.Create(WARDEN_GW_BASE_GUID, "BattleTacticsManeuverBullRush").ToString(),
+                GuidHelper.Create(Namespace, "BattleTacticsManeuverBullRush").ToString(),
                 FeatureDefinitionPowerBattleTactics,
                 RuleDefinitions.RechargeRate.ShortRest,
                 RuleDefinitions.ActivationTime.BonusAction,
@@ -66,35 +68,26 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
                 false,
                 false,
                 AttributeDefinitions.Strength,
-                newEffectDescription,
+                bullRushEffectDescription,
                 new GuiPresentationBuilder(
                     "Feature/&BattleTacticsManeuverBullRushDescription",
                     "Feature/&BattleTacticsManeuverBullRushTitle").Build(),
-                false);
-
-            FeatureDefinitionPowerSharedPoolManeuverBullRush = bullRush.AddToDB();
+                false)
+                .AddToDB();
         }
 
         private static void BuildProgression(CharacterSubclassDefinitionBuilder subclassBuilder)
         {
-            subclassBuilder.AddFeatureAtLevel(FeatureDefinitionPowerBattleTactics, 1);
-            subclassBuilder.AddFeatureAtLevel(FeatureDefinitionPowerSharedPoolManeuverBullRush, 1);
+            subclassBuilder
+                .AddFeatureAtLevel(FeatureDefinitionPowerBattleTactics, 1)
+                .AddFeatureAtLevel(FeatureDefinitionPowerSharedPoolManeuverBullRush, 1);
         }
 
-        public static CharacterSubclassDefinition BuildAndAddSubclass(CharacterClassDefinition wardenClassDefinition)
+        public static CharacterSubclassDefinition BuildAndAddSubclass(CharacterClassDefinition wardenClass)
         {
-            WardenClass = wardenClassDefinition;
-
-            var subclassGuiPresentation = new GuiPresentationBuilder(
-                    "Subclass/&GreyWatchmanDescription",
-                    "Subclass/&GreyWatchmanTitle")
-                    .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.TraditionGreenmage.GuiPresentation.SpriteReference)
-                    .Build();
-
-            var subclassBuilder = new CharacterSubclassDefinitionBuilder(
-                    "GreyWatchman",
-                    GuidHelper.Create(WARDEN_GW_BASE_GUID, "GreyWatchman").ToString())
-                    .SetGuiPresentation(subclassGuiPresentation);
+            var subclassBuilder = CharacterSubclassDefinitionBuilder
+                .Create("GreyWatchman", Namespace)
+                .SetGuiPresentation(Category.Subclass, TraditionGreenmage.GuiPresentation.SpriteReference);
 
             BuildBattleTacticsPool();
             BuildBattleTacticsManeuvers();

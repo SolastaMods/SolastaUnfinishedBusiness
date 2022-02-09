@@ -8,6 +8,7 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static CharacterClassDefinition;
 using static SolastaModApi.DatabaseHelper;
+using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaCommunityExpansion.Classes.Warden
@@ -514,8 +515,9 @@ namespace SolastaCommunityExpansion.Classes.Warden
         private static CharacterClassDefinition BuildAndAddClass()
         {
 
-            var classBuilder = new CharacterClassDefinitionBuilder("ClassWarden", WARDEN_BASE_GUID)
-                .SetGuiPresentation("Warden", Category.Class, CharacterClassDefinitions.Fighter.GuiPresentation.SpriteReference);
+            var classBuilder = CharacterClassDefinitionBuilder
+                .Create("ClassWarden", WARDEN_BASE_GUID)
+                .SetGuiPresentation("Warden", Category.Class, Fighter.GuiPresentation.SpriteReference);
 
             BuildClassStats(classBuilder);
             BuildEquipment(classBuilder);
@@ -541,18 +543,16 @@ namespace SolastaCommunityExpansion.Classes.Warden
 
             void BuildSubclasses()
             {
-                var subClassChoices = classBuilder.BuildSubclassChoice(
-                    3,
-                    "ChampionCall",
-                    false,
-                    "SubclassChoiceWardenChampionCalls",
-                    new GuiPresentationBuilder(
-                            "Subclass/&WardenSubclassPathDescription",
-                            "Subclass/&WardenSubclassPathTitle")
-                            .Build(),
-                    GuidHelper.Create(WARDEN_BASE_GUID, "SubclassChoiceWardenChampionCalls").ToString());
+                var subclassChoices = FeatureDefinitionSubclassChoiceBuilder
+                    .Create("SubclassChoiceWardenCalls", WARDEN_BASE_GUID)
+                    .SetGuiPresentation("WardenSubclassPath", Category.Subclass)
+                    .SetSubclassSuffix("Call")
+                    .SetFilterByDeity(false)
+                    .SetSubclasses(
+                        GreyWatchman.GetSubclass(warden))
+                    .AddToDB();
 
-                subClassChoices.Subclasses.Add(new GreyWatchman().GetSubclass(warden).name);
+                classBuilder.AddFeatureAtLevel(3, subclassChoices);
             }
 
             void BuildProgression()
