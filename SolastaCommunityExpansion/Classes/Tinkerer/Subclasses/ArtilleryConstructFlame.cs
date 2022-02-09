@@ -3,7 +3,7 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using UnityEngine.AddressableAssets;
 
-namespace SolastaCommunityExpansion.Classes.Tinkerer
+namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 {
     //*****************************************************************************************************************************************
     //***********************************		FlameArtilleryBuilder		*******************************************************************

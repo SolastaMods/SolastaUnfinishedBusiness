@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.Classes.Tinkerer.Subclasses;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using UnityEngine;

@@ -6,7 +6,7 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Classes.Tinkerer
+namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 {
     //*****************************************************************************************************************************************
     //***********************************		ProtectorConstructFeatureSetBuilder		***********************************************************

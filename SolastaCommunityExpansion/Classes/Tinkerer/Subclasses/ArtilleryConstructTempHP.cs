@@ -2,7 +2,7 @@
 using SolastaModApi;
 using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.Classes.Tinkerer
+namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 {
     //*****************************************************************************************************************************************
     //***********************************		TempHPShieldBuilder		*******************************************************************

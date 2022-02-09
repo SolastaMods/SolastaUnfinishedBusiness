@@ -4,7 +4,7 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 
-namespace SolastaCommunityExpansion.Classes.Tinkerer
+namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 {
     //*****************************************************************************************************************************************
     //***********************************		ForceArtilleryConstructBuilder		*******************************************************************
