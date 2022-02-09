@@ -3,7 +3,7 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
-namespace SolastaCommunityExpansion.Classes.Tinkerer
+namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 {
     ////*****************************************************************************************************************************************
     ////***********************************		TinkererConstructFamilyBuilder		*************************************************************
