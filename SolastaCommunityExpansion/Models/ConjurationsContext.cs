@@ -81,7 +81,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 var definition = SpellDefinitionBuilder
                     .Create(ConjureElementalFire, InvisibleStalkerSubspellName, Namespace)
-                    .SetGuiPresentation("IPConjureInvisibleStalker", Category.Spell)
+                    .SetGuiPresentation("Spell/&IPConjureInvisibleStalkerTitle", "Spell/&ConjureElementalDescription")
                     .AddToDB();
 
                 var summonForm = definition.EffectDescription
