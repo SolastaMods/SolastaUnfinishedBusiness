@@ -161,6 +161,7 @@ ConditionWitchFamiliarDamage, 6df5fa51-a8fc-5517-9a87-5a95f2e77d2d
 ConditionWitchFamiliarHit, c64608d5-3fe5-5d4c-97b9-66a3bf20a591
 ConditionWitchFamiliarHP, 36c0810d-0136-5cf0-b31f-9249bf87e282
 ConditionWitchFamiliarST, ed5e56d0-fed9-59a4-a129-68bdfd2810e7
+ConjureElementalInvisibleStalker_CE_SubSpell_CR6, 0480dd82-0540-5dd7-99b5-b358cbca4142
 CounterStrikePower, 88c294ce-14fa-4f7e-8b81-ea4d289e3d8b
 CraftingManual_RecipeEnchantingEnchanted_Club_Acuteness, 5b02692e-4732-5ca0-9dde-890b42072e7d
 CraftingManual_RecipeEnchantingEnchanted_Club_Bearclaw, 34ac39e9-9a92-5bc3-b00c-ce4fd8779f5a
@@ -554,7 +555,6 @@ InfusionBagOfHolding, 422f596d-763d-5b06-9bb1-feee9470d31c
 InspirePower, 163c28de-48e5-4f75-bdd0-d42374a75ef8
 InspiringSurgePower, c2930ad2-dd02-4ff3-bad8-46d93e328fbd
 IntToAttackAndDamage, ebb243f7-382c-4caf-9d7f-40c80dab4623
-InvisibleStalker_CE_SubSpell_CR6, fb7c7219-15ae-57b8-881d-1419926088ce
 KnockDownPower, 90dd5e81-40d7-4824-89b4-45bcf4c05218
 KSRogueSubclassThug, eff5c8b6-a8b4-5323-baa2-d11ac7265c49
 KSRogueSubclassThugBrutalMethods, 2444519e-fdc2-57f7-a1f6-fb717542fab2
