@@ -87,7 +87,7 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
         {
             var subclassBuilder = CharacterSubclassDefinitionBuilder
                 .Create("GreyWatchman", Namespace)
-                .SetGuiPresentation(Category.Subclass, TraditionGreenmage.GuiPresentation.SpriteReference);
+                .SetGuiPresentation(Category.Subclass, RangerShadowTamer.GuiPresentation.SpriteReference);
 
             BuildBattleTacticsPool();
             BuildBattleTacticsManeuvers();

@@ -154,16 +154,19 @@ namespace SolastaCommunityExpansion.Classes.Warden
             // Like Witch Vision Curse, this would need to depend on the character's CON bonus. Setting to 3 for now
             var primalToughnessFlat = FeatureDefinitionAttributeModifierBuilder
                 .Create("WardenPrimalToughnessFlat", WARDEN_BASE_GUID)
+                .SetGuiPresentation(Category.Class)
                 .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPoints, 3)
                 .AddToDB();
 
             var primalToughnessPerLevel = FeatureDefinitionAttributeModifierBuilder
                 .Create("WardenPrimalToughnessPerLevel", WARDEN_BASE_GUID)
+                .SetGuiPresentation(Category.Class)
                 .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 1)
                 .AddToDB();
 
             var primalToughness = FeatureDefinitionFeatureSetBuilder
-                .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WardenPrimalToughness", WARDEN_BASE_GUID)
+                .Create(FeatureDefinitionFeatureSets.FeatureSetRangerHunterMultiAttackChoice, "WardenPrimalToughness", WARDEN_BASE_GUID)
+                .SetGuiPresentation(Category.Class)
                 .SetFeatures(primalToughnessFlat, primalToughnessPerLevel)
                 .AddToDB();
 
@@ -181,18 +184,19 @@ namespace SolastaCommunityExpansion.Classes.Warden
 
             var stalwartWisdom = FeatureDefinitionProficiencyBuilder
                 .Create("ProficiencyWardenSavingThrowWisdom", WARDEN_BASE_GUID)
-                .SetGuiPresentation("WardenWisdomSavingThrowProficiency", Category.Class)
+                .SetGuiPresentation(Category.Class)
                 .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Wisdom)
                 .AddToDB();
 
             var stalwartCharisma = FeatureDefinitionProficiencyBuilder
                 .Create("ProficiencyWardenSavingThrowCharisma", WARDEN_BASE_GUID)
-                .SetGuiPresentation("WardenCharismaSavingThrowProficiency", Category.Class)
+                .SetGuiPresentation(Category.Class)
                 .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma)
                 .AddToDB();
 
             FeatureDefinitionFeatureSetSentinelStand = FeatureDefinitionFeatureSetBuilder
-                .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WardenFeatureSetSentinelStand", WARDEN_BASE_GUID)
+                .Create(FeatureDefinitionFeatureSets.FeatureSetRangerHunterMultiAttackChoice, "WardenFeatureSetSentinelStand", WARDEN_BASE_GUID)
+                .SetGuiPresentation(Category.Class)
                 .SetFeatures(heavyArmorProficiency, primalToughness, stalwartDexterity, stalwartIntelligence, stalwartWisdom, stalwartCharisma)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
                 .SetUniqueChoices(true)
@@ -549,7 +553,8 @@ namespace SolastaCommunityExpansion.Classes.Warden
                     .SetSubclassSuffix("Call")
                     .SetFilterByDeity(false)
                     .SetSubclasses(
-                        GreyWatchman.GetSubclass(warden))
+                        GreyWatchman.GetSubclass(warden),
+                        StoneheartDefender.GetSubclass(warden))
                     .AddToDB();
 
                 classBuilder.AddFeatureAtLevel(3, subclassChoices);
