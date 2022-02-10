@@ -47,7 +47,9 @@ namespace SolastaCommunityExpansion.Models
                         .OfType<FeatureDefinitionCastSpell>()
                         .FirstOrDefault();
 
-                    if (featureDefinitionCastSpell?.SpellListDefinition != null
+                    // NOTE: don't use featureDefinitionCastSpell?. which bypasses Unity object lifetime check
+                    if (featureDefinitionCastSpell
+                        && featureDefinitionCastSpell.SpellListDefinition
                         && !spellLists.ContainsValue(featureDefinitionCastSpell.SpellListDefinition))
                     {
                         spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);

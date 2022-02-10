@@ -37,13 +37,15 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             dbCharacterClassDefinition.TryGetElement(CLASS_WARLOCK, out CharacterClassDefinition unofficialWarlock);
 
             DummyClass = CharacterClassDefinitionBuilder.Create("DummyClass", "062d696ab44146e0b316188f943d8079").AddToDB();
-            TinkererClass = unofficialTinkerer ?? DummyClass;
-            WardenClass = unofficialWarden ?? DummyClass;
-            WitchClass = unofficialWitch ?? DummyClass;
-            AlchemistClass = unofficialAlchemist ?? DummyClass;
-            BardClass = unofficialBard ?? DummyClass;
-            MonkClass = unofficialMonk ?? DummyClass;
-            WarlockClass = unofficialWarlock ?? DummyClass;
+
+            // NOTE: don't use ?? here which bypasses Unity object lifetime check
+            TinkererClass = unofficialTinkerer ? DummyClass : unofficialTinkerer;
+            WardenClass = unofficialWarden ? DummyClass : unofficialWarden;
+            WitchClass = unofficialWitch ? DummyClass : unofficialWitch;
+            AlchemistClass = unofficialAlchemist ? DummyClass : unofficialAlchemist;
+            BardClass = unofficialBard ? DummyClass : unofficialBard;
+            MonkClass = unofficialMonk ? DummyClass : unofficialMonk;
+            WarlockClass = unofficialWarlock ? DummyClass : unofficialWarlock;
         }
 
         internal static bool IsExtraContentInstalled => WarlockClass != DummyClass;
