@@ -18,7 +18,11 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker
                 // This is a field on CursorEditor not Cursor so can't be passed in by the patch
                 var userLocationEditorScreen = __instance.GetField<UserLocationEditorScreen>("userLocationEditorScreen");
 
-                userLocationEditorScreen?.HandleInput(InputCommands.Id.Cancel);
+                // NOTE: don't use userLocationEditorScreen?. which bypasses Unity object lifetime check
+                if (userLocationEditorScreen)
+                {
+                    userLocationEditorScreen.HandleInput(InputCommands.Id.Cancel);
+                }
             }
         }
     }

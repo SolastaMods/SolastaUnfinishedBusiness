@@ -122,7 +122,11 @@ namespace SolastaCommunityExpansion.Models
                         .Except(TABaseDefinitions)
                         .OrderBy(x => x.Name)
                         .ThenBy(x => x.GetType().Name)
-                        .Select(d => $"{d.Name}-{d.GetType().Name}: {d?.GuiPresentation?.Title ?? string.Empty}, {d?.GuiPresentation?.Description ?? string.Empty}"));
+                        // NOTE: don't use d?. which bypasses Unity object lifetime check
+                        .Select(d =>
+                            $"{d.Name}-{d.GetType().Name}: " +
+                            "{((d && d.GuiPresentation != null) ? d.GuiPresentation.Title : string.Empty)}, " +
+                            "{((d && d.GuiPresentation != null) ? d.GuiPresentation.Description : string.Empty)}"));
             }
 
             Main.Log("PostCELoad GuiPresentation Check end --------------------------------------------------");
