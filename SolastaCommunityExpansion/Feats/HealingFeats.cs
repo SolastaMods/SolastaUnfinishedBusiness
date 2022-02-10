@@ -96,12 +96,11 @@ namespace SolastaCommunityExpansion.Feats
                 treatEffect, "ChefTreatEatPower", treatEatPresentation);
 
             // define treats
-            GuiPresentationBuilder treatPresentation = new GuiPresentationBuilder(
-                "Feat/&ProfChefTreatTitle",
-                "Feat/&ProfChefTreatDescription");
-            treatPresentation.SetSpriteReference(DatabaseHelper.ItemDefinitions.Berry_Ration.GuiPresentation.SpriteReference);
-            ItemDefinition treat = ItemBuilder.CopyFromItemSetFunctions(HealingFeatNamespace, new List<FeatureDefinitionPower>() { treatPower }, DatabaseHelper.ItemDefinitions.Berry_Ration,
-                "ChefSnackTreat", treatPresentation.Build());
+            var treat = ItemDefinitionBuilder
+                .Create(DatabaseHelper.ItemDefinitions.Berry_Ration, "ChefSnackTreat", HealingFeatNamespace)
+                .SetGuiPresentation("ProfChefTreat", Category.Feat)
+                .SetUsableDeviceDescription(treatPower)
+                .AddToDB();
 
             // make summon effect description
             EffectDescription cookTreatsEffect = BuildEffectDescriptionSummonForm(RuleDefinitions.RangeType.Self, 1,
