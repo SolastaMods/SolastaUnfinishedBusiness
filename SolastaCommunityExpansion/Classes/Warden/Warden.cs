@@ -476,7 +476,7 @@ namespace SolastaCommunityExpansion.Classes.Warden
                 .AddToDB();
 
             var impenetrableMindWisSavingThrowAdvantage = FeatureDefinitionSavingThrowAffinityBuilder
-                .Create("WardenEyesOfTheMountainConSavingThrowAdvantage", WARDEN_BASE_GUID)
+                .Create("WardenImpenetrableMindWisSavingThrowAdvantage", WARDEN_BASE_GUID)
                 .SetGuiPresentation(Category.Modifier)
                 .SetAffinities(RuleDefinitions.CharacterSavingThrowAffinity.Advantage, true, AttributeDefinitions.Wisdom)
                 .AddToDB();
