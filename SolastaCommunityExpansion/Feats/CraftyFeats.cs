@@ -88,7 +88,7 @@ namespace SolastaCommunityExpansion.Feats
 
             FeatDefinition apothecaryIntFeat = FeatDefinitionBuilder
                 .Create(ArmorMaster, "ApothecaryInt", "ef387249-45e0-4899-aadd-44810f8aeb6d")
-                .SetGuiPresentation("ApothecaryInt", Category.CraftyFeats)
+                .SetGuiPresentation("ApothecaryIntFeat", Category.CraftyFeats)
                 .SetFeatures(crafty_int, crafty_herbalism_kit, crafty_herbalism_kit)
                 .AddToDB();
 
