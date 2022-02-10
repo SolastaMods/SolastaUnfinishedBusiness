@@ -438,17 +438,11 @@ namespace SolastaCommunityExpansion.Classes.Warden
         private static void BuildSentinelSoul()
         {
 
-            // SavingThrow builder is a bit more complex, keeping legacy for now
-            var agelessGuardianDexSavingThrowAdvantage = new FeatureDefinitionSavingThrowAffinityBuilder(
-                    "WardenAgelessGuardianDexSavingThrowAdvantage",
-                    GuidHelper.Create(WARDEN_BASE_GUID, "WardenAgelessGuardianDexSavingThrowAdvantage").ToString(),
-                    new List<string>{ AttributeDefinitions.Dexterity },
-                    RuleDefinitions.CharacterSavingThrowAffinity.Advantage,
-                    true,
-                    new GuiPresentationBuilder(
-                            "Class/&WardenAgelessGuardianDexSavingThrowAdvantageDescription",
-                            "Class/&WardenAgelessGuardianDexSavingThrowAdvantageTitle").Build())
-                    .AddToDB();
+            var agelessGuardianDexSavingThrowAdvantage = FeatureDefinitionSavingThrowAffinityBuilder
+                .Create("WardenAgelessGuardianDexSavingThrowAdvantage", WARDEN_BASE_GUID)
+                .SetGuiPresentation(Category.Modifier)
+                .SetAffinities(RuleDefinitions.CharacterSavingThrowAffinity.Advantage, true, AttributeDefinitions.Dexterity)
+                .AddToDB();
 
             var agelessGuardian = FeatureDefinitionFeatureSetBuilder
                 .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WardenAgelessGuardian", WARDEN_BASE_GUID)
@@ -470,34 +464,22 @@ namespace SolastaCommunityExpansion.Classes.Warden
                 .SetSenseRange(6)
                 .SetStealthBreakerRange(6);
 
-            // SavingThrow builder is a bit more complex, keeping legacy for now
-            var eyesOfTheMountainConSavingThrowAdvantage = new FeatureDefinitionSavingThrowAffinityBuilder(
-                    "WardenEyesOfTheMountainConSavingThrowAdvantage",
-                    GuidHelper.Create(WARDEN_BASE_GUID, "WardenEyesOfTheMountainConSavingThrowAdvantage").ToString(),
-                    new List<string>{ AttributeDefinitions.Constitution },
-                    RuleDefinitions.CharacterSavingThrowAffinity.Advantage,
-                    true,
-                    new GuiPresentationBuilder(
-                            "Class/&WardenEyesOfTheMountainConSavingThrowAdvantageDescription",
-                            "Class/&WardenEyesOfTheMountainConSavingThrowAdvantageTitle").Build())
-                    .AddToDB();
+            var eyesOfTheMountainConSavingThrowAdvantage = FeatureDefinitionSavingThrowAffinityBuilder
+                .Create("WardenEyesOfTheMountainConSavingThrowAdvantage", WARDEN_BASE_GUID)
+                .SetGuiPresentation(Category.Modifier)
+                .SetAffinities(RuleDefinitions.CharacterSavingThrowAffinity.Advantage, true, AttributeDefinitions.Constitution)
+                .AddToDB();
 
             var eyesOfTheMountain = FeatureDefinitionFeatureSetBuilder
                 .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WardenEyesOfTheMountain", WARDEN_BASE_GUID)
                 .SetFeatures(eyesOfTheMountainTremorsense, eyesOfTheMountainSeeInvisible, eyesOfTheMountainConSavingThrowAdvantage)
                 .AddToDB();
 
-            // SavingThrow builder is a bit more complex, keeping legacy for now
-            var impenetrableMindWisSavingThrowAdvantage = new FeatureDefinitionSavingThrowAffinityBuilder(
-                    "WardenImpenetrableMindWisSavingThrowAdvantage",
-                    GuidHelper.Create(WARDEN_BASE_GUID, "WardenImpenetrableMindWisSavingThrowAdvantage").ToString(),
-                    new List<string>{ AttributeDefinitions.Wisdom },
-                    RuleDefinitions.CharacterSavingThrowAffinity.Advantage,
-                    true,
-                    new GuiPresentationBuilder(
-                            "Class/&WardenImpenetrableMindWisSavingThrowAdvantageDescription",
-                            "Class/&WardenImpenetrableMindWisSavingThrowAdvantageTitle").Build())
-                    .AddToDB();
+            var impenetrableMindWisSavingThrowAdvantage = FeatureDefinitionSavingThrowAffinityBuilder
+                .Create("WardenEyesOfTheMountainConSavingThrowAdvantage", WARDEN_BASE_GUID)
+                .SetGuiPresentation(Category.Modifier)
+                .SetAffinities(RuleDefinitions.CharacterSavingThrowAffinity.Advantage, true, AttributeDefinitions.Wisdom)
+                .AddToDB();
 
             var impenetrableMind = FeatureDefinitionFeatureSetBuilder
                 .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WardenImpenetrableMind", WARDEN_BASE_GUID)
