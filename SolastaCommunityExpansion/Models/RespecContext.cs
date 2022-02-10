@@ -102,14 +102,19 @@ namespace SolastaCommunityExpansion.Models
                 var guiConsoleScreenVisible = guiConsoleScreen.Visible;
                 var gameCampaignScreenVisible = gameCampaignScreen.Visible;
 
-                var gameLocationscreenExplorationVisible = gameLocationScreenExploration?.Visible;
+                // NOTE: don't use gameLocationScreenExploration?. which bypasses Unity object lifetime check
+                var gameLocationscreenExplorationVisible = gameLocationScreenExploration && gameLocationScreenExploration.Visible;
 
                 StartRespec();
 
                 guiConsoleScreen.Hide(true);
                 gameCampaignScreen.Hide(true);
 
-                gameLocationScreenExploration?.Hide(true);
+                // NOTE: don't use gameLocationScreenExploration?. which bypasses Unity object lifetime check
+                if (gameLocationScreenExploration)
+                {
+                    gameLocationScreenExploration.Hide(true);
+                }
 
                 var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
 
@@ -134,7 +139,8 @@ namespace SolastaCommunityExpansion.Models
                 guiConsoleScreen.Show(guiConsoleScreenVisible);
                 gameCampaignScreen.Show(gameCampaignScreenVisible);
 
-                if (gameLocationscreenExplorationVisible == true)
+                // NOTE: don't use gameLocationScreenExploration?. which bypasses Unity object lifetime check
+                if (gameLocationscreenExplorationVisible && gameLocationScreenExploration)
                 {
                     gameLocationScreenExploration.Show(true);
                 }

@@ -151,7 +151,11 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                     return;
                 }
 
-                if (spellRepertoire?.SpellCastingFeature?.SpellCastingOrigin != FeatureDefinitionCastSpell.CastingOrigin.Race && spellRepertoire?.SpellCastingClass != null)
+                // NOTE: don't use SpellCastingFeature?. which bypasses Unity object lifetime check
+                if (spellRepertoire != null
+                    && spellRepertoire.SpellCastingFeature
+                    && spellRepertoire.SpellCastingFeature.SpellCastingOrigin != FeatureDefinitionCastSpell.CastingOrigin.Race
+                    && spellRepertoire.SpellCastingClass)
                 {
                     __result = heroWithSpellRepertoire.ClassesAndLevels[spellRepertoire.SpellCastingClass];
                 }

@@ -122,7 +122,9 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SorcererTwinnedLogi
 
                 var rulesetSpellRepertoire = rulesetEffectSpell.SpellRepertoire;
                 var spellDefinition = rulesetEffectSpell.SpellDefinition;
-                var spellLevel = spellDefinition?.SpellLevel;
+                // NOTE: don't use spellDefinition?. which bypasses Unity object lifetime check
+                // NOTE: do we want an int? here?
+                int? spellLevel = spellDefinition ? spellDefinition.SpellLevel : null;
                 var slotLevel = rulesetEffectSpell.SlotLevel;
                 int classLevel;
 
