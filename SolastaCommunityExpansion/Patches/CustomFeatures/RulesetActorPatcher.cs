@@ -50,6 +50,23 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         }
     }
 
+    //
+    // INotifyConditionRemoval patches
+    //
+
+    [HarmonyPatch(typeof(RulesetActor), "RemoveCondition")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetActor_RemoveCondition
+    {
+        internal static void Postfix(RulesetActor __instance, RulesetCondition rulesetCondition)
+        {
+            if (rulesetCondition?.ConditionDefinition is INotifyConditionRemoval notifiedDefinition)
+            {
+                notifiedDefinition.AfterConditionRemoved(__instance, rulesetCondition);
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetActor), "RollDie")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetActor_RollDie
