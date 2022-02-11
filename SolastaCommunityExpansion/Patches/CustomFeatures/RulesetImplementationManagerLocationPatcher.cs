@@ -60,12 +60,14 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         {
             var inflictConditionMethod = typeof(RulesetActor).GetMethod("InflictCondition");
             var extendInflictConditionMethod = typeof(RulesetImplementationManagerLocation_ApplySummonForm).GetMethod("ExtendInflictCondition");
-            var unregisterConditionToAmountMethod = typeof(RulesetImplementationManagerLocation_ApplySummonForm).GetMethod("UnregisterConditionToAmount");
 
             foreach (CodeInstruction instruction in instructions)
             {
                 if (instruction.Calls(inflictConditionMethod))
                 {
+                    //
+                    // WARNING: review parameter value 35 before release
+                    //
                     yield return new CodeInstruction(OpCodes.Ldarg_2); // formsParam
                     yield return new CodeInstruction(OpCodes.Ldloc, 35); // addedCondition local from for loop
                     yield return new CodeInstruction(OpCodes.Call, extendInflictConditionMethod);
