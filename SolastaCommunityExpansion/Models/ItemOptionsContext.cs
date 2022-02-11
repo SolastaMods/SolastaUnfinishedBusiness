@@ -2,6 +2,7 @@
 using System.Linq;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
@@ -54,7 +55,15 @@ namespace SolastaCommunityExpansion.Models
 
         private sealed class FocusDefinitionBuilder : BaseDefinitionBuilder<ItemDefinition>
         {
-            private FocusDefinitionBuilder(string name, string guid, string title, string description, ItemDefinition original, EquipmentDefinitions.FocusType type, AssetReferenceSprite assetReferenceSprite) : base(original, name, guid)
+            private FocusDefinitionBuilder(
+                string name, 
+                string guid, 
+                string title, 
+                string description, 
+                ItemDefinition original, 
+                EquipmentDefinitions.FocusType type, 
+                AssetReferenceSprite assetReferenceSprite,
+                params string[] slotTypes) : base(original, name, guid)
             {
                 Definition.FocusItemDescription.SetFocusType(type);
                 Definition.GuiPresentation.Title = title;
@@ -67,6 +76,9 @@ namespace SolastaCommunityExpansion.Models
 
                 Definition.SetCosts(ComponentPouch.Costs);
                 Definition.SetIsFocusItem(true);
+                Definition.SlotTypes.SetRange(slotTypes);
+                Definition.SlotTypes.Add(EquipmentDefinitions.SlotTypeContainer);
+                Definition.SlotsWhereActive.SetRange(slotTypes);
 
                 var stockFocus = new StockUnitDescription();
 
@@ -84,9 +96,17 @@ namespace SolastaCommunityExpansion.Models
                 Store_Merchant_Hugo_Requer_Cyflen_Potions.StockUnitDescriptions.Add(stockFocus);
             }
 
-            private static ItemDefinition CreateAndAddToDB(string name, string guid, string title, string description, ItemDefinition original, EquipmentDefinitions.FocusType type, AssetReferenceSprite assetReferenceSprite)
+            private static ItemDefinition CreateAndAddToDB(
+                string name, 
+                string guid, 
+                string title, 
+                string description, 
+                ItemDefinition original, 
+                EquipmentDefinitions.FocusType type, 
+                AssetReferenceSprite assetReferenceSprite,
+                params string[] slotTypes)
             {
-                return new FocusDefinitionBuilder(name, guid, title, description, original, type, assetReferenceSprite).AddToDB();
+                return new FocusDefinitionBuilder(name, guid, title, description, original, type, assetReferenceSprite, slotTypes).AddToDB();
             }
 
             internal static readonly ItemDefinition ArcaneStaff = CreateAndAddToDB(
@@ -96,7 +116,9 @@ namespace SolastaCommunityExpansion.Models
                 "Equipment/&ArcaneStaffDescription",
                 Quarterstaff,
                 EquipmentDefinitions.FocusType.Druidic,
-                QuarterstaffPlus1.GuiPresentation.SpriteReference);
+                QuarterstaffPlus1.GuiPresentation.SpriteReference,
+                "MainHandSlot",
+                "OffHandSlot");
 
             internal static readonly ItemDefinition DruidicAmulet = CreateAndAddToDB(
                 "DruidicAmulet",
@@ -105,7 +127,9 @@ namespace SolastaCommunityExpansion.Models
                 "Equipment/&DruidicAmuletDescription",
                 ComponentPouch_ArcaneAmulet,
                 EquipmentDefinitions.FocusType.Druidic,
-                BeltOfGiantHillStrength.GuiPresentation.SpriteReference);
+                BeltOfGiantHillStrength.GuiPresentation.SpriteReference,
+                "MainHandSlot",
+                "OffHandSlot");
 
             internal static readonly ItemDefinition LivewoodClub = CreateAndAddToDB(
                 "LivewoodClub",
@@ -114,7 +138,9 @@ namespace SolastaCommunityExpansion.Models
                 "Equipment/&LivewoodClubDescription",
                 Club,
                 EquipmentDefinitions.FocusType.Druidic,
-                null);
+                null,
+                "MainHandSlot",
+                "OffHandSlot");
 
             internal static readonly ItemDefinition LivewoodStaff = CreateAndAddToDB(
                 "LivewoodStaff",
@@ -123,7 +149,9 @@ namespace SolastaCommunityExpansion.Models
                 "Equipment/&LivewoodStaffDescription",
                 ComponentPouch_ArcaneAmulet,
                 EquipmentDefinitions.FocusType.Druidic,
-                StaffOfHealing.GuiPresentation.SpriteReference);
+                StaffOfHealing.GuiPresentation.SpriteReference,
+                "MainHandSlot",
+                "OffHandSlot");
         }
 
         private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
