@@ -75,9 +75,14 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             return UnityEngine.Mathf.Clamp(currentValue, minValue, attribute.MaxEditableValue > 0 ? attribute.MaxEditableValue : attribute.MaxValue);
         }
 
-        private static void EnumerateAttributeModifiers(RulesetCharacterHero hero, Dictionary<string, int> attributeModifiers)
+        private static void EnumerateItemsAttributeModifiers(RulesetCharacterHero hero, Dictionary<string, int> attributeModifiers)
         {
             var items = new List<RulesetItem>();
+
+            foreach (var attributeName in CoreAttributes)
+            {
+                attributeModifiers.Add(attributeName, 0);
+            }
 
             hero.CharacterInventory.EnumerateAllItems(items, considerContainers: false);
 
@@ -90,29 +95,22 @@ namespace SolastaCommunityExpansion.Multiclass.Models
                 var modifiedAttribute = featureDefinitionAttributeModifier.ModifiedAttribute;
                 var modifierValue = featureDefinitionAttributeModifier.ModifierValue;
 
-                if (attributeModifiers.ContainsKey(modifiedAttribute))
-                {
-                    attributeModifiers[modifiedAttribute] += modifierValue;
-                }
-                else
-                {
-                    attributeModifiers.Add(modifiedAttribute, modifierValue);
-                }
+                attributeModifiers[modifiedAttribute] += modifierValue;
             };
         }
 
         [SuppressMessage("Convert switch statement to expression", "IDE0066")]
         internal static bool ApproveMultiClassInOut(RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
         {
-            var test = new Dictionary<string, int>();
+            var itemsAttributeModifiers = new Dictionary<string, int>();
 
-            EnumerateAttributeModifiers(hero, test);
+            EnumerateItemsAttributeModifiers(hero, itemsAttributeModifiers);
 
-            var strength = hero.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
-            var dexterity = hero.GetAttribute(AttributeDefinitions.Dexterity).CurrentValue;
-            var intelligence = hero.GetAttribute(AttributeDefinitions.Intelligence).CurrentValue;
-            var wisdom = hero.GetAttribute(AttributeDefinitions.Wisdom).CurrentValue;
-            var charisma = hero.GetAttribute(AttributeDefinitions.Charisma).CurrentValue;
+            var strength = MyGetAttribute(hero, AttributeDefinitions.Strength) - itemsAttributeModifiers[AttributeDefinitions.Strength];
+            var dexterity = MyGetAttribute(hero, AttributeDefinitions.Dexterity) - itemsAttributeModifiers[AttributeDefinitions.Dexterity];
+            var intelligence = MyGetAttribute(hero, AttributeDefinitions.Intelligence) - itemsAttributeModifiers[AttributeDefinitions.Intelligence];
+            var wisdom = MyGetAttribute(hero, AttributeDefinitions.Wisdom) - itemsAttributeModifiers[AttributeDefinitions.Wisdom];
+            var charisma = MyGetAttribute(hero, AttributeDefinitions.Charisma) - itemsAttributeModifiers[AttributeDefinitions.Charisma];
 
             if (classDefinition.GuiPresentation.Hidden)
             {
