@@ -123,7 +123,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
                         .Append(characterClassDefinition.FormatTitle());
 
                     // NOTE: don't use characterClassDefinition?. which bypasses Unity object lifetime check
-                    if (characterClassDefinition)
+                    if (characterSubclassDefinition)
                     {
                         builder
                             .Append(' ')
