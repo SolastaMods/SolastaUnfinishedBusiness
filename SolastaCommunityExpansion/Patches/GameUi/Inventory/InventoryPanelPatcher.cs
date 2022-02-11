@@ -19,9 +19,10 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Inventory
     {
         internal static void Postfix(InventoryPanel __instance)
         {
-            if (Main.Settings.EnableInventoryFilteringAndSorting)
+            // NOTE: don't use MainContainerPanel?. which bypasses Unity object lifetime check
+            if (Main.Settings.EnableInventoryFilteringAndSorting && __instance.MainContainerPanel)
             {
-                Models.InventoryManagementContext.SortAndFilter(__instance.MainContainerPanel?.Container);
+                Models.InventoryManagementContext.SortAndFilter(__instance.MainContainerPanel.Container);
             }
         }
     }
@@ -32,7 +33,11 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Inventory
     {
         internal static void Prefix(InventoryPanel __instance)
         {
-            Models.InventoryManagementContext.Flush(__instance.MainContainerPanel?.Container);
+            if (__instance.MainContainerPanel)
+            {
+                // NOTE: don't use MainContainerPanel?. which bypasses Unity object lifetime check
+                Models.InventoryManagementContext.Flush(__instance.MainContainerPanel.Container);
+            }
         }
     }
 }

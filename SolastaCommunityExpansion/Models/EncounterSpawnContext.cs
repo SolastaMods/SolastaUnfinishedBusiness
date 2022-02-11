@@ -94,7 +94,10 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void ConfirmStageEncounter()
         {
-            var isUserLocation = Gui.GameLocation?.LocationDefinition?.IsUserLocation == true;
+            // NOTE: don't use GameLocation?. or LocationDefinition?. which bypasses Unity object lifetime check
+            var isUserLocation = Gui.GameLocation &&
+                                 Gui.GameLocation.LocationDefinition &&
+                                 Gui.GameLocation.LocationDefinition.IsUserLocation;
 
             if (isUserLocation)
             {

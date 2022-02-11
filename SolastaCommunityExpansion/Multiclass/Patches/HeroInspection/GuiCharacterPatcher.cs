@@ -12,7 +12,11 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.HeroInspection
         {
             internal static void Postfix(ref CharacterClassDefinition __result)
             {
-                __result = Models.InspectionPanelContext.SelectedClass ?? __result;
+                // NOTE: don't use SelectedClass??. which bypasses Unity object lifetime check
+                if (Models.InspectionPanelContext.SelectedClass)
+                {
+                    __result = Models.InspectionPanelContext.SelectedClass;
+                }
             }
         }
 

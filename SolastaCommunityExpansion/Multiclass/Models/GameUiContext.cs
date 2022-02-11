@@ -120,8 +120,15 @@ namespace SolastaCommunityExpansion.Multiclass.Models
                     builder.Append('\n')
                         .AppendFormat("{0:00}", i + 1)
                         .Append(" - ")
-                        .Append(characterClassDefinition.FormatTitle())
-                        .Append(' ').Append(characterSubclassDefinition?.FormatTitle());
+                        .Append(characterClassDefinition.FormatTitle());
+
+                    // NOTE: don't use characterClassDefinition?. which bypasses Unity object lifetime check
+                    if (characterClassDefinition)
+                    {
+                        builder
+                            .Append(' ')
+                            .Append(characterSubclassDefinition.FormatTitle());
+                    }
                 }
             }
 

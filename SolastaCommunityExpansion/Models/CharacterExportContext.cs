@@ -44,7 +44,9 @@ namespace SolastaCommunityExpansion.Models
 
             InputModalVisible = true;
 
-            messageModal.Show(MessageModal.Severity.Informative1, "Message/&CharacterExportModalTitleDescription", INPUT_MODAL_MARK, "Message/&MessageOkTitle", "Message/&MessageCancelTitle", messageValidated, messageCancelled, true);
+            messageModal.Show(MessageModal.Severity.Informative1,
+                "Message/&CharacterExportModalTitleDescription", INPUT_MODAL_MARK,
+                "Message/&MessageOkTitle", "Message/&MessageCancelTitle", messageValidated, messageCancelled, true);
 
             void messageCancelled()
             {
@@ -114,7 +116,12 @@ namespace SolastaCommunityExpansion.Models
             heroCharacter.CharacterInventory.EnumerateAllItems(inventoryItems);
 
             var attunedItems = inventoryItems.ConvertAll(i => new { Item = i, Name = i.AttunedToCharacter });
-            var customItems = inventoryItems.FindAll(i => Gui.GameLocation?.UserCampaign?.UserItems?.Exists(ui => ui.ReferenceItemDefinition == i.ItemDefinition) == true).ToList();
+
+            // NOTE: don't use Gui.GameLocation?. which bypasses Unity object lifetime check
+            var customItems = (Gui.GameLocation
+                ? inventoryItems.FindAll(i => Gui.GameLocation.UserCampaign?.UserItems?.Exists(ui => ui.ReferenceItemDefinition == i.ItemDefinition) == true)
+                : Enumerable.Empty<RulesetItem>()).ToList();
+
             var heroItemGuids = heroCharacter.Items.ConvertAll(i => new { Item = i, i.Guid });
             var inventoryItemGuids = inventoryItems.ConvertAll(i => new { Item = i, i.Guid });
 

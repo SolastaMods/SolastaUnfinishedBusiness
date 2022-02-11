@@ -26,8 +26,20 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
 
                     Models.LevelUpContext.DisplayingClassPanel = true;
                     Models.InOutRulesContext.EnumerateHeroAllowedClassDefinitions(Models.LevelUpContext.SelectedHero, compatibleClasses, ref ___selectedClass);
-                    __instance.CommonData.AttackModesPanel?.RefreshNow();
-                    __instance.CommonData.PersonalityMapPanel?.RefreshNow();
+
+                    var commonData = __instance.CommonData;
+
+                    // NOTE: don't use AttackModesPanel?. which bypasses Unity object lifetime check
+                    if (commonData.AttackModesPanel)
+                    {
+                        commonData.AttackModesPanel.RefreshNow();
+                    }
+
+                    // NOTE: don't use PersonalityMapPanel?. which bypasses Unity object lifetime check
+                    if (commonData.PersonalityMapPanel)
+                    {
+                        commonData.PersonalityMapPanel.RefreshNow();
+                    }
                 }
             }
         }

@@ -11,7 +11,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
     {
         internal static void SetTeleporterGadgetActiveAnimation(WorldGadget worldGadget, bool visibility = false)
         {
-            if (!Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered || worldGadget?.UserGadget == null)
+            // NOTE: don't use worldGadget?. which bypasses Unity object lifetime check
+            if (!Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered || worldGadget == null || worldGadget.UserGadget == null)
             {
                 return;
             }
@@ -20,13 +21,21 @@ namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
             {
                 var visualEffect = worldGadget.transform.FindChildRecursive("Vfx_Teleporter_Individual_Idle_01");
 
-                visualEffect?.gameObject.SetActive(visibility);
+                // NOTE: don't use visualEffect?. which bypasses Unity object lifetime check
+                if (visualEffect)
+                {
+                    visualEffect.gameObject.SetActive(visibility);
+                }
             }
             else if (worldGadget.UserGadget.GadgetBlueprint == TeleporterParty)
             {
                 var visualEffect = worldGadget.transform.FindChildRecursive("Vfx_Teleporter_Party_Idle_01");
 
-                visualEffect?.gameObject.SetActive(visibility);
+                // NOTE: don't use visualEffect?. which bypasses Unity object lifetime check
+                if (visualEffect)
+                {
+                    visualEffect.gameObject.SetActive(visibility);
+                }
             }
         }
 

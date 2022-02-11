@@ -107,7 +107,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             RestActivityDefinitionBuilder
                 .Create("ArcaneDepth", SubclassNamespace)
                 .Configure(
-                    RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.ShortRest, 
+                    RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.ShortRest,
                     RestActivityDefinition.ActivityCondition.CanUsePower, "UsePower", BonusRecovery.Name)
                 .SetGuiPresentation(SpellRecoveryGui)
                 .AddToDB();

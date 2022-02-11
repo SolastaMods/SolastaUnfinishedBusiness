@@ -29,17 +29,21 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker
             switch (command)
             {
                 case InputCommands.Id.RotateCCW:
-                    if (!(___selectedGadgetPanel?.IsTextFieldFocused() ?? false))
+                    // NOTE: don't use ___selectedGadgetPanel?. which bypasses Unity object lifetime check
+                    if (___selectedGadgetPanel && !___selectedGadgetPanel.IsTextFieldFocused())
                     {
                         Rotate(-90f);
                     }
+
                     break;
 
                 case InputCommands.Id.RotateCW:
-                    if (!(___selectedGadgetPanel?.IsTextFieldFocused() ?? false))
+                    // NOTE: don't use ___selectedGadgetPanel?. which bypasses Unity object lifetime check
+                    if (___selectedGadgetPanel && !___selectedGadgetPanel.IsTextFieldFocused())
                     {
                         Rotate(90f);
                     }
+
                     break;
             }
 

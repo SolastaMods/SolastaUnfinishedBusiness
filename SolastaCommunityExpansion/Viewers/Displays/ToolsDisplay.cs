@@ -40,7 +40,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             var gameCampaign = Gui.GameCampaign;
             var gameFactionService = ServiceRepository.GetService<IGameFactionService>();
 
-            if (gameFactionService != null && gameCampaign?.CampaignDefinitionName != "UserCampaign")
+            // NOTE: don't use gameCampaign?. which bypasses Unity object lifetime check
+            if (gameFactionService != null && gameCampaign != null && gameCampaign.CampaignDefinitionName != "UserCampaign")
             {
                 foreach (FactionDefinition faction in gameFactionService.RegisteredFactions)
                 {
