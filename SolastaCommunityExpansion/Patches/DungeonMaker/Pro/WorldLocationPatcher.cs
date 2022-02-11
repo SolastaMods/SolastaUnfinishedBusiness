@@ -45,12 +45,18 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro
             {
                 if (instruction.Calls(setLocalPositionMethod) && ++found == 1)
                 {
+                    //
+                    // WARNING: review parameters values 4 and 2 before release
+                    //
                     yield return new CodeInstruction(OpCodes.Ldloc_S, 8); // roomTransform 4
                     yield return new CodeInstruction(OpCodes.Ldloc_S, 4); // userRoom 2
                     yield return new CodeInstruction(OpCodes.Call, addVegetationMaskAreaMethod);
 
                     yield return instruction;
 
+                    //
+                    // WARNING: review parameters values 4 and 2 before release
+                    //
                     yield return new CodeInstruction(OpCodes.Ldloc_S, 8); // roomTransform 4
                     yield return new CodeInstruction(OpCodes.Ldloc_S, 4); // userRoom 2
                     yield return new CodeInstruction(OpCodes.Call, setupFlatRoomsMethod);
