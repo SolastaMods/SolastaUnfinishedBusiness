@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using UnityEngine;
 
 namespace SolastaCommunityExpansion.Multiclass.Models
 {
@@ -46,7 +47,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             selectedClass = allowedClasses.IndexOf(hero.ClassesHistory[hero.ClassesHistory.Count - 1]);
         }
 
-        private static readonly string[] CoreAttributes = new string[]
+        private static readonly HashSet<string> CoreAttributes = new()
         {
             AttributeDefinitions.Strength,
             AttributeDefinitions.Dexterity,
@@ -62,17 +63,13 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             var currentValue = attribute.BaseValue;
             var minValue = int.MinValue;
 
-            foreach (var activeModifier in activeModifiers)
+            foreach (var activeModifier in activeModifiers
+                .Where(x => x.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive))
             {
-                currentValue = activeModifier.ApplyOnValue(currentValue);
-
-                if (activeModifier.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
-                {
-                    currentValue += UnityEngine.Mathf.FloorToInt(activeModifier.Value);
-                }
+                currentValue += Mathf.FloorToInt(activeModifier.Value);
             }
 
-            return UnityEngine.Mathf.Clamp(currentValue, minValue, attribute.MaxEditableValue > 0 ? attribute.MaxEditableValue : attribute.MaxValue);
+            return Mathf.Clamp(currentValue, minValue, attribute.MaxEditableValue > 0 ? attribute.MaxEditableValue : attribute.MaxValue);
         }
 
         private static Dictionary<string, int> GetItemsAttributeModifiers(RulesetCharacterHero hero)
@@ -91,7 +88,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
                 .SelectMany(x => x.ItemDefinition.StaticProperties
                     .Select(y => y.FeatureDefinition)
                     .OfType<FeatureDefinitionAttributeModifier>()
-                    .Where(z => System.Array.IndexOf(CoreAttributes, z.ModifiedAttribute) >= 0 && z.ModifierType == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)))
+                    .Where(z => CoreAttributes.Contains(z.ModifiedAttribute) && z.ModifierType == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)))
             {
                 attributeModifiers[featureDefinitionAttributeModifier.ModifiedAttribute] += featureDefinitionAttributeModifier.ModifierValue;
             };
