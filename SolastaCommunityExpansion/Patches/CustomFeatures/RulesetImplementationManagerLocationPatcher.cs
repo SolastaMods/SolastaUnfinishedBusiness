@@ -12,8 +12,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
 
     internal static class RulesetImplementationManagerLocation_ApplySummonForm
     {
-        internal static Dictionary<string, int> ConditionToAmount { get; } = new();
-
         public static RulesetCondition ExtendInflictCondition(
             RulesetActor rulesetActor,
             string conditionDefinitionName,
@@ -34,12 +32,10 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             {
                 case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus:
                     sourceAmount = formsParams.sourceCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-                    ConditionToAmount.AddOrReplace(addedCondition.Name, sourceAmount);
                     break;
 
                 case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceCharacterLevel:
                     sourceAmount = formsParams.sourceCharacter.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
-                    ConditionToAmount.AddOrReplace(addedCondition.Name, sourceAmount);
                     break;
 
                 case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel:
@@ -53,23 +49,11 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
                         {
                             sourceAmount = classLevel;
                         }
-
-                        ConditionToAmount.AddOrReplace(addedCondition.Name, sourceAmount);
                     }
                     break;
             }
 
-            if (ConditionToAmount.ContainsKey(conditionDefinitionName))
-            {
-                sourceAmount = ConditionToAmount[conditionDefinitionName];
-            }
-
             return rulesetActor.InflictCondition(conditionDefinitionName, durationType, durationParameter, endOccurence, tag, sourceGuid, sourceFaction, effectLevel, effectDefinitionName, sourceAmount, sourceAbilityBonus);
-        }
-
-        public static void UnregisterConditionToAmount()
-        {
-            ConditionToAmount.Clear();
         }
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
@@ -85,11 +69,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
                     yield return new CodeInstruction(OpCodes.Ldarg_2); // formsParam
                     yield return new CodeInstruction(OpCodes.Ldloc, 35); // addedCondition local from for loop
                     yield return new CodeInstruction(OpCodes.Call, extendInflictConditionMethod);
-                }
-                else if (instruction.opcode == OpCodes.Ret)
-                {
-                    yield return new CodeInstruction(OpCodes.Call, unregisterConditionToAmountMethod);
-                    yield return instruction;
                 }
                 else
                 {
