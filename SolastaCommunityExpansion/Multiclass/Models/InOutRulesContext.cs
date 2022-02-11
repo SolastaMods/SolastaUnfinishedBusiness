@@ -75,16 +75,17 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             return UnityEngine.Mathf.Clamp(currentValue, minValue, attribute.MaxEditableValue > 0 ? attribute.MaxEditableValue : attribute.MaxValue);
         }
 
-        private static void EnumerateItemsAttributeModifiers(RulesetCharacterHero hero, Dictionary<string, int> attributeModifiers)
+        private static Dictionary<string, int> GetItemsAttributeModifiers(RulesetCharacterHero hero)
         {
+            var attributeModifiers = new Dictionary<string, int>();
             var items = new List<RulesetItem>();
+
+            hero.CharacterInventory.EnumerateAllItems(items, considerContainers: false);
 
             foreach (var attributeName in CoreAttributes)
             {
                 attributeModifiers.Add(attributeName, 0);
             }
-
-            hero.CharacterInventory.EnumerateAllItems(items, considerContainers: false);
 
             foreach (var featureDefinitionAttributeModifier in items
                 .SelectMany(x => x.ItemDefinition.StaticProperties
@@ -92,30 +93,26 @@ namespace SolastaCommunityExpansion.Multiclass.Models
                     .OfType<FeatureDefinitionAttributeModifier>()
                     .Where(z => System.Array.IndexOf(CoreAttributes, z.ModifiedAttribute) >= 0 && z.ModifierType == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)))
             {
-                var modifiedAttribute = featureDefinitionAttributeModifier.ModifiedAttribute;
-                var modifierValue = featureDefinitionAttributeModifier.ModifierValue;
-
-                attributeModifiers[modifiedAttribute] += modifierValue;
+                attributeModifiers[featureDefinitionAttributeModifier.ModifiedAttribute] += featureDefinitionAttributeModifier.ModifierValue;
             };
+
+            return attributeModifiers;
         }
 
         [SuppressMessage("Convert switch statement to expression", "IDE0066")]
         internal static bool ApproveMultiClassInOut(RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
         {
-            var itemsAttributeModifiers = new Dictionary<string, int>();
+            if (classDefinition.GuiPresentation.Hidden)
+            {
+                return false;
+            }
 
-            EnumerateItemsAttributeModifiers(hero, itemsAttributeModifiers);
-
+            var itemsAttributeModifiers = GetItemsAttributeModifiers(hero);
             var strength = MyGetAttribute(hero, AttributeDefinitions.Strength) - itemsAttributeModifiers[AttributeDefinitions.Strength];
             var dexterity = MyGetAttribute(hero, AttributeDefinitions.Dexterity) - itemsAttributeModifiers[AttributeDefinitions.Dexterity];
             var intelligence = MyGetAttribute(hero, AttributeDefinitions.Intelligence) - itemsAttributeModifiers[AttributeDefinitions.Intelligence];
             var wisdom = MyGetAttribute(hero, AttributeDefinitions.Wisdom) - itemsAttributeModifiers[AttributeDefinitions.Wisdom];
             var charisma = MyGetAttribute(hero, AttributeDefinitions.Charisma) - itemsAttributeModifiers[AttributeDefinitions.Charisma];
-
-            if (classDefinition.GuiPresentation.Hidden)
-            {
-                return false;
-            }
 
             switch (classDefinition.Name)
             {
