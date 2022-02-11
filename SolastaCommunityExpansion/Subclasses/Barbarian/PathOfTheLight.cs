@@ -232,24 +232,19 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self, 1, 0, ActionDefinitions.ItemSelectionType.None)
                 .AddEffectForm(seeInvisibleConditionForm);
 
-            var seeInvisiblePower = FeatureDefinitionBuilder<FeatureDefinitionPower>.Build(
-                "PathOfTheLightEyesOfTruthPower",
-                CreateNamespacedGuid("PathOfTheLightEyesOfTruthPower"),
-                definition =>
-                {
-                    var gpb = new GuiPresentationBuilder(
-                        "Subclass/&BarbarianPathOfTheLightEyesOfTruthTitle",
-                        "Subclass/&BarbarianPathOfTheLightEyesOfTruthDescription");
-
-                    gpb.SetSpriteReference(DatabaseHelper.SpellDefinitions.SeeInvisibility.GuiPresentation.SpriteReference);
-
-                    definition
-                        .SetGuiPresentation(gpb.Build())
-                        .SetActivationTime(RuleDefinitions.ActivationTime.Permanent)
-                        .SetEffectDescription(seeInvisibleEffectBuilder.Build())
-                        .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
-                        .SetShowCasting(false);
-                });
+            var seeInvisiblePower = FeatureDefinitionBuilder<FeatureDefinitionPower>
+                .Create("PathOfTheLightEyesOfTruthPower", SubclassNamespace)
+                .SetGuiPresentation("BarbarianPathOfTheLightEyesOfTruth", Category.Subclass, DatabaseHelper.SpellDefinitions.SeeInvisibility.GuiPresentation.SpriteReference)
+                .Configure(
+                    definition =>
+                    {
+                        definition
+                            .SetActivationTime(RuleDefinitions.ActivationTime.Permanent)
+                            .SetEffectDescription(seeInvisibleEffectBuilder.Build())
+                            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+                            .SetShowCasting(false);
+                    })
+                .AddToDB();
 
             return FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>.Build(
                 "PathOfTheLightEyesOfTruth",
@@ -308,42 +303,36 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
         private static FeatureDefinition CreateIlluminatingBurstSuppressor(ConditionDefinition illuminatingBurstSuppressedCondition)
         {
-            return FeatureDefinitionBuilder<FeatureDefinitionPower>.Build(
-                "PathOfTheLightIlluminatingBurstSuppressor",
-                CreateNamespacedGuid("PathOfTheLightIlluminatingBurstSuppressor"),
-                definition =>
-                {
-                    var guiPresentationBuilder = new GuiPresentationBuilder(
-                        "Feature/&NoContentTitle",
-                        "Feature/&NoContentTitle");
-
-                    var guiPresentation = guiPresentationBuilder.Build();
-                    guiPresentation.SetHidden(true);
-
-                    var suppressIlluminatingBurst = new EffectForm
+            return FeatureDefinitionBuilder<FeatureDefinitionPower>
+                .Create("PathOfTheLightIlluminatingBurstSuppressor", SubclassNamespace)
+                .SetGuiPresentationNoContent(true)
+                .Configure(
+                    definition =>
                     {
-                        FormType = EffectForm.EffectFormType.Condition,
-                        ConditionForm = new ConditionForm
+                        var suppressIlluminatingBurst = new EffectForm
                         {
-                            Operation = ConditionForm.ConditionOperation.Add,
-                            ConditionDefinition = illuminatingBurstSuppressedCondition
-                        }
-                    };
+                            FormType = EffectForm.EffectFormType.Condition,
+                            ConditionForm = new ConditionForm
+                            {
+                                Operation = ConditionForm.ConditionOperation.Add,
+                                ConditionDefinition = illuminatingBurstSuppressedCondition
+                            }
+                        };
 
-                    var effectDescriptionBuilder = new EffectDescriptionBuilder();
+                        var effectDescriptionBuilder = new EffectDescriptionBuilder();
 
-                    effectDescriptionBuilder
-                        .SetDurationData(RuleDefinitions.DurationType.Permanent, 1, RuleDefinitions.TurnOccurenceType.StartOfTurn)
-                        .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self, 1, 0, ActionDefinitions.ItemSelectionType.None)
-                        .SetRecurrentEffect(RuleDefinitions.RecurrentEffect.OnActivation | RuleDefinitions.RecurrentEffect.OnTurnStart)
-                        .AddEffectForm(suppressIlluminatingBurst);
+                        effectDescriptionBuilder
+                            .SetDurationData(RuleDefinitions.DurationType.Permanent, 1, RuleDefinitions.TurnOccurenceType.StartOfTurn)
+                            .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self, 1, 0, ActionDefinitions.ItemSelectionType.None)
+                            .SetRecurrentEffect(RuleDefinitions.RecurrentEffect.OnActivation | RuleDefinitions.RecurrentEffect.OnTurnStart)
+                            .AddEffectForm(suppressIlluminatingBurst);
 
-                    definition
-                        .SetGuiPresentation(guiPresentation)
-                        .SetActivationTime(RuleDefinitions.ActivationTime.Permanent)
-                        .SetEffectDescription(effectDescriptionBuilder.Build())
-                        .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
-                });
+                        definition
+                            .SetActivationTime(RuleDefinitions.ActivationTime.Permanent)
+                            .SetEffectDescription(effectDescriptionBuilder.Build())
+                            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
+                    })
+                .AddToDB();
         }
 
         private static ConditionDefinition CreateIlluminatedCondition()
