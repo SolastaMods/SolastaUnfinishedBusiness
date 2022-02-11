@@ -26,68 +26,45 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             int effectLevel,
             string effectDefinitionName,
             int sourceAmount,
-            int sourceAbilityBonus)
+            int sourceAbilityBonus,
+            RulesetImplementationDefinitions.ApplyFormsParams formsParams,
+            ConditionDefinition addedCondition)
         {
+            switch (addedCondition.AmountOrigin)
+            {
+                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus:
+                    sourceAmount = formsParams.sourceCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+                    ConditionToAmount.AddOrReplace(addedCondition.Name, sourceAmount);
+                    break;
+
+                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceCharacterLevel:
+                    sourceAmount = formsParams.sourceCharacter.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+                    ConditionToAmount.AddOrReplace(addedCondition.Name, sourceAmount);
+                    break;
+
+                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel:
+                    var sourceCharacter = (RulesetCharacterHero)formsParams.sourceCharacter;
+                    // Find a better place to put this in?
+                    string classType = addedCondition.AdditionalDamageType;
+                    if (DatabaseRepository.GetDatabase<CharacterClassDefinition>().TryGetElement(classType, out CharacterClassDefinition characterClassDefinition))
+                    {
+                        if (sourceCharacter.ClassesAndLevels != null
+                            && sourceCharacter.ClassesAndLevels.TryGetValue(characterClassDefinition, out int classLevel))
+                        {
+                            sourceAmount = classLevel;
+                        }
+
+                        ConditionToAmount.AddOrReplace(addedCondition.Name, sourceAmount);
+                    }
+                    break;
+            }
+
             if (ConditionToAmount.ContainsKey(conditionDefinitionName))
             {
                 sourceAmount = ConditionToAmount[conditionDefinitionName];
             }
 
             return rulesetActor.InflictCondition(conditionDefinitionName, durationType, durationParameter, endOccurence, tag, sourceGuid, sourceFaction, effectLevel, effectDefinitionName, sourceAmount, sourceAbilityBonus);
-        }
-
-        public static void RegisterConditionToAmount(EffectForm effectForm, RulesetImplementationDefinitions.ApplyFormsParams formsParams)
-        {
-            var summonForm = effectForm.SummonForm;
-
-            if (summonForm.SummonType == SummonForm.Type.Creature && !string.IsNullOrEmpty(summonForm.MonsterDefinitionName)
-                && DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(summonForm.MonsterDefinitionName, out MonsterDefinition monsterDefinition))
-            {
-                for (int index = 0; index < summonForm.Number; ++index)
-                {
-                    formsParams.sourceCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionSummoningAffinity>(formsParams.sourceCharacter.FeaturesToBrowse);
-
-                    foreach (FeatureDefinitionSummoningAffinity summoningAffinity in formsParams.sourceCharacter.FeaturesToBrowse.OfType<FeatureDefinitionSummoningAffinity>())
-                    {
-                        if (string.IsNullOrEmpty(summoningAffinity.RequiredMonsterTag) || monsterDefinition.CreatureTags.Contains(summoningAffinity.RequiredMonsterTag))
-                        {
-                            foreach (ConditionDefinition addedCondition in summoningAffinity.AddedConditions)
-                            {
-                                int sourceAmount = 0;
-
-                                switch (addedCondition.AmountOrigin)
-                                {
-                                    case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus:
-                                        sourceAmount = formsParams.sourceCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-                                        ConditionToAmount.AddOrReplace(addedCondition.Name, sourceAmount);
-                                        break;
-
-                                    case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceCharacterLevel:
-                                        sourceAmount = formsParams.sourceCharacter.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
-                                        ConditionToAmount.AddOrReplace(addedCondition.Name, sourceAmount);
-                                        break;
-
-                                    case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel:
-                                        var sourceCharacter = (RulesetCharacterHero)formsParams.sourceCharacter;
-                                        // Find a better place to put this in?
-                                        string classType = addedCondition.AdditionalDamageType;
-                                        if (DatabaseRepository.GetDatabase<CharacterClassDefinition>().TryGetElement(classType, out CharacterClassDefinition characterClassDefinition))
-                                        {
-                                            if (sourceCharacter.ClassesAndLevels != null
-                                                && sourceCharacter.ClassesAndLevels.TryGetValue(characterClassDefinition, out int classLevel))
-                                            {
-                                                sourceAmount = classLevel;
-                                            }
-
-                                            ConditionToAmount.AddOrReplace(addedCondition.Name, sourceAmount);
-                                        }
-                                        break;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
         }
 
         public static void UnregisterConditionToAmount()
@@ -99,17 +76,14 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         {
             var inflictConditionMethod = typeof(RulesetActor).GetMethod("InflictCondition");
             var extendInflictConditionMethod = typeof(RulesetImplementationManagerLocation_ApplySummonForm).GetMethod("ExtendInflictCondition");
-            var registerConditionToAmountMethod = typeof(RulesetImplementationManagerLocation_ApplySummonForm).GetMethod("RegisterConditionToAmount");
             var unregisterConditionToAmountMethod = typeof(RulesetImplementationManagerLocation_ApplySummonForm).GetMethod("UnregisterConditionToAmount");
-
-            yield return new CodeInstruction(OpCodes.Ldarg_1); // effectForm
-            yield return new CodeInstruction(OpCodes.Ldarg_2); // formsParam
-            yield return new CodeInstruction(OpCodes.Call, registerConditionToAmountMethod);
 
             foreach (CodeInstruction instruction in instructions)
             {
                 if (instruction.Calls(inflictConditionMethod))
                 {
+                    yield return new CodeInstruction(OpCodes.Ldarg_2); // formsParam
+                    yield return new CodeInstruction(OpCodes.Ldloc, 35); // addedCondition local from for loop
                     yield return new CodeInstruction(OpCodes.Call, extendInflictConditionMethod);
                 }
                 else if (instruction.opcode == OpCodes.Ret)
