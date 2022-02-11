@@ -11,11 +11,7 @@ namespace SolastaCommunityExpansion.FightingStyles
 
         internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
         {
-            return new List<FeatureDefinitionFightingStyleChoice>() {
-                DatabaseHelper.FeatureDefinitionFightingStyleChoices.FightingStyleChampionAdditional,
-                DatabaseHelper.FeatureDefinitionFightingStyleChoices.FightingStyleFighter,
-                DatabaseHelper.FeatureDefinitionFightingStyleChoices.FightingStylePaladin,
-                DatabaseHelper.FeatureDefinitionFightingStyleChoices.FightingStyleRanger,};
+            return new List<FeatureDefinitionFightingStyleChoice>() {};
         }
 
         internal override FightingStyleDefinition GetStyle()

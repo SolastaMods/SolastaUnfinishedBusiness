@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Warden.Subclasses;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -26,7 +27,7 @@ namespace SolastaCommunityExpansion.Classes.Warden
         public static FeatureDefinitionPower FeatureDefinitionPowerWardenGrasp { get; private set; }
         public static FeatureDefinitionFightingStyleChoice FeatureDefinitionFightingStyleChoiceWarden { get; private set; }
         public static FeatureDefinitionPower FeatureDefinitionPowerWardenMark { get; private set; }
-        public static FeatureDefinitionCombatAffinity FeatureDefinitionDamageAffinityWardenResolve { get; private set; }
+        public static FeatureDefinitionPower FeatureDefinitionPowerWardenResolve { get; private set; }
         public static FeatureDefinitionPower FeatureDefinitionPowerFontOfLife { get; private set; }
         public static FeatureDefinitionAttributeModifier FeatureDefinitionAttributeModifierExtraAttack { get; private set; }
         public static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetSentinelStep { get; private set; }
@@ -266,26 +267,104 @@ namespace SolastaCommunityExpansion.Classes.Warden
 
         private static void BuildFightingStyle()
         {
-
             FeatureDefinitionFightingStyleChoiceWarden = new FeatureDefinitionBuilder<FeatureDefinitionFightingStyleChoice>(
                 FeatureDefinitionFightingStyleChoices.FightingStyleFighter, "FightingStyleWarden", WARDEN_BASE_GUID)
                     .SetGuiPresentation("FightingStyleWarden", Category.Class)
                     .AddToDB();
 
             FeatureDefinitionFightingStyleChoiceWarden.FightingStyles.Clear();
-
-            // I'm not sure why but this here will crash? 
-            FeatureDefinitionFightingStyleChoiceWarden.FightingStyles.Add(DatabaseHelper.FightingStyleDefinitions.GreatWeapon.ToString());
-            FeatureDefinitionFightingStyleChoiceWarden.FightingStyles.Add(DatabaseHelper.FightingStyleDefinitions.Protection.ToString());
-
+            FeatureDefinitionFightingStyleChoiceWarden.FightingStyles.Add(DatabaseHelper.FightingStyleDefinitions.GreatWeapon.Name);
+            FeatureDefinitionFightingStyleChoiceWarden.FightingStyles.Add(DatabaseHelper.FightingStyleDefinitions.Protection.Name);
+            if (DatabaseRepository.GetDatabase<FightingStyleDefinition>().TryGetElement("Crippling", out FightingStyleDefinition crippling))
+            {
+                FeatureDefinitionFightingStyleChoiceWarden.FightingStyles.Add(crippling.Name);
+            }
+            if (DatabaseRepository.GetDatabase<FightingStyleDefinition>().TryGetElement("TitanFighting", out FightingStyleDefinition titanFighting))
+            {
+                FeatureDefinitionFightingStyleChoiceWarden.FightingStyles.Add(titanFighting.Name);
+            }
         }
 
         private static void BuildWardenMark()
         {
         }
 
+
+        private class WardenResolveEffectForm : CustomEffectForm
+        {
+            public static ConditionDefinition conditionWardenResolve { get; private set; }
+            public WardenResolveEffectForm() : base()
+            {
+                if (conditionWardenResolve == null) {
+                    var wardenResolveConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
+                        ConditionDefinitions.ConditionRaging, "ConditionWardenResolve", WARDEN_BASE_GUID)
+                        .SetGuiPresentation("WardenResolve", Category.Condition, ConditionDefinitions.ConditionRestrained.GuiPresentation.SpriteReference)
+                        .AddToDB()
+                    .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
+                    .SetDurationParameter(1)
+                    .SetDurationType(RuleDefinitions.DurationType.Round)
+                    .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn);
+                    wardenResolveConditionDefinition.RecurrentEffectForms.Clear();
+                    wardenResolveConditionDefinition.Features.Clear();
+                    wardenResolveConditionDefinition.Features.Add(FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistance);
+                    wardenResolveConditionDefinition.Features.Add(FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistance);
+                    wardenResolveConditionDefinition.Features.Add(FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance);
+
+                    conditionWardenResolve = wardenResolveConditionDefinition;
+                }
+            }            
+            public override void ApplyForm(RulesetImplementationDefinitions.ApplyFormsParams formsParams, bool retargeting, bool proxyOnly, bool forceSelfConditionOnly)
+            {
+                if (formsParams.sourceCharacter.CurrentHitPoints <= formsParams.sourceCharacter.MissingHitPoints){
+                    // Apply our resistances
+                    ApplyCondition(formsParams, conditionWardenResolve, RuleDefinitions.DurationType.Round, 1);
+                }    
+            }
+            public override void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap){}
+            private static void ApplyCondition(RulesetImplementationDefinitions.ApplyFormsParams formsParams, ConditionDefinition condition, RuleDefinitions.DurationType durationType, int durationParam)
+            {
+                // Prepare params for inflicting conditions
+                ulong sourceGuid = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.Guid : 0L;
+                string sourceFaction = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.CurrentFaction.Name : string.Empty;
+                string effectDefinitionName = string.Empty;
+
+                if (formsParams.attackMode != null)
+                {
+                    effectDefinitionName = formsParams.attackMode.SourceDefinition.Name;
+                }
+                else if (formsParams.activeEffect != null)
+                {
+                    effectDefinitionName = formsParams.activeEffect.SourceDefinition.Name;
+                }
+
+                int sourceAbilityBonus = (formsParams.activeEffect?.ComputeSourceAbilityBonus(formsParams.sourceCharacter)) ?? 0;
+
+                formsParams.targetCharacter.InflictCondition(condition.Name, durationType, durationParam, RuleDefinitions.TurnOccurenceType.StartOfTurn, "11Effect", sourceGuid, sourceFaction, formsParams.effectLevel, effectDefinitionName, 0, sourceAbilityBonus);
+            }
+        }
+
         private static void BuildWardenResolve()
         {
+            var wardenResolveEffectDescription = new EffectDescription();
+            wardenResolveEffectDescription.Copy(SpellDefinitions.ShieldOfFaith.EffectDescription);
+            wardenResolveEffectDescription
+                .SetCanBePlacedOnCharacter(true)
+                .SetDurationType(RuleDefinitions.DurationType.Permanent)
+                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.StartOfTurn)
+                .SetRangeType(RuleDefinitions.RangeType.Self)
+                .SetRecurrentEffect(RuleDefinitions.RecurrentEffect.OnActivation | RuleDefinitions.RecurrentEffect.OnEnter | RuleDefinitions.RecurrentEffect.OnTurnStart)
+                .SetTargetType(RuleDefinitions.TargetType.Self);
+            wardenResolveEffectDescription.EffectForms.Clear();
+            wardenResolveEffectDescription.EffectForms.Add(new WardenResolveEffectForm());
+
+            FeatureDefinitionPowerWardenResolve = FeatureDefinitionPowerBuilder
+                .Create("WardenResolve", WARDEN_BASE_GUID)
+                .SetGuiPresentation(Category.Class, SpellDefinitions.ShieldOfFaith.GuiPresentation.SpriteReference)
+                .SetActivation(RuleDefinitions.ActivationTime.PermanentUnlessIncapacitated, 0)
+                .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+                .SetUsesFixed(1)
+                .SetEffect(wardenResolveEffectDescription)
+                .AddToDB();
         }
 
         private static void BuildFontOfLife()
@@ -510,9 +589,9 @@ namespace SolastaCommunityExpansion.Classes.Warden
             BuildProficiencies();
             BuildSentinelStand();
             BuildWardenGrasp();
-//            BuildFightingStyle();
+            BuildFightingStyle();
 //            BuildWardenMark();
-//            BuildWardenResolve();
+            BuildWardenResolve();
             BuildFontOfLife();
             BuildExtraAttack();
 //            BuildSentinelStep();
@@ -557,10 +636,10 @@ namespace SolastaCommunityExpansion.Classes.Warden
                         FeatureDefinitionPointPoolSkills,
                         FeatureDefinitionFeatureSetSentinelStand,
                         FeatureDefinitionPowerWardenGrasp)
-//                    .AddFeaturesAtLevel(2,
-//                        FeatureDefinitionFightingStyleChoiceWarden,
+                    .AddFeaturesAtLevel(2,
+                        FeatureDefinitionFightingStyleChoiceWarden)//,
 //                        FeatureDefinitionPowerWardenMark)
-//                    .AddFeatureAtLevel(3, FeatureDefinitionDamageAffinityWardenResolve)
+                    .AddFeatureAtLevel(3, FeatureDefinitionPowerWardenResolve)
                     .AddFeaturesAtLevel(4,
                         FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
                         FeatureDefinitionPowerFontOfLife)

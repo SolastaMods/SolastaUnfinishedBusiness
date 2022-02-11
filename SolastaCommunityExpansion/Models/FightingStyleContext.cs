@@ -12,7 +12,9 @@ namespace SolastaCommunityExpansion.Models
         internal static void Load()
         {
             LoadStyle(new BlindFighting());
+            LoadStyle(new Crippling());
             LoadStyle(new Pugilist());
+            LoadStyle(new TitanFighting());
         }
 
         private static void LoadStyle(AbstractFightingStyle styleBuilder)

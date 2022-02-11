@@ -14,11 +14,7 @@ namespace SolastaCommunityExpansion.FightingStyles
 
         internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
         {
-            return new List<FeatureDefinitionFightingStyleChoice>() {
-                DatabaseHelper.FeatureDefinitionFightingStyleChoices.FightingStyleChampionAdditional,
-                DatabaseHelper.FeatureDefinitionFightingStyleChoices.FightingStyleFighter,
-                DatabaseHelper.FeatureDefinitionFightingStyleChoices.FightingStylePaladin,
-                DatabaseHelper.FeatureDefinitionFightingStyleChoices.FightingStyleRanger,};
+            return new List<FeatureDefinitionFightingStyleChoice>() {};
         }
 
         internal override FightingStyleDefinition GetStyle()
@@ -41,7 +37,7 @@ namespace SolastaCommunityExpansion.FightingStyles
                 
                 GuiPresentationBuilder gui = new GuiPresentationBuilder("FightingStyle/&TitanFightingTitle", "FightingStyle/&TitanFightingDescription");
                 gui.SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.PathBerserker.GuiPresentation.SpriteReference);
-                CustomizableFightingStyleBuilder builder = new CustomizableFightingStyleBuilder("TitanFighting", "b570d166-c65c-4a68-ab78-aeb16d491fce",
+                CustomizableFightingStyleBuilder builder = new CustomizableFightingStyleBuilder("TitanFighting", "edc2a2d1-9f72-4825-b204-d810e911ed12",
                     new List<FeatureDefinition>() { additionalDamage },
                     gui.Build());
                 instance = builder.AddToDB();

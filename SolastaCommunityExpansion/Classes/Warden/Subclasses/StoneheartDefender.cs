@@ -27,69 +27,65 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
             return Subclass ??= BuildAndAddSubclass(wardenClass);
         }
 
-        private sealed class RootsOfRockEffectForm : CustomEffectForm
+        private class RootsOfRockEffectForm : CustomEffectForm
         {
             public static ConditionDefinition conditionRestricted { get; private set; }
             public static ConditionDefinition conditionAC { get; private set; }
-            public RootsOfRockEffectForm()
+            public RootsOfRockEffectForm() : base()
             {
-                this.FormType = (EffectFormType)ExtraEffectFormType.Custom;
+                if (conditionRestricted == null) {
+                    var rootsOfRockMovementAffinity = new FeatureDefinitionBuilder<FeatureDefinitionMovementAffinity>(
+                    FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained, "MovementRootsOfRock", Namespace)
+                        .SetGuiPresentation("MovementRootsOfRock", Category.Modifier)
+                        .AddToDB();
 
-                var rootsOfRockMovementAffinity = new FeatureDefinitionBuilder<FeatureDefinitionMovementAffinity>(
-                FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained, "MovementRootsOfRock", Namespace)
-                    .SetGuiPresentation("MovementRootsOfRock", Category.Modifier)
-                    .AddToDB();
+                    var rootsOfRockRestrictedConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
+                        ConditionDefinitions.ConditionHeavilyEncumbered, "ConditionRootsOfRockRestricted", Namespace)
+                            .SetGuiPresentation("RootsOfRockRestricted", Category.Condition, ConditionDefinitions.ConditionRestrained.GuiPresentation.SpriteReference)
+                            .AddToDB()
+                        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+                        .SetDurationParameter(1)
+                        .SetDurationType(RuleDefinitions.DurationType.Round)
+                        .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn);
+                    rootsOfRockRestrictedConditionDefinition.RecurrentEffectForms.Clear();
+                    rootsOfRockRestrictedConditionDefinition.Features.Clear();
+                    rootsOfRockRestrictedConditionDefinition.Features.Add(rootsOfRockMovementAffinity);
 
-                var rootsOfRockRestrictedConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                    ConditionDefinitions.ConditionHeavilyEncumbered, "ConditionRootsOfRockRestricted", Namespace)
-                        .SetGuiPresentation("RootsOfRockRestricted", Category.Condition, ConditionDefinitions.ConditionRestrained.GuiPresentation.SpriteReference)
-                        .AddToDB()
-                    .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
-                    .SetDurationParameter(1)
-                    .SetDurationType(RuleDefinitions.DurationType.Round)
-                    .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn);
-                rootsOfRockRestrictedConditionDefinition.RecurrentEffectForms.Clear();
-                rootsOfRockRestrictedConditionDefinition.Features.Clear();
-                rootsOfRockRestrictedConditionDefinition.Features.Add(rootsOfRockMovementAffinity);
+                    conditionRestricted = rootsOfRockRestrictedConditionDefinition;
+                }
 
-                var rootsOfRockAttributeModifier = FeatureDefinitionAttributeModifierBuilder
-                    .Create("AttributeModifierRootsOfRock", Namespace)
-                    .SetGuiPresentation(Category.Modifier)
-                    .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
-                    .AddToDB();
+                if (conditionAC == null) {
+                    var rootsOfRockAttributeModifier = FeatureDefinitionAttributeModifierBuilder
+                        .Create("AttributeModifierRootsOfRock", Namespace)
+                        .SetGuiPresentation(Category.Modifier)
+                        .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
+                        .AddToDB();
 
-                var rootsOfRockACConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                    ConditionDefinitions.ConditionAcidArrowed, "ConditionRootsOfRockAC", Namespace)
-                        .SetGuiPresentation("RootsOfRockAC", Category.Condition, ConditionDefinitions.ConditionShieldedByFaith.GuiPresentation.SpriteReference)
-                        .AddToDB()
-                    .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
-                    .SetDurationParameter(1)
-                    .SetDurationType(RuleDefinitions.DurationType.Round)
-                    .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn);
-                rootsOfRockACConditionDefinition.RecurrentEffectForms.Clear();
-                rootsOfRockACConditionDefinition.Features.Clear();
-                rootsOfRockACConditionDefinition.Features.Add(rootsOfRockAttributeModifier);
+                    var rootsOfRockACConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
+                        ConditionDefinitions.ConditionShieldedByFaith, "ConditionRootsOfRockAC", Namespace)
+                            .SetGuiPresentation("RootsOfRockAC", Category.Condition, ConditionDefinitions.ConditionShieldedByFaith.GuiPresentation.SpriteReference)
+                            .AddToDB()
+                        .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
+                        .SetDurationParameter(1)
+                        .SetDurationType(RuleDefinitions.DurationType.Round)
+                        .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn);
+                    rootsOfRockACConditionDefinition.RecurrentEffectForms.Clear();
+                    rootsOfRockACConditionDefinition.Features.Clear();
+                    rootsOfRockACConditionDefinition.Features.Add(rootsOfRockAttributeModifier);
 
-                conditionRestricted = rootsOfRockRestrictedConditionDefinition;
-                conditionAC = rootsOfRockACConditionDefinition;
-
+                    conditionAC = rootsOfRockACConditionDefinition;
+                }
             }
             public override void ApplyForm(RulesetImplementationDefinitions.ApplyFormsParams formsParams, bool retargeting, bool proxyOnly, bool forceSelfConditionOnly)
             {
-                
                 if (formsParams.targetCharacter.Side == RuleDefinitions.Side.Enemy || formsParams.targetCharacter == formsParams.sourceCharacter){
                     ApplyCondition(formsParams, conditionRestricted, RuleDefinitions.DurationType.Round, 1);
                     if (formsParams.targetCharacter == formsParams.sourceCharacter){
                         ApplyCondition(formsParams, conditionAC, RuleDefinitions.DurationType.Round, 1);
                     }
                 }
-
             }
-
-            public override void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap)
-            {
-                // Nothing
-            }
+            public override void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap){}
             private static void ApplyCondition(RulesetImplementationDefinitions.ApplyFormsParams formsParams, ConditionDefinition condition, RuleDefinitions.DurationType durationType, int durationParam)
             {
                 // Prepare params for inflicting conditions
@@ -112,7 +108,7 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
             }
         }
 
-        private static void BuildRootsOfRock()
+        private static void BuildRootsOfRock(CharacterClassDefinition wardenClass)
         {
             var rootsOfRockEffectDescription = new EffectDescription();
             rootsOfRockEffectDescription.Copy(SpellDefinitions.Entangle.EffectDescription);
@@ -144,13 +140,102 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
                 .SetUsesFixed(1)
                 .SetEffect(rootsOfRockEffectDescription)
                 .AddToDB();
+
+            if (DatabaseRepository.GetDatabase<FeatureDefinitionPower>().TryGetElement("WardenGrasp", out var originalWardenGrasp))
+            {
+                FeatureDefinitionPowerRootsOfRock.SetOverriddenPower(originalWardenGrasp);
+            }
+
+        }
+
+        private sealed class EarthshatterEffectForm : RootsOfRockEffectForm
+        {
+            public static ConditionDefinition conditionProne { get; private set; }
+            public EarthshatterEffectForm() : base()
+            {
+                var earthshatterProneConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
+                    ConditionDefinitions.ConditionProne, "ConditionEarthshatterProne", Namespace)
+                        .SetGuiPresentation("EarthshatterProne", Category.Condition, ConditionDefinitions.ConditionProne.GuiPresentation.SpriteReference)
+                        .AddToDB()
+                    .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+                    .SetDurationParameter(1)
+                    .SetDurationType(RuleDefinitions.DurationType.Round)
+                    .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn);
+                earthshatterProneConditionDefinition.RecurrentEffectForms.Clear();
+
+                conditionProne = earthshatterProneConditionDefinition;
+
+            }
+            public override void ApplyForm(RulesetImplementationDefinitions.ApplyFormsParams formsParams, bool retargeting, bool proxyOnly, bool forceSelfConditionOnly)
+            {
+                
+                if (formsParams.targetCharacter.Side == RuleDefinitions.Side.Enemy || formsParams.targetCharacter == formsParams.sourceCharacter){
+                    ApplyCondition(formsParams, conditionRestricted, RuleDefinitions.DurationType.Round, 1);
+                    if (formsParams.targetCharacter.Side == RuleDefinitions.Side.Enemy){
+                        ApplyCondition(formsParams, conditionProne, RuleDefinitions.DurationType.Round, 1);
+                    }
+                    if (formsParams.targetCharacter == formsParams.sourceCharacter){
+                        ApplyCondition(formsParams, conditionAC, RuleDefinitions.DurationType.Round, 1);
+                    }
+                }
+
+            }
+
+            public override void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap){}
+            
+            private static void ApplyCondition(RulesetImplementationDefinitions.ApplyFormsParams formsParams, ConditionDefinition condition, RuleDefinitions.DurationType durationType, int durationParam)
+            {
+                // Prepare params for inflicting conditions
+                ulong sourceGuid = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.Guid : 0L;
+                string sourceFaction = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.CurrentFaction.Name : string.Empty;
+                string effectDefinitionName = string.Empty;
+
+                if (formsParams.attackMode != null)
+                {
+                    effectDefinitionName = formsParams.attackMode.SourceDefinition.Name;
+                }
+                else if (formsParams.activeEffect != null)
+                {
+                    effectDefinitionName = formsParams.activeEffect.SourceDefinition.Name;
+                }
+
+                int sourceAbilityBonus = (formsParams.activeEffect?.ComputeSourceAbilityBonus(formsParams.sourceCharacter)) ?? 0;
+
+                formsParams.targetCharacter.InflictCondition(condition.Name, durationType, durationParam, RuleDefinitions.TurnOccurenceType.StartOfTurn, "11Effect", sourceGuid, sourceFaction, formsParams.effectLevel, effectDefinitionName, 0, sourceAbilityBonus);
+            }
         }
 
         private static void BuildEarthshatter()
         {
+            var earthshatterEffectDescription = new EffectDescription();
+            earthshatterEffectDescription.Copy(SpellDefinitions.Thunderwave.EffectDescription);
+            earthshatterEffectDescription
+                .SetCanBePlacedOnCharacter(true)
+                .SetDurationParameter(1)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.StartOfTurn)
+                .SetHasSavingThrow(false)
+                .SetRangeType(RuleDefinitions.RangeType.Self)
+                .SetRecurrentEffect(RuleDefinitions.RecurrentEffect.No)
+                .SetTargetExcludeCaster(false)
+                .SetTargetParameter(3)
+                .SetTargetSide(RuleDefinitions.Side.All)
+                .SetTargetType(RuleDefinitions.TargetType.Cube);
+            earthshatterEffectDescription.EffectParticleParameters.SetZoneParticleReference(null);
+            earthshatterEffectDescription.RestrictedCharacterSizes.Add(RuleDefinitions.CreatureSize.Large);
+            earthshatterEffectDescription.RestrictedCharacterSizes.Add(RuleDefinitions.CreatureSize.Medium);
+            earthshatterEffectDescription.RestrictedCharacterSizes.Add(RuleDefinitions.CreatureSize.Small);
+            earthshatterEffectDescription.RestrictedCharacterSizes.Add(RuleDefinitions.CreatureSize.Tiny);
+            earthshatterEffectDescription.EffectForms.Clear();
+            earthshatterEffectDescription.EffectForms.Add(new EarthshatterEffectForm());
+
             FeatureDefinitionPowerEarthshatter = FeatureDefinitionPowerBuilder
                 .Create("Earthshatter", Namespace)
                 .SetGuiPresentation(Category.Power, Thunderwave.GuiPresentation.SpriteReference)
+                .SetActivation(RuleDefinitions.ActivationTime.Action, 1)
+                .SetRecharge(RuleDefinitions.RechargeRate.LongRest)
+                .SetUsesAbility(0, AttributeDefinitions.Strength)
+                .SetEffect(earthshatterEffectDescription)
                 .AddToDB();
         }
 
@@ -173,8 +258,8 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
         private static void BuildProgression(CharacterSubclassDefinitionBuilder subclassBuilder)
         {
             subclassBuilder
-                .AddFeatureAtLevel(FeatureDefinitionPowerRootsOfRock, 3);
-//                .AddFeatureAtLevel(FeatureDefinitionPowerEarthshatter, 3)
+                .AddFeatureAtLevel(FeatureDefinitionPowerRootsOfRock, 3)
+                .AddFeatureAtLevel(FeatureDefinitionPowerEarthshatter, 3);
   //              .AddFeatureAtLevel(FeatureDefinitionPowerMettle, 3)
     //            .AddFeatureAtLevel(FeatureDefinitionPowerImmortalMountain, 3);
         }
@@ -185,7 +270,7 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
                 .Create("StoneheartDefender", Namespace)
                 .SetGuiPresentation(Category.Subclass, MartialMountaineer.GuiPresentation.SpriteReference);
 
-            BuildRootsOfRock();
+            BuildRootsOfRock(wardenClass);
             BuildEarthshatter();
             BuildMettle();
             BuildImmortalMountain();
