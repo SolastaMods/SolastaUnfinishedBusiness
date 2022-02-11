@@ -56,7 +56,8 @@ namespace SolastaModApi
             Definition.GuiPresentation = presentation;
         }
 
-        string IBaseDefinitionBuilder.Name => Definition?.Name ?? string.Empty;
+        // NOTE: don't use Definition?. which bypasses Unity object lifetime check
+        string IBaseDefinitionBuilder.Name => Definition ? (Definition.Name ?? string.Empty) : string.Empty;
 
         private void InitializeCollectionFields()
         {

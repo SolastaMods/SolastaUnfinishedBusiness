@@ -141,7 +141,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             foreach (var characterClassDefinition in DatabaseRepository.GetDatabase<CharacterClassDefinition>())
             {
                 var className = characterClassDefinition.Name;
-                var featureUnlocks = characterClassDefinition?.FeatureUnlocks;
+                var featureUnlocks = characterClassDefinition.FeatureUnlocks;
 
                 EnumerateSpells(className, featureUnlocks, false);
             }
@@ -149,7 +149,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             foreach (var characterSubclassDefinition in DatabaseRepository.GetDatabase<CharacterSubclassDefinition>())
             {
                 var subclassName = characterSubclassDefinition.Name;
-                var featureUnlocks = characterSubclassDefinition?.FeatureUnlocks;
+                var featureUnlocks = characterSubclassDefinition.FeatureUnlocks;
 
                 EnumerateSpells(subclassName, featureUnlocks, true);
             }
@@ -180,8 +180,10 @@ namespace SolastaCommunityExpansion.Multiclass.Models
         internal static bool IsSpellOfferedBySelectedClassSubclass(SpellDefinition spellDefinition, bool onlyCurrentLevel = false)
         {
             var classLevel = LevelUpContext.GetClassLevel();
-            var className = LevelUpContext.SelectedClass?.Name;
-            var subClassName = LevelUpContext.SelectedSubclass?.Name;
+            // NOTE: don't use SelectedClass?. which bypasses Unity object lifetime check
+            var className = LevelUpContext.SelectedClass ? LevelUpContext.SelectedClass.Name : null;
+            // NOTE: don't use SelectedSubclass?. which bypasses Unity object lifetime check
+            var subClassName = LevelUpContext.SelectedSubclass ? LevelUpContext.SelectedSubclass.Name : null;
 
             if (className != null && classSpellList.ContainsKey(className))
             {
