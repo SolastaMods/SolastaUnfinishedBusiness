@@ -69,7 +69,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
                     // WARNING: review parameter value 35 before release
                     //
                     yield return new CodeInstruction(OpCodes.Ldarg_2); // formsParam
-                    yield return new CodeInstruction(OpCodes.Ldloc, 35); // addedCondition local from for loop
+                    yield return new CodeInstruction(OpCodes.Ldloc_S, 35); // addedCondition local from for loop
                     yield return new CodeInstruction(OpCodes.Call, extendInflictConditionMethod);
                 }
                 else
