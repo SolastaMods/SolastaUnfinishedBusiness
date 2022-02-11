@@ -20,7 +20,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElemen
 
         public static List<SpellDefinition> FilteredSubspells { get; internal set; }
 
-        public static List<SpellDefinition> MySubspellsList(SpellDefinition masterSpell, int slotLevel)
+        public static void CacheFilters(SpellDefinition masterSpell, int slotLevel)
         {
             var subspellsList = masterSpell.SubspellsList;
 
@@ -31,7 +31,9 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElemen
 
             if (!Main.Settings.EnableUpcastConjureElementalAndFey || !FilterBySlotLevel.HasValue || subspellsList == null || subspellsList.Count == 0)
             {
-                return subspellsList;
+                FilteredSubspells = subspellsList;
+
+                return;
             }
 
             var subspellsGroupedAndFilteredByCR = subspellsList
@@ -71,32 +73,29 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElemen
             FilteredSubspells = allOrMostPowerful.SelectMany(s => s.SpellDefinitions).ToList();
 
             FilteredSubspells.ForEach(s => Main.Log($"{Gui.Format(s.GuiPresentation.Title)}"));
-
-            return FilteredSubspells;
         }
 
-        public static void ResetFilteredSubspells()
+        public static List<SpellDefinition> MySubspellsList()
         {
-            FilterBySlotLevel = null;
+            return FilteredSubspells;
         }
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
+            var cacheFilteredSubspellsMethod = typeof(SubspellSelectionModal_Bind).GetMethod("CacheFilters");
             var subspellsListMethod = typeof(SpellDefinition).GetMethod("get_SubspellsList");
             var mySubspellsListMethod = typeof(SubspellSelectionModal_Bind).GetMethod("MySubspellsList");
-            var resetFilteredSubspellsMethod = typeof(SubspellSelectionModal_Bind).GetMethod("ResetFilteredSubspells");
+
+            yield return new CodeInstruction(OpCodes.Ldarg_1); // masterSpell
+            yield return new CodeInstruction(OpCodes.Ldarg, 5); // slotLevel
+            yield return new CodeInstruction(OpCodes.Call, cacheFilteredSubspellsMethod);
 
             foreach (CodeInstruction instruction in instructions)
             {
                 if (instruction.Calls(subspellsListMethod))
                 {
-                    yield return new CodeInstruction(OpCodes.Ldarg, 5); // slotLevel
+                    yield return new CodeInstruction(OpCodes.Pop); // remove masterSpell from stack
                     yield return new CodeInstruction(OpCodes.Call, mySubspellsListMethod);
-                }
-                else if (instruction.opcode == OpCodes.Ret)
-                {
-                    yield return new CodeInstruction(OpCodes.Call, resetFilteredSubspellsMethod);
-                    yield return instruction;
                 }
                 else
                 {
