@@ -34,9 +34,9 @@ namespace SolastaModApi
             }
         }
 
-        protected static void VerifyDefinitionNameIsNotInUse(string name)
+        protected static void VerifyDefinitionNameIsNotInUse(string definitionTypeName, string definitionName)
         {
-            if (DisableVerifyDefinitionNameIsNotInUse)
+            if (Main.Settings.DebugDisableVerifyDefinitionNameIsNotInUse)
             {
                 return;
             }
@@ -45,38 +45,40 @@ namespace SolastaModApi
             // 1) get all names used in all TA databases (at this point) ignoring existing duplicates 
             // 2) check 'name' hasn't been used already, but ignore names we know already have duplicates
 
-            if (KnownDuplicateDefinitionNames.Contains(name))
+            if (Main.Settings.KnownDuplicateDefinitionNames.Contains(definitionName))
             {
                 return;
             }
 
-            if (definitionNames.ContainsKey(name))
+            if (definitionNames.TryGetValue(definitionName, out (string typeName, bool isCeDef) item))
             {
-                var definitionInDb = definitionNames[name];
+                var msg = Environment.NewLine +
+                    $"Adding definition of type '{definitionTypeName}' and name '{definitionName}'." +
+                    Environment.NewLine +
+                    $"A definition of type '{item.typeName} is already registered using the same name for a {(item.isCeDef ? "CE definition" : "Non-CE definition")}.";
 
-                var msg = definitionInDb ? "Non-CE definition:" : "CE definition";
-
-                throw new SolastaModApiException($"{msg}:{name} is already in use.");
+#if DEBUG
+                throw new SolastaModApiException(msg);
+#else
+                Main.Log(msg);
+#endif
             }
 
-            definitionNames.Add(name, false);
+            definitionNames.Add(definitionName, (definitionTypeName, true));
         }
 
-        // This could be loaded from settings for more control
-        private static HashSet<string> KnownDuplicateDefinitionNames { get; } = new(StringComparer.OrdinalIgnoreCase) { "SummonProtectorConstruct" };
+        private static Dictionary<string, (string typeName, bool isCeDef)> definitionNames { get; } = GetAllDefinitionNames();
 
-        private static Dictionary<string, bool> definitionNames { get; } = GetAllDefinitionNames();
-
-        private static Dictionary<string, bool> GetAllDefinitionNames()
+        private static Dictionary<string, (string typeName, bool isCeDef)> GetAllDefinitionNames()
         {
-            var definitions = new Dictionary<string, bool>(StringComparer.OrdinalIgnoreCase);
+            var definitions = new Dictionary<string, (string typeName, bool isCeDef)>(StringComparer.OrdinalIgnoreCase);
 
             foreach (var db in (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases").GetValue(null))
             {
                 foreach (var bd in (IEnumerable)db.Value)
                 {
                     // Ignore duplicates in other (TA, other mods loaded first) definition names
-                    definitions.TryAdd(((BaseDefinition)bd).Name, true);
+                    definitions.TryAdd(((BaseDefinition)bd).Name, (bd.GetType().Name, false));
                 }
             }
 
@@ -85,9 +87,6 @@ namespace SolastaModApi
 
         protected const string CENamePrefix = "_CE_";
         protected static readonly Guid CENamespaceGuid = new("4ce4cabe-0d35-4419-86ef-13ce1bef32fd");
-
-        // This could be controlled from settings (or could be a setting)
-        internal static bool DisableVerifyDefinitionNameIsNotInUse { get; set; }
     }
 
     // Used to allow extension methods in other mods to set GuiPresentation 
@@ -231,10 +230,10 @@ namespace SolastaModApi
         {
             Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
 
-            VerifyDefinitionNameIsNotInUse(name);
-
             Definition = ScriptableObject.CreateInstance<TDefinition>();
             Definition.name = name;
+
+            VerifyDefinitionNameIsNotInUse(Definition.GetType().Name, name);
 
             InitializeCollectionFields();
 
@@ -293,13 +292,13 @@ namespace SolastaModApi
             Preconditions.IsNotNull(original, nameof(original));
             Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
 
-            VerifyDefinitionNameIsNotInUse(name);
-
             var originalName = original.name;
             var originalGuid = original.GUID;
 
             Definition = UnityEngine.Object.Instantiate(original);
             Definition.name = name;
+
+            VerifyDefinitionNameIsNotInUse(Definition.GetType().Name, name);
 
             InitializeCollectionFields();
 
