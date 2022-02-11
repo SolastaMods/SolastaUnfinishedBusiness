@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 namespace SolastaCommunityExpansion.Multiclass.Models
 {
@@ -45,9 +46,48 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             selectedClass = allowedClasses.IndexOf(hero.ClassesHistory[hero.ClassesHistory.Count - 1]);
         }
 
+        private static readonly string[] CoreAttributes = new string[]
+        {
+            AttributeDefinitions.Strength,
+            AttributeDefinitions.Dexterity,
+            AttributeDefinitions.Intelligence,
+            AttributeDefinitions.Wisdom,
+            AttributeDefinitions.Charisma
+        };
+
+        private static void EnumerateAttributeModifiers(RulesetCharacterHero hero, Dictionary<string, int> attributeModifiers)
+        {
+            var items = new List<RulesetItem>();
+
+            hero.CharacterInventory.EnumerateAllItems(items, considerContainers: false);
+
+            foreach (var featureDefinitionAttributeModifier in items
+                .SelectMany(x => x.ItemDefinition.StaticProperties
+                    .Select(y => y.FeatureDefinition)
+                    .OfType<FeatureDefinitionAttributeModifier>()
+                    .Where(z => System.Array.IndexOf(CoreAttributes, z.ModifiedAttribute) >= 0 && z.ModifierType == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)))
+            {
+                var modifiedAttribute = featureDefinitionAttributeModifier.ModifiedAttribute;
+                var modifierValue = featureDefinitionAttributeModifier.ModifierValue;
+
+                if (attributeModifiers.ContainsKey(modifiedAttribute))
+                {
+                    attributeModifiers[modifiedAttribute] += modifierValue;
+                }
+                else
+                {
+                    attributeModifiers.Add(modifiedAttribute, modifierValue);
+                }
+            };
+        }
+
         [SuppressMessage("Convert switch statement to expression", "IDE0066")]
         internal static bool ApproveMultiClassInOut(RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
         {
+            var test = new Dictionary<string, int>();
+
+            EnumerateAttributeModifiers(hero, test);
+
             var strength = hero.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
             var dexterity = hero.GetAttribute(AttributeDefinitions.Dexterity).CurrentValue;
             var intelligence = hero.GetAttribute(AttributeDefinitions.Intelligence).CurrentValue;
