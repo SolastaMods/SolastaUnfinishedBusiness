@@ -117,8 +117,8 @@ namespace SolastaCommunityExpansion.Models
                 Quarterstaff,
                 EquipmentDefinitions.FocusType.Druidic,
                 QuarterstaffPlus1.GuiPresentation.SpriteReference,
-                "MainHandSlot",
-                "OffHandSlot");
+                EquipmentDefinitions.SlotTypeMainHand,
+                EquipmentDefinitions.SlotTypeOffHand);
 
             internal static readonly ItemDefinition DruidicAmulet = CreateAndAddToDB(
                 "DruidicAmulet",
@@ -128,8 +128,8 @@ namespace SolastaCommunityExpansion.Models
                 ComponentPouch_ArcaneAmulet,
                 EquipmentDefinitions.FocusType.Druidic,
                 BeltOfGiantHillStrength.GuiPresentation.SpriteReference,
-                "MainHandSlot",
-                "OffHandSlot");
+                EquipmentDefinitions.SlotTypeMainHand,
+                EquipmentDefinitions.SlotTypeOffHand);
 
             internal static readonly ItemDefinition LivewoodClub = CreateAndAddToDB(
                 "LivewoodClub",
@@ -139,8 +139,8 @@ namespace SolastaCommunityExpansion.Models
                 Club,
                 EquipmentDefinitions.FocusType.Druidic,
                 null,
-                "MainHandSlot",
-                "OffHandSlot");
+                EquipmentDefinitions.SlotTypeMainHand,
+                EquipmentDefinitions.SlotTypeOffHand);
 
             internal static readonly ItemDefinition LivewoodStaff = CreateAndAddToDB(
                 "LivewoodStaff",
@@ -150,8 +150,8 @@ namespace SolastaCommunityExpansion.Models
                 ComponentPouch_ArcaneAmulet,
                 EquipmentDefinitions.FocusType.Druidic,
                 StaffOfHealing.GuiPresentation.SpriteReference,
-                "MainHandSlot",
-                "OffHandSlot");
+                EquipmentDefinitions.SlotTypeMainHand,
+                EquipmentDefinitions.SlotTypeOffHand);
         }
 
         private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
