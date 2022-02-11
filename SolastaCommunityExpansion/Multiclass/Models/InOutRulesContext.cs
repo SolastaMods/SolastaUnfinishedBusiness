@@ -55,6 +55,26 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             AttributeDefinitions.Charisma
         };
 
+        private static int MyGetAttribute(RulesetCharacterHero hero, string attributeName)
+        {
+            var attribute = hero.GetAttribute(attributeName);
+            var activeModifiers = attribute.ActiveModifiers;
+            var currentValue = attribute.BaseValue;
+            var minValue = int.MinValue;
+
+            foreach (var activeModifier in activeModifiers)
+            {
+                currentValue = activeModifier.ApplyOnValue(currentValue);
+
+                if (activeModifier.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
+                {
+                    currentValue += UnityEngine.Mathf.FloorToInt(activeModifier.Value);
+                }
+            }
+
+            return UnityEngine.Mathf.Clamp(currentValue, minValue, attribute.MaxEditableValue > 0 ? attribute.MaxEditableValue : attribute.MaxValue);
+        }
+
         private static void EnumerateAttributeModifiers(RulesetCharacterHero hero, Dictionary<string, int> attributeModifiers)
         {
             var items = new List<RulesetItem>();
