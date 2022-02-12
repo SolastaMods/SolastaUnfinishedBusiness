@@ -460,10 +460,11 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .AddToDB();
 
             // Disorient
-            var disorientCombatAffinity = new FeatureDefinitionBuilder<FeatureDefinitionCombatAffinity>(
-                FeatureDefinitionCombatAffinitys.CombatAffinityBaned, "CombatAffinityDisorient", WITCH_BASE_GUID)
-                    .SetGuiPresentation("Disorient", Category.Modifier)
-                    .AddToDB()
+            var disorientCombatAffinity = FeatureDefinitionBuilder<FeatureDefinitionCombatAffinity>
+                .Create(FeatureDefinitionCombatAffinitys.CombatAffinityBaned, "CombatAffinityDisorient", WITCH_BASE_GUID)
+                .SetGuiPresentation("Disorient", Category.Modifier)
+                .AddToDB()
+                // TODO: move into builder
                 .SetMyAttackModifierDieType(RuleDefinitions.DieType.D6);
 
             var disorientConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
