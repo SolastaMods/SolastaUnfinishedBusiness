@@ -12,6 +12,7 @@
         Blueprint,
         CharacterFamily,
         Class,
+        CommunityExpansion,
         Condition,
         CraftyFeats,
         DamageAffinity,
