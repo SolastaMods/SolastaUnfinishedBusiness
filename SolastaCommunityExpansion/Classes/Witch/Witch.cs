@@ -337,7 +337,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var abateConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
                 ConditionDefinitions.ConditionShocked, "ConditionAbate", WITCH_BASE_GUID)
                     .SetGuiPresentation("Abate", Category.Condition, ConditionDefinitions.ConditionShocked.GuiPresentation.SpriteReference)
-                    .Configure<ConditionDefinitionBuilder<ConditionDefinition>>(d =>
+                    .Configure(d =>
                     {
                         d.SetConditionType(RuleDefinitions.ConditionType.Detrimental);
                         d.SetDurationParameter(1);

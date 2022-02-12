@@ -102,7 +102,9 @@ namespace SolastaModApi
     ///     Base class builder for all classes derived from BaseDefinition
     /// </summary>
     /// <typeparam name="TDefinition"></typeparam>
-    public abstract class BaseDefinitionBuilder<TDefinition> : BaseDefinitionBuilder, IBaseDefinitionBuilder where TDefinition : BaseDefinition
+    public abstract class BaseDefinitionBuilder<TDefinition, TBuilder> : BaseDefinitionBuilder, IBaseDefinitionBuilder
+        where TBuilder : BaseDefinitionBuilder<TDefinition, TBuilder>
+        where TDefinition : BaseDefinition
     {
         #region Helpers
 
@@ -497,8 +499,7 @@ namespace SolastaModApi
 
         protected TDefinition Definition { get; }
 
-        internal TBuilder Configure<TBuilder>(Action<TDefinition> configureDefinition)
-            where TBuilder : BaseDefinitionBuilder<TDefinition>
+        internal TBuilder Configure(Action<TDefinition> configureDefinition)
         {
             Assert.IsNotNull(configureDefinition);
             configureDefinition.Invoke(Definition);
