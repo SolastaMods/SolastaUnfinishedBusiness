@@ -32,7 +32,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
             var builder = new StringBuilder();
 
             builder.Append(__result);
-            builder.Append("\n\n<B>ADDITIONAL BACKSTORY</B>\n\n");
+            builder.Append("\n\n<B>");
+            builder.Append(Gui.Format("Stage/&IdentityAdditionalBackstoryHeader"));
+            builder.Append("</B>\n\n");
             builder.Append(additionalBackstory);
 
             __result = builder.ToString();
