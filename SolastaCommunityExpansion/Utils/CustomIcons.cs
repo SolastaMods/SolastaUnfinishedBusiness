@@ -151,7 +151,8 @@ namespace SolastaCommunityExpansion.Utils
             string finalImageFilename)
         {
             using var baseImage = new Bitmap(baseImageFile);
-            using var innerImage = new Bitmap(new Bitmap(innerImageFile), new Size(innerImageScale.Item1, innerImageScale.Item2));
+            using var originalImage = new Bitmap(innerImageFile);
+            using var innerImage = new Bitmap(originalImage, new Size(innerImageScale.Item1, innerImageScale.Item2));
 
             var sourceRegion = new Rectangle(0, 0, innerImageScale.Item1, innerImageScale.Item2);
             var destinationRegion = new Rectangle(innerImagePosition.Item1, innerImagePosition.Item2, innerImageScale.Item1, innerImageScale.Item2);
