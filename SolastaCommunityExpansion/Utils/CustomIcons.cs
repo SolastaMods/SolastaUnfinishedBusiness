@@ -15,6 +15,7 @@ namespace SolastaCommunityExpansion.Utils
         private const string CUSTOM_ICON_PREFIX = "CUSTOM_ICON_PREFIX_";
 
         internal static readonly Dictionary<string, Sprite> LoadedIcons = new();
+        internal static readonly Dictionary<Bitmap, Sprite> SpriteFromBitmap = new();
 
         internal static Sprite ImageToSprite(string filePath, int sizeX, int sizeY)
         {
@@ -190,6 +191,23 @@ namespace SolastaCommunityExpansion.Utils
             }
 
             return LoadedIcons.ContainsValue(sprite);
+        }
+
+        /// <summary>
+        /// Convert a bitmap stored as an embedded resource to a Sprite.
+        /// NOTE: must be a square bitmap.  Update method to handle non-square.
+        /// </summary>
+        internal static Sprite CreateSpriteFromResource(Bitmap bitmap, int size)
+        {
+            if (!SpriteFromBitmap.TryGetValue(bitmap, out var sprite))
+            {
+                var texture = new Texture2D(size, size, TextureFormat.DXT5, false);
+                texture.LoadImage((byte[])new ImageConverter().ConvertTo(bitmap, typeof(byte[])));
+                sprite = Sprite.Create(texture, new Rect(0, 0, size, size), new Vector2(0, 0));
+                SpriteFromBitmap[bitmap] = sprite;
+            }
+
+            return sprite;
         }
     }
 }
