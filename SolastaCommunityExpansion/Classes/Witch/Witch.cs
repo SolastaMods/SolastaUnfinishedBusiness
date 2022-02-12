@@ -376,10 +376,6 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
                 .SetUsesFixed(1)
                 .SetEffect(abateEffectDescription)
-                .Configure<FeatureDefinitionPowerBuilder>(d =>
-                {
-
-                })
                 .AddToDB();
 
             // Apathy
