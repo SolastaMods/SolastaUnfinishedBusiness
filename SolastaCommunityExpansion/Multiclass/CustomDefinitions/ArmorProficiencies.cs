@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using SolastaModApi;
+using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
 
@@ -40,7 +40,7 @@ namespace SolastaCommunityExpansion.Multiclass.CustomDefinitions
     //        .AddToDB();
     //}
 
-    internal class ArmorProficiencyMulticlassBuilder : BaseDefinitionBuilder<FeatureDefinitionProficiency>
+    internal class ArmorProficiencyMulticlassBuilder : DefinitionBuilder<FeatureDefinitionProficiency>
     {
         private const string BarbarianArmorProficiencyMulticlassName = "BarbarianArmorProficiencyMulticlass";
         private const string BarbarianArmorProficiencyMulticlassGuid = "5dffec907a424fccbfec103344421b51";

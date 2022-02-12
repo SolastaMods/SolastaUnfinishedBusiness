@@ -1,11 +1,10 @@
 ﻿using System;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using SolastaModApi;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionConditionalPowerBuilder : BaseDefinitionBuilder<FeatureDefinitionConditionalPower>
+    public sealed class FeatureDefinitionConditionalPowerBuilder : DefinitionBuilder<FeatureDefinitionConditionalPower>
     {
         private FeatureDefinitionConditionalPowerBuilder(string name, Guid namespaceGuid)
             : base(name, namespaceGuid)

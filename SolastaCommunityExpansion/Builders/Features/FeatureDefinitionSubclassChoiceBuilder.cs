@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionSubclassChoiceBuilder : BaseDefinitionBuilder<FeatureDefinitionSubclassChoice>
+    public sealed class FeatureDefinitionSubclassChoiceBuilder : DefinitionBuilder<FeatureDefinitionSubclassChoice>
     {
         #region Constructors
         private FeatureDefinitionSubclassChoiceBuilder(string name, string guid)

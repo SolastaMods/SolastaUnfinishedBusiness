@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionPointPoolBuilder : BaseDefinitionBuilder<FeatureDefinitionPointPool>
+    public sealed class FeatureDefinitionPointPoolBuilder : DefinitionBuilder<FeatureDefinitionPointPool>
     {
         /*        private FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, string guid)
                     : base(original, name, guid)

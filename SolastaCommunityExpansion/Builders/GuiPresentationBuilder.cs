@@ -1,5 +1,4 @@
 ﻿using System;
-using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
@@ -108,9 +107,9 @@ namespace SolastaCommunityExpansion.Builders
         /// Set the provided GuiPresentation instance on the definition owned by the builder.
         /// </summary>
         public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, GuiPresentation guiPresentation)
-            where TBuilder : IBaseDefinitionBuilder
+            where TBuilder : IDefinitionBuilder
         {
-            ((IBaseDefinitionBuilder)builder).SetGuiPresentation(guiPresentation);
+            ((IDefinitionBuilder)builder).SetGuiPresentation(guiPresentation);
             return builder;
         }
 
@@ -118,7 +117,7 @@ namespace SolastaCommunityExpansion.Builders
         /// Create and set a GuiPresentation from the provided title, description and AssetReferenceSprite.
         /// </summary>
         public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, string title, string description, AssetReferenceSprite sprite = null)
-            where TBuilder : IBaseDefinitionBuilder
+            where TBuilder : IDefinitionBuilder
         {
             return SetGuiPresentation(builder, GuiPresentationBuilder.Build(title, description, sprite));
         }
@@ -130,7 +129,7 @@ namespace SolastaCommunityExpansion.Builders
         /// </summary>
         public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder,
                 string name, Category category, AssetReferenceSprite sprite = null, int? sortOrder = null)
-            where TBuilder : IBaseDefinitionBuilder
+            where TBuilder : IDefinitionBuilder
         {
             return SetGuiPresentation(builder, GuiPresentationBuilder.Build(name, category, sprite, sortOrder));
         }
@@ -143,9 +142,9 @@ namespace SolastaCommunityExpansion.Builders
         /// <typeparam name="TBuilder"></typeparam>
         public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder,
                 Category category, AssetReferenceSprite sprite = null, int? sortOrder = null)
-            where TBuilder : IBaseDefinitionBuilder
+            where TBuilder : IDefinitionBuilder
         {
-            return SetGuiPresentation(builder, GuiPresentationBuilder.Build(((IBaseDefinitionBuilder)builder).Name, category, sprite, sortOrder));
+            return SetGuiPresentation(builder, GuiPresentationBuilder.Build(((IDefinitionBuilder)builder).Name, category, sprite, sortOrder));
         }
 
         // TODO: More SetGuiPresentation/Generate(...) overloads as required
@@ -154,9 +153,9 @@ namespace SolastaCommunityExpansion.Builders
         /// Create a GuiPresentation with Title=Feature/&amp;NoContentTitle, Description=Feature/&amp;NoContentDescription.
         /// </summary>
         public static TBuilder SetGuiPresentationNoContent<TBuilder>(this TBuilder builder)
-            where TBuilder : IBaseDefinitionBuilder
+            where TBuilder : IDefinitionBuilder
         {
-            ((IBaseDefinitionBuilder)builder).SetGuiPresentation(GuiPresentationBuilder.NoContent);
+            ((IDefinitionBuilder)builder).SetGuiPresentation(GuiPresentationBuilder.NoContent);
             return builder;
         }
     }

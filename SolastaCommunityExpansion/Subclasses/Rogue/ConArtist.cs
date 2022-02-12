@@ -107,7 +107,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             Subclass = conArtist.AddToDB();
         }
 
-        public class AdvantageBuilder : BaseDefinitionBuilder<ConditionDefinition>
+        public class AdvantageBuilder : DefinitionBuilder<ConditionDefinition>
         {
             public AdvantageBuilder(string name, string guid, ConditionDefinition original, GuiPresentation guiPresentation) : base(original, name, guid)
             {

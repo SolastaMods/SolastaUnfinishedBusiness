@@ -1,9 +1,9 @@
-﻿using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using SolastaModApi;
+﻿using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal class PrimalChampionBuilder : BaseDefinitionBuilder<PrimalChampion>
+    internal class PrimalChampionBuilder : DefinitionBuilder<PrimalChampion>
     {
         private const string PrimalChampionName = "ZSPrimalChampion";
         private const string PrimalChampionGuid = "118a5ea1-8a19-4bee-9db1-7a2464c8e7b5";

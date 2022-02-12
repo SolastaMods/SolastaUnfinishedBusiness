@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static FeatureDefinitionAutoPreparedSpells;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionAutoPreparedSpellsBuilder : BaseDefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
+    public sealed class FeatureDefinitionAutoPreparedSpellsBuilder : DefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
     {
         /*
         private FeatureDefinitionAutoPreparedSpellsBuilder(string name, string guid)

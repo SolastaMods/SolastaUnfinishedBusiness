@@ -1,8 +1,6 @@
-﻿using SolastaModApi;
-
-namespace SolastaCommunityExpansion.Builders
+﻿namespace SolastaCommunityExpansion.Builders
 {
-    public class LootPackDefinitionBuilder : BaseDefinitionBuilder<LootPackDefinition>
+    public class LootPackDefinitionBuilder : DefinitionBuilder<LootPackDefinition>
     {
         protected LootPackDefinitionBuilder(LootPackDefinition original, string name, string guid) : base(original, name, guid)
         {

@@ -110,7 +110,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
                 FeatureDefinitionFeatureSet.FeatureSetMode.Union, arcanistMagicGui).AddToDB();
         }
 
-        private sealed class FeatureDefinitionAutoPreparedSpellsBuilder : BaseDefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
+        private sealed class FeatureDefinitionAutoPreparedSpellsBuilder : DefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
         {
             public FeatureDefinitionAutoPreparedSpellsBuilder(string name, string guid, List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> autospelllists,
                 CharacterClassDefinition characterclass, GuiPresentation guiPresentation) : base(name, guid)
@@ -121,7 +121,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             }
         }
 
-        private sealed class FeatureDefinitionFeatureSetBuilder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
+        private sealed class FeatureDefinitionFeatureSetBuilder : DefinitionBuilder<FeatureDefinitionFeatureSet>
         {
             public FeatureDefinitionFeatureSetBuilder(string name, string guid, List<FeatureDefinition> features,
                 FeatureDefinitionFeatureSet.FeatureSetMode mode, GuiPresentation guiPresentation) : base(name, guid)
@@ -212,7 +212,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
                 new GuiPresentationBuilder("Feature/&ArcaneDetonationUpgradeTitle", "Feature/&ArcaneDetonationUpgradeDescription").Build()).AddToDB();
         }
 
-        private sealed class FeatureDefinitionBuilder : BaseDefinitionBuilder<FeatureDefinition>
+        private sealed class FeatureDefinitionBuilder : DefinitionBuilder<FeatureDefinition>
         {
             public FeatureDefinitionBuilder(string name, string guid, GuiPresentation guiPresentation) : base(name, guid)
             {
@@ -297,7 +297,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
     }
 
     // Creates a dedicated builder for the marked by arcanist condition. This helps with GUID wonkiness on the fact that separate features interact with it.
-    internal class ConditionMarkedByArcanistBuilder : BaseDefinitionBuilder<ConditionDefinition>
+    internal class ConditionMarkedByArcanistBuilder : DefinitionBuilder<ConditionDefinition>
     {
         protected ConditionMarkedByArcanistBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionMarkedByBrandingSmite, name, guid)
         {

@@ -4,7 +4,7 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal class SorcerousRestorationBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
+    internal class SorcerousRestorationBuilder : DefinitionBuilder<FeatureDefinitionPower>
     {
         private const string SorcerousRestorationName = "ZSSorcerousRestoration";
         private const string SorcerousRestorationGuid = "a524f8eb-8d30-4614-819d-a8f7df84f73e";
@@ -36,7 +36,7 @@ namespace SolastaCommunityExpansion.Level20.Features
             _ = RestActivityBuilder.RestActivityRestoration;
         }
 
-        private sealed class RestActivityBuilder : BaseDefinitionBuilder<RestActivityDefinition>
+        private sealed class RestActivityBuilder : DefinitionBuilder<RestActivityDefinition>
         {
             private const string SorcerousRestorationRestName = "ZSSorcerousRestorationRest";
             private const string SorcerousRestorationRestGuid = "5ee0315b-43b6-4dd9-8dd4-1eeded1cdb0e";

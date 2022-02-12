@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionAbilityCheckAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionAbilityCheckAffinity>
+    public sealed class FeatureDefinitionAbilityCheckAffinityBuilder : DefinitionBuilder<FeatureDefinitionAbilityCheckAffinity>
     {
         private FeatureDefinitionAbilityCheckAffinityBuilder(string name, Guid namespaceGuid)
             : base(name, namespaceGuid)

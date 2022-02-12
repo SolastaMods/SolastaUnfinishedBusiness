@@ -1,10 +1,10 @@
-﻿using SolastaModApi;
+﻿using SolastaCommunityExpansion.Builders;
 using static SolastaModApi.DatabaseHelper.ActionDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal class RangerVanishActionBuilder : BaseDefinitionBuilder<FeatureDefinitionActionAffinity>
+    internal class RangerVanishActionBuilder : DefinitionBuilder<FeatureDefinitionActionAffinity>
     {
         private const string RangerVanishActionName = "ZSAdditionalActionVanish";
         private const string RangerVanishActionGuid = "83711ec64d8c47bfa91053a00a1d0a83";

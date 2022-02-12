@@ -56,7 +56,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                 .AddToDB();
         }
 
-        private sealed class RogueSubclassThugExploitVulnerabilitiesSneakAttackBuilder : BaseDefinitionBuilder<FeatureDefinitionAdditionalDamage>
+        private sealed class RogueSubclassThugExploitVulnerabilitiesSneakAttackBuilder : DefinitionBuilder<FeatureDefinitionAdditionalDamage>
         {
             private const string ExploitVulnerabilitiesName = "KSRogueSubclassThugExploitVulnerabilities";
             private static readonly string ExploitVulnerabilitiesGuid = GuidHelper.Create(SubclassNamespace, ExploitVulnerabilitiesName).ToString();
@@ -77,7 +77,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                 CreateAndAddToDB(ExploitVulnerabilitiesName, ExploitVulnerabilitiesGuid);
         }
 
-        private sealed class RogueSubclassThugProficienciesBuilder : BaseDefinitionBuilder<FeatureDefinitionProficiency>
+        private sealed class RogueSubclassThugProficienciesBuilder : DefinitionBuilder<FeatureDefinitionProficiency>
         {
             private const string RogueSubclassThugProficienciesName = "KSRogueSubclassThugProficiencies";
             private static readonly string RogueSubclassThugProficienciesGuid = GuidHelper.Create(SubclassNamespace, RogueSubclassThugProficienciesName).ToString();
@@ -100,7 +100,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                 CreateAndAddToDB(RogueSubclassThugProficienciesName, RogueSubclassThugProficienciesGuid);
         }
 
-        private sealed class RogueSubclassThugBrutalMethodsBuilder : BaseDefinitionBuilder<FeatureDefinitionActionAffinity>
+        private sealed class RogueSubclassThugBrutalMethodsBuilder : DefinitionBuilder<FeatureDefinitionActionAffinity>
         {
             private const string RogueSubclassThugBrutalMethodsName = "KSRogueSubclassThugBrutalMethods";
             private static readonly string RogueSubclassThugBrutalMethodsGuid = GuidHelper.Create(SubclassNamespace, RogueSubclassThugBrutalMethodsName).ToString();
@@ -122,7 +122,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                 CreateAndAddToDB(RogueSubclassThugBrutalMethodsName, RogueSubclassThugBrutalMethodsGuid);
         }
 
-        private sealed class RogueSubclassThugBrutalMethodsActionBuilder : BaseDefinitionBuilder<ActionDefinition>
+        private sealed class RogueSubclassThugBrutalMethodsActionBuilder : DefinitionBuilder<ActionDefinition>
         {
             private const string RogueSubclassThugBrutalMethodsActionName = "KSRogueSubclassThugBrutalMethodsAction";
             private static readonly string RogueSubclassThugBrutalMethodsActionGuid = GuidHelper.Create(SubclassNamespace, RogueSubclassThugBrutalMethodsActionName).ToString();
@@ -141,7 +141,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                 = CreateAndAddToDB(RogueSubclassThugBrutalMethodsActionName, RogueSubclassThugBrutalMethodsActionGuid);
         }
 
-        private sealed class RogueSubclassThugOvercomeCompetitionBuilder : BaseDefinitionBuilder<FeatureDefinitionAbilityCheckAffinity>
+        private sealed class RogueSubclassThugOvercomeCompetitionBuilder : DefinitionBuilder<FeatureDefinitionAbilityCheckAffinity>
         {
             private const string RogueSubclassThugOvercomeCompetitionName = "KSRogueSubclassThugOvercomeCompetition";
             private static readonly string RogueSubclassThugOvercomeCompetitionGuid = GuidHelper.Create(SubclassNamespace, RogueSubclassThugOvercomeCompetitionName).ToString();
