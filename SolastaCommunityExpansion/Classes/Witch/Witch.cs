@@ -337,12 +337,15 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var abateConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
                 ConditionDefinitions.ConditionShocked, "ConditionAbate", WITCH_BASE_GUID)
                     .SetGuiPresentation("Abate", Category.Condition, ConditionDefinitions.ConditionShocked.GuiPresentation.SpriteReference)
-                    .AddToDB()
-                .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
-                .SetDurationParameter(1)
-                .SetDurationType(RuleDefinitions.DurationType.Round)
-                .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            abateConditionDefinition.ConditionTags.Add("Malediction");
+                    .Configure<ConditionDefinitionBuilder<ConditionDefinition>>(d =>
+                    {
+                        d.SetConditionType(RuleDefinitions.ConditionType.Detrimental);
+                        d.SetDurationParameter(1);
+                        d.SetDurationType(RuleDefinitions.DurationType.Round);
+                        d.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+                        d.ConditionTags.Add("Malediction");
+                    })
+                    .AddToDB();
 
             var abateConditionForm = new ConditionForm()
                 .SetConditionDefinition(abateConditionDefinition);
@@ -373,6 +376,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
                 .SetUsesFixed(1)
                 .SetEffect(abateEffectDescription)
+                .Configure<FeatureDefinitionPowerBuilder>(d =>
+                {
+
+                })
                 .AddToDB();
 
             // Apathy
