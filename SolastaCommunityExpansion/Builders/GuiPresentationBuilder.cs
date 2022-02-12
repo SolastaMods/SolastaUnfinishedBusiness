@@ -75,17 +75,19 @@ namespace SolastaCommunityExpansion.Builders
             return guiPresentation;
         }
 
-        public static GuiPresentation Build(string title, string description, AssetReferenceSprite sprite = null, int? sortOrder = null)
+        public static GuiPresentation Build(string title, string description, AssetReferenceSprite sprite = null, int sortOrder = 0, bool hidden = false)
         {
             return new GuiPresentationBuilder(title, description, sprite)
-                .SetSortOrder(sortOrder ?? 0)
+                .SetSortOrder(sortOrder)
+                .SetHidden(hidden)
                 .Build();
         }
 
-        public static GuiPresentation Build(string name, Category category, AssetReferenceSprite sprite = null, int? sortOrder = null)
+        public static GuiPresentation Build(string name, Category category, AssetReferenceSprite sprite = null, int sortOrder = 0, bool hidden = false)
         {
             return new GuiPresentationBuilder(CreateTitleKey(name, category), CreateDescriptionKey(name, category), sprite)
-                .SetSortOrder(sortOrder ?? 0)
+                .SetSortOrder(sortOrder)
+                .SetHidden(hidden)
                 .Build();
         }
 
@@ -100,6 +102,7 @@ namespace SolastaCommunityExpansion.Builders
         /// GuiPresentation representing 'No content title and description'
         /// </summary>
         public static GuiPresentation NoContent { get; } = Build(NothingToSee, Category.Feature);
+        public static GuiPresentation NoContentHidden { get; } = Build(NothingToSee, Category.Feature, null, 0, true);
     }
 
     internal static class BaseDefinitionBuilderGuiPresentationExtensions
@@ -129,7 +132,7 @@ namespace SolastaCommunityExpansion.Builders
         /// The Description is generated as "{category}/&amp;{name}Description".<br/>
         /// </summary>
         public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder,
-                string name, Category category, AssetReferenceSprite sprite = null, int? sortOrder = null)
+                string name, Category category, AssetReferenceSprite sprite = null, int sortOrder = 0)
             where TBuilder : IBaseDefinitionBuilder
         {
             return SetGuiPresentation(builder, GuiPresentationBuilder.Build(name, category, sprite, sortOrder));
@@ -142,10 +145,11 @@ namespace SolastaCommunityExpansion.Builders
         /// </summary>
         /// <typeparam name="TBuilder"></typeparam>
         public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder,
-                Category category, AssetReferenceSprite sprite = null, int? sortOrder = null)
+                Category category, AssetReferenceSprite sprite = null, int sortOrder = 0)
             where TBuilder : IBaseDefinitionBuilder
         {
-            return SetGuiPresentation(builder, GuiPresentationBuilder.Build(((IBaseDefinitionBuilder)builder).Name, category, sprite, sortOrder));
+            return SetGuiPresentation(builder,
+                GuiPresentationBuilder.Build(((IBaseDefinitionBuilder)builder).Name, category, sprite, sortOrder));
         }
 
         // TODO: More SetGuiPresentation/Generate(...) overloads as required
@@ -153,10 +157,11 @@ namespace SolastaCommunityExpansion.Builders
         /// <summary>
         /// Create a GuiPresentation with Title=Feature/&amp;NoContentTitle, Description=Feature/&amp;NoContentDescription.
         /// </summary>
-        public static TBuilder SetGuiPresentationNoContent<TBuilder>(this TBuilder builder)
+        public static TBuilder SetGuiPresentationNoContent<TBuilder>(this TBuilder builder, bool hidden = false)
             where TBuilder : IBaseDefinitionBuilder
         {
-            ((IBaseDefinitionBuilder)builder).SetGuiPresentation(GuiPresentationBuilder.NoContent);
+            ((IBaseDefinitionBuilder)builder).SetGuiPresentation(
+                hidden ? GuiPresentationBuilder.NoContentHidden : GuiPresentationBuilder.NoContent);
             return builder;
         }
     }

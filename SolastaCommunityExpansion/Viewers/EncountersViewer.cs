@@ -266,7 +266,7 @@ namespace SolastaCommunityExpansion.Viewers
                     {
                         // Prevent captured closure 
                         int index = i;
-                        
+
                         UI.HStack(playerCharacters[index].Name, 1, () =>
                         {
                             if (UI.SelectionGrid(ref playerCharactersChoices[index], controllers, controllers.Length, UI.Width(300)))
@@ -299,7 +299,7 @@ namespace SolastaCommunityExpansion.Viewers
                 {
                     // Prevent captured closure 
                     int index2 = index;
-                    
+
                     if (EncountersSpawnContext.EncounterCharacters[index2] is RulesetCharacterMonster rulesetCharacterMonster)
                     {
                         DisplayMonsterStats(rulesetCharacterMonster.MonsterDefinition, "-", () => EncountersSpawnContext.RemoveFromEncounter(index2));
