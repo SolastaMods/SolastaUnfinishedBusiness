@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using UnityEngine;
 
 namespace SolastaCommunityExpansion.Multiclass.Models
 {
@@ -45,19 +47,69 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             selectedClass = allowedClasses.IndexOf(hero.ClassesHistory[hero.ClassesHistory.Count - 1]);
         }
 
+        private static readonly HashSet<string> CoreAttributes = new()
+        {
+            AttributeDefinitions.Strength,
+            AttributeDefinitions.Dexterity,
+            AttributeDefinitions.Intelligence,
+            AttributeDefinitions.Wisdom,
+            AttributeDefinitions.Charisma
+        };
+
+        private static int MyGetAttribute(RulesetCharacterHero hero, string attributeName)
+        {
+            var attribute = hero.GetAttribute(attributeName);
+            var activeModifiers = attribute.ActiveModifiers;
+            var currentValue = attribute.BaseValue;
+            var minValue = int.MinValue;
+
+            foreach (var activeModifier in activeModifiers
+                .Where(x => x.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive))
+            {
+                currentValue += Mathf.FloorToInt(activeModifier.Value);
+            }
+
+            return Mathf.Clamp(currentValue, minValue, attribute.MaxEditableValue > 0 ? attribute.MaxEditableValue : attribute.MaxValue);
+        }
+
+        private static Dictionary<string, int> GetItemsAttributeModifiers(RulesetCharacterHero hero)
+        {
+            var attributeModifiers = new Dictionary<string, int>();
+            var items = new List<RulesetItem>();
+
+            hero.CharacterInventory.EnumerateAllItems(items, considerContainers: false);
+
+            foreach (var attributeName in CoreAttributes)
+            {
+                attributeModifiers.Add(attributeName, 0);
+            }
+
+            foreach (var featureDefinitionAttributeModifier in items
+                .SelectMany(x => x.ItemDefinition.StaticProperties
+                    .Select(y => y.FeatureDefinition)
+                    .OfType<FeatureDefinitionAttributeModifier>()
+                    .Where(z => CoreAttributes.Contains(z.ModifiedAttribute) && z.ModifierType == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)))
+            {
+                attributeModifiers[featureDefinitionAttributeModifier.ModifiedAttribute] += featureDefinitionAttributeModifier.ModifierValue;
+            };
+
+            return attributeModifiers;
+        }
+
         [SuppressMessage("Convert switch statement to expression", "IDE0066")]
         internal static bool ApproveMultiClassInOut(RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
         {
-            var strength = hero.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
-            var dexterity = hero.GetAttribute(AttributeDefinitions.Dexterity).CurrentValue;
-            var intelligence = hero.GetAttribute(AttributeDefinitions.Intelligence).CurrentValue;
-            var wisdom = hero.GetAttribute(AttributeDefinitions.Wisdom).CurrentValue;
-            var charisma = hero.GetAttribute(AttributeDefinitions.Charisma).CurrentValue;
-
             if (classDefinition.GuiPresentation.Hidden)
             {
                 return false;
             }
+
+            var itemsAttributeModifiers = GetItemsAttributeModifiers(hero);
+            var strength = MyGetAttribute(hero, AttributeDefinitions.Strength) - itemsAttributeModifiers[AttributeDefinitions.Strength];
+            var dexterity = MyGetAttribute(hero, AttributeDefinitions.Dexterity) - itemsAttributeModifiers[AttributeDefinitions.Dexterity];
+            var intelligence = MyGetAttribute(hero, AttributeDefinitions.Intelligence) - itemsAttributeModifiers[AttributeDefinitions.Intelligence];
+            var wisdom = MyGetAttribute(hero, AttributeDefinitions.Wisdom) - itemsAttributeModifiers[AttributeDefinitions.Wisdom];
+            var charisma = MyGetAttribute(hero, AttributeDefinitions.Charisma) - itemsAttributeModifiers[AttributeDefinitions.Charisma];
 
             switch (classDefinition.Name)
             {

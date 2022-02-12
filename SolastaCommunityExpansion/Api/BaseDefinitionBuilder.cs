@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using HarmonyLib;
 using SolastaCommunityExpansion;
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Diagnostics;
@@ -31,6 +33,60 @@ namespace SolastaModApi
                 Main.Log(msg);
             }
         }
+
+        protected static void VerifyDefinitionNameIsNotInUse(string definitionTypeName, string definitionName)
+        {
+            if (Main.Settings.DebugDisableVerifyDefinitionNameIsNotInUse)
+            {
+                return;
+            }
+
+            // Verify name has not been used previously
+            // 1) get all names used in all TA databases (at this point) ignoring existing duplicates 
+            // 2) check 'name' hasn't been used already, but ignore names we know already have duplicates
+
+            if (Main.Settings.KnownDuplicateDefinitionNames.Contains(definitionName))
+            {
+                return;
+            }
+
+            if (definitionNames.TryGetValue(definitionName, out (string typeName, bool isCeDef) item))
+            {
+                var msg = Environment.NewLine +
+                    $"Adding definition of type '{definitionTypeName}' and name '{definitionName}'." +
+                    Environment.NewLine +
+                    $"A definition of type '{item.typeName} is already registered using the same name for a {(item.isCeDef ? "CE definition" : "Non-CE definition")}.";
+
+#if DEBUG
+                throw new SolastaModApiException(msg);
+#else
+                Main.Log(msg);
+#endif
+            }
+
+            definitionNames.Add(definitionName, (definitionTypeName, true));
+        }
+
+        private static Dictionary<string, (string typeName, bool isCeDef)> definitionNames { get; } = GetAllDefinitionNames();
+
+        private static Dictionary<string, (string typeName, bool isCeDef)> GetAllDefinitionNames()
+        {
+            var definitions = new Dictionary<string, (string typeName, bool isCeDef)>(StringComparer.OrdinalIgnoreCase);
+
+            foreach (var db in (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases").GetValue(null))
+            {
+                foreach (var bd in (IEnumerable)db.Value)
+                {
+                    // Ignore duplicates in other (TA, other mods loaded first) definition names
+                    definitions.TryAdd(((BaseDefinition)bd).Name, (bd.GetType().Name, false));
+                }
+            }
+
+            return definitions;
+        }
+
+        protected const string CENamePrefix = "_CE_";
+        protected static readonly Guid CENamespaceGuid = new("4ce4cabe-0d35-4419-86ef-13ce1bef32fd");
     }
 
     // Used to allow extension methods in other mods to set GuiPresentation 
@@ -133,12 +189,52 @@ namespace SolastaModApi
             Preconditions.IsNotNullOrWhiteSpace(definitionGuid, nameof(definitionGuid));
         }
 
+        /// <summary>
+        /// TODO: ... Create definition given 'name' only.
+        /// Name = _CE_{name}
+        /// Guid = CreateGuid(name, CENamespaceGuid)
+        /// GuiPresentation = CommunityExpansion/&{name}Title, CommunityExpansion/&{name}Description, but can be overridden.
+        /// </summary>
+        /// <param name="original"></param>
+        /// <param name="name"></param>
+        /// <param name="createGuiPresentation"></param>
+        protected BaseDefinitionBuilder(string name, bool createGuiPresentation = true)
+            : this(CENamePrefix + name, null, CENamespaceGuid, true)
+        {
+            // If we know 'name' is unique across all dbs for definitions created by CE or mods using CE we can auto-generate
+            // the guid and the GuiPresentation
+            if (createGuiPresentation)
+            {
+                Definition.GuiPresentation = GuiPresentationBuilder.Build(name, Category.CommunityExpansion);
+            }
+        }
+
+        /// <summary>
+        /// TODO: ...
+        /// </summary>
+        /// <param name="original"></param>
+        /// <param name="name"></param>
+        /// <param name="createGuiPresentation"></param>
+        protected BaseDefinitionBuilder(TDefinition original, string name, bool createGuiPresentation = true)
+            : this(original, CENamePrefix + name, null, CENamespaceGuid, true)
+        {
+            // If we know 'name' is unique across all dbs for definitions created by CE or mods using CE we can auto-generate
+            // the guid and the GuiPresentation
+            if (createGuiPresentation)
+            {
+                Definition.GuiPresentation = GuiPresentationBuilder.Build(name, Category.CommunityExpansion);
+            }
+        }
+
+        // TODO: two very similar ctors - worth combining?
         private BaseDefinitionBuilder(string name, string definitionGuid, Guid namespaceGuid, bool useNamespaceGuid)
         {
             Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
 
             Definition = ScriptableObject.CreateInstance<TDefinition>();
             Definition.name = name;
+
+            VerifyDefinitionNameIsNotInUse(Definition.GetType().Name, name);
 
             InitializeCollectionFields();
 
@@ -191,6 +287,7 @@ namespace SolastaModApi
         {
         }
 
+        // TODO: two very similar ctors - worth combining?
         private BaseDefinitionBuilder(TDefinition original, string name, string definitionGuid, Guid namespaceGuid, bool useNamespaceGuid)
         {
             Preconditions.IsNotNull(original, nameof(original));
@@ -201,6 +298,8 @@ namespace SolastaModApi
 
             Definition = UnityEngine.Object.Instantiate(original);
             Definition.name = name;
+
+            VerifyDefinitionNameIsNotInUse(Definition.GetType().Name, name);
 
             InitializeCollectionFields();
 

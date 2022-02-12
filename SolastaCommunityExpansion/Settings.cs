@@ -236,6 +236,11 @@ namespace SolastaCommunityExpansion
         public bool DebugShowTADefinitionsWithMissingGuiPresentation { get; set; }
         public bool DebugLogDefinitionCreation { get; set; }
         public bool DebugLogFieldInitialization { get; set; }
+        public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
+        public List<string> KnownDuplicateDefinitionNames { get; } = new()
+        {
+            "SummonProtectorConstruct"
+        };
 #if DEBUG
         public bool DebugShowCEDefinitionsWithMissingGuiPresentation { get; set; } = true;
         public bool DebugLogCEDefinitionsToFile { get; set; } = true;
