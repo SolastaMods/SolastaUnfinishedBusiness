@@ -92,17 +92,24 @@ namespace SolastaModApi
     // Used to allow extension methods in other mods to set GuiPresentation 
     // Adding SetGuiPresentation as a public method causes name clash issues.
     // Ok, could have used a different name...
-    public interface IBaseDefinitionBuilder
+    internal interface IBaseDefinitionBuilder
     {
         void SetGuiPresentation(GuiPresentation presentation);
         string Name { get; }
+    }
+
+    // Allow internal access to Definition
+    internal interface IBaseDefinitionBuilder<out TDefinition> : IBaseDefinitionBuilder
+        where TDefinition : BaseDefinition
+    {
+        TDefinition Definition { get; }
     }
 
     /// <summary>
     ///     Base class builder for all classes derived from BaseDefinition
     /// </summary>
     /// <typeparam name="TDefinition"></typeparam>
-    public abstract class BaseDefinitionBuilder<TDefinition> : BaseDefinitionBuilder, IBaseDefinitionBuilder where TDefinition : BaseDefinition
+    public abstract class BaseDefinitionBuilder<TDefinition> : BaseDefinitionBuilder, IBaseDefinitionBuilder<TDefinition> where TDefinition : BaseDefinition
     {
         #region Helpers
 
@@ -495,7 +502,22 @@ namespace SolastaModApi
 
         #endregion
 
+        // Explicit implementation not visible by default. Allows access to Definition by BaseDefinitionBuilderExtensions.
+        TDefinition IBaseDefinitionBuilder<TDefinition>.Definition => Definition;
+
         protected TDefinition Definition { get; }
+    }
+
+    internal static class BaseDefinitionBuilderExtensions
+    {
+        public static TBuilder Configure<TBuilder, TDefinition>(this TBuilder builder, Action<TDefinition> configureDefinition)
+            where TBuilder : IBaseDefinitionBuilder<TDefinition>
+            where TDefinition : BaseDefinition
+        {
+            Assert.IsNotNull(configureDefinition);
+            configureDefinition.Invoke(((IBaseDefinitionBuilder<TDefinition>)builder).Definition);
+            return builder;
+        }
     }
 
     internal static class BaseDefinitionBuilderHelper
