@@ -2,6 +2,7 @@
 using System.Linq;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
@@ -54,7 +55,15 @@ namespace SolastaCommunityExpansion.Models
 
         private sealed class FocusDefinitionBuilder : BaseDefinitionBuilder<ItemDefinition>
         {
-            private FocusDefinitionBuilder(string name, string guid, string title, string description, ItemDefinition original, EquipmentDefinitions.FocusType type, AssetReferenceSprite assetReferenceSprite) : base(original, name, guid)
+            private FocusDefinitionBuilder(
+                string name, 
+                string guid, 
+                string title, 
+                string description, 
+                ItemDefinition original, 
+                EquipmentDefinitions.FocusType type, 
+                AssetReferenceSprite assetReferenceSprite,
+                params string[] slotTypes) : base(original, name, guid)
             {
                 Definition.FocusItemDescription.SetFocusType(type);
                 Definition.GuiPresentation.Title = title;
@@ -67,6 +76,13 @@ namespace SolastaCommunityExpansion.Models
 
                 Definition.SetCosts(ComponentPouch.Costs);
                 Definition.SetIsFocusItem(true);
+
+                if (slotTypes.Length > 0)
+                {
+                    Definition.SlotTypes.SetRange(slotTypes);
+                    Definition.SlotTypes.Add(EquipmentDefinitions.SlotTypeContainer);
+                    Definition.SlotsWhereActive.SetRange(slotTypes);
+                }
 
                 var stockFocus = new StockUnitDescription();
 
@@ -84,9 +100,17 @@ namespace SolastaCommunityExpansion.Models
                 Store_Merchant_Hugo_Requer_Cyflen_Potions.StockUnitDescriptions.Add(stockFocus);
             }
 
-            private static ItemDefinition CreateAndAddToDB(string name, string guid, string title, string description, ItemDefinition original, EquipmentDefinitions.FocusType type, AssetReferenceSprite assetReferenceSprite)
+            private static ItemDefinition CreateAndAddToDB(
+                string name, 
+                string guid, 
+                string title, 
+                string description, 
+                ItemDefinition original, 
+                EquipmentDefinitions.FocusType type, 
+                AssetReferenceSprite assetReferenceSprite,
+                params string[] slotTypes)
             {
-                return new FocusDefinitionBuilder(name, guid, title, description, original, type, assetReferenceSprite).AddToDB();
+                return new FocusDefinitionBuilder(name, guid, title, description, original, type, assetReferenceSprite, slotTypes).AddToDB();
             }
 
             internal static readonly ItemDefinition ArcaneStaff = CreateAndAddToDB(
@@ -121,7 +145,7 @@ namespace SolastaCommunityExpansion.Models
                 "ff3ec29c-734f-4ef6-8d6e-ceb961d9a8a0",
                 "Equipment/&LivewoodStaffTitle",
                 "Equipment/&LivewoodStaffDescription",
-                ComponentPouch_ArcaneAmulet,
+                Quarterstaff,
                 EquipmentDefinitions.FocusType.Druidic,
                 StaffOfHealing.GuiPresentation.SpriteReference);
         }
