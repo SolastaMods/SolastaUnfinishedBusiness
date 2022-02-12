@@ -76,9 +76,13 @@ namespace SolastaCommunityExpansion.Models
 
                 Definition.SetCosts(ComponentPouch.Costs);
                 Definition.SetIsFocusItem(true);
-                Definition.SlotTypes.SetRange(slotTypes);
-                Definition.SlotTypes.Add(EquipmentDefinitions.SlotTypeContainer);
-                Definition.SlotsWhereActive.SetRange(slotTypes);
+
+                if (slotTypes.Length > 0)
+                {
+                    Definition.SlotTypes.SetRange(slotTypes);
+                    Definition.SlotTypes.Add(EquipmentDefinitions.SlotTypeContainer);
+                    Definition.SlotsWhereActive.SetRange(slotTypes);
+                }
 
                 var stockFocus = new StockUnitDescription();
 
@@ -116,9 +120,7 @@ namespace SolastaCommunityExpansion.Models
                 "Equipment/&ArcaneStaffDescription",
                 Quarterstaff,
                 EquipmentDefinitions.FocusType.Druidic,
-                QuarterstaffPlus1.GuiPresentation.SpriteReference,
-                EquipmentDefinitions.SlotTypeMainHand,
-                EquipmentDefinitions.SlotTypeOffHand);
+                QuarterstaffPlus1.GuiPresentation.SpriteReference);
 
             internal static readonly ItemDefinition DruidicAmulet = CreateAndAddToDB(
                 "DruidicAmulet",
@@ -127,9 +129,7 @@ namespace SolastaCommunityExpansion.Models
                 "Equipment/&DruidicAmuletDescription",
                 ComponentPouch_ArcaneAmulet,
                 EquipmentDefinitions.FocusType.Druidic,
-                BeltOfGiantHillStrength.GuiPresentation.SpriteReference,
-                EquipmentDefinitions.SlotTypeMainHand,
-                EquipmentDefinitions.SlotTypeOffHand);
+                BeltOfGiantHillStrength.GuiPresentation.SpriteReference);
 
             internal static readonly ItemDefinition LivewoodClub = CreateAndAddToDB(
                 "LivewoodClub",
@@ -138,20 +138,16 @@ namespace SolastaCommunityExpansion.Models
                 "Equipment/&LivewoodClubDescription",
                 Club,
                 EquipmentDefinitions.FocusType.Druidic,
-                null,
-                EquipmentDefinitions.SlotTypeMainHand,
-                EquipmentDefinitions.SlotTypeOffHand);
+                null);
 
             internal static readonly ItemDefinition LivewoodStaff = CreateAndAddToDB(
                 "LivewoodStaff",
                 "ff3ec29c-734f-4ef6-8d6e-ceb961d9a8a0",
                 "Equipment/&LivewoodStaffTitle",
                 "Equipment/&LivewoodStaffDescription",
-                ComponentPouch_ArcaneAmulet,
+                Quarterstaff,
                 EquipmentDefinitions.FocusType.Druidic,
-                StaffOfHealing.GuiPresentation.SpriteReference,
-                EquipmentDefinitions.SlotTypeMainHand,
-                EquipmentDefinitions.SlotTypeOffHand);
+                StaffOfHealing.GuiPresentation.SpriteReference);
         }
 
         private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
