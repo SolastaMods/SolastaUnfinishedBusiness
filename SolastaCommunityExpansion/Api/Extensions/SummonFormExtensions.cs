@@ -43,6 +43,13 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(SummonForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class SummonFormExtensions
     {
+        public static SummonForm Copy(this SummonForm entity)
+        {
+            var copy = new SummonForm();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetConditionDefinition<T>(this T entity, ConditionDefinition value)
             where T : SummonForm
         {

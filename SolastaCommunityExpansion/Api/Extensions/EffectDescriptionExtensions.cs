@@ -211,6 +211,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static EffectDescription Copy(this EffectDescription entity)
+        {
+            var copy = new EffectDescription();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetAdvantageForEnemies<T>(this T entity, System.Boolean value)
             where T : EffectDescription
         {

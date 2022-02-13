@@ -64,6 +64,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static EntityDescription Copy(this EntityDescription entity)
+        {
+            var copy = new EntityDescription();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetAction<T>(this T entity, EntityDescription.DescriptionAction value)
             where T : EntityDescription
         {

@@ -43,6 +43,13 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(LightSourceForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class LightSourceFormExtensions
     {
+        public static LightSourceForm Copy(this LightSourceForm entity)
+        {
+            var copy = new LightSourceForm();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetApplyToSelf<T>(this T entity, System.Boolean value)
             where T : LightSourceForm
         {

@@ -43,6 +43,13 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(TopologyForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class TopologyFormExtensions
     {
+        public static TopologyForm Copy(this TopologyForm entity)
+        {
+            var copy = new TopologyForm();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetChangeType<T>(this T entity, TopologyForm.Type value)
             where T : TopologyForm
         {

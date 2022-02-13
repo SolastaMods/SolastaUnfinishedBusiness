@@ -43,6 +43,13 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(HealingForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class HealingFormExtensions
     {
+        public static HealingForm Copy(this HealingForm entity)
+        {
+            var copy = new HealingForm();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetBonusHealing<T>(this T entity, System.Int32 value)
             where T : HealingForm
         {

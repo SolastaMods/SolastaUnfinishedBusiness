@@ -64,6 +64,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static ReviveForm Copy(this ReviveForm entity)
+        {
+            var copy = new ReviveForm();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetMaxSecondsSinceDeath<T>(this T entity, System.Int32 value)
             where T : ReviveForm
         {

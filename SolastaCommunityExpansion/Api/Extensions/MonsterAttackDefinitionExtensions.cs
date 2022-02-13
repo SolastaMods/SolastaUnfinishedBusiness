@@ -43,6 +43,13 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(MonsterAttackDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class MonsterAttackDefinitionExtensions
     {
+        public static MonsterAttackDefinition Copy(this MonsterAttackDefinition entity)
+        {
+            var copy = new MonsterAttackDefinition();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetActionType<T>(this T entity, ActionDefinitions.ActionType value)
             where T : MonsterAttackDefinition
         {

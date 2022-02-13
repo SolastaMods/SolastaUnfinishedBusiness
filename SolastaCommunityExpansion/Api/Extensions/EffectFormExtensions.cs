@@ -43,6 +43,13 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(EffectForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class EffectFormExtensions
     {
+        public static EffectForm Copy(this EffectForm entity)
+        {
+            var copy = new EffectForm();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetAddBonusMode<T>(this T entity, RuleDefinitions.AddBonusMode value)
             where T : EffectForm
         {

@@ -43,6 +43,13 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(EffectAdvancement)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class EffectAdvancementExtensions
     {
+        public static EffectAdvancement Copy(this EffectAdvancement entity)
+        {
+            var copy = new EffectAdvancement();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetAdditionalDicePerIncrement<T>(this T entity, System.Int32 value)
             where T : EffectAdvancement
         {

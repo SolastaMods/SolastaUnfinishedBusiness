@@ -43,6 +43,13 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(TemporaryHitPointsForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class TemporaryHitPointsFormExtensions
     {
+        public static TemporaryHitPointsForm Copy(this TemporaryHitPointsForm entity)
+        {
+            var copy = new TemporaryHitPointsForm();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetApplyToSelf<T>(this T entity, System.Boolean value)
             where T : TemporaryHitPointsForm
         {

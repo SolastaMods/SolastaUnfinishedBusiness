@@ -64,6 +64,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static ShapeChangeForm Copy(this ShapeChangeForm entity)
+        {
+            var copy = new ShapeChangeForm();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetKeepMentalAbilityScores<T>(this T entity, System.Boolean value)
             where T : ShapeChangeForm
         {

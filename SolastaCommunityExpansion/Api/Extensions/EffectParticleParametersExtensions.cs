@@ -43,6 +43,13 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(EffectParticleParameters)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class EffectParticleParametersExtensions
     {
+        public static EffectParticleParameters Copy(this EffectParticleParameters entity)
+        {
+            var copy = new EffectParticleParameters();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetActiveEffectCellEndParticleReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
             where T : EffectParticleParameters
         {

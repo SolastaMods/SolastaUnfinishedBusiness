@@ -64,6 +64,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static ItemPropertyForm Copy(this ItemPropertyForm entity)
+        {
+            var copy = new ItemPropertyForm();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetFeatureBySlotLevel<T>(this T entity,  params  FeatureUnlockByLevel [ ]  value)
             where T : ItemPropertyForm
         {

@@ -248,8 +248,8 @@ void CreateExtensions(Type t, bool createFiles = false)
 		.Where(f => f.FieldType.IsGenericType && !writeablePublicPropertiesByName.Contains(GetPropertyNameForField(f.FieldInfo)) && !readablePublicPropertiesByName.Contains(GetPropertyNameForField(f.FieldInfo)));
 
 	var genericReadablePublicProperties = readablePublicProperties
-		.Where(f => f.PropertyType.IsGenericType);
-
+		.Where(f => f.PropertyType.IsGenericType);		
+	
 	// ---------------------------------------------------------------------------
 	var methods = privateFieldsThatNeedWriter
 		.OrderBy(ftnw => ftnw.Name)
@@ -468,11 +468,27 @@ void CreateExtensions(Type t, bool createFiles = false)
 		);
 	
 	methods = methods.Concat(collectionHelpers);
-	
+
 	// ---------------------------------------------------------------------------
 	// TODO: for all types add a .Create() method
-	// TODO: for all types with a .Copy(..) method generate a Copy extension method
-	
+
+	var copyMethod = t.GetMethod("Copy", new Type[] { t });
+	if (copyMethod != null)
+	{
+		methods = methods.Concat(
+			new[]{
+			MethodDeclaration(ParseTypeName($"{SimplifyType(t)}"), $"Copy")
+			   .AddModifiers(Token(SyntaxKind.PublicKeyword), Token(SyntaxKind.StaticKeyword))
+			   .AddParameterListParameters(
+					Parameter(Identifier("entity"))
+						.WithType(ParseTypeName($"{SimplifyType(t)}"))
+						.AddModifiers(Token(SyntaxKind.ThisKeyword))
+				)
+				.WithBody(Block(ParseStatement($"var copy = new {SimplifyType(t)}();"), ParseStatement("copy.Copy(entity);"), ParseStatement("return entity;")))
+			});
+	}
+
+	// ---------------------------------------------------------------------------
 	if (methods.Any())
 	{
 		cd = cd.AddMembers(methods.OrderBy(m => m.Identifier.ToString()).ToArray());

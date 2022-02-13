@@ -43,6 +43,13 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(EffectAIParameters)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class EffectAIParametersExtensions
     {
+        public static EffectAIParameters Copy(this EffectAIParameters entity)
+        {
+            var copy = new EffectAIParameters();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetAoeScoreMultiplier<T>(this T entity, System.Single value)
             where T : EffectAIParameters
         {

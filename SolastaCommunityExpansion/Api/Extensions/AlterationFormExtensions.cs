@@ -43,6 +43,13 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(AlterationForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class AlterationFormExtensions
     {
+        public static AlterationForm Copy(this AlterationForm entity)
+        {
+            var copy = new AlterationForm();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetAbilityScore<T>(this T entity, System.String value)
             where T : AlterationForm
         {

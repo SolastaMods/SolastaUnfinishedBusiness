@@ -43,6 +43,13 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(SaveAffinityByFamilyDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class SaveAffinityByFamilyDescriptionExtensions
     {
+        public static SaveAffinityByFamilyDescription Copy(this SaveAffinityByFamilyDescription entity)
+        {
+            var copy = new SaveAffinityByFamilyDescription();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetAdvantageType<T>(this T entity, RuleDefinitions.AdvantageType value)
             where T : SaveAffinityByFamilyDescription
         {

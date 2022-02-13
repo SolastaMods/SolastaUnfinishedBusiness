@@ -64,6 +64,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static ConditionForm Copy(this ConditionForm entity)
+        {
+            var copy = new ConditionForm();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetApplyToSelf<T>(this T entity, System.Boolean value)
             where T : ConditionForm
         {

@@ -43,6 +43,13 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(CounterForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class CounterFormExtensions
     {
+        public static CounterForm Copy(this CounterForm entity)
+        {
+            var copy = new CounterForm();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetAddProficiencyBonus<T>(this T entity, System.Boolean value)
             where T : CounterForm
         {

@@ -211,6 +211,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static ItemDefinition Copy(this ItemDefinition entity)
+        {
+            var copy = new ItemDefinition();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetActiveOnGround<T>(this T entity, System.Boolean value)
             where T : ItemDefinition
         {

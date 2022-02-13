@@ -43,6 +43,13 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(KillForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class KillFormExtensions
     {
+        public static KillForm Copy(this KillForm entity)
+        {
+            var copy = new KillForm();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetChallengeRating<T>(this T entity, System.Single value)
             where T : KillForm
         {

@@ -43,6 +43,13 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(MotionForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class MotionFormExtensions
     {
+        public static MotionForm Copy(this MotionForm entity)
+        {
+            var copy = new MotionForm();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetDistance<T>(this T entity, System.Int32 value)
             where T : MotionForm
         {

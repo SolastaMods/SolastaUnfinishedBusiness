@@ -253,6 +253,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static MonsterDefinition Copy(this MonsterDefinition entity)
+        {
+            var copy = new MonsterDefinition();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetAbilityScores<T>(this T entity, System.Int32[] value)
             where T : MonsterDefinition
         {

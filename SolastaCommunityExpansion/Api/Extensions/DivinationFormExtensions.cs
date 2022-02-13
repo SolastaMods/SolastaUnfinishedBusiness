@@ -85,6 +85,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static DivinationForm Copy(this DivinationForm entity)
+        {
+            var copy = new DivinationForm();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetCreatureFamilies<T>(this T entity,  params  CharacterFamilyDefinition [ ]  value)
             where T : DivinationForm
         {

@@ -43,6 +43,13 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(SpellSlotsForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class SpellSlotsFormExtensions
     {
+        public static SpellSlotsForm Copy(this SpellSlotsForm entity)
+        {
+            var copy = new SpellSlotsForm();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetMaxSlotLevel<T>(this T entity, System.Int32 value)
             where T : SpellSlotsForm
         {

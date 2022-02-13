@@ -43,6 +43,13 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(HitAffinityByTag)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class HitAffinityByTagExtensions
     {
+        public static HitAffinityByTag Copy(this HitAffinityByTag entity)
+        {
+            var copy = new HitAffinityByTag();
+            copy.Copy(entity);
+            return entity;
+        }
+
         public static T SetAdvantageType<T>(this T entity, RuleDefinitions.AdvantageType value)
             where T : HitAffinityByTag
         {
