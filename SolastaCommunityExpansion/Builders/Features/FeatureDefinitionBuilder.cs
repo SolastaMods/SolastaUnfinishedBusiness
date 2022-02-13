@@ -1,6 +1,5 @@
 ﻿using System;
 using SolastaModApi;
-using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
@@ -49,25 +48,5 @@ namespace SolastaCommunityExpansion.Builders.Features
             return new FeatureDefinitionBuilder<TDefinition>(original, name, namespaceGuid);
         }
         #endregion
-
-        #region Factory methods (create definition)
-
-        public static TDefinition Build(string name, string guid, string title, string description, Action<TDefinition> modifyDefinition = null)
-        {
-            var featureDefinitionBuilder = Create(name, guid).SetGuiPresentation(title, description);
-            if (modifyDefinition != null)
-            {
-                featureDefinitionBuilder.Configure(modifyDefinition);
-            }
-            return featureDefinitionBuilder.AddToDB();
-        }
-        #endregion
-
-        public FeatureDefinitionBuilder<TDefinition> Configure(Action<TDefinition> modifyDefinition)
-        {
-            Assert.IsNotNull(modifyDefinition);
-            modifyDefinition.Invoke(Definition);
-            return this;
-        }
     }
 }

@@ -7,6 +7,8 @@ using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using static SolastaModApi.DatabaseHelper;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Barbarian
 {
@@ -20,9 +22,9 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
         private static readonly List<ConditionDefinition> InvisibleConditions =
             new()
             {
-                DatabaseHelper.ConditionDefinitions.ConditionInvisibleBase,
-                DatabaseHelper.ConditionDefinitions.ConditionInvisible,
-                DatabaseHelper.ConditionDefinitions.ConditionInvisibleGreater
+                ConditionDefinitions.ConditionInvisibleBase,
+                ConditionDefinitions.ConditionInvisible,
+                ConditionDefinitions.ConditionInvisibleGreater
             };
 
         private readonly CharacterSubclassDefinition _subclass;
@@ -48,7 +50,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
-            return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceBarbarianPrimalPath;
+            return FeatureDefinitionSubclassChoices.SubclassChoiceBarbarianPrimalPath;
         }
 
         internal override CharacterSubclassDefinition GetSubclass()
@@ -58,20 +60,17 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
         internal PathOfTheLight()
         {
-            var subclassBuilder = new CharacterSubclassDefinitionBuilder("PathOfTheLight", CreateNamespacedGuid("PathOfTheLight"));
-
             ConditionDefinition illuminatedCondition = CreateIlluminatedCondition();
 
-            subclassBuilder
-                .SetGuiPresentation(CreateSubclassGuiPresentation())
+            _subclass = CharacterSubclassDefinitionBuilder.Create("PathOfTheLight", SubclassNamespace)
+                .SetGuiPresentation("BarbarianPathOfTheLight", Category.Subclass, DomainSun.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(CreateIlluminatingStrike(illuminatedCondition), 3)
                 .AddFeatureAtLevel(CreatePierceTheDarkness(), 3)
                 .AddFeatureAtLevel(CreateLightsProtection(), 6)
                 .AddFeatureAtLevel(CreateEyesOfTruth(), 10)
                 .AddFeatureAtLevel(CreateIlluminatingStrikeImprovement(), 10)
-                .AddFeatureAtLevel(CreateIlluminatingBurst(illuminatedCondition), 14);
-
-            _subclass = subclassBuilder.AddToDB();
+                .AddFeatureAtLevel(CreateIlluminatingBurst(illuminatedCondition), 14)
+                .AddToDB();
         }
 
         private static string CreateNamespacedGuid(string featureName)
@@ -79,92 +78,82 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             return GuidHelper.Create(SubclassNamespace, featureName).ToString();
         }
 
-        private static GuiPresentation CreateSubclassGuiPresentation()
-        {
-            var subclassGuiPresentation = new GuiPresentationBuilder("Subclass/&BarbarianPathOfTheLightTitle", "Subclass/&BarbarianPathOfTheLightDescription");
-
-            subclassGuiPresentation.SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.DomainSun.GuiPresentation.SpriteReference);
-
-            return subclassGuiPresentation.Build();
-        }
-
         private static FeatureDefinition CreateIlluminatingStrike(ConditionDefinition illuminatedCondition)
         {
-            return FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>.Build(
-                "PathOfTheLightIlluminatingStrikeFeatureSet",
-                CreateNamespacedGuid("PathOfTheLightIlluminatingStrikeFeatureSet"),
-                "Subclass/&BarbarianPathOfTheLightIlluminatingStrikeTitle",
-                "Subclass/&BarbarianPathOfTheLightIlluminatingStrikeDescription",
-                featureSetDefinition =>
-                {
-                    featureSetDefinition
-                        .SetEnumerateInDescription(false)
-                        .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                        .SetUniqueChoices(false);
+            return FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>
+                .Create("PathOfTheLightIlluminatingStrikeFeatureSet", SubclassNamespace)
+                .SetGuiPresentation("BarbarianPathOfTheLightIlluminatingStrike", Category.Subclass)
+                .Configure<FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>>(
+                    featureSetDefinition =>
+                    {
+                        featureSetDefinition
+                            .SetEnumerateInDescription(false)
+                            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+                            .SetUniqueChoices(false);
 
-                    var illuminatingStrikeInitiatorBuilder = new IlluminatingStrikeInitiatorBuilder(
-                        "PathOfTheLightIlluminatingStrikeInitiator",
-                        CreateNamespacedGuid("PathOfTheLightIlluminatingStrikeInitiator"),
-                        "Feature/&NoContentTitle",
-                        "Feature/&NoContentTitle",
-                        illuminatedCondition);
+                        var illuminatingStrikeInitiatorBuilder = new IlluminatingStrikeInitiatorBuilder(
+                            "PathOfTheLightIlluminatingStrikeInitiator",
+                            CreateNamespacedGuid("PathOfTheLightIlluminatingStrikeInitiator"),
+                            "Feature/&NoContentTitle",
+                            "Feature/&NoContentTitle",
+                            illuminatedCondition);
 
-                    featureSetDefinition.FeatureSet.Add(illuminatingStrikeInitiatorBuilder.AddToDB());
-                });
+                        featureSetDefinition.FeatureSet.Add(illuminatingStrikeInitiatorBuilder.AddToDB());
+                    })
+                .AddToDB();
         }
 
         private static FeatureDefinition CreateIlluminatingStrikeImprovement()
         {
             // Dummy feature to show in UI
 
-            return FeatureDefinitionBuilder<FeatureDefinition>.Build(
-                "PathOfTheLightIlluminatingStrikeImprovement",
-                CreateNamespacedGuid("PathOfTheLightIlluminatingStrikeImprovement"),
-                "Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementTitle",
-                "Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementDescription");
+            return FeatureDefinitionBuilder<FeatureDefinition>
+                .Create("PathOfTheLightIlluminatingStrikeImprovement", SubclassNamespace)
+                .SetGuiPresentation("BarbarianPathOfTheLightIlluminatingStrikeImprovement", Category.Subclass)
+                .AddToDB();
         }
 
         private static FeatureDefinition CreatePierceTheDarkness()
         {
-            return FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>.Build(
-                "PathOfTheLightPierceTheDarkness",
-                CreateNamespacedGuid("PathOfTheLightPierceTheDarkness"),
-                "Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle",
-                "Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription",
-                featureSetDefinition =>
-                {
-                    featureSetDefinition
-                        .SetEnumerateInDescription(false)
-                        .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                        .SetUniqueChoices(false);
+            return FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>
+                .Create("PathOfTheLightPierceTheDarkness", SubclassNamespace)
+                .SetGuiPresentation("BarbarianPathOfTheLightPierceTheDarkness", Category.Subclass)
+                .Configure<FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>>(
+                    featureSetDefinition =>
+                    {
+                        featureSetDefinition
+                            .SetEnumerateInDescription(false)
+                            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+                            .SetUniqueChoices(false);
 
-                    featureSetDefinition.FeatureSet.Add(DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision);
-                });
+                        featureSetDefinition.FeatureSet.Add(FeatureDefinitionSenses.SenseSuperiorDarkvision);
+                    })
+                .AddToDB();
         }
 
         private static FeatureDefinition CreateLightsProtection()
         {
-            return FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>.Build(
-                "PathOfTheLightLightsProtection",
-                CreateNamespacedGuid("PathOfTheLightLightsProtection"),
-                "Subclass/&BarbarianPathOfTheLightLightsProtectionTitle",
-                "Subclass/&BarbarianPathOfTheLightLightsProtectionDescription",
-                featureSetDefinition =>
-                {
-                    featureSetDefinition
-                        .SetEnumerateInDescription(false)
-                        .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                        .SetUniqueChoices(false);
+            return FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>
+                .Create("PathOfTheLightLightsProtection", SubclassNamespace)
+                .SetGuiPresentation("BarbarianPathOfTheLightLightsProtection", Category.Subclass)
+                .Configure<FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>>(
+                    definition =>
+                    {
+                        definition
+                            .SetEnumerateInDescription(false)
+                            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+                            .SetUniqueChoices(false);
 
-                    var conditionalOpportunityAttackImmunity = FeatureDefinitionBuilder<FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition>.Build(
-                        "PathOfTheLightLightsProtectionOpportunityAttackImmunity",
-                        CreateNamespacedGuid("PathOfTheLightLightsProtectionOpportunityAttackImmunity"),
-                        "Feature/&NoContentTitle",
-                        "Feature/&NoContentTitle",
-                        definition => definition.ConditionName = IlluminatedConditionName);
+                        var conditionalOpportunityAttackImmunity = FeatureDefinitionBuilder<FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition>
+                            .Create("PathOfTheLightLightsProtectionOpportunityAttackImmunity", SubclassNamespace)
+                            .SetGuiPresentationNoContent()
+                            .Configure<FeatureDefinitionBuilder<FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition>>(
+                                definition => definition.ConditionName = IlluminatedConditionName)
+                            .AddToDB();
 
-                    featureSetDefinition.FeatureSet.Add(conditionalOpportunityAttackImmunity);
-                });
+                        definition.FeatureSet.Add(conditionalOpportunityAttackImmunity);
+                    })
+                .AddToDB();
         }
 
         private static void ApplyLightsProtectionHealing(ulong sourceGuid)
@@ -174,7 +163,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 return;
             }
 
-            if (!conditionSource.ClassesAndLevels.TryGetValue(DatabaseHelper.CharacterClassDefinitions.Barbarian, out int levelsInClass))
+            if (!conditionSource.ClassesAndLevels.TryGetValue(CharacterClassDefinitions.Barbarian, out int levelsInClass))
             {
                 // Character doesn't have levels in class
                 return;
@@ -203,7 +192,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                         "Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle",
                         "Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription");
 
-                    gpb.SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionSeeInvisibility.GuiPresentation.SpriteReference);
+                    gpb.SetSpriteReference(ConditionDefinitions.ConditionSeeInvisibility.GuiPresentation.SpriteReference);
 
                     definition
                         .SetGuiPresentation(gpb.Build())
@@ -212,7 +201,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                         .SetSilentWhenAdded(true)
                         .SetSilentWhenRemoved(true);
 
-                    definition.Features.Add(DatabaseHelper.FeatureDefinitionSenses.SenseSeeInvisible16);
+                    definition.Features.Add(FeatureDefinitionSenses.SenseSeeInvisible16);
                 });
 
             var seeInvisibleEffectBuilder = new EffectDescriptionBuilder();
@@ -234,8 +223,8 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
             var seeInvisiblePower = FeatureDefinitionBuilder<FeatureDefinitionPower>
                 .Create("PathOfTheLightEyesOfTruthPower", SubclassNamespace)
-                .SetGuiPresentation("BarbarianPathOfTheLightEyesOfTruth", Category.Subclass, DatabaseHelper.SpellDefinitions.SeeInvisibility.GuiPresentation.SpriteReference)
-                .Configure(
+                .SetGuiPresentation("BarbarianPathOfTheLightEyesOfTruth", Category.Subclass, SpellDefinitions.SeeInvisibility.GuiPresentation.SpriteReference)
+                .Configure<FeatureDefinitionBuilder<FeatureDefinitionPower>>(
                     definition =>
                     {
                         definition
@@ -246,59 +235,59 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                     })
                 .AddToDB();
 
-            return FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>.Build(
-                "PathOfTheLightEyesOfTruth",
-                CreateNamespacedGuid("PathOfTheLightEyesOfTruth"),
-                "Subclass/&BarbarianPathOfTheLightEyesOfTruthTitle",
-                "Subclass/&BarbarianPathOfTheLightEyesOfTruthDescription",
-                featureSetDefinition =>
-                {
-                    featureSetDefinition
-                        .SetEnumerateInDescription(false)
-                        .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                        .SetUniqueChoices(false);
+            return FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>
+                .Create("PathOfTheLightEyesOfTruth", SubclassNamespace)
+                .SetGuiPresentation("BarbarianPathOfTheLightEyesOfTruth", Category.Subclass)
+                .Configure<FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>>(
+                    definition =>
+                    {
+                        definition
+                            .SetEnumerateInDescription(false)
+                            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+                            .SetUniqueChoices(false);
 
-                    featureSetDefinition.FeatureSet.Add(seeInvisiblePower);
-                });
+                        definition.FeatureSet.Add(seeInvisiblePower);
+                    })
+                .AddToDB();
         }
 
         private static FeatureDefinition CreateIlluminatingBurst(ConditionDefinition illuminatedCondition)
         {
-            return FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>.Build(
-                "PathOfTheLightIlluminatingBurstFeatureSet",
-                CreateNamespacedGuid("PathOfTheLightIlluminatingBurstFeatureSet"),
-                "Subclass/&BarbarianPathOfTheLightIlluminatingBurstTitle",
-                "Subclass/&BarbarianPathOfTheLightIlluminatingBurstDescription",
-                featureSetDefinition =>
-                {
-                    featureSetDefinition
-                        .SetEnumerateInDescription(false)
-                        .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                        .SetUniqueChoices(false);
+            return FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>
+                .Create("PathOfTheLightIlluminatingBurstFeatureSet", SubclassNamespace)
+                .SetGuiPresentation("BarbarianPathOfTheLightIlluminatingBurst", Category.Subclass)
+                .Configure<FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>>(
+                    definition =>
+                    {
+                        definition
+                            .SetEnumerateInDescription(false)
+                            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+                            .SetUniqueChoices(false);
 
-                    ConditionDefinition illuminatingBurstSuppressedCondition = CreateIlluminatingBurstSuppressedCondition();
+                        ConditionDefinition illuminatingBurstSuppressedCondition = CreateIlluminatingBurstSuppressedCondition();
 
-                    var illuminatingBurstBuilder = new IlluminatingBurstInitiatorBuilder(
-                        "PathOfTheLightIlluminatingBurstInitiator",
-                        CreateNamespacedGuid("PathOfTheLightIlluminatingBurstInitiator"),
-                        "Feature/&NoContentTitle",
-                        "Feature/&NoContentTitle",
-                        illuminatingBurstSuppressedCondition);
+                        var illuminatingBurstBuilder = new IlluminatingBurstInitiatorBuilder(
+                            "PathOfTheLightIlluminatingBurstInitiator",
+                            CreateNamespacedGuid("PathOfTheLightIlluminatingBurstInitiator"),
+                            "Feature/&NoContentTitle",
+                            "Feature/&NoContentTitle",
+                            illuminatingBurstSuppressedCondition);
 
-                    featureSetDefinition.FeatureSet.Add(illuminatingBurstBuilder.AddToDB());
+                        definition.FeatureSet.Add(illuminatingBurstBuilder.AddToDB());
 
-                    var illuminatingBurstPowerBuilder = new IlluminatingBurstBuilder(
-                        IlluminatingBurstName,
-                        CreateNamespacedGuid(IlluminatingBurstName),
-                        "Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle",
-                        "Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription",
-                        illuminatedCondition,
-                        illuminatingBurstSuppressedCondition);
+                        var illuminatingBurstPowerBuilder = new IlluminatingBurstBuilder(
+                            IlluminatingBurstName,
+                            CreateNamespacedGuid(IlluminatingBurstName),
+                            "Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle",
+                            "Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription",
+                            illuminatedCondition,
+                            illuminatingBurstSuppressedCondition);
 
-                    featureSetDefinition.FeatureSet.Add(illuminatingBurstPowerBuilder.AddToDB());
+                        definition.FeatureSet.Add(illuminatingBurstPowerBuilder.AddToDB());
 
-                    featureSetDefinition.FeatureSet.Add(CreateIlluminatingBurstSuppressor(illuminatingBurstSuppressedCondition));
-                });
+                        definition.FeatureSet.Add(CreateIlluminatingBurstSuppressor(illuminatingBurstSuppressedCondition));
+                    })
+                .AddToDB();
         }
 
         private static FeatureDefinition CreateIlluminatingBurstSuppressor(ConditionDefinition illuminatingBurstSuppressedCondition)
@@ -306,7 +295,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             return FeatureDefinitionBuilder<FeatureDefinitionPower>
                 .Create("PathOfTheLightIlluminatingBurstSuppressor", SubclassNamespace)
                 .SetGuiPresentationNoContent(true)
-                .Configure(
+                .Configure<FeatureDefinitionBuilder<FeatureDefinitionPower>>(
                     definition =>
                     {
                         var suppressIlluminatingBurst = new EffectForm
@@ -342,14 +331,9 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 CreateNamespacedGuid(IlluminatedConditionName),
                 definition =>
                 {
-                    var gpb = new GuiPresentationBuilder(
-                        "Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle",
-                        "Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription");
-
-                    gpb.SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionBranded.GuiPresentation.SpriteReference);
-
                     definition
-                        .SetGuiPresentation(gpb.Build())
+                        .SetGuiPresentation("BarbarianPathOfTheLightIlluminatedCondition",
+                            Category.Subclass, ConditionDefinitions.ConditionBranded.GuiPresentation.SpriteReference)
                         .SetSpecialDuration(true)
                         .SetDurationType(RuleDefinitions.DurationType.Irrelevant)
                         .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
@@ -364,47 +348,47 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
         private static FeatureDefinitionAttackDisadvantageAgainstNonSource CreateDisadvantageAgainstNonSource()
         {
-            return FeatureDefinitionBuilder<FeatureDefinitionAttackDisadvantageAgainstNonSource>.Build(
-                "PathOfTheLightIlluminatedDisadvantage",
-                CreateNamespacedGuid("PathOfTheLightIlluminatedDisadvantage"),
-                "Feature/&NoContentTitle",
-                "Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription",
-                definition => definition.ConditionName = IlluminatedConditionName);
+            return FeatureDefinitionBuilder<FeatureDefinitionAttackDisadvantageAgainstNonSource>
+                .Create("PathOfTheLightIlluminatedDisadvantage", SubclassNamespace)
+                .SetGuiPresentation("Feature/&NoContentTitle", "Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription")
+                .Configure<FeatureDefinitionBuilder<FeatureDefinitionAttackDisadvantageAgainstNonSource>>(
+                    definition => definition.ConditionName = IlluminatedConditionName)
+                .AddToDB();
         }
 
         private static FeatureDefinition CreatePreventInvisibility()
         {
             // Prevents a creature from turning invisible by "granting" immunity to invisibility
 
-            return FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>.Build(
-                "PathOfTheLightIlluminatedPreventInvisibility",
-                CreateNamespacedGuid("PathOfTheLightIlluminatedPreventInvisibility"),
-                "Feature/&NoContentTitle",
-                "Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription",
-                featureSetDefinition =>
-                {
-                    featureSetDefinition
-                        .SetEnumerateInDescription(false)
-                        .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                        .SetUniqueChoices(false);
-
-                    foreach (var invisibleConditionName in InvisibleConditions.Select(ic => ic.Name))
+            return FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>
+                .Create("PathOfTheLightIlluminatedPreventInvisibility", SubclassNamespace)
+                .SetGuiPresentation("Feature/&NoContentTitle", "Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription")
+                .Configure<FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>>(
+                    featureSetDefinition =>
                     {
-                        var preventInvisibilitySubFeature = FeatureDefinitionBuilder<FeatureDefinitionConditionAffinity>.Build(
-                            "PathOfTheLightIlluminatedPreventInvisibility" + invisibleConditionName,
-                            CreateNamespacedGuid("PathOfTheLightIlluminatedPreventInvisibility" + invisibleConditionName),
-                            "Feature/&NoContentTitle",
-                            "Feature/&NoContentTitle",
-                            conditionAffinityDefinition =>
-                            {
-                                conditionAffinityDefinition
-                                    .SetConditionAffinityType(RuleDefinitions.ConditionAffinityType.Immunity)
-                                    .SetConditionType(invisibleConditionName);
-                            });
+                        featureSetDefinition
+                            .SetEnumerateInDescription(false)
+                            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+                            .SetUniqueChoices(false);
 
-                        featureSetDefinition.FeatureSet.Add(preventInvisibilitySubFeature);
-                    }
-                });
+                        foreach (var invisibleConditionName in InvisibleConditions.Select(ic => ic.Name))
+                        {
+                            var preventInvisibilitySubFeature = FeatureDefinitionBuilder<FeatureDefinitionConditionAffinity>
+                                .Create("PathOfTheLightIlluminatedPreventInvisibility" + invisibleConditionName, SubclassNamespace)
+                                .SetGuiPresentationNoContent()
+                                .Configure<FeatureDefinitionBuilder<FeatureDefinitionConditionAffinity>>(
+                                    conditionAffinityDefinition =>
+                                    {
+                                        conditionAffinityDefinition
+                                            .SetConditionAffinityType(RuleDefinitions.ConditionAffinityType.Immunity)
+                                            .SetConditionType(invisibleConditionName);
+                                    })
+                                .AddToDB();
+
+                            featureSetDefinition.FeatureSet.Add(preventInvisibilitySubFeature);
+                        }
+                    })
+                .AddToDB();
         }
 
         private static ConditionDefinition CreateIlluminatingBurstSuppressedCondition()
@@ -480,7 +464,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
         private sealed class IlluminatingStrikeAdditionalDamage : FeatureDefinitionAdditionalDamage, IClassHoldingFeature
         {
             // Allows Illuminating Strike damage to scale with barbarian level
-            public CharacterClassDefinition Class => DatabaseHelper.CharacterClassDefinitions.Barbarian;
+            public CharacterClassDefinition Class => CharacterClassDefinitions.Barbarian;
         }
 
         private sealed class IlluminatingStrikeFeatureBuilder : BaseDefinitionBuilder<IlluminatingStrikeAdditionalDamage>
@@ -547,14 +531,14 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             {
                 var guiPresentationBuilder = new GuiPresentationBuilder(title, description);
 
-                guiPresentationBuilder.SetSpriteReference(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageDomainLifeDivineStrike.GuiPresentation.SpriteReference);
+                guiPresentationBuilder.SetSpriteReference(FeatureDefinitionAdditionalDamages.AdditionalDamageDomainLifeDivineStrike.GuiPresentation.SpriteReference);
 
                 return guiPresentationBuilder.Build();
             }
 
             private static LightSourceForm CreateIlluminatedLightSource()
             {
-                EffectForm faerieFireLightSource = DatabaseHelper.SpellDefinitions.FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+                EffectForm faerieFireLightSource = SpellDefinitions.FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
 
                 var lightSourceForm = new LightSourceForm();
                 lightSourceForm.Copy(faerieFireLightSource.LightSourceForm);
@@ -595,7 +579,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             {
                 var guiPresentationBuilder = new GuiPresentationBuilder(title, description);
 
-                guiPresentationBuilder.SetSpriteReference(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageDomainLifeDivineStrike.GuiPresentation.SpriteReference);
+                guiPresentationBuilder.SetSpriteReference(FeatureDefinitionAdditionalDamages.AdditionalDamageDomainLifeDivineStrike.GuiPresentation.SpriteReference);
 
                 var guiPresentation = guiPresentationBuilder.Build();
                 guiPresentation.SetHidden(true);
@@ -682,7 +666,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             {
                 var guiPresentationBuilder = new GuiPresentationBuilder(title, description);
 
-                guiPresentationBuilder.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun.GuiPresentation.SpriteReference);
+                guiPresentationBuilder.SetSpriteReference(FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun.GuiPresentation.SpriteReference);
 
                 return guiPresentationBuilder.Build();
             }
@@ -712,7 +696,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                             "Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle",
                             "Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription");
 
-                        gpb.SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionBranded.GuiPresentation.SpriteReference);
+                        gpb.SetSpriteReference(ConditionDefinitions.ConditionBranded.GuiPresentation.SpriteReference);
 
                         definition
                             .SetGuiPresentation(gpb.Build())
@@ -738,7 +722,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                     SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates
                 };
 
-                EffectForm faerieFireLightSource = DatabaseHelper.SpellDefinitions.FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+                EffectForm faerieFireLightSource = SpellDefinitions.FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
 
                 var lightSourceForm = new LightSourceForm();
                 lightSourceForm.Copy(faerieFireLightSource.LightSourceForm);
@@ -781,7 +765,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                     .SetSpeed(
                         RuleDefinitions.SpeedType.CellsPerSeconds,
                         speedParameter: 9.5f)
-                    .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.GuidingBolt.EffectDescription.EffectParticleParameters)
+                    .SetParticleEffectParameters(SpellDefinitions.GuidingBolt.EffectDescription.EffectParticleParameters)
                     .AddEffectForm(dealDamage)
                     .AddEffectForm(addIlluminatedCondition)
                     .AddEffectForm(addLightSource);
