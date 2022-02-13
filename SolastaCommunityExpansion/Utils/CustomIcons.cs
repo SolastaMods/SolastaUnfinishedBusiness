@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using Graphics = System.Drawing.Graphics;
+using UnityGraphics = UnityEngine.Graphics;
 
 namespace SolastaCommunityExpansion.Utils
 {
@@ -12,6 +15,7 @@ namespace SolastaCommunityExpansion.Utils
         private const string CUSTOM_ICON_PREFIX = "CUSTOM_ICON_PREFIX_";
 
         internal static readonly Dictionary<string, Sprite> LoadedIcons = new();
+        internal static readonly Dictionary<Bitmap, Sprite> SpriteFromBitmap = new();
 
         internal static Sprite ImageToSprite(string filePath, int sizeX, int sizeY)
         {
@@ -54,7 +58,7 @@ namespace SolastaCommunityExpansion.Utils
                 RenderTextureFormat.Default,
                 RenderTextureReadWrite.Linear);
 
-            Graphics.Blit(source, renderTex);
+            UnityGraphics.Blit(source, renderTex);
             RenderTexture previous = RenderTexture.active;
             RenderTexture.active = renderTex;
             Texture2D readableText = new Texture2D(source.width, source.height);
@@ -89,10 +93,9 @@ namespace SolastaCommunityExpansion.Utils
         }
 
         //stacks horizontaly images from files from left to right, resizes resulting image to final scale and stores it to a file
-        internal static void CombineImages(string[] files, (int, int) finalScale, string finalImageFilename)
+        internal static void CombineImages(IEnumerable<string> files, (int, int) finalScale, string finalImageFilename)
         {
-            List<System.Drawing.Bitmap> images = new List<System.Drawing.Bitmap>();
-            System.Drawing.Bitmap finalImage = null;
+            List<Bitmap> images = new List<Bitmap>();
 
             try
             {
@@ -102,7 +105,7 @@ namespace SolastaCommunityExpansion.Utils
                 foreach (string image in files)
                 {
                     //create a Bitmap from the file and add it to the list
-                    System.Drawing.Bitmap bitmap = new System.Drawing.Bitmap(image);
+                    Bitmap bitmap = new Bitmap(image);
 
                     //update the size of the final bitmap
                     width += bitmap.Width;
@@ -112,10 +115,10 @@ namespace SolastaCommunityExpansion.Utils
                 }
 
                 //create a bitmap to hold the combined image
-                finalImage = new System.Drawing.Bitmap(width, height);
+                using var finalImage = new Bitmap(width, height);
 
                 //get a graphics object from the image so we can draw on it
-                using (System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(finalImage))
+                using (Graphics g = Graphics.FromImage(finalImage))
                 {
                     //set background color
                     g.Clear(System.Drawing.Color.Black);
@@ -123,20 +126,15 @@ namespace SolastaCommunityExpansion.Utils
                     //go through each image and draw it on the final image
                     int offset = 0;
 
-                    foreach (System.Drawing.Bitmap image in images)
+                    foreach (Bitmap image in images)
                     {
-                        g.DrawImage(image, new System.Drawing.Rectangle(offset, 0, image.Width, image.Height));
+                        g.DrawImage(image, new Rectangle(offset, 0, image.Width, image.Height));
                         offset += image.Width;
                     }
                 }
-                finalImage = new System.Drawing.Bitmap(finalImage, new System.Drawing.Size(finalScale.Item1, finalScale.Item2));
-                finalImage.Save(finalImageFilename);
-            }
-            catch (Exception)
-            {
-                finalImage?.Dispose();
 
-                throw;
+                using var finalImage2 = new Bitmap(finalImage, new Size(finalScale.Item1, finalScale.Item2));
+                finalImage2.Save(finalImageFilename);
             }
             finally
             {
@@ -152,28 +150,19 @@ namespace SolastaCommunityExpansion.Utils
             (int, int) innerImagePosition,
             string finalImageFilename)
         {
-            System.Drawing.Bitmap base_image = null;
-            System.Drawing.Bitmap inner_image = null;
+            using var baseImage = new Bitmap(baseImageFile);
+            using var originalImage = new Bitmap(innerImageFile);
+            using var innerImage = new Bitmap(originalImage, new Size(innerImageScale.Item1, innerImageScale.Item2));
 
-            try
+            var sourceRegion = new Rectangle(0, 0, innerImageScale.Item1, innerImageScale.Item2);
+            var destinationRegion = new Rectangle(innerImagePosition.Item1, innerImagePosition.Item2, innerImageScale.Item1, innerImageScale.Item2);
+
+            using (Graphics g = Graphics.FromImage(baseImage))
             {
-                base_image = new System.Drawing.Bitmap(baseImageFile);
-                inner_image = new System.Drawing.Bitmap(new System.Drawing.Bitmap(innerImageFile), new System.Drawing.Size(innerImageScale.Item1, innerImageScale.Item2));
-
-                var src_region = new System.Drawing.Rectangle(0, 0, innerImageScale.Item1, innerImageScale.Item2);
-                var dst_region = new System.Drawing.Rectangle(innerImagePosition.Item1, innerImagePosition.Item2, innerImageScale.Item1, innerImageScale.Item2);
-                using (System.Drawing.Graphics grD = System.Drawing.Graphics.FromImage(base_image))
-                {
-                    grD.DrawImage(inner_image, dst_region, src_region, System.Drawing.GraphicsUnit.Pixel);
-                }
-
-                base_image.Save(finalImageFilename);
+                g.DrawImage(innerImage, destinationRegion, sourceRegion, GraphicsUnit.Pixel);
             }
-            finally
-            {
-                base_image?.Dispose();
-                inner_image?.Dispose();
-            }
+
+            baseImage.Save(finalImageFilename);
         }
 
         internal static AssetReferenceSprite StoreCustomIcon(string name, string filePath, int sizeX, int sizeY)
@@ -203,6 +192,23 @@ namespace SolastaCommunityExpansion.Utils
             }
 
             return LoadedIcons.ContainsValue(sprite);
+        }
+
+        /// <summary>
+        /// Convert a bitmap stored as an embedded resource to a Sprite.
+        /// NOTE: must be a square bitmap.  Update method to handle non-square.
+        /// </summary>
+        internal static Sprite CreateSpriteFromResource(Bitmap bitmap, int size)
+        {
+            if (!SpriteFromBitmap.TryGetValue(bitmap, out var sprite))
+            {
+                var texture = new Texture2D(size, size, TextureFormat.DXT5, false);
+                texture.LoadImage((byte[])new ImageConverter().ConvertTo(bitmap, typeof(byte[])));
+                sprite = Sprite.Create(texture, new Rect(0, 0, size, size), new Vector2(0, 0));
+                SpriteFromBitmap[bitmap] = sprite;
+            }
+
+            return sprite;
         }
     }
 }
