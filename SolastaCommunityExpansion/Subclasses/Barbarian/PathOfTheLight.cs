@@ -92,7 +92,6 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                     definition.Features.Add(PreventInvisibility);
                 });
 
-
         private static FeatureDefinition IlluminatingStrike { get; } = FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>
             .Create("PathOfTheLightIlluminatingStrikeFeatureSet", SubclassNamespace)
             .SetGuiPresentation("BarbarianPathOfTheLightIlluminatingStrike", Category.Subclass)
@@ -361,7 +360,6 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                     }
                 })
             .AddToDB();
-
 
         private static ConditionDefinition IlluminatingBurstSuppressedCondition { get; } = ConditionDefinitionBuilder
             .Build(

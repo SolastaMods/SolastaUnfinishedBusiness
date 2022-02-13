@@ -334,10 +334,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
             // Ward: 60 feet 1 creature other than you, reduce damage taken by 3 for every hit
 
             // Abate
-            var abateConditionDefinition = ConditionDefinitionBuilder<ConditionDefinition>
+            var abateConditionDefinition = ConditionDefinitionBuilder
                 .Create(ConditionDefinitions.ConditionShocked, "ConditionAbate", WITCH_BASE_GUID)
                 .SetGuiPresentation("Abate", Category.Condition, ConditionDefinitions.ConditionShocked.GuiPresentation.SpriteReference)
-                .Configure<ConditionDefinitionBuilder<ConditionDefinition>>(definition =>
+                .Configure<ConditionDefinitionBuilder>(definition =>
                 {
                     definition
                         .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
@@ -380,10 +380,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .AddToDB();
 
             // Apathy
-            var apathyConditionDefinition = ConditionDefinitionBuilder<ConditionDefinition>
+            var apathyConditionDefinition = ConditionDefinitionBuilder
                 .Create(ConditionDefinitions.ConditionCalmedByCalmEmotionsEnemy, "ConditionApathy", WITCH_BASE_GUID)
                 .SetGuiPresentation("Apathy", Category.Condition, ConditionDefinitions.ConditionCalmedByCalmEmotionsEnemy.GuiPresentation.SpriteReference)
-                .Configure<ConditionDefinitionBuilder<ConditionDefinition>>(definition =>
+                .Configure<ConditionDefinitionBuilder>(definition =>
                 {
                     definition
                         .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
@@ -426,10 +426,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .AddToDB();
 
             // Charm
-            var charmConditionDefinition = ConditionDefinitionBuilder<ConditionDefinition>
+            var charmConditionDefinition = ConditionDefinitionBuilder
                 .Create(ConditionDefinitions.ConditionCharmed, "ConditionCharm", WITCH_BASE_GUID)
                 .SetGuiPresentation("Charm", Category.Condition, ConditionDefinitions.ConditionCharmed.GuiPresentation.SpriteReference)
-                .Configure<ConditionDefinitionBuilder<ConditionDefinition>>(definition =>
+                .Configure<ConditionDefinitionBuilder>(definition =>
                 {
                     definition
                         .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
@@ -479,10 +479,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 // TODO: move into builder
                 .SetMyAttackModifierDieType(RuleDefinitions.DieType.D6);
 
-            var disorientConditionDefinition = ConditionDefinitionBuilder<ConditionDefinition>
+            var disorientConditionDefinition = ConditionDefinitionBuilder
                 .Create(ConditionDefinitions.ConditionBaned, "ConditionDisorient", WITCH_BASE_GUID)
                 .SetGuiPresentation("Disorient", Category.Condition, ConditionDefinitions.ConditionBaned.GuiPresentation.SpriteReference)
-                .Configure<ConditionDefinitionBuilder<ConditionDefinition>>(definition =>
+                .Configure<ConditionDefinitionBuilder>(definition =>
                 {
                     definition
                         .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
@@ -528,10 +528,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .AddToDB();
 
             // Evil Eye
-            var evileyeConditionDefinition = ConditionDefinitionBuilder<ConditionDefinition>
+            var evileyeConditionDefinition = ConditionDefinitionBuilder
                 .Create(ConditionDefinitions.ConditionFrightenedFear, "ConditionEvilEye", WITCH_BASE_GUID)
                 .SetGuiPresentation("EvilEye", Category.Condition, ConditionDefinitions.ConditionFrightenedFear.GuiPresentation.SpriteReference)
-                .Configure<ConditionDefinitionBuilder<ConditionDefinition>>(definition =>
+                .Configure<ConditionDefinitionBuilder>(definition =>
                 {
                     definition
                         .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
@@ -595,10 +595,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .AddToDB();
 
             // Pox
-            var poxConditionDefinition = ConditionDefinitionBuilder<ConditionDefinition>
+            var poxConditionDefinition = ConditionDefinitionBuilder
                 .Create(ConditionDefinitions.ConditionPoisoned, "ConditionPox", WITCH_BASE_GUID)
                 .SetGuiPresentation("Pox", Category.Condition, ConditionDefinitions.ConditionPoisoned.GuiPresentation.SpriteReference)
-                .Configure<ConditionDefinitionBuilder<ConditionDefinition>>(definition =>
+                .Configure<ConditionDefinitionBuilder>(definition =>
                 {
                     definition
                         .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
@@ -649,10 +649,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, -3)
                 .AddToDB();
 
-            var ruinConditionDefinition = ConditionDefinitionBuilder<ConditionDefinition>
+            var ruinConditionDefinition = ConditionDefinitionBuilder
                 .Create(ConditionDefinitions.ConditionAcidArrowed, "ConditionRuin", WITCH_BASE_GUID)
                 .SetGuiPresentation("Ruin", Category.Condition, ConditionDefinitions.ConditionAcidArrowed.GuiPresentation.SpriteReference)
-                .Configure<ConditionDefinitionBuilder<ConditionDefinition>>(definition =>
+                .Configure<ConditionDefinitionBuilder>(definition =>
                 {
                     definition
                         .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
@@ -901,31 +901,31 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 summoningAffinity.SetRequiredMonsterTag("WitchFamiliar");
                 summoningAffinity.EffectForms.Clear();
 
-                var acConditionDefinition = ConditionDefinitionBuilder<ConditionDefinition>
+                var acConditionDefinition = ConditionDefinitionBuilder
                     .Create(ConditionDefinitions.ConditionKindredSpiritBondAC, "ConditionWitchFamiliarAC", WITCH_BASE_GUID)
                     .SetGuiPresentationNoContent()
                     .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
                     .AddToDB();
 
-                var stConditionDefinition = ConditionDefinitionBuilder<ConditionDefinition>
+                var stConditionDefinition = ConditionDefinitionBuilder
                     .Create(ConditionDefinitions.ConditionKindredSpiritBondSavingThrows, "ConditionWitchFamiliarST", WITCH_BASE_GUID)
                     .SetGuiPresentationNoContent()
                     .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
                     .AddToDB();
 
-                var damageConditionDefinition = ConditionDefinitionBuilder<ConditionDefinition>
+                var damageConditionDefinition = ConditionDefinitionBuilder
                     .Create(ConditionDefinitions.ConditionKindredSpiritBondMeleeDamage, "ConditionWitchFamiliarDamage", WITCH_BASE_GUID)
                     .SetGuiPresentationNoContent()
                     .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
                     .AddToDB();
 
-                var hitConditionDefinition = ConditionDefinitionBuilder<ConditionDefinition>
+                var hitConditionDefinition = ConditionDefinitionBuilder
                     .Create(ConditionDefinitions.ConditionKindredSpiritBondMeleeAttack, "ConditionWitchFamiliarHit", WITCH_BASE_GUID)
                     .SetGuiPresentationNoContent()
                     .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceSpellAttack)
                     .AddToDB();
 
-                var hpConditionDefinition = ConditionDefinitionBuilder<ConditionDefinition>
+                var hpConditionDefinition = ConditionDefinitionBuilder
                     .Create(ConditionDefinitions.ConditionKindredSpiritBondHP, "ConditionWitchFamiliarHP", WITCH_BASE_GUID)
                     .SetGuiPresentationNoContent()
                     .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel)

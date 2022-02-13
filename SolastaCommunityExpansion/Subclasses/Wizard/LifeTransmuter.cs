@@ -4,6 +4,7 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard
 {
@@ -171,12 +172,21 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             return builder.AddToDB();
         }
 
-        private static ConditionDefinition BuildCondition(List<FeatureDefinition> conditionFeatures, RuleDefinitions.DurationType durationType,
+        private static ConditionDefinition BuildCondition(IEnumerable<FeatureDefinition> conditionFeatures, RuleDefinitions.DurationType durationType,
             int durationParameter, string name, GuiPresentation guiPresentation)
         {
-            return new ConditionDefinitionBuilder
-                    (name, GuidHelper.Create(SubclassNamespace, name).ToString(), conditionFeatures, durationType, durationParameter, false)
+            return ConditionDefinitionBuilder
+                .Create(name, SubclassNamespace)
                 .SetGuiPresentation(guiPresentation)
+                .Configure<ConditionDefinitionBuilder>(definition =>
+                {
+                    definition.Features.AddRange(conditionFeatures);
+                    definition
+                        .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
+                        .SetAllowMultipleInstances(false)
+                        .SetDurationType(durationType)
+                        .SetDurationParameter(durationParameter);
+                })
                 .AddToDB();
         }
 

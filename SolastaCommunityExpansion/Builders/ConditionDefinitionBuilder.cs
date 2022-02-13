@@ -27,9 +27,28 @@ namespace SolastaCommunityExpansion.Builders
         protected ConditionDefinitionBuilder(string name, string guid)
             : base(name, guid)
         {
+            var assetReference = new AssetReference();
+
+            Definition
+                .SetConditionStartParticleReference(assetReference)
+                .SetConditionParticleReference(assetReference)
+                .SetConditionEndParticleReference(assetReference)
+                .SetCharacterShaderReference(assetReference);
         }
 
-        private ConditionDefinitionBuilder(TDefinition original, string name, Guid guidNamespace)
+        protected ConditionDefinitionBuilder(string name, Guid guidNamespace)
+            : base(name, guidNamespace)
+        {
+            var assetReference = new AssetReference();
+
+            Definition
+                .SetConditionStartParticleReference(assetReference)
+                .SetConditionParticleReference(assetReference)
+                .SetConditionEndParticleReference(assetReference)
+                .SetCharacterShaderReference(assetReference);
+        }
+
+        protected ConditionDefinitionBuilder(TDefinition original, string name, Guid guidNamespace)
             : base(original, name, guidNamespace)
         {
         }
@@ -45,6 +64,10 @@ namespace SolastaCommunityExpansion.Builders
             return new ConditionDefinitionBuilder<TDefinition>(original, name, guidNamespace);
         }
 
+        public static ConditionDefinitionBuilder<TDefinition> Create(string name, Guid guidNamespace)
+        {
+            return new ConditionDefinitionBuilder<TDefinition>(name, guidNamespace);
+        }
 
         // Specific to PathOfTheLight
         public static TDefinition Build(string name, string guid, Action<TDefinition> modifyDefinition = null)
@@ -55,26 +78,14 @@ namespace SolastaCommunityExpansion.Builders
 
     public class ConditionDefinitionBuilder : ConditionDefinitionBuilder<ConditionDefinition>
     {
-
-        // TODO: refactor/remove
-        // Specific to SpellShield and LifeTransmuter
-        public ConditionDefinitionBuilder(string name, string guid, IEnumerable<FeatureDefinition> conditionFeatures, RuleDefinitions.DurationType durationType,
-            int durationParameter, bool silent) : base(name, guid)
+        public ConditionDefinitionBuilder(string name, string guid)
+            : base(name, guid)
         {
-            Definition.Features.AddRange(conditionFeatures);
-            Definition.SetConditionType(RuleDefinitions.ConditionType.Beneficial);
-            Definition.SetAllowMultipleInstances(false);
-            Definition.SetDurationType(durationType);
-            Definition.SetDurationParameter(durationParameter);
-            Definition.SetConditionStartParticleReference(new AssetReference());
-            Definition.SetConditionParticleReference(new AssetReference());
-            Definition.SetConditionEndParticleReference(new AssetReference());
-            Definition.SetCharacterShaderReference(new AssetReference());
-            if (silent)
-            {
-                Definition.SetSilentWhenAdded(true);
-                Definition.SetSilentWhenRemoved(true);
-            }
+        }
+
+        public ConditionDefinitionBuilder(ConditionDefinition original, string name, Guid guidNamespace)
+            : base(original, name, guidNamespace)
+        {
         }
     }
 }
