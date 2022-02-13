@@ -9,6 +9,7 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Barbarian
 {
@@ -22,9 +23,9 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
         private static readonly List<ConditionDefinition> InvisibleConditions =
             new()
             {
-                ConditionDefinitions.ConditionInvisibleBase,
-                ConditionDefinitions.ConditionInvisible,
-                ConditionDefinitions.ConditionInvisibleGreater
+                ConditionInvisibleBase,
+                ConditionInvisible,
+                ConditionInvisibleGreater
             };
 
         private static readonly Dictionary<int, int> LightsProtectionAmountHealedByClassLevel = new()
@@ -72,10 +73,10 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             return GuidHelper.Create(SubclassNamespace, featureName).ToString();
         }
 
-        private static ConditionDefinition IlluminatedCondition { get; } = ConditionDefinitionBuilder<IlluminatedConditionDefinition>
+        private static ConditionDefinition IlluminatedCondition { get; } = IlluminatedConditionDefinitionBuilder
             .Create(IlluminatedConditionName, SubclassNamespace)
-            .SetGuiPresentation("BarbarianPathOfTheLightIlluminatedCondition", Category.Subclass, ConditionDefinitions.ConditionBranded.GuiPresentation.SpriteReference)
-            .Configure<ConditionDefinitionBuilder<IlluminatedConditionDefinition>>(
+            .SetGuiPresentation("BarbarianPathOfTheLightIlluminatedCondition", Category.Subclass, ConditionBranded.GuiPresentation.SpriteReference)
+            .Configure<IlluminatedConditionDefinitionBuilder>(
                 definition =>
                 {
                     definition
@@ -187,7 +188,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
         {
             var seeingInvisibleCondition = ConditionDefinitionBuilder
                 .Create("PathOfTheLightEyesOfTruthSeeingInvisible", SubclassNamespace)
-                .SetGuiPresentation("", Category.Subclass, ConditionDefinitions.ConditionSeeInvisibility.GuiPresentation.SpriteReference)
+                .SetGuiPresentation("BarbarianPathOfTheLightSeeingInvisibleCondition", Category.Subclass, ConditionSeeInvisibility.GuiPresentation.SpriteReference)
                 .Configure<ConditionDefinitionBuilder>(
                     definition =>
                     {
@@ -404,6 +405,16 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             }
         }
 
+        private sealed class IlluminatedConditionDefinitionBuilder : ConditionDefinitionBuilder<IlluminatedConditionDefinition>
+        {
+            private IlluminatedConditionDefinitionBuilder(string name, Guid guidNamespace) : base(name, guidNamespace) { }
+
+            public static IlluminatedConditionDefinitionBuilder Create(string name, Guid guidNamespace)
+            {
+                return new IlluminatedConditionDefinitionBuilder(name, guidNamespace);
+            }
+        }
+
         private sealed class IlluminatedByBurstConditionDefinition : ConditionDefinition, INotifyConditionRemoval
         {
             public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
@@ -414,6 +425,16 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
             {
                 ApplyLightsProtectionHealing(rulesetCondition.SourceGuid);
+            }
+        }
+
+        private sealed class IlluminatedByBurstConditionDefinitionBuilder : ConditionDefinitionBuilder<IlluminatedByBurstConditionDefinition>
+        {
+            private IlluminatedByBurstConditionDefinitionBuilder(string name, Guid guidNamespace) : base(name, guidNamespace) { }
+
+            public static IlluminatedByBurstConditionDefinitionBuilder Create(string name, Guid guidNamespace)
+            {
+                return new IlluminatedByBurstConditionDefinitionBuilder(name, guidNamespace);
             }
         }
 
@@ -639,10 +660,10 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                     SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates
                 };
 
-                var illuminatedByBurstCondition = ConditionDefinitionBuilder<IlluminatedByBurstConditionDefinition>
+                var illuminatedByBurstCondition = IlluminatedByBurstConditionDefinitionBuilder
                     .Create("PathOfTheLightIlluminatedByBurstCondition", SubclassNamespace)
-                    .SetGuiPresentation("BarbarianPathOfTheLightIlluminatedCondition", Category.Subclass, ConditionDefinitions.ConditionBranded.GuiPresentation.SpriteReference)
-                    .Configure<ConditionDefinitionBuilder<IlluminatedByBurstConditionDefinition>>(definition =>
+                    .SetGuiPresentation("BarbarianPathOfTheLightIlluminatedCondition", Category.Subclass, ConditionBranded.GuiPresentation.SpriteReference)
+                    .Configure<IlluminatedByBurstConditionDefinitionBuilder>(definition =>
                     {
                         definition
                             .SetAllowMultipleInstances(true)

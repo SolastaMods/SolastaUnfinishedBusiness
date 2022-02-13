@@ -502,6 +502,12 @@ namespace SolastaModApi
         {
             Assert.IsNotNull(configureDefinition);
             configureDefinition.Invoke(Definition);
+
+            if (typeof(TBuilder) != GetType())
+            {
+                throw new SolastaModApiException($"Error in Configure. TBuilder={typeof(TBuilder).Name}, this={GetType().Name}");
+            }
+
             return (TBuilder)this;
         }
     }
