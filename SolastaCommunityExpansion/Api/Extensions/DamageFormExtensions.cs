@@ -68,7 +68,7 @@ namespace SolastaModApi.Extensions
         {
             var copy = new DamageForm();
             copy.Copy(entity);
-            return entity;
+            return copy;
         }
 
         public static T SetBonusDamage<T>(this T entity, System.Int32 value)

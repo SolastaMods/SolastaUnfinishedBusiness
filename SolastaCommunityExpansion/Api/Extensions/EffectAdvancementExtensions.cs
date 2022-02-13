@@ -47,7 +47,7 @@ namespace SolastaModApi.Extensions
         {
             var copy = new EffectAdvancement();
             copy.Copy(entity);
-            return entity;
+            return copy;
         }
 
         public static T SetAdditionalDicePerIncrement<T>(this T entity, System.Int32 value)

@@ -47,7 +47,7 @@ namespace SolastaModApi.Extensions
         {
             var copy = new CounterForm();
             copy.Copy(entity);
-            return entity;
+            return copy;
         }
 
         public static T SetAddProficiencyBonus<T>(this T entity, System.Boolean value)

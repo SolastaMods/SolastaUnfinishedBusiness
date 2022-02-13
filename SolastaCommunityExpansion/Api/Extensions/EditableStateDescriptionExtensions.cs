@@ -1,4 +1,4 @@
-﻿using SolastaModApi.Infrastructure;
+using SolastaModApi.Infrastructure;
 using AK.Wwise;
 using UnityEngine;
 using UnityEngine.UI;
@@ -64,7 +64,6 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        [Obsolete("Use content of OutputDescriptions instead")]
         public static T SetChildrenStates<T>(this T entity, EditableStateDescription[] value)
             where T : EditableStateDescription
         {
@@ -72,7 +71,6 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        [Obsolete("Use content of OutputDescriptions instead")]
         public static T SetChildrenStatesIndexes<T>(this T entity, System.Int32[] value)
             where T : EditableStateDescription
         {

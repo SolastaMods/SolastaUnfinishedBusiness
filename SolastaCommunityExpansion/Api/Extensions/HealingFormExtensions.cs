@@ -47,7 +47,7 @@ namespace SolastaModApi.Extensions
         {
             var copy = new HealingForm();
             copy.Copy(entity);
-            return entity;
+            return copy;
         }
 
         public static T SetBonusHealing<T>(this T entity, System.Int32 value)

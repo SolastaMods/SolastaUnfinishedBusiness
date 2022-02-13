@@ -47,7 +47,7 @@ namespace SolastaModApi.Extensions
         {
             var copy = new AlterationForm();
             copy.Copy(entity);
-            return entity;
+            return copy;
         }
 
         public static T SetAbilityScore<T>(this T entity, System.String value)

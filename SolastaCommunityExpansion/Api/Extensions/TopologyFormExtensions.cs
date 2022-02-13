@@ -47,7 +47,7 @@ namespace SolastaModApi.Extensions
         {
             var copy = new TopologyForm();
             copy.Copy(entity);
-            return entity;
+            return copy;
         }
 
         public static T SetChangeType<T>(this T entity, TopologyForm.Type value)

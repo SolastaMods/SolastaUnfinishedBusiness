@@ -68,7 +68,7 @@ namespace SolastaModApi.Extensions
         {
             var copy = new ShapeChangeForm();
             copy.Copy(entity);
-            return entity;
+            return copy;
         }
 
         public static T SetKeepMentalAbilityScores<T>(this T entity, System.Boolean value)

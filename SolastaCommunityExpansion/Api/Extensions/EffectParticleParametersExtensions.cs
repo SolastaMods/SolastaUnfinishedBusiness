@@ -47,7 +47,7 @@ namespace SolastaModApi.Extensions
         {
             var copy = new EffectParticleParameters();
             copy.Copy(entity);
-            return entity;
+            return copy;
         }
 
         public static T SetActiveEffectCellEndParticleReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)

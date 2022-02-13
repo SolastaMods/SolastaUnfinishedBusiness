@@ -47,7 +47,7 @@ namespace SolastaModApi.Extensions
         {
             var copy = new SaveAffinityBySenseDescription();
             copy.Copy(entity);
-            return entity;
+            return copy;
         }
 
         public static T SetAdvantageType<T>(this T entity, RuleDefinitions.AdvantageType value)

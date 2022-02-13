@@ -47,7 +47,7 @@ namespace SolastaModApi.Extensions
         {
             var copy = new MonsterAttackDefinition();
             copy.Copy(entity);
-            return entity;
+            return copy;
         }
 
         public static T SetActionType<T>(this T entity, ActionDefinitions.ActionType value)

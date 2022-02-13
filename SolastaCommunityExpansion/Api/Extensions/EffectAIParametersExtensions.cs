@@ -47,7 +47,7 @@ namespace SolastaModApi.Extensions
         {
             var copy = new EffectAIParameters();
             copy.Copy(entity);
-            return entity;
+            return copy;
         }
 
         public static T SetAoeScoreMultiplier<T>(this T entity, System.Single value)

@@ -47,7 +47,7 @@ namespace SolastaModApi.Extensions
         {
             var copy = new KillForm();
             copy.Copy(entity);
-            return entity;
+            return copy;
         }
 
         public static T SetChallengeRating<T>(this T entity, System.Single value)

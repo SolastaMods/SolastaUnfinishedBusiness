@@ -68,7 +68,7 @@ namespace SolastaModApi.Extensions
         {
             var copy = new EntityDescription();
             copy.Copy(entity);
-            return entity;
+            return copy;
         }
 
         public static T SetAction<T>(this T entity, EntityDescription.DescriptionAction value)

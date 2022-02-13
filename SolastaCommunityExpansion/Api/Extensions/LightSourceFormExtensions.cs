@@ -47,7 +47,7 @@ namespace SolastaModApi.Extensions
         {
             var copy = new LightSourceForm();
             copy.Copy(entity);
-            return entity;
+            return copy;
         }
 
         public static T SetApplyToSelf<T>(this T entity, System.Boolean value)

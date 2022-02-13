@@ -47,7 +47,7 @@ namespace SolastaModApi.Extensions
         {
             var copy = new EffectForm();
             copy.Copy(entity);
-            return entity;
+            return copy;
         }
 
         public static T SetAddBonusMode<T>(this T entity, RuleDefinitions.AddBonusMode value)

@@ -257,7 +257,7 @@ namespace SolastaModApi.Extensions
         {
             var copy = new MonsterDefinition();
             copy.Copy(entity);
-            return entity;
+            return copy;
         }
 
         public static T SetAbilityScores<T>(this T entity, System.Int32[] value)

@@ -47,7 +47,7 @@ namespace SolastaModApi.Extensions
         {
             var copy = new SummonForm();
             copy.Copy(entity);
-            return entity;
+            return copy;
         }
 
         public static T SetConditionDefinition<T>(this T entity, ConditionDefinition value)

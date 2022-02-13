@@ -484,7 +484,7 @@ void CreateExtensions(Type t, bool createFiles = false)
 						.WithType(ParseTypeName($"{SimplifyType(t)}"))
 						.AddModifiers(Token(SyntaxKind.ThisKeyword))
 				)
-				.WithBody(Block(ParseStatement($"var copy = new {SimplifyType(t)}();"), ParseStatement("copy.Copy(entity);"), ParseStatement("return entity;")))
+				.WithBody(Block(ParseStatement($"var copy = new {SimplifyType(t)}();"), ParseStatement("copy.Copy(entity);"), ParseStatement("return copy;")))
 			});
 	}
 
