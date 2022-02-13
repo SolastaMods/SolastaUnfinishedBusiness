@@ -73,24 +73,23 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
         }
 
         private static ConditionDefinition IlluminatedCondition { get; } = ConditionDefinitionBuilder<IlluminatedConditionDefinition>
-            .Build(
-                IlluminatedConditionName,
-                CreateNamespacedGuid(IlluminatedConditionName),
+            .Create(IlluminatedConditionName, SubclassNamespace)
+            .SetGuiPresentation("BarbarianPathOfTheLightIlluminatedCondition", Category.Subclass, ConditionDefinitions.ConditionBranded.GuiPresentation.SpriteReference)
+            .Configure<ConditionDefinitionBuilder<IlluminatedConditionDefinition>>(
                 definition =>
                 {
                     definition
-                        .SetGuiPresentation("BarbarianPathOfTheLightIlluminatedCondition",
-                            Category.Subclass, ConditionDefinitions.ConditionBranded.GuiPresentation.SpriteReference)
-                        .SetSpecialDuration(true)
-                        .SetDurationType(RuleDefinitions.DurationType.Irrelevant)
-                        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
                         .SetAllowMultipleInstances(true)
+                        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+                        .SetDurationType(RuleDefinitions.DurationType.Irrelevant)
                         .SetSilentWhenAdded(true)
-                        .SetSilentWhenRemoved(false);
+                        .SetSilentWhenRemoved(false)
+                        .SetSpecialDuration(true);
 
                     definition.Features.Add(DisadvantageAgainstNonSource);
                     definition.Features.Add(PreventInvisibility);
-                });
+                })
+            .AddToDB();
 
         private static FeatureDefinition IlluminatingStrike { get; } = FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>
             .Create("PathOfTheLightIlluminatingStrikeFeatureSet", SubclassNamespace)
@@ -186,26 +185,22 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
         private static FeatureDefinition CreateEyesOfTruth()
         {
-            var seeingInvisibleCondition = ConditionDefinitionBuilder.Build(
-                "PathOfTheLightEyesOfTruthSeeingInvisible",
-                CreateNamespacedGuid("PathOfTheLightEyesOfTruthSeeingInvisible"),
-                definition =>
-                {
-                    var gpb = new GuiPresentationBuilder(
-                        "Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle",
-                        "Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription");
+            var seeingInvisibleCondition = ConditionDefinitionBuilder
+                .Create("PathOfTheLightEyesOfTruthSeeingInvisible", SubclassNamespace)
+                .SetGuiPresentation("", Category.Subclass, ConditionDefinitions.ConditionSeeInvisibility.GuiPresentation.SpriteReference)
+                .Configure<ConditionDefinitionBuilder>(
+                    definition =>
+                    {
+                        definition
+                            .SetAllowMultipleInstances(false)
+                            .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
+                            .SetDurationType(RuleDefinitions.DurationType.Permanent)
+                            .SetSilentWhenAdded(true)
+                            .SetSilentWhenRemoved(true);
 
-                    gpb.SetSpriteReference(ConditionDefinitions.ConditionSeeInvisibility.GuiPresentation.SpriteReference);
-
-                    definition
-                        .SetGuiPresentation(gpb.Build())
-                        .SetDurationType(RuleDefinitions.DurationType.Permanent)
-                        .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
-                        .SetSilentWhenAdded(true)
-                        .SetSilentWhenRemoved(true);
-
-                    definition.Features.Add(FeatureDefinitionSenses.SenseSeeInvisible16);
-                });
+                        definition.Features.Add(FeatureDefinitionSenses.SenseSeeInvisible16);
+                    })
+                .AddToDB();
 
             var seeInvisibleEffectBuilder = new EffectDescriptionBuilder();
 
@@ -362,26 +357,19 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             .AddToDB();
 
         private static ConditionDefinition IlluminatingBurstSuppressedCondition { get; } = ConditionDefinitionBuilder
-            .Build(
-                "PathOfTheLightIlluminatingBurstSuppressedCondition",
-                CreateNamespacedGuid("PathOfTheLightIlluminatingBurstSuppressedCondition"),
+            .Create("PathOfTheLightIlluminatingBurstSuppressedCondition", SubclassNamespace)
+            .SetGuiPresentationNoContent(true)
+            .Configure<ConditionDefinitionBuilder>(
                 definition =>
                 {
-                    var gpb = new GuiPresentationBuilder(
-                        "Feature/&NoContentTitle",
-                        "Feature/&NoContentTitle");
-
-                    var guiPresentation = gpb.Build();
-
-                    guiPresentation.SetHidden(true);
-
                     definition
-                        .SetGuiPresentation(guiPresentation)
-                        .SetDurationType(RuleDefinitions.DurationType.Permanent)
+                        .SetAllowMultipleInstances(false)
                         .SetConditionType(RuleDefinitions.ConditionType.Neutral)
+                        .SetDurationType(RuleDefinitions.DurationType.Permanent)
                         .SetSilentWhenAdded(true)
                         .SetSilentWhenRemoved(true);
-                });
+                })
+            .AddToDB();
 
         private static void HandleAfterIlluminatedConditionRemoved(RulesetActor removedFrom)
         {
@@ -557,37 +545,33 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
             private static EffectDescription CreatePowerEffect(ConditionDefinition illuminatedCondition)
             {
-                var initiatorCondition = ConditionDefinitionBuilder.Build(
-                    "PathOfTheLightIlluminatingStrikeInitiatorCondition",
-                    CreateNamespacedGuid("PathOfTheLightIlluminatingStrikeInitiatorCondition"),
-                    definition =>
-                    {
-                        var gpb = new GuiPresentationBuilder("Feature/&NoContentTitle", "Feature/&NoContentTitle");
+                var initiatorCondition = ConditionDefinitionBuilder
+                    .Create("PathOfTheLightIlluminatingStrikeInitiatorCondition", SubclassNamespace)
+                    .SetGuiPresentationNoContent(true)
+                    .Configure<ConditionDefinitionBuilder>(
+                        definition =>
+                        {
+                            definition
+                                .SetAllowMultipleInstances(false)
+                                .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
+                                .SetDurationType(RuleDefinitions.DurationType.Minute)
+                                .SetDurationParameter(1)
+                                .SetTerminateWhenRemoved(true)
+                                .SetSilentWhenAdded(true)
+                                .SetSilentWhenRemoved(true);
 
-                        GuiPresentation guiPresentation = gpb.Build();
+                            var illuminatingStrikeFeature = new IlluminatingStrikeFeatureBuilder(
+                                IlluminatingStrikeName,
+                                CreateNamespacedGuid(IlluminatingStrikeName),
+                                "Feature/&NoContentTitle",
+                                "Feature/&NoContentTitle",
+                                illuminatedCondition);
 
-                        guiPresentation.SetHidden(true);
+                            definition.Features.Add(illuminatingStrikeFeature.AddToDB());
 
-                        definition
-                            .SetGuiPresentation(guiPresentation)
-                            .SetDurationType(RuleDefinitions.DurationType.Minute)
-                            .SetDurationParameter(1)
-                            .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
-                            .SetTerminateWhenRemoved(true)
-                            .SetSilentWhenAdded(true)
-                            .SetSilentWhenRemoved(true);
-
-                        var illuminatingStrikeFeature = new IlluminatingStrikeFeatureBuilder(
-                            IlluminatingStrikeName,
-                            CreateNamespacedGuid(IlluminatingStrikeName),
-                            "Feature/&NoContentTitle",
-                            "Feature/&NoContentTitle",
-                            illuminatedCondition);
-
-                        definition.Features.Add(illuminatingStrikeFeature.AddToDB());
-
-                        definition.SpecialInterruptions.SetRange(RuleDefinitions.ConditionInterruption.RageStop);
-                    });
+                            definition.SpecialInterruptions.SetRange(RuleDefinitions.ConditionInterruption.RageStop);
+                        })
+                    .AddToDB();
 
                 var enableIlluminatingStrike = new EffectForm
                 {
@@ -655,27 +639,21 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                     SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates
                 };
 
-                var illuminatedByBurstCondition = ConditionDefinitionBuilder<IlluminatedByBurstConditionDefinition>.Build(
-                    "PathOfTheLightIlluminatedByBurstCondition",
-                    CreateNamespacedGuid("PathOfTheLightIlluminatedByBurstCondition"),
-                    definition =>
+                var illuminatedByBurstCondition = ConditionDefinitionBuilder<IlluminatedByBurstConditionDefinition>
+                    .Create("PathOfTheLightIlluminatedByBurstCondition", SubclassNamespace)
+                    .SetGuiPresentation("BarbarianPathOfTheLightIlluminatedCondition", Category.Subclass, ConditionDefinitions.ConditionBranded.GuiPresentation.SpriteReference)
+                    .Configure<ConditionDefinitionBuilder<IlluminatedByBurstConditionDefinition>>(definition =>
                     {
-                        var gpb = new GuiPresentationBuilder(
-                            "Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle",
-                            "Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription");
-
-                        gpb.SetSpriteReference(ConditionDefinitions.ConditionBranded.GuiPresentation.SpriteReference);
-
                         definition
-                            .SetGuiPresentation(gpb.Build())
+                            .SetAllowMultipleInstances(true)
+                            .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
                             .SetDurationType(RuleDefinitions.DurationType.Minute)
                             .SetDurationParameter(1)
-                            .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
-                            .SetAllowMultipleInstances(true)
+                            .SetParentCondition(illuminatedCondition)
                             .SetSilentWhenAdded(true)
-                            .SetSilentWhenRemoved(false)
-                            .SetParentCondition(illuminatedCondition);
-                    });
+                            .SetSilentWhenRemoved(false);
+                    })
+                    .AddToDB();
 
                 var addIlluminatedCondition = new EffectForm
                 {
