@@ -8,7 +8,8 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class ConditionDefinitionBuilder<TDefinition> : BaseDefinitionBuilder<TDefinition> where TDefinition : ConditionDefinition
     {
-        public ConditionDefinitionBuilder(string name, string guid, Action<TDefinition> modifyDefinition) : base(name, guid)
+        // Specific to PathOfTheLight
+        private ConditionDefinitionBuilder(string name, string guid, Action<TDefinition> modifyDefinition) : base(name, guid)
         {
             Definition
                 .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
@@ -23,17 +24,12 @@ namespace SolastaCommunityExpansion.Builders
             modifyDefinition?.Invoke(Definition);
         }
 
-        public ConditionDefinitionBuilder(string name, string guid)
+        protected ConditionDefinitionBuilder(string name, string guid)
             : base(name, guid)
         {
         }
 
-        public ConditionDefinitionBuilder(TDefinition original, string name, string guid)
-            : base(original, name, guid)
-        {
-        }
-
-        public ConditionDefinitionBuilder(TDefinition original, string name, Guid guidNamespace)
+        private ConditionDefinitionBuilder(TDefinition original, string name, Guid guidNamespace)
             : base(original, name, guidNamespace)
         {
         }
@@ -44,6 +40,13 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
+        public static ConditionDefinitionBuilder<TDefinition> Create(TDefinition original, string name, Guid guidNamespace)
+        {
+            return new ConditionDefinitionBuilder<TDefinition>(original, name, guidNamespace);
+        }
+
+
+        // Specific to PathOfTheLight
         public static TDefinition Build(string name, string guid, Action<TDefinition> modifyDefinition = null)
         {
             return new ConditionDefinitionBuilder<TDefinition>(name, guid, modifyDefinition).AddToDB();
@@ -52,13 +55,9 @@ namespace SolastaCommunityExpansion.Builders
 
     public class ConditionDefinitionBuilder : ConditionDefinitionBuilder<ConditionDefinition>
     {
-        // TODO: additional ctors
-
-        public ConditionDefinitionBuilder(string name, string guid, Action<ConditionDefinition> modifyDefinition = null) : base(name, guid, modifyDefinition)
-        {
-        }
 
         // TODO: refactor/remove
+        // Specific to SpellShield and LifeTransmuter
         public ConditionDefinitionBuilder(string name, string guid, IEnumerable<FeatureDefinition> conditionFeatures, RuleDefinitions.DurationType durationType,
             int durationParameter, bool silent) : base(name, guid)
         {
