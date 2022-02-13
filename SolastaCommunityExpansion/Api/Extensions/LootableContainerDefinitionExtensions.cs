@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,6 +43,27 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(LootableContainerDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class LootableContainerDefinitionExtensions
     {
+        public static T AddRestrictedItems<T>(this T entity,  params  ItemDefinition [ ]  value)
+            where T : LootableContainerDefinition
+        {
+            AddRestrictedItems(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddRestrictedItems<T>(this T entity, IEnumerable<ItemDefinition> value)
+            where T : LootableContainerDefinition
+        {
+            entity.RestrictedItems.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearRestrictedItems<T>(this T entity)
+            where T : LootableContainerDefinition
+        {
+            entity.RestrictedItems.Clear();
+            return entity;
+        }
+
         public static T SetContentAlwaysKnown<T>(this T entity, System.Boolean value)
             where T : LootableContainerDefinition
         {
@@ -62,6 +89,20 @@ namespace SolastaModApi.Extensions
             where T : LootableContainerDefinition
         {
             entity.SetField("minSlotsNumber", value);
+            return entity;
+        }
+
+        public static T SetRestrictedItems<T>(this T entity,  params  ItemDefinition [ ]  value)
+            where T : LootableContainerDefinition
+        {
+            SetRestrictedItems(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetRestrictedItems<T>(this T entity, IEnumerable<ItemDefinition> value)
+            where T : LootableContainerDefinition
+        {
+            entity.RestrictedItems.SetRange(value);
             return entity;
         }
     }

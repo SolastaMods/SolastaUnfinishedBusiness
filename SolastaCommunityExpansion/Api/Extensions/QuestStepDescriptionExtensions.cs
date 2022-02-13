@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,6 +43,48 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(QuestStepDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class QuestStepDescriptionExtensions
     {
+        public static T AddOutcomesTable<T>(this T entity,  params  QuestOutcomeDescription [ ]  value)
+            where T : QuestStepDescription
+        {
+            AddOutcomesTable(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddOutcomesTable<T>(this T entity, IEnumerable<QuestOutcomeDescription> value)
+            where T : QuestStepDescription
+        {
+            entity.OutcomesTable.AddRange(value);
+            return entity;
+        }
+
+        public static T AddParentQuestSteps<T>(this T entity,  params  QuestStepDescription [ ]  value)
+            where T : QuestStepDescription
+        {
+            AddParentQuestSteps(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddParentQuestSteps<T>(this T entity, IEnumerable<QuestStepDescription> value)
+            where T : QuestStepDescription
+        {
+            entity.ParentQuestSteps.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearOutcomesTable<T>(this T entity)
+            where T : QuestStepDescription
+        {
+            entity.OutcomesTable.Clear();
+            return entity;
+        }
+
+        public static T ClearParentQuestSteps<T>(this T entity)
+            where T : QuestStepDescription
+        {
+            entity.ParentQuestSteps.Clear();
+            return entity;
+        }
+
         public static T SetGuiPresentation<T>(this T entity, GuiPresentation value)
             where T : QuestStepDescription
         {
@@ -90,6 +138,34 @@ namespace SolastaModApi.Extensions
             where T : QuestStepDescription
         {
             entity.OnStartFunctors = value;
+            return entity;
+        }
+
+        public static T SetOutcomesTable<T>(this T entity,  params  QuestOutcomeDescription [ ]  value)
+            where T : QuestStepDescription
+        {
+            SetOutcomesTable(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetOutcomesTable<T>(this T entity, IEnumerable<QuestOutcomeDescription> value)
+            where T : QuestStepDescription
+        {
+            entity.OutcomesTable.SetRange(value);
+            return entity;
+        }
+
+        public static T SetParentQuestSteps<T>(this T entity,  params  QuestStepDescription [ ]  value)
+            where T : QuestStepDescription
+        {
+            SetParentQuestSteps(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetParentQuestSteps<T>(this T entity, IEnumerable<QuestStepDescription> value)
+            where T : QuestStepDescription
+        {
+            entity.ParentQuestSteps.SetRange(value);
             return entity;
         }
 

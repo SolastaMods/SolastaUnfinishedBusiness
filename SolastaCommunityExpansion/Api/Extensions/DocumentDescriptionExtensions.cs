@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,6 +43,62 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(DocumentDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class DocumentDescriptionExtensions
     {
+        public static T AddContentFragments<T>(this T entity,  params  ContentFragmentDescription [ ]  value)
+            where T : DocumentDescription
+        {
+            AddContentFragments(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddContentFragments<T>(this T entity, IEnumerable<ContentFragmentDescription> value)
+            where T : DocumentDescription
+        {
+            entity.ContentFragments.AddRange(value);
+            return entity;
+        }
+
+        public static T AddUnlockedBestiaryContent<T>(this T entity,  params  MonsterKnowledgeDescription [ ]  value)
+            where T : DocumentDescription
+        {
+            AddUnlockedBestiaryContent(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddUnlockedBestiaryContent<T>(this T entity, IEnumerable<MonsterKnowledgeDescription> value)
+            where T : DocumentDescription
+        {
+            entity.UnlockedBestiaryContent.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearContentFragments<T>(this T entity)
+            where T : DocumentDescription
+        {
+            entity.ContentFragments.Clear();
+            return entity;
+        }
+
+        public static T ClearUnlockedBestiaryContent<T>(this T entity)
+            where T : DocumentDescription
+        {
+            entity.UnlockedBestiaryContent.Clear();
+            return entity;
+        }
+
+        public static T SetContentFragments<T>(this T entity,  params  ContentFragmentDescription [ ]  value)
+            where T : DocumentDescription
+        {
+            SetContentFragments(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetContentFragments<T>(this T entity, IEnumerable<ContentFragmentDescription> value)
+            where T : DocumentDescription
+        {
+            entity.ContentFragments.SetRange(value);
+            return entity;
+        }
+
         public static T SetDestroyAfterReading<T>(this T entity, System.Boolean value)
             where T : DocumentDescription
         {
@@ -90,6 +152,20 @@ namespace SolastaModApi.Extensions
             where T : DocumentDescription
         {
             entity.SetField("script", value);
+            return entity;
+        }
+
+        public static T SetUnlockedBestiaryContent<T>(this T entity,  params  MonsterKnowledgeDescription [ ]  value)
+            where T : DocumentDescription
+        {
+            SetUnlockedBestiaryContent(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetUnlockedBestiaryContent<T>(this T entity, IEnumerable<MonsterKnowledgeDescription> value)
+            where T : DocumentDescription
+        {
+            entity.UnlockedBestiaryContent.SetRange(value);
             return entity;
         }
     }
