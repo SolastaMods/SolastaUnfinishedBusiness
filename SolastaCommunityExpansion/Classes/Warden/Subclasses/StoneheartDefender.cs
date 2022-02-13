@@ -34,10 +34,10 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
             public RootsOfRockEffectForm() : base()
             {
                 if (conditionRestricted == null) {
-                    var rootsOfRockMovementAffinity = new FeatureDefinitionBuilder<FeatureDefinitionMovementAffinity>(
-                    FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained, "MovementRootsOfRock", Namespace)
-                        .SetGuiPresentation("MovementRootsOfRock", Category.Modifier)
-                        .AddToDB();
+                    var rootsOfRockMovementAffinity = FeatureDefinitionBuilder<FeatureDefinitionMovementAffinity>
+                    .Create(FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained, "MovementRootsOfRock", Namespace)
+                    .SetGuiPresentation("MovementRootsOfRock", Category.Modifier)
+                    .AddToDB();
 
                     var rootsOfRockRestrictedConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
                         ConditionDefinitions.ConditionHeavilyEncumbered, "ConditionRootsOfRockRestricted", Namespace)

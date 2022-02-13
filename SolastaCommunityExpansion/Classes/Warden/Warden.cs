@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -207,10 +207,10 @@ namespace SolastaCommunityExpansion.Classes.Warden
         private static void BuildWardenGrasp()
         {
 
-            var wardenGraspMovementAffinity = new FeatureDefinitionBuilder<FeatureDefinitionMovementAffinity>(
-                FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained, "MovementWardenGrasp", WARDEN_BASE_GUID)
-                    .SetGuiPresentation("MovementWardenGrasp", Category.Modifier)
-                    .AddToDB();
+            var wardenGraspMovementAffinity = FeatureDefinitionBuilder<FeatureDefinitionMovementAffinity>
+                .Create(FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained, "MovementWardenGrasp", WARDEN_BASE_GUID)
+                .SetGuiPresentation("MovementWardenGrasp", Category.Modifier)
+                .AddToDB();
 
             var wardenGraspConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
                 ConditionDefinitions.ConditionHeavilyEncumbered, "ConditionWardenGrasp", WARDEN_BASE_GUID)
@@ -267,10 +267,10 @@ namespace SolastaCommunityExpansion.Classes.Warden
 
         private static void BuildFightingStyle()
         {
-            FeatureDefinitionFightingStyleChoiceWarden = new FeatureDefinitionBuilder<FeatureDefinitionFightingStyleChoice>(
-                FeatureDefinitionFightingStyleChoices.FightingStyleFighter, "FightingStyleWarden", WARDEN_BASE_GUID)
-                    .SetGuiPresentation("FightingStyleWarden", Category.Class)
-                    .AddToDB();
+            FeatureDefinitionFightingStyleChoiceWarden = FeatureDefinitionBuilder<FeatureDefinitionFightingStyleChoice>
+                .Create(FeatureDefinitionFightingStyleChoices.FightingStyleFighter, "FightingStyleWarden", WARDEN_BASE_GUID)
+                .SetGuiPresentation("FightingStyleWarden", Category.Class)
+                .AddToDB();
 
             FeatureDefinitionFightingStyleChoiceWarden.FightingStyles.Clear();
             FeatureDefinitionFightingStyleChoiceWarden.FightingStyles.Add(DatabaseHelper.FightingStyleDefinitions.GreatWeapon.Name);
@@ -531,14 +531,14 @@ namespace SolastaCommunityExpansion.Classes.Warden
                     agelessGuardianDexSavingThrowAdvantage)
                 .AddToDB();
 
-            var eyesOfTheMountainTremorsense = new FeatureDefinitionBuilder<FeatureDefinitionSense>(
-                FeatureDefinitionSenses.SenseTremorsense16, "WardenEyesOfTheMountainTremorsense", WARDEN_BASE_GUID)
+            var eyesOfTheMountainTremorsense = FeatureDefinitionBuilder<FeatureDefinitionSense>
+                .Create(FeatureDefinitionSenses.SenseTremorsense16, "WardenEyesOfTheMountainTremorsense", WARDEN_BASE_GUID)
                 .AddToDB()
                 .SetSenseRange(3)
                 .SetStealthBreakerRange(3);
 
-            var eyesOfTheMountainSeeInvisible = new FeatureDefinitionBuilder<FeatureDefinitionSense>(
-                FeatureDefinitionSenses.SenseSeeInvisible12, "WardenEyesOfTheMountainSeeInvisible", WARDEN_BASE_GUID)
+            var eyesOfTheMountainSeeInvisible = FeatureDefinitionBuilder<FeatureDefinitionSense>
+                .Create(FeatureDefinitionSenses.SenseSeeInvisible12, "WardenEyesOfTheMountainSeeInvisible", WARDEN_BASE_GUID)
                 .AddToDB()
                 .SetSenseRange(6)
                 .SetStealthBreakerRange(6);
