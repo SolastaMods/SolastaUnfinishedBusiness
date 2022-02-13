@@ -3,6 +3,7 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 
 namespace SolastaCommunityExpansion.Subclasses.Rogue
@@ -33,14 +34,8 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
         {
             var featureName = AdditionalDamageRogueSneakAttack.Name + "Remove";
 
-            var guiPresentation = new GuiPresentationBuilder(
-                "Subclass/&KSRogueSubclassThugTitle",
-                "Subclass/&KSRogueSubclassThugDescription")
-                .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.MartialChampion.GuiPresentation.SpriteReference)
-                .Build();
-
             Subclass = new CharacterSubclassDefinitionBuilder(RogueSubclassThugName, RogueSubclassThugNameGuid)
-                .SetGuiPresentation(guiPresentation)
+                .SetGuiPresentation("KSRogueSubclassThug", Category.Subclass, MartialChampion.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(new RemoveGrantedFeatureBuilder(
                     featureName,
                     GuidHelper.Create(SubclassNamespace, featureName).ToString(),

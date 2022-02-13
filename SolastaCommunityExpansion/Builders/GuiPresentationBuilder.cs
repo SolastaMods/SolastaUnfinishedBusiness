@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
@@ -74,17 +74,19 @@ namespace SolastaCommunityExpansion.Builders
             return guiPresentation;
         }
 
-        public static GuiPresentation Build(string title, string description, AssetReferenceSprite sprite = null, int? sortOrder = null)
+        public static GuiPresentation Build(string title, string description, AssetReferenceSprite sprite = null, int sortOrder = 0, bool hidden = false)
         {
             return new GuiPresentationBuilder(title, description, sprite)
-                .SetSortOrder(sortOrder ?? 0)
+                .SetSortOrder(sortOrder)
+                .SetHidden(hidden)
                 .Build();
         }
 
-        public static GuiPresentation Build(string name, Category category, AssetReferenceSprite sprite = null, int? sortOrder = null)
+        public static GuiPresentation Build(string name, Category category, AssetReferenceSprite sprite = null, int sortOrder = 0, bool hidden = false)
         {
             return new GuiPresentationBuilder(CreateTitleKey(name, category), CreateDescriptionKey(name, category), sprite)
-                .SetSortOrder(sortOrder ?? 0)
+                .SetSortOrder(sortOrder)
+                .SetHidden(hidden)
                 .Build();
         }
 
@@ -99,6 +101,7 @@ namespace SolastaCommunityExpansion.Builders
         /// GuiPresentation representing 'No content title and description'
         /// </summary>
         public static GuiPresentation NoContent { get; } = Build(NothingToSee, Category.Feature);
+        public static GuiPresentation NoContentHidden { get; } = Build(NothingToSee, Category.Feature, null, 0, true);
     }
 
     internal static class BaseDefinitionBuilderGuiPresentationExtensions

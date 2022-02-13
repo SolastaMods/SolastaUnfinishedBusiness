@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Drawing;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using UnityEngine;
 
@@ -34,17 +32,17 @@ namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
             {
                 case -1:
                     ___backgroundImage.sprite = ___backgroundSprites[2];
-                    ___iconImage.sprite = CreateSprite(Properties.Resources.Fire, 24);
+                    ___iconImage.sprite = Utils.CustomIcons.CreateSpriteFromResource(Properties.Resources.Fire, 24);
                     ___guiTooltip.Content = "Camp";
                     break;
                 case -2:
                     ___backgroundImage.sprite = ___backgroundSprites[2];
-                    ___iconImage.sprite = CreateSprite(Properties.Resources.Entry, 24);
+                    ___iconImage.sprite = Utils.CustomIcons.CreateSpriteFromResource(Properties.Resources.Entry, 24);
                     ___guiTooltip.Content = "Exit";
                     break;
                 case -3:
                     ___backgroundImage.sprite = ___backgroundSprites[2];
-                    ___iconImage.sprite = CreateSprite(Properties.Resources.Teleport, 24);
+                    ___iconImage.sprite = Utils.CustomIcons.CreateSpriteFromResource(Properties.Resources.Teleport, 24);
                     ___guiTooltip.Content = "Teleporter";
                     break;
                 default:
@@ -54,21 +52,6 @@ namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
             ___gameGadget = gameGadget;
             __instance.gameObject.SetActive(true);
             return false;
-
-            static Sprite CreateSprite(Bitmap bitmap, int size)
-            {
-                if (!_spritesCache.TryGetValue(bitmap, out var sprite))
-                {
-                    var texture = new Texture2D(size, size, TextureFormat.DXT5, false);
-                    texture.LoadImage((byte[])new ImageConverter().ConvertTo(bitmap, typeof(byte[])));
-                    sprite = Sprite.Create(texture, new Rect(0, 0, size, size), new Vector2(0, 0));
-                    _spritesCache[bitmap] = sprite;
-                }
-
-                return sprite;
-            }
         }
-
-        internal static readonly Dictionary<Bitmap, Sprite> _spritesCache = new();
     }
 }
