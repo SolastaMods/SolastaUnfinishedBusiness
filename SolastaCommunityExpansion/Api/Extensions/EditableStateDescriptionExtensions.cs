@@ -64,20 +64,6 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetChildrenStates<T>(this T entity, EditableStateDescription[] value)
-            where T : EditableStateDescription
-        {
-            entity.SetField("childrenStates", value);
-            return entity;
-        }
-
-        public static T SetChildrenStatesIndexes<T>(this T entity, System.Int32[] value)
-            where T : EditableStateDescription
-        {
-            entity.SetField("childrenStatesIndexes", value);
-            return entity;
-        }
-
         public static T SetEditionColor<T>(this T entity, UnityEngine.Color value)
             where T : EditableStateDescription
         {

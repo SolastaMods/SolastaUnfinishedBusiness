@@ -228,10 +228,16 @@ void CreateExtensions(Type t, bool createFiles = false)
 		.Where(pg => pg.CanWrite && pg.GetCustomAttributes(typeof(System.ObsoleteAttribute), true).Length == 0)
 		.Select(pg => new { pg.Name, pg.PropertyType, Type = SimplifyType(pg.PropertyType), IsSetterProtected = pg.SetMethod.IsFamily });
 
+	var obsoleteWriteablePublicPropertiesByName = t
+		.GetProperties(BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.Public)
+		.Where(pg => pg.GetCustomAttributes(typeof(System.ObsoleteAttribute), true).Length != 0)
+		.Select(pg => pg.Name)
+		.ToHashSet(StringComparer.OrdinalIgnoreCase);
+		
 	var readablePublicProperties = t
 		.GetProperties(BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.Public)
 		.Where(pg => pg.CanRead && pg.GetCustomAttributes(typeof(System.ObsoleteAttribute), true).Length == 0)
-		.Select(pg => new { pg.Name, pg.PropertyType, Type = SimplifyType(pg.PropertyType) });
+		.Select(pg => new {pg, pg.Name, pg.PropertyType, Type = SimplifyType(pg.PropertyType) });
 
 	var readablePublicPropertiesByName = readablePublicProperties
 		.Select(pp => pp.Name)
@@ -245,14 +251,19 @@ void CreateExtensions(Type t, bool createFiles = false)
 		.Where(f => !f.FieldType.IsGenericType && !writeablePublicPropertiesByName.Contains(f.Name) && f.FieldInfo.GetCustomAttributes(typeof(System.ObsoleteAttribute), true).Length == 0);
 
 	var genericPrivateFieldsThatNeedGetters = privateFields
-		.Where(f => f.FieldType.IsGenericType && !writeablePublicPropertiesByName.Contains(GetPropertyNameForField(f.FieldInfo)) && !readablePublicPropertiesByName.Contains(GetPropertyNameForField(f.FieldInfo)) && f.FieldInfo.GetCustomAttributes(typeof(System.ObsoleteAttribute), true).Length == 0);
+		.Where(f => f.FieldType.IsGenericType)
+		.Where(f => !writeablePublicPropertiesByName.Contains(GetPropertyNameForField(f.FieldInfo)))
+		.Where(f => !readablePublicPropertiesByName.Contains(GetPropertyNameForField(f.FieldInfo)))
+		.Where(f => f.FieldInfo.GetCustomAttributes(typeof(System.ObsoleteAttribute), true).Length == 0);
 
 	var genericReadablePublicProperties = readablePublicProperties
-		.Where(f => f.PropertyType.IsGenericType);		
-	
+		.Where(f => f.PropertyType.IsGenericType)
+		.Where(f => !obsoleteWriteablePublicPropertiesByName.Contains(f.Name));		
+
 	// ---------------------------------------------------------------------------
 	var methods = privateFieldsThatNeedWriter
 		.OrderBy(ftnw => ftnw.Name)
+		.Where(ftnw => !obsoleteWriteablePublicPropertiesByName.Contains(ftnw.Name))
 		.Select(f =>
 			{
 				if (t.IsSealed)
