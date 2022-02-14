@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,6 +43,342 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(RulesetCharacter)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class RulesetCharacterExtensions
     {
+        public static T AddAllUsableDeviceFunctions<T>(this T entity,  params  RulesetDeviceFunction [ ]  value)
+            where T : RulesetCharacter
+        {
+            AddAllUsableDeviceFunctions(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddAllUsableDeviceFunctions<T>(this T entity, IEnumerable<RulesetDeviceFunction> value)
+            where T : RulesetCharacter
+        {
+            entity.AllUsableDeviceFunctions.AddRange(value);
+            return entity;
+        }
+
+        public static T AddAttackModes<T>(this T entity,  params  RulesetAttackMode [ ]  value)
+            where T : RulesetCharacter
+        {
+            AddAttackModes(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddAttackModes<T>(this T entity, IEnumerable<RulesetAttackMode> value)
+            where T : RulesetCharacter
+        {
+            entity.AttackModes.AddRange(value);
+            return entity;
+        }
+
+        public static T AddControlledEffectProxies<T>(this T entity,  params  RulesetCharacterEffectProxy [ ]  value)
+            where T : RulesetCharacter
+        {
+            AddControlledEffectProxies(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddControlledEffectProxies<T>(this T entity, IEnumerable<RulesetCharacterEffectProxy> value)
+            where T : RulesetCharacter
+        {
+            entity.ControlledEffectProxies.AddRange(value);
+            return entity;
+        }
+
+        public static T AddItems<T>(this T entity,  params  RulesetItem [ ]  value)
+            where T : RulesetCharacter
+        {
+            AddItems(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddItems<T>(this T entity, IEnumerable<RulesetItem> value)
+            where T : RulesetCharacter
+        {
+            entity.Items.AddRange(value);
+            return entity;
+        }
+
+        public static T AddLastReceivedDamageTypes<T>(this T entity,  params  System . String [ ]  value)
+            where T : RulesetCharacter
+        {
+            AddLastReceivedDamageTypes(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddLastReceivedDamageTypes<T>(this T entity, IEnumerable<System.String> value)
+            where T : RulesetCharacter
+        {
+            entity.LastReceivedDamageTypes.AddRange(value);
+            return entity;
+        }
+
+        public static T AddMagicEffectsCache<T>(this T entity,  params  IMagicEffect [ ]  value)
+            where T : RulesetCharacter
+        {
+            AddMagicEffectsCache(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddMagicEffectsCache<T>(this T entity, IEnumerable<IMagicEffect> value)
+            where T : RulesetCharacter
+        {
+            entity.MagicEffectsCache.AddRange(value);
+            return entity;
+        }
+
+        public static T AddPowersUsedByMe<T>(this T entity,  params  RulesetEffectPower [ ]  value)
+            where T : RulesetCharacter
+        {
+            AddPowersUsedByMe(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddPowersUsedByMe<T>(this T entity, IEnumerable<RulesetEffectPower> value)
+            where T : RulesetCharacter
+        {
+            entity.PowersUsedByMe.AddRange(value);
+            return entity;
+        }
+
+        public static T AddRecoveredFeatures<T>(this T entity,  params  FeatureDefinition [ ]  value)
+            where T : RulesetCharacter
+        {
+            AddRecoveredFeatures(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddRecoveredFeatures<T>(this T entity, IEnumerable<FeatureDefinition> value)
+            where T : RulesetCharacter
+        {
+            entity.RecoveredFeatures.AddRange(value);
+            return entity;
+        }
+
+        public static T AddRequiredSenseTypesToPerceive<T>(this T entity,  params  SenseMode . Type [ ]  value)
+            where T : RulesetCharacter
+        {
+            AddRequiredSenseTypesToPerceive(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddRequiredSenseTypesToPerceive<T>(this T entity, IEnumerable<SenseMode.Type> value)
+            where T : RulesetCharacter
+        {
+            entity.RequiredSenseTypesToPerceive.AddRange(value);
+            return entity;
+        }
+
+        public static T AddReviveOptionsCache<T>(this T entity,  params  RuleDefinitions . ReviveOption [ ]  value)
+            where T : RulesetCharacter
+        {
+            AddReviveOptionsCache(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddReviveOptionsCache<T>(this T entity, IEnumerable<RuleDefinitions.ReviveOption> value)
+            where T : RulesetCharacter
+        {
+            entity.ReviveOptionsCache.AddRange(value);
+            return entity;
+        }
+
+        public static T AddSenseModes<T>(this T entity,  params  SenseMode [ ]  value)
+            where T : RulesetCharacter
+        {
+            AddSenseModes(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddSenseModes<T>(this T entity, IEnumerable<SenseMode> value)
+            where T : RulesetCharacter
+        {
+            entity.SenseModes.AddRange(value);
+            return entity;
+        }
+
+        public static T AddSpellRepertoires<T>(this T entity,  params  RulesetSpellRepertoire [ ]  value)
+            where T : RulesetCharacter
+        {
+            AddSpellRepertoires(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddSpellRepertoires<T>(this T entity, IEnumerable<RulesetSpellRepertoire> value)
+            where T : RulesetCharacter
+        {
+            entity.SpellRepertoires.AddRange(value);
+            return entity;
+        }
+
+        public static T AddSpellsCastByMe<T>(this T entity,  params  RulesetEffectSpell [ ]  value)
+            where T : RulesetCharacter
+        {
+            AddSpellsCastByMe(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddSpellsCastByMe<T>(this T entity, IEnumerable<RulesetEffectSpell> value)
+            where T : RulesetCharacter
+        {
+            entity.SpellsCastByMe.AddRange(value);
+            return entity;
+        }
+
+        public static T AddStealableItems<T>(this T entity,  params  RulesetItem [ ]  value)
+            where T : RulesetCharacter
+        {
+            AddStealableItems(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddStealableItems<T>(this T entity, IEnumerable<RulesetItem> value)
+            where T : RulesetCharacter
+        {
+            entity.StealableItems.AddRange(value);
+            return entity;
+        }
+
+        public static T AddTags<T>(this T entity,  params  System . String [ ]  value)
+            where T : RulesetCharacter
+        {
+            AddTags(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddTags<T>(this T entity, IEnumerable<System.String> value)
+            where T : RulesetCharacter
+        {
+            entity.Tags.AddRange(value);
+            return entity;
+        }
+
+        public static T AddUsablePowers<T>(this T entity,  params  RulesetUsablePower [ ]  value)
+            where T : RulesetCharacter
+        {
+            AddUsablePowers(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddUsablePowers<T>(this T entity, IEnumerable<RulesetUsablePower> value)
+            where T : RulesetCharacter
+        {
+            entity.UsablePowers.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearAllUsableDeviceFunctions<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            entity.AllUsableDeviceFunctions.Clear();
+            return entity;
+        }
+
+        public static T ClearAttackModes<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            entity.AttackModes.Clear();
+            return entity;
+        }
+
+        public static T ClearControlledEffectProxies<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            entity.ControlledEffectProxies.Clear();
+            return entity;
+        }
+
+        public static T ClearItems<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            entity.Items.Clear();
+            return entity;
+        }
+
+        public static T ClearLastReceivedDamageTypes<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            entity.LastReceivedDamageTypes.Clear();
+            return entity;
+        }
+
+        public static T ClearMagicEffectsCache<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            entity.MagicEffectsCache.Clear();
+            return entity;
+        }
+
+        public static T ClearPowersUsedByMe<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            entity.PowersUsedByMe.Clear();
+            return entity;
+        }
+
+        public static T ClearRecoveredFeatures<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            entity.RecoveredFeatures.Clear();
+            return entity;
+        }
+
+        public static T ClearRequiredSenseTypesToPerceive<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            entity.RequiredSenseTypesToPerceive.Clear();
+            return entity;
+        }
+
+        public static T ClearReviveOptionsCache<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            entity.ReviveOptionsCache.Clear();
+            return entity;
+        }
+
+        public static T ClearSenseModes<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            entity.SenseModes.Clear();
+            return entity;
+        }
+
+        public static T ClearSpellRepertoires<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            entity.SpellRepertoires.Clear();
+            return entity;
+        }
+
+        public static T ClearSpellsCastByMe<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            entity.SpellsCastByMe.Clear();
+            return entity;
+        }
+
+        public static T ClearStealableItems<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            entity.StealableItems.Clear();
+            return entity;
+        }
+
+        public static T ClearTags<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            entity.Tags.Clear();
+            return entity;
+        }
+
+        public static T ClearUsablePowers<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            entity.UsablePowers.Clear();
+            return entity;
+        }
+
         public static System.Collections.Generic.List<RulesetItem> GetConsumedItems<T>(this T entity)
             where T : RulesetCharacter
         {
@@ -148,6 +490,34 @@ namespace SolastaModApi.Extensions
             where T : RulesetCharacter
         {
             entity.SetField("<AdditionalDamageGenerated>k__BackingField", value);
+            return entity;
+        }
+
+        public static T SetAllUsableDeviceFunctions<T>(this T entity,  params  RulesetDeviceFunction [ ]  value)
+            where T : RulesetCharacter
+        {
+            SetAllUsableDeviceFunctions(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetAllUsableDeviceFunctions<T>(this T entity, IEnumerable<RulesetDeviceFunction> value)
+            where T : RulesetCharacter
+        {
+            entity.AllUsableDeviceFunctions.SetRange(value);
+            return entity;
+        }
+
+        public static T SetAttackModes<T>(this T entity,  params  RulesetAttackMode [ ]  value)
+            where T : RulesetCharacter
+        {
+            SetAttackModes(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetAttackModes<T>(this T entity, IEnumerable<RulesetAttackMode> value)
+            where T : RulesetCharacter
+        {
+            entity.AttackModes.SetRange(value);
             return entity;
         }
 
@@ -302,6 +672,20 @@ namespace SolastaModApi.Extensions
             where T : RulesetCharacter
         {
             entity.SetField("<ContestCheckRolled>k__BackingField", value);
+            return entity;
+        }
+
+        public static T SetControlledEffectProxies<T>(this T entity,  params  RulesetCharacterEffectProxy [ ]  value)
+            where T : RulesetCharacter
+        {
+            SetControlledEffectProxies(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetControlledEffectProxies<T>(this T entity, IEnumerable<RulesetCharacterEffectProxy> value)
+            where T : RulesetCharacter
+        {
+            entity.ControlledEffectProxies.SetRange(value);
             return entity;
         }
 
@@ -578,6 +962,20 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetItems<T>(this T entity,  params  RulesetItem [ ]  value)
+            where T : RulesetCharacter
+        {
+            SetItems(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetItems<T>(this T entity, IEnumerable<RulesetItem> value)
+            where T : RulesetCharacter
+        {
+            entity.Items.SetRange(value);
+            return entity;
+        }
+
         public static T SetItemUsed<T>(this T entity, RulesetCharacter.ItemUsedHandler value)
             where T : RulesetCharacter
         {
@@ -613,6 +1011,20 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetLastReceivedDamageTypes<T>(this T entity,  params  System . String [ ]  value)
+            where T : RulesetCharacter
+        {
+            SetLastReceivedDamageTypes(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetLastReceivedDamageTypes<T>(this T entity, IEnumerable<System.String> value)
+            where T : RulesetCharacter
+        {
+            entity.LastReceivedDamageTypes.SetRange(value);
+            return entity;
+        }
+
         public static T SetLineOfSightParametersModified<T>(this T entity, RulesetCharacter.LineOfSightParametersModifiedHandler value)
             where T : RulesetCharacter
         {
@@ -624,6 +1036,20 @@ namespace SolastaModApi.Extensions
             where T : RulesetCharacter
         {
             entity.SetField("<MagicalHitPointsPoolRolled>k__BackingField", value);
+            return entity;
+        }
+
+        public static T SetMagicEffectsCache<T>(this T entity,  params  IMagicEffect [ ]  value)
+            where T : RulesetCharacter
+        {
+            SetMagicEffectsCache(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetMagicEffectsCache<T>(this T entity, IEnumerable<IMagicEffect> value)
+            where T : RulesetCharacter
+        {
+            entity.MagicEffectsCache.SetRange(value);
             return entity;
         }
 
@@ -746,6 +1172,20 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetPowersUsedByMe<T>(this T entity,  params  RulesetEffectPower [ ]  value)
+            where T : RulesetCharacter
+        {
+            SetPowersUsedByMe(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetPowersUsedByMe<T>(this T entity, IEnumerable<RulesetEffectPower> value)
+            where T : RulesetCharacter
+        {
+            entity.PowersUsedByMe.SetRange(value);
+            return entity;
+        }
+
         public static T SetPreferredReadyCantrip<T>(this T entity, SpellDefinition value)
             where T : RulesetCharacter
         {
@@ -774,10 +1214,38 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetRecoveredFeatures<T>(this T entity,  params  FeatureDefinition [ ]  value)
+            where T : RulesetCharacter
+        {
+            SetRecoveredFeatures(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetRecoveredFeatures<T>(this T entity, IEnumerable<FeatureDefinition> value)
+            where T : RulesetCharacter
+        {
+            entity.RecoveredFeatures.SetRange(value);
+            return entity;
+        }
+
         public static T SetRegenerationLapse<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
             entity.SetField("regenerationLapse", value);
+            return entity;
+        }
+
+        public static T SetRequiredSenseTypesToPerceive<T>(this T entity,  params  SenseMode . Type [ ]  value)
+            where T : RulesetCharacter
+        {
+            SetRequiredSenseTypesToPerceive(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetRequiredSenseTypesToPerceive<T>(this T entity, IEnumerable<SenseMode.Type> value)
+            where T : RulesetCharacter
+        {
+            entity.RequiredSenseTypesToPerceive.SetRange(value);
             return entity;
         }
 
@@ -788,10 +1256,38 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetReviveOptionsCache<T>(this T entity,  params  RuleDefinitions . ReviveOption [ ]  value)
+            where T : RulesetCharacter
+        {
+            SetReviveOptionsCache(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetReviveOptionsCache<T>(this T entity, IEnumerable<RuleDefinitions.ReviveOption> value)
+            where T : RulesetCharacter
+        {
+            entity.ReviveOptionsCache.SetRange(value);
+            return entity;
+        }
+
         public static T SetRitualCast<T>(this T entity, RulesetCharacter.RitualCastHandler value)
             where T : RulesetCharacter
         {
             entity.SetField("<RitualCast>k__BackingField", value);
+            return entity;
+        }
+
+        public static T SetSenseModes<T>(this T entity,  params  SenseMode [ ]  value)
+            where T : RulesetCharacter
+        {
+            SetSenseModes(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetSenseModes<T>(this T entity, IEnumerable<SenseMode> value)
+            where T : RulesetCharacter
+        {
+            entity.SenseModes.SetRange(value);
             return entity;
         }
 
@@ -865,10 +1361,38 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetSpellRepertoires<T>(this T entity,  params  RulesetSpellRepertoire [ ]  value)
+            where T : RulesetCharacter
+        {
+            SetSpellRepertoires(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetSpellRepertoires<T>(this T entity, IEnumerable<RulesetSpellRepertoire> value)
+            where T : RulesetCharacter
+        {
+            entity.SpellRepertoires.SetRange(value);
+            return entity;
+        }
+
         public static T SetSpellRepertoireSlotsRecovered<T>(this T entity, RulesetCharacter.SpellRepertoireSlotsRecoveredHandler value)
             where T : RulesetCharacter
         {
             entity.SetField("<SpellRepertoireSlotsRecovered>k__BackingField", value);
+            return entity;
+        }
+
+        public static T SetSpellsCastByMe<T>(this T entity,  params  RulesetEffectSpell [ ]  value)
+            where T : RulesetCharacter
+        {
+            SetSpellsCastByMe(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetSpellsCastByMe<T>(this T entity, IEnumerable<RulesetEffectSpell> value)
+            where T : RulesetCharacter
+        {
+            entity.SpellsCastByMe.SetRange(value);
             return entity;
         }
 
@@ -883,6 +1407,34 @@ namespace SolastaModApi.Extensions
             where T : RulesetCharacter
         {
             entity.SetField("<SpellSlotPreserved>k__BackingField", value);
+            return entity;
+        }
+
+        public static T SetStealableItems<T>(this T entity,  params  RulesetItem [ ]  value)
+            where T : RulesetCharacter
+        {
+            SetStealableItems(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetStealableItems<T>(this T entity, IEnumerable<RulesetItem> value)
+            where T : RulesetCharacter
+        {
+            entity.StealableItems.SetRange(value);
+            return entity;
+        }
+
+        public static T SetTags<T>(this T entity,  params  System . String [ ]  value)
+            where T : RulesetCharacter
+        {
+            SetTags(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetTags<T>(this T entity, IEnumerable<System.String> value)
+            where T : RulesetCharacter
+        {
+            entity.Tags.SetRange(value);
             return entity;
         }
 
@@ -911,6 +1463,20 @@ namespace SolastaModApi.Extensions
             where T : RulesetCharacter
         {
             entity.SetField("<TurnSkipped>k__BackingField", value);
+            return entity;
+        }
+
+        public static T SetUsablePowers<T>(this T entity,  params  RulesetUsablePower [ ]  value)
+            where T : RulesetCharacter
+        {
+            SetUsablePowers(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetUsablePowers<T>(this T entity, IEnumerable<RulesetUsablePower> value)
+            where T : RulesetCharacter
+        {
+            entity.UsablePowers.SetRange(value);
             return entity;
         }
 

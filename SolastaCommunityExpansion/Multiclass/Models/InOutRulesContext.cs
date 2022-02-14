@@ -91,7 +91,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
                     .Where(z => CoreAttributes.Contains(z.ModifiedAttribute) && z.ModifierType == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)))
             {
                 attributeModifiers[featureDefinitionAttributeModifier.ModifiedAttribute] += featureDefinitionAttributeModifier.ModifierValue;
-            };
+            }
 
             return attributeModifiers;
         }

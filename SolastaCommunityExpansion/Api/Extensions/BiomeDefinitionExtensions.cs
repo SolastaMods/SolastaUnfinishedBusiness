@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,10 +43,80 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(BiomeDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class BiomeDefinitionExtensions
     {
+        public static T AddEncounterLocations<T>(this T entity,  params  LocationDefinition [ ]  value)
+            where T : BiomeDefinition
+        {
+            AddEncounterLocations(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddEncounterLocations<T>(this T entity, IEnumerable<LocationDefinition> value)
+            where T : BiomeDefinition
+        {
+            entity.EncounterLocations.AddRange(value);
+            return entity;
+        }
+
+        public static T AddNarrativeEventBasicLines<T>(this T entity,  params  System . String [ ]  value)
+            where T : BiomeDefinition
+        {
+            AddNarrativeEventBasicLines(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddNarrativeEventBasicLines<T>(this T entity, IEnumerable<System.String> value)
+            where T : BiomeDefinition
+        {
+            entity.NarrativeEventBasicLines.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearEncounterLocations<T>(this T entity)
+            where T : BiomeDefinition
+        {
+            entity.EncounterLocations.Clear();
+            return entity;
+        }
+
+        public static T ClearNarrativeEventBasicLines<T>(this T entity)
+            where T : BiomeDefinition
+        {
+            entity.NarrativeEventBasicLines.Clear();
+            return entity;
+        }
+
+        public static T SetEncounterLocations<T>(this T entity,  params  LocationDefinition [ ]  value)
+            where T : BiomeDefinition
+        {
+            SetEncounterLocations(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetEncounterLocations<T>(this T entity, IEnumerable<LocationDefinition> value)
+            where T : BiomeDefinition
+        {
+            entity.EncounterLocations.SetRange(value);
+            return entity;
+        }
+
         public static T SetEncounterTable<T>(this T entity, EncounterTableDefinition value)
             where T : BiomeDefinition
         {
             entity.SetField("encounterTable", value);
+            return entity;
+        }
+
+        public static T SetNarrativeEventBasicLines<T>(this T entity,  params  System . String [ ]  value)
+            where T : BiomeDefinition
+        {
+            SetNarrativeEventBasicLines(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetNarrativeEventBasicLines<T>(this T entity, IEnumerable<System.String> value)
+            where T : BiomeDefinition
+        {
+            entity.NarrativeEventBasicLines.SetRange(value);
             return entity;
         }
 

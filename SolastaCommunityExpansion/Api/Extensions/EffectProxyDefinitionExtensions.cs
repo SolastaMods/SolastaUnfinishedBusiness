@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,10 +43,45 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(EffectProxyDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class EffectProxyDefinitionExtensions
     {
+        public static T AddAdditionalFeatures<T>(this T entity,  params  FeatureDefinition [ ]  value)
+            where T : EffectProxyDefinition
+        {
+            AddAdditionalFeatures(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddAdditionalFeatures<T>(this T entity, IEnumerable<FeatureDefinition> value)
+            where T : EffectProxyDefinition
+        {
+            entity.AdditionalFeatures.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearAdditionalFeatures<T>(this T entity)
+            where T : EffectProxyDefinition
+        {
+            entity.AdditionalFeatures.Clear();
+            return entity;
+        }
+
         public static T SetActionId<T>(this T entity, ActionDefinitions.Id value)
             where T : EffectProxyDefinition
         {
             entity.SetField("actionId", value);
+            return entity;
+        }
+
+        public static T SetAdditionalFeatures<T>(this T entity,  params  FeatureDefinition [ ]  value)
+            where T : EffectProxyDefinition
+        {
+            SetAdditionalFeatures(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetAdditionalFeatures<T>(this T entity, IEnumerable<FeatureDefinition> value)
+            where T : EffectProxyDefinition
+        {
+            entity.AdditionalFeatures.SetRange(value);
             return entity;
         }
 

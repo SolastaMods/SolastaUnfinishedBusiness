@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,6 +43,48 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(LocationDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class LocationDefinitionExtensions
     {
+        public static T AddRegisteredFactions<T>(this T entity,  params  CampaignDefinition . FactionRegistration [ ]  value)
+            where T : LocationDefinition
+        {
+            AddRegisteredFactions(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddRegisteredFactions<T>(this T entity, IEnumerable<CampaignDefinition.FactionRegistration> value)
+            where T : LocationDefinition
+        {
+            entity.RegisteredFactions.AddRange(value);
+            return entity;
+        }
+
+        public static T AddRegisteredVariables<T>(this T entity,  params  VariableRegistrationDescription [ ]  value)
+            where T : LocationDefinition
+        {
+            AddRegisteredVariables(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddRegisteredVariables<T>(this T entity, IEnumerable<VariableRegistrationDescription> value)
+            where T : LocationDefinition
+        {
+            entity.RegisteredVariables.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearRegisteredFactions<T>(this T entity)
+            where T : LocationDefinition
+        {
+            entity.RegisteredFactions.Clear();
+            return entity;
+        }
+
+        public static T ClearRegisteredVariables<T>(this T entity)
+            where T : LocationDefinition
+        {
+            entity.RegisteredVariables.Clear();
+            return entity;
+        }
+
         public static T SetAlwaysHidden<T>(this T entity, System.Boolean value)
             where T : LocationDefinition
         {
@@ -104,6 +152,34 @@ namespace SolastaModApi.Extensions
             where T : LocationDefinition
         {
             entity.SetField("locationPresentation", value);
+            return entity;
+        }
+
+        public static T SetRegisteredFactions<T>(this T entity,  params  CampaignDefinition . FactionRegistration [ ]  value)
+            where T : LocationDefinition
+        {
+            SetRegisteredFactions(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetRegisteredFactions<T>(this T entity, IEnumerable<CampaignDefinition.FactionRegistration> value)
+            where T : LocationDefinition
+        {
+            entity.RegisteredFactions.SetRange(value);
+            return entity;
+        }
+
+        public static T SetRegisteredVariables<T>(this T entity,  params  VariableRegistrationDescription [ ]  value)
+            where T : LocationDefinition
+        {
+            SetRegisteredVariables(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetRegisteredVariables<T>(this T entity, IEnumerable<VariableRegistrationDescription> value)
+            where T : LocationDefinition
+        {
+            entity.RegisteredVariables.SetRange(value);
             return entity;
         }
 

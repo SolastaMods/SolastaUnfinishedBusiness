@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,10 +43,52 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(DamageForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class DamageFormExtensions
     {
+        public static T AddDamageBonusTrends<T>(this T entity,  params  RuleDefinitions . TrendInfo [ ]  value)
+            where T : DamageForm
+        {
+            AddDamageBonusTrends(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddDamageBonusTrends<T>(this T entity, IEnumerable<RuleDefinitions.TrendInfo> value)
+            where T : DamageForm
+        {
+            entity.DamageBonusTrends.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearDamageBonusTrends<T>(this T entity)
+            where T : DamageForm
+        {
+            entity.DamageBonusTrends.Clear();
+            return entity;
+        }
+
+        public static DamageForm Copy(this DamageForm entity)
+        {
+            var copy = new DamageForm();
+            copy.Copy(entity);
+            return copy;
+        }
+
         public static T SetBonusDamage<T>(this T entity, System.Int32 value)
             where T : DamageForm
         {
             entity.BonusDamage = value;
+            return entity;
+        }
+
+        public static T SetDamageBonusTrends<T>(this T entity,  params  RuleDefinitions . TrendInfo [ ]  value)
+            where T : DamageForm
+        {
+            SetDamageBonusTrends(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetDamageBonusTrends<T>(this T entity, IEnumerable<RuleDefinitions.TrendInfo> value)
+            where T : DamageForm
+        {
+            entity.DamageBonusTrends.SetRange(value);
             return entity;
         }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,10 +43,129 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(NarrativeStateDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class NarrativeStateDescriptionExtensions
     {
+        public static T AddAdditionalCharacterAnimations<T>(this T entity,  params  DialogCharacterAnimationDescription [ ]  value)
+            where T : NarrativeStateDescription
+        {
+            AddAdditionalCharacterAnimations(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddAdditionalCharacterAnimations<T>(this T entity, IEnumerable<DialogCharacterAnimationDescription> value)
+            where T : NarrativeStateDescription
+        {
+            entity.AdditionalCharacterAnimations.AddRange(value);
+            return entity;
+        }
+
+        public static T AddCharacterTeleportDescriptions<T>(this T entity,  params  DialogCharacterTeleportDescription [ ]  value)
+            where T : NarrativeStateDescription
+        {
+            AddCharacterTeleportDescriptions(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddCharacterTeleportDescriptions<T>(this T entity, IEnumerable<DialogCharacterTeleportDescription> value)
+            where T : NarrativeStateDescription
+        {
+            entity.CharacterTeleportDescriptions.AddRange(value);
+            return entity;
+        }
+
+        public static T AddDialogLines<T>(this T entity,  params  DialogLine [ ]  value)
+            where T : NarrativeStateDescription
+        {
+            AddDialogLines(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddDialogLines<T>(this T entity, IEnumerable<DialogLine> value)
+            where T : NarrativeStateDescription
+        {
+            entity.DialogLines.AddRange(value);
+            return entity;
+        }
+
+        public static T AddEnableWieldedItemsDescriptions<T>(this T entity,  params  EnableWieldedItemsDescription [ ]  value)
+            where T : NarrativeStateDescription
+        {
+            AddEnableWieldedItemsDescriptions(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddEnableWieldedItemsDescriptions<T>(this T entity, IEnumerable<EnableWieldedItemsDescription> value)
+            where T : NarrativeStateDescription
+        {
+            entity.EnableWieldedItemsDescriptions.AddRange(value);
+            return entity;
+        }
+
+        public static T AddFactionOperationsList<T>(this T entity,  params  FactionOperationDescription [ ]  value)
+            where T : NarrativeStateDescription
+        {
+            AddFactionOperationsList(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddFactionOperationsList<T>(this T entity, IEnumerable<FactionOperationDescription> value)
+            where T : NarrativeStateDescription
+        {
+            entity.FactionOperationsList.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearAdditionalCharacterAnimations<T>(this T entity)
+            where T : NarrativeStateDescription
+        {
+            entity.AdditionalCharacterAnimations.Clear();
+            return entity;
+        }
+
+        public static T ClearCharacterTeleportDescriptions<T>(this T entity)
+            where T : NarrativeStateDescription
+        {
+            entity.CharacterTeleportDescriptions.Clear();
+            return entity;
+        }
+
+        public static T ClearDialogLines<T>(this T entity)
+            where T : NarrativeStateDescription
+        {
+            entity.DialogLines.Clear();
+            return entity;
+        }
+
+        public static T ClearEnableWieldedItemsDescriptions<T>(this T entity)
+            where T : NarrativeStateDescription
+        {
+            entity.EnableWieldedItemsDescriptions.Clear();
+            return entity;
+        }
+
+        public static T ClearFactionOperationsList<T>(this T entity)
+            where T : NarrativeStateDescription
+        {
+            entity.FactionOperationsList.Clear();
+            return entity;
+        }
+
         public static T SetAbilityCheckDescription<T>(this T entity, AbilityCheckDescription value)
             where T : NarrativeStateDescription
         {
             entity.AbilityCheckDescription = value;
+            return entity;
+        }
+
+        public static T SetAdditionalCharacterAnimations<T>(this T entity,  params  DialogCharacterAnimationDescription [ ]  value)
+            where T : NarrativeStateDescription
+        {
+            SetAdditionalCharacterAnimations(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetAdditionalCharacterAnimations<T>(this T entity, IEnumerable<DialogCharacterAnimationDescription> value)
+            where T : NarrativeStateDescription
+        {
+            entity.AdditionalCharacterAnimations.SetRange(value);
             return entity;
         }
 
@@ -86,6 +211,20 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetCharacterTeleportDescriptions<T>(this T entity,  params  DialogCharacterTeleportDescription [ ]  value)
+            where T : NarrativeStateDescription
+        {
+            SetCharacterTeleportDescriptions(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetCharacterTeleportDescriptions<T>(this T entity, IEnumerable<DialogCharacterTeleportDescription> value)
+            where T : NarrativeStateDescription
+        {
+            entity.CharacterTeleportDescriptions.SetRange(value);
+            return entity;
+        }
+
         public static T SetChildrenNarrativeStates<T>(this T entity, NarrativeStateDescription[] value)
             where T : NarrativeStateDescription
         {
@@ -114,10 +253,52 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetDialogLines<T>(this T entity,  params  DialogLine [ ]  value)
+            where T : NarrativeStateDescription
+        {
+            SetDialogLines(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetDialogLines<T>(this T entity, IEnumerable<DialogLine> value)
+            where T : NarrativeStateDescription
+        {
+            entity.DialogLines.SetRange(value);
+            return entity;
+        }
+
+        public static T SetEnableWieldedItemsDescriptions<T>(this T entity,  params  EnableWieldedItemsDescription [ ]  value)
+            where T : NarrativeStateDescription
+        {
+            SetEnableWieldedItemsDescriptions(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetEnableWieldedItemsDescriptions<T>(this T entity, IEnumerable<EnableWieldedItemsDescription> value)
+            where T : NarrativeStateDescription
+        {
+            entity.EnableWieldedItemsDescriptions.SetRange(value);
+            return entity;
+        }
+
         public static T SetFacialExpression<T>(this T entity, AnimationDefinitions.FacialExpression value)
             where T : NarrativeStateDescription
         {
             entity.FacialExpression = value;
+            return entity;
+        }
+
+        public static T SetFactionOperationsList<T>(this T entity,  params  FactionOperationDescription [ ]  value)
+            where T : NarrativeStateDescription
+        {
+            SetFactionOperationsList(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetFactionOperationsList<T>(this T entity, IEnumerable<FactionOperationDescription> value)
+            where T : NarrativeStateDescription
+        {
+            entity.FactionOperationsList.SetRange(value);
             return entity;
         }
 

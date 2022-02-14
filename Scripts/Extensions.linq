@@ -147,6 +147,7 @@ void CreateExtensions(Type t, bool createFiles = false)
 			GetUsingSyntax("UnityEngine.UI"),
 			GetUsingSyntax("UnityEngine.AddressableAssets"),
 			GetUsingSyntax("System"),
+			GetUsingSyntax("System.Linq"),
 			GetUsingSyntax("System.Text"),
 			GetUsingSyntax("System.CodeDom.Compiler"),
 			GetUsingSyntax("TA.AI"),
@@ -159,14 +160,19 @@ void CreateExtensions(Type t, bool createFiles = false)
 			GetUsingSyntax("static RuleDefinitions"),
 			GetUsingSyntax("static BanterDefinitions"),
 			GetUsingSyntax("static Gui"),
+			GetUsingSyntax("static GadgetDefinitions"),
 			GetUsingSyntax("static BestiaryDefinitions"),
 			GetUsingSyntax("static CursorDefinitions"),
 			GetUsingSyntax("static AnimationDefinitions"),
+			GetUsingSyntax("static FeatureDefinitionAutoPreparedSpells"),
+			GetUsingSyntax("static FeatureDefinitionCraftingAffinity"),
 			GetUsingSyntax("static CharacterClassDefinition"),
 			GetUsingSyntax("static CreditsGroupDefinition"),
+			GetUsingSyntax("static SoundbanksDefinition"),
 			GetUsingSyntax("static CampaignDefinition"),
 			GetUsingSyntax("static GraphicsCharacterDefinitions"),
 			GetUsingSyntax("static GameCampaignDefinitions"),
+			GetUsingSyntax("static FeatureDefinitionAbilityCheckAffinity"),
 			GetUsingSyntax("static TooltipDefinitions"),
 			GetUsingSyntax("static BaseBlueprint"),
 			GetUsingSyntax("static MorphotypeElementDefinition")
@@ -225,7 +231,7 @@ void CreateExtensions(Type t, bool createFiles = false)
 	var readablePublicProperties = t
 		.GetProperties(BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.Public)
 		.Where(pg => pg.CanRead)
-		.Select(pg => new { pg.Name, Type = SimplifyType(pg.PropertyType) });
+		.Select(pg => new { pg.Name, pg.PropertyType, Type = SimplifyType(pg.PropertyType) });
 
 	var readablePublicPropertiesByName = readablePublicProperties
 		.Select(pp => pp.Name)
@@ -241,6 +247,10 @@ void CreateExtensions(Type t, bool createFiles = false)
 	var genericPrivateFieldsThatNeedGetters = privateFields
 		.Where(f => f.FieldType.IsGenericType && !writeablePublicPropertiesByName.Contains(GetPropertyNameForField(f.FieldInfo)) && !readablePublicPropertiesByName.Contains(GetPropertyNameForField(f.FieldInfo)));
 
+	var genericReadablePublicProperties = readablePublicProperties
+		.Where(f => f.PropertyType.IsGenericType);		
+	
+	// ---------------------------------------------------------------------------
 	var methods = privateFieldsThatNeedWriter
 		.OrderBy(ftnw => ftnw.Name)
 		.Select(f =>
@@ -274,6 +284,7 @@ void CreateExtensions(Type t, bool createFiles = false)
 			}
 		);
 
+	// ---------------------------------------------------------------------------
 	var genericGeneratedGetters = genericPrivateFieldsThatNeedGetters
 		.Select(f => MethodDeclaration(ParseTypeName($"{SimplifyType(f.FieldType)}"), $"Get{GetPropertyNameForField(f.FieldInfo)}")
 			.AddModifiers(Token(SyntaxKind.PublicKeyword), Token(SyntaxKind.StaticKeyword))
@@ -285,6 +296,7 @@ void CreateExtensions(Type t, bool createFiles = false)
 
 	methods = methods.Concat(genericGeneratedGetters);
 
+	// ---------------------------------------------------------------------------
 	var generatedSetters =
 		privateFieldsThatNeedWriter.Select(f => GetPropertyNameForField(f.FieldInfo)).ToHashSet(StringComparer.OrdinalIgnoreCase);
 
@@ -329,7 +341,154 @@ void CreateExtensions(Type t, bool createFiles = false)
 			}
 		));
 
+	// ---------------------------------------------------------------------------
+	// generate helper methods for collections Clear/Add/Set
+	var collectionHelpers = genericReadablePublicProperties
+		.OrderBy(p => p.Name)
+		// Limit to 1 type param.  Dictionary support is harder.
+		.Where(p => p.PropertyType.GenericTypeArguments.Length == 1)
+		.SelectMany(p =>
+			{
+				if (t.IsSealed)
+				{
+					// Generic constraint not allowed with sealed type
+					return new[]{
+						MethodDeclaration(ParseTypeName($"{t.Name}"), $"Clear{p.Name}")
+						   .AddModifiers(Token(SyntaxKind.PublicKeyword), Token(SyntaxKind.StaticKeyword))
+						   .AddParameterListParameters(
+								Parameter(Identifier("entity"))
+									.WithType(ParseTypeName($"{t.Name}"))
+									.AddModifiers(Token(SyntaxKind.ThisKeyword))
+							)
+							.WithBody(Block(ParseStatement($"entity.{p.Name}.Clear();"), ParseStatement("return entity;"))),
+						MethodDeclaration(ParseTypeName($"{t.Name}"), $"Add{p.Name}")
+						   .AddModifiers(Token(SyntaxKind.PublicKeyword), Token(SyntaxKind.StaticKeyword))
+						   .AddParameterListParameters(
+								Parameter(Identifier("entity"))
+									.WithType(ParseTypeName($"{t.Name}"))
+									.AddModifiers(Token(SyntaxKind.ThisKeyword)),
+								Parameter(Identifier("value"))
+									.WithType(ParseTypeName($"IEnumerable<{string.Join(",", p.PropertyType.GenericTypeArguments.Select(a => SimplifyType(a)))}>"))
+							)
+							.WithBody(Block(ParseStatement($"entity.{p.Name}.AddRange(value);"), ParseStatement("return entity;"))),
+						MethodDeclaration(ParseTypeName($"{t.Name}"), $"Add{p.Name}")
+						   .AddModifiers(Token(SyntaxKind.PublicKeyword), Token(SyntaxKind.StaticKeyword))
+						   .AddParameterListParameters(
+								Parameter(Identifier("entity"))
+									.WithType(ParseTypeName($"{t.Name}"))
+									.AddModifiers(Token(SyntaxKind.ThisKeyword)),
+								Parameter(Identifier("value"))
+									.WithType(ParseTypeName($"params {string.Join(",", p.PropertyType.GenericTypeArguments.Select(a => SimplifyType(a)))}[]"))
+							)
+							.WithBody(Block(ParseStatement($"Add{p.Name}(entity, value.AsEnumerable());"), ParseStatement("return entity;"))),
+						MethodDeclaration(ParseTypeName($"{t.Name}"), $"Set{p.Name}")
+						   .AddModifiers(Token(SyntaxKind.PublicKeyword), Token(SyntaxKind.StaticKeyword))
+						   .AddParameterListParameters(
+								Parameter(Identifier("entity"))
+									.WithType(ParseTypeName($"{t.Name}"))
+									.AddModifiers(Token(SyntaxKind.ThisKeyword)),
+								Parameter(Identifier("value"))
+									.WithType(ParseTypeName($"IEnumerable<{string.Join(",", p.PropertyType.GenericTypeArguments.Select(a => SimplifyType(a)))}>"))
+							)
+							.WithBody(Block(ParseStatement($"entity.{p.Name}.SetRange(value);"), ParseStatement("return entity;"))),
+						MethodDeclaration(ParseTypeName($"{t.Name}"), $"Set{p.Name}")
+						   .AddModifiers(Token(SyntaxKind.PublicKeyword), Token(SyntaxKind.StaticKeyword))
+						   .AddParameterListParameters(
+								Parameter(Identifier("entity"))
+									.WithType(ParseTypeName($"{t.Name}"))
+									.AddModifiers(Token(SyntaxKind.ThisKeyword)),
+								Parameter(Identifier("value"))
+									.WithType(ParseTypeName($"params {string.Join(",", p.PropertyType.GenericTypeArguments.Select(a => SimplifyType(a)))}[]"))
+							)
+							.WithBody(Block(ParseStatement($"Set{p.Name}(entity, value.AsEnumerable());"), ParseStatement("return entity;")))
+						};
+				}
+				else
+				{
+					return new[]{
+						MethodDeclaration(ParseTypeName($"T"), $"Clear{p.Name}")
+						   .AddModifiers(Token(SyntaxKind.PublicKeyword), Token(SyntaxKind.StaticKeyword))
+						   .AddTypeParameterListParameters(TypeParameter(Identifier("T")))
+						   .AddParameterListParameters(
+								Parameter(Identifier("entity")).WithType(ParseTypeName("T")).AddModifiers(Token(SyntaxKind.ThisKeyword))
+							)
+							.AddConstraintClauses(TypeParameterConstraintClause("T").WithConstraints(GetSL(t.Name)))
+							.WithBody(Block(ParseStatement($"entity.{p.Name}.Clear();"), ParseStatement("return entity;"))),
+						MethodDeclaration(ParseTypeName($"T"), $"Add{p.Name}")
+						   .AddModifiers(Token(SyntaxKind.PublicKeyword), Token(SyntaxKind.StaticKeyword))
+						   .AddTypeParameterListParameters(TypeParameter(Identifier("T")))
+						   .AddParameterListParameters(
+								Parameter(Identifier("entity"))
+									.WithType(ParseTypeName("T"))
+									.AddModifiers(Token(SyntaxKind.ThisKeyword)),
+								Parameter(Identifier("value"))
+									.WithType(ParseTypeName($"params {string.Join(",", p.PropertyType.GenericTypeArguments.Select(a => SimplifyType(a)))}[]"))
+							)
+							.AddConstraintClauses(TypeParameterConstraintClause("T").WithConstraints(GetSL(t.Name)))
+							.WithBody(Block(ParseStatement($"Add{p.Name}(entity, value.AsEnumerable());"), ParseStatement("return entity;"))),
+						MethodDeclaration(ParseTypeName($"T"), $"Add{p.Name}")
+						   .AddModifiers(Token(SyntaxKind.PublicKeyword), Token(SyntaxKind.StaticKeyword))
+						   .AddTypeParameterListParameters(TypeParameter(Identifier("T")))
+						   .AddParameterListParameters(
+								Parameter(Identifier("entity"))
+									.WithType(ParseTypeName("T"))
+									.AddModifiers(Token(SyntaxKind.ThisKeyword)),
+								Parameter(Identifier("value"))
+									.WithType(ParseTypeName($"IEnumerable<{string.Join(",", p.PropertyType.GenericTypeArguments.Select(a => SimplifyType(a)))}>"))
+							)
+							.AddConstraintClauses(TypeParameterConstraintClause("T").WithConstraints(GetSL(t.Name)))
+							.WithBody(Block(ParseStatement($"entity.{p.Name}.AddRange(value);"), ParseStatement("return entity;"))),
+						MethodDeclaration(ParseTypeName($"T"), $"Set{p.Name}")
+						   .AddModifiers(Token(SyntaxKind.PublicKeyword), Token(SyntaxKind.StaticKeyword))
+						   .AddTypeParameterListParameters(TypeParameter(Identifier("T")))
+						   .AddParameterListParameters(
+								Parameter(Identifier("entity"))
+									.WithType(ParseTypeName("T"))
+									.AddModifiers(Token(SyntaxKind.ThisKeyword)),
+								Parameter(Identifier("value"))
+									.WithType(ParseTypeName($"params {string.Join(",", p.PropertyType.GenericTypeArguments.Select(a => SimplifyType(a)))}[]"))
+							)
+							.AddConstraintClauses(TypeParameterConstraintClause("T").WithConstraints(GetSL(t.Name)))
+							.WithBody(Block(ParseStatement($"Set{p.Name}(entity, value.AsEnumerable());"), ParseStatement("return entity;"))),
+						MethodDeclaration(ParseTypeName($"T"), $"Set{p.Name}")
+						   .AddModifiers(Token(SyntaxKind.PublicKeyword), Token(SyntaxKind.StaticKeyword))
+						   .AddTypeParameterListParameters(TypeParameter(Identifier("T")))
+						   .AddParameterListParameters(
+								Parameter(Identifier("entity"))
+									.WithType(ParseTypeName("T"))
+									.AddModifiers(Token(SyntaxKind.ThisKeyword)),
+								Parameter(Identifier("value"))
+									.WithType(ParseTypeName($"IEnumerable<{string.Join(",", p.PropertyType.GenericTypeArguments.Select(a => SimplifyType(a)))}>"))
+							)
+							.AddConstraintClauses(TypeParameterConstraintClause("T").WithConstraints(GetSL(t.Name)))
+							.WithBody(Block(ParseStatement($"entity.{p.Name}.SetRange(value);"), ParseStatement("return entity;")))
+						};
+				}
+			}
+		);
+	
+	methods = methods.Concat(collectionHelpers);
 
+	// ---------------------------------------------------------------------------
+	// TODO: for all types add a .Create() method
+
+	var copyMethod = t.GetMethod("Copy", new Type[] { t });
+	if (copyMethod != null)
+	{
+		methods = methods.Concat(
+			new[]{
+			MethodDeclaration(ParseTypeName($"{SimplifyType(t)}"), $"Copy")
+			   .AddModifiers(Token(SyntaxKind.PublicKeyword), Token(SyntaxKind.StaticKeyword))
+			   .AddParameterListParameters(
+					Parameter(Identifier("entity"))
+						.WithType(ParseTypeName($"{SimplifyType(t)}"))
+						.AddModifiers(Token(SyntaxKind.ThisKeyword))
+				)
+				.WithBody(Block(ParseStatement($"var copy = new {SimplifyType(t)}();"), ParseStatement("copy.Copy(entity);"), ParseStatement("return copy;")))
+			});
+	}
+
+	// ---------------------------------------------------------------------------
 	if (methods.Any())
 	{
 		cd = cd.AddMembers(methods.OrderBy(m => m.Identifier.ToString()).ToArray());

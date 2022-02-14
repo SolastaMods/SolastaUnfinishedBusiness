@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,6 +43,41 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(GuiCampaignNode)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class GuiCampaignNodeExtensions
     {
+        public static T AddActiveQuests<T>(this T entity,  params  GameQuest [ ]  value)
+            where T : GuiCampaignNode
+        {
+            AddActiveQuests(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddActiveQuests<T>(this T entity, IEnumerable<GameQuest> value)
+            where T : GuiCampaignNode
+        {
+            entity.ActiveQuests.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearActiveQuests<T>(this T entity)
+            where T : GuiCampaignNode
+        {
+            entity.ActiveQuests.Clear();
+            return entity;
+        }
+
+        public static T SetActiveQuests<T>(this T entity,  params  GameQuest [ ]  value)
+            where T : GuiCampaignNode
+        {
+            SetActiveQuests(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetActiveQuests<T>(this T entity, IEnumerable<GameQuest> value)
+            where T : GuiCampaignNode
+        {
+            entity.ActiveQuests.SetRange(value);
+            return entity;
+        }
+
         public static T SetGameCampaignNode<T>(this T entity, GameCampaignNode value)
             where T : GuiCampaignNode
         {

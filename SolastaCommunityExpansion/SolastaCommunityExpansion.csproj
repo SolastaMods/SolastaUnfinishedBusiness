@@ -143,6 +143,10 @@
       <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\UnityEngine.UIModule.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
       <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\Unity.Postprocessing.Runtime.dll</HintPath>
       <Private>false</Private>

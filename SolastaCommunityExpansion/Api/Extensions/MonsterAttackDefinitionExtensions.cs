@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,6 +43,13 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(MonsterAttackDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class MonsterAttackDefinitionExtensions
     {
+        public static MonsterAttackDefinition Copy(this MonsterAttackDefinition entity)
+        {
+            var copy = new MonsterAttackDefinition();
+            copy.Copy(entity);
+            return copy;
+        }
+
         public static T SetActionType<T>(this T entity, ActionDefinitions.ActionType value)
             where T : MonsterAttackDefinition
         {
