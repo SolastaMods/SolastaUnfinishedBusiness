@@ -2,7 +2,7 @@
 using HarmonyLib;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.Inventory
+namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 {
     [HarmonyPatch(typeof(InventoryShortcutsPanel), "OnConfigurationSwitched")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

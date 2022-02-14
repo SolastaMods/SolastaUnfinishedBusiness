@@ -228,11 +228,13 @@ namespace SolastaCommunityExpansion
         // Gameplay - Tools
         //
 
-        // Debug
+        // General
+        public bool EnableAdditionalBackstoryDisplay { get; set; }
         public bool EnableRespec { get; set; }
         public bool EnableCheatMenu { get; set; }
         public bool NoExperienceOnLevelUp { get; set; }
 
+        // Debug
         public bool DebugShowTADefinitionsWithMissingGuiPresentation { get; set; }
         public bool DebugLogDefinitionCreation { get; set; }
         public bool DebugLogFieldInitialization { get; set; }
