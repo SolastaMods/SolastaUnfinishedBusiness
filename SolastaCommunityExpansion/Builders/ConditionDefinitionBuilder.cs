@@ -49,22 +49,22 @@ namespace SolastaCommunityExpansion.Builders
 
     public class ConditionDefinitionBuilder : ConditionDefinitionBuilder<ConditionDefinition>
     {
-        private ConditionDefinitionBuilder(string name, string guid)
+        protected ConditionDefinitionBuilder(string name, string guid)
             : base(name, guid)
         {
         }
 
-        private ConditionDefinitionBuilder(string name, Guid guidNamespace)
+        protected ConditionDefinitionBuilder(string name, Guid guidNamespace)
             : base(name, guidNamespace)
         {
         }
 
-        private ConditionDefinitionBuilder(ConditionDefinition original, string name, string guid)
+        protected ConditionDefinitionBuilder(ConditionDefinition original, string name, string guid)
             : base(original, name, guid)
         {
         }
 
-        private ConditionDefinitionBuilder(ConditionDefinition original, string name, Guid guidNamespace)
+        protected ConditionDefinitionBuilder(ConditionDefinition original, string name, Guid guidNamespace)
             : base(original, name, guidNamespace)
         {
         }

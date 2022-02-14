@@ -37,8 +37,6 @@ namespace SolastaModApi
         /// </summary>
         /// <param name="name"></param>
         /// <param name="createGuiPresentation"></param>
-        /// 
-
         protected BaseDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation) { }
 
         /// <summary>
@@ -47,7 +45,6 @@ namespace SolastaModApi
         /// <param name="original"></param>
         /// <param name="name"></param>
         /// <param name="createGuiPresentation"></param>
-
         protected BaseDefinitionBuilder(TDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation) { }
 
         /// <summary>
