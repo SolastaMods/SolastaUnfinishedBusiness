@@ -218,7 +218,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         }
 
         // A builder to help us build a custom damage affinity for our Bark Ward conditions
-        public class FeatureDefinitionDamageAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionDamageAffinity>
+        public class FeatureDefinitionDamageAffinityBuilder : DefinitionBuilder<FeatureDefinitionDamageAffinity>
         {
             public FeatureDefinitionDamageAffinityBuilder(string name, string guid, bool retaliateWhenHit, int retaliationRange,
                 FeatureDefinitionPower retaliationPower, RuleDefinitions.DamageAffinityType damageAffinityType, string damageType,
@@ -236,7 +236,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
     }
 
     // Creates a dedicated builder for the the three Bark Ward conditions
-    internal class ConditionBarkWardBuilder : BaseDefinitionBuilder<ConditionDefinition>
+    internal class ConditionBarkWardBuilder : DefinitionBuilder<ConditionDefinition>
     {
         protected ConditionBarkWardBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionBarkskin, name, guid)
         {
@@ -262,7 +262,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         }
     }
 
-    internal class ConditionImprovedBarkWardBuilder : BaseDefinitionBuilder<ConditionDefinition>
+    internal class ConditionImprovedBarkWardBuilder : DefinitionBuilder<ConditionDefinition>
     {
         private static FeatureDefinitionPower createImprovedBarkWardRetaliate()
         {
@@ -339,7 +339,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         }
     }
 
-    internal class ConditionSuperiorBarkWardBuilder : BaseDefinitionBuilder<ConditionDefinition>
+    internal class ConditionSuperiorBarkWardBuilder : DefinitionBuilder<ConditionDefinition>
     {
         private static FeatureDefinitionPower createSuperiorBarkWardRetaliate()
         {

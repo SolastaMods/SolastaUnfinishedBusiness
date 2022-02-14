@@ -1,11 +1,10 @@
 ﻿using System;
-using SolastaModApi;
 using SolastaModApi.Extensions;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public abstract class ConditionDefinitionBuilder<TDefinition> : BaseDefinitionBuilder<TDefinition> where TDefinition : ConditionDefinition
+    public abstract class ConditionDefinitionBuilder<TDefinition> : DefinitionBuilder<TDefinition> where TDefinition : ConditionDefinition
     {
         protected ConditionDefinitionBuilder(string name, string guid)
             : base(name, guid)

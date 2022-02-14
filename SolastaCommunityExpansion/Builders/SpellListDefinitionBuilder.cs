@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public sealed class SpellListDefinitionBuilder : BaseDefinitionBuilder<SpellListDefinition>
+    public sealed class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinition>
     {
         private SpellListDefinitionBuilder(SpellListDefinition original, string name, Guid guidNamespace)
             : base(original, name, guidNamespace)

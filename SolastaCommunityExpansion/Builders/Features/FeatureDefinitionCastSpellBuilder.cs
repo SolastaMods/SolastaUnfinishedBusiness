@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi;
 using SolastaModApi.Diagnostics;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionCastSpellBuilder : BaseDefinitionBuilder<FeatureDefinitionCastSpell>
+    public sealed class FeatureDefinitionCastSpellBuilder : DefinitionBuilder<FeatureDefinitionCastSpell>
     {
         public enum CasterProgression
         {

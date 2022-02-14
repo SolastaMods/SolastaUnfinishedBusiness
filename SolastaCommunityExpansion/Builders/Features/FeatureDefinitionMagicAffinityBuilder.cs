@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using SolastaModApi;
+using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionMagicAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionMagicAffinity>
+    public class FeatureDefinitionMagicAffinityBuilder : DefinitionBuilder<FeatureDefinitionMagicAffinity>
     {
         // TODO this is not yet complete, also I'm unsure the current groupings are the best set.
         public FeatureDefinitionMagicAffinityBuilder(string name, string guid, GuiPresentation guiPresentation)

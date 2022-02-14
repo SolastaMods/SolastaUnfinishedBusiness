@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionBonusCantripsBuilder : BaseDefinitionBuilder<FeatureDefinitionBonusCantrips>
+    public sealed class FeatureDefinitionBonusCantripsBuilder : DefinitionBuilder<FeatureDefinitionBonusCantrips>
     {
         /*        private FeatureDefinitionBonusCantripsBuilder(string name, string guid)
                     : base(name, guid)

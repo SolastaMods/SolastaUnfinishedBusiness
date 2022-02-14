@@ -157,7 +157,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             }
         }
 
-        private sealed class RestActivityDefinitionBuilder : BaseDefinitionBuilder<RestActivityDefinition>
+        private sealed class RestActivityDefinitionBuilder : DefinitionBuilder<RestActivityDefinition>
         {
             private RestActivityDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
             {

@@ -1,10 +1,10 @@
-﻿using SolastaModApi;
+﻿using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionSenses;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal class ProficiencyRogueBlindSenseBuilder : BaseDefinitionBuilder<FeatureDefinitionSense>
+    internal class ProficiencyRogueBlindSenseBuilder : DefinitionBuilder<FeatureDefinitionSense>
     {
         private const string ProficiencyRogueBlindSenseName = "ZSProficiencyRogueBlindSense";
         private const string ProficiencyRogueBlindSensedGuid = "30c27691f42f4705985c638d38fadc21";
