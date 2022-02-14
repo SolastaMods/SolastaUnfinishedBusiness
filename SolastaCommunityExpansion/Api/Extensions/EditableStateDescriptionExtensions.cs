@@ -1,9 +1,10 @@
-﻿using SolastaModApi.Infrastructure;
+using SolastaModApi.Infrastructure;
 using AK.Wwise;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,7 +43,27 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(EditableStateDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class EditableStateDescriptionExtensions
     {
-        [Obsolete("Use content of OutputDescriptions instead")]
+        public static T AddOutputDescriptions<T>(this T entity,  params  EditableStateOutputDescription [ ]  value)
+            where T : EditableStateDescription
+        {
+            AddOutputDescriptions(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddOutputDescriptions<T>(this T entity, IEnumerable<EditableStateOutputDescription> value)
+            where T : EditableStateDescription
+        {
+            entity.OutputDescriptions.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearOutputDescriptions<T>(this T entity)
+            where T : EditableStateDescription
+        {
+            entity.OutputDescriptions.Clear();
+            return entity;
+        }
+
         public static T SetChildrenStates<T>(this T entity, EditableStateDescription[] value)
             where T : EditableStateDescription
         {
@@ -45,7 +71,6 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        [Obsolete("Use content of OutputDescriptions instead")]
         public static T SetChildrenStatesIndexes<T>(this T entity, System.Int32[] value)
             where T : EditableStateDescription
         {
@@ -71,6 +96,20 @@ namespace SolastaModApi.Extensions
             where T : EditableStateDescription
         {
             entity.SetField("<Index>k__BackingField", value);
+            return entity;
+        }
+
+        public static T SetOutputDescriptions<T>(this T entity,  params  EditableStateOutputDescription [ ]  value)
+            where T : EditableStateDescription
+        {
+            SetOutputDescriptions(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetOutputDescriptions<T>(this T entity, IEnumerable<EditableStateOutputDescription> value)
+            where T : EditableStateDescription
+        {
+            entity.OutputDescriptions.SetRange(value);
             return entity;
         }
     }

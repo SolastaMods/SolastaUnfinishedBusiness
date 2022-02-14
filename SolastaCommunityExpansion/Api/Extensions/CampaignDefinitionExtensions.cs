@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,6 +43,209 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(CampaignDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class CampaignDefinitionExtensions
     {
+        public static T AddAutoGameplayRoles<T>(this T entity,  params  CampaignDefinition . GameplayRoleFilter [ ]  value)
+            where T : CampaignDefinition
+        {
+            AddAutoGameplayRoles(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddAutoGameplayRoles<T>(this T entity, IEnumerable<CampaignDefinition.GameplayRoleFilter> value)
+            where T : CampaignDefinition
+        {
+            entity.AutoGameplayRoles.AddRange(value);
+            return entity;
+        }
+
+        public static T AddInitialBestiaryContent<T>(this T entity,  params  MonsterKnowledgeDescription [ ]  value)
+            where T : CampaignDefinition
+        {
+            AddInitialBestiaryContent(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddInitialBestiaryContent<T>(this T entity, IEnumerable<MonsterKnowledgeDescription> value)
+            where T : CampaignDefinition
+        {
+            entity.InitialBestiaryContent.AddRange(value);
+            return entity;
+        }
+
+        public static T AddIntroductionCaptions<T>(this T entity,  params  System . String [ ]  value)
+            where T : CampaignDefinition
+        {
+            AddIntroductionCaptions(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddIntroductionCaptions<T>(this T entity, IEnumerable<System.String> value)
+            where T : CampaignDefinition
+        {
+            entity.IntroductionCaptions.AddRange(value);
+            return entity;
+        }
+
+        public static T AddKnownRecipes<T>(this T entity,  params  RecipeDefinition [ ]  value)
+            where T : CampaignDefinition
+        {
+            AddKnownRecipes(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddKnownRecipes<T>(this T entity, IEnumerable<RecipeDefinition> value)
+            where T : CampaignDefinition
+        {
+            entity.KnownRecipes.AddRange(value);
+            return entity;
+        }
+
+        public static T AddPredefinedParty<T>(this T entity,  params  System . String [ ]  value)
+            where T : CampaignDefinition
+        {
+            AddPredefinedParty(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddPredefinedParty<T>(this T entity, IEnumerable<System.String> value)
+            where T : CampaignDefinition
+        {
+            entity.PredefinedParty.AddRange(value);
+            return entity;
+        }
+
+        public static T AddRegisteredFactions<T>(this T entity,  params  CampaignDefinition . FactionRegistration [ ]  value)
+            where T : CampaignDefinition
+        {
+            AddRegisteredFactions(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddRegisteredFactions<T>(this T entity, IEnumerable<CampaignDefinition.FactionRegistration> value)
+            where T : CampaignDefinition
+        {
+            entity.RegisteredFactions.AddRange(value);
+            return entity;
+        }
+
+        public static T AddRegisteredVariables<T>(this T entity,  params  VariableRegistrationDescription [ ]  value)
+            where T : CampaignDefinition
+        {
+            AddRegisteredVariables(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddRegisteredVariables<T>(this T entity, IEnumerable<VariableRegistrationDescription> value)
+            where T : CampaignDefinition
+        {
+            entity.RegisteredVariables.AddRange(value);
+            return entity;
+        }
+
+        public static T AddSkipIntroRegisteredVariables<T>(this T entity,  params  VariableRegistrationDescription [ ]  value)
+            where T : CampaignDefinition
+        {
+            AddSkipIntroRegisteredVariables(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddSkipIntroRegisteredVariables<T>(this T entity, IEnumerable<VariableRegistrationDescription> value)
+            where T : CampaignDefinition
+        {
+            entity.SkipIntroRegisteredVariables.AddRange(value);
+            return entity;
+        }
+
+        public static T AddStartingQuests<T>(this T entity,  params  QuestTreeDefinition [ ]  value)
+            where T : CampaignDefinition
+        {
+            AddStartingQuests(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddStartingQuests<T>(this T entity, IEnumerable<QuestTreeDefinition> value)
+            where T : CampaignDefinition
+        {
+            entity.StartingQuests.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearAutoGameplayRoles<T>(this T entity)
+            where T : CampaignDefinition
+        {
+            entity.AutoGameplayRoles.Clear();
+            return entity;
+        }
+
+        public static T ClearInitialBestiaryContent<T>(this T entity)
+            where T : CampaignDefinition
+        {
+            entity.InitialBestiaryContent.Clear();
+            return entity;
+        }
+
+        public static T ClearIntroductionCaptions<T>(this T entity)
+            where T : CampaignDefinition
+        {
+            entity.IntroductionCaptions.Clear();
+            return entity;
+        }
+
+        public static T ClearKnownRecipes<T>(this T entity)
+            where T : CampaignDefinition
+        {
+            entity.KnownRecipes.Clear();
+            return entity;
+        }
+
+        public static T ClearPredefinedParty<T>(this T entity)
+            where T : CampaignDefinition
+        {
+            entity.PredefinedParty.Clear();
+            return entity;
+        }
+
+        public static T ClearRegisteredFactions<T>(this T entity)
+            where T : CampaignDefinition
+        {
+            entity.RegisteredFactions.Clear();
+            return entity;
+        }
+
+        public static T ClearRegisteredVariables<T>(this T entity)
+            where T : CampaignDefinition
+        {
+            entity.RegisteredVariables.Clear();
+            return entity;
+        }
+
+        public static T ClearSkipIntroRegisteredVariables<T>(this T entity)
+            where T : CampaignDefinition
+        {
+            entity.SkipIntroRegisteredVariables.Clear();
+            return entity;
+        }
+
+        public static T ClearStartingQuests<T>(this T entity)
+            where T : CampaignDefinition
+        {
+            entity.StartingQuests.Clear();
+            return entity;
+        }
+
+        public static T SetAutoGameplayRoles<T>(this T entity,  params  CampaignDefinition . GameplayRoleFilter [ ]  value)
+            where T : CampaignDefinition
+        {
+            SetAutoGameplayRoles(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetAutoGameplayRoles<T>(this T entity, IEnumerable<CampaignDefinition.GameplayRoleFilter> value)
+            where T : CampaignDefinition
+        {
+            entity.AutoGameplayRoles.SetRange(value);
+            return entity;
+        }
+
         public static T SetCalendar<T>(this T entity, CalendarDefinition value)
             where T : CampaignDefinition
         {
@@ -79,6 +288,20 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetInitialBestiaryContent<T>(this T entity,  params  MonsterKnowledgeDescription [ ]  value)
+            where T : CampaignDefinition
+        {
+            SetInitialBestiaryContent(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetInitialBestiaryContent<T>(this T entity, IEnumerable<MonsterKnowledgeDescription> value)
+            where T : CampaignDefinition
+        {
+            entity.InitialBestiaryContent.SetRange(value);
+            return entity;
+        }
+
         public static T SetInitialPartyPosition<T>(this T entity, System.String value)
             where T : CampaignDefinition
         {
@@ -90,6 +313,20 @@ namespace SolastaModApi.Extensions
             where T : CampaignDefinition
         {
             entity.SetField("insideLocation", value);
+            return entity;
+        }
+
+        public static T SetIntroductionCaptions<T>(this T entity,  params  System . String [ ]  value)
+            where T : CampaignDefinition
+        {
+            SetIntroductionCaptions(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetIntroductionCaptions<T>(this T entity, IEnumerable<System.String> value)
+            where T : CampaignDefinition
+        {
+            entity.IntroductionCaptions.SetRange(value);
             return entity;
         }
 
@@ -111,6 +348,20 @@ namespace SolastaModApi.Extensions
             where T : CampaignDefinition
         {
             entity.SetField("journalStart", value);
+            return entity;
+        }
+
+        public static T SetKnownRecipes<T>(this T entity,  params  RecipeDefinition [ ]  value)
+            where T : CampaignDefinition
+        {
+            SetKnownRecipes(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetKnownRecipes<T>(this T entity, IEnumerable<RecipeDefinition> value)
+            where T : CampaignDefinition
+        {
+            entity.KnownRecipes.SetRange(value);
             return entity;
         }
 
@@ -163,6 +414,48 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetPredefinedParty<T>(this T entity,  params  System . String [ ]  value)
+            where T : CampaignDefinition
+        {
+            SetPredefinedParty(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetPredefinedParty<T>(this T entity, IEnumerable<System.String> value)
+            where T : CampaignDefinition
+        {
+            entity.PredefinedParty.SetRange(value);
+            return entity;
+        }
+
+        public static T SetRegisteredFactions<T>(this T entity,  params  CampaignDefinition . FactionRegistration [ ]  value)
+            where T : CampaignDefinition
+        {
+            SetRegisteredFactions(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetRegisteredFactions<T>(this T entity, IEnumerable<CampaignDefinition.FactionRegistration> value)
+            where T : CampaignDefinition
+        {
+            entity.RegisteredFactions.SetRange(value);
+            return entity;
+        }
+
+        public static T SetRegisteredVariables<T>(this T entity,  params  VariableRegistrationDescription [ ]  value)
+            where T : CampaignDefinition
+        {
+            SetRegisteredVariables(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetRegisteredVariables<T>(this T entity, IEnumerable<VariableRegistrationDescription> value)
+            where T : CampaignDefinition
+        {
+            entity.RegisteredVariables.SetRange(value);
+            return entity;
+        }
+
         public static T SetRenderSettingsSceneProfile<T>(this T entity, RenderSettingsSceneProfile value)
             where T : CampaignDefinition
         {
@@ -198,6 +491,20 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetSkipIntroRegisteredVariables<T>(this T entity,  params  VariableRegistrationDescription [ ]  value)
+            where T : CampaignDefinition
+        {
+            SetSkipIntroRegisteredVariables(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetSkipIntroRegisteredVariables<T>(this T entity, IEnumerable<VariableRegistrationDescription> value)
+            where T : CampaignDefinition
+        {
+            entity.SkipIntroRegisteredVariables.SetRange(value);
+            return entity;
+        }
+
         public static T SetStartDay<T>(this T entity, System.Int32 value)
             where T : CampaignDefinition
         {
@@ -209,6 +516,20 @@ namespace SolastaModApi.Extensions
             where T : CampaignDefinition
         {
             entity.SetField("startHour", value);
+            return entity;
+        }
+
+        public static T SetStartingQuests<T>(this T entity,  params  QuestTreeDefinition [ ]  value)
+            where T : CampaignDefinition
+        {
+            SetStartingQuests(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetStartingQuests<T>(this T entity, IEnumerable<QuestTreeDefinition> value)
+            where T : CampaignDefinition
+        {
+            entity.StartingQuests.SetRange(value);
             return entity;
         }
 

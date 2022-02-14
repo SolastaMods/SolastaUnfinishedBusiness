@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,6 +43,181 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(EffectDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class EffectDescriptionExtensions
     {
+        public static T AddEffectForms<T>(this T entity,  params  EffectForm [ ]  value)
+            where T : EffectDescription
+        {
+            AddEffectForms(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddEffectForms<T>(this T entity, IEnumerable<EffectForm> value)
+            where T : EffectDescription
+        {
+            entity.EffectForms.AddRange(value);
+            return entity;
+        }
+
+        public static T AddHitAffinitiesByTargetTag<T>(this T entity,  params  HitAffinityByTag [ ]  value)
+            where T : EffectDescription
+        {
+            AddHitAffinitiesByTargetTag(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddHitAffinitiesByTargetTag<T>(this T entity, IEnumerable<HitAffinityByTag> value)
+            where T : EffectDescription
+        {
+            entity.HitAffinitiesByTargetTag.AddRange(value);
+            return entity;
+        }
+
+        public static T AddImmuneCreatureFamilies<T>(this T entity,  params  System . String [ ]  value)
+            where T : EffectDescription
+        {
+            AddImmuneCreatureFamilies(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddImmuneCreatureFamilies<T>(this T entity, IEnumerable<System.String> value)
+            where T : EffectDescription
+        {
+            entity.ImmuneCreatureFamilies.AddRange(value);
+            return entity;
+        }
+
+        public static T AddRestrictedCharacterSizes<T>(this T entity,  params  RuleDefinitions . CreatureSize [ ]  value)
+            where T : EffectDescription
+        {
+            AddRestrictedCharacterSizes(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddRestrictedCharacterSizes<T>(this T entity, IEnumerable<RuleDefinitions.CreatureSize> value)
+            where T : EffectDescription
+        {
+            entity.RestrictedCharacterSizes.AddRange(value);
+            return entity;
+        }
+
+        public static T AddRestrictedCreatureFamilies<T>(this T entity,  params  System . String [ ]  value)
+            where T : EffectDescription
+        {
+            AddRestrictedCreatureFamilies(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddRestrictedCreatureFamilies<T>(this T entity, IEnumerable<System.String> value)
+            where T : EffectDescription
+        {
+            entity.RestrictedCreatureFamilies.AddRange(value);
+            return entity;
+        }
+
+        public static T AddSavingThrowAffinitiesByFamily<T>(this T entity,  params  SaveAffinityByFamilyDescription [ ]  value)
+            where T : EffectDescription
+        {
+            AddSavingThrowAffinitiesByFamily(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddSavingThrowAffinitiesByFamily<T>(this T entity, IEnumerable<SaveAffinityByFamilyDescription> value)
+            where T : EffectDescription
+        {
+            entity.SavingThrowAffinitiesByFamily.AddRange(value);
+            return entity;
+        }
+
+        public static T AddSavingThrowAffinitiesBySense<T>(this T entity,  params  SaveAffinityBySenseDescription [ ]  value)
+            where T : EffectDescription
+        {
+            AddSavingThrowAffinitiesBySense(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddSavingThrowAffinitiesBySense<T>(this T entity, IEnumerable<SaveAffinityBySenseDescription> value)
+            where T : EffectDescription
+        {
+            entity.SavingThrowAffinitiesBySense.AddRange(value);
+            return entity;
+        }
+
+        public static T AddSlotTypes<T>(this T entity,  params  System . String [ ]  value)
+            where T : EffectDescription
+        {
+            AddSlotTypes(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddSlotTypes<T>(this T entity, IEnumerable<System.String> value)
+            where T : EffectDescription
+        {
+            entity.SlotTypes.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearEffectForms<T>(this T entity)
+            where T : EffectDescription
+        {
+            entity.EffectForms.Clear();
+            return entity;
+        }
+
+        public static T ClearHitAffinitiesByTargetTag<T>(this T entity)
+            where T : EffectDescription
+        {
+            entity.HitAffinitiesByTargetTag.Clear();
+            return entity;
+        }
+
+        public static T ClearImmuneCreatureFamilies<T>(this T entity)
+            where T : EffectDescription
+        {
+            entity.ImmuneCreatureFamilies.Clear();
+            return entity;
+        }
+
+        public static T ClearRestrictedCharacterSizes<T>(this T entity)
+            where T : EffectDescription
+        {
+            entity.RestrictedCharacterSizes.Clear();
+            return entity;
+        }
+
+        public static T ClearRestrictedCreatureFamilies<T>(this T entity)
+            where T : EffectDescription
+        {
+            entity.RestrictedCreatureFamilies.Clear();
+            return entity;
+        }
+
+        public static T ClearSavingThrowAffinitiesByFamily<T>(this T entity)
+            where T : EffectDescription
+        {
+            entity.SavingThrowAffinitiesByFamily.Clear();
+            return entity;
+        }
+
+        public static T ClearSavingThrowAffinitiesBySense<T>(this T entity)
+            where T : EffectDescription
+        {
+            entity.SavingThrowAffinitiesBySense.Clear();
+            return entity;
+        }
+
+        public static T ClearSlotTypes<T>(this T entity)
+            where T : EffectDescription
+        {
+            entity.SlotTypes.Clear();
+            return entity;
+        }
+
+        public static EffectDescription Copy(this EffectDescription entity)
+        {
+            var copy = new EffectDescription();
+            copy.Copy(entity);
+            return copy;
+        }
+
         public static T SetAdvantageForEnemies<T>(this T entity, System.Boolean value)
             where T : EffectDescription
         {
@@ -111,6 +292,20 @@ namespace SolastaModApi.Extensions
             where T : EffectDescription
         {
             entity.SetField("effectAIParameters", value);
+            return entity;
+        }
+
+        public static T SetEffectForms<T>(this T entity,  params  EffectForm [ ]  value)
+            where T : EffectDescription
+        {
+            SetEffectForms(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetEffectForms<T>(this T entity, IEnumerable<EffectForm> value)
+            where T : EffectDescription
+        {
+            entity.EffectForms.SetRange(value);
             return entity;
         }
 
@@ -198,10 +393,38 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetHitAffinitiesByTargetTag<T>(this T entity,  params  HitAffinityByTag [ ]  value)
+            where T : EffectDescription
+        {
+            SetHitAffinitiesByTargetTag(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetHitAffinitiesByTargetTag<T>(this T entity, IEnumerable<HitAffinityByTag> value)
+            where T : EffectDescription
+        {
+            entity.HitAffinitiesByTargetTag.SetRange(value);
+            return entity;
+        }
+
         public static T SetIgnoreCover<T>(this T entity, System.Boolean value)
             where T : EffectDescription
         {
             entity.IgnoreCover = value;
+            return entity;
+        }
+
+        public static T SetImmuneCreatureFamilies<T>(this T entity,  params  System . String [ ]  value)
+            where T : EffectDescription
+        {
+            SetImmuneCreatureFamilies(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetImmuneCreatureFamilies<T>(this T entity, IEnumerable<System.String> value)
+            where T : EffectDescription
+        {
+            entity.ImmuneCreatureFamilies.SetRange(value);
             return entity;
         }
 
@@ -289,6 +512,34 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetRestrictedCharacterSizes<T>(this T entity,  params  RuleDefinitions . CreatureSize [ ]  value)
+            where T : EffectDescription
+        {
+            SetRestrictedCharacterSizes(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetRestrictedCharacterSizes<T>(this T entity, IEnumerable<RuleDefinitions.CreatureSize> value)
+            where T : EffectDescription
+        {
+            entity.RestrictedCharacterSizes.SetRange(value);
+            return entity;
+        }
+
+        public static T SetRestrictedCreatureFamilies<T>(this T entity,  params  System . String [ ]  value)
+            where T : EffectDescription
+        {
+            SetRestrictedCreatureFamilies(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetRestrictedCreatureFamilies<T>(this T entity, IEnumerable<System.String> value)
+            where T : EffectDescription
+        {
+            entity.RestrictedCreatureFamilies.SetRange(value);
+            return entity;
+        }
+
         public static T SetRetargetActionType<T>(this T entity, ActionDefinitions.ActionType value)
             where T : EffectDescription
         {
@@ -310,10 +561,52 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetSavingThrowAffinitiesByFamily<T>(this T entity,  params  SaveAffinityByFamilyDescription [ ]  value)
+            where T : EffectDescription
+        {
+            SetSavingThrowAffinitiesByFamily(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetSavingThrowAffinitiesByFamily<T>(this T entity, IEnumerable<SaveAffinityByFamilyDescription> value)
+            where T : EffectDescription
+        {
+            entity.SavingThrowAffinitiesByFamily.SetRange(value);
+            return entity;
+        }
+
+        public static T SetSavingThrowAffinitiesBySense<T>(this T entity,  params  SaveAffinityBySenseDescription [ ]  value)
+            where T : EffectDescription
+        {
+            SetSavingThrowAffinitiesBySense(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetSavingThrowAffinitiesBySense<T>(this T entity, IEnumerable<SaveAffinityBySenseDescription> value)
+            where T : EffectDescription
+        {
+            entity.SavingThrowAffinitiesBySense.SetRange(value);
+            return entity;
+        }
+
         public static T SetSavingThrowDifficultyAbility<T>(this T entity, System.String value)
             where T : EffectDescription
         {
             entity.SavingThrowDifficultyAbility = value;
+            return entity;
+        }
+
+        public static T SetSlotTypes<T>(this T entity,  params  System . String [ ]  value)
+            where T : EffectDescription
+        {
+            SetSlotTypes(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetSlotTypes<T>(this T entity, IEnumerable<System.String> value)
+            where T : EffectDescription
+        {
+            entity.SlotTypes.SetRange(value);
             return entity;
         }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,6 +43,111 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(ConditionDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class ConditionDefinitionExtensions
     {
+        public static T AddCancellingConditions<T>(this T entity,  params  ConditionDefinition [ ]  value)
+            where T : ConditionDefinition
+        {
+            AddCancellingConditions(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddCancellingConditions<T>(this T entity, IEnumerable<ConditionDefinition> value)
+            where T : ConditionDefinition
+        {
+            entity.CancellingConditions.AddRange(value);
+            return entity;
+        }
+
+        public static T AddConditionTags<T>(this T entity,  params  System . String [ ]  value)
+            where T : ConditionDefinition
+        {
+            AddConditionTags(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddConditionTags<T>(this T entity, IEnumerable<System.String> value)
+            where T : ConditionDefinition
+        {
+            entity.ConditionTags.AddRange(value);
+            return entity;
+        }
+
+        public static T AddFeatures<T>(this T entity,  params  FeatureDefinition [ ]  value)
+            where T : ConditionDefinition
+        {
+            AddFeatures(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddFeatures<T>(this T entity, IEnumerable<FeatureDefinition> value)
+            where T : ConditionDefinition
+        {
+            entity.Features.AddRange(value);
+            return entity;
+        }
+
+        public static T AddRecurrentEffectForms<T>(this T entity,  params  EffectForm [ ]  value)
+            where T : ConditionDefinition
+        {
+            AddRecurrentEffectForms(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddRecurrentEffectForms<T>(this T entity, IEnumerable<EffectForm> value)
+            where T : ConditionDefinition
+        {
+            entity.RecurrentEffectForms.AddRange(value);
+            return entity;
+        }
+
+        public static T AddSpecialInterruptions<T>(this T entity,  params  RuleDefinitions . ConditionInterruption [ ]  value)
+            where T : ConditionDefinition
+        {
+            AddSpecialInterruptions(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddSpecialInterruptions<T>(this T entity, IEnumerable<RuleDefinitions.ConditionInterruption> value)
+            where T : ConditionDefinition
+        {
+            entity.SpecialInterruptions.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearCancellingConditions<T>(this T entity)
+            where T : ConditionDefinition
+        {
+            entity.CancellingConditions.Clear();
+            return entity;
+        }
+
+        public static T ClearConditionTags<T>(this T entity)
+            where T : ConditionDefinition
+        {
+            entity.ConditionTags.Clear();
+            return entity;
+        }
+
+        public static T ClearFeatures<T>(this T entity)
+            where T : ConditionDefinition
+        {
+            entity.Features.Clear();
+            return entity;
+        }
+
+        public static T ClearRecurrentEffectForms<T>(this T entity)
+            where T : ConditionDefinition
+        {
+            entity.RecurrentEffectForms.Clear();
+            return entity;
+        }
+
+        public static T ClearSpecialInterruptions<T>(this T entity)
+            where T : ConditionDefinition
+        {
+            entity.SpecialInterruptions.Clear();
+            return entity;
+        }
+
         public static System.Collections.Generic.List<FeatureDefinition> GetFeaturesToBrowse<T>(this T entity)
             where T : ConditionDefinition
         {
@@ -155,6 +266,20 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetCancellingConditions<T>(this T entity,  params  ConditionDefinition [ ]  value)
+            where T : ConditionDefinition
+        {
+            SetCancellingConditions(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetCancellingConditions<T>(this T entity, IEnumerable<ConditionDefinition> value)
+            where T : ConditionDefinition
+        {
+            entity.CancellingConditions.SetRange(value);
+            return entity;
+        }
+
         public static T SetCharacterShaderReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
             where T : ConditionDefinition
         {
@@ -187,6 +312,20 @@ namespace SolastaModApi.Extensions
             where T : ConditionDefinition
         {
             entity.SetField("conditionStartParticleReference", value);
+            return entity;
+        }
+
+        public static T SetConditionTags<T>(this T entity,  params  System . String [ ]  value)
+            where T : ConditionDefinition
+        {
+            SetConditionTags(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetConditionTags<T>(this T entity, IEnumerable<System.String> value)
+            where T : ConditionDefinition
+        {
+            entity.ConditionTags.SetRange(value);
             return entity;
         }
 
@@ -243,6 +382,20 @@ namespace SolastaModApi.Extensions
             where T : ConditionDefinition
         {
             entity.SetField("fearSource", value);
+            return entity;
+        }
+
+        public static T SetFeatures<T>(this T entity,  params  FeatureDefinition [ ]  value)
+            where T : ConditionDefinition
+        {
+            SetFeatures(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetFeatures<T>(this T entity, IEnumerable<FeatureDefinition> value)
+            where T : ConditionDefinition
+        {
+            entity.Features.SetRange(value);
             return entity;
         }
 
@@ -344,6 +497,20 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetRecurrentEffectForms<T>(this T entity,  params  EffectForm [ ]  value)
+            where T : ConditionDefinition
+        {
+            SetRecurrentEffectForms(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetRecurrentEffectForms<T>(this T entity, IEnumerable<EffectForm> value)
+            where T : ConditionDefinition
+        {
+            entity.RecurrentEffectForms.SetRange(value);
+            return entity;
+        }
+
         public static T SetRemovedFromTheGame<T>(this T entity, System.Boolean value)
             where T : ConditionDefinition
         {
@@ -383,6 +550,20 @@ namespace SolastaModApi.Extensions
             where T : ConditionDefinition
         {
             entity.SetField("specialDuration", value);
+            return entity;
+        }
+
+        public static T SetSpecialInterruptions<T>(this T entity,  params  RuleDefinitions . ConditionInterruption [ ]  value)
+            where T : ConditionDefinition
+        {
+            SetSpecialInterruptions(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetSpecialInterruptions<T>(this T entity, IEnumerable<RuleDefinitions.ConditionInterruption> value)
+            where T : ConditionDefinition
+        {
+            entity.SpecialInterruptions.SetRange(value);
             return entity;
         }
 

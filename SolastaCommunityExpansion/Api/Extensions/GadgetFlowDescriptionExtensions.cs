@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,6 +43,111 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(GadgetFlowDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class GadgetFlowDescriptionExtensions
     {
+        public static T AddBoxColliders<T>(this T entity,  params  UnityEngine . BoxCollider [ ]  value)
+            where T : GadgetFlowDescription
+        {
+            AddBoxColliders(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddBoxColliders<T>(this T entity, IEnumerable<UnityEngine.BoxCollider> value)
+            where T : GadgetFlowDescription
+        {
+            entity.BoxColliders.AddRange(value);
+            return entity;
+        }
+
+        public static T AddDamageTypes<T>(this T entity,  params  System . String [ ]  value)
+            where T : GadgetFlowDescription
+        {
+            AddDamageTypes(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddDamageTypes<T>(this T entity, IEnumerable<System.String> value)
+            where T : GadgetFlowDescription
+        {
+            entity.DamageTypes.AddRange(value);
+            return entity;
+        }
+
+        public static T AddExpectedConditionStates<T>(this T entity,  params  GadgetDefinitions . ConditionConstrainedState [ ]  value)
+            where T : GadgetFlowDescription
+        {
+            AddExpectedConditionStates(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddExpectedConditionStates<T>(this T entity, IEnumerable<GadgetDefinitions.ConditionConstrainedState> value)
+            where T : GadgetFlowDescription
+        {
+            entity.ExpectedConditionStates.AddRange(value);
+            return entity;
+        }
+
+        public static T AddFunctorDescriptions<T>(this T entity,  params  FunctorParametersDescription [ ]  value)
+            where T : GadgetFlowDescription
+        {
+            AddFunctorDescriptions(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddFunctorDescriptions<T>(this T entity, IEnumerable<FunctorParametersDescription> value)
+            where T : GadgetFlowDescription
+        {
+            entity.FunctorDescriptions.AddRange(value);
+            return entity;
+        }
+
+        public static T AddNodes<T>(this T entity,  params  WorldNode [ ]  value)
+            where T : GadgetFlowDescription
+        {
+            AddNodes(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddNodes<T>(this T entity, IEnumerable<WorldNode> value)
+            where T : GadgetFlowDescription
+        {
+            entity.Nodes.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearBoxColliders<T>(this T entity)
+            where T : GadgetFlowDescription
+        {
+            entity.BoxColliders.Clear();
+            return entity;
+        }
+
+        public static T ClearDamageTypes<T>(this T entity)
+            where T : GadgetFlowDescription
+        {
+            entity.DamageTypes.Clear();
+            return entity;
+        }
+
+        public static T ClearExpectedConditionStates<T>(this T entity)
+            where T : GadgetFlowDescription
+        {
+            entity.ExpectedConditionStates.Clear();
+            return entity;
+        }
+
+        public static T ClearFunctorDescriptions<T>(this T entity)
+            where T : GadgetFlowDescription
+        {
+            entity.FunctorDescriptions.Clear();
+            return entity;
+        }
+
+        public static T ClearNodes<T>(this T entity)
+            where T : GadgetFlowDescription
+        {
+            entity.Nodes.Clear();
+            return entity;
+        }
+
         public static T SetAlterationType<T>(this T entity, AlterationForm.Type value)
             where T : GadgetFlowDescription
         {
@@ -65,6 +176,20 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetBoxColliders<T>(this T entity,  params  UnityEngine . BoxCollider [ ]  value)
+            where T : GadgetFlowDescription
+        {
+            SetBoxColliders(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetBoxColliders<T>(this T entity, IEnumerable<UnityEngine.BoxCollider> value)
+            where T : GadgetFlowDescription
+        {
+            entity.BoxColliders.SetRange(value);
+            return entity;
+        }
+
         public static T SetCharacterInteractionDefinition<T>(this T entity, CharacterInteractionDefinition value)
             where T : GadgetFlowDescription
         {
@@ -79,6 +204,20 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetDamageTypes<T>(this T entity,  params  System . String [ ]  value)
+            where T : GadgetFlowDescription
+        {
+            SetDamageTypes(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetDamageTypes<T>(this T entity, IEnumerable<System.String> value)
+            where T : GadgetFlowDescription
+        {
+            entity.DamageTypes.SetRange(value);
+            return entity;
+        }
+
         public static T SetDescription<T>(this T entity, System.String value)
             where T : GadgetFlowDescription
         {
@@ -90,6 +229,34 @@ namespace SolastaModApi.Extensions
             where T : GadgetFlowDescription
         {
             entity.DurationType = value;
+            return entity;
+        }
+
+        public static T SetExpectedConditionStates<T>(this T entity,  params  GadgetDefinitions . ConditionConstrainedState [ ]  value)
+            where T : GadgetFlowDescription
+        {
+            SetExpectedConditionStates(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetExpectedConditionStates<T>(this T entity, IEnumerable<GadgetDefinitions.ConditionConstrainedState> value)
+            where T : GadgetFlowDescription
+        {
+            entity.ExpectedConditionStates.SetRange(value);
+            return entity;
+        }
+
+        public static T SetFunctorDescriptions<T>(this T entity,  params  FunctorParametersDescription [ ]  value)
+            where T : GadgetFlowDescription
+        {
+            SetFunctorDescriptions(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetFunctorDescriptions<T>(this T entity, IEnumerable<FunctorParametersDescription> value)
+            where T : GadgetFlowDescription
+        {
+            entity.FunctorDescriptions.SetRange(value);
             return entity;
         }
 
@@ -139,6 +306,20 @@ namespace SolastaModApi.Extensions
             where T : GadgetFlowDescription
         {
             entity.SetField("minPerceptionRange", value);
+            return entity;
+        }
+
+        public static T SetNodes<T>(this T entity,  params  WorldNode [ ]  value)
+            where T : GadgetFlowDescription
+        {
+            SetNodes(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetNodes<T>(this T entity, IEnumerable<WorldNode> value)
+            where T : GadgetFlowDescription
+        {
+            entity.Nodes.SetRange(value);
             return entity;
         }
 

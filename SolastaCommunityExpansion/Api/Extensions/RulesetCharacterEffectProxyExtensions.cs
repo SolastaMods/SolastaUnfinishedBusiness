@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,6 +43,27 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(RulesetCharacterEffectProxy)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class RulesetCharacterEffectProxyExtensions
     {
+        public static T AddAdditionalPersonalLightSources<T>(this T entity,  params  RulesetLightSource [ ]  value)
+            where T : RulesetCharacterEffectProxy
+        {
+            AddAdditionalPersonalLightSources(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddAdditionalPersonalLightSources<T>(this T entity, IEnumerable<RulesetLightSource> value)
+            where T : RulesetCharacterEffectProxy
+        {
+            entity.AdditionalPersonalLightSources.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearAdditionalPersonalLightSources<T>(this T entity)
+            where T : RulesetCharacterEffectProxy
+        {
+            entity.AdditionalPersonalLightSources.Clear();
+            return entity;
+        }
+
         public static T SetAdditionalPersonalLightSourceAdded<T>(this T entity, RulesetCharacterEffectProxy.AdditionalPersonalLightSourceAddedHandler value)
             where T : RulesetCharacterEffectProxy
         {
@@ -48,6 +75,20 @@ namespace SolastaModApi.Extensions
             where T : RulesetCharacterEffectProxy
         {
             entity.SetField("<AdditionalPersonalLightSourceRemoved>k__BackingField", value);
+            return entity;
+        }
+
+        public static T SetAdditionalPersonalLightSources<T>(this T entity,  params  RulesetLightSource [ ]  value)
+            where T : RulesetCharacterEffectProxy
+        {
+            SetAdditionalPersonalLightSources(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetAdditionalPersonalLightSources<T>(this T entity, IEnumerable<RulesetLightSource> value)
+            where T : RulesetCharacterEffectProxy
+        {
+            entity.AdditionalPersonalLightSources.SetRange(value);
             return entity;
         }
 

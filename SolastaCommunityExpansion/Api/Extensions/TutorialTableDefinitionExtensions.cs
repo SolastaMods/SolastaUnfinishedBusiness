@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,6 +43,27 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(TutorialTableDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class TutorialTableDefinitionExtensions
     {
+        public static T AddSections<T>(this T entity,  params  TutorialSectionDefinition [ ]  value)
+            where T : TutorialTableDefinition
+        {
+            AddSections(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddSections<T>(this T entity, IEnumerable<TutorialSectionDefinition> value)
+            where T : TutorialTableDefinition
+        {
+            entity.Sections.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearSections<T>(this T entity)
+            where T : TutorialTableDefinition
+        {
+            entity.Sections.Clear();
+            return entity;
+        }
+
         public static System.Collections.Generic.List<TutorialStyleDuplet> GetStyleDuplets<T>(this T entity)
             where T : TutorialTableDefinition
         {
@@ -47,6 +74,20 @@ namespace SolastaModApi.Extensions
             where T : TutorialTableDefinition
         {
             entity.SetField("sectionLineHeight", value);
+            return entity;
+        }
+
+        public static T SetSections<T>(this T entity,  params  TutorialSectionDefinition [ ]  value)
+            where T : TutorialTableDefinition
+        {
+            SetSections(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetSections<T>(this T entity, IEnumerable<TutorialSectionDefinition> value)
+            where T : TutorialTableDefinition
+        {
+            entity.Sections.SetRange(value);
             return entity;
         }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,6 +43,27 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(GuiTooltipClassDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class GuiTooltipClassDefinitionExtensions
     {
+        public static T AddTooltipFeatures<T>(this T entity,  params  TooltipDefinitions . FeatureInfo [ ]  value)
+            where T : GuiTooltipClassDefinition
+        {
+            AddTooltipFeatures(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddTooltipFeatures<T>(this T entity, IEnumerable<TooltipDefinitions.FeatureInfo> value)
+            where T : GuiTooltipClassDefinition
+        {
+            entity.TooltipFeatures.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearTooltipFeatures<T>(this T entity)
+            where T : GuiTooltipClassDefinition
+        {
+            entity.TooltipFeatures.Clear();
+            return entity;
+        }
+
         public static T SetPanelWidth<T>(this T entity, System.Single value)
             where T : GuiTooltipClassDefinition
         {
@@ -48,6 +75,20 @@ namespace SolastaModApi.Extensions
             where T : GuiTooltipClassDefinition
         {
             entity.SetField("showDelay", value);
+            return entity;
+        }
+
+        public static T SetTooltipFeatures<T>(this T entity,  params  TooltipDefinitions . FeatureInfo [ ]  value)
+            where T : GuiTooltipClassDefinition
+        {
+            SetTooltipFeatures(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetTooltipFeatures<T>(this T entity, IEnumerable<TooltipDefinitions.FeatureInfo> value)
+            where T : GuiTooltipClassDefinition
+        {
+            entity.TooltipFeatures.SetRange(value);
             return entity;
         }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,6 +43,27 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(CreditsTableDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class CreditsTableDefinitionExtensions
     {
+        public static T AddCreditGroups<T>(this T entity,  params  CreditsGroupDefinition [ ]  value)
+            where T : CreditsTableDefinition
+        {
+            AddCreditGroups(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddCreditGroups<T>(this T entity, IEnumerable<CreditsGroupDefinition> value)
+            where T : CreditsTableDefinition
+        {
+            entity.CreditGroups.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearCreditGroups<T>(this T entity)
+            where T : CreditsTableDefinition
+        {
+            entity.CreditGroups.Clear();
+            return entity;
+        }
+
         public static System.Collections.Generic.List<CreditsStyleDuplet> GetStyleDuplets<T>(this T entity)
             where T : CreditsTableDefinition
         {
@@ -47,6 +74,20 @@ namespace SolastaModApi.Extensions
             where T : CreditsTableDefinition
         {
             entity.SetField("backersTextAsset", value);
+            return entity;
+        }
+
+        public static T SetCreditGroups<T>(this T entity,  params  CreditsGroupDefinition [ ]  value)
+            where T : CreditsTableDefinition
+        {
+            SetCreditGroups(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetCreditGroups<T>(this T entity, IEnumerable<CreditsGroupDefinition> value)
+            where T : CreditsTableDefinition
+        {
+            entity.CreditGroups.SetRange(value);
             return entity;
         }
 
