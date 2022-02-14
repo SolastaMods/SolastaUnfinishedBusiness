@@ -1,40 +1,43 @@
 ﻿using System;
-using System.Collections.Generic;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class ConditionDefinitionBuilder<TDefinition> : BaseDefinitionBuilder<TDefinition> where TDefinition : ConditionDefinition
+    public abstract class ConditionDefinitionBuilder<TDefinition> : BaseDefinitionBuilder<TDefinition> where TDefinition : ConditionDefinition
     {
-        public ConditionDefinitionBuilder(string name, string guid, Action<TDefinition> modifyDefinition) : base(name, guid)
-        {
-            Definition
-                .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
-                .SetAllowMultipleInstances(false)
-                .SetDurationType(RuleDefinitions.DurationType.Minute)
-                .SetDurationParameter(1)
-                .SetConditionStartParticleReference(new AssetReference())
-                .SetConditionParticleReference(new AssetReference())
-                .SetConditionEndParticleReference(new AssetReference())
-                .SetCharacterShaderReference(new AssetReference());
-
-            modifyDefinition?.Invoke(Definition);
-        }
-
-        public ConditionDefinitionBuilder(string name, string guid)
+        protected ConditionDefinitionBuilder(string name, string guid)
             : base(name, guid)
         {
+            var assetReference = new AssetReference();
+
+            Definition
+                .SetConditionStartParticleReference(assetReference)
+                .SetConditionParticleReference(assetReference)
+                .SetConditionEndParticleReference(assetReference)
+                .SetCharacterShaderReference(assetReference);
         }
 
-        public ConditionDefinitionBuilder(TDefinition original, string name, string guid)
-            : base(original, name, guid)
+        protected ConditionDefinitionBuilder(string name, Guid guidNamespace)
+            : base(name, guidNamespace)
+        {
+            var assetReference = new AssetReference();
+
+            Definition
+                .SetConditionStartParticleReference(assetReference)
+                .SetConditionParticleReference(assetReference)
+                .SetConditionEndParticleReference(assetReference)
+                .SetCharacterShaderReference(assetReference);
+        }
+
+        protected ConditionDefinitionBuilder(TDefinition original, string name, Guid guidNamespace)
+            : base(original, name, guidNamespace)
         {
         }
 
-        public ConditionDefinitionBuilder(TDefinition original, string name, Guid guidNamespace)
-            : base(original, name, guidNamespace)
+        protected ConditionDefinitionBuilder(TDefinition original, string name, string guid)
+            : base(original, name, guid)
         {
         }
 
@@ -43,39 +46,48 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetAmountOrigin(value);
             return this;
         }
-
-        public static TDefinition Build(string name, string guid, Action<TDefinition> modifyDefinition = null)
-        {
-            return new ConditionDefinitionBuilder<TDefinition>(name, guid, modifyDefinition).AddToDB();
-        }
     }
 
     public class ConditionDefinitionBuilder : ConditionDefinitionBuilder<ConditionDefinition>
     {
-        // TODO: additional ctors
-
-        public ConditionDefinitionBuilder(string name, string guid, Action<ConditionDefinition> modifyDefinition = null) : base(name, guid, modifyDefinition)
+        private ConditionDefinitionBuilder(string name, string guid)
+            : base(name, guid)
         {
         }
 
-        // TODO: refactor/remove
-        public ConditionDefinitionBuilder(string name, string guid, IEnumerable<FeatureDefinition> conditionFeatures, RuleDefinitions.DurationType durationType,
-            int durationParameter, bool silent) : base(name, guid)
+        private ConditionDefinitionBuilder(string name, Guid guidNamespace)
+            : base(name, guidNamespace)
         {
-            Definition.Features.AddRange(conditionFeatures);
-            Definition.SetConditionType(RuleDefinitions.ConditionType.Beneficial);
-            Definition.SetAllowMultipleInstances(false);
-            Definition.SetDurationType(durationType);
-            Definition.SetDurationParameter(durationParameter);
-            Definition.SetConditionStartParticleReference(new AssetReference());
-            Definition.SetConditionParticleReference(new AssetReference());
-            Definition.SetConditionEndParticleReference(new AssetReference());
-            Definition.SetCharacterShaderReference(new AssetReference());
-            if (silent)
-            {
-                Definition.SetSilentWhenAdded(true);
-                Definition.SetSilentWhenRemoved(true);
-            }
+        }
+
+        private ConditionDefinitionBuilder(ConditionDefinition original, string name, string guid)
+            : base(original, name, guid)
+        {
+        }
+
+        private ConditionDefinitionBuilder(ConditionDefinition original, string name, Guid guidNamespace)
+            : base(original, name, guidNamespace)
+        {
+        }
+
+        public static ConditionDefinitionBuilder Create(string name, string guid)
+        {
+            return new ConditionDefinitionBuilder(name, guid);
+        }
+
+        public static ConditionDefinitionBuilder Create(string name, Guid guidNamespace)
+        {
+            return new ConditionDefinitionBuilder(name, guidNamespace);
+        }
+
+        public static ConditionDefinitionBuilder Create(ConditionDefinition original, string name, Guid guidNamespace)
+        {
+            return new ConditionDefinitionBuilder(original, name, guidNamespace);
+        }
+
+        public static ConditionDefinitionBuilder Create(ConditionDefinition original, string name, string guid)
+        {
+            return new ConditionDefinitionBuilder(original, name, guid);
         }
     }
 }

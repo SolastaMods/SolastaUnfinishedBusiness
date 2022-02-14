@@ -56,12 +56,12 @@ namespace SolastaCommunityExpansion.Models
         private sealed class FocusDefinitionBuilder : BaseDefinitionBuilder<ItemDefinition>
         {
             private FocusDefinitionBuilder(
-                string name, 
-                string guid, 
-                string title, 
-                string description, 
-                ItemDefinition original, 
-                EquipmentDefinitions.FocusType type, 
+                string name,
+                string guid,
+                string title,
+                string description,
+                ItemDefinition original,
+                EquipmentDefinitions.FocusType type,
                 AssetReferenceSprite assetReferenceSprite,
                 params string[] slotTypes) : base(original, name, guid)
             {
@@ -101,12 +101,12 @@ namespace SolastaCommunityExpansion.Models
             }
 
             private static ItemDefinition CreateAndAddToDB(
-                string name, 
-                string guid, 
-                string title, 
-                string description, 
-                ItemDefinition original, 
-                EquipmentDefinitions.FocusType type, 
+                string name,
+                string guid,
+                string title,
+                string description,
+                ItemDefinition original,
+                EquipmentDefinitions.FocusType type,
                 AssetReferenceSprite assetReferenceSprite,
                 params string[] slotTypes)
             {

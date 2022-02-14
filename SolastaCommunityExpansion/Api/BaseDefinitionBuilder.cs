@@ -496,6 +496,20 @@ namespace SolastaModApi
         #endregion
 
         protected TDefinition Definition { get; }
+
+        internal TBuilder Configure<TBuilder>(Action<TDefinition> configureDefinition)
+            where TBuilder : BaseDefinitionBuilder<TDefinition>
+        {
+            Assert.IsNotNull(configureDefinition);
+            configureDefinition.Invoke(Definition);
+
+            if (typeof(TBuilder) != GetType())
+            {
+                throw new SolastaModApiException($"Error in Configure. TBuilder={typeof(TBuilder).Name}, this={GetType().Name}");
+            }
+
+            return (TBuilder)this;
+        }
     }
 
     internal static class BaseDefinitionBuilderHelper

@@ -195,7 +195,8 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.SetHasSavingThrow(true);
             spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
 
-            var conditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(ConditionConfused, "ConditionFrenzied", BAZOU_SPELLS_BASE_GUID)
+            var conditionDefinition = ConditionDefinitionBuilder
+                .Create(ConditionConfused, "ConditionFrenzied", BAZOU_SPELLS_BASE_GUID)
                 .SetGuiPresentation("Frenzied", Category.Condition)
                 .AddToDB();
 
