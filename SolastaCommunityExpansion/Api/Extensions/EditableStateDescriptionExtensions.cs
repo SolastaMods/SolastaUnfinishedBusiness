@@ -67,14 +67,14 @@ namespace SolastaModApi.Extensions
         public static T SetChildrenStates<T>(this T entity, EditableStateDescription[] value)
             where T : EditableStateDescription
         {
-            entity.ChildrenStates = value;
+            entity.SetField("childrenStates", value);
             return entity;
         }
 
         public static T SetChildrenStatesIndexes<T>(this T entity, System.Int32[] value)
             where T : EditableStateDescription
         {
-            entity.ChildrenStatesIndexes = value;
+            entity.SetField("childrenStatesIndexes", value);
             return entity;
         }
 

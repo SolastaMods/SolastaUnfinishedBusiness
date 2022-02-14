@@ -225,12 +225,12 @@ void CreateExtensions(Type t, bool createFiles = false)
 
 	var writeablePublicProperties = t
 		.GetProperties(BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.Public)
-		.Where(pg => pg.CanWrite)
+		.Where(pg => pg.CanWrite && pg.GetCustomAttributes(typeof(System.ObsoleteAttribute), true).Length == 0)
 		.Select(pg => new { pg.Name, pg.PropertyType, Type = SimplifyType(pg.PropertyType), IsSetterProtected = pg.SetMethod.IsFamily });
 
 	var readablePublicProperties = t
 		.GetProperties(BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.Public)
-		.Where(pg => pg.CanRead)
+		.Where(pg => pg.CanRead && pg.GetCustomAttributes(typeof(System.ObsoleteAttribute), true).Length == 0)
 		.Select(pg => new { pg.Name, pg.PropertyType, Type = SimplifyType(pg.PropertyType) });
 
 	var readablePublicPropertiesByName = readablePublicProperties
@@ -242,10 +242,10 @@ void CreateExtensions(Type t, bool createFiles = false)
 		.ToHashSet(StringComparer.OrdinalIgnoreCase);
 
 	var privateFieldsThatNeedWriter = privateFields
-		.Where(f => !f.FieldType.IsGenericType && !writeablePublicPropertiesByName.Contains(f.Name));
+		.Where(f => !f.FieldType.IsGenericType && !writeablePublicPropertiesByName.Contains(f.Name) && f.FieldInfo.GetCustomAttributes(typeof(System.ObsoleteAttribute), true).Length == 0);
 
 	var genericPrivateFieldsThatNeedGetters = privateFields
-		.Where(f => f.FieldType.IsGenericType && !writeablePublicPropertiesByName.Contains(GetPropertyNameForField(f.FieldInfo)) && !readablePublicPropertiesByName.Contains(GetPropertyNameForField(f.FieldInfo)));
+		.Where(f => f.FieldType.IsGenericType && !writeablePublicPropertiesByName.Contains(GetPropertyNameForField(f.FieldInfo)) && !readablePublicPropertiesByName.Contains(GetPropertyNameForField(f.FieldInfo)) && f.FieldInfo.GetCustomAttributes(typeof(System.ObsoleteAttribute), true).Length == 0);
 
 	var genericReadablePublicProperties = readablePublicProperties
 		.Where(f => f.PropertyType.IsGenericType);		
