@@ -16,9 +16,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public const string Name = "ScoutSentinel";
         public const string Guid = "fb2e5f73-d552-430f-b329-1f0a2ecdf6bd";
 
+        // ArmorModePool needs to be instantiated before the two modes.
+        public static readonly FeatureDefinitionPower ArmorModePool = CreateArmorModePool();
         public static readonly FeatureDefinitionPowerSharedPool ScoutModePower = CreateScoutModePower();
         public static readonly FeatureDefinitionPowerSharedPool SentinelModePower = CreateSentinelModePower();
-        public static readonly FeatureDefinitionPower ArmorModePool = CreateArmorModePool();
 
         private static EffectForm CreateEffectItem()
         {
@@ -390,6 +391,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 autoPreparedSpellsGroup_Level_13,
                 autoPreparedSpellsGroup_Level_17
             });
+
+            // todo: refactor so the Tinkerer class can easily get passed in to BuildAndAddSubclass and into the auto prepared spells builder instead of using a getter.
+            CharacterClassDefinition tinkerer = DatabaseRepository.GetDatabase<CharacterClassDefinition>().TryGetElement("ClassTinkerer", GuidHelper.Create(TinkererClass.GuidNamespace, "ClassTinkerer").ToString());
+            Definition.SetSpellcastingClass(tinkerer);
         }
 
         public static FeatureDefinitionAutoPreparedSpells CreateAndAddToDB(string name, string guid)
