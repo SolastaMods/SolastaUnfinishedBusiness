@@ -1,5 +1,5 @@
-﻿using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using SolastaModApi;
+﻿using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Builders.Features
      * Note if you want to use a modifier for the power pool later you should set uses determination
      * to fixed or ability bonus plus fixed.
      */
-    public class FeatureDefinitionPowerPoolBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
+    public class FeatureDefinitionPowerPoolBuilder : DefinitionBuilder<FeatureDefinitionPower>
     {
         public FeatureDefinitionPowerPoolBuilder(string name, string guid, int usesPerRecharge,
             RuleDefinitions.UsesDetermination usesDetermination, string usesAbilityScoreName,
@@ -35,7 +35,7 @@ namespace SolastaCommunityExpansion.Builders.Features
      * the hero and only one power for a given name+guid is added. Which means if you want to add a +1 modifier
      * at 4 different character levels you need to create 4 different FeatureDefinitionPowerPoolModifier.
      */
-    public class FeatureDefinitionPowerPoolModifierBuilder : BaseDefinitionBuilder<FeatureDefinitionPowerPoolModifier>
+    public class FeatureDefinitionPowerPoolModifierBuilder : DefinitionBuilder<FeatureDefinitionPowerPoolModifier>
     {
         public FeatureDefinitionPowerPoolModifierBuilder(string name, string guid,
             int powerPoolModifier, RuleDefinitions.UsesDetermination usesDetermination,
@@ -57,7 +57,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
     }
 
-    public class FeatureDefinitionPowerSharedPoolBuilder : BaseDefinitionBuilder<FeatureDefinitionPowerSharedPool>
+    public class FeatureDefinitionPowerSharedPoolBuilder : DefinitionBuilder<FeatureDefinitionPowerSharedPool>
     {
         public FeatureDefinitionPowerSharedPoolBuilder(string name, string guid, FeatureDefinitionPower poolPower,
             RuleDefinitions.RechargeRate recharge,

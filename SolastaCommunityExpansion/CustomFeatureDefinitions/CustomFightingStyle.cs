@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using SolastaModApi;
+using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
@@ -27,7 +27,7 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
         }
     }
 
-    public class CustomizableFightingStyleBuilder : BaseDefinitionBuilder<CustomizableFightingStyle>
+    public class CustomizableFightingStyleBuilder : DefinitionBuilder<CustomizableFightingStyle>
     {
         public CustomizableFightingStyleBuilder(string name, string guid,
             IEnumerable<FeatureDefinition> features, GuiPresentation guiPresentation) : base(name, guid)

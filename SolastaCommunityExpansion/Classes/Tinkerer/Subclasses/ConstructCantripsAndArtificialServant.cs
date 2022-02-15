@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -9,7 +10,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     ////***********************************		TinkererConstructFamilyBuilder		*************************************************************
     ////*****************************************************************************************************************************************
 
-    internal class TinkererConstructFamilyBuilder : BaseDefinitionBuilder<CharacterFamilyDefinition>
+    internal class TinkererConstructFamilyBuilder : DefinitionBuilder<CharacterFamilyDefinition>
     {
         private const string TinkererConstructFamilyName = "TinkererConstruct";
         private const string TinkererConstructFamilyGuid = "ab9d8ea6-3cc2-4c36-939a-b9a43bad023e";
@@ -31,7 +32,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		AddConstructCantripsBuilder		*******************************************************
     //*****************************************************************************************************************************************
 
-    internal class AddConstructCantripsBuilder : BaseDefinitionBuilder<FeatureDefinitionBonusCantrips>
+    internal class AddConstructCantripsBuilder : DefinitionBuilder<FeatureDefinitionBonusCantrips>
     {
         private const string Name = "AddConstructCantrips";
         private const string Guid = "942183c0-e581-464a-afe4-cc00a9cd9c26";
@@ -58,7 +59,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		MendingConstructBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal class MendingConstructBuilder : BaseDefinitionBuilder<SpellDefinition>
+    internal class MendingConstructBuilder : DefinitionBuilder<SpellDefinition>
     {
         private const string Name = "MendingConstruct";
         private const string Guid = "92de3dbf-4b57-46d3-aebf-0f7819b0ac2d";
@@ -108,7 +109,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		DismissConstructBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal class DismissConstructBuilder : BaseDefinitionBuilder<SpellDefinition>
+    internal class DismissConstructBuilder : DefinitionBuilder<SpellDefinition>
     {
         private const string Name = "DismissConstruct";
         private const string Guid = "8003917a-9c90-4748-bb2f-f32b7edf8844";
@@ -180,7 +181,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		ArtificialServantBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal class ArtificialServantBuilder : BaseDefinitionBuilder<MonsterDefinition>
+    internal class ArtificialServantBuilder : DefinitionBuilder<MonsterDefinition>
     {
         private const string ArtificialServantName = "ArtificialServant";
         private const string ArtificialServantGuid = "fce9181c-f62c-4b33-b0df-fff4fe3ceab2";
@@ -257,7 +258,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		ArtificialServantAttacksListBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal class ArtificialServantAttackBuilder : BaseDefinitionBuilder<MonsterAttackDefinition>
+    internal class ArtificialServantAttackBuilder : DefinitionBuilder<MonsterAttackDefinition>
     {
         private const string ArtificialServantAttacksListName = "ArtificialServantAttacksList";
         private const string ArtificialServantAttacksListGuid = "86840282-4d84-44b7-a4fd-6bf6b598f776";
@@ -310,7 +311,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
         public static readonly MonsterAttackDefinition ArtificialServantAttack = CreateAndAddToDB(ArtificialServantAttacksListName, ArtificialServantAttacksListGuid);
     }
-    internal class CancelFlyingConditionBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
+    internal class CancelFlyingConditionBuilder : DefinitionBuilder<FeatureDefinitionPower>
     {
         private const string Name = "CancelFlyingConditionArtificialServant";
         private const string Guid = "15bff3c5-632e-451f-8c46-1511ed4cf805";

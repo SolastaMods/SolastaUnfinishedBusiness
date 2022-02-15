@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi;
 using SolastaModApi.Infrastructure;
 using static FeatureDefinitionSavingThrowAffinity;
 using static SolastaModApi.DatabaseHelper.SchoolOfMagicDefinitions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionSavingThrowAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionSavingThrowAffinity>
+    public class FeatureDefinitionSavingThrowAffinityBuilder : DefinitionBuilder<FeatureDefinitionSavingThrowAffinity>
     {
         #region Constructors
         public FeatureDefinitionSavingThrowAffinityBuilder(string name, string guid)

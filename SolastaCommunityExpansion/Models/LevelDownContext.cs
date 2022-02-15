@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Multiclass.Models;
-using SolastaModApi;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.RestActivityDefinitions;
 
@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class LevelDownContext
     {
-        internal class RestActivityLevelDownBuilder : BaseDefinitionBuilder<RestActivityDefinition>
+        internal class RestActivityLevelDownBuilder : DefinitionBuilder<RestActivityDefinition>
         {
             private const string LevelDownName = "ZSLevelDown";
             private const string LevelDownGuid = "fdb4d86eaef942d1a22dbf1fb5a7299f";

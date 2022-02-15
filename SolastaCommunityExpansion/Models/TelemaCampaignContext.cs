@@ -1,4 +1,4 @@
-﻿using SolastaModApi;
+﻿using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.CampaignDefinitions;
 using static SolastaModApi.DatabaseHelper.CharacterTemplateDefinitions;
@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class TelemaCampaignContext
     {
-        private sealed class TelemaCampaignUnleashedBuilder : BaseDefinitionBuilder<CampaignDefinition>
+        private sealed class TelemaCampaignUnleashedBuilder : DefinitionBuilder<CampaignDefinition>
         {
             private const string TelemaDemoUnleashedName = "TelemaDemoUnleashed";
             private const string TelemaDemoUnleashedGuid = "397df3dcfcd444f09df11d05034ec52e";

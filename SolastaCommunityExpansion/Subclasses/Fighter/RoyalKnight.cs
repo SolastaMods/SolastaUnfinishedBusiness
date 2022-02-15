@@ -32,7 +32,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 .AddToDB();
         }
 
-        internal class RoyalEnvoyAbilityCheckAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionAbilityCheckAffinity>
+        internal class RoyalEnvoyAbilityCheckAffinityBuilder : DefinitionBuilder<FeatureDefinitionAbilityCheckAffinity>
         {
             private const string RoyalEnvoyAbilityCheckName = "RoyalEnvoyAbilityCheckAffinity";
             private const string RoyalEnvoyAbilityCheckGuid = "b16f8b68-0dab-49e5-b1a2-6fdfd8836849";
@@ -56,7 +56,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 => CreateAndAddToDB(RoyalEnvoyAbilityCheckName, RoyalEnvoyAbilityCheckGuid);
         }
 
-        public class RoyalEnvoyFeatureBuilder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
+        public class RoyalEnvoyFeatureBuilder : DefinitionBuilder<FeatureDefinitionFeatureSet>
         {
             private const string RoyalEnvoyFeatureName = "RoyalEnvoyFeature";
             private const string RoyalEnvoyFeatureGuid = "c8299685-d806-4e20-aff0-ca3dd4000e05";
@@ -79,7 +79,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 => CreateAndAddToDB(RoyalEnvoyFeatureName, RoyalEnvoyFeatureGuid);
         }
 
-        public class RallyingCryPowerBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
+        public class RallyingCryPowerBuilder : DefinitionBuilder<FeatureDefinitionPower>
         {
             private const string RallyingCryPowerName = "RallyingCryPower";
             private const string RallyingCryPowerGuid = "cabe94a7-7e51-4231-ae6d-e8e6e3954611";
@@ -118,7 +118,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 => CreateAndAddToDB(RallyingCryPowerName, RallyingCryPowerGuid);
         }
 
-        internal class InspiringSurgePowerBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
+        internal class InspiringSurgePowerBuilder : DefinitionBuilder<FeatureDefinitionPower>
         {
             private const string InspiringSurgePowerName = "InspiringSurgePower";
             private const string InspiringSurgePowerNameGuid = "c2930ad2-dd02-4ff3-bad8-46d93e328fbd";
