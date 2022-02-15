@@ -1070,7 +1070,6 @@ namespace SolastaModApi
             public static CampaignNodeTypeDefinition Complex { get; } = GetDefinition<CampaignNodeTypeDefinition>("Complex", "83252cf79481b564aa877ccac7e26d89");
             public static CampaignNodeTypeDefinition Earcorn { get; } = GetDefinition<CampaignNodeTypeDefinition>("Earcorn", "8bc8e95d1316c324290316b1bd033b5a");
             public static CampaignNodeTypeDefinition Farmhouse { get; } = GetDefinition<CampaignNodeTypeDefinition>("Farmhouse", "d1547908799faa84b9bdab07a5f5a318");
-            public static CampaignNodeTypeDefinition HarvestArea { get; } = GetDefinition<CampaignNodeTypeDefinition>("HarvestArea", "8da3ffabab8ab6246888cb9bf395653e");
             public static CampaignNodeTypeDefinition HuntingGrounds { get; } = GetDefinition<CampaignNodeTypeDefinition>("HuntingGrounds", "360969fea885bf34280128ea1b025167");
             public static CampaignNodeTypeDefinition JungleVillage { get; } = GetDefinition<CampaignNodeTypeDefinition>("JungleVillage", "98d4ed45d9b9f1e4a96166262eb1e082");
             public static CampaignNodeTypeDefinition LavaForest { get; } = GetDefinition<CampaignNodeTypeDefinition>("LavaForest", "822af06c2c52ad746826152ae9b37c45");
@@ -1089,6 +1088,7 @@ namespace SolastaModApi
             public static CampaignNodeTypeDefinition Town { get; } = GetDefinition<CampaignNodeTypeDefinition>("Town", "1f4c3784475c44f42808a72fc7117928");
             public static CampaignNodeTypeDefinition Valley { get; } = GetDefinition<CampaignNodeTypeDefinition>("Valley", "b051c368b2e126c41aa492295daa5905");
             public static CampaignNodeTypeDefinition Volcano { get; } = GetDefinition<CampaignNodeTypeDefinition>("Volcano", "80742c7f781094f44a3032f72fafef2b");
+            public static CampaignNodeTypeDefinition Waterfall { get; } = GetDefinition<CampaignNodeTypeDefinition>("Waterfall", "eb83e46a8e67e8746a5e6aad306cc5e2");
         }
         public static class CharacterBackgroundDefinitions
         {
@@ -1916,9 +1916,13 @@ namespace SolastaModApi
             public static TA.AI.DecisionDefinition Move_AggressiveWithAttackableAndRandom { get; } = GetDefinition<TA.AI.DecisionDefinition>("Move_AggressiveWithAttackableAndRandom", "be7a3c75b9fb68148bfb52bb35f5e93c");
             public static TA.AI.DecisionDefinition Move_Burrow_Aggressive_Large { get; } = GetDefinition<TA.AI.DecisionDefinition>("Move_Burrow_Aggressive_Large", "5c9f3f40c9b27264baedd6fc0db34d80");
             public static TA.AI.DecisionDefinition Move_Burrow_Aggressive_Small { get; } = GetDefinition<TA.AI.DecisionDefinition>("Move_Burrow_Aggressive_Small", "0db314bf18dd51548b9de05fc47aaf98");
+            public static TA.AI.DecisionDefinition Move_Burrow_Bulette { get; } = GetDefinition<TA.AI.DecisionDefinition>("Move_Burrow_Bulette", "7513abf33c1158e438897a1cf55aa181");
+            public static TA.AI.DecisionDefinition Move_Burrow_Bulette_Fallback { get; } = GetDefinition<TA.AI.DecisionDefinition>("Move_Burrow_Bulette_Fallback", "09c0aa1c0444d754f991eab44617e1ed");
             public static TA.AI.DecisionDefinition Move_Caster_Multitarget { get; } = GetDefinition<TA.AI.DecisionDefinition>("Move_Caster_Multitarget", "8820cfcfad8d4a4488e36136009e06aa");
             public static TA.AI.DecisionDefinition Move_Dragon_AfterWingAttack { get; } = GetDefinition<TA.AI.DecisionDefinition>("Move_Dragon_AfterWingAttack", "bb99c83fcff9e8f4d8087697ebd3318a");
             public static TA.AI.DecisionDefinition Move_Dragon_Aggressive { get; } = GetDefinition<TA.AI.DecisionDefinition>("Move_Dragon_Aggressive", "a53f9a51cfb5f1349807651772f9bc1b");
+            public static TA.AI.DecisionDefinition Move_Leap_Aggressive_Bulette { get; } = GetDefinition<TA.AI.DecisionDefinition>("Move_Leap_Aggressive_Bulette", "02ed8f8361934573803e76bb67125788");
+            public static TA.AI.DecisionDefinition Move_Leap_Bulette { get; } = GetDefinition<TA.AI.DecisionDefinition>("Move_Leap_Bulette", "84ca3082d875286498019cb078e203d2");
             public static TA.AI.DecisionDefinition Move_PrepareCharge { get; } = GetDefinition<TA.AI.DecisionDefinition>("Move_PrepareCharge", "f28a766b87b52e24db2917812d2cbd28");
             public static TA.AI.DecisionDefinition Move_PrepareCharge_Unsafe { get; } = GetDefinition<TA.AI.DecisionDefinition>("Move_PrepareCharge_Unsafe", "cc85267cf6ba63147a9438f953fd237c");
             public static TA.AI.DecisionDefinition Move_PrepareDragonBreath_Unsafe { get; } = GetDefinition<TA.AI.DecisionDefinition>("Move_PrepareDragonBreath_Unsafe", "06fcbacb9a2b8b64697513f179a4b8f7");
@@ -1960,6 +1964,7 @@ namespace SolastaModApi
             public static TA.AI.DecisionPackageDefinition BanditCombatDecisions { get; } = GetDefinition<TA.AI.DecisionPackageDefinition>("BanditCombatDecisions", "894c064ab6957fe4183b35dc2e6bddc7");
             public static TA.AI.DecisionPackageDefinition BanditPackTacticsCombatDecisions { get; } = GetDefinition<TA.AI.DecisionPackageDefinition>("BanditPackTacticsCombatDecisions", "2796cc7978447bb429ae3bad947e73a3");
             public static TA.AI.DecisionPackageDefinition BroodCombatDecisions { get; } = GetDefinition<TA.AI.DecisionPackageDefinition>("BroodCombatDecisions", "8beec440e823490458a7667a59e0b600");
+            public static TA.AI.DecisionPackageDefinition BuletteCombatDecisions { get; } = GetDefinition<TA.AI.DecisionPackageDefinition>("BuletteCombatDecisions", "82635a83299943d99a1ad2e4dc745021");
             public static TA.AI.DecisionPackageDefinition CasterCombatDecisions { get; } = GetDefinition<TA.AI.DecisionPackageDefinition>("CasterCombatDecisions", "a8306539d792bbd408f6a6151b5b443a");
             public static TA.AI.DecisionPackageDefinition ClericCombatDecisions { get; } = GetDefinition<TA.AI.DecisionPackageDefinition>("ClericCombatDecisions", "d5ceea03da8e7be4c86e2c1e37dda354");
             public static TA.AI.DecisionPackageDefinition Confused_Attack { get; } = GetDefinition<TA.AI.DecisionPackageDefinition>("Confused_Attack", "6a5baea55ca7cb64bb3d4182a21e1c80");
@@ -2336,6 +2341,10 @@ namespace SolastaModApi
             public static NarrativeTreeDefinition DLC1_Narrative_Valley_CS_18_GIANT_05 { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_Narrative_Valley_CS_18_GIANT_05", "7a83cb9dae72c564583dee478a3bd7ca");
             public static NarrativeTreeDefinition DLC1_Narrative_Valley_CS_19_GIANT_06 { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_Narrative_Valley_CS_19_GIANT_06", "30d7525ddff9d414da539a8a31b98b5b");
             public static NarrativeTreeDefinition DLC1_Narrative_Valley_Cut_Cam_Treasure_Room { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_Narrative_Valley_Cut_Cam_Treasure_Room", "5952578dfadc0ee469c98546ee0b8854");
+            public static NarrativeTreeDefinition DLC1_Narrative_Valley_Cut_Cam_Treasure_Room_A { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_Narrative_Valley_Cut_Cam_Treasure_Room_A", "c679ddfafddb85e4087915af0b77276d");
+            public static NarrativeTreeDefinition DLC1_Narrative_Valley_Cut_Cam_Treasure_Room_B { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_Narrative_Valley_Cut_Cam_Treasure_Room_B", "65a4e2388b474ce4c868b46c27e26805");
+            public static NarrativeTreeDefinition DLC1_Narrative_Valley_Cut_Cam_Treasure_Room_C { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_Narrative_Valley_Cut_Cam_Treasure_Room_C", "8f5eaa64a3aca464f9c0d2448209a154");
+            public static NarrativeTreeDefinition DLC1_Narrative_Valley_Cut_Cam_Treasure_Room_D { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_Narrative_Valley_Cut_Cam_Treasure_Room_D", "e2182bed51254794081a7c18e1fad1fd");
             public static NarrativeTreeDefinition DLC1_NarrativeTree_CS01_Speak_With_Galar { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_CS01_Speak_With_Galar", "6162f5fb3323a974e87f40d98de926e1");
             public static NarrativeTreeDefinition DLC1_NarrativeTree_CS02_Speak_With_Helia { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_CS02_Speak_With_Helia", "c4300c2712385c04bb29158bc7191073");
             public static NarrativeTreeDefinition DLC1_NarrativeTree_CS03_Speak_With_Nobleman { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_CS03_Speak_With_Nobleman", "bfa8f34e82dcbd243880eaff2f05945b");
@@ -2404,6 +2413,7 @@ namespace SolastaModApi
             public static NarrativeTreeDefinition DLC1_NarrativeTree_Orenetis_08_Start { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_Orenetis_08_Start", "bc7deeeeb85ba5746b90813dcb2edce2");
             public static NarrativeTreeDefinition DLC1_NarrativeTree_Orenetis_09_End { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_Orenetis_09_End", "890c60315fa990d4e94d4ff6b12ae125");
             public static NarrativeTreeDefinition DLC1_NarrativeTree_Orenetis_09_Start { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_Orenetis_09_Start", "a51eb05dd21b9f7489c82a1441a20c9c");
+            public static NarrativeTreeDefinition DLC1_NarrativeTree_Orenetis_Sitenero_Fusion { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_Orenetis_Sitenero_Fusion", "4f4cdb269c904db4c801be871475de18");
             public static NarrativeTreeDefinition DLC1_NarrativeTree_Orenetis_Sitenero_Meet { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_Orenetis_Sitenero_Meet", "7234883754a87c3469bc38899d985a30");
             public static NarrativeTreeDefinition DLC1_NarrativeTree_PlanB_MarinVing { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_PlanB_MarinVing", "4042d1378ae73674685478c509b7ebd0");
             public static NarrativeTreeDefinition DLC1_NarrativeTree_Rebellion_01 { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_Rebellion_01", "bdc70f4e8c566d74a9ec7fa656a5c3fe");
@@ -2450,6 +2460,7 @@ namespace SolastaModApi
             public static NarrativeTreeDefinition DLC1_NarrativeTree_ThePeople_01 { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_ThePeople_01", "5d155b8981a003f47b1bc2cede552ec3");
             public static NarrativeTreeDefinition DLC1_NarrativeTree_ThePeople_02 { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_ThePeople_02", "67165ce43a9d728488e48cef76362e4a");
             public static NarrativeTreeDefinition DLC1_NarrativeTree_ThePeople_02_End { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_ThePeople_02_End", "d46d36f7ab705594fbc1a5eb5d1c1a57");
+            public static NarrativeTreeDefinition DLC1_NarrativeTree_ThePeople_02B { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_ThePeople_02B", "7e8a8131974495e49a29dedcda691935");
             public static NarrativeTreeDefinition DLC1_NarrativeTree_ThePeople_03 { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_ThePeople_03", "161538634c8c7b34aac7361de3901311");
             public static NarrativeTreeDefinition DLC1_NarrativeTree_ThePeople_03_Bully { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_ThePeople_03_Bully", "d1bf23a4e21fc1d4e848cc1a0e7d3b49");
             public static NarrativeTreeDefinition DLC1_NarrativeTree_ThePeople_03_End { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_ThePeople_03_End", "d44ae6fc2dba35049ae076efa178cbb0");
@@ -3479,6 +3490,7 @@ namespace SolastaModApi
             public static EnvironmentEffectDefinition LightHypersensitivity { get; } = GetDefinition<EnvironmentEffectDefinition>("LightHypersensitivity", "e8b0ae3af5c617243b6b0060a3a18cc1");
             public static EnvironmentEffectDefinition LightningArea { get; } = GetDefinition<EnvironmentEffectDefinition>("LightningArea", "b3e38b768b1d1b8479d9ff947ee0b459");
             public static EnvironmentEffectDefinition LightningDischarge_DM { get; } = GetDefinition<EnvironmentEffectDefinition>("LightningDischarge_DM", "60b06918a3d2c5d4d8e22dd24b5fa4be");
+            public static EnvironmentEffectDefinition LightningTrap8D8 { get; } = GetDefinition<EnvironmentEffectDefinition>("LightningTrap8D8", "dcab126c1b2b9ea4f808979233d334d5");
             public static EnvironmentEffectDefinition ManaWind { get; } = GetDefinition<EnvironmentEffectDefinition>("ManaWind", "fdc829ba00eb24840bc136ecade3eb91");
             public static EnvironmentEffectDefinition ManaWind_AntiDragon { get; } = GetDefinition<EnvironmentEffectDefinition>("ManaWind_AntiDragon", "a7676b023dfec674483c2446a60090bd");
             public static EnvironmentEffectDefinition Medium_BoulderFall { get; } = GetDefinition<EnvironmentEffectDefinition>("Medium_BoulderFall", "b60201adc20f7ff489f7d7b04a5cb28a");
@@ -4583,6 +4595,7 @@ namespace SolastaModApi
             public static FeatureDefinitionPower PowerBerserkerFrenzy { get; } = GetDefinition<FeatureDefinitionPower>("PowerBerserkerFrenzy", "28c7303e7742ef94fb6a3780c3033759");
             public static FeatureDefinitionPower PowerBerserkerIntimidatingPresence { get; } = GetDefinition<FeatureDefinitionPower>("PowerBerserkerIntimidatingPresence", "9bf7234f42f0eb74c883e33bbf3fda40");
             public static FeatureDefinitionPower PowerBerserkerMindlessRage { get; } = GetDefinition<FeatureDefinitionPower>("PowerBerserkerMindlessRage", "192598156a60fe1438e3758a2ba9b547");
+            public static FeatureDefinitionPower PowerBuletteLeap { get; } = GetDefinition<FeatureDefinitionPower>("PowerBuletteLeap", "43cdc9869a4e4fbdbcb6eec5146d17c0");
             public static FeatureDefinitionPower PowerCallLightning { get; } = GetDefinition<FeatureDefinitionPower>("PowerCallLightning", "92db79af026a9ff498553e5328122ad2");
             public static FeatureDefinitionPower PowerCircleLandNaturalRecovery { get; } = GetDefinition<FeatureDefinitionPower>("PowerCircleLandNaturalRecovery", "62a2094b3dffdcb47b1a01c5fe242d07");
             public static FeatureDefinitionPower PowerClericDivineInterventionCleric { get; } = GetDefinition<FeatureDefinitionPower>("PowerClericDivineInterventionCleric", "c774c974d5902a640a1e82a7608e8051");
@@ -4727,6 +4740,7 @@ namespace SolastaModApi
             public static FeatureDefinitionPower PowerMartialCommanderRousingShout { get; } = GetDefinition<FeatureDefinitionPower>("PowerMartialCommanderRousingShout", "fd14034ff3094f944891c9bb8ebb2462");
             public static FeatureDefinitionPower PowerMountaineerCloseQuarters { get; } = GetDefinition<FeatureDefinitionPower>("PowerMountaineerCloseQuarters", "a976c9590645d4742a40ae28ddd6c7a4");
             public static FeatureDefinitionPower PowerMutantApeSlam { get; } = GetDefinition<FeatureDefinitionPower>("PowerMutantApeSlam", "6f00fa25a0f28ee41803c569150683eb");
+            public static FeatureDefinitionPower PowerMutantBuletteLeap { get; } = GetDefinition<FeatureDefinitionPower>("PowerMutantBuletteLeap", "ecbb3d1a7c1a4fe48a589c2f2f972c51");
             public static FeatureDefinitionPower PowerOathOfDevotionAuraDevotion { get; } = GetDefinition<FeatureDefinitionPower>("PowerOathOfDevotionAuraDevotion", "efd92accd1ccf2e4e9f00de4a07bd694");
             public static FeatureDefinitionPower PowerOathOfDevotionSacredWeapon { get; } = GetDefinition<FeatureDefinitionPower>("PowerOathOfDevotionSacredWeapon", "b38047e354168b945a07e07b4a4f9b5d");
             public static FeatureDefinitionPower PowerOathOfDevotionTurnUnholy { get; } = GetDefinition<FeatureDefinitionPower>("PowerOathOfDevotionTurnUnholy", "1c5bbae205d72874c99f70559d148411");
@@ -5336,6 +5350,7 @@ namespace SolastaModApi
             public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC1_NPC_ForgeHunter_H_1 { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC1_NPC_ForgeHunter_H_1", "62ed401c902730d439e2b467301cb52c");
             public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC1_NPC_ForgeHunter_H_2 { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC1_NPC_ForgeHunter_H_2", "19502afd4fddd514eb7b4fee9ccac285");
             public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC1_NPC_Mask_CafrainShadow { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC1_NPC_Mask_CafrainShadow", "3db3753d7908f4f48b671885a997d156");
+            public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC1_NPC_Ravener { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC1_NPC_Ravener", "766c688e25c43de469748f5af804d184");
             public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC1_NPC_Rebellion_Marksman_Female01 { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC1_NPC_Rebellion_Marksman_Female01", "9593eb60c691d8d46b0ca8242342b806");
             public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC1_NPC_Rebellion_Marksman_Female02 { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC1_NPC_Rebellion_Marksman_Female02", "9fc48039b13d25449a47e7400e698cb0");
             public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC1_NPC_Rebellion_Marksman_Female03 { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC1_NPC_Rebellion_Marksman_Female03", "2de15ccb0d1ed4b47836128bd98c6010");
@@ -5364,6 +5379,7 @@ namespace SolastaModApi
             public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC1_Rebellion_Sima_Temple { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC1_Rebellion_Sima_Temple", "366928f68918cf84cacdee19749ed2b6");
             public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC1_Sitenero { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC1_Sitenero", "1bd92bb7862ab3d479b23e1581df7fa2");
             public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC1_Sitenero_Fusioned { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC1_Sitenero_Fusioned", "24da2c542e03a7c498fa328cb9954c4c");
+            public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC1_Town_Crier { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC1_Town_Crier", "09aec344d4d7ee244a39e4269224192a");
             public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC1_Valley_NPC_Samko_Flint { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC1_Valley_NPC_Samko_Flint", "13f9b7cbe6567394fa5a006acf0283c3");
             public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC1_Valley_NPC_Telerien_Purevoice { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC1_Valley_NPC_Telerien_Purevoice", "979e5e27124e318408bbec0219cfb7fc");
             public static HumanoidMonsterPresentationDefinition NPC_Presentation_Edvan_Danantar { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_Edvan_Danantar", "113676ad427bf3941999806adc575c9e");
@@ -6097,6 +6113,8 @@ namespace SolastaModApi
             public static ItemDefinition DLC1_Equipment_Quest_BuriedCity_Jail_Message { get; } = GetDefinition<ItemDefinition>("DLC1_Equipment_Quest_BuriedCity_Jail_Message", "4b4bea1bd7690fd4daea281d36f63601");
             public static ItemDefinition DLC1_Equipment_Quest_BuriedCity_LabKey { get; } = GetDefinition<ItemDefinition>("DLC1_Equipment_Quest_BuriedCity_LabKey", "d87a84e1d65318f45a5c7c6751bad0a2");
             public static ItemDefinition DLC1_Equipment_Quest_BuriedCity_Rebel_Palace_Key { get; } = GetDefinition<ItemDefinition>("DLC1_Equipment_Quest_BuriedCity_Rebel_Palace_Key", "518958bcd9c62b84087434018a78123d");
+            public static ItemDefinition DLC1_Equipment_Quest_City_Finaliel_Lab_Key { get; } = GetDefinition<ItemDefinition>("DLC1_Equipment_Quest_City_Finaliel_Lab_Key", "f65c0ea24db48cc47921e0b63b0dcfca");
+            public static ItemDefinition DLC1_Equipment_Quest_City_People_HQ_Key { get; } = GetDefinition<ItemDefinition>("DLC1_Equipment_Quest_City_People_HQ_Key", "f04150abb1db63c428ce0196cfbe211f");
             public static ItemDefinition DLC1_Equipment_Quest_Complex_03_Note { get; } = GetDefinition<ItemDefinition>("DLC1_Equipment_Quest_Complex_03_Note", "abd6390e597f4e34c817739911b3f434");
             public static ItemDefinition DLC1_Equipment_Quest_Forge_01_Package { get; } = GetDefinition<ItemDefinition>("DLC1_Equipment_Quest_Forge_01_Package", "85a79df082092944b9223f52a2917e73");
             public static ItemDefinition DLC1_Equipment_Quest_Forge_01_Receipt { get; } = GetDefinition<ItemDefinition>("DLC1_Equipment_Quest_Forge_01_Receipt", "e83e44121a9477a47810751b8fdb71b0");
@@ -6147,6 +6165,7 @@ namespace SolastaModApi
             public static ItemDefinition DLC1_Equipment_WitchLedger { get; } = GetDefinition<ItemDefinition>("DLC1_Equipment_WitchLedger", "ab206ba02ee2c1f4780bf1a1a9850108");
             public static ItemDefinition DLC1_Ingredient_GiantCrow_Feather { get; } = GetDefinition<ItemDefinition>("DLC1_Ingredient_GiantCrow_Feather", "26739f18af1af154ab543c04bcb78653");
             public static ItemDefinition DLC1_Ingredient_Sewing_Thread_Ball { get; } = GetDefinition<ItemDefinition>("DLC1_Ingredient_Sewing_Thread_Ball", "a5b22c0ec44075f4182355567e8eeb95");
+            public static ItemDefinition DLC1_Item_Charmer_Ring { get; } = GetDefinition<ItemDefinition>("DLC1_Item_Charmer_Ring", "e1aad7b894ec44047a31125e7d979eae");
             public static ItemDefinition DLC1_Item_Stolen_Officer_Ring { get; } = GetDefinition<ItemDefinition>("DLC1_Item_Stolen_Officer_Ring", "4c38e1a0892d93e4d98d8fc709cfe62a");
             public static ItemDefinition Document_HalmanSummer_Conspiration_Docs { get; } = GetDefinition<ItemDefinition>("Document_HalmanSummer_Conspiration_Docs", "20e49c5b2547f18458d47fdae5a23350");
             public static ItemDefinition Document_HalmanSummer_Letter { get; } = GetDefinition<ItemDefinition>("Document_HalmanSummer_Letter", "ee6f487646be0fb4ea12aa79fe8fc44b");
@@ -7193,6 +7212,7 @@ namespace SolastaModApi
             public static LootPackDefinition DLC1_Lootpack_City_Finaliel_Lab_Library { get; } = GetDefinition<LootPackDefinition>("DLC1_Lootpack_City_Finaliel_Lab_Library", "c5aec3ac284316842a1b653fa01e1968");
             public static LootPackDefinition DLC1_Lootpack_City_People_04_Pickpocketable_Sharpeyes { get; } = GetDefinition<LootPackDefinition>("DLC1_Lootpack_City_People_04_Pickpocketable_Sharpeyes", "aa76f583b383b2b4b846d5419687640a");
             public static LootPackDefinition DLC1_Lootpack_City_Rebellion_01_Pickpocketable { get; } = GetDefinition<LootPackDefinition>("DLC1_Lootpack_City_Rebellion_01_Pickpocketable", "0d79fd53b7eb32741a4bc7b6b317b8b1");
+            public static LootPackDefinition DLC1_Lootpack_Complex_DarkLab_Chest { get; } = GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_DarkLab_Chest", "904bc63c8da15324ca7450e2e2611bf7");
             public static LootPackDefinition DLC1_Lootpack_Complex_DarkLab_Corpse_01 { get; } = GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_DarkLab_Corpse_01", "a0dd1a8d4d5754e4db9f6b1db1f370e1");
             public static LootPackDefinition DLC1_Lootpack_Complex_DarkLab_Crate { get; } = GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_DarkLab_Crate", "79e200a6a6c0952439773598dc05371c");
             public static LootPackDefinition DLC1_Lootpack_Complex_DarkLab_Crate_Forge_09 { get; } = GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_DarkLab_Crate_Forge_09", "4b299cd377d9d7b41864cae2a4c542f4");
@@ -7232,6 +7252,8 @@ namespace SolastaModApi
             public static LootPackDefinition DLC1_Lootpack_Complex_Tunnels_Corpse_02 { get; } = GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Tunnels_Corpse_02", "477156dffc3913742b5f41d6ae7f77f5");
             public static LootPackDefinition DLC1_Lootpack_Complex_Tunnels_Crate_01 { get; } = GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Tunnels_Crate_01", "41824d597223c574aa8b2bbac5cee771");
             public static LootPackDefinition DLC1_Lootpack_Complex_Tunnels_JuteSack_01 { get; } = GetDefinition<LootPackDefinition>("DLC1_Lootpack_Complex_Tunnels_JuteSack_01", "ae5a008e233ec5840b2631f8b047813c");
+            public static LootPackDefinition DLC1_Lootpack_Drop_Orenetis { get; } = GetDefinition<LootPackDefinition>("DLC1_Lootpack_Drop_Orenetis", "2673f5f655ff240429a9c99f142f656d");
+            public static LootPackDefinition DLC1_Lootpack_Drop_Rose { get; } = GetDefinition<LootPackDefinition>("DLC1_Lootpack_Drop_Rose", "dfb8dc804556f244094c20510b2d11ad");
             public static LootPackDefinition DLC1_Lootpack_Loot_drop_Forge_Druid { get; } = GetDefinition<LootPackDefinition>("DLC1_Lootpack_Loot_drop_Forge_Druid", "6a7427f230cf59c4d9250dcd185ccfe0");
             public static LootPackDefinition DLC1_Lootpack_Loot_drop_Forge_Guard { get; } = GetDefinition<LootPackDefinition>("DLC1_Lootpack_Loot_drop_Forge_Guard", "1eb733e696ea62743a9a8782f8db6339");
             public static LootPackDefinition DLC1_Lootpack_Loot_drop_Forge_Hunter { get; } = GetDefinition<LootPackDefinition>("DLC1_Lootpack_Loot_drop_Forge_Hunter", "f77e2e84cdac05f459e66fab87d96098");
@@ -7256,6 +7278,7 @@ namespace SolastaModApi
             public static LootPackDefinition DLC1_Lootpack_Quest_Rebellion_02 { get; } = GetDefinition<LootPackDefinition>("DLC1_Lootpack_Quest_Rebellion_02", "d2b46b76b0d0f71408219d149d7d8a42");
             public static LootPackDefinition DLC1_Lootpack_Swamp_Boathouse { get; } = GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_Boathouse", "76da727ef73559244a52f95f22aea523");
             public static LootPackDefinition DLC1_Lootpack_Swamp_CorpseOnPillar { get; } = GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_CorpseOnPillar", "93253fbd244111d4d8edbcbf578803df");
+            public static LootPackDefinition DLC1_Lootpack_Swamp_Forge_SmallChest_Rebellion_03 { get; } = GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_Forge_SmallChest_Rebellion_03", "56a3635a9e3d2c24ab5cb3a59194e0ca");
             public static LootPackDefinition DLC1_Lootpack_Swamp_Loot_LoveLetter { get; } = GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_Loot_LoveLetter", "9c3d1ed66c6306b4ba51e45ff9af726a");
             public static LootPackDefinition DLC1_Lootpack_Swamp_Loot_PrisonKey { get; } = GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_Loot_PrisonKey", "511520128fe78a3488cc0393b6baf80d");
             public static LootPackDefinition DLC1_Lootpack_Swamp_Loot_RuganKey { get; } = GetDefinition<LootPackDefinition>("DLC1_Lootpack_Swamp_Loot_RuganKey", "6fd71c8607a47ea4abc0fccc0ac88e9e");
@@ -8317,6 +8340,7 @@ namespace SolastaModApi
             public static MonsterDefinition DLC1_Complex_NPC_Scientist_01 { get; } = GetDefinition<MonsterDefinition>("DLC1_Complex_NPC_Scientist_01", "f013fa6d1ce6bc74085de42ff4f04f1b");
             public static MonsterDefinition DLC1_Complex_NPC_Scientist_02 { get; } = GetDefinition<MonsterDefinition>("DLC1_Complex_NPC_Scientist_02", "27e32c2cce3733549958c9fd30efa239");
             public static MonsterDefinition DLC1_Complex_NPC_Scientist_03 { get; } = GetDefinition<MonsterDefinition>("DLC1_Complex_NPC_Scientist_03", "79c56b6aa303c834aa1904364534da5e");
+            public static MonsterDefinition DLC1_Complex_NPC_ShoutingStone { get; } = GetDefinition<MonsterDefinition>("DLC1_Complex_NPC_ShoutingStone", "10f0c22a87b9b2a408c8962c01b584ce");
             public static MonsterDefinition DLC1_Complex_NPC_Sitinero { get; } = GetDefinition<MonsterDefinition>("DLC1_Complex_NPC_Sitinero", "6ecc655a6c25a2144bf595bbda6c67fc");
             public static MonsterDefinition DLC1_Complex_NPC_Trainer_01 { get; } = GetDefinition<MonsterDefinition>("DLC1_Complex_NPC_Trainer_01", "607303bf93dbd754d9d05744d265fd05");
             public static MonsterDefinition DLC1_Complex_NPC_Trainer_02 { get; } = GetDefinition<MonsterDefinition>("DLC1_Complex_NPC_Trainer_02", "3443777820633874989283069230ae86");
@@ -8359,6 +8383,7 @@ namespace SolastaModApi
             public static MonsterDefinition DLC1_NPC_Forge_Hunter { get; } = GetDefinition<MonsterDefinition>("DLC1_NPC_Forge_Hunter", "96aae99823210bd4b9d35dfbf4ab55f9");
             public static MonsterDefinition DLC1_NPC_Forge_Merchant { get; } = GetDefinition<MonsterDefinition>("DLC1_NPC_Forge_Merchant", "8120cff900a5040438b428987423af60");
             public static MonsterDefinition DLC1_NPC_Forge_Ravener { get; } = GetDefinition<MonsterDefinition>("DLC1_NPC_Forge_Ravener", "5dfb912dc80de844bad2ffc3af86cc12");
+            public static MonsterDefinition DLC1_NPC_Fusioned_Orenetis_Sitenero { get; } = GetDefinition<MonsterDefinition>("DLC1_NPC_Fusioned_Orenetis_Sitenero", "29308f6c5342c234e906ba78955c9572");
             public static MonsterDefinition DLC1_NPC_Generic_Citizen_Husk { get; } = GetDefinition<MonsterDefinition>("DLC1_NPC_Generic_Citizen_Husk", "fdd2446bb3408a84b8bafe89aa0de88b");
             public static MonsterDefinition DLC1_NPC_Jakson { get; } = GetDefinition<MonsterDefinition>("DLC1_NPC_Jakson", "eb983964fb69ddf4fb3698e82d201b6b");
             public static MonsterDefinition DLC1_NPC_Malariel { get; } = GetDefinition<MonsterDefinition>("DLC1_NPC_Malariel", "66e8a00cbbfbf3f478acb06e9cc5206e");
@@ -8395,6 +8420,7 @@ namespace SolastaModApi
             public static MonsterDefinition DLC1_NPC_ThePeople_Reya_Outpost { get; } = GetDefinition<MonsterDefinition>("DLC1_NPC_ThePeople_Reya_Outpost", "c73e8674216025c4cb2a785caf3a1ec0");
             public static MonsterDefinition DLC1_NPC_ThePeople_Rose { get; } = GetDefinition<MonsterDefinition>("DLC1_NPC_ThePeople_Rose", "40520f4ed20b142469ae9f025e76917e");
             public static MonsterDefinition DLC1_NPC_ThePeople_Tortured { get; } = GetDefinition<MonsterDefinition>("DLC1_NPC_ThePeople_Tortured", "ab5f8cf53ce17d648a341d07f3b1096d");
+            public static MonsterDefinition DLC1_NPC_TownCrier { get; } = GetDefinition<MonsterDefinition>("DLC1_NPC_TownCrier", "318b10394d92a024db2847c99b599953");
             public static MonsterDefinition DLC1_NPC_Tuznut { get; } = GetDefinition<MonsterDefinition>("DLC1_NPC_Tuznut", "4397fa792e6e0544c86dd2c29c432bc0");
             public static MonsterDefinition DLC1_NPC_Tuznut_Hostile { get; } = GetDefinition<MonsterDefinition>("DLC1_NPC_Tuznut_Hostile", "cef791955c0c6534fa03ad74211b4218");
             public static MonsterDefinition DLC1_NPC_VandoKlarn { get; } = GetDefinition<MonsterDefinition>("DLC1_NPC_VandoKlarn", "9bd2e11a77dd426419dd3476b02fdc6c");
@@ -8526,6 +8552,7 @@ namespace SolastaModApi
             public static MonsterDefinition Mutant_Dryad { get; } = GetDefinition<MonsterDefinition>("Mutant_Dryad", "3f1bacc7ce9ded145992ceb2484018bb");
             public static MonsterDefinition Mutant_Minotaur { get; } = GetDefinition<MonsterDefinition>("Mutant_Minotaur", "3ed2ee1300230ef49a76b5952ac56f57");
             public static MonsterDefinition Mutant_Oni { get; } = GetDefinition<MonsterDefinition>("Mutant_Oni", "93b92de7763dedd4392e04336c89d16f");
+            public static MonsterDefinition Mutant_Tiger_Drake { get; } = GetDefinition<MonsterDefinition>("Mutant_Tiger_Drake", "32979b6605a652e4c882cbd030178b2a");
             public static MonsterDefinition Mutant_Troll { get; } = GetDefinition<MonsterDefinition>("Mutant_Troll", "8c66658c394667d40996ea0d5e418e91");
             public static MonsterDefinition Mutant_Zombie { get; } = GetDefinition<MonsterDefinition>("Mutant_Zombie", "14e3c4cb69cb18d4a80d25fc0a459b45");
             public static MonsterDefinition Necromancer_Acolyte_BoneKeep { get; } = GetDefinition<MonsterDefinition>("Necromancer_Acolyte_BoneKeep", "a85882d253f924f4b90d1eebaab8e9ca");
@@ -10074,6 +10101,11 @@ namespace SolastaModApi
             public static TutorialStepDefinition OutgameNewAdventure { get; } = GetDefinition<TutorialStepDefinition>("OutgameNewAdventure", "bbfc3a9dd3dc2134589ada4e82301ddb");
             public static TutorialStepDefinition Tutorial_BoneKeep_ExplosiveHazard { get; } = GetDefinition<TutorialStepDefinition>("Tutorial_BoneKeep_ExplosiveHazard", "94ea5dab025e4d24f8328b896543bf6d");
             public static TutorialStepDefinition Tutorial_DLC_AttackNeutral { get; } = GetDefinition<TutorialStepDefinition>("Tutorial_DLC_AttackNeutral", "f01c1006b08b66f4688c14c7162609df");
+            public static TutorialStepDefinition Tutorial_DLC_Faction_Forge { get; } = GetDefinition<TutorialStepDefinition>("Tutorial_DLC_Faction_Forge", "d4934d5a8c466cc47992639f54bc710c");
+            public static TutorialStepDefinition Tutorial_DLC_Faction_Mask { get; } = GetDefinition<TutorialStepDefinition>("Tutorial_DLC_Faction_Mask", "94d840322ae07644d80fb9c25a2d0a36");
+            public static TutorialStepDefinition Tutorial_DLC_Faction_Orenetis { get; } = GetDefinition<TutorialStepDefinition>("Tutorial_DLC_Faction_Orenetis", "0c8d86c5514744a45a596a78857bf271");
+            public static TutorialStepDefinition Tutorial_DLC_Faction_People { get; } = GetDefinition<TutorialStepDefinition>("Tutorial_DLC_Faction_People", "80a8d7bf701b60d41b1c49a177d80b81");
+            public static TutorialStepDefinition Tutorial_DLC_Faction_Rebellion { get; } = GetDefinition<TutorialStepDefinition>("Tutorial_DLC_Faction_Rebellion", "5ae42e62eef5f0a4dbe981e3a3c57f2c");
             public static TutorialStepDefinition Tutorial_DLC_Scavengers { get; } = GetDefinition<TutorialStepDefinition>("Tutorial_DLC_Scavengers", "2d1550ce3aea26447a32a76bba54064e");
             public static TutorialStepDefinition Tutorial_DLC_Scavengers2 { get; } = GetDefinition<TutorialStepDefinition>("Tutorial_DLC_Scavengers2", "9dd984e66857dc0478684d42c33353b3");
             public static TutorialStepDefinition Tutorial_DLC1_T01_Redeemers { get; } = GetDefinition<TutorialStepDefinition>("Tutorial_DLC1_T01_Redeemers", "a651ce35a9b3db9499d98b3f49a3cf7f");
