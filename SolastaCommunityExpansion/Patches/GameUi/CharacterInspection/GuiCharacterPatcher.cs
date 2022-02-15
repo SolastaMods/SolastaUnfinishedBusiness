@@ -24,7 +24,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
             var additionalBackstory = hero.AdditionalBackstory;
 
-            if (additionalBackstory == null || additionalBackstory == string.Empty)
+            if (string.IsNullOrEmpty(additionalBackstory))
             {
                 return;
             }

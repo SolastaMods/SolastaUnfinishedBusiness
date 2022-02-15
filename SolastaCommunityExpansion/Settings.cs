@@ -173,6 +173,7 @@ namespace SolastaCommunityExpansion
         public bool DismissControlledConjurationsWhenDeliberatelyDropConcentration { get; set; }
         public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
         public bool BugFixWandOfFear { get; set; } = true;
+        public bool SpikeGrowthDoesNotAffectFlyingCreatures { get; set; }
 
         // House
         public bool AllowAnyClassToWearSylvanArmor { get; set; }
