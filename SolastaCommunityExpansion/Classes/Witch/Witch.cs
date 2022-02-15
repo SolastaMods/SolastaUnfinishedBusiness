@@ -334,15 +334,19 @@ namespace SolastaCommunityExpansion.Classes.Witch
             // Ward: 60 feet 1 creature other than you, reduce damage taken by 3 for every hit
 
             // Abate
-            var abateConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                ConditionDefinitions.ConditionShocked, "ConditionAbate", WITCH_BASE_GUID)
-                    .SetGuiPresentation("Abate", Category.Condition, ConditionDefinitions.ConditionShocked.GuiPresentation.SpriteReference)
-                    .AddToDB()
-                .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
-                .SetDurationParameter(1)
-                .SetDurationType(RuleDefinitions.DurationType.Round)
-                .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            abateConditionDefinition.ConditionTags.Add("Malediction");
+            var abateConditionDefinition = ConditionDefinitionBuilder
+                .Create(ConditionDefinitions.ConditionShocked, "ConditionAbate", WITCH_BASE_GUID)
+                .SetGuiPresentation("Abate", Category.Condition, ConditionDefinitions.ConditionShocked.GuiPresentation.SpriteReference)
+                .Configure<ConditionDefinitionBuilder>(definition =>
+                {
+                    definition
+                        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+                        .SetDurationParameter(1)
+                        .SetDurationType(RuleDefinitions.DurationType.Round)
+                        .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                        .ConditionTags.Add("Malediction");
+                })
+                .AddToDB();
 
             var abateConditionForm = new ConditionForm()
                 .SetConditionDefinition(abateConditionDefinition);
@@ -376,15 +380,19 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .AddToDB();
 
             // Apathy
-            var apathyConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                ConditionDefinitions.ConditionCalmedByCalmEmotionsEnemy, "ConditionApathy", WITCH_BASE_GUID)
-                    .SetGuiPresentation("Apathy", Category.Condition, ConditionDefinitions.ConditionCalmedByCalmEmotionsEnemy.GuiPresentation.SpriteReference)
-                    .AddToDB()
-                    .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
-                    .SetDurationParameter(1)
-                    .SetDurationType(RuleDefinitions.DurationType.Round)
-                    .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            apathyConditionDefinition.ConditionTags.Add("Malediction");
+            var apathyConditionDefinition = ConditionDefinitionBuilder
+                .Create(ConditionDefinitions.ConditionCalmedByCalmEmotionsEnemy, "ConditionApathy", WITCH_BASE_GUID)
+                .SetGuiPresentation("Apathy", Category.Condition, ConditionDefinitions.ConditionCalmedByCalmEmotionsEnemy.GuiPresentation.SpriteReference)
+                .Configure<ConditionDefinitionBuilder>(definition =>
+                {
+                    definition
+                        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+                        .SetDurationParameter(1)
+                        .SetDurationType(RuleDefinitions.DurationType.Round)
+                        .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                        .ConditionTags.Add("Malediction");
+                })
+                .AddToDB();
 
             var apathyConditionForm = new ConditionForm()
                 .SetConditionDefinition(apathyConditionDefinition);
@@ -418,15 +426,19 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .AddToDB();
 
             // Charm
-            var charmConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                ConditionDefinitions.ConditionCharmed, "ConditionCharm", WITCH_BASE_GUID)
-                    .SetGuiPresentation("Charm", Category.Condition, ConditionDefinitions.ConditionCharmed.GuiPresentation.SpriteReference)
-                    .AddToDB()
-                .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
-                .SetDurationParameter(1)
-                .SetDurationType(RuleDefinitions.DurationType.Round)
-                .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            charmConditionDefinition.ConditionTags.Add("Malediction");
+            var charmConditionDefinition = ConditionDefinitionBuilder
+                .Create(ConditionDefinitions.ConditionCharmed, "ConditionCharm", WITCH_BASE_GUID)
+                .SetGuiPresentation("Charm", Category.Condition, ConditionDefinitions.ConditionCharmed.GuiPresentation.SpriteReference)
+                .Configure<ConditionDefinitionBuilder>(definition =>
+                {
+                    definition
+                        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+                        .SetDurationParameter(1)
+                        .SetDurationType(RuleDefinitions.DurationType.Round)
+                        .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                        .ConditionTags.Add("Malediction");
+                })
+                .AddToDB();
 
             var charmConditionForm = new ConditionForm()
                 .SetConditionDefinition(charmConditionDefinition);
@@ -467,17 +479,22 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 // TODO: move into builder
                 .SetMyAttackModifierDieType(RuleDefinitions.DieType.D6);
 
-            var disorientConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                ConditionDefinitions.ConditionBaned, "ConditionDisorient", WITCH_BASE_GUID)
-                    .SetGuiPresentation("Disorient", Category.Condition, ConditionDefinitions.ConditionBaned.GuiPresentation.SpriteReference)
-                    .AddToDB()
-                .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
-                .SetDurationParameter(1)
-                .SetDurationType(RuleDefinitions.DurationType.Round)
-                .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            disorientConditionDefinition.ConditionTags.Add("Malediction");
-            disorientConditionDefinition.Features.Clear();
-            disorientConditionDefinition.Features.Add(disorientCombatAffinity);
+            var disorientConditionDefinition = ConditionDefinitionBuilder
+                .Create(ConditionDefinitions.ConditionBaned, "ConditionDisorient", WITCH_BASE_GUID)
+                .SetGuiPresentation("Disorient", Category.Condition, ConditionDefinitions.ConditionBaned.GuiPresentation.SpriteReference)
+                .Configure<ConditionDefinitionBuilder>(definition =>
+                {
+                    definition
+                        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+                        .SetDurationParameter(1)
+                        .SetDurationType(RuleDefinitions.DurationType.Round)
+                        .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+
+                    definition.ConditionTags.Add("Malediction");
+                    definition.Features.Clear();
+                    definition.Features.Add(disorientCombatAffinity);
+                })
+                .AddToDB();
 
             var disorientConditionForm = new ConditionForm()
                 .SetConditionDefinition(disorientConditionDefinition);
@@ -511,16 +528,21 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .AddToDB();
 
             // Evil Eye
-            var evileyeConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                ConditionDefinitions.ConditionFrightenedFear, "ConditionEvilEye", WITCH_BASE_GUID)
-                    .SetGuiPresentation("EvilEye", Category.Condition, ConditionDefinitions.ConditionFrightenedFear.GuiPresentation.SpriteReference)
-                    .AddToDB()
-                .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
-                .SetDurationParameter(1)
-                .SetDurationType(RuleDefinitions.DurationType.Round)
-                .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            evileyeConditionDefinition.RecurrentEffectForms.Clear();
-            evileyeConditionDefinition.ConditionTags.Add("Malediction");
+            var evileyeConditionDefinition = ConditionDefinitionBuilder
+                .Create(ConditionDefinitions.ConditionFrightenedFear, "ConditionEvilEye", WITCH_BASE_GUID)
+                .SetGuiPresentation("EvilEye", Category.Condition, ConditionDefinitions.ConditionFrightenedFear.GuiPresentation.SpriteReference)
+                .Configure<ConditionDefinitionBuilder>(definition =>
+                {
+                    definition
+                        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+                        .SetDurationParameter(1)
+                        .SetDurationType(RuleDefinitions.DurationType.Round)
+                        .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+
+                    definition.RecurrentEffectForms.Clear();
+                    definition.ConditionTags.Add("Malediction");
+                })
+                .AddToDB();
 
             var evileyeConditionForm = new ConditionForm()
                 .SetConditionDefinition(evileyeConditionDefinition);
@@ -573,16 +595,21 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .AddToDB();
 
             // Pox
-            var poxConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                ConditionDefinitions.ConditionPoisoned, "ConditionPox", WITCH_BASE_GUID)
-                    .SetGuiPresentation("Pox", Category.Condition, ConditionDefinitions.ConditionPoisoned.GuiPresentation.SpriteReference)
-                    .AddToDB()
-                .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
-                .SetDurationParameter(1)
-                .SetDurationType(RuleDefinitions.DurationType.Round)
-                .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            poxConditionDefinition.RecurrentEffectForms.Clear();
-            poxConditionDefinition.ConditionTags.Add("Malediction");
+            var poxConditionDefinition = ConditionDefinitionBuilder
+                .Create(ConditionDefinitions.ConditionPoisoned, "ConditionPox", WITCH_BASE_GUID)
+                .SetGuiPresentation("Pox", Category.Condition, ConditionDefinitions.ConditionPoisoned.GuiPresentation.SpriteReference)
+                .Configure<ConditionDefinitionBuilder>(definition =>
+                {
+                    definition
+                        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+                        .SetDurationParameter(1)
+                        .SetDurationType(RuleDefinitions.DurationType.Round)
+                        .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+
+                    definition.RecurrentEffectForms.Clear();
+                    definition.ConditionTags.Add("Malediction");
+                })
+                .AddToDB();
 
             var poxConditionForm = new ConditionForm()
                 .SetConditionDefinition(poxConditionDefinition);
@@ -622,18 +649,23 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, -3)
                 .AddToDB();
 
-            var ruinConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                ConditionDefinitions.ConditionAcidArrowed, "ConditionRuin", WITCH_BASE_GUID)
-                    .SetGuiPresentation("Ruin", Category.Condition, ConditionDefinitions.ConditionAcidArrowed.GuiPresentation.SpriteReference)
-                    .AddToDB()
-                .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
-                .SetDurationParameter(1)
-                .SetDurationType(RuleDefinitions.DurationType.Round)
-                .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            ruinConditionDefinition.RecurrentEffectForms.Clear();
-            ruinConditionDefinition.ConditionTags.Add("Malediction");
-            ruinConditionDefinition.Features.Clear();
-            ruinConditionDefinition.Features.Add(ruinAttributeModifier);
+            var ruinConditionDefinition = ConditionDefinitionBuilder
+                .Create(ConditionDefinitions.ConditionAcidArrowed, "ConditionRuin", WITCH_BASE_GUID)
+                .SetGuiPresentation("Ruin", Category.Condition, ConditionDefinitions.ConditionAcidArrowed.GuiPresentation.SpriteReference)
+                .Configure<ConditionDefinitionBuilder>(definition =>
+                {
+                    definition
+                        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+                        .SetDurationParameter(1)
+                        .SetDurationType(RuleDefinitions.DurationType.Round)
+                        .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+
+                    definition.RecurrentEffectForms.Clear();
+                    definition.ConditionTags.Add("Malediction");
+                    definition.Features.Clear();
+                    definition.Features.Add(ruinAttributeModifier);
+                })
+                .AddToDB();
 
             var ruinConditionForm = new ConditionForm()
                 .SetConditionDefinition(ruinConditionDefinition);
@@ -869,32 +901,32 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 summoningAffinity.SetRequiredMonsterTag("WitchFamiliar");
                 summoningAffinity.EffectForms.Clear();
 
-                var acConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                        ConditionDefinitions.ConditionKindredSpiritBondAC, "ConditionWitchFamiliarAC", WITCH_BASE_GUID)
+                var acConditionDefinition = ConditionDefinitionBuilder
+                    .Create(ConditionDefinitions.ConditionKindredSpiritBondAC, "ConditionWitchFamiliarAC", WITCH_BASE_GUID)
                     .SetGuiPresentationNoContent()
                     .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
                     .AddToDB();
 
-                var stConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                        ConditionDefinitions.ConditionKindredSpiritBondSavingThrows, "ConditionWitchFamiliarST", WITCH_BASE_GUID)
+                var stConditionDefinition = ConditionDefinitionBuilder
+                    .Create(ConditionDefinitions.ConditionKindredSpiritBondSavingThrows, "ConditionWitchFamiliarST", WITCH_BASE_GUID)
                     .SetGuiPresentationNoContent()
                     .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
                     .AddToDB();
 
-                var damageConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                        ConditionDefinitions.ConditionKindredSpiritBondMeleeDamage, "ConditionWitchFamiliarDamage", WITCH_BASE_GUID)
+                var damageConditionDefinition = ConditionDefinitionBuilder
+                    .Create(ConditionDefinitions.ConditionKindredSpiritBondMeleeDamage, "ConditionWitchFamiliarDamage", WITCH_BASE_GUID)
                     .SetGuiPresentationNoContent()
                     .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
                     .AddToDB();
 
-                var hitConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                        ConditionDefinitions.ConditionKindredSpiritBondMeleeAttack, "ConditionWitchFamiliarHit", WITCH_BASE_GUID)
+                var hitConditionDefinition = ConditionDefinitionBuilder
+                    .Create(ConditionDefinitions.ConditionKindredSpiritBondMeleeAttack, "ConditionWitchFamiliarHit", WITCH_BASE_GUID)
                     .SetGuiPresentationNoContent()
                     .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceSpellAttack)
                     .AddToDB();
 
-                var hpConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                        ConditionDefinitions.ConditionKindredSpiritBondHP, "ConditionWitchFamiliarHP", WITCH_BASE_GUID)
+                var hpConditionDefinition = ConditionDefinitionBuilder
+                    .Create(ConditionDefinitions.ConditionKindredSpiritBondHP, "ConditionWitchFamiliarHP", WITCH_BASE_GUID)
                     .SetGuiPresentationNoContent()
                     .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel)
                     .AddToDB();

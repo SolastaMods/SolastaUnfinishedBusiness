@@ -61,7 +61,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             var attribute = hero.GetAttribute(attributeName);
             var activeModifiers = attribute.ActiveModifiers;
             var currentValue = attribute.BaseValue;
-            var minValue = int.MinValue;
+            const int minValue = int.MinValue;
 
             foreach (var activeModifier in activeModifiers
                 .Where(x => x.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive))

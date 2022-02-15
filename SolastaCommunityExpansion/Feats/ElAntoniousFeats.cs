@@ -17,13 +17,13 @@ namespace SolastaCommunityExpansion.Feats
         }
     }
 
-    internal class DualFlurryFeatBuilder : BaseDefinitionBuilder<FeatDefinition>
+    internal sealed class DualFlurryFeatBuilder : DefinitionBuilder<FeatDefinition>
     {
         public static readonly Guid DualFlurryGuid = new("03C523EB-91B9-4F1B-A697-804D1BC2D6DD");
         private const string DualFlurryFeatName = "DualFlurryFeat";
         private static readonly string DualFlurryFeatNameGuid = GuidHelper.Create(DualFlurryGuid, DualFlurryFeatName).ToString();
 
-        protected DualFlurryFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous, name, guid)
+        private DualFlurryFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&DualFlurryTitle";
             Definition.GuiPresentation.Description = "Feat/&DualFlurryDescription";
@@ -34,7 +34,7 @@ namespace SolastaCommunityExpansion.Feats
             Definition.SetMinimalAbilityScorePrerequisite(false);
         }
 
-        public static FeatDefinition CreateAndAddToDB(string name, string guid)
+        private static FeatDefinition CreateAndAddToDB(string name, string guid)
         {
             return new DualFlurryFeatBuilder(name, guid).AddToDB();
         }
@@ -74,9 +74,9 @@ namespace SolastaCommunityExpansion.Feats
         }
     }
 
-    internal class ConditionDualFlurryApplyBuilder : BaseDefinitionBuilder<ConditionDefinition>
+    internal sealed class ConditionDualFlurryApplyBuilder : DefinitionBuilder<ConditionDefinition>
     {
-        protected ConditionDualFlurryApplyBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionSurged, name, guid)
+        private ConditionDualFlurryApplyBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionSurged, name, guid)
         {
             Definition.GuiPresentation.Title = "Condition/&ConditionDualFlurryApplyTitle";
             Definition.GuiPresentation.Description = "Condition/&ConditionDualFlurryApplyDescription";
@@ -92,21 +92,22 @@ namespace SolastaCommunityExpansion.Feats
             Definition.Features.Clear();
         }
 
-        public static ConditionDefinition CreateAndAddToDB()
+        private static ConditionDefinition CreateAndAddToDB()
         {
             return new ConditionDualFlurryApplyBuilder("ConditionDualFlurryApply", GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryApply").ToString()).AddToDB();
         }
 
-        public static ConditionDefinition GetOrAdd()
+        // TODO: eliminate
+        internal static ConditionDefinition GetOrAdd()
         {
             var db = DatabaseRepository.GetDatabase<ConditionDefinition>();
             return db.TryGetElement("ConditionDualFlurryApply", GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryApply").ToString()) ?? CreateAndAddToDB();
         }
     }
 
-    internal class ConditionDualFlurryGrantBuilder : BaseDefinitionBuilder<ConditionDefinition>
+    internal sealed class ConditionDualFlurryGrantBuilder : DefinitionBuilder<ConditionDefinition>
     {
-        protected ConditionDualFlurryGrantBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionSurged, name, guid)
+        private ConditionDualFlurryGrantBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionSurged, name, guid)
         {
             Definition.GuiPresentation.Title = "Condition/&ConditionDualFlurryGrantTitle";
             Definition.GuiPresentation.Description = "Condition/&ConditionDualFlurryGrantDescription";
@@ -124,16 +125,18 @@ namespace SolastaCommunityExpansion.Feats
             Definition.Features.Add(BuildAdditionalActionDualFlurry());
         }
 
-        public static ConditionDefinition CreateAndAddToDB()
+        private static ConditionDefinition CreateAndAddToDB()
         {
             return new ConditionDualFlurryGrantBuilder("ConditionDualFlurryGrant", GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryGrant").ToString()).AddToDB();
         }
 
-        public static ConditionDefinition GetOrAdd()
+        // TODO: eliminate
+        internal static ConditionDefinition GetOrAdd()
         {
             var db = DatabaseRepository.GetDatabase<ConditionDefinition>();
             return db.TryGetElement("ConditionDualFlurryGrant", GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryGrant").ToString()) ?? CreateAndAddToDB();
         }
+
         private static FeatureDefinition BuildAdditionalActionDualFlurry()
         {
             return FeatureDefinitionAdditionalActionBuilder
@@ -145,13 +148,13 @@ namespace SolastaCommunityExpansion.Feats
         }
     }
 
-    internal class TorchbearerFeatBuilder : BaseDefinitionBuilder<FeatDefinition>
+    internal sealed class TorchbearerFeatBuilder : DefinitionBuilder<FeatDefinition>
     {
         private static readonly Guid TorchbearerGuid = new("03C523EB-91B9-4F1B-A697-804D1BC2D6DD");
         private const string TorchbearerFeatName = "TorchbearerFeat";
         private static readonly string TorchbearerFeatNameGuid = GuidHelper.Create(TorchbearerGuid, TorchbearerFeatName).ToString();
 
-        protected TorchbearerFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous, name, guid)
+        private TorchbearerFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&TorchbearerTitle";
             Definition.GuiPresentation.Description = "Feat/&TorchbearerDescription";
@@ -162,7 +165,7 @@ namespace SolastaCommunityExpansion.Feats
             Definition.SetMinimalAbilityScorePrerequisite(false);
         }
 
-        public static FeatDefinition CreateAndAddToDB(string name, string guid)
+        private static FeatDefinition CreateAndAddToDB(string name, string guid)
         {
             return new TorchbearerFeatBuilder(name, guid).AddToDB();
         }

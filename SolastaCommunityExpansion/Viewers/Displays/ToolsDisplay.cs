@@ -14,6 +14,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("General:".yellow());
             UI.Label("");
 
+            toggle = Main.Settings.EnableAdditionalBackstoryDisplay;
+            if (UI.Toggle("Enable additional backstory display in the chararacter inspection panel", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableAdditionalBackstoryDisplay = toggle;
+            }
+
             toggle = Main.Settings.EnableRespec;
             if (UI.Toggle("Enable RESPEC and Level Down", ref toggle, UI.AutoWidth()))
             {

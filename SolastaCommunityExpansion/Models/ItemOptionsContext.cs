@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -16,7 +17,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class ItemOptionsContext
     {
-        private sealed class WandIdentifyBuilder : BaseDefinitionBuilder<ItemDefinition>
+        private sealed class WandIdentifyBuilder : DefinitionBuilder<ItemDefinition>
         {
             private WandIdentifyBuilder(string name, string guid, string title, string description, ItemDefinition original) : base(original, name, guid)
             {
@@ -53,15 +54,15 @@ namespace SolastaCommunityExpansion.Models
                 WandMagicMissile);
         }
 
-        private sealed class FocusDefinitionBuilder : BaseDefinitionBuilder<ItemDefinition>
+        private sealed class FocusDefinitionBuilder : DefinitionBuilder<ItemDefinition>
         {
             private FocusDefinitionBuilder(
-                string name, 
-                string guid, 
-                string title, 
-                string description, 
-                ItemDefinition original, 
-                EquipmentDefinitions.FocusType type, 
+                string name,
+                string guid,
+                string title,
+                string description,
+                ItemDefinition original,
+                EquipmentDefinitions.FocusType type,
                 AssetReferenceSprite assetReferenceSprite,
                 params string[] slotTypes) : base(original, name, guid)
             {
@@ -101,12 +102,12 @@ namespace SolastaCommunityExpansion.Models
             }
 
             private static ItemDefinition CreateAndAddToDB(
-                string name, 
-                string guid, 
-                string title, 
-                string description, 
-                ItemDefinition original, 
-                EquipmentDefinitions.FocusType type, 
+                string name,
+                string guid,
+                string title,
+                string description,
+                ItemDefinition original,
+                EquipmentDefinitions.FocusType type,
                 AssetReferenceSprite assetReferenceSprite,
                 params string[] slotTypes)
             {

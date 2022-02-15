@@ -86,17 +86,27 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
             EffectDescriptionBuilder arcaneDeflection = new EffectDescriptionBuilder();
             arcaneDeflection.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self, 1, 0, ActionDefinitions.ItemSelectionType.None);
-            ConditionDefinition deflectionCondition = new ConditionDefinitionBuilder("ConditionSpellShieldArcaneDeflection", GuidHelper.Create(SubclassNamespace, "ConditionSpellShieldArcaneDeflection").ToString(),
-                new List<FeatureDefinition>() {
-                    FeatureDefinitionAttributeModifierBuilder
+            ConditionDefinition deflectionCondition = ConditionDefinitionBuilder
+                .Create("ConditionSpellShieldArcaneDeflection", SubclassNamespace)
+                .SetGuiPresentation(Category.Subclass)
+                .Configure<ConditionDefinitionBuilder>(definition =>
+                {
+                    var attributeModifier = FeatureDefinitionAttributeModifierBuilder
                         .Create("AttributeSpellShieldArcaneDeflection", SubclassNamespace)
                         .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 3)
                         .SetGuiPresentation("ConditionSpellShieldArcaneDeflection", Category.Subclass, ConditionDefinitions.ConditionShielded.GuiPresentation.SpriteReference)
-                        .AddToDB(),
-                },
-                RuleDefinitions.DurationType.Round, 1, false)
-                .SetGuiPresentation(Category.Subclass)
+                        .AddToDB();
+
+                    definition.Features.Add(attributeModifier);
+
+                    definition
+                        .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
+                        .SetAllowMultipleInstances(false)
+                        .SetDurationType(RuleDefinitions.DurationType.Round)
+                        .SetDurationParameter(1);
+                })
                 .AddToDB();
+
             arcaneDeflection.AddEffectForm(new EffectFormBuilder().CreatedByCharacter().SetConditionForm(deflectionCondition, ConditionForm.ConditionOperation.Add,
                 true, true, new List<ConditionDefinition>()).Build());
 
@@ -119,7 +129,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             Subclass = spellShield.AddToDB();
         }
 
-        private sealed class SpellShieldRangedDeflection : BaseDefinitionBuilder<FeatureDefinitionActionAffinity>
+        private sealed class SpellShieldRangedDeflection : DefinitionBuilder<FeatureDefinitionActionAffinity>
         {
             public SpellShieldRangedDeflection(FeatureDefinitionActionAffinity original, string name, string guid, GuiPresentation guiPresentation) : base(original, name, guid)
             {

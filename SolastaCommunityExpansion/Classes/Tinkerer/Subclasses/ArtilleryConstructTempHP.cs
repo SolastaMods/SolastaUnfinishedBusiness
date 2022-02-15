@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 
@@ -8,12 +9,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		TempHPShieldBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal class TempHPShieldBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class TempHPShieldBuilder : DefinitionBuilder<FeatureDefinitionPower>
     {
         private const string TempHPShieldName = "TempHPShield";
         private const string TempHPShieldGuid = "9ca27524-0b49-479e-b11d-085e00e77b8f";
 
-        protected TempHPShieldBuilder(string name, string guid) : base(ThunderShieldBuilder.ThunderShield, name, guid)
+        private TempHPShieldBuilder(string name, string guid) : base(ThunderShieldBuilder.ThunderShield, name, guid)
         {
             Definition.GuiPresentation.Title = "Feature/&TempHPShieldTitle";
             Definition.SetShortTitleOverride("Feature/&TempHPShieldTitle");
@@ -59,7 +60,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.EffectDescription.SetEffectParticleParameters(DatabaseHelper.SpellDefinitions.Shield.EffectDescription.EffectParticleParameters);
         }
 
-        public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
+        private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
         {
             return new TempHPShieldBuilder(name, guid).AddToDB();
         }
@@ -70,12 +71,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		TempHPShieldConstructBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal class TempHPShieldConstructBuilder : BaseDefinitionBuilder<MonsterDefinition>
+    internal sealed class TempHPShieldConstructBuilder : DefinitionBuilder<MonsterDefinition>
     {
         private const string TempHPShieldConstructName = "TempHPShieldConstruct";
         private const string TempHPShieldConstructGuid = "65223373-24a2-4596-b778-75e6f197b73f";
 
-        protected TempHPShieldConstructBuilder(string name, string guid) : base(DatabaseHelper.MonsterDefinitions.Magic_Mouth, name, guid)
+        private TempHPShieldConstructBuilder(string name, string guid) : base(DatabaseHelper.MonsterDefinitions.Magic_Mouth, name, guid)
         {
             // cant use set, need to copy individual parts of presentation
             //Definition.SetMonsterPresentation(DatabaseHelper.MonsterDefinitions.CubeOfLight.MonsterPresentation);
@@ -134,7 +135,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.CreatureTags.Add("ScalingTinkererArtilleryConstruct");
         }
 
-        public static MonsterDefinition CreateAndAddToDB(string name, string guid)
+        private static MonsterDefinition CreateAndAddToDB(string name, string guid)
         {
             return new TempHPShieldConstructBuilder(name, guid).AddToDB();
         }
@@ -146,19 +147,19 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		TempHPShieldConstruct_9Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal class TempHPShieldConstruct9Builder : BaseDefinitionBuilder<MonsterDefinition>
+    internal sealed class TempHPShieldConstruct9Builder : DefinitionBuilder<MonsterDefinition>
     {
         private const string TempHPShieldConstruct_9Name = "TempHPShieldConstruct_9";
         private const string TempHPShieldConstruct_9Guid = "75f8541a-65c3-4226-9c42-a80dd76b04cd";
 
-        protected TempHPShieldConstruct9Builder(string name, string guid) : base(TempHPShieldConstructBuilder.TempHPShieldConstruct, name, guid)
+        private TempHPShieldConstruct9Builder(string name, string guid) : base(TempHPShieldConstructBuilder.TempHPShieldConstruct, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&TempHPShieldConstructTitle_3";
 
             Definition.Features.Add(SelfDestructBuilder.SelfDestruct);
         }
 
-        public static MonsterDefinition CreateAndAddToDB(string name, string guid)
+        private static MonsterDefinition CreateAndAddToDB(string name, string guid)
         {
             return new TempHPShieldConstruct9Builder(name, guid).AddToDB();
         }
@@ -170,19 +171,19 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		TempHPShieldConstruct_15Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal class TempHPShieldConstruct15Builder : BaseDefinitionBuilder<MonsterDefinition>
+    internal sealed class TempHPShieldConstruct15Builder : DefinitionBuilder<MonsterDefinition>
     {
         private const string TempHPShieldConstruct_15Name = "TempHPShieldConstruct_15";
         private const string TempHPShieldConstruct_15Guid = "243d5f04-2106-4c20-a3f2-38484ecc345c";
 
-        protected TempHPShieldConstruct15Builder(string name, string guid) : base(TempHPShieldConstruct9Builder.TempHPShieldConstruct9, name, guid)
+        private TempHPShieldConstruct15Builder(string name, string guid) : base(TempHPShieldConstruct9Builder.TempHPShieldConstruct9, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&TempHPShieldConstructTitle_5";
 
             Definition.Features.Add(HalfCoverShieldBuilder.HalfCoverShield);
         }
 
-        public static MonsterDefinition CreateAndAddToDB(string name, string guid)
+        private static MonsterDefinition CreateAndAddToDB(string name, string guid)
         {
             return new TempHPShieldConstruct15Builder(name, guid).AddToDB();
         }
@@ -194,12 +195,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummonTempHPShieldSpellConstructBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal class SummonTempHPShieldSpellConstructBuilder : BaseDefinitionBuilder<SpellDefinition>
+    internal sealed class SummonTempHPShieldSpellConstructBuilder : DefinitionBuilder<SpellDefinition>
     {
         private const string SummonTempHPShieldConstructName = "SummonTempHPShieldConstruct";
         private const string SummonTempHPShieldConstructGuid = "db9e7e8e-b749-4b46-9ba3-60a7bf221b0b";
 
-        protected SummonTempHPShieldSpellConstructBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.DancingLights, name, guid)
+        private SummonTempHPShieldSpellConstructBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.DancingLights, name, guid)
         {
             Definition.GuiPresentation.Title = "Feature/&TempHPShieldModePowerTitle";
             Definition.GuiPresentation.Description = "Feature/&TempHPShieldModePowerDescription";
@@ -213,7 +214,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.SetEffectDescription(ArtilleryConstructlevel03FeatureSetBuilder.TempHPShield_03modepower.EffectDescription);
         }
 
-        public static SpellDefinition CreateAndAddToDB(string name, string guid)
+        private static SpellDefinition CreateAndAddToDB(string name, string guid)
         {
             return new SummonTempHPShieldSpellConstructBuilder(name, guid).AddToDB();
         }
@@ -225,12 +226,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummonTempHPShieldSpellConstruct_9Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal class SummonTempHPShieldSpellConstruct9Builder : BaseDefinitionBuilder<SpellDefinition>
+    internal sealed class SummonTempHPShieldSpellConstruct9Builder : DefinitionBuilder<SpellDefinition>
     {
         private const string SummonTempHPShieldConstruct_9Name = "SummonTempHPShieldConstruct_9";
         private const string SummonTempHPShieldConstruct_9Guid = "f1e88575-40ca-4f4e-9447-616058e213a4";
 
-        protected SummonTempHPShieldSpellConstruct9Builder(string name, string guid) : base(SummonTempHPShieldSpellConstructBuilder.SummonTempHPShieldConstruct, name, guid)
+        private SummonTempHPShieldSpellConstruct9Builder(string name, string guid) : base(SummonTempHPShieldSpellConstructBuilder.SummonTempHPShieldConstruct, name, guid)
         {
             Definition.GuiPresentation.Title = "Feature/&TempHPShield_09ModePowerTitle";
             Definition.GuiPresentation.Description = "Feature/&TempHPShield_09ModePowerDescription";
@@ -238,7 +239,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.EffectDescription.EffectForms[0].SummonForm.SetMonsterDefinitionName(TempHPShieldConstruct9Builder.TempHPShieldConstruct9.Name);
         }
 
-        public static SpellDefinition CreateAndAddToDB(string name, string guid)
+        private static SpellDefinition CreateAndAddToDB(string name, string guid)
         {
             return new SummonTempHPShieldSpellConstruct9Builder(name, guid).AddToDB();
         }
@@ -250,12 +251,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummonTempHPShieldSpellConstruct_15Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal class SummonTempHPShieldSpellConstruct15Builder : BaseDefinitionBuilder<SpellDefinition>
+    internal sealed class SummonTempHPShieldSpellConstruct15Builder : DefinitionBuilder<SpellDefinition>
     {
         private const string SummonTempHPShieldConstruct_15Name = "SummonTempHPShieldConstruct_15";
         private const string SummonTempHPShieldConstruct_15Guid = "84ddce96-ec58-4141-933d-371080d611d2";
 
-        protected SummonTempHPShieldSpellConstruct15Builder(string name, string guid) : base(SummonTempHPShieldSpellConstructBuilder.SummonTempHPShieldConstruct, name, guid)
+        private SummonTempHPShieldSpellConstruct15Builder(string name, string guid) : base(SummonTempHPShieldSpellConstructBuilder.SummonTempHPShieldConstruct, name, guid)
         {
             Definition.GuiPresentation.Title = "Feature/&TempHPShield_15ModePowerTitle";
             Definition.GuiPresentation.Description = "Feature/&TempHPShield_15ModePowerDescription";
@@ -263,7 +264,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.EffectDescription.EffectForms[0].SummonForm.SetMonsterDefinitionName(TempHPShieldConstruct15Builder.TempHPShieldConstruct15.Name);
         }
 
-        public static SpellDefinition CreateAndAddToDB(string name, string guid)
+        private static SpellDefinition CreateAndAddToDB(string name, string guid)
         {
             return new SummonTempHPShieldSpellConstruct15Builder(name, guid).AddToDB();
         }

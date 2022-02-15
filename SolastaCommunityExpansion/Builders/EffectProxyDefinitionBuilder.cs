@@ -1,11 +1,10 @@
 ﻿using System;
-using SolastaModApi;
 using SolastaModApi.Extensions;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class EffectProxyDefinitionBuilder : BaseDefinitionBuilder<EffectProxyDefinition>
+    public class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefinition>
     {
         public EffectProxyDefinitionBuilder(string name, string guid) : base(name, guid)
         {
