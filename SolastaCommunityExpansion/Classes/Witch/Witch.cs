@@ -14,6 +14,7 @@ using static FeatureDefinitionCastSpell;
 using static SolastaCommunityExpansion.Builders.EquipmentOptionsBuilder;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaModApi.DatabaseHelper.MonsterDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Witch
@@ -812,7 +813,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
                 var witchFamiliarMonsterBuilder = MonsterDefinitionBuilder
                         .Create(MonsterDefinitions.Eagle_Matriarch, "WitchOwl", WITCH_BASE_GUID)
-                        .SetGuiPresentation("WitchOwlFamiliar", Category.Monster)
+                        .SetGuiPresentation("WitchOwlFamiliar", Category.Monster, Eagle_Matriarch.GuiPresentation.SpriteReference)
                         .SetFeatures(
                             FeatureDefinitionSenses.SenseNormalVision,
                             FeatureDefinitionSenses.SenseDarkvision24,
