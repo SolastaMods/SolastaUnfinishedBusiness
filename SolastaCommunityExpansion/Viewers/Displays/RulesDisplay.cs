@@ -111,10 +111,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     }
                 }
 
-                toggle = Main.Settings.CertainSpellsDoNotAffectFlyingCreatures;
+                toggle = Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures;
                 if (UI.Toggle("Spike Growth".orange() + " does not affect flying creatures.", ref toggle, UI.AutoWidth()))
                 {
-                    Main.Settings.CertainSpellsDoNotAffectFlyingCreatures = toggle;
+                    Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures = toggle;
                 }
             }
 
