@@ -52,9 +52,7 @@ namespace SolastaCommunityExpansion
         //
 
         public bool AllowDynamicPowers { get; set; } = true;
-        public bool BugFixBestiarySorting { get; set; } = true;
         public bool BugFixButtonActivatorTriggerIssue { get; set; } = true;
-        public bool BugFixCharacterPanelSorting { get; set; } = true;
         public bool BugFixExpandColorTables { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
         public bool EnableCancelEditOnRightMouseClick { get; set; } = true;
@@ -164,7 +162,6 @@ namespace SolastaCommunityExpansion
         public bool RollDifferentStealthChecksForEachCharacterPair { get; set; }
         public bool EnablePowerAid { get; set; }
         public bool AddBleedingToLesserRestoration { get; set; }
-        public bool BugFixCalmEmotionsOnAlly { get; set; } = true;
         public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
         public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
         public bool FixSorcererTwinnedLogic { get; set; }
@@ -172,7 +169,6 @@ namespace SolastaCommunityExpansion
         public bool FullyControlConjurations { get; set; }
         public bool DismissControlledConjurationsWhenDeliberatelyDropConcentration { get; set; }
         public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
-        public bool BugFixWandOfFear { get; set; } = true;
         public bool SpikeGrowthDoesNotAffectFlyingCreatures { get; set; }
 
         // House
