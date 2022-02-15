@@ -14,6 +14,33 @@ namespace SolastaCommunityExpansion.Spells
         {
             AddBleedingToRestoration();
             BugFixCalmEmotionsOnAlly();
+            CertainsSpellDoNotAffectFlyingCreatures();
+        }
+
+        private static void CertainsSpellDoNotAffectFlyingCreatures()
+        {
+            if (!Main.Settings.CertainSpellsDoNotAffectFlyingCreatures)
+            {
+                return;
+            }
+
+            var spikeGrowthEffect = SpikeGrowth.EffectDescription;
+            spikeGrowthEffect.EffectForms
+                .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
+                .ToList()
+                .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(false));
+
+            spikeGrowthEffect.SetTargetType(RuleDefinitions.TargetType.Cylinder);
+            spikeGrowthEffect.SetTargetParameter2(1);
+
+            var entangleEffect = Entangle.EffectDescription;
+            entangleEffect.EffectForms
+                .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
+                .ToList()
+                .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(false));
+
+            //entangleEffect.SetTargetType(RuleDefinitions.TargetType.CubeWithOffset);
+            entangleEffect.SetTargetParameter2(1);
         }
 
         public static void AddBleedingToRestoration()

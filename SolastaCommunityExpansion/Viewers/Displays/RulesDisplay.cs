@@ -110,6 +110,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey = toggle;
                     }
                 }
+
+                toggle = Main.Settings.CertainSpellsDoNotAffectFlyingCreatures;
+                if (UI.Toggle("Spike Growth".orange() + " does not affect flying creatures.", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.CertainSpellsDoNotAffectFlyingCreatures = toggle;
+                }
             }
 
             UI.Label("");
