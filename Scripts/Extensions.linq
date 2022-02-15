@@ -211,7 +211,7 @@ void CreateExtensions(Type t, bool createFiles = false)
 									// probably best not to change the version often since that makes 
 									// it impossible to detect changes to extensions
 									AttributeArgument(
-										ParseExpression($"\"1.0.0\"")) 
+										ParseExpression($"\"1.0.0\""))
 									)
 								)
 						)
@@ -233,11 +233,11 @@ void CreateExtensions(Type t, bool createFiles = false)
 		.Where(pg => pg.GetCustomAttributes(typeof(System.ObsoleteAttribute), true).Length != 0)
 		.Select(pg => pg.Name)
 		.ToHashSet(StringComparer.OrdinalIgnoreCase);
-		
+
 	var readablePublicProperties = t
 		.GetProperties(BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.Public)
 		.Where(pg => pg.CanRead && pg.GetCustomAttributes(typeof(System.ObsoleteAttribute), true).Length == 0)
-		.Select(pg => new {pg, pg.Name, pg.PropertyType, Type = SimplifyType(pg.PropertyType) });
+		.Select(pg => new { pg, pg.Name, pg.PropertyType, Type = SimplifyType(pg.PropertyType) });
 
 	var readablePublicPropertiesByName = readablePublicProperties
 		.Select(pp => pp.Name)
@@ -258,7 +258,7 @@ void CreateExtensions(Type t, bool createFiles = false)
 
 	var genericReadablePublicProperties = readablePublicProperties
 		.Where(f => f.PropertyType.IsGenericType)
-		.Where(f => !obsoleteWriteablePublicPropertiesByName.Contains(f.Name));		
+		.Where(f => !obsoleteWriteablePublicPropertiesByName.Contains(f.Name));
 
 	// ---------------------------------------------------------------------------
 	var methods = privateFieldsThatNeedWriter
@@ -477,7 +477,7 @@ void CreateExtensions(Type t, bool createFiles = false)
 				}
 			}
 		);
-	
+
 	methods = methods.Concat(collectionHelpers);
 
 	// ---------------------------------------------------------------------------
@@ -518,7 +518,7 @@ void CreateExtensions(Type t, bool createFiles = false)
 				});
 		}
 	}
-	
+
 	// ---------------------------------------------------------------------------
 	if (methods.Any())
 	{
@@ -593,11 +593,11 @@ void CreateExtensions(Type t, bool createFiles = false)
 	}
 
 	string SimplifyType(Type t1)
-	{		
+	{
 		if (t1.IsGenericType)
 		{
 			// This will fail on say Dictionary<string, int[]>
-			
+
 			return t1.ToString()
 				.Replace("`1", "") // generic type position 1
 				.Replace("`2", "") // generic type position 2
