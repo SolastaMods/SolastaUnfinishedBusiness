@@ -14,6 +14,7 @@ using static FeatureDefinitionCastSpell;
 using static SolastaCommunityExpansion.Builders.EquipmentOptionsBuilder;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaModApi.DatabaseHelper.MonsterDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Witch
@@ -810,9 +811,9 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 witchFamiliarAttackIteration.MonsterAttackDefinition.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D1);
                 witchFamiliarAttackIteration.MonsterAttackDefinition.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(0);
 
-                var witchFamiliarMonsterBuilder = new MonsterDefinitionBuilder(
-                        MonsterDefinitions.Eagle_Matriarch, "WitchOwl", WITCH_BASE_GUID)
-                        .SetGuiPresentation("WitchOwlFamiliar", Category.Monster)
+                var witchFamiliarMonsterBuilder = MonsterDefinitionBuilder
+                        .Create(MonsterDefinitions.Eagle_Matriarch, "WitchOwl", WITCH_BASE_GUID)
+                        .SetGuiPresentation("WitchOwlFamiliar", Category.Monster, Eagle_Matriarch.GuiPresentation.SpriteReference)
                         .SetFeatures(
                             FeatureDefinitionSenses.SenseNormalVision,
                             FeatureDefinitionSenses.SenseDarkvision24,
@@ -854,7 +855,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
                 var spell = SpellDefinitionBuilder
                     .Create(Fireball, "WitchFamiliar", WITCH_BASE_GUID)
-                    .SetGuiPresentation(Category.Spell)
+                    .SetGuiPresentation(Category.Spell, AnimalFriendship.GuiPresentation.SpriteReference)
                     .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
                     .SetMaterialComponent(RuleDefinitions.MaterialComponentType.None)
                     .SetSomaticComponent(true)
