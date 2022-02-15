@@ -481,8 +481,7 @@ void CreateExtensions(Type t, bool createFiles = false)
 	methods = methods.Concat(collectionHelpers);
 
 	// ---------------------------------------------------------------------------
-	// TODO: for all types add a .Create() method
-
+	// Copy using Copy method
 	var copyMethod = t.GetMethod("Copy", new Type[] { t });
 	if (copyMethod != null)
 	{
@@ -499,6 +498,27 @@ void CreateExtensions(Type t, bool createFiles = false)
 			});
 	}
 
+	// ---------------------------------------------------------------------------
+	// Copy using Copy constructor
+	if (copyMethod == null)
+	{
+		var copyMethod2 = t.GetConstructor(new Type[] { t });
+		if (copyMethod2 != null)
+		{
+			methods = methods.Concat(
+				new[]{
+			MethodDeclaration(ParseTypeName($"{SimplifyType(t)}"), $"Copy")
+			   .AddModifiers(Token(SyntaxKind.PublicKeyword), Token(SyntaxKind.StaticKeyword))
+			   .AddParameterListParameters(
+					Parameter(Identifier("entity"))
+						.WithType(ParseTypeName($"{SimplifyType(t)}"))
+						.AddModifiers(Token(SyntaxKind.ThisKeyword))
+				)
+				.WithBody(Block(ParseStatement($"return new {SimplifyType(t)}(entity);")))
+				});
+		}
+	}
+	
 	// ---------------------------------------------------------------------------
 	if (methods.Any())
 	{

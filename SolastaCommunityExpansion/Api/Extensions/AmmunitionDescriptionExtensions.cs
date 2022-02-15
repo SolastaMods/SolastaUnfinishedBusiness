@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(AmmunitionDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class AmmunitionDescriptionExtensions
     {
+        public static AmmunitionDescription Copy(this AmmunitionDescription entity)
+        {
+            return new AmmunitionDescription(entity);
+        }
+
         public static T SetAmmunitionType<T>(this T entity, System.String value)
             where T : AmmunitionDescription
         {

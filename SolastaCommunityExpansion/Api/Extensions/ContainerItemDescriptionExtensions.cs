@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(ContainerItemDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class ContainerItemDescriptionExtensions
     {
+        public static ContainerItemDescription Copy(this ContainerItemDescription entity)
+        {
+            return new ContainerItemDescription(entity);
+        }
+
         public static T SetMinSlotsNumber<T>(this T entity, System.Int32 value)
             where T : ContainerItemDescription
         {

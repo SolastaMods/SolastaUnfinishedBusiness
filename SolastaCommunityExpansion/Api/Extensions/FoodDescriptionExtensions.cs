@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(FoodDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class FoodDescriptionExtensions
     {
+        public static FoodDescription Copy(this FoodDescription entity)
+        {
+            return new FoodDescription(entity);
+        }
+
         public static T SetNutritiveCapacity<T>(this T entity, System.Int32 value)
             where T : FoodDescription
         {

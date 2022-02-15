@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(FocusItemDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class FocusItemDescriptionExtensions
     {
+        public static FocusItemDescription Copy(this FocusItemDescription entity)
+        {
+            return new FocusItemDescription(entity);
+        }
+
         public static T SetFocusType<T>(this T entity, EquipmentDefinitions.FocusType value)
             where T : FocusItemDescription
         {

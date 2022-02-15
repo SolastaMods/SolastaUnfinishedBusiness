@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(ContentFragmentDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class ContentFragmentDescriptionExtensions
     {
+        public static ContentFragmentDescription Copy(this ContentFragmentDescription entity)
+        {
+            return new ContentFragmentDescription(entity);
+        }
+
         public static T SetSpriteReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReferenceSprite value)
             where T : ContentFragmentDescription
         {

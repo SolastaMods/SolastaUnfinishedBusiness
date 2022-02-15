@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(SoundEffectDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class SoundEffectDescriptionExtensions
     {
+        public static SoundEffectDescription Copy(this SoundEffectDescription entity)
+        {
+            return new SoundEffectDescription(entity);
+        }
+
         public static T SetGuiPickBody<T>(this T entity, AK.Wwise.Event value)
             where T : SoundEffectDescription
         {

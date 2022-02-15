@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(UserEffectForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class UserEffectFormExtensions
     {
+        public static UserEffectForm Copy(this UserEffectForm entity)
+        {
+            return new UserEffectForm(entity);
+        }
+
         public static T SetBonusDamage<T>(this T entity, System.Int32 value)
             where T : UserEffectForm
         {

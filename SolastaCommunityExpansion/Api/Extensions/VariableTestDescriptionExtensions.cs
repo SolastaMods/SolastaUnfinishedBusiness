@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(VariableTestDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class VariableTestDescriptionExtensions
     {
+        public static VariableTestDescription Copy(this VariableTestDescription entity)
+        {
+            return new VariableTestDescription(entity);
+        }
+
         public static T SetBoolValue<T>(this T entity, System.Boolean value)
             where T : VariableTestDescription
         {

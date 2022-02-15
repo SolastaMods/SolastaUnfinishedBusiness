@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(LightSourceItemDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class LightSourceItemDescriptionExtensions
     {
+        public static LightSourceItemDescription Copy(this LightSourceItemDescription entity)
+        {
+            return new LightSourceItemDescription(entity);
+        }
+
         public static T SetActiveSpriteReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReferenceSprite value)
             where T : LightSourceItemDescription
         {

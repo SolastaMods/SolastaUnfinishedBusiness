@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(AbilityCheckDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class AbilityCheckDescriptionExtensions
     {
+        public static AbilityCheckDescription Copy(this AbilityCheckDescription entity)
+        {
+            return new AbilityCheckDescription(entity);
+        }
+
         public static T SetAbilityScoreName<T>(this T entity, System.String value)
             where T : AbilityCheckDescription
         {

@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(ItemPropertyDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class ItemPropertyDescriptionExtensions
     {
+        public static ItemPropertyDescription Copy(this ItemPropertyDescription entity)
+        {
+            return new ItemPropertyDescription(entity);
+        }
+
         public static T SetAppliesOnItemOnly<T>(this T entity, System.Boolean value)
             where T : ItemPropertyDescription
         {
