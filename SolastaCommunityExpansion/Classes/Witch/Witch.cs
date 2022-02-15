@@ -810,8 +810,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 witchFamiliarAttackIteration.MonsterAttackDefinition.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D1);
                 witchFamiliarAttackIteration.MonsterAttackDefinition.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(0);
 
-                var witchFamiliarMonsterBuilder = new MonsterDefinitionBuilder(
-                        MonsterDefinitions.Eagle_Matriarch, "WitchOwl", WITCH_BASE_GUID)
+                var witchFamiliarMonsterBuilder = MonsterDefinitionBuilder
+                        .Create(MonsterDefinitions.Eagle_Matriarch, "WitchOwl", WITCH_BASE_GUID)
                         .SetGuiPresentation("WitchOwlFamiliar", Category.Monster)
                         .SetFeatures(
                             FeatureDefinitionSenses.SenseNormalVision,
@@ -854,7 +854,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
                 var spell = SpellDefinitionBuilder
                     .Create(Fireball, "WitchFamiliar", WITCH_BASE_GUID)
-                    .SetGuiPresentation(Category.Spell)
+                    .SetGuiPresentation(Category.Spell, AnimalFriendship.GuiPresentation.SpriteReference)
                     .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
                     .SetMaterialComponent(RuleDefinitions.MaterialComponentType.None)
                     .SetSomaticComponent(true)
