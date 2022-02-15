@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
         private static CharacterSubclassDefinition Subclass;
         public static FeatureDefinitionPower FeatureDefinitionPowerRootsOfRock { get; private set; }
         public static FeatureDefinitionPower FeatureDefinitionPowerEarthshatter { get; private set; }
-        public static FeatureDefinitionPower FeatureDefinitionPowerMettle { get; private set; }
+        public static FeatureDefinitionSavingThrowAffinity FeatureDefinitionSavingThrowAffinityMettle { get; private set; }
         public static FeatureDefinitionPower FeatureDefinitionPowerImmortalMountain { get; private set; }
 
         internal static CharacterSubclassDefinition GetSubclass(CharacterClassDefinition wardenClass)
@@ -39,14 +39,14 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
                     .SetGuiPresentation("MovementRootsOfRock", Category.Modifier)
                     .AddToDB();
 
-                    var rootsOfRockRestrictedConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                        ConditionDefinitions.ConditionHeavilyEncumbered, "ConditionRootsOfRockRestricted", Namespace)
-                            .SetGuiPresentation("RootsOfRockRestricted", Category.Condition, ConditionDefinitions.ConditionRestrained.GuiPresentation.SpriteReference)
-                            .AddToDB()
-                        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
-                        .SetDurationParameter(1)
-                        .SetDurationType(RuleDefinitions.DurationType.Round)
-                        .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn);
+                    var rootsOfRockRestrictedConditionDefinition = ConditionDefinitionBuilder
+                        .Create(ConditionDefinitions.ConditionHeavilyEncumbered, "ConditionRootsOfRockRestricted", Namespace)
+                        .SetGuiPresentation("RootsOfRockRestricted", Category.Condition, ConditionDefinitions.ConditionRestrained.GuiPresentation.SpriteReference)
+                        .AddToDB()
+                    .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+                    .SetDurationParameter(1)
+                    .SetDurationType(RuleDefinitions.DurationType.Round)
+                    .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn);
                     rootsOfRockRestrictedConditionDefinition.RecurrentEffectForms.Clear();
                     rootsOfRockRestrictedConditionDefinition.Features.Clear();
                     rootsOfRockRestrictedConditionDefinition.Features.Add(rootsOfRockMovementAffinity);
@@ -61,14 +61,14 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
                         .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
                         .AddToDB();
 
-                    var rootsOfRockACConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                        ConditionDefinitions.ConditionShieldedByFaith, "ConditionRootsOfRockAC", Namespace)
-                            .SetGuiPresentation("RootsOfRockAC", Category.Condition, ConditionDefinitions.ConditionShieldedByFaith.GuiPresentation.SpriteReference)
-                            .AddToDB()
-                        .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
-                        .SetDurationParameter(1)
-                        .SetDurationType(RuleDefinitions.DurationType.Round)
-                        .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn);
+                    var rootsOfRockACConditionDefinition = ConditionDefinitionBuilder
+                        .Create(ConditionDefinitions.ConditionShieldedByFaith, "ConditionRootsOfRockAC", Namespace)
+                        .SetGuiPresentation("RootsOfRockAC", Category.Condition, ConditionDefinitions.ConditionShieldedByFaith.GuiPresentation.SpriteReference)
+                        .AddToDB()
+                    .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
+                    .SetDurationParameter(1)
+                    .SetDurationType(RuleDefinitions.DurationType.Round)
+                    .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn);
                     rootsOfRockACConditionDefinition.RecurrentEffectForms.Clear();
                     rootsOfRockACConditionDefinition.Features.Clear();
                     rootsOfRockACConditionDefinition.Features.Add(rootsOfRockAttributeModifier);
@@ -153,14 +153,14 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
             public static ConditionDefinition conditionProne { get; private set; }
             public EarthshatterEffectForm() : base()
             {
-                var earthshatterProneConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                    ConditionDefinitions.ConditionProne, "ConditionEarthshatterProne", Namespace)
-                        .SetGuiPresentation("EarthshatterProne", Category.Condition, ConditionDefinitions.ConditionProne.GuiPresentation.SpriteReference)
-                        .AddToDB()
-                    .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
-                    .SetDurationParameter(1)
-                    .SetDurationType(RuleDefinitions.DurationType.Round)
-                    .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn);
+                var earthshatterProneConditionDefinition = ConditionDefinitionBuilder
+                    .Create(ConditionDefinitions.ConditionProne, "ConditionEarthshatterProne", Namespace)
+                    .SetGuiPresentation("EarthshatterProne", Category.Condition, ConditionDefinitions.ConditionProne.GuiPresentation.SpriteReference)
+                    .AddToDB()
+                .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+                .SetDurationParameter(1)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn);
                 earthshatterProneConditionDefinition.RecurrentEffectForms.Clear();
 
                 conditionProne = earthshatterProneConditionDefinition;
@@ -241,9 +241,10 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
 
         private static void BuildMettle()
         {
-            FeatureDefinitionPowerMettle = FeatureDefinitionPowerBuilder
-                .Create("Mettle", Namespace)
-                .SetGuiPresentation(Category.Power, Resistance.GuiPresentation.SpriteReference)
+            FeatureDefinitionSavingThrowAffinityMettle = FeatureDefinitionSavingThrowAffinityBuilder
+                .Create(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityRogueEvasion, "Mettle", Namespace)
+                .SetGuiPresentation(Category.Feature, FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityRogueEvasion.GuiPresentation.SpriteReference)
+                .SetAffinities(RuleDefinitions.CharacterSavingThrowAffinity.SpecialHalfDamage, true, AttributeDefinitions.Constitution)
                 .AddToDB();
         }
 
@@ -259,8 +260,8 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
         {
             subclassBuilder
                 .AddFeatureAtLevel(FeatureDefinitionPowerRootsOfRock, 3)
-                .AddFeatureAtLevel(FeatureDefinitionPowerEarthshatter, 3);
-  //              .AddFeatureAtLevel(FeatureDefinitionPowerMettle, 3)
+                .AddFeatureAtLevel(FeatureDefinitionPowerEarthshatter, 3)
+                .AddFeatureAtLevel(FeatureDefinitionSavingThrowAffinityMettle, 3);
     //            .AddFeatureAtLevel(FeatureDefinitionPowerImmortalMountain, 3);
         }
 

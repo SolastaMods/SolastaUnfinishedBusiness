@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -212,14 +212,14 @@ namespace SolastaCommunityExpansion.Classes.Warden
                 .SetGuiPresentation("MovementWardenGrasp", Category.Modifier)
                 .AddToDB();
 
-            var wardenGraspConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                ConditionDefinitions.ConditionHeavilyEncumbered, "ConditionWardenGrasp", WARDEN_BASE_GUID)
-                    .SetGuiPresentation("WardenGrasp", Category.Condition, ConditionDefinitions.ConditionRestrained.GuiPresentation.SpriteReference)
-                    .AddToDB()
-                .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
-                .SetDurationParameter(1)
-                .SetDurationType(RuleDefinitions.DurationType.Round)
-                .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            var wardenGraspConditionDefinition = ConditionDefinitionBuilder
+                .Create(ConditionDefinitions.ConditionHeavilyEncumbered, "ConditionWardenGrasp", WARDEN_BASE_GUID)
+                .SetGuiPresentation("WardenGrasp", Category.Condition, ConditionDefinitions.ConditionRestrained.GuiPresentation.SpriteReference)
+                .AddToDB()
+            .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+            .SetDurationParameter(1)
+            .SetDurationType(RuleDefinitions.DurationType.Round)
+            .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
             wardenGraspConditionDefinition.RecurrentEffectForms.Clear();
             wardenGraspConditionDefinition.Features.Clear();
             wardenGraspConditionDefinition.Features.Add(wardenGraspMovementAffinity);
@@ -296,13 +296,13 @@ namespace SolastaCommunityExpansion.Classes.Warden
             public WardenResolveEffectForm() : base()
             {
                 if (conditionWardenResolve == null) {
-                    var wardenResolveConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                        ConditionDefinitions.ConditionRaging, "ConditionWardenResolve", WARDEN_BASE_GUID)
-                        .SetGuiPresentation("WardenResolve", Category.Condition, ConditionDefinitions.ConditionRestrained.GuiPresentation.SpriteReference)
+                    var wardenResolveConditionDefinition = ConditionDefinitionBuilder
+                        .Create(ConditionDefinitions.ConditionRaging, "ConditionWardenResolve", WARDEN_BASE_GUID)
+                        .SetGuiPresentation("WardenResolve", Category.Condition, ConditionDefinitions.ConditionRaging.GuiPresentation.SpriteReference)
                         .AddToDB()
                     .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
                     .SetDurationParameter(1)
-                    .SetDurationType(RuleDefinitions.DurationType.Round)
+                    .SetDurationType(RuleDefinitions.DurationType.Instantaneous)
                     .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn);
                     wardenResolveConditionDefinition.RecurrentEffectForms.Clear();
                     wardenResolveConditionDefinition.Features.Clear();
@@ -352,7 +352,7 @@ namespace SolastaCommunityExpansion.Classes.Warden
                 .SetDurationType(RuleDefinitions.DurationType.Permanent)
                 .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.StartOfTurn)
                 .SetRangeType(RuleDefinitions.RangeType.Self)
-                .SetRecurrentEffect(RuleDefinitions.RecurrentEffect.OnActivation | RuleDefinitions.RecurrentEffect.OnEnter | RuleDefinitions.RecurrentEffect.OnTurnStart)
+                .SetRecurrentEffect(RuleDefinitions.RecurrentEffect.OnActivation | RuleDefinitions.RecurrentEffect.OnTurnEnd | RuleDefinitions.RecurrentEffect.OnTurnStart)
                 .SetTargetType(RuleDefinitions.TargetType.Self);
             wardenResolveEffectDescription.EffectForms.Clear();
             wardenResolveEffectDescription.EffectForms.Add(new WardenResolveEffectForm());
@@ -427,22 +427,70 @@ namespace SolastaCommunityExpansion.Classes.Warden
         {
 
             var earthstrength = FeatureDefinitionFeatureSetBuilder
-                .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WardenEarthstrength", WARDEN_BASE_GUID)
-//                .SetFeatures(abc)
+                .Create(FeatureDefinitionFeatureSets.FeatureSetRangerHunterMultiAttackChoice, "WardenEarthstrength", WARDEN_BASE_GUID)
+                .SetGuiPresentation(Category.Feature)
+                .SetFeatures(FeatureDefinitionEquipmentAffinitys.EquipmentAffinityFeatHauler, FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityDwarvenPlateResistShove)
                 .AddToDB();
+/*
+            var thunderingChargeSpeed = FeatureDefinitionBuilder<FeatureDefinitionMovementAffinity>
+                .Create(FeatureDefinitionMovementAffinitys.MovementAffinitySixLeaguesBoots, "WardenThunderingChargeSpeed", WARDEN_BASE_GUID)
+                .SetGuiPresentation(Category.Modifier)
+                .AddToDB()
+            .SetBaseSpeedAdditiveModifier(6);
+
+            var thunderingChargeAdvantage = FeatureDefinitionBuilder<FeatureDefinitionCombatAffinity>
+                .Create(FeatureDefinitionCombatAffinitys.CombatAffinityReckless, "WardenThunderingChargeAdvantage", WARDEN_BASE_GUID)
+                .SetGuiPresentation(Category.Modifier)
+                .AddToDB();
+
+            var test = FeatureDefinitionConditionalPowerBuilder
+                .Create("test", WARDEN_BASE_GUID)
+                .
+*/
+/*
+            var thunderingChargeAdvantage = new ConditionDefinitionBuilder<ConditionDefinition>(
+                ConditionDefinitions.ConditionReckless, "ConditionWardenThunderingChargeAdvantage", WARDEN_BASE_GUID)
+                    .SetGuiPresentation("WardenThunderingChargeAdvantage", Category.Condition, ConditionDefinitions.ConditionReckless.GuiPresentation.SpriteReference)
+                    .AddToDB()
+                .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
+                .SetDurationParameter(1)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn)
+                .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacks);*/
 
             var thunderingCharge = FeatureDefinitionFeatureSetBuilder
-                .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WardenThunderingCharge", WARDEN_BASE_GUID)
-//                .SetFeatures(abc)
+                .Create(FeatureDefinitionFeatureSets.FeatureSetRangerHunterMultiAttackChoice, "WardenThunderingCharge", WARDEN_BASE_GUID)
+                .SetGuiPresentation(Category.Feature)
+//                .SetFeatures(thunderingChargeSpeed, thunderingChargeAdvantage)
                 .AddToDB();
 
+            var wildbloodInsight = new FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup();
+            wildbloodInsight.abilityCheckModifierDiceNumber = 5;
+            wildbloodInsight.abilityCheckModifierDieType = RuleDefinitions.DieType.D1;
+            wildbloodInsight.abilityScoreName = AttributeDefinitions.Intelligence;
+            wildbloodInsight.proficiencyName = SkillDefinitions.Investigation;
+
+            var wildbloodPerception = new FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup();
+            wildbloodPerception.abilityCheckModifierDiceNumber = 5;
+            wildbloodPerception.abilityCheckModifierDieType = RuleDefinitions.DieType.D1;
+            wildbloodPerception.abilityScoreName = AttributeDefinitions.Wisdom;
+            wildbloodPerception.proficiencyName = SkillDefinitions.Perception;
+
+            var wildbloodSkillBonus = FeatureDefinitionBuilder<FeatureDefinitionAbilityCheckAffinity>
+                .Create(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinitySpoonOfDiscord, "WardenWildbloodSkillBonus", WARDEN_BASE_GUID)
+                .SetGuiPresentation(Category.Modifier)
+                .AddToDB()
+            .SetAffinityGroups(wildbloodInsight, wildbloodPerception);
+
             var wildblood = FeatureDefinitionFeatureSetBuilder
-                .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WardenWildblood", WARDEN_BASE_GUID)
-//                .SetFeatures(abc)
+                .Create(FeatureDefinitionFeatureSets.FeatureSetRangerHunterMultiAttackChoice, "WardenWildblood", WARDEN_BASE_GUID)
+                .SetGuiPresentation(Category.Feature)
+                .SetFeatures(FeatureDefinitionCampAffinitys.CampAffinityDomainOblivionPeacefulRest, wildbloodSkillBonus)
                 .AddToDB();
 
             FeatureDefinitionFeatureSetSentinelStep = FeatureDefinitionFeatureSetBuilder
-                .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WardenFeatureSetSentinelStep", WARDEN_BASE_GUID)
+                .Create(FeatureDefinitionFeatureSets.FeatureSetRangerHunterMultiAttackChoice, "WardenFeatureSetSentinelStep", WARDEN_BASE_GUID)
+                .SetGuiPresentation(Category.Feature)
                 .SetFeatures(earthstrength, thunderingCharge, wildblood)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
                 .SetUniqueChoices(true)
@@ -468,14 +516,14 @@ namespace SolastaCommunityExpansion.Classes.Warden
                 .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.AttacksNumber, -1)
                 .AddToDB();
 
-            var wardenInterruptConditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(
-                ConditionDefinitions.ConditionSlowed, "ConditionWardenInterrupt", WARDEN_BASE_GUID)
-                    .SetGuiPresentation("WardenInterrupt", Category.Condition, ConditionDefinitions.ConditionSlowed.GuiPresentation.SpriteReference)
-                    .AddToDB()
-                .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
-                .SetDurationParameter(1)
-                .SetDurationType(RuleDefinitions.DurationType.Round)
-                .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            var wardenInterruptConditionDefinition = ConditionDefinitionBuilder
+                .Create(ConditionDefinitions.ConditionSlowed, "ConditionWardenInterrupt", WARDEN_BASE_GUID)
+                .SetGuiPresentation("WardenInterrupt", Category.Condition, ConditionDefinitions.ConditionSlowed.GuiPresentation.SpriteReference)
+                .AddToDB()
+            .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+            .SetDurationParameter(1)
+            .SetDurationType(RuleDefinitions.DurationType.Round)
+            .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
             wardenInterruptConditionDefinition.RecurrentEffectForms.Clear();
             wardenInterruptConditionDefinition.Features.Clear();
             wardenInterruptConditionDefinition.Features.Add(wardenInterruptAttributeModifier);
@@ -594,9 +642,9 @@ namespace SolastaCommunityExpansion.Classes.Warden
             BuildWardenResolve();
             BuildFontOfLife();
             BuildExtraAttack();
-//            BuildSentinelStep();
+            BuildSentinelStep();
             BuildUndying();
-//            BuildInterrupt();
+            BuildInterrupt();
             BuildSentinelSoul();
 
             var warden = classBuilder.AddToDB();
@@ -635,6 +683,8 @@ namespace SolastaCommunityExpansion.Classes.Warden
                         FeatureDefinitionProficiencySavingThrow,
                         FeatureDefinitionPointPoolSkills,
                         FeatureDefinitionFeatureSetSentinelStand,
+                        FeatureDefinitionPowerInterrupt,
+                        FeatureDefinitionFeatureSetSentinelStep,
                         FeatureDefinitionPowerWardenGrasp)
                     .AddFeaturesAtLevel(2,
                         FeatureDefinitionFightingStyleChoiceWarden)//,

@@ -27,7 +27,7 @@ namespace SolastaCommunityExpansion.FightingStyles
                 // This feels like deja vu with doing some patchwork in a very long function
                 // For now, give a flat +2 melee dmg
                 var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
-                    .Create(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageBracersOfArchery, "TitanFighting", TITAN_FIGHTING_BASE_GUID)
+                    .Create(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageBracersOfArchery, "ModifierTitanFighting", TITAN_FIGHTING_BASE_GUID)
                     // to extend with new condition? something like
 //                        .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.IsSizeLargeOrMore)
                     .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
