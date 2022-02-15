@@ -4,12 +4,12 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal class PowerPaladinCleansingTouchBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class PowerPaladinCleansingTouchBuilder : DefinitionBuilder<FeatureDefinitionPower>
     {
         private const string PowerPaladinCleansingTouchName = "ZSPowerPaladinCleansingTouch";
         private const string PowerPaladinCleansingTouchGuid = "71861ca1-61ed-4344-bb26-ef21232adddd";
 
-        protected PowerPaladinCleansingTouchBuilder(string name, string guid) : base(name, guid)
+        private PowerPaladinCleansingTouchBuilder(string name, string guid) : base(name, guid)
         {
             Definition.SetFixedUsesPerRecharge(0);
             Definition.SetUsesDetermination(RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed);
