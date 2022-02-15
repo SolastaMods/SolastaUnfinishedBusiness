@@ -40,7 +40,7 @@ namespace SolastaCommunityExpansion.Multiclass.CustomDefinitions
     //        .AddToDB();
     //}
 
-    internal class ArmorProficiencyMulticlassBuilder : DefinitionBuilder<FeatureDefinitionProficiency>
+    internal sealed class ArmorProficiencyMulticlassBuilder : DefinitionBuilder<FeatureDefinitionProficiency>
     {
         private const string BarbarianArmorProficiencyMulticlassName = "BarbarianArmorProficiencyMulticlass";
         private const string BarbarianArmorProficiencyMulticlassGuid = "5dffec907a424fccbfec103344421b51";
@@ -54,7 +54,7 @@ namespace SolastaCommunityExpansion.Multiclass.CustomDefinitions
         private const string WardenArmorProficiencyMulticlassName = "WardenArmorProficiencyMulticlass";
         private const string WardenArmorProficiencyMulticlassGuid = "19666e846975401b819d1ae72c5d27ac";
 
-        protected ArmorProficiencyMulticlassBuilder(string name, string guid, string title, List<string> proficienciesToReplace) : base(ProficiencyFighterArmor, name, guid)
+        private ArmorProficiencyMulticlassBuilder(string name, string guid, string title, List<string> proficienciesToReplace) : base(ProficiencyFighterArmor, name, guid)
         {
             Definition.Proficiencies.SetRange(proficienciesToReplace);
             Definition.GuiPresentation.Title = title;

@@ -73,6 +73,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             return GuidHelper.Create(SubclassNamespace, featureName).ToString();
         }
 
+        // TODO: convert to lazy loading?
         private static ConditionDefinition IlluminatedCondition { get; } = IlluminatedConditionDefinitionBuilder
             .Create(IlluminatedConditionName, SubclassNamespace)
             .SetGuiPresentation("BarbarianPathOfTheLightIlluminatedCondition", Category.Subclass, ConditionBranded.GuiPresentation.SpriteReference)
@@ -92,6 +93,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 })
             .AddToDB();
 
+        // TODO: convert to lazy loading?
         private static FeatureDefinition IlluminatingStrike { get; } = FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>
             .Create("PathOfTheLightIlluminatingStrikeFeatureSet", SubclassNamespace)
             .SetGuiPresentation("BarbarianPathOfTheLightIlluminatingStrike", Category.Subclass)
@@ -115,11 +117,13 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             .AddToDB();
 
         // Dummy feature to show in UI
+        // TODO: convert to lazy loading?
         private static FeatureDefinition IlluminatingStrikeImprovement { get; } = FeatureDefinitionBuilder<FeatureDefinition>
             .Create("PathOfTheLightIlluminatingStrikeImprovement", SubclassNamespace)
             .SetGuiPresentation("BarbarianPathOfTheLightIlluminatingStrikeImprovement", Category.Subclass)
             .AddToDB();
 
+        // TODO: convert to lazy loading?
         private static FeatureDefinition PierceTheDarkness { get; } = FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>
             .Create("PathOfTheLightPierceTheDarkness", SubclassNamespace)
             .SetGuiPresentation("BarbarianPathOfTheLightPierceTheDarkness", Category.Subclass)
@@ -135,6 +139,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 })
             .AddToDB();
 
+        // TODO: convert to lazy loading?
         private static FeatureDefinition LightsProtection { get; } = FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>
             .Create("PathOfTheLightLightsProtection", SubclassNamespace)
             .SetGuiPresentation("BarbarianPathOfTheLightLightsProtection", Category.Subclass)
@@ -182,6 +187,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             }
         }
 
+        // TODO: convert to lazy loading?
         private static FeatureDefinition EyesOfTruth { get; } = CreateEyesOfTruth();
 
         private static FeatureDefinition CreateEyesOfTruth()
@@ -250,6 +256,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 .AddToDB();
         }
 
+        // TODO: convert to lazy loading?
         private static FeatureDefinition IlluminatingBurst { get; } = FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>
             .Create("PathOfTheLightIlluminatingBurstFeatureSet", SubclassNamespace)
             .SetGuiPresentation("BarbarianPathOfTheLightIlluminatingBurst", Category.Subclass)
@@ -318,6 +325,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 .AddToDB();
         }
 
+        // TODO: convert to lazy loading?
         private static FeatureDefinitionAttackDisadvantageAgainstNonSource DisadvantageAgainstNonSource { get; } =
             FeatureDefinitionBuilder<FeatureDefinitionAttackDisadvantageAgainstNonSource>
                 .Create("PathOfTheLightIlluminatedDisadvantage", SubclassNamespace)
@@ -327,6 +335,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 .AddToDB();
 
         // Prevents a creature from turning invisible by "granting" immunity to invisibility
+        // TODO: convert to lazy loading?
         private static FeatureDefinition PreventInvisibility { get; } = FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>
             .Create("PathOfTheLightIlluminatedPreventInvisibility", SubclassNamespace)
             .SetGuiPresentation("Feature/&NoContentTitle", "Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription")
@@ -357,6 +366,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 })
             .AddToDB();
 
+        // TODO: convert to lazy loading?
         private static ConditionDefinition IlluminatingBurstSuppressedCondition { get; } = ConditionDefinitionBuilder
             .Create("PathOfTheLightIlluminatingBurstSuppressedCondition", SubclassNamespace)
             .SetGuiPresentationNoContent(true)

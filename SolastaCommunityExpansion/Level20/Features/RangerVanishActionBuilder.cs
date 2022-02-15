@@ -4,12 +4,12 @@ using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal class RangerVanishActionBuilder : DefinitionBuilder<FeatureDefinitionActionAffinity>
+    internal sealed class RangerVanishActionBuilder : DefinitionBuilder<FeatureDefinitionActionAffinity>
     {
         private const string RangerVanishActionName = "ZSAdditionalActionVanish";
         private const string RangerVanishActionGuid = "83711ec64d8c47bfa91053a00a1d0a83";
 
-        protected RangerVanishActionBuilder(string name, string guid) : base(ActionAffinityRogueCunningAction, name, guid)
+        private RangerVanishActionBuilder(string name, string guid) : base(ActionAffinityRogueCunningAction, name, guid)
         {
             Definition.GuiPresentation.Title = "Feature/&RangerVanishActionTitle";
             Definition.GuiPresentation.Description = "Feature/&RangerVanishActionDescription";

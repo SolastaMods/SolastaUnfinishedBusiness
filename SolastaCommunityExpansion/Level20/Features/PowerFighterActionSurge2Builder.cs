@@ -4,12 +4,12 @@ using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal class PowerFighterActionSurge2Builder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class PowerFighterActionSurge2Builder : DefinitionBuilder<FeatureDefinitionPower>
     {
         private const string PowerFighterActionSurgeName = "ZSPowerFighterActionSurge2";
         private const string PowerFighterActionSurgeGuid = "a20a3955a66142e5ba9d2580a71b6c36";
 
-        protected PowerFighterActionSurge2Builder(string name, string guid) : base(PowerFighterActionSurge, name, guid)
+        private PowerFighterActionSurge2Builder(string name, string guid) : base(PowerFighterActionSurge, name, guid)
         {
             Definition.SetFixedUsesPerRecharge(2);
             Definition.SetOverriddenPower(PowerFighterActionSurge);

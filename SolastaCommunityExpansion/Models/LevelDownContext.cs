@@ -11,14 +11,14 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class LevelDownContext
     {
-        internal class RestActivityLevelDownBuilder : DefinitionBuilder<RestActivityDefinition>
+        internal sealed class RestActivityLevelDownBuilder : DefinitionBuilder<RestActivityDefinition>
         {
             private const string LevelDownName = "ZSLevelDown";
             private const string LevelDownGuid = "fdb4d86eaef942d1a22dbf1fb5a7299f";
 
             private const RestActivityDefinition.ActivityCondition ActivityConditionCanLevelDown = (RestActivityDefinition.ActivityCondition)(-1002);
 
-            protected RestActivityLevelDownBuilder(string name, string guid) : base(LevelUp, name, guid)
+            private RestActivityLevelDownBuilder(string name, string guid) : base(LevelUp, name, guid)
             {
                 Definition.GuiPresentation.Title = "RestActivity/&ZSLevelDownTitle";
                 Definition.GuiPresentation.Description = "RestActivity/&ZSLevelDownDescription";
@@ -38,8 +38,8 @@ namespace SolastaCommunityExpansion.Models
         public class FunctorLevelDown : Functor
         {
             public override IEnumerator Execute(
-              FunctorParametersDescription functorParameters,
-              FunctorExecutionContext context)
+                FunctorParametersDescription functorParameters,
+                FunctorExecutionContext context)
             {
                 var rulesetCharacterHero = functorParameters.RestingHero;
                 var state = -1;
