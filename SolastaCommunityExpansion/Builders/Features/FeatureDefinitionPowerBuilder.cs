@@ -1,10 +1,10 @@
 ﻿using System;
-using SolastaModApi;
+using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionPowerBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
+    public class FeatureDefinitionPowerBuilder : DefinitionBuilder<FeatureDefinitionPower>
     {
         public FeatureDefinitionPowerBuilder(string name, string guid, int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
             string usesAbilityScoreName,

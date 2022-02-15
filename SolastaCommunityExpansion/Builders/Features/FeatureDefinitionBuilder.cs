@@ -1,9 +1,8 @@
 ﻿using System;
-using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionBuilder<TDefinition> : BaseDefinitionBuilder<TDefinition> where TDefinition : FeatureDefinition
+    public sealed class FeatureDefinitionBuilder<TDefinition> : DefinitionBuilder<TDefinition> where TDefinition : FeatureDefinition
     {
         #region Standard constructors
         private FeatureDefinitionBuilder(string name, string guid)

@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class TreasureTableDefinitionBuilder : BaseDefinitionBuilder<TreasureTableDefinition>
+    public class TreasureTableDefinitionBuilder : DefinitionBuilder<TreasureTableDefinition>
     {
         protected TreasureTableDefinitionBuilder(TreasureTableDefinition original, string name, string guid) : base(original, name, guid)
         {

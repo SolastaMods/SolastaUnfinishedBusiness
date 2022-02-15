@@ -7,7 +7,7 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class ItemDefinitionBuilder : BaseDefinitionBuilder<ItemDefinition>
+    public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition>
     {
         public ItemDefinitionBuilder(string name, string guid)
             : base(name, guid)

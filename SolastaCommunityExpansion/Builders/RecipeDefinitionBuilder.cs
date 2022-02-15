@@ -1,10 +1,9 @@
 ﻿using System;
-using SolastaModApi;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class RecipeDefinitionBuilder : BaseDefinitionBuilder<RecipeDefinition>
+    public class RecipeDefinitionBuilder : DefinitionBuilder<RecipeDefinition>
     {
         public RecipeDefinitionBuilder(string name, string guid) : base(name, guid)
         {
