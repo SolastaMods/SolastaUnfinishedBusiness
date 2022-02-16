@@ -400,7 +400,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public MonsterDefinitionBuilder ClearLegendaryActionOptions()
         {
-            Definition.LegendaryActionOptions.Clear();
+            Definition.ClearLegendaryActionOptions();
             return this;
         }
 
@@ -411,7 +411,18 @@ namespace SolastaCommunityExpansion.Builders
 
         public MonsterDefinitionBuilder AddLegendaryActionOptions(IEnumerable<LegendaryActionDescription> legendaryActionDescriptions)
         {
-            Definition.LegendaryActionOptions.AddRange(legendaryActionDescriptions);
+            Definition.AddLegendaryActionOptions(legendaryActionDescriptions);
+            return this;
+        }
+
+        public MonsterDefinitionBuilder SetLegendaryActionOptions(params LegendaryActionDescription[] legendaryActionDescriptions)
+        {
+            return SetLegendaryActionOptions(legendaryActionDescriptions.AsEnumerable());
+        }
+
+        public MonsterDefinitionBuilder SetLegendaryActionOptions(IEnumerable<LegendaryActionDescription> legendaryActionDescriptions)
+        {
+            Definition.SetLegendaryActionOptions(legendaryActionDescriptions);
             return this;
         }
 
@@ -430,6 +441,12 @@ namespace SolastaCommunityExpansion.Builders
         public MonsterDefinitionBuilder ClearSavingThrowScores()
         {
             Definition.SavingThrowScores.Clear();
+            return this;
+        }
+
+        public MonsterDefinitionBuilder ClearCreatureTags()
+        {
+            Definition.ClearCreatureTags();
             return this;
         }
 
