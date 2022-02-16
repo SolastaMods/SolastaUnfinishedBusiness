@@ -4,6 +4,11 @@ using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Builders
 {
+    /// <summary>
+    /// Abstract ConditionDefinitionBuilder that allows creating builders for custom ConditionDefinition types.
+    /// </summary>
+    /// <typeparam name="TDefinition"></typeparam>
+    /// <typeparam name="TBuilder"></typeparam>
     public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
         where TDefinition : ConditionDefinition
         where TBuilder : ConditionDefinitionBuilder<TDefinition, TBuilder>
@@ -41,13 +46,19 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
+        // Setters delegating to Definition
         public TBuilder SetAmountOrigin(ConditionDefinition.OriginOfAmount value)
         {
             Definition.SetAmountOrigin(value);
             return (TBuilder)this;
         }
+
+        // TODO: add more methods as required (and that aren't delegating property setters to add value)
     }
 
+    /// <summary>
+    /// Concrete ConditionDefinitionBuilder that allows building ConditionDefinition.
+    /// </summary>
     public class ConditionDefinitionBuilder :
         ConditionDefinitionBuilder<ConditionDefinition, ConditionDefinitionBuilder>
     {
