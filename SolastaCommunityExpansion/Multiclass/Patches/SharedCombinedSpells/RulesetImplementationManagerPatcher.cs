@@ -1,13 +1,11 @@
 ﻿using System.Linq;
 using HarmonyLib;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
-using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 
 namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
 {
     internal static class RulesetImplementationManagerPatcher
     {
-        internal static CharacterClassDefinition RestActivityInvokerClass { get; set; }
         internal static RulesetCharacterHero HeroWithSpellRepertoire { get; set; }
         internal static RulesetSpellRepertoire SpellRepertoire { get; set; }
 
