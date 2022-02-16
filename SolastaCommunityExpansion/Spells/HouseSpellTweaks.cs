@@ -30,15 +30,13 @@ namespace SolastaCommunityExpansion.Spells
             spikeGrowthEffect.SetTargetParameter2(1);
 
             // Entangle is more difficult because it's a cube, and what we need is a Square Cylinder height 1.
-/*            var entangleEffect = Entangle.EffectDescription;
+            var entangleEffect = Entangle.EffectDescription;
             entangleEffect.EffectForms
                 .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
                 .ToList()
                 .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(false));
-
-            entangleEffect.SetTargetType(RuleDefinitions.TargetType.CubeWithOffset);
-            entangleEffect.SetTargetParameter();
-*/        }
+            entangleEffect.SetTargetParameter2(1);
+        }
 
         public static void AddBleedingToRestoration()
         {
