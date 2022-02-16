@@ -31,21 +31,21 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             dbCharacterClassDefinition.TryGetElement(CLASS_TINKERER, out var unofficialTinkerer);
             dbCharacterClassDefinition.TryGetElement(CLASS_WARDEN, out var unofficialWarden);
             dbCharacterClassDefinition.TryGetElement(CLASS_WITCH, out var unofficialWitch);
-            dbCharacterClassDefinition.TryGetElement(CLASS_ALCHEMIST, out CharacterClassDefinition unofficialAlchemist);
-            dbCharacterClassDefinition.TryGetElement(CLASS_BARD, out CharacterClassDefinition unofficialBard);
-            dbCharacterClassDefinition.TryGetElement(CLASS_MONK, out CharacterClassDefinition unofficialMonk);
-            dbCharacterClassDefinition.TryGetElement(CLASS_WARLOCK, out CharacterClassDefinition unofficialWarlock);
+            dbCharacterClassDefinition.TryGetElement(CLASS_ALCHEMIST, out var unofficialAlchemist);
+            dbCharacterClassDefinition.TryGetElement(CLASS_BARD, out var unofficialBard);
+            dbCharacterClassDefinition.TryGetElement(CLASS_MONK, out var unofficialMonk);
+            dbCharacterClassDefinition.TryGetElement(CLASS_WARLOCK, out var unofficialWarlock);
 
             DummyClass = CharacterClassDefinitionBuilder.Create("DummyClass", "062d696ab44146e0b316188f943d8079").AddToDB();
 
             // NOTE: don't use ?? here which bypasses Unity object lifetime check
-            TinkererClass = unofficialTinkerer ? DummyClass : unofficialTinkerer;
-            WardenClass = unofficialWarden ? DummyClass : unofficialWarden;
-            WitchClass = unofficialWitch ? DummyClass : unofficialWitch;
-            AlchemistClass = unofficialAlchemist ? DummyClass : unofficialAlchemist;
-            BardClass = unofficialBard ? DummyClass : unofficialBard;
-            MonkClass = unofficialMonk ? DummyClass : unofficialMonk;
-            WarlockClass = unofficialWarlock ? DummyClass : unofficialWarlock;
+            TinkererClass = unofficialTinkerer == null ? DummyClass : unofficialTinkerer;
+            WardenClass = unofficialWarden == null ? DummyClass : unofficialWarden;
+            WitchClass = unofficialWitch == null ? DummyClass : unofficialWitch;
+            AlchemistClass = unofficialAlchemist == null ? DummyClass : unofficialAlchemist;
+            BardClass = unofficialBard == null ? DummyClass : unofficialBard;
+            MonkClass = unofficialMonk == null ? DummyClass : unofficialMonk;
+            WarlockClass = unofficialWarlock == null ? DummyClass : unofficialWarlock;
         }
 
         internal static bool IsExtraContentInstalled => WarlockClass != DummyClass;
