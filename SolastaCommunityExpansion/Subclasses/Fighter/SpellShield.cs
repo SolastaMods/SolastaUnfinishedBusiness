@@ -89,7 +89,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             ConditionDefinition deflectionCondition = ConditionDefinitionBuilder
                 .Create("ConditionSpellShieldArcaneDeflection", SubclassNamespace)
                 .SetGuiPresentation(Category.Subclass)
-                .Configure<ConditionDefinitionBuilder>(definition =>
+                .Configure(definition =>
                 {
                     var attributeModifier = FeatureDefinitionAttributeModifierBuilder
                         .Create("AttributeSpellShieldArcaneDeflection", SubclassNamespace)

@@ -4,10 +4,11 @@ using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public abstract class ConditionDefinitionBuilder<TDefinition> : DefinitionBuilder<TDefinition> where TDefinition : ConditionDefinition
+    public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
+        where TDefinition : ConditionDefinition
+        where TBuilder : ConditionDefinitionBuilder<TDefinition, TBuilder>
     {
-        protected ConditionDefinitionBuilder(string name, string guid)
-            : base(name, guid)
+        private void ClearParticleReferences()
         {
             var assetReference = new AssetReference();
 
@@ -18,16 +19,16 @@ namespace SolastaCommunityExpansion.Builders
                 .SetCharacterShaderReference(assetReference);
         }
 
+        protected ConditionDefinitionBuilder(string name, string guid)
+            : base(name, guid)
+        {
+            ClearParticleReferences();
+        }
+
         protected ConditionDefinitionBuilder(string name, Guid guidNamespace)
             : base(name, guidNamespace)
         {
-            var assetReference = new AssetReference();
-
-            Definition
-                .SetConditionStartParticleReference(assetReference)
-                .SetConditionParticleReference(assetReference)
-                .SetConditionEndParticleReference(assetReference)
-                .SetCharacterShaderReference(assetReference);
+            ClearParticleReferences();
         }
 
         protected ConditionDefinitionBuilder(TDefinition original, string name, Guid guidNamespace)
@@ -40,14 +41,15 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public ConditionDefinitionBuilder<TDefinition> SetAmountOrigin(ConditionDefinition.OriginOfAmount value)
+        public TBuilder SetAmountOrigin(ConditionDefinition.OriginOfAmount value)
         {
             Definition.SetAmountOrigin(value);
-            return this;
+            return (TBuilder)this;
         }
     }
 
-    public class ConditionDefinitionBuilder : ConditionDefinitionBuilder<ConditionDefinition>
+    public class ConditionDefinitionBuilder :
+        ConditionDefinitionBuilder<ConditionDefinition, ConditionDefinitionBuilder>
     {
         protected ConditionDefinitionBuilder(string name, string guid)
             : base(name, guid)

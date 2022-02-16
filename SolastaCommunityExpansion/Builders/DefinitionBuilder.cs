@@ -49,7 +49,7 @@ namespace SolastaCommunityExpansion.Builders
                 return;
             }
 
-            if (definitionNames.TryGetValue(definitionName, out var item))
+            if (DefinitionNames.TryGetValue(definitionName, out var item))
             {
                 var msg = Environment.NewLine +
                     $"Adding definition of type '{definitionTypeName}' and name '{definitionName}'." +
@@ -63,10 +63,10 @@ namespace SolastaCommunityExpansion.Builders
 #endif
             }
 
-            definitionNames.Add(definitionName, (definitionTypeName, true));
+            DefinitionNames.Add(definitionName, (definitionTypeName, true));
         }
 
-        private static Dictionary<string, (string typeName, bool isCeDef)> definitionNames { get; } = GetAllDefinitionNames();
+        private static Dictionary<string, (string typeName, bool isCeDef)> DefinitionNames { get; } = GetAllDefinitionNames();
 
         private static Dictionary<string, (string typeName, bool isCeDef)> GetAllDefinitionNames()
         {
@@ -507,6 +507,29 @@ namespace SolastaCommunityExpansion.Builders
             }
 
             return (TBuilder)this;
+        }
+    }
+
+    /// <summary>
+    ///     Base class builder for all classes derived from BaseDefinition (for internal use only).
+    /// </summary>
+    /// <typeparam name="TDefinition"></typeparam>
+    /// <typeparam name="TBuilder"></typeparam>
+    public abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition>
+        where TDefinition : BaseDefinition
+        where TBuilder : DefinitionBuilder<TDefinition, TBuilder>
+    {
+        private protected DefinitionBuilder(TDefinition original) : base(original) { }
+        private protected DefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid) { }
+        private protected DefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid) { }
+        private protected DefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation) { }
+        private protected DefinitionBuilder(TDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation) { }
+        private protected DefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid) { }
+        private protected DefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid) { }
+
+        internal TBuilder Configure(Action<TDefinition> configureDefinition)
+        {
+            return Configure<TBuilder>(configureDefinition);
         }
     }
 

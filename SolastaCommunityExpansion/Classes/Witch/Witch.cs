@@ -337,7 +337,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var abateConditionDefinition = ConditionDefinitionBuilder
                 .Create(ConditionDefinitions.ConditionShocked, "ConditionAbate", WITCH_BASE_GUID)
                 .SetGuiPresentation("Abate", Category.Condition, ConditionDefinitions.ConditionShocked.GuiPresentation.SpriteReference)
-                .Configure<ConditionDefinitionBuilder>(definition =>
+                .Configure(definition =>
                 {
                     definition
                         .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
@@ -383,7 +383,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var apathyConditionDefinition = ConditionDefinitionBuilder
                 .Create(ConditionDefinitions.ConditionCalmedByCalmEmotionsEnemy, "ConditionApathy", WITCH_BASE_GUID)
                 .SetGuiPresentation("Apathy", Category.Condition, ConditionDefinitions.ConditionCalmedByCalmEmotionsEnemy.GuiPresentation.SpriteReference)
-                .Configure<ConditionDefinitionBuilder>(definition =>
+                .Configure(definition =>
                 {
                     definition
                         .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
@@ -429,7 +429,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var charmConditionDefinition = ConditionDefinitionBuilder
                 .Create(ConditionDefinitions.ConditionCharmed, "ConditionCharm", WITCH_BASE_GUID)
                 .SetGuiPresentation("Charm", Category.Condition, ConditionDefinitions.ConditionCharmed.GuiPresentation.SpriteReference)
-                .Configure<ConditionDefinitionBuilder>(definition =>
+                .Configure(definition =>
                 {
                     definition
                         .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
@@ -482,7 +482,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var disorientConditionDefinition = ConditionDefinitionBuilder
                 .Create(ConditionDefinitions.ConditionBaned, "ConditionDisorient", WITCH_BASE_GUID)
                 .SetGuiPresentation("Disorient", Category.Condition, ConditionDefinitions.ConditionBaned.GuiPresentation.SpriteReference)
-                .Configure<ConditionDefinitionBuilder>(definition =>
+                .Configure(definition =>
                 {
                     definition
                         .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
@@ -531,7 +531,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var evileyeConditionDefinition = ConditionDefinitionBuilder
                 .Create(ConditionDefinitions.ConditionFrightenedFear, "ConditionEvilEye", WITCH_BASE_GUID)
                 .SetGuiPresentation("EvilEye", Category.Condition, ConditionDefinitions.ConditionFrightenedFear.GuiPresentation.SpriteReference)
-                .Configure<ConditionDefinitionBuilder>(definition =>
+                .Configure(definition =>
                 {
                     definition
                         .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
@@ -598,7 +598,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var poxConditionDefinition = ConditionDefinitionBuilder
                 .Create(ConditionDefinitions.ConditionPoisoned, "ConditionPox", WITCH_BASE_GUID)
                 .SetGuiPresentation("Pox", Category.Condition, ConditionDefinitions.ConditionPoisoned.GuiPresentation.SpriteReference)
-                .Configure<ConditionDefinitionBuilder>(definition =>
+                .Configure(definition =>
                 {
                     definition
                         .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
@@ -652,7 +652,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var ruinConditionDefinition = ConditionDefinitionBuilder
                 .Create(ConditionDefinitions.ConditionAcidArrowed, "ConditionRuin", WITCH_BASE_GUID)
                 .SetGuiPresentation("Ruin", Category.Condition, ConditionDefinitions.ConditionAcidArrowed.GuiPresentation.SpriteReference)
-                .Configure<ConditionDefinitionBuilder>(definition =>
+                .Configure(definition =>
                 {
                     definition
                         .SetConditionType(RuleDefinitions.ConditionType.Detrimental)

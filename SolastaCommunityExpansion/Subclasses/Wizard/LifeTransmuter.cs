@@ -178,7 +178,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             return ConditionDefinitionBuilder
                 .Create(name, SubclassNamespace)
                 .SetGuiPresentation(guiPresentation)
-                .Configure<ConditionDefinitionBuilder>(definition =>
+                .Configure(definition =>
                 {
                     definition.Features.AddRange(conditionFeatures);
                     definition

@@ -6,6 +6,7 @@ namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionPowerBuilder : DefinitionBuilder<FeatureDefinitionPower>
     {
+        // TODO: factor out
         public FeatureDefinitionPowerBuilder(string name, string guid, int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
             string usesAbilityScoreName,
             RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge,
