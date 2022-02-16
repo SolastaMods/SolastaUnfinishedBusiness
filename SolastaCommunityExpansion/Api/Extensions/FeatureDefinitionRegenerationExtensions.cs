@@ -85,6 +85,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetParticlePrefab<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
+            where T : FeatureDefinitionRegeneration
+        {
+            entity.SetField("particlePrefab", value);
+            return entity;
+        }
+
         public static T SetPreventingDamages<T>(this T entity,  params  System . String [ ]  value)
             where T : FeatureDefinitionRegeneration
         {

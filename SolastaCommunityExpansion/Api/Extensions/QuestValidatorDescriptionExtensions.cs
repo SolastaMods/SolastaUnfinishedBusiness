@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(QuestValidatorDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class QuestValidatorDescriptionExtensions
     {
+        public static QuestValidatorDescription Copy(this QuestValidatorDescription entity)
+        {
+            return new QuestValidatorDescription(entity);
+        }
+
         public static T SetBoolParameter<T>(this T entity, System.Boolean value)
             where T : QuestValidatorDescription
         {

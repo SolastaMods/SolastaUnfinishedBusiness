@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(DeviceFunctionDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class DeviceFunctionDescriptionExtensions
     {
+        public static DeviceFunctionDescription Copy(this DeviceFunctionDescription entity)
+        {
+            return new DeviceFunctionDescription(entity);
+        }
+
         public static T SetCanOverchargeSpell<T>(this T entity, System.Boolean value)
             where T : DeviceFunctionDescription
         {

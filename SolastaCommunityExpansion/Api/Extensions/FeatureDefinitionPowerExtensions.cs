@@ -211,6 +211,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetTriggeredBySpecialMove<T>(this T entity, System.Boolean value)
+            where T : FeatureDefinitionPower
+        {
+            entity.SetField("triggeredBySpecialMove", value);
+            return entity;
+        }
+
         public static T SetUniqueInstance<T>(this T entity, System.Boolean value)
             where T : FeatureDefinitionPower
         {

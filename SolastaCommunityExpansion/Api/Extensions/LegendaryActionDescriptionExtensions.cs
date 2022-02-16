@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(LegendaryActionDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class LegendaryActionDescriptionExtensions
     {
+        public static LegendaryActionDescription Copy(this LegendaryActionDescription entity)
+        {
+            return new LegendaryActionDescription(entity);
+        }
+
         public static T SetCanMove<T>(this T entity, System.Boolean value)
             where T : LegendaryActionDescription
         {

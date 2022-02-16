@@ -21,8 +21,15 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                 }
 
                 var spellSlotsForm = effectForm.SpellSlotsForm;
+                var invokerClass = formsParams.activeEffect.Name switch
+                {
+                    "PowerAlchemistSpellBonusRecovery" => Models.IntegrationContext.TinkererClass,
+                    "PowerWizardArcaneRecovery" => Wizard,
+                    "PowerCircleLandNaturalRecovery" => Druid,
+                    _ => null,
+                };
 
-                if (spellSlotsForm.Type == SpellSlotsForm.EffectType.RecoverHalfLevelUp)
+                if (spellSlotsForm.Type == SpellSlotsForm.EffectType.RecoverHalfLevelUp && invokerClass != null)
                 {
                     var sourceCharacter = formsParams.sourceCharacter as RulesetCharacterHero;
 
@@ -30,15 +37,18 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                     {
                         var currentValue = 0;
 
-                        if (spellRepertoire.SpellCastingClass != null)
+                        if (spellRepertoire.SpellCastingClass == invokerClass)
                         {
-                            currentValue = sourceCharacter.ClassesAndLevels[spellRepertoire.SpellCastingClass];
+                            currentValue = sourceCharacter.ClassesAndLevels[invokerClass];
                         }
                         else if (spellRepertoire.SpellCastingSubclass != null)
                         {
                             var characterClass = sourceCharacter.ClassesAndSubclasses.FirstOrDefault(x => x.Value == spellRepertoire.SpellCastingSubclass).Key;
 
-                            currentValue = sourceCharacter.ClassesAndLevels[characterClass];
+                            if (characterClass == invokerClass)
+                            {
+                                currentValue = sourceCharacter.ClassesAndLevels[invokerClass];
+                            }
                         }
 
                         if (currentValue > 0)
@@ -52,16 +62,6 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                 }
                 else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSpellSlot || spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSorceryPoints)
                 {
-                    //var sourceCharacter = formsParams.sourceCharacter as RulesetCharacterHero;
-                    //foreach (RulesetSpellRepertoire spellRepertoire in sourceCharacter.SpellRepertoires)
-                    //{
-                    //    if ((BaseDefinition)spellRepertoire.SpellCastingClass != (BaseDefinition)null || (BaseDefinition)spellRepertoire.SpellCastingSubclass != (BaseDefinition)null)
-                    //    {
-                    //        Gui.GuiService.GetScreen<FlexibleCastingModal>().ShowFlexibleCasting((RulesetCharacter)sourceCharacter, spellRepertoire, spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSpellSlot);
-                    //        break;
-                    //    }
-                    //}
-
                     HeroWithSpellRepertoire = formsParams.sourceCharacter as RulesetCharacterHero;
                     SpellRepertoire = HeroWithSpellRepertoire.SpellRepertoires.Find(sr => sr.SpellCastingClass == Sorcerer);
 
@@ -76,9 +76,6 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                 }
                 else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.RecovererSorceryHalfLevelUp)
                 {
-                    //var sourceCharacter = formsParams.sourceCharacter as RulesetCharacterHero;
-                    //int currentValue = sourceCharacter.GetAttribute("CharacterLevel").CurrentValue;
-
                     HeroWithSpellRepertoire = formsParams.sourceCharacter as RulesetCharacterHero;
                     SpellRepertoire = HeroWithSpellRepertoire.SpellRepertoires.Find(sr => sr.SpellCastingClass == Sorcerer);
 
