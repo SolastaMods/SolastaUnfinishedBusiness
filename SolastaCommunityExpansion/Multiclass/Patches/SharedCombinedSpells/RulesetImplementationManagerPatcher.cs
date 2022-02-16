@@ -23,14 +23,21 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                 }
 
                 var spellSlotsForm = effectForm.SpellSlotsForm;
+                var invokerClass = formsParams.activeEffect.Name switch
+                {
+                    "PowerAlchemistSpellBonusRecovery" => Models.IntegrationContext.TinkererClass,
+                    "PowerWizardArcaneRecovery" => Wizard,
+                    "PowerCircleLandNaturalRecovery" => Druid,
+                    _ => null,
+                };
 
-                if (spellSlotsForm.Type == SpellSlotsForm.EffectType.RecoverHalfLevelUp && RestActivityInvokerClass != null)
+                if (spellSlotsForm.Type == SpellSlotsForm.EffectType.RecoverHalfLevelUp && invokerClass != null)
                 {
                     var sourceCharacter = formsParams.sourceCharacter as RulesetCharacterHero;
 
                     foreach (var spellRepertoire in sourceCharacter.SpellRepertoires)
                     {
-                        var currentValue = sourceCharacter.ClassesAndLevels[RestActivityInvokerClass];
+                        var currentValue = sourceCharacter.ClassesAndLevels[invokerClass];
                         var slotsCapital = currentValue % 2 == 0 ? currentValue / 2 : (currentValue + 1) / 2;
 
                         Gui.GuiService.GetScreen<SlotRecoveryModal>().ShowSlotRecovery(sourceCharacter, formsParams.activeEffect.SourceDefinition.Name, spellRepertoire, slotsCapital, spellSlotsForm.MaxSlotLevel);
