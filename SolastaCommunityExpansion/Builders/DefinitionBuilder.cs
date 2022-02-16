@@ -84,6 +84,9 @@ namespace SolastaCommunityExpansion.Builders
             return definitions;
         }
 
+        private protected static readonly MethodInfo GetDatabaseMethodInfo =
+            typeof(DatabaseRepository).GetMethod("GetDatabase", BindingFlags.Public | BindingFlags.Static);
+
         protected const string CENamePrefix = "_CE_";
         protected static readonly Guid CENamespaceGuid = new("4ce4cabe-0d35-4419-86ef-13ce1bef32fd");
     }
@@ -381,8 +384,7 @@ namespace SolastaCommunityExpansion.Builders
             bool AddToDB(Type type)
             {
                 // attempt to get database matching the target type
-                var getDatabaseMethodInfoGeneric =
-                    BaseDefinitionBuilderHelper.GetDatabaseMethodInfo.MakeGenericMethod(type);
+                var getDatabaseMethodInfoGeneric = GetDatabaseMethodInfo.MakeGenericMethod(type);
 
                 var db = getDatabaseMethodInfoGeneric.Invoke(null, null);
 
@@ -511,7 +513,12 @@ namespace SolastaCommunityExpansion.Builders
     }
 
     /// <summary>
-    ///     Base class builder for all classes derived from BaseDefinition (for internal use only).
+    ///     <para>Base class builder for all classes derived from BaseDefinition (for internal use only).</para>
+    ///     <para>
+    ///     This version of DefinitionBuilder allows passing the builder type as <typeparamref name="TBuilder"/>.  This
+    ///     allows <seealso cref="Configure(Action{TDefinition})">Configure</seealso> to be called without type parameters, and enables adding helper Set{PropertyName} methods to intermediate builders
+    ///     that return the correct TBuilder.
+    ///     </para>
     /// </summary>
     /// <typeparam name="TDefinition"></typeparam>
     /// <typeparam name="TBuilder"></typeparam>
@@ -531,11 +538,5 @@ namespace SolastaCommunityExpansion.Builders
         {
             return Configure<TBuilder>(configureDefinition);
         }
-    }
-
-    internal static class BaseDefinitionBuilderHelper
-    {
-        public static readonly MethodInfo GetDatabaseMethodInfo =
-            typeof(DatabaseRepository).GetMethod("GetDatabase", BindingFlags.Public | BindingFlags.Static);
     }
 }

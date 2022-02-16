@@ -264,7 +264,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
 
     internal class ConditionImprovedBarkWardBuilder : DefinitionBuilder<ConditionDefinition>
     {
-        private static FeatureDefinitionPower createImprovedBarkWardRetaliate()
+        private static FeatureDefinitionPower CreateImprovedBarkWardRetaliate()
         {
             GuiPresentationBuilder improvedBarkWardRetaliateGui = new GuiPresentationBuilder(
                 "Feature/&NoContentTitle",
@@ -298,7 +298,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
                 ).AddToDB();
         }
 
-        private static FeatureDefinitionDamageAffinity createImprovedBarkWardDamage()
+        private static FeatureDefinitionDamageAffinity CreateImprovedBarkWardDamage()
         {
             GuiPresentationBuilder improvedBarkWardDamageGui = new GuiPresentationBuilder(
                 "Feature/&NoContentTitle",
@@ -308,7 +308,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
                 GuidHelper.Create(CircleOfTheForestGuardian.DFG_BASE_GUID, "ImprovedBarkWardRetaliationDamage").ToString(),
                 true,
                 1,
-                createImprovedBarkWardRetaliate(),
+                CreateImprovedBarkWardRetaliate(),
                 RuleDefinitions.DamageAffinityType.None,
                 RuleDefinitions.DamageTypePoison,
                 improvedBarkWardDamageGui.Build()).AddToDB();
@@ -320,7 +320,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             Definition.GuiPresentation.Description = "Condition/&ConditionImprovedBarkWardDescription";
 
             Definition.Features.Clear();
-            Definition.Features.Add(createImprovedBarkWardDamage());
+            Definition.Features.Add(CreateImprovedBarkWardDamage());
             Definition.SetAllowMultipleInstances(false);
             Definition.SetDurationParameter(10);
             Definition.SetDurationType(RuleDefinitions.DurationType.Minute);
@@ -341,7 +341,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
 
     internal class ConditionSuperiorBarkWardBuilder : DefinitionBuilder<ConditionDefinition>
     {
-        private static FeatureDefinitionPower createSuperiorBarkWardRetaliate()
+        private static FeatureDefinitionPower CreateSuperiorBarkWardRetaliate()
         {
             GuiPresentationBuilder superiorBarkWardRetaliateGui = new GuiPresentationBuilder(
                 "Feature/&NoContentTitle",
@@ -375,7 +375,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
                 ).AddToDB();
         }
 
-        private static FeatureDefinitionDamageAffinity createSuperiorBarkWardDamage()
+        private static FeatureDefinitionDamageAffinity CreateSuperiorBarkWardDamage()
         {
             GuiPresentationBuilder superiorBarkWardDamageGui = new GuiPresentationBuilder(
                 "Feature/&NoContentTitle",
@@ -385,7 +385,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
                 GuidHelper.Create(CircleOfTheForestGuardian.DFG_BASE_GUID, "SuperiorBarkWardRetaliationDamage").ToString(),
                 true,
                 1,
-                createSuperiorBarkWardRetaliate(),
+                CreateSuperiorBarkWardRetaliate(),
                 RuleDefinitions.DamageAffinityType.Immunity,
                 RuleDefinitions.DamageTypePoison,
                superiorBarkWardDamageGui.Build()).AddToDB();
@@ -397,7 +397,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             Definition.GuiPresentation.Description = "Condition/&ConditionSuperiorBarkWardDescription";
 
             Definition.Features.Clear();
-            Definition.Features.Add(createSuperiorBarkWardDamage());
+            Definition.Features.Add(CreateSuperiorBarkWardDamage());
             Definition.SetAllowMultipleInstances(false);
             Definition.SetDurationParameter(10);
             Definition.SetDurationType(RuleDefinitions.DurationType.Minute);
