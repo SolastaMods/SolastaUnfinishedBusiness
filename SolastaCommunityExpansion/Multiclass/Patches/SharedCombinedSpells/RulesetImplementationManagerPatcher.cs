@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using HarmonyLib;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 
 namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
 {
@@ -30,15 +31,13 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                     {
                         var currentValue = 0;
 
-                        if (spellRepertoire.SpellCastingClass != null)
+                        if (spellRepertoire.SpellCastingClass == Wizard)
                         {
-                            currentValue = sourceCharacter.ClassesAndLevels[spellRepertoire.SpellCastingClass];
+                            currentValue = sourceCharacter.ClassesAndLevels[Wizard];
                         }
-                        else if (spellRepertoire.SpellCastingSubclass != null)
+                        else if (spellRepertoire.SpellCastingSubclass == CircleLand)
                         {
-                            var characterClass = sourceCharacter.ClassesAndSubclasses.FirstOrDefault(x => x.Value == spellRepertoire.SpellCastingSubclass).Key;
-
-                            currentValue = sourceCharacter.ClassesAndLevels[characterClass];
+                            currentValue = sourceCharacter.ClassesAndLevels[Druid];
                         }
 
                         if (currentValue > 0)
