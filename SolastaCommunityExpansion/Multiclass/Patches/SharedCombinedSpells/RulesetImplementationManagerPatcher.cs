@@ -7,6 +7,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
 {
     internal static class RulesetImplementationManagerPatcher
     {
+        internal static CharacterClassDefinition RestActivityInvokerClass { get; set; }
         internal static RulesetCharacterHero HeroWithSpellRepertoire { get; set; }
         internal static RulesetSpellRepertoire SpellRepertoire { get; set; }
 
@@ -23,44 +24,21 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
 
                 var spellSlotsForm = effectForm.SpellSlotsForm;
 
-                if (spellSlotsForm.Type == SpellSlotsForm.EffectType.RecoverHalfLevelUp)
+                if (spellSlotsForm.Type == SpellSlotsForm.EffectType.RecoverHalfLevelUp && RestActivityInvokerClass != null)
                 {
                     var sourceCharacter = formsParams.sourceCharacter as RulesetCharacterHero;
 
                     foreach (var spellRepertoire in sourceCharacter.SpellRepertoires)
                     {
-                        var currentValue = 0;
+                        var currentValue = sourceCharacter.ClassesAndLevels[RestActivityInvokerClass];
+                        var slotsCapital = currentValue % 2 == 0 ? currentValue / 2 : (currentValue + 1) / 2;
 
-                        if (spellRepertoire.SpellCastingClass == Wizard)
-                        {
-                            currentValue = sourceCharacter.ClassesAndLevels[Wizard];
-                        }
-                        else if (spellRepertoire.SpellCastingSubclass == CircleLand)
-                        {
-                            currentValue = sourceCharacter.ClassesAndLevels[Druid];
-                        }
-
-                        if (currentValue > 0)
-                        {
-                            var slotsCapital = currentValue % 2 == 0 ? currentValue / 2 : (currentValue + 1) / 2;
-
-                            Gui.GuiService.GetScreen<SlotRecoveryModal>().ShowSlotRecovery(sourceCharacter, formsParams.activeEffect.SourceDefinition.Name, spellRepertoire, slotsCapital, spellSlotsForm.MaxSlotLevel);
-                            break;
-                        }
+                        Gui.GuiService.GetScreen<SlotRecoveryModal>().ShowSlotRecovery(sourceCharacter, formsParams.activeEffect.SourceDefinition.Name, spellRepertoire, slotsCapital, spellSlotsForm.MaxSlotLevel);
+                        break;
                     }
                 }
                 else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSpellSlot || spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSorceryPoints)
                 {
-                    //var sourceCharacter = formsParams.sourceCharacter as RulesetCharacterHero;
-                    //foreach (RulesetSpellRepertoire spellRepertoire in sourceCharacter.SpellRepertoires)
-                    //{
-                    //    if ((BaseDefinition)spellRepertoire.SpellCastingClass != (BaseDefinition)null || (BaseDefinition)spellRepertoire.SpellCastingSubclass != (BaseDefinition)null)
-                    //    {
-                    //        Gui.GuiService.GetScreen<FlexibleCastingModal>().ShowFlexibleCasting((RulesetCharacter)sourceCharacter, spellRepertoire, spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSpellSlot);
-                    //        break;
-                    //    }
-                    //}
-
                     HeroWithSpellRepertoire = formsParams.sourceCharacter as RulesetCharacterHero;
                     SpellRepertoire = HeroWithSpellRepertoire.SpellRepertoires.Find(sr => sr.SpellCastingClass == Sorcerer);
 
@@ -75,9 +53,6 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                 }
                 else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.RecovererSorceryHalfLevelUp)
                 {
-                    //var sourceCharacter = formsParams.sourceCharacter as RulesetCharacterHero;
-                    //int currentValue = sourceCharacter.GetAttribute("CharacterLevel").CurrentValue;
-
                     HeroWithSpellRepertoire = formsParams.sourceCharacter as RulesetCharacterHero;
                     SpellRepertoire = HeroWithSpellRepertoire.SpellRepertoires.Find(sr => sr.SpellCastingClass == Sorcerer);
 
