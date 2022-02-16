@@ -41,8 +41,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                         {
                             currentValue = sourceCharacter.ClassesAndLevels[invokerClass];
                         }
-
-                        if (spellRepertoire.SpellCastingSubclass != null)
+                        else if (spellRepertoire.SpellCastingSubclass != null)
                         {
                             var characterClass = sourceCharacter.ClassesAndSubclasses.FirstOrDefault(x => x.Value == spellRepertoire.SpellCastingSubclass).Key;
 
