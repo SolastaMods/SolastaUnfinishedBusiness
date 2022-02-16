@@ -210,7 +210,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         }
 
         // A builder to help us build a custom damage affinity for our Bark Ward conditions
-        public class FeatureDefinitionDamageAffinityBuilder : DefinitionBuilder<FeatureDefinitionDamageAffinity>
+        internal class FeatureDefinitionDamageAffinityBuilder : DefinitionBuilder<FeatureDefinitionDamageAffinity>
         {
             public FeatureDefinitionDamageAffinityBuilder(string name, string guid, bool retaliateWhenHit, int retaliationRange,
                 FeatureDefinitionPower retaliationPower, RuleDefinitions.DamageAffinityType damageAffinityType, string damageType,
@@ -258,10 +258,6 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
     {
         private static FeatureDefinitionPower CreateImprovedBarkWardRetaliate()
         {
-            GuiPresentationBuilder improvedBarkWardRetaliateGui = new GuiPresentationBuilder(
-                "Feature/&NoContentTitle",
-                "Feature/&NoContentTitle");
-
             EffectFormBuilder damageEffect = new EffectFormBuilder();
             damageEffect.SetDamageForm(false, RuleDefinitions.DieType.D8,
                 "DamagePiercing",
@@ -273,21 +269,23 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             EffectDescriptionBuilder improvedBarkWardRetaliationEffect = new EffectDescriptionBuilder();
             improvedBarkWardRetaliationEffect.AddEffectForm(damageEffect.Build());
 
-            return new FeatureDefinitionPowerBuilder("improvedBarkWardRetaliate",
-                GuidHelper.Create(CircleOfTheForestGuardian.DFG_BASE_GUID, "improvedBarkWardRetaliate").ToString(),
-                0,
-                RuleDefinitions.UsesDetermination.Fixed,
-                AttributeDefinitions.Wisdom,
-                RuleDefinitions.ActivationTime.NoCost,
-                0,
-                RuleDefinitions.RechargeRate.AtWill,
-                false,
-                false,
-                AttributeDefinitions.Wisdom,
-                improvedBarkWardRetaliationEffect.Build(),
-                improvedBarkWardRetaliateGui.Build(),
-                true
-                ).AddToDB();
+            return FeatureDefinitionPowerBuilder
+                .Create("improvedBarkWardRetaliate", CircleOfTheForestGuardian.DFG_BASE_GUID)
+                .SetGuiPresentationNoContent()
+                .Configure(
+                    0,
+                    RuleDefinitions.UsesDetermination.Fixed,
+                    AttributeDefinitions.Wisdom,
+                    RuleDefinitions.ActivationTime.NoCost,
+                    0,
+                    RuleDefinitions.RechargeRate.AtWill,
+                    false,
+                    false,
+                    AttributeDefinitions.Wisdom,
+                    improvedBarkWardRetaliationEffect.Build(),
+                    true
+                    )
+                .AddToDB();
         }
 
         private static FeatureDefinitionDamageAffinity CreateImprovedBarkWardDamage()
@@ -335,10 +333,6 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
     {
         private static FeatureDefinitionPower CreateSuperiorBarkWardRetaliate()
         {
-            GuiPresentationBuilder superiorBarkWardRetaliateGui = new GuiPresentationBuilder(
-                "Feature/&NoContentTitle",
-                "Feature/&NoContentTitle");
-
             EffectFormBuilder damageEffect = new EffectFormBuilder();
             damageEffect.SetDamageForm(false, RuleDefinitions.DieType.D8,
                 "DamagePiercing",
@@ -350,21 +344,22 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             EffectDescriptionBuilder superiorBarkWardRetaliationEffect = new EffectDescriptionBuilder();
             superiorBarkWardRetaliationEffect.AddEffectForm(damageEffect.Build());
 
-            return new FeatureDefinitionPowerBuilder("superiorBarkWardRetaliate",
-                GuidHelper.Create(CircleOfTheForestGuardian.DFG_BASE_GUID, "superiorBarkWardRetaliate").ToString(),
-                0,
-                RuleDefinitions.UsesDetermination.Fixed,
-                AttributeDefinitions.Wisdom,
-                RuleDefinitions.ActivationTime.NoCost,
-                0,
-                RuleDefinitions.RechargeRate.AtWill,
-                false,
-                false,
-                AttributeDefinitions.Wisdom,
-                superiorBarkWardRetaliationEffect.Build(),
-                superiorBarkWardRetaliateGui.Build(),
-                true
-                ).AddToDB();
+            return FeatureDefinitionPowerBuilder
+                .Create("superiorBarkWardRetaliate", CircleOfTheForestGuardian.DFG_BASE_GUID)
+                .SetGuiPresentationNoContent()
+                .Configure(
+                    0,
+                    RuleDefinitions.UsesDetermination.Fixed,
+                    AttributeDefinitions.Wisdom,
+                    RuleDefinitions.ActivationTime.NoCost,
+                    0,
+                    RuleDefinitions.RechargeRate.AtWill,
+                    false,
+                    false,
+                    AttributeDefinitions.Wisdom,
+                    superiorBarkWardRetaliationEffect.Build(),
+                    true)
+                .AddToDB();
         }
 
         private static FeatureDefinitionDamageAffinity CreateSuperiorBarkWardDamage()

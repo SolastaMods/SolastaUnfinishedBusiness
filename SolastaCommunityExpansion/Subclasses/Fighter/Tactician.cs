@@ -52,7 +52,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             proneMotionEffect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
             //Add to our new effect
-            EffectDescription newEffectDescription = 
+            EffectDescription newEffectDescription =
                 FeatureDefinitionPowers.PowerFighterActionSurge.EffectDescription.Copy();
             newEffectDescription.SetEffectForms(damageEffect, proneMotionEffect);
             newEffectDescription.SetSavingThrowDifficultyAbility("Strength");

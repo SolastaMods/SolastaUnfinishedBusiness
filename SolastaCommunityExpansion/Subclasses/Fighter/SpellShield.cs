@@ -6,6 +6,7 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Fighter
 {
@@ -93,7 +94,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                     var attributeModifier = FeatureDefinitionAttributeModifierBuilder
                         .Create("AttributeSpellShieldArcaneDeflection", SubclassNamespace)
                         .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 3)
-                        .SetGuiPresentation("ConditionSpellShieldArcaneDeflection", Category.Subclass, ConditionDefinitions.ConditionShielded.GuiPresentation.SpriteReference)
+                        .SetGuiPresentation("ConditionSpellShieldArcaneDeflection", Category.Subclass, ConditionShielded.GuiPresentation.SpriteReference)
                         .AddToDB();
 
                     definition.Features.Add(attributeModifier);
@@ -109,13 +110,14 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             arcaneDeflection.AddEffectForm(new EffectFormBuilder().CreatedByCharacter().SetConditionForm(deflectionCondition, ConditionForm.ConditionOperation.Add,
                 true, true, new List<ConditionDefinition>()).Build());
 
-            GuiPresentationBuilder arcaneDeflectionGuiPower = new GuiPresentationBuilder(
-                "Subclass/&PowerSpellShieldArcaneDeflectionTitle",
-                "Subclass/&PowerSpellShieldArcaneDeflectionDescription");
-            arcaneDeflectionGuiPower.SetSpriteReference(ConditionDefinitions.ConditionShielded.GuiPresentation.SpriteReference);
-            FeatureDefinitionPower arcaneDeflectionPower = new FeatureDefinitionPowerBuilder("PowerSpellShieldArcaneDeflection", GuidHelper.Create(SubclassNamespace, "PowerSpellShieldArcaneDeflection").ToString(),
-                0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, RuleDefinitions.ActivationTime.Reaction, 0, RuleDefinitions.RechargeRate.AtWill,
-                false, false, AttributeDefinitions.Intelligence, arcaneDeflection.Build(), arcaneDeflectionGuiPower.Build(), false /* unique instance */).AddToDB();
+            FeatureDefinitionPower arcaneDeflectionPower = FeatureDefinitionPowerBuilder
+                .Create("PowerSpellShieldArcaneDeflection", SubclassNamespace)
+                .SetGuiPresentation(Category.Subclass, ConditionShielded.GuiPresentation.SpriteReference)
+                .Configure(
+                    0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, RuleDefinitions.ActivationTime.Reaction, 0, RuleDefinitions.RechargeRate.AtWill,
+                    false, false, AttributeDefinitions.Intelligence, arcaneDeflection.Build(), false /* unique instance */)
+                .AddToDB();
+
             spellShield.AddFeatureAtLevel(arcaneDeflectionPower, 15);
 
             GuiPresentationBuilder rangedDeflectionGuiPower = new GuiPresentationBuilder(

@@ -2,8 +2,8 @@
 using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi;
 using SolastaModApi.Extensions;
+using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -52,32 +52,28 @@ namespace SolastaCommunityExpansion.Models
         {
             var effectDescription = new EffectDescription();
 
-            effectDescription.Copy(DatabaseHelper.SpellDefinitions.TrueStrike.EffectDescription);
+            effectDescription.Copy(TrueStrike.EffectDescription);
             effectDescription.SetRangeType(RuleDefinitions.RangeType.Touch);
             effectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
             effectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
             effectDescription.EffectForms[0].ConditionForm.ConditionDefinition.GuiPresentation.SetDescription("Condition/&HelpActionDescription");
             effectDescription.EffectForms[0].ConditionForm.ConditionDefinition.GuiPresentation.SetTitle("Condition/&HelpActionTitle");
 
-            FeatureDefinitionPowerHelpAction = new FeatureDefinitionPowerBuilder(
-                "HelpAction",
-                GuidHelper.Create(BAZOU_POWERS_BASE_GUID, "HelpAction").ToString(),
-                1,
-                RuleDefinitions.UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
-                RuleDefinitions.ActivationTime.Action,
-                0,
-                RuleDefinitions.RechargeRate.AtWill,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
-                effectDescription,
-                new GuiPresentationBuilder(
-                    "Power/&HelpActionTitle",
-                    "Power/&HelpActionDescription")
-                    .Build()
-                    .SetSpriteReference(DatabaseHelper.SpellDefinitions.Aid.GuiPresentation.SpriteReference),
-                true)
+            FeatureDefinitionPowerHelpAction = FeatureDefinitionPowerBuilder
+                .Create("HelpAction", BAZOU_POWERS_BASE_GUID)
+                .SetGuiPresentation(Category.Power, Aid.GuiPresentation.SpriteReference)
+                .Configure(
+                    1,
+                    RuleDefinitions.UsesDetermination.Fixed,
+                    AttributeDefinitions.Charisma,
+                    RuleDefinitions.ActivationTime.Action,
+                    0,
+                    RuleDefinitions.RechargeRate.AtWill,
+                    false,
+                    false,
+                    AttributeDefinitions.Charisma,
+                    effectDescription,
+                    true)
                 .AddToDB();
         }
     }

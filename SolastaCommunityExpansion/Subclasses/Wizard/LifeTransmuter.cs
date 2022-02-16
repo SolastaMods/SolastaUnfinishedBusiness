@@ -169,7 +169,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             return FeatureDefinitionMagicAffinityBuilder
                 .Create(name, SubclassNamespace)
                 .SetGuiPresentation(guiPresentation)
-                .SetWarList(spellNames, levelBonus)
+                .SetWarList(levelBonus, spellNames)
                 .AddToDB();
         }
 

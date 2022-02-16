@@ -160,17 +160,18 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 new FeatureUnlockByLevel(itemFeature, 0),
             }, RuleDefinitions.ItemPropertyUsage.Unlimited, 0).Build());
 
-            FeatureDefinitionPowerBuilder builder = new FeatureDefinitionPowerBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
-                usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse, recharge, false, false,
-                AttributeDefinitions.Intelligence, effectBuilder.Build(), guiPresentation, false /* unique instance */);
-            return builder.AddToDB();
+            return FeatureDefinitionPowerBuilder
+                .Create(name, SubclassNamespace)
+                .SetGuiPresentation(guiPresentation)
+                .Configure(usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse, recharge, false, false,
+                    AttributeDefinitions.Intelligence, effectBuilder.Build(), false /* unique instance */).AddToDB();
         }
 
         private sealed class FeatureDefinitionAttackModifierBuilder : DefinitionBuilder<FeatureDefinitionAttackModifier>
         {
             public FeatureDefinitionAttackModifierBuilder(string name, string guid,
-            RuleDefinitions.AbilityScoreReplacement abilityReplacement, string additionalAttackTag,
-            GuiPresentation guiPresentation) : base(name, guid)
+                RuleDefinitions.AbilityScoreReplacement abilityReplacement, string additionalAttackTag,
+                GuiPresentation guiPresentation) : base(name, guid)
             {
                 Definition.SetAbilityScoreReplacement(abilityReplacement);
                 Definition.SetAdditionalAttackTag(additionalAttackTag);

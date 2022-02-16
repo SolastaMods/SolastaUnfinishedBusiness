@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
@@ -80,7 +81,12 @@ namespace SolastaCommunityExpansion.Builders.Features
             return this;
         }
 
-        public FeatureDefinitionMagicAffinityBuilder SetWarList(IEnumerable<string> spellNames, int levelBonus)
+        public FeatureDefinitionMagicAffinityBuilder SetWarList(int levelBonus, params string[] spellNames)
+        {
+            return SetWarList(levelBonus, spellNames.AsEnumerable());
+        }
+
+        public FeatureDefinitionMagicAffinityBuilder SetWarList(int levelBonus, IEnumerable<string> spellNames)
         {
             Definition.SetUsesWarList(true);
             Definition.SetWarListSlotBonus(levelBonus);
