@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using SolastaModApi.Diagnostics;
 using SolastaModApi.Extensions;
 using UnityEngine.AddressableAssets;
 
@@ -50,6 +52,87 @@ namespace SolastaCommunityExpansion.Builders
         public TBuilder SetAmountOrigin(ConditionDefinition.OriginOfAmount value)
         {
             Definition.SetAmountOrigin(value);
+            return (TBuilder)this;
+        }
+
+        public TBuilder SetConditionType(RuleDefinitions.ConditionType value)
+        {
+            Definition.SetConditionType(value);
+            return (TBuilder)this;
+        }
+
+        public TBuilder SetTurnOccurence(RuleDefinitions.TurnOccurenceType value)
+        {
+            Definition.SetTurnOccurence(value);
+            return (TBuilder)this;
+        }
+
+        public TBuilder AddConditionTags(IEnumerable<string> value)
+        {
+            Definition.AddConditionTags(value);
+            return (TBuilder)this;
+        }
+
+        public TBuilder AddConditionTags(params string[] value)
+        {
+            Definition.AddConditionTags(value);
+            return (TBuilder)this;
+        }
+
+        public TBuilder AddFeatures(IEnumerable<FeatureDefinition> value)
+        {
+            Definition.AddFeatures(value);
+            return (TBuilder)this;
+        }
+
+        public TBuilder AddFeatures(params FeatureDefinition[] value)
+        {
+            Definition.AddFeatures(value);
+            return (TBuilder)this;
+        }
+
+        public TBuilder SetFeatures(IEnumerable<FeatureDefinition> value)
+        {
+            Definition.SetFeatures(value);
+            return (TBuilder)this;
+        }
+
+        public TBuilder SetFeatures(params FeatureDefinition[] value)
+        {
+            Definition.SetFeatures(value);
+            return (TBuilder)this;
+        }
+
+        public TBuilder ClearRecurrentEffectForms()
+        {
+            Definition.ClearRecurrentEffectForms();
+            return (TBuilder)this;
+        }
+
+        public TBuilder SetDuration(RuleDefinitions.DurationType type, int? duration = null)
+        {
+            Definition.SetDurationType(type);
+
+            switch (type)
+            {
+                case RuleDefinitions.DurationType.Round:
+                case RuleDefinitions.DurationType.Minute:
+                case RuleDefinitions.DurationType.Hour:
+                case RuleDefinitions.DurationType.Day:
+                    if(duration == null)
+                    {
+                        throw new ArgumentNullException(nameof(duration), $"A duration value is required for duration type {type}.");
+                    }
+                    Definition.SetDurationParameter(duration.Value);
+                    break;
+                default:
+                    if(duration != null)
+                    {
+                        throw new SolastaModApiException($"A duration value is not expected for duration type {type}");
+                    }
+                    break;
+            }
+
             return (TBuilder)this;
         }
 

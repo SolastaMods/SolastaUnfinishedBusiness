@@ -168,6 +168,14 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetHitDiceType(dieType);
             return this;
         }
+
+        public MonsterDefinitionBuilder SetHitDice(DieType dieType, int numberOf)
+        {
+            Definition.SetHitDiceType(dieType);
+            Definition.SetHitDice(numberOf);
+            return this;
+        }
+
         public MonsterDefinitionBuilder SetHitPointsBonus(int bonus)
         {
             Definition.SetHitPointsBonus(bonus);
