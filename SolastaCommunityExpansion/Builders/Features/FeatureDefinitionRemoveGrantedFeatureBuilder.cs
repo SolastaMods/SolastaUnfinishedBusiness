@@ -1,5 +1,4 @@
 ﻿using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using SolastaModApi;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
@@ -13,7 +12,7 @@ namespace SolastaCommunityExpansion.Builders.Features
     // Replace a class feature - We need to inform the feature to be removed, the level and the class
     // Replace a subclass feature - We need to inform the feature to be removed, the level, the class and the subclass
     //
-    public sealed class RemoveGrantedFeatureBuilder : BaseDefinitionBuilder<FeatureDefinitionRemoveGrantedFeature>
+    public sealed class RemoveGrantedFeatureBuilder : DefinitionBuilder<FeatureDefinitionRemoveGrantedFeature>
     {
         public RemoveGrantedFeatureBuilder(string name, string guid, FeatureDefinition featureToRemove, int classLevel, CharacterClassDefinition characterClass, CharacterSubclassDefinition characterSubclass = null)
             : base(name, guid)

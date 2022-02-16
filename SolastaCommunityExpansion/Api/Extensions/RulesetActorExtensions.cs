@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,6 +43,48 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(RulesetActor)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class RulesetActorExtensions
     {
+        public static T AddAllConditions<T>(this T entity,  params  RulesetCondition [ ]  value)
+            where T : RulesetActor
+        {
+            AddAllConditions(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddAllConditions<T>(this T entity, IEnumerable<RulesetCondition> value)
+            where T : RulesetActor
+        {
+            entity.AllConditions.AddRange(value);
+            return entity;
+        }
+
+        public static T AddFeaturesToBrowse<T>(this T entity,  params  FeatureDefinition [ ]  value)
+            where T : RulesetActor
+        {
+            AddFeaturesToBrowse(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddFeaturesToBrowse<T>(this T entity, IEnumerable<FeatureDefinition> value)
+            where T : RulesetActor
+        {
+            entity.FeaturesToBrowse.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearAllConditions<T>(this T entity)
+            where T : RulesetActor
+        {
+            entity.AllConditions.Clear();
+            return entity;
+        }
+
+        public static T ClearFeaturesToBrowse<T>(this T entity)
+            where T : RulesetActor
+        {
+            entity.FeaturesToBrowse.Clear();
+            return entity;
+        }
+
         public static System.Collections.Generic.List<ISavingThrowAffinityProvider> GetAccountedProviders<T>(this T entity)
             where T : RulesetActor
         {
@@ -122,6 +170,20 @@ namespace SolastaModApi.Extensions
             where T : RulesetActor
         {
             entity.SetField("<AdditionalSaveDieRolled>k__BackingField", value);
+            return entity;
+        }
+
+        public static T SetAllConditions<T>(this T entity,  params  RulesetCondition [ ]  value)
+            where T : RulesetActor
+        {
+            SetAllConditions(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetAllConditions<T>(this T entity, IEnumerable<RulesetCondition> value)
+            where T : RulesetActor
+        {
+            entity.AllConditions.SetRange(value);
             return entity;
         }
 
@@ -234,6 +296,20 @@ namespace SolastaModApi.Extensions
             where T : RulesetActor
         {
             entity.SetField("<DieRerolled>k__BackingField", value);
+            return entity;
+        }
+
+        public static T SetFeaturesToBrowse<T>(this T entity,  params  FeatureDefinition [ ]  value)
+            where T : RulesetActor
+        {
+            SetFeaturesToBrowse(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetFeaturesToBrowse<T>(this T entity, IEnumerable<FeatureDefinition> value)
+            where T : RulesetActor
+        {
+            entity.FeaturesToBrowse.SetRange(value);
             return entity;
         }
 

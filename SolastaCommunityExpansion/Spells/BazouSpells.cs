@@ -7,6 +7,7 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaModApi.DatabaseHelper.MonsterDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Spells
@@ -95,8 +96,9 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildFindFamiliar()
         {
-            var familiarMonsterBuilder = new MonsterDefinitionBuilder(DatabaseHelper.MonsterDefinitions.Eagle_Matriarch, "Owl", BAZOU_SPELLS_BASE_GUID)
-                .SetGuiPresentation("OwlFamiliar", Category.Monster)
+            var familiarMonsterBuilder = MonsterDefinitionBuilder
+                .Create(Eagle_Matriarch, "Owl", BAZOU_SPELLS_BASE_GUID)
+                .SetGuiPresentation("OwlFamiliar", Category.Monster, Eagle_Matriarch.GuiPresentation.SpriteReference)
                 .SetFeatures(
                     DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
                     DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision24,
@@ -195,7 +197,8 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.SetHasSavingThrow(true);
             spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
 
-            var conditionDefinition = new ConditionDefinitionBuilder<ConditionDefinition>(ConditionConfused, "ConditionFrenzied", BAZOU_SPELLS_BASE_GUID)
+            var conditionDefinition = ConditionDefinitionBuilder
+                .Create(ConditionConfused, "ConditionFrenzied", BAZOU_SPELLS_BASE_GUID)
                 .SetGuiPresentation("Frenzied", Category.Condition)
                 .AddToDB();
 

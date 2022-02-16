@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using TA.AI;
@@ -12,7 +11,7 @@ using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class MonsterDefinitionBuilder : BaseDefinitionBuilder<MonsterDefinition>
+    public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition>
     {
         public MonsterDefinitionBuilder(string name, string guid)
             : base(name, guid)
@@ -37,6 +36,11 @@ namespace SolastaCommunityExpansion.Builders
         public static MonsterDefinitionBuilder Create(MonsterDefinition original, string name, string guid)
         {
             return new MonsterDefinitionBuilder(original, name, guid);
+        }
+
+        public static MonsterDefinitionBuilder Create(MonsterDefinition original, string name, Guid guidNamespace)
+        {
+            return new MonsterDefinitionBuilder(original, name, guidNamespace);
         }
 
         public MonsterDefinitionBuilder SetAlignment(string alignment)

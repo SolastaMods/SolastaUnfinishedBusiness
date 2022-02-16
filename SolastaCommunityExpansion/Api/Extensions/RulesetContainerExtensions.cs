@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,6 +43,27 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(RulesetContainer)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class RulesetContainerExtensions
     {
+        public static T AddInventorySlots<T>(this T entity,  params  RulesetInventorySlot [ ]  value)
+            where T : RulesetContainer
+        {
+            AddInventorySlots(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddInventorySlots<T>(this T entity, IEnumerable<RulesetInventorySlot> value)
+            where T : RulesetContainer
+        {
+            entity.InventorySlots.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearInventorySlots<T>(this T entity)
+            where T : RulesetContainer
+        {
+            entity.InventorySlots.Clear();
+            return entity;
+        }
+
         public static System.Collections.Generic.List<RulesetItem> GetEmptyStacks<T>(this T entity)
             where T : RulesetContainer
         {
@@ -60,6 +87,20 @@ namespace SolastaModApi.Extensions
             where T : RulesetContainer
         {
             entity.HasBeenOpenedOnce = value;
+            return entity;
+        }
+
+        public static T SetInventorySlots<T>(this T entity,  params  RulesetInventorySlot [ ]  value)
+            where T : RulesetContainer
+        {
+            SetInventorySlots(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetInventorySlots<T>(this T entity, IEnumerable<RulesetInventorySlot> value)
+            where T : RulesetContainer
+        {
+            entity.InventorySlots.SetRange(value);
             return entity;
         }
 

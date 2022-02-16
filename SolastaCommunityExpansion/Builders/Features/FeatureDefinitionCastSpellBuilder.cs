@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi;
 using SolastaModApi.Diagnostics;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionCastSpellBuilder : BaseDefinitionBuilder<FeatureDefinitionCastSpell>
+    public sealed class FeatureDefinitionCastSpellBuilder : DefinitionBuilder<FeatureDefinitionCastSpell>
     {
         public enum CasterProgression
         {
@@ -341,27 +340,27 @@ namespace SolastaCommunityExpansion.Builders.Features
 
         private readonly List<int>[] SlotsByCasterLevel =
         {
-            new List<int> {0,0,0,0,0 },
-            new List<int> {2,0,0,0,0 },
-            new List<int> {3,0,0,0,0 },
-            new List<int> {4,2,0,0,0 },
-            new List<int> {4,3,0,0,0 },
-            new List<int> {4,3,2,0,0 },
-            new List<int> {4,3,3,0,0 },
-            new List<int> {4,3,3,1,0 },
-            new List<int> {4,3,3,2,0 },
-            new List<int> {4,3,3,3,1 },
-            new List<int> {4,3,3,3,2 },
-            new List<int> {4,3,3,3,2 },
-            new List<int> {4,3,3,3,2 },
-            new List<int> {4,3,3,3,2 },
-            new List<int> {4,3,3,3,2 },
-            new List<int> {4,3,3,3,2 },
-            new List<int> {4,3,3,3,2 },
-            new List<int> {4,3,3,3,2 },
-            new List<int> {4,3,3,3,3 },
-            new List<int> {4,3,3,3,3 },
-            new List<int> {4,3,3,3,3 },
+            new List<int> {0,0,0,0,0,0 },
+            new List<int> {2,0,0,0,0,0 },
+            new List<int> {3,0,0,0,0,0 },
+            new List<int> {4,2,0,0,0,0 },
+            new List<int> {4,3,0,0,0,0 },
+            new List<int> {4,3,2,0,0,0 },
+            new List<int> {4,3,3,0,0,0 },
+            new List<int> {4,3,3,1,0,0 },
+            new List<int> {4,3,3,2,0,0 },
+            new List<int> {4,3,3,3,1,0 },
+            new List<int> {4,3,3,3,2,0 },
+            new List<int> {4,3,3,3,2,0 },
+            new List<int> {4,3,3,3,2,0 },
+            new List<int> {4,3,3,3,2,0 },
+            new List<int> {4,3,3,3,2,0 },
+            new List<int> {4,3,3,3,2,0 },
+            new List<int> {4,3,3,3,2,0 },
+            new List<int> {4,3,3,3,2,0 },
+            new List<int> {4,3,3,3,3,0 },
+            new List<int> {4,3,3,3,3,0 },
+            new List<int> {4,3,3,3,3,0 },
         };
 
         public FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(params FeatureDefinitionCastSpell.SlotsByLevelDuplet[] slotsPerLevels)

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -16,7 +17,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class ItemOptionsContext
     {
-        private sealed class WandIdentifyBuilder : BaseDefinitionBuilder<ItemDefinition>
+        private sealed class WandIdentifyBuilder : DefinitionBuilder<ItemDefinition>
         {
             private WandIdentifyBuilder(string name, string guid, string title, string description, ItemDefinition original) : base(original, name, guid)
             {
@@ -53,15 +54,15 @@ namespace SolastaCommunityExpansion.Models
                 WandMagicMissile);
         }
 
-        private sealed class FocusDefinitionBuilder : BaseDefinitionBuilder<ItemDefinition>
+        private sealed class FocusDefinitionBuilder : DefinitionBuilder<ItemDefinition>
         {
             private FocusDefinitionBuilder(
-                string name, 
-                string guid, 
-                string title, 
-                string description, 
-                ItemDefinition original, 
-                EquipmentDefinitions.FocusType type, 
+                string name,
+                string guid,
+                string title,
+                string description,
+                ItemDefinition original,
+                EquipmentDefinitions.FocusType type,
                 AssetReferenceSprite assetReferenceSprite,
                 params string[] slotTypes) : base(original, name, guid)
             {
@@ -101,12 +102,12 @@ namespace SolastaCommunityExpansion.Models
             }
 
             private static ItemDefinition CreateAndAddToDB(
-                string name, 
-                string guid, 
-                string title, 
-                string description, 
-                ItemDefinition original, 
-                EquipmentDefinitions.FocusType type, 
+                string name,
+                string guid,
+                string title,
+                string description,
+                ItemDefinition original,
+                EquipmentDefinitions.FocusType type,
                 AssetReferenceSprite assetReferenceSprite,
                 params string[] slotTypes)
             {
@@ -365,40 +366,6 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        private static void FixWandOfFear()
-        {
-            if (!Main.Settings.BugFixWandOfFear)
-            {
-                return;
-            }
-
-            // Update PowerFunctionWandFearCone
-            var fearCone = PowerFunctionWandFearCone.EffectDescription;
-            fearCone.TargetSide = RuleDefinitions.Side.All;
-            fearCone.DurationType = RuleDefinitions.DurationType.Minute;
-            fearCone.DurationParameter = 1;
-
-            var frightenedConeForm = fearCone.GetFirstFormOfType(EffectForm.EffectFormType.Condition);
-            if (frightenedConeForm != null)
-            {
-                frightenedConeForm.CanSaveToCancel = true;
-                frightenedConeForm.SaveOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn;
-                frightenedConeForm.ConditionForm.ConditionDefinition = ConditionFrightenedFear;
-            }
-
-            // Update PowerFunctionWandFearCommand
-            var fearCommand = PowerFunctionWandFearCommand.EffectDescription;
-            fearCommand.TargetSide = RuleDefinitions.Side.All;
-            fearCommand.DurationType = RuleDefinitions.DurationType.Round;
-            fearCommand.DurationParameter = 1;
-
-            var frightenedCommandForm = fearCone.GetFirstFormOfType(EffectForm.EffectFormType.Condition);
-            if (frightenedCommandForm != null)
-            {
-                frightenedCommandForm.ConditionForm.ConditionDefinition = ConditionFrightenedFear;
-            }
-        }
-
         internal static void Load()
         {
             LoadClothingGorimStock();
@@ -414,7 +381,6 @@ namespace SolastaCommunityExpansion.Models
             SwitchRestockCircleOfDanantar();
             SwitchRestockTowerOfKnowledge();
             SwitchUniversalSylvanArmor();
-            FixWandOfFear();
         }
     }
 }

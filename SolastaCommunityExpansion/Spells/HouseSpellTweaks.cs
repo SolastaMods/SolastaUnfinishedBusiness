@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Spells
@@ -13,8 +10,35 @@ namespace SolastaCommunityExpansion.Spells
         public static void Register()
         {
             AddBleedingToRestoration();
-            BugFixCalmEmotionsOnAlly();
+            SpikeGrowthDoesNotAffectFlyingCreatures();
         }
+
+        private static void SpikeGrowthDoesNotAffectFlyingCreatures()
+        {
+            if (!Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures)
+            {
+                return;
+            }
+
+            var spikeGrowthEffect = SpikeGrowth.EffectDescription;
+            spikeGrowthEffect.EffectForms
+                .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
+                .ToList()
+                .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(false));
+
+            spikeGrowthEffect.SetTargetType(RuleDefinitions.TargetType.Cylinder);
+            spikeGrowthEffect.SetTargetParameter2(1);
+
+            // Entangle is more difficult because it's a cube, and what we need is a Square Cylinder height 1.
+/*            var entangleEffect = Entangle.EffectDescription;
+            entangleEffect.EffectForms
+                .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
+                .ToList()
+                .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(false));
+
+            entangleEffect.SetTargetType(RuleDefinitions.TargetType.CubeWithOffset);
+            entangleEffect.SetTargetParameter();
+*/        }
 
         public static void AddBleedingToRestoration()
         {
@@ -53,38 +77,6 @@ namespace SolastaCommunityExpansion.Spells
             else
             {
                 Main.Error("Unable to find form of type Condition in GreaterRestoration");
-            }
-        }
-        public static void BugFixCalmEmotionsOnAlly()
-        {
-            if (!Main.Settings.BugFixCalmEmotionsOnAlly)
-            {
-                return;
-            }
-
-            var invalidForm = CalmEmotionsOnAlly.EffectDescription.EffectForms
-                .Where(ef => ef.FormType == EffectForm.EffectFormType.Condition)
-                .Where(ef => ef.ConditionForm.Operation == ConditionForm.ConditionOperation.Add)
-                .Where(ef => ef.ConditionForm.ConditionsList.Contains(ConditionCharmed))
-                .SingleOrDefault();
-
-            if (invalidForm != null)
-            {
-                Main.Log("BugFixCalmEmotionsOnAlly: Fixing invalid form.");
-
-                invalidForm.ConditionForm.ConditionsList.Clear();
-
-                if (ConditionCalmedByCalmEmotionsAlly.ConditionType == RuleDefinitions.ConditionType.Detrimental)
-                {
-                    ConditionCalmedByCalmEmotionsAlly.SetConditionType(RuleDefinitions.ConditionType.Beneficial);
-
-                    // Note: Features is null and needs to be set with SetField
-                    ConditionCalmedByCalmEmotionsAlly.SetField("features",
-                        new List<FeatureDefinition> {
-                            ConditionAffinityFrightenedImmunity,
-                            ConditionAffinityCharmImmunity
-                        });
-                }
             }
         }
     }

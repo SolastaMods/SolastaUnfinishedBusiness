@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionProficiencyBuilder : BaseDefinitionBuilder<FeatureDefinitionProficiency>
+    public sealed class FeatureDefinitionProficiencyBuilder : DefinitionBuilder<FeatureDefinitionProficiency>
     {
 /*        private FeatureDefinitionProficiencyBuilder(string name, string guid)
             : base(name, guid)

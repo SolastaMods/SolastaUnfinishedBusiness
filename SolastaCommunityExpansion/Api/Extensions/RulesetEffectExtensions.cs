@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,6 +43,132 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(RulesetEffect)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class RulesetEffectExtensions
     {
+        public static T AddMagicAttackTrends<T>(this T entity,  params  RuleDefinitions . TrendInfo [ ]  value)
+            where T : RulesetEffect
+        {
+            AddMagicAttackTrends(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddMagicAttackTrends<T>(this T entity, IEnumerable<RuleDefinitions.TrendInfo> value)
+            where T : RulesetEffect
+        {
+            entity.MagicAttackTrends.AddRange(value);
+            return entity;
+        }
+
+        public static T AddTrackedConditionGuids<T>(this T entity,  params  System . UInt64 [ ]  value)
+            where T : RulesetEffect
+        {
+            AddTrackedConditionGuids(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddTrackedConditionGuids<T>(this T entity, IEnumerable<System.UInt64> value)
+            where T : RulesetEffect
+        {
+            entity.TrackedConditionGuids.AddRange(value);
+            return entity;
+        }
+
+        public static T AddTrackedEffectProxyGuids<T>(this T entity,  params  System . UInt64 [ ]  value)
+            where T : RulesetEffect
+        {
+            AddTrackedEffectProxyGuids(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddTrackedEffectProxyGuids<T>(this T entity, IEnumerable<System.UInt64> value)
+            where T : RulesetEffect
+        {
+            entity.TrackedEffectProxyGuids.AddRange(value);
+            return entity;
+        }
+
+        public static T AddTrackedItemPropertyGuids<T>(this T entity,  params  System . UInt64 [ ]  value)
+            where T : RulesetEffect
+        {
+            AddTrackedItemPropertyGuids(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddTrackedItemPropertyGuids<T>(this T entity, IEnumerable<System.UInt64> value)
+            where T : RulesetEffect
+        {
+            entity.TrackedItemPropertyGuids.AddRange(value);
+            return entity;
+        }
+
+        public static T AddTrackedLightSourceGuids<T>(this T entity,  params  System . UInt64 [ ]  value)
+            where T : RulesetEffect
+        {
+            AddTrackedLightSourceGuids(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddTrackedLightSourceGuids<T>(this T entity, IEnumerable<System.UInt64> value)
+            where T : RulesetEffect
+        {
+            entity.TrackedLightSourceGuids.AddRange(value);
+            return entity;
+        }
+
+        public static T AddTrackedSummonedItemGuids<T>(this T entity,  params  System . UInt64 [ ]  value)
+            where T : RulesetEffect
+        {
+            AddTrackedSummonedItemGuids(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddTrackedSummonedItemGuids<T>(this T entity, IEnumerable<System.UInt64> value)
+            where T : RulesetEffect
+        {
+            entity.TrackedSummonedItemGuids.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearMagicAttackTrends<T>(this T entity)
+            where T : RulesetEffect
+        {
+            entity.MagicAttackTrends.Clear();
+            return entity;
+        }
+
+        public static T ClearTrackedConditionGuids<T>(this T entity)
+            where T : RulesetEffect
+        {
+            entity.TrackedConditionGuids.Clear();
+            return entity;
+        }
+
+        public static T ClearTrackedEffectProxyGuids<T>(this T entity)
+            where T : RulesetEffect
+        {
+            entity.TrackedEffectProxyGuids.Clear();
+            return entity;
+        }
+
+        public static T ClearTrackedItemPropertyGuids<T>(this T entity)
+            where T : RulesetEffect
+        {
+            entity.TrackedItemPropertyGuids.Clear();
+            return entity;
+        }
+
+        public static T ClearTrackedLightSourceGuids<T>(this T entity)
+            where T : RulesetEffect
+        {
+            entity.TrackedLightSourceGuids.Clear();
+            return entity;
+        }
+
+        public static T ClearTrackedSummonedItemGuids<T>(this T entity)
+            where T : RulesetEffect
+        {
+            entity.TrackedSummonedItemGuids.Clear();
+            return entity;
+        }
+
         public static System.Collections.Generic.List<ISavingThrowAffinityProvider> GetAccountedProviders<T>(this T entity)
             where T : RulesetEffect
         {
@@ -95,6 +227,20 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetMagicAttackTrends<T>(this T entity,  params  RuleDefinitions . TrendInfo [ ]  value)
+            where T : RulesetEffect
+        {
+            SetMagicAttackTrends(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetMagicAttackTrends<T>(this T entity, IEnumerable<RuleDefinitions.TrendInfo> value)
+            where T : RulesetEffect
+        {
+            entity.MagicAttackTrends.SetRange(value);
+            return entity;
+        }
+
         public static T SetMetamagicOption<T>(this T entity, MetamagicOptionDefinition value)
             where T : RulesetEffect
         {
@@ -120,6 +266,76 @@ namespace SolastaModApi.Extensions
             where T : RulesetEffect
         {
             entity.SetField("<TerminatedSelf>k__BackingField", value);
+            return entity;
+        }
+
+        public static T SetTrackedConditionGuids<T>(this T entity,  params  System . UInt64 [ ]  value)
+            where T : RulesetEffect
+        {
+            SetTrackedConditionGuids(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetTrackedConditionGuids<T>(this T entity, IEnumerable<System.UInt64> value)
+            where T : RulesetEffect
+        {
+            entity.TrackedConditionGuids.SetRange(value);
+            return entity;
+        }
+
+        public static T SetTrackedEffectProxyGuids<T>(this T entity,  params  System . UInt64 [ ]  value)
+            where T : RulesetEffect
+        {
+            SetTrackedEffectProxyGuids(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetTrackedEffectProxyGuids<T>(this T entity, IEnumerable<System.UInt64> value)
+            where T : RulesetEffect
+        {
+            entity.TrackedEffectProxyGuids.SetRange(value);
+            return entity;
+        }
+
+        public static T SetTrackedItemPropertyGuids<T>(this T entity,  params  System . UInt64 [ ]  value)
+            where T : RulesetEffect
+        {
+            SetTrackedItemPropertyGuids(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetTrackedItemPropertyGuids<T>(this T entity, IEnumerable<System.UInt64> value)
+            where T : RulesetEffect
+        {
+            entity.TrackedItemPropertyGuids.SetRange(value);
+            return entity;
+        }
+
+        public static T SetTrackedLightSourceGuids<T>(this T entity,  params  System . UInt64 [ ]  value)
+            where T : RulesetEffect
+        {
+            SetTrackedLightSourceGuids(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetTrackedLightSourceGuids<T>(this T entity, IEnumerable<System.UInt64> value)
+            where T : RulesetEffect
+        {
+            entity.TrackedLightSourceGuids.SetRange(value);
+            return entity;
+        }
+
+        public static T SetTrackedSummonedItemGuids<T>(this T entity,  params  System . UInt64 [ ]  value)
+            where T : RulesetEffect
+        {
+            SetTrackedSummonedItemGuids(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetTrackedSummonedItemGuids<T>(this T entity, IEnumerable<System.UInt64> value)
+            where T : RulesetEffect
+        {
+            entity.TrackedSummonedItemGuids.SetRange(value);
             return entity;
         }
 

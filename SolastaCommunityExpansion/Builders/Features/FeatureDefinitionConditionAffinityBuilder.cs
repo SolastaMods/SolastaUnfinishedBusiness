@@ -1,9 +1,8 @@
 ﻿using System;
-using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionConditionAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionConditionAffinity>
+    public sealed class FeatureDefinitionConditionAffinityBuilder : DefinitionBuilder<FeatureDefinitionConditionAffinity>
     {
         private FeatureDefinitionConditionAffinityBuilder(FeatureDefinitionConditionAffinity original, string name, Guid namespaceGuid)
             : base(original, name, namespaceGuid)

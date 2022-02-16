@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,6 +43,32 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(ItemPresentation)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class ItemPresentationExtensions
     {
+        public static T AddItemFlags<T>(this T entity,  params  ItemFlagDefinition [ ]  value)
+            where T : ItemPresentation
+        {
+            AddItemFlags(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddItemFlags<T>(this T entity, IEnumerable<ItemFlagDefinition> value)
+            where T : ItemPresentation
+        {
+            entity.ItemFlags.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearItemFlags<T>(this T entity)
+            where T : ItemPresentation
+        {
+            entity.ItemFlags.Clear();
+            return entity;
+        }
+
+        public static ItemPresentation Copy(this ItemPresentation entity)
+        {
+            return new ItemPresentation(entity);
+        }
+
         public static T SetArmorAddressableName<T>(this T entity, System.String value)
             where T : ItemPresentation
         {
@@ -76,6 +108,20 @@ namespace SolastaModApi.Extensions
             where T : ItemPresentation
         {
             entity.SetField("hasCrownVariationMask", value);
+            return entity;
+        }
+
+        public static T SetItemFlags<T>(this T entity,  params  ItemFlagDefinition [ ]  value)
+            where T : ItemPresentation
+        {
+            SetItemFlags(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetItemFlags<T>(this T entity, IEnumerable<ItemFlagDefinition> value)
+            where T : ItemPresentation
+        {
+            entity.ItemFlags.SetRange(value);
             return entity;
         }
 

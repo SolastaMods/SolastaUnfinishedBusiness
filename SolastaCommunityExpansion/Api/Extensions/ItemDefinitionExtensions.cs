@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,10 +43,199 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(ItemDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class ItemDefinitionExtensions
     {
+        public static T AddActiveTags<T>(this T entity,  params  System . String [ ]  value)
+            where T : ItemDefinition
+        {
+            AddActiveTags(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddActiveTags<T>(this T entity, IEnumerable<System.String> value)
+            where T : ItemDefinition
+        {
+            entity.ActiveTags.AddRange(value);
+            return entity;
+        }
+
+        public static T AddInactiveTags<T>(this T entity,  params  System . String [ ]  value)
+            where T : ItemDefinition
+        {
+            AddInactiveTags(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddInactiveTags<T>(this T entity, IEnumerable<System.String> value)
+            where T : ItemDefinition
+        {
+            entity.InactiveTags.AddRange(value);
+            return entity;
+        }
+
+        public static T AddItemTags<T>(this T entity,  params  System . String [ ]  value)
+            where T : ItemDefinition
+        {
+            AddItemTags(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddItemTags<T>(this T entity, IEnumerable<System.String> value)
+            where T : ItemDefinition
+        {
+            entity.ItemTags.AddRange(value);
+            return entity;
+        }
+
+        public static T AddPersonalityFlagOccurences<T>(this T entity,  params  PersonalityFlagOccurence [ ]  value)
+            where T : ItemDefinition
+        {
+            AddPersonalityFlagOccurences(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddPersonalityFlagOccurences<T>(this T entity, IEnumerable<PersonalityFlagOccurence> value)
+            where T : ItemDefinition
+        {
+            entity.PersonalityFlagOccurences.AddRange(value);
+            return entity;
+        }
+
+        public static T AddRequiredAttunementClasses<T>(this T entity,  params  CharacterClassDefinition [ ]  value)
+            where T : ItemDefinition
+        {
+            AddRequiredAttunementClasses(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddRequiredAttunementClasses<T>(this T entity, IEnumerable<CharacterClassDefinition> value)
+            where T : ItemDefinition
+        {
+            entity.RequiredAttunementClasses.AddRange(value);
+            return entity;
+        }
+
+        public static T AddSlotsWhereActive<T>(this T entity,  params  System . String [ ]  value)
+            where T : ItemDefinition
+        {
+            AddSlotsWhereActive(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddSlotsWhereActive<T>(this T entity, IEnumerable<System.String> value)
+            where T : ItemDefinition
+        {
+            entity.SlotsWhereActive.AddRange(value);
+            return entity;
+        }
+
+        public static T AddSlotTypes<T>(this T entity,  params  System . String [ ]  value)
+            where T : ItemDefinition
+        {
+            AddSlotTypes(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddSlotTypes<T>(this T entity, IEnumerable<System.String> value)
+            where T : ItemDefinition
+        {
+            entity.SlotTypes.AddRange(value);
+            return entity;
+        }
+
+        public static T AddStaticProperties<T>(this T entity,  params  ItemPropertyDescription [ ]  value)
+            where T : ItemDefinition
+        {
+            AddStaticProperties(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddStaticProperties<T>(this T entity, IEnumerable<ItemPropertyDescription> value)
+            where T : ItemDefinition
+        {
+            entity.StaticProperties.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearActiveTags<T>(this T entity)
+            where T : ItemDefinition
+        {
+            entity.ActiveTags.Clear();
+            return entity;
+        }
+
+        public static T ClearInactiveTags<T>(this T entity)
+            where T : ItemDefinition
+        {
+            entity.InactiveTags.Clear();
+            return entity;
+        }
+
+        public static T ClearItemTags<T>(this T entity)
+            where T : ItemDefinition
+        {
+            entity.ItemTags.Clear();
+            return entity;
+        }
+
+        public static T ClearPersonalityFlagOccurences<T>(this T entity)
+            where T : ItemDefinition
+        {
+            entity.PersonalityFlagOccurences.Clear();
+            return entity;
+        }
+
+        public static T ClearRequiredAttunementClasses<T>(this T entity)
+            where T : ItemDefinition
+        {
+            entity.RequiredAttunementClasses.Clear();
+            return entity;
+        }
+
+        public static T ClearSlotsWhereActive<T>(this T entity)
+            where T : ItemDefinition
+        {
+            entity.SlotsWhereActive.Clear();
+            return entity;
+        }
+
+        public static T ClearSlotTypes<T>(this T entity)
+            where T : ItemDefinition
+        {
+            entity.SlotTypes.Clear();
+            return entity;
+        }
+
+        public static T ClearStaticProperties<T>(this T entity)
+            where T : ItemDefinition
+        {
+            entity.StaticProperties.Clear();
+            return entity;
+        }
+
+        public static ItemDefinition Copy(this ItemDefinition entity)
+        {
+            var copy = new ItemDefinition();
+            copy.Copy(entity);
+            return copy;
+        }
+
         public static T SetActiveOnGround<T>(this T entity, System.Boolean value)
             where T : ItemDefinition
         {
             entity.SetField("activeOnGround", value);
+            return entity;
+        }
+
+        public static T SetActiveTags<T>(this T entity,  params  System . String [ ]  value)
+            where T : ItemDefinition
+        {
+            SetActiveTags(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetActiveTags<T>(this T entity, IEnumerable<System.String> value)
+            where T : ItemDefinition
+        {
+            entity.ActiveTags.SetRange(value);
             return entity;
         }
 
@@ -132,6 +327,20 @@ namespace SolastaModApi.Extensions
             where T : ItemDefinition
         {
             entity.SetField("forceEquipSlot", value);
+            return entity;
+        }
+
+        public static T SetInactiveTags<T>(this T entity,  params  System . String [ ]  value)
+            where T : ItemDefinition
+        {
+            SetInactiveTags(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetInactiveTags<T>(this T entity, IEnumerable<System.String> value)
+            where T : ItemDefinition
+        {
+            entity.InactiveTags.SetRange(value);
             return entity;
         }
 
@@ -254,6 +463,20 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetItemTags<T>(this T entity,  params  System . String [ ]  value)
+            where T : ItemDefinition
+        {
+            SetItemTags(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetItemTags<T>(this T entity, IEnumerable<System.String> value)
+            where T : ItemDefinition
+        {
+            entity.ItemTags.SetRange(value);
+            return entity;
+        }
+
         public static T SetLightSourceItemDescription<T>(this T entity, LightSourceItemDescription value)
             where T : ItemDefinition
         {
@@ -275,6 +498,34 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetPersonalityFlagOccurences<T>(this T entity,  params  PersonalityFlagOccurence [ ]  value)
+            where T : ItemDefinition
+        {
+            SetPersonalityFlagOccurences(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetPersonalityFlagOccurences<T>(this T entity, IEnumerable<PersonalityFlagOccurence> value)
+            where T : ItemDefinition
+        {
+            entity.PersonalityFlagOccurences.SetRange(value);
+            return entity;
+        }
+
+        public static T SetRequiredAttunementClasses<T>(this T entity,  params  CharacterClassDefinition [ ]  value)
+            where T : ItemDefinition
+        {
+            SetRequiredAttunementClasses(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetRequiredAttunementClasses<T>(this T entity, IEnumerable<CharacterClassDefinition> value)
+            where T : ItemDefinition
+        {
+            entity.RequiredAttunementClasses.SetRange(value);
+            return entity;
+        }
+
         public static T SetRequiresAttunement<T>(this T entity, System.Boolean value)
             where T : ItemDefinition
         {
@@ -286,6 +537,34 @@ namespace SolastaModApi.Extensions
             where T : ItemDefinition
         {
             entity.SetField("requiresIdentification", value);
+            return entity;
+        }
+
+        public static T SetSlotsWhereActive<T>(this T entity,  params  System . String [ ]  value)
+            where T : ItemDefinition
+        {
+            SetSlotsWhereActive(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetSlotsWhereActive<T>(this T entity, IEnumerable<System.String> value)
+            where T : ItemDefinition
+        {
+            entity.SlotsWhereActive.SetRange(value);
+            return entity;
+        }
+
+        public static T SetSlotTypes<T>(this T entity,  params  System . String [ ]  value)
+            where T : ItemDefinition
+        {
+            SetSlotTypes(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetSlotTypes<T>(this T entity, IEnumerable<System.String> value)
+            where T : ItemDefinition
+        {
+            entity.SlotTypes.SetRange(value);
             return entity;
         }
 
@@ -321,6 +600,20 @@ namespace SolastaModApi.Extensions
             where T : ItemDefinition
         {
             entity.SetField("starterPackDefinition", value);
+            return entity;
+        }
+
+        public static T SetStaticProperties<T>(this T entity,  params  ItemPropertyDescription [ ]  value)
+            where T : ItemDefinition
+        {
+            SetStaticProperties(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetStaticProperties<T>(this T entity, IEnumerable<ItemPropertyDescription> value)
+            where T : ItemDefinition
+        {
+            entity.StaticProperties.SetRange(value);
             return entity;
         }
 

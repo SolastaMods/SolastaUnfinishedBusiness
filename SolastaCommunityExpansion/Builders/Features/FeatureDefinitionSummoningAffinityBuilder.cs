@@ -1,9 +1,8 @@
 ﻿using System;
-using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionSummoningAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionSummoningAffinity>
+    public sealed class FeatureDefinitionSummoningAffinityBuilder : DefinitionBuilder<FeatureDefinitionSummoningAffinity>
     {
 /*        private FeatureDefinitionSummoningAffinityBuilder(string name, string guid)
             : base(name, guid)

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,6 +43,27 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(MerchantDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class MerchantDefinitionExtensions
     {
+        public static T AddStockUnitDescriptions<T>(this T entity,  params  StockUnitDescription [ ]  value)
+            where T : MerchantDefinition
+        {
+            AddStockUnitDescriptions(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddStockUnitDescriptions<T>(this T entity, IEnumerable<StockUnitDescription> value)
+            where T : MerchantDefinition
+        {
+            entity.StockUnitDescriptions.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearStockUnitDescriptions<T>(this T entity)
+            where T : MerchantDefinition
+        {
+            entity.StockUnitDescriptions.Clear();
+            return entity;
+        }
+
         public static T SetBuyBackPercent<T>(this T entity, System.Int32 value)
             where T : MerchantDefinition
         {
@@ -97,6 +124,20 @@ namespace SolastaModApi.Extensions
             where T : MerchantDefinition
         {
             entity.OverchargePercent = value;
+            return entity;
+        }
+
+        public static T SetStockUnitDescriptions<T>(this T entity,  params  StockUnitDescription [ ]  value)
+            where T : MerchantDefinition
+        {
+            SetStockUnitDescriptions(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetStockUnitDescriptions<T>(this T entity, IEnumerable<StockUnitDescription> value)
+            where T : MerchantDefinition
+        {
+            entity.StockUnitDescriptions.SetRange(value);
             return entity;
         }
 

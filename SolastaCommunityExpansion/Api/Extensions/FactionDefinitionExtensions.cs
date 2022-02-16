@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using System;
+using System.Linq;
 using System.Text;
 using System.CodeDom.Compiler;
 using TA.AI;
@@ -16,14 +17,19 @@ using  static  TA . AI . DecisionDefinition ;
 using  static  RuleDefinitions ;
 using  static  BanterDefinitions ;
 using  static  Gui ;
+using  static  GadgetDefinitions ;
 using  static  BestiaryDefinitions ;
 using  static  CursorDefinitions ;
 using  static  AnimationDefinitions ;
+using  static  FeatureDefinitionAutoPreparedSpells ;
+using  static  FeatureDefinitionCraftingAffinity ;
 using  static  CharacterClassDefinition ;
 using  static  CreditsGroupDefinition ;
+using  static  SoundbanksDefinition ;
 using  static  CampaignDefinition ;
 using  static  GraphicsCharacterDefinitions ;
 using  static  GameCampaignDefinitions ;
+using  static  FeatureDefinitionAbilityCheckAffinity ;
 using  static  TooltipDefinitions ;
 using  static  BaseBlueprint ;
 using  static  MorphotypeElementDefinition ;
@@ -37,6 +43,27 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(FactionDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class FactionDefinitionExtensions
     {
+        public static T AddProminentMembers<T>(this T entity,  params  MonsterDefinition [ ]  value)
+            where T : FactionDefinition
+        {
+            AddProminentMembers(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddProminentMembers<T>(this T entity, IEnumerable<MonsterDefinition> value)
+            where T : FactionDefinition
+        {
+            entity.ProminentMembers.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearProminentMembers<T>(this T entity)
+            where T : FactionDefinition
+        {
+            entity.ProminentMembers.Clear();
+            return entity;
+        }
+
         public static T SetAttackingPenalty<T>(this T entity, System.Int32 value)
             where T : FactionDefinition
         {
@@ -69,6 +96,20 @@ namespace SolastaModApi.Extensions
             where T : FactionDefinition
         {
             entity.SetField("minRelationCap", value);
+            return entity;
+        }
+
+        public static T SetProminentMembers<T>(this T entity,  params  MonsterDefinition [ ]  value)
+            where T : FactionDefinition
+        {
+            SetProminentMembers(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetProminentMembers<T>(this T entity, IEnumerable<MonsterDefinition> value)
+            where T : FactionDefinition
+        {
+            entity.ProminentMembers.SetRange(value);
             return entity;
         }
 
