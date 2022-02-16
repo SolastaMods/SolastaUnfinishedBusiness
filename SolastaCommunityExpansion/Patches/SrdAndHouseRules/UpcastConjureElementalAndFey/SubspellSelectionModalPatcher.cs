@@ -16,24 +16,19 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElemen
         typeof(SpellsByLevelBox.SpellCastEngagedHandler), typeof(int), typeof(RectTransform)})]
     internal static class SubspellSelectionModal_Bind
     {
-        public static int? FilterBySlotLevel { get; internal set; }
-
         public static List<SpellDefinition> FilteredSubspells { get; internal set; }
 
-        public static void CacheFilters(SpellDefinition masterSpell, int slotLevel)
+        public static List<SpellDefinition> MySubspellsList(SpellDefinition masterSpell, int slotLevel)
         {
             var subspellsList = masterSpell.SubspellsList;
-
-            FilterBySlotLevel = masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureElemental.Name
+            var mySlotLevel = masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureElemental.Name 
                 || masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureFey.Name
                 ? slotLevel
-                : null;
+                : -1;
 
-            if (!Main.Settings.EnableUpcastConjureElementalAndFey || !FilterBySlotLevel.HasValue || subspellsList == null || subspellsList.Count == 0)
+            if (mySlotLevel < 0 || subspellsList.Count == 0)
             {
-                FilteredSubspells = subspellsList;
-
-                return;
+                return subspellsList;
             }
 
             var subspellsGroupedAndFilteredByCR = subspellsList
@@ -62,7 +57,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElemen
                     ChallengeRating = g.Key,
                     SpellDefinitions = g.Select(s => s.SpellDefinition).OrderBy(s => Gui.Format(s.GuiPresentation.Title))
                 })
-                .Where(s => s.ChallengeRating <= FilterBySlotLevel.Value)
+                .Where(s => s.ChallengeRating <= mySlotLevel)
                 .OrderByDescending(s => s.ChallengeRating)
                 .ToList();
 
@@ -73,28 +68,20 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElemen
             FilteredSubspells = allOrMostPowerful.SelectMany(s => s.SpellDefinitions).ToList();
 
             FilteredSubspells.ForEach(s => Main.Log($"{Gui.Format(s.GuiPresentation.Title)}"));
-        }
 
-        public static List<SpellDefinition> MySubspellsList()
-        {
             return FilteredSubspells;
         }
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            var cacheFilteredSubspellsMethod = typeof(SubspellSelectionModal_Bind).GetMethod("CacheFilters");
             var subspellsListMethod = typeof(SpellDefinition).GetMethod("get_SubspellsList");
             var mySubspellsListMethod = typeof(SubspellSelectionModal_Bind).GetMethod("MySubspellsList");
-
-            yield return new CodeInstruction(OpCodes.Ldarg_1); // masterSpell
-            yield return new CodeInstruction(OpCodes.Ldarg, 5); // slotLevel
-            yield return new CodeInstruction(OpCodes.Call, cacheFilteredSubspellsMethod);
 
             foreach (CodeInstruction instruction in instructions)
             {
                 if (instruction.Calls(subspellsListMethod))
                 {
-                    yield return new CodeInstruction(OpCodes.Pop); // remove masterSpell from stack
+                    yield return new CodeInstruction(OpCodes.Ldarg, 5); // slotLevel
                     yield return new CodeInstruction(OpCodes.Call, mySubspellsListMethod);
                 }
                 else
