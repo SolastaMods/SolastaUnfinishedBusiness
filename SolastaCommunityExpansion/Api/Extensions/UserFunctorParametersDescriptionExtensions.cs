@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(UserFunctorParametersDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class UserFunctorParametersDescriptionExtensions
     {
+        public static UserFunctorParametersDescription Copy(this UserFunctorParametersDescription entity)
+        {
+            return new UserFunctorParametersDescription(entity);
+        }
+
         public static System.Collections.Generic.List<System.String> GetValidStepNames<T>(this T entity)
             where T : UserFunctorParametersDescription
         {

@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(SpellbookDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class SpellbookDescriptionExtensions
     {
+        public static SpellbookDescription Copy(this SpellbookDescription entity)
+        {
+            return new SpellbookDescription(entity);
+        }
+
         public static T SetPagesCapacity<T>(this T entity, System.Int32 value)
             where T : SpellbookDescription
         {

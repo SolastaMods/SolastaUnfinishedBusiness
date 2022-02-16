@@ -64,6 +64,11 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static WeaponDescription Copy(this WeaponDescription entity)
+        {
+            return new WeaponDescription(entity);
+        }
+
         public static T SetAmmunitionType<T>(this T entity, System.String value)
             where T : WeaponDescription
         {

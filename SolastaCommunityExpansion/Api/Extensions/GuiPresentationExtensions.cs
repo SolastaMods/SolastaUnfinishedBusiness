@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(GuiPresentation)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class GuiPresentationExtensions
     {
+        public static GuiPresentation Copy(this GuiPresentation entity)
+        {
+            return new GuiPresentation(entity);
+        }
+
         public static T SetColor<T>(this T entity, UnityEngine.Color value)
             where T : GuiPresentation
         {

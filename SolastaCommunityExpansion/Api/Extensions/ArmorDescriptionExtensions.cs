@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(ArmorDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class ArmorDescriptionExtensions
     {
+        public static ArmorDescription Copy(this ArmorDescription entity)
+        {
+            return new ArmorDescription(entity);
+        }
+
         public static T SetArmorClassValue<T>(this T entity, System.Int32 value)
             where T : ArmorDescription
         {

@@ -64,6 +64,11 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static ItemPresentation Copy(this ItemPresentation entity)
+        {
+            return new ItemPresentation(entity);
+        }
+
         public static T SetArmorAddressableName<T>(this T entity, System.String value)
             where T : ItemPresentation
         {

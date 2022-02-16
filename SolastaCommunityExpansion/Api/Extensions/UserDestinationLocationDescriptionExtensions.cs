@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(UserDestinationLocationDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class UserDestinationLocationDescriptionExtensions
     {
+        public static UserDestinationLocationDescription Copy(this UserDestinationLocationDescription entity)
+        {
+            return new UserDestinationLocationDescription(entity);
+        }
+
         public static T SetDisplayedTitle<T>(this T entity, System.String value)
             where T : UserDestinationLocationDescription
         {

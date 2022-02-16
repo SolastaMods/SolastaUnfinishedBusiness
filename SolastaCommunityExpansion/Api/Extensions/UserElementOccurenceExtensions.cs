@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(UserElementOccurence)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class UserElementOccurenceExtensions
     {
+        public static UserElementOccurence Copy(this UserElementOccurence entity)
+        {
+            return new UserElementOccurence(entity);
+        }
+
         public static T SetCount<T>(this T entity, System.Int32 value)
             where T : UserElementOccurence
         {

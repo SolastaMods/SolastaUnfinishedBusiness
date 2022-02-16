@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(SoundEffectOnHitDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class SoundEffectOnHitDescriptionExtensions
     {
+        public static SoundEffectOnHitDescription Copy(this SoundEffectOnHitDescription entity)
+        {
+            return new SoundEffectOnHitDescription(entity);
+        }
+
         public static T SetSwitchOnHit<T>(this T entity, AK.Wwise.Switch value)
             where T : SoundEffectOnHitDescription
         {

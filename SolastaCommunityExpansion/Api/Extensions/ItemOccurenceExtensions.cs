@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(ItemOccurence)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class ItemOccurenceExtensions
     {
+        public static ItemOccurence Copy(this ItemOccurence entity)
+        {
+            return new ItemOccurence(entity);
+        }
+
         public static T SetAdditiveModifier<T>(this T entity, System.Int32 value)
             where T : ItemOccurence
         {

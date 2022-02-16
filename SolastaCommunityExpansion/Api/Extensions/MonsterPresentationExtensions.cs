@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(MonsterPresentation)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class MonsterPresentationExtensions
     {
+        public static MonsterPresentation Copy(this MonsterPresentation entity)
+        {
+            return new MonsterPresentation(entity);
+        }
+
         public static T SetAttachedParticlesReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
             where T : MonsterPresentation
         {

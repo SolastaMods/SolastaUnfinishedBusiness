@@ -64,6 +64,11 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static UserEffectDescription Copy(this UserEffectDescription entity)
+        {
+            return new UserEffectDescription(entity);
+        }
+
         public static T SetDurationParameter<T>(this T entity, System.Int32 value)
             where T : UserEffectDescription
         {
