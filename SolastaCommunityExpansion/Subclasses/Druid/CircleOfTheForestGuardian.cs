@@ -36,22 +36,17 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
 
         public static CharacterSubclassDefinition BuildAndAddSubclass()
         {
-            var subclassGuiPresentation = new GuiPresentationBuilder(
-                    "Subclass/&DruidForestGuardianSubclassTitle",
-                    "Subclass/&DruidForestGuardianDruidSubclassDescription")
-                    .SetSpriteReference(MartialMountaineer.GuiPresentation.SpriteReference)
-                    .Build();
-
-            return new CharacterSubclassDefinitionBuilder(DruidForestGuardianDruidSubclassName, DruidForestGuardianDruidSubclassGuid)
-                    .SetGuiPresentation(subclassGuiPresentation)
-                    .AddFeatureAtLevel(druid_forestGuardian_magic, 2)
-                    .AddFeatureAtLevel(sylvan_resistance, 2)
-                    .AddFeatureAtLevel(sylvan_war_magic, 2)
-                    .AddFeatureAtLevel(bark_ward_dict[2], 2)
-                    .AddFeatureAtLevel(extra_attack, 6)
-                    .AddFeatureAtLevel(bark_ward_dict[10], 10)
-                    .AddFeatureAtLevel(bark_ward_dict[14], 14)
-                    .AddToDB();
+            return CharacterSubclassDefinitionBuilder
+                .Create(DruidForestGuardianDruidSubclassName, DruidForestGuardianDruidSubclassGuid)
+                .SetGuiPresentation(Category.Subclass, MartialMountaineer.GuiPresentation.SpriteReference)
+                .AddFeatureAtLevel(druid_forestGuardian_magic, 2)
+                .AddFeatureAtLevel(sylvan_resistance, 2)
+                .AddFeatureAtLevel(sylvan_war_magic, 2)
+                .AddFeatureAtLevel(bark_ward_dict[2], 2)
+                .AddFeatureAtLevel(extra_attack, 6)
+                .AddFeatureAtLevel(bark_ward_dict[10], 10)
+                .AddFeatureAtLevel(bark_ward_dict[14], 14)
+                .AddToDB();
         }
 
         // Create Auto-prepared Spell list
@@ -73,13 +68,10 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         // Create Sylvan War Magic
         private static FeatureDefinitionMagicAffinity CreateSylvanWarMagic()
         {
-            GuiPresentationBuilder sylvanWarMagicGui = new GuiPresentationBuilder(
-                "Feature/&DruidForestGuardianSylvanWarMagicTitle",
-                "Feature/&DruidForestGuardianSylvanWarMagicDescription");
-
-            return new FeatureDefinitionMagicAffinityBuilder(DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityBattleMagic,
-                "DruidForestGuardianSylvanWarMagic",
-                GuidHelper.Create(DFG_BASE_GUID, "DruidForestGuardianSylvanWarMagic").ToString(), sylvanWarMagicGui.Build()).AddToDB();
+            return FeatureDefinitionMagicAffinityBuilder
+                .Create(DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityBattleMagic, "DruidForestGuardianSylvanWarMagic", DFG_BASE_GUID)
+                .SetGuiPresentation(Category.Feature)
+                .AddToDB();
         }
 
         // Create Sylvan Durability

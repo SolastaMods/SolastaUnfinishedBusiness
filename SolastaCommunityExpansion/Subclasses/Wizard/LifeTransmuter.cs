@@ -167,9 +167,11 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 
         private static FeatureDefinitionMagicAffinity BuildMagicAffinityHeightenedList(List<string> spellNames, int levelBonus, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionMagicAffinityBuilder builder = new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
-                guiPresentation).SetWarList(spellNames, levelBonus);
-            return builder.AddToDB();
+            return FeatureDefinitionMagicAffinityBuilder
+                .Create(name, SubclassNamespace)
+                .SetGuiPresentation(guiPresentation)
+                .SetWarList(spellNames, levelBonus)
+                .AddToDB();
         }
 
         private static ConditionDefinition BuildCondition(IEnumerable<FeatureDefinition> conditionFeatures, RuleDefinitions.DurationType durationType,

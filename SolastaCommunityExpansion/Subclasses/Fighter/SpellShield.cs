@@ -32,13 +32,13 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             spellShieldPresentation.SetSpriteReference(CharacterSubclassDefinitions.DomainBattle.GuiPresentation.SpriteReference);
             spellShield.SetGuiPresentation(spellShieldPresentation.Build());
 
-            GuiPresentationBuilder combatCastingPresentation = new GuiPresentationBuilder(
-                "Subclass/&MagicAffinityFighterSpellShieldTitle",
-                "Subclass/&MagicAffinityFighterSpellShieldDescription");
-            FeatureDefinitionMagicAffinity magicAffinity = new FeatureDefinitionMagicAffinityBuilder("MagicAffinityFighterSpellShield",
-                GuidHelper.Create(SubclassNamespace, "MagicAffinityFighterSpellShield").ToString(),
-                combatCastingPresentation.Build()).SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0).SetHandsFullCastingModifiers(true, true, true)
-                .SetCastingModifiers(0, 0, true, false, false).AddToDB();
+            FeatureDefinitionMagicAffinity magicAffinity = FeatureDefinitionMagicAffinityBuilder
+                .Create("MagicAffinityFighterSpellShield", SubclassNamespace)
+                .SetGuiPresentation(Category.Subclass)
+                .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
+                .SetHandsFullCastingModifiers(true, true, true)
+                .SetCastingModifiers(0, 0, true, false, false)
+                .AddToDB();
             spellShield.AddFeatureAtLevel(magicAffinity, 3);
 
             FeatureDefinitionCastSpellBuilder spellCasting = FeatureDefinitionCastSpellBuilder
@@ -60,7 +60,8 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
             spellShield.AddFeatureAtLevel(spellCasting.AddToDB(), 3);
 
-            FeatureDefinitionSavingThrowAffinity spellShieldResistance = FeatureDefinitionSavingThrowAffinityBuilder.Create("SpellShieldSpellResistance", SubclassNamespace)
+            FeatureDefinitionSavingThrowAffinity spellShieldResistance = FeatureDefinitionSavingThrowAffinityBuilder
+                .Create("SpellShieldSpellResistance", SubclassNamespace)
                 .SetGuiPresentation("FighterSpellShieldSpellResistance", Category.Subclass)
                 .SetAffinities(RuleDefinitions.CharacterSavingThrowAffinity.Advantage, true,
                     AttributeDefinitions.Strength,

@@ -95,16 +95,20 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 
         public static FeatureDefinitionMagicAffinity BuildMagicAffinityModifiers(int attackModifier, int dcModifier, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionMagicAffinityBuilder builder = new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
-                guiPresentation).SetCastingModifiers(attackModifier, dcModifier, false, false, false);
-            return builder.AddToDB();
+            return FeatureDefinitionMagicAffinityBuilder
+                .Create(name, SubclassNamespace)
+                .SetGuiPresentation(guiPresentation)
+                .SetCastingModifiers(attackModifier, dcModifier, false, false, false)
+                .AddToDB();
         }
 
         public static FeatureDefinitionMagicAffinity BuildMagicAffinityHeightenedList(List<string> spellNames, int levelBonus, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionMagicAffinityBuilder builder = new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
-                guiPresentation).SetWarList(spellNames, levelBonus);
-            return builder.AddToDB();
+            return FeatureDefinitionMagicAffinityBuilder
+                .Create(name, SubclassNamespace)
+                .SetGuiPresentation(guiPresentation)
+                .SetWarList(spellNames, levelBonus)
+                .AddToDB();
         }
     }
 }

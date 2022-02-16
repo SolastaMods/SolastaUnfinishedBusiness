@@ -17,11 +17,10 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
 
         #region DcIncreaseAffinity
         private static FeatureDefinitionMagicAffinity _dcIncreaseAffinity;
-        private static FeatureDefinitionMagicAffinity DcIncreaseAffinity => _dcIncreaseAffinity ??= new FeatureDefinitionMagicAffinityBuilder(
-                        "MagicAffinityRoguishConArtistDC",
-                        GuidHelper.Create(SubclassNamespace, "MagicAffinityRoguishConArtistDC").ToString(),
-                        GetSpellDCPresentation().Build())
-                            .SetCastingModifiers(0, Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc, false, false, false).AddToDB();
+        private static FeatureDefinitionMagicAffinity DcIncreaseAffinity => _dcIncreaseAffinity ??= FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinityRoguishConArtistDC", SubclassNamespace)
+            .SetGuiPresentation(GetSpellDCPresentation().Build())
+            .SetCastingModifiers(0, Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc, false, false, false).AddToDB();
         #endregion
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()

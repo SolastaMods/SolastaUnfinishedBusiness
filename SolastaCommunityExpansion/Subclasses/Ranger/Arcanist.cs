@@ -6,8 +6,10 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
+using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalDamages;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Subclasses.Ranger
@@ -17,7 +19,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
         private CharacterSubclassDefinition Subclass;
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
-            return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceRangerArchetypes;
+            return FeatureDefinitionSubclassChoices.SubclassChoiceRangerArchetypes;
         }
         internal override CharacterSubclassDefinition GetSubclass()
         {
@@ -29,7 +31,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
 
         public static readonly Guid RA_BASE_GUID = new(RangerArcanistRangerSubclassGuid);
 
-        public static readonly FeatureDefinitionFeatureSet ranger_arcanist_magic = createRangerArcanistMagic();
+        public static readonly FeatureDefinitionFeatureSet ranger_arcanist_magic = CreateRangerArcanistMagic();
         public static readonly FeatureDefinitionAdditionalDamage arcanist_mark = CreateArcanistMark();
         public static readonly FeatureDefinitionAdditionalDamage arcane_detonation = CreateArcaneDetonation();
         public static readonly FeatureDefinition arcane_detonation_upgrade = CreateArcaneDetonationUpgrade();
@@ -63,45 +65,46 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             return diceByRank;
         }
 
-        private static FeatureDefinitionFeatureSet createRangerArcanistMagic()
+        private static FeatureDefinitionFeatureSet CreateRangerArcanistMagic()
         {
             GuiPresentation blank = new GuiPresentationBuilder("Feature/&NoContentTitle", "Feature/&NoContentTitle").Build();
 
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup arcanistSpells1 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 2,
-                SpellsList = new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.Shield, }
+                SpellsList = new List<SpellDefinition>() { SpellDefinitions.Shield, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup arcanistSpells2 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 5,
-                SpellsList = new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.MistyStep, }
+                SpellsList = new List<SpellDefinition>() { SpellDefinitions.MistyStep, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup arcanistSpells3 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 9,
-                SpellsList = new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.Haste, }
+                SpellsList = new List<SpellDefinition>() { SpellDefinitions.Haste, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup arcanistSpells4 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 13,
-                SpellsList = new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.DimensionDoor, }
+                SpellsList = new List<SpellDefinition>() { SpellDefinitions.DimensionDoor, }
             };
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup arcanistSpells5 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup()
             {
                 ClassLevel = 17,
-                SpellsList = new List<SpellDefinition>() { DatabaseHelper.SpellDefinitions.HoldMonster, }
+                SpellsList = new List<SpellDefinition>() { SpellDefinitions.HoldMonster, }
             };
 
             FeatureDefinitionAutoPreparedSpells preparedSpells = new FeatureDefinitionAutoPreparedSpellsBuilder("ArcanistAutoPreparedSpells",
                 GuidHelper.Create(RA_BASE_GUID, "ArcanistAutoPreparedSpells").ToString(),
                new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>() {
                     arcanistSpells1, arcanistSpells2, arcanistSpells3, arcanistSpells4, arcanistSpells5},
-               DatabaseHelper.CharacterClassDefinitions.Ranger, blank).AddToDB();
+               CharacterClassDefinitions.Ranger, blank).AddToDB();
 
-            var arcanist_affinity = new FeatureDefinitionMagicAffinityBuilder(DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityBattleMagic,
-                "MagicAffinityRangerArcanist",
-                GuidHelper.Create(RA_BASE_GUID, "MagicAffinityRangerArcanist").ToString(), blank).AddToDB();
+            var arcanist_affinity = FeatureDefinitionMagicAffinityBuilder
+                .Create(MagicAffinityBattleMagic, "MagicAffinityRangerArcanist", RA_BASE_GUID)
+                .SetGuiPresentationNoContent()
+                .AddToDB();
 
             GuiPresentation arcanistMagicGui = new GuiPresentationBuilder("Feature/&RangerArcanistMagicTitle", "Feature/&RangerArcanistMagicDescription").Build();
             return new FeatureDefinitionFeatureSetBuilder("RangerArcanistMagic",
@@ -267,7 +270,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
         private static FeatureDefinitionPower CreateArcanePulse(string name, string title, string description, EffectForm marked_effect, EffectForm damage_effect)
         {
             var pulse_description = new EffectDescription();
-            pulse_description.Copy(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription);
+            pulse_description.Copy(SpellDefinitions.MagicMissile.EffectDescription);
             pulse_description.SetCreatedByCharacter(true);
             pulse_description.SetTargetSide(RuleDefinitions.Side.Enemy);
             pulse_description.SetTargetType(RuleDefinitions.TargetType.Sphere);
@@ -299,7 +302,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
     // Creates a dedicated builder for the marked by arcanist condition. This helps with GUID wonkiness on the fact that separate features interact with it.
     internal class ConditionMarkedByArcanistBuilder : DefinitionBuilder<ConditionDefinition>
     {
-        protected ConditionMarkedByArcanistBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionMarkedByBrandingSmite, name, guid)
+        protected ConditionMarkedByArcanistBuilder(string name, string guid) : base(ConditionDefinitions.ConditionMarkedByBrandingSmite, name, guid)
         {
             Definition.GuiPresentation.Title = "Condition/&ConditionMarkedByArcanistTitle";
             Definition.GuiPresentation.Description = "Condition/&ConditionMarkedByArcanistDescription";
