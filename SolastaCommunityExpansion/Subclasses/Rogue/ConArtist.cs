@@ -6,6 +6,7 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.SchoolOfMagicDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Rogue
@@ -35,12 +36,9 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
         internal ConArtist()
         {
             // Make Con Artist subclass
-            CharacterSubclassDefinitionBuilder conArtist = new CharacterSubclassDefinitionBuilder("RoguishConArtist", GuidHelper.Create(SubclassNamespace, "RoguishConArtist").ToString());
-            GuiPresentationBuilder conPresentation = new GuiPresentationBuilder(
-                "Subclass/&RoguishConArtistTitle",
-                "Subclass/&RoguishConArtistDescription");
-            conPresentation.SetSpriteReference(CharacterSubclassDefinitions.DomainInsight.GuiPresentation.SpriteReference);
-            conArtist.SetGuiPresentation(conPresentation.Build());
+            CharacterSubclassDefinitionBuilder conArtist = CharacterSubclassDefinitionBuilder
+                .Create("RoguishConArtist", SubclassNamespace)
+                .SetGuiPresentation(Category.Subclass, DomainInsight.GuiPresentation.SpriteReference);
 
             GuiPresentationBuilder conAffinity = new GuiPresentationBuilder(
                 "Subclass/&AbilityAffinityRogueConArtistTitle",

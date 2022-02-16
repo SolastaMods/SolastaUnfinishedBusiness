@@ -5,6 +5,7 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Fighter
 {
@@ -25,12 +26,9 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         internal SpellShield()
         {
             // Make Spell Shield subclass
-            CharacterSubclassDefinitionBuilder spellShield = new CharacterSubclassDefinitionBuilder("FighterSpellShield", GuidHelper.Create(SubclassNamespace, "FighterSpellShield").ToString());
-            GuiPresentationBuilder spellShieldPresentation = new GuiPresentationBuilder(
-                "Subclass/&FighterSpellShieldTitle",
-                "Subclass/&FighterSpellShieldDescription");
-            spellShieldPresentation.SetSpriteReference(CharacterSubclassDefinitions.DomainBattle.GuiPresentation.SpriteReference);
-            spellShield.SetGuiPresentation(spellShieldPresentation.Build());
+            CharacterSubclassDefinitionBuilder spellShield = CharacterSubclassDefinitionBuilder
+                .Create("FighterSpellShield", SubclassNamespace)
+                .SetGuiPresentation(Category.Subclass, DomainBattle.GuiPresentation.SpriteReference);
 
             FeatureDefinitionMagicAffinity magicAffinity = FeatureDefinitionMagicAffinityBuilder
                 .Create("MagicAffinityFighterSpellShield", SubclassNamespace)

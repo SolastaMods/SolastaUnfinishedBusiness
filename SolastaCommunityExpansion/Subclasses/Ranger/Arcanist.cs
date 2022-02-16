@@ -39,21 +39,16 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
 
         public static CharacterSubclassDefinition BuildAndAddSubclass()
         {
-            var subclassGuiPresentation = new GuiPresentationBuilder(
-                    "Subclass/&RangerArcanistRangerSubclassTitle",
-                    "Subclass/&RangerArcanistRangerSubclassDescription")
-                    .SetSpriteReference(RoguishShadowCaster.GuiPresentation.SpriteReference)
-                    .Build();
-
-            return new CharacterSubclassDefinitionBuilder(RangerArcanistRangerSubclassName, RangerArcanistRangerSubclassGuid)
-                    .SetGuiPresentation(subclassGuiPresentation)
-                    .AddFeatureAtLevel(ranger_arcanist_magic, 3)
-                    .AddFeatureAtLevel(arcanist_mark, 3)
-                    .AddFeatureAtLevel(arcane_detonation, 3)
-                    .AddFeatureAtLevel(arcane_pulse_dict[7], 7)
-                    .AddFeatureAtLevel(arcane_detonation_upgrade, 11)
-                    .AddFeatureAtLevel(arcane_pulse_dict[15], 15)
-                    .AddToDB();
+            return CharacterSubclassDefinitionBuilder
+                .Create(RangerArcanistRangerSubclassName, RangerArcanistRangerSubclassGuid)
+                .SetGuiPresentation(Category.Subclass, RoguishShadowCaster.GuiPresentation.SpriteReference)
+                .AddFeatureAtLevel(ranger_arcanist_magic, 3)
+                .AddFeatureAtLevel(arcanist_mark, 3)
+                .AddFeatureAtLevel(arcane_detonation, 3)
+                .AddFeatureAtLevel(arcane_pulse_dict[7], 7)
+                .AddFeatureAtLevel(arcane_detonation_upgrade, 11)
+                .AddFeatureAtLevel(arcane_pulse_dict[15], 15)
+                .AddToDB();
         }
 
         // Common helper: factor out

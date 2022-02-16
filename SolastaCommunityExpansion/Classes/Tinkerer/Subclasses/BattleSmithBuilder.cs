@@ -13,12 +13,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static CharacterSubclassDefinition Build(CharacterClassDefinition artificer)
         {
             // Make Battle Smith subclass
-            CharacterSubclassDefinitionBuilder battleSmith = new CharacterSubclassDefinitionBuilder("BattleSmith", GuidHelper.Create(TinkererClass.GuidNamespace, "BattleSmith").ToString());
-            GuiPresentationBuilder battleSmithPresentation = new GuiPresentationBuilder(
-                "Subclass/&ArtificerBattleSmithTitle",
-                "Subclass/&ArtificerBattleSmithDescription");
-            battleSmithPresentation.SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.MartialSpellblade.GuiPresentation.SpriteReference);
-            battleSmith.SetGuiPresentation(battleSmithPresentation.Build());
+            CharacterSubclassDefinitionBuilder battleSmith = CharacterSubclassDefinitionBuilder
+                .Create("BattleSmith", TinkererClass.GuidNamespace)
+                .SetGuiPresentation("ArtificerBattleSmith", Category.Subclass);
 
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup battleSmithSpells1 = FeatureHelpers.BuildAutoPreparedSpellGroup(
                 3, DatabaseHelper.SpellDefinitions.Heroism, DatabaseHelper.SpellDefinitions.Shield, DatabaseHelper.SpellDefinitions.HuntersMark);

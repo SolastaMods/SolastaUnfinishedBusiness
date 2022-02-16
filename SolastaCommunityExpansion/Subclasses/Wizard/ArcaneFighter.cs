@@ -4,6 +4,8 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using static SolastaModApi.DatabaseHelper;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard
 {
@@ -14,7 +16,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
-            return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
+            return FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
         }
         internal override CharacterSubclassDefinition GetSubclass()
         {
@@ -24,12 +26,9 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         internal ArcaneFighter()
         {
             // Make Melee Wizard subclass
-            CharacterSubclassDefinitionBuilder meleeWizard = new CharacterSubclassDefinitionBuilder("ArcaneFighter", GuidHelper.Create(SubclassNamespace, "ArcaneFighter").ToString());
-            GuiPresentationBuilder meleePresentation = new GuiPresentationBuilder(
-                "Subclass/&TraditionArcaneFighterTitle",
-                "Subclass/&TraditionArcaneFighterDescription");
-            meleePresentation.SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.MartialSpellblade.GuiPresentation.SpriteReference);
-            meleeWizard.SetGuiPresentation(meleePresentation.Build());
+            CharacterSubclassDefinitionBuilder meleeWizard = CharacterSubclassDefinitionBuilder
+                .Create("ArcaneFighter", SubclassNamespace)
+                .SetGuiPresentation("TraditionArcaneFighter", Category.Subclass, MartialSpellblade.GuiPresentation.SpriteReference);
 
             GuiPresentationBuilder weaponProfPresentation = new GuiPresentationBuilder(
                 "Subclass/&WeaponProfArcaneFighterTitle",
@@ -89,11 +88,11 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             GuiPresentationBuilder attackModGui = new GuiPresentationBuilder(
                 "Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle",
                 "Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription");
-            attackModGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference);
+            attackModGui.SetSpriteReference(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference);
             GuiPresentationBuilder arcaneWeaponGui = new GuiPresentationBuilder(
                    "Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle",
                    "Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription");
-            arcaneWeaponGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference);
+            arcaneWeaponGui.SetSpriteReference(FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference);
             FeatureDefinitionAttackModifier weaponUseIntModifier = new FeatureDefinitionAttackModifierBuilder("AttackModifierMeleeWizard",
                  GuidHelper.Create(SubclassNamespace, "AttackModifierMeleeWizard").ToString(),
                  RuleDefinitions.AbilityScoreReplacement.SpellcastingAbility, TagsDefinitions.Magical, attackModGui.Build()).AddToDB();

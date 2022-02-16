@@ -4,24 +4,24 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class CharacterSubclassDefinitionBuilder : DefinitionBuilder<CharacterSubclassDefinition>
+    public sealed class CharacterSubclassDefinitionBuilder : DefinitionBuilder<CharacterSubclassDefinition>
     {
-        public CharacterSubclassDefinitionBuilder(string name, string guid)
+        private CharacterSubclassDefinitionBuilder(string name, string guid)
             : base(name, guid)
         {
         }
 
-        public CharacterSubclassDefinitionBuilder(string name, Guid namespaceGuid)
+        private CharacterSubclassDefinitionBuilder(string name, Guid namespaceGuid)
             : base(name, namespaceGuid)
         {
         }
 
-        public CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, string guid)
+        private CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, string guid)
             : base(original, name, guid)
         {
         }
 
-        public CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, Guid namespaceGuid)
+        private CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, Guid namespaceGuid)
             : base(original, name, namespaceGuid)
         {
         }
@@ -34,6 +34,16 @@ namespace SolastaCommunityExpansion.Builders
         public static CharacterSubclassDefinitionBuilder Create(string name, Guid namespaceGuid)
         {
             return new CharacterSubclassDefinitionBuilder(name, namespaceGuid);
+        }
+
+        public static CharacterSubclassDefinitionBuilder Create(CharacterSubclassDefinition original, string name, string guid)
+        {
+            return new CharacterSubclassDefinitionBuilder(original, name, guid);
+        }
+
+        public static CharacterSubclassDefinitionBuilder Create(CharacterSubclassDefinition original, string name, Guid namespaceGuid)
+        {
+            return new CharacterSubclassDefinitionBuilder(original, name, namespaceGuid);
         }
 
         public CharacterSubclassDefinitionBuilder AddPersonality(PersonalityFlagDefinition personalityType, int weight)
