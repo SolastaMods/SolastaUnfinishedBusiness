@@ -58,12 +58,13 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
+            var found = 0;
             var inflictConditionMethod = typeof(RulesetActor).GetMethod("InflictCondition");
             var extendInflictConditionMethod = typeof(RulesetImplementationManagerLocation_ApplySummonForm).GetMethod("ExtendInflictCondition");
 
             foreach (CodeInstruction instruction in instructions)
             {
-                if (instruction.Calls(inflictConditionMethod))
+                if (instruction.Calls(inflictConditionMethod) && ++found == 3)
                 {
                     //
                     // WARNING: review parameter value 35 before release
