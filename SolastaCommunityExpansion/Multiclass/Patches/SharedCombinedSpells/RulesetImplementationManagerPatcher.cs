@@ -37,11 +37,30 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
 
                     foreach (var spellRepertoire in sourceCharacter.SpellRepertoires)
                     {
-                        var currentValue = sourceCharacter.ClassesAndLevels[invokerClass];
-                        var slotsCapital = currentValue % 2 == 0 ? currentValue / 2 : (currentValue + 1) / 2;
+                        var currentValue = 0;
 
-                        Gui.GuiService.GetScreen<SlotRecoveryModal>().ShowSlotRecovery(sourceCharacter, formsParams.activeEffect.SourceDefinition.Name, spellRepertoire, slotsCapital, spellSlotsForm.MaxSlotLevel);
-                        break;
+                        if (spellRepertoire.SpellCastingClass == invokerClass)
+                        {
+                            currentValue = sourceCharacter.ClassesAndLevels[invokerClass];
+                        }
+
+                        if (spellRepertoire.SpellCastingSubclass != null)
+                        {
+                            var characterClass = sourceCharacter.ClassesAndSubclasses.FirstOrDefault(x => x.Value == spellRepertoire.SpellCastingSubclass).Key;
+
+                            if (characterClass == invokerClass)
+                            {
+                                currentValue = sourceCharacter.ClassesAndLevels[invokerClass];
+                            }
+                        }
+
+                        if (currentValue > 0)
+                        {
+                            var slotsCapital = currentValue % 2 == 0 ? currentValue / 2 : (currentValue + 1) / 2;
+
+                            Gui.GuiService.GetScreen<SlotRecoveryModal>().ShowSlotRecovery(sourceCharacter, formsParams.activeEffect.SourceDefinition.Name, spellRepertoire, slotsCapital, spellSlotsForm.MaxSlotLevel);
+                            break;
+                        }
                     }
                 }
                 else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSpellSlot || spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSorceryPoints)
