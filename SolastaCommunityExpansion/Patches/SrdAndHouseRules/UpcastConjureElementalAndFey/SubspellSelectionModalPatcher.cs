@@ -26,7 +26,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElemen
                 ? slotLevel
                 : -1;
 
-            if (mySlotLevel < 0 || subspellsList != null || subspellsList.Count == 0)
+            if (!Main.Settings.EnableUpcastConjureElementalAndFey || mySlotLevel < 0 || subspellsList != null || subspellsList.Count == 0)
             {
                 return subspellsList;
             }
