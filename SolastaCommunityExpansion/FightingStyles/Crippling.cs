@@ -26,7 +26,7 @@ namespace SolastaCommunityExpansion.FightingStyles
                 //? Prevent Dash until end of next turn -> how? it's not an action, but has a lot of dedicated code
                 //+ Reduce speed by 10 until end of next turn
                 //+ Must be a successful melee attack
-                //+ NO LIMIT per round (wow!)
+                //? NO LIMIT per round (wow!) -> not sure, cannot change "allowsDuplicate"
 
                 var conditionOperation = new ConditionOperationDescription();
                 conditionOperation
