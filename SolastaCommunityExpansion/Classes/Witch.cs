@@ -1161,6 +1161,7 @@ namespace SolastaCommunityExpansion.Classes
             effectDescription.SetRangeType(RuleDefinitions.RangeType.Self);
             effectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
             effectDescription.SetTargetParameter(12);
+            effectDescription.RestrictedCreatureFamilies.Clear();
             effectDescription.EffectForms.Clear();
             effectDescription.EffectForms.Add(new CackleEffectForm());
 
