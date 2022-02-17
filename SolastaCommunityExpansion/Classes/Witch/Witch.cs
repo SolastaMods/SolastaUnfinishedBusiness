@@ -357,7 +357,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var abateEffectDescription = ShockingGrasp.EffectDescription
                 .Copy()
                 .SetDurationParameter(1)
-                .SetDurationType(DurationType.Round)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetHasSavingThrow(true)
                 .SetRangeParameter(12)
                 .SetRangeType(RangeType.Distance)
@@ -396,7 +397,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var apathyEffectDescription = CalmEmotionsOnEnemy.EffectDescription
                 .Copy()
                 .SetDurationParameter(1)
-                .SetDurationType(DurationType.Round)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetHasSavingThrow(true)
                 .SetRangeParameter(12)
                 .SetRangeType(RangeType.Distance)
@@ -435,7 +437,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var charmEffectDescription = CharmPerson.EffectDescription
                 .Copy()
                 .SetDurationParameter(1)
-                .SetDurationType(DurationType.Round)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetHasSavingThrow(true)
                 .SetRangeParameter(12)
                 .SetRangeType(RangeType.Distance)
@@ -482,7 +485,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var disorientEffectDescription = Bane.EffectDescription
                 .Copy()
                 .SetDurationParameter(1)
-                .SetDurationType(DurationType.Round)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetHasSavingThrow(true)
                 .SetRangeParameter(12)
                 .SetRangeType(RangeType.Distance)
@@ -521,7 +525,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             var evileyeEffectDescription = Fear.EffectDescription.Copy()
                 .SetDurationParameter(1)
-                .SetDurationType(DurationType.Round)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetHasSavingThrow(true)
                 .SetRangeParameter(12)
                 .SetRangeType(RangeType.Distance)
@@ -544,7 +549,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .Copy()
                 .SetCanBePlacedOnCharacter(true)
                 .SetDurationParameter(1)
-                .SetDurationType(DurationType.Round)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetRangeParameter(0)
                 .SetRangeType(RangeType.Self);
 
@@ -579,7 +585,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var poxEffectDescription = PoisonSpray.EffectDescription
                 .Copy()
                 .SetDurationParameter(1)
-                .SetDurationType(DurationType.Round)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetHasSavingThrow(true)
                 .SetRangeParameter(1)
                 .SetRangeType(RangeType.Touch)
@@ -626,7 +633,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var ruinEffectDescription = AcidArrow.EffectDescription
                 .Copy()
                 .SetDurationParameter(1)
-                .SetDurationType(DurationType.Round)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetHasSavingThrow(true)
                 .SetRangeParameter(12)
                 .SetRangeType(RangeType.Distance)
