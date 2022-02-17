@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Collections.Generic;
 using SolastaModApi;
@@ -662,6 +662,7 @@ namespace SolastaCommunityExpansion.Classes
             abateEffectDescription.Copy(DatabaseHelper.SpellDefinitions.ShockingGrasp.EffectDescription);
             abateEffectDescription.SetDurationParameter(1);
             abateEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
+            abateEffectDescription.SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn);
             abateEffectDescription.SetHasSavingThrow(true);
             abateEffectDescription.SetRangeParameter(12);
             abateEffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
@@ -723,6 +724,7 @@ namespace SolastaCommunityExpansion.Classes
             apathyEffectDescription.Copy(DatabaseHelper.SpellDefinitions.CalmEmotionsOnEnemy.EffectDescription);
             apathyEffectDescription.SetDurationParameter(1);
             apathyEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
+            apathyEffectDescription.SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn);
             apathyEffectDescription.SetHasSavingThrow(true);
             apathyEffectDescription.SetRangeParameter(12);
             apathyEffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
@@ -783,6 +785,7 @@ namespace SolastaCommunityExpansion.Classes
             charmEffectDescription.Copy(DatabaseHelper.SpellDefinitions.CharmPerson.EffectDescription);
             charmEffectDescription.SetDurationParameter(1);
             charmEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
+            charmEffectDescription.SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn);
             charmEffectDescription.SetHasSavingThrow(true);
             charmEffectDescription.SetRangeParameter(12);
             charmEffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
@@ -920,6 +923,7 @@ namespace SolastaCommunityExpansion.Classes
             evileyeEffectDescription.Copy(DatabaseHelper.SpellDefinitions.Fear.EffectDescription);
             evileyeEffectDescription.SetDurationParameter(1);
             evileyeEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
+            evileyeEffectDescription.SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn);
             evileyeEffectDescription.SetHasSavingThrow(true);
             evileyeEffectDescription.SetRangeParameter(12);
             evileyeEffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
@@ -955,6 +959,7 @@ namespace SolastaCommunityExpansion.Classes
             obfuscateEffectDescription.SetCanBePlacedOnCharacter(true);
             obfuscateEffectDescription.SetDurationParameter(1);
             obfuscateEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
+            obfuscateEffectDescription.SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn);
             obfuscateEffectDescription.SetRangeParameter(0);
             obfuscateEffectDescription.SetRangeType(RuleDefinitions.RangeType.Self);
 
@@ -1010,6 +1015,7 @@ namespace SolastaCommunityExpansion.Classes
             poxEffectDescription.Copy(DatabaseHelper.SpellDefinitions.PoisonSpray.EffectDescription);
             poxEffectDescription.SetDurationParameter(1);
             poxEffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
+            poxEffectDescription.SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn);
             poxEffectDescription.SetHasSavingThrow(true);
             poxEffectDescription.SetRangeParameter(1);
             poxEffectDescription.SetRangeType(RuleDefinitions.RangeType.Touch);
@@ -1155,6 +1161,7 @@ namespace SolastaCommunityExpansion.Classes
             effectDescription.SetRangeType(RuleDefinitions.RangeType.Self);
             effectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
             effectDescription.SetTargetParameter(12);
+            effectDescription.RestrictedCreatureFamilies.Clear();
             effectDescription.EffectForms.Clear();
             effectDescription.EffectForms.Add(new CackleEffectForm());
 
