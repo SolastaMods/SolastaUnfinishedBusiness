@@ -5,6 +5,7 @@ using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using static RuleDefinitions;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 {
@@ -15,7 +16,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             // Make Battle Smith subclass
             CharacterSubclassDefinitionBuilder battleSmith = CharacterSubclassDefinitionBuilder
                 .Create("BattleSmith", TinkererClass.GuidNamespace)
-                .SetGuiPresentation("ArtificerBattleSmith", Category.Subclass);
+                .SetGuiPresentation("ArtificerBattleSmith", Category.Subclass, MartialSpellblade.GuiPresentation.SpriteReference);
 
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup battleSmithSpells1 = FeatureHelpers.BuildAutoPreparedSpellGroup(
                 3, DatabaseHelper.SpellDefinitions.Heroism, DatabaseHelper.SpellDefinitions.Shield, DatabaseHelper.SpellDefinitions.HuntersMark);
