@@ -25,11 +25,9 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (Main.Settings.DisplayAdventureLogToggle)
             {
                 UI.Label("");
-                UI.Label(". These settings only work in custom campaigns or locations");
-                UI.Label("");
 
                 toggle = Main.Settings.EnableAdventureLogDocuments;
-                if (UI.Toggle("Record read documents and notes", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Record read documents and notes " + "[This setting only works in custom campaigns or locations]".yellow().italic(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableAdventureLogDocuments = toggle;
                 }
