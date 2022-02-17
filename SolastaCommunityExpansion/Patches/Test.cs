@@ -44,7 +44,7 @@ namespace SolastaCommunityExpansion.Patches
                 return;
             }
 
-            Main.Log($"GeometricShape_UpdateCubePosition_Regular - setting height={height.Value}");
+            //Main.Log($"GeometricShape_UpdateCubePosition_Regular - setting height={height.Value}");
 
             // Code from UpdateCylinderPosition adapted to cube
             // TODO: why does this work but give a visual height of 0.5 whereas Cylinder gives a height of 1?
@@ -111,7 +111,7 @@ namespace SolastaCommunityExpansion.Patches
         public static void Prefix(float ___geometricParameter2)
         {
             Height = ___geometricParameter2;
-            Main.Log($"GameLocationTargetingManager_DoesShapeContainPoint: height={Height}");
+            //Main.Log($"GameLocationTargetingManager_DoesShapeContainPoint: height={Height}");
         }
 
         public static void Postfix()

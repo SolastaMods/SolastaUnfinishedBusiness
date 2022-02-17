@@ -13,15 +13,25 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker
         /// </summary>
         internal static void Postfix(Cursor __instance)
         {
-            if (Main.Settings.EnableCancelEditOnRightMouseClick && __instance is CursorLocationEditor && __instance is not CursorLocationEditorDefault)
+            if (Main.Settings.EnableCancelEditOnRightMouseClick)
             {
-                // This is a field on CursorEditor not Cursor so can't be passed in by the patch
-                var userLocationEditorScreen = __instance.GetField<UserLocationEditorScreen>("userLocationEditorScreen");
+                Main.Log($"{__instance.GetType().Name}: Right-click");
 
-                // NOTE: don't use userLocationEditorScreen?. which bypasses Unity object lifetime check
-                if (userLocationEditorScreen)
+                if (__instance is CursorLocationEditor && __instance is not CursorLocationEditorDefault)
                 {
-                    userLocationEditorScreen.HandleInput(InputCommands.Id.Cancel);
+                    // This is a field on CursorEditor not Cursor so can't be passed in by the patch
+                    var userLocationEditorScreen = __instance.GetField<UserLocationEditorScreen>("userLocationEditorScreen");
+
+                    // NOTE: don't use userLocationEditorScreen?. which bypasses Unity object lifetime check
+                    if (userLocationEditorScreen)
+                    {
+                        userLocationEditorScreen.HandleInput(InputCommands.Id.Cancel);
+                    }
+                }
+                else if(__instance is CursorLocationGeometricShape)
+                {
+                    // This works suspiciously well - need someone to check
+                    ServiceRepository.GetService<ICursorService>()?.DeactivateCursor();
                 }
             }
         }
