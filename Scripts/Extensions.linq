@@ -211,7 +211,7 @@ void CreateExtensions(Type t, bool createFiles = false)
 									// probably best not to change the version often since that makes 
 									// it impossible to detect changes to extensions
 									AttributeArgument(
-										ParseExpression($"\"1.0.0\"")) 
+										ParseExpression($"\"1.0.0\""))
 									)
 								)
 						)
@@ -233,11 +233,11 @@ void CreateExtensions(Type t, bool createFiles = false)
 		.Where(pg => pg.GetCustomAttributes(typeof(System.ObsoleteAttribute), true).Length != 0)
 		.Select(pg => pg.Name)
 		.ToHashSet(StringComparer.OrdinalIgnoreCase);
-		
+
 	var readablePublicProperties = t
 		.GetProperties(BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.Public)
 		.Where(pg => pg.CanRead && pg.GetCustomAttributes(typeof(System.ObsoleteAttribute), true).Length == 0)
-		.Select(pg => new {pg, pg.Name, pg.PropertyType, Type = SimplifyType(pg.PropertyType) });
+		.Select(pg => new { pg, pg.Name, pg.PropertyType, Type = SimplifyType(pg.PropertyType) });
 
 	var readablePublicPropertiesByName = readablePublicProperties
 		.Select(pp => pp.Name)
@@ -258,7 +258,7 @@ void CreateExtensions(Type t, bool createFiles = false)
 
 	var genericReadablePublicProperties = readablePublicProperties
 		.Where(f => f.PropertyType.IsGenericType)
-		.Where(f => !obsoleteWriteablePublicPropertiesByName.Contains(f.Name));		
+		.Where(f => !obsoleteWriteablePublicPropertiesByName.Contains(f.Name));
 
 	// ---------------------------------------------------------------------------
 	var methods = privateFieldsThatNeedWriter
@@ -477,12 +477,11 @@ void CreateExtensions(Type t, bool createFiles = false)
 				}
 			}
 		);
-	
+
 	methods = methods.Concat(collectionHelpers);
 
 	// ---------------------------------------------------------------------------
-	// TODO: for all types add a .Create() method
-
+	// Copy using Copy method
 	var copyMethod = t.GetMethod("Copy", new Type[] { t });
 	if (copyMethod != null)
 	{
@@ -497,6 +496,27 @@ void CreateExtensions(Type t, bool createFiles = false)
 				)
 				.WithBody(Block(ParseStatement($"var copy = new {SimplifyType(t)}();"), ParseStatement("copy.Copy(entity);"), ParseStatement("return copy;")))
 			});
+	}
+
+	// ---------------------------------------------------------------------------
+	// Copy using Copy constructor
+	if (copyMethod == null)
+	{
+		var copyMethod2 = t.GetConstructor(new Type[] { t });
+		if (copyMethod2 != null)
+		{
+			methods = methods.Concat(
+				new[]{
+			MethodDeclaration(ParseTypeName($"{SimplifyType(t)}"), $"Copy")
+			   .AddModifiers(Token(SyntaxKind.PublicKeyword), Token(SyntaxKind.StaticKeyword))
+			   .AddParameterListParameters(
+					Parameter(Identifier("entity"))
+						.WithType(ParseTypeName($"{SimplifyType(t)}"))
+						.AddModifiers(Token(SyntaxKind.ThisKeyword))
+				)
+				.WithBody(Block(ParseStatement($"return new {SimplifyType(t)}(entity);")))
+				});
+		}
 	}
 
 	// ---------------------------------------------------------------------------
@@ -573,11 +593,11 @@ void CreateExtensions(Type t, bool createFiles = false)
 	}
 
 	string SimplifyType(Type t1)
-	{		
+	{
 		if (t1.IsGenericType)
 		{
 			// This will fail on say Dictionary<string, int[]>
-			
+
 			return t1.ToString()
 				.Replace("`1", "") // generic type position 1
 				.Replace("`2", "") // generic type position 2

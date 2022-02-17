@@ -85,6 +85,11 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static UsableDeviceDescription Copy(this UsableDeviceDescription entity)
+        {
+            return new UsableDeviceDescription(entity);
+        }
+
         public static T SetChargesCapital<T>(this T entity, EquipmentDefinitions.ItemChargesCapital value)
             where T : UsableDeviceDescription
         {

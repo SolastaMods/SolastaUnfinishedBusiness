@@ -64,6 +64,11 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static FactionRelicDescription Copy(this FactionRelicDescription entity)
+        {
+            return new FactionRelicDescription(entity);
+        }
+
         public static T SetInterestedFactions<T>(this T entity,  params  System . String [ ]  value)
             where T : FactionRelicDescription
         {

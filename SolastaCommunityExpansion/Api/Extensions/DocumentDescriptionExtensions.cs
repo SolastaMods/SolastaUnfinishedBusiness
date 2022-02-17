@@ -85,6 +85,11 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static DocumentDescription Copy(this DocumentDescription entity)
+        {
+            return new DocumentDescription(entity);
+        }
+
         public static T SetContentFragments<T>(this T entity,  params  ContentFragmentDescription [ ]  value)
             where T : DocumentDescription
         {

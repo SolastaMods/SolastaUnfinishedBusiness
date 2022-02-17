@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(MonsterKnowledgeDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class MonsterKnowledgeDescriptionExtensions
     {
+        public static MonsterKnowledgeDescription Copy(this MonsterKnowledgeDescription entity)
+        {
+            return new MonsterKnowledgeDescription(entity);
+        }
+
         public static T SetKnowledgeLevel<T>(this T entity, System.String value)
             where T : MonsterKnowledgeDescription
         {

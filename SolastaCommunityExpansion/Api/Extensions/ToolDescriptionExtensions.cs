@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(ToolDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class ToolDescriptionExtensions
     {
+        public static ToolDescription Copy(this ToolDescription entity)
+        {
+            return new ToolDescription(entity);
+        }
+
         public static T SetToolType<T>(this T entity, System.String value)
             where T : ToolDescription
         {

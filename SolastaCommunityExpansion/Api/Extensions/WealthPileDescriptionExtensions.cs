@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(WealthPileDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class WealthPileDescriptionExtensions
     {
+        public static WealthPileDescription Copy(this WealthPileDescription entity)
+        {
+            return new WealthPileDescription(entity);
+        }
+
         public static T SetBonuses<T>(this T entity, System.Int32[] value)
             where T : WealthPileDescription
         {

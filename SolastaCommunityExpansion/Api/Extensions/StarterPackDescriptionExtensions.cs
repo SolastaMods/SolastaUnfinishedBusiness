@@ -64,6 +64,11 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static StarterPackDescription Copy(this StarterPackDescription entity)
+        {
+            return new StarterPackDescription(entity);
+        }
+
         public static T SetContainerItem<T>(this T entity, System.String value)
             where T : StarterPackDescription
         {

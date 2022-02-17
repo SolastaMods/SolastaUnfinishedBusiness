@@ -43,6 +43,11 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(PersonalityFlagOccurence)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class PersonalityFlagOccurenceExtensions
     {
+        public static PersonalityFlagOccurence Copy(this PersonalityFlagOccurence entity)
+        {
+            return new PersonalityFlagOccurence(entity);
+        }
+
         public static T SetPersonalityFlag<T>(this T entity, System.String value)
             where T : PersonalityFlagOccurence
         {
