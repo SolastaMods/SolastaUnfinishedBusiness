@@ -14,15 +14,36 @@ namespace SolastaCommunityExpansion.Patches.Respec
         {
             internal static void Postfix(CharactersPanel __instance)
             {
-                if (Main.Settings.EnableRespec)
+                if (!Main.Settings.EnableRespec)
                 {
-                    var characterPlates = __instance.GetField<CharactersPanel, List<CharacterPlateToggle>>("characterPlates");
-                    var selectedPlate = __instance.GetField<CharactersPanel, int>("selectedPlate");
-                    var exportPdfButton = __instance.GetField<CharactersPanel, Button>("exportPdfButton");
-                    var characterLevel = (selectedPlate >= 0) ? characterPlates[selectedPlate].GuiCharacter.CharacterLevel : 1;
-
-                    exportPdfButton.gameObject.SetActive(characterLevel > 1);
+                    return;
                 }
+
+                var characterPlates = __instance.GetField<CharactersPanel, List<CharacterPlateToggle>>("characterPlates");
+                var selectedPlate = __instance.GetField<CharactersPanel, int>("selectedPlate");
+                var exportPdfButton = __instance.GetField<CharactersPanel, Button>("exportPdfButton");
+                var characterLevel = (selectedPlate >= 0) ? characterPlates[selectedPlate].GuiCharacter.CharacterLevel : 1;
+
+                exportPdfButton.gameObject.SetActive(characterLevel > 1);
+            }
+        }
+
+        [HarmonyPatch(typeof(CharactersPanel), "OnExportPdfCb")]
+        internal static class CharactersPanelOnExportPdfCb
+        {
+            internal static bool Prefix(CharactersPanel __instance)
+            {
+                if (!Main.Settings.EnableRespec)
+                {
+                    return true;
+                }
+
+                var characterPlates = __instance.GetField<CharactersPanel, List<CharacterPlateToggle>>("characterPlates");
+                var selectedPlate = __instance.GetField<CharactersPanel, int>("selectedPlate");
+
+                Models.LevelDownContext.ConfirmAndExecute(characterPlates[selectedPlate].Filename);
+
+                return false;
             }
         }
     }
