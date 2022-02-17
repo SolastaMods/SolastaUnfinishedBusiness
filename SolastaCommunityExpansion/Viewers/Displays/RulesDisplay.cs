@@ -116,6 +116,23 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 {
                     Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures = toggle;
                 }
+
+                toggle = Main.Settings.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures;
+                if (UI.Toggle("Black Tentacles, Entangle, Grease".orange() + " do not affect flying creatures.", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures = toggle;
+                    HouseSpellTweaks.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures();
+                }
+
+                if (Main.Settings.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures)
+                {
+                    toggle = Main.Settings.EnableTargetTypeSquareCylinder;
+                    if (UI.Toggle("+ Maintain a square area of effect for these spells. (A circular area requires less code changes.)".italic(), ref toggle, UI.AutoWidth()))
+                    {
+                        Main.Settings.EnableTargetTypeSquareCylinder = toggle;
+                        HouseSpellTweaks.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures();
+                    }
+                }
             }
 
             UI.Label("");
