@@ -672,6 +672,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetRangeType(RangeType.Self)
                 .SetTargetType(TargetType.Sphere)
                 .SetTargetParameter(12)
+                .ClearRestrictedCreatureFamilies()
                 .SetEffectForms(new CackleEffectForm());
 
             FeatureDefinitionPowerCackle = FeatureDefinitionPowerBuilder
