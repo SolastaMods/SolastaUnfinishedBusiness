@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
@@ -728,6 +728,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetRangeType(RuleDefinitions.RangeType.Self)
                 .SetTargetType(RuleDefinitions.TargetType.Sphere)
                 .SetTargetParameter(12);
+            effectDescription.RestrictedCreatureFamilies.Clear();
             effectDescription.EffectForms.Clear();
             effectDescription.EffectForms.Add(new CackleEffectForm());
 
