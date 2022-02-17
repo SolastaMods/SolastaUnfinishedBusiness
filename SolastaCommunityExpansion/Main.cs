@@ -73,18 +73,4 @@ namespace SolastaCommunityExpansion
             Models.PlayerControllerContext.RefreshGuiState();
         }
     }
-
-    [HarmonyPatch(typeof(GamingPlatformManager), "UpdateAvailableDlc")]
-    internal static class GamingPlatformManagerUpdateAvailableDlc
-    {
-        internal static void Postfix(HashSet<GamingPlatformDefinitions.ContentPack> ___unlockedContentPacks)
-        {
-            ___unlockedContentPacks.Clear();
-
-            for (var i = 0; i < Enum.GetNames(typeof(GamingPlatformDefinitions.ContentPack)).Length; i++)
-            {
-                ___unlockedContentPacks.Add((GamingPlatformDefinitions.ContentPack)i);
-            }
-        }
-    }
 }
