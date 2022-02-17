@@ -63,17 +63,17 @@ namespace SolastaCommunityExpansion.Patches
         }
     }
 
-    [HarmonyPatch(typeof(GeometricShape), "UpdateCylinderPosition")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GeometricShape_UpdateCylinderPosition
-    {
-        public static void Postfix(MeshRenderer ___cylinderRenderer)
-        {
-            var transform = ___cylinderRenderer.transform;
+    //[HarmonyPatch(typeof(GeometricShape), "UpdateCylinderPosition")]
+    //[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    //internal static class GeometricShape_UpdateCylinderPosition
+    //{
+    //    public static void Postfix(MeshRenderer ___cylinderRenderer)
+    //    {
+    //        var transform = ___cylinderRenderer.transform;
 
-            var p = transform.position;
-            var s = transform.localScale;
-            Main.Log($"Cylinder: ({p.x},{p.y},{p.z}), ({s.x},{s.y},{s.z})");
-        }
-    }
+    //        var p = transform.position;
+    //        var s = transform.localScale;
+    //        Main.Log($"Cylinder: ({p.x},{p.y},{p.z}), ({s.x},{s.y},{s.z})");
+    //    }
+    //}
 }
