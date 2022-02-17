@@ -25,8 +25,8 @@ namespace SolastaCommunityExpansion.FightingStyles
             {
                 //? Prevent Dash until end of next turn -> how? it's not an action, but has a lot of dedicated code
                 //+ Reduce speed by 10 until end of next turn
-                //? Must be a successful melee attack
-                //? NO LIMIT per round (wow!)
+                //+ Must be a successful melee attack
+                //+ NO LIMIT per round (wow!)
 
                 var conditionOperation = new ConditionOperationDescription();
                 conditionOperation
@@ -41,8 +41,9 @@ namespace SolastaCommunityExpansion.FightingStyles
                     .Create(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageCircleBalanceColdEmbrace, "CripplingAdditionalDamage", Namespace)
                     .SetGuiPresentation(Category.Modifier)
                     .SetDamageDice(RuleDefinitions.DieType.D1, 0)
+                    .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.None)
                     .SetNotificationTag("CripplingFightingStyle")
-                    .SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty.None)
+                    .SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty.MeleeWeapon)
                     .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
                     .SetConditionOperations(conditionOperation)
                     .AddToDB();
