@@ -362,6 +362,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             abateEffectDescription
                 .SetDurationParameter(1)
                 .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetHasSavingThrow(true)
                 .SetRangeParameter(12)
                 .SetRangeType(RuleDefinitions.RangeType.Distance)
@@ -408,6 +409,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             apathyEffectDescription
                 .SetDurationParameter(1)
                 .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetHasSavingThrow(true)
                 .SetRangeParameter(12)
                 .SetRangeType(RuleDefinitions.RangeType.Distance)
@@ -454,6 +456,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             charmEffectDescription
                 .SetDurationParameter(1)
                 .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetHasSavingThrow(true)
                 .SetRangeParameter(12)
                 .SetRangeType(RuleDefinitions.RangeType.Distance)
@@ -510,6 +513,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             disorientEffectDescription
                 .SetDurationParameter(1)
                 .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetHasSavingThrow(true)
                 .SetRangeParameter(12)
                 .SetRangeType(RuleDefinitions.RangeType.Distance)
@@ -558,6 +562,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             evileyeEffectDescription
                 .SetDurationParameter(1)
                 .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetHasSavingThrow(true)
                 .SetRangeParameter(12)
                 .SetRangeType(RuleDefinitions.RangeType.Distance)
@@ -583,6 +588,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetCanBePlacedOnCharacter(true)
                 .SetDurationParameter(1)
                 .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetRangeParameter(0)
                 .SetRangeType(RuleDefinitions.RangeType.Self);
 
@@ -625,6 +631,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             poxEffectDescription
                 .SetDurationParameter(1)
                 .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetHasSavingThrow(true)
                 .SetRangeParameter(1)
                 .SetRangeType(RuleDefinitions.RangeType.Touch)
@@ -681,6 +688,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             ruinEffectDescription
                 .SetDurationParameter(1)
                 .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetHasSavingThrow(true)
                 .SetRangeParameter(12)
                 .SetRangeType(RuleDefinitions.RangeType.Distance)
@@ -720,6 +728,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetRangeType(RuleDefinitions.RangeType.Self)
                 .SetTargetType(RuleDefinitions.TargetType.Sphere)
                 .SetTargetParameter(12);
+            effectDescription.RestrictedCreatureFamilies.Clear();
             effectDescription.EffectForms.Clear();
             effectDescription.EffectForms.Add(new CackleEffectForm());
 
