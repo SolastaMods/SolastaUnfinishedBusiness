@@ -23,9 +23,12 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                 var spellSlotsForm = effectForm.SpellSlotsForm;
                 var invokerClass = formsParams.activeEffect.Name switch
                 {
+                    "TinkererSpellStoringItem" => Models.IntegrationContext.TinkererClass,
+                    "ArtificerInfusionSpellRefuelingRing" => Models.IntegrationContext.TinkererClass,
                     "PowerAlchemistSpellBonusRecovery" => Models.IntegrationContext.TinkererClass,
                     "PowerWizardArcaneRecovery" => Wizard,
                     "PowerCircleLandNaturalRecovery" => Druid,
+                    "PowerSpellMasterBonusRecovery" => Wizard,
                     _ => null,
                 };
 
