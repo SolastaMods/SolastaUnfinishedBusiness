@@ -683,15 +683,13 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 List<RulesetCondition> conditions = formsParams.targetCharacter.AllConditions;
 
                 var activeMaledictions = conditions.Where(i => i.ConditionDefinition.ConditionTags.Contains("Malediction")).ToList();
-                if (activeMaledictions != null)
+
+                foreach (RulesetCondition malediction in activeMaledictions)
                 {
-                    foreach (RulesetCondition malediction in activeMaledictions)
-                    {
-                        // Remove the condition in order to refresh it
-                        formsParams.targetCharacter.RemoveCondition(malediction);
-                        // Refresh the condition
-                        ApplyCondition(formsParams, malediction.ConditionDefinition, DurationType.Round, 1);
-                    }
+                    // Remove the condition in order to refresh it
+                    formsParams.targetCharacter.RemoveCondition(malediction);
+                    // Refresh the condition
+                    ApplyCondition(formsParams, malediction.ConditionDefinition, DurationType.Round, 1);
                 }
             }
 
@@ -865,24 +863,19 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     .Create(ConditionKindredSpiritBondHP, "ConditionWitchFamiliarHP", WITCH_BASE_GUID)
                     .SetGuiPresentationNoContent()
                     .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel)
+                    .SetAllowMultipleInstances(true)
                     .AddToDB();
-
-                hpConditionDefinition.SetAllowMultipleInstances(true);
 
                 // Find a better place to put this in?
                 hpConditionDefinition.SetAdditionalDamageType("ClassWitch");
 
                 var summoningAffinity = FeatureDefinitionSummoningAffinityBuilder
                     .Create(FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritBond, "SummoningAffinityWitchFamiliar", WITCH_BASE_GUID)
-                    .Configure<FeatureDefinitionSummoningAffinityBuilder>(definition =>
-                    {
-                        definition
-                            .ClearEffectForms()
-                            .SetAddedConditions(
-                                acConditionDefinition, stConditionDefinition, damageConditionDefinition,
-                                hitConditionDefinition, hpConditionDefinition, hpConditionDefinition)
-                            .SetRequiredMonsterTag("WitchFamiliar");
-                    })
+                    .ClearEffectForms()
+                    .SetRequiredMonsterTag("WitchFamiliar")
+                    .SetAddedConditions(
+                        acConditionDefinition, stConditionDefinition, damageConditionDefinition,
+                        hitConditionDefinition, hpConditionDefinition, hpConditionDefinition)
                     .AddToDB();
 
                 FeatureDefinitionFeatureSetWitchFamiliar = FeatureDefinitionFeatureSetBuilder

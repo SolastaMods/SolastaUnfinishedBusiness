@@ -49,6 +49,12 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         // Setters delegating to Definition
+        public TBuilder SetAllowMultipleInstances(bool value)
+        {
+            Definition.SetAllowMultipleInstances(value);
+            return (TBuilder)this;
+        }
+
         public TBuilder SetAmountOrigin(ConditionDefinition.OriginOfAmount value)
         {
             Definition.SetAmountOrigin(value);
