@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
 {
     [HarmonyPatch(typeof(GameGadget), "SetCondition")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    // Not fixed as of 1.3.16
+    // Not fixed as of 1.3.17
     internal static class GameGadget_SetCondition
     {
         /// <summary>
