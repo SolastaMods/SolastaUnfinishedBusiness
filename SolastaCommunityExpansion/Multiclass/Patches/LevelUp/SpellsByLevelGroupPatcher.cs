@@ -16,16 +16,18 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                     return;
                 }
 
-                if (Models.LevelUpContext.LevelingUp && Models.LevelUpContext.IsMulticlass)
+                if (!(Models.LevelUpContext.LevelingUp && Models.LevelUpContext.IsMulticlass))
                 {
-                    if (bindMode == SpellBox.BindMode.Learning && !Main.Settings.EnableDisplayAllKnownSpellsOnLevelUp)
-                    {
-                        allSpells.RemoveAll(s => !Models.CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(s));
-                    }
-                    else if (bindMode == SpellBox.BindMode.Unlearn)
-                    {
-                        allSpells.RemoveAll(s => !Models.CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(s) || !Models.CacheSpellsContext.IsSpellKnownBySelectedClassSubclass(s));
-                    }
+                    return;
+                }
+
+                if (bindMode == SpellBox.BindMode.Learning && !Main.Settings.EnableDisplayAllKnownSpellsOnLevelUp)
+                {
+                    allSpells.RemoveAll(s => !Models.CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(s));
+                }
+                else if (bindMode == SpellBox.BindMode.Unlearn)
+                {
+                    allSpells.RemoveAll(s => !Models.CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(s) || !Models.CacheSpellsContext.IsSpellKnownBySelectedClassSubclass(s));
                 }
             }
         }

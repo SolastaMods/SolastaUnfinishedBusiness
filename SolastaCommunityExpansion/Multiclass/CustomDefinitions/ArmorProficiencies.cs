@@ -5,45 +5,10 @@ using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
 
 namespace SolastaCommunityExpansion.Multiclass.CustomDefinitions
 {
-    //internal static class ArmorProficiencies
-    //{
-    //    internal static readonly FeatureDefinitionProficiency BarbarianArmorProficiencyMulticlass = new FeatureDefinitionProficiencyBuilder(
-    //        "BarbarianArmorProficiencyMulticlass",
-    //        "5dffec907a424fccbfec103344421b51",
-    //        RuleDefinitions.ProficiencyType.Armor,
-    //        new string[] { EquipmentDefinitions.ShieldCategory },
-    //        new GuiPresentationBuilder("Feature/&BarbarianArmorProficiencyTitle").Build())
-    //        .AddToDB();
-
-    //    internal static readonly FeatureDefinitionProficiency FighterArmorProficiencyMulticlass = new FeatureDefinitionProficiencyBuilder(
-    //        "FighterArmorProficiencyMulticlass",
-    //        "5df5ec907a424fccbfec103344421b51",
-    //        RuleDefinitions.ProficiencyType.Armor,
-    //        new string[] { EquipmentDefinitions.LightArmorCategory, EquipmentDefinitions.MediumArmorCategory, EquipmentDefinitions.ShieldCategory },
-    //        new GuiPresentationBuilder("Feature/&FighterArmorProficiencyTitle").Build())
-    //        .AddToDB();
-
-    //    internal static readonly FeatureDefinitionProficiency PaladinArmorProficiencyMulticlass = new FeatureDefinitionProficiencyBuilder(
-    //        "PaladinArmorProficiencyMulticlass",
-    //        "69b18e44aabd4acca702c05f9d6c7fcb",
-    //        RuleDefinitions.ProficiencyType.Armor,
-    //        new string[] { EquipmentDefinitions.LightArmorCategory, EquipmentDefinitions.MediumArmorCategory, EquipmentDefinitions.ShieldCategory },
-    //        new GuiPresentationBuilder("Feature/&PaladinArmorProficiencyTitle").Build())
-    //        .AddToDB();
-
-    //    internal static readonly FeatureDefinitionProficiency WardenArmorProficiencyMulticlass = new FeatureDefinitionProficiencyBuilder(
-    //        "WardenArmorProficiencyMulticlass",
-    //        "19666e846975401b819d1ae72c5d27ac",
-    //        RuleDefinitions.ProficiencyType.Armor,
-    //        new string[] { EquipmentDefinitions.LightArmorCategory, EquipmentDefinitions.MediumArmorCategory, EquipmentDefinitions.ShieldCategory },
-    //        new GuiPresentationBuilder("Feature/&WardenArmorProficiencyTitle").Build())
-    //        .AddToDB();
-    //}
-
     internal sealed class ArmorProficiencyMulticlassBuilder : DefinitionBuilder<FeatureDefinitionProficiency>
     {
         private const string BarbarianArmorProficiencyMulticlassName = "BarbarianArmorProficiencyMulticlass";
-        private const string BarbarianArmorProficiencyMulticlassGuid = "5dffec907a424fccbfec103344421b51";
+        private const string BarbarianArmorProficiencyMulticlassGuid = "86558227b0cd4771b42978a60dc610db";
 
         private const string FighterArmorProficiencyMulticlassName = "FighterArmorProficiencyMulticlass";
         private const string FighterArmorProficiencyMulticlassGuid = "5df5ec907a424fccbfec103344421b51";
