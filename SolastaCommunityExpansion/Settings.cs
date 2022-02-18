@@ -55,7 +55,6 @@ namespace SolastaCommunityExpansion
         public bool BugFixButtonActivatorTriggerIssue { get; set; } = true;
         public bool BugFixExpandColorTables { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
-        public bool EnableCancelEditOnRightMouseClick { get; set; } = true;
         public bool EnableDungeonMakerPro { get; set; } = true;
         public bool EnableDungeonMakerRotationHotkeys { get; set; } = true;
         public bool EnableFirstLevelCasterFeats { get; set; } = true;
@@ -189,7 +188,6 @@ namespace SolastaCommunityExpansion
 
         public bool EnableSaveByLocation { get; set; }
         public bool EnableTelemaCampaign { get; set; }
-        public bool EnableTeleportParty { get; set; }
         public bool FollowCharactersOnTeleport { get; set; }
         public bool OverrideMinMaxLevel { get; set; }
         public int OverridePartySize { get; set; } = Models.DungeonMakerContext.GAME_PARTY_SIZE;
@@ -315,14 +313,16 @@ namespace SolastaCommunityExpansion
         public float SpellPanelGapBetweenLines { get; set; } = 30f;
 
         //
-        // Interface - Hotkeys
+        // Interface - Keyboard & Mouse
         //
 
+        public bool EnableCancelEditOnRightMouseClick { get; set; }
+        public bool EnableHotkeyToggleHud { get; set; }
+        public bool EnableHotkeyToggleIndividualHud { get; set; }
         public bool EnableCharacterExport { get; set; }
         public bool EnableHotkeyDebugOverlay { get; set; }
         public bool EnableHotkeyZoomCamera { get; set; }
-        public bool EnableHotkeyToggleHud { get; set; }
-        public bool EnableHotkeyToggleIndividualHud { get; set; }
+        public bool EnableTeleportParty { get; set; }
         public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
         public bool InvertAltBehaviorOnTooltips { get; set; }
         public bool EnableCtrlClickBypassMetamagicPanel { get; set; }
