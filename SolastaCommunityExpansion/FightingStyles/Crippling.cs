@@ -40,7 +40,6 @@ namespace SolastaCommunityExpansion.FightingStyles
                     .SetOperation(ConditionOperationDescription.ConditionOperation.Add)
                     .SetSaveAffinity(RuleDefinitions.EffectSavingThrowType.None)
                     .SetSaveOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
-                conditionOperation.ConditionDefinition.SetAllowMultipleInstances(true);
 
                 var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
                     .Create(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageCircleBalanceColdEmbrace, "CripplingAdditionalDamage", Namespace)
