@@ -8,6 +8,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SquareCylinder
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CursorLocationGeometricShape_UpdateGeometricShape
     {
+        // Record TargetParameter2 for use by GeometricShape.UpdateCubePosition_Regular
         internal static int? Height { get; set; }
 
         public static void Prefix(int ___targetParameter2)
@@ -154,6 +155,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SquareCylinder
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameLocationTargetingManager_DoesShapeContainPoint
     {
+        // Record GeometricParameter2 (TargetParameter2) for use by GeometryUtils.CylinderContainsPoint
         internal static float? Height { get; set; }
 
         public static void Prefix(float ___geometricParameter2)
