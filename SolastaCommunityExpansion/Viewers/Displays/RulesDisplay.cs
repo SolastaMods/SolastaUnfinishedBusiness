@@ -118,7 +118,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures;
-                if (UI.Toggle("Black Tentacles, Entangle, Grease".orange() + " do not affect flying creatures higher than 1 cell.", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Black Tentacles, Entangle, Grease".orange() + " do not affect flying creatures flying higher than 1 cell.", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures = toggle;
                     HouseSpellTweaks.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures();
