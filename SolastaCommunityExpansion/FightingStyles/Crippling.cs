@@ -26,16 +26,21 @@ namespace SolastaCommunityExpansion.FightingStyles
                 //? Prevent Dash until end of next turn -> how? it's not an action, but has a lot of dedicated code
                 //+ Reduce speed by 10 until end of next turn
                 //+ Must be a successful melee attack
-                //? NO LIMIT per round (wow!) -> not sure, cannot change "allowsDuplicate"
+                //+ NO LIMIT per round (wow!)
+                var conditionDefinition = ConditionDefinitionBuilder
+                    .Create(ConditionHindered_By_Frost, "CripplingConditionDefinition", Namespace)
+                    .AddToDB()
+                .SetAllowMultipleInstances(true);
 
                 var conditionOperation = new ConditionOperationDescription();
                 conditionOperation
                     .SetCanSaveToCancel(false)
-                    .SetConditionDefinition(ConditionHindered_By_Frost)
+                    .SetConditionDefinition(conditionDefinition)
                     .SetHasSavingThrow(false)
                     .SetOperation(ConditionOperationDescription.ConditionOperation.Add)
                     .SetSaveAffinity(RuleDefinitions.EffectSavingThrowType.None)
                     .SetSaveOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+                conditionOperation.ConditionDefinition.SetAllowMultipleInstances(true);
 
                 var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
                     .Create(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageCircleBalanceColdEmbrace, "CripplingAdditionalDamage", Namespace)
