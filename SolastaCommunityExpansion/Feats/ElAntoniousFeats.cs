@@ -205,9 +205,9 @@ namespace SolastaCommunityExpansion.Feats
                 .Create("PowerTorchbearer", TorchbearerGuid)
                 .SetGuiPresentation(Category.Feature)
                 .SetActivation(RuleDefinitions.ActivationTime.BonusAction, 0)
-                .SetEffect(burn_description)
+                .SetEffectDescription(burn_description)
                 .SetUsesFixed(1)
-                .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+                .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
                 .SetShowCasting(false)
                 .SetIsActive(IsActive).AddToDB();
         }

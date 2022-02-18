@@ -285,9 +285,9 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
                 .SetGuiPresentation(title, description, PowerDomainElementalHeraldOfTheElementsThunder.GuiPresentation.SpriteReference)
                 .SetUsesAbility(0, AttributeDefinitions.Wisdom)
                 .SetShowCasting(true)
-                .SetRecharge(RuleDefinitions.RechargeRate.LongRest)
+                .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest)
                 .SetActivation(RuleDefinitions.ActivationTime.Action, 1)
-                .SetEffect(pulse_description)
+                .SetEffectDescription(pulse_description)
                 .SetAbility(AttributeDefinitions.Wisdom)
                 .SetShortTitle("Arcane Pulse")
                 .AddToDB();

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders.Features;
 
 namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 {
@@ -45,6 +47,25 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
             }
 
             return false;
+        }
+    }
+
+    internal sealed class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder
+        : FeatureDefinitionBuilder<FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition, FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder>
+    {
+        private FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        public static FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder Create(string name, Guid namespaceGuid)
+        {
+            return new FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder(name, namespaceGuid);
+        }
+
+        public FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder SetConditionName(string conditionName)
+        {
+            Definition.ConditionName = conditionName;
+            return this;
         }
     }
 }

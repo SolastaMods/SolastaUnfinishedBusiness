@@ -120,7 +120,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
         // Dummy feature to show in UI
         // TODO: convert to lazy loading?
-        private static FeatureDefinition IlluminatingStrikeImprovement { get; } = FeatureDefinitionBuilder<FeatureDefinition>
+        private static FeatureDefinition IlluminatingStrikeImprovement { get; } = FeatureDefinitionBuilder
             .Create("PathOfTheLightIlluminatingStrikeImprovement", SubclassNamespace)
             .SetGuiPresentation("BarbarianPathOfTheLightIlluminatingStrikeImprovement", Category.Subclass)
             .AddToDB();
@@ -153,11 +153,10 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                         .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                         .SetUniqueChoices(false);
 
-                    var conditionalOpportunityAttackImmunity = FeatureDefinitionBuilder<FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition>
+                    var conditionalOpportunityAttackImmunity = FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder
                         .Create("PathOfTheLightLightsProtectionOpportunityAttackImmunity", SubclassNamespace)
                         .SetGuiPresentationNoContent()
-                        .Configure<FeatureDefinitionBuilder<FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition>>(
-                            definition => definition.ConditionName = IlluminatedConditionName)
+                        .SetConditionName(IlluminatedConditionName)
                         .AddToDB();
 
                     definition.FeatureSet.Add(conditionalOpportunityAttackImmunity);
@@ -228,17 +227,18 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self, 1, 0, ActionDefinitions.ItemSelectionType.None)
                 .AddEffectForm(seeInvisibleConditionForm);
 
-            var seeInvisiblePower = FeatureDefinitionBuilder<FeatureDefinitionPower>
+            var seeInvisiblePower = FeatureDefinitionPowerBuilder
                 .Create("PathOfTheLightEyesOfTruthPower", SubclassNamespace)
                 .SetGuiPresentation("BarbarianPathOfTheLightEyesOfTruth", Category.Subclass, SpellDefinitions.SeeInvisibility.GuiPresentation.SpriteReference)
-                .Configure<FeatureDefinitionBuilder<FeatureDefinitionPower>>(
+                .SetShowCasting(false)
+                .SetEffectDescription(seeInvisibleEffectBuilder.Build())
+                .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+                .Configure(
                     definition =>
                     {
+                        // TODO: builder has version of this which also sets cost per use
                         definition
-                            .SetActivationTime(RuleDefinitions.ActivationTime.Permanent)
-                            .SetEffectDescription(seeInvisibleEffectBuilder.Build())
-                            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
-                            .SetShowCasting(false);
+                            .SetActivationTime(RuleDefinitions.ActivationTime.Permanent);
                     })
                 .AddToDB();
 
@@ -295,12 +295,13 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
         private static FeatureDefinition CreateIlluminatingBurstSuppressor()
         {
-            return FeatureDefinitionBuilder<FeatureDefinitionPower>
+            return FeatureDefinitionPowerBuilder
                 .Create("PathOfTheLightIlluminatingBurstSuppressor", SubclassNamespace)
                 .SetGuiPresentationNoContent(true)
-                .Configure<FeatureDefinitionBuilder<FeatureDefinitionPower>>(
+                .Configure(
                     definition =>
                     {
+                        // TODO: move into builder
                         var suppressIlluminatingBurst = new EffectForm
                         {
                             FormType = EffectForm.EffectFormType.Condition,
@@ -329,11 +330,10 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
         // TODO: convert to lazy loading?
         private static FeatureDefinitionAttackDisadvantageAgainstNonSource DisadvantageAgainstNonSource { get; } =
-            FeatureDefinitionBuilder<FeatureDefinitionAttackDisadvantageAgainstNonSource>
+            FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
                 .Create("PathOfTheLightIlluminatedDisadvantage", SubclassNamespace)
                 .SetGuiPresentation("Feature/&NoContentTitle", "Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription")
-                .Configure<FeatureDefinitionBuilder<FeatureDefinitionAttackDisadvantageAgainstNonSource>>(
-                    definition => definition.ConditionName = IlluminatedConditionName)
+                .SetConditionName(IlluminatedConditionName)
                 .AddToDB();
 
         // Prevents a creature from turning invisible by "granting" immunity to invisibility
@@ -351,12 +351,13 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
                     foreach (var invisibleConditionName in InvisibleConditions.Select(ic => ic.Name))
                     {
-                        var preventInvisibilitySubFeature = FeatureDefinitionBuilder<FeatureDefinitionConditionAffinity>
+                        var preventInvisibilitySubFeature = FeatureDefinitionConditionAffinityBuilder
                             .Create("PathOfTheLightIlluminatedPreventInvisibility" + invisibleConditionName, SubclassNamespace)
                             .SetGuiPresentationNoContent()
-                            .Configure<FeatureDefinitionBuilder<FeatureDefinitionConditionAffinity>>(
+                            .Configure(
                                 conditionAffinityDefinition =>
                                 {
+                                    // TODO: move into builder
                                     conditionAffinityDefinition
                                         .SetConditionAffinityType(RuleDefinitions.ConditionAffinityType.Immunity)
                                         .SetConditionType(invisibleConditionName);

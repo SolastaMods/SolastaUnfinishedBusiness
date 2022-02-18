@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders.Features;
 
 namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 {
@@ -44,6 +46,25 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
         public bool IsImmuneToOpportunityAttack(RulesetCharacter myself, RulesetCharacter attacker)
         {
             return false;
+        }
+    }
+
+    internal sealed class FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
+        : FeatureDefinitionBuilder<FeatureDefinitionAttackDisadvantageAgainstNonSource, FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder>
+    {
+        private FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        public static FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder Create(string name, Guid namespaceGuid)
+        {
+            return new FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder(name, namespaceGuid);
+        }
+
+        public FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder SetConditionName(string conditionName)
+        {
+            Definition.ConditionName = conditionName;
+            return this;
         }
     }
 }
