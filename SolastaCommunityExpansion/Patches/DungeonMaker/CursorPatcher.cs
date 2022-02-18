@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches.DungeonMaker
 {
@@ -13,15 +12,29 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker
         /// </summary>
         internal static void Postfix(Cursor __instance)
         {
-            if (Main.Settings.EnableCancelEditOnRightMouseClick && __instance is CursorLocationEditor && __instance is not CursorLocationEditorDefault)
+            if (Main.Settings.EnableCancelEditOnRightMouseClick)
             {
-                // This is a field on CursorEditor not Cursor so can't be passed in by the patch
-                var userLocationEditorScreen = __instance.GetField<UserLocationEditorScreen>("userLocationEditorScreen");
+                Main.Log($"{__instance.GetType().Name}: Right-click");
 
-                // NOTE: don't use userLocationEditorScreen?. which bypasses Unity object lifetime check
-                if (userLocationEditorScreen)
+                if (__instance is CursorLocationEditor && __instance is not CursorLocationEditorDefault)
                 {
-                    userLocationEditorScreen.HandleInput(InputCommands.Id.Cancel);
+                    ServiceRepository.GetService<ICursorService>()?.DeactivateCursor();
+                }
+                else if (__instance is CursorLocationGeometricShape)
+                {
+                    ServiceRepository.GetService<ICursorService>()?.DeactivateCursor();
+                }
+                else if (__instance is CursorLocationSelectTarget)
+                {
+                    ServiceRepository.GetService<ICursorService>()?.DeactivateCursor();
+                }
+                else if (__instance is CursorLocationSelectSpellOrPower)
+                {
+                    ServiceRepository.GetService<ICursorService>()?.DeactivateCursor();
+                }
+                else if (__instance is CursorLocationSelectPosition)
+                {
+                    ServiceRepository.GetService<ICursorService>()?.DeactivateCursor();
                 }
             }
         }
