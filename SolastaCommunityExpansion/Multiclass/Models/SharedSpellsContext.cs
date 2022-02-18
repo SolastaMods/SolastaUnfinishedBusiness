@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using static FeatureDefinitionCastSpell;
 
@@ -305,7 +304,6 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             return casterLevelContext.GetCasterLevel();
         }
 
-        [SuppressMessage("Unnecessary assignment", "RCS1179")]
         internal static int GetClassSpellLevel(
             RulesetCharacterHero rulesetCharacterHero,
             CharacterClassDefinition filterCharacterClassDefinition,
@@ -321,7 +319,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             {
                 var casterLevelContext = new CasterLevelContext();
 
-                if (rulesetCharacterHero?.ClassesAndLevels != null)
+                if (rulesetCharacterHero != null && rulesetCharacterHero.ClassesAndLevels != null)
                 {
                     foreach (var classAndLevel in rulesetCharacterHero.ClassesAndLevels)
                     {
@@ -412,8 +410,8 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             new() { Slots = new List<int> { 3, 3, 3, 3, 3, 1, 1, 1, 0, 0 }, Level = 16 },
             new() { Slots = new List<int> { 4, 4, 4, 4, 4, 1, 1, 1, 1, 0 }, Level = 17 },
             new() { Slots = new List<int> { 4, 4, 4, 4, 4, 1, 1, 1, 1, 0 }, Level = 18 },
-            new() { Slots = new List<int> { 4, 4, 4, 4, 4, 1, 1, 1, 1, 1 }, Level = 19 },
-            new() { Slots = new List<int> { 4, 4, 4, 4, 4, 1, 1, 1, 1, 1 }, Level = 20 },
+            new() { Slots = new List<int> { 4, 4, 4, 4, 4, 1, 1, 1, 1, 0 }, Level = 19 },
+            new() { Slots = new List<int> { 4, 4, 4, 4, 4, 1, 1, 1, 1, 0 }, Level = 20 },
         };
     }
 }

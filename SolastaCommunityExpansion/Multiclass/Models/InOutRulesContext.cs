@@ -61,7 +61,6 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             var attribute = hero.GetAttribute(attributeName);
             var activeModifiers = attribute.ActiveModifiers;
             var currentValue = attribute.BaseValue;
-            const int minValue = int.MinValue;
 
             foreach (var activeModifier in activeModifiers
                 .Where(x => x.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive))
@@ -69,7 +68,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
                 currentValue += Mathf.FloorToInt(activeModifier.Value);
             }
 
-            return Mathf.Clamp(currentValue, minValue, attribute.MaxEditableValue > 0 ? attribute.MaxEditableValue : attribute.MaxValue);
+            return Mathf.Clamp(currentValue, int.MinValue, attribute.MaxEditableValue > 0 ? attribute.MaxEditableValue : attribute.MaxValue);
         }
 
         private static Dictionary<string, int> GetItemsAttributeModifiers(RulesetCharacterHero hero)
