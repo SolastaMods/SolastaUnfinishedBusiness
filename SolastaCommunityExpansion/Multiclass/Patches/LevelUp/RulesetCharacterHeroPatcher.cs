@@ -20,7 +20,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                 if (__instance.ClassesAndLevels.ContainsKey(classDefinition))
                 {
                     __instance.ClassesAndLevels[classDefinition]++;
-                } 
+                }
                 else
                 {
                     __instance.ClassesAndLevels.Add(classDefinition, 1);

@@ -290,9 +290,11 @@ namespace SolastaCommunityExpansion.Feats
             bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
             EffectDescription effectDescription, string name, GuiPresentation guiPresentation)
         {
-            return new FeatureDefinitionPowerBuilder(name, GuidHelper.Create(CasterFeatsNamespace, name).ToString(),
-                usesPerRecharge, usesDetermination, abilityScore, activationTime, costPerUse, recharge, proficiencyBonusToAttack, abilityScoreBonusToAttack,
-                abilityScore, effectDescription, guiPresentation, false /* unique */).AddToDB();
+            return FeatureDefinitionPowerBuilder
+                .Create(name, CasterFeatsNamespace)
+                .SetGuiPresentation(guiPresentation)
+                .Configure(usesPerRecharge, usesDetermination, abilityScore, activationTime, costPerUse, recharge, proficiencyBonusToAttack, abilityScoreBonusToAttack, abilityScore, effectDescription, false /* unique */)
+                .AddToDB();
         }
 
         private static FeatureDefinitionAutoPreparedSpells BuildAutoPreparedSpells(

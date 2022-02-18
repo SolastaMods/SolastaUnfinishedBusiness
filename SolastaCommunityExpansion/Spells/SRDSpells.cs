@@ -494,25 +494,6 @@ namespace SolastaCommunityExpansion.Spells
             const bool LegendaryCreature = false;
             const string Type = "Celestial";
 
-            List<FeatureDefinition> Features = new List<FeatureDefinition>()
-            {
-                FeatureDefinitionMoveModes.MoveModeFly12,
-                FeatureDefinitionSenses.SenseNormalVision,
-                FeatureDefinitionSenses.SenseSuperiorDarkvision,
-                FeatureDefinitionSenses.SenseTruesight16,
-                // wildshape was meant to be a substitute for the couatl's shapechanging but the game didnt like it
-                // (gave the couatl a second position in the intiative order)
-                // DatabaseHelper.FeatureDefinitionPowers.PowerDruidWildShape,
-                FeatureDefinitionAttackModifiers.AttackModifierKindredSpiritMagicSpiritMagicAttack,
-                FeatureDefinitionDamageAffinitys.DamageAffinityRadiantResistance,
-                FeatureDefinitionDamageAffinitys.DamageAffinityPsychicImmunity,
-                FeatureDefinitionDamageAffinitys.DamageAffinityMummyLord_PiercingImmunity,
-                FeatureDefinitionDamageAffinitys.DamageAffinityMummyLord_SlashingImmunity,
-                FeatureDefinitionDamageAffinitys.DamageAffinityMummyLord_BludgeoningImmunity,
-                FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
-                castSpellCouatl
-            };
-
             List<MonsterSkillProficiency> SkillScores = new List<MonsterSkillProficiency>();
 
             /*waiting until MonsterAttackDefinitionBuilder is available to use
@@ -590,59 +571,65 @@ namespace SolastaCommunityExpansion.Spells
             AssetReference attachedParticlesReference = FeyBear.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference");
             AssetReferenceSprite spriteReference = KindredSpiritViper.GuiPresentation.SpriteReference;
 
-            MonsterDefinitionBuilder couatlBuilder = MonsterDefinitionBuilder
+            MonsterDefinitionBuilder
                 .Create(KindredSpiritViper, CustomCouatlName, "fc38ed74-3e2f-4960-86cc-3120d638410b")
-                .SetGuiPresentation("DH" + CustomCouatlName, Category.Monster, spriteReference);
-
-            couatlBuilder.SetInDungeonEditor(false);
-            couatlBuilder.SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
-            couatlBuilder.SetSizeDefinition(Size);
-            couatlBuilder.SetChallengeRating(CR);
-            couatlBuilder.SetAlignment(Alignment);
-            couatlBuilder.SetCharacterFamily(Type);
-            couatlBuilder.SetLegendaryCreature(LegendaryCreature);
-            couatlBuilder.SetArmorClass(ArmorClass);
-            couatlBuilder.SetHitDiceNumber(HitDice);
-            couatlBuilder.SetHitDiceType(HitDiceType);
-            couatlBuilder.SetHitPointsBonus(HitPointsBonus);
-            couatlBuilder.SetStandardHitPoints(StandardHitPoints);
-            couatlBuilder.ClearFeatures();
-            couatlBuilder.AddFeatures(Features);
-            couatlBuilder.ClearAbilityScores();
-            couatlBuilder.SetAbilityScores(
-                AttributeStrength,
-                AttributeDexterity,
-                AttributeConstitution,
-                AttributeIntelligence,
-                AttributeWisdom,
-                AttributeCharisma);
-
-            couatlBuilder.SetSavingThrowScores(
-                (AttributeDefinitions.Strength, SavingThrowStrength),
-                (AttributeDefinitions.Dexterity, SavingThrowDexterity),
-                (AttributeDefinitions.Constitution, SavingThrowConstitution),
-                (AttributeDefinitions.Intelligence, SavingThrowIntelligence),
-                (AttributeDefinitions.Wisdom, SavingThrowWisdom),
-                (AttributeDefinitions.Charisma, SavingThrowCharisma));
-
-            couatlBuilder.ClearSkillScores();
-            couatlBuilder.AddSkillScores(SkillScores);
-            couatlBuilder.ClearAttackIterations();
-            couatlBuilder.AddAttackIterations(AttackIterations);
-            //  couatlBuilder.SetDefaultBattleDecisionPackage(DefaultBattleDecisionPackage);
-            couatlBuilder.SetGroupAttacks(GroupAttacks);
-            couatlBuilder.ClearLegendaryActionOptions();
-            couatlBuilder.AddLegendaryActionOptions(LegendaryActionOptions);
-            couatlBuilder.SetHasPhantomDistortion(PhantomDistortion);
-            couatlBuilder.SetAttachedParticlesReference(attachedParticlesReference);
-            couatlBuilder.SetNoExperienceGain(false);
-            couatlBuilder.SetHasMonsterPortraitBackground(true);
-            couatlBuilder.SetCanGeneratePortrait(true);
-            couatlBuilder.SetCustomShaderReference(KindredSpiritViper.MonsterPresentation.CustomShaderReference);
-
-            MonsterDefinition Couatl = couatlBuilder.AddToDB();
-
-            Couatl.CreatureTags.Clear();
+                .SetGuiPresentation("DH" + CustomCouatlName, Category.Monster, spriteReference)
+                .SetInDungeonEditor(false)
+                .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
+                .SetSizeDefinition(Size)
+                .SetChallengeRating(CR)
+                .SetAlignment(Alignment)
+                .SetCharacterFamily(Type)
+                .SetLegendaryCreature(LegendaryCreature)
+                .SetArmorClass(ArmorClass)
+                .SetHitDiceNumber(HitDice)
+                .SetHitDiceType(HitDiceType)
+                .SetHitPointsBonus(HitPointsBonus)
+                .SetStandardHitPoints(StandardHitPoints)
+                .SetFeatures(
+                    FeatureDefinitionMoveModes.MoveModeFly12,
+                    FeatureDefinitionSenses.SenseNormalVision,
+                    FeatureDefinitionSenses.SenseSuperiorDarkvision,
+                    FeatureDefinitionSenses.SenseTruesight16,
+                    // wildshape was meant to be a substitute for the couatl's shapechanging but the game didnt like it
+                    // (gave the couatl a second position in the intiative order)
+                    // DatabaseHelper.FeatureDefinitionPowers.PowerDruidWildShape,
+                    FeatureDefinitionAttackModifiers.AttackModifierKindredSpiritMagicSpiritMagicAttack,
+                    FeatureDefinitionDamageAffinitys.DamageAffinityRadiantResistance,
+                    FeatureDefinitionDamageAffinitys.DamageAffinityPsychicImmunity,
+                    FeatureDefinitionDamageAffinitys.DamageAffinityMummyLord_PiercingImmunity,
+                    FeatureDefinitionDamageAffinitys.DamageAffinityMummyLord_SlashingImmunity,
+                    FeatureDefinitionDamageAffinitys.DamageAffinityMummyLord_BludgeoningImmunity,
+                    FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
+                    castSpellCouatl
+                )
+                .SetAbilityScores(
+                    AttributeStrength,
+                    AttributeDexterity,
+                    AttributeConstitution,
+                    AttributeIntelligence,
+                    AttributeWisdom,
+                    AttributeCharisma)
+                .SetSavingThrowScores(
+                    (AttributeDefinitions.Strength, SavingThrowStrength),
+                    (AttributeDefinitions.Dexterity, SavingThrowDexterity),
+                    (AttributeDefinitions.Constitution, SavingThrowConstitution),
+                    (AttributeDefinitions.Intelligence, SavingThrowIntelligence),
+                    (AttributeDefinitions.Wisdom, SavingThrowWisdom),
+                    (AttributeDefinitions.Charisma, SavingThrowCharisma))
+                .SetSkillScores(SkillScores)
+                .SetAttackIterations(AttackIterations)
+                //  couatlBuilder.SetDefaultBattleDecisionPackage(DefaultBattleDecisionPackage);
+                .SetGroupAttacks(GroupAttacks)
+                .SetLegendaryActionOptions(LegendaryActionOptions)
+                .SetHasPhantomDistortion(PhantomDistortion)
+                .SetAttachedParticlesReference(attachedParticlesReference)
+                .SetNoExperienceGain(false)
+                .SetHasMonsterPortraitBackground(true)
+                .SetCanGeneratePortrait(true)
+                .SetCustomShaderReference(KindredSpiritViper.MonsterPresentation.CustomShaderReference)
+                .ClearCreatureTags()
+                .AddToDB();
 
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(RuleDefinitions.DurationType.Minute, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn)

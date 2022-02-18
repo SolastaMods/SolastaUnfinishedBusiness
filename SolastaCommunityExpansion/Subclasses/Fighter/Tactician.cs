@@ -1,8 +1,9 @@
 ﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using SolastaModApi;
 using SolastaModApi.Extensions;
+using static SolastaModApi.DatabaseHelper;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Fighter
 {
@@ -11,7 +12,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         private CharacterSubclassDefinition Subclass;
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
-            return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
+            return FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
         }
         internal override CharacterSubclassDefinition GetSubclass()
         {
@@ -51,11 +52,9 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             proneMotionEffect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
             //Add to our new effect
-            EffectDescription newEffectDescription = new EffectDescription();
-            newEffectDescription.Copy(DatabaseHelper.FeatureDefinitionPowers.PowerFighterActionSurge.EffectDescription);
-            newEffectDescription.EffectForms.Clear();
-            newEffectDescription.EffectForms.Add(damageEffect);
-            newEffectDescription.EffectForms.Add(proneMotionEffect);
+            EffectDescription newEffectDescription =
+                FeatureDefinitionPowers.PowerFighterActionSurge.EffectDescription.Copy();
+            newEffectDescription.SetEffectForms(damageEffect, proneMotionEffect);
             newEffectDescription.SetSavingThrowDifficultyAbility("Strength");
             newEffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency);
             newEffectDescription.SavingThrowAbility = "Strength";
@@ -66,7 +65,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 TacticianFighterSubclassBuilder.GambitResourcePool, RuleDefinitions.RechargeRate.ShortRest, RuleDefinitions.ActivationTime.OnAttackHit,
                 1, true, true, AttributeDefinitions.Strength, newEffectDescription,
                 new GuiPresentationBuilder("Feature/&KnockDownPowerTitle", "Feature/&KnockDownPowerDescription")
-                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerFighterActionSurge.GuiPresentation.SpriteReference).Build(), false);
+                .SetSpriteReference(FeatureDefinitionPowers.PowerFighterActionSurge.GuiPresentation.SpriteReference).Build(), false);
 
             return builder.AddToDB();
         }
@@ -106,7 +105,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
             //Add to our new effect
             EffectDescription newEffectDescription = new EffectDescription();
-            newEffectDescription.Copy(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLifePreserveLife.EffectDescription);
+            newEffectDescription.Copy(FeatureDefinitionPowers.PowerDomainLifePreserveLife.EffectDescription);
             newEffectDescription.EffectForms.Clear();
             newEffectDescription.EffectForms.Add(healingEffect);
             //newEffectDescription.EffectForms.Add(blessEffect);
@@ -122,7 +121,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 TacticianFighterSubclassBuilder.GambitResourcePool, RuleDefinitions.RechargeRate.ShortRest, RuleDefinitions.ActivationTime.BonusAction,
                 1, true, true, AttributeDefinitions.Strength, newEffectDescription,
                 new GuiPresentationBuilder("Feature/&InspirePowerTitle", "Feature/&InspirePowerDescription")
-                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLifePreserveLife.GuiPresentation.SpriteReference).Build(), false);
+                .SetSpriteReference(FeatureDefinitionPowers.PowerDomainLifePreserveLife.GuiPresentation.SpriteReference).Build(), false);
 
             builder.SetShortTitle("Feature/&InspirePowerTitle");
 
@@ -157,7 +156,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
             //Add to our new effect
             EffectDescription newEffectDescription = new EffectDescription();
-            newEffectDescription.Copy(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLawHolyRetribution.EffectDescription);
+            newEffectDescription.Copy(FeatureDefinitionPowers.PowerDomainLawHolyRetribution.EffectDescription);
             newEffectDescription.EffectForms.Clear();
             newEffectDescription.EffectForms.Add(damageEffect);
 
@@ -165,7 +164,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 TacticianFighterSubclassBuilder.GambitResourcePool, RuleDefinitions.RechargeRate.ShortRest, RuleDefinitions.ActivationTime.Reaction,
                 1, true, true, AttributeDefinitions.Strength, newEffectDescription,
                 new GuiPresentationBuilder("Feature/&CounterStrikePowerTitle", "Feature/&CounterStrikePowerDescription")
-                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLawHolyRetribution.GuiPresentation.SpriteReference).Build(), false);
+                .SetSpriteReference(FeatureDefinitionPowers.PowerDomainLawHolyRetribution.GuiPresentation.SpriteReference).Build(), false);
             builder.SetReaction(RuleDefinitions.ReactionTriggerContext.HitByMelee, string.Empty);
 
             return builder.AddToDB();
@@ -239,23 +238,18 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
         public static CharacterSubclassDefinition BuildAndAddSubclass()
         {
-            var subclassGuiPresentation = new GuiPresentationBuilder(
-                    "Subclass/&TactitionFighterSubclassTitle",
-                    "Subclass/&TactitionFighterSubclassDescription")
-                    .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.RoguishShadowCaster.GuiPresentation.SpriteReference)
-                    .Build();
-
-            return new CharacterSubclassDefinitionBuilder(TacticianFighterSubclassName, TacticianFighterSubclassNameGuid)
-                    .SetGuiPresentation(subclassGuiPresentation)
-                    .AddFeatureAtLevel(GambitResourcePool, 3)
-                    .AddFeatureAtLevel(KnockDownPower, 3)
-                    .AddFeatureAtLevel(InspirePower, 3)
-                    .AddFeatureAtLevel(CounterStrikePower, 3)
-                    .AddFeatureAtLevel(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetChampionRemarkableAthlete, 7) //Wasn't sure what to do for level mostly a ribbon feature
-                    .AddFeatureAtLevel(GambitResourcePoolAdd10, 10)
-                    .AddFeatureAtLevel(GambitResourcePoolAdd15, 15)
-                    .AddFeatureAtLevel(GambitResourcePoolAdd18, 18)
-                    .AddToDB();
+            return CharacterSubclassDefinitionBuilder
+                .Create(TacticianFighterSubclassName, TacticianFighterSubclassNameGuid)
+                .SetGuiPresentation("TactitionFighterSubclass", Category.Subclass, RoguishShadowCaster.GuiPresentation.SpriteReference)
+                .AddFeatureAtLevel(GambitResourcePool, 3)
+                .AddFeatureAtLevel(KnockDownPower, 3)
+                .AddFeatureAtLevel(InspirePower, 3)
+                .AddFeatureAtLevel(CounterStrikePower, 3)
+                .AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetChampionRemarkableAthlete, 7) //Wasn't sure what to do for level mostly a ribbon feature
+                .AddFeatureAtLevel(GambitResourcePoolAdd10, 10)
+                .AddFeatureAtLevel(GambitResourcePoolAdd15, 15)
+                .AddFeatureAtLevel(GambitResourcePoolAdd18, 18)
+                .AddToDB();
         }
 
         public static readonly FeatureDefinitionPower GambitResourcePool = GambitResourcePoolBuilder.CreateAndAddToDB();

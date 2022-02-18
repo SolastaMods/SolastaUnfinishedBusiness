@@ -159,11 +159,13 @@ namespace SolastaCommunityExpansion.Feats
           bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
           EffectDescription effectDescription, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionPowerBuilder builder = new FeatureDefinitionPowerBuilder(name, GuidHelper.Create(HealingFeatNamespace, name).ToString(),
-                usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse, recharge, proficiencyBonusToAttack,
-                abilityScoreBonusToAttack, abilityScore,
-                effectDescription, guiPresentation, false /* unique instance */);
-            return builder.AddToDB();
+            return FeatureDefinitionPowerBuilder
+                .Create(name, HealingFeatNamespace)
+                .SetGuiPresentation(guiPresentation)
+                .Configure(
+                    usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse, recharge, proficiencyBonusToAttack,
+                    abilityScoreBonusToAttack, abilityScore, effectDescription, false /* unique instance */)
+                .AddToDB();
         }
 
         private static EffectDescription BuildEffectDescriptionTempHPForm(RuleDefinitions.RangeType rangeType, int rangeParameter,

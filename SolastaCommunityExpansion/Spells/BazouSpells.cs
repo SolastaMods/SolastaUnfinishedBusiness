@@ -5,6 +5,7 @@ using SolastaCommunityExpansion.Models;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaModApi.DatabaseHelper.MonsterDefinitions;
@@ -48,7 +49,7 @@ namespace SolastaCommunityExpansion.Spells
             var spell = SpellDefinitionBuilder
                 .Create(Fireball, "EldritchOrb", BAZOU_SPELLS_BASE_GUID)
                 .SetGuiPresentation(Category.Spell, Shine.GuiPresentation.SpriteReference)
-                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
+                .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetMaterialComponent(RuleDefinitions.MaterialComponentType.None)
                 .SetSomaticComponent(true)
                 .SetVerboseComponent(true)
@@ -100,16 +101,16 @@ namespace SolastaCommunityExpansion.Spells
                 .Create(Eagle_Matriarch, "Owl", BAZOU_SPELLS_BASE_GUID)
                 .SetGuiPresentation("OwlFamiliar", Category.Monster, Eagle_Matriarch.GuiPresentation.SpriteReference)
                 .SetFeatures(
-                    DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
-                    DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision24,
-                    DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove2,
-                    DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
-                    DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenSight,
-                    DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenHearing,
-                    DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityFlyby,
-                    DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
-                    DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
-                    DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity)
+                    FeatureDefinitionSenses.SenseNormalVision,
+                    FeatureDefinitionSenses.SenseDarkvision24,
+                    FeatureDefinitionMoveModes.MoveModeMove2,
+                    FeatureDefinitionMoveModes.MoveModeFly12,
+                    FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenSight,
+                    FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenHearing,
+                    FeatureDefinitionCombatAffinitys.CombatAffinityFlyby,
+                    FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
+                    FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
+                    FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity)
                 .ClearAttackIterations()
                 .SetSkillScores(
                     (DatabaseHelper.SkillDefinitions.Perception.Name, 3),
@@ -121,12 +122,12 @@ namespace SolastaCommunityExpansion.Spells
                 .SetHitDiceType(RuleDefinitions.DieType.D4)
                 .SetHitPointsBonus(-1)
                 .SetStandardHitPoints(1)
-                .SetSizeDefinition(DatabaseHelper.CharacterSizeDefinitions.Tiny)
-                .SetAlignment(DatabaseHelper.AlignmentDefinitions.Neutral.Name)
-                .SetCharacterFamily(DatabaseHelper.CharacterFamilyDefinitions.Fey.name)
+                .SetSizeDefinition(CharacterSizeDefinitions.Tiny)
+                .SetAlignment(AlignmentDefinitions.Neutral.Name)
+                .SetCharacterFamily(CharacterFamilyDefinitions.Fey.name)
                 .SetChallengeRating(0)
                 .SetDroppedLootDefinition(null)
-                .SetDefaultBattleDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)
+                .SetDefaultBattleDecisionPackage(DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)
                 .SetFullyControlledWhenAllied(true)
                 .SetDefaultFaction("Party")
                 .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
@@ -140,7 +141,7 @@ namespace SolastaCommunityExpansion.Spells
 
             var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar", BAZOU_SPELLS_BASE_GUID)
                 .SetGuiPresentation(Category.Spell, AnimalFriendship.GuiPresentation.SpriteReference)
-                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolConjuration)
+                .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
                 .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Specific)
                 .SetSomaticComponent(true)
                 .SetVerboseComponent(true)
@@ -178,7 +179,7 @@ namespace SolastaCommunityExpansion.Spells
             var spell = SpellDefinitionBuilder
                 .Create(Confusion, "Frenzy", BAZOU_SPELLS_BASE_GUID)
                 .SetGuiPresentation(Category.Spell, Confusion.GuiPresentation.SpriteReference)
-                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEnchantment)
+                .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
                 .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane)
                 .SetSomaticComponent(true)
                 .SetVerboseComponent(true)
@@ -229,7 +230,7 @@ namespace SolastaCommunityExpansion.Spells
             var spell = SpellDefinitionBuilder
                 .Create(VampiricTouch, "MinorLifesteal", BAZOU_SPELLS_BASE_GUID)
                 .SetGuiPresentation(Category.Spell, VampiricTouch.GuiPresentation.SpriteReference)
-                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolNecromancy)
+                .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
                 .SetMaterialComponent(RuleDefinitions.MaterialComponentType.None)
                 .SetSomaticComponent(true)
                 .SetVerboseComponent(false)
@@ -266,7 +267,7 @@ namespace SolastaCommunityExpansion.Spells
             var spell = SpellDefinitionBuilder
                 .Create(InsectPlague, "PetalStorm", BAZOU_SPELLS_BASE_GUID)
                 .SetGuiPresentation(Category.Spell, WindWall.GuiPresentation.SpriteReference)
-                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolConjuration)
+                .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
                 .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane)
                 .SetSomaticComponent(true)
                 .SetVerboseComponent(true)
@@ -298,24 +299,20 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.EffectForms[0].AlterationForm.SetMaximumIncrease(2);
             spell.EffectDescription.EffectForms[0].AlterationForm.SetValueIncrease(2);
 
-            var effectProxyDefinitionBuilder = new EffectProxyDefinitionBuilder(
-                    DatabaseHelper.EffectProxyDefinitions.ProxyInsectPlague,
-                    "ProxyPetalStorm",
-                    GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, "ProxyPetalStorm").ToString());
+            var effectProxyDefinition = EffectProxyDefinitionBuilder
+                .Create(EffectProxyDefinitions.ProxyInsectPlague, "ProxyPetalStorm", BAZOU_SPELLS_BASE_GUID)
+                .SetGuiPresentation("PetalStorm", Category.Spell, WindWall.GuiPresentation.SpriteReference)
+                .SetCanMove()
+                .SetPortrait(WindWall.GuiPresentation.SpriteReference)
+                .AddAdditionalFeatures(FeatureDefinitionMoveModes.MoveModeMove6)
+                .AddToDB()
+                // TODO: move into builder
+                .SetActionId(ActionDefinitions.Id.ProxyFlamingSphere)
+                .SetAttackMethod(RuleDefinitions.ProxyAttackMethod.ReproduceDamageForms)
+                .SetCanMoveOnCharacters(true)
+                .SetIsEmptyPresentation(false);
 
-            effectProxyDefinitionBuilder.SetGuiPresentation("PetalStorm", Category.Spell, WindWall.GuiPresentation.SpriteReference);
-            effectProxyDefinitionBuilder.SetCanMove();
-            effectProxyDefinitionBuilder.SetPortrait(WindWall.GuiPresentation.SpriteReference);
-            effectProxyDefinitionBuilder.AddAdditionalFeature(DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6);
-
-            var effectProxyDefinition = effectProxyDefinitionBuilder.AddToDB();
-
-            effectProxyDefinition.SetActionId(ActionDefinitions.Id.ProxyFlamingSphere);
-            effectProxyDefinition.SetAttackMethod(RuleDefinitions.ProxyAttackMethod.ReproduceDamageForms);
-            effectProxyDefinition.SetCanMoveOnCharacters(true);
-            effectProxyDefinition.SetIsEmptyPresentation(false);
-
-            spell.EffectDescription.EffectForms[2].SummonForm.SetEffectProxyDefinitionName("ProxyPetalStorm");
+            spell.EffectDescription.EffectForms[2].SummonForm.SetEffectProxyDefinitionName(effectProxyDefinition.Name);
 
             return spell;
         }
@@ -325,7 +322,7 @@ namespace SolastaCommunityExpansion.Spells
             var spell = SpellDefinitionBuilder
                 .Create(SpikeGrowth, "ProtectThreshold", BAZOU_SPELLS_BASE_GUID)
                 .SetGuiPresentation(Category.Spell, Bane.GuiPresentation.SpriteReference)
-                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolAbjuration)
+                .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
                 .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Mundane)
                 .SetSomaticComponent(true)
                 .SetVerboseComponent(true)
@@ -360,14 +357,10 @@ namespace SolastaCommunityExpansion.Spells
 
             const string proxyProtectThreshold = "ProxyProtectThreshold";
 
-            var effectProxyDefinitionBuilder = new EffectProxyDefinitionBuilder(
-                    DatabaseHelper.EffectProxyDefinitions.ProxySpikeGrowth,
-                    proxyProtectThreshold,
-                    GuidHelper.Create(BAZOU_SPELLS_BASE_GUID, proxyProtectThreshold).ToString());
-            var definition = effectProxyDefinitionBuilder.AddToDB();
-
-            definition.GuiPresentation.Title = "Spell/&ProtectThresholdTitle";
-            definition.GuiPresentation.Description = "Spell/&ProtectThresholdDescription";
+            EffectProxyDefinitionBuilder
+                .Create(EffectProxyDefinitions.ProxySpikeGrowth, proxyProtectThreshold, BAZOU_SPELLS_BASE_GUID)
+                .SetGuiPresentation("ProtectThreshold", Category.Spell)
+                .AddToDB();
 
             spell.EffectDescription.EffectForms[0].SummonForm.SetEffectProxyDefinitionName(proxyProtectThreshold);
 

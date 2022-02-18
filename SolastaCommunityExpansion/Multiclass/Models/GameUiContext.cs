@@ -117,10 +117,12 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
                     hero.ClassesAndSubclasses.TryGetValue(characterClassDefinition, out var characterSubclassDefinition);
 
+#pragma warning disable JSON002 // Probable JSON string detected
                     builder.Append('\n')
                         .AppendFormat("{0:00}", i + 1)
                         .Append(" - ")
                         .Append(characterClassDefinition.FormatTitle());
+#pragma warning restore JSON002 // Probable JSON string detected
 
                     // NOTE: don't use characterSubclassDefinition?. which bypasses Unity object lifetime check
                     if (characterSubclassDefinition)

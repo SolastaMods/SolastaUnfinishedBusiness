@@ -101,9 +101,9 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public SpellDefinitionBuilder SetUnique()
+        public SpellDefinitionBuilder SetUniqueInstance(bool unique = true)
         {
-            Definition.SetUniqueInstance(true);
+            Definition.SetUniqueInstance(unique);
             return this;
         }
 

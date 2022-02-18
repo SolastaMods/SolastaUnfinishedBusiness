@@ -1,9 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using static SolastaModApi.DatabaseHelper;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard
 {
@@ -20,8 +21,9 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
-            return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
+            return FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
         }
+
         internal override CharacterSubclassDefinition GetSubclass()
         {
             return Subclass;
@@ -30,31 +32,27 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         internal MasterManipulator()
         {
             // Make Control Master subclass
-            CharacterSubclassDefinitionBuilder controlMaster = new CharacterSubclassDefinitionBuilder("MasterManipulator", GuidHelper.Create(SubclassNamespace, "MasterManipulator").ToString());
-            GuiPresentationBuilder controlPresentation = new GuiPresentationBuilder(
-                "Subclass/&TraditionMasterManipulatorTitle",
-                "Subclass/&TraditionMasterManipulatorDescription");
-            controlPresentation.SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.RoguishShadowCaster.GuiPresentation.SpriteReference);
-            controlMaster.SetGuiPresentation(controlPresentation.Build());
+            CharacterSubclassDefinitionBuilder controlMaster = CharacterSubclassDefinitionBuilder
+                .Create("MasterManipulator", SubclassNamespace)
+                .SetGuiPresentation("TraditionMasterManipulator", Category.Subclass, RoguishShadowCaster.GuiPresentation.SpriteReference);
 
-            GuiPresentationBuilder arcaneControlAffinityGui = new GuiPresentationBuilder(
-                "Subclass/&MagicAffinityMasterManipulatorListTitle",
-                "Subclass/&MagicAffinityMasterManipulatorListDescription");
-            FeatureDefinitionMagicAffinity arcaneControlAffinity = BuildMagicAffinityHeightenedList(new List<string>() {
-                DatabaseHelper.SpellDefinitions.CharmPerson.Name, // enchantment
-                DatabaseHelper.SpellDefinitions.Sleep.Name, // enchantment
-                DatabaseHelper.SpellDefinitions.ColorSpray.Name, // illusion
-                DatabaseHelper.SpellDefinitions.HoldPerson.Name, // enchantment,
-                DatabaseHelper.SpellDefinitions.Invisibility.Name, // illusion
-                DatabaseHelper.SpellDefinitions.Counterspell.Name, // abjuration
-                DatabaseHelper.SpellDefinitions.DispelMagic.Name, // abjuration
-                DatabaseHelper.SpellDefinitions.Banishment.Name, // abjuration
-                DatabaseHelper.SpellDefinitions.Confusion.Name, // enchantment
-                DatabaseHelper.SpellDefinitions.PhantasmalKiller.Name, // illusion
-                DatabaseHelper.SpellDefinitions.DominatePerson.Name, // Enchantment
-                DatabaseHelper.SpellDefinitions.HoldMonster.Name // Enchantment
-            }, 1,
-                "MagicAffinityControlHeightened", arcaneControlAffinityGui.Build());
+            var arcaneControlAffinity = FeatureDefinitionMagicAffinityBuilder
+                .Create("MagicAffinityControlHeightened", SubclassNamespace)
+                .SetWarList(1,
+                    SpellDefinitions.CharmPerson.Name, // enchantment
+                    SpellDefinitions.Sleep.Name, // enchantment
+                    SpellDefinitions.ColorSpray.Name, // illusion
+                    SpellDefinitions.HoldPerson.Name, // enchantment,
+                    SpellDefinitions.Invisibility.Name, // illusion
+                    SpellDefinitions.Counterspell.Name, // abjuration
+                    SpellDefinitions.DispelMagic.Name, // abjuration
+                    SpellDefinitions.Banishment.Name, // abjuration
+                    SpellDefinitions.Confusion.Name, // enchantment
+                    SpellDefinitions.PhantasmalKiller.Name, // illusion
+                    SpellDefinitions.DominatePerson.Name, // Enchantment
+                    SpellDefinitions.HoldMonster.Name) // Enchantment           
+                .SetGuiPresentation("MagicAffinityMasterManipulatorList", Category.Subclass)
+                .AddToDB();
             controlMaster.AddFeatureAtLevel(arcaneControlAffinity, 2);
             controlMaster.AddFeatureAtLevel(DcIncreaseAffinity, 6);
 
@@ -66,15 +64,19 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 
             controlMaster.AddFeatureAtLevel(proficiency, 10);
 
-            GuiPresentationBuilder DominatePower = new GuiPresentationBuilder(
-                "Subclass/&PowerManipulatorDominatePersonTitle",
-                "Subclass/&PowerManipulatorDominatePersonDescription");
-            DominatePower.SetSpriteReference(DatabaseHelper.SpellDefinitions.DominatePerson.GuiPresentation.SpriteReference);
-            FeatureDefinitionPower PowerDominate = new FeatureDefinitionPowerBuilder("PowerManipulatorDominatePerson", GuidHelper.Create(SubclassNamespace, "PowerManipulatorDominatePerson").ToString(),
-                0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.LongRest,
-                false, false, AttributeDefinitions.Intelligence,
-                DatabaseHelper.SpellDefinitions.DominatePerson.EffectDescription, DominatePower.Build(), false /* unique instance */).AddToDB();
-            controlMaster.AddFeatureAtLevel(PowerDominate, 14);
+            FeatureDefinitionPower powerDominate = FeatureDefinitionPowerBuilder
+                .Create("PowerManipulatorDominatePerson", SubclassNamespace)
+                .SetGuiPresentation(Category.Subclass, SpellDefinitions.DominatePerson.GuiPresentation.SpriteReference)
+                .Configure(0,
+                    RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
+                    AttributeDefinitions.Intelligence,
+                    RuleDefinitions.ActivationTime.BonusAction,
+                    1, RuleDefinitions.RechargeRate.LongRest,
+                    false, false, AttributeDefinitions.Intelligence,
+                    SpellDefinitions.DominatePerson.EffectDescription, false /* unique instance */)
+                .AddToDB();
+
+            controlMaster.AddFeatureAtLevel(powerDominate, 14);
 
             Subclass = controlMaster.AddToDB();
         }
@@ -93,18 +95,13 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             }
         }
 
-        public static FeatureDefinitionMagicAffinity BuildMagicAffinityModifiers(int attackModifier, int dcModifier, string name, GuiPresentation guiPresentation)
+        private static FeatureDefinitionMagicAffinity BuildMagicAffinityModifiers(int attackModifier, int dcModifier, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionMagicAffinityBuilder builder = new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
-                guiPresentation).SetCastingModifiers(attackModifier, dcModifier, false, false, false);
-            return builder.AddToDB();
-        }
-
-        public static FeatureDefinitionMagicAffinity BuildMagicAffinityHeightenedList(List<string> spellNames, int levelBonus, string name, GuiPresentation guiPresentation)
-        {
-            FeatureDefinitionMagicAffinityBuilder builder = new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
-                guiPresentation).SetWarList(spellNames, levelBonus);
-            return builder.AddToDB();
+            return FeatureDefinitionMagicAffinityBuilder
+                .Create(name, SubclassNamespace)
+                .SetGuiPresentation(guiPresentation)
+                .SetCastingModifiers(attackModifier, dcModifier, false, false, false)
+                .AddToDB();
         }
     }
 }

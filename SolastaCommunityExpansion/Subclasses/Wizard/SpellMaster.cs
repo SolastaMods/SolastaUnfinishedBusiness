@@ -131,8 +131,11 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             particleParams.Copy(PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters);
             effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
 
-            return new FeatureDefinitionPowerBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
-                usesPerRecharge, usesDetermination, AttributeDefinitions.Intelligence, activationTime, costPerUse, recharge, false, false, AttributeDefinitions.Intelligence, effectDescriptionBuilder.Build(), guiPresentation, false).AddToDB();
+            return FeatureDefinitionPowerBuilder.Create(name, SubclassNamespace)
+                .SetGuiPresentation(guiPresentation)
+                .Configure(usesPerRecharge, usesDetermination, AttributeDefinitions.Intelligence, activationTime, costPerUse,
+                    recharge, false, false, AttributeDefinitions.Intelligence, effectDescriptionBuilder.Build(), false)
+                .AddToDB();
         }
 
         internal static void UpdateRecoveryLimited()
