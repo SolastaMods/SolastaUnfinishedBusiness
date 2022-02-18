@@ -140,6 +140,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetOriginItemGuid<T>(this T entity, System.UInt64 value)
+            where T : RulesetEffectSpell
+        {
+            entity.SetField("originItemGuid", value);
+            return entity;
+        }
+
         public static T SetSlotLevel<T>(this T entity, System.Int32 value)
             where T : RulesetEffectSpell
         {

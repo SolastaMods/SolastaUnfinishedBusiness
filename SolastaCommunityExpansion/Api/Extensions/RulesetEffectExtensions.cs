@@ -57,6 +57,20 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T AddSourceTags<T>(this T entity,  params  System . String [ ]  value)
+            where T : RulesetEffect
+        {
+            AddSourceTags(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddSourceTags<T>(this T entity, IEnumerable<System.String> value)
+            where T : RulesetEffect
+        {
+            entity.SourceTags.AddRange(value);
+            return entity;
+        }
+
         public static T AddTrackedConditionGuids<T>(this T entity,  params  System . UInt64 [ ]  value)
             where T : RulesetEffect
         {
@@ -131,6 +145,13 @@ namespace SolastaModApi.Extensions
             where T : RulesetEffect
         {
             entity.MagicAttackTrends.Clear();
+            return entity;
+        }
+
+        public static T ClearSourceTags<T>(this T entity)
+            where T : RulesetEffect
+        {
+            entity.SourceTags.Clear();
             return entity;
         }
 
@@ -252,6 +273,20 @@ namespace SolastaModApi.Extensions
             where T : RulesetEffect
         {
             entity.RemainingRounds = value;
+            return entity;
+        }
+
+        public static T SetSourceTags<T>(this T entity,  params  System . String [ ]  value)
+            where T : RulesetEffect
+        {
+            SetSourceTags(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetSourceTags<T>(this T entity, IEnumerable<System.String> value)
+            where T : RulesetEffect
+        {
+            entity.SourceTags.SetRange(value);
             return entity;
         }
 
