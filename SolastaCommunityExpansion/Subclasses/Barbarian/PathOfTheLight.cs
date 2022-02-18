@@ -10,6 +10,8 @@ using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalDamages;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Subclasses.Barbarian
 {
@@ -277,7 +279,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
                     definition.FeatureSet.Add(illuminatingBurstBuilder.AddToDB());
 
-                    var illuminatingBurstPowerBuilder = new IlluminatingBurstBuilder(
+                    var illuminatingBurstPowerBuilder = new IlluminatingBurstPowerBuilder(
                         IlluminatingBurstName,
                         CreateNamespacedGuid(IlluminatingBurstName),
                         "Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle",
@@ -461,7 +463,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             public IlluminatingStrikeFeatureBuilder(string name, string guid, string title, string description, ConditionDefinition illuminatedCondition) : base(name, guid)
             {
                 Definition
-                    .SetGuiPresentation(CreatePowerGuiPresentation(title, description))
+                    .SetGuiPresentation(title, description, AdditionalDamageDomainLifeDivineStrike.GuiPresentation.SpriteReference)
                     .SetAdditionalDamageType(RuleDefinitions.AdditionalDamageType.Specific)
                     .SetSpecificDamageType("DamageRadiant")
                     .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
@@ -516,15 +518,6 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 }
             }
 
-            private static GuiPresentation CreatePowerGuiPresentation(string title, string description)
-            {
-                var guiPresentationBuilder = new GuiPresentationBuilder(title, description);
-
-                guiPresentationBuilder.SetSpriteReference(FeatureDefinitionAdditionalDamages.AdditionalDamageDomainLifeDivineStrike.GuiPresentation.SpriteReference);
-
-                return guiPresentationBuilder.Build();
-            }
-
             private static LightSourceForm CreateIlluminatedLightSource()
             {
                 EffectForm faerieFireLightSource = SpellDefinitions.FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
@@ -557,23 +550,11 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             public IlluminatingStrikeInitiatorBuilder(string name, string guid, string title, string description, ConditionDefinition illuminatedCondition) : base(name, guid)
             {
                 Definition
-                    .SetGuiPresentation(CreatePowerGuiPresentation(title, description))
+                    .SetGuiPresentation(title, description, AdditionalDamageDomainLifeDivineStrike.GuiPresentation.SpriteReference, true)
                     .SetActivationTime(RuleDefinitions.ActivationTime.OnRageStartAutomatic)
                     .SetEffectDescription(CreatePowerEffect(illuminatedCondition))
                     .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
                     .SetShowCasting(false);
-            }
-
-            private static GuiPresentation CreatePowerGuiPresentation(string title, string description)
-            {
-                var guiPresentationBuilder = new GuiPresentationBuilder(title, description);
-
-                guiPresentationBuilder.SetSpriteReference(FeatureDefinitionAdditionalDamages.AdditionalDamageDomainLifeDivineStrike.GuiPresentation.SpriteReference);
-
-                var guiPresentation = guiPresentationBuilder.Build();
-                guiPresentation.SetHidden(true);
-
-                return guiPresentation;
             }
 
             private static EffectDescription CreatePowerEffect(ConditionDefinition illuminatedCondition)
@@ -631,12 +612,12 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             public bool IsRechargeSilent => true;
         }
 
-        private sealed class IlluminatingBurstBuilder : DefinitionBuilder<IlluminatingBurstPower>
+        private sealed class IlluminatingBurstPowerBuilder : DefinitionBuilder<IlluminatingBurstPower>
         {
-            public IlluminatingBurstBuilder(string name, string guid, string title, string description, ConditionDefinition illuminatedCondition, ConditionDefinition illuminatingBurstSuppressedCondition) : base(name, guid)
+            public IlluminatingBurstPowerBuilder(string name, string guid, string title, string description, ConditionDefinition illuminatedCondition, ConditionDefinition illuminatingBurstSuppressedCondition) : base(name, guid)
             {
                 Definition
-                    .SetGuiPresentation(CreatePowerGuiPresentation(title, description))
+                    .SetGuiPresentation(title, description, PowerDomainSunHeraldOfTheSun.GuiPresentation.SpriteReference)
                     .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
                     .SetEffectDescription(CreatePowerEffect(illuminatedCondition))
                     .SetRechargeRate(RuleDefinitions.RechargeRate.OneMinute) // Actually recharges at the start of your turn, using IStartOfTurnRecharge
@@ -645,15 +626,6 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                     .SetCostPerUse(1)
                     .SetShowCasting(false)
                     .SetDisableIfConditionIsOwned(illuminatingBurstSuppressedCondition); // Only enabled on the turn you enter a rage
-            }
-
-            private static GuiPresentation CreatePowerGuiPresentation(string title, string description)
-            {
-                var guiPresentationBuilder = new GuiPresentationBuilder(title, description);
-
-                guiPresentationBuilder.SetSpriteReference(FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun.GuiPresentation.SpriteReference);
-
-                return guiPresentationBuilder.Build();
             }
 
             private static EffectDescription CreatePowerEffect(ConditionDefinition illuminatedCondition)

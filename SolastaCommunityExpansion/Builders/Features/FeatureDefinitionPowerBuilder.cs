@@ -3,6 +3,9 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
+    // TODO: convert this to FeatureDefinitionPowerBuilder<TDefinition, TBuilder>
+    // and derive FeatureDefinitionConditionalPowerBuilder from that.
+    // Move methods from FeatureDefinitionConditionalPowerBuilder to here or remove duplicates.
     public class FeatureDefinitionPowerBuilder : DefinitionBuilder<FeatureDefinitionPower>
     {
         #region Constructors

@@ -165,17 +165,15 @@ namespace SolastaCommunityExpansion.Builders
         }
     }
 
-    // NOTE: not used at all - remove?
-    [Obsolete("Use BaseDefinitionBuilderGuiPresentationExtensions.")]
     internal static class BaseDefinitionGuiPresentationExtensions
     {
         /// <summary>
         /// Create a GuiPresentation from the provided title, description and AssetReferenceSprite.
         /// </summary>
-        public static TDefinition SetGuiPresentation<TDefinition>(this TDefinition definition, string title, string description, AssetReferenceSprite sprite = null)
+        public static TDefinition SetGuiPresentation<TDefinition>(this TDefinition definition, string title, string description, AssetReferenceSprite sprite = null, bool hidden = false)
             where TDefinition : BaseDefinition
         {
-            definition.GuiPresentation = GuiPresentationBuilder.Build(title, description, sprite);
+            definition.GuiPresentation = GuiPresentationBuilder.Build(title, description, sprite, 0, hidden);
             return definition;
         }
 

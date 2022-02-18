@@ -2,30 +2,29 @@
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionActionAffinityBuilder : DefinitionBuilder<FeatureDefinitionActionAffinity>
+    public class FeatureDefinitionActionAffinityBuilder : DefinitionBuilder<FeatureDefinitionActionAffinity, FeatureDefinitionActionAffinityBuilder>
     {
-        /*        private FeatureDefinitionActionAffinityBuilder(string name, string guid)
-                    : base(name, guid)
-                {
-                }
+        #region Constructors
+        protected FeatureDefinitionActionAffinityBuilder(string name, string guid)
+            : base(name, guid)
+        {
+        }
 
-                private FeatureDefinitionActionAffinityBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-                    : base(name, namespaceGuid, category)
-                {
-                }
+        protected FeatureDefinitionActionAffinityBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
+        {
+        }
 
-                private FeatureDefinitionActionAffinityBuilder(FeatureDefinitionActionAffinity original, string name, string guid)
-                    : base(original, name, guid)
-                {
-                }
-        */
+        protected FeatureDefinitionActionAffinityBuilder(FeatureDefinitionActionAffinity original, string name, string guid)
+            : base(original, name, guid)
+        {
+        }
 
-        // Add other standard Create methods and constructors as required.
-
-        private FeatureDefinitionActionAffinityBuilder(FeatureDefinitionActionAffinity original, string name, Guid namespaceGuid)
+        protected FeatureDefinitionActionAffinityBuilder(FeatureDefinitionActionAffinity original, string name, Guid namespaceGuid)
             : base(original, name, namespaceGuid)
         {
         }
+        #endregion
 
         public static FeatureDefinitionActionAffinityBuilder Create(FeatureDefinitionActionAffinity original, string name, Guid namespaceGuid)
         {

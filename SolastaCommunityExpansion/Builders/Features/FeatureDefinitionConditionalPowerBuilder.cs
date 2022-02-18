@@ -4,7 +4,7 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionConditionalPowerBuilder : DefinitionBuilder<FeatureDefinitionConditionalPower>
+    public sealed class FeatureDefinitionConditionalPowerBuilder : DefinitionBuilder<FeatureDefinitionConditionalPower, FeatureDefinitionConditionalPowerBuilder>
     {
         private FeatureDefinitionConditionalPowerBuilder(string name, Guid namespaceGuid)
             : base(name, namespaceGuid)

@@ -120,22 +120,14 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
             spellShield.AddFeatureAtLevel(arcaneDeflectionPower, 15);
 
-            GuiPresentationBuilder rangedDeflectionGuiPower = new GuiPresentationBuilder(
-                "Subclass/&PowerSpellShieldRangedDeflectionTitle",
-                "Subclass/&PowerSpellShieldRangedDeflectionDescription");
-            spellShield.AddFeatureAtLevel(new SpellShieldRangedDeflection(FeatureDefinitionActionAffinitys.ActionAffinityTraditionGreenMageLeafScales,
-                "ActionAffinitySpellShieldRangedDefense", GuidHelper.Create(SubclassNamespace, "ActionAffinitySpellShieldRangedDefense").ToString(), rangedDeflectionGuiPower.Build()).AddToDB(),
+            spellShield.AddFeatureAtLevel(
+                FeatureDefinitionActionAffinityBuilder
+                    .Create(FeatureDefinitionActionAffinitys.ActionAffinityTraditionGreenMageLeafScales, "ActionAffinitySpellShieldRangedDefense", SubclassNamespace)
+                    .SetGuiPresentation("PowerSpellShieldRangedDeflection", Category.Subclass)
+                    .AddToDB(),
                 18);
 
             Subclass = spellShield.AddToDB();
-        }
-
-        private sealed class SpellShieldRangedDeflection : DefinitionBuilder<FeatureDefinitionActionAffinity>
-        {
-            public SpellShieldRangedDeflection(FeatureDefinitionActionAffinity original, string name, string guid, GuiPresentation guiPresentation) : base(original, name, guid)
-            {
-                Definition.SetGuiPresentation(guiPresentation);
-            }
         }
     }
 }
