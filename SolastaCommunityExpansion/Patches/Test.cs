@@ -30,10 +30,12 @@ namespace SolastaCommunityExpansion.Patches
         {
             if (!Main.Settings.EnableTargetTypeSquareCylinder)
             {
+#if DEBUG
                 var t = ___cubeRenderer.transform;
                 var p1 = t.position;
                 var s1 = t.localScale;
                 Main.Log($"Cube: origin=({origin.x}, {origin.y}, {origin.z}) position=({p1.x},{p1.y},{p1.z}), scale=({s1.x},{s1.y},{s1.z})");
+#endif
                 return;
             }
 
@@ -44,10 +46,6 @@ namespace SolastaCommunityExpansion.Patches
                 return;
             }
 
-            //Main.Log($"GeometricShape_UpdateCubePosition_Regular - setting height={height.Value}");
-
-            // Code from UpdateCylinderPosition adapted to cube
-            // TODO: why does this work but give a visual height of 0.5 whereas Cylinder gives a height of 1?
             Vector3 vector3 = new Vector3();
 
             if (!adaptToGroundLevel)
@@ -68,11 +66,13 @@ namespace SolastaCommunityExpansion.Patches
 
             var transform = ___cubeRenderer.transform;
             transform.SetPositionAndRotation(origin + vector3, Quaternion.identity);
-            transform.localScale = new Vector3(edgeSize, 0.5f * height.Value, edgeSize);
+            transform.localScale = new Vector3(edgeSize, height.Value, edgeSize);
 
+#if DEBUG
             var p = transform.position;
             var s = transform.localScale;
             Main.Log($"SquareCylinder: origin=({origin.x}, {origin.y}, {origin.z}) position=({p.x},{p.y},{p.z}), scale=({s.x},{s.y},{s.z})");
+#endif
         }
     }
 
@@ -82,11 +82,12 @@ namespace SolastaCommunityExpansion.Patches
     {
         public static void Postfix(MeshRenderer ___cylinderRenderer, Vector3 origin)
         {
+#if DEBUG
             var transform = ___cylinderRenderer.transform;
-
             var p = transform.position;
             var s = transform.localScale;
             Main.Log($"Cylinder: origin=({origin.x}, {origin.y}, {origin.z}) position=({p.x},{p.y},{p.z}), scale=({s.x},{s.y},{s.z})");
+#endif
         }
     }
 
@@ -125,7 +126,7 @@ namespace SolastaCommunityExpansion.Patches
     internal static class GeometryUtils_CylinderContainsPoint
     {
         public static void Postfix(
-            Vector3 cylinderOrigin, Vector3 cylinderDirection, float cylinderLength, float cylinderDiameter, Vector3 point, ref bool __result)
+            Vector3 cylinderOrigin, /*Vector3 cylinderDirection,*/ float cylinderLength, float cylinderDiameter, Vector3 point, ref bool __result)
         {
             Main.Log($"GeometryUtils_CylinderContainsPoint: diameter={cylinderDiameter}, height/length={cylinderLength}, origin=({cylinderOrigin.x}, {cylinderOrigin.y}, {cylinderOrigin.z}), point=({point.x}, {point.y}, {point.z}), result={__result}");
         }
@@ -139,7 +140,7 @@ namespace SolastaCommunityExpansion.Patches
         {
             if (!Main.Settings.EnableTargetTypeSquareCylinder)
             {
-                Main.Log($"GeometryUtils_CubeContainsPoint_Regular: edge={edgeSize}, origin=({cubeOrigin.x}, {cubeOrigin.y}, {cubeOrigin.z}), point=({point.x}, {point.y}, {point.z}), result={__result}");
+                Main.Log($"GeometryUtils_CubeContainsPoint_Regular (off): edge={edgeSize}, origin=({cubeOrigin.x}, {cubeOrigin.y}, {cubeOrigin.z}), point=({point.x}, {point.y}, {point.z}), result={__result}");
                 return;
             }
 
@@ -171,7 +172,7 @@ namespace SolastaCommunityExpansion.Patches
             float num = 0.5f * edgeSize;
             __result = (double)Mathf.Abs(vector3_2.x) <= (double)num && (double)Mathf.Abs(vector3_2.y) <= (double)height && (double)Mathf.Abs(vector3_2.z) <= (double)num;
 
-            Main.Log($"GeometryUtils_CubeContainsPoint_Regular: edge={edgeSize}, height={height}, origin=({cubeOrigin.x}, {cubeOrigin.y}, {cubeOrigin.z}), point=({point.x}, {point.y}, {point.z}), result={__result}");
+            Main.Log($"GeometryUtils_CubeContainsPoint_Regular (on): edge={edgeSize}, height={height}, origin=({cubeOrigin.x}, {cubeOrigin.y}, {cubeOrigin.z}), point=({point.x}, {point.y}, {point.z}), result={__result}");
         }
     }
 }
