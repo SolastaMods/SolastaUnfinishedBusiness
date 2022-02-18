@@ -37,19 +37,6 @@ namespace SolastaCommunityExpansion.Spells
             // always applicable
             ClearTargetParameter2ForTargetTypeCube();
 
-            //Main.Log("-----------------------------------");
-            //foreach (var g in DatabaseRepository.GetDatabase<SpellDefinition>()
-            //    .GroupBy(sd => sd.EffectDescription.TargetType))
-            //{
-            //    Main.Log($"{g.Key} -----------------------------------");
-            //    foreach (var sd in g.OrderBy(s => s.Name))
-            //    {
-            //        var ef = sd.EffectDescription;
-            //        Main.Log($"{sd.Name}: ({ef.TargetParameter}, {ef.TargetParameter2})");
-            //    }
-            //}
-            //Main.Log("-----------------------------------");
-
             // Spells with TargetType.Cube (tp, tp2)
             // BlackTentacles: (4, 2)
             // Entangle: (4, 1)
@@ -62,7 +49,6 @@ namespace SolastaCommunityExpansion.Spells
 
             if (!Main.Settings.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures)
             {
-                // TODO: restore original values
                 RestoreDefinition(BlackTentacles);
                 RestoreDefinition(Entangle);
                 RestoreDefinition(Grease);
@@ -100,8 +86,7 @@ namespace SolastaCommunityExpansion.Spells
             {
                 var effect = sd.EffectDescription;
 
-                // TODO: capture original value and restore if necessary
-                // not sure if all were originally 'true'
+                // Topology forms have ImpactsFlyingCharacters = true as default
                 effect.EffectForms
                     .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
                     .ToList()
@@ -122,6 +107,22 @@ namespace SolastaCommunityExpansion.Spells
                     sd.EffectDescription.SetTargetParameter2(0);
                 }
             }
+
+/*            static void LogAllSpellsWithTargetTypeCube()
+            {
+                Main.Log("-----------------------------------");
+                foreach (var g in DatabaseRepository.GetDatabase<SpellDefinition>()
+                    .GroupBy(sd => sd.EffectDescription.TargetType))
+                {
+                    Main.Log($"{g.Key} -----------------------------------");
+                    foreach (var sd in g.OrderBy(s => s.Name))
+                    {
+                        var ef = sd.EffectDescription;
+                        Main.Log($"{sd.Name}: ({ef.TargetParameter}, {ef.TargetParameter2})");
+                    }
+                }
+                Main.Log("-----------------------------------");
+            }*/
         }
 
         public static void AddBleedingToRestoration()
