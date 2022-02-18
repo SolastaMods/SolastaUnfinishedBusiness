@@ -24,6 +24,21 @@ namespace SolastaCommunityExpansion.Builders
             effect.SetEffectParticleParameters(particleParams);
         }
 
+        public EffectDescriptionBuilder(EffectDescription effect)
+        {
+            this.effect = effect.Copy();
+        }
+
+        public static EffectDescriptionBuilder Create()
+        {
+            return new EffectDescriptionBuilder();
+        }
+
+        public static EffectDescriptionBuilder Create(EffectDescription effect)
+        {
+            return new EffectDescriptionBuilder(effect);
+        }
+
         public EffectDescriptionBuilder SetCreatedByCharacter()
         {
             effect.SetCreatedByCharacter(true);
@@ -268,6 +283,20 @@ namespace SolastaCommunityExpansion.Builders
             effect.SetOffsetImpactTimePerTarget(offsetImpactTimePerTarget);
             return this;
         }
+
+        public EffectDescriptionBuilder SetDuration(RuleDefinitions.DurationType type, int? duration = null)
+        {
+            effect.SetDuration(type, duration);
+            return this;
+        }
+
+        public EffectDescriptionBuilder SetRange(RuleDefinitions.RangeType type, int? range = null)
+        {
+            effect.SetRange(type, range);
+            return this;
+        }
+
+        // TODO: Target(type, param, param2)
 
         public EffectDescriptionBuilder AddEffectForm(EffectForm effectForm)
         {

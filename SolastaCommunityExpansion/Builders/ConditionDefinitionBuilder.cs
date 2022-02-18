@@ -115,10 +115,10 @@ namespace SolastaCommunityExpansion.Builders
             return (TBuilder)this;
         }
 
+        // TODO: is it worth/possible to factor out ConditionDefinitionBuilder.SetDuration and EffectDescriptionBuilder.SetDuration?
+        // and other similar methods
         public TBuilder SetDuration(RuleDefinitions.DurationType type, int? duration = null)
         {
-            Definition.SetDurationType(type);
-
             switch (type)
             {
                 case RuleDefinitions.DurationType.Round:
@@ -136,8 +136,12 @@ namespace SolastaCommunityExpansion.Builders
                     {
                         throw new SolastaModApiException($"A duration value is not expected for duration type {type}");
                     }
+                    // TODO: is this sensible?
+                    Definition.SetDurationParameter(0);
                     break;
             }
+
+            Definition.SetDurationType(type);
 
             return (TBuilder)this;
         }

@@ -356,12 +356,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             var abateEffectDescription = ShockingGrasp.EffectDescription
                 .Copy()
-                .SetDurationParameter(1)
-                .SetDurationType(RuleDefinitions.DurationType.Round)
-                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .SetDuration(DurationType.Round, 1)
+                .SetEndOfEffect(TurnOccurenceType.EndOfTurn)
                 .SetHasSavingThrow(true)
-                .SetRangeParameter(12)
-                .SetRangeType(RangeType.Distance)
+                .SetRange(RangeType.Distance, 12)
                 .SetSavingThrowAbility(AttributeDefinitions.Charisma)
                 .SetTargetParameter(1)
                 .SetTargetType(TargetType.Individuals)
@@ -396,12 +394,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             var apathyEffectDescription = CalmEmotionsOnEnemy.EffectDescription
                 .Copy()
-                .SetDurationParameter(1)
-                .SetDurationType(RuleDefinitions.DurationType.Round)
-                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .SetDuration(DurationType.Round, 1)
+                .SetEndOfEffect(TurnOccurenceType.EndOfTurn)
                 .SetHasSavingThrow(true)
-                .SetRangeParameter(12)
-                .SetRangeType(RangeType.Distance)
+                .SetRange(RangeType.Distance, 12)
                 .SetSavingThrowAbility(AttributeDefinitions.Charisma)
                 .SetTargetParameter(1)
                 .SetTargetType(TargetType.Individuals)
@@ -436,12 +432,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             var charmEffectDescription = CharmPerson.EffectDescription
                 .Copy()
-                .SetDurationParameter(1)
-                .SetDurationType(RuleDefinitions.DurationType.Round)
-                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .SetDuration(DurationType.Round, 1)
+                .SetEndOfEffect(TurnOccurenceType.EndOfTurn)
                 .SetHasSavingThrow(true)
-                .SetRangeParameter(12)
-                .SetRangeType(RangeType.Distance)
+                .SetRange(RangeType.Distance, 12)
                 .SetSavingThrowAbility(AttributeDefinitions.Charisma)
                 .SetTargetParameter(1)
                 .SetTargetType(TargetType.Individuals)
@@ -484,12 +478,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             var disorientEffectDescription = Bane.EffectDescription
                 .Copy()
-                .SetDurationParameter(1)
-                .SetDurationType(RuleDefinitions.DurationType.Round)
-                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .SetDuration(DurationType.Round, 1)
+                .SetEndOfEffect(TurnOccurenceType.EndOfTurn)
                 .SetHasSavingThrow(true)
-                .SetRangeParameter(12)
-                .SetRangeType(RangeType.Distance)
+                .SetRange(RangeType.Distance, 12)
                 .SetSavingThrowAbility(AttributeDefinitions.Constitution)
                 .SetTargetParameter(1)
                 .SetTargetType(TargetType.Individuals)
@@ -524,12 +516,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetConditionForm(evileyeConditionForm);
 
             var evileyeEffectDescription = Fear.EffectDescription.Copy()
-                .SetDurationParameter(1)
-                .SetDurationType(RuleDefinitions.DurationType.Round)
-                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .SetDuration(DurationType.Round, 1)
+                .SetEndOfEffect(TurnOccurenceType.EndOfTurn)
                 .SetHasSavingThrow(true)
-                .SetRangeParameter(12)
-                .SetRangeType(RangeType.Distance)
+                .SetRange(RangeType.Distance, 12)
                 .SetSavingThrowAbility(AttributeDefinitions.Wisdom)
                 .SetTargetParameter(1)
                 .SetTargetType(TargetType.Individuals)
@@ -548,11 +538,9 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var obfuscateEffectDescription = FogCloud.EffectDescription
                 .Copy()
                 .SetCanBePlacedOnCharacter(true)
-                .SetDurationParameter(1)
-                .SetDurationType(RuleDefinitions.DurationType.Round)
-                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
-                .SetRangeParameter(0)
-                .SetRangeType(RangeType.Self);
+                .SetDuration(DurationType.Round, 1)
+                .SetEndOfEffect(TurnOccurenceType.EndOfTurn)
+                .SetRange(RangeType.Self);
 
             var obfuscate = FeatureDefinitionPowerBuilder
                 .Create("WitchMaledictionObfuscate", WITCH_BASE_GUID)
@@ -584,12 +572,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             var poxEffectDescription = PoisonSpray.EffectDescription
                 .Copy()
-                .SetDurationParameter(1)
-                .SetDurationType(RuleDefinitions.DurationType.Round)
-                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .SetDuration(DurationType.Round, 1)
+                .SetEndOfEffect(TurnOccurenceType.EndOfTurn)
                 .SetHasSavingThrow(true)
-                .SetRangeParameter(1)
-                .SetRangeType(RangeType.Touch)
+                .SetRange(RangeType.Touch, 1)
                 .SetSavingThrowAbility(AttributeDefinitions.Constitution)
                 .SetTargetParameter(1)
                 .SetTargetType(TargetType.Individuals)
@@ -632,12 +618,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             var ruinEffectDescription = AcidArrow.EffectDescription
                 .Copy()
-                .SetDurationParameter(1)
-                .SetDurationType(RuleDefinitions.DurationType.Round)
-                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .SetDuration(DurationType.Round, 1)
+                .SetEndOfEffect(TurnOccurenceType.EndOfTurn)
                 .SetHasSavingThrow(true)
-                .SetRangeParameter(12)
-                .SetRangeType(RangeType.Distance)
+                .SetRange(RangeType.Distance, 12)
                 .SetSavingThrowAbility(AttributeDefinitions.Constitution)
                 .SetTargetParameter(1)
                 .SetTargetType(TargetType.Individuals)
@@ -665,11 +649,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
         {
             var effectDescription = HideousLaughter.EffectDescription
                 .Copy()
-                .SetDurationParameter(1)
-                .SetDurationType(DurationType.Round)
+                .SetDuration(DurationType.Round, 1)
                 .SetEndOfEffect(TurnOccurenceType.EndOfTurn)
                 .SetHasSavingThrow(false)
-                .SetRangeType(RangeType.Self)
+                .SetRange(RangeType.Self)
                 .SetTargetType(TargetType.Sphere)
                 .SetTargetParameter(12)
                 .ClearRestrictedCreatureFamilies()
@@ -818,8 +801,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     .SetUniqueInstance()
                     .SetEffectDescription(
                         ConjureAnimalsOneBeast.EffectDescription.Copy()
-                            .SetRangeType(RangeType.Distance)
-                            .SetRangeParameter(2)
+                            .SetRange(RangeType.Distance, 2)
                             .SetDurationType(DurationType.Permanent)
                             .SetTargetSide(Side.Ally)
                     )
