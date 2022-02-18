@@ -34,8 +34,9 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
         {
             var featureName = AdditionalDamageRogueSneakAttack.Name + "Remove";
 
-            Subclass = new CharacterSubclassDefinitionBuilder(RogueSubclassThugName, RogueSubclassThugNameGuid)
-                .SetGuiPresentation("KSRogueSubclassThug", Category.Subclass, MartialChampion.GuiPresentation.SpriteReference)
+            Subclass = CharacterSubclassDefinitionBuilder
+                .Create(RogueSubclassThugName, RogueSubclassThugNameGuid)
+                .SetGuiPresentation(Category.Subclass, MartialChampion.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(new RemoveGrantedFeatureBuilder(
                     featureName,
                     GuidHelper.Create(SubclassNamespace, featureName).ToString(),

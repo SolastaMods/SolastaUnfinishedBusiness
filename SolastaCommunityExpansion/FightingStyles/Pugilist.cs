@@ -2,9 +2,10 @@
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using static SolastaModApi.DatabaseHelper;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 
 namespace SolastaCommunityExpansion.FightingStyles
 {
@@ -15,9 +16,9 @@ namespace SolastaCommunityExpansion.FightingStyles
         internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
         {
             return new List<FeatureDefinitionFightingStyleChoice>() {
-                DatabaseHelper.FeatureDefinitionFightingStyleChoices.FightingStyleChampionAdditional,
-                DatabaseHelper.FeatureDefinitionFightingStyleChoices.FightingStyleFighter,
-                DatabaseHelper.FeatureDefinitionFightingStyleChoices.FightingStyleRanger,};
+                FeatureDefinitionFightingStyleChoices.FightingStyleChampionAdditional,
+                FeatureDefinitionFightingStyleChoices.FightingStyleFighter,
+                FeatureDefinitionFightingStyleChoices.FightingStyleRanger,};
         }
 
         private sealed class FeatureDefinitionAdditionalDamageBuilder : DefinitionBuilder<FeatureDefinitionAdditionalDamage>
@@ -58,19 +59,23 @@ namespace SolastaCommunityExpansion.FightingStyles
         {
             if (instance == null)
             {
-                GuiPresentationBuilder gui = new GuiPresentationBuilder("FightingStyle/&PugilistFightingTitle", "FightingStyle/&PugilistFightingDescription");
-                gui.SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.PathBerserker.GuiPresentation.SpriteReference);
-
                 EffectDescriptionBuilder offhandEffect = new EffectDescriptionBuilder();
                 offhandEffect.SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.MeleeHit, 1, RuleDefinitions.TargetType.Individuals,
                     1, 1, ActionDefinitions.ItemSelectionType.None);
                 offhandEffect.AddEffectForm(new EffectFormBuilder().CreatedByCharacter().SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus)
                     .SetDamageForm(false, RuleDefinitions.DieType.D10, "DamageBludgeoning", 1, RuleDefinitions.DieType.D8, 1,
                     RuleDefinitions.HealFromInflictedDamage.Never, new List<RuleDefinitions.TrendInfo>()).Build());
-                FeatureDefinitionPower offhandAttack = new FeatureDefinitionPowerBuilder("PowerPugilistOffhandAttack", "a97a1c9c-232b-42ae-8003-30d244e958b3",
-                    1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Strength, RuleDefinitions.ActivationTime.BonusAction,
-                    0, RuleDefinitions.RechargeRate.AtWill, true, true, AttributeDefinitions.Strength,
-                    offhandEffect.Build(), gui.Build(), false /* unique */).SetShowCasting(false).AddToDB();
+
+                FeatureDefinitionPower offhandAttack = FeatureDefinitionPowerBuilder.Create("PowerPugilistOffhandAttack", "a97a1c9c-232b-42ae-8003-30d244e958b3")
+                    .Configure(
+                        1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Strength, RuleDefinitions.ActivationTime.BonusAction,
+                        0, RuleDefinitions.RechargeRate.AtWill, true, true, AttributeDefinitions.Strength, offhandEffect.Build(), false /* unique */)
+                    .SetShowCasting(false)
+                    .SetGuiPresentation("PugilistFighting", Category.FightingStyle, PathBerserker.GuiPresentation.SpriteReference)
+                    .AddToDB();
+
+                GuiPresentationBuilder gui = new GuiPresentationBuilder("FightingStyle/&PugilistFightingTitle", "FightingStyle/&PugilistFightingDescription");
+                gui.SetSpriteReference(PathBerserker.GuiPresentation.SpriteReference);
 
                 CustomizableFightingStyleBuilder builder = new CustomizableFightingStyleBuilder("PugilistFightingStlye", "b14f91dc-8706-498b-a9a0-d583b7b00d09",
                     new List<FeatureDefinition>() {

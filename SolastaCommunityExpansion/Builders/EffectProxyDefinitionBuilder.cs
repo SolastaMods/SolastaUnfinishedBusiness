@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using SolastaModApi.Extensions;
 using UnityEngine.AddressableAssets;
 
@@ -6,22 +8,42 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefinition>
     {
-        public EffectProxyDefinitionBuilder(string name, string guid) : base(name, guid)
+        protected EffectProxyDefinitionBuilder(string name, string guid) : base(name, guid)
         {
         }
 
-        public EffectProxyDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        protected EffectProxyDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        public EffectProxyDefinitionBuilder(EffectProxyDefinition original, string name, string guid)
+        protected EffectProxyDefinitionBuilder(EffectProxyDefinition original, string name, string guid)
             : base(original, name, guid)
         {
         }
 
-        public EffectProxyDefinitionBuilder(EffectProxyDefinition original, string name, Guid namespaceGuid)
+        protected EffectProxyDefinitionBuilder(EffectProxyDefinition original, string name, Guid namespaceGuid)
             : base(original, name, namespaceGuid)
         {
+        }
+
+        public static EffectProxyDefinitionBuilder Create(string name, string guid)
+        {
+            return new EffectProxyDefinitionBuilder(name, guid);
+        }
+
+        public static EffectProxyDefinitionBuilder Create(string name, Guid namespaceGuid)
+        {
+            return new EffectProxyDefinitionBuilder(name, namespaceGuid);
+        }
+
+        public static EffectProxyDefinitionBuilder Create(EffectProxyDefinition original, string name, string guid)
+        {
+            return new EffectProxyDefinitionBuilder(original, name, guid);
+        }
+
+        public static EffectProxyDefinitionBuilder Create(EffectProxyDefinition original, string name, Guid namespaceGuid)
+        {
+            return new EffectProxyDefinitionBuilder(original, name, namespaceGuid);
         }
 
         public EffectProxyDefinitionBuilder SetAttack(bool canAttack, RuleDefinitions.ProxyAttackMethod attackMethod,
@@ -48,9 +70,14 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectProxyDefinitionBuilder AddAdditionalFeature(FeatureDefinition feature)
+        public EffectProxyDefinitionBuilder AddAdditionalFeatures(params FeatureDefinition[] features)
         {
-            Definition.AdditionalFeatures.Add(feature);
+            return AddAdditionalFeatures(features.AsEnumerable());
+        }
+
+        public EffectProxyDefinitionBuilder AddAdditionalFeatures(IEnumerable<FeatureDefinition> features)
+        {
+            Definition.AddAdditionalFeatures(features);
             return this;
         }
 

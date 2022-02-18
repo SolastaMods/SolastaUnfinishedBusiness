@@ -36,22 +36,17 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
 
         public static CharacterSubclassDefinition BuildAndAddSubclass()
         {
-            var subclassGuiPresentation = new GuiPresentationBuilder(
-                    "Subclass/&DruidForestGuardianSubclassTitle",
-                    "Subclass/&DruidForestGuardianDruidSubclassDescription")
-                    .SetSpriteReference(MartialMountaineer.GuiPresentation.SpriteReference)
-                    .Build();
-
-            return new CharacterSubclassDefinitionBuilder(DruidForestGuardianDruidSubclassName, DruidForestGuardianDruidSubclassGuid)
-                    .SetGuiPresentation(subclassGuiPresentation)
-                    .AddFeatureAtLevel(druid_forestGuardian_magic, 2)
-                    .AddFeatureAtLevel(sylvan_resistance, 2)
-                    .AddFeatureAtLevel(sylvan_war_magic, 2)
-                    .AddFeatureAtLevel(bark_ward_dict[2], 2)
-                    .AddFeatureAtLevel(extra_attack, 6)
-                    .AddFeatureAtLevel(bark_ward_dict[10], 10)
-                    .AddFeatureAtLevel(bark_ward_dict[14], 14)
-                    .AddToDB();
+            return CharacterSubclassDefinitionBuilder
+                .Create(DruidForestGuardianDruidSubclassName, DruidForestGuardianDruidSubclassGuid)
+                .SetGuiPresentation(Category.Subclass, MartialMountaineer.GuiPresentation.SpriteReference)
+                .AddFeatureAtLevel(druid_forestGuardian_magic, 2)
+                .AddFeatureAtLevel(sylvan_resistance, 2)
+                .AddFeatureAtLevel(sylvan_war_magic, 2)
+                .AddFeatureAtLevel(bark_ward_dict[2], 2)
+                .AddFeatureAtLevel(extra_attack, 6)
+                .AddFeatureAtLevel(bark_ward_dict[10], 10)
+                .AddFeatureAtLevel(bark_ward_dict[14], 14)
+                .AddToDB();
         }
 
         // Create Auto-prepared Spell list
@@ -73,13 +68,10 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         // Create Sylvan War Magic
         private static FeatureDefinitionMagicAffinity CreateSylvanWarMagic()
         {
-            GuiPresentationBuilder sylvanWarMagicGui = new GuiPresentationBuilder(
-                "Feature/&DruidForestGuardianSylvanWarMagicTitle",
-                "Feature/&DruidForestGuardianSylvanWarMagicDescription");
-
-            return new FeatureDefinitionMagicAffinityBuilder(DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityBattleMagic,
-                "DruidForestGuardianSylvanWarMagic",
-                GuidHelper.Create(DFG_BASE_GUID, "DruidForestGuardianSylvanWarMagic").ToString(), sylvanWarMagicGui.Build()).AddToDB();
+            return FeatureDefinitionMagicAffinityBuilder
+                .Create(DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityBattleMagic, "DruidForestGuardianSylvanWarMagic", DFG_BASE_GUID)
+                .SetGuiPresentation(Category.Feature)
+                .AddToDB();
         }
 
         // Create Sylvan Durability
@@ -218,7 +210,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         }
 
         // A builder to help us build a custom damage affinity for our Bark Ward conditions
-        public class FeatureDefinitionDamageAffinityBuilder : DefinitionBuilder<FeatureDefinitionDamageAffinity>
+        internal class FeatureDefinitionDamageAffinityBuilder : DefinitionBuilder<FeatureDefinitionDamageAffinity>
         {
             public FeatureDefinitionDamageAffinityBuilder(string name, string guid, bool retaliateWhenHit, int retaliationRange,
                 FeatureDefinitionPower retaliationPower, RuleDefinitions.DamageAffinityType damageAffinityType, string damageType,
@@ -264,12 +256,8 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
 
     internal class ConditionImprovedBarkWardBuilder : DefinitionBuilder<ConditionDefinition>
     {
-        private static FeatureDefinitionPower createImprovedBarkWardRetaliate()
+        private static FeatureDefinitionPower CreateImprovedBarkWardRetaliate()
         {
-            GuiPresentationBuilder improvedBarkWardRetaliateGui = new GuiPresentationBuilder(
-                "Feature/&NoContentTitle",
-                "Feature/&NoContentTitle");
-
             EffectFormBuilder damageEffect = new EffectFormBuilder();
             damageEffect.SetDamageForm(false, RuleDefinitions.DieType.D8,
                 "DamagePiercing",
@@ -281,24 +269,26 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             EffectDescriptionBuilder improvedBarkWardRetaliationEffect = new EffectDescriptionBuilder();
             improvedBarkWardRetaliationEffect.AddEffectForm(damageEffect.Build());
 
-            return new FeatureDefinitionPowerBuilder("improvedBarkWardRetaliate",
-                GuidHelper.Create(CircleOfTheForestGuardian.DFG_BASE_GUID, "improvedBarkWardRetaliate").ToString(),
-                0,
-                RuleDefinitions.UsesDetermination.Fixed,
-                AttributeDefinitions.Wisdom,
-                RuleDefinitions.ActivationTime.NoCost,
-                0,
-                RuleDefinitions.RechargeRate.AtWill,
-                false,
-                false,
-                AttributeDefinitions.Wisdom,
-                improvedBarkWardRetaliationEffect.Build(),
-                improvedBarkWardRetaliateGui.Build(),
-                true
-                ).AddToDB();
+            return FeatureDefinitionPowerBuilder
+                .Create("improvedBarkWardRetaliate", CircleOfTheForestGuardian.DFG_BASE_GUID)
+                .SetGuiPresentationNoContent()
+                .Configure(
+                    0,
+                    RuleDefinitions.UsesDetermination.Fixed,
+                    AttributeDefinitions.Wisdom,
+                    RuleDefinitions.ActivationTime.NoCost,
+                    0,
+                    RuleDefinitions.RechargeRate.AtWill,
+                    false,
+                    false,
+                    AttributeDefinitions.Wisdom,
+                    improvedBarkWardRetaliationEffect.Build(),
+                    true
+                    )
+                .AddToDB();
         }
 
-        private static FeatureDefinitionDamageAffinity createImprovedBarkWardDamage()
+        private static FeatureDefinitionDamageAffinity CreateImprovedBarkWardDamage()
         {
             GuiPresentationBuilder improvedBarkWardDamageGui = new GuiPresentationBuilder(
                 "Feature/&NoContentTitle",
@@ -308,7 +298,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
                 GuidHelper.Create(CircleOfTheForestGuardian.DFG_BASE_GUID, "ImprovedBarkWardRetaliationDamage").ToString(),
                 true,
                 1,
-                createImprovedBarkWardRetaliate(),
+                CreateImprovedBarkWardRetaliate(),
                 RuleDefinitions.DamageAffinityType.None,
                 RuleDefinitions.DamageTypePoison,
                 improvedBarkWardDamageGui.Build()).AddToDB();
@@ -320,7 +310,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             Definition.GuiPresentation.Description = "Condition/&ConditionImprovedBarkWardDescription";
 
             Definition.Features.Clear();
-            Definition.Features.Add(createImprovedBarkWardDamage());
+            Definition.Features.Add(CreateImprovedBarkWardDamage());
             Definition.SetAllowMultipleInstances(false);
             Definition.SetDurationParameter(10);
             Definition.SetDurationType(RuleDefinitions.DurationType.Minute);
@@ -341,12 +331,8 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
 
     internal class ConditionSuperiorBarkWardBuilder : DefinitionBuilder<ConditionDefinition>
     {
-        private static FeatureDefinitionPower createSuperiorBarkWardRetaliate()
+        private static FeatureDefinitionPower CreateSuperiorBarkWardRetaliate()
         {
-            GuiPresentationBuilder superiorBarkWardRetaliateGui = new GuiPresentationBuilder(
-                "Feature/&NoContentTitle",
-                "Feature/&NoContentTitle");
-
             EffectFormBuilder damageEffect = new EffectFormBuilder();
             damageEffect.SetDamageForm(false, RuleDefinitions.DieType.D8,
                 "DamagePiercing",
@@ -358,24 +344,25 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             EffectDescriptionBuilder superiorBarkWardRetaliationEffect = new EffectDescriptionBuilder();
             superiorBarkWardRetaliationEffect.AddEffectForm(damageEffect.Build());
 
-            return new FeatureDefinitionPowerBuilder("superiorBarkWardRetaliate",
-                GuidHelper.Create(CircleOfTheForestGuardian.DFG_BASE_GUID, "superiorBarkWardRetaliate").ToString(),
-                0,
-                RuleDefinitions.UsesDetermination.Fixed,
-                AttributeDefinitions.Wisdom,
-                RuleDefinitions.ActivationTime.NoCost,
-                0,
-                RuleDefinitions.RechargeRate.AtWill,
-                false,
-                false,
-                AttributeDefinitions.Wisdom,
-                superiorBarkWardRetaliationEffect.Build(),
-                superiorBarkWardRetaliateGui.Build(),
-                true
-                ).AddToDB();
+            return FeatureDefinitionPowerBuilder
+                .Create("superiorBarkWardRetaliate", CircleOfTheForestGuardian.DFG_BASE_GUID)
+                .SetGuiPresentationNoContent()
+                .Configure(
+                    0,
+                    RuleDefinitions.UsesDetermination.Fixed,
+                    AttributeDefinitions.Wisdom,
+                    RuleDefinitions.ActivationTime.NoCost,
+                    0,
+                    RuleDefinitions.RechargeRate.AtWill,
+                    false,
+                    false,
+                    AttributeDefinitions.Wisdom,
+                    superiorBarkWardRetaliationEffect.Build(),
+                    true)
+                .AddToDB();
         }
 
-        private static FeatureDefinitionDamageAffinity createSuperiorBarkWardDamage()
+        private static FeatureDefinitionDamageAffinity CreateSuperiorBarkWardDamage()
         {
             GuiPresentationBuilder superiorBarkWardDamageGui = new GuiPresentationBuilder(
                 "Feature/&NoContentTitle",
@@ -385,7 +372,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
                 GuidHelper.Create(CircleOfTheForestGuardian.DFG_BASE_GUID, "SuperiorBarkWardRetaliationDamage").ToString(),
                 true,
                 1,
-                createSuperiorBarkWardRetaliate(),
+                CreateSuperiorBarkWardRetaliate(),
                 RuleDefinitions.DamageAffinityType.Immunity,
                 RuleDefinitions.DamageTypePoison,
                superiorBarkWardDamageGui.Build()).AddToDB();
@@ -397,7 +384,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             Definition.GuiPresentation.Description = "Condition/&ConditionSuperiorBarkWardDescription";
 
             Definition.Features.Clear();
-            Definition.Features.Add(createSuperiorBarkWardDamage());
+            Definition.Features.Add(CreateSuperiorBarkWardDamage());
             Definition.SetAllowMultipleInstances(false);
             Definition.SetDurationParameter(10);
             Definition.SetDurationType(RuleDefinitions.DurationType.Minute);

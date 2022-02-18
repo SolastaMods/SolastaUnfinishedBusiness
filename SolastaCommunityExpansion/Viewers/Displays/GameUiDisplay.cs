@@ -25,31 +25,11 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (Main.Settings.DisplayAdventureLogToggle)
             {
                 UI.Label("");
-                UI.Label(". These settings only work in custom campaigns or locations");
-                UI.Label("");
-
-                toggle = Main.Settings.EnableAdventureLogBanterLines;
-                if (UI.Toggle("Record NPCs banter lines", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableAdventureLogBanterLines = toggle;
-                }
 
                 toggle = Main.Settings.EnableAdventureLogDocuments;
-                if (UI.Toggle("Record read documents and notes", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Record read documents and notes " + "[This setting only works in custom campaigns or locations]".yellow().italic(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableAdventureLogDocuments = toggle;
-                }
-
-                toggle = Main.Settings.EnableAdventureLogTextFeedback;
-                if (UI.Toggle("Record text feedback", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableAdventureLogTextFeedback = toggle;
-                }
-
-                toggle = Main.Settings.EnableAdventureLogPopups;
-                if (UI.Toggle("Record header and bottom popups", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableAdventureLogPopups = toggle;
                 }
             }
             #endregion

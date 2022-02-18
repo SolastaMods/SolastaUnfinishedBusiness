@@ -1,5 +1,4 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaModApi.Infrastructure;
@@ -20,26 +19,28 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                     return;
                 }
 
-                if (Models.LevelUpContext.LevelingUp)
+                if (!Models.LevelUpContext.LevelingUp)
                 {
-                    var compatibleClasses = __instance.GetField<CharacterStageClassSelectionPanel, List<CharacterClassDefinition>>("compatibleClasses");
+                    return;
+                }
 
-                    Models.LevelUpContext.DisplayingClassPanel = true;
-                    Models.InOutRulesContext.EnumerateHeroAllowedClassDefinitions(Models.LevelUpContext.SelectedHero, compatibleClasses, ref ___selectedClass);
+                var compatibleClasses = __instance.GetField<CharacterStageClassSelectionPanel, List<CharacterClassDefinition>>("compatibleClasses");
 
-                    var commonData = __instance.CommonData;
+                Models.LevelUpContext.DisplayingClassPanel = true;
+                Models.InOutRulesContext.EnumerateHeroAllowedClassDefinitions(Models.LevelUpContext.SelectedHero, compatibleClasses, ref ___selectedClass);
 
-                    // NOTE: don't use AttackModesPanel?. which bypasses Unity object lifetime check
-                    if (commonData.AttackModesPanel)
-                    {
-                        commonData.AttackModesPanel.RefreshNow();
-                    }
+                var commonData = __instance.CommonData;
 
-                    // NOTE: don't use PersonalityMapPanel?. which bypasses Unity object lifetime check
-                    if (commonData.PersonalityMapPanel)
-                    {
-                        commonData.PersonalityMapPanel.RefreshNow();
-                    }
+                // NOTE: don't use AttackModesPanel?. which bypasses Unity object lifetime check
+                if (commonData.AttackModesPanel)
+                {
+                    commonData.AttackModesPanel.RefreshNow();
+                }
+
+                // NOTE: don't use PersonalityMapPanel?. which bypasses Unity object lifetime check
+                if (commonData.PersonalityMapPanel)
+                {
+                    commonData.PersonalityMapPanel.RefreshNow();
                 }
             }
         }

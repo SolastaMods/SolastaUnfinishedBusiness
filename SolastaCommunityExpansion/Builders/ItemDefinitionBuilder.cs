@@ -4,22 +4,23 @@ using System.Linq;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using static SolastaModApi.DatabaseHelper.ItemDefinitions;
 
 namespace SolastaCommunityExpansion.Builders
 {
     public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition>
     {
-        public ItemDefinitionBuilder(string name, string guid)
+        private ItemDefinitionBuilder(string name, string guid)
             : base(name, guid)
         {
         }
 
-        public ItemDefinitionBuilder(string name, Guid namespaceGuid)
+        private ItemDefinitionBuilder(string name, Guid namespaceGuid)
             : base(name, namespaceGuid)
         {
         }
 
-        public ItemDefinitionBuilder(ItemDefinition original, string name, string guid)
+        private ItemDefinitionBuilder(ItemDefinition original, string name, string guid)
             : base(original, name, guid)
         {
         }
@@ -32,6 +33,21 @@ namespace SolastaCommunityExpansion.Builders
         public static ItemDefinitionBuilder Create(ItemDefinition original, string name, Guid namespaceGuid)
         {
             return new ItemDefinitionBuilder(original, name, namespaceGuid);
+        }
+
+        public static ItemDefinitionBuilder Create(string name, string guid)
+        {
+            return new ItemDefinitionBuilder(name, guid);
+        }
+
+        public static ItemDefinitionBuilder Create(string name, Guid namespaceGuid)
+        {
+            return new ItemDefinitionBuilder(name, namespaceGuid);
+        }
+
+        public static ItemDefinitionBuilder Create(ItemDefinition original, string name, string guid)
+        {
+            return new ItemDefinitionBuilder(original, name, guid);
         }
 
         public ItemDefinitionBuilder SetDocumentInformation(RecipeDefinition recipeDefinition, params ContentFragmentDescription[] contentFragments)
@@ -117,11 +133,13 @@ namespace SolastaCommunityExpansion.Builders
             Definition.IsUsableDevice = true;
             Definition.SetUsableDeviceDescription(new UsableDeviceDescription());
             Definition.UsableDeviceDescription.DeviceFunctions.Clear();
+
+            var deviceFunction = Berry_Ration.UsableDeviceDescription.DeviceFunctions[0];
+
             foreach (FeatureDefinitionPower power in functions)
             {
-                DeviceFunctionDescription functionDescription = new DeviceFunctionDescription(DatabaseHelper.ItemDefinitions.Berry_Ration.UsableDeviceDescription.DeviceFunctions[0]);
-                functionDescription.SetType(DeviceFunctionDescription.FunctionType.Power);
-                functionDescription.SetFeatureDefinitionPower(power);
+                DeviceFunctionDescription functionDescription =
+                    deviceFunction.Copy().SetType(DeviceFunctionDescription.FunctionType.Power).SetFeatureDefinitionPower(power);
                 Definition.UsableDeviceDescription.DeviceFunctions.Add(functionDescription);
             }
             return this;

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using SolastaCommunityExpansion.Builders;
+using System.Linq;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
@@ -8,42 +8,49 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionMagicAffinityBuilder : DefinitionBuilder<FeatureDefinitionMagicAffinity>
     {
         // TODO this is not yet complete, also I'm unsure the current groupings are the best set.
-        public FeatureDefinitionMagicAffinityBuilder(string name, string guid, GuiPresentation guiPresentation)
-            : base(name, guid)
-        {
-            Definition.SetGuiPresentation(guiPresentation);
-        }
-
-        public FeatureDefinitionMagicAffinityBuilder(FeatureDefinitionMagicAffinity original, string name, string guid, GuiPresentation guiPresentation)
-            : base(original, name, guid)
-        {
-            Definition.SetGuiPresentation(guiPresentation);
-        }
-
-        public FeatureDefinitionMagicAffinityBuilder(string name, string guid)
+        #region Constructors
+        protected FeatureDefinitionMagicAffinityBuilder(string name, string guid)
             : base(name, guid)
         {
         }
 
-        public FeatureDefinitionMagicAffinityBuilder(string name, Guid namespaceGuid)
+        protected FeatureDefinitionMagicAffinityBuilder(string name, Guid namespaceGuid)
             : base(name, namespaceGuid)
         {
         }
 
-        public FeatureDefinitionMagicAffinityBuilder(FeatureDefinitionMagicAffinity original, string name, string guid)
+        protected FeatureDefinitionMagicAffinityBuilder(FeatureDefinitionMagicAffinity original, string name, string guid)
             : base(original, name, guid)
         {
         }
 
-        public FeatureDefinitionMagicAffinityBuilder(FeatureDefinitionMagicAffinity original, string name, Guid namespaceGuid)
+        protected FeatureDefinitionMagicAffinityBuilder(FeatureDefinitionMagicAffinity original, string name, Guid namespaceGuid)
             : base(original, name, namespaceGuid)
         {
+        }
+        #endregion
+
+        #region Factory methods
+        public static FeatureDefinitionMagicAffinityBuilder Create(string name, string guid)
+        {
+            return new FeatureDefinitionMagicAffinityBuilder(name, guid);
         }
 
         public static FeatureDefinitionMagicAffinityBuilder Create(string name, Guid namespaceGuid)
         {
             return new FeatureDefinitionMagicAffinityBuilder(name, namespaceGuid);
         }
+
+        public static FeatureDefinitionMagicAffinityBuilder Create(FeatureDefinitionMagicAffinity original, string name, string guid)
+        {
+            return new FeatureDefinitionMagicAffinityBuilder(original, name, guid);
+        }
+
+        public static FeatureDefinitionMagicAffinityBuilder Create(FeatureDefinitionMagicAffinity original, string name, Guid namespaceGuid)
+        {
+            return new FeatureDefinitionMagicAffinityBuilder(original, name, namespaceGuid);
+        }
+        #endregion
 
         public FeatureDefinitionMagicAffinityBuilder SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity concentrationAffinity,
                int threshold)
@@ -74,7 +81,12 @@ namespace SolastaCommunityExpansion.Builders.Features
             return this;
         }
 
-        public FeatureDefinitionMagicAffinityBuilder SetWarList(IEnumerable<string> spellNames, int levelBonus)
+        public FeatureDefinitionMagicAffinityBuilder SetWarList(int levelBonus, params string[] spellNames)
+        {
+            return SetWarList(levelBonus, spellNames.AsEnumerable());
+        }
+
+        public FeatureDefinitionMagicAffinityBuilder SetWarList(int levelBonus, IEnumerable<string> spellNames)
         {
             Definition.SetUsesWarList(true);
             Definition.SetWarListSlotBonus(levelBonus);

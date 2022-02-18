@@ -1,7 +1,9 @@
 ﻿using System;
 using SolastaCommunityExpansion.Builders;
-using SolastaModApi;
 using SolastaModApi.Extensions;
+using static SolastaModApi.DatabaseHelper;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
+using static SolastaModApi.DatabaseHelper.FightingStyleDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Fighter
 {
@@ -12,7 +14,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
-            return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
+            return FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
         }
         internal override CharacterSubclassDefinition GetSubclass()
         {
@@ -21,11 +23,9 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
         internal RoyalKnight()
         {
-            GuiPresentationBuilder royalKnightPresentation = new GuiPresentationBuilder("Subclass/&FighterRoyalKnightTitle", "Subclass/&FighterRoyalKnightDescription")
-                .SetSpriteReference(DatabaseHelper.FightingStyleDefinitions.Protection.GuiPresentation.SpriteReference);
-
-            Subclass = new CharacterSubclassDefinitionBuilder("FighterRoyalKnight", GuidHelper.Create(SubclassNamespace, "FighterRoyalKnight").ToString())
-                .SetGuiPresentation(royalKnightPresentation.Build())
+            Subclass = CharacterSubclassDefinitionBuilder
+                .Create("FighterRoyalKnight", SubclassNamespace)
+                .SetGuiPresentation(Category.Subclass, Protection.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(RallyingCryPowerBuilder.RallyingCryPower, 3)
                 .AddFeatureAtLevel(RoyalEnvoyFeatureBuilder.RoyalEnvoyFeatureSet, 7)
                 .AddFeatureAtLevel(InspiringSurgePowerBuilder.InspiringSurgePower, 10)
@@ -37,7 +37,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             private const string RoyalEnvoyAbilityCheckName = "RoyalEnvoyAbilityCheckAffinity";
             private const string RoyalEnvoyAbilityCheckGuid = "b16f8b68-0dab-49e5-b1a2-6fdfd8836849";
 
-            protected RoyalEnvoyAbilityCheckAffinityBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityChampionRemarkableAthlete, name, guid)
+            protected RoyalEnvoyAbilityCheckAffinityBuilder(string name, string guid) : base(AbilityCheckAffinityChampionRemarkableAthlete, name, guid)
             {
                 Definition.AffinityGroups.Clear();
                 Definition.AffinityGroups.Add(new FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup()
@@ -61,13 +61,13 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             private const string RoyalEnvoyFeatureName = "RoyalEnvoyFeature";
             private const string RoyalEnvoyFeatureGuid = "c8299685-d806-4e20-aff0-ca3dd4000e05";
 
-            protected RoyalEnvoyFeatureBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetChampionRemarkableAthlete, name, guid)
+            protected RoyalEnvoyFeatureBuilder(string name, string guid) : base(FeatureDefinitionFeatureSets.FeatureSetChampionRemarkableAthlete, name, guid)
             {
                 Definition.GuiPresentation.Title = "Feature/&RoyalEnvoyFeatureTitle";
                 Definition.GuiPresentation.Description = "Feature/&RoyalEnvoyFeatureDescription";
                 Definition.FeatureSet.Clear();
                 Definition.FeatureSet.Add(RoyalEnvoyAbilityCheckAffinityBuilder.RoyalEnvoyAbilityCheckAffinity);
-                Definition.FeatureSet.Add(DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfSolasta);
+                Definition.FeatureSet.Add(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfSolasta);
             }
 
             public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
@@ -84,9 +84,9 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             private const string RallyingCryPowerName = "RallyingCryPower";
             private const string RallyingCryPowerGuid = "cabe94a7-7e51-4231-ae6d-e8e6e3954611";
 
-            protected RallyingCryPowerBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLifePreserveLife, name, guid)
+            protected RallyingCryPowerBuilder(string name, string guid) : base(FeatureDefinitionPowers.PowerDomainLifePreserveLife, name, guid)
             {
-                Definition.SetOverriddenPower(DatabaseHelper.FeatureDefinitionPowers.PowerFighterSecondWind);
+                Definition.SetOverriddenPower(FeatureDefinitionPowers.PowerFighterSecondWind);
                 Definition.SetActivationTime(RuleDefinitions.ActivationTime.BonusAction);
                 Definition.SetRechargeRate(RuleDefinitions.RechargeRate.None);
                 Definition.SetAbilityScore("Charisma");
@@ -106,7 +106,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 Definition.GuiPresentation.Title = "Feature/&RallyingCryPowerTitle";
                 Definition.GuiPresentation.Description = "Feature/&RallyingCryPowerDescription";
                 Definition.SetShortTitleOverride("Feature/&RallyingCryPowerTitleShort");
-                Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.HealingWord.GuiPresentation.SpriteReference);
+                Definition.GuiPresentation.SetSpriteReference(SpellDefinitions.HealingWord.GuiPresentation.SpriteReference);
             }
 
             public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
@@ -123,7 +123,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             private const string InspiringSurgePowerName = "InspiringSurgePower";
             private const string InspiringSurgePowerNameGuid = "c2930ad2-dd02-4ff3-bad8-46d93e328fbd";
 
-            protected InspiringSurgePowerBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLifePreserveLife, name, guid)
+            protected InspiringSurgePowerBuilder(string name, string guid) : base(FeatureDefinitionPowers.PowerDomainLifePreserveLife, name, guid)
             {
                 Definition.SetActivationTime(RuleDefinitions.ActivationTime.BonusAction);
                 Definition.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
@@ -146,7 +146,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
                 effectDescription.EffectForms.Clear();
 
-                foreach (EffectForm effectForm in DatabaseHelper.FeatureDefinitionPowers.PowerFighterActionSurge.EffectDescription.EffectForms)
+                foreach (EffectForm effectForm in FeatureDefinitionPowers.PowerFighterActionSurge.EffectDescription.EffectForms)
                 {
                     effectDescription.EffectForms.Add(effectForm);
                 }
@@ -159,7 +159,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 Definition.GuiPresentation.Title = "Feature/&InspiringSurgePowerTitle";
                 Definition.GuiPresentation.Description = "Feature/&InspiringSurgePowerDescription";
                 Definition.SetShortTitleOverride("Feature/&InspiringSurgePowerTitleShort");
-                Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Heroism.GuiPresentation.SpriteReference);
+                Definition.GuiPresentation.SetSpriteReference(SpellDefinitions.Heroism.GuiPresentation.SpriteReference);
             }
 
             public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)

@@ -74,10 +74,10 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
         }
 
         // TODO: convert to lazy loading?
-        private static ConditionDefinition IlluminatedCondition { get; } = IlluminatedConditionDefinitionBuilder
+        private static IlluminatedConditionDefinition IlluminatedCondition { get; } = IlluminatedConditionDefinitionBuilder
             .Create(IlluminatedConditionName, SubclassNamespace)
             .SetGuiPresentation("BarbarianPathOfTheLightIlluminatedCondition", Category.Subclass, ConditionBranded.GuiPresentation.SpriteReference)
-            .Configure<IlluminatedConditionDefinitionBuilder>(
+            .Configure(
                 definition =>
                 {
                     definition
@@ -94,10 +94,10 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             .AddToDB();
 
         // TODO: convert to lazy loading?
-        private static FeatureDefinition IlluminatingStrike { get; } = FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>
+        private static FeatureDefinition IlluminatingStrike { get; } = FeatureDefinitionFeatureSetBuilder
             .Create("PathOfTheLightIlluminatingStrikeFeatureSet", SubclassNamespace)
             .SetGuiPresentation("BarbarianPathOfTheLightIlluminatingStrike", Category.Subclass)
-            .Configure<FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>>(
+            .Configure(
                 featureSetDefinition =>
                 {
                     featureSetDefinition
@@ -124,10 +124,10 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             .AddToDB();
 
         // TODO: convert to lazy loading?
-        private static FeatureDefinition PierceTheDarkness { get; } = FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>
+        private static FeatureDefinition PierceTheDarkness { get; } = FeatureDefinitionFeatureSetBuilder
             .Create("PathOfTheLightPierceTheDarkness", SubclassNamespace)
             .SetGuiPresentation("BarbarianPathOfTheLightPierceTheDarkness", Category.Subclass)
-            .Configure<FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>>(
+            .Configure(
                 featureSetDefinition =>
                 {
                     featureSetDefinition
@@ -140,10 +140,10 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             .AddToDB();
 
         // TODO: convert to lazy loading?
-        private static FeatureDefinition LightsProtection { get; } = FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>
+        private static FeatureDefinition LightsProtection { get; } = FeatureDefinitionFeatureSetBuilder
             .Create("PathOfTheLightLightsProtection", SubclassNamespace)
             .SetGuiPresentation("BarbarianPathOfTheLightLightsProtection", Category.Subclass)
-            .Configure<FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>>(
+            .Configure(
                 definition =>
                 {
                     definition
@@ -195,7 +195,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             var seeingInvisibleCondition = ConditionDefinitionBuilder
                 .Create("PathOfTheLightEyesOfTruthSeeingInvisible", SubclassNamespace)
                 .SetGuiPresentation("BarbarianPathOfTheLightSeeingInvisibleCondition", Category.Subclass, ConditionSeeInvisibility.GuiPresentation.SpriteReference)
-                .Configure<ConditionDefinitionBuilder>(
+                .Configure(
                     definition =>
                     {
                         definition
@@ -240,10 +240,10 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                     })
                 .AddToDB();
 
-            return FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>
+            return FeatureDefinitionFeatureSetBuilder
                 .Create("PathOfTheLightEyesOfTruth", SubclassNamespace)
                 .SetGuiPresentation("BarbarianPathOfTheLightEyesOfTruth", Category.Subclass)
-                .Configure<FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>>(
+                .Configure(
                     definition =>
                     {
                         definition
@@ -257,10 +257,10 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
         }
 
         // TODO: convert to lazy loading?
-        private static FeatureDefinition IlluminatingBurst { get; } = FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>
+        private static FeatureDefinition IlluminatingBurst { get; } = FeatureDefinitionFeatureSetBuilder
             .Create("PathOfTheLightIlluminatingBurstFeatureSet", SubclassNamespace)
             .SetGuiPresentation("BarbarianPathOfTheLightIlluminatingBurst", Category.Subclass)
-            .Configure<FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>>(
+            .Configure(
                 definition =>
                 {
                     definition
@@ -336,10 +336,10 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
         // Prevents a creature from turning invisible by "granting" immunity to invisibility
         // TODO: convert to lazy loading?
-        private static FeatureDefinition PreventInvisibility { get; } = FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>
+        private static FeatureDefinition PreventInvisibility { get; } = FeatureDefinitionFeatureSetBuilder
             .Create("PathOfTheLightIlluminatedPreventInvisibility", SubclassNamespace)
             .SetGuiPresentation("Feature/&NoContentTitle", "Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription")
-            .Configure<FeatureDefinitionBuilder<FeatureDefinitionFeatureSet>>(
+            .Configure(
                 featureSetDefinition =>
                 {
                     featureSetDefinition
@@ -370,7 +370,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
         private static ConditionDefinition IlluminatingBurstSuppressedCondition { get; } = ConditionDefinitionBuilder
             .Create("PathOfTheLightIlluminatingBurstSuppressedCondition", SubclassNamespace)
             .SetGuiPresentationNoContent(true)
-            .Configure<ConditionDefinitionBuilder>(
+            .Configure(
                 definition =>
                 {
                     definition
@@ -415,7 +415,8 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             }
         }
 
-        private sealed class IlluminatedConditionDefinitionBuilder : ConditionDefinitionBuilder<IlluminatedConditionDefinition>
+        private sealed class IlluminatedConditionDefinitionBuilder
+            : ConditionDefinitionBuilder<IlluminatedConditionDefinition, IlluminatedConditionDefinitionBuilder>
         {
             private IlluminatedConditionDefinitionBuilder(string name, Guid guidNamespace) : base(name, guidNamespace) { }
 
@@ -438,7 +439,8 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             }
         }
 
-        private sealed class IlluminatedByBurstConditionDefinitionBuilder : ConditionDefinitionBuilder<IlluminatedByBurstConditionDefinition>
+        private sealed class IlluminatedByBurstConditionDefinitionBuilder
+            : ConditionDefinitionBuilder<IlluminatedByBurstConditionDefinition, IlluminatedByBurstConditionDefinitionBuilder>
         {
             private IlluminatedByBurstConditionDefinitionBuilder(string name, Guid guidNamespace) : base(name, guidNamespace) { }
 
@@ -579,7 +581,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 var initiatorCondition = ConditionDefinitionBuilder
                     .Create("PathOfTheLightIlluminatingStrikeInitiatorCondition", SubclassNamespace)
                     .SetGuiPresentationNoContent(true)
-                    .Configure<ConditionDefinitionBuilder>(
+                    .Configure(
                         definition =>
                         {
                             definition
@@ -673,7 +675,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 var illuminatedByBurstCondition = IlluminatedByBurstConditionDefinitionBuilder
                     .Create("PathOfTheLightIlluminatedByBurstCondition", SubclassNamespace)
                     .SetGuiPresentation("BarbarianPathOfTheLightIlluminatedCondition", Category.Subclass, ConditionBranded.GuiPresentation.SpriteReference)
-                    .Configure<IlluminatedByBurstConditionDefinitionBuilder>(definition =>
+                    .Configure(definition =>
                     {
                         definition
                             .SetAllowMultipleInstances(true)

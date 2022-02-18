@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
                 foreach (ItemCollection.MagicItemDataHolder itemData in itemCollection.MagicToCopy)
                 {
                     // Generate new items
-                    ItemDefinition newItem = ItemBuilder.BuildNewMagicArmor(itemCollection.BaseGuid, baseItem, itemData.Item, itemData.Name);
+                    ItemDefinition newItem = ItemBuilder.BuildNewMagicArmor(baseItem, itemCollection.BaseGuid, itemData.Name, itemData.Item);
                     // Generate recipes for items
                     string recipeName = "RecipeEnchanting" + newItem.Name;
                     RecipeDefinitionBuilder builder = new RecipeDefinitionBuilder(recipeName, GuidHelper.Create(itemCollection.BaseGuid, recipeName).ToString());
@@ -34,8 +34,8 @@ namespace SolastaCommunityExpansion.ItemCrafting
                     builder.SetGuiPresentation(newItem.GuiPresentation);
                     RecipeDefinition newRecipe = builder.AddToDB();
                     // Stock item Recipes
-                    ItemDefinition craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(itemCollection.BaseGuid, newRecipe, DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_EmpressGarb,
-                    "CraftingManual_" + newRecipe.Name, DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_EmpressGarb.GuiPresentation, Main.Settings.RecipeCost);
+                    ItemDefinition craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_EmpressGarb, "CraftingManual_" + newRecipe.Name, itemCollection.BaseGuid,
+                    newRecipe, Main.Settings.RecipeCost, DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_EmpressGarb.GuiPresentation);
 
                     if (!Models.ItemCraftingContext.RecipeBooks.ContainsKey(baseItem.Name))
                     {
@@ -59,7 +59,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
                 foreach (ItemCollection.MagicItemDataHolder itemData in itemCollection.MagicToCopy)
                 {
                     // Generate new items
-                    ItemDefinition newItem = ItemBuilder.BuildNewMagicWeapon(itemCollection.BaseGuid, baseItem, itemData.Item, itemData.Name);
+                    ItemDefinition newItem = ItemBuilder.BuildNewMagicWeapon(baseItem, itemData.Name, itemCollection.BaseGuid, itemData.Item);
                     // Generate recipes for items
                     string recipeName = "RecipeEnchanting" + newItem.Name;
                     RecipeDefinitionBuilder builder = new RecipeDefinitionBuilder(recipeName, GuidHelper.Create(itemCollection.BaseGuid, recipeName).ToString());
@@ -77,8 +77,8 @@ namespace SolastaCommunityExpansion.ItemCrafting
                     builder.SetGuiPresentation(newItem.GuiPresentation);
                     RecipeDefinition newRecipe = builder.AddToDB();
                     // Stock item Recipes
-                    ItemDefinition craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(itemCollection.BaseGuid, newRecipe, DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_Longbow_Of_Accuracy,
-                    "CraftingManual_" + newRecipe.Name, DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation, Main.Settings.RecipeCost);
+                    ItemDefinition craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_Longbow_Of_Accuracy, "CraftingManual_" + newRecipe.Name, itemCollection.BaseGuid,
+                    newRecipe, Main.Settings.RecipeCost, DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation);
 
                     if (!Models.ItemCraftingContext.RecipeBooks.ContainsKey(baseItem.Name))
                     {
@@ -152,8 +152,8 @@ namespace SolastaCommunityExpansion.ItemCrafting
 
             foreach (RecipeDefinition recipe in recipes)
             {
-                ItemDefinition craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(baseGuid, recipe, DatabaseHelper.ItemDefinitions.CraftingManualRemedy,
-                    "CraftingManual_" + recipe.Name, DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation, Main.Settings.RecipeCost);
+                ItemDefinition craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(DatabaseHelper.ItemDefinitions.CraftingManualRemedy, "CraftingManual_" + recipe.Name, baseGuid,
+                    recipe, Main.Settings.RecipeCost, DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation);
 
                 Models.ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
 
@@ -206,8 +206,8 @@ namespace SolastaCommunityExpansion.ItemCrafting
 
             foreach (RecipeDefinition recipe in recipes)
             {
-                ItemDefinition craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(baseGuid, recipe, DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_Longsword_Warden,
-                    "CraftingManual_" + recipe.Name, DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_Longsword_Warden.GuiPresentation, Main.Settings.RecipeCost);
+                ItemDefinition craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_Longsword_Warden, "CraftingManual_" + recipe.Name, baseGuid,
+                    recipe, Main.Settings.RecipeCost, DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_Longsword_Warden.GuiPresentation);
 
                 Models.ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
 
@@ -267,8 +267,8 @@ namespace SolastaCommunityExpansion.ItemCrafting
 
             foreach (RecipeDefinition recipe in recipes)
             {
-                ItemDefinition craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(baseGuid, recipe, DatabaseHelper.ItemDefinitions.CraftingManualRemedy,
-                    "CraftingManual_" + recipe.Name, DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation, Main.Settings.RecipeCost);
+                ItemDefinition craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(DatabaseHelper.ItemDefinitions.CraftingManualRemedy, "CraftingManual_" + recipe.Name, baseGuid,
+                    recipe, Main.Settings.RecipeCost, DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation);
 
                 Models.ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
 

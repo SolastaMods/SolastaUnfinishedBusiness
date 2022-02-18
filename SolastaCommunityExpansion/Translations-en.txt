@@ -1030,7 +1030,7 @@ Subclass/&ConditionTransmutePoisonTitle	Elemental Resistance
 Subclass/&CraftingTinkererMagicItemAdeptDescription You are adept at crafting magic items. It takes you 1/4 the time to craft items and you apply double your proficiency bonus when crafting.
 Subclass/&CraftingTinkererMagicItemAdeptTitle Magic Item Adept
 Subclass/&DruidForestGuardianDruidSubclassDescription	Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
-Subclass/&DruidForestGuardianSubclassTitle	Circle of the Forest Guardian
+Subclass/&DruidForestGuardianDruidSubclassTitle	Circle of the Forest Guardian
 Subclass/&EquipmentModifierArtificerBagOfHolderDescription Touch an bag and infuse an extra dimmensional space to help it hold more weight without encumbering you. Note you can only have an infusion active once. Activating it a second time will cancel the first.
 Subclass/&EquipmentModifierArtificerBagOfHolderTitle Bag of Holding
 Subclass/&FighterRoyalKnightDescription	A knight who inspires greatness in others by committing brave deeds in battle. A lone knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
