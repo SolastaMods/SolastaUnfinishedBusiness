@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityModManagerNet;
 using static SolastaCommunityExpansion.Viewers.Displays.DungeonMakerDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.GameUiDisplay;
-using static SolastaCommunityExpansion.Viewers.Displays.HotKeysDisplay;
+using static SolastaCommunityExpansion.Viewers.Displays.KeyboardAndMouseDisplay;
 
 namespace SolastaCommunityExpansion.Viewers
 {
@@ -20,7 +20,7 @@ namespace SolastaCommunityExpansion.Viewers
         {
             new NamedAction("Dungeon Maker", DisplayDungeonMaker),
             new NamedAction("Game UI", DisplayGameUi),
-            new NamedAction("Hotkeys", DisplayHotkeys),
+            new NamedAction("Keyboard & Mouse", DisplayKeyboardAndMouse),
         };
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
