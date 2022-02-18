@@ -2,9 +2,9 @@
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
-    internal static class HotKeysDisplay
+    internal static class KeyboardAndMouseDisplay
     {
-        internal static void DisplayHotkeys()
+        internal static void DisplayKeyboardAndMouse()
         {
             bool toggle;
 
@@ -14,6 +14,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             #region Hotkeys
+            UI.Label("");
+
+            toggle = Main.Settings.EnableCancelEditOnRightMouseClick;
+            if (UI.Toggle($"Enable cancel action with right-mouse click", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableCancelEditOnRightMouseClick = toggle;
+            }
+
             UI.Label("");
 
             toggle = Main.Settings.EnableHotkeyToggleIndividualHud;
