@@ -153,24 +153,29 @@ namespace SolastaCommunityExpansion.Patches
 
             // Code from CubeContainsPoint_Regular modified with height
             Vector3 vector3 = new Vector3();
+
             if (hasMagneticTargeting)
             {
                 if ((double)edgeSize % 2.0 == 0.0)
                     vector3 = new Vector3(0.5f, 0f, 0.5f);
+
                 if (height.Value % 2.0 == 0.0)
                     vector3.y = 0.5f;
             }
             else
             {
                 vector3.y = (float)(0.5 * (double)height - 0.5);
+
                 if ((double)edgeSize % 2.0 == 0.0)
                     vector3 += new Vector3(0.5f, 0.0f, 0.5f);
             }
 
             Vector3 vector3_2 = point - cubeOrigin - vector3;
 
-            float num = 0.5f * edgeSize;
-            __result = (double)Mathf.Abs(vector3_2.x) <= (double)num && (double)Mathf.Abs(vector3_2.y) <= (double)height && (double)Mathf.Abs(vector3_2.z) <= (double)num;
+            __result = 
+                (double)Mathf.Abs(vector3_2.x) <= (double)0.5f * edgeSize
+                && (double)Mathf.Abs(vector3_2.y) <= (double)0.5f * height
+                && (double)Mathf.Abs(vector3_2.z) <= (double)0.5f * edgeSize;
 
             Main.Log($"GeometryUtils_CubeContainsPoint_Regular (on): edge={edgeSize}, height={height}, origin=({cubeOrigin.x}, {cubeOrigin.y}, {cubeOrigin.z}), point=({point.x}, {point.y}, {point.z}), result={__result}");
         }
