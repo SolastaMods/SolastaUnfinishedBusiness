@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Patches
         public static void Prefix(int ___targetParameter2)
         {
             Height = ___targetParameter2;
-            Main.Log($"CursorLocationGeometricShape_UpdateGeometricShape: height={Height}");
+            //Main.Log($"CursorLocationGeometricShape_UpdateGeometricShape: height={Height}");
         }
 
         public static void Postfix()
@@ -117,6 +117,17 @@ namespace SolastaCommunityExpansion.Patches
         public static void Postfix()
         {
             Height = null;
+        }
+    }
+
+    [HarmonyPatch(typeof(GeometryUtils), "CylinderContainsPoint")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class GeometryUtils_CylinderContainsPoint
+    {
+        public static void Postfix(
+            Vector3 cylinderOrigin, Vector3 cylinderDirection, float cylinderLength, float cylinderDiameter, Vector3 point, ref bool __result)
+        {
+            Main.Log($"GeometryUtils_CylinderContainsPoint: diameter={cylinderDiameter}, height/length={cylinderLength}, origin=({cylinderOrigin.x}, {cylinderOrigin.y}, {cylinderOrigin.z}), point=({point.x}, {point.y}, {point.z}), result={__result}");
         }
     }
 
