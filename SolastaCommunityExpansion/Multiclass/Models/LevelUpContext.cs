@@ -262,7 +262,8 @@ namespace SolastaCommunityExpansion.Multiclass.Models
                         selectedClass == TinkererClass ||
                         selectedClass == AlchemistClass ||
                         selectedClass == BardClass ||
-                        selectedClass == WarlockClass
+                        selectedClass == WarlockClass ||
+                        selectedClass == WitchClass
                     ) &&
                     !(
                         classesAndLevels.ContainsKey(Ranger) ||
@@ -271,7 +272,8 @@ namespace SolastaCommunityExpansion.Multiclass.Models
                         classesAndLevels.ContainsKey(TinkererClass) ||
                         classesAndLevels.ContainsKey(AlchemistClass) ||
                         classesAndLevels.ContainsKey(BardClass) ||
-                        classesAndLevels.ContainsKey(WarlockClass)
+                        classesAndLevels.ContainsKey(WarlockClass) ||
+                        classesAndLevels.ContainsKey(WitchClass)
                     );
 
                 requiresDruidicFocus = (selectedClass == Druid) && !classesAndLevels.ContainsKey(Druid);

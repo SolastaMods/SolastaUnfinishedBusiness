@@ -16,16 +16,16 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.HeroInspection
                 }
 
                 int classesCount;
-                string separator;
+                char separator;
 
                 if (__instance.GuiCharacter.RulesetCharacterHero != null)
                 {
-                    separator = "\n";
+                    separator = '\n';
                     classesCount = __instance.GuiCharacter.RulesetCharacterHero.ClassesAndLevels.Count;
                 }
                 else
                 {
-                    separator = "\\";
+                    separator = '\\';
                     classesCount = __instance.GuiCharacter.Snapshot.Classes.Length;
                 }
 

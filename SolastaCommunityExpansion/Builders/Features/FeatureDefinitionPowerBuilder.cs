@@ -1,16 +1,48 @@
 ﻿using System;
-using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionPowerBuilder : DefinitionBuilder<FeatureDefinitionPower>
     {
-        public FeatureDefinitionPowerBuilder(string name, string guid, int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
-            string usesAbilityScoreName,
+        #region Constructors
+        protected FeatureDefinitionPowerBuilder(string name, string guid)
+            : base(name, guid)
+        {
+        }
+
+        protected FeatureDefinitionPowerBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionPowerBuilder(FeatureDefinitionPower original, string name, string guid)
+            : base(original, name, guid)
+        {
+        }
+
+        protected FeatureDefinitionPowerBuilder(FeatureDefinitionPower original, string name, Guid namespaceGuid)
+            : base(original, name, namespaceGuid)
+        {
+        }
+        #endregion
+
+        public static FeatureDefinitionPowerBuilder Create(string name, string guid)
+        {
+            return new FeatureDefinitionPowerBuilder(name, guid);
+        }
+
+        public static FeatureDefinitionPowerBuilder Create(string name, Guid namespaceGuid)
+        {
+            return new FeatureDefinitionPowerBuilder(name, namespaceGuid);
+        }
+
+        // Over specific method?
+        public FeatureDefinitionPowerBuilder Configure(
+            int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination, string usesAbilityScoreName,
             RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge,
             bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
-            EffectDescription effectDescription, GuiPresentation guiPresentation, bool uniqueInstance) : base(name, guid)
+            EffectDescription effectDescription, bool uniqueInstance)
         {
             Definition.SetFixedUsesPerRecharge(usesPerRecharge);
             Definition.SetUsesDetermination(usesDetermination);
@@ -22,33 +54,8 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetAbilityScoreBonusToAttack(abilityScoreBonusToAttack);
             Definition.SetAbilityScore(abilityScore);
             Definition.SetEffectDescription(effectDescription);
-            Definition.SetGuiPresentation(guiPresentation);
             Definition.SetUniqueInstance(uniqueInstance);
-        }
-
-        public FeatureDefinitionPowerBuilder(string name, string guid)
-            : base(name, guid)
-        {
-        }
-
-        public FeatureDefinitionPowerBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid)
-        {
-        }
-
-        public FeatureDefinitionPowerBuilder(FeatureDefinitionPower original, string name, string guid)
-            : base(original, name, guid)
-        {
-        }
-
-        public FeatureDefinitionPowerBuilder(FeatureDefinitionPower original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
-        {
-        }
-
-        public static FeatureDefinitionPowerBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionPowerBuilder(name, namespaceGuid);
+            return this;
         }
 
         public FeatureDefinitionPowerBuilder SetEffect(EffectDescription effect)

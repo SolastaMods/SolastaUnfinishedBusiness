@@ -4,6 +4,8 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using static SolastaModApi.DatabaseHelper;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard
 {
@@ -14,7 +16,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
-            return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
+            return FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
         }
         internal override CharacterSubclassDefinition GetSubclass()
         {
@@ -24,12 +26,9 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         internal ArcaneFighter()
         {
             // Make Melee Wizard subclass
-            CharacterSubclassDefinitionBuilder meleeWizard = new CharacterSubclassDefinitionBuilder("ArcaneFighter", GuidHelper.Create(SubclassNamespace, "ArcaneFighter").ToString());
-            GuiPresentationBuilder meleePresentation = new GuiPresentationBuilder(
-                "Subclass/&TraditionArcaneFighterTitle",
-                "Subclass/&TraditionArcaneFighterDescription");
-            meleePresentation.SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.MartialSpellblade.GuiPresentation.SpriteReference);
-            meleeWizard.SetGuiPresentation(meleePresentation.Build());
+            CharacterSubclassDefinitionBuilder meleeWizard = CharacterSubclassDefinitionBuilder
+                .Create("ArcaneFighter", SubclassNamespace)
+                .SetGuiPresentation("TraditionArcaneFighter", Category.Subclass, MartialSpellblade.GuiPresentation.SpriteReference);
 
             GuiPresentationBuilder weaponProfPresentation = new GuiPresentationBuilder(
                 "Subclass/&WeaponProfArcaneFighterTitle",
@@ -89,11 +88,11 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             GuiPresentationBuilder attackModGui = new GuiPresentationBuilder(
                 "Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle",
                 "Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription");
-            attackModGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference);
+            attackModGui.SetSpriteReference(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference);
             GuiPresentationBuilder arcaneWeaponGui = new GuiPresentationBuilder(
                    "Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle",
                    "Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription");
-            arcaneWeaponGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference);
+            arcaneWeaponGui.SetSpriteReference(FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference);
             FeatureDefinitionAttackModifier weaponUseIntModifier = new FeatureDefinitionAttackModifierBuilder("AttackModifierMeleeWizard",
                  GuidHelper.Create(SubclassNamespace, "AttackModifierMeleeWizard").ToString(),
                  RuleDefinitions.AbilityScoreReplacement.SpellcastingAbility, TagsDefinitions.Magical, attackModGui.Build()).AddToDB();
@@ -135,12 +134,13 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 .AddToDB();
         }
 
-        // TODO: Should concentrationAffinity be used?  If not remove.
         public static FeatureDefinitionMagicAffinity BuildMagicAffinityConcentration(RuleDefinitions.ConcentrationAffinity concentrationAffinity, int threshold, string name, GuiPresentation guiPresentation)
         {
-            FeatureDefinitionMagicAffinityBuilder builder = new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
-                guiPresentation).SetConcentrationModifiers(concentrationAffinity, threshold);
-            return builder.AddToDB();
+            return FeatureDefinitionMagicAffinityBuilder
+                .Create(name, SubclassNamespace)
+                .SetGuiPresentation(guiPresentation)
+                .SetConcentrationModifiers(concentrationAffinity, threshold)
+                .AddToDB();
         }
 
         private static FeatureDefinitionPower BuildActionItemPower(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
@@ -160,17 +160,18 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 new FeatureUnlockByLevel(itemFeature, 0),
             }, RuleDefinitions.ItemPropertyUsage.Unlimited, 0).Build());
 
-            FeatureDefinitionPowerBuilder builder = new FeatureDefinitionPowerBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
-                usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse, recharge, false, false,
-                AttributeDefinitions.Intelligence, effectBuilder.Build(), guiPresentation, false /* unique instance */);
-            return builder.AddToDB();
+            return FeatureDefinitionPowerBuilder
+                .Create(name, SubclassNamespace)
+                .SetGuiPresentation(guiPresentation)
+                .Configure(usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse, recharge, false, false,
+                    AttributeDefinitions.Intelligence, effectBuilder.Build(), false /* unique instance */).AddToDB();
         }
 
         private sealed class FeatureDefinitionAttackModifierBuilder : DefinitionBuilder<FeatureDefinitionAttackModifier>
         {
             public FeatureDefinitionAttackModifierBuilder(string name, string guid,
-            RuleDefinitions.AbilityScoreReplacement abilityReplacement, string additionalAttackTag,
-            GuiPresentation guiPresentation) : base(name, guid)
+                RuleDefinitions.AbilityScoreReplacement abilityReplacement, string additionalAttackTag,
+                GuiPresentation guiPresentation) : base(name, guid)
             {
                 Definition.SetAbilityScoreReplacement(abilityReplacement);
                 Definition.SetAdditionalAttackTag(additionalAttackTag);

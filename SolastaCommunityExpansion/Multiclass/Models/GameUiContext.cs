@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             return fontSizes[classesCount % 5];
         }
 
-        internal static string GetAllClassesLabel(GuiCharacter character, string separator = "\n")
+        internal static string GetAllClassesLabel(GuiCharacter character, char separator = '\n')
         {
             var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
             var builder = new StringBuilder();
@@ -46,7 +46,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
                 return null;
             }
 
-            return builder.ToString().Remove(builder.Length - separator.Length, separator.Length);
+            return builder.ToString().Remove(builder.Length - 1, 1);
         }
 
         internal static string GetAllClassesHitDiceLabel(GuiCharacter character, out int dieTypeCount)
@@ -56,7 +56,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             var builder = new StringBuilder();
             var hero = character.RulesetCharacterHero;
             var dieTypesCount = new Dictionary<RuleDefinitions.DieType, int>();
-            const string separator = " ";
+            const char separator = ' ';
 
             foreach (var characterClassDefinition in hero.ClassesAndLevels.Keys)
             {
@@ -72,14 +72,12 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             {
                 builder.Append(dieTypesCount[dieType]);
                 builder.Append(Gui.GetDieSymbol(dieType));
-#pragma warning disable CA1834 // Consider using 'StringBuilder.Append(char)' when applicable
                 builder.Append(separator);
-#pragma warning restore CA1834 // Consider using 'StringBuilder.Append(char)' when applicable
             }
 
             dieTypeCount = dieTypesCount.Count;
 
-            return builder.Remove(builder.Length - separator.Length, separator.Length).ToString();
+            return builder.Remove(builder.Length - 1, 1).ToString();
         }
 
         internal static string GetLevelAndExperienceTooltip(GuiCharacter character)
@@ -117,10 +115,12 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
                     hero.ClassesAndSubclasses.TryGetValue(characterClassDefinition, out var characterSubclassDefinition);
 
+#pragma warning disable JSON002 // Probable JSON string detected
                     builder.Append('\n')
                         .AppendFormat("{0:00}", i + 1)
                         .Append(" - ")
                         .Append(characterClassDefinition.FormatTitle());
+#pragma warning restore JSON002 // Probable JSON string detected
 
                     // NOTE: don't use characterSubclassDefinition?. which bypasses Unity object lifetime check
                     if (characterSubclassDefinition)

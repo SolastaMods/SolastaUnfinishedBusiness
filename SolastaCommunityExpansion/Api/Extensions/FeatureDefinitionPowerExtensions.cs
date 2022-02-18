@@ -148,6 +148,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetMagical<T>(this T entity, System.Boolean value)
+            where T : FeatureDefinitionPower
+        {
+            entity.SetField("magical", value);
+            return entity;
+        }
+
         public static T SetOverriddenPower<T>(this T entity, FeatureDefinitionPower value)
             where T : FeatureDefinitionPower
         {
