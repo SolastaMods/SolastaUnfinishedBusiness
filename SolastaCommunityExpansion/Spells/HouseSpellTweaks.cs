@@ -13,32 +13,35 @@ namespace SolastaCommunityExpansion.Spells
             SpikeGrowthDoesNotAffectFlyingCreatures();
         }
 
-        private static void SpikeGrowthDoesNotAffectFlyingCreatures()
+        internal static void SpikeGrowthDoesNotAffectFlyingCreatures()
         {
-            if (!Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures)
-            {
-                return;
-            }
-
             var spikeGrowthEffect = SpikeGrowth.EffectDescription;
-            spikeGrowthEffect.EffectForms
-                .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
-                .ToList()
-                .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(false));
 
-            spikeGrowthEffect.SetTargetType(RuleDefinitions.TargetType.Cylinder);
-            spikeGrowthEffect.SetTargetParameter2(1);
+            if (Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures)
+            {
+                // Set to height 1 cyclinder
+                spikeGrowthEffect.EffectForms
+                    .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
+                    .ToList()
+                    .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(false));
 
-            // Entangle is more difficult because it's a cube, and what we need is a Square Cylinder height 1.
-/*            var entangleEffect = Entangle.EffectDescription;
-            entangleEffect.EffectForms
-                .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
-                .ToList()
-                .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(false));
+                spikeGrowthEffect.SetTargetType(RuleDefinitions.TargetType.Cylinder);
+                spikeGrowthEffect.SetTargetParameter2(4);
+                spikeGrowthEffect.SetTargetParameter2(1);
+            }
+            else
+            {
+                // Set to default
+                spikeGrowthEffect.EffectForms
+                    .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
+                    .ToList()
+                    .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(true));
 
-            entangleEffect.SetTargetType(RuleDefinitions.TargetType.CubeWithOffset);
-            entangleEffect.SetTargetParameter();
-*/        }
+                spikeGrowthEffect.SetTargetType(RuleDefinitions.TargetType.Sphere);
+                spikeGrowthEffect.SetTargetParameter2(4);
+                spikeGrowthEffect.SetTargetParameter2(2);
+            }
+        }
 
         public static void AddBleedingToRestoration()
         {
