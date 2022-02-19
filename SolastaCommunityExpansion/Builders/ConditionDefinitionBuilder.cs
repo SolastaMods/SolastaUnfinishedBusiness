@@ -115,8 +115,8 @@ namespace SolastaCommunityExpansion.Builders
             return This();
         }
 
-        // TODO: is it worth/possible to factor out ConditionDefinitionBuilder.SetDuration and EffectDescriptionBuilder.SetDuration?
-        // and other similar methods
+        // TODO: factor out validation code
+        // rename to match names of similar method in EffectDescriptionBuilder (and elsewhere)
         public TBuilder SetDuration(RuleDefinitions.DurationType type, int? duration = null)
         {
             switch (type)
@@ -136,7 +136,6 @@ namespace SolastaCommunityExpansion.Builders
                     {
                         throw new SolastaModApiException($"A duration value is not expected for duration type {type}");
                     }
-                    // TODO: is this sensible?
                     Definition.SetDurationParameter(0);
                     break;
             }
