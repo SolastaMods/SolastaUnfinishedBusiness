@@ -82,7 +82,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             }
         }
 
-        public class FeatureDefinitionAttributeModifierBuilder : DefinitionBuilder<FeatureDefinitionAttributeModifier>
+        public class FeatureDefinitionAttributeModifierBuilder : Builders.Features.FeatureDefinitionAttributeModifierBuilder
         {
             public FeatureDefinitionAttributeModifierBuilder(string name, string guid, AttributeModifierOperation modifierType,
                 string attribute, int amount, GuiPresentation guiPresentation) : base(name, guid)
@@ -335,7 +335,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             }
         }
 
-        public class FeatureDefinitionAdditionalDamageBuilder : DefinitionBuilder<FeatureDefinitionAdditionalDamage>
+        public class FeatureDefinitionAdditionalDamageBuilder : Builders.Features.FeatureDefinitionAdditionalDamageBuilder
         {
             public FeatureDefinitionAdditionalDamageBuilder(string name, string guid, string notificationTag, RuleDefinitions.FeatureLimitedUsage limitedUsage,
                 RuleDefinitions.AdditionalDamageValueDetermination damageValueDetermination,

@@ -854,7 +854,7 @@ namespace SolastaCommunityExpansion.Spells
             internal static readonly ConditionDefinition FeeblemindCondition = CreateAndAddToDB(Name, Guid);
         }
 
-        internal class FeeblemindIntAttributeModifierBuilder : DefinitionBuilder<FeatureDefinitionAttributeModifier>
+        internal class FeeblemindIntAttributeModifierBuilder : FeatureDefinitionAttributeModifierBuilder
         {
             private const string Name = "DHFeeblemindIntSpellAttributeModifier";
             private const string Guid = "a2a16bda-e7b1-4a87-9f0e-3e4c21870fd8";
@@ -879,7 +879,7 @@ namespace SolastaCommunityExpansion.Spells
             internal static readonly FeatureDefinitionAttributeModifier FeeblemindIntAttributeModifier = CreateAndAddToDB(Name, Guid);
         }
 
-        internal class FeeblemindChaAttributeModifierBuilder : DefinitionBuilder<FeatureDefinitionAttributeModifier>
+        internal class FeeblemindChaAttributeModifierBuilder : FeatureDefinitionAttributeModifierBuilder
         {
             private const string Name = "DHFeeblemindChaSpellAttributeModifier";
             private const string Guid = "6721abe1-19eb-4a8c-9702-2fdea2070464";
@@ -905,7 +905,7 @@ namespace SolastaCommunityExpansion.Spells
             internal static readonly FeatureDefinitionAttributeModifier FeeblemindCha_AttributeModifier = CreateAndAddToDB(Name, Guid);
         }
 
-        internal class FeeblemindActionAffinityBuilder : DefinitionBuilder<FeatureDefinitionActionAffinity>
+        internal class FeeblemindActionAffinityBuilder : FeatureDefinitionActionAffinityBuilder
         {
             private const string Name = "DHFeeblemindSpellActionAffinity";
             private const string Guid = "749a9572-07f6-4678-9458-904c04b9ab22";
@@ -1006,7 +1006,7 @@ namespace SolastaCommunityExpansion.Spells
             internal static readonly ConditionDefinition HolyAuraCondition = CreateAndAddToDB(Name, Guid);
         }
 
-        internal class HolyAuraDamageAffinityBuilder : DefinitionBuilder<FeatureDefinitionDamageAffinity>
+        internal class HolyAuraDamageAffinityBuilder : FeatureDefinitionDamageAffinityBuilder
         {
             private const string Name = "DHHolyAuraSpellDamageAffinity";
             private const string Guid = "c83aceae-e4c4-4a9c-a83d-58ffebe92007";

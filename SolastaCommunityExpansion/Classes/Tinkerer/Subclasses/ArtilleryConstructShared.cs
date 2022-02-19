@@ -650,7 +650,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		HalfCoverShieldAttributeBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class HalfCoverShieldAttributeBuilder : DefinitionBuilder<FeatureDefinitionAttributeModifier>
+    internal sealed class HalfCoverShieldAttributeBuilder : FeatureDefinitionAttributeModifierBuilder
     {
         private const string HalfCoverShieldAttributeName = "HalfCoverShieldAttribute";
         private const string HalfCoverShieldAttributeGuid = "4dd6548f-4d7f-4bbf-b120-70a17f79f8e0";

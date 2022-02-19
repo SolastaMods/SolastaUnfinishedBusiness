@@ -515,7 +515,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		Sentinel Suit Weapon           		*******************************************
     //*************************************************************************************************************************
 
-    internal sealed class SentinelSuitWeaponBuilder : DefinitionBuilder<ItemDefinition>
+    internal sealed class SentinelSuitWeaponBuilder : ItemDefinitionBuilder
     {
         private const string SentinelSuitWeaponName = "SentinelSuitWeapon";
         private const string SentinelSuitWeaponGuid = "c86a1f25-3364-42bc-92b8-64f1358cbf15";
@@ -813,7 +813,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static readonly FeatureDefinitionCombatAffinity BalancingAdvantage = CreateAndAddToDB(BalancingAdvantageName, BalancingAdvantageGuid);
     }
 
-    internal sealed class UsingitemPowerBuilder : DefinitionBuilder<FeatureDefinitionActionAffinity>
+    internal sealed class UsingitemPowerBuilder : FeatureDefinitionActionAffinityBuilder
     {
         private const string UsingitemPowerName = "UsingitemPower";
         private const string UsingitemPowerGuid = "39f8cb05-5475-456a-a9b2-022b6e07850b";
@@ -839,7 +839,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //************************************************      Scout Suit Weapon        *******************************************************
     //**************************************************************************************************************************************
 
-    internal sealed class ScoutSuitWeaponBuilder : DefinitionBuilder<ItemDefinition>
+    internal sealed class ScoutSuitWeaponBuilder : ItemDefinitionBuilder
     {
         private const string ScoutSuitWeaponName = "ScoutSuitWeapon";
         private const string ScoutSuitWeaponGuid = "21f90fad-b039-4efe-bee8-5afd44453664";
@@ -948,7 +948,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static readonly ItemDefinition ScoutSuitWeapon = CreateAndAddToDB(ScoutSuitWeaponName, ScoutSuitWeaponGuid);
     }
 
-    internal sealed class LightningSpearAdditionalDamageBuilder : DefinitionBuilder<FeatureDefinitionAdditionalDamage>
+    internal sealed class LightningSpearAdditionalDamageBuilder : FeatureDefinitionAdditionalDamageBuilder
     {
         private const string LightningSpearAdditionalDamageName = "LightningSpearAdditionalDamage";
         private const string LightningSpearAdditionalDamageGuid = "52d19882-ca63-422d-aece-d80f806859a8";
@@ -1023,7 +1023,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //*************************************************************************************************************************
     //***********************************		Improved Sentinel Suit Weapon   		****************************************
     //*************************************************************************************************************************
-    internal sealed class ImprovedSentinelSuitWeaponBuilder : DefinitionBuilder<ItemDefinition>
+    internal sealed class ImprovedSentinelSuitWeaponBuilder : ItemDefinitionBuilder
     {
         private const string ImprovedSentinelSuitWeaponName = "ImprovedSentinelSuitWeapon";
         private const string ImprovedSentinelSuitWeaponGuid = "f65108aa-1f69-4b08-b170-5fffd8444606";
@@ -1137,7 +1137,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //**************************************************************************************************************************************
     //******************************************       Improved Scout Suit Weapon        ***************************************************
     //**************************************************************************************************************************************
-    internal sealed class ImprovedScoutSuitWeaponBuilder : DefinitionBuilder<ItemDefinition>
+    internal sealed class ImprovedScoutSuitWeaponBuilder : ItemDefinitionBuilder
     {
         private const string ImprovedScoutSuitWeaponName = "ImprovedScoutSuitWeapon";
         private const string ImprovedScoutSuitWeaponGuid = "c2ebf9a1-5c45-4f70-ba6c-c791cd607ea7";

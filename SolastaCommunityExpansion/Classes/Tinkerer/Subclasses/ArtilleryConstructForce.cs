@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -322,7 +323,7 @@ Web
         public static readonly MonsterAttackDefinition ForceArtilleryAttack = CreateAndAddToDB(ForceArtilleryAttackName, ForceArtilleryAttackGuid);
     }
 
-    internal sealed class ForceArtilleryAdditionalDamageBuilder : DefinitionBuilder<FeatureDefinitionAdditionalDamage>
+    internal sealed class ForceArtilleryAdditionalDamageBuilder : FeatureDefinitionAdditionalDamageBuilder
     {
         private const string ForceArtilleryAdditionalDamageName = "ForceArtilleryAdditionalDamage";
         private const string ForceArtilleryAdditionalDamageGuid = "2e726b2e-052f-482f-a869-721851fcb407";
@@ -349,7 +350,7 @@ Web
         public static readonly FeatureDefinitionAdditionalDamage ForceArtilleryAdditionalDamage = CreateAndAddToDB(ForceArtilleryAdditionalDamageName, ForceArtilleryAdditionalDamageGuid);
     }
 
-    internal sealed class ForceArtilleryProjectileBuilder : DefinitionBuilder<ItemDefinition>
+    internal sealed class ForceArtilleryProjectileBuilder : ItemDefinitionBuilder
     {
         private const string ForceArtilleryProjectileName = "ForceArtilleryProjectile";
         private const string ForceArtilleryProjectileGuid = "b30b1971-6ad6-4ea2-af5b-998043415f04";

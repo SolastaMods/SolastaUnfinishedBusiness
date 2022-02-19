@@ -10,22 +10,22 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition>
     {
-        private ItemDefinitionBuilder(string name, string guid)
+        protected ItemDefinitionBuilder(string name, string guid)
             : base(name, guid)
         {
         }
 
-        private ItemDefinitionBuilder(string name, Guid namespaceGuid)
+        protected ItemDefinitionBuilder(string name, Guid namespaceGuid)
             : base(name, namespaceGuid)
         {
         }
 
-        private ItemDefinitionBuilder(ItemDefinition original, string name, string guid)
+        protected ItemDefinitionBuilder(ItemDefinition original, string name, string guid)
             : base(original, name, guid)
         {
         }
 
-        private ItemDefinitionBuilder(ItemDefinition original, string name, Guid namespaceGuid)
+        protected ItemDefinitionBuilder(ItemDefinition original, string name, Guid namespaceGuid)
             : base(original, name, namespaceGuid)
         {
         }

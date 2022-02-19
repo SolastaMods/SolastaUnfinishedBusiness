@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class ItemOptionsContext
     {
-        private sealed class WandIdentifyBuilder : DefinitionBuilder<ItemDefinition>
+        private sealed class WandIdentifyBuilder : ItemDefinitionBuilder
         {
             private WandIdentifyBuilder(string name, string guid, string title, string description, ItemDefinition original) : base(original, name, guid)
             {
@@ -54,7 +54,7 @@ namespace SolastaCommunityExpansion.Models
                 WandMagicMissile);
         }
 
-        private sealed class FocusDefinitionBuilder : DefinitionBuilder<ItemDefinition>
+        private sealed class FocusDefinitionBuilder : ItemDefinitionBuilder
         {
             private FocusDefinitionBuilder(
                 string name,
