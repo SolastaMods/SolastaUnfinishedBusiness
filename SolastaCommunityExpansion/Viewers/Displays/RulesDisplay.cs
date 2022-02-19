@@ -112,7 +112,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures;
-                if (UI.Toggle("Spike Growth".orange() + " does not affect flying creatures.", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Spike Growth".orange() + " does not affect flying creatures flying higher than 1 cell.", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures = toggle;
                 }
@@ -127,7 +127,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (Main.Settings.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures)
                 {
                     toggle = Main.Settings.EnableTargetTypeSquareCylinder;
-                    if (UI.Toggle("+ Maintain a square area of effect for these spells. (A circular area requires less code changes.)".italic(), ref toggle, UI.AutoWidth()))
+                    if (UI.Toggle("+ Use a square area of effect for these spells (SRD). (A circular area requires less code changes but is non-SRD.)".italic(), ref toggle, UI.AutoWidth()))
                     {
                         Main.Settings.EnableTargetTypeSquareCylinder = toggle;
                         HouseSpellTweaks.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures();

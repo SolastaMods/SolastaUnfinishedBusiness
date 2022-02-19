@@ -37,7 +37,7 @@ namespace SolastaCommunityExpansion.Spells
             // always applicable
             ClearTargetParameter2ForTargetTypeCube();
 
-            // Spells with TargetType.Cube (tp, tp2)
+            // Spells with TargetType.Cube and defaults values of (tp, tp2)
             // BlackTentacles: (4, 2)
             // Entangle: (4, 1)
             // FaerieFire: (4, 2)
@@ -94,6 +94,7 @@ namespace SolastaCommunityExpansion.Spells
 
                 Main.Log($"Restoring {sd.Name} to target type=Cube");
                 effect.SetTargetType(RuleDefinitions.TargetType.Cube);
+                effect.SetTargetParameter2(0);
             }
 
             static void ClearTargetParameter2ForTargetTypeCube()
@@ -107,22 +108,6 @@ namespace SolastaCommunityExpansion.Spells
                     sd.EffectDescription.SetTargetParameter2(0);
                 }
             }
-
-/*            static void LogAllSpellsWithTargetTypeCube()
-            {
-                Main.Log("-----------------------------------");
-                foreach (var g in DatabaseRepository.GetDatabase<SpellDefinition>()
-                    .GroupBy(sd => sd.EffectDescription.TargetType))
-                {
-                    Main.Log($"{g.Key} -----------------------------------");
-                    foreach (var sd in g.OrderBy(s => s.Name))
-                    {
-                        var ef = sd.EffectDescription;
-                        Main.Log($"{sd.Name}: ({ef.TargetParameter}, {ef.TargetParameter2})");
-                    }
-                }
-                Main.Log("-----------------------------------");
-            }*/
         }
 
         public static void AddBleedingToRestoration()
