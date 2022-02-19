@@ -222,7 +222,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static readonly SpellDefinition SummonForceArtilleryConstruct15 = CreateAndAddToDB(SummonForceArtilleryConstruct_15Name, SummonForceArtilleryConstruct_15Guid);
     }
 
-    internal sealed class ForceArtilleryAttackBuilder : DefinitionBuilder<MonsterAttackDefinition>
+    internal sealed class ForceArtilleryAttackBuilder : MonsterAttackDefinitionBuilder
     {
         private const string ForceArtilleryAttackName = "ForceArtilleryAttack";
         private const string ForceArtilleryAttackGuid = "39c5b7ef-47f9-462c-9f24-accaee85d325";

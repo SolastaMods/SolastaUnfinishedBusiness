@@ -458,7 +458,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		UseArmorWeaponsAsFocusBuilder		*******************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class UseArmorWeaponsAsFocusBuilder : DefinitionBuilder<FeatureDefinitionMagicAffinity>
+    internal sealed class UseArmorWeaponsAsFocusBuilder : FeatureDefinitionMagicAffinityBuilder
     {
         private const string UseArmorWeaponsAsFocusName = "UseArmorWeaponsAsFocus";
         private const string UseArmorWeaponsAsFocusGuid = "55a4d71f-2b9d-4df6-abf1-c0cc6682eb9d";

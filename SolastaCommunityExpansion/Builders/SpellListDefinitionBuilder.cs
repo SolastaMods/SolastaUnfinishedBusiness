@@ -6,12 +6,37 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public sealed class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinition>
+    public class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinition>
     {
-        private SpellListDefinitionBuilder(SpellListDefinition original, string name, Guid guidNamespace)
-            : base(original, name, guidNamespace)
+        #region Constructors
+        protected SpellListDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
+
+        protected SpellListDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected SpellListDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        {
+        }
+
+        protected SpellListDefinitionBuilder(SpellListDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected SpellListDefinitionBuilder(SpellListDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected SpellListDefinitionBuilder(SpellListDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+
+        protected SpellListDefinitionBuilder(SpellListDefinition original) : base(original)
+        {
+        }
+        #endregion
 
         public static SpellListDefinitionBuilder Create(SpellListDefinition original, string name, Guid guidNamespace)
         {

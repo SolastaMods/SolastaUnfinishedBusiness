@@ -45,7 +45,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             }
         }
 
-        public class FeatureDefinitionProficiencyBuilder : DefinitionBuilder<FeatureDefinitionProficiency>
+        public class FeatureDefinitionProficiencyBuilder : Builders.Features.FeatureDefinitionProficiencyBuilder
         {
             public FeatureDefinitionProficiencyBuilder(string name, string guid, RuleDefinitions.ProficiencyType type,
                 GuiPresentation guiPresentation, params string[] proficiencies) :
@@ -94,7 +94,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             }
         }
 
-        public class FeatureDefinitionMagicAffinityBuilder : DefinitionBuilder<FeatureDefinitionMagicAffinity>
+        public class FeatureDefinitionMagicAffinityBuilder : Builders.Features.FeatureDefinitionMagicAffinityBuilder
         {
             public FeatureDefinitionMagicAffinityBuilder(string name, string guid, RuleDefinitions.ConcentrationAffinity concentrationAffinity,
                 int threshold, GuiPresentation guiPresentation) : base(name, guid)
@@ -186,7 +186,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             }
         }
 
-        public class FeatureDefinitionSavingThrowAffinityBuilder : DefinitionBuilder<FeatureDefinitionSavingThrowAffinity>
+        public class FeatureDefinitionSavingThrowAffinityBuilder : Builders.Features.FeatureDefinitionSavingThrowAffinityBuilder
         {
             public FeatureDefinitionSavingThrowAffinityBuilder(string name, string guid, IEnumerable<string> abilityScores,
                 RuleDefinitions.CharacterSavingThrowAffinity affinityType,
@@ -220,7 +220,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             }
         }
 
-        public class FeatureDefinitionAbilityCheckAffinityBuilder : DefinitionBuilder<FeatureDefinitionAbilityCheckAffinity>
+        public class FeatureDefinitionAbilityCheckAffinityBuilder : Builders.Features.FeatureDefinitionAbilityCheckAffinityBuilder
         {
             // TODO: convert tuples to ()
             public FeatureDefinitionAbilityCheckAffinityBuilder(string name, string guid, IEnumerable<Tuple<string, string>> abilityProficiencyPairs,
@@ -265,7 +265,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             }
         }
 
-        public class FeatureDefinitionAutoPreparedSpellsBuilder : DefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
+        public class FeatureDefinitionAutoPreparedSpellsBuilder : Builders.Features.FeatureDefinitionAutoPreparedSpellsBuilder
         {
             public FeatureDefinitionAutoPreparedSpellsBuilder(string name, string guid, IEnumerable<AutoPreparedSpellsGroup> autospelllists,
                 CharacterClassDefinition characterclass, GuiPresentation guiPresentation) : base(name, guid)
@@ -315,7 +315,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             }
         }
 
-        public class FeatureDefinitionBonusCantripsBuilder : DefinitionBuilder<FeatureDefinitionBonusCantrips>
+        public class FeatureDefinitionBonusCantripsBuilder : Builders.Features.FeatureDefinitionBonusCantripsBuilder
         {
             public FeatureDefinitionBonusCantripsBuilder(string name, string guid, IEnumerable<SpellDefinition> cantrips, GuiPresentation guiPresentation) : base(name, guid)
             {

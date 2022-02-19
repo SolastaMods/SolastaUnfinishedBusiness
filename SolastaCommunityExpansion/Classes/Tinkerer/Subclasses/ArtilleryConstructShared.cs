@@ -771,7 +771,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static readonly SpellDefinition SummonArtillerySpellConstruct15 = CreateAndAddToDB(SummonArtillerySpellConstruct_15Name, SummonArtillerySpellConstruct_15Guid);
     }
 
-    internal sealed class SummoningAffinityTinkererArtilleryConstructBuilder : DefinitionBuilder<FeatureDefinitionSummoningAffinity>
+    internal sealed class SummoningAffinityTinkererArtilleryConstructBuilder : FeatureDefinitionSummoningAffinityBuilder
     {
         private const string Name = "SummoningAffinityTinkererArtilleryConstruct";
         private const string Guid = "edae2ec0-f871-4918-855a-117bd428d51e";

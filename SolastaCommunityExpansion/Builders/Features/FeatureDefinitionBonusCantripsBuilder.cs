@@ -5,12 +5,37 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionBonusCantripsBuilder : FeatureDefinitionBuilder<FeatureDefinitionBonusCantrips, FeatureDefinitionBonusCantripsBuilder>
+    public class FeatureDefinitionBonusCantripsBuilder : FeatureDefinitionBuilder<FeatureDefinitionBonusCantrips, FeatureDefinitionBonusCantripsBuilder>
     {
-        private FeatureDefinitionBonusCantripsBuilder(FeatureDefinitionBonusCantrips original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
+        #region Constructors
+        protected FeatureDefinitionBonusCantripsBuilder(FeatureDefinitionBonusCantrips original) : base(original)
         {
         }
+
+        protected FeatureDefinitionBonusCantripsBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionBonusCantripsBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected FeatureDefinitionBonusCantripsBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionBonusCantripsBuilder(FeatureDefinitionBonusCantrips original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionBonusCantripsBuilder(FeatureDefinitionBonusCantrips original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionBonusCantripsBuilder(FeatureDefinitionBonusCantrips original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
 
         // Add other standard Create methods and constructors as required.
 

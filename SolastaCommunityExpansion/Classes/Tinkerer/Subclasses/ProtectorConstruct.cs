@@ -407,7 +407,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		ProtectorConstructAttacksBuilder		*******************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class ProtectorConstructAttackBuilder : DefinitionBuilder<MonsterAttackDefinition>
+    internal sealed class ProtectorConstructAttackBuilder : MonsterAttackDefinitionBuilder
     {
         private const string ProtectorConstructAttacksName = "ProtectorConstructAttacks";
         private const string ProtectorConstructAttacksGuid = "dad5a3f6-3b44-4476-85fc-d5235b9ad9cd";

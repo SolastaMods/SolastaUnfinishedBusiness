@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		AddConstructCantripsBuilder		*******************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class AddConstructCantripsBuilder : DefinitionBuilder<FeatureDefinitionBonusCantrips>
+    internal sealed class AddConstructCantripsBuilder : FeatureDefinitionBonusCantripsBuilder
     {
         private const string Name = "AddConstructCantrips";
         private const string Guid = "942183c0-e581-464a-afe4-cc00a9cd9c26";
@@ -259,7 +259,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		ArtificialServantAttacksListBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class ArtificialServantAttackBuilder : DefinitionBuilder<MonsterAttackDefinition>
+    internal sealed class ArtificialServantAttackBuilder : MonsterAttackDefinitionBuilder
     {
         private const string ArtificialServantAttacksListName = "ArtificialServantAttacksList";
         private const string ArtificialServantAttacksListGuid = "86840282-4d84-44b7-a4fd-6bf6b598f776";
