@@ -130,7 +130,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             return FeatureDefinitionAbilityCheckAffinityBuilder
                 .Create(name, SubclassNamespace)
                 .SetGuiPresentation(guiPresentation)
-                .SetAbilityAffinities(abilityProficiencyPairs, 0, RuleDefinitions.DieType.D8, affinityType)
+                .BuildAndSetAffinityGroups(affinityType, RuleDefinitions.DieType.D8, 0, abilityProficiencyPairs)
                 .AddToDB();
         }
 

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi.Extensions;
+using static FeatureDefinitionAbilityCheckAffinity;
+using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
@@ -39,12 +41,17 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
-        public TBuilder SetAbilityAffinities(
-            IEnumerable<(string abilityScoreName, string proficiencyName)> abilityProficiencyPairs,
-            int diceNumber, RuleDefinitions.DieType dieType, RuleDefinitions.CharacterAbilityCheckAffinity affinityType)
+        public TBuilder BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity affinityType,
+            DieType dieType, int diceNumber, params (string abilityScoreName, string proficiencyName)[] abilityProficiencyPairs)
         {
-            Definition.SetAffinityGroups(
-                abilityProficiencyPairs.Select(pair => new FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup
+            return BuildAndSetAffinityGroups(affinityType, dieType, diceNumber, abilityProficiencyPairs.AsEnumerable());
+        }
+
+        public TBuilder BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity affinityType,
+            DieType dieType, int diceNumber, IEnumerable<(string abilityScoreName, string proficiencyName)> abilityProficiencyPairs)
+        {
+            SetAffinityGroups(
+                abilityProficiencyPairs.Select(pair => new AbilityCheckAffinityGroup
                 {
                     abilityScoreName = pair.abilityScoreName,
                     proficiencyName = (pair.proficiencyName ?? string.Empty).Trim(),
@@ -54,6 +61,17 @@ namespace SolastaCommunityExpansion.Builders.Features
                 }));
 
             return This();
+        }
+
+        public TBuilder SetAffinityGroups(IEnumerable<AbilityCheckAffinityGroup> affinityGroups)
+        {
+            Definition.SetAffinityGroups(affinityGroups);
+            return This();
+        }
+
+        public TBuilder SetAffinityGroups(params AbilityCheckAffinityGroup[] affinityGroups)
+        {
+            return SetAffinityGroups(affinityGroups.AsEnumerable());
         }
     }
 
@@ -87,6 +105,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         protected FeatureDefinitionAbilityCheckAffinityBuilder(FeatureDefinitionAbilityCheckAffinity original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
+
         #endregion
 
         public static FeatureDefinitionAbilityCheckAffinityBuilder Create(string name, Guid namespaceGuid)
@@ -100,6 +119,6 @@ namespace SolastaCommunityExpansion.Builders.Features
             return new FeatureDefinitionAbilityCheckAffinityBuilder(original, name, guid);
         }
 
-        // Add other standard Create methods and constructors as required.
+        // Add other standard Create methods and constructors as requi
     }
 }
