@@ -115,6 +115,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (UI.Toggle("Spike Growth".orange() + " does not affect flying creatures flying higher than 1 cell.", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures = toggle;
+                    HouseSpellTweaks.SpikeGrowthDoesNotAffectFlyingCreatures();
                 }
 
                 toggle = Main.Settings.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures;
