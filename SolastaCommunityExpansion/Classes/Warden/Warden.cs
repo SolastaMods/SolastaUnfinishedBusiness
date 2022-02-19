@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -258,8 +258,10 @@ namespace SolastaCommunityExpansion.Classes.Warden
                 .Create("WardenGrasp", WARDEN_BASE_GUID)
                 .SetGuiPresentation(Category.Class, SpellDefinitions.Entangle.GuiPresentation.SpriteReference)
                 .SetActivation(RuleDefinitions.ActivationTime.BonusAction, 0)
+//                .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
                 .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
                 .SetUsesFixed(1)
+//                .SetEffectDescription(wardenGraspEffectDescription)
                 .SetEffect(wardenGraspEffectDescription)
                 .AddToDB();
 
@@ -361,8 +363,10 @@ namespace SolastaCommunityExpansion.Classes.Warden
                 .Create("WardenResolve", WARDEN_BASE_GUID)
                 .SetGuiPresentation(Category.Class, SpellDefinitions.ShieldOfFaith.GuiPresentation.SpriteReference)
                 .SetActivation(RuleDefinitions.ActivationTime.PermanentUnlessIncapacitated, 0)
+//                .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
                 .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
                 .SetUsesFixed(1)
+//                .SetEffectDescription(wardenResolveEffectDescription)
                 .SetEffect(wardenResolveEffectDescription)
                 .AddToDB();
         }
@@ -408,8 +412,10 @@ namespace SolastaCommunityExpansion.Classes.Warden
                 .Create("FontOfLife", WARDEN_BASE_GUID)
                 .SetGuiPresentation(Category.Class, SpellDefinitions.LesserRestoration.GuiPresentation.SpriteReference)
                 .SetActivation(RuleDefinitions.ActivationTime.Action, 1)
+//                .SetRechargeRate(RuleDefinitions.RechargeRate.ShortRest)
                 .SetRecharge(RuleDefinitions.RechargeRate.ShortRest)
                 .SetUsesFixed(1)
+//                .SetEffectDescription(fontOfLifeEffectDescription)
                 .SetEffect(fontOfLifeEffectDescription)
                 .AddToDB();
 
@@ -418,7 +424,7 @@ namespace SolastaCommunityExpansion.Classes.Warden
         private static void BuildExtraAttack()
         {
             FeatureDefinitionAttributeModifierExtraAttack = FeatureDefinitionAttributeModifierBuilder
-                .Create("WardenExtraAttack", WARDEN_BASE_GUID)
+                .Create(FeatureDefinitionAttributeModifiers.AttributeModifierRangerExtraAttack, "WardenExtraAttack", WARDEN_BASE_GUID)
                 .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.AttacksNumber, 1)
                 .AddToDB();
         }
@@ -510,20 +516,25 @@ namespace SolastaCommunityExpansion.Classes.Warden
         private static void BuildInterrupt()
         {
 
+            // Until I understand how to apply a condition on an enemy as part of a reaction power, I will put this as a +2 AC boost
             var wardenInterruptAttributeModifier = FeatureDefinitionAttributeModifierBuilder
                 .Create("ModifierWardenInterrupt", WARDEN_BASE_GUID)
-                .SetGuiPresentation(Category.Modifier, ConditionDefinitions.ConditionSlowed.GuiPresentation.SpriteReference)
-                .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.AttacksNumber, -1)
+//                .SetGuiPresentation(Category.Modifier, ConditionDefinitions.ConditionSlowed.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Modifier, ConditionDefinitions.ConditionShielded.GuiPresentation.SpriteReference)
+                .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
                 .AddToDB();
 
             var wardenInterruptConditionDefinition = ConditionDefinitionBuilder
-                .Create(ConditionDefinitions.ConditionSlowed, "ConditionWardenInterrupt", WARDEN_BASE_GUID)
-                .SetGuiPresentation("WardenInterrupt", Category.Condition, ConditionDefinitions.ConditionSlowed.GuiPresentation.SpriteReference)
+//                .Create(ConditionDefinitions.ConditionSlowed, "ConditionWardenInterrupt", WARDEN_BASE_GUID)
+                .Create("ConditionWardenInterrupt", WARDEN_BASE_GUID)
+//                .SetGuiPresentation("WardenInterrupt", Category.Condition, ConditionDefinitions.ConditionSlowed.GuiPresentation.SpriteReference)
+                .SetGuiPresentation("WardenInterrupt", Category.Condition, ConditionDefinitions.ConditionShielded.GuiPresentation.SpriteReference)
                 .AddToDB()
-            .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
-            .SetDurationParameter(1)
+//            .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+            .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
+            .SetDurationParameter(0)
             .SetDurationType(RuleDefinitions.DurationType.Round)
-            .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn);
             wardenInterruptConditionDefinition.RecurrentEffectForms.Clear();
             wardenInterruptConditionDefinition.Features.Clear();
             wardenInterruptConditionDefinition.Features.Add(wardenInterruptAttributeModifier);
@@ -537,11 +548,12 @@ namespace SolastaCommunityExpansion.Classes.Warden
                 .SetConditionForm(wardenInterruptConditionForm);
 
             var wardenInterruptEffectDescription = new EffectDescription();
-            wardenInterruptEffectDescription.Copy(FeatureDefinitionPowers.PowerDomainLawHolyRetribution.EffectDescription);
+            wardenInterruptEffectDescription.Copy(SpellDefinitions.Longstrider.EffectDescription);
             wardenInterruptEffectDescription
-                .SetDurationParameter(1)
+                .SetDurationParameter(0)
                 .SetDurationType(RuleDefinitions.DurationType.Round)
-                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
+//                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .SetEndOfEffect(RuleDefinitions.TurnOccurenceType.StartOfTurn)
                 .SetHasSavingThrow(false)
                 .SetRangeParameter(1)
                 .SetRangeType(RuleDefinitions.RangeType.MeleeHit)
@@ -552,11 +564,14 @@ namespace SolastaCommunityExpansion.Classes.Warden
 
             FeatureDefinitionPowerInterrupt = FeatureDefinitionPowerBuilder
                 .Create("WardenInterrupt", WARDEN_BASE_GUID)
-                .SetGuiPresentation(Category.Class, SpellDefinitions.Slow.GuiPresentation.SpriteReference)
+//                .SetGuiPresentation(Category.Class, SpellDefinitions.Slow.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Class)
                 .SetActivation(RuleDefinitions.ActivationTime.Reaction, 0)
                 .SetReaction(RuleDefinitions.ReactionTriggerContext.HitByMelee, string.Empty)
+//                .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
                 .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
                 .SetUsesFixed(1)
+//                .SetEffectDescription(wardenInterruptEffectDescription)
                 .SetEffect(wardenInterruptEffectDescription)
                 .AddToDB();
 
@@ -683,8 +698,6 @@ namespace SolastaCommunityExpansion.Classes.Warden
                         FeatureDefinitionProficiencySavingThrow,
                         FeatureDefinitionPointPoolSkills,
                         FeatureDefinitionFeatureSetSentinelStand,
-                        FeatureDefinitionPowerInterrupt,
-                        FeatureDefinitionFeatureSetSentinelStep,
                         FeatureDefinitionPowerWardenGrasp)
                     .AddFeaturesAtLevel(2,
                         FeatureDefinitionFightingStyleChoiceWarden)//,
@@ -697,7 +710,7 @@ namespace SolastaCommunityExpansion.Classes.Warden
 //                    .AddFeatureAtLevel(7, FeatureDefinitionFeatureSetSentinelStep)
                     .AddFeatureAtLevel(8, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
                     .AddFeatureAtLevel(9, FeatureDefinitionDamageAffinityUndying)
-//                    .AddFeatureAtLevel(10, FeatureDefinitionPowerInterrupt)
+                    .AddFeatureAtLevel(10, FeatureDefinitionPowerInterrupt)
                     .AddFeatureAtLevel(12, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
                     .AddFeatureAtLevel(16, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
                     .AddFeatureAtLevel(18, FeatureDefinitionFeatureSetSentinelSoul)
