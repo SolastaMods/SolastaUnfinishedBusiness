@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Spells
             SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures();
         }
 
-        private static void SpikeGrowthDoesNotAffectFlyingCreatures()
+        internal static void SpikeGrowthDoesNotAffectFlyingCreatures()
         {
             if (!Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures)
             {
