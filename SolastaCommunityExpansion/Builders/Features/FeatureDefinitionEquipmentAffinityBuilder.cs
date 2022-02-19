@@ -3,7 +3,7 @@
 namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionEquipmentAffinityBuilder
-        : FeatureDefinitionBuilder<FeatureDefinitionEquipmentAffinity, FeatureDefinitionEquipmentAffinityBuilder>
+        : FeatureDefinitionAffinityBuilder<FeatureDefinitionEquipmentAffinity, FeatureDefinitionEquipmentAffinityBuilder>
     {
         #region Constructors
         protected FeatureDefinitionEquipmentAffinityBuilder(FeatureDefinitionEquipmentAffinity original) : base(original)

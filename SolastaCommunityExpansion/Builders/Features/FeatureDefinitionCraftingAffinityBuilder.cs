@@ -3,7 +3,7 @@
 namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionCraftingAffinityBuilder
-        : FeatureDefinitionBuilder<FeatureDefinitionCraftingAffinity, FeatureDefinitionCraftingAffinityBuilder>
+        : FeatureDefinitionAffinityBuilder<FeatureDefinitionCraftingAffinity, FeatureDefinitionCraftingAffinityBuilder>
     {
         #region Constructors
         protected FeatureDefinitionCraftingAffinityBuilder(FeatureDefinitionCraftingAffinity original) : base(original)

@@ -3,7 +3,7 @@
 namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionHealingModifierBuilder
-        : FeatureDefinitionBuilder<FeatureDefinitionHealingModifier, FeatureDefinitionHealingModifierBuilder>
+        : FeatureDefinitionAffinityBuilder<FeatureDefinitionHealingModifier, FeatureDefinitionHealingModifierBuilder>
     {
         #region Constructors
         protected FeatureDefinitionHealingModifierBuilder(FeatureDefinitionHealingModifier original) : base(original)
