@@ -37,12 +37,37 @@ namespace SolastaCommunityExpansion.Builders.Features
         #endregion
     }
 
-    public sealed class FeatureDefinitionDamageAffinityBuilder : FeatureDefinitionDamageAffinityBuilder<FeatureDefinitionDamageAffinity, FeatureDefinitionDamageAffinityBuilder>
+    public class FeatureDefinitionDamageAffinityBuilder : FeatureDefinitionDamageAffinityBuilder<FeatureDefinitionDamageAffinity, FeatureDefinitionDamageAffinityBuilder>
     {
-        private FeatureDefinitionDamageAffinityBuilder(FeatureDefinitionDamageAffinity original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
+        #region Constructors
+        protected FeatureDefinitionDamageAffinityBuilder(FeatureDefinitionDamageAffinity original) : base(original)
         {
         }
+
+        protected FeatureDefinitionDamageAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionDamageAffinityBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected FeatureDefinitionDamageAffinityBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionDamageAffinityBuilder(FeatureDefinitionDamageAffinity original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionDamageAffinityBuilder(FeatureDefinitionDamageAffinity original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionDamageAffinityBuilder(FeatureDefinitionDamageAffinity original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
 
         public static FeatureDefinitionDamageAffinityBuilder Create(FeatureDefinitionDamageAffinity original, string name, Guid namespaceGuid)
         {
