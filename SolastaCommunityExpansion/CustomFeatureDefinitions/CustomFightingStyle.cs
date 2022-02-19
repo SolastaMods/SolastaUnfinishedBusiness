@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using SolastaCommunityExpansion.Builders;
-using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
+﻿using SolastaCommunityExpansion.Builders;
 
 namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 {
@@ -12,7 +9,7 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 
     public delegate bool IsActiveFightingStyleDelegate(RulesetCharacterHero character);
 
-    public class CustomizableFightingStyle : FightingStyleDefinition, ICustomFightingStyle
+    public class CustomizableFightingStyleDefinition : FightingStyleDefinition, ICustomFightingStyle
     {
         private IsActiveFightingStyleDelegate isActive;
 
@@ -27,13 +24,15 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
         }
     }
 
-    public class CustomizableFightingStyleBuilder : DefinitionBuilder<CustomizableFightingStyle>
+    public sealed class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder<CustomizableFightingStyleDefinition, CustomizableFightingStyleBuilder>
     {
-        public CustomizableFightingStyleBuilder(string name, string guid,
-            IEnumerable<FeatureDefinition> features, GuiPresentation guiPresentation) : base(name, guid)
+        private CustomizableFightingStyleBuilder(string name, string guid) : base(name, guid)
         {
-            Definition.Features.SetRange(features);
-            Definition.SetGuiPresentation(guiPresentation);
+        }
+
+        public static CustomizableFightingStyleBuilder Create(string name, string guid)
+        {
+            return new CustomizableFightingStyleBuilder(name, guid);
         }
 
         public CustomizableFightingStyleBuilder SetIsActive(IsActiveFightingStyleDelegate del)
