@@ -57,17 +57,37 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
     }
 
-    public sealed class FeatureDefinitionAbilityCheckAffinityBuilder : FeatureDefinitionAbilityCheckAffinityBuilder<FeatureDefinitionAbilityCheckAffinity, FeatureDefinitionAbilityCheckAffinityBuilder>
+    public class FeatureDefinitionAbilityCheckAffinityBuilder : FeatureDefinitionAbilityCheckAffinityBuilder<FeatureDefinitionAbilityCheckAffinity, FeatureDefinitionAbilityCheckAffinityBuilder>
     {
-        private FeatureDefinitionAbilityCheckAffinityBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid)
+        #region Constructors
+        protected FeatureDefinitionAbilityCheckAffinityBuilder(FeatureDefinitionAbilityCheckAffinity original) : base(original)
         {
         }
 
-        private FeatureDefinitionAbilityCheckAffinityBuilder(FeatureDefinitionAbilityCheckAffinity original, string name, string guid)
-            : base(original, name, guid)
+        protected FeatureDefinitionAbilityCheckAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
+
+        protected FeatureDefinitionAbilityCheckAffinityBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected FeatureDefinitionAbilityCheckAffinityBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionAbilityCheckAffinityBuilder(FeatureDefinitionAbilityCheckAffinity original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionAbilityCheckAffinityBuilder(FeatureDefinitionAbilityCheckAffinity original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionAbilityCheckAffinityBuilder(FeatureDefinitionAbilityCheckAffinity original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
 
         public static FeatureDefinitionAbilityCheckAffinityBuilder Create(string name, Guid namespaceGuid)
         {

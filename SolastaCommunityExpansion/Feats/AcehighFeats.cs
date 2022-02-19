@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using static FeatureDefinitionSavingThrowAffinity;
@@ -31,7 +32,7 @@ namespace SolastaCommunityExpansion.Feats
             PowerAttackTwoHandedAttackModifierBuilder.PowerAttackTwoHandedAttackModifier.SetDamageRollModifier(2 * Main.Settings.FeatPowerAttackModifier);
         }
 
-        internal sealed class PowerAttackPowerBuilder : DefinitionBuilder<FeatureDefinitionPower>
+        internal sealed class PowerAttackPowerBuilder : FeatureDefinitionPowerBuilder
         {
             private const string PowerAttackPowerName = "PowerAttack";
             private const string PowerAttackPowerNameGuid = "0a3e6a7d-4628-4189-b91d-d7146d774bb6";
@@ -77,7 +78,7 @@ namespace SolastaCommunityExpansion.Feats
             public static readonly FeatureDefinitionPower PowerAttackPower = CreateAndAddToDB(PowerAttackPowerName, PowerAttackPowerNameGuid);
         }
 
-        internal sealed class PowerAttackTwoHandedPowerBuilder : DefinitionBuilder<FeatureDefinitionPower>
+        internal sealed class PowerAttackTwoHandedPowerBuilder : FeatureDefinitionPowerBuilder
         {
             private const string PowerAttackTwoHandedPowerName = "PowerAttackTwoHanded";
             private const string PowerAttackTwoHandedPowerNameGuid = "b45b8467-7caa-428e-b4b5-ba3c4a153f07";
@@ -176,7 +177,7 @@ namespace SolastaCommunityExpansion.Feats
             public static readonly FeatureDefinitionAttackModifier PowerAttackTwoHandedAttackModifier = CreateAndAddToDB(PowerAttackTwoHandedAttackModifierName, PowerAttackTwoHandedAttackModifierNameGuid);
         }
 
-        internal sealed class PowerAttackConditionBuilder : DefinitionBuilder<ConditionDefinition>
+        internal sealed class PowerAttackConditionBuilder : ConditionDefinitionBuilder
         {
             private const string PowerAttackConditionName = "PowerAttackCondition";
             private const string PowerAttackConditionNameGuid = "c125b7b9-e668-4c6f-a742-63c065ad2292";
@@ -202,7 +203,7 @@ namespace SolastaCommunityExpansion.Feats
             public static readonly ConditionDefinition PowerAttackCondition = CreateAndAddToDB(PowerAttackConditionName, PowerAttackConditionNameGuid);
         }
 
-        internal sealed class PowerAttackTwoHandedConditionBuilder : DefinitionBuilder<ConditionDefinition>
+        internal sealed class PowerAttackTwoHandedConditionBuilder : ConditionDefinitionBuilder
         {
             private const string PowerAttackTwoHandedConditionName = "PowerAttackTwoHandedCondition";
             private const string PowerAttackTwoHandedConditionNameGuid = "7d0eecbd-9ad8-4915-a3f7-cfa131001fe6";
@@ -276,7 +277,7 @@ namespace SolastaCommunityExpansion.Feats
             public static readonly FeatDefinition RecklessFuryFeat = CreateAndAddToDB(RecklessFuryFeatName, RecklessFuryFeatNameGuid);
         }
 
-        internal sealed class RagePowerBuilder : DefinitionBuilder<FeatureDefinitionPower>
+        internal sealed class RagePowerBuilder : FeatureDefinitionPowerBuilder
         {
             private const string RagePowerName = "AHRagePower";
             private const string RagePowerNameGuid = "a46c1722-7825-4a81-bca1-392b51cd7d97";
@@ -326,7 +327,7 @@ namespace SolastaCommunityExpansion.Feats
             public static readonly FeatureDefinitionPower RagePower = CreateAndAddToDB(RagePowerName, RagePowerNameGuid);
         }
 
-        internal sealed class RageFeatConditionBuilder : DefinitionBuilder<ConditionDefinition>
+        internal sealed class RageFeatConditionBuilder : ConditionDefinitionBuilder
         {
             private const string RageFeatConditionName = "AHRageFeatCondition";
             private const string RageFeatConditionNameGuid = "2f34fb85-6a5d-4a4e-871b-026872bc24b8";

@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
     internal static class FeatureHelpers
     {
         // TODO Most of theese builders should likely get moved/merged with the CE builders.
-        public class FeatureDefinitionPowerBuilder : DefinitionBuilder<FeatureDefinitionPower>
+        public class FeatureDefinitionPowerBuilder : Builders.Features.FeatureDefinitionPowerBuilder
         {
             public FeatureDefinitionPowerBuilder(string name, string guid, int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
                 string usesAbilityScoreName, RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge,
@@ -156,7 +156,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             }
         }
 
-        public class ConditionDefinitionBuilder : DefinitionBuilder<ConditionDefinition>
+        public class ConditionDefinitionBuilder : Builders.ConditionDefinitionBuilder
         {
             public ConditionDefinitionBuilder(string name, string guid, RuleDefinitions.DurationType durationType, int durationParameter,
                 bool silent, GuiPresentation guiPresentation, params FeatureDefinition[] conditionFeatures) :

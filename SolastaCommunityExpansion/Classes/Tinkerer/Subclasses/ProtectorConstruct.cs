@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using HarmonyLib;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -124,7 +125,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummonProtectorConstructBuilder		***********************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SummonProtectorPowerConstructBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class SummonProtectorPowerConstructBuilder : FeatureDefinitionPowerBuilder
     {
         private const string SummonProtectorConstructName = "SummonProtectorConstruct";
         private const string SummonProtectorConstructNameGuid = "20b5ab3e-5124-4d08-9907-347f2f1284d4";
@@ -162,7 +163,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummonProtectorPowerConstruct_UpgradeBuilder		***************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SummonProtectorPowerConstructUpgradeBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class SummonProtectorPowerConstructUpgradeBuilder : FeatureDefinitionPowerBuilder
     {
         private const string Name = "SummonProtectorPowerConstruct_Upgrade";
         private const string Guid = "34c307e9-5883-438c-9130-1f286b9cdafc";
@@ -463,7 +464,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SelfRepairBuilder		***********************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SelfRepairBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class SelfRepairBuilder : FeatureDefinitionPowerBuilder
     {
         private const string SelfRepairName = "SelfRepair";
         private const string SelfRepairNameGuid = "68db5cab-6fc9-4795-88a6-f89d81b0e4ef";
@@ -511,7 +512,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		RetributionBuilder		***********************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class RetributionBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class RetributionBuilder : FeatureDefinitionPowerBuilder
     {
         private const string RetributionName = "Retribution";
         private const string RetributionNameGuid = "1fc63d9f-263c-4642-b75c-f7684ca6dd3d";

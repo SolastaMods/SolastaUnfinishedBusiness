@@ -652,7 +652,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static readonly ItemDefinition SentinelSuitWeapon = CreateAndAddToDB(SentinelSuitWeaponName, SentinelSuitWeaponGuid);
     }
 
-    internal sealed class ThunderShieldBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class ThunderShieldBuilder : FeatureDefinitionPowerBuilder
     {
         private const string ThunderShieldName = "ThunderShield";
         private const string ThunderShieldGuid = "f5ca9b23-0326-4b26-86e7-33ebcc061faf";
@@ -712,7 +712,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static readonly FeatureDefinitionPower ThunderShield = CreateAndAddToDB(ThunderShieldName, ThunderShieldGuid);
     }
 
-    internal sealed class ThunderStruckConditionBuilder : DefinitionBuilder<ConditionDefinition>
+    internal sealed class ThunderStruckConditionBuilder : ConditionDefinitionBuilder
     {
         private const string ThunderStruckName = "ThunderStruck";
         private const string ThunderStruckGuid = "63e2091c-4186-43d5-a099-7c8ca97224d6";
@@ -765,7 +765,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static readonly FeatureDefinitionCombatAffinity Disadvantage = CreateAndAddToDB(ThunderStruckDisadvantageName, ThunderStruckDisadvantageGuid);
     }
 
-    internal sealed class ThunderStruckBalancingAdvantageConditionBuilder : DefinitionBuilder<ConditionDefinition>
+    internal sealed class ThunderStruckBalancingAdvantageConditionBuilder : ConditionDefinitionBuilder
     {
         private const string ThunderStruckBalancingAdvantageName = "ThunderStruckBalancingAdvantage";
         private const string ThunderStruckBalancingAdvantageGuid = "0b2b4bee-21b0-46c7-9504-1374bd226cb0";
@@ -1056,7 +1056,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static readonly ItemDefinition ImprovedSentinelSuitWeapon = CreateAndAddToDB(ImprovedSentinelSuitWeaponName, ImprovedSentinelSuitWeaponGuid);
     }
 
-    internal sealed class GauntletsGrappleBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class GauntletsGrappleBuilder : FeatureDefinitionPowerBuilder
     {
         private const string GauntletsGrappleName = "GauntletsGrapple";
         private const string GauntletsGrappleGuid = "71b309c2-1f8b-4df4-955e-3f8504bc381e";
@@ -1205,7 +1205,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static readonly ItemDefinition ImprovedScoutSuitWeapon = CreateAndAddToDB(ImprovedScoutSuitWeaponName, ImprovedScoutSuitWeaponGuid);
     }
 
-    internal sealed class DisadvantageOnAttackByEnemyBuilder : DefinitionBuilder<ConditionDefinition>
+    internal sealed class DisadvantageOnAttackByEnemyBuilder : ConditionDefinitionBuilder
     {
         private const string DisadvantageOnAttackByEnemyName = "DisadvantageOnAttackByEnemy";
         private const string DisadvantageOnAttackByEnemyGuid = "94bbcf4e-c376-4804-a157-2a5a5dd003e9";
@@ -1225,7 +1225,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static readonly ConditionDefinition DisadvantageOnAttackByEnemy = CreateAndAddToDB(DisadvantageOnAttackByEnemyName, DisadvantageOnAttackByEnemyGuid);
     }
 
-    internal sealed class AdvantageAttackOnEnemyBuilder : DefinitionBuilder<ConditionDefinition>
+    internal sealed class AdvantageAttackOnEnemyBuilder : ConditionDefinitionBuilder
     {
         private const string AdvantageAttackOnEnemyName = "AdvantageAttackOnEnemy";
         private const string AdvantageAttackOnEnemyGuid = "e10ff259-0294-4814-86de-327eaa1486a6";
@@ -1245,7 +1245,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static readonly ConditionDefinition AdvantageAttackOnEnemy = CreateAndAddToDB(AdvantageAttackOnEnemyName, AdvantageAttackOnEnemyGuid);
     }
 
-    internal sealed class ExtraDamageOnAttackConditionBuilder : DefinitionBuilder<ConditionDefinition>
+    internal sealed class ExtraDamageOnAttackConditionBuilder : ConditionDefinitionBuilder
     {
         private const string ExtraDamageOnAttackConditionName = "ExtraDamageOnAttackCondition";
         private const string ExtraDamageOnAttackConditionGuid = "2a9bc931-adb9-4751-8770-3a1367920a57";

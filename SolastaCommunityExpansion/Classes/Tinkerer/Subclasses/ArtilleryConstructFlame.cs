@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using UnityEngine.AddressableAssets;
@@ -10,7 +11,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		FlameArtilleryBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class FlameArtilleryBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class FlameArtilleryBuilder : FeatureDefinitionPowerBuilder
     {
         private const string FlameArtilleryName = "FlameArtillery";
         private const string FlameArtilleryGuid = "3a93be16-4398-47cb-9c1c-4ec56903bd2f";
@@ -77,7 +78,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		FlameArtillery_2Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class FlameArtillery2Builder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class FlameArtillery2Builder : FeatureDefinitionPowerBuilder
     {
         private const string FlameArtillery_2Name = "FlameArtillery_2";
         private const string FlameArtillery_2Guid = "2ba003a5-718a-4eea-a0f8-33fa79884cb1";

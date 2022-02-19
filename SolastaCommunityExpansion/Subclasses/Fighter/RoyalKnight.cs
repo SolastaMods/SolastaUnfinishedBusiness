@@ -1,5 +1,6 @@
 ﻿using System;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
@@ -32,12 +33,12 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 .AddToDB();
         }
 
-        internal class RoyalEnvoyAbilityCheckAffinityBuilder : DefinitionBuilder<FeatureDefinitionAbilityCheckAffinity>
+        private class RoyalEnvoyAbilityCheckAffinityBuilder : FeatureDefinitionAbilityCheckAffinityBuilder
         {
             private const string RoyalEnvoyAbilityCheckName = "RoyalEnvoyAbilityCheckAffinity";
             private const string RoyalEnvoyAbilityCheckGuid = "b16f8b68-0dab-49e5-b1a2-6fdfd8836849";
 
-            protected RoyalEnvoyAbilityCheckAffinityBuilder(string name, string guid) : base(AbilityCheckAffinityChampionRemarkableAthlete, name, guid)
+            private RoyalEnvoyAbilityCheckAffinityBuilder(string name, string guid) : base(AbilityCheckAffinityChampionRemarkableAthlete, name, guid)
             {
                 Definition.AffinityGroups.Clear();
                 Definition.AffinityGroups.Add(new FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup()
@@ -47,7 +48,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 });
             }
 
-            public static FeatureDefinitionAbilityCheckAffinity CreateAndAddToDB(string name, string guid)
+            private static FeatureDefinitionAbilityCheckAffinity CreateAndAddToDB(string name, string guid)
             {
                 return new RoyalEnvoyAbilityCheckAffinityBuilder(name, guid).AddToDB();
             }
@@ -56,12 +57,12 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 => CreateAndAddToDB(RoyalEnvoyAbilityCheckName, RoyalEnvoyAbilityCheckGuid);
         }
 
-        public class RoyalEnvoyFeatureBuilder : DefinitionBuilder<FeatureDefinitionFeatureSet>
+        private class RoyalEnvoyFeatureBuilder : FeatureDefinitionFeatureSetBuilder
         {
             private const string RoyalEnvoyFeatureName = "RoyalEnvoyFeature";
             private const string RoyalEnvoyFeatureGuid = "c8299685-d806-4e20-aff0-ca3dd4000e05";
 
-            protected RoyalEnvoyFeatureBuilder(string name, string guid) : base(FeatureDefinitionFeatureSets.FeatureSetChampionRemarkableAthlete, name, guid)
+            private RoyalEnvoyFeatureBuilder(string name, string guid) : base(FeatureDefinitionFeatureSets.FeatureSetChampionRemarkableAthlete, name, guid)
             {
                 Definition.GuiPresentation.Title = "Feature/&RoyalEnvoyFeatureTitle";
                 Definition.GuiPresentation.Description = "Feature/&RoyalEnvoyFeatureDescription";
@@ -70,7 +71,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 Definition.FeatureSet.Add(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfSolasta);
             }
 
-            public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
+            private static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
             {
                 return new RoyalEnvoyFeatureBuilder(name, guid).AddToDB();
             }
@@ -79,12 +80,12 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 => CreateAndAddToDB(RoyalEnvoyFeatureName, RoyalEnvoyFeatureGuid);
         }
 
-        public class RallyingCryPowerBuilder : DefinitionBuilder<FeatureDefinitionPower>
+        private class RallyingCryPowerBuilder : FeatureDefinitionPowerBuilder
         {
             private const string RallyingCryPowerName = "RallyingCryPower";
             private const string RallyingCryPowerGuid = "cabe94a7-7e51-4231-ae6d-e8e6e3954611";
 
-            protected RallyingCryPowerBuilder(string name, string guid) : base(FeatureDefinitionPowers.PowerDomainLifePreserveLife, name, guid)
+            private RallyingCryPowerBuilder(string name, string guid) : base(FeatureDefinitionPowers.PowerDomainLifePreserveLife, name, guid)
             {
                 Definition.SetOverriddenPower(FeatureDefinitionPowers.PowerFighterSecondWind);
                 Definition.SetActivationTime(RuleDefinitions.ActivationTime.BonusAction);
@@ -109,7 +110,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 Definition.GuiPresentation.SetSpriteReference(SpellDefinitions.HealingWord.GuiPresentation.SpriteReference);
             }
 
-            public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
+            private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
             {
                 return new RallyingCryPowerBuilder(name, guid).AddToDB();
             }
@@ -118,12 +119,12 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 => CreateAndAddToDB(RallyingCryPowerName, RallyingCryPowerGuid);
         }
 
-        internal class InspiringSurgePowerBuilder : DefinitionBuilder<FeatureDefinitionPower>
+        private class InspiringSurgePowerBuilder : FeatureDefinitionPowerBuilder
         {
             private const string InspiringSurgePowerName = "InspiringSurgePower";
             private const string InspiringSurgePowerNameGuid = "c2930ad2-dd02-4ff3-bad8-46d93e328fbd";
 
-            protected InspiringSurgePowerBuilder(string name, string guid) : base(FeatureDefinitionPowers.PowerDomainLifePreserveLife, name, guid)
+            private InspiringSurgePowerBuilder(string name, string guid) : base(FeatureDefinitionPowers.PowerDomainLifePreserveLife, name, guid)
             {
                 Definition.SetActivationTime(RuleDefinitions.ActivationTime.BonusAction);
                 Definition.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
@@ -162,7 +163,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 Definition.GuiPresentation.SetSpriteReference(SpellDefinitions.Heroism.GuiPresentation.SpriteReference);
             }
 
-            public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
+            private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
             {
                 return new InspiringSurgePowerBuilder(name, guid).AddToDB();
             }

@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 
@@ -9,7 +10,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		TempHPShieldBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class TempHPShieldBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class TempHPShieldBuilder : FeatureDefinitionPowerBuilder
     {
         private const string TempHPShieldName = "TempHPShield";
         private const string TempHPShieldGuid = "9ca27524-0b49-479e-b11d-085e00e77b8f";

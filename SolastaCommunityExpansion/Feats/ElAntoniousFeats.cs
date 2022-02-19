@@ -74,7 +74,7 @@ namespace SolastaCommunityExpansion.Feats
         }
     }
 
-    internal sealed class ConditionDualFlurryApplyBuilder : DefinitionBuilder<ConditionDefinition>
+    internal sealed class ConditionDualFlurryApplyBuilder : ConditionDefinitionBuilder
     {
         private ConditionDualFlurryApplyBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionSurged, name, guid)
         {
@@ -105,7 +105,7 @@ namespace SolastaCommunityExpansion.Feats
         }
     }
 
-    internal sealed class ConditionDualFlurryGrantBuilder : DefinitionBuilder<ConditionDefinition>
+    internal sealed class ConditionDualFlurryGrantBuilder : ConditionDefinitionBuilder
     {
         private ConditionDualFlurryGrantBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionSurged, name, guid)
         {

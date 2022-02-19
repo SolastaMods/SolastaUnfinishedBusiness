@@ -387,7 +387,7 @@ namespace SolastaCommunityExpansion.Spells
                 .AddToDB();
         }
 
-        internal class ReverseGravityConditionBuilder : DefinitionBuilder<ConditionDefinition>
+        internal class ReverseGravityConditionBuilder : ConditionDefinitionBuilder
         {
             private const string Name = "DHReverseGravitySpellcondition";
             private const string Guid = "809f1cef-6bdc-4b5a-93bf-275af8ab0b36";
@@ -826,7 +826,7 @@ namespace SolastaCommunityExpansion.Spells
                 .AddToDB();
         }
 
-        internal class FeeblemindConditionBuilder : DefinitionBuilder<ConditionDefinition>
+        internal class FeeblemindConditionBuilder : ConditionDefinitionBuilder
         {
             private const string Name = "DHFeeblemindSpellcondition";
             private const string Guid = "965a09b2-cb22-452b-b93c-2bccdcda4871";
@@ -978,7 +978,7 @@ namespace SolastaCommunityExpansion.Spells
                 .AddToDB();
         }
 
-        internal class HolyAuraConditionBuilder : DefinitionBuilder<ConditionDefinition>
+        internal class HolyAuraConditionBuilder : ConditionDefinitionBuilder
         {
             private const string Name = "DHHolyAuraSpellcondition";
             private const string Guid = "1808ca4b-8f46-41bf-a59c-0bcbd4f60248";
@@ -1034,7 +1034,7 @@ namespace SolastaCommunityExpansion.Spells
             internal static readonly FeatureDefinitionDamageAffinity HolyAuraDamageAffinity = CreateAndAddToDB(Name, Guid);
         }
 
-        internal class HolyAuraBlindingPowerBuilder : DefinitionBuilder<FeatureDefinitionPower>
+        internal class HolyAuraBlindingPowerBuilder : FeatureDefinitionPowerBuilder
         {
             private const string Name = "DHHolyAuraSpellBlindingPower";
             private const string Guid = "40366ca2-00a0-471a-b370-8c81f6283ce1";
@@ -1266,7 +1266,7 @@ namespace SolastaCommunityExpansion.Spells
                 .AddToDB();
         }
 
-        internal class MindBlankConditionBuilder : DefinitionBuilder<ConditionDefinition>
+        internal class MindBlankConditionBuilder : ConditionDefinitionBuilder
         {
             private const string Name = "DHMindBlankSpellcondition";
             private const string Guid = "74f77a4c-b5cb-45d6-ac6d-d9fa2ebe3869";
@@ -1465,7 +1465,7 @@ namespace SolastaCommunityExpansion.Spells
                 .AddToDB();
         }
 
-        internal class ForesightConditionBuilder : DefinitionBuilder<ConditionDefinition>
+        internal class ForesightConditionBuilder : ConditionDefinitionBuilder
         {
             private const string Name = "DHForesightSpellcondition";
             private const string Guid = "4615c639-95f2-4c04-b904-e79f5b916b68";
@@ -1797,7 +1797,7 @@ namespace SolastaCommunityExpansion.Spells
                 .AddToDB();
         }
 
-        internal class TimeStopConditionBuilder : DefinitionBuilder<ConditionDefinition>
+        internal class TimeStopConditionBuilder : ConditionDefinitionBuilder
         {
             private const string Name = "DHTimeStopSpellCondition";
             private const string Guid = "f00e592f-61c3-4cbf-a800-97596e83028d";
@@ -1874,7 +1874,7 @@ namespace SolastaCommunityExpansion.Spells
                 .AddToDB();
         }
 
-        internal class WeirdConditionBuilder : DefinitionBuilder<ConditionDefinition>
+        internal class WeirdConditionBuilder : ConditionDefinitionBuilder
         {
             private const string Name = "DHWeirdSpellCondition";
             private const string Guid = "0f76e7e1-4490-4ee8-a13f-a4a967ba1c08";

@@ -106,7 +106,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             Subclass = conArtist.AddToDB();
         }
 
-        public class AdvantageBuilder : DefinitionBuilder<ConditionDefinition>
+        private sealed class AdvantageBuilder : ConditionDefinitionBuilder
         {
             public AdvantageBuilder(string name, string guid, ConditionDefinition original, GuiPresentation guiPresentation) : base(original, name, guid)
             {
@@ -124,7 +124,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             return new GuiPresentationBuilder("Subclass/&MagicAffinityRoguishConArtistDCTitle", "Subclass/&MagicAffinityRoguishConArtistDC" + Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc + "Description");
         }
 
-        public static FeatureDefinitionAbilityCheckAffinity BuildAbilityAffinity(IEnumerable<(string abilityScoreName, string proficiencyName)> abilityProficiencyPairs,
+        private static FeatureDefinitionAbilityCheckAffinity BuildAbilityAffinity(IEnumerable<(string abilityScoreName, string proficiencyName)> abilityProficiencyPairs,
             RuleDefinitions.CharacterAbilityCheckAffinity affinityType, string name, GuiPresentation guiPresentation)
         {
             return FeatureDefinitionAbilityCheckAffinityBuilder

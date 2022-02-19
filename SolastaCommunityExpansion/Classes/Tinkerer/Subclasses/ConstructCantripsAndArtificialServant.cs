@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -312,7 +313,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static readonly MonsterAttackDefinition ArtificialServantAttack = CreateAndAddToDB(ArtificialServantAttacksListName, ArtificialServantAttacksListGuid);
     }
 
-    internal sealed class CancelFlyingConditionBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class CancelFlyingConditionBuilder : FeatureDefinitionPowerBuilder
     {
         private const string Name = "CancelFlyingConditionArtificialServant";
         private const string Guid = "15bff3c5-632e-451f-8c46-1511ed4cf805";

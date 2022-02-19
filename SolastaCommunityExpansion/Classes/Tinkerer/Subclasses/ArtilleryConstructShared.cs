@@ -428,7 +428,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SelfDestructBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SelfDestructBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class SelfDestructBuilder : FeatureDefinitionPowerBuilder
     {
         private const string SelfDestructName = "SelfDestruct";
         private const string SelfDestructGuid = "68ecf3d9-f718-4c62-921c-f30df3708312";
@@ -520,7 +520,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SelfDestructionConditionBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SelfDestructionConditionBuilder : DefinitionBuilder<ConditionDefinition>
+    internal sealed class SelfDestructionConditionBuilder : ConditionDefinitionBuilder
     {
         private const string SelfDestructionConditionName = "SelfDestructionCondition";
         private const string SelfDestructionConditionGuid = "c96984f4-0370-4775-ab8b-3ee6db0c8806";
@@ -569,7 +569,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		HalfCoverShieldBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class HalfCoverShieldBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class HalfCoverShieldBuilder : FeatureDefinitionPowerBuilder
     {
         private const string HalfCoverShieldName = "HalfCoverShield";
         private const string HalfCoverShieldGuid = "0fd3ccb3-0f15-4766-8eb8-32042838ce6d";
@@ -624,7 +624,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		HalfCoverShieldConditionBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class HalfCoverShieldConditionBuilder : DefinitionBuilder<ConditionDefinition>
+    internal sealed class HalfCoverShieldConditionBuilder : ConditionDefinitionBuilder
     {
         private const string HalfCoverShieldConditionName = "HalfCoverShieldCondition";
         private const string HalfCoverShieldConditionGuid = "c160a20e-4714-478a-8bbb-6df5526728a9";
