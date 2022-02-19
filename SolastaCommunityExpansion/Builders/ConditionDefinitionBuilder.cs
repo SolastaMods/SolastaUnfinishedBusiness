@@ -125,14 +125,14 @@ namespace SolastaCommunityExpansion.Builders
                 case RuleDefinitions.DurationType.Minute:
                 case RuleDefinitions.DurationType.Hour:
                 case RuleDefinitions.DurationType.Day:
-                    if(duration == null)
+                    if (duration == null)
                     {
                         throw new ArgumentNullException(nameof(duration), $"A duration value is required for duration type {type}.");
                     }
                     Definition.SetDurationParameter(duration.Value);
                     break;
                 default:
-                    if(duration != null)
+                    if (duration != null)
                     {
                         throw new SolastaModApiException($"A duration value is not expected for duration type {type}");
                     }

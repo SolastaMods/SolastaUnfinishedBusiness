@@ -73,7 +73,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         private const string Name = "SummoningAffinityTinkererConstruct";
         private const string Guid = "0dbd3d80-96ce-4cf9-8ffa-597f1ea84c3b";
 
-        private SummoningAffinityTinkererConstructBuilder(string name, string guid) 
+        private SummoningAffinityTinkererConstructBuilder(string name, string guid)
             : base(DatabaseHelper.FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritBond, name, guid)
         {
             Definition.GuiPresentation.Title = "Feature/&NoContentTitle";

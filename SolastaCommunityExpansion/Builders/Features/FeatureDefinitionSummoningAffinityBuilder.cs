@@ -5,7 +5,7 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionSummoningAffinityBuilder 
+    public class FeatureDefinitionSummoningAffinityBuilder
         : FeatureDefinitionAffinityBuilder<FeatureDefinitionSummoningAffinity, FeatureDefinitionSummoningAffinityBuilder>
     {
         protected FeatureDefinitionSummoningAffinityBuilder(string name, string guid)

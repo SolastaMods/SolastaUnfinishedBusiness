@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
         private static int selectedClass { get; set; }
 
-        private static readonly List<string> classesWithDeity = new () { RuleDefinitions.ClericClass, RuleDefinitions.PaladinClass };
+        private static readonly List<string> classesWithDeity = new() { RuleDefinitions.ClericClass, RuleDefinitions.PaladinClass };
 
         internal static RulesetCharacterHero SelectedHero
         {

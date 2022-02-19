@@ -1,5 +1,4 @@
-﻿using SolastaCommunityExpansion.Builders;
-using SolastaCommunityExpansion.Builders.Features;
+﻿using SolastaCommunityExpansion.Builders.Features;
 using static SolastaModApi.DatabaseHelper.ActionDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
 

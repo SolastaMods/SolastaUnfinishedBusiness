@@ -37,7 +37,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         #endregion
     }
 
-    public class FeatureDefinitionConditionAffinityBuilder 
+    public class FeatureDefinitionConditionAffinityBuilder
         : FeatureDefinitionConditionAffinityBuilder<FeatureDefinitionConditionAffinity, FeatureDefinitionConditionAffinityBuilder>
     {
         #region Constructors

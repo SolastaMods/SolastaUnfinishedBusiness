@@ -36,5 +36,5 @@ namespace SolastaCommunityExpansion.Builders
 
         // TODO: add Create methods
     }
-    
+
 }

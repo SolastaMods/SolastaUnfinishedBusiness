@@ -2,7 +2,7 @@
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionAttackModifierBuilder 
+    public class FeatureDefinitionAttackModifierBuilder
         : FeatureDefinitionAffinityBuilder<FeatureDefinitionAttackModifier, FeatureDefinitionAttackModifierBuilder>
     {
         #region Constructors

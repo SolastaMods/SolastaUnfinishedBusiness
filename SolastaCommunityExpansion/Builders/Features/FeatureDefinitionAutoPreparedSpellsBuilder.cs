@@ -7,7 +7,7 @@ using static FeatureDefinitionAutoPreparedSpells;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionAutoPreparedSpellsBuilder 
+    public class FeatureDefinitionAutoPreparedSpellsBuilder
         : FeatureDefinitionBuilder<FeatureDefinitionAutoPreparedSpells, FeatureDefinitionAutoPreparedSpellsBuilder>
     {
         #region Constructors
