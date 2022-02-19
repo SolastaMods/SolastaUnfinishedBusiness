@@ -544,7 +544,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return diceByRank;
         }
 
-        public class FeatureDefinitionFeatureSetBuilder : DefinitionBuilder<FeatureDefinitionFeatureSet>
+        public class FeatureDefinitionFeatureSetBuilder : Builders.Features.FeatureDefinitionFeatureSetBuilder
         {
             public FeatureDefinitionFeatureSetBuilder(string name, string guid, IEnumerable<FeatureDefinition> featureSet,
                 FeatureDefinitionFeatureSet.FeatureSetMode mode, int defaultSelection, bool uniqueChoices,

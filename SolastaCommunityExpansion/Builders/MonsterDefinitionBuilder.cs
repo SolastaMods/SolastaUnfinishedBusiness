@@ -13,23 +13,31 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition>
     {
-        public MonsterDefinitionBuilder(string name, string guid)
-            : base(name, guid)
+        protected MonsterDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        public MonsterDefinitionBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid)
+        protected MonsterDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        public MonsterDefinitionBuilder(MonsterDefinition original, string name, string guid)
-            : base(original, name, guid)
+        protected MonsterDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
         {
         }
 
-        public MonsterDefinitionBuilder(MonsterDefinition original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
+        protected MonsterDefinitionBuilder(MonsterDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected MonsterDefinitionBuilder(MonsterDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected MonsterDefinitionBuilder(MonsterDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+
+        protected MonsterDefinitionBuilder(MonsterDefinition original) : base(original)
         {
         }
 

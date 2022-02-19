@@ -138,7 +138,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         }
     }
 
-    internal sealed class ScoutSentinelFeatureSet03Builder : DefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal sealed class ScoutSentinelFeatureSet03Builder : FeatureDefinitionFeatureSetBuilder
     {
         private const string ScoutSentinelFeatureSet_level03Name = "ScoutSentinelFeatureSet_level03";
         private const string ScoutSentinelFeatureSet_level03Guid = "a6560212-c665-49fd-94b7-378512e68edb";
@@ -166,7 +166,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static readonly FeatureDefinitionFeatureSet ScoutSentinelFeatureSet03 = CreateAndAddToDB(ScoutSentinelFeatureSet_level03Name, ScoutSentinelFeatureSet_level03Guid);
     }
 
-    internal sealed class ScoutSentinelFeatureSet05Builder : DefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal sealed class ScoutSentinelFeatureSet05Builder : FeatureDefinitionFeatureSetBuilder
     {
         private const string ScoutSentinelFeatureSet_level05Name = "ScoutSentinelFeatureSet_level05";
         private const string ScoutSentinelFeatureSet_level05Guid = "a881c02a-7add-426b-a2d4-1f3994d12fa9";
@@ -188,7 +188,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static readonly FeatureDefinitionFeatureSet ScoutSentinelFeatureSet05 = CreateAndAddToDB(ScoutSentinelFeatureSet_level05Name, ScoutSentinelFeatureSet_level05Guid);
     }
 
-    internal sealed class ScoutSentinelFeatureSet09Builder : DefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal sealed class ScoutSentinelFeatureSet09Builder : FeatureDefinitionFeatureSetBuilder
     {
         private const string ScoutSentinelFeatureSet_level09Name = "ScoutSentinelFeatureSet_level09";
         private const string ScoutSentinelFeatureSet_level09Guid = "87e8b110-4590-4791-b31c-b8bba5f362b1";
@@ -224,7 +224,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static readonly FeatureDefinitionFeatureSet ScoutSentinelFeatureSet09 = CreateAndAddToDB(ScoutSentinelFeatureSet_level09Name, ScoutSentinelFeatureSet_level09Guid);
     }
 
-    internal sealed class ScoutSentinelFeatureSet15Builder : DefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal sealed class ScoutSentinelFeatureSet15Builder : FeatureDefinitionFeatureSetBuilder
     {
         private const string ScoutSentinelFeatureSet_level15Name = "ScoutSentinelFeatureSet_level15";
         private const string ScoutSentinelFeatureSet_level15Guid = "69a9ba53-4949-47ec-9693-467d053e4646";

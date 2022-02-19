@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		ArtilleryConstructlevel03FeatureSetBuilder		***********************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class ArtilleryConstructlevel03FeatureSetBuilder : DefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal sealed class ArtilleryConstructlevel03FeatureSetBuilder : FeatureDefinitionFeatureSetBuilder
     {
         private const string Name = "ArtilleryConstructlevel03FeatureSet";
         private const string Guid = "59f857e6-7b06-4c2b-a241-b73c42d64c23";
@@ -153,7 +153,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		ArtilleryConstructlevel09FeatureSetBuilder		***********************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class ArtilleryConstructlevel09FeatureSetBuilder : DefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal sealed class ArtilleryConstructlevel09FeatureSetBuilder : FeatureDefinitionFeatureSetBuilder
     {
         private const string Name = "ArtilleryConstructlevel09FeatureSet";
         private const string Guid = "a1e9557c-c1a9-4912-9fea-1a16c4124331";
@@ -283,7 +283,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		ArtilleryConstructlevel15FeatureSetBuilder		***********************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class ArtilleryConstructlevel15FeatureSetBuilder : DefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal sealed class ArtilleryConstructlevel15FeatureSetBuilder : FeatureDefinitionFeatureSetBuilder
     {
         private const string Name = "ArtilleryConstructlevel15FeatureSet";
         private const string Guid = "50c91d16-1a84-494a-ba72-dd4879955f2f";
@@ -677,7 +677,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummonArtillerySpellConstructBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SummonArtillerySpellConstructBuilder : DefinitionBuilder<SpellDefinition>
+    internal sealed class SummonArtillerySpellConstructBuilder : SpellDefinitionBuilder
     {
         private const string SummonArtillerySpellConstructName = "SummonArtillerySpellConstruct";
         private const string SummonArtillerySpellConstructGuid = "214dab9d-f40e-424f-8730-b41acdae26ec";
@@ -715,7 +715,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummonArtillerySpellConstruct_9Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SummonArtillerySpellConstruct9Builder : DefinitionBuilder<SpellDefinition>
+    internal sealed class SummonArtillerySpellConstruct9Builder : SpellDefinitionBuilder
     {
         private const string SummonArtillerySpellConstruct_9Name = "SummonArtillerySpellConstruct_9";
         private const string SummonArtillerySpellConstruct_9Guid = "9ad29b43-5207-46e8-bbc9-7b8138b2912f";
@@ -745,7 +745,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummonArtillerySpellConstruct_15Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SummonArtillerySpellConstruct15Builder : DefinitionBuilder<SpellDefinition>
+    internal sealed class SummonArtillerySpellConstruct15Builder : SpellDefinitionBuilder
     {
         private const string SummonArtillerySpellConstruct_15Name = "SummonArtillerySpellConstruct_15";
         private const string SummonArtillerySpellConstruct_15Guid = "f0038039-423b-4265-b0cf-2eab2450f982";

@@ -229,7 +229,7 @@ namespace SolastaCommunityExpansion.Feats
             public static readonly ConditionDefinition PowerAttackTwoHandedCondition = CreateAndAddToDB(PowerAttackTwoHandedConditionName, PowerAttackTwoHandedConditionNameGuid);
         }
 
-        internal sealed class PowerAttackFeatBuilder : DefinitionBuilder<FeatDefinition>
+        internal sealed class PowerAttackFeatBuilder : FeatDefinitionBuilder
         {
             private const string PowerAttackFeatName = "PowerAttackFeat";
             private const string PowerAttackFeatNameGuid = "88f1fb27-66af-49c6-b038-a38142b1083e";
@@ -253,7 +253,7 @@ namespace SolastaCommunityExpansion.Feats
             public static readonly FeatDefinition PowerAttackFeat = CreateAndAddToDB(PowerAttackFeatName, PowerAttackFeatNameGuid);
         }
 
-        internal sealed class RecklessFuryFeatBuilder : DefinitionBuilder<FeatDefinition>
+        internal sealed class RecklessFuryFeatBuilder : FeatDefinitionBuilder
         {
             private const string RecklessFuryFeatName = "RecklessFuryFeat";
             private const string RecklessFuryFeatNameGuid = "78c5fd76-e25b-499d-896f-3eaf84c711d8";
@@ -357,7 +357,7 @@ namespace SolastaCommunityExpansion.Feats
             public static readonly ConditionDefinition RageFeatCondition = CreateAndAddToDB(RageFeatConditionName, RageFeatConditionNameGuid);
         }
 
-        internal sealed class RageStrengthSavingThrowAffinityBuilder : DefinitionBuilder<FeatureDefinitionSavingThrowAffinity>
+        internal sealed class RageStrengthSavingThrowAffinityBuilder : FeatureDefinitionSavingThrowAffinityBuilder
         {
             private const string RageStrengthSavingThrowAffinityName = "AHRageStrengthSavingThrowAffinity";
             private const string RageStrengthSavingThrowAffinityNameGuid = "17d26173-7353-4087-a295-96e1ec2e6cd4";

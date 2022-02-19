@@ -60,7 +60,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		MendingConstructBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class MendingConstructBuilder : DefinitionBuilder<SpellDefinition>
+    internal sealed class MendingConstructBuilder : SpellDefinitionBuilder
     {
         private const string Name = "MendingConstruct";
         private const string Guid = "92de3dbf-4b57-46d3-aebf-0f7819b0ac2d";
@@ -110,7 +110,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		DismissConstructBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class DismissConstructBuilder : DefinitionBuilder<SpellDefinition>
+    internal sealed class DismissConstructBuilder : SpellDefinitionBuilder
     {
         private const string Name = "DismissConstruct";
         private const string Guid = "8003917a-9c90-4748-bb2f-f32b7edf8844";
@@ -182,7 +182,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		ArtificialServantBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class ArtificialServantBuilder : DefinitionBuilder<MonsterDefinition>
+    internal sealed class ArtificialServantBuilder : MonsterDefinitionBuilder
     {
         private const string ArtificialServantName = "ArtificialServant";
         private const string ArtificialServantGuid = "fce9181c-f62c-4b33-b0df-fff4fe3ceab2";

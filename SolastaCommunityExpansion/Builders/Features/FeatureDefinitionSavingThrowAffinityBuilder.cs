@@ -7,26 +7,26 @@ using static SolastaModApi.DatabaseHelper.SchoolOfMagicDefinitions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionSavingThrowAffinityBuilder 
+    public class FeatureDefinitionSavingThrowAffinityBuilder 
         : FeatureDefinitionAffinityBuilder<FeatureDefinitionSavingThrowAffinity, FeatureDefinitionSavingThrowAffinityBuilder>
     {
         #region Constructors
-        private FeatureDefinitionSavingThrowAffinityBuilder(string name, string guid)
+        protected FeatureDefinitionSavingThrowAffinityBuilder(string name, string guid)
             : base(name, guid)
         {
         }
 
-        private FeatureDefinitionSavingThrowAffinityBuilder(string name, Guid namespaceGuid)
+        protected FeatureDefinitionSavingThrowAffinityBuilder(string name, Guid namespaceGuid)
             : base(name, namespaceGuid)
         {
         }
 
-        private FeatureDefinitionSavingThrowAffinityBuilder(FeatureDefinitionSavingThrowAffinity original, string name, string guid)
+        protected FeatureDefinitionSavingThrowAffinityBuilder(FeatureDefinitionSavingThrowAffinity original, string name, string guid)
             : base(original, name, guid)
         {
         }
 
-        private FeatureDefinitionSavingThrowAffinityBuilder(FeatureDefinitionSavingThrowAffinity original, string name, Guid namespaceGuid)
+        protected FeatureDefinitionSavingThrowAffinityBuilder(FeatureDefinitionSavingThrowAffinity original, string name, Guid namespaceGuid)
             : base(original, name, namespaceGuid)
         {
         }

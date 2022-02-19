@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		ProtectorConstructFeatureSetBuilder		***********************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class ProtectorConstructFeatureSetBuilder : DefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal sealed class ProtectorConstructFeatureSetBuilder : FeatureDefinitionFeatureSetBuilder
     {
         private const string Name = "ProtectorConstructFeatureSet";
         private const string Guid = "9b699719-0d02-4949-ad94-cff6a05f36c7";
@@ -190,7 +190,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummonProtectorSpellConstructBuilder		***************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SummonProtectorSpellConstructBuilder : DefinitionBuilder<SpellDefinition>
+    internal sealed class SummonProtectorSpellConstructBuilder : SpellDefinitionBuilder
     {
         private const string SummonProtectorConstructName = "SummonProtectorConstruct";
         private const string SummonProtectorConstructNameGuid = "60f2462e-b801-48ee-a543-c69771e3917c";
@@ -227,7 +227,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     // need a new featuredefintionAutopreparedSpells list with the summon upgrade spell for the two different subclasses
     // as features can be added at any lvl and it's 1st lvl spell
     //
-    internal sealed class SummonProtectorSpellConstructUpgradeBuilder : DefinitionBuilder<SpellDefinition>
+    internal sealed class SummonProtectorSpellConstructUpgradeBuilder : SpellDefinitionBuilder
     {
         private const string Name = "SummonProtectorConstruct_Upgrade";
         private const string Guid = "ccd2a793-e566-4c1e-9588-ac36b578ae89";
@@ -282,7 +282,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		ProtectorConstructUpgradeFeatureSetBuilder		***********************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class ProtectorConstructUpgradeFeatureSetBuilder : DefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal sealed class ProtectorConstructUpgradeFeatureSetBuilder : FeatureDefinitionFeatureSetBuilder
     {
         private const string Name = "ProtectorConstructUpgradeFeatureSet";
         private const string Guid = "59bc566d-5204-4e53-89cb-eebc537ae6ab";
@@ -309,7 +309,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		ProtectorConstructBuilder		***************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class ProtectorConstructBuilder : DefinitionBuilder<MonsterDefinition>
+    internal sealed class ProtectorConstructBuilder : MonsterDefinitionBuilder
     {
         private const string ProtectorConstructName = "ProtectorConstruct";
         private const string ProtectorConstructNameGuid = "db1cd36f-7dc7-454f-baeb-143cd9dd374f";
@@ -381,7 +381,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		ProtectorConstruct_UpgradeBuilder		*******************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class ProtectorConstructUpgradeBuilder : DefinitionBuilder<MonsterDefinition>
+    internal sealed class ProtectorConstructUpgradeBuilder : MonsterDefinitionBuilder
     {
         private const string Name = "ProtectorConstruct_Upgrade";
         private const string Guid = "c6f711d8-9b83-497f-8e90-6440776cf644";
