@@ -503,10 +503,12 @@ namespace SolastaCommunityExpansion.Builders
             Assert.IsNotNull(configureDefinition);
             configureDefinition.Invoke(Definition);
 
+#if DEBUG
             if (typeof(TBuilder) != GetType())
             {
                 throw new SolastaModApiException($"Error in Configure. TBuilder={typeof(TBuilder).Name}, this={GetType().Name}");
             }
+#endif
 
             return (TBuilder)this;
         }
@@ -537,6 +539,18 @@ namespace SolastaCommunityExpansion.Builders
         internal TBuilder Configure(Action<TDefinition> configureDefinition)
         {
             return Configure<TBuilder>(configureDefinition);
+        }
+
+        internal TBuilder This()
+        {
+#if DEBUG
+            if (typeof(TBuilder) != GetType())
+            {
+                throw new SolastaModApiException($"Error in Configure. TBuilder={typeof(TBuilder).Name}, this={GetType().Name}");
+            }
+#endif
+
+            return (TBuilder)this;
         }
     }
 }

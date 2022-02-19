@@ -369,9 +369,9 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .Create("WitchMaledictionAbate", WITCH_BASE_GUID)
                 .SetActivation(ActivationTime.Action, 0)
                 .SetGuiPresentation(Category.Class, ShockingGrasp.GuiPresentation.SpriteReference)
-                .SetRecharge(RechargeRate.AtWill)
+                .SetRechargeRate(RechargeRate.AtWill)
                 .SetUsesFixed(1)
-                .SetEffect(abateEffectDescription)
+                .SetEffectDescription(abateEffectDescription)
                 .AddToDB();
 
             // Apathy
@@ -407,9 +407,9 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .Create("WitchMaledictionApathy", WITCH_BASE_GUID)
                 .SetActivation(ActivationTime.Action, 0)
                 .SetGuiPresentation(Category.Class, CalmEmotions.GuiPresentation.SpriteReference)
-                .SetRecharge(RechargeRate.AtWill)
+                .SetRechargeRate(RechargeRate.AtWill)
                 .SetUsesFixed(1)
-                .SetEffect(apathyEffectDescription)
+                .SetEffectDescription(apathyEffectDescription)
                 .AddToDB();
 
             // Charm
@@ -445,18 +445,17 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .Create("WitchMaledictionCharm", WITCH_BASE_GUID)
                 .SetActivation(ActivationTime.Action, 0)
                 .SetGuiPresentation(Category.Class, CharmPerson.GuiPresentation.SpriteReference)
-                .SetRecharge(RechargeRate.AtWill)
+                .SetRechargeRate(RechargeRate.AtWill)
                 .SetUsesFixed(1)
-                .SetEffect(charmEffectDescription)
+                .SetEffectDescription(charmEffectDescription)
                 .AddToDB();
 
             // Disorient
-            var disorientCombatAffinity = FeatureDefinitionBuilder<FeatureDefinitionCombatAffinity>
+            var disorientCombatAffinity = FeatureDefinitionCombatAffinityBuilder
                 .Create(FeatureDefinitionCombatAffinitys.CombatAffinityBaned, "CombatAffinityDisorient", WITCH_BASE_GUID)
                 .SetGuiPresentation("Disorient", Category.Modifier)
-                .AddToDB()
-                // TODO: Create FeatureDefinitionCombatAffinityBuilder and move this method into builder
-                .SetMyAttackModifierDieType(DieType.D6);
+                .SetMyAttackModifierDieType(DieType.D6)
+                .AddToDB();
 
             var disorientConditionDefinition = ConditionDefinitionBuilder
                 .Create(ConditionBaned, "ConditionDisorient", WITCH_BASE_GUID)
@@ -491,9 +490,9 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .Create("WitchMaledictionDisorient", WITCH_BASE_GUID)
                 .SetActivation(ActivationTime.Action, 0)
                 .SetGuiPresentation(Category.Class, Bane.GuiPresentation.SpriteReference)
-                .SetRecharge(RechargeRate.AtWill)
+                .SetRechargeRate(RechargeRate.AtWill)
                 .SetUsesFixed(1)
-                .SetEffect(disorientEffectDescription)
+                .SetEffectDescription(disorientEffectDescription)
                 .AddToDB();
 
             // Evil Eye
@@ -529,9 +528,9 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .Create("WitchMaledictionEvilEye", WITCH_BASE_GUID)
                 .SetActivation(ActivationTime.Action, 0)
                 .SetGuiPresentation(Category.Class, Fear.GuiPresentation.SpriteReference)
-                .SetRecharge(RechargeRate.AtWill)
+                .SetRechargeRate(RechargeRate.AtWill)
                 .SetUsesFixed(1)
-                .SetEffect(evileyeEffectDescription)
+                .SetEffectDescription(evileyeEffectDescription)
                 .AddToDB();
 
             // Obfuscate
@@ -546,9 +545,9 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .Create("WitchMaledictionObfuscate", WITCH_BASE_GUID)
                 .SetActivation(ActivationTime.Action, 0)
                 .SetGuiPresentation(Category.Class, FogCloud.GuiPresentation.SpriteReference)
-                .SetRecharge(RechargeRate.AtWill)
+                .SetRechargeRate(RechargeRate.AtWill)
                 .SetUsesFixed(1)
-                .SetEffect(obfuscateEffectDescription)
+                .SetEffectDescription(obfuscateEffectDescription)
                 .AddToDB();
 
             // Pox
@@ -585,9 +584,9 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .Create("WitchMaledictionPox", WITCH_BASE_GUID)
                 .SetActivation(ActivationTime.Action, 0)
                 .SetGuiPresentation(Category.Class, PoisonSpray.GuiPresentation.SpriteReference)
-                .SetRecharge(RechargeRate.AtWill)
+                .SetRechargeRate(RechargeRate.AtWill)
                 .SetUsesFixed(1)
-                .SetEffect(poxEffectDescription)
+                .SetEffectDescription(poxEffectDescription)
                 .AddToDB();
 
             // Ruin
@@ -631,9 +630,9 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .Create("WitchMaledictionRuin", WITCH_BASE_GUID)
                 .SetActivation(ActivationTime.Action, 0)
                 .SetGuiPresentation(Category.Class, AcidArrow.GuiPresentation.SpriteReference)
-                .SetRecharge(RechargeRate.AtWill)
+                .SetRechargeRate(RechargeRate.AtWill)
                 .SetUsesFixed(1)
-                .SetEffect(ruinEffectDescription)
+                .SetEffectDescription(ruinEffectDescription)
                 .AddToDB();
 
             FeatureDefinitionFeatureSetMaledictions = FeatureDefinitionFeatureSetBuilder
@@ -662,9 +661,9 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .Create("WitchCacklePower", WITCH_BASE_GUID)
                 .SetActivation(ActivationTime.BonusAction, 0)
                 .SetGuiPresentation(Category.Class, HideousLaughter.GuiPresentation.SpriteReference)
-                .SetRecharge(RechargeRate.AtWill)
+                .SetRechargeRate(RechargeRate.AtWill)
                 .SetUsesFixed(1)
-                .SetEffect(effectDescription)
+                .SetEffectDescription(effectDescription)
                 .AddToDB();
         }
 

@@ -52,67 +52,67 @@ namespace SolastaCommunityExpansion.Builders
         public TBuilder SetAllowMultipleInstances(bool value)
         {
             Definition.SetAllowMultipleInstances(value);
-            return (TBuilder)this;
+            return This();
         }
 
         public TBuilder SetAmountOrigin(ConditionDefinition.OriginOfAmount value)
         {
             Definition.SetAmountOrigin(value);
-            return (TBuilder)this;
+            return This();
         }
 
         public TBuilder SetConditionType(RuleDefinitions.ConditionType value)
         {
             Definition.SetConditionType(value);
-            return (TBuilder)this;
+            return This();
         }
 
         public TBuilder SetTurnOccurence(RuleDefinitions.TurnOccurenceType value)
         {
             Definition.SetTurnOccurence(value);
-            return (TBuilder)this;
+            return This();
         }
 
         public TBuilder AddConditionTags(IEnumerable<string> value)
         {
             Definition.AddConditionTags(value);
-            return (TBuilder)this;
+            return This();
         }
 
         public TBuilder AddConditionTags(params string[] value)
         {
             Definition.AddConditionTags(value);
-            return (TBuilder)this;
+            return This();
         }
 
         public TBuilder AddFeatures(IEnumerable<FeatureDefinition> value)
         {
             Definition.AddFeatures(value);
-            return (TBuilder)this;
+            return This();
         }
 
         public TBuilder AddFeatures(params FeatureDefinition[] value)
         {
             Definition.AddFeatures(value);
-            return (TBuilder)this;
+            return This();
         }
 
         public TBuilder SetFeatures(IEnumerable<FeatureDefinition> value)
         {
             Definition.SetFeatures(value);
-            return (TBuilder)this;
+            return This();
         }
 
         public TBuilder SetFeatures(params FeatureDefinition[] value)
         {
             Definition.SetFeatures(value);
-            return (TBuilder)this;
+            return This();
         }
 
         public TBuilder ClearRecurrentEffectForms()
         {
             Definition.ClearRecurrentEffectForms();
-            return (TBuilder)this;
+            return This();
         }
 
         // TODO: is it worth/possible to factor out ConditionDefinitionBuilder.SetDuration and EffectDescriptionBuilder.SetDuration?
