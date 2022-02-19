@@ -6,7 +6,7 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class FeatDefinitionBuilder : DefinitionBuilder<FeatDefinition>
+    public class FeatDefinitionBuilder : DefinitionBuilder<FeatDefinition, FeatDefinitionBuilder>
     {
         protected FeatDefinitionBuilder(string name, Guid namespaceGuid)
             : base(name, namespaceGuid)

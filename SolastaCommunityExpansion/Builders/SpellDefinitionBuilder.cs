@@ -6,7 +6,7 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class SpellDefinitionBuilder : DefinitionBuilder<SpellDefinition>
+    public class SpellDefinitionBuilder : DefinitionBuilder<SpellDefinition, SpellDefinitionBuilder>
     {
         #region Constructors
         protected SpellDefinitionBuilder(string name, string guid) : base(name, guid)

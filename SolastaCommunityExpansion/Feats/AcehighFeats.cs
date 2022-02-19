@@ -124,7 +124,7 @@ namespace SolastaCommunityExpansion.Feats
             public static readonly FeatureDefinitionPower PowerAttackTwoHandedPower = CreateAndAddToDB(PowerAttackTwoHandedPowerName, PowerAttackTwoHandedPowerNameGuid);
         }
 
-        internal sealed class PowerAttackOneHandedAttackModifierBuilder : DefinitionBuilder<FeatureDefinitionAttackModifier>
+        internal sealed class PowerAttackOneHandedAttackModifierBuilder : FeatureDefinitionAttackModifierBuilder
         {
             private const string PowerAttackAttackModifierName = "PowerAttackAttackModifier";
             private const string PowerAttackAttackModifierNameGuid = "87286627-3e62-459d-8781-ceac1c3462e6";
@@ -151,7 +151,7 @@ namespace SolastaCommunityExpansion.Feats
                 = CreateAndAddToDB(PowerAttackAttackModifierName, PowerAttackAttackModifierNameGuid);
         }
 
-        internal sealed class PowerAttackTwoHandedAttackModifierBuilder : DefinitionBuilder<FeatureDefinitionAttackModifier>
+        internal sealed class PowerAttackTwoHandedAttackModifierBuilder : FeatureDefinitionAttackModifierBuilder
         {
             private const string PowerAttackTwoHandedAttackModifierName = "PowerAttackTwoHandedAttackModifier";
             private const string PowerAttackTwoHandedAttackModifierNameGuid = "b1b05940-7558-4f03-98d1-01f616b5ae25";
@@ -385,7 +385,7 @@ namespace SolastaCommunityExpansion.Feats
             public static readonly FeatureDefinitionSavingThrowAffinity RageStrengthSavingThrowAffinity = CreateAndAddToDB(RageStrengthSavingThrowAffinityName, RageStrengthSavingThrowAffinityNameGuid);
         }
 
-        internal sealed class RageDamageBonusAttackModifierBuilder : DefinitionBuilder<FeatureDefinitionAttackModifier>
+        internal sealed class RageDamageBonusAttackModifierBuilder : FeatureDefinitionAttackModifierBuilder
         {
             private const string RageDamageBonusAttackModifierName = "AHRageDamageBonusAttackModifier";
             private const string RageDamageBonusAttackModifierNameGuid = "7bc1a47e-9519-4a37-a89a-10bcfa83e48a";

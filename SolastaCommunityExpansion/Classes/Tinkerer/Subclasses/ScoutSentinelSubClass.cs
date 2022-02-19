@@ -333,7 +333,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SubclassAutopreparedSpellsBuilder		*******************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class ScoutSentinelAutopreparedSpellsBuilder : DefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
+    internal sealed class ScoutSentinelAutopreparedSpellsBuilder : FeatureDefinitionAutoPreparedSpellsBuilder
     {
         private const string SubclassAutopreparedSpellsName = "SubclassAutopreparedSpells";
         private const string SubclassAutopreparedSpellsGuid = "c5f03caa-7078-4da7-b166-00f292fcebfc";
@@ -410,7 +410,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SubclassProficienciesBuilder		*******************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SubclassProficienciesBuilder : DefinitionBuilder<FeatureDefinitionProficiency>
+    internal sealed class SubclassProficienciesBuilder : FeatureDefinitionProficiencyBuilder
     {
         private const string SubclassProficienciesName = "SubclassProficiencies";
         private const string SubclassProficienciesGuid = "1923caf6-672b-475a-bcdf-50d535ce65d1";
@@ -434,7 +434,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SubclassMovementAffinitiesBuilder		*******************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SubclassMovementAffinitiesBuilder : DefinitionBuilder<FeatureDefinitionMovementAffinity>
+    internal sealed class SubclassMovementAffinitiesBuilder : FeatureDefinitionMovementAffinityBuilder
     {
         private const string SubclassMovementAffinitiesName = "SubclassMovementAffinities";
         private const string SubclassMovementAffinitiesGuid = "14ef799a-edc6-4749-866b-9a6afc26d4fa";
@@ -484,7 +484,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		IntToAttackAndDamageBuilder		*******************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class IntToAttackAndDamageBuilder : DefinitionBuilder<FeatureDefinitionAttackModifier>
+    internal sealed class IntToAttackAndDamageBuilder : FeatureDefinitionAttackModifierBuilder
     {
         private const string IntToAttackAndDamageName = "IntToAttackAndDamage";
         private const string IntToAttackAndDamageGuid = "ebb243f7-382c-4caf-9d7f-40c80dab4623";
@@ -747,7 +747,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static readonly ConditionDefinition ThunderStruck = CreateAndAddToDB(ThunderStruckName, ThunderStruckGuid);
     }
 
-    internal sealed class ThunderStruckDisadvantageCombatAffintityBuilder : DefinitionBuilder<FeatureDefinitionCombatAffinity>
+    internal sealed class ThunderStruckDisadvantageCombatAffintityBuilder : FeatureDefinitionCombatAffinityBuilder
     {
         private const string ThunderStruckDisadvantageName = "ThunderStruckDisadvantage";
         private const string ThunderStruckDisadvantageGuid = "276daa3c-3ef2-4ea8-938f-f006d2721467";
@@ -794,7 +794,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static readonly ConditionDefinition ThunderStruckBalancingAdvantage = CreateAndAddToDB(ThunderStruckBalancingAdvantageName, ThunderStruckBalancingAdvantageGuid);
     }
 
-    internal sealed class BalancingAdvantageCombatAffintityBuilder : DefinitionBuilder<FeatureDefinitionCombatAffinity>
+    internal sealed class BalancingAdvantageCombatAffintityBuilder : FeatureDefinitionCombatAffinityBuilder
     {
         private const string BalancingAdvantageName = "BalancingAdvantage";
         private const string BalancingAdvantageGuid = "9dc28618-3adb-497d-930d-2a01bcac42d5";
@@ -974,7 +974,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static readonly FeatureDefinitionAdditionalDamage LightningSpearAdditionalDamage = CreateAndAddToDB(LightningSpearAdditionalDamageName, LightningSpearAdditionalDamageGuid);
     }
 
-    internal sealed class LightningCloakMovementAffinitiesBuilder : DefinitionBuilder<FeatureDefinitionMovementAffinity>
+    internal sealed class LightningCloakMovementAffinitiesBuilder : FeatureDefinitionMovementAffinityBuilder
     {
         private const string LightningCloakMovementAffinitiesName = "LightningCloakMovementAffinities";
         private const string LightningCloakMovementAffinitiesGuid = "9a098f7c-0286-4a04-ba42-23b7dfc45e7b";
@@ -994,7 +994,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static readonly FeatureDefinitionMovementAffinity LightningCloakMovementAffinities = CreateAndAddToDB(LightningCloakMovementAffinitiesName, LightningCloakMovementAffinitiesGuid);
     }
 
-    internal sealed class LightningCloakAbilityCheckAffinityBuilder : DefinitionBuilder<FeatureDefinitionAbilityCheckAffinity>
+    internal sealed class LightningCloakAbilityCheckAffinityBuilder : FeatureDefinitionAbilityCheckAffinityBuilder
     {
         private const string LightningCloakAbilityCheckAffinityName = "LightningCloakAbilityCheckAffinity";
         private const string LightningCloakAbilityCheckAffinityGuid = "160e74ef-1596-4b68-8a5b-48b65b155b26";

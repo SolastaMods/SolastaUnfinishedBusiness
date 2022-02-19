@@ -118,7 +118,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                 CreateAndAddToDB(RogueSubclassThugBrutalMethodsName, RogueSubclassThugBrutalMethodsGuid);
         }
 
-        private sealed class RogueSubclassThugBrutalMethodsActionBuilder : DefinitionBuilder<ActionDefinition>
+        private sealed class RogueSubclassThugBrutalMethodsActionBuilder : ActionDefinitionBuilder
         {
             private const string RogueSubclassThugBrutalMethodsActionName = "KSRogueSubclassThugBrutalMethodsAction";
             private static readonly string RogueSubclassThugBrutalMethodsActionGuid = GuidHelper.Create(SubclassNamespace, RogueSubclassThugBrutalMethodsActionName).ToString();

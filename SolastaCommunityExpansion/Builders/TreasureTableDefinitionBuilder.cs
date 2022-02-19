@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class TreasureTableDefinitionBuilder : DefinitionBuilder<TreasureTableDefinition>
+    public class TreasureTableDefinitionBuilder : DefinitionBuilder<TreasureTableDefinition, TreasureTableDefinitionBuilder>
     {
         protected TreasureTableDefinitionBuilder(TreasureTableDefinition original, string name, string guid) : base(original, name, guid)
         {

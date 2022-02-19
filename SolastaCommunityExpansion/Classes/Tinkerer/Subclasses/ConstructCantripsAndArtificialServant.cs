@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     ////***********************************		TinkererConstructFamilyBuilder		*************************************************************
     ////*****************************************************************************************************************************************
 
-    internal sealed class TinkererConstructFamilyBuilder : DefinitionBuilder<CharacterFamilyDefinition>
+    internal sealed class TinkererConstructFamilyBuilder : CharacterFamilyDefinitionBuilder
     {
         private const string TinkererConstructFamilyName = "TinkererConstruct";
         private const string TinkererConstructFamilyGuid = "ab9d8ea6-3cc2-4c36-939a-b9a43bad023e";

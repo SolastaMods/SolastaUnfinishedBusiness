@@ -3,7 +3,7 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class MonsterAttackDefinitionBuilder : DefinitionBuilder<MonsterAttackDefinition>
+    public class MonsterAttackDefinitionBuilder : DefinitionBuilder<MonsterAttackDefinition, MonsterAttackDefinitionBuilder>
     {
         public MonsterAttackDefinitionBuilder(string name, string guid) :
             base(name, guid)

@@ -11,7 +11,7 @@ using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition>
+    public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, MonsterDefinitionBuilder>
     {
         protected MonsterDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {

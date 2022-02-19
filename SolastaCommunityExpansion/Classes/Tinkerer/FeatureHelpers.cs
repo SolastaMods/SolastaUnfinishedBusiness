@@ -62,7 +62,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             }
         }
 
-        public class FeatureDefinitionAttackModifierBuilder : DefinitionBuilder<FeatureDefinitionAttackModifier>
+        public class FeatureDefinitionAttackModifierBuilder : Builders.Features.FeatureDefinitionAttackModifierBuilder
         {
             public FeatureDefinitionAttackModifierBuilder(string name, string guid, RuleDefinitions.AttackModifierMethod attackRollModifierMethod,
                 int attackRollModifier, string attackRollAbilityScore, RuleDefinitions.AttackModifierMethod damageRollModifierMethod,
@@ -137,7 +137,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             }
         }
 
-        public class FeatureDefinitionPointPoolBuilder : DefinitionBuilder<FeatureDefinitionPointPool>
+        public class FeatureDefinitionPointPoolBuilder : Builders.Features.FeatureDefinitionPointPoolBuilder
         {
             public FeatureDefinitionPointPoolBuilder(string name, string guid, HeroDefinitions.PointsPoolType poolType, int poolAmount,
                 bool uniqueChoices, GuiPresentation guiPresentation, params string[] choices) :
@@ -246,7 +246,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             }
         }
 
-        public class FeatureDefinitionCraftingAffinityBuilder : DefinitionBuilder<FeatureDefinitionCraftingAffinity>
+        public class FeatureDefinitionCraftingAffinityBuilder : Builders.Features.FeatureDefinitionCraftingAffinityBuilder
         {
             public FeatureDefinitionCraftingAffinityBuilder(string name, string guid, IEnumerable<ToolTypeDefinition> toolTypes,
                 float durationMultiplier, bool doubleProficiencyBonus, GuiPresentation guiPresentation) : base(name, guid)
@@ -276,7 +276,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             }
         }
 
-        public class RestActivityDefinitionBuilder : DefinitionBuilder<RestActivityDefinition>
+        public class RestActivityDefinitionBuilder : Builders.RestActivityDefinitionBuilder
         {
             public RestActivityDefinitionBuilder(string name, string guid, RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType,
                 RestActivityDefinition.ActivityCondition condition, string functor, string stringParameter, GuiPresentation guiPresentation) : base(name, guid)
@@ -290,7 +290,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             }
         }
 
-        public class FeatureDefinitionMovementAffinityBuilder : DefinitionBuilder<FeatureDefinitionMovementAffinity>
+        public class FeatureDefinitionMovementAffinityBuilder : Builders.Features.FeatureDefinitionMovementAffinityBuilder
         {
             public FeatureDefinitionMovementAffinityBuilder(string name, string guid, bool addBase,
                 int speedAdd, float speedMult, GuiPresentation guiPresentation) : base(name, guid)
@@ -303,7 +303,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             }
         }
 
-        public class FeatureDefinitionHealingModifierBuilder : DefinitionBuilder<FeatureDefinitionHealingModifier>
+        public class FeatureDefinitionHealingModifierBuilder : Builders.Features.FeatureDefinitionHealingModifierBuilder
         {
             public FeatureDefinitionHealingModifierBuilder(string name, string guid, int healingBonusDiceNumber, RuleDefinitions.DieType healingBonusDiceType,
             RuleDefinitions.LevelSourceType addLevel, GuiPresentation guiPresentation) : base(name, guid)
@@ -324,7 +324,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             }
         }
 
-        public class FeatureDefinitionEquipmentAffinityBuilder : DefinitionBuilder<FeatureDefinitionEquipmentAffinity>
+        public class FeatureDefinitionEquipmentAffinityBuilder : Builders.Features.FeatureDefinitionEquipmentAffinityBuilder
         {
             public FeatureDefinitionEquipmentAffinityBuilder(string name, string guid, float carryingCapacityMultiplier,
                 float additionalCarryingCapacity, GuiPresentation guiPresentation) : base(name, guid)

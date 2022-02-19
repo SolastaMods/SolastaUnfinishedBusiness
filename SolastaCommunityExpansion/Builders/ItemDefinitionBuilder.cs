@@ -8,7 +8,7 @@ using static SolastaModApi.DatabaseHelper.ItemDefinitions;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition>
+    public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefinitionBuilder>
     {
         protected ItemDefinitionBuilder(string name, string guid)
             : base(name, guid)

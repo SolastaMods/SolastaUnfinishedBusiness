@@ -6,7 +6,7 @@ using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefinition>
+    public class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefinition, EffectProxyDefinitionBuilder>
     {
         protected EffectProxyDefinitionBuilder(string name, string guid) : base(name, guid)
         {
