@@ -105,7 +105,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Subclass/&AttackModifierArtificerImprovedEnhancedFocusDescription");
             enhanceFocusGui.SetSpriteReference(FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference);
             return BuildItemConditionInfusion(infusedFocusCondition, "ArtificerInfusionImprovedEnhancedFocus", enhanceFocusGui.Build())
-                .AddOverriddenPower(EnhancedFocus).AddToDB();
+                .SetOverriddenPower(EnhancedFocus).AddToDB();
         }
 
         public static FeatureDefinitionPower EnhancedDefense => enhancedDefense ??= BuildEnhancedDefense();
@@ -144,7 +144,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             enhanceArmorGui.SetSpriteReference(FeatureDefinitionPowers.PowerPaladinAuraOfProtection.GuiPresentation.SpriteReference);
 
             return BuildItemModifierInfusion(armorModifier, ActionDefinitions.ItemSelectionType.Equiped, "ArtificerInfusionImprovedEnhancedArmor", enhanceArmorGui.Build())
-                .AddOverriddenPower(EnhancedDefense).AddToDB();
+                .SetOverriddenPower(EnhancedDefense).AddToDB();
         }
 
         public static FeatureDefinitionPower EnhancedWeapon => enhancedWeapon ??= BuildEnhancedWeapon();
@@ -171,7 +171,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             return BuildItemModifierInfusion(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon2,
                 ActionDefinitions.ItemSelectionType.WeaponNonMagical, "ArtificerInfusionImprovedEnhancedWeapon", enhanceWeaponGui.Build())
-                .AddOverriddenPower(EnhancedWeapon).AddToDB();
+                .SetOverriddenPower(EnhancedWeapon).AddToDB();
         }
 
         public static FeatureDefinitionPower BagOfHolding => bagOfHolding ??= BuildBagOfHolding();

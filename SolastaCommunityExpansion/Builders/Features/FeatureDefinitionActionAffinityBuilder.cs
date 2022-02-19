@@ -2,7 +2,7 @@
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionActionAffinityBuilder : DefinitionBuilder<FeatureDefinitionActionAffinity, FeatureDefinitionActionAffinityBuilder>
+    public class FeatureDefinitionActionAffinityBuilder : FeatureDefinitionBuilder<FeatureDefinitionActionAffinity, FeatureDefinitionActionAffinityBuilder>
     {
         #region Constructors
         protected FeatureDefinitionActionAffinityBuilder(string name, string guid)

@@ -2,21 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionProficiencyBuilder : DefinitionBuilder<FeatureDefinitionProficiency>
+    public sealed class FeatureDefinitionProficiencyBuilder : FeatureDefinitionBuilder<FeatureDefinitionProficiency, FeatureDefinitionProficiencyBuilder>
     {
-/*        private FeatureDefinitionProficiencyBuilder(string name, string guid)
-            : base(name, guid)
-        {
-        }
-        private FeatureDefinitionProficiencyBuilder(FeatureDefinitionProficiency original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
-        {
-        }
-*/
         private FeatureDefinitionProficiencyBuilder(string name, Guid namespaceGuid)
             : base(name, namespaceGuid)
         {
@@ -45,7 +35,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         public FeatureDefinitionProficiencyBuilder SetProficiencies(RuleDefinitions.ProficiencyType type, IEnumerable<string> proficiencies)
         {
             Definition.SetProficiencyType(type);
-            Definition.Proficiencies.SetRange(proficiencies);
+            Definition.SetProficiencies(proficiencies);
             return this;
         }
     }

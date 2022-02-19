@@ -7,25 +7,8 @@ using static FeatureDefinitionAutoPreparedSpells;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionAutoPreparedSpellsBuilder : DefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
+    public sealed class FeatureDefinitionAutoPreparedSpellsBuilder : FeatureDefinitionBuilder<FeatureDefinitionAutoPreparedSpells, FeatureDefinitionAutoPreparedSpellsBuilder>
     {
-        /*
-        private FeatureDefinitionAutoPreparedSpellsBuilder(string name, string guid)
-            : base(name, guid)
-        {
-        }
-
-        private FeatureDefinitionAutoPreparedSpellsBuilder(FeatureDefinitionAutoPreparedSpells original, string name, string guid)
-            : base(original, name, guid)
-        {
-        }
-
-        private FeatureDefinitionAutoPreparedSpellsBuilder(FeatureDefinitionAutoPreparedSpells original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
-        {
-        }
-        */
-
         private FeatureDefinitionAutoPreparedSpellsBuilder(string name, Guid namespaceGuid)
             : base(name, namespaceGuid)
         {

@@ -7,7 +7,8 @@ using static SolastaModApi.DatabaseHelper.SchoolOfMagicDefinitions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionSavingThrowAffinityBuilder : DefinitionBuilder<FeatureDefinitionSavingThrowAffinity>
+    public sealed class FeatureDefinitionSavingThrowAffinityBuilder 
+        : FeatureDefinitionAffinityBuilder<FeatureDefinitionSavingThrowAffinity, FeatureDefinitionSavingThrowAffinityBuilder>
     {
         #region Constructors
         private FeatureDefinitionSavingThrowAffinityBuilder(string name, string guid)

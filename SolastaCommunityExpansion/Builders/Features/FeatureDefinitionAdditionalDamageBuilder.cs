@@ -8,25 +8,8 @@ using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionAdditionalDamageBuilder : DefinitionBuilder<FeatureDefinitionAdditionalDamage>
+    public class FeatureDefinitionAdditionalDamageBuilder : FeatureDefinitionBuilder<FeatureDefinitionAdditionalDamage, FeatureDefinitionAdditionalDamageBuilder>
     {
-        /*
-        private FeatureDefinitionAdditionalDamageBuilder(string name, string guid)
-            : base(name, guid)
-        {
-        }
-
-        private FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original, string name, string guid)
-            : base(original, name, guid)
-        {
-        }
-
-        public FeatureDefinitionAdditionalDamageBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid, Category.None)
-        {
-        }
-        */
-
         private FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original, string name, Guid namespaceGuid)
             : base(original, name, namespaceGuid)
         {
