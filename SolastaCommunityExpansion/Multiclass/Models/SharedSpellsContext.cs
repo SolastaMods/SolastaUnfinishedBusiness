@@ -357,7 +357,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             {
                 while (spellsByLevel.Count < 9)
                 {
-                    spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet { Level = spellsByLevel.Count, Spells = new List<SpellDefinition>() });
+                    spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet { Level = spellsByLevel.Count, Spells = new() });
                 }
             }
         }
