@@ -25,7 +25,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.HeroInspection
         {
             internal static void Postfix(GuiCharacter __instance, ref string __result)
             {
-                __result = Models.GameUiContext.GetAllClassesLabel(__instance, '-') ?? __result;
+                __result = Models.MulticlassGameUiContext.GetAllClassesLabel(__instance, '-') ?? __result;
             }
         }
 
@@ -34,7 +34,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.HeroInspection
         {
             internal static void Postfix(GuiCharacter __instance, ref string __result)
             {
-                __result = Models.GameUiContext.GetAllClassesLabel(__instance, '-') ?? __result;
+                __result = Models.MulticlassGameUiContext.GetAllClassesLabel(__instance, '-') ?? __result;
             }
         }
 
@@ -43,7 +43,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.HeroInspection
         {
             internal static void Postfix(GuiCharacter __instance, ref string __result)
             {
-                __result = Models.GameUiContext.GetLevelAndExperienceTooltip(__instance) ?? __result;
+                __result = Models.MulticlassGameUiContext.GetLevelAndExperienceTooltip(__instance) ?? __result;
             }
         }
     }
