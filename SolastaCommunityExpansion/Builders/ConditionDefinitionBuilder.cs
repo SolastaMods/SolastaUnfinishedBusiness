@@ -115,10 +115,10 @@ namespace SolastaCommunityExpansion.Builders
             return This();
         }
 
+        // TODO: factor out validation code
+        // rename to match names of similar method in EffectDescriptionBuilder (and elsewhere)
         public TBuilder SetDuration(RuleDefinitions.DurationType type, int? duration = null)
         {
-            Definition.SetDurationType(type);
-
             switch (type)
             {
                 case RuleDefinitions.DurationType.Round:
@@ -136,10 +136,13 @@ namespace SolastaCommunityExpansion.Builders
                     {
                         throw new SolastaModApiException($"A duration value is not expected for duration type {type}");
                     }
+                    Definition.SetDurationParameter(0);
                     break;
             }
 
-            return This();
+            Definition.SetDurationType(type);
+
+            return (TBuilder)this;
         }
 
         // TODO: add more methods as required (and that aren't delegating property setters to add value)

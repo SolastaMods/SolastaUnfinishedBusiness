@@ -14,23 +14,33 @@ namespace SolastaCommunityExpansion.Spells
             SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures();
         }
 
-        private static void SpikeGrowthDoesNotAffectFlyingCreatures()
+        internal static void SpikeGrowthDoesNotAffectFlyingCreatures()
         {
-            if (!Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures)
-            {
-                return;
-            }
-
             var spikeGrowthEffect = SpikeGrowth.EffectDescription;
-            spikeGrowthEffect.EffectForms
-                .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
-                .ToList()
-                .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(false));
 
-            spikeGrowthEffect.SetTargetType(RuleDefinitions.TargetType.Cylinder);
-            spikeGrowthEffect.SetTargetParameter2(1);
+            if (Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures)
+            {
+                // Set to Cylinder height 1
+                spikeGrowthEffect.EffectForms
+                    .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
+                    .ToList()
+                    .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(false));
+
+                spikeGrowthEffect.SetTargetType(RuleDefinitions.TargetType.Cylinder);
+                spikeGrowthEffect.SetTargetParameter2(1);
+            }
+            else
+            {
+                // Restore default of Sphere height 2
+                spikeGrowthEffect.EffectForms
+                    .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
+                    .ToList()
+                    .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(true));
+
+                spikeGrowthEffect.SetTargetType(RuleDefinitions.TargetType.Sphere);
+                spikeGrowthEffect.SetTargetParameter2(2);
+            }
         }
-
 
         internal static void SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures()
         {
