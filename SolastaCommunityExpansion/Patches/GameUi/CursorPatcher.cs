@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.DungeonMaker
+namespace SolastaCommunityExpansion.Patches.GameUi
 {
     [HarmonyPatch(typeof(Cursor), "OnClickSecondaryPointer")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
