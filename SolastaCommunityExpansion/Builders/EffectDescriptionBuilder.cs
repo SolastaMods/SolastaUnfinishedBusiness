@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi;
+using SolastaModApi.Diagnostics;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
@@ -22,6 +24,21 @@ namespace SolastaCommunityExpansion.Builders
             particleParams.Copy(DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters);
 
             effect.SetEffectParticleParameters(particleParams);
+        }
+
+        public EffectDescriptionBuilder(EffectDescription effect)
+        {
+            this.effect = effect.Copy();
+        }
+
+        public static EffectDescriptionBuilder Create()
+        {
+            return new EffectDescriptionBuilder();
+        }
+
+        public static EffectDescriptionBuilder Create(EffectDescription effect)
+        {
+            return new EffectDescriptionBuilder(effect);
         }
 
         public EffectDescriptionBuilder SetCreatedByCharacter()
@@ -84,6 +101,36 @@ namespace SolastaCommunityExpansion.Builders
             effect.SetItemSelectionType(itemSelectionType);
             return this;
         }
+
+        // TODO: combine with SetTargetingData - this method not currently used, the extension version is used
+/*        private EffectDescriptionBuilder SetRange(RuleDefinitions.RangeType type, int? range = null)
+        {
+            switch (type)
+            {
+                case RuleDefinitions.RangeType.RangeHit:
+                case RuleDefinitions.RangeType.Distance:
+                    if (range == null)
+                    {
+                        throw new ArgumentNullException(nameof(range), $"A range value is required for range type {type}.");
+                    }
+                    effect.SetRangeParameter(range.Value);
+                    break;
+                case RuleDefinitions.RangeType.Touch:
+                    effect.SetRangeParameter(range ?? 0);
+                    break;
+                default: // Self, MeleeHit
+                    if (range != null)
+                    {
+                        throw new SolastaModApiException($"A duration value is not expected for duration type {type}");
+                    }
+                    effect.SetRangeParameter(0);
+                    break;
+            }
+
+            effect.SetRangeType(type);
+
+            return this;
+        }*/
 
         public EffectDescriptionBuilder NoVisibilityRequiredToTarget()
         {
@@ -177,9 +224,37 @@ namespace SolastaCommunityExpansion.Builders
 
         public EffectDescriptionBuilder SetDurationData(RuleDefinitions.DurationType durationType, int durationParameter, RuleDefinitions.TurnOccurenceType endOfEffect)
         {
-            effect.DurationType = durationType;
-            effect.DurationParameter = durationParameter;
+            SetDurationData(durationType, durationParameter);
             effect.SetEndOfEffect(endOfEffect);
+            return this;
+        }
+
+        public EffectDescriptionBuilder SetDurationData(RuleDefinitions.DurationType type, int? duration = null)
+        {
+            switch (type)
+            {
+                case RuleDefinitions.DurationType.Round:
+                case RuleDefinitions.DurationType.Minute:
+                case RuleDefinitions.DurationType.Hour:
+                case RuleDefinitions.DurationType.Day:
+                    if (duration == null)
+                    {
+                        throw new ArgumentNullException(nameof(duration), $"A duration value is required for duration type {type}.");
+                    }
+                    effect.SetDurationParameter(duration.Value);
+                    break;
+                default:
+                    if (duration != null)
+                    {
+                        throw new SolastaModApiException($"A duration value is not expected for duration type {type}");
+                    }
+                    // TODO: is this sensible?
+                    effect.SetDurationParameter(0);
+                    break;
+            }
+
+            effect.SetDurationType(type);
+
             return this;
         }
 
