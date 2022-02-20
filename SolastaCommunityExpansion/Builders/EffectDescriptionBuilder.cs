@@ -102,36 +102,6 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        // TODO: combine with SetTargetingData - this method not currently used, the extension version is used
-/*        private EffectDescriptionBuilder SetRange(RuleDefinitions.RangeType type, int? range = null)
-        {
-            switch (type)
-            {
-                case RuleDefinitions.RangeType.RangeHit:
-                case RuleDefinitions.RangeType.Distance:
-                    if (range == null)
-                    {
-                        throw new ArgumentNullException(nameof(range), $"A range value is required for range type {type}.");
-                    }
-                    effect.SetRangeParameter(range.Value);
-                    break;
-                case RuleDefinitions.RangeType.Touch:
-                    effect.SetRangeParameter(range ?? 0);
-                    break;
-                default: // Self, MeleeHit
-                    if (range != null)
-                    {
-                        throw new SolastaModApiException($"A duration value is not expected for duration type {type}");
-                    }
-                    effect.SetRangeParameter(0);
-                    break;
-            }
-
-            effect.SetRangeType(type);
-
-            return this;
-        }*/
-
         public EffectDescriptionBuilder NoVisibilityRequiredToTarget()
         {
             effect.SetRequiresVisibilityForPosition(false);
@@ -224,12 +194,13 @@ namespace SolastaCommunityExpansion.Builders
 
         public EffectDescriptionBuilder SetDurationData(RuleDefinitions.DurationType durationType, int durationParameter, RuleDefinitions.TurnOccurenceType endOfEffect)
         {
-            SetDurationData(durationType, durationParameter);
+            effect.SetDurationType(durationType);
+            effect.SetDurationParameter(durationParameter);
             effect.SetEndOfEffect(endOfEffect);
             return this;
         }
 
-        public EffectDescriptionBuilder SetDurationData(RuleDefinitions.DurationType type, int? duration = null)
+        public EffectDescriptionBuilder SetDurationData(RuleDefinitions.DurationType type, int duration = 0)
         {
             switch (type)
             {
@@ -237,24 +208,22 @@ namespace SolastaCommunityExpansion.Builders
                 case RuleDefinitions.DurationType.Minute:
                 case RuleDefinitions.DurationType.Hour:
                 case RuleDefinitions.DurationType.Day:
-                    if (duration == null)
+                    if (duration <= 0)
                     {
-                        throw new ArgumentNullException(nameof(duration), $"A duration value is required for duration type {type}.");
+                        throw new ArgumentNullException(nameof(duration), $"A positive duration value is required for duration type {type}.");
                     }
-                    effect.SetDurationParameter(duration.Value);
+                    effect.SetDurationParameter(duration);
                     break;
                 default:
-                    if (duration != null)
+                    if (duration != 0)
                     {
-                        throw new SolastaModApiException($"A duration value is not expected for duration type {type}");
+                        throw new SolastaModApiException($"A duration value is not expected for duration type {type}.");
                     }
-                    // TODO: is this sensible?
                     effect.SetDurationParameter(0);
                     break;
             }
 
             effect.SetDurationType(type);
-
             return this;
         }
 
