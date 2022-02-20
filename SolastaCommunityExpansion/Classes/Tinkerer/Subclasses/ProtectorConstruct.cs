@@ -143,7 +143,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.SetUniqueInstance(true);
 
             EffectDescriptionBuilder ProtectorConstructEffect = new EffectDescriptionBuilder();
-            ProtectorConstructEffect.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            ProtectorConstructEffect.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 0, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             ProtectorConstructEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             ProtectorConstructEffect.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, ProtectorConstructBuilder.ProtectorConstruct.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
 

@@ -372,7 +372,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             SpellStoringItemGui.SetSpriteReference(FeatureDefinitionPowers.PowerDomainElementalDiscipleOfTheElementsLightning.GuiPresentation.SpriteReference);
 
             EffectDescriptionBuilder spellEffect = new EffectDescriptionBuilder();
-            spellEffect.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            spellEffect.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 0, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             spellEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self, 1, 1, ActionDefinitions.ItemSelectionType.None);
             spellEffect.AddEffectForm(new EffectFormBuilder().SetSpellForm(9).Build());
             FeatureDefinitionPower spellStoringItem = new FeatureHelpers.FeatureDefinitionPowerBuilder("TinkererSpellStoringItem", GuidHelper.Create(GuidNamespace, "TinkererSpellStoringItem").ToString(),

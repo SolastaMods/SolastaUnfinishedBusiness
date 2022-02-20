@@ -207,7 +207,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             EffectDescriptionBuilder emboldeningShotsEffect = new EffectDescriptionBuilder();
             emboldeningShotsEffect.AddEffectForm(new EffectFormBuilder().SetTempHPForm(0, DieType.D6, 4).SetBonusMode(AddBonusMode.AbilityBonus).Build());
             emboldeningShotsEffect.SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.None);
-            emboldeningShotsEffect.SetDurationData(DurationType.Permanent, 1, TurnOccurenceType.EndOfTurn);
+            emboldeningShotsEffect.SetDurationData(DurationType.Permanent, 0, TurnOccurenceType.EndOfTurn);
             emboldeningShotsEffect.SetParticleEffectParameters(FalseLife.EffectDescription.EffectParticleParameters);
 
             SpellDefinition emboldeningShots = SpellDefinitionBuilder
@@ -257,7 +257,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                     ConditionContagionSlimyDoom,
                 }).Build());
             healSpellEffect.SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.None);
-            healSpellEffect.SetDurationData(DurationType.Instantaneous, 1, TurnOccurenceType.EndOfTurn);
+            healSpellEffect.SetDurationData(DurationType.Instantaneous, 0, TurnOccurenceType.EndOfTurn);
             healSpellEffect.SetParticleEffectParameters(FalseLife.EffectDescription.EffectParticleParameters);
 
             FeatureDefinitionPower greatHealElixirs = new FeatureHelpers.FeatureDefinitionPowerBuilder("PowerAlchemistHealElixirs",

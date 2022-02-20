@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Level20.Features
             Definition.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
             EffectDescriptionBuilder cleansingTouch = new EffectDescriptionBuilder();
             cleansingTouch.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Touch, 1, RuleDefinitions.TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.None);
-            cleansingTouch.SetDurationData(RuleDefinitions.DurationType.Instantaneous, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            cleansingTouch.SetDurationData(RuleDefinitions.DurationType.Instantaneous, 0, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             cleansingTouch.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.DispelMagic.EffectDescription.EffectParticleParameters);
 
             cleansingTouch.AddEffectForm(new EffectFormBuilder().CreatedByCharacter().SetCounterForm(CounterForm.CounterType.DissipateSpells, 9, 10, true, true).Build());

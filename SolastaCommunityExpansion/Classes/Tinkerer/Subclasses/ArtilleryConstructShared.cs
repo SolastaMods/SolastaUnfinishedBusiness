@@ -488,7 +488,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             newEffectDescription.EffectForms.Add(SelfDestructConditionEffect);
             newEffectDescription.EffectForms.Add(ExplosionEffect);
 
-            newEffectDescription.DurationParameter = 1;
+            newEffectDescription.DurationParameter = 0;
             newEffectDescription.DurationType = RuleDefinitions.DurationType.Instantaneous;
             newEffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
             newEffectDescription.SetTargetParameter(4);

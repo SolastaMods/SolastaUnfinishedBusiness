@@ -120,7 +120,7 @@ namespace SolastaCommunityExpansion.Spells
                         1,
                         ActionDefinitions.ItemSelectionType.None)
                     .SetParticleEffectParameters(MassHealingWord.EffectDescription.EffectParticleParameters)
-                    .SetDurationData(RuleDefinitions.DurationType.Instantaneous, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                    .SetDurationData(RuleDefinitions.DurationType.Instantaneous, 0, RuleDefinitions.TurnOccurenceType.EndOfTurn)
                     .SetSavingThrowData(
                         true,
                         false,
@@ -233,7 +233,7 @@ namespace SolastaCommunityExpansion.Spells
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(
                     RuleDefinitions.DurationType.Instantaneous,
-                    1,
+                    0,
                     RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetTargetingData(
                     RuleDefinitions.Side.Enemy,
@@ -768,7 +768,7 @@ namespace SolastaCommunityExpansion.Spells
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
                 RuleDefinitions.DurationType.Dispelled,
-                1,
+                0,
                 RuleDefinitions.TurnOccurenceType.EndOfTurn)
             .SetTargetingData(
                 RuleDefinitions.Side.Enemy,
@@ -1313,7 +1313,7 @@ namespace SolastaCommunityExpansion.Spells
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(
                     RuleDefinitions.DurationType.Dispelled,
-                    1,
+                    0,
                     RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetTargetingData(
                     RuleDefinitions.Side.Enemy,
@@ -1502,7 +1502,7 @@ namespace SolastaCommunityExpansion.Spells
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(
                     RuleDefinitions.DurationType.Instantaneous,
-                    1,
+                    0,
                     RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetTargetingData(
                     RuleDefinitions.Side.All,
@@ -1540,7 +1540,7 @@ namespace SolastaCommunityExpansion.Spells
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(
                     RuleDefinitions.DurationType.Instantaneous,
-                    1,
+                    0,
                     RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetTargetingData(
                     RuleDefinitions.Side.All,
@@ -1604,7 +1604,7 @@ namespace SolastaCommunityExpansion.Spells
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
                 RuleDefinitions.DurationType.Instantaneous,
-                1,
+                0,
                 RuleDefinitions.TurnOccurenceType.EndOfTurn)
             .SetTargetingData(
                 RuleDefinitions.Side.Ally,
@@ -1675,7 +1675,7 @@ namespace SolastaCommunityExpansion.Spells
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
                 RuleDefinitions.DurationType.Instantaneous,
-                1,
+                0,
                 RuleDefinitions.TurnOccurenceType.EndOfTurn)
             .SetTargetingData(
                 RuleDefinitions.Side.Enemy,

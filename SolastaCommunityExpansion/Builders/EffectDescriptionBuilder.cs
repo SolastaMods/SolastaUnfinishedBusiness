@@ -103,34 +103,34 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         // TODO: combine with SetTargetingData - this method not currently used, the extension version is used
-/*        private EffectDescriptionBuilder SetRange(RuleDefinitions.RangeType type, int? range = null)
-        {
-            switch (type)
-            {
-                case RuleDefinitions.RangeType.RangeHit:
-                case RuleDefinitions.RangeType.Distance:
-                    if (range == null)
+        /*        private EffectDescriptionBuilder SetRange(RuleDefinitions.RangeType type, int? range = null)
+                {
+                    switch (type)
                     {
-                        throw new ArgumentNullException(nameof(range), $"A range value is required for range type {type}.");
+                        case RuleDefinitions.RangeType.RangeHit:
+                        case RuleDefinitions.RangeType.Distance:
+                            if (range == null)
+                            {
+                                throw new ArgumentNullException(nameof(range), $"A range value is required for range type {type}.");
+                            }
+                            effect.SetRangeParameter(range.Value);
+                            break;
+                        case RuleDefinitions.RangeType.Touch:
+                            effect.SetRangeParameter(range ?? 0);
+                            break;
+                        default: // Self, MeleeHit
+                            if (range != null)
+                            {
+                                throw new SolastaModApiException($"A duration value is not expected for duration type {type}");
+                            }
+                            effect.SetRangeParameter(0);
+                            break;
                     }
-                    effect.SetRangeParameter(range.Value);
-                    break;
-                case RuleDefinitions.RangeType.Touch:
-                    effect.SetRangeParameter(range ?? 0);
-                    break;
-                default: // Self, MeleeHit
-                    if (range != null)
-                    {
-                        throw new SolastaModApiException($"A duration value is not expected for duration type {type}");
-                    }
-                    effect.SetRangeParameter(0);
-                    break;
-            }
 
-            effect.SetRangeType(type);
+                    effect.SetRangeType(type);
 
-            return this;
-        }*/
+                    return this;
+                }*/
 
         public EffectDescriptionBuilder NoVisibilityRequiredToTarget()
         {
@@ -231,26 +231,29 @@ namespace SolastaCommunityExpansion.Builders
 
         public EffectDescriptionBuilder SetDurationData(RuleDefinitions.DurationType type, int? duration = null)
         {
-            switch (type)
+            if (RuleDefinitions.IsVariableDuration(type))
             {
-                case RuleDefinitions.DurationType.Round:
-                case RuleDefinitions.DurationType.Minute:
-                case RuleDefinitions.DurationType.Hour:
-                case RuleDefinitions.DurationType.Day:
-                    if (duration == null)
-                    {
-                        throw new ArgumentNullException(nameof(duration), $"A duration value is required for duration type {type}.");
-                    }
-                    effect.SetDurationParameter(duration.Value);
-                    break;
-                default:
-                    if (duration != null)
-                    {
-                        throw new SolastaModApiException($"A duration value is not expected for duration type {type}");
-                    }
-                    // TODO: is this sensible?
-                    effect.SetDurationParameter(0);
-                    break;
+#if DEBUG
+                // TODO: should we have 'int duration = 0' 
+                // and test for 'duration <= 0' here, and 'duration != 0' below?
+                if (duration == null)
+                {
+                    throw new ArgumentNullException(nameof(duration), $"A duration value is required for duration type {type}.");
+                }
+#endif
+
+                effect.SetDurationParameter(duration.Value);
+            }
+            else
+            {
+#if DEBUG
+                if ((duration ?? 0) != 0)
+                {
+                    throw new SolastaModApiException($"A duration value is not expected for duration type {type}");
+                }
+#endif
+
+                effect.SetDurationParameter(0);
             }
 
             effect.SetDurationType(type);

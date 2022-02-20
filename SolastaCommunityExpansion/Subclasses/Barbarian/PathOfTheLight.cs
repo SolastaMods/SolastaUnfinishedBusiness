@@ -223,7 +223,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             };
 
             seeInvisibleEffectBuilder
-                .SetDurationData(RuleDefinitions.DurationType.Permanent, 1, RuleDefinitions.TurnOccurenceType.StartOfTurn)
+                .SetDurationData(RuleDefinitions.DurationType.Permanent, 0, RuleDefinitions.TurnOccurenceType.StartOfTurn)
                 .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self, 1, 0, ActionDefinitions.ItemSelectionType.None)
                 .AddEffectForm(seeInvisibleConditionForm);
 
@@ -315,7 +315,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                         var effectDescriptionBuilder = new EffectDescriptionBuilder();
 
                         effectDescriptionBuilder
-                            .SetDurationData(RuleDefinitions.DurationType.Permanent, 1, RuleDefinitions.TurnOccurenceType.StartOfTurn)
+                            .SetDurationData(RuleDefinitions.DurationType.Permanent, 0, RuleDefinitions.TurnOccurenceType.StartOfTurn)
                             .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self, 1, 0, ActionDefinitions.ItemSelectionType.None)
                             .SetRecurrentEffect(RuleDefinitions.RecurrentEffect.OnActivation | RuleDefinitions.RecurrentEffect.OnTurnStart)
                             .AddEffectForm(suppressIlluminatingBurst);

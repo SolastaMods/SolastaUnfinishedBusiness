@@ -143,7 +143,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             effectDescription.EffectForms.Clear();
             effectDescription.HasSavingThrow = false;
             effectDescription.SetTargetSide(RuleDefinitions.Side.Ally);
-            effectDescription.DurationParameter = 1;
+            effectDescription.DurationParameter = 0;
             effectDescription.DurationType = RuleDefinitions.DurationType.Permanent;
             effectDescription.EffectForms.Add(effect);
             effectDescription.EffectAdvancement.Clear();
@@ -344,7 +344,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             effectDescription.SetTargetType(RuleDefinitions.TargetType.Self);
             effectDescription.SetTargetSide(RuleDefinitions.Side.Ally);
             effectDescription.DurationType = RuleDefinitions.DurationType.Permanent;
-            effectDescription.DurationParameter = 1;
+            effectDescription.DurationParameter = 0;
             effectDescription.HasSavingThrow = false;
             effectDescription.EffectAdvancement.Clear();
             effectDescription.EffectForms.Clear();

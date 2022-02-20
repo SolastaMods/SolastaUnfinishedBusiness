@@ -93,7 +93,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             EffectDescriptionBuilder protectorEffect = new EffectDescriptionBuilder();
             protectorEffect.AddEffectForm(new EffectFormBuilder().SetTempHPForm(0, DieType.D8, 1).SetBonusMode(AddBonusMode.AbilityBonus).Build());
             protectorEffect.SetTargetingData(Side.Ally, RangeType.Self, 2, TargetType.Sphere, 2, 2, ActionDefinitions.ItemSelectionType.None);
-            protectorEffect.SetDurationData(DurationType.Permanent, 1, TurnOccurenceType.EndOfTurn);
+            protectorEffect.SetDurationData(DurationType.Permanent, 0, TurnOccurenceType.EndOfTurn);
             protectorEffect.SetParticleEffectParameters(FalseLife.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
@@ -276,7 +276,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             EffectDescriptionBuilder protector15Effect = new EffectDescriptionBuilder();
             protector15Effect.AddEffectForm(new EffectFormBuilder().SetTempHPForm(0, DieType.D8, 2).SetBonusMode(AddBonusMode.AbilityBonus).Build());
             protector15Effect.SetTargetingData(Side.Ally, RangeType.Self, 2, TargetType.Sphere, 4, 4, ActionDefinitions.ItemSelectionType.None);
-            protector15Effect.SetDurationData(DurationType.Permanent, 1, TurnOccurenceType.EndOfTurn);
+            protector15Effect.SetDurationData(DurationType.Permanent, 0, TurnOccurenceType.EndOfTurn);
             protector15Effect.SetParticleEffectParameters(FalseLife.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
