@@ -19,6 +19,26 @@ namespace SolastaCommunityExpansion.Models
                 {
                     customFeature.ApplyFeature(hero);
                 }
+
+                if (!(grantedFeature is FeatureDefinitionProficiency featureDefinitionProficiency))
+                {
+                    continue;
+                }
+
+                if (featureDefinitionProficiency.ProficiencyType != RuleDefinitions.ProficiencyType.FightingStyle)
+                {
+                    continue;
+                }
+                using (var enumerator = featureDefinitionProficiency.Proficiencies.GetEnumerator())
+                {
+                    while (enumerator.MoveNext())
+                    {
+                        string key = enumerator.Current;
+                        var element = DatabaseRepository.GetDatabase<FightingStyleDefinition>().GetElement(key, false);
+
+                        hero.TrainedFightingStyles.Add(element);
+                    }
+                }
             }
         }
 
