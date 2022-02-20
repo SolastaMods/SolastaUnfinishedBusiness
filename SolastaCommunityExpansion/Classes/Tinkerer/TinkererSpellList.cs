@@ -7,7 +7,7 @@ using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
-    internal sealed class TinkererSpellList : DefinitionBuilder<SpellListDefinition>
+    internal sealed class TinkererSpellList : SpellListDefinitionBuilder
     {
         private TinkererSpellList(string name, string guid, GuiPresentation guiPresentation) : base(name, guid)
         {

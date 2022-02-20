@@ -5,9 +5,8 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionMagicAffinityBuilder : DefinitionBuilder<FeatureDefinitionMagicAffinity>
+    public class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinityBuilder<FeatureDefinitionMagicAffinity, FeatureDefinitionMagicAffinityBuilder>
     {
-        // TODO this is not yet complete, also I'm unsure the current groupings are the best set.
         #region Constructors
         protected FeatureDefinitionMagicAffinityBuilder(string name, string guid)
             : base(name, guid)
@@ -95,7 +94,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         public FeatureDefinitionMagicAffinityBuilder SetSpellLearnAndPrepModifiers(
-                float scribeDurationMultiplier, float scribeCostMultiplier,
+            float scribeDurationMultiplier, float scribeCostMultiplier,
             int additionalScribedSpells, RuleDefinitions.AdvantageType scribeAdvantage, RuleDefinitions.PreparedSpellsModifier preparedModifier)
         {
             Definition.SetScribeCostMultiplier(scribeCostMultiplier);

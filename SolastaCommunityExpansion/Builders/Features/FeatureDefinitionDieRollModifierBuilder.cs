@@ -3,7 +3,8 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionDieRollModifierBuilder : DefinitionBuilder<FeatureDefinitionDieRollModifier>
+    public sealed class FeatureDefinitionDieRollModifierBuilder
+        : FeatureDefinitionAffinityBuilder<FeatureDefinitionDieRollModifier, FeatureDefinitionDieRollModifierBuilder>
     {
         private FeatureDefinitionDieRollModifierBuilder(string name, Guid namespaceGuid)
             : base(name, namespaceGuid)

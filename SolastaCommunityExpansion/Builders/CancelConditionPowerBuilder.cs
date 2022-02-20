@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    internal class CancelConditionPowerBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    internal class CancelConditionPowerBuilder : FeatureDefinitionPowerBuilder<FeatureDefinitionPower, CancelConditionPowerBuilder>
     {
         public CancelConditionPowerBuilder(string name, string guid, GuiPresentation presentation, ConditionDefinition condition) : base(name, guid)
         {

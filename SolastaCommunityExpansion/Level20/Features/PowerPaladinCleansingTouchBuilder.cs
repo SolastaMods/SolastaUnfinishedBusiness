@@ -1,10 +1,11 @@
 ﻿using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal sealed class PowerPaladinCleansingTouchBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class PowerPaladinCleansingTouchBuilder : FeatureDefinitionPowerBuilder
     {
         private const string PowerPaladinCleansingTouchName = "ZSPowerPaladinCleansingTouch";
         private const string PowerPaladinCleansingTouchGuid = "71861ca1-61ed-4344-bb26-ef21232adddd";

@@ -1,6 +1,5 @@
 ﻿using System;
 using SolastaCommunityExpansion.Builders;
-using SolastaModApi;
 using SolastaModApi.Extensions;
 using static RuleDefinitions;
 using static SolastaModApi.DatabaseHelper.MonsterDefinitions;

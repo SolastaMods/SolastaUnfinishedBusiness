@@ -1,10 +1,10 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal sealed class PowerPaladinAuraOfProtection18Builder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class PowerPaladinAuraOfProtection18Builder : FeatureDefinitionPowerBuilder
     {
         private static FeatureDefinitionPower _instance;
 

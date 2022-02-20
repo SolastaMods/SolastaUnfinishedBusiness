@@ -1,10 +1,10 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal sealed class PowerFighterActionSurge2Builder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class PowerFighterActionSurge2Builder : FeatureDefinitionPowerBuilder
     {
         private const string PowerFighterActionSurgeName = "ZSPowerFighterActionSurge2";
         private const string PowerFighterActionSurgeGuid = "a20a3955a66142e5ba9d2580a71b6c36";

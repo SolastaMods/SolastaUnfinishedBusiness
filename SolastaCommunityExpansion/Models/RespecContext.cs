@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Models
     {
         internal const RestActivityDefinition.ActivityCondition ActivityConditionCanRespec = (RestActivityDefinition.ActivityCondition)(-1001);
 
-        public class RestActivityRespecBuilder : DefinitionBuilder<RestActivityDefinition>
+        public class RestActivityRespecBuilder : RestActivityDefinitionBuilder
         {
             private const string RespecName = "ZSRespec";
             private const string RespecGuid = "40824029eb224fb581f0d4e5989b6735";

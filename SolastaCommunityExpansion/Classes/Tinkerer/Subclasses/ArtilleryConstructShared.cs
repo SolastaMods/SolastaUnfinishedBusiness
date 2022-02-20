@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		ArtilleryConstructlevel03FeatureSetBuilder		***********************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class ArtilleryConstructlevel03FeatureSetBuilder : DefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal sealed class ArtilleryConstructlevel03FeatureSetBuilder : FeatureDefinitionFeatureSetBuilder
     {
         private const string Name = "ArtilleryConstructlevel03FeatureSet";
         private const string Guid = "59f857e6-7b06-4c2b-a241-b73c42d64c23";
@@ -153,7 +153,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		ArtilleryConstructlevel09FeatureSetBuilder		***********************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class ArtilleryConstructlevel09FeatureSetBuilder : DefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal sealed class ArtilleryConstructlevel09FeatureSetBuilder : FeatureDefinitionFeatureSetBuilder
     {
         private const string Name = "ArtilleryConstructlevel09FeatureSet";
         private const string Guid = "a1e9557c-c1a9-4912-9fea-1a16c4124331";
@@ -283,7 +283,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		ArtilleryConstructlevel15FeatureSetBuilder		***********************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class ArtilleryConstructlevel15FeatureSetBuilder : DefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal sealed class ArtilleryConstructlevel15FeatureSetBuilder : FeatureDefinitionFeatureSetBuilder
     {
         private const string Name = "ArtilleryConstructlevel15FeatureSet";
         private const string Guid = "50c91d16-1a84-494a-ba72-dd4879955f2f";
@@ -428,7 +428,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SelfDestructBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SelfDestructBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class SelfDestructBuilder : FeatureDefinitionPowerBuilder
     {
         private const string SelfDestructName = "SelfDestruct";
         private const string SelfDestructGuid = "68ecf3d9-f718-4c62-921c-f30df3708312";
@@ -520,7 +520,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SelfDestructionConditionBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SelfDestructionConditionBuilder : DefinitionBuilder<ConditionDefinition>
+    internal sealed class SelfDestructionConditionBuilder : ConditionDefinitionBuilder
     {
         private const string SelfDestructionConditionName = "SelfDestructionCondition";
         private const string SelfDestructionConditionGuid = "c96984f4-0370-4775-ab8b-3ee6db0c8806";
@@ -569,7 +569,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		HalfCoverShieldBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class HalfCoverShieldBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class HalfCoverShieldBuilder : FeatureDefinitionPowerBuilder
     {
         private const string HalfCoverShieldName = "HalfCoverShield";
         private const string HalfCoverShieldGuid = "0fd3ccb3-0f15-4766-8eb8-32042838ce6d";
@@ -624,7 +624,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		HalfCoverShieldConditionBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class HalfCoverShieldConditionBuilder : DefinitionBuilder<ConditionDefinition>
+    internal sealed class HalfCoverShieldConditionBuilder : ConditionDefinitionBuilder
     {
         private const string HalfCoverShieldConditionName = "HalfCoverShieldCondition";
         private const string HalfCoverShieldConditionGuid = "c160a20e-4714-478a-8bbb-6df5526728a9";
@@ -650,7 +650,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		HalfCoverShieldAttributeBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class HalfCoverShieldAttributeBuilder : DefinitionBuilder<FeatureDefinitionAttributeModifier>
+    internal sealed class HalfCoverShieldAttributeBuilder : FeatureDefinitionAttributeModifierBuilder
     {
         private const string HalfCoverShieldAttributeName = "HalfCoverShieldAttribute";
         private const string HalfCoverShieldAttributeGuid = "4dd6548f-4d7f-4bbf-b120-70a17f79f8e0";
@@ -677,7 +677,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummonArtillerySpellConstructBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SummonArtillerySpellConstructBuilder : DefinitionBuilder<SpellDefinition>
+    internal sealed class SummonArtillerySpellConstructBuilder : SpellDefinitionBuilder
     {
         private const string SummonArtillerySpellConstructName = "SummonArtillerySpellConstruct";
         private const string SummonArtillerySpellConstructGuid = "214dab9d-f40e-424f-8730-b41acdae26ec";
@@ -715,7 +715,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummonArtillerySpellConstruct_9Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SummonArtillerySpellConstruct9Builder : DefinitionBuilder<SpellDefinition>
+    internal sealed class SummonArtillerySpellConstruct9Builder : SpellDefinitionBuilder
     {
         private const string SummonArtillerySpellConstruct_9Name = "SummonArtillerySpellConstruct_9";
         private const string SummonArtillerySpellConstruct_9Guid = "9ad29b43-5207-46e8-bbc9-7b8138b2912f";
@@ -745,7 +745,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummonArtillerySpellConstruct_15Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SummonArtillerySpellConstruct15Builder : DefinitionBuilder<SpellDefinition>
+    internal sealed class SummonArtillerySpellConstruct15Builder : SpellDefinitionBuilder
     {
         private const string SummonArtillerySpellConstruct_15Name = "SummonArtillerySpellConstruct_15";
         private const string SummonArtillerySpellConstruct_15Guid = "f0038039-423b-4265-b0cf-2eab2450f982";
@@ -771,7 +771,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static readonly SpellDefinition SummonArtillerySpellConstruct15 = CreateAndAddToDB(SummonArtillerySpellConstruct_15Name, SummonArtillerySpellConstruct_15Guid);
     }
 
-    internal sealed class SummoningAffinityTinkererArtilleryConstructBuilder : DefinitionBuilder<FeatureDefinitionSummoningAffinity>
+    internal sealed class SummoningAffinityTinkererArtilleryConstructBuilder : FeatureDefinitionSummoningAffinityBuilder
     {
         private const string Name = "SummoningAffinityTinkererArtilleryConstruct";
         private const string Guid = "edae2ec0-f871-4918-855a-117bd428d51e";

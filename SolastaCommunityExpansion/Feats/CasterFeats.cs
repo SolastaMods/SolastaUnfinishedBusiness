@@ -4,8 +4,8 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Infrastructure;
-using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Feats
 {

@@ -2,8 +2,8 @@
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 
 namespace SolastaCommunityExpansion.FightingStyles
 {

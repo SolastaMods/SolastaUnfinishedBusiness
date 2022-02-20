@@ -6,7 +6,8 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionSubclassChoiceBuilder : DefinitionBuilder<FeatureDefinitionSubclassChoice>
+    public sealed class FeatureDefinitionSubclassChoiceBuilder
+        : FeatureDefinitionBuilder<FeatureDefinitionSubclassChoice, FeatureDefinitionSubclassChoiceBuilder>
     {
         #region Constructors
         private FeatureDefinitionSubclassChoiceBuilder(string name, string guid)

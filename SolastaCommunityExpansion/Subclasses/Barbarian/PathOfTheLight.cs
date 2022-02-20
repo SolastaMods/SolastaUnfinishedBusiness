@@ -459,7 +459,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             public CharacterClassDefinition Class => CharacterClassDefinitions.Barbarian;
         }
 
-        private sealed class IlluminatingStrikeFeatureBuilder : DefinitionBuilder<IlluminatingStrikeAdditionalDamage>
+        private sealed class IlluminatingStrikeFeatureBuilder : FeatureDefinitionAdditionalDamageBuilder<IlluminatingStrikeAdditionalDamage, IlluminatingStrikeFeatureBuilder>
         {
             public IlluminatingStrikeFeatureBuilder(string name, string guid, string title, string description, ConditionDefinition illuminatedCondition) : base(name, guid)
             {
@@ -546,7 +546,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
         /// <summary>
         /// Builds the power that enables Illuminating Strike while you're raging.
         /// </summary>
-        private sealed class IlluminatingStrikeInitiatorBuilder : DefinitionBuilder<FeatureDefinitionPower>
+        private sealed class IlluminatingStrikeInitiatorBuilder : FeatureDefinitionPowerBuilder
         {
             public IlluminatingStrikeInitiatorBuilder(string name, string guid, string title, string description, ConditionDefinition illuminatedCondition) : base(name, guid)
             {
@@ -613,7 +613,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             public bool IsRechargeSilent => true;
         }
 
-        private sealed class IlluminatingBurstPowerBuilder : DefinitionBuilder<IlluminatingBurstPower>
+        private sealed class IlluminatingBurstPowerBuilder : FeatureDefinitionPowerBuilder<IlluminatingBurstPower, IlluminatingBurstPowerBuilder>
         {
             public IlluminatingBurstPowerBuilder(string name, string guid, string title, string description, ConditionDefinition illuminatedCondition, ConditionDefinition illuminatingBurstSuppressedCondition) : base(name, guid)
             {
@@ -729,7 +729,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
         /// <summary>
         /// Builds the power that enables Illuminating Burst on the turn you enter a rage (by removing the condition disabling it).
         /// </summary>
-        private sealed class IlluminatingBurstInitiatorBuilder : DefinitionBuilder<FeatureDefinitionPower>
+        private sealed class IlluminatingBurstInitiatorBuilder : FeatureDefinitionPowerBuilder
         {
             public IlluminatingBurstInitiatorBuilder(string name, string guid, string title, string description, ConditionDefinition illuminatingBurstSuppressedCondition) : base(name, guid)
             {

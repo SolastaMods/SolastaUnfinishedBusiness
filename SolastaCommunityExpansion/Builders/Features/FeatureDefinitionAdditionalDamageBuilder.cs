@@ -8,30 +8,124 @@ using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionAdditionalDamageBuilder : DefinitionBuilder<FeatureDefinitionAdditionalDamage>
+    public abstract class FeatureDefinitionAdditionalDamageBuilder<TDefinition, TBuilder> : FeatureDefinitionBuilder<TDefinition, TBuilder>
+        where TDefinition : FeatureDefinitionAdditionalDamage
+        where TBuilder : FeatureDefinitionAdditionalDamageBuilder<TDefinition, TBuilder>
     {
-        /*
-        private FeatureDefinitionAdditionalDamageBuilder(string name, string guid)
-            : base(name, guid)
+        #region Constructors
+        protected FeatureDefinitionAdditionalDamageBuilder(TDefinition original) : base(original)
         {
         }
 
-        private FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original, string name, string guid)
-            : base(original, name, guid)
+        protected FeatureDefinitionAdditionalDamageBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        public FeatureDefinitionAdditionalDamageBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid, Category.None)
-        {
-        }
-        */
-
-        private FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
+        protected FeatureDefinitionAdditionalDamageBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
+        protected FeatureDefinitionAdditionalDamageBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionAdditionalDamageBuilder(TDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionAdditionalDamageBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionAdditionalDamageBuilder(TDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
+
+        public TBuilder SetSpecificDamageType(string damageType)
+        {
+            Definition.SetAdditionalDamageType(RuleDefinitions.AdditionalDamageType.Specific);
+            Definition.SetSpecificDamageType(damageType);
+            return This();
+        }
+
+        public TBuilder SetDamageDice(RuleDefinitions.DieType dieType, int diceNumber)
+        {
+            Definition.SetDamageValueDetermination(RuleDefinitions.AdditionalDamageValueDetermination.Die);
+            Definition.SetDamageDiceNumber(diceNumber);
+            Definition.SetDamageDieType(dieType);
+            return This();
+        }
+
+        public TBuilder SetNotificationTag(string tag)
+        {
+            Definition.SetNotificationTag(tag);
+            return This();
+        }
+
+        public TBuilder SetNoAdvancement()
+        {
+            Definition.SetDamageAdvancement(RuleDefinitions.AdditionalDamageAdvancement.None);
+            return This();
+        }
+
+        public TBuilder SetClassAdvancement(params DiceByRank[] diceByRanks)
+        {
+            return SetClassAdvancement(diceByRanks.AsEnumerable());
+        }
+
+        public TBuilder SetClassAdvancement(IEnumerable<DiceByRank> diceByRanks)
+        {
+            Definition.SetDamageAdvancement(RuleDefinitions.AdditionalDamageAdvancement.ClassLevel);
+            Definition.DiceByRankTable.SetRange(diceByRanks);
+            return This();
+        }
+
+        public TBuilder SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition trigger)
+        {
+            Definition.SetTriggerCondition(trigger);
+            return This();
+        }
+
+        public TBuilder SetNoSave()
+        {
+            Definition.SetDamageSaveAffinity(RuleDefinitions.EffectSavingThrowType.None);
+            return This();
+        }
+
+        public TBuilder SetConditionOperations(params ConditionOperationDescription[] operations)
+        {
+            return SetConditionOperations(operations.AsEnumerable());
+        }
+
+        public TBuilder SetConditionOperations(IEnumerable<ConditionOperationDescription> operations)
+        {
+            Definition.ConditionOperations.SetRange(operations);
+            return This();
+        }
+
+        public TBuilder SetTargetCondition(ConditionDefinition requiredCondition, RuleDefinitions.AdditionalDamageTriggerCondition trigger)
+        {
+            Definition.SetRequiredTargetCondition(requiredCondition);
+            Definition.SetTriggerCondition(trigger);
+            return This();
+        }
+
+        public TBuilder SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage limit)
+        {
+            Definition.SetLimitedUsage(limit);
+            return This();
+        }
+
+        public TBuilder SetImpactParticleReference(AssetReference asset)
+        {
+            Definition.SetImpactParticleReference(asset);
+            return This();
+        }
+    }
+
+    public class FeatureDefinitionAdditionalDamageBuilder : FeatureDefinitionAdditionalDamageBuilder<FeatureDefinitionAdditionalDamage, FeatureDefinitionAdditionalDamageBuilder>
+    {
         // TODO: remove this ctor (replace with smaller methods)
         public FeatureDefinitionAdditionalDamageBuilder(string name, string guid,
             string notificationTag, RuleDefinitions.FeatureLimitedUsage limitedUsage,
@@ -60,92 +154,41 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetGuiPresentation(guiPresentation);
         }
 
+        #region Constructors
+        protected FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original) : base(original)
+        {
+        }
+
+        protected FeatureDefinitionAdditionalDamageBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionAdditionalDamageBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected FeatureDefinitionAdditionalDamageBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
+
         // Add other standard Create methods and constructors as required.
 
         public static FeatureDefinitionAdditionalDamageBuilder Create(FeatureDefinitionAdditionalDamage original, string name, Guid namespaceGuid)
         {
             return new FeatureDefinitionAdditionalDamageBuilder(original, name, namespaceGuid);
-        }
-
-        public FeatureDefinitionAdditionalDamageBuilder SetSpecificDamageType(string damageType)
-        {
-            Definition.SetAdditionalDamageType(RuleDefinitions.AdditionalDamageType.Specific);
-            Definition.SetSpecificDamageType(damageType);
-            return this;
-        }
-
-        public FeatureDefinitionAdditionalDamageBuilder SetDamageDice(RuleDefinitions.DieType dieType, int diceNumber)
-        {
-            Definition.SetDamageValueDetermination(RuleDefinitions.AdditionalDamageValueDetermination.Die);
-            Definition.SetDamageDiceNumber(diceNumber);
-            Definition.SetDamageDieType(dieType);
-            return this;
-        }
-
-        public FeatureDefinitionAdditionalDamageBuilder SetNotificationTag(string tag)
-        {
-            Definition.SetNotificationTag(tag);
-            return this;
-        }
-
-        public FeatureDefinitionAdditionalDamageBuilder SetNoAdvancement()
-        {
-            Definition.SetDamageAdvancement(RuleDefinitions.AdditionalDamageAdvancement.None);
-            return this;
-        }
-
-        public FeatureDefinitionAdditionalDamageBuilder SetClassAdvancement(params DiceByRank[] diceByRanks)
-        {
-            return SetClassAdvancement(diceByRanks.AsEnumerable());
-        }
-
-        public FeatureDefinitionAdditionalDamageBuilder SetClassAdvancement(IEnumerable<DiceByRank> diceByRanks)
-        {
-            Definition.SetDamageAdvancement(RuleDefinitions.AdditionalDamageAdvancement.ClassLevel);
-            Definition.DiceByRankTable.SetRange(diceByRanks);
-            return this;
-        }
-
-        public FeatureDefinitionAdditionalDamageBuilder SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition trigger)
-        {
-            Definition.SetTriggerCondition(trigger);
-            return this;
-        }
-
-        public FeatureDefinitionAdditionalDamageBuilder SetNoSave()
-        {
-            Definition.SetDamageSaveAffinity(RuleDefinitions.EffectSavingThrowType.None);
-            return this;
-        }
-
-        public FeatureDefinitionAdditionalDamageBuilder SetConditionOperations(params ConditionOperationDescription[] operations)
-        {
-            return SetConditionOperations(operations.AsEnumerable());
-        }
-
-        public FeatureDefinitionAdditionalDamageBuilder SetConditionOperations(IEnumerable<ConditionOperationDescription> operations)
-        {
-            Definition.ConditionOperations.SetRange(operations);
-            return this;
-        }
-
-        public FeatureDefinitionAdditionalDamageBuilder SetTargetCondition(ConditionDefinition requiredCondition, RuleDefinitions.AdditionalDamageTriggerCondition trigger)
-        {
-            Definition.SetRequiredTargetCondition(requiredCondition);
-            Definition.SetTriggerCondition(trigger);
-            return this;
-        }
-
-        public FeatureDefinitionAdditionalDamageBuilder SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage limit)
-        {
-            Definition.SetLimitedUsage(limit);
-            return this;
-        }
-
-        public FeatureDefinitionAdditionalDamageBuilder SetImpactParticleReference(AssetReference asset)
-        {
-            Definition.SetImpactParticleReference(asset);
-            return this;
         }
     }
 }

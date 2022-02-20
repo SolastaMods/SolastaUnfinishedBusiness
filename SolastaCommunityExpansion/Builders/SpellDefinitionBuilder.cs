@@ -6,25 +6,25 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public sealed class SpellDefinitionBuilder : DefinitionBuilder<SpellDefinition>
+    public class SpellDefinitionBuilder : DefinitionBuilder<SpellDefinition, SpellDefinitionBuilder>
     {
         #region Constructors
-        private SpellDefinitionBuilder(string name, string guid) : base(name, guid)
+        protected SpellDefinitionBuilder(string name, string guid) : base(name, guid)
         {
             InitializeFields();
         }
 
-        private SpellDefinitionBuilder(string name, Guid guidNamespace) : base(name, guidNamespace)
+        protected SpellDefinitionBuilder(string name, Guid guidNamespace) : base(name, guidNamespace)
         {
             InitializeFields();
         }
 
-        private SpellDefinitionBuilder(SpellDefinition original, string name, string guid) : base(original, name, guid)
+        protected SpellDefinitionBuilder(SpellDefinition original, string name, string guid) : base(original, name, guid)
         {
             InitializeFields();
         }
 
-        private SpellDefinitionBuilder(SpellDefinition original, string name, Guid guidNamespace)
+        protected SpellDefinitionBuilder(SpellDefinition original, string name, Guid guidNamespace)
             : base(original, name, guidNamespace)
         {
             InitializeFields();

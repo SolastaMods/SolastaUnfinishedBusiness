@@ -504,7 +504,7 @@ namespace SolastaCommunityExpansion.Builders
             configureDefinition.Invoke(Definition);
 
 #if DEBUG
-            if (typeof(TBuilder) != GetType())
+            if (this is not TBuilder)
             {
                 throw new SolastaModApiException($"Error in Configure. TBuilder={typeof(TBuilder).Name}, this={GetType().Name}");
             }
@@ -544,7 +544,7 @@ namespace SolastaCommunityExpansion.Builders
         internal TBuilder This()
         {
 #if DEBUG
-            if (typeof(TBuilder) != GetType())
+            if (this is not TBuilder)
             {
                 throw new SolastaModApiException($"Error in Configure. TBuilder={typeof(TBuilder).Name}, this={GetType().Name}");
             }
