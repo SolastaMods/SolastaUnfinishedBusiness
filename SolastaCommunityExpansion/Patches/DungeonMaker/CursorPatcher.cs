@@ -16,23 +16,11 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker
             {
                 Main.Log($"{__instance.GetType().Name}: Right-click");
 
-                if (__instance is CursorLocationEditor && __instance is not CursorLocationEditorDefault)
-                {
-                    ServiceRepository.GetService<ICursorService>()?.DeactivateCursor();
-                }
-                else if (__instance is CursorLocationGeometricShape)
-                {
-                    ServiceRepository.GetService<ICursorService>()?.DeactivateCursor();
-                }
-                else if (__instance is CursorLocationSelectTarget)
-                {
-                    ServiceRepository.GetService<ICursorService>()?.DeactivateCursor();
-                }
-                else if (__instance is CursorLocationSelectSpellOrPower)
-                {
-                    ServiceRepository.GetService<ICursorService>()?.DeactivateCursor();
-                }
-                else if (__instance is CursorLocationSelectPosition)
+                if (__instance is not CursorCampaignDefault &&
+                    __instance is not CursorEditableGraphDefault &&
+                    __instance is not CursorLocationBattleDefault &&
+                    __instance is not CursorLocationEditorDefault &&
+                    __instance is not CursorLocationExplorationDefault)
                 {
                     ServiceRepository.GetService<ICursorService>()?.DeactivateCursor();
                 }

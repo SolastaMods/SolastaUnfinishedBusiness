@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi;
+using SolastaModApi.Diagnostics;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
@@ -22,6 +24,21 @@ namespace SolastaCommunityExpansion.Builders
             particleParams.Copy(DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters);
 
             effect.SetEffectParticleParameters(particleParams);
+        }
+
+        public EffectDescriptionBuilder(EffectDescription effect)
+        {
+            this.effect = effect.Copy();
+        }
+
+        public static EffectDescriptionBuilder Create()
+        {
+            return new EffectDescriptionBuilder();
+        }
+
+        public static EffectDescriptionBuilder Create(EffectDescription effect)
+        {
+            return new EffectDescriptionBuilder(effect);
         }
 
         public EffectDescriptionBuilder SetCreatedByCharacter()
@@ -177,9 +194,36 @@ namespace SolastaCommunityExpansion.Builders
 
         public EffectDescriptionBuilder SetDurationData(RuleDefinitions.DurationType durationType, int durationParameter, RuleDefinitions.TurnOccurenceType endOfEffect)
         {
-            effect.DurationType = durationType;
-            effect.DurationParameter = durationParameter;
+            effect.SetDurationType(durationType);
+            effect.SetDurationParameter(durationParameter);
             effect.SetEndOfEffect(endOfEffect);
+            return this;
+        }
+
+        public EffectDescriptionBuilder SetDurationData(RuleDefinitions.DurationType type, int duration = 0)
+        {
+            switch (type)
+            {
+                case RuleDefinitions.DurationType.Round:
+                case RuleDefinitions.DurationType.Minute:
+                case RuleDefinitions.DurationType.Hour:
+                case RuleDefinitions.DurationType.Day:
+                    if (duration <= 0)
+                    {
+                        throw new ArgumentNullException(nameof(duration), $"A positive duration value is required for duration type {type}.");
+                    }
+                    effect.SetDurationParameter(duration);
+                    break;
+                default:
+                    if (duration != 0)
+                    {
+                        throw new SolastaModApiException($"A duration value is not expected for duration type {type}.");
+                    }
+                    effect.SetDurationParameter(0);
+                    break;
+            }
+
+            effect.SetDurationType(type);
             return this;
         }
 

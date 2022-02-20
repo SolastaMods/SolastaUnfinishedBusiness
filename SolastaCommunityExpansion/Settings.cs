@@ -169,6 +169,8 @@ namespace SolastaCommunityExpansion
         public bool DismissControlledConjurationsWhenDeliberatelyDropConcentration { get; set; }
         public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
         public bool SpikeGrowthDoesNotAffectFlyingCreatures { get; set; }
+        public bool SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures { get; set; }
+        public bool EnableTargetTypeSquareCylinder { get; set; }
 
         // House
         public bool AllowAnyClassToWearSylvanArmor { get; set; }
