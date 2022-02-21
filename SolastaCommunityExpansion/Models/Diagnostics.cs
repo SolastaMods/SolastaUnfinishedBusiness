@@ -9,7 +9,7 @@ using I2.Loc;
 
 namespace SolastaCommunityExpansion.Models
 {
-    internal static class GuiPresentationCheck
+    internal static class Diagnostics
     {
         private static HashSet<BaseDefinition> TABaseDefinitions;
 
@@ -29,22 +29,37 @@ namespace SolastaCommunityExpansion.Models
         }
 
         [Conditional("DEBUG")]
-        public static void PostDatabaseLoadCheck()
+        public static void PostDatabaseLoad()
         {
+            #region Preconditions
             if (TABaseDefinitions != null)
             {
+                // Only load TABaseDefinitions once
                 return;
             }
 
             TABaseDefinitions = GetAllDefinitions();
 
-            if (!Main.Settings.DebugShowTADefinitionsWithMissingGuiPresentation)
+            if (!Main.Settings.DebugCreateDiagnosticsForTADefinitions)
             {
                 return;
             }
 
-            Main.Log("PostDatabaseLoad GuiPresentation Check start ------------------------------------------");
+            var folder = Environment.GetEnvironmentVariable("SolastaCEDiagnosticsDir");
 
+            if (string.IsNullOrWhiteSpace(folder))
+            {
+                Main.Log("[SolastaCEDiagnosticsDir] is not set.  Aborting PostDatabaseLoad.");
+                return;
+            }
+
+            if (!Directory.Exists(folder))
+            {
+                Directory.CreateDirectory(folder);
+            }
+            #endregion
+
+            // Write all TA definitions with no GUI presentation to file
             foreach (var definition in TABaseDefinitions)
             {
                 var gp = definition.GuiPresentation;
@@ -55,18 +70,47 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
 
-            Main.Log("PostDatabaseLoad GuiPresentation Check end --------------------------------------------");
+            var allLines = TABaseDefinitions
+                .Where(d => string.IsNullOrWhiteSpace(d.GuiPresentation?.Title) || string.IsNullOrWhiteSpace(d.GuiPresentation?.Description))
+                .Select(d => $"Definition {d.Name}: Title='{d.GuiPresentation?.Title ?? string.Empty}', Desc='{d.GuiPresentation?.Description ?? string.Empty}'");
+
+            File.WriteAllLines(Path.Combine(folder, "TA-Definitions-Missing-GuiPresentation.txt"), allLines);
+
+            // TODO: write all TA definitions with GUI presentation but missing translation to file
         }
 
         [Conditional("DEBUG")]
-        public static void PostCELoadCheck()
+        public static void PostCELoad()
         {
-            Main.Log("PostCELoad GuiPresentation Check start ------------------------------------------------");
+            #region Preconditions
+            if (TABaseDefinitions != null)
+            {
+                return;
+            }
 
             if (!Main.Settings.DebugShowCEDefinitionsWithMissingGuiPresentation)
             {
                 return;
             }
+
+            var folder = Environment.GetEnvironmentVariable("SolastaCEDiagnosticsDir");
+
+            if (string.IsNullOrWhiteSpace(folder))
+            {
+                Main.Log("[SolastaCEDiagnosticsDir] is not set.  Aborting PostCELoad.");
+                return;
+            }
+
+            if (!Directory.Exists(folder))
+            {
+                Directory.CreateDirectory(folder);
+            }
+            #endregion
+
+            // TODO: write all CE definitions name/guid to file (txt)
+            // TODO: write all CE definitions to file (json)
+            // TODO: write all CE definitions with no GUI presentation to file
+            // TODO: write all CE definitions with GUI presentation but missing translation to file
 
             var allDefinitions = GetAllDefinitions();
 
@@ -107,7 +151,7 @@ namespace SolastaCommunityExpansion.Models
             if (Main.Settings.DebugLogCEDefinitionsToFile)
             {
                 // Keep record of generated names and guids.
-                File.WriteAllLines($"Definitions-{DateTime.Now:yyyy-MM-dd_HH-mm}.txt",
+                File.WriteAllLines($"Definitions.txt",
                     allDefinitions
                         .Except(TABaseDefinitions)
                         .OrderBy(x => x.Name)
@@ -128,8 +172,6 @@ namespace SolastaCommunityExpansion.Models
                             "{((d && d.GuiPresentation != null) ? d.GuiPresentation.Title : string.Empty)}, " +
                             "{((d && d.GuiPresentation != null) ? d.GuiPresentation.Description : string.Empty)}"));
             }
-
-            Main.Log("PostCELoad GuiPresentation Check end --------------------------------------------------");
         }
     }
 }

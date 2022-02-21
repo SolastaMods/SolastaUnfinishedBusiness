@@ -232,7 +232,7 @@ namespace SolastaCommunityExpansion
         public bool NoExperienceOnLevelUp { get; set; }
 
         // Debug
-        public bool DebugShowTADefinitionsWithMissingGuiPresentation { get; set; }
+        public bool DebugCreateDiagnosticsForTADefinitions { get; set; } = true;
         public bool DebugLogDefinitionCreation { get; set; }
         public bool DebugLogFieldInitialization { get; set; }
         public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
