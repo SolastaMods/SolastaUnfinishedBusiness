@@ -113,6 +113,7 @@ BackgroundSkillSelect2, 77d6eb2c-d99f-4256-9bb6-c6395e440629
 BackgroundSkillSelect3, e6f2ed65-a44e-4314-b38c-393abb4ad900
 BackgroundToolSelect, 989ddb03-b915-42cc-9612-bc8be96b7476
 BalancingAdvantage, 9dc28618-3adb-497d-930d-2a01bcac42d5
+BarbarianArmorProficiencyMulticlass, 86558227b0cd4771b42978a60dc610db
 BarkWard, 2d27674c-26d3-5d01-b35b-8595f0f7eb52
 BattleSmith, 09470c35-5fc0-558c-a93e-91704d82d938
 BlindFightingStlye, a0df0cb6-640f-494e-b752-b746fa79bede
@@ -357,6 +358,7 @@ DruidForestGuardianSuperiorBarkWard, 159ecf17-62de-5b17-82c1-4c040e24daae
 DruidForestGuardianSylvanWarMagic, 1edd7942-b88d-54e6-b7f1-65adb8009def
 DruidicAmulet, 3487d3b2-1058-4c0f-8009-9e4f525cb0e0
 DualFlurryFeat, 4e75dbb0-5fdb-5866-bd2b-05113ddd7bf8
+DummyClass, 062d696ab44146e0b316188f943d8079
 EldritchOrb, 0db30b08-c8f6-5dd7-a248-eb9cae787a17
 Enchanted_Club_Acuteness, 5eed452c-4c60-5a2e-832c-7b3efe1240cd
 Enchanted_Club_Bearclaw, e7ea7f22-37cf-51ae-9c1e-b25f6ae7d06d
@@ -509,6 +511,7 @@ FeyTeleportationAutoPrepMistyRogue, 97143a76-c009-50f9-90d7-679c2c892b4a
 FeyTeleportationAutoPrepMistySorcerer, b2ec4b3e-2fe9-560a-af5d-7c24872747e5
 FeyTeleportationAutoPrepMistyWizard, 2c2c8f9d-8420-5041-b238-509aec321a2a
 FeyTeleportationLanguageTirmarian, a2c603ae-7c49-5207-865e-6ffecb60182e
+FighterArmorProficiencyMulticlass, 5df5ec907a424fccbfec103344421b51
 FighterRoyalKnight, fd064807-2040-5f01-b407-0414ca005ebc
 FighterSpellShield, d2d44af7-423a-5001-88b8-de5ecd9fe60e
 FindFamiliar, 7c7a9c9f-2fda-5acc-acb7-eebfb2b4e064
@@ -589,6 +592,7 @@ MasterManipulator, 4d428614-7b2b-5789-8b59-755c90b981b0
 MendingConstruct, 92de3dbf-4b57-46d3-aebf-0f7819b0ac2d
 MinorLifesteal, 708ff12c-4747-534c-955b-5f9438eb58ac
 Owl, 2fd3f2ca-f387-58c0-8605-dc890cee68d9
+PaladinArmorProficiencyMulticlass, 69b18e44aabd4acca702c05f9d6c7fcb
 PathOfTheLight, 69b21a8d-8f7a-5cda-b600-c68a44b6b280
 PathOfTheLightEyesOfTruth, b9dfa978-a406-5b1b-80ea-e1e1764f7524
 PathOfTheLightEyesOfTruthPower, 3ffe8a5b-968b-50e9-ba96-8eae57dfc5de
@@ -627,6 +631,9 @@ PointPool8BonusFeats, a6eea7e1-8d4f-5963-807d-ed4e905da8df
 PointPool9BonusFeats, 24aa6f1c-6cd3-5046-9cc4-7c87d6f48e64
 PointPoolAbilityScore3, 89708d7d-a16a-44a1-b480-733d1ae932a4
 PointPoolAbilityScore4, dcdd35a8-f1ca-475a-b5a4-a0426292688c
+PointPoolBardSkillPointsMulticlass, a69b2527569b4893abe57ad1f80e97ed
+PointPoolRangerSkillPointsMulticlass, 096e4e01b52b490e807cf8d458845aa5
+PointPoolRogueSkillPointsMulticlass, 451259da8c5c41f4b1b363f00b01be4e
 PointPoolTinkererSkillPoints, f0bb19e3-584b-585d-8e0b-eafe106a09b5
 PointPoolWitchSkillPoints, e3054f67-59d2-5fef-b78f-d31437d13ddc
 PowerAlchemistGreaterRestorativeElixirs, faeba33f-a073-5c99-aa06-dbb68f4c6c8f
@@ -942,6 +949,7 @@ TraditionSpellMasterSpellResistance, b26e83cf-eef2-5ae5-ac8c-fd49c42fa7d6
 UseArmorWeaponsAsFocus, 55a4d71f-2b9d-4df6-abf1-c0cc6682eb9d
 UsingitemPower, 39f8cb05-5475-456a-a9b2-022b6e07850b
 WandIdentify, 46ae7624-4d24-455a-98f9-d41403b0ae19
+WardenArmorProficiencyMulticlass, 19666e846975401b819d1ae72c5d27ac
 WhiteMagicAutoPreparedSpell, 790e347d-b2eb-5188-9c71-fc69c56b9d95
 WhiteWitch, d9e3aac4-ad78-5739-ba6e-f70081c8a33b
 WitchBurnedFireResistance, 786b91f4-c41d-538e-b6cb-fbd992c3f59c

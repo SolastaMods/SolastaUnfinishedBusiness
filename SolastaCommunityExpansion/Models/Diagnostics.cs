@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using HarmonyLib;
@@ -28,7 +27,6 @@ namespace SolastaCommunityExpansion.Models
             return definitions;
         }
 
-        [Conditional("DEBUG")]
         public static void PostDatabaseLoad()
         {
             #region Preconditions
@@ -39,17 +37,19 @@ namespace SolastaCommunityExpansion.Models
             }
 
             TABaseDefinitions = GetAllDefinitions();
+            
+            var taDefinitions = TABaseDefinitions.OrderBy(x => x.Name).ThenBy(x => x.GetType().Name).ToList();
 
-            if (!Main.Settings.DebugCreateDiagnosticsForTADefinitions)
+            if (!Main.Settings.DebugEnableTADefinitionDiagnostics)
             {
                 return;
             }
 
-            var folder = Environment.GetEnvironmentVariable("SolastaCEDiagnosticsDir");
+            var folder = Environment.GetEnvironmentVariable("SolastaCEDiagnosticsDir", EnvironmentVariableTarget.Machine);
 
             if (string.IsNullOrWhiteSpace(folder))
             {
-                Main.Log("[SolastaCEDiagnosticsDir] is not set.  Aborting PostDatabaseLoad.");
+                Main.Log("[SolastaCEDiagnosticsDir] is not set.  Aborting PostDatabaseLoad diagnostics.");
                 return;
             }
 
@@ -59,119 +59,111 @@ namespace SolastaCommunityExpansion.Models
             }
             #endregion
 
+            /////////////////////////////////////////////////////////////////////////////////////////////////
             // Write all TA definitions with no GUI presentation to file
-            foreach (var definition in TABaseDefinitions)
-            {
-                var gp = definition.GuiPresentation;
+            File.WriteAllLines(Path.Combine(folder, "TA-Definitions-GuiPresentation-MissingValue.txt"),
+                taDefinitions
+                    .Where(d => string.IsNullOrWhiteSpace(d.GuiPresentation?.Title) || string.IsNullOrWhiteSpace(d.GuiPresentation?.Description))
+                    .Select(d => $"{d.Name}:\tTitle='{d.GuiPresentation?.Title ?? string.Empty}', Desc='{d.GuiPresentation?.Description ?? string.Empty}'"));
 
-                if (string.IsNullOrWhiteSpace(gp?.Title) || string.IsNullOrWhiteSpace(gp?.Description))
-                {
-                    Main.Log($"Definition {definition.Name}: Title='{gp?.Title ?? string.Empty}', Desc='{gp?.Description ?? string.Empty}'");
-                }
-            }
-
-            var allLines = TABaseDefinitions
-                .Where(d => string.IsNullOrWhiteSpace(d.GuiPresentation?.Title) || string.IsNullOrWhiteSpace(d.GuiPresentation?.Description))
-                .Select(d => $"Definition {d.Name}: Title='{d.GuiPresentation?.Title ?? string.Empty}', Desc='{d.GuiPresentation?.Description ?? string.Empty}'");
-
-            File.WriteAllLines(Path.Combine(folder, "TA-Definitions-Missing-GuiPresentation.txt"), allLines);
-
-            // TODO: write all TA definitions with GUI presentation but missing translation to file
-        }
-
-        [Conditional("DEBUG")]
-        public static void PostCELoad()
-        {
-            #region Preconditions
-            if (TABaseDefinitions != null)
-            {
-                return;
-            }
-
-            if (!Main.Settings.DebugShowCEDefinitionsWithMissingGuiPresentation)
-            {
-                return;
-            }
-
-            var folder = Environment.GetEnvironmentVariable("SolastaCEDiagnosticsDir");
-
-            if (string.IsNullOrWhiteSpace(folder))
-            {
-                Main.Log("[SolastaCEDiagnosticsDir] is not set.  Aborting PostCELoad.");
-                return;
-            }
-
-            if (!Directory.Exists(folder))
-            {
-                Directory.CreateDirectory(folder);
-            }
-            #endregion
-
-            // TODO: write all CE definitions name/guid to file (txt)
-            // TODO: write all CE definitions to file (json)
-            // TODO: write all CE definitions with no GUI presentation to file
-            // TODO: write all CE definitions with GUI presentation but missing translation to file
-
-            var allDefinitions = GetAllDefinitions();
-
+            /////////////////////////////////////////////////////////////////////////////////////////////////
+            // Write all TA definitions with GUI presentation but missing translation to file
             var languageSourceData = LocalizationManager.Sources[0];
             var currentLanguage = LocalizationManager.CurrentLanguageCode;
             var languageIndex = languageSourceData.GetLanguageIndexFromCode(currentLanguage);
 
-            foreach (var definition in allDefinitions.Except(TABaseDefinitions))
-            {
-                var gp = definition.GuiPresentation;
-
-                if (string.IsNullOrWhiteSpace(gp?.Title) || string.IsNullOrWhiteSpace(gp?.Description))
+            var allLines = taDefinitions
+                .Select(d => new[] {
+                    new { d.Name, Key = d.GuiPresentation?.Title, Type = "Title" },
+                    new { d.Name, Key = d.GuiPresentation?.Description, Type = "Description" }
+                })
+                .SelectMany(d => d)
+                .Where(d =>
                 {
-                    Main.Log($"*Definition {definition.Name}: Title='{gp?.Title ?? string.Empty}', Desc='{gp?.Description ?? string.Empty}'");
-                }
-
-                if (!string.IsNullOrWhiteSpace(gp?.Title))
-                {
-                    var termData = languageSourceData.GetTermData(gp.Title);
-
-                    if (string.IsNullOrWhiteSpace(termData?.Languages[languageIndex]))
+                    if (!string.IsNullOrWhiteSpace(d.Key))
                     {
-                        Main.Log($"Definition {definition.Name}: Title='{gp.Title}' has no English translation.");
+                        var termData = languageSourceData.GetTermData(d.Key);
+                        return string.IsNullOrWhiteSpace(termData?.Languages[languageIndex]);
                     }
-                }
-
-                if (!string.IsNullOrWhiteSpace(gp?.Description))
-                {
-                    var termData = languageSourceData.GetTermData(gp.Title);
-
-                    if (string.IsNullOrWhiteSpace(termData?.Languages[languageIndex]))
+                    else
                     {
-                        Main.Log($"Definition {definition.Name}: Description='{gp.Description}' has no English translation.");
+                        return false;
                     }
-                }
+                })
+                .Select(d => $"{d.Name}\t{d.Type}='{d.Key}'.");
+
+            File.WriteAllLines(Path.Combine(folder, $"TA-Definitions-GuiPresentation-MissingTranslation-{currentLanguage}.txt"), allLines);
+        }
+
+        public static void PostCELoad()
+        {
+            #region Preconditions
+            if (TABaseDefinitions == null)
+            {
+                return;
             }
 
-            if (Main.Settings.DebugLogCEDefinitionsToFile)
+            if (!Main.Settings.DebugEnableCEDefinitionDiagnostics)
             {
-                // Keep record of generated names and guids.
-                File.WriteAllLines($"Definitions.txt",
-                    allDefinitions
-                        .Except(TABaseDefinitions)
-                        .OrderBy(x => x.Name)
-                        .ThenBy(x => x.GetType().Name)
-                        .Select(d => $"{d.Name}, {d.GUID}"));
+                return;
             }
 
-            if (Main.Settings.DebugLogCEGuiPresentationsToFile)
+            var folder = Environment.GetEnvironmentVariable("SolastaCEDiagnosticsDir", EnvironmentVariableTarget.Machine);
+
+            if (string.IsNullOrWhiteSpace(folder))
             {
-                File.WriteAllLines($"GuiPresentations-{DateTime.Now:yyyy-MM-dd_HH-mm}.txt",
-                    allDefinitions
-                        .Except(TABaseDefinitions)
-                        .OrderBy(x => x.Name)
-                        .ThenBy(x => x.GetType().Name)
-                        // NOTE: don't use d?. which bypasses Unity object lifetime check
-                        .Select(d =>
-                            $"{d.Name}-{d.GetType().Name}: " +
-                            "{((d && d.GuiPresentation != null) ? d.GuiPresentation.Title : string.Empty)}, " +
-                            "{((d && d.GuiPresentation != null) ? d.GuiPresentation.Description : string.Empty)}"));
+                Main.Log("[SolastaCEDiagnosticsDir] is not set.  Aborting PostCELoad diagnostics.");
+                return;
             }
+
+            if (!Directory.Exists(folder))
+            {
+                Directory.CreateDirectory(folder);
+            }
+            #endregion
+
+            var ceDefinitions = GetAllDefinitions().Except(TABaseDefinitions).OrderBy(x => x.Name).ThenBy(x => x.GetType().Name).ToList();
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////
+            // Write all CE definitions name/guid to file (txt)
+            File.WriteAllLines(Path.Combine(folder, "CE-Definitions.txt"),
+                ceDefinitions.Select(d => $"{d.Name}, {d.GUID}"));
+
+            // TODO: write all CE definitions to file (json)
+
+            // Write all CE definitions with no GUI presentation to file
+            File.WriteAllLines(Path.Combine(folder, "CE-Definitions-GuiPresentation-MissingValue.txt"),
+                ceDefinitions
+                    .Where(d => string.IsNullOrWhiteSpace(d.GuiPresentation?.Title) || string.IsNullOrWhiteSpace(d.GuiPresentation?.Description))
+                    .Select(d => $"{d.Name}:\tTitle='{d.GuiPresentation?.Title ?? string.Empty}', Desc='{d.GuiPresentation?.Description ?? string.Empty}'"));
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////
+            // Write all CE definitions with GUI presentation but missing translation to file
+            var languageSourceData = LocalizationManager.Sources[0];
+            var currentLanguage = LocalizationManager.CurrentLanguageCode;
+            var languageIndex = languageSourceData.GetLanguageIndexFromCode(currentLanguage);
+
+            var allLines = ceDefinitions
+                .Select(d => new[] {
+                    new { d.Name, Key = d.GuiPresentation?.Title, Type = "Title" },
+                    new { d.Name, Key = d.GuiPresentation?.Description, Type = "Description" }
+                })
+                .SelectMany(d => d)
+                .Where(d =>
+                {
+                    if (!string.IsNullOrWhiteSpace(d.Key))
+                    {
+                        var termData = languageSourceData.GetTermData(d.Key);
+                        return string.IsNullOrWhiteSpace(termData?.Languages[languageIndex]);
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                })
+                .Select(d => $"{d.Name}\t{d.Type}='{d.Key}'.");
+
+            File.WriteAllLines(Path.Combine(folder, $"CE-Definitions-GuiPresentation-MissingTranslation-{currentLanguage}.txt"), allLines);
         }
     }
 }

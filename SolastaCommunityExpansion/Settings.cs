@@ -232,23 +232,15 @@ namespace SolastaCommunityExpansion
         public bool NoExperienceOnLevelUp { get; set; }
 
         // Debug
-        public bool DebugCreateDiagnosticsForTADefinitions { get; set; } = true;
         public bool DebugLogDefinitionCreation { get; set; }
         public bool DebugLogFieldInitialization { get; set; }
         public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
-        public List<string> KnownDuplicateDefinitionNames { get; } = new()
+        internal List<string> KnownDuplicateDefinitionNames { get; } = new()
         {
             "SummonProtectorConstruct"
         };
-#if DEBUG
-        public bool DebugShowCEDefinitionsWithMissingGuiPresentation { get; set; } = true;
-        public bool DebugLogCEDefinitionsToFile { get; set; } = true;
-        public bool DebugLogCEGuiPresentationsToFile { get; set; } = true;
-#else
-        internal bool DebugShowCEDefinitionsWithMissingGuiPresentation { get; set; }
-        internal bool DebugLogCEDefinitionsToFile { get; set; }
-        internal bool DebugLogCEGuiPresentationsToFile { get; set; }
-#endif
+        public bool DebugEnableTADefinitionDiagnostics { get; set; } = true;
+        public bool DebugEnableCEDefinitionDiagnostics { get; set; } = true;
 
         // Faction Relations
 
