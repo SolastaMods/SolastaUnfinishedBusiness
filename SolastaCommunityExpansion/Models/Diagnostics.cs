@@ -6,6 +6,7 @@ using System.Linq;
 using HarmonyLib;
 using I2.Loc;
 using SolastaCommunityExpansion.Json;
+using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Models
@@ -169,7 +170,7 @@ namespace SolastaCommunityExpansion.Models
             File.WriteAllLines(Path.Combine(folder, $"CE-Definitions-GuiPresentation-MissingTranslation-{currentLanguage}.txt"), allLines);
         }
 
-        private static Dictionary<BaseDefinition, IEnumerable<EffectForm>> effectFormCopies = new Dictionary<BaseDefinition, IEnumerable<EffectForm>>();
+        private static Dictionary<BaseDefinition, IEnumerable<EffectForm>> _effectFormCopiesDict = new Dictionary<BaseDefinition, IEnumerable<EffectForm>>();
 
         public static void ExportDefinitions(IEnumerable<BaseDefinition> definitions, string path)
         {
@@ -195,17 +196,8 @@ namespace SolastaCommunityExpansion.Models
              
                 void SanitizeEffectDescription(EffectDescription effectDescription)
                 {
-                    var effectForms = effectDescription.EffectForms;
-
-                    var effectFormsCopy = effectForms.ConvertAll(f =>
-                    {
-                        var copy = new EffectForm();
-                        copy.Copy(f);
-                        return copy;
-                    });
-
-                    effectFormCopies.Add(definition, effectFormsCopy);
-
+                    var effectFormsCopy = effectDescription.EffectForms.ConvertAll(f => f.Copy());
+                    _effectFormCopiesDict.Add(definition, effectFormsCopy);
                     effectDescription.EffectForms.SetRange(SanitizeEffectForms(effectFormsCopy));
                 }
             }
@@ -234,7 +226,7 @@ namespace SolastaCommunityExpansion.Models
 
                 void RestoreOriginalEffectForms(EffectDescription effectDescription)
                 {
-                    effectDescription.EffectForms.SetRange(effectFormCopies[definition]);
+                    effectDescription.EffectForms.SetRange(_effectFormCopiesDict[definition]);
                 }
             }
 
