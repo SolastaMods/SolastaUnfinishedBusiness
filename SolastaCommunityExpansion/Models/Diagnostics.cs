@@ -258,5 +258,10 @@ namespace SolastaCommunityExpansion.Models
                 return effectForms;
             }
         }
+
+        internal static List<string> KnownDuplicateDefinitionNames { get; } = new()
+        {
+            "SummonProtectorConstruct"
+        };
     }
 }

@@ -235,10 +235,6 @@ namespace SolastaCommunityExpansion
         public bool DebugLogDefinitionCreation { get; set; }
         public bool DebugLogFieldInitialization { get; set; }
         public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
-        internal List<string> KnownDuplicateDefinitionNames { get; } = new()
-        {
-            "SummonProtectorConstruct"
-        };
         public bool DebugEnableTADefinitionDiagnostics { get; set; } = true;
         public bool DebugEnableCEDefinitionDiagnostics { get; set; } = true;
 
