@@ -335,6 +335,8 @@ Feat/&HealerUseMedicineDescription	You can use an action to restore 1d6 + 4 + ch
 Feat/&HealerUseMedicineTitle	Use Medicine
 Feat/&HeavyArmorMasterDescription	Resistance to Bludgeoning, Slashing, and Piercing damage.
 Feat/&HeavyArmorMasterTitle	Heavy Defense Mastery
+Feat/&FeatimprovedCriticalDescription Your attacks are critical hits on a roll of 19 or 20.
+Feat/&FeatimprovedCriticalTitle Improved Critical
 Feat/&InspiringLeaderDescription	Spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier. Useable once per short rest.
 Feat/&InspiringLeaderTitle	Inspiring Leader
 Feat/&LightArmorDescription	Gain proficiency with Light Armor and +1 Dexterity
