@@ -59,7 +59,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
         internal static FeatureDefinitionAdditionalDamage ExploitVulnerabilities
         {
             get => exploitVulnerabilities ??= FeatureDefinitionAdditionalDamageBuilder
-                .Create("KSRogueSubclassThugExploitVulnerabilities", SubclassNamespace)
+                .Create(AdditionalDamageRogueSneakAttack, "KSRogueSubclassThugExploitVulnerabilities", SubclassNamespace)
                 .SetGuiPresentation("KSRogueSubclassThugExploitVulnerabilitiesSneakAttack", Category.Feature)
                 .SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty.None)
                 .AddToDB();
