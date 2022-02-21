@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 using HarmonyLib;
 using I2.Loc;
+using SolastaCommunityExpansion.Json;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -129,7 +131,8 @@ namespace SolastaCommunityExpansion.Models
             File.WriteAllLines(Path.Combine(folder, "CE-Definitions.txt"),
                 ceDefinitions.Select(d => $"{d.Name}, {d.GUID}"));
 
-            // TODO: write all CE definitions to file (json)
+            // Write all CE definitions to file (json)
+            ExportDefinitions(ceDefinitions, Path.Combine(folder, "CE-Definitions.json"));
 
             // Write all CE definitions with no GUI presentation to file
             File.WriteAllLines(Path.Combine(folder, "CE-Definitions-GuiPresentation-MissingValue.txt"),
@@ -164,6 +167,104 @@ namespace SolastaCommunityExpansion.Models
                 .Select(d => $"{d.Name}\t{d.Type}='{d.Key}'.");
 
             File.WriteAllLines(Path.Combine(folder, $"CE-Definitions-GuiPresentation-MissingTranslation-{currentLanguage}.txt"), allLines);
+        }
+
+        private static Dictionary<BaseDefinition, IEnumerable<EffectForm>> effectFormCopies = new Dictionary<BaseDefinition, IEnumerable<EffectForm>>();
+
+        public static void ExportDefinitions(IEnumerable<BaseDefinition> definitions, string path)
+        {
+            foreach (var definition in definitions)
+            {
+                if (definition is SpellDefinition spellDefinition)
+                {
+                    SanitizeEffectDescription(spellDefinition.EffectDescription);
+                }
+                else if (definition is MonsterAttackDefinition monsterAttackDefinition)
+                {
+                    SanitizeEffectDescription(monsterAttackDefinition.EffectDescription);
+                }
+                else if (definition is EnvironmentEffectDefinition environmentEffectDefinition)
+                {
+                    SanitizeEffectDescription(environmentEffectDefinition.EffectDescription);
+                }
+                else if (definition is FeatureDefinitionPower featureDefinitionPower)
+                {
+                    SanitizeEffectDescription(featureDefinitionPower.EffectDescription);
+                }
+                // TODO: sanitize more uses of EffectDescription
+             
+                void SanitizeEffectDescription(EffectDescription effectDescription)
+                {
+                    var effectForms = effectDescription.EffectForms;
+
+                    var effectFormsCopy = effectForms.ConvertAll(f =>
+                    {
+                        var copy = new EffectForm();
+                        copy.Copy(f);
+                        return copy;
+                    });
+
+                    effectFormCopies.Add(definition, effectFormsCopy);
+
+                    effectDescription.EffectForms.SetRange(SanitizeEffectForms(effectFormsCopy));
+                }
+            }
+
+            JsonUtil.Dump(definitions, path);
+
+            foreach(var definition in definitions)
+            {
+                if (definition is SpellDefinition spellDefinition)
+                {
+                    RestoreOriginalEffectForms(spellDefinition.EffectDescription);
+                }
+                else if (definition is MonsterAttackDefinition monsterAttackDefinition)
+                {
+                    RestoreOriginalEffectForms(monsterAttackDefinition.EffectDescription);
+                }
+                else if (definition is EnvironmentEffectDefinition environmentEffectDefinition)
+                {
+                    RestoreOriginalEffectForms(environmentEffectDefinition.EffectDescription);
+                }
+                else if (definition is FeatureDefinitionPower featureDefinitionPower)
+                {
+                    RestoreOriginalEffectForms(featureDefinitionPower.EffectDescription);
+                }
+                // TODO: more uses of EffectDescription
+
+                void RestoreOriginalEffectForms(EffectDescription effectDescription)
+                {
+                    effectDescription.EffectForms.SetRange(effectFormCopies[definition]);
+                }
+            }
+
+            IEnumerable<EffectForm> SanitizeEffectForms(IEnumerable<EffectForm> effectForms)
+            {
+                try
+                {
+                    foreach (var effectForm in effectForms)
+                    {
+                        var type = effectForm.FormType;
+                        var t = Traverse.Create(effectForm);
+
+                        foreach (var value in Enum.GetValues(typeof(EffectForm.EffectFormType)))
+                        {
+                            if (type != (EffectForm.EffectFormType)value)
+                            {
+                                t.Property($"{value}Form").SetValue(null);
+                            }
+                        }
+                    }
+
+                    return effectForms;
+                }
+                catch (Exception ex)
+                {
+                    Main.Error(ex);
+                }
+
+                return effectForms;
+            }
         }
     }
 }
