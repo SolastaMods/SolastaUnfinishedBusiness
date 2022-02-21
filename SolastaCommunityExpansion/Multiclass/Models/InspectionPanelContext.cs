@@ -34,6 +34,11 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
         internal static void Load()
         {
+            if (!Main.Settings.EnableMulticlass)
+            {
+                return;
+            }
+
             var inputService = ServiceRepository.GetService<IInputService>();
 
             inputService.RegisterCommand(PLAIN_UP, 273, -1, -1, -1, -1, -1);

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Multiclass.Models
 {
-    internal static class GameUiContext
+    internal static class MulticlassGameUiContext
     {
         private static readonly float[] fontSizes = new float[] { 17f, 17f, 16f, 15f, 12.5f };
 
