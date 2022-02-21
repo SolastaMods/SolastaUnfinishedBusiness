@@ -1,4 +1,5 @@
 ﻿using System;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders
 {
@@ -35,6 +36,15 @@ namespace SolastaCommunityExpansion.Builders
         #endregion
 
         // TODO: add Create methods
-    }
+        public static ActionDefinitionBuilder Create(ActionDefinition original, string name, Guid namespaceGuid) 
+        {
+            return new(original, name, namespaceGuid);
+        }
 
+        public ActionDefinitionBuilder SetId(ActionDefinitions.Id value)
+        {
+            Definition.SetId(value);
+            return this;
+        }
+    }
 }
