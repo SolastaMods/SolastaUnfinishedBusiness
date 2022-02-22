@@ -36,7 +36,10 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             dbCharacterClassDefinition.TryGetElement(CLASS_MONK, out var unofficialMonk);
             dbCharacterClassDefinition.TryGetElement(CLASS_WARLOCK, out var unofficialWarlock);
 
-            DummyClass = CharacterClassDefinitionBuilder.Create("DummyClass", "062d696ab44146e0b316188f943d8079").AddToDB();
+            DummyClass = CharacterClassDefinitionBuilder
+                .Create("DummyClass", "062d696ab44146e0b316188f943d8079")
+                .SetGuiPresentationNoContent()
+                .AddToDB();
 
             // NOTE: don't use ?? here which bypasses Unity object lifetime check
             TinkererClass = unofficialTinkerer ? unofficialTinkerer : DummyClass;

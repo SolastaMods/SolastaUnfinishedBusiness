@@ -91,6 +91,7 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         public static readonly string NoContentTitle = "Feature/&NoContentTitle";
+        public static readonly string EmptyString = "Feature/&Emptystring";
         public static readonly AssetReferenceSprite EmptySprite = new (string.Empty);
 
         /// <summary>
