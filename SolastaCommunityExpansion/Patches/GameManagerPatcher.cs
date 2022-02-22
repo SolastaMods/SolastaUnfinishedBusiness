@@ -84,6 +84,7 @@ namespace SolastaCommunityExpansion.Patches
                 GuiPresentationCheck.PostCELoadCheck();
 
                 Main.Enabled = true;
+                Main.Logger.Log("Enabled.");
             };
         }
     }

@@ -53,7 +53,11 @@ namespace SolastaCommunityExpansion.Multiclass.Models
         internal static void Load()
         {
             GetReferencesOnUnofficialClasses();
-            Main.Logger.Log(WarlockClass != DummyClass ? "Pact magic integration enabled." : "Pact magic integration disabled.");
+
+            if (WarlockClass != DummyClass)
+            {
+                Main.Logger.Log("Pact magic integration enabled.");
+            }
         }
 
         internal static Assembly GetModAssembly(string modName)
