@@ -37,8 +37,6 @@ namespace SolastaCommunityExpansion.Feats
                         .AddToDB())
                 .AddToDB();
 
-            feats.Add(improvedCritical);
-
             // Tough
             var tough = FeatDefinitionBuilder
                 .Create("FeatTough", OtherFeatNamespace)
@@ -65,7 +63,7 @@ namespace SolastaCommunityExpansion.Feats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
-            feats.AddRange(savageAttacker, tough, warCaster);
+            feats.AddRange(savageAttacker, tough, warCaster, improvedCritical);
         }
 
         private static FeatureDefinitionDieRollModifier BuildDieRollModifier(string name,
