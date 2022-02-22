@@ -26,16 +26,15 @@ namespace SolastaCommunityExpansion.Feats
                 .AddToDB();
 
             // Improved critical
-            var improvedCriticalThresholdIncrease = BuildAttributeModifier(
-                AttributeModifierOperation.Set,
-                AttributeDefinitions.CriticalThreshold,
-                19,
-                "AttributeModifierImprovedCriticalFeat");
-
             var improvedCritical = FeatDefinitionBuilder
                 .Create("FeatImprovedCritical", OtherFeatNamespace)
                 .SetGuiPresentation(Category.Feat)
-                .SetFeatures(improvedCriticalThresholdIncrease)
+                .SetFeatures(
+                    FeatureDefinitionAttributeModifierBuilder
+                        .Create("AttributeModifierImprovedCriticalFeat", OtherFeatNamespace)
+                        .SetGuiPresentation(Category.Feat)
+                        .SetModifier(AttributeModifierOperation.Set, AttributeDefinitions.CriticalThreshold, 19)
+                        .AddToDB())
                 .AddToDB();
 
             feats.Add(improvedCritical);
