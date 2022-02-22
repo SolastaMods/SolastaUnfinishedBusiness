@@ -23,6 +23,7 @@ namespace SolastaCommunityExpansion.Feats
             {
                 new FeatureDefinitionProficiencyBuilder("FeatFightingStyleTwoWeaponProficiency", GuidHelper.Create(FightingStyleFeatsNamespace, "FeatFightingStyleTwoWeaponProficiency").ToString(),
                     RuleDefinitions.ProficiencyType.FightingStyle, new List<string>(){"TwoWeapon"}, twoWeaponPresentation.Build()).AddToDB(),
+                DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierFightingStyleTwoWeapon,
             }, twoWeaponPresentation.Build());
             feats.Add(twoWeapon.AddToDB());
 
