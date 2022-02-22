@@ -84,6 +84,7 @@ namespace SolastaCommunityExpansion.Patches
                 Diagnostics.PostCELoad();
 
                 Main.Enabled = true;
+                Main.Logger.Log("Enabled.");
             };
         }
     }

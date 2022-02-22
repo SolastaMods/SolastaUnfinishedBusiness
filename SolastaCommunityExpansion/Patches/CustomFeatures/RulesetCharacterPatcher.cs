@@ -246,7 +246,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
                     return hero.ComputeSubclassLevel(spellRepertoire.SpellCastingSubclass);
                 }
             }
-            return character.GetAttribute("CharacterLevel").BaseValue;
+            return character.GetAttribute(AttributeDefinitions.CharacterLevel).BaseValue;
         }
 
         private static CharacterClassDefinition GetClassForSubclass(CharacterSubclassDefinition subclass)
