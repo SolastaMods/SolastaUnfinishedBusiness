@@ -487,7 +487,7 @@ namespace SolastaCommunityExpansion.Builders
                     {
                         Main.Log($"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Description, setting to NoContent.");
 
-                        Definition.GuiPresentation.Description = GuiPresentationBuilder.NoContentDescription;
+                        Definition.GuiPresentation.Description = GuiPresentationBuilder.NoContentTitle;
                     }
                 }
             }
