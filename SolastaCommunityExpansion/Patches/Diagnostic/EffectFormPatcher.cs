@@ -1,10 +1,51 @@
-﻿using HarmonyLib;
+﻿using System;
+using HarmonyLib;
+using SolastaModApi.Diagnostics;
+using static EffectForm.EffectFormType;
 
 namespace SolastaCommunityExpansion.Patches.Diagnostic
 {
     internal static class EffectFormControl
     {
-        public static bool Sanitize { get; set; }
+        [Flags]
+        public enum SanitizeMode
+        {
+            None,
+            ReturnNull = 1,
+            Log = 2,
+            Throw = 4
+        }
+
+        // TODO: needs adding to a 'diagnostics' tab in setting UI
+        public static SanitizeMode Mode { get; set; } = SanitizeMode.Log;
+
+        public static void Sanitize<T>(EffectForm form, EffectForm.EffectFormType type, ref T __result) where T : class
+        {
+            if(Mode == SanitizeMode.None)
+            {
+                return;
+            }
+
+            if(form.FormType == type)
+            {
+                return;
+            }
+
+            if(Mode == SanitizeMode.Log)
+            {
+                Main.Log($"EffectForm with type {form.FormType} is being used as type {type}.");
+            }
+
+            if(Mode == SanitizeMode.ReturnNull)
+            {
+                __result = null;
+            }
+
+            if(Mode == SanitizeMode.Throw)
+            {
+                throw new SolastaModApiException($"EffectForm with type {form.FormType} is being used as type {type}.");
+            }
+        }
     }
 
     [HarmonyPatch(typeof(EffectForm), "DamageForm", MethodType.Getter)]
@@ -12,10 +53,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref DamageForm __result)
         {
-            if (EffectFormControl.Sanitize && __instance.FormType != EffectForm.EffectFormType.Damage)
-            {
-                __result = null;
-            }
+            EffectFormControl.Sanitize(__instance, Damage, ref __result);
         }
     }
 
@@ -24,10 +62,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref HealingForm __result)
         {
-            if (EffectFormControl.Sanitize && __instance.FormType != EffectForm.EffectFormType.Healing)
-            {
-                __result = null;
-            }
+            EffectFormControl.Sanitize(__instance, Healing, ref __result);
         }
     }
 
@@ -36,10 +71,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref ConditionForm __result)
         {
-            if (EffectFormControl.Sanitize && __instance.FormType != EffectForm.EffectFormType.Condition)
-            {
-                __result = null;
-            }
+            EffectFormControl.Sanitize(__instance, Condition, ref __result);
         }
     }
 
@@ -48,10 +80,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref LightSourceForm __result)
         {
-            if (EffectFormControl.Sanitize && __instance.FormType != EffectForm.EffectFormType.LightSource)
-            {
-                __result = null;
-            }
+            EffectFormControl.Sanitize(__instance, LightSource, ref __result);
         }
     }
 
@@ -60,10 +89,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref SummonForm __result)
         {
-            if (EffectFormControl.Sanitize && __instance.FormType != EffectForm.EffectFormType.Summon)
-            {
-                __result = null;
-            }
+            EffectFormControl.Sanitize(__instance, Summon, ref __result);
         }
     }
 
@@ -72,10 +98,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref CounterForm __result)
         {
-            if (EffectFormControl.Sanitize && __instance.FormType != EffectForm.EffectFormType.Counter)
-            {
-                __result = null;
-            }
+            EffectFormControl.Sanitize(__instance, Counter, ref __result);
         }
     }
 
@@ -84,10 +107,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref TemporaryHitPointsForm __result)
         {
-            if (EffectFormControl.Sanitize && __instance.FormType != EffectForm.EffectFormType.TemporaryHitPoints)
-            {
-                __result = null;
-            }
+            EffectFormControl.Sanitize(__instance, TemporaryHitPoints, ref __result);
         }
     }
 
@@ -96,10 +116,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref MotionForm __result)
         {
-            if (EffectFormControl.Sanitize && __instance.FormType != EffectForm.EffectFormType.Motion)
-            {
-                __result = null;
-            }
+            EffectFormControl.Sanitize(__instance, Motion, ref __result);
         }
     }
 
@@ -108,10 +125,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref SpellSlotsForm __result)
         {
-            if (EffectFormControl.Sanitize && __instance.FormType != EffectForm.EffectFormType.SpellSlots)
-            {
-                __result = null;
-            }
+            EffectFormControl.Sanitize(__instance, SpellSlots, ref __result);
         }
     }
 
@@ -120,10 +134,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref DivinationForm __result)
         {
-            if (EffectFormControl.Sanitize && __instance.FormType != EffectForm.EffectFormType.Divination)
-            {
-                __result = null;
-            }
+            EffectFormControl.Sanitize(__instance, Divination, ref __result);
         }
     }
 
@@ -132,10 +143,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref ItemPropertyForm __result)
         {
-            if (EffectFormControl.Sanitize && __instance.FormType != EffectForm.EffectFormType.ItemProperty)
-            {
-                __result = null;
-            }
+            EffectFormControl.Sanitize(__instance, ItemProperty, ref __result);
         }
     }
 
@@ -144,10 +152,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref AlterationForm __result)
         {
-            if (EffectFormControl.Sanitize && __instance.FormType != EffectForm.EffectFormType.Alteration)
-            {
-                __result = null;
-            }
+            EffectFormControl.Sanitize(__instance, Alteration, ref __result);
         }
     }
 
@@ -156,10 +161,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref TopologyForm __result)
         {
-            if (EffectFormControl.Sanitize && __instance.FormType != EffectForm.EffectFormType.Topology)
-            {
-                __result = null;
-            }
+            EffectFormControl.Sanitize(__instance, Topology, ref __result);
         }
     }
 
@@ -168,10 +170,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref ReviveForm __result)
         {
-            if (EffectFormControl.Sanitize && __instance.FormType != EffectForm.EffectFormType.Revive)
-            {
-                __result = null;
-            }
+            EffectFormControl.Sanitize(__instance, Revive, ref __result);
         }
     }
 
@@ -180,10 +179,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref KillForm __result)
         {
-            if (EffectFormControl.Sanitize && __instance.FormType != EffectForm.EffectFormType.Kill)
-            {
-                __result = null;
-            }
+            EffectFormControl.Sanitize(__instance, Kill, ref __result);
         }
     }
 
@@ -192,10 +188,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref ShapeChangeForm __result)
         {
-            if (EffectFormControl.Sanitize && __instance.FormType != EffectForm.EffectFormType.ShapeChange)
-            {
-                __result = null;
-            }
+            EffectFormControl.Sanitize(__instance, ShapeChange, ref __result);
         }
     }
 }
