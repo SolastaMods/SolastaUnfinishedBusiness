@@ -31,17 +31,17 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
                 return;
             }
 
-            if(Mode == SanitizeMode.Log)
+            if(Mode.HasFlag(SanitizeMode.Log))
             {
                 Main.Log($"EffectForm with type {form.FormType} is being used as type {type}.");
             }
 
-            if(Mode == SanitizeMode.ReturnNull)
+            if(Mode.HasFlag(SanitizeMode.ReturnNull))
             {
                 __result = null;
             }
 
-            if(Mode == SanitizeMode.Throw)
+            if(Mode.HasFlag(SanitizeMode.Throw))
             {
                 throw new SolastaModApiException($"EffectForm with type {form.FormType} is being used as type {type}.");
             }
