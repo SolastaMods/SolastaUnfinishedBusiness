@@ -15,6 +15,21 @@ namespace SolastaCommunityExpansion.Models
     {
         private static HashSet<BaseDefinition> TABaseDefinitions;
 
+        internal const string DiagnosticsEnvironmentVariable = "SolastaCEDiagnosticsDir";
+
+        internal static string DiagnosticsOutputFolder { get; } = GetDiagnosticsFolder();
+        private static string GetDiagnosticsFolder()
+        {
+            var folder = Environment.GetEnvironmentVariable(DiagnosticsEnvironmentVariable, EnvironmentVariableTarget.Machine);
+
+            if (string.IsNullOrWhiteSpace(folder))
+            {
+                Main.Log($"[{DiagnosticsEnvironmentVariable}] is not set.");
+            }
+
+            return folder;
+        }
+
         private static HashSet<BaseDefinition> GetAllDefinitions()
         {
             var definitions = new HashSet<BaseDefinition>();
@@ -40,7 +55,7 @@ namespace SolastaCommunityExpansion.Models
             }
 
             TABaseDefinitions = GetAllDefinitions();
-            
+
             var taDefinitions = TABaseDefinitions.OrderBy(x => x.Name).ThenBy(x => x.GetType().Name).ToList();
 
             if (!Main.Settings.DebugEnableTADefinitionDiagnostics)
@@ -48,23 +63,21 @@ namespace SolastaCommunityExpansion.Models
                 return;
             }
 
-            var folder = Environment.GetEnvironmentVariable("SolastaCEDiagnosticsDir", EnvironmentVariableTarget.Machine);
-
-            if (string.IsNullOrWhiteSpace(folder))
+            if (string.IsNullOrWhiteSpace(DiagnosticsOutputFolder))
             {
-                Main.Log("[SolastaCEDiagnosticsDir] is not set.  Aborting PostDatabaseLoad diagnostics.");
+                Main.Log("No diagnostics output folder configured - aborting PostDatabaseLoad diagnostics.");
                 return;
             }
 
-            if (!Directory.Exists(folder))
+            if (!Directory.Exists(DiagnosticsOutputFolder))
             {
-                Directory.CreateDirectory(folder);
+                Directory.CreateDirectory(DiagnosticsOutputFolder);
             }
             #endregion
 
             /////////////////////////////////////////////////////////////////////////////////////////////////
             // Write all TA definitions with no GUI presentation to file
-            File.WriteAllLines(Path.Combine(folder, "TA-Definitions-GuiPresentation-MissingValue.txt"),
+            File.WriteAllLines(Path.Combine(DiagnosticsOutputFolder, "TA-Definitions-GuiPresentation-MissingValue.txt"),
                 taDefinitions
                     .Where(d => string.IsNullOrWhiteSpace(d.GuiPresentation?.Title) || string.IsNullOrWhiteSpace(d.GuiPresentation?.Description))
                     .Select(d => $"{d.Name}:\tTitle='{d.GuiPresentation?.Title ?? string.Empty}', Desc='{d.GuiPresentation?.Description ?? string.Empty}'"));
@@ -95,7 +108,7 @@ namespace SolastaCommunityExpansion.Models
                 })
                 .Select(d => $"{d.Name}\t{d.Type}='{d.Key}'.");
 
-            File.WriteAllLines(Path.Combine(folder, $"TA-Definitions-GuiPresentation-MissingTranslation-{currentLanguage}.txt"), allLines);
+            File.WriteAllLines(Path.Combine(DiagnosticsOutputFolder, $"TA-Definitions-GuiPresentation-MissingTranslation-{currentLanguage}.txt"), allLines);
         }
 
         public static void PostCELoad()
@@ -111,17 +124,15 @@ namespace SolastaCommunityExpansion.Models
                 return;
             }
 
-            var folder = Environment.GetEnvironmentVariable("SolastaCEDiagnosticsDir", EnvironmentVariableTarget.Machine);
-
-            if (string.IsNullOrWhiteSpace(folder))
+            if (string.IsNullOrWhiteSpace(DiagnosticsOutputFolder))
             {
-                Main.Log("[SolastaCEDiagnosticsDir] is not set.  Aborting PostCELoad diagnostics.");
+                Main.Log("No diagnostics output folder configured - aborting PostCELoad diagnostics.");
                 return;
             }
 
-            if (!Directory.Exists(folder))
+            if (!Directory.Exists(DiagnosticsOutputFolder))
             {
-                Directory.CreateDirectory(folder);
+                Directory.CreateDirectory(DiagnosticsOutputFolder);
             }
             #endregion
 
@@ -129,14 +140,14 @@ namespace SolastaCommunityExpansion.Models
 
             /////////////////////////////////////////////////////////////////////////////////////////////////
             // Write all CE definitions name/guid to file (txt)
-            File.WriteAllLines(Path.Combine(folder, "CE-Definitions.txt"),
+            File.WriteAllLines(Path.Combine(DiagnosticsOutputFolder, "CE-Definitions.txt"),
                 ceDefinitions.Select(d => $"{d.Name}, {d.GUID}"));
 
             // Write all CE definitions to file (json)
-            ExportDefinitions(ceDefinitions, Path.Combine(folder, "CE-Definitions.json"));
+            ExportDefinitions(ceDefinitions, Path.Combine(DiagnosticsOutputFolder, "CE-Definitions.json"));
 
             // Write all CE definitions with no GUI presentation to file
-            File.WriteAllLines(Path.Combine(folder, "CE-Definitions-GuiPresentation-MissingValue.txt"),
+            File.WriteAllLines(Path.Combine(DiagnosticsOutputFolder, "CE-Definitions-GuiPresentation-MissingValue.txt"),
                 ceDefinitions
                     .Where(d => string.IsNullOrWhiteSpace(d.GuiPresentation?.Title) || string.IsNullOrWhiteSpace(d.GuiPresentation?.Description))
                     .Select(d => $"{d.Name}:\tTitle='{d.GuiPresentation?.Title ?? string.Empty}', Desc='{d.GuiPresentation?.Description ?? string.Empty}'"));
@@ -167,7 +178,7 @@ namespace SolastaCommunityExpansion.Models
                 })
                 .Select(d => $"{d.Name}\t{d.Type}='{d.Key}'.");
 
-            File.WriteAllLines(Path.Combine(folder, $"CE-Definitions-GuiPresentation-MissingTranslation-{currentLanguage}.txt"), allLines);
+            File.WriteAllLines(Path.Combine(DiagnosticsOutputFolder, $"CE-Definitions-GuiPresentation-MissingTranslation-{currentLanguage}.txt"), allLines);
         }
 
         private static Dictionary<BaseDefinition, IEnumerable<EffectForm>> _effectFormCopiesDict = new Dictionary<BaseDefinition, IEnumerable<EffectForm>>();
@@ -193,7 +204,7 @@ namespace SolastaCommunityExpansion.Models
                     SanitizeEffectDescription(featureDefinitionPower.EffectDescription);
                 }
                 // TODO: sanitize more uses of EffectDescription
-             
+
                 void SanitizeEffectDescription(EffectDescription effectDescription)
                 {
                     var effectFormsCopy = effectDescription.EffectForms.ConvertAll(f => f.Copy());
@@ -204,7 +215,7 @@ namespace SolastaCommunityExpansion.Models
 
             JsonUtil.Dump(definitions, path);
 
-            foreach(var definition in definitions)
+            foreach (var definition in definitions)
             {
                 if (definition is SpellDefinition spellDefinition)
                 {
@@ -239,11 +250,27 @@ namespace SolastaCommunityExpansion.Models
                         var type = effectForm.FormType;
                         var t = Traverse.Create(effectForm);
 
+                        // Set all FormType properties/fields to null apart from 
+                        // the one with the same name/type as FormType.
                         foreach (var value in Enum.GetValues(typeof(EffectForm.EffectFormType)))
                         {
                             if (type != (EffectForm.EffectFormType)value)
                             {
-                                t.Property($"{value}Form").SetValue(null);
+                                var formTypeName = value.ToString();
+
+                                if (formTypeName.Length > 0)
+                                {
+                                    var fieldName = $"{char.ToLower(formTypeName[0]) + formTypeName.Substring(1)}Form";
+
+                                    if (t.Field(fieldName).FieldExists())
+                                    {
+                                        t.Field(fieldName).SetValue(null);
+                                    }
+                                    else
+                                    {
+                                        Main.Log($"Field {fieldName} not found.");
+                                    }
+                                }
                             }
                         }
                     }
