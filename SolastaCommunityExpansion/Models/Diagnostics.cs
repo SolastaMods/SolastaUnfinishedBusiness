@@ -183,10 +183,12 @@ namespace SolastaCommunityExpansion.Models
 
         private static Dictionary<BaseDefinition, IEnumerable<EffectForm>> _effectFormCopiesDict = new Dictionary<BaseDefinition, IEnumerable<EffectForm>>();
 
-        public static void ExportDefinitions(IEnumerable<BaseDefinition> definitions, string path)
+        private static void ExportDefinitions(IEnumerable<BaseDefinition> definitions, string path)
         {
-            foreach (var definition in definitions)
+            var sanitized = definitions.Select(definition =>
             {
+                var d = definition;
+
                 if (definition is SpellDefinition spellDefinition)
                 {
                     SanitizeEffectDescription(spellDefinition.EffectDescription);
@@ -203,7 +205,27 @@ namespace SolastaCommunityExpansion.Models
                 {
                     SanitizeEffectDescription(featureDefinitionPower.EffectDescription);
                 }
-                // TODO: sanitize more uses of EffectDescription
+                else if (definition is ItemDefinition itemDefinition)
+                {
+                    var itemDefinitionCopy = new ItemDefinition();
+                    // Copy nulls out unwanted fields
+                    itemDefinitionCopy.Copy(itemDefinition);
+                    // But also nulls name and guid
+                    itemDefinitionCopy.name = itemDefinition.name;
+                    itemDefinitionCopy.SetGuid(itemDefinition.GUID);
+
+                    if (itemDefinitionCopy.IsWeapon)
+                    {
+                        SanitizeEffectDescription(itemDefinitionCopy.WeaponDescription?.EffectDescription);
+                    }
+                    else if (itemDefinitionCopy.IsAmmunition)
+                    {
+                        SanitizeEffectDescription(itemDefinitionCopy.AmmunitionDescription?.EffectDescription);
+                    }
+                    d = itemDefinitionCopy;
+                }
+
+                return d;
 
                 void SanitizeEffectDescription(EffectDescription effectDescription)
                 {
@@ -211,9 +233,12 @@ namespace SolastaCommunityExpansion.Models
                     _effectFormCopiesDict.Add(definition, effectFormsCopy);
                     effectDescription.EffectForms.SetRange(SanitizeEffectForms(effectFormsCopy));
                 }
-            }
+            });
 
-            JsonUtil.Dump(definitions, path);
+            JsonUtil.Dump(sanitized, path);
+
+            // remove id/ref for simplicity of detecting changes using diff tool
+            File.WriteAllLines(path, File.ReadAllLines(path).Where(l => !l.Trim().StartsWith("\"$id\":") && !l.Trim().StartsWith("\"$ref\":")));
 
             foreach (var definition in definitions)
             {
@@ -233,7 +258,6 @@ namespace SolastaCommunityExpansion.Models
                 {
                     RestoreOriginalEffectForms(featureDefinitionPower.EffectDescription);
                 }
-                // TODO: more uses of EffectDescription
 
                 void RestoreOriginalEffectForms(EffectDescription effectDescription)
                 {

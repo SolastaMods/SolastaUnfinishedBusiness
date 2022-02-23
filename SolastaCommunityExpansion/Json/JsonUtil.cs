@@ -29,7 +29,7 @@ namespace SolastaCommunityExpansion.Json
                 MissingMemberHandling = MissingMemberHandling.Ignore,
                 NullValueHandling = NullValueHandling.Include,
                 ObjectCreationHandling = ObjectCreationHandling.Replace,
-                PreserveReferencesHandling = PreserveReferencesHandling.None,
+                PreserveReferencesHandling = PreserveReferencesHandling.Objects,
                 ReferenceLoopHandling = ReferenceLoopHandling.Serialize,
                 StringEscapeHandling = StringEscapeHandling.Default,
                 TypeNameAssemblyFormatHandling = TypeNameAssemblyFormatHandling.Simple,
