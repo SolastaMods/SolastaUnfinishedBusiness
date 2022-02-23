@@ -95,18 +95,10 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             .SetEnumerateInDescription(false)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .SetUniqueChoices(false)
-            .Configure(
-                featureSetDefinition =>
-                {
-                    var illuminatingStrikeInitiatorBuilder = new IlluminatingStrikeInitiatorBuilder(
-                        "PathOfTheLightIlluminatingStrikeInitiator",
-                        CreateNamespacedGuid("PathOfTheLightIlluminatingStrikeInitiator"),
-                        "Feature/&NoContentTitle",
-                        "Feature/&NoContentTitle",
-                        IlluminatedCondition);
-
-                    featureSetDefinition.FeatureSet.Add(illuminatingStrikeInitiatorBuilder.AddToDB());
-                })
+            .AddFeatureSet(IlluminatingStrikeInitiatorBuilder
+                .Create("PathOfTheLightIlluminatingStrikeInitiator", SubclassNamespace, IlluminatedCondition)
+                .SetGuiPresentationNoContent(true)
+                .AddToDB())
             .AddToDB();
 
         // Dummy feature to show in UI
@@ -225,30 +217,16 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             .SetEnumerateInDescription(false)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .SetUniqueChoices(false)
-            .Configure(
-                definition =>
-                {
-                    var illuminatingBurstBuilder = new IlluminatingBurstInitiatorBuilder(
-                        "PathOfTheLightIlluminatingBurstInitiator",
-                        CreateNamespacedGuid("PathOfTheLightIlluminatingBurstInitiator"),
-                        "Feature/&NoContentTitle",
-                        "Feature/&NoContentTitle",
-                        IlluminatingBurstSuppressedCondition);
-
-                    definition.FeatureSet.Add(illuminatingBurstBuilder.AddToDB());
-
-                    var illuminatingBurstPowerBuilder = new IlluminatingBurstPowerBuilder(
-                        IlluminatingBurstName,
-                        CreateNamespacedGuid(IlluminatingBurstName),
-                        "Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle",
-                        "Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription",
-                        IlluminatedCondition,
-                        IlluminatingBurstSuppressedCondition);
-
-                    definition.FeatureSet.Add(illuminatingBurstPowerBuilder.AddToDB());
-
-                    definition.FeatureSet.Add(CreateIlluminatingBurstSuppressor());
-                })
+            .SetFeatureSet(
+                IlluminatingBurstInitiatorBuilder
+                    .Create("PathOfTheLightIlluminatingBurstInitiator", SubclassNamespace, IlluminatingBurstSuppressedCondition)
+                    .SetGuiPresentationNoContent(true)
+                    .AddToDB(),
+                IlluminatingBurstPowerBuilder
+                    .Create(IlluminatingBurstName, SubclassNamespace, IlluminatedCondition, IlluminatingBurstSuppressedCondition)
+                    .SetGuiPresentation("BarbarianPathOfTheLightIlluminatingBurstPower", Category.Subclass, PowerDomainSunHeraldOfTheSun.GuiPresentation.SpriteReference)
+                    .AddToDB(),
+                CreateIlluminatingBurstSuppressor())
             .AddToDB();
 
         private static FeatureDefinition CreateIlluminatingBurstSuppressor()
@@ -256,6 +234,8 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             return FeatureDefinitionPowerBuilder
                 .Create("PathOfTheLightIlluminatingBurstSuppressor", SubclassNamespace)
                 .SetGuiPresentationNoContent(true)
+                .SetActivationTime(RuleDefinitions.ActivationTime.Permanent)
+                .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
                 .Configure(
                     definition =>
                     {
@@ -270,18 +250,15 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                             }
                         };
 
-                        var effectDescriptionBuilder = new EffectDescriptionBuilder();
-
-                        effectDescriptionBuilder
+                        var effectDescriptionBuilder = EffectDescriptionBuilder.Create()
                             .SetDurationData(RuleDefinitions.DurationType.Permanent, 1, RuleDefinitions.TurnOccurenceType.StartOfTurn)
                             .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self, 1, 0, ActionDefinitions.ItemSelectionType.None)
                             .SetRecurrentEffect(RuleDefinitions.RecurrentEffect.OnActivation | RuleDefinitions.RecurrentEffect.OnTurnStart)
                             .AddEffectForm(suppressIlluminatingBurst);
 
                         definition
-                            .SetActivationTime(RuleDefinitions.ActivationTime.Permanent)
                             .SetEffectDescription(effectDescriptionBuilder.Build())
-                            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
+                            ;
                     })
                 .AddToDB();
         }
@@ -302,21 +279,13 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             .SetEnumerateInDescription(false)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .SetUniqueChoices(false)
-            .Configure(
-                featureSetDefinition =>
-                {
-                    foreach (var invisibleConditionName in InvisibleConditions.Select(ic => ic.Name))
-                    {
-                        var preventInvisibilitySubFeature = FeatureDefinitionConditionAffinityBuilder
-                            .Create("PathOfTheLightIlluminatedPreventInvisibility" + invisibleConditionName, SubclassNamespace)
-                            .SetGuiPresentationNoContent()
-                            .SetConditionAffinityType(RuleDefinitions.ConditionAffinityType.Immunity)
-                            .SetConditionType(invisibleConditionName)
-                            .AddToDB();
-
-                        featureSetDefinition.FeatureSet.Add(preventInvisibilitySubFeature);
-                    }
-                })
+            .AddFeatureSet(InvisibleConditions
+                .Select(ic => FeatureDefinitionConditionAffinityBuilder
+                    .Create("PathOfTheLightIlluminatedPreventInvisibility" + ic.Name, SubclassNamespace)
+                    .SetGuiPresentationNoContent()
+                    .SetConditionAffinityType(RuleDefinitions.ConditionAffinityType.Immunity)
+                    .SetConditionType(ic.Name)
+                    .AddToDB()))
             .AddToDB();
 
         // TODO: convert to lazy loading?
@@ -406,10 +375,9 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
         private sealed class IlluminatingStrikeFeatureBuilder : FeatureDefinitionAdditionalDamageBuilder<IlluminatingStrikeAdditionalDamage, IlluminatingStrikeFeatureBuilder>
         {
-            public IlluminatingStrikeFeatureBuilder(string name, string guid, string title, string description, ConditionDefinition illuminatedCondition) : base(name, guid)
+            private IlluminatingStrikeFeatureBuilder(string name, Guid guidNamespace, ConditionDefinition illuminatedCondition) : base(name, guidNamespace)
             {
                 Definition
-                    .SetGuiPresentation(title, description, AdditionalDamageDomainLifeDivineStrike.GuiPresentation.SpriteReference)
                     .SetAdditionalDamageType(RuleDefinitions.AdditionalDamageType.Specific)
                     .SetSpecificDamageType("DamageRadiant")
                     .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
@@ -464,6 +432,11 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 }
             }
 
+            public static IlluminatingStrikeFeatureBuilder Create(string name, Guid guidNamespace, ConditionDefinition illuminatedCondition)
+            {
+                return new IlluminatingStrikeFeatureBuilder(name, guidNamespace, illuminatedCondition);
+            }
+
             private static LightSourceForm CreateIlluminatedLightSource()
             {
                 EffectForm faerieFireLightSource = SpellDefinitions.FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
@@ -493,14 +466,18 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
         /// </summary>
         private sealed class IlluminatingStrikeInitiatorBuilder : FeatureDefinitionPowerBuilder
         {
-            public IlluminatingStrikeInitiatorBuilder(string name, string guid, string title, string description, ConditionDefinition illuminatedCondition) : base(name, guid)
+            private IlluminatingStrikeInitiatorBuilder(string name, Guid guidNamespace, ConditionDefinition illuminatedCondition) : base(name, guidNamespace)
             {
                 Definition
-                    .SetGuiPresentation(title, description, AdditionalDamageDomainLifeDivineStrike.GuiPresentation.SpriteReference, true)
                     .SetActivationTime(RuleDefinitions.ActivationTime.OnRageStartAutomatic)
                     .SetEffectDescription(CreatePowerEffect(illuminatedCondition))
                     .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
                     .SetShowCasting(false);
+            }
+
+            public static IlluminatingStrikeInitiatorBuilder Create(string name, Guid guidNamespace, ConditionDefinition illuminatedCondition)
+            {
+                return new IlluminatingStrikeInitiatorBuilder(name, guidNamespace, illuminatedCondition);
             }
 
             private static EffectDescription CreatePowerEffect(ConditionDefinition illuminatedCondition)
@@ -514,20 +491,12 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                     .SetTerminateWhenRemoved(true)
                     .SetSilentWhenAdded(true)
                     .SetSilentWhenRemoved(true)
-                    .Configure(
-                        definition =>
-                        {
-                            var illuminatingStrikeFeature = new IlluminatingStrikeFeatureBuilder(
-                                IlluminatingStrikeName,
-                                CreateNamespacedGuid(IlluminatingStrikeName),
-                                "Feature/&NoContentTitle",
-                                "Feature/&NoContentTitle",
-                                illuminatedCondition);
-
-                            definition.Features.Add(illuminatingStrikeFeature.AddToDB());
-
-                            definition.SpecialInterruptions.SetRange(RuleDefinitions.ConditionInterruption.RageStop);
-                        })
+                    .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.RageStop)
+                    .SetFeatures(
+                        IlluminatingStrikeFeatureBuilder
+                            .Create(IlluminatingStrikeName, SubclassNamespace, illuminatedCondition)
+                            .SetGuiPresentationNoContent(AdditionalDamageDomainLifeDivineStrike.GuiPresentation.SpriteReference)
+                            .AddToDB())
                     .AddToDB();
 
                 var enableIlluminatingStrike = new EffectForm
@@ -557,10 +526,9 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
         private sealed class IlluminatingBurstPowerBuilder : FeatureDefinitionPowerBuilder<IlluminatingBurstPower, IlluminatingBurstPowerBuilder>
         {
-            public IlluminatingBurstPowerBuilder(string name, string guid, string title, string description, ConditionDefinition illuminatedCondition, ConditionDefinition illuminatingBurstSuppressedCondition) : base(name, guid)
+            private IlluminatingBurstPowerBuilder(string name, Guid guidNamespace, ConditionDefinition illuminatedCondition, ConditionDefinition illuminatingBurstSuppressedCondition) : base(name, guidNamespace)
             {
                 Definition
-                    .SetGuiPresentation(title, description, PowerDomainSunHeraldOfTheSun.GuiPresentation.SpriteReference)
                     .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
                     .SetEffectDescription(CreatePowerEffect(illuminatedCondition))
                     .SetRechargeRate(RuleDefinitions.RechargeRate.OneMinute) // Actually recharges at the start of your turn, using IStartOfTurnRecharge
@@ -569,6 +537,11 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                     .SetCostPerUse(1)
                     .SetShowCasting(false)
                     .SetDisableIfConditionIsOwned(illuminatingBurstSuppressedCondition); // Only enabled on the turn you enter a rage
+            }
+
+            public static IlluminatingBurstPowerBuilder Create(string name, Guid guidNamespace, ConditionDefinition illuminatedCondition, ConditionDefinition illuminatingBurstSuppressedCondition)
+            {
+                return new IlluminatingBurstPowerBuilder(name, guidNamespace, illuminatedCondition, illuminatingBurstSuppressedCondition);
             }
 
             private static EffectDescription CreatePowerEffect(ConditionDefinition illuminatedCondition)
@@ -668,24 +641,18 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
         /// </summary>
         private sealed class IlluminatingBurstInitiatorBuilder : FeatureDefinitionPowerBuilder
         {
-            public IlluminatingBurstInitiatorBuilder(string name, string guid, string title, string description, ConditionDefinition illuminatingBurstSuppressedCondition) : base(name, guid)
+            private IlluminatingBurstInitiatorBuilder(string name, Guid guidNamespace, ConditionDefinition illuminatingBurstSuppressedCondition) : base(name, guidNamespace)
             {
                 Definition
-                    .SetGuiPresentation(CreatePowerGuiPresentation(title, description))
                     .SetActivationTime(RuleDefinitions.ActivationTime.OnRageStartAutomatic)
                     .SetEffectDescription(CreatePowerEffect(illuminatingBurstSuppressedCondition))
                     .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
                     .SetShowCasting(false);
             }
 
-            private static GuiPresentation CreatePowerGuiPresentation(string title, string description)
+            public static IlluminatingBurstInitiatorBuilder Create(string name, Guid guidNamespace, ConditionDefinition illuminatingBurstSuppressedCondition)
             {
-                var guiPresentationBuilder = new GuiPresentationBuilder(title, description);
-
-                var guiPresentation = guiPresentationBuilder.Build();
-                guiPresentation.SetHidden(true);
-
-                return guiPresentation;
+                return new IlluminatingBurstInitiatorBuilder(name, guidNamespace, illuminatingBurstSuppressedCondition);
             }
 
             private static EffectDescription CreatePowerEffect(ConditionDefinition illuminatingBurstSuppressedCondition)

@@ -496,22 +496,6 @@ namespace SolastaCommunityExpansion.Builders
         #endregion
 
         protected TDefinition Definition { get; }
-
-        internal TBuilder Configure<TBuilder>(Action<TDefinition> configureDefinition)
-            where TBuilder : DefinitionBuilder<TDefinition>
-        {
-            Assert.IsNotNull(configureDefinition);
-            configureDefinition.Invoke(Definition);
-
-#if DEBUG
-            if (this is not TBuilder)
-            {
-                throw new SolastaModApiException($"Error in Configure. TBuilder={typeof(TBuilder).Name}, this={GetType().Name}");
-            }
-#endif
-
-            return (TBuilder)this;
-        }
     }
 
     /// <summary>
@@ -538,7 +522,10 @@ namespace SolastaCommunityExpansion.Builders
 
         internal TBuilder Configure(Action<TDefinition> configureDefinition)
         {
-            return Configure<TBuilder>(configureDefinition);
+            Assert.IsNotNull(configureDefinition);
+            configureDefinition.Invoke(Definition);
+
+            return This();
         }
 
         internal TBuilder This()

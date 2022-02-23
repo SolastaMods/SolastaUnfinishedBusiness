@@ -114,7 +114,7 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetSilentWhenAdded(value);
             return This();
         }
-        
+
         public TBuilder SetParentCondition(ConditionDefinition value)
         {
             Definition.SetParentCondition(value);
@@ -136,6 +136,12 @@ namespace SolastaCommunityExpansion.Builders
         public TBuilder SetSpecialDuration(bool value)
         {
             Definition.SetSpecialDuration(value);
+            return This();
+        }
+
+        public TBuilder SetSpecialInterruptions(params RuleDefinitions.ConditionInterruption[] value)
+        {
+            Definition.SetSpecialInterruptions(value);
             return This();
         }
 
