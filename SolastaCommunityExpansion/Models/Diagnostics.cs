@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using HarmonyLib;
 using I2.Loc;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Json;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -96,7 +97,7 @@ namespace SolastaCommunityExpansion.Models
                 .SelectMany(d => d)
                 .Where(d =>
                 {
-                    if (!string.IsNullOrWhiteSpace(d.Key))
+                    if (!string.IsNullOrWhiteSpace(d.Key) && d.Key != GuiPresentationBuilder.EmptyString)
                     {
                         var termData = languageSourceData.GetTermData(d.Key);
                         return string.IsNullOrWhiteSpace(termData?.Languages[languageIndex]);
@@ -166,7 +167,7 @@ namespace SolastaCommunityExpansion.Models
                 .SelectMany(d => d)
                 .Where(d =>
                 {
-                    if (!string.IsNullOrWhiteSpace(d.Key))
+                    if (!string.IsNullOrWhiteSpace(d.Key) && d.Key != GuiPresentationBuilder.EmptyString)
                     {
                         var termData = languageSourceData.GetTermData(d.Key);
                         return string.IsNullOrWhiteSpace(termData?.Languages[languageIndex]);
