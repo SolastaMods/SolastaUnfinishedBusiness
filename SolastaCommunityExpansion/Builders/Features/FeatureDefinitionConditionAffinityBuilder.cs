@@ -1,4 +1,5 @@
 ﻿using System;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
@@ -35,6 +36,18 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
         #endregion
+
+        public TBuilder SetConditionAffinityType(RuleDefinitions.ConditionAffinityType value)
+        {
+            Definition.SetConditionAffinityType(value);
+            return This();
+        }
+
+        public TBuilder SetConditionType(string value)
+        {
+            Definition.SetConditionType( value);
+            return This();
+        }
     }
 
     public class FeatureDefinitionConditionAffinityBuilder

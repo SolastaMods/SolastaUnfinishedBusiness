@@ -109,6 +109,36 @@ namespace SolastaCommunityExpansion.Builders
             return This();
         }
 
+        public TBuilder SetSilentWhenAdded(bool value)
+        {
+            Definition.SetSilentWhenAdded(value);
+            return This();
+        }
+        
+        public TBuilder SetParentCondition(ConditionDefinition value)
+        {
+            Definition.SetParentCondition(value);
+            return This();
+        }
+
+        public TBuilder SetTerminateWhenRemoved(bool value)
+        {
+            Definition.SetTerminateWhenRemoved(value);
+            return This();
+        }
+
+        public TBuilder SetSilentWhenRemoved(bool value)
+        {
+            Definition.SetSilentWhenRemoved(value);
+            return This();
+        }
+
+        public TBuilder SetSpecialDuration(bool value)
+        {
+            Definition.SetSpecialDuration(value);
+            return This();
+        }
+
         public TBuilder ClearRecurrentEffectForms()
         {
             Definition.ClearRecurrentEffectForms();

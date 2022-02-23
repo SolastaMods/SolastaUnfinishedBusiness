@@ -70,7 +70,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 RuleDefinitions.DurationType.UntilLongRest, 1, "ConditionPowerTransmuteDarkvision", ConditionDarkvisionGui.Build());
             FeatureDefinitionPowerSharedPool PowerDarkvision = BuildActionTransmuteConditionPower(TransmuteForce, RuleDefinitions.RechargeRate.LongRest,
                 RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
-                RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 1,
+                RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 0,
                 RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, superiorDarkvision, "PowerTransmuteDarkvision", TransmuteDarkvision.Build());
             lifeTransmuter.AddFeatureAtLevel(PowerDarkvision, 6);
 
@@ -95,7 +95,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 RuleDefinitions.DurationType.UntilLongRest, 1, "ConditionPowerTransmutePoison", ConditionPoisonResistance.Build());
             FeatureDefinitionPowerSharedPool PowerPoison = BuildActionTransmuteConditionPower(TransmuteForce, RuleDefinitions.RechargeRate.LongRest,
                 RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
-                RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 1,
+                RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 0,
                 RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, PoisonResistance, "PowerTransmutePoison", TransmutePoison.Build());
             lifeTransmuter.AddFeatureAtLevel(PowerPoison, 6);
             // Make a power that gives proficiency to constitution saves
@@ -111,7 +111,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             TransmuteConstitution.SetSpriteReference(FeatureDefinitionPowers.PowerPaladinAuraOfCourage.GuiPresentation.SpriteReference);
             FeatureDefinitionPowerSharedPool PowerConstitution = BuildActionTransmuteConditionPower(TransmuteForce, RuleDefinitions.RechargeRate.LongRest,
                 RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
-                RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 1,
+                RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 0,
                 RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, ConstitutionProf, "PowerTransmuteConstitution", TransmuteConstitution.Build());
             lifeTransmuter.AddFeatureAtLevel(PowerConstitution, 6);
 
@@ -179,15 +179,10 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             return ConditionDefinitionBuilder
                 .Create(name, SubclassNamespace)
                 .SetGuiPresentation(guiPresentation)
-                .Configure(definition =>
-                {
-                    definition.Features.AddRange(conditionFeatures);
-                    definition
-                        .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
-                        .SetAllowMultipleInstances(false)
-                        .SetDurationType(durationType)
-                        .SetDurationParameter(durationParameter);
-                })
+                .SetFeatures(conditionFeatures)
+                .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
+                .SetAllowMultipleInstances(false)
+                .SetDuration(durationType, durationParameter)
                 .AddToDB();
         }
 

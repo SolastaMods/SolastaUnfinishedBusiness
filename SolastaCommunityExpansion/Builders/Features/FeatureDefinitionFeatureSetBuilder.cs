@@ -38,26 +38,37 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
-        public TBuilder ClearFeatures()
+        public TBuilder ClearFeatureSet()
         {
             Definition.ClearFeatureSet();
             return (TBuilder)this;
         }
 
-        public TBuilder AddFeature(FeatureDefinition featureDefinition)
+        public TBuilder SetFeatureSet(params FeatureDefinition[] featureDefinitions)
         {
-            Definition.FeatureSet.Add(featureDefinition);
+            return SetFeatureSet(featureDefinitions.AsEnumerable());
+        }
+
+        public TBuilder SetFeatureSet(IEnumerable<FeatureDefinition> featureDefinitions)
+        {
+            Definition.SetFeatureSet(featureDefinitions);
             return (TBuilder)this;
         }
 
-        public TBuilder SetFeatures(params FeatureDefinition[] featureDefinitions)
+        public TBuilder AddFeatureSet(params FeatureDefinition[] featureDefinitions)
         {
-            return SetFeatures(featureDefinitions.AsEnumerable());
+            return AddFeatureSet(featureDefinitions.AsEnumerable());
         }
 
-        public TBuilder SetFeatures(IEnumerable<FeatureDefinition> featureDefinitions)
+        public TBuilder AddFeatureSet(IEnumerable<FeatureDefinition> featureDefinitions)
         {
-            Definition.FeatureSet.SetRange(featureDefinitions);
+            Definition.AddFeatureSet(featureDefinitions);
+            return (TBuilder)this;
+        }
+
+        public TBuilder SetEnumerateInDescription(bool value)
+        {
+            Definition.SetEnumerateInDescription(value);
             return (TBuilder)this;
         }
 
