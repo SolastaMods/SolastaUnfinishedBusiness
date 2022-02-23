@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using SolastaModApi.Diagnostics;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Builders
@@ -151,31 +151,12 @@ namespace SolastaCommunityExpansion.Builders
             return This();
         }
 
-        // TODO: factor out validation code
-        // rename to match names of similar method in EffectDescriptionBuilder (and elsewhere)
-        public TBuilder SetDuration(RuleDefinitions.DurationType type, int? duration = null)
+        // TODO: rename to match names of similar method in EffectDescriptionBuilder (and elsewhere)
+        public TBuilder SetDuration(RuleDefinitions.DurationType type, int duration = 0)
         {
-            switch (type)
-            {
-                case RuleDefinitions.DurationType.Round:
-                case RuleDefinitions.DurationType.Minute:
-                case RuleDefinitions.DurationType.Hour:
-                case RuleDefinitions.DurationType.Day:
-                    if (duration == null)
-                    {
-                        throw new ArgumentNullException(nameof(duration), $"A duration value is required for duration type {type}.");
-                    }
-                    Definition.SetDurationParameter(duration.Value);
-                    break;
-                default:
-                    if (duration != null)
-                    {
-                        throw new SolastaModApiException($"A duration value is not expected for duration type {type}");
-                    }
-                    Definition.SetDurationParameter(0);
-                    break;
-            }
+            Preconditions.IsValidDuration(type, duration);
 
+            Definition.SetDurationParameter(duration);
             Definition.SetDurationType(type);
 
             return (TBuilder)this;

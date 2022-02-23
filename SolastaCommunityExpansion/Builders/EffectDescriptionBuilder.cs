@@ -202,28 +202,11 @@ namespace SolastaCommunityExpansion.Builders
 
         public EffectDescriptionBuilder SetDurationData(RuleDefinitions.DurationType type, int duration = 0)
         {
-            switch (type)
-            {
-                case RuleDefinitions.DurationType.Round:
-                case RuleDefinitions.DurationType.Minute:
-                case RuleDefinitions.DurationType.Hour:
-                case RuleDefinitions.DurationType.Day:
-                    if (duration <= 0)
-                    {
-                        throw new ArgumentNullException(nameof(duration), $"A positive duration value is required for duration type {type}.");
-                    }
-                    effect.SetDurationParameter(duration);
-                    break;
-                default:
-                    if (duration != 0)
-                    {
-                        throw new SolastaModApiException($"A duration value is not expected for duration type {type}.");
-                    }
-                    effect.SetDurationParameter(0);
-                    break;
-            }
+            Preconditions.IsValidDuration(type, duration);
 
+            effect.SetDurationParameter(duration);
             effect.SetDurationType(type);
+
             return this;
         }
 
