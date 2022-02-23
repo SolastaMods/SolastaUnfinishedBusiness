@@ -25,6 +25,18 @@ namespace SolastaCommunityExpansion.Feats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
+            // Improved critical
+            var improvedCritical = FeatDefinitionBuilder
+                .Create("FeatImprovedCritical", OtherFeatNamespace)
+                .SetGuiPresentation(Category.Feat)
+                .SetFeatures(
+                    FeatureDefinitionAttributeModifierBuilder
+                        .Create("AttributeModifierImprovedCriticalFeat", OtherFeatNamespace)
+                        .SetGuiPresentation(Category.Feat)
+                        .SetModifier(AttributeModifierOperation.Set, AttributeDefinitions.CriticalThreshold, 19)
+                        .AddToDB())
+                .AddToDB();
+
             // Tough
             var tough = FeatDefinitionBuilder
                 .Create("FeatTough", OtherFeatNamespace)
@@ -51,7 +63,7 @@ namespace SolastaCommunityExpansion.Feats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
-            feats.AddRange(savageAttacker, tough, warCaster);
+            feats.AddRange(savageAttacker, tough, warCaster, improvedCritical);
         }
 
         private static FeatureDefinitionDieRollModifier BuildDieRollModifier(string name,
