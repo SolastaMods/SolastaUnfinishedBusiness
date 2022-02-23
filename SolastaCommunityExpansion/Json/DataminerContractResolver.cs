@@ -56,13 +56,103 @@ namespace SolastaCommunityExpansion.Json
 
         protected override JsonProperty CreateProperty(MemberInfo member, MemberSerialization memberSerialization)
         {
-            var jsonProp = base.CreateProperty(member, memberSerialization);
+            JsonProperty property = base.CreateProperty(member, memberSerialization);
+
             if (member is FieldInfo)
             {
-                jsonProp.Readable = true;
-                jsonProp.Writable = true;
+                property.Readable = true;
+                property.Writable = true;
             }
-            return jsonProp;
+
+            if (property.DeclaringType == typeof(EffectForm))
+            {
+                property.ShouldSerialize =
+                    instance =>
+                    {
+                        var effectForm = (EffectForm)instance;
+
+                        switch (property.PropertyName)
+                        {
+                            case "damageForm":
+                                return effectForm.FormType == EffectForm.EffectFormType.Damage;
+                            case "healingForm":
+                                return effectForm.FormType == EffectForm.EffectFormType.Healing;
+                            case "conditionForm":
+                                return effectForm.FormType == EffectForm.EffectFormType.Condition;
+                            case "lightSourceForm":
+                                return effectForm.FormType == EffectForm.EffectFormType.LightSource;
+                            case "summonForm":
+                                return effectForm.FormType == EffectForm.EffectFormType.Summon;
+                            case "counterForm":
+                                return effectForm.FormType == EffectForm.EffectFormType.Counter;
+                            case "temporaryHitPointsForm":
+                                return effectForm.FormType == EffectForm.EffectFormType.TemporaryHitPoints;
+                            case "motionForm":
+                                return effectForm.FormType == EffectForm.EffectFormType.Motion;
+                            case "spellSlotsForm":
+                                return effectForm.FormType == EffectForm.EffectFormType.SpellSlots;
+                            case "divinationForm":
+                                return effectForm.FormType == EffectForm.EffectFormType.Divination;
+                            case "itemPropertyForm":
+                                return effectForm.FormType == EffectForm.EffectFormType.ItemProperty;
+                            case "alterationForm":
+                                return effectForm.FormType == EffectForm.EffectFormType.Alteration;
+                            case "topologyForm":
+                                return effectForm.FormType == EffectForm.EffectFormType.Topology;
+                            case "reviveForm":
+                                return effectForm.FormType == EffectForm.EffectFormType.Revive;
+                            case "killForm":
+                                return effectForm.FormType == EffectForm.EffectFormType.Kill;
+                            case "shapeChangeForm":
+                                return effectForm.FormType == EffectForm.EffectFormType.ShapeChange;
+                        }
+
+                        return true;
+                    };
+            }
+            else if (property.DeclaringType == typeof(ItemDefinition))
+            {
+                property.ShouldSerialize =
+                    instance =>
+                    {
+                        var definition = (ItemDefinition)instance;
+
+                        switch (property.PropertyName)
+                        {
+                            case "armorDefinition":
+                                return definition.IsArmor;
+                            case "weaponDefinition":
+                                return definition.IsWeapon;
+                            case "ammunitionDefinition":
+                                return definition.IsAmmunition;
+                            case "usableDeviceDescription":
+                                return definition.IsUsableDevice;
+                            case "toolDefinition":
+                                return definition.IsTool;
+                            case "starterPackDefinition":
+                                return definition.IsStarterPack;
+                            case "containerItemDefinition":
+                                return definition.IsContainerItem;
+                            case "lightSourceItemDefinition":
+                                return definition.IsLightSourceItem;
+                            case "focusItemDefinition":
+                                return definition.IsFocusItem;
+                            case "wealthPileDefinition":
+                                return definition.IsWealthPile;
+                            case "spellbookDefinition":
+                                return definition.IsSpellbook;
+                            case "documentDescription":
+                                return definition.IsDocument;
+                            case "foodDescription":
+                                return definition.IsFood;
+                            case "factionRelicDescription":
+                                return definition.IsFactionRelic;
+                        }
+                        return true;
+                    };
+            }
+
+            return property;
         }
     }
 }

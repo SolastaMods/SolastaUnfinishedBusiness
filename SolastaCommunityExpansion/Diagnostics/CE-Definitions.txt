@@ -105,6 +105,7 @@ AttributeModifierFeatCraftyDex, 4db12466-67da-47a4-8d96-a9bf9cf3a251
 AttributeModifierFeatCraftyInt, b23c3b73-7690-42ba-aa49-7ca3451daa05
 AttributeModifierFeatCraftyWis, 23f944c7-2359-43cc-8bdc-71833bf35302
 AttributeModifierImprovedArmorInfusion, 9ba23c8d-28de-517b-a27e-63593c9a008b
+AttributeModifierImprovedCriticalFeat, ac76c410-bc5f-5d8c-9eb4-f82b470b8862
 AttributeModifierMeleeWizardExtraAttack, 51476c8a-052b-56a6-9152-3f65ef323d42
 AttributeModifierRuin, d2818238-8f23-5523-9f63-a2eca12f484a
 AttributeModifierToughFeat, b9e60c25-e3d1-5c77-ac00-7afdccad09d9
@@ -474,6 +475,7 @@ FeatFightingStyleTwoWeaponProficiency, 880a6b75-8657-5b28-9cb3-3556eb9f73df
 FeatHealer, a8641fac-c059-54fa-aaaf-b8bcac89e267
 FeatHealerMedicineProficiency, 48661b00-6c58-5c97-adc6-7d3e885de1f3
 FeatHeavyArmorMasterClass, 946ce523-a0af-533b-98e6-adcd5b029192
+FeatImprovedCritical, 14c20c23-3887-5408-a146-71f84209d6ab
 FeatInspiringLeader, e146f638-c573-5b87-a894-b376922271ff
 FeatIntIncrement, d2209a77-7ae2-5e9f-a7b1-5c7eab76e9cf
 FeatLightArmor, 4ef552f9-17ca-5956-84c4-828466e3fb90

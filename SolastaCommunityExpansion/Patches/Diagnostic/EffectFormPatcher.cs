@@ -5,6 +5,8 @@ using static EffectForm.EffectFormType;
 
 namespace SolastaCommunityExpansion.Patches.Diagnostic
 {
+#if DEBUG
+    // Only add these 16 patches EffectForm for debug builds for diagnostic purposes.
     internal static class EffectFormControl
     {
         [Flags]
@@ -191,4 +193,5 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
             EffectFormControl.Sanitize(__instance, ShapeChange, ref __result);
         }
     }
+#endif
 }
