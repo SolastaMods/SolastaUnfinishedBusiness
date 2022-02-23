@@ -501,9 +501,7 @@ namespace SolastaCommunityExpansion.Builders
     /// <summary>
     ///     <para>Base class builder for all classes derived from BaseDefinition (for internal use only).</para>
     ///     <para>
-    ///     This version of DefinitionBuilder allows passing the builder type as <typeparamref name="TBuilder"/>.  This
-    ///     allows <seealso cref="Configure(Action{TDefinition})">Configure</seealso> to be called without type parameters, and enables adding helper Set{PropertyName} methods to intermediate builders
-    ///     that return the correct TBuilder.
+    ///     This version of DefinitionBuilder allows passing the builder type as <typeparamref name="TBuilder"/>.  
     ///     </para>
     /// </summary>
     /// <typeparam name="TDefinition"></typeparam>
@@ -520,6 +518,8 @@ namespace SolastaCommunityExpansion.Builders
         private protected DefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid) { }
         private protected DefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid) { }
 
+        /*
+        // TODO: no longer required?
         internal TBuilder Configure(Action<TDefinition> configureDefinition)
         {
             Assert.IsNotNull(configureDefinition);
@@ -527,6 +527,7 @@ namespace SolastaCommunityExpansion.Builders
 
             return This();
         }
+        */
 
         internal TBuilder This()
         {

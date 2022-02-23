@@ -4,9 +4,7 @@ using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using SolastaModApi;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
@@ -69,11 +67,6 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             .AddFeatureAtLevel(IlluminatingStrikeImprovement, 10)
             .AddFeatureAtLevel(IlluminatingBurst, 14)
             .AddToDB();
-
-        private static string CreateNamespacedGuid(string featureName)
-        {
-            return GuidHelper.Create(SubclassNamespace, featureName).ToString();
-        }
 
         // TODO: convert to lazy loading?
         private static IlluminatedConditionDefinition IlluminatedCondition { get; } = IlluminatedConditionDefinitionBuilder
@@ -229,37 +222,34 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 CreateIlluminatingBurstSuppressor())
             .AddToDB();
 
+        // TODO: create IlluminatingBurstSuppressorBuilder
         private static FeatureDefinition CreateIlluminatingBurstSuppressor()
         {
+            // TODO: use EffectFormBuilder
+            var suppressIlluminatingBurst = new EffectForm
+            {
+                FormType = EffectForm.EffectFormType.Condition,
+                ConditionForm = new ConditionForm
+                {
+                    Operation = ConditionForm.ConditionOperation.Add,
+                    ConditionDefinition = IlluminatingBurstSuppressedCondition
+                }
+            };
+
+            var suppressIlluminatingBurstEffect = EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(RuleDefinitions.DurationType.Permanent, 1, RuleDefinitions.TurnOccurenceType.StartOfTurn)
+                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self, 1, 0, ActionDefinitions.ItemSelectionType.None)
+                .SetRecurrentEffect(RuleDefinitions.RecurrentEffect.OnActivation | RuleDefinitions.RecurrentEffect.OnTurnStart)
+                .AddEffectForm(suppressIlluminatingBurst)
+                .Build();
+
             return FeatureDefinitionPowerBuilder
                 .Create("PathOfTheLightIlluminatingBurstSuppressor", SubclassNamespace)
                 .SetGuiPresentationNoContent(true)
                 .SetActivationTime(RuleDefinitions.ActivationTime.Permanent)
                 .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
-                .Configure(
-                    definition =>
-                    {
-                        // TODO: move into builder
-                        var suppressIlluminatingBurst = new EffectForm
-                        {
-                            FormType = EffectForm.EffectFormType.Condition,
-                            ConditionForm = new ConditionForm
-                            {
-                                Operation = ConditionForm.ConditionOperation.Add,
-                                ConditionDefinition = IlluminatingBurstSuppressedCondition
-                            }
-                        };
-
-                        var effectDescriptionBuilder = EffectDescriptionBuilder.Create()
-                            .SetDurationData(RuleDefinitions.DurationType.Permanent, 1, RuleDefinitions.TurnOccurenceType.StartOfTurn)
-                            .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self, 1, 0, ActionDefinitions.ItemSelectionType.None)
-                            .SetRecurrentEffect(RuleDefinitions.RecurrentEffect.OnActivation | RuleDefinitions.RecurrentEffect.OnTurnStart)
-                            .AddEffectForm(suppressIlluminatingBurst);
-
-                        definition
-                            .SetEffectDescription(effectDescriptionBuilder.Build())
-                            ;
-                    })
+                .SetEffectDescription(suppressIlluminatingBurstEffect)
                 .AddToDB();
         }
 
@@ -586,10 +576,8 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
                 EffectForm faerieFireLightSource = SpellDefinitions.FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
 
-                var lightSourceForm = new LightSourceForm();
-                lightSourceForm.Copy(faerieFireLightSource.LightSourceForm);
-
-                lightSourceForm
+                var lightSourceForm = faerieFireLightSource.LightSourceForm
+                    .Copy()
                     .SetBrightRange(4)
                     .SetDimAdditionalRange(4);
 
