@@ -32,7 +32,7 @@ namespace SolastaCommunityExpansion.Feats
                 .SetFeatures(
                     FeatureDefinitionAttributeModifierBuilder
                         .Create("AttributeModifierImprovedCriticalFeat", OtherFeatNamespace)
-                        .SetGuiPresentation(Category.Feat)
+                        .SetGuiPresentation("FeatImprovedCritical", Category.Feat)
                         .SetModifier(AttributeModifierOperation.Set, AttributeDefinitions.CriticalThreshold, 19)
                         .AddToDB())
                 .AddToDB();
