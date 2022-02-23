@@ -401,6 +401,8 @@ Feat/&FeatFeyTeleportationWisDescription	Increase Wisdom attribute by 1. Gain th
 Feat/&FeatFeyTeleportationWisTitle	Fey Teleportation (Wisdom)
 Feat/&FeatHeavyArmorMasterClassDescription	Resistance to Bludgeoning, Slashing, and Piercing damage.
 Feat/&FeatHeavyArmorMasterClassTitle	Heavy Defense Mastery
+Feat/&FeatImprovedCriticalDescription Your attacks are critical hits on a roll of 19 or 20.
+Feat/&FeatImprovedCriticalTitle Improved Critical
 Feat/&FeatIntIncrementDescription	+1 Intelligence
 Feat/&FeatIntIncrementTitle	Intelligence Attribute Increase
 Feat/&FeatLightArmorDescription	Gain proficiency with Light Armor and +1 Dexterity
