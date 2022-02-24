@@ -42,7 +42,7 @@ namespace SolastaCommunityExpansion.Builders
                 Title = title ?? string.Empty
             };
 
-            SetSpriteReference(sprite ?? new AssetReferenceSprite(string.Empty));
+            SetSpriteReference(sprite ?? EmptySprite);
         }
 
         public GuiPresentationBuilder SetColor(Color color)
@@ -90,18 +90,15 @@ namespace SolastaCommunityExpansion.Builders
                 .Build();
         }
 
-        // TODO: More Build/Generate(...) overloads as required
-
-        private const string NothingToSee = "NoContent";
-
-        public static readonly string NoContentTitle = CreateTitleKey(NothingToSee, Category.Feature);
-        public static readonly string NoContentDescription = CreateDescriptionKey(NothingToSee, Category.Feature);
+        public static readonly string NoContentTitle = "Feature/&NoContentTitle";
+        public static readonly string EmptyString = "Feature/&Emptystring";
+        public static readonly AssetReferenceSprite EmptySprite = new (string.Empty);
 
         /// <summary>
         /// GuiPresentation representing 'No content title and description'
         /// </summary>
-        public static GuiPresentation NoContent { get; } = Build(NothingToSee, Category.Feature);
-        public static GuiPresentation NoContentHidden { get; } = Build(NothingToSee, Category.Feature, null, 0, true);
+        public static GuiPresentation NoContent { get; } = Build(NoContentTitle, NoContentTitle, EmptySprite);
+        public static GuiPresentation NoContentHidden { get; } = Build(NoContentTitle, NoContentTitle, EmptySprite, 0, true);
     }
 
     internal static class BaseDefinitionBuilderGuiPresentationExtensions

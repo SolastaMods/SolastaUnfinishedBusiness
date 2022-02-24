@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 using SolastaModApi;
 using SolastaModApi.Diagnostics;
 using SolastaModApi.Infrastructure;
@@ -44,7 +45,7 @@ namespace SolastaCommunityExpansion.Builders
             // 1) get all names used in all TA databases (at this point) ignoring existing duplicates 
             // 2) check 'name' hasn't been used already, but ignore names we know already have duplicates
 
-            if (Main.Settings.KnownDuplicateDefinitionNames.Contains(definitionName))
+            if (Diagnostics.KnownDuplicateDefinitionNames.Contains(definitionName))
             {
                 return;
             }
@@ -487,7 +488,7 @@ namespace SolastaCommunityExpansion.Builders
                     {
                         Main.Log($"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Description, setting to NoContent.");
 
-                        Definition.GuiPresentation.Description = GuiPresentationBuilder.NoContentDescription;
+                        Definition.GuiPresentation.Description = GuiPresentationBuilder.NoContentTitle;
                     }
                 }
             }
