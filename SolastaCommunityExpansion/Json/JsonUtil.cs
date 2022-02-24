@@ -44,11 +44,9 @@ namespace SolastaCommunityExpansion.Json
         public static void Dump(IEnumerable<BaseDefinition> definitions, string path)
         {
             JsonSerializer serializer = JsonSerializer.Create(CreateSettings());
-            using (StreamWriter sw = new StreamWriter(path))
-            using (JsonWriter writer = new JsonTextWriter(sw))
-            {
-                serializer.Serialize(writer, definitions);
-            }
+            using StreamWriter sw = new StreamWriter(path);
+            using JsonWriter writer = new JsonTextWriter(sw);
+            serializer.Serialize(writer, definitions);
         }
 
         public static bool IsBlacklisted(MemberInfo _)
