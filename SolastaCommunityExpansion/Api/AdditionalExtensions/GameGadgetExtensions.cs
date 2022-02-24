@@ -46,10 +46,8 @@ namespace SolastaModApi.Extensions
             return (bool)CheckConditionNameMethod.Invoke(gadget, new object[] { name, value, valueIfMissing });
         }
 
-#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
         private static readonly MethodInfo CheckConditionNameMethod
             = typeof(GameGadget).GetMethod("CheckConditionName", BindingFlags.Instance | BindingFlags.NonPublic);
-#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
     }
 
     public enum ExtraEffectFormType
