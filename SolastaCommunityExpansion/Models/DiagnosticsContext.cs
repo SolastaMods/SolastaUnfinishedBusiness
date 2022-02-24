@@ -75,6 +75,11 @@ namespace SolastaCommunityExpansion.Models
             #endregion
 
             /////////////////////////////////////////////////////////////////////////////////////////////////
+            // Write all TA definitions name/guid to file (txt)
+            File.WriteAllLines(Path.Combine(DiagnosticsOutputFolder, "TA-Definitions.txt"),
+                taDefinitions.Select(d => $"{d.Name}, {d.GUID}"));
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////
             // Write all TA definitions with no GUI presentation to file
             File.WriteAllLines(Path.Combine(DiagnosticsOutputFolder, "TA-Definitions-GuiPresentation-MissingValue.txt"),
                 taDefinitions
@@ -144,7 +149,21 @@ namespace SolastaCommunityExpansion.Models
                 ceDefinitions.Select(d => $"{d.Name}, {d.GUID}"));
 
             // Write all CE definitions to file (json)
-            ExportDefinitions(ceDefinitions, Path.Combine(DiagnosticsOutputFolder, "CE-Definitions.json"));
+            ExportDefinitions(Path.Combine(DiagnosticsOutputFolder, "CE-Definitions.json"), ceDefinitions);
+
+            /*
+            Main.Log("Exporting PickPocket");
+            ExportDefinitions(Path.Combine(DiagnosticsOutputFolder, "CE-Definitions-Test.json"), ceDefinitions.Where(d => d.Name.Contains("PickPocket")));
+
+            Main.Log("Exporting AbilityCheckAffinityFeatPickPocket");
+            ExportDefinition(Path.Combine(DiagnosticsOutputFolder, "CE-Definitions-AbilityCheckAffinityFeatPickPocket.json"), ceDefinitions.Single(d => d.Name == "AbilityCheckAffinityFeatPickPocket"));
+            
+            Main.Log("Exporting ProficiencyFeatPickPocket");
+            ExportDefinition(Path.Combine(DiagnosticsOutputFolder, "CE-Definitions-ProficiencyFeatPickPocket.json"), ceDefinitions.Single(d => d.Name == "ProficiencyFeatPickPocket"));
+            
+            Main.Log("Exporting PickPocketFeat");
+            ExportDefinition(Path.Combine(DiagnosticsOutputFolder, "CE-Definitions-PickPocketFeat.json"), ceDefinitions.Single(d => d.Name == "PickPocketFeat"));
+            */
 
             // Write all CE definitions with no GUI presentation to file
             File.WriteAllLines(Path.Combine(DiagnosticsOutputFolder, "CE-Definitions-GuiPresentation-MissingValue.txt"),
@@ -182,12 +201,22 @@ namespace SolastaCommunityExpansion.Models
             File.WriteAllLines(Path.Combine(DiagnosticsOutputFolder, $"CE-Definitions-GuiPresentation-MissingTranslation-{currentLanguage}.txt"), allLines);
         }
 
-        private static void ExportDefinitions(IEnumerable<BaseDefinition> definitions, string path)
+/*        private static void ExportDefinition(string path, BaseDefinition definition)
+        {
+            JsonUtil.Dump(definition, path);
+        }
+
+        private static void ExportDefinitions(string path, params BaseDefinition[] definitions)
+        {
+            ExportDefinitions(path, definitions.AsEnumerable());
+        }*/
+
+        private static void ExportDefinitions(string path, IEnumerable<BaseDefinition> definitions)
         {
             JsonUtil.Dump(definitions, path);
 
             // remove id/ref for simplicity of detecting changes using diff tool
-            File.WriteAllLines(path, File.ReadAllLines(path).Where(l => !l.Trim().StartsWith("\"$id\":") && !l.Trim().StartsWith("\"$ref\":")));
+            //File.WriteAllLines(path, File.ReadAllLines(path).Where(l => !l.Trim().StartsWith("\"$id\":") && !l.Trim().StartsWith("\"$ref\":")));
         }
 
         internal static List<string> KnownDuplicateDefinitionNames { get; } = new()

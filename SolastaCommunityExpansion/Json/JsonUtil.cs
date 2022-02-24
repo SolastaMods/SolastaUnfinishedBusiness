@@ -29,7 +29,7 @@ namespace SolastaCommunityExpansion.Json
                 MissingMemberHandling = MissingMemberHandling.Ignore,
                 NullValueHandling = NullValueHandling.Include,
                 ObjectCreationHandling = ObjectCreationHandling.Replace,
-                PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                PreserveReferencesHandling = PreserveReferencesHandling.None,
                 ReferenceLoopHandling = ReferenceLoopHandling.Serialize,
                 StringEscapeHandling = StringEscapeHandling.Default,
                 TypeNameAssemblyFormatHandling = TypeNameAssemblyFormatHandling.Simple,
@@ -43,10 +43,30 @@ namespace SolastaCommunityExpansion.Json
 
         public static void Dump(IEnumerable<BaseDefinition> definitions, string path)
         {
+            using StreamWriter sw = new StreamWriter(path);
+            using JsonWriter writer = new JsonTextWriter(sw);
+
+            sw.WriteLine("[");
+            var lastDefinition = definitions.Last();
+
+            foreach (var definition in definitions)
+            {
+                JsonSerializer serializer = JsonSerializer.Create(CreateSettings());
+                serializer.Serialize(writer, definition);
+                if (definition != lastDefinition)
+                {
+                    sw.WriteLine(",");
+                }
+            }
+            sw.WriteLine("]");
+        }
+
+        public static void Dump(BaseDefinition definition, string path)
+        {
             JsonSerializer serializer = JsonSerializer.Create(CreateSettings());
             using StreamWriter sw = new StreamWriter(path);
             using JsonWriter writer = new JsonTextWriter(sw);
-            serializer.Serialize(writer, definitions);
+            serializer.Serialize(writer, definition);
         }
 
         public static bool IsBlacklisted(MemberInfo _)
