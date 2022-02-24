@@ -95,6 +95,7 @@ namespace SolastaCommunityExpansion.Models
                     new { d.Name, Key = d.GuiPresentation?.Description, Type = "Description" }
                 })
                 .SelectMany(d => d)
+                .Where(d => !d.Name.StartsWith("Telema", StringComparison.InvariantCultureIgnoreCase))
                 .Where(d =>
                 {
                     if (!string.IsNullOrWhiteSpace(d.Key) && d.Key != GuiPresentationBuilder.EmptyString)
@@ -165,6 +166,7 @@ namespace SolastaCommunityExpansion.Models
                     new { d.Name, Key = d.GuiPresentation?.Description, Type = "Description" }
                 })
                 .SelectMany(d => d)
+                .Where(d => !d.Name.StartsWith("Telema", StringComparison.InvariantCultureIgnoreCase))
                 .Where(d =>
                 {
                     if (!string.IsNullOrWhiteSpace(d.Key) && d.Key != GuiPresentationBuilder.EmptyString)

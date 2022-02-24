@@ -180,9 +180,7 @@ namespace SolastaModApi.Testing
             }
         }
 
-#pragma warning disable S3260 // Non-derived "private" classes and records should be "sealed"
         private class TestObj
-#pragma warning restore S3260 // Non-derived "private" classes and records should be "sealed"
         {
             public TestObj(string testValue)
             {
