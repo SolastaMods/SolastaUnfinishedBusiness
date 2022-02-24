@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches
     {
         internal static void Postfix()
         {
-            Diagnostics.PostDatabaseLoad();
+            DiagnosticsContext.PostDatabaseLoad();
 
             AdditionalNamesContext.Load();
             AsiAndFeatContext.Load();
@@ -80,7 +80,7 @@ namespace SolastaCommunityExpansion.Patches
                 GuiWrapperContext.Recache();
 
                 // Final sanity check
-                Diagnostics.PostCELoad();
+                DiagnosticsContext.PostCELoad();
 
                 Main.Enabled = true;
                 Main.Logger.Log("Enabled.");

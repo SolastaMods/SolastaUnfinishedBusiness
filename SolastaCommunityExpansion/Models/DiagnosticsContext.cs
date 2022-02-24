@@ -7,12 +7,10 @@ using HarmonyLib;
 using I2.Loc;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Json;
-using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Models
 {
-    internal static class Diagnostics
+    internal static class DiagnosticsContext
     {
         private static HashSet<BaseDefinition> TABaseDefinitions;
 
