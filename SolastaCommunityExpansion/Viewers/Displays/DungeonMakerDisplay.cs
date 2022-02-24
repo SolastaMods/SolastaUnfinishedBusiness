@@ -22,28 +22,22 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            toggle = Main.Settings.AllowGadgetsToBePlacedAnywhere;
-            if (UI.Toggle("Allow gadgets to be placed anywhere on the map " + RequiresRestart, ref toggle))
+            toggle = Main.Settings.AllowGadgetsAndPropsToBePlacedAnywhere;
+            if (UI.Toggle("Allow gadgets and props to be placed anywhere on the map " + "[press ".italic().yellow() + "CTRL".italic().cyan() + " during placement to bypass any check]".italic().yellow(), ref toggle))
             {
-                Main.Settings.AllowGadgetsToBePlacedAnywhere = toggle;
-            }
-
-            toggle = Main.Settings.AllowPropsToBePlacedAnywhere;
-            if (UI.Toggle("Allow props to be placed anywhere on the map " + RequiresRestart, ref toggle))
-            {
-                Main.Settings.AllowPropsToBePlacedAnywhere = toggle;
+                Main.Settings.AllowGadgetsAndPropsToBePlacedAnywhere = toggle;
             }
 
             UI.Label("");
 
             toggle = Main.Settings.UnleashNpcAsEnemy;
-            if (UI.Toggle("Unleash NPCs as enemies " + "[press ".italic().yellow() + "SHIFT".italic().cyan() + " while clicking Select on gadget panel]".italic().yellow(), ref toggle))
+            if (UI.Toggle("Unleash NPCs as enemies " + "[press ".italic().yellow() + "CTRL".italic().cyan() + " while clicking Select on gadget panel]".italic().yellow(), ref toggle))
             {
                 Main.Settings.UnleashNpcAsEnemy = toggle;
             }
 
             toggle = Main.Settings.UnleashEnemyAsNpc;
-            if (UI.Toggle("Unleash enemies as NPCs " + "[press ".italic().yellow() + "SHIFT".italic().cyan() + " while clicking Select on gadget panel]".italic().yellow(), ref toggle))
+            if (UI.Toggle("Unleash enemies as NPCs " + "[press ".italic().yellow() + "CTRL".italic().cyan() + " while clicking Select on gadget panel]".italic().yellow(), ref toggle))
             {
                 Main.Settings.UnleashEnemyAsNpc = toggle;
             }

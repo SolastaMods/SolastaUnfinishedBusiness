@@ -232,23 +232,11 @@ namespace SolastaCommunityExpansion
         public bool NoExperienceOnLevelUp { get; set; }
 
         // Debug
-        public bool DebugShowTADefinitionsWithMissingGuiPresentation { get; set; }
         public bool DebugLogDefinitionCreation { get; set; }
         public bool DebugLogFieldInitialization { get; set; }
         public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
-        public List<string> KnownDuplicateDefinitionNames { get; } = new()
-        {
-            "SummonProtectorConstruct"
-        };
-#if DEBUG
-        public bool DebugShowCEDefinitionsWithMissingGuiPresentation { get; set; } = true;
-        public bool DebugLogCEDefinitionsToFile { get; set; } = true;
-        public bool DebugLogCEGuiPresentationsToFile { get; set; } = true;
-#else
-        internal bool DebugShowCEDefinitionsWithMissingGuiPresentation { get; set; }
-        internal bool DebugLogCEDefinitionsToFile { get; set; }
-        internal bool DebugLogCEGuiPresentationsToFile { get; set; }
-#endif
+        public bool DebugEnableTADefinitionDiagnostics { get; set; }
+        public bool DebugEnableCEDefinitionDiagnostics { get; set; }
 
         // Faction Relations
 
@@ -277,8 +265,7 @@ namespace SolastaCommunityExpansion
         //
 
         public bool AllowDungeonsMaxLevel20 { get; set; }
-        public bool AllowGadgetsToBePlacedAnywhere { get; set; }
-        public bool AllowPropsToBePlacedAnywhere { get; set; }
+        public bool AllowGadgetsAndPropsToBePlacedAnywhere { get; set; }
         public bool UnleashNpcAsEnemy { get; set; }
         public bool UnleashEnemyAsNpc { get; set; }
         public bool EnableDungeonMakerModdedContent { get; set; }

@@ -76,7 +76,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 
             var spellResistance = FeatureDefinitionSavingThrowAffinityBuilder
                 .Create("TraditionSpellMasterSpellResistance", SubclassNamespace)
-                .SetGuiPresentation(Category.Spell)
+                .SetGuiPresentation(Category.Subclass)
                 .SetAffinities(
                     RuleDefinitions.CharacterSavingThrowAffinity.Advantage, true,
                     AttributeDefinitions.Strength,

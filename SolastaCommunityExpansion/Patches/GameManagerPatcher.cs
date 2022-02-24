@@ -11,14 +11,13 @@ namespace SolastaCommunityExpansion.Patches
     {
         internal static void Postfix()
         {
-            GuiPresentationCheck.PostDatabaseLoadCheck();
+            Diagnostics.PostDatabaseLoad();
 
             AdditionalNamesContext.Load();
             AsiAndFeatContext.Load();
             BugFixContext.Load();
             CharacterExportContext.Load();
             ConjurationsContext.Load();
-            DungeonMakerContext.Load();
             DmProEditorContext.Load();
             EpicArrayContext.Load();
             FaceUnlockContext.Load();
@@ -81,7 +80,7 @@ namespace SolastaCommunityExpansion.Patches
                 GuiWrapperContext.Recache();
 
                 // Final sanity check
-                GuiPresentationCheck.PostCELoadCheck();
+                Diagnostics.PostCELoad();
 
                 Main.Enabled = true;
                 Main.Logger.Log("Enabled.");

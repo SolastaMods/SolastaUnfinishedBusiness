@@ -257,6 +257,7 @@ Equipment/&Enchanted_Spear_Acuteness_Description	This enchanted weapon was creat
 Equipment/&Enchanted_Spear_Acuteness_Title	Spear of Acuteness
 Equipment/&Enchanted_Spear_BlackViper_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths, using a spear and the venom of a legendary spider from Solasta's depths. The blade's designer was Grigg Blackheart, a notorious Marsh halfling smith working in the forges of the Aer Elai.
 Equipment/&Enchanted_Spear_BlackViper_Title	Black Viper Spear
+Equipment/&Enchanted_Spear_Doomblade_Description This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. Kenaloth Darkmind devised the Doomblades as a tool of punishment for those who resisted the magic of the Empire.
 Equipment/&Enchanted_Spear_Doomblade_Title	Doom Tipped Spear
 Equipment/&Enchanted_Spear_Lightbringer_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
 Equipment/&Enchanted_Spear_Lightbringer_Title	Lightbringer Spear
