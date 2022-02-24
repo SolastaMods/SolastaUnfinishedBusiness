@@ -13,10 +13,15 @@ namespace SolastaCommunityExpansion.Models
     internal static class DiagnosticsContext
     {
         private static HashSet<BaseDefinition> TABaseDefinitions;
+        private static Dictionary<Type, List<BaseDefinition>> TABaseDefinitionsMap;
+        private static HashSet<BaseDefinition> CEBaseDefinitions;
 
         internal const string DiagnosticsEnvironmentVariable = "SolastaCEDiagnosticsDir";
 
         internal static string DiagnosticsOutputFolder { get; } = GetDiagnosticsFolder();
+
+        internal static bool HasDiagnosticsFolder => !string.IsNullOrWhiteSpace(DiagnosticsOutputFolder);
+
         private static string GetDiagnosticsFolder()
         {
             var folder = Environment.GetEnvironmentVariable(DiagnosticsEnvironmentVariable, EnvironmentVariableTarget.Machine);
@@ -44,6 +49,25 @@ namespace SolastaCommunityExpansion.Models
             return definitions;
         }
 
+        private static void BuildTADefinitionsMap()
+        {
+            var definitions = new Dictionary<Type, List<BaseDefinition>>();
+
+            foreach (var db in (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases").GetValue(null))
+            {
+                var list = new List<BaseDefinition>();
+
+                foreach (var bd in (IEnumerable)db.Value)
+                {
+                    list.Add((BaseDefinition)bd);
+                }
+
+                definitions.Add(db.Key, list);
+            }
+
+            TABaseDefinitionsMap = definitions;
+        }
+
         public static void PostDatabaseLoad()
         {
             #region Preconditions
@@ -54,6 +78,7 @@ namespace SolastaCommunityExpansion.Models
             }
 
             TABaseDefinitions = GetAllDefinitions();
+            BuildTADefinitionsMap();
 
             var taDefinitions = TABaseDefinitions.OrderBy(x => x.Name).ThenBy(x => x.GetType().Name).ToList();
 
@@ -139,9 +164,14 @@ namespace SolastaCommunityExpansion.Models
             {
                 Directory.CreateDirectory(DiagnosticsOutputFolder);
             }
+
+            if (CEBaseDefinitions == null)
+            {
+                CEBaseDefinitions = GetAllDefinitions().Except(TABaseDefinitions).ToHashSet();
+            }
             #endregion
 
-            var ceDefinitions = GetAllDefinitions().Except(TABaseDefinitions).OrderBy(x => x.Name).ThenBy(x => x.GetType().Name).ToList();
+            var ceDefinitions = CEBaseDefinitions.OrderBy(x => x.Name).ThenBy(x => x.GetType().Name);
 
             /////////////////////////////////////////////////////////////////////////////////////////////////
             // Write all CE definitions name/guid to file (txt)
@@ -149,7 +179,7 @@ namespace SolastaCommunityExpansion.Models
                 ceDefinitions.Select(d => $"{d.Name}, {d.GUID}"));
 
             // Write all CE definitions to file (json)
-            ExportDefinitions(Path.Combine(DiagnosticsOutputFolder, "CE-Definitions.json"), ceDefinitions);
+            //ExportDefinitions(Path.Combine(DiagnosticsOutputFolder, "CE-Definitions.json"), ceDefinitions);
 
             /*
             Main.Log("Exporting PickPocket");
@@ -201,19 +231,71 @@ namespace SolastaCommunityExpansion.Models
             File.WriteAllLines(Path.Combine(DiagnosticsOutputFolder, $"CE-Definitions-GuiPresentation-MissingTranslation-{currentLanguage}.txt"), allLines);
         }
 
-/*        private static void ExportDefinition(string path, BaseDefinition definition)
-        {
-            JsonUtil.Dump(definition, path);
-        }
+        /*        private static void ExportDefinition(string path, BaseDefinition definition)
+                {
+                    JsonUtil.Dump(definition, path);
+                }
 
-        private static void ExportDefinitions(string path, params BaseDefinition[] definitions)
+                private static void ExportDefinitions(string path, params BaseDefinition[] definitions)
+                {
+                    ExportDefinitions(path, definitions.AsEnumerable());
+                }*/
+
+        const string BlueprintFolder = "SolastaBlueprints2";
+
+        internal static void ExportTABlueprints()
         {
-            ExportDefinitions(path, definitions.AsEnumerable());
-        }*/
+            if (!Directory.Exists(BlueprintFolder))
+            {
+                Directory.CreateDirectory(BlueprintFolder);
+            }
+
+            // Types.txt
+            using (var sw = new StreamWriter($"{BlueprintFolder}/Types.txt"))
+            {
+                foreach (var type in TABaseDefinitions.Select(t => t.GetType()).Distinct().OrderBy(t => t.Name))
+                {
+                    sw.WriteLine($"{type.FullName}");
+                }
+            }
+
+            // Assets.txt
+            using (var sw = new StreamWriter($"{BlueprintFolder}/Assets.txt"))
+            {
+                sw.WriteLine("{0}\t{1}\t{2}\t{3}", "Name", "Type", "DatabaseType", "GUID");
+
+                foreach(var db in TABaseDefinitionsMap.OrderBy(db => db.Key.FullName))
+                {
+                    foreach (var definition in db.Value)
+                    {
+                        sw.WriteLine("{0}\t{1}\t{2}\t{3}", definition.Name, definition.GetType().FullName, db.Key.FullName, definition.GUID);
+                    }
+                }
+            }
+
+            // Blueprints/definitions
+/*            foreach (var definition in TABaseDefinitions)
+            {
+                var dbType = definition.GetType();
+                var value = definition;
+                var subfolder = value.GetType().Name;
+                if (value.GetType() != dbType)
+                {
+                    subfolder = $"{dbType.FullName}/{subfolder}";
+                }
+
+                if (!Directory.Exists($"{BlueprintFolder}/{subfolder}"))
+                {
+                    Directory.CreateDirectory($"{BlueprintFolder}/{subfolder}");
+                }
+
+                JsonUtil.TABlueprintDump(definition, $"{BlueprintFolder}/{subfolder}/{value.Name}.{value.GUID}.json");
+            }*/
+        }
 
         private static void ExportDefinitions(string path, IEnumerable<BaseDefinition> definitions)
         {
-            JsonUtil.Dump(definitions, path);
+            JsonUtil.CEBlueprintDump(definitions, path);
 
             // remove id/ref for simplicity of detecting changes using diff tool
             //File.WriteAllLines(path, File.ReadAllLines(path).Where(l => !l.Trim().StartsWith("\"$id\":") && !l.Trim().StartsWith("\"$ref\":")));

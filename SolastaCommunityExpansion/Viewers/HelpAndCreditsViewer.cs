@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using ModKit;
+using SolastaCommunityExpansion.Models;
 using UnityEngine;
 using UnityModManagerNet;
 using static SolastaCommunityExpansion.Viewers.Displays.BlueprintDisplay;
@@ -66,6 +67,21 @@ namespace SolastaCommunityExpansion.Viewers
                     UnityExplorer.ExplorerStandalone.CreateInstance();
                 }
             });
+
+#if DEBUG
+            // TODO: progress bar/message
+            UI.ActionButton("Export TA blueprints", () => DiagnosticsContext.ExportTABlueprints());
+            //UI.ActionButton("Export TA blueprints", () => DiagnosticsContext.ExportTABlueprints());
+
+            if (DiagnosticsContext.HasDiagnosticsFolder)
+            {
+
+            }
+            else
+            {
+                // TODO: message - set diagnostics folder
+            }
+#endif
         }
 
         [Conditional("DEBUG")]
