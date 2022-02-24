@@ -9,9 +9,9 @@ namespace SolastaCommunityExpansion.Json
 {
     internal class DataminerContractResolver : DefaultContractResolver
     {
-        private readonly DefinitionReferenceConverter DefinitionReferenceConverter = new DefinitionReferenceConverter();
+        private readonly DefinitionReferenceConverter DefinitionReferenceConverter = new();
 
-        private readonly DefinitionConverter DefinitionConverter = new DefinitionConverter();
+        private readonly DefinitionConverter DefinitionConverter = new();
 
         protected override List<MemberInfo> GetSerializableMembers(Type objectType)
         {
@@ -71,43 +71,26 @@ namespace SolastaCommunityExpansion.Json
                     {
                         var effectForm = (EffectForm)instance;
 
-                        switch (property.PropertyName)
+                        return property.PropertyName switch
                         {
-                            case "damageForm":
-                                return effectForm.FormType == EffectForm.EffectFormType.Damage;
-                            case "healingForm":
-                                return effectForm.FormType == EffectForm.EffectFormType.Healing;
-                            case "conditionForm":
-                                return effectForm.FormType == EffectForm.EffectFormType.Condition;
-                            case "lightSourceForm":
-                                return effectForm.FormType == EffectForm.EffectFormType.LightSource;
-                            case "summonForm":
-                                return effectForm.FormType == EffectForm.EffectFormType.Summon;
-                            case "counterForm":
-                                return effectForm.FormType == EffectForm.EffectFormType.Counter;
-                            case "temporaryHitPointsForm":
-                                return effectForm.FormType == EffectForm.EffectFormType.TemporaryHitPoints;
-                            case "motionForm":
-                                return effectForm.FormType == EffectForm.EffectFormType.Motion;
-                            case "spellSlotsForm":
-                                return effectForm.FormType == EffectForm.EffectFormType.SpellSlots;
-                            case "divinationForm":
-                                return effectForm.FormType == EffectForm.EffectFormType.Divination;
-                            case "itemPropertyForm":
-                                return effectForm.FormType == EffectForm.EffectFormType.ItemProperty;
-                            case "alterationForm":
-                                return effectForm.FormType == EffectForm.EffectFormType.Alteration;
-                            case "topologyForm":
-                                return effectForm.FormType == EffectForm.EffectFormType.Topology;
-                            case "reviveForm":
-                                return effectForm.FormType == EffectForm.EffectFormType.Revive;
-                            case "killForm":
-                                return effectForm.FormType == EffectForm.EffectFormType.Kill;
-                            case "shapeChangeForm":
-                                return effectForm.FormType == EffectForm.EffectFormType.ShapeChange;
-                        }
-
-                        return true;
+                            "damageForm" => effectForm.FormType == EffectForm.EffectFormType.Damage,
+                            "healingForm" => effectForm.FormType == EffectForm.EffectFormType.Healing,
+                            "conditionForm" => effectForm.FormType == EffectForm.EffectFormType.Condition,
+                            "lightSourceForm" => effectForm.FormType == EffectForm.EffectFormType.LightSource,
+                            "summonForm" => effectForm.FormType == EffectForm.EffectFormType.Summon,
+                            "counterForm" => effectForm.FormType == EffectForm.EffectFormType.Counter,
+                            "temporaryHitPointsForm" => effectForm.FormType == EffectForm.EffectFormType.TemporaryHitPoints,
+                            "motionForm" => effectForm.FormType == EffectForm.EffectFormType.Motion,
+                            "spellSlotsForm" => effectForm.FormType == EffectForm.EffectFormType.SpellSlots,
+                            "divinationForm" => effectForm.FormType == EffectForm.EffectFormType.Divination,
+                            "itemPropertyForm" => effectForm.FormType == EffectForm.EffectFormType.ItemProperty,
+                            "alterationForm" => effectForm.FormType == EffectForm.EffectFormType.Alteration,
+                            "topologyForm" => effectForm.FormType == EffectForm.EffectFormType.Topology,
+                            "reviveForm" => effectForm.FormType == EffectForm.EffectFormType.Revive,
+                            "killForm" => effectForm.FormType == EffectForm.EffectFormType.Kill,
+                            "shapeChangeForm" => effectForm.FormType == EffectForm.EffectFormType.ShapeChange,
+                            _ => true,
+                        };
                     };
             }
             else if (property.DeclaringType == typeof(ItemDefinition))
@@ -117,38 +100,24 @@ namespace SolastaCommunityExpansion.Json
                     {
                         var definition = (ItemDefinition)instance;
 
-                        switch (property.PropertyName)
+                        return property.PropertyName switch
                         {
-                            case "armorDefinition":
-                                return definition.IsArmor;
-                            case "weaponDefinition":
-                                return definition.IsWeapon;
-                            case "ammunitionDefinition":
-                                return definition.IsAmmunition;
-                            case "usableDeviceDescription":
-                                return definition.IsUsableDevice;
-                            case "toolDefinition":
-                                return definition.IsTool;
-                            case "starterPackDefinition":
-                                return definition.IsStarterPack;
-                            case "containerItemDefinition":
-                                return definition.IsContainerItem;
-                            case "lightSourceItemDefinition":
-                                return definition.IsLightSourceItem;
-                            case "focusItemDefinition":
-                                return definition.IsFocusItem;
-                            case "wealthPileDefinition":
-                                return definition.IsWealthPile;
-                            case "spellbookDefinition":
-                                return definition.IsSpellbook;
-                            case "documentDescription":
-                                return definition.IsDocument;
-                            case "foodDescription":
-                                return definition.IsFood;
-                            case "factionRelicDescription":
-                                return definition.IsFactionRelic;
-                        }
-                        return true;
+                            "armorDefinition" => definition.IsArmor,
+                            "weaponDefinition" => definition.IsWeapon,
+                            "ammunitionDefinition" => definition.IsAmmunition,
+                            "usableDeviceDescription" => definition.IsUsableDevice,
+                            "toolDefinition" => definition.IsTool,
+                            "starterPackDefinition" => definition.IsStarterPack,
+                            "containerItemDefinition" => definition.IsContainerItem,
+                            "lightSourceItemDefinition" => definition.IsLightSourceItem,
+                            "focusItemDefinition" => definition.IsFocusItem,
+                            "wealthPileDefinition" => definition.IsWealthPile,
+                            "spellbookDefinition" => definition.IsSpellbook,
+                            "documentDescription" => definition.IsDocument,
+                            "foodDescription" => definition.IsFood,
+                            "factionRelicDescription" => definition.IsFactionRelic,
+                            _ => true,
+                        };
                     };
             }
 
