@@ -14,11 +14,11 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker
         {
             if (Main.Settings.UnleashNpcAsEnemy)
             {
-                var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+                var isCtrlPressed = Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl);
 
                 ___allMonsters.Clear();
 
-                if (isShiftPressed)
+                if (isCtrlPressed)
                 {
                     ___allMonsters.AddRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
                         .Where(x => !x.GuiPresentation.Hidden)
@@ -37,11 +37,11 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker
         {
             if (Main.Settings.UnleashEnemyAsNpc)
             {
-                var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+                var isCtrlPressed = Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl);
 
                 ___allNpcs.Clear();
 
-                if (isShiftPressed)
+                if (isCtrlPressed)
                 {
                     ___allNpcs.AddRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
                         .Where(x => !x.GuiPresentation.Hidden)

@@ -18,7 +18,6 @@ namespace SolastaCommunityExpansion.Patches
             BugFixContext.Load();
             CharacterExportContext.Load();
             ConjurationsContext.Load();
-            DungeonMakerContext.Load();
             DmProEditorContext.Load();
             EpicArrayContext.Load();
             FaceUnlockContext.Load();

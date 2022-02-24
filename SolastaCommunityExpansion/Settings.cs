@@ -277,8 +277,7 @@ namespace SolastaCommunityExpansion
         //
 
         public bool AllowDungeonsMaxLevel20 { get; set; }
-        public bool AllowGadgetsToBePlacedAnywhere { get; set; }
-        public bool AllowPropsToBePlacedAnywhere { get; set; }
+        public bool AllowGadgetsAndPropsToBePlacedAnywhere { get; set; }
         public bool UnleashNpcAsEnemy { get; set; }
         public bool UnleashEnemyAsNpc { get; set; }
         public bool EnableDungeonMakerModdedContent { get; set; }
