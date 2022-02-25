@@ -8,13 +8,13 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {
+    //
+    // this patch shouldn't be protected (protected by checking for IClassHoldingFeature)
+    //
     [HarmonyPatch(typeof(RulesetCharacterHero), "FindClassHoldingFeature")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacterHero_FindClassHoldingFeature
     {
-        //
-        // TODO @CHRIS: should we protect this patch? What is the purpose?
-        //
         internal static void Postfix(
             RulesetCharacterHero __instance,
             FeatureDefinition featureDefinition,

@@ -138,8 +138,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 modifierType, attribute, amount, guiPresentation);
             return builder.AddToDB();
         }
-
-        // TODO: Should concentrationAffinity be used?  If not remove.
+.
         public static FeatureDefinitionMagicAffinity BuildMagicAffinityConcentration(RuleDefinitions.ConcentrationAffinity concentrationAffinity, int threshold, string name, GuiPresentation guiPresentation)
         {
             FeatureDefinitionMagicAffinityBuilder builder = new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
