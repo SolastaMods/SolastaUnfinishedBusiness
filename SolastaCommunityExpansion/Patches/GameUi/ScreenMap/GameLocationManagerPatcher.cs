@@ -11,8 +11,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
     {
         internal static void SetTeleporterGadgetActiveAnimation(WorldGadget worldGadget, bool visibility = false)
         {
-            // NOTE: don't use worldGadget?. which bypasses Unity object lifetime check
-            if (!Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered || worldGadget == null || worldGadget.UserGadget == null)
+            if (worldGadget.UserGadget == null)
             {
                 return;
             }
@@ -41,7 +40,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
 
         internal static void Postfix(GameLocationManager __instance)
         {
-            if (Gui.GameLocation.UserLocation == null)
+            if (!Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered || Gui.GameLocation.UserLocation == null)
             {
                 return;
             }
