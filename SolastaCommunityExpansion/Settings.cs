@@ -38,7 +38,6 @@ namespace SolastaCommunityExpansion
         public bool DisplayFightingStylesToggle { get; set; }
         public bool DisplaySrdRulesToggle { get; set; }
         public bool DisplayHouseRulesToggle { get; set; }
-        public bool DisplayAdventureLogToggle { get; set; }
         public bool DisplayBattleToggle { get; set; }
         public bool DisplayCampaignToggle { get; set; }
         public bool DisplayItemToggle { get; set; }
