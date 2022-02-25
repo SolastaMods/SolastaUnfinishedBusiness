@@ -142,6 +142,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             {
                 UI.Label("");
 
+                toggle = Main.Settings.EnableAdditionalBackstoryDisplay;
+                if (UI.Toggle("Enable additional backstory display in the chararacter inspection panel", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableAdditionalBackstoryDisplay = toggle;
+                }
+
+                UI.Label("");
+
                 toggle = Main.Settings.AllowExtraKeyboardCharactersInAllNames;
                 if (UI.Toggle("Allow extra keyboard characters in all name inputs (character, location, campaign, etc...)", ref toggle, UI.AutoWidth()))
                 {

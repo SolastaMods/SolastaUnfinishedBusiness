@@ -11,7 +11,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 {
     public static class ArtilleristBuilder
     {
-        // TODO: unused parameter FeatureDefinitionCastSpell
 #pragma warning disable IDE0060, RCS1163 // Unused parameter.
         public static CharacterSubclassDefinition Build(CharacterClassDefinition artificer, FeatureDefinitionCastSpell spellCasting)
 #pragma warning restore IDE0060, RCS1163 // Unused parameter.
@@ -157,8 +156,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             GuiPresentationBuilder artilleristDetonationPreparedPresentation = new GuiPresentationBuilder(
                 "Feat/&ArtificerArtillerstDetonationSpellPreparedTitle",
                 "Feat/&ArtificerArtillerstDetonationSpellPreparedDescription");
-
-            // TODO: unused
 #pragma warning disable IDE0059, S1481 // Unused local variables should be removed
             FeatureDefinitionAutoPreparedSpells artilleristDetonationSpell = BuildAutoPreparedSpells(
                 new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>() {
@@ -259,7 +256,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             force15Effect.SetParticleEffectParameters(MagicMissile.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
-            // TODO: @Chris - review
 #pragma warning disable S1481, IDE0059 // Unused local variables should be removed
             FeatureDefinitionPower force15Attack = new FeatureDefinitionPowerBuilder("ArtilleristForceCannon15Attack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristForceCannon15Attack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, true, true, AttributeDefinitions.Intelligence, force15Effect.Build(),
@@ -280,7 +276,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             protector15Effect.SetParticleEffectParameters(FalseLife.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
-            // TODO: @Chris - review
 #pragma warning disable S1481, IDE0059 // Unused local variables should be removed
             FeatureDefinitionPower protector15Activation = new FeatureDefinitionPowerBuilder("ArtilleristProtector15CannonAttack", GuidHelper.Create(TinkererClass.GuidNamespace, "ArtilleristProtector15CannonAttack").ToString(),
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence, protector15Effect.Build(),
