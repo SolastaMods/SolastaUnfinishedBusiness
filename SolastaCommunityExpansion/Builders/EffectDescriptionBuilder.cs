@@ -200,9 +200,12 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectDescriptionBuilder SetDurationData(RuleDefinitions.DurationType type, int duration = 0)
+        public EffectDescriptionBuilder SetDurationData(RuleDefinitions.DurationType type, int duration = 0, bool validate = true)
         {
-            Preconditions.IsValidDuration(type, duration);
+            if (validate)
+            {
+                Preconditions.IsValidDuration(type, duration);
+            }
 
             effect.SetDurationParameter(duration);
             effect.SetDurationType(type);

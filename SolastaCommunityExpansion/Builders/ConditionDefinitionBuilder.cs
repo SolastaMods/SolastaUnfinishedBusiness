@@ -152,9 +152,12 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         // TODO: rename to match names of similar method in EffectDescriptionBuilder (and elsewhere)
-        public TBuilder SetDuration(RuleDefinitions.DurationType type, int duration = 0)
+        public TBuilder SetDuration(RuleDefinitions.DurationType type, int duration = 0, bool validate = true)
         {
-            Preconditions.IsValidDuration(type, duration);
+            if (validate)
+            {
+                Preconditions.IsValidDuration(type, duration);
+            }
 
             Definition.SetDurationParameter(duration);
             Definition.SetDurationType(type);
