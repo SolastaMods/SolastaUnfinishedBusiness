@@ -6,7 +6,7 @@ using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.Location
+namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
 {
     internal static class SpellSelectionPanelPatcher
     {
