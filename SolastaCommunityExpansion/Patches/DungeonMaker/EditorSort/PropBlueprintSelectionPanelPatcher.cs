@@ -1,14 +1,14 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.DungeonMaker
+namespace SolastaCommunityExpansion.Patches.DungeonMaker.EditorSort
 {
-    // better gadget sorting
-    [HarmonyPatch(typeof(GadgetBlueprintSelectionPanel), "Compare")]
+    // better props sorting
+    [HarmonyPatch(typeof(PropBlueprintSelectionPanel), "Compare")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GadgetBlueprintSelectionPanel_Compare
+    internal static class PropBlueprintSelectionPanel_Compare
     {
-        internal static bool Prefix(GadgetBlueprint left, GadgetBlueprint right, ref int __result)
+        internal static bool Prefix(PropBlueprint left, PropBlueprint right, ref int __result)
         {
             if (!Main.Settings.EnableSortingDungeonMakerAssets)
             {

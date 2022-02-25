@@ -4,15 +4,15 @@ using System.IO;
 using System.Reflection.Emit;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.DungeonMaker
+namespace SolastaCommunityExpansion.Patches.DungeonMaker.ContentBackup
 {
-    // this patch allows the last X location files to be backed up in the mod folder
+    // this patch allows the last X campaign files to be backed up in the mod folder
     //
     // this patch shouldn't be protected
     //
-    [HarmonyPatch(typeof(UserLocationPoolManager), "SaveUserLocation")]
+    [HarmonyPatch(typeof(UserCampaignPoolManager), "SaveUserCampaign")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class UserLocationPoolManager_SaveUserLocation
+    internal static class UserCampaignPoolManager_SaveUserCampaign
     {
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
