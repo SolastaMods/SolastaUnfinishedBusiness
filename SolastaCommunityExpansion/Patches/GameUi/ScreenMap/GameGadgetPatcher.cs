@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
     {
         internal static void Postfix(GameGadget __instance, ref bool ___revealed, ref bool __result)
         {
-            if (!__instance.Revealed || Gui.GameLocation.UserLocation == null || !Main.Settings.EnableAdditionalIconsOnLevelMap)
+            if (!__instance.Revealed || Gui.GameLocation.UserLocation == null || !Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered)
             {
                 return;
             }
@@ -51,7 +51,10 @@ namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
                     var isInvisible = __instance.IsInvisible();
                     var isEnabled = __instance.IsEnabled();
 
-                    GameLocationManager_ReadyLocation.SetTeleporterGadgetActiveAnimation(worldGadget, isEnabled && !isInvisible);
+                    if (worldGadget != null)
+                    {
+                        GameLocationManager_ReadyLocation.SetTeleporterGadgetActiveAnimation(worldGadget, isEnabled && !isInvisible);
+                    }
 
                     ___revealed = true;
                     __result = true;
