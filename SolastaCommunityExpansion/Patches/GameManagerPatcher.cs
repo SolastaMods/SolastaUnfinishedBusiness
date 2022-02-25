@@ -11,7 +11,8 @@ namespace SolastaCommunityExpansion.Patches
     {
         internal static void Postfix()
         {
-            DiagnosticsContext.PostDatabaseLoad();
+            // Cache TA definitions for diagnostics and export
+            DiagnosticsContext.CacheTADefinitions();
 
             AdditionalNamesContext.Load();
             AsiAndFeatContext.Load();
@@ -79,8 +80,8 @@ namespace SolastaCommunityExpansion.Patches
                 // Recache all gui collections
                 GuiWrapperContext.Recache();
 
-                // Final sanity check
-                DiagnosticsContext.PostCELoad();
+                // Cache CE definitions for diagnostics and export
+                DiagnosticsContext.CacheCEDefinitions();
 
                 Main.Enabled = true;
                 Main.Logger.Log("Enabled.");

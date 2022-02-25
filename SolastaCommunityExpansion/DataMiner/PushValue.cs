@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SolastaCommunityExpansion.Json
+namespace SolastaCommunityExpansion.DataMiner
 {
     public struct PushValue<T> : IDisposable
     {

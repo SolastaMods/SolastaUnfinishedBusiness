@@ -50,6 +50,7 @@ namespace SolastaCommunityExpansion.Viewers
         public static void DisplayHelpAndCredits()
         {
             EnableUnityExplorerUi();
+            DataMinerAndDiagnostics();
             AddDumpDescriptionToLogButton();
             DisplayLevel20Help();
             DisplayCredits();
@@ -67,6 +68,10 @@ namespace SolastaCommunityExpansion.Viewers
                     UnityExplorer.ExplorerStandalone.CreateInstance();
                 }
             });
+        }
+
+        private static void DataMinerAndDiagnostics() 
+        { 
 
 #if DEBUG
             // TODO: progress bar/message

@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace SolastaCommunityExpansion.Json
+namespace SolastaCommunityExpansion.DataMiner
 {
     public class DefinitionReferenceConverter : JsonConverter
     {

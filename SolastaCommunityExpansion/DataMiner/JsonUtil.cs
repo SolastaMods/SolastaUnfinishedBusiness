@@ -7,7 +7,7 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Json
+namespace SolastaCommunityExpansion.DataMiner
 {
     public static class JsonUtil
     {
@@ -41,7 +41,7 @@ namespace SolastaCommunityExpansion.Json
             return refJsonSerializerSettings;
         }
 
-        public static void CEBlueprintDump(IEnumerable<BaseDefinition> definitions, string path)
+        public static void CEBlueprintDump(IEnumerable<BaseDefinition> definitions, string path, Action<int> progress)
         {
             using StreamWriter sw = new StreamWriter(path);
             using JsonWriter writer = new JsonTextWriter(sw);
@@ -52,14 +52,16 @@ namespace SolastaCommunityExpansion.Json
             sw.WriteLine("[");
             var lastDefinition = definitions.Last();
 
-            foreach (var definition in definitions)
+            foreach (var d in definitions.Select((d, i) => new { Definition = d, Index = i }))
             {
                 JsonSerializer serializer = JsonSerializer.Create(CreateSettings(PreserveReferencesHandling.None));
-                serializer.Serialize(writer, definition);
-                if (definition != lastDefinition)
+                serializer.Serialize(writer, d.Definition);
+                if (d.Definition != lastDefinition)
                 {
                     sw.WriteLine(",");
                 }
+
+                progress(d.Index);
             }
 
             sw.WriteLine("]");

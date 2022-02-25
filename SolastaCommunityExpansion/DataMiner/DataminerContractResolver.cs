@@ -1,11 +1,12 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using SolastaCommunityExpansion.DataMiner;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace SolastaCommunityExpansion.Json
+namespace SolastaCommunityExpansion.DataMiner
 {
     internal class DataminerContractResolver : DefaultContractResolver
     {
@@ -56,7 +57,7 @@ namespace SolastaCommunityExpansion.Json
 
         protected override JsonProperty CreateProperty(MemberInfo member, MemberSerialization memberSerialization)
         {
-            JsonProperty property = base.CreateProperty(member, memberSerialization);
+            var property = base.CreateProperty(member, memberSerialization);
 
             if (member is FieldInfo)
             {

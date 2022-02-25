@@ -6,7 +6,7 @@ using System.Linq;
 using HarmonyLib;
 using I2.Loc;
 using SolastaCommunityExpansion.Builders;
-using SolastaCommunityExpansion.Json;
+using SolastaCommunityExpansion.DataMiner;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -15,11 +15,10 @@ namespace SolastaCommunityExpansion.Models
         private static HashSet<BaseDefinition> TABaseDefinitions;
         private static Dictionary<Type, List<BaseDefinition>> TABaseDefinitionsMap;
         private static HashSet<BaseDefinition> CEBaseDefinitions;
+        private static Dictionary<Type, List<BaseDefinition>> CEBaseDefinitionsMap;
 
         internal const string DiagnosticsEnvironmentVariable = "SolastaCEDiagnosticsDir";
-
         internal static string DiagnosticsOutputFolder { get; } = GetDiagnosticsFolder();
-
         internal static bool HasDiagnosticsFolder => !string.IsNullOrWhiteSpace(DiagnosticsOutputFolder);
 
         private static string GetDiagnosticsFolder()
@@ -34,23 +33,13 @@ namespace SolastaCommunityExpansion.Models
             return folder;
         }
 
-        private static HashSet<BaseDefinition> GetAllDefinitions()
+        public static void CacheTADefinitions()
         {
-            var definitions = new HashSet<BaseDefinition>();
-
-            foreach (var db in (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases").GetValue(null))
+            if (TABaseDefinitionsMap != null)
             {
-                foreach (var bd in (IEnumerable)db.Value)
-                {
-                    definitions.Add((BaseDefinition)bd);
-                }
+                return;
             }
 
-            return definitions;
-        }
-
-        private static void BuildTADefinitionsMap()
-        {
             var definitions = new Dictionary<Type, List<BaseDefinition>>();
 
             foreach (var db in (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases").GetValue(null))
@@ -66,30 +55,48 @@ namespace SolastaCommunityExpansion.Models
             }
 
             TABaseDefinitionsMap = definitions;
+            TABaseDefinitions = TABaseDefinitionsMap.Values.SelectMany(v => v).ToHashSet();
         }
 
-        public static void PostDatabaseLoad()
+        public static void CacheCEDefinitions()
         {
-            #region Preconditions
-            if (TABaseDefinitions != null)
-            {
-                // Only load TABaseDefinitions once
-                return;
-            }
-
-            TABaseDefinitions = GetAllDefinitions();
-            BuildTADefinitionsMap();
-
-            var taDefinitions = TABaseDefinitions.OrderBy(x => x.Name).ThenBy(x => x.GetType().Name).ToList();
-
-            if (!Main.Settings.DebugEnableTADefinitionDiagnostics)
+            if (TABaseDefinitionsMap == null)
             {
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(DiagnosticsOutputFolder))
+            var definitions = new Dictionary<Type, List<BaseDefinition>>();
+
+            foreach (var db in (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases").GetValue(null))
             {
-                Main.Log("No diagnostics output folder configured - aborting PostDatabaseLoad diagnostics.");
+                var list = new List<BaseDefinition>();
+
+                foreach (var bd in (IEnumerable)db.Value)
+                {
+                    list.Add((BaseDefinition)bd);
+                }
+
+                if(TABaseDefinitionsMap.TryGetValue(db.Key, out var taDefinitions))
+                {
+                    list = list.Except(taDefinitions).ToList();
+                }
+
+                definitions.Add(db.Key, list);
+            }
+
+            CEBaseDefinitionsMap = definitions;
+            CEBaseDefinitions = CEBaseDefinitionsMap.Values.SelectMany(v => v).ToHashSet();
+        }
+
+        public static void CreateTADefinitionDiagnostics()
+        {
+            if (!HasDiagnosticsFolder)
+            {
+                return;
+            }
+
+            if (TABaseDefinitions == null)
+            {
                 return;
             }
 
@@ -97,7 +104,8 @@ namespace SolastaCommunityExpansion.Models
             {
                 Directory.CreateDirectory(DiagnosticsOutputFolder);
             }
-            #endregion
+
+            var taDefinitions = TABaseDefinitions.OrderBy(x => x.Name).ThenBy(x => x.GetType().Name).ToList();
 
             /////////////////////////////////////////////////////////////////////////////////////////////////
             // Write all TA definitions name/guid to file (txt)
@@ -123,40 +131,26 @@ namespace SolastaCommunityExpansion.Models
                     new { d.Name, Key = d.GuiPresentation?.Description, Type = "Description" }
                 })
                 .SelectMany(d => d)
-                .Where(d => !d.Name.StartsWith("Telema", StringComparison.InvariantCultureIgnoreCase))
+                .Where(d => !d.Name.StartsWith("Telema", StringComparison.OrdinalIgnoreCase))
+                .Where(d => !d.Name.StartsWith("HairShape", StringComparison.OrdinalIgnoreCase))
+                .Where(d => !d.Name.StartsWith("HairColor", StringComparison.OrdinalIgnoreCase))
+                .Where(d => !d.Name.StartsWith("FaceShape", StringComparison.OrdinalIgnoreCase))
+                .Where(d => d.Key != GuiPresentationBuilder.EmptyString)
+                .Where(d => !string.IsNullOrWhiteSpace(d.Key))
                 .Where(d =>
                 {
-                    if (!string.IsNullOrWhiteSpace(d.Key) && d.Key != GuiPresentationBuilder.EmptyString)
-                    {
-                        var termData = languageSourceData.GetTermData(d.Key);
-                        return string.IsNullOrWhiteSpace(termData?.Languages[languageIndex]);
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    var termData = languageSourceData.GetTermData(d.Key);
+                    return string.IsNullOrWhiteSpace(termData?.Languages[languageIndex]);
                 })
                 .Select(d => $"{d.Name}\t{d.Type}='{d.Key}'.");
 
             File.WriteAllLines(Path.Combine(DiagnosticsOutputFolder, $"TA-Definitions-GuiPresentation-MissingTranslation-{currentLanguage}.txt"), allLines);
         }
 
-        public static void PostCELoad()
+        public static void CreateCEDefinitionDiagnostics()
         {
-            #region Preconditions
-            if (TABaseDefinitions == null)
+            if (!HasDiagnosticsFolder)
             {
-                return;
-            }
-
-            if (!Main.Settings.DebugEnableCEDefinitionDiagnostics)
-            {
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(DiagnosticsOutputFolder))
-            {
-                Main.Log("No diagnostics output folder configured - aborting PostCELoad diagnostics.");
                 return;
             }
 
@@ -164,12 +158,6 @@ namespace SolastaCommunityExpansion.Models
             {
                 Directory.CreateDirectory(DiagnosticsOutputFolder);
             }
-
-            if (CEBaseDefinitions == null)
-            {
-                CEBaseDefinitions = GetAllDefinitions().Except(TABaseDefinitions).ToHashSet();
-            }
-            #endregion
 
             var ceDefinitions = CEBaseDefinitions.OrderBy(x => x.Name).ThenBy(x => x.GetType().Name);
 
@@ -180,20 +168,6 @@ namespace SolastaCommunityExpansion.Models
 
             // Write all CE definitions to file (json)
             //ExportDefinitions(Path.Combine(DiagnosticsOutputFolder, "CE-Definitions.json"), ceDefinitions);
-
-            /*
-            Main.Log("Exporting PickPocket");
-            ExportDefinitions(Path.Combine(DiagnosticsOutputFolder, "CE-Definitions-Test.json"), ceDefinitions.Where(d => d.Name.Contains("PickPocket")));
-
-            Main.Log("Exporting AbilityCheckAffinityFeatPickPocket");
-            ExportDefinition(Path.Combine(DiagnosticsOutputFolder, "CE-Definitions-AbilityCheckAffinityFeatPickPocket.json"), ceDefinitions.Single(d => d.Name == "AbilityCheckAffinityFeatPickPocket"));
-            
-            Main.Log("Exporting ProficiencyFeatPickPocket");
-            ExportDefinition(Path.Combine(DiagnosticsOutputFolder, "CE-Definitions-ProficiencyFeatPickPocket.json"), ceDefinitions.Single(d => d.Name == "ProficiencyFeatPickPocket"));
-            
-            Main.Log("Exporting PickPocketFeat");
-            ExportDefinition(Path.Combine(DiagnosticsOutputFolder, "CE-Definitions-PickPocketFeat.json"), ceDefinitions.Single(d => d.Name == "PickPocketFeat"));
-            */
 
             // Write all CE definitions with no GUI presentation to file
             File.WriteAllLines(Path.Combine(DiagnosticsOutputFolder, "CE-Definitions-GuiPresentation-MissingValue.txt"),
@@ -231,16 +205,6 @@ namespace SolastaCommunityExpansion.Models
             File.WriteAllLines(Path.Combine(DiagnosticsOutputFolder, $"CE-Definitions-GuiPresentation-MissingTranslation-{currentLanguage}.txt"), allLines);
         }
 
-        /*        private static void ExportDefinition(string path, BaseDefinition definition)
-                {
-                    JsonUtil.Dump(definition, path);
-                }
-
-                private static void ExportDefinitions(string path, params BaseDefinition[] definitions)
-                {
-                    ExportDefinitions(path, definitions.AsEnumerable());
-                }*/
-
         const string BlueprintFolder = "SolastaBlueprints2";
 
         internal static void ExportTABlueprints()
@@ -264,7 +228,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 sw.WriteLine("{0}\t{1}\t{2}\t{3}", "Name", "Type", "DatabaseType", "GUID");
 
-                foreach(var db in TABaseDefinitionsMap.OrderBy(db => db.Key.FullName))
+                foreach (var db in TABaseDefinitionsMap.OrderBy(db => db.Key.FullName))
                 {
                     foreach (var definition in db.Value)
                     {
@@ -274,31 +238,28 @@ namespace SolastaCommunityExpansion.Models
             }
 
             // Blueprints/definitions
-/*            foreach (var definition in TABaseDefinitions)
-            {
-                var dbType = definition.GetType();
-                var value = definition;
-                var subfolder = value.GetType().Name;
-                if (value.GetType() != dbType)
-                {
-                    subfolder = $"{dbType.FullName}/{subfolder}";
-                }
+            /*            foreach (var definition in TABaseDefinitions)
+                        {
+                            var dbType = definition.GetType();
+                            var value = definition;
+                            var subfolder = value.GetType().Name;
+                            if (value.GetType() != dbType)
+                            {
+                                subfolder = $"{dbType.FullName}/{subfolder}";
+                            }
 
-                if (!Directory.Exists($"{BlueprintFolder}/{subfolder}"))
-                {
-                    Directory.CreateDirectory($"{BlueprintFolder}/{subfolder}");
-                }
+                            if (!Directory.Exists($"{BlueprintFolder}/{subfolder}"))
+                            {
+                                Directory.CreateDirectory($"{BlueprintFolder}/{subfolder}");
+                            }
 
-                JsonUtil.TABlueprintDump(definition, $"{BlueprintFolder}/{subfolder}/{value.Name}.{value.GUID}.json");
-            }*/
+                            JsonUtil.TABlueprintDump(definition, $"{BlueprintFolder}/{subfolder}/{value.Name}.{value.GUID}.json");
+                        }*/
         }
 
-        private static void ExportDefinitions(string path, IEnumerable<BaseDefinition> definitions)
+        private static void ExportCEDefinitions(string path, IEnumerable<BaseDefinition> definitions, Action<int> progress)
         {
-            JsonUtil.CEBlueprintDump(definitions, path);
-
-            // remove id/ref for simplicity of detecting changes using diff tool
-            //File.WriteAllLines(path, File.ReadAllLines(path).Where(l => !l.Trim().StartsWith("\"$id\":") && !l.Trim().StartsWith("\"$ref\":")));
+            JsonUtil.CEBlueprintDump(definitions, path, progress);
         }
 
         internal static List<string> KnownDuplicateDefinitionNames { get; } = new()
