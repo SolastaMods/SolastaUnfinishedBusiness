@@ -83,7 +83,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             {
                 Definition.SetOverriddenPower(DatabaseHelper.FeatureDefinitionPowers.PowerFighterSecondWind);
                 Definition.SetActivationTime(RuleDefinitions.ActivationTime.BonusAction);
-                Definition.SetRechargeRate(RuleDefinitions.RechargeRate.None);
+                Definition.SetRechargeRate(RuleDefinitions.RechargeRate.ShortRest);
                 Definition.SetAbilityScore("Charisma");
                 Definition.SetUsesAbilityScoreName("Charisma");
 
