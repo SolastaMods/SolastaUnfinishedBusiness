@@ -4,7 +4,7 @@ using HarmonyLib;
 using SolastaModApi.Extensions;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
+namespace SolastaCommunityExpansion.Patches.GameUi.LocationMap
 {
     /// <summary>
     /// Patches to display the location of campfires, entrances and exits on the game location screen map (level map).

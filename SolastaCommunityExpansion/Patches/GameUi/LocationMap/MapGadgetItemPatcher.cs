@@ -2,7 +2,7 @@
 using HarmonyLib;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
+namespace SolastaCommunityExpansion.Patches.GameUi.LocationMap
 {
     [HarmonyPatch(typeof(MapGadgetItem), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

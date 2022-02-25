@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
+namespace SolastaCommunityExpansion.Patches.GameUi.GadgetsHighlight
 {
     // disables item highlights not in party field of view
     [HarmonyPatch(typeof(WorldGadget), "SetHighlightVisibility")]
