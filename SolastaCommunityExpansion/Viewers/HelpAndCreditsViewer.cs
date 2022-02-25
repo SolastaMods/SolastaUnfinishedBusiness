@@ -73,6 +73,8 @@ namespace SolastaCommunityExpansion.Viewers
         [Conditional("DEBUG")]
         private static void DefinitionExportAndDiagnostics()
         {
+            UI.Label("");
+
             UI.ActionButton("Export TA blueprints", () => DiagnosticsContext.ExportTABlueprints((index, total) =>
             {
                 // TODO: progress bar/message

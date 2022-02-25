@@ -53,12 +53,7 @@ namespace SolastaCommunityExpansion.Models
 
             foreach (var db in (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases").GetValue(null))
             {
-                var list = new List<BaseDefinition>();
-
-                foreach (var bd in (IEnumerable)db.Value)
-                {
-                    list.Add((BaseDefinition)bd);
-                }
+                var list = ((IEnumerable)db.Value).Cast<BaseDefinition>().ToList();
 
                 definitions.Add(db.Key, list);
             }
@@ -85,12 +80,7 @@ namespace SolastaCommunityExpansion.Models
 
             foreach (var db in (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases").GetValue(null))
             {
-                var list = new List<BaseDefinition>();
-
-                foreach (var bd in (IEnumerable)db.Value)
-                {
-                    list.Add((BaseDefinition)bd);
-                }
+                var list = ((IEnumerable)db.Value).Cast<BaseDefinition>().ToList();
 
                 if (TABaseDefinitionsMap.TryGetValue(db.Key, out var taDefinitions))
                 {
