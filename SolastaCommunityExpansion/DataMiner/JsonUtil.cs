@@ -41,7 +41,7 @@ namespace SolastaCommunityExpansion.DataMiner
             return refJsonSerializerSettings;
         }
 
-        public static void CEBlueprintDump(IEnumerable<BaseDefinition> definitions, string path, Action<int> progress)
+        public static void CEBlueprintDump(IEnumerable<BaseDefinition> definitions, string path, Action<int, int> progress)
         {
             using StreamWriter sw = new StreamWriter(path);
             using JsonWriter writer = new JsonTextWriter(sw);
@@ -51,6 +51,7 @@ namespace SolastaCommunityExpansion.DataMiner
             // Problem 2) serializing into individual files exceeds the folder path limit because some CE definitions have very long namessssssssss....
             sw.WriteLine("[");
             var lastDefinition = definitions.Last();
+            int total = definitions.Count();
 
             foreach (var d in definitions.Select((d, i) => new { Definition = d, Index = i }))
             {
@@ -61,10 +62,12 @@ namespace SolastaCommunityExpansion.DataMiner
                     sw.WriteLine(",");
                 }
 
-                progress(d.Index);
+                progress(d.Index, total);
             }
 
             sw.WriteLine("]");
+
+            progress(total, total);
         }
 
         public static void TABlueprintDump(BaseDefinition definition, string path)

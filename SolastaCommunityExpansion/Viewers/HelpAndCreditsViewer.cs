@@ -50,7 +50,7 @@ namespace SolastaCommunityExpansion.Viewers
         public static void DisplayHelpAndCredits()
         {
             EnableUnityExplorerUi();
-            DataMinerAndDiagnostics();
+            DefinitionExportAndDiagnostics();
             AddDumpDescriptionToLogButton();
             DisplayLevel20Help();
             DisplayCredits();
@@ -70,23 +70,44 @@ namespace SolastaCommunityExpansion.Viewers
             });
         }
 
-        private static void DataMinerAndDiagnostics() 
-        { 
-
-#if DEBUG
+        [Conditional("DEBUG")]
+        private static void DefinitionExportAndDiagnostics()
+        {
             // TODO: progress bar/message
-            UI.ActionButton("Export TA blueprints", () => DiagnosticsContext.ExportTABlueprints());
-            //UI.ActionButton("Export TA blueprints", () => DiagnosticsContext.ExportTABlueprints());
+            UI.ActionButton("Export TA blueprints", () => DiagnosticsContext.ExportTABlueprints((index, total) =>
+            {
+                if (index % 10 == 0)
+                {
+                    Main.Log($"{index}/{total}");
+                }
+
+                if (index == total)
+                {
+                    // Hide/complete
+                }
+            }));
 
             if (DiagnosticsContext.HasDiagnosticsFolder)
             {
+                // TODO: TA/CE diagnostics
 
+                UI.ActionButton("Export CE blueprints", () => DiagnosticsContext.ExportCEDefinitions((index, total) =>
+                {
+                    if (index % 10 == 0)
+                    {
+                        Main.Log($"{index}/{total}");
+                    }
+
+                    if(index == total)
+                    {
+                        // Hide/complete
+                    }
+                }));
             }
             else
             {
-                // TODO: message - set diagnostics folder
+                UI.Label("Please set the diagnostic folder environment variable".red());
             }
-#endif
         }
 
         [Conditional("DEBUG")]
