@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.DungeonMaker
+namespace SolastaCommunityExpansion.Patches.DungeonMaker.EditorSort
 {
     // better rooms sorting
     [HarmonyPatch(typeof(RoomBlueprintSelectionPanel), "Compare")]
