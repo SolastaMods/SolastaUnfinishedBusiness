@@ -5,7 +5,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using static SolastaCommunityExpansion.Models.Level20Context;
 
-namespace SolastaCommunityExpansion.Patches.DungeonMaker
+namespace SolastaCommunityExpansion.Patches.DungeonMaker.Level20
 {
     [HarmonyPatch(typeof(UserCampaignEditorScreen), "OnMinLevelEndEdit")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
