@@ -20,7 +20,7 @@ namespace SolastaCommunityExpansion.Models
         internal const string DiagnosticsEnvironmentVariable = "SolastaCEDiagnosticsDir";
         internal static string DiagnosticsOutputFolder { get; } = GetDiagnosticsFolder();
         internal static bool HasDiagnosticsFolder => !string.IsNullOrWhiteSpace(DiagnosticsOutputFolder);
-        private const string BlueprintFolder = "SolastaBlueprints2";
+        private const string BlueprintFolder = "SolastaBlueprints";
 
         private static string GetDiagnosticsFolder()
         {
@@ -76,7 +76,7 @@ namespace SolastaCommunityExpansion.Models
                 return;
             }
 
-            if(CEBaseDefinitionsMap != null)
+            if (CEBaseDefinitionsMap != null)
             {
                 return;
             }

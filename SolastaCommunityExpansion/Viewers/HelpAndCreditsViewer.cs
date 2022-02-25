@@ -73,36 +73,20 @@ namespace SolastaCommunityExpansion.Viewers
         [Conditional("DEBUG")]
         private static void DefinitionExportAndDiagnostics()
         {
-            // TODO: progress bar/message
             UI.ActionButton("Export TA blueprints", () => DiagnosticsContext.ExportTABlueprints((index, total) =>
             {
-                if (index % 10 == 0)
-                {
-                    Main.Log($"{index}/{total}");
-                }
-
-                if (index == total)
-                {
-                    // Hide/complete
-                }
+                // TODO: progress bar/message
             }));
 
             if (DiagnosticsContext.HasDiagnosticsFolder)
             {
-                // TODO: TA/CE diagnostics
-
                 UI.ActionButton("Export CE blueprints", () => DiagnosticsContext.ExportCEDefinitions((index, total) =>
                 {
-                    if (index % 10 == 0)
-                    {
-                        Main.Log($"{index}/{total}");
-                    }
-
-                    if(index == total)
-                    {
-                        // Hide/complete
-                    }
+                    // TODO: progress bar/message
                 }));
+
+                UI.ActionButton("Create TA diagnostics", () => DiagnosticsContext.CreateTADefinitionDiagnostics());
+                UI.ActionButton("Create CE diagnostics", () => DiagnosticsContext.CreateCEDefinitionDiagnostics());
             }
             else
             {
