@@ -3,7 +3,7 @@ using System.Reflection;
 using HarmonyLib;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.DungeonMaker
+namespace SolastaCommunityExpansion.Patches.DungeonMaker.Editor
 {
     [HarmonyPatch(typeof(UserLocationEditorScreen), "HandleInput")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
