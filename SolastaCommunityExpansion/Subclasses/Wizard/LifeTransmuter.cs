@@ -182,7 +182,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 .SetFeatures(conditionFeatures)
                 .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
                 .SetAllowMultipleInstances(false)
-                .SetDuration(durationType, durationParameter, false)
+                .SetDuration(durationType, durationParameter, false) // No validation due to existing configuration
                 .AddToDB();
         }
 
