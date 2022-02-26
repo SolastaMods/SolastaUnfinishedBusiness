@@ -74,7 +74,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             .SetGuiPresentation("BarbarianPathOfTheLightIlluminatedCondition", Category.Subclass, ConditionBranded.GuiPresentation.SpriteReference)
             .SetAllowMultipleInstances(true)
             .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
-            .SetDuration(RuleDefinitions.DurationType.Irrelevant)
+            .SetDuration(RuleDefinitions.DurationType.Irrelevant, 1, false) // don't validate inconsistent data
             .SetSilentWhenAdded(true)
             .SetSilentWhenRemoved(false)
             .SetSpecialDuration(true)
@@ -161,7 +161,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 .SetGuiPresentation("BarbarianPathOfTheLightSeeingInvisibleCondition", Category.Subclass, ConditionSeeInvisibility.GuiPresentation.SpriteReference)
                 .SetAllowMultipleInstances(false)
                 .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
-                .SetDuration(RuleDefinitions.DurationType.Permanent)
+                .SetDuration(RuleDefinitions.DurationType.Permanent, 1, false) // don't validate inconsistent data
                 .SetSilentWhenAdded(true)
                 .SetSilentWhenRemoved(true)
                 .AddFeatures(FeatureDefinitionSenses.SenseSeeInvisible16)
@@ -284,7 +284,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             .SetGuiPresentationNoContent(true)
             .SetAllowMultipleInstances(false)
             .SetConditionType(RuleDefinitions.ConditionType.Neutral)
-            .SetDuration(RuleDefinitions.DurationType.Permanent)
+            .SetDuration(RuleDefinitions.DurationType.Permanent, 1, false) // don't validate inconsistent data
             .SetSilentWhenAdded(true)
             .SetSilentWhenRemoved(true)
             .AddToDB();
