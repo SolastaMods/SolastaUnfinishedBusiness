@@ -73,7 +73,7 @@ namespace SolastaCommunityExpansion.DataMiner
             }
         }
 
-        private static IEnumerator ExportSingle()
+        private static IEnumerator ExportMany()
         {
             EnsureFolderExists(Path);
 
@@ -134,7 +134,7 @@ namespace SolastaCommunityExpansion.DataMiner
             ExportName = "";
         }
 
-        private static IEnumerator ExportMany()
+        private static IEnumerator ExportSingle()
         {
             using StreamWriter sw = new StreamWriter(Path);
             using JsonWriter writer = new JsonTextWriter(sw);
@@ -152,21 +152,16 @@ namespace SolastaCommunityExpansion.DataMiner
             {
                 // Don't put this outside the loop or it caches objects already serialized and then outputs a reference instead 
                 // of the whole object.
-                JsonSerializer serializer = JsonSerializer.Create(JsonUtil.CreateSettings(PreserveReferencesHandling.None));
+                var serializer = JsonSerializer.Create(JsonUtil.CreateSettings(PreserveReferencesHandling.None));
 
                 serializer.Serialize(writer, d.Definition);
-
-                if (d.Definition != lastDefinition)
-                {
-                    sw.WriteLine(",");
-                }
 
                 PercentageComplete = ((float)d.Index / total);
 
                 yield return null;
             }
 
-            sw.WriteLine("]");
+            sw.WriteLine("{}]");
 
             PercentageComplete = 0;
             ExportName = "";
