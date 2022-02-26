@@ -47,6 +47,17 @@ namespace SolastaCommunityExpansion.DataMiner
             }
         }
 
+        internal static void Cancel()
+        {
+            if (PercentageComplete == 0)
+            {
+                return;
+            }
+
+            Singleton.StopAllCoroutines();
+            PercentageComplete = 0;
+        }
+
         internal static void ExportBlueprints(
             string exportName,
             HashSet<BaseDefinition> baseDefinitions,
@@ -141,7 +152,6 @@ namespace SolastaCommunityExpansion.DataMiner
             }
 
             PercentageComplete = 0;
-            ExportName = "";
         }
     }
 }

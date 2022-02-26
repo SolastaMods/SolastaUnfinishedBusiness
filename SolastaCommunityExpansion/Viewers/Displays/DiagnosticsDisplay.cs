@@ -37,22 +37,15 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            var exportTaLabel = "Export TA blueprints";
-            var exportCeLabel = "Export CE blueprints";
-
-            if (BlueprintExporter.ExportName == "TA" && BlueprintExporter.PercentageComplete > 0)
-            {
-                exportTaLabel += $" {BlueprintExporter.PercentageComplete:00.00%}".yellow().bold();
-            }
-            else if (BlueprintExporter.ExportName == "CE" && BlueprintExporter.PercentageComplete > 0)
-            {
-                exportCeLabel += $" {BlueprintExporter.PercentageComplete:00.00%}".yellow().bold();
-            }
-
             using (UI.HorizontalScope())
             {
-                UI.ActionButton(exportTaLabel, () => DiagnosticsContext.ExportTADefinitions(), UI.Width(200));
-                UI.ActionButton(exportCeLabel, () => DiagnosticsContext.ExportCEDefinitions(), UI.Width(200));
+                UI.ActionButton("Export TA blueprints", () => DiagnosticsContext.ExportTADefinitions(), UI.Width(200));
+                UI.ActionButton("Export CE blueprints", () => DiagnosticsContext.ExportCEDefinitions(), UI.Width(200));
+
+                if (BlueprintExporter.PercentageComplete > 0)
+                {
+                    UI.ActionButton($"Cancel {BlueprintExporter.ExportName} export at " + $"{BlueprintExporter.PercentageComplete:00.00%}".yellow().bold(), () => BlueprintExporter.Cancel(), UI.Width(200));
+                }
             }
 #if DEBUG
 
