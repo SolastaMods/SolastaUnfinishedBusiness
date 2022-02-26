@@ -1,12 +1,67 @@
 ﻿using System.Diagnostics;
 using System.Text;
 using ModKit;
+using SolastaCommunityExpansion.DataMiner;
+using SolastaCommunityExpansion.Models;
 using static SolastaCommunityExpansion.Viewers.Displays.CreditsDisplay;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
-{
+{ 
     internal static class DiagnosticsDisplay
     {
+        private static bool IsUnityExplorerEnabled { get; set; }
+
+        internal static void DisplayModdingTools()
+        {
+            UI.Label("");
+
+            UI.ActionButton("Enable the Unity Explorer UI", () =>
+            {
+                if (!IsUnityExplorerEnabled)
+                {
+                    IsUnityExplorerEnabled = true;
+                    UnityExplorer.ExplorerStandalone.CreateInstance();
+                }
+            }, UI.Width(200));
+
+            UI.Label("");
+
+            if (!DiagnosticsContext.HasDiagnosticsFolder)
+            {
+                UI.Label(". You can set the environment variable " + "SolastaCEDiagnosticsDir".italic().yellow() + " to change the default output folder");
+            }
+
+            UI.Label(". The output folder is set to " + DiagnosticsContext.DiagnosticsOutputFolder.yellow().bold());
+
+            UI.Label("");
+
+            var exportTaLabel = "Export TA blueprints";
+            var exportCeLabel = "Export CE blueprints";
+
+            if (BlueprintExporter.ExportName == "TA" && BlueprintExporter.PercentageComplete > 0)
+            {
+                exportTaLabel += $" {BlueprintExporter.PercentageComplete:00.00%}".yellow().bold();
+            }
+            else if (BlueprintExporter.ExportName == "CE" && BlueprintExporter.PercentageComplete > 0)
+            {
+                exportCeLabel += $" {BlueprintExporter.PercentageComplete:00.00%}".yellow().bold();
+            }
+
+            using (UI.HorizontalScope())
+            {
+                UI.ActionButton(exportTaLabel, () => DiagnosticsContext.ExportTADefinitions(), UI.Width(200));
+                UI.ActionButton(exportCeLabel, () => DiagnosticsContext.ExportCEDefinitions(), UI.Width(200));
+            }
+#if DEBUG
+
+            using (UI.HorizontalScope())
+            {
+                UI.ActionButton("Create TA diagnostics", () => DiagnosticsContext.CreateTADefinitionDiagnostics(), UI.Width(200));
+                UI.ActionButton("Create CE diagnostics", () => DiagnosticsContext.CreateCEDefinitionDiagnostics(), UI.Width(200));
+            }
+#endif
+        }
+
         [Conditional("DEBUG")]
         internal static void DisplayDumpDescription()
         {
