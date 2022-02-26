@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using ModKit;
+using SolastaCommunityExpansion.Models;
 using UnityEngine;
 using UnityModManagerNet;
 using static SolastaCommunityExpansion.Viewers.Displays.BlueprintDisplay;
@@ -49,6 +50,7 @@ namespace SolastaCommunityExpansion.Viewers
         public static void DisplayHelpAndCredits()
         {
             EnableUnityExplorerUi();
+            DefinitionExportAndDiagnostics();
             AddDumpDescriptionToLogButton();
             DisplayLevel20Help();
             DisplayCredits();
@@ -66,6 +68,32 @@ namespace SolastaCommunityExpansion.Viewers
                     UnityExplorer.ExplorerStandalone.CreateInstance();
                 }
             });
+        }
+
+        [Conditional("DEBUG")]
+        private static void DefinitionExportAndDiagnostics()
+        {
+            UI.Label("");
+
+            UI.ActionButton("Export TA blueprints", () => DiagnosticsContext.ExportTABlueprints((index, total) =>
+            {
+                // TODO: progress bar/message
+            }));
+
+            if (DiagnosticsContext.HasDiagnosticsFolder)
+            {
+                UI.ActionButton("Export CE blueprints", () => DiagnosticsContext.ExportCEDefinitions((index, total) =>
+                {
+                    // TODO: progress bar/message
+                }));
+
+                UI.ActionButton("Create TA diagnostics", () => DiagnosticsContext.CreateTADefinitionDiagnostics());
+                UI.ActionButton("Create CE diagnostics", () => DiagnosticsContext.CreateCEDefinitionDiagnostics());
+            }
+            else
+            {
+                UI.Label("Please set the diagnostic folder environment variable".red());
+            }
         }
 
         [Conditional("DEBUG")]
