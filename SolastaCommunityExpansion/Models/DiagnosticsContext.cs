@@ -12,6 +12,10 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class DiagnosticsContext
     {
+        const string GAME_FOLDER = ".\\";
+        private const string OFFICIAL_BP_FOLDER = "OfficialBlueprints";
+        private const string COMMUNITY_EXPANSION_BP_FOLDER = "CommunityExpansionBlueprints";
+
         private static HashSet<BaseDefinition> TABaseDefinitions;
         private static Dictionary<Type, List<BaseDefinition>> TABaseDefinitionsMap;
         private static HashSet<BaseDefinition> CEBaseDefinitions;
@@ -95,30 +99,27 @@ namespace SolastaCommunityExpansion.Models
             Main.Log($"Cached {CEBaseDefinitions.Count} CE definitions");
         }
 
-        public static void CreateTADefinitionDiagnostics()
+        private static void CreateDefinitionDiagnostics(HashSet<BaseDefinition> baseDefinitions)
         {
-            if (!HasDiagnosticsFolder)
+            if (baseDefinitions == null)
             {
                 return;
             }
 
-            if (TABaseDefinitions == null)
-            {
-                return;
-            }
+            var path = Path.Combine(HasDiagnosticsFolder ? DiagnosticsOutputFolder : ".\\");
 
-            EnsureFolderExists(DiagnosticsOutputFolder);
+            EnsureFolderExists(path);
 
-            var taDefinitions = TABaseDefinitions.OrderBy(x => x.Name).ThenBy(x => x.GetType().Name).ToList();
+            var taDefinitions = baseDefinitions.OrderBy(x => x.Name).ThenBy(x => x.GetType().Name).ToList();
 
             /////////////////////////////////////////////////////////////////////////////////////////////////
             // Write all TA definitions name/guid to file (txt)
-            File.WriteAllLines(Path.Combine(DiagnosticsOutputFolder, "TA-Definitions.txt"),
+            File.WriteAllLines(Path.Combine(path, "TA-Definitions.txt"),
                 taDefinitions.Select(d => $"{d.Name}, {d.GUID}"));
 
             /////////////////////////////////////////////////////////////////////////////////////////////////
             // Write all TA definitions with no GUI presentation to file
-            File.WriteAllLines(Path.Combine(DiagnosticsOutputFolder, "TA-Definitions-GuiPresentation-MissingValue.txt"),
+            File.WriteAllLines(Path.Combine(path, "TA-Definitions-GuiPresentation-MissingValue.txt"),
                 taDefinitions
                     .Where(d => string.IsNullOrWhiteSpace(d.GuiPresentation?.Title) || string.IsNullOrWhiteSpace(d.GuiPresentation?.Description))
                     .Select(d => $"{d.Name}:\tTitle='{d.GuiPresentation?.Title ?? string.Empty}', Desc='{d.GuiPresentation?.Description ?? string.Empty}'"));
@@ -148,79 +149,31 @@ namespace SolastaCommunityExpansion.Models
                 })
                 .Select(d => $"{d.Name}\t{d.Type}='{d.Key}'.");
 
-            File.WriteAllLines(Path.Combine(DiagnosticsOutputFolder, $"TA-Definitions-GuiPresentation-MissingTranslation-{currentLanguage}.txt"), allLines);
+            File.WriteAllLines(Path.Combine(path, $"TA-Definitions-GuiPresentation-MissingTranslation-{currentLanguage}.txt"), allLines);
         }
 
-        public static void CreateCEDefinitionDiagnostics()
+        internal static void ExportTADefinitions()
         {
-            if (!HasDiagnosticsFolder)
-            {
-                return;
-            }
+            var path = Path.Combine(HasDiagnosticsFolder ? DiagnosticsOutputFolder : GAME_FOLDER, OFFICIAL_BP_FOLDER);
 
-            EnsureFolderExists(DiagnosticsOutputFolder);
-
-            var ceDefinitions = CEBaseDefinitions.OrderBy(x => x.Name).ThenBy(x => x.GetType().Name);
-
-            /////////////////////////////////////////////////////////////////////////////////////////////////
-            // Write all CE definitions name/guid to file (txt)
-            File.WriteAllLines(Path.Combine(DiagnosticsOutputFolder, "CE-Definitions.txt"),
-                ceDefinitions.Select(d => $"{d.Name}, {d.GUID}"));
-
-            // Write all CE definitions with no GUI presentation to file
-            File.WriteAllLines(Path.Combine(DiagnosticsOutputFolder, "CE-Definitions-GuiPresentation-MissingValue.txt"),
-                ceDefinitions
-                    .Where(d => string.IsNullOrWhiteSpace(d.GuiPresentation?.Title) || string.IsNullOrWhiteSpace(d.GuiPresentation?.Description))
-                    .Select(d => $"{d.Name}:\tTitle='{d.GuiPresentation?.Title ?? string.Empty}', Desc='{d.GuiPresentation?.Description ?? string.Empty}'"));
-
-            /////////////////////////////////////////////////////////////////////////////////////////////////
-            // Write all CE definitions with GUI presentation but missing translation to file
-            var languageSourceData = LocalizationManager.Sources[0];
-            var currentLanguage = LocalizationManager.CurrentLanguageCode;
-            var languageIndex = languageSourceData.GetLanguageIndexFromCode(currentLanguage);
-
-            var allLines = ceDefinitions
-                .Select(d => new[] {
-                    new { d.Name, Key = d.GuiPresentation?.Title, Type = "Title" },
-                    new { d.Name, Key = d.GuiPresentation?.Description, Type = "Description" }
-                })
-                .SelectMany(d => d)
-                .Where(d => !d.Name.StartsWith("Telema", StringComparison.InvariantCultureIgnoreCase))
-                .Where(d =>
-                {
-                    if (!string.IsNullOrWhiteSpace(d.Key) && d.Key != GuiPresentationBuilder.EmptyString)
-                    {
-                        var termData = languageSourceData.GetTermData(d.Key);
-                        return string.IsNullOrWhiteSpace(termData?.Languages[languageIndex]);
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                })
-                .Select(d => $"{d.Name}\t{d.Type}='{d.Key}'.");
-
-            File.WriteAllLines(Path.Combine(DiagnosticsOutputFolder, $"CE-Definitions-GuiPresentation-MissingTranslation-{currentLanguage}.txt"), allLines);
+            BlueprintExporter.ExportBlueprints("TA", TABaseDefinitions, TABaseDefinitionsMap, path);
         }
 
-
-        internal static void ExportTADefinitions(bool useManyFiles)
+        internal static void ExportCEDefinitions()
         {
-            var path = useManyFiles ? "SolastaBlueprints" : "TA-Definitions.json";
+            var path = Path.Combine(HasDiagnosticsFolder ? DiagnosticsOutputFolder : GAME_FOLDER, COMMUNITY_EXPANSION_BP_FOLDER);
 
-            BlueprintExporter.ExportBlueprints("TA", TABaseDefinitions, TABaseDefinitionsMap, path, useSingleFile: !useManyFiles);
+            BlueprintExporter.ExportBlueprints("CE", CEBaseDefinitions, CEBaseDefinitionsMap, path);
         }
 
-        internal static void ExportCEDefinitions(bool useManyFiles)
+        internal static void CreateTADefinitionDiagnostics()
         {
-            if (!HasDiagnosticsFolder)
-            {
-                return;
-            }
+            CreateDefinitionDiagnostics(TABaseDefinitions);
+        }
 
-            var path = Path.Combine(DiagnosticsOutputFolder, useManyFiles ? "CommunityExpansionBlueprints" : "CE-Definitions.json");
-
-            BlueprintExporter.ExportBlueprints("CE", CEBaseDefinitions, CEBaseDefinitionsMap, path, useSingleFile: !useManyFiles);
+        internal static void CreateCEDefinitionDiagnostics()
+        {
+            CreateDefinitionDiagnostics(CEBaseDefinitions);
         }
 
         internal static List<string> KnownDuplicateDefinitionNames { get; } = new()
