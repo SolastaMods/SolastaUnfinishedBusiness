@@ -99,7 +99,7 @@ namespace SolastaCommunityExpansion.Models
             Main.Log($"Cached {CEBaseDefinitions.Count} CE definitions");
         }
 
-        private static void CreateDefinitionDiagnostics(HashSet<BaseDefinition> baseDefinitions)
+        private static void CreateDefinitionDiagnostics(HashSet<BaseDefinition> baseDefinitions, string baseFilename)
         {
             if (baseDefinitions == null)
             {
@@ -114,12 +114,12 @@ namespace SolastaCommunityExpansion.Models
 
             /////////////////////////////////////////////////////////////////////////////////////////////////
             // Write all TA definitions name/guid to file (txt)
-            File.WriteAllLines(Path.Combine(path, "TA-Definitions.txt"),
+            File.WriteAllLines(Path.Combine(path, $"{baseFilename}.txt"),
                 taDefinitions.Select(d => $"{d.Name}, {d.GUID}"));
 
             /////////////////////////////////////////////////////////////////////////////////////////////////
             // Write all TA definitions with no GUI presentation to file
-            File.WriteAllLines(Path.Combine(path, "TA-Definitions-GuiPresentation-MissingValue.txt"),
+            File.WriteAllLines(Path.Combine(path, $"{baseFilename}-GuiPresentation-MissingValue.txt"),
                 taDefinitions
                     .Where(d => string.IsNullOrWhiteSpace(d.GuiPresentation?.Title) || string.IsNullOrWhiteSpace(d.GuiPresentation?.Description))
                     .Select(d => $"{d.Name}:\tTitle='{d.GuiPresentation?.Title ?? string.Empty}', Desc='{d.GuiPresentation?.Description ?? string.Empty}'"));
@@ -149,7 +149,7 @@ namespace SolastaCommunityExpansion.Models
                 })
                 .Select(d => $"{d.Name}\t{d.Type}='{d.Key}'.");
 
-            File.WriteAllLines(Path.Combine(path, $"TA-Definitions-GuiPresentation-MissingTranslation-{currentLanguage}.txt"), allLines);
+            File.WriteAllLines(Path.Combine(path, $"{baseFilename}-GuiPresentation-MissingTranslation-{currentLanguage}.txt"), allLines);
         }
 
         internal static void ExportTADefinitions()
@@ -168,12 +168,12 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void CreateTADefinitionDiagnostics()
         {
-            CreateDefinitionDiagnostics(TABaseDefinitions);
+            CreateDefinitionDiagnostics(TABaseDefinitions, "TA-Definitions");
         }
 
         internal static void CreateCEDefinitionDiagnostics()
         {
-            CreateDefinitionDiagnostics(CEBaseDefinitions);
+            CreateDefinitionDiagnostics(CEBaseDefinitions, "CE-Definitions");
         }
 
         internal static List<string> KnownDuplicateDefinitionNames { get; } = new()
