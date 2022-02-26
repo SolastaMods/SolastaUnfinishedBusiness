@@ -309,7 +309,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void SwitchMagicStaffFoci()
         {
-            // TODO: double check required behaviour.  These changes apparently result in 3 additional items having Arcane focus.
+            // TODO: double check required behaviour.  These changes apparently result in 3 less items having Arcane focus.
 
             foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>()
                 .Where(x => x.IsWeapon) // WeaponDescription could be null
