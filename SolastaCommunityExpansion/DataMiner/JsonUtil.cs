@@ -2,7 +2,6 @@
 using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
@@ -39,44 +38,6 @@ namespace SolastaCommunityExpansion.DataMiner
             refJsonSerializerSettings.Converters.Add(new StringEnumConverter());
 
             return refJsonSerializerSettings;
-        }
-
-        public static void CEBlueprintDump(IEnumerable<BaseDefinition> definitions, string path, Action<int, int> progress)
-        {
-            using StreamWriter sw = new StreamWriter(path);
-            using JsonWriter writer = new JsonTextWriter(sw);
-
-            // NOTE: currently needs to be assembled one definition at a time into a single file
-            // Problem 1) serializing the whole array doesn't emit everything
-            // Problem 2) serializing into individual files exceeds the folder path limit because some CE definitions have very long namessssssssss....
-            sw.WriteLine("[");
-            var lastDefinition = definitions.Last();
-            int total = definitions.Count();
-
-            foreach (var d in definitions.Select((d, i) => new { Definition = d, Index = i }))
-            {
-                JsonSerializer serializer = JsonSerializer.Create(CreateSettings(PreserveReferencesHandling.None));
-                serializer.Serialize(writer, d.Definition);
-                if (d.Definition != lastDefinition)
-                {
-                    sw.WriteLine(",");
-                }
-
-                progress(d.Index, total);
-            }
-
-            sw.WriteLine("]");
-
-            progress(total, total);
-        }
-
-        public static void TABlueprintDump(BaseDefinition definition, string path)
-        {
-            // This crashes if PreserveReferencesHandling.None is set - TODO: find out why
-            JsonSerializer serializer = JsonSerializer.Create(CreateSettings(PreserveReferencesHandling.Objects));
-            using StreamWriter sw = new StreamWriter(path);
-            using JsonWriter writer = new JsonTextWriter(sw);
-            serializer.Serialize(writer, definition);
         }
 
         public static bool IsBlacklisted(MemberInfo _)
