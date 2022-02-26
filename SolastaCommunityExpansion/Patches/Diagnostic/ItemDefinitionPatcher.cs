@@ -161,8 +161,8 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         }
     }
 
-    [HarmonyPatch(typeof(ItemDefinition), "FoodDefinition", MethodType.Getter)]
-    internal static class ItemDefinitionPatch_FoodDefinition
+    [HarmonyPatch(typeof(ItemDefinition), "FoodDescription", MethodType.Getter)]
+    internal static class ItemDefinitionPatch_FoodDescription
     {
         public static void Postfix(ItemDefinition __instance, ref FoodDescription __result)
         {
