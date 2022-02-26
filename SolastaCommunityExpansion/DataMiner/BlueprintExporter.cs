@@ -51,7 +51,6 @@ namespace SolastaCommunityExpansion.DataMiner
 
             Coroutine = Export();
             StartCoroutine(Coroutine);
-            Coroutine = null;
         }
 
         internal IEnumerator Export()
@@ -147,7 +146,6 @@ namespace SolastaCommunityExpansion.DataMiner
 
             Coroutine = Export();
             StartCoroutine(Coroutine);
-            Coroutine = null;
         }
 
         internal IEnumerator Export()
