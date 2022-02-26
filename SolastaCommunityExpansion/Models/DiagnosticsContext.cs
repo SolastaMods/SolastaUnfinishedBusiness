@@ -204,27 +204,23 @@ namespace SolastaCommunityExpansion.Models
         }
 
 
-        internal static void ExportTADefinitions()
+        internal static void ExportTADefinitions(bool useManyFiles)
         {
-            if (TABaseDefinitionsMap == null || TABaseDefinitions == null)
-            {
-                return;
-            }
+            var path = useManyFiles ? "SolastaBlueprints" : "TA-Definitions.json";
 
-            OfficialBlueprintExporter.Shared.ExportBlueprints(TABaseDefinitions, TABaseDefinitionsMap);
+            BlueprintExporter.ExportBlueprints("TA", TABaseDefinitions, TABaseDefinitionsMap, path, useSingleFile: !useManyFiles);
         }
 
-        internal static void ExportCEDefinitions()
+        internal static void ExportCEDefinitions(bool useManyFiles)
         {
-            if (!HasDiagnosticsFolder || CEBaseDefinitions == null)
+            if (!HasDiagnosticsFolder)
             {
                 return;
             }
 
-            var definitions = CEBaseDefinitions.OrderBy(d => d.Name).ThenBy(d => d.GetType().Name);
-            var path = Path.Combine(DiagnosticsOutputFolder, "CE-Definitions.json");
+            var path = Path.Combine(DiagnosticsOutputFolder, useManyFiles ? "CommunityExpansionBlueprints" : "CE-Definitions.json");
 
-            ModBlueprintExporter.Shared.ExportBlueprints(definitions, path);
+            BlueprintExporter.ExportBlueprints("CE", CEBaseDefinitions, CEBaseDefinitionsMap, path, useSingleFile: !useManyFiles);
         }
 
         internal static List<string> KnownDuplicateDefinitionNames { get; } = new()

@@ -25,6 +25,8 @@ namespace SolastaCommunityExpansion.Viewers
 
         private static int selectedPane;
 
+        private static bool useManyFiles;
+
         private static readonly NamedAction[] actions =
         {
             new NamedAction("Help & Credits", DisplayHelpAndCredits),
@@ -76,23 +78,27 @@ namespace SolastaCommunityExpansion.Viewers
             var exportTaLabel = "Export TA blueprints";
             var exportCeLabel = "Export CE blueprints";
 
-            if (OfficialBlueprintExporter.Shared.PercentageComplete > 0)
+            UI.Toggle("Export each definition to its own file " + "[must enable long pathnames in windows registry]".italic().yellow(), ref useManyFiles, UI.AutoWidth());
+
+            UI.Label("");
+
+            if (BlueprintExporter.ExportName == "TA" && BlueprintExporter.PercentageComplete > 0)
             {
-                exportTaLabel += $" {OfficialBlueprintExporter.Shared.PercentageComplete:00.00%}".yellow().bold();
+                exportTaLabel += $" {BlueprintExporter.PercentageComplete:00.00%}".yellow().bold();
             }
 
-            if (DiagnosticsContext.HasDiagnosticsFolder && ModBlueprintExporter.Shared.PercentageComplete > 0)
+            else if (BlueprintExporter.ExportName == "CE" && BlueprintExporter.PercentageComplete > 0)
             {
-                exportCeLabel += $" {ModBlueprintExporter.Shared.PercentageComplete:00.00%}".yellow().bold();
+                exportCeLabel += $" {BlueprintExporter.PercentageComplete:00.00%}".yellow().bold();
             }
 
             using (UI.HorizontalScope())
             {
-                UI.ActionButton(exportTaLabel, () => DiagnosticsContext.ExportTADefinitions(), UI.Width(200));
+                UI.ActionButton(exportTaLabel, () => DiagnosticsContext.ExportTADefinitions(useManyFiles), UI.Width(200));
 
                 if (DiagnosticsContext.HasDiagnosticsFolder)
                 {
-                    UI.ActionButton(exportCeLabel, () => DiagnosticsContext.ExportCEDefinitions(), UI.Width(200));
+                    UI.ActionButton(exportCeLabel, () => DiagnosticsContext.ExportCEDefinitions(useManyFiles), UI.Width(200));
                 }
             }
         }

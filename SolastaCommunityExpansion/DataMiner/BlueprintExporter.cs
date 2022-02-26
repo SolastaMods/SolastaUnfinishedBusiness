@@ -8,25 +8,31 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.DataMiner
 {
-    internal class OfficialBlueprintExporter : MonoBehaviour
+    internal class BlueprintExporter : MonoBehaviour
     {
-        private static HashSet<BaseDefinition> BaseDefinitions;
-        private static Dictionary<Type, List<BaseDefinition>> BaseDefinitionsMap;
-        private IEnumerator Coroutine;
-        private const string BlueprintFolder = "SolastaBlueprints";
-        private static OfficialBlueprintExporter Exporter;
+        // private const string BlueprintFolder = "SolastaBlueprints";
+        private static BlueprintExporter Exporter;
 
-        internal float PercentageComplete { get; set; }
+        internal static string ExportName { get; private set; }
 
-        internal static OfficialBlueprintExporter Shared
+        internal static HashSet<BaseDefinition> BaseDefinitions { get; private set; }
+
+        internal static Dictionary<Type, List<BaseDefinition>> BaseDefinitionsMap { get; private set; }
+
+        internal static string Path { get; private set; }
+
+        internal static float PercentageComplete { get; private set; }
+
+        private static BlueprintExporter Singleton
         {
             get
             {
                 if (Exporter == null)
                 {
-                    Exporter = new GameObject().AddComponent<OfficialBlueprintExporter>();
+                    Exporter = new GameObject().AddComponent<BlueprintExporter>();
                     DontDestroyOnLoad(Exporter.gameObject);
                 }
+
                 return Exporter;
             }
         }
@@ -39,26 +45,40 @@ namespace SolastaCommunityExpansion.DataMiner
             }
         }
 
-        internal void ExportBlueprints(HashSet<BaseDefinition> baseDefinitions, Dictionary<Type, List<BaseDefinition>> baseDefinitionsMap)
+        internal static void ExportBlueprints(
+            string exportName,
+            HashSet<BaseDefinition> baseDefinitions, 
+            Dictionary<Type, List<BaseDefinition>> baseDefinitionsMap,
+            string path,
+            bool useSingleFile = false)
         {
-            if (Coroutine != null)
+            if (baseDefinitionsMap == null || baseDefinitions == null || PercentageComplete > 0)
             {
                 return;
             }
 
+            PercentageComplete = 1/1000f;
+            ExportName = exportName;
             BaseDefinitions = baseDefinitions;
             BaseDefinitionsMap = baseDefinitionsMap;
+            Path = path;
 
-            Coroutine = Export();
-            StartCoroutine(Coroutine);
+            if (useSingleFile)
+            {
+                Singleton.StartCoroutine(ExportSingle());
+            }
+            else
+            {
+                Singleton.StartCoroutine(ExportMany());
+            }
         }
 
-        internal IEnumerator Export()
+        private static IEnumerator ExportSingle()
         {
-            EnsureFolderExists(BlueprintFolder);
+            EnsureFolderExists(Path);
 
             // Types.txt
-            using (var sw = new StreamWriter($"{BlueprintFolder}/Types.txt"))
+            using (var sw = new StreamWriter($"{Path}/Types.txt"))
             {
                 foreach (var type in BaseDefinitions.Select(t => t.GetType()).Distinct().OrderBy(t => t.Name))
                 {
@@ -67,7 +87,7 @@ namespace SolastaCommunityExpansion.DataMiner
             }
 
             // Assets.txt
-            using (var sw = new StreamWriter($"{BlueprintFolder}/Assets.txt"))
+            using (var sw = new StreamWriter($"{Path}/Assets.txt"))
             {
                 sw.WriteLine("{0}\t{1}\t{2}\t{3}", "Name", "Type", "DatabaseType", "GUID");
 
@@ -97,9 +117,9 @@ namespace SolastaCommunityExpansion.DataMiner
                     subfolder = $"{dbType.FullName}/{subfolder}";
                 }
 
-                EnsureFolderExists($"{BlueprintFolder}/{subfolder}");
+                EnsureFolderExists($"{Path}/{subfolder}");
 
-                var path = $"{BlueprintFolder}/{subfolder}/{value.Name}.{value.GUID}.json";
+                var path = $"{Path}/{subfolder}/{value.Name}.{value.GUID}.json";
 
                 using StreamWriter sw = new StreamWriter(path);
                 using JsonWriter writer = new JsonTextWriter(sw);
@@ -110,48 +130,11 @@ namespace SolastaCommunityExpansion.DataMiner
                 yield return null;
             }
 
-            Coroutine = null;
             PercentageComplete = 0;
-        }
-    }
-
-    internal class ModBlueprintExporter : MonoBehaviour
-    {
-        private static IEnumerable<BaseDefinition> Definitions;
-        private static string Path;
-        private IEnumerator Coroutine;
-        private static ModBlueprintExporter Exporter;
-
-        internal float PercentageComplete { get; set; }
-
-        internal static ModBlueprintExporter Shared
-        {
-            get
-            {
-                if (Exporter == null)
-                {
-                    Exporter = new GameObject().AddComponent<ModBlueprintExporter>();
-                    DontDestroyOnLoad(Exporter.gameObject);
-                }
-                return Exporter;
-            }
+            ExportName = "";
         }
 
-        internal void ExportBlueprints(IEnumerable<BaseDefinition> definitions, string path)
-        {
-            if (Coroutine != null)
-            {
-                return;
-            }
-
-            Definitions = definitions;
-            Path = path;
-
-            Coroutine = Export();
-            StartCoroutine(Coroutine);
-        }
-
-        internal IEnumerator Export()
+        private static IEnumerator ExportMany()
         {
             using StreamWriter sw = new StreamWriter(Path);
             using JsonWriter writer = new JsonTextWriter(sw);
@@ -161,17 +144,18 @@ namespace SolastaCommunityExpansion.DataMiner
             // Problem 2) serializing into individual files exceeds the folder path limit because some CE definitions have very long namessssssssss....
             sw.WriteLine("[");
 
-            var lastDefinition = Definitions.Last();
-            var total = Definitions.Count();
+            var definitions = BaseDefinitions.OrderBy(d => d.Name).ThenBy(d => d.GetType().Name);
+            var lastDefinition = definitions.Last();
+            var total = definitions.Count();
 
-            foreach (var d in Definitions.Select((d, i) => new { Definition = d, Index = i }))
+            foreach (var d in definitions.Select((d, i) => new { Definition = d, Index = i }))
             {
                 // Don't put this outside the loop or it caches objects already serialized and then outputs a reference instead 
                 // of the whole object.
                 JsonSerializer serializer = JsonSerializer.Create(JsonUtil.CreateSettings(PreserveReferencesHandling.None));
 
                 serializer.Serialize(writer, d.Definition);
-                
+
                 if (d.Definition != lastDefinition)
                 {
                     sw.WriteLine(",");
@@ -184,8 +168,8 @@ namespace SolastaCommunityExpansion.DataMiner
 
             sw.WriteLine("]");
 
-            Coroutine = null;
             PercentageComplete = 0;
+            ExportName = "";
         }
     }
 }
