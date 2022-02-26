@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using ModKit;
+using SolastaCommunityExpansion.DataMiner;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 using UnityModManagerNet;
@@ -49,14 +50,14 @@ namespace SolastaCommunityExpansion.Viewers
 
         public static void DisplayHelpAndCredits()
         {
-            EnableUnityExplorerUi();
-            DefinitionExportAndDiagnostics();
-            AddDumpDescriptionToLogButton();
+            DisplayModdingTools();
+            DisplayDiagnostics();
+            DisplayDumpDescription();
             DisplayLevel20Help();
             DisplayCredits();
         }
 
-        private static void EnableUnityExplorerUi()
+        private static void DisplayModdingTools()
         {
             UI.Label("");
 
@@ -67,37 +68,55 @@ namespace SolastaCommunityExpansion.Viewers
                     IsUnityExplorerEnabled = true;
                     UnityExplorer.ExplorerStandalone.CreateInstance();
                 }
-            });
+            }, UI.Width(200));
+
+            UI.Label("");
+
+            using (UI.HorizontalScope())
+            {
+                UI.ActionButton("Export TA blueprints", () => DiagnosticsContext.ExportOfficialBlueprints(), UI.Width(200));
+
+                if (DiagnosticsContext.HasDiagnosticsFolder)
+                {
+                    UI.ActionButton("Export CE blueprints", () => DiagnosticsContext.ExportModBlueprints(), UI.Width(200));
+                }
+            }
+
+            using (UI.HorizontalScope())
+            {
+                if (OfficialBlueprintExporter.Shared.PercentageComplete > 0)
+                {
+                    UI.Label($" {OfficialBlueprintExporter.Shared.PercentageComplete:00.00%}".yellow().bold(), UI.Width(200));
+                }
+
+                if (DiagnosticsContext.HasDiagnosticsFolder && ModBlueprintExporter.Shared.PercentageComplete > 0)
+                {
+                    UI.Label($" {ModBlueprintExporter.Shared.PercentageComplete:00.00%}".yellow().bold(), UI.Width(200));
+                }
+            }
         }
 
         [Conditional("DEBUG")]
-        private static void DefinitionExportAndDiagnostics()
+        private static void DisplayDiagnostics()
         {
             UI.Label("");
 
-            UI.ActionButton("Export TA blueprints", () => DiagnosticsContext.ExportTABlueprints((index, total) =>
-            {
-                // TODO: progress bar/message
-            }));
-
             if (DiagnosticsContext.HasDiagnosticsFolder)
             {
-                UI.ActionButton("Export CE blueprints", () => DiagnosticsContext.ExportCEDefinitions((index, total) =>
+                using (UI.HorizontalScope())
                 {
-                    // TODO: progress bar/message
-                }));
-
-                UI.ActionButton("Create TA diagnostics", () => DiagnosticsContext.CreateTADefinitionDiagnostics());
-                UI.ActionButton("Create CE diagnostics", () => DiagnosticsContext.CreateCEDefinitionDiagnostics());
+                    UI.ActionButton("Create TA diagnostics", () => DiagnosticsContext.CreateTADefinitionDiagnostics(), UI.Width(200));
+                    UI.ActionButton("Create CE diagnostics", () => DiagnosticsContext.CreateCEDefinitionDiagnostics(), UI.Width(200));
+                }
             }
             else
             {
-                UI.Label("Please set the diagnostic folder environment variable".red());
+                UI.Label(". Please set the diagnostic folder environment variable SolastaCEDiagnosticsDir".red());
             }
         }
 
         [Conditional("DEBUG")]
-        private static void AddDumpDescriptionToLogButton()
+        private static void DisplayDumpDescription()
         {
             UI.Label("");
 
@@ -285,7 +304,7 @@ namespace SolastaCommunityExpansion.Viewers
                 // items
                 Main.Error(collectedString.ToString());
             },
-            UI.AutoWidth());
+            UI.Width(200));
         }
     }
 }

@@ -20,7 +20,6 @@ namespace SolastaCommunityExpansion.Models
         internal const string DiagnosticsEnvironmentVariable = "SolastaCEDiagnosticsDir";
         internal static string DiagnosticsOutputFolder { get; } = GetDiagnosticsFolder();
         internal static bool HasDiagnosticsFolder => !string.IsNullOrWhiteSpace(DiagnosticsOutputFolder);
-        private const string BlueprintFolder = "SolastaBlueprints";
 
         private static string GetDiagnosticsFolder()
         {
@@ -204,80 +203,28 @@ namespace SolastaCommunityExpansion.Models
             File.WriteAllLines(Path.Combine(DiagnosticsOutputFolder, $"CE-Definitions-GuiPresentation-MissingTranslation-{currentLanguage}.txt"), allLines);
         }
 
-        internal static void ExportTABlueprints(Action<int, int> progress)
+
+        internal static void ExportOfficialBlueprints()
         {
             if (TABaseDefinitionsMap == null || TABaseDefinitions == null)
             {
                 return;
             }
 
-            EnsureFolderExists(BlueprintFolder);
-
-            // Types.txt
-            using (var sw = new StreamWriter($"{BlueprintFolder}/Types.txt"))
-            {
-                foreach (var type in TABaseDefinitions.Select(t => t.GetType()).Distinct().OrderBy(t => t.Name))
-                {
-                    sw.WriteLine($"{type.FullName}");
-                }
-            }
-
-            // Assets.txt
-            using (var sw = new StreamWriter($"{BlueprintFolder}/Assets.txt"))
-            {
-                sw.WriteLine("{0}\t{1}\t{2}\t{3}", "Name", "Type", "DatabaseType", "GUID");
-
-                foreach (var db in TABaseDefinitionsMap.OrderBy(db => db.Key.FullName))
-                {
-                    foreach (var definition in db.Value)
-                    {
-                        sw.WriteLine("{0}\t{1}\t{2}\t{3}", definition.Name, definition.GetType().FullName, db.Key.FullName, definition.GUID);
-                    }
-                }
-            }
-
-            var total = TABaseDefinitions.Count;
-
-            // Blueprints/definitions
-            foreach (var d in TABaseDefinitions.Select((d, i) => new { Definition = d, Index = i }))
-            {
-                var dbType = d.Definition.GetType();
-                var value = d.Definition;
-                var subfolder = value.GetType().Name;
-                if (value.GetType() != dbType)
-                {
-                    subfolder = $"{dbType.FullName}/{subfolder}";
-                }
-
-                EnsureFolderExists($"{BlueprintFolder}/{subfolder}");
-
-                JsonUtil.TABlueprintDump(d.Definition, $"{BlueprintFolder}/{subfolder}/{value.Name}.{value.GUID}.json");
-
-                progress(d.Index, total);
-            }
-
-            progress(total, total);
+            OfficialBlueprintExporter.Shared.ExportOfficialBlueprints(TABaseDefinitions, TABaseDefinitionsMap);
         }
 
-        internal static void ExportCEDefinitions(Action<int, int> progress)
+        internal static void ExportModBlueprints()
         {
-            if (!HasDiagnosticsFolder)
+            if (CEBaseDefinitions == null || CEBaseDefinitionsMap == null)
             {
                 return;
             }
 
-            if (CEBaseDefinitions == null)
-            {
-                return;
-            }
-
-            EnsureFolderExists(DiagnosticsOutputFolder);
-
-            var ceDefinitions = CEBaseDefinitions.OrderBy(d => d.Name).ThenBy(d => d.GetType().Name);
-
-            // Write all CE definitions to file (json)
+            var definitions = CEBaseDefinitions.OrderBy(d => d.Name).ThenBy(d => d.GetType().Name);
             var path = Path.Combine(DiagnosticsOutputFolder, "CE-Definitions.json");
-            JsonUtil.CEBlueprintDump(ceDefinitions, path, progress);
+
+            ModBlueprintExporter.Shared.ExportModBlueprints(definitions, path);
         }
 
         internal static List<string> KnownDuplicateDefinitionNames { get; } = new()
