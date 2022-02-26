@@ -72,26 +72,26 @@ namespace SolastaCommunityExpansion.Viewers
 
             UI.Label("");
 
-            using (UI.HorizontalScope())
-            {
-                UI.ActionButton("Export TA blueprints", () => DiagnosticsContext.ExportOfficialBlueprints(), UI.Width(200));
+            var exportTaLabel = "Export TA blueprints";
+            var exportCeLabel = "Export CE blueprints";
 
-                if (DiagnosticsContext.HasDiagnosticsFolder)
-                {
-                    UI.ActionButton("Export CE blueprints", () => DiagnosticsContext.ExportModBlueprints(), UI.Width(200));
-                }
+            if (OfficialBlueprintExporter.Shared.PercentageComplete > 0)
+            {
+                exportTaLabel += $" {OfficialBlueprintExporter.Shared.PercentageComplete:00.00%}".yellow().bold();
+            }
+
+            if (DiagnosticsContext.HasDiagnosticsFolder && ModBlueprintExporter.Shared.PercentageComplete > 0)
+            {
+                exportCeLabel += $" {ModBlueprintExporter.Shared.PercentageComplete:00.00%}".yellow().bold();
             }
 
             using (UI.HorizontalScope())
             {
-                if (OfficialBlueprintExporter.Shared.PercentageComplete > 0)
-                {
-                    UI.Label($" {OfficialBlueprintExporter.Shared.PercentageComplete:00.00%}".yellow().bold(), UI.Width(200));
-                }
+                UI.ActionButton(exportTaLabel, () => DiagnosticsContext.ExportOfficialBlueprints(), UI.Width(200));
 
-                if (DiagnosticsContext.HasDiagnosticsFolder && ModBlueprintExporter.Shared.PercentageComplete > 0)
+                if (DiagnosticsContext.HasDiagnosticsFolder)
                 {
-                    UI.Label($" {ModBlueprintExporter.Shared.PercentageComplete:00.00%}".yellow().bold(), UI.Width(200));
+                    UI.ActionButton(exportCeLabel, () => DiagnosticsContext.ExportModBlueprints(), UI.Width(200));
                 }
             }
         }
@@ -99,8 +99,6 @@ namespace SolastaCommunityExpansion.Viewers
         [Conditional("DEBUG")]
         private static void DisplayDiagnostics()
         {
-            UI.Label("");
-
             if (DiagnosticsContext.HasDiagnosticsFolder)
             {
                 using (UI.HorizontalScope())
@@ -111,6 +109,7 @@ namespace SolastaCommunityExpansion.Viewers
             }
             else
             {
+                UI.Label("");
                 UI.Label(". Please set the diagnostic folder environment variable SolastaCEDiagnosticsDir".red());
             }
         }
@@ -119,7 +118,6 @@ namespace SolastaCommunityExpansion.Viewers
         private static void DisplayDumpDescription()
         {
             UI.Label("");
-
             UI.ActionButton("Dump Description to Logs", () =>
             {
                 var collectedString = new StringBuilder();
