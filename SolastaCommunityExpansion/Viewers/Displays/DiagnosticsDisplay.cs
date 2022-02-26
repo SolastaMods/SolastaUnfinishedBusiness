@@ -1,31 +1,12 @@
 ﻿using System.Diagnostics;
 using System.Text;
 using ModKit;
-using SolastaCommunityExpansion.Models;
 using static SolastaCommunityExpansion.Viewers.Displays.CreditsDisplay;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class DiagnosticsDisplay
     {
-        [Conditional("DEBUG")]
-        internal static void DisplayDiagnostics()
-        {
-            if (DiagnosticsContext.HasDiagnosticsFolder)
-            {
-                using (UI.HorizontalScope())
-                {
-                    UI.ActionButton("Create TA diagnostics", () => DiagnosticsContext.CreateTADefinitionDiagnostics(), UI.Width(200));
-                    UI.ActionButton("Create CE diagnostics", () => DiagnosticsContext.CreateCEDefinitionDiagnostics(), UI.Width(200));
-                }
-            }
-            else
-            {
-                UI.Label("");
-                UI.Label(". Please set the diagnostic folder environment variable SolastaCEDiagnosticsDir".red());
-            }
-        }
-
         [Conditional("DEBUG")]
         internal static void DisplayDumpDescription()
         {

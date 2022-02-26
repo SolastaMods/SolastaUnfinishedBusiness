@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using ModKit;
 using SolastaCommunityExpansion.DataMiner;
 using SolastaCommunityExpansion.Models;
@@ -24,8 +22,6 @@ namespace SolastaCommunityExpansion.Viewers
         private static bool IsUnityExplorerEnabled { get; set; }
 
         private static int selectedPane;
-
-        private static bool useManyFiles;
 
         private static readonly NamedAction[] actions =
         {
@@ -54,7 +50,6 @@ namespace SolastaCommunityExpansion.Viewers
         public static void DisplayHelpAndCredits()
         {
             DisplayModdingTools();
-            DisplayDiagnostics();
             DisplayDumpDescription();
             DisplayLevel20Help();
             DisplayCredits();
@@ -73,20 +68,23 @@ namespace SolastaCommunityExpansion.Viewers
                 }
             }, UI.Width(200));
 
+            if (!DiagnosticsContext.HasDiagnosticsFolder)
+            {
+                UI.Label("");
+
+                UI.Label(". You can set the environment variable " + "SolastaCEDiagnosticsDir".italic().yellow() + " to change the output folder " + "[otherwise all dumps can be found under the game folder]");
+
+            }
+
             UI.Label("");
 
             var exportTaLabel = "Export TA blueprints";
             var exportCeLabel = "Export CE blueprints";
 
-            UI.Toggle("Export each definition to its own file " + "[must enable long pathnames in windows registry]".italic().yellow(), ref useManyFiles, UI.AutoWidth());
-
-            UI.Label("");
-
             if (BlueprintExporter.ExportName == "TA" && BlueprintExporter.PercentageComplete > 0)
             {
                 exportTaLabel += $" {BlueprintExporter.PercentageComplete:00.00%}".yellow().bold();
             }
-
             else if (BlueprintExporter.ExportName == "CE" && BlueprintExporter.PercentageComplete > 0)
             {
                 exportCeLabel += $" {BlueprintExporter.PercentageComplete:00.00%}".yellow().bold();
@@ -94,13 +92,22 @@ namespace SolastaCommunityExpansion.Viewers
 
             using (UI.HorizontalScope())
             {
-                UI.ActionButton(exportTaLabel, () => DiagnosticsContext.ExportTADefinitions(useManyFiles), UI.Width(200));
+                UI.ActionButton(exportTaLabel, () => DiagnosticsContext.ExportTADefinitions(), UI.Width(200));
 
                 if (DiagnosticsContext.HasDiagnosticsFolder)
                 {
-                    UI.ActionButton(exportCeLabel, () => DiagnosticsContext.ExportCEDefinitions(useManyFiles), UI.Width(200));
+                    UI.ActionButton(exportCeLabel, () => DiagnosticsContext.ExportCEDefinitions(), UI.Width(200));
                 }
             }
+
+#if DEBUG
+            UI.Label("");
+            using (UI.HorizontalScope())
+            {
+                UI.ActionButton("Create TA diagnostics", () => DiagnosticsContext.CreateTADefinitionDiagnostics(), UI.Width(200));
+                UI.ActionButton("Create CE diagnostics", () => DiagnosticsContext.CreateCEDefinitionDiagnostics(), UI.Width(200));
+            }
+#endif
         }
     }
 }
