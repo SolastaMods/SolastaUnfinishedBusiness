@@ -22,7 +22,12 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
                     __instance is not CursorLocationEditorDefault &&
                     __instance is not CursorLocationExplorationDefault)
                 {
-                    ServiceRepository.GetService<ICursorService>()?.DeactivateCursor();
+                    GuiScreen screen = Gui.CurrentLocationScreen ?? Gui.GuiService.GetScreen<UserLocationEditorScreen>();
+                    if (screen != null && screen.Visible)
+                    {
+                        Main.Log($"Cancelling {screen.GetType().Name} cursor");
+                        screen.HandleInput(InputCommands.Id.Cancel);
+                    }
                 }
             }
         }

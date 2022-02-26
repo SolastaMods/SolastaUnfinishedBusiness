@@ -45,7 +45,7 @@ namespace SolastaCommunityExpansion.Builders
             // 1) get all names used in all TA databases (at this point) ignoring existing duplicates 
             // 2) check 'name' hasn't been used already, but ignore names we know already have duplicates
 
-            if (Diagnostics.KnownDuplicateDefinitionNames.Contains(definitionName))
+            if (DiagnosticsContext.KnownDuplicateDefinitionNames.Contains(definitionName))
             {
                 return;
             }
