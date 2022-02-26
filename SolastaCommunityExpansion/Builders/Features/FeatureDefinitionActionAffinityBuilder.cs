@@ -1,4 +1,5 @@
 ﻿using System;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
@@ -37,6 +38,12 @@ namespace SolastaCommunityExpansion.Builders.Features
         public static FeatureDefinitionActionAffinityBuilder Create(FeatureDefinitionActionAffinity original, string name, Guid namespaceGuid)
         {
             return new FeatureDefinitionActionAffinityBuilder(original, name, namespaceGuid);
+        }
+
+        public FeatureDefinitionActionAffinityBuilder SetAuthorizedActions(params ActionDefinitions.Id[] actions)
+        {
+            Definition.SetAuthorizedActions(actions);
+            return This();
         }
     }
 }

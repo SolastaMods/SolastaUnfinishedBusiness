@@ -190,5 +190,16 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
             return new FeatureDefinitionAdditionalDamageBuilder(original, name, namespaceGuid);
         }
+
+        public static FeatureDefinitionAdditionalDamageBuilder Create(string name, Guid namespaceGuid)
+        {
+            return new FeatureDefinitionAdditionalDamageBuilder(name, namespaceGuid);
+        }
+
+        public FeatureDefinitionAdditionalDamageBuilder SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty property)
+        {
+            Definition.SetRequiredProperty(property);
+            return This();
+        }
     }
 }
