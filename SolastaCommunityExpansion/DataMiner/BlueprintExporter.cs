@@ -47,7 +47,7 @@ namespace SolastaCommunityExpansion.DataMiner
 
         internal static void ExportBlueprints(
             string exportName,
-            HashSet<BaseDefinition> baseDefinitions, 
+            HashSet<BaseDefinition> baseDefinitions,
             Dictionary<Type, List<BaseDefinition>> baseDefinitionsMap,
             string path,
             bool useSingleFile = false)
@@ -57,7 +57,7 @@ namespace SolastaCommunityExpansion.DataMiner
                 return;
             }
 
-            PercentageComplete = 1/1000f;
+            PercentageComplete = 1 / 1000f;
             ExportName = exportName;
             BaseDefinitions = baseDefinitions;
             BaseDefinitionsMap = baseDefinitionsMap;
@@ -119,11 +119,26 @@ namespace SolastaCommunityExpansion.DataMiner
 
                 EnsureFolderExists($"{Path}/{subfolder}");
 
-                var path = $"{Path}/{subfolder}/{value.Name}.{value.GUID}.json";
+                var filename = $"{value.Name}.{value.GUID}.json";
+                var folder = $"{Path}/{subfolder}";
 
-                using StreamWriter sw = new StreamWriter(path);
-                using JsonWriter writer = new JsonTextWriter(sw);
-                serializer.Serialize(writer, d.Definition);
+                var path = $"{folder}/{filename}";
+                if (folder.Length + filename.Length > 250)
+                {
+                    Main.Log($"Shortened path {path}, to {folder}/{value.GUID}.json");
+                    path = $"{folder}/{value.GUID}.json";
+                }
+
+                try
+                {
+                    using StreamWriter sw = new StreamWriter(path);
+                    using JsonWriter writer = new JsonTextWriter(sw);
+                    serializer.Serialize(writer, d.Definition);
+                }
+                catch (Exception ex)
+                {
+                    Main.Error(ex);
+                }
 
                 PercentageComplete = ((float)d.Index / total);
 
@@ -156,12 +171,17 @@ namespace SolastaCommunityExpansion.DataMiner
 
                 serializer.Serialize(writer, d.Definition);
 
+                if (d.Definition != lastDefinition)
+                {
+                    sw.WriteLine(",");
+                }
+
                 PercentageComplete = ((float)d.Index / total);
 
                 yield return null;
             }
 
-            sw.WriteLine("{}]");
+            sw.WriteLine("]");
 
             PercentageComplete = 0;
             ExportName = "";

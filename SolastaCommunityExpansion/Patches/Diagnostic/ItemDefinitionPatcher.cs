@@ -170,8 +170,8 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         }
     }
 
-    [HarmonyPatch(typeof(ItemDefinition), "FactionRelicDefinition", MethodType.Getter)]
-    internal static class ItemDefinitionPatch_FactionRelicDefinition
+    [HarmonyPatch(typeof(ItemDefinition), "FactionRelicDescription", MethodType.Getter)]
+    internal static class ItemDefinitionPatch_FactionRelicDescription
     {
         public static void Postfix(ItemDefinition __instance, ref FactionRelicDescription __result)
         {
