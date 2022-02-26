@@ -38,7 +38,7 @@ namespace SolastaCommunityExpansion.Viewers
             UI.Label("Welcome to Solasta Community Expansion".yellow().bold());
             UI.Div();
 
-            if (Main.Enabled || Main.Settings.EnableDataMinerStandalone)
+            if (Main.Enabled)
             {
                 var titles = actions.Select((a, i) => i == selectedPane ? a.name.orange().bold() : a.name).ToArray();
 
@@ -88,11 +88,11 @@ namespace SolastaCommunityExpansion.Viewers
 
             using (UI.HorizontalScope())
             {
-                UI.ActionButton(exportTaLabel, () => DiagnosticsContext.ExportOfficialBlueprints(), UI.Width(200));
+                UI.ActionButton(exportTaLabel, () => DiagnosticsContext.ExportTADefinitions(), UI.Width(200));
 
                 if (DiagnosticsContext.HasDiagnosticsFolder)
                 {
-                    UI.ActionButton(exportCeLabel, () => DiagnosticsContext.ExportModBlueprints(), UI.Width(200));
+                    UI.ActionButton(exportCeLabel, () => DiagnosticsContext.ExportCEDefinitions(), UI.Width(200));
                 }
             }
         }

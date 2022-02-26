@@ -39,7 +39,7 @@ namespace SolastaCommunityExpansion.DataMiner
             }
         }
 
-        internal void ExportOfficialBlueprints(HashSet<BaseDefinition> baseDefinitions, Dictionary<Type, List<BaseDefinition>> baseDefinitionsMap)
+        internal void ExportBlueprints(HashSet<BaseDefinition> baseDefinitions, Dictionary<Type, List<BaseDefinition>> baseDefinitionsMap)
         {
             if (Coroutine != null)
             {
@@ -134,7 +134,7 @@ namespace SolastaCommunityExpansion.DataMiner
             }
         }
 
-        internal void ExportModBlueprints(IEnumerable<BaseDefinition> definitions, string path)
+        internal void ExportBlueprints(IEnumerable<BaseDefinition> definitions, string path)
         {
             if (Coroutine != null)
             {

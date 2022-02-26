@@ -204,19 +204,19 @@ namespace SolastaCommunityExpansion.Models
         }
 
 
-        internal static void ExportOfficialBlueprints()
+        internal static void ExportTADefinitions()
         {
             if (TABaseDefinitionsMap == null || TABaseDefinitions == null)
             {
                 return;
             }
 
-            OfficialBlueprintExporter.Shared.ExportOfficialBlueprints(TABaseDefinitions, TABaseDefinitionsMap);
+            OfficialBlueprintExporter.Shared.ExportBlueprints(TABaseDefinitions, TABaseDefinitionsMap);
         }
 
-        internal static void ExportModBlueprints()
+        internal static void ExportCEDefinitions()
         {
-            if (CEBaseDefinitions == null || CEBaseDefinitionsMap == null)
+            if (!HasDiagnosticsFolder || CEBaseDefinitions == null)
             {
                 return;
             }
@@ -224,7 +224,7 @@ namespace SolastaCommunityExpansion.Models
             var definitions = CEBaseDefinitions.OrderBy(d => d.Name).ThenBy(d => d.GetType().Name);
             var path = Path.Combine(DiagnosticsOutputFolder, "CE-Definitions.json");
 
-            ModBlueprintExporter.Shared.ExportModBlueprints(definitions, path);
+            ModBlueprintExporter.Shared.ExportBlueprints(definitions, path);
         }
 
         internal static List<string> KnownDuplicateDefinitionNames { get; } = new()
