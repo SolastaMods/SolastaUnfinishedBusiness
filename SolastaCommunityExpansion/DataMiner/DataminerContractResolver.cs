@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using SolastaCommunityExpansion.DataMiner;
 using System;
 using System.Collections.Generic;
 using System.Linq;
