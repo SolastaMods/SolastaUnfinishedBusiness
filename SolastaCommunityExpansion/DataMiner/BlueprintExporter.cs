@@ -80,12 +80,15 @@ namespace SolastaCommunityExpansion.DataMiner
                 }
             }
 
-            var serializer = JsonSerializer.Create(JsonUtil.CreateSettings(PreserveReferencesHandling.Objects));
             var total = BaseDefinitions.Count;
 
             // Blueprints/definitions
             foreach (var d in BaseDefinitions.Select((d, i) => new { Definition = d, Index = i }))
             {
+                // Don't put this outside the loop or it caches objects already serialized and then outputs a reference instead 
+                // of the whole object.
+                var serializer = JsonSerializer.Create(JsonUtil.CreateSettings(PreserveReferencesHandling.Objects));
+
                 var dbType = d.Definition.GetType();
                 var value = d.Definition;
                 var subfolder = value.GetType().Name;
@@ -163,8 +166,12 @@ namespace SolastaCommunityExpansion.DataMiner
 
             foreach (var d in Definitions.Select((d, i) => new { Definition = d, Index = i }))
             {
+                // Don't put this outside the loop or it caches objects already serialized and then outputs a reference instead 
+                // of the whole object.
                 JsonSerializer serializer = JsonSerializer.Create(JsonUtil.CreateSettings(PreserveReferencesHandling.None));
+
                 serializer.Serialize(writer, d.Definition);
+                
                 if (d.Definition != lastDefinition)
                 {
                     sw.WriteLine(",");
