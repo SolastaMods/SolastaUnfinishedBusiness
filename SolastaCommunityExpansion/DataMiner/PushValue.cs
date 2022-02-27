@@ -1,10 +1,11 @@
 ﻿using System;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.DataMiner
 {
-    public struct PushValue<T> : IDisposable
+    public class PushValue<T> : Disposable
     {
-        private readonly Action<T> setValue;
+        private Action<T> setValue;
         private readonly T oldValue;
 
         public PushValue(T value, Func<T> getValue, Action<T> setValue)
@@ -17,10 +18,10 @@ namespace SolastaCommunityExpansion.DataMiner
 
         #region IDisposable Members
 
-        // By using a disposable struct we avoid the overhead of allocating and freeing an instance of a finalizable class.
-        public void Dispose()
+        protected override void Dispose(bool disposing)
         {
             setValue?.Invoke(oldValue);
+            setValue = null;
         }
 
         #endregion

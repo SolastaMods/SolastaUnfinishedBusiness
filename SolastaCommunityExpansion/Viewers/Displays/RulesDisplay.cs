@@ -169,7 +169,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.MakeAllMagicStaveArcaneFoci;
-                if (UI.Toggle("Make all magic staves arcane foci " + "[except for ".italic().yellow() + "Staff of Healing".italic().orange() + " which is Universal]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Make all magic staves arcane foci " + "[except for ".italic().yellow() + "Staff of Healing".italic().orange() + " which is Universal] ".italic().yellow() + RequiresRestart, ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.MakeAllMagicStaveArcaneFoci = toggle;
                     ItemOptionsContext.SwitchMagicStaffFoci();
