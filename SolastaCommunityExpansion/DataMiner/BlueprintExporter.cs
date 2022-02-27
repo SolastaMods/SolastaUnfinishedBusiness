@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.DataMiner
 {
     internal class BlueprintExporter : MonoBehaviour
     {
-        private const int MAX_PATH_LENGTH = 260;
+        private const int MAX_PATH_LENGTH = 250;
 
         private static BlueprintExporter exporter;
 
@@ -81,6 +81,9 @@ namespace SolastaCommunityExpansion.DataMiner
             Dictionary<Type, BaseDefinition[]> baseDefinitionsMap,
             string path)
         {
+            var start = DateTime.UtcNow;
+            Main.Log($"Export started: {DateTime.UtcNow}");
+
             yield return null;
 
             EnsureFolderExists(path);
@@ -117,11 +120,20 @@ namespace SolastaCommunityExpansion.DataMiner
             // Blueprints/definitions
             for (var i = 0; i < total; i++)
             {
+                var definition = baseDefinitions[i];
+
+                if (definition is NarrativeTreeDefinition || definition is SoundbanksDefinition)
+                {
+                    // Very large and not very useful definitions.  NarrativeTreeDefinition causes crash with PreserveReferencesHandling.None
+                    // TODO: skip other large definitions?
+                    continue;
+                }
+
                 // Don't put this outside the loop or it caches objects already serialized and then outputs a reference instead 
                 // of the whole object.
                 var serializer = JsonSerializer.Create(JsonUtil.CreateSettings(PreserveReferencesHandling.Objects));
 
-                var definition = baseDefinitions[i];
+
                 var dbType = definition.GetType();
                 var subfolder = definition.GetType().Name;
 
@@ -132,7 +144,7 @@ namespace SolastaCommunityExpansion.DataMiner
 
                 EnsureFolderExists($"{path}/{subfolder}");
 
-                var filename = $"{definition.Name}.{definition.GUID}.json";
+                var filename = $"{definition.Name}.json";
                 var folder = $"{path}/{subfolder}";
                 var fullFilename = $"{folder}/{filename}";
 
@@ -159,6 +171,8 @@ namespace SolastaCommunityExpansion.DataMiner
             }
 
             CurrentExports[exportId].percentageComplete = 0f;
+
+            Main.Log($"Export finished: {DateTime.UtcNow}, {DateTime.UtcNow - start}.");
         }
     }
 }
