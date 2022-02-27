@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
             var featureSet = FeatureDefinitionFeatureSetBuilder
                 .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHumanLanguages, $"FeatureSet{color}WitchMagic", namespaceGuid)
                 .SetGuiPresentation($"{color}WitchMagic", Category.Subclass)
-                .SetFeatures(preparedSpells)
+                .SetFeatureSet(preparedSpells)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 .SetUniqueChoices(true)
                 .AddToDB();

@@ -208,14 +208,13 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var witchRitualCastingMagicAffinity = FeatureDefinitionMagicAffinityBuilder
                 .Create("WitchRitualCastingMagicAffinity", WITCH_BASE_GUID)
                 .SetGuiPresentation(Category.Class)
-                .SetRitualCasting((RuleDefinitions.RitualCasting)ExtraRitualCasting.Known)
+                .SetRitualCasting((RitualCasting)ExtraRitualCasting.Known)
                 .AddToDB();
 
             FeatureDefinitionFeatureSetRitualCasting = FeatureDefinitionFeatureSetBuilder
                 .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetRitualCasting", WITCH_BASE_GUID)
                 .SetGuiPresentation(Category.Class)
-                .SetFeatures(witchRitualCastingMagicAffinity)
-                .AddFeature(FeatureDefinitionActionAffinitys.ActionAffinityWizardRitualCasting)
+                .SetFeatureSet(witchRitualCastingMagicAffinity, FeatureDefinitionActionAffinitys.ActionAffinityWizardRitualCasting)
                 .AddToDB();
         }
 
@@ -252,7 +251,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var burnedCurse = FeatureDefinitionFeatureSetBuilder
                 .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetBurnedCurse", WITCH_BASE_GUID)
                 .SetGuiPresentation(Category.Class)
-                .SetFeatures(burnedFireRes, burnedProduceFlame)
+                .SetFeatureSet(burnedFireRes, burnedProduceFlame)
                 .AddToDB();
 
             var lovelessCharmImmunity = FeatureDefinitionConditionAffinityBuilder
@@ -263,7 +262,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var lovelessCurse = FeatureDefinitionFeatureSetBuilder
                 .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetLovelessCurse", WITCH_BASE_GUID)
                 .SetGuiPresentation(Category.Class)
-                .SetFeatures(lovelessCharmImmunity)
+                .SetFeatureSet(lovelessCharmImmunity)
                 .AddToDB();
 
             // NOTE: I have no idea how to apply a Charisma bonus, so setting the initiative bonus to 3. It seems like only the "Additive" operation works
@@ -277,7 +276,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
             var visionsCurse = FeatureDefinitionFeatureSetBuilder
                 .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetVisionsCurse", WITCH_BASE_GUID)
                 .SetGuiPresentation(Category.Class)
-                .SetFeatures(visionsInitiative)
+                .SetFeatureSet(visionsInitiative)
                 .AddToDB();
 
             FeatureDefinitionFeatureSetWitchCurses = FeatureDefinitionFeatureSetBuilder
@@ -285,7 +284,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetGuiPresentation(Category.Class)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
                 .SetUniqueChoices(true)
-                .SetFeatures(burnedCurse, lovelessCurse, visionsCurse)
+                .SetFeatureSet(burnedCurse, lovelessCurse, visionsCurse)
                 .AddToDB();
         }
 
@@ -640,7 +639,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetGuiPresentation(Category.Class)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
                 .SetUniqueChoices(true)
-                .SetFeatures(abate, apathy, charm, disorient, evileye, obfuscate, pox, ruin)
+                .SetFeatureSet(abate, apathy, charm, disorient, evileye, obfuscate, pox, ruin)
                 .AddToDB();
         }
 
@@ -871,7 +870,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 FeatureDefinitionFeatureSetWitchFamiliar = FeatureDefinitionFeatureSetBuilder
                     .Create(FeatureDefinitionFeatureSets.FeatureSetHumanLanguages, "FeatureSetWitchFamiliar", WITCH_BASE_GUID)
                     .SetGuiPresentation("WitchFamiliarPower", Category.Class)
-                    .SetFeatures(preparedSpells, summoningAffinity)
+                    .SetFeatureSet(preparedSpells, summoningAffinity)
                     .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                     .SetUniqueChoices(true)
                     .AddToDB();

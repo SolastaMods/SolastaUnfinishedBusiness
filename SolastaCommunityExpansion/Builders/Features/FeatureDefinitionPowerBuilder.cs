@@ -127,6 +127,13 @@ namespace SolastaCommunityExpansion.Builders.Features
             return This();
         }
 
+        // TODO: combine with above with default?
+        public TBuilder SetActivationTime(RuleDefinitions.ActivationTime value)
+        {
+            Definition.SetActivationTime(value);
+            return This();
+        }
+
         public TBuilder SetReaction(RuleDefinitions.ReactionTriggerContext context, string name)
         {
             Definition.SetReactionContext(context);
@@ -158,7 +165,7 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetRechargeRate(rate);
             return This();
         }
-
+        
         public TBuilder SetSpellCastingFeature(FeatureDefinitionCastSpell spellFeature)
         {
             Definition.SetSpellcastingFeature(spellFeature);

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using JetBrains.Annotations;
 
 namespace SolastaModApi.Infrastructure
@@ -32,6 +33,26 @@ namespace SolastaModApi.Infrastructure
             if (string.IsNullOrWhiteSpace(paramValue))
             {
                 throw new ArgumentException("The parameter must not be null or whitespace.", paramName);
+            }
+        }
+
+        [Conditional("DEBUG")]
+        [AssertionMethod]
+        public static void IsValidDuration(RuleDefinitions.DurationType type, int duration)
+        {
+            if (RuleDefinitions.IsVariableDuration(type))
+            {
+                if (duration == 0)
+                {
+                    throw new ArgumentException($"A duration value is required for duration type {type}.", nameof(duration));
+                }
+            }
+            else
+            {
+                if (duration != 0)
+                {
+                    throw new ArgumentException($"Duration={duration}. A duration value is not expected for duration type {type}.", nameof(duration));
+                }
             }
         }
     }

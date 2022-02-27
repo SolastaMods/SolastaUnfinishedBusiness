@@ -160,6 +160,17 @@ namespace SolastaCommunityExpansion.Builders
                 hidden ? GuiPresentationBuilder.NoContentHidden : GuiPresentationBuilder.NoContent);
             return builder;
         }
+
+        /// <summary>
+        /// Create a GuiPresentation with Title=Feature/&amp;NoContentTitle, Description=Feature/&amp;NoContentDescription and sprite.
+        /// </summary>
+        public static TBuilder SetGuiPresentationNoContent<TBuilder>(this TBuilder builder, AssetReferenceSprite sprite)
+            where TBuilder : IDefinitionBuilder
+        {
+            ((IDefinitionBuilder)builder).SetGuiPresentation(
+                GuiPresentationBuilder.Build(GuiPresentationBuilder.NoContentTitle, GuiPresentationBuilder.NoContentTitle, sprite));
+            return builder;
+        }
     }
 
     internal static class BaseDefinitionGuiPresentationExtensions

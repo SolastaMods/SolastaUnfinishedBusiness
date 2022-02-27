@@ -88,22 +88,14 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             ConditionDefinition deflectionCondition = ConditionDefinitionBuilder
                 .Create("ConditionSpellShieldArcaneDeflection", SubclassNamespace)
                 .SetGuiPresentation(Category.Subclass)
-                .Configure(definition =>
-                {
-                    var attributeModifier = FeatureDefinitionAttributeModifierBuilder
-                        .Create("AttributeSpellShieldArcaneDeflection", SubclassNamespace)
-                        .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 3)
-                        .SetGuiPresentation("ConditionSpellShieldArcaneDeflection", Category.Subclass, ConditionShielded.GuiPresentation.SpriteReference)
-                        .AddToDB();
-
-                    definition.Features.Add(attributeModifier);
-
-                    definition
-                        .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
-                        .SetAllowMultipleInstances(false)
-                        .SetDurationType(RuleDefinitions.DurationType.Round)
-                        .SetDurationParameter(1);
-                })
+                .AddFeatures(FeatureDefinitionAttributeModifierBuilder
+                    .Create("AttributeSpellShieldArcaneDeflection", SubclassNamespace)
+                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 3)
+                    .SetGuiPresentation("ConditionSpellShieldArcaneDeflection", Category.Subclass, ConditionShielded.GuiPresentation.SpriteReference)
+                    .AddToDB())
+                .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
+                .SetAllowMultipleInstances(false)
+                .SetDuration(RuleDefinitions.DurationType.Round, 1)
                 .AddToDB();
 
             arcaneDeflection.AddEffectForm(new EffectFormBuilder().CreatedByCharacter().SetConditionForm(deflectionCondition, ConditionForm.ConditionOperation.Add,
