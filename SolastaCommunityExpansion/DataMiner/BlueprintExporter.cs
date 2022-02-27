@@ -12,14 +12,6 @@ namespace SolastaCommunityExpansion.DataMiner
     {
         private const int MAX_PATH_LENGTH = 260;
 
-        private struct ExportStatus
-        {
-            internal Coroutine coroutine;
-            internal float percentageComplete;
-        }
-
-        private static readonly ExportStatus[] CurrentExports = new ExportStatus[2];
-
         private static BlueprintExporter exporter;
 
         private static BlueprintExporter Exporter
@@ -36,17 +28,20 @@ namespace SolastaCommunityExpansion.DataMiner
             }
         }
 
+        internal struct ExportStatus
+        {
+            internal Coroutine coroutine;
+            internal float percentageComplete;
+        }
+
+        internal static readonly ExportStatus[] CurrentExports = new ExportStatus[2];
+
         private static void EnsureFolderExists(string path)
         {
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
-        }
-
-        internal static float PercentageComplete(int exportId)
-        {
-            return CurrentExports[exportId].percentageComplete;
         }
 
         internal static void Cancel(int exportId)
@@ -121,7 +116,6 @@ namespace SolastaCommunityExpansion.DataMiner
 
             // Blueprints/definitions
             for (var i = 0; i < total; i++)
-            //foreach (var d in baseDefinitions.Select((d, i) => new { Definition = d, Index = i }))
             {
                 // Don't put this outside the loop or it caches objects already serialized and then outputs a reference instead 
                 // of the whole object.
