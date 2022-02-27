@@ -119,7 +119,7 @@ namespace SolastaCommunityExpansion.Models
                 "Equipment/&ArcaneStaffTitle",
                 "Equipment/&ArcaneStaffDescription",
                 Quarterstaff,
-                EquipmentDefinitions.FocusType.Druidic,
+                EquipmentDefinitions.FocusType.Arcane,
                 QuarterstaffPlus1.GuiPresentation.SpriteReference);
 
             internal static readonly ItemDefinition DruidicAmulet = CreateAndAddToDB(
