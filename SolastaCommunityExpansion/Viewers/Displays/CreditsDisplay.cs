@@ -28,9 +28,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
         internal static void DisplayCredits()
         {
-            UI.Div();
-            UI.Label("");
-            UI.Label("Credits:".yellow());
             UI.Label("");
 
             foreach (var kvp in CreditsTable)
