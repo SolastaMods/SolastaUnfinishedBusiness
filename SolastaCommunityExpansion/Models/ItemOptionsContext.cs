@@ -309,19 +309,14 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void SwitchMagicStaffFoci()
         {
-            // TODO: double check required behaviour.  These changes apparently result in 3 less items having Arcane focus.
-
             foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>()
                 .Where(x => x.IsWeapon) // WeaponDescription could be null
                 .Where(x => x.WeaponDescription.WeaponType == EquipmentDefinitions.WeaponTypeQuarterstaff)
                 .Where(x => x.Magical && !x.Name.Contains("OfHealing")))
             {
-                // If the setting is false is the intention to remove all Foci, which is what
-                // would happen previously?
                 if (Main.Settings.MakeAllMagicStaveArcaneFoci)
                 {
                     item.IsFocusItem = true;
-
                     item.FocusItemDescription.SetFocusType(EquipmentDefinitions.FocusType.Arcane);
                 }
             }
