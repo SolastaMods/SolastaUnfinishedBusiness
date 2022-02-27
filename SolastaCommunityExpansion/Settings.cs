@@ -270,7 +270,6 @@ namespace SolastaCommunityExpansion
 
         // Spells
         public int MaxSpellLevelsPerLine { get; set; } = 5;
-        public float SpellPanelGapBetweenLines { get; set; } = 30f;
 
         //
         // Interface - Hotkeys
