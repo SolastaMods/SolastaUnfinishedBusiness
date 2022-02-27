@@ -23,8 +23,8 @@ namespace SolastaCommunityExpansion.Viewers
         private static readonly NamedAction[] actions =
         {
             new NamedAction("Credits", DisplayCredits),
-            new NamedAction("Blueprints", DisplayBlueprints),
             new NamedAction("Diagnostics", DisplayDiagnostics),
+            new NamedAction("Blueprints", DisplayBlueprints),
             new NamedAction("Services", DisplayGameServices),
         };
 

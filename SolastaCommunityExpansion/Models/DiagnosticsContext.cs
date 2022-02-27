@@ -12,7 +12,6 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class DiagnosticsContext
     {
-        private const string GAME_FOLDER = ".\\";
         private const string OFFICIAL_BP_FOLDER = "OfficialBlueprints";
         private const string COMMUNITY_EXPANSION_BP_FOLDER = "CommunityExpansionBlueprints";
 
@@ -21,9 +20,9 @@ namespace SolastaCommunityExpansion.Models
         private static BaseDefinition[] CEBaseDefinitions;
         private static Dictionary<Type, BaseDefinition[]> CEBaseDefinitionsMap;
 
+        internal const string GAME_FOLDER = ".\\";
         internal const int TA = 0;
         internal const int CE = 1;
-
         internal const string DiagnosticsEnvironmentVariable = "SolastaCEDiagnosticsDir";
 
         internal static string DiagnosticsOutputFolder { get; } = GetDiagnosticsFolder();
@@ -111,25 +110,25 @@ namespace SolastaCommunityExpansion.Models
                 return;
             }
 
-            var path = Path.Combine(HasDiagnosticsFolder ? DiagnosticsOutputFolder : ".\\");
+            var path = Path.Combine(HasDiagnosticsFolder ? DiagnosticsOutputFolder : GAME_FOLDER);
             var definitions = baseDefinitions.OrderBy(x => x.Name).ThenBy(x => x.GetType().Name).ToList();
 
             EnsureFolderExists(path);
 
             /////////////////////////////////////////////////////////////////////////////////////////////////
-            // Write all TA definitions name/guid to file (txt)
+            // Write all definitions name/guid to file (txt)
             File.WriteAllLines(Path.Combine(path, $"{baseFilename}.txt"),
                 definitions.Select(d => $"{d.Name}, {d.GUID}"));
 
             /////////////////////////////////////////////////////////////////////////////////////////////////
-            // Write all TA definitions with no GUI presentation to file
+            // Write all definitions with no GUI presentation to file
             File.WriteAllLines(Path.Combine(path, $"{baseFilename}-GuiPresentation-MissingValue.txt"),
                 definitions
                     .Where(d => string.IsNullOrWhiteSpace(d.GuiPresentation?.Title) || string.IsNullOrWhiteSpace(d.GuiPresentation?.Description))
                     .Select(d => $"{d.Name}:\tTitle='{d.GuiPresentation?.Title ?? string.Empty}', Desc='{d.GuiPresentation?.Description ?? string.Empty}'"));
 
             /////////////////////////////////////////////////////////////////////////////////////////////////
-            // Write all TA definitions with GUI presentation but missing translation to file
+            // Write all definitions with GUI presentation but missing translation to file
             var languageSourceData = LocalizationManager.Sources[0];
             var currentLanguage = LocalizationManager.CurrentLanguageCode;
             var languageIndex = languageSourceData.GetLanguageIndexFromCode(currentLanguage);

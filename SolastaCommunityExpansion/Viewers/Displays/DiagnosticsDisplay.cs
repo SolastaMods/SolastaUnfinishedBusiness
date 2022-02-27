@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.IO;
 using System.Text;
 using ModKit;
 using SolastaCommunityExpansion.DataMiner;
@@ -105,7 +106,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         [Conditional("DEBUG")]
         internal static void DisplayDumpDescription()
         {
-            UI.ActionButton("Dump Description to Logs", () =>
+            UI.ActionButton("Dump Nexus Description", () =>
             {
                 var collectedString = new StringBuilder();
                 collectedString.Append("[heading][size=5] [b] [i] Solasta Community Expansion[/i][/b][/size][/heading]");
@@ -287,7 +288,11 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 collectedString.Append("\n[*]Wizard Spell Master");
                 collectedString.Append("\n[/list]");
                 // items
-                Main.Error(collectedString.ToString());
+
+                // NexusDescription.txt
+                var path = Path.Combine(DiagnosticsContext.HasDiagnosticsFolder ? DiagnosticsContext.DiagnosticsOutputFolder : DiagnosticsContext.GAME_FOLDER);
+                using var sw = new StreamWriter($"{path}/NexusDescription.txt");
+                sw.WriteLine(collectedString);
             },
             UI.Width(200));
         }
