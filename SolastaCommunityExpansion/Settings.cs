@@ -25,8 +25,14 @@ namespace SolastaCommunityExpansion
         // TODO: skip other large definitions?
         public string[] ExcludeFromExport = new string[]
         {
+            "AdventureLogDefinition",
+            "ConsoleTableDefinition",
+            "DocumentTableDefinition",
             "NarrativeTreeDefinition", // NarrativeTreeDefinition causes crash with PreserveReferencesHandling.None
             "SoundbanksDefinition",
+            "TravelJournalDefinition",
+            "TutorialTableDefinition",
+            "QuestTreeDefinition",
         };
 
         //

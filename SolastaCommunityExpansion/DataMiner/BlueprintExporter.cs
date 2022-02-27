@@ -121,50 +121,39 @@ namespace SolastaCommunityExpansion.DataMiner
             for (var i = 0; i < total; i++)
             {
                 var definition = baseDefinitions[i];
-                var dbType = definition.GetType();
-
-                if (Array.IndexOf(Main.Settings.ExcludeFromExport, dbType) > 0)
-                {
-                    continue;
-                }
-
-                // Don't put this outside the loop or it caches objects already serialized and then outputs a reference instead 
-                // of the whole object.
-                var serializer = JsonSerializer.Create(JsonUtil.CreateSettings(PreserveReferencesHandling.Objects));
-
-
-
                 var subfolder = definition.GetType().Name;
 
-                if (definition.GetType() != dbType)
+                if (Array.IndexOf(Main.Settings.ExcludeFromExport, subfolder) < 0)
                 {
-                    subfolder = $"{dbType.FullName}/{subfolder}";
+                    // Don't put this outside the loop or it caches objects already serialized and then outputs a reference instead 
+                    // of the whole object.
+                    var serializer = JsonSerializer.Create(JsonUtil.CreateSettings(PreserveReferencesHandling.Objects));
+
+                    EnsureFolderExists($"{path}/{subfolder}");
+
+                    var filename = $"{definition.Name}.json";
+                    var folder = $"{path}/{subfolder}";
+                    var fullFilename = $"{folder}/{filename}";
+
+                    if (fullFilename.Length > MAX_PATH_LENGTH)
+                    {
+                        Main.Log($"Shortened path {fullFilename}, to {folder}/{definition.GUID}.json");
+                        fullFilename = $"{folder}/{definition.GUID}.json";
+                    }
+
+                    try
+                    {
+                        using StreamWriter sw = new StreamWriter(fullFilename);
+                        using JsonWriter writer = new JsonTextWriter(sw);
+                        serializer.Serialize(writer, definition);
+                    }
+                    catch (Exception ex)
+                    {
+                        Main.Error(ex);
+                    }
+
+                    CurrentExports[exportId].percentageComplete = (float)i / total;
                 }
-
-                EnsureFolderExists($"{path}/{subfolder}");
-
-                var filename = $"{definition.Name}.json";
-                var folder = $"{path}/{subfolder}";
-                var fullFilename = $"{folder}/{filename}";
-
-                if (fullFilename.Length > MAX_PATH_LENGTH)
-                {
-                    Main.Log($"Shortened path {fullFilename}, to {folder}/{definition.GUID}.json");
-                    fullFilename = $"{folder}/{definition.GUID}.json";
-                }
-
-                try
-                {
-                    using StreamWriter sw = new StreamWriter(fullFilename);
-                    using JsonWriter writer = new JsonTextWriter(sw);
-                    serializer.Serialize(writer, definition);
-                }
-                catch (Exception ex)
-                {
-                    Main.Error(ex);
-                }
-
-                CurrentExports[exportId].percentageComplete = (float)i / total;
 
                 yield return null;
             }
