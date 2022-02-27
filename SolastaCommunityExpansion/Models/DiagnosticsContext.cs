@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class DiagnosticsContext
     {
-        const string GAME_FOLDER = ".\\";
+        private const string GAME_FOLDER = ".\\";
         private const string OFFICIAL_BP_FOLDER = "OfficialBlueprints";
         private const string COMMUNITY_EXPANSION_BP_FOLDER = "CommunityExpansionBlueprints";
 

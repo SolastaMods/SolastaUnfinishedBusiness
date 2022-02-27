@@ -37,18 +37,57 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
+            string exportTaLabel;
+            string exportCeLabel;
+            float percentageCompleteTa = BlueprintExporter.PercentageComplete("TA");
+            float percentageCompleteCe = BlueprintExporter.PercentageComplete("CE");
+
+            if (percentageCompleteTa == 0)
+            {
+                exportTaLabel = "Export TA blueprints";
+            }
+            else
+            {
+                exportTaLabel = "Cancel TA export at " + $"{percentageCompleteTa:00.00%}".bold().yellow();
+            }
+
+            if (percentageCompleteCe == 0)
+            {
+                exportCeLabel = "Export CE blueprints";
+            }
+            else
+            {
+                exportCeLabel = "Cancel CE export at " + $"{percentageCompleteCe:00.00%}".bold().yellow();
+            }
+
             using (UI.HorizontalScope())
             {
-                UI.ActionButton("Export TA blueprints", () => DiagnosticsContext.ExportTADefinitions(), UI.Width(200));
-                UI.ActionButton("Export CE blueprints", () => DiagnosticsContext.ExportCEDefinitions(), UI.Width(200));
-
-                if (BlueprintExporter.PercentageComplete > 0)
+                UI.ActionButton(exportTaLabel, () =>
                 {
-                    UI.ActionButton($"Cancel {BlueprintExporter.ExportName} export at " + $"{BlueprintExporter.PercentageComplete:00.00%}".yellow().bold(), () => BlueprintExporter.Cancel(), UI.Width(200));
-                }
-            }
-#if DEBUG
+                    if (percentageCompleteTa == 0)
+                    {
+                        DiagnosticsContext.ExportTADefinitions();
+                    }
+                    else
+                    {
+                        BlueprintExporter.Cancel("TA");
+                    }
+                }, UI.Width(200));
 
+                UI.ActionButton(exportCeLabel, () =>
+                {
+                    if (percentageCompleteCe == 0)
+                    {
+                        DiagnosticsContext.ExportCEDefinitions();
+                    }
+                    else
+                    {
+                        BlueprintExporter.Cancel("CE");
+                    }
+                }, UI.Width(200));
+            }
+
+#if DEBUG
             using (UI.HorizontalScope())
             {
                 UI.ActionButton("Create TA diagnostics", () => DiagnosticsContext.CreateTADefinitionDiagnostics(), UI.Width(200));

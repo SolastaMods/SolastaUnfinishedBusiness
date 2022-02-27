@@ -12,18 +12,15 @@ namespace SolastaCommunityExpansion.DataMiner
     {
         private const int MAX_PATH_LENGTH = 260;
 
-        // private const string BlueprintFolder = "SolastaBlueprints";
+        private class ExportStatus
+        {
+            internal Coroutine coroutine;
+            internal float percentageComplete;
+        }
+
+        private static readonly Dictionary<string, ExportStatus> CurrentExports = new();
+
         private static BlueprintExporter Exporter;
-
-        internal static string ExportName { get; private set; }
-
-        internal static HashSet<BaseDefinition> BaseDefinitions { get; private set; }
-
-        internal static Dictionary<Type, List<BaseDefinition>> BaseDefinitionsMap { get; private set; }
-
-        internal static string Path { get; private set; }
-
-        internal static float PercentageComplete { get; private set; }
 
         private static BlueprintExporter Singleton
         {
@@ -47,15 +44,25 @@ namespace SolastaCommunityExpansion.DataMiner
             }
         }
 
-        internal static void Cancel()
+        internal static float PercentageComplete(string exportName)
         {
-            if (PercentageComplete == 0)
+            if (CurrentExports.ContainsKey(exportName))
+            {
+                return CurrentExports[exportName].percentageComplete;
+            }
+
+            return 0f;
+        }
+
+        internal static void Cancel(string exportName)
+        {
+            if (!CurrentExports.ContainsKey(exportName))
             {
                 return;
             }
 
-            Singleton.StopAllCoroutines();
-            PercentageComplete = 0;
+            Singleton.StopCoroutine(CurrentExports[exportName].coroutine);
+            CurrentExports.Remove(exportName);
         }
 
         internal static void ExportBlueprints(
@@ -64,39 +71,52 @@ namespace SolastaCommunityExpansion.DataMiner
             Dictionary<Type, List<BaseDefinition>> baseDefinitionsMap,
             string path)
         {
-            if (baseDefinitionsMap == null || baseDefinitions == null || PercentageComplete > 0)
+            if (baseDefinitionsMap == null || baseDefinitions == null || CurrentExports.ContainsKey(exportName))
             {
                 return;
             }
 
-            PercentageComplete = 1 / 1000f;
-            ExportName = exportName;
-            BaseDefinitions = baseDefinitions;
-            BaseDefinitionsMap = baseDefinitionsMap;
-            Path = path;
-
-            Singleton.StartCoroutine(ExportMany());
+            CurrentExports.Add(
+                exportName,
+                new ExportStatus
+                {
+                    percentageComplete = 0.0001f,
+                    coroutine = Singleton.StartCoroutine(ExportMany(
+                        exportName,
+                        baseDefinitions,
+                        baseDefinitionsMap,
+                        path))
+                }
+            );
         }
 
-        private static IEnumerator ExportMany()
+        private static IEnumerator ExportMany(
+            string exportName,
+            HashSet<BaseDefinition> baseDefinitions,
+            Dictionary<Type, List<BaseDefinition>> baseDefinitionsMap,
+            string path)
         {
-            EnsureFolderExists(Path);
+            yield return null;
+
+            EnsureFolderExists(path);
 
             // Types.txt
-            using (var sw = new StreamWriter($"{Path}/Types.txt"))
+            using (var sw = new StreamWriter($"{path}/Types.txt"))
             {
-                foreach (var type in BaseDefinitions.Select(t => t.GetType()).Distinct().OrderBy(t => t.Name))
+                foreach (var type in baseDefinitions.Select(t => t.GetType()).Distinct().OrderBy(t => t.Name))
                 {
                     sw.WriteLine($"{type.FullName}");
                 }
             }
 
+            yield return null;
+
             // Assets.txt
-            using (var sw = new StreamWriter($"{Path}/Assets.txt"))
+            using (var sw = new StreamWriter($"{path}/Assets.txt"))
             {
                 sw.WriteLine("{0}\t{1}\t{2}\t{3}", "Name", "Type", "DatabaseType", "GUID");
 
-                foreach (var db in BaseDefinitionsMap.OrderBy(db => db.Key.FullName))
+                foreach (var db in baseDefinitionsMap.OrderBy(db => db.Key.FullName))
                 {
                     foreach (var definition in db.Value)
                     {
@@ -105,10 +125,12 @@ namespace SolastaCommunityExpansion.DataMiner
                 }
             }
 
-            var total = BaseDefinitions.Count;
+            yield return null;
+
+            var total = baseDefinitions.Count;
 
             // Blueprints/definitions
-            foreach (var d in BaseDefinitions.Select((d, i) => new { Definition = d, Index = i }))
+            foreach (var d in baseDefinitions.Select((d, i) => new { Definition = d, Index = i }))
             {
                 // Don't put this outside the loop or it caches objects already serialized and then outputs a reference instead 
                 // of the whole object.
@@ -123,21 +145,21 @@ namespace SolastaCommunityExpansion.DataMiner
                     subfolder = $"{dbType.FullName}/{subfolder}";
                 }
 
-                EnsureFolderExists($"{Path}/{subfolder}");
+                EnsureFolderExists($"{path}/{subfolder}");
 
                 var filename = $"{value.Name}.{value.GUID}.json";
-                var folder = $"{Path}/{subfolder}";
-                var path = $"{folder}/{filename}";
+                var folder = $"{path}/{subfolder}";
+                var fullFilename = $"{folder}/{filename}";
 
-                if (path.Length > MAX_PATH_LENGTH)
+                if (fullFilename.Length > MAX_PATH_LENGTH)
                 {
-                    Main.Log($"Shortened path {path}, to {folder}/{value.GUID}.json");
-                    path = $"{folder}/{value.GUID}.json";
+                    Main.Log($"Shortened path {fullFilename}, to {folder}/{value.GUID}.json");
+                    fullFilename = $"{folder}/{value.GUID}.json";
                 }
 
                 try
                 {
-                    using StreamWriter sw = new StreamWriter(path);
+                    using StreamWriter sw = new StreamWriter(fullFilename);
                     using JsonWriter writer = new JsonTextWriter(sw);
                     serializer.Serialize(writer, d.Definition);
                 }
@@ -146,12 +168,12 @@ namespace SolastaCommunityExpansion.DataMiner
                     Main.Error(ex);
                 }
 
-                PercentageComplete = ((float)d.Index / total);
+                CurrentExports[exportName].percentageComplete = (float)d.Index / total;
 
                 yield return null;
             }
 
-            PercentageComplete = 0;
+            CurrentExports.Remove(exportName);
         }
     }
 }
