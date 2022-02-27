@@ -8,28 +8,33 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.DataMiner
 {
-    internal class OfficialBlueprintExporter : MonoBehaviour
+    internal class BlueprintExporter : MonoBehaviour
     {
-        private static HashSet<BaseDefinition> BaseDefinitions;
-        private static Dictionary<Type, List<BaseDefinition>> BaseDefinitionsMap;
-        private IEnumerator Coroutine;
-        private const string BlueprintFolder = "SolastaBlueprints";
-        private static OfficialBlueprintExporter Exporter;
+        private const int MAX_PATH_LENGTH = 250;
 
-        internal float PercentageComplete { get; set; }
+        private static BlueprintExporter exporter;
 
-        internal static OfficialBlueprintExporter Shared
+        private static BlueprintExporter Exporter
         {
             get
             {
-                if (Exporter == null)
+                if (exporter == null)
                 {
-                    Exporter = new GameObject().AddComponent<OfficialBlueprintExporter>();
-                    DontDestroyOnLoad(Exporter.gameObject);
+                    exporter = new GameObject().AddComponent<BlueprintExporter>();
+                    DontDestroyOnLoad(exporter.gameObject);
                 }
-                return Exporter;
+
+                return exporter;
             }
         }
+
+        internal struct ExportStatus
+        {
+            internal Coroutine coroutine;
+            internal float percentageComplete;
+        }
+
+        internal static readonly ExportStatus[] CurrentExports = new ExportStatus[2];
 
         private static void EnsureFolderExists(string path)
         {
@@ -39,39 +44,67 @@ namespace SolastaCommunityExpansion.DataMiner
             }
         }
 
-        internal void ExportBlueprints(HashSet<BaseDefinition> baseDefinitions, Dictionary<Type, List<BaseDefinition>> baseDefinitionsMap)
+        internal static void Cancel(int exportId)
         {
-            if (Coroutine != null)
+            if (CurrentExports[exportId].percentageComplete == 0)
             {
                 return;
             }
 
-            BaseDefinitions = baseDefinitions;
-            BaseDefinitionsMap = baseDefinitionsMap;
-
-            Coroutine = Export();
-            StartCoroutine(Coroutine);
+            Exporter.StopCoroutine(CurrentExports[exportId].coroutine);
+            CurrentExports[exportId].percentageComplete = 0f;
         }
 
-        internal IEnumerator Export()
+        internal static void ExportBlueprints(
+            int exportId,
+            BaseDefinition[] baseDefinitions,
+            Dictionary<Type, BaseDefinition[]> baseDefinitionsMap,
+            string path)
         {
-            EnsureFolderExists(BlueprintFolder);
+            if (baseDefinitionsMap == null || baseDefinitions == null || CurrentExports[exportId].percentageComplete > 0)
+            {
+                return;
+            }
+
+            CurrentExports[exportId].percentageComplete = 0.001f;
+            CurrentExports[exportId].coroutine = Exporter.StartCoroutine(
+                ExportMany(
+                    exportId,
+                    baseDefinitions,
+                    baseDefinitionsMap,
+                    path));
+        }
+
+        private static IEnumerator ExportMany(
+            int exportId,
+            BaseDefinition[] baseDefinitions,
+            Dictionary<Type, BaseDefinition[]> baseDefinitionsMap,
+            string path)
+        {
+            var start = DateTime.UtcNow;
+            Main.Log($"Export started: {DateTime.UtcNow}");
+
+            yield return null;
+
+            EnsureFolderExists(path);
 
             // Types.txt
-            using (var sw = new StreamWriter($"{BlueprintFolder}/Types.txt"))
+            using (var sw = new StreamWriter($"{path}/Types.txt"))
             {
-                foreach (var type in BaseDefinitions.Select(t => t.GetType()).Distinct().OrderBy(t => t.Name))
+                foreach (var type in baseDefinitions.Select(t => t.GetType()).Distinct().OrderBy(t => t.Name))
                 {
                     sw.WriteLine($"{type.FullName}");
                 }
             }
 
+            yield return null;
+
             // Assets.txt
-            using (var sw = new StreamWriter($"{BlueprintFolder}/Assets.txt"))
+            using (var sw = new StreamWriter($"{path}/Assets.txt"))
             {
                 sw.WriteLine("{0}\t{1}\t{2}\t{3}", "Name", "Type", "DatabaseType", "GUID");
 
-                foreach (var db in BaseDefinitionsMap.OrderBy(db => db.Key.FullName))
+                foreach (var db in baseDefinitionsMap.OrderBy(db => db.Key.FullName))
                 {
                     foreach (var definition in db.Value)
                     {
@@ -80,105 +113,65 @@ namespace SolastaCommunityExpansion.DataMiner
                 }
             }
 
-            var serializer = JsonSerializer.Create(JsonUtil.CreateSettings(PreserveReferencesHandling.Objects));
-            var total = BaseDefinitions.Count;
+            yield return null;
+
+            var total = baseDefinitions.Length;
 
             // Blueprints/definitions
-            foreach (var d in BaseDefinitions.Select((d, i) => new { Definition = d, Index = i }))
+            for (var i = 0; i < total; i++)
             {
-                var dbType = d.Definition.GetType();
-                var value = d.Definition;
-                var subfolder = value.GetType().Name;
-                if (value.GetType() != dbType)
+                var definition = baseDefinitions[i];
+                var dbType = definition.GetType();
+
+                if (Array.IndexOf(Main.Settings.ExcludeFromExport, dbType) > 0)
+                {
+                    continue;
+                }
+
+                // Don't put this outside the loop or it caches objects already serialized and then outputs a reference instead 
+                // of the whole object.
+                var serializer = JsonSerializer.Create(JsonUtil.CreateSettings(PreserveReferencesHandling.Objects));
+
+
+
+                var subfolder = definition.GetType().Name;
+
+                if (definition.GetType() != dbType)
                 {
                     subfolder = $"{dbType.FullName}/{subfolder}";
                 }
 
-                EnsureFolderExists($"{BlueprintFolder}/{subfolder}");
+                EnsureFolderExists($"{path}/{subfolder}");
 
-                var path = $"{BlueprintFolder}/{subfolder}/{value.Name}.{value.GUID}.json";
+                var filename = $"{definition.Name}.json";
+                var folder = $"{path}/{subfolder}";
+                var fullFilename = $"{folder}/{filename}";
 
-                using StreamWriter sw = new StreamWriter(path);
-                using JsonWriter writer = new JsonTextWriter(sw);
-                serializer.Serialize(writer, d.Definition);
+                if (fullFilename.Length > MAX_PATH_LENGTH)
+                {
+                    Main.Log($"Shortened path {fullFilename}, to {folder}/{definition.GUID}.json");
+                    fullFilename = $"{folder}/{definition.GUID}.json";
+                }
 
-                PercentageComplete = ((float)d.Index / total);
+                try
+                {
+                    using StreamWriter sw = new StreamWriter(fullFilename);
+                    using JsonWriter writer = new JsonTextWriter(sw);
+                    serializer.Serialize(writer, definition);
+                }
+                catch (Exception ex)
+                {
+                    Main.Error(ex);
+                }
+
+                CurrentExports[exportId].percentageComplete = (float)i / total;
 
                 yield return null;
             }
 
-            Coroutine = null;
-            PercentageComplete = 0;
-        }
-    }
+            CurrentExports[exportId].percentageComplete = 0f;
 
-    internal class ModBlueprintExporter : MonoBehaviour
-    {
-        private static IEnumerable<BaseDefinition> Definitions;
-        private static string Path;
-        private IEnumerator Coroutine;
-        private static ModBlueprintExporter Exporter;
-
-        internal float PercentageComplete { get; set; }
-
-        internal static ModBlueprintExporter Shared
-        {
-            get
-            {
-                if (Exporter == null)
-                {
-                    Exporter = new GameObject().AddComponent<ModBlueprintExporter>();
-                    DontDestroyOnLoad(Exporter.gameObject);
-                }
-                return Exporter;
-            }
-        }
-
-        internal void ExportBlueprints(IEnumerable<BaseDefinition> definitions, string path)
-        {
-            if (Coroutine != null)
-            {
-                return;
-            }
-
-            Definitions = definitions;
-            Path = path;
-
-            Coroutine = Export();
-            StartCoroutine(Coroutine);
-        }
-
-        internal IEnumerator Export()
-        {
-            using StreamWriter sw = new StreamWriter(Path);
-            using JsonWriter writer = new JsonTextWriter(sw);
-
-            // NOTE: currently needs to be assembled one definition at a time into a single file
-            // Problem 1) serializing the whole array doesn't emit everything
-            // Problem 2) serializing into individual files exceeds the folder path limit because some CE definitions have very long namessssssssss....
-            sw.WriteLine("[");
-
-            var lastDefinition = Definitions.Last();
-            var total = Definitions.Count();
-
-            foreach (var d in Definitions.Select((d, i) => new { Definition = d, Index = i }))
-            {
-                JsonSerializer serializer = JsonSerializer.Create(JsonUtil.CreateSettings(PreserveReferencesHandling.None));
-                serializer.Serialize(writer, d.Definition);
-                if (d.Definition != lastDefinition)
-                {
-                    sw.WriteLine(",");
-                }
-
-                PercentageComplete = ((float)d.Index / total);
-
-                yield return null;
-            }
-
-            sw.WriteLine("]");
-
-            Coroutine = null;
-            PercentageComplete = 0;
+            Main.Log($"Export finished: {DateTime.UtcNow}, {DateTime.UtcNow - start}.");
         }
     }
 }

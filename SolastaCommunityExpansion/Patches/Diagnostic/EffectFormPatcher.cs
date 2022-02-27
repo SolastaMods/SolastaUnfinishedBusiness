@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 using SolastaModApi.Diagnostics;
 using static EffectForm.EffectFormType;
 
@@ -7,10 +9,10 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
 {
 #if DEBUG
     // Only add these 16 patches EffectForm for debug builds for diagnostic purposes.
-    internal static class EffectFormControl
+    internal static class EffectFormVerification
     {
         [Flags]
-        public enum SanitizeMode
+        public enum Verification
         {
             None,
             ReturnNull = 1,
@@ -18,12 +20,11 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
             Throw = 4
         }
 
-        // TODO: needs adding to a 'diagnostics' tab in setting UI
-        public static SanitizeMode Mode { get; set; } = SanitizeMode.Log;
+        public static Verification Mode { get; set; } = Verification.Log;
 
-        public static void Sanitize<T>(EffectForm form, EffectForm.EffectFormType type, ref T __result) where T : class
+        public static void VerifyUsage<T>(EffectForm form, EffectForm.EffectFormType type, ref T __result) where T : class
         {
-            if(Mode == SanitizeMode.None)
+            if(Mode == Verification.None)
             {
                 return;
             }
@@ -33,19 +34,32 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
                 return;
             }
 
-            if(Mode.HasFlag(SanitizeMode.Log))
+            var msg = $"EffectForm with type {form.FormType} is being used as type {type}.";
+
+            if (Mode.HasFlag(Verification.Log))
             {
-                Main.Log($"EffectForm with type {form.FormType} is being used as type {type}.");
+                Main.Log(msg);
+
+                if (DiagnosticsContext.HasDiagnosticsFolder)
+                {
+                    var path = Path.Combine(DiagnosticsContext.DiagnosticsOutputFolder, "EffectForm.txt");
+                    File.AppendAllLines(path, new string[] {
+                        $"{Environment.NewLine}",
+                        $"------------------------------------------------------------------------------------",
+                        msg
+                    });
+                    File.AppendAllText(path, Environment.StackTrace);
+                }
             }
 
-            if(Mode.HasFlag(SanitizeMode.ReturnNull))
+            if (Mode.HasFlag(Verification.ReturnNull))
             {
                 __result = null;
             }
 
-            if(Mode.HasFlag(SanitizeMode.Throw))
+            if(Mode.HasFlag(Verification.Throw))
             {
-                throw new SolastaModApiException($"EffectForm with type {form.FormType} is being used as type {type}.");
+                throw new SolastaModApiException(msg);
             }
         }
     }
@@ -55,7 +69,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref DamageForm __result)
         {
-            EffectFormControl.Sanitize(__instance, Damage, ref __result);
+            EffectFormVerification.VerifyUsage(__instance, Damage, ref __result);
         }
     }
 
@@ -64,7 +78,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref HealingForm __result)
         {
-            EffectFormControl.Sanitize(__instance, Healing, ref __result);
+            EffectFormVerification.VerifyUsage(__instance, Healing, ref __result);
         }
     }
 
@@ -73,7 +87,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref ConditionForm __result)
         {
-            EffectFormControl.Sanitize(__instance, Condition, ref __result);
+            EffectFormVerification.VerifyUsage(__instance, Condition, ref __result);
         }
     }
 
@@ -82,7 +96,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref LightSourceForm __result)
         {
-            EffectFormControl.Sanitize(__instance, LightSource, ref __result);
+            EffectFormVerification.VerifyUsage(__instance, LightSource, ref __result);
         }
     }
 
@@ -91,7 +105,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref SummonForm __result)
         {
-            EffectFormControl.Sanitize(__instance, Summon, ref __result);
+            EffectFormVerification.VerifyUsage(__instance, Summon, ref __result);
         }
     }
 
@@ -100,7 +114,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref CounterForm __result)
         {
-            EffectFormControl.Sanitize(__instance, Counter, ref __result);
+            EffectFormVerification.VerifyUsage(__instance, Counter, ref __result);
         }
     }
 
@@ -109,7 +123,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref TemporaryHitPointsForm __result)
         {
-            EffectFormControl.Sanitize(__instance, TemporaryHitPoints, ref __result);
+            EffectFormVerification.VerifyUsage(__instance, TemporaryHitPoints, ref __result);
         }
     }
 
@@ -118,7 +132,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref MotionForm __result)
         {
-            EffectFormControl.Sanitize(__instance, Motion, ref __result);
+            EffectFormVerification.VerifyUsage(__instance, Motion, ref __result);
         }
     }
 
@@ -127,7 +141,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref SpellSlotsForm __result)
         {
-            EffectFormControl.Sanitize(__instance, SpellSlots, ref __result);
+            EffectFormVerification.VerifyUsage(__instance, SpellSlots, ref __result);
         }
     }
 
@@ -136,7 +150,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref DivinationForm __result)
         {
-            EffectFormControl.Sanitize(__instance, Divination, ref __result);
+            EffectFormVerification.VerifyUsage(__instance, Divination, ref __result);
         }
     }
 
@@ -145,7 +159,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref ItemPropertyForm __result)
         {
-            EffectFormControl.Sanitize(__instance, ItemProperty, ref __result);
+            EffectFormVerification.VerifyUsage(__instance, ItemProperty, ref __result);
         }
     }
 
@@ -154,7 +168,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref AlterationForm __result)
         {
-            EffectFormControl.Sanitize(__instance, Alteration, ref __result);
+            EffectFormVerification.VerifyUsage(__instance, Alteration, ref __result);
         }
     }
 
@@ -163,7 +177,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref TopologyForm __result)
         {
-            EffectFormControl.Sanitize(__instance, Topology, ref __result);
+            EffectFormVerification.VerifyUsage(__instance, Topology, ref __result);
         }
     }
 
@@ -172,7 +186,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref ReviveForm __result)
         {
-            EffectFormControl.Sanitize(__instance, Revive, ref __result);
+            EffectFormVerification.VerifyUsage(__instance, Revive, ref __result);
         }
     }
 
@@ -181,7 +195,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref KillForm __result)
         {
-            EffectFormControl.Sanitize(__instance, Kill, ref __result);
+            EffectFormVerification.VerifyUsage(__instance, Kill, ref __result);
         }
     }
 
@@ -190,7 +204,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(EffectForm __instance, ref ShapeChangeForm __result)
         {
-            EffectFormControl.Sanitize(__instance, ShapeChange, ref __result);
+            EffectFormVerification.VerifyUsage(__instance, ShapeChange, ref __result);
         }
     }
 #endif
