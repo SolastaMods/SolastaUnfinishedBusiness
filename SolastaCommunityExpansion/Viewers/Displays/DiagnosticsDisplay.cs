@@ -30,10 +30,11 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             UI.Label("");
+            UI.Label(". You can set the environment variable " + "SolastaCEDiagnosticsDir".italic().yellow() + " to customize the output folder");
 
             if (!DiagnosticsContext.HasDiagnosticsFolder)
             {
-                UI.Label(". You can set the environment variable " + "SolastaCEDiagnosticsDir".italic().yellow() + " to change the default game folder output location");
+                UI.Label(". The output folder is set to " + "your game folder".yellow().bold());
             }
             else
             {

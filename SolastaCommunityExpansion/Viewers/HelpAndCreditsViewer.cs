@@ -23,9 +23,9 @@ namespace SolastaCommunityExpansion.Viewers
         private static readonly NamedAction[] actions =
         {
             new NamedAction("Help & Credits", DisplayHelpAndCredits),
+            new NamedAction("Diagnostics & Patches", DisplayDiagnosticsAndPatches),
             new NamedAction("Blueprints", DisplayBlueprints),
             new NamedAction("Services", DisplayGameServices),
-            new NamedAction("Diagnostics & Patches", DisplayDiagnosticsAndPatches),
         };
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
