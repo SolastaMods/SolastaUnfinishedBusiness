@@ -6,14 +6,13 @@ using static SolastaCommunityExpansion.Viewers.Displays.BlueprintDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.CreditsDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.DiagnosticsDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.GameServicesDisplay;
-using static SolastaCommunityExpansion.Viewers.Displays.Level20HelpDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.PatchesDisplay;
 
 namespace SolastaCommunityExpansion.Viewers
 {
-    public class HelpAndCreditsViewer : IMenuSelectablePage
+    public class CreditsAndTroubleshootingViewer : IMenuSelectablePage
     {
-        public string Name => "Modding, Help & Credits";
+        public string Name => "Credits & Troubleshooting";
 
         public int Priority => 999;
 
@@ -23,9 +22,9 @@ namespace SolastaCommunityExpansion.Viewers
 
         private static readonly NamedAction[] actions =
         {
-            new NamedAction("Help & Credits", DisplayHelpAndCredits),
-            new NamedAction("Diagnostics & Patches", DisplayDiagnosticsAndPatches),
+            new NamedAction("Credits", DisplayCredits),
             new NamedAction("Blueprints", DisplayBlueprints),
+            new NamedAction("Diagnostics", DisplayDiagnostics),
             new NamedAction("Services", DisplayGameServices),
         };
 
@@ -45,13 +44,7 @@ namespace SolastaCommunityExpansion.Viewers
             }
         }
 
-        public static void DisplayHelpAndCredits()
-        {
-            DisplayLevel20Help();
-            DisplayCredits();
-        }
-
-        public static void DisplayDiagnosticsAndPatches()
+        public static void DisplayDiagnostics()
         {
             DisplayModdingTools();
             UI.DisclosureToggle("Patches:".yellow(), ref displayPatches, 200);
