@@ -107,20 +107,19 @@ namespace SolastaCommunityExpansion.Models
             }
 
             var path = Path.Combine(HasDiagnosticsFolder ? DiagnosticsOutputFolder : ".\\");
+            var definitions = baseDefinitions.OrderBy(x => x.Name).ThenBy(x => x.GetType().Name).ToList();
 
             EnsureFolderExists(path);
-
-            var taDefinitions = baseDefinitions.OrderBy(x => x.Name).ThenBy(x => x.GetType().Name).ToList();
 
             /////////////////////////////////////////////////////////////////////////////////////////////////
             // Write all TA definitions name/guid to file (txt)
             File.WriteAllLines(Path.Combine(path, $"{baseFilename}.txt"),
-                taDefinitions.Select(d => $"{d.Name}, {d.GUID}"));
+                definitions.Select(d => $"{d.Name}, {d.GUID}"));
 
             /////////////////////////////////////////////////////////////////////////////////////////////////
             // Write all TA definitions with no GUI presentation to file
             File.WriteAllLines(Path.Combine(path, $"{baseFilename}-GuiPresentation-MissingValue.txt"),
-                taDefinitions
+                definitions
                     .Where(d => string.IsNullOrWhiteSpace(d.GuiPresentation?.Title) || string.IsNullOrWhiteSpace(d.GuiPresentation?.Description))
                     .Select(d => $"{d.Name}:\tTitle='{d.GuiPresentation?.Title ?? string.Empty}', Desc='{d.GuiPresentation?.Description ?? string.Empty}'"));
 
@@ -130,7 +129,7 @@ namespace SolastaCommunityExpansion.Models
             var currentLanguage = LocalizationManager.CurrentLanguageCode;
             var languageIndex = languageSourceData.GetLanguageIndexFromCode(currentLanguage);
 
-            var allLines = taDefinitions
+            var allLines = definitions
                 .Select(d => new[] {
                     new { d.Name, Key = d.GuiPresentation?.Title, Type = "Title" },
                     new { d.Name, Key = d.GuiPresentation?.Description, Type = "Description" }
