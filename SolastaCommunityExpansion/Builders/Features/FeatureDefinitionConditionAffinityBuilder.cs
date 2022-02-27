@@ -43,9 +43,9 @@ namespace SolastaCommunityExpansion.Builders.Features
             return This();
         }
 
-        public TBuilder SetConditionType(string value)
+        public TBuilder SetConditionType(ConditionDefinition value)
         {
-            Definition.SetConditionType( value);
+            Definition.SetConditionType(value.Name);
             return This();
         }
     }

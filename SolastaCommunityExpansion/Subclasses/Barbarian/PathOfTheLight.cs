@@ -75,8 +75,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             .SetAllowMultipleInstances(true)
             .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
             .SetDuration(RuleDefinitions.DurationType.Irrelevant, 1, false) // don't validate inconsistent data
-            .SetSilentWhenAdded(true)
-            .SetSilentWhenRemoved(false)
+            .SetSilent(Silent.WhenAdded)
             .SetSpecialDuration(true)
             .AddFeatures(DisadvantageAgainstNonSource, PreventInvisibility)
             .AddToDB();
@@ -162,8 +161,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 .SetAllowMultipleInstances(false)
                 .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
                 .SetDuration(RuleDefinitions.DurationType.Permanent, 1, false) // don't validate inconsistent data
-                .SetSilentWhenAdded(true)
-                .SetSilentWhenRemoved(true)
+                .SetSilent(Silent.WhenAddedOrRemoved)
                 .AddFeatures(FeatureDefinitionSenses.SenseSeeInvisible16)
                 .AddToDB();
 
@@ -274,7 +272,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                     .Create("PathOfTheLightIlluminatedPreventInvisibility" + ic.Name, SubclassNamespace)
                     .SetGuiPresentationNoContent()
                     .SetConditionAffinityType(RuleDefinitions.ConditionAffinityType.Immunity)
-                    .SetConditionType(ic.Name)
+                    .SetConditionType(ic)
                     .AddToDB()))
             .AddToDB();
 
@@ -285,8 +283,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             .SetAllowMultipleInstances(false)
             .SetConditionType(RuleDefinitions.ConditionType.Neutral)
             .SetDuration(RuleDefinitions.DurationType.Permanent, 1, false) // don't validate inconsistent data
-            .SetSilentWhenAdded(true)
-            .SetSilentWhenRemoved(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
         private static void HandleAfterIlluminatedConditionRemoved(RulesetActor removedFrom)
@@ -479,8 +476,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                     .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
                     .SetDuration(RuleDefinitions.DurationType.Minute, 1)
                     .SetTerminateWhenRemoved(true)
-                    .SetSilentWhenAdded(true)
-                    .SetSilentWhenRemoved(true)
+                   .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.RageStop)
                     .SetFeatures(
                         IlluminatingStrikeFeatureBuilder
@@ -557,8 +553,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                     .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
                     .SetDuration(RuleDefinitions.DurationType.Minute, 1)
                     .SetParentCondition(illuminatedCondition)
-                    .SetSilentWhenAdded(true)
-                    .SetSilentWhenRemoved(false)
+                    .SetSilent(Silent.WhenAdded)
                     .AddToDB();
 
                 var addIlluminatedCondition = new EffectForm

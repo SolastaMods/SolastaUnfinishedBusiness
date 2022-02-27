@@ -519,17 +519,6 @@ namespace SolastaCommunityExpansion.Builders
         private protected DefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid) { }
         private protected DefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid) { }
 
-        /*
-        // TODO: no longer required?
-        internal TBuilder Configure(Action<TDefinition> configureDefinition)
-        {
-            Assert.IsNotNull(configureDefinition);
-            configureDefinition.Invoke(Definition);
-
-            return This();
-        }
-        */
-
         internal TBuilder This()
         {
 #if DEBUG

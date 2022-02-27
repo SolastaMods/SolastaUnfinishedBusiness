@@ -6,6 +6,16 @@ using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Builders
 {
+    [Flags]
+    public enum Silent
+    {
+        None,
+        WhenAdded = 1,
+        WhenRemoved = 2,
+        WhenAddedOrRemoved = WhenAdded | WhenRemoved
+    }
+
+
     /// <summary>
     /// Abstract ConditionDefinitionBuilder that allows creating builders for custom ConditionDefinition types.
     /// </summary>
@@ -109,12 +119,6 @@ namespace SolastaCommunityExpansion.Builders
             return This();
         }
 
-        public TBuilder SetSilentWhenAdded(bool value)
-        {
-            Definition.SetSilentWhenAdded(value);
-            return This();
-        }
-
         public TBuilder SetParentCondition(ConditionDefinition value)
         {
             Definition.SetParentCondition(value);
@@ -127,9 +131,22 @@ namespace SolastaCommunityExpansion.Builders
             return This();
         }
 
+        public TBuilder SetSilentWhenAdded(bool value)
+        {
+            Definition.SetSilentWhenAdded(value);
+            return This();
+        }
+
         public TBuilder SetSilentWhenRemoved(bool value)
         {
             Definition.SetSilentWhenRemoved(value);
+            return This();
+        }
+
+        public TBuilder SetSilent(Silent silent)
+        {
+            SetSilentWhenRemoved(silent.HasFlag(Silent.WhenRemoved));
+            SetSilentWhenAdded(silent.HasFlag(Silent.WhenAdded));
             return This();
         }
 
