@@ -242,6 +242,11 @@ namespace SolastaCommunityExpansion.Viewers
             if (UI.Toggle("Enable heroes controlled by computer", ref toggle))
             {
                 Main.Settings.EnableHeroesControlledByComputer = toggle;
+
+                if (toggle)
+                {
+                    Models.PlayerControllerContext.RefreshGuiState();
+                }
             }
 
             if (Main.Settings.EnableHeroesControlledByComputer)
