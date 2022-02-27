@@ -16,10 +16,10 @@ namespace SolastaCommunityExpansion.Models
         private const string OFFICIAL_BP_FOLDER = "OfficialBlueprints";
         private const string COMMUNITY_EXPANSION_BP_FOLDER = "CommunityExpansionBlueprints";
 
-        private static HashSet<BaseDefinition> TABaseDefinitions;
-        private static Dictionary<Type, List<BaseDefinition>> TABaseDefinitionsMap;
-        private static HashSet<BaseDefinition> CEBaseDefinitions;
-        private static Dictionary<Type, List<BaseDefinition>> CEBaseDefinitionsMap;
+        private static BaseDefinition[] TABaseDefinitions;
+        private static Dictionary<Type, BaseDefinition[]> TABaseDefinitionsMap;
+        private static BaseDefinition[] CEBaseDefinitions;
+        private static Dictionary<Type, BaseDefinition[]> CEBaseDefinitionsMap;
 
         internal const int TA = 0;
         internal const int CE = 1;
@@ -50,29 +50,29 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        public static void CacheTADefinitions()
+        internal static void CacheTADefinitions()
         {
             if (TABaseDefinitionsMap != null)
             {
                 return;
             }
 
-            var definitions = new Dictionary<Type, List<BaseDefinition>>();
+            var definitions = new Dictionary<Type, BaseDefinition[]>();
 
             foreach (var db in (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases").GetValue(null))
             {
-                var list = ((IEnumerable)db.Value).Cast<BaseDefinition>().ToList();
+                var arr = ((IEnumerable)db.Value).Cast<BaseDefinition>().ToArray();
 
-                definitions.Add(db.Key, list);
+                definitions.Add(db.Key, arr);
             }
 
             TABaseDefinitionsMap = definitions;
-            TABaseDefinitions = TABaseDefinitionsMap.Values.SelectMany(v => v).ToHashSet();
+            TABaseDefinitions = TABaseDefinitionsMap.Values.SelectMany(v => v).ToArray();
 
-            Main.Log($"Cached {TABaseDefinitions.Count} TA definitions");
+            Main.Log($"Cached {TABaseDefinitions.Length} TA definitions");
         }
 
-        public static void CacheCEDefinitions()
+        internal static void CacheCEDefinitions()
         {
             if (TABaseDefinitionsMap == null)
             {
@@ -84,27 +84,27 @@ namespace SolastaCommunityExpansion.Models
                 return;
             }
 
-            var definitions = new Dictionary<Type, List<BaseDefinition>>();
+            var definitions = new Dictionary<Type, BaseDefinition[]>();
 
             foreach (var db in (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases").GetValue(null))
             {
-                var list = ((IEnumerable)db.Value).Cast<BaseDefinition>().ToList();
+                var arr = ((IEnumerable)db.Value).Cast<BaseDefinition>().ToArray();
 
                 if (TABaseDefinitionsMap.TryGetValue(db.Key, out var taDefinitions))
                 {
-                    list = list.Except(taDefinitions).ToList();
+                    arr = arr.Except(taDefinitions).ToArray();
                 }
 
-                definitions.Add(db.Key, list);
+                definitions.Add(db.Key, arr);
             }
 
             CEBaseDefinitionsMap = definitions;
-            CEBaseDefinitions = CEBaseDefinitionsMap.Values.SelectMany(v => v).ToHashSet();
+            CEBaseDefinitions = CEBaseDefinitionsMap.Values.SelectMany(v => v).ToArray();
 
-            Main.Log($"Cached {CEBaseDefinitions.Count} CE definitions");
+            Main.Log($"Cached {CEBaseDefinitions.Length} CE definitions");
         }
 
-        private static void CreateDefinitionDiagnostics(HashSet<BaseDefinition> baseDefinitions, string baseFilename)
+        private static void CreateDefinitionDiagnostics(BaseDefinition[] baseDefinitions, string baseFilename)
         {
             if (baseDefinitions == null)
             {

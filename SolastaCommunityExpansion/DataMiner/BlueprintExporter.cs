@@ -12,27 +12,27 @@ namespace SolastaCommunityExpansion.DataMiner
     {
         private const int MAX_PATH_LENGTH = 260;
 
-        private class ExportStatus
+        private struct ExportStatus
         {
             internal Coroutine coroutine;
             internal float percentageComplete;
         }
 
-        private static readonly Dictionary<int, ExportStatus> CurrentExports = new();
+        private static readonly ExportStatus[] CurrentExports = new ExportStatus[2];
 
-        private static BlueprintExporter Exporter;
+        private static BlueprintExporter exporter;
 
-        private static BlueprintExporter Singleton
+        private static BlueprintExporter Exporter
         {
             get
             {
-                if (Exporter == null)
+                if (exporter == null)
                 {
-                    Exporter = new GameObject().AddComponent<BlueprintExporter>();
-                    DontDestroyOnLoad(Exporter.gameObject);
+                    exporter = new GameObject().AddComponent<BlueprintExporter>();
+                    DontDestroyOnLoad(exporter.gameObject);
                 }
 
-                return Exporter;
+                return exporter;
             }
         }
 
@@ -46,54 +46,44 @@ namespace SolastaCommunityExpansion.DataMiner
 
         internal static float PercentageComplete(int exportId)
         {
-            if (CurrentExports.ContainsKey(exportId))
-            {
-                return CurrentExports[exportId].percentageComplete;
-            }
-
-            return 0f;
+            return CurrentExports[exportId].percentageComplete;
         }
 
         internal static void Cancel(int exportId)
         {
-            if (!CurrentExports.ContainsKey(exportId))
+            if (CurrentExports[exportId].percentageComplete == 0)
             {
                 return;
             }
 
-            Singleton.StopCoroutine(CurrentExports[exportId].coroutine);
-            CurrentExports.Remove(exportId);
+            Exporter.StopCoroutine(CurrentExports[exportId].coroutine);
+            CurrentExports[exportId].percentageComplete = 0f;
         }
 
         internal static void ExportBlueprints(
             int exportId,
-            HashSet<BaseDefinition> baseDefinitions,
-            Dictionary<Type, List<BaseDefinition>> baseDefinitionsMap,
+            BaseDefinition[] baseDefinitions,
+            Dictionary<Type, BaseDefinition[]> baseDefinitionsMap,
             string path)
         {
-            if (baseDefinitionsMap == null || baseDefinitions == null || CurrentExports.ContainsKey(exportId))
+            if (baseDefinitionsMap == null || baseDefinitions == null || CurrentExports[exportId].percentageComplete > 0)
             {
                 return;
             }
 
-            CurrentExports.Add(
-                exportId,
-                new ExportStatus
-                {
-                    percentageComplete = 0.0001f,
-                    coroutine = Singleton.StartCoroutine(ExportMany(
-                        exportId,
-                        baseDefinitions,
-                        baseDefinitionsMap,
-                        path))
-                }
-            );
+            CurrentExports[exportId].percentageComplete = 0.001f;
+            CurrentExports[exportId].coroutine = Exporter.StartCoroutine(
+                ExportMany(
+                    exportId,
+                    baseDefinitions,
+                    baseDefinitionsMap,
+                    path));
         }
 
         private static IEnumerator ExportMany(
             int exportId,
-            HashSet<BaseDefinition> baseDefinitions,
-            Dictionary<Type, List<BaseDefinition>> baseDefinitionsMap,
+            BaseDefinition[] baseDefinitions,
+            Dictionary<Type, BaseDefinition[]> baseDefinitionsMap,
             string path)
         {
             yield return null;
@@ -127,53 +117,54 @@ namespace SolastaCommunityExpansion.DataMiner
 
             yield return null;
 
-            var total = baseDefinitions.Count;
+            var total = baseDefinitions.Length;
 
             // Blueprints/definitions
-            foreach (var d in baseDefinitions.Select((d, i) => new { Definition = d, Index = i }))
+            for (var i = 0; i < total; i++)
+            //foreach (var d in baseDefinitions.Select((d, i) => new { Definition = d, Index = i }))
             {
                 // Don't put this outside the loop or it caches objects already serialized and then outputs a reference instead 
                 // of the whole object.
                 var serializer = JsonSerializer.Create(JsonUtil.CreateSettings(PreserveReferencesHandling.Objects));
 
-                var dbType = d.Definition.GetType();
-                var value = d.Definition;
-                var subfolder = value.GetType().Name;
+                var definition = baseDefinitions[i];
+                var dbType = definition.GetType();
+                var subfolder = definition.GetType().Name;
 
-                if (value.GetType() != dbType)
+                if (definition.GetType() != dbType)
                 {
                     subfolder = $"{dbType.FullName}/{subfolder}";
                 }
 
                 EnsureFolderExists($"{path}/{subfolder}");
 
-                var filename = $"{value.Name}.{value.GUID}.json";
+                var filename = $"{definition.Name}.{definition.GUID}.json";
                 var folder = $"{path}/{subfolder}";
                 var fullFilename = $"{folder}/{filename}";
 
                 if (fullFilename.Length > MAX_PATH_LENGTH)
                 {
-                    Main.Log($"Shortened path {fullFilename}, to {folder}/{value.GUID}.json");
-                    fullFilename = $"{folder}/{value.GUID}.json";
+                    Main.Log($"Shortened path {fullFilename}, to {folder}/{definition.GUID}.json");
+                    fullFilename = $"{folder}/{definition.GUID}.json";
                 }
 
                 try
                 {
                     using StreamWriter sw = new StreamWriter(fullFilename);
                     using JsonWriter writer = new JsonTextWriter(sw);
-                    serializer.Serialize(writer, d.Definition);
+                    serializer.Serialize(writer, definition);
                 }
                 catch (Exception ex)
                 {
                     Main.Error(ex);
                 }
 
-                CurrentExports[exportId].percentageComplete = (float)d.Index / total;
+                CurrentExports[exportId].percentageComplete = (float)i / total;
 
                 yield return null;
             }
 
-            CurrentExports.Remove(exportId);
+            CurrentExports[exportId].percentageComplete = 0f;
         }
     }
 }
