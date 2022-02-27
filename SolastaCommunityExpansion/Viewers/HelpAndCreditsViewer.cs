@@ -53,7 +53,6 @@ namespace SolastaCommunityExpansion.Viewers
         public static void DisplayDiagnosticsAndPatches()
         {
             DisplayModdingTools();
-            DisplayDumpDescription();
             UI.Label("");
             UI.Div();
             UI.Label("");

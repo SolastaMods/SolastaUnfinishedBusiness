@@ -15,14 +15,19 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         {
             UI.Label("");
 
-            UI.ActionButton("Enable the Unity Explorer UI", () =>
+            using (UI.HorizontalScope())
             {
-                if (!IsUnityExplorerEnabled)
+                UI.ActionButton("Enable the Unity Explorer UI", () =>
                 {
-                    IsUnityExplorerEnabled = true;
-                    UnityExplorer.ExplorerStandalone.CreateInstance();
-                }
-            }, UI.Width(200));
+                    if (!IsUnityExplorerEnabled)
+                    {
+                        IsUnityExplorerEnabled = true;
+                        UnityExplorer.ExplorerStandalone.CreateInstance();
+                    }
+                }, UI.Width(200));
+
+                DisplayDumpDescription();
+            }
 
             UI.Label("");
 
@@ -98,7 +103,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         [Conditional("DEBUG")]
         internal static void DisplayDumpDescription()
         {
-            UI.Label("");
             UI.ActionButton("Dump Description to Logs", () =>
             {
                 var collectedString = new StringBuilder();
