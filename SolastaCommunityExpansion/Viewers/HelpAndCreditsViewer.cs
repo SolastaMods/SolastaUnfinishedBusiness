@@ -17,6 +17,7 @@ namespace SolastaCommunityExpansion.Viewers
 
         public int Priority => 999;
 
+        private static bool displayPatches;
 
         private static int selectedPane;
 
@@ -53,10 +54,13 @@ namespace SolastaCommunityExpansion.Viewers
         public static void DisplayDiagnosticsAndPatches()
         {
             DisplayModdingTools();
+            UI.DisclosureToggle("Patches:".yellow(), ref displayPatches, 200);
             UI.Label("");
-            UI.Div();
-            UI.Label("");
-            DisplayPatches();
+
+            if (displayPatches)
+            {
+                DisplayPatches();
+            }
         }
     }
 }

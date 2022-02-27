@@ -203,6 +203,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 _modID = null;
                 _modIdsToColor = null;
             }
+
+            UI.Label("");
         }
         private static List<Patch> EnabledPatchesForMethod(MethodBase method)
         {
