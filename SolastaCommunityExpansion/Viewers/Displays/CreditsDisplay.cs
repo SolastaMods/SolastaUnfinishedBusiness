@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         {
             { "ChrisJohnDigital".orange().bold(), "head developer, crafting, faction relations, feats, fighting styles, items, subclasses, progression" },
             { "Zappastuff", "multiclass, level 20, respec, encounters, dungeon maker editor & pro, inventory sorting, adventure log, epic points, surprise rules, teleport, mod UI & integration" },
-            { "ImpPhil", "adv/dis rules, conjurations control, auto-equip, location rotation in DM, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera" },
+            { "ImpPhil", "adv/dis rules, conjurations control, auto-equip, location rotation in DM, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics" },
             { "DubhHerder", "High level spells, Crafty Feats migration, bug models replacement" },
             { "View619", "Darkvision, Superior Dark Vision" },
             { "SilverGriffon", "PickPocket, lore friendly names, crafty feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants" },
@@ -22,6 +22,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             { "Krisys", "Thug subclass" },
             { "Dreadmaker", "Circle of the Forest Guardian subclass" },
             { "Narria", "modKit creator, developer" },
+            { "Spacehamster", "dataminer" },
             { "sinai-dev", "Unity Explorer UI standalone" }
         };
 
