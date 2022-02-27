@@ -15,7 +15,19 @@ namespace SolastaCommunityExpansion
     [XmlRoot(ElementName = "Settings")]
     public class Settings : UnityModManager.ModSettings
     {
-        public const string GUID = "b1ffaca74824486ea74a68d45e6b1925";
+        internal const string GUID = "b1ffaca74824486ea74a68d45e6b1925";
+
+        //
+        // Diagnostics
+        //
+
+        // Very large and not very useful definitions
+        // TODO: skip other large definitions?
+        public string[] ExcludeFromExport = new string[]
+        {
+            "NarrativeTreeDefinition", // NarrativeTreeDefinition causes crash with PreserveReferencesHandling.None
+            "SoundbanksDefinition",
+        };
 
         //
         // Blueprints Viewer UI
@@ -96,6 +108,7 @@ namespace SolastaCommunityExpansion
         public bool EnableLevel20 { get; set; }
 
         // Visuals
+        public bool EnableAdditionalBackstoryDisplay { get; set; }
         public bool UnlockAllNpcFaces { get; set; }
         public bool AllowUnmarkedSorcerers { get; set; }
         public bool UnlockMarkAndTatoosForAllCharacters { get; set; }
@@ -225,7 +238,6 @@ namespace SolastaCommunityExpansion
         //
 
         // General
-        public bool EnableAdditionalBackstoryDisplay { get; set; }
         public bool EnableRespec { get; set; }
         public bool EnableCheatMenu { get; set; }
         public bool NoExperienceOnLevelUp { get; set; }
@@ -271,16 +283,13 @@ namespace SolastaCommunityExpansion
         // Interface - Game UI
         //
 
-        // Adventure Log
-        public bool EnableAdventureLogDocuments { get; set; }
-
-
         // Battle
         public bool DontFollowCharacterInBattle { get; set; }
         public int DontFollowMargin { get; set; } = 5;
         public bool AutoPauseOnVictory { get; set; }
 
         // Campaigns and Locations
+        public bool EnableAdventureLogDocuments { get; set; }
         public bool EnableAdditionalIconsOnLevelMap { get; set; }
         public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
         public bool HideExitAndTeleporterGizmosIfNotDiscovered { get; set; }

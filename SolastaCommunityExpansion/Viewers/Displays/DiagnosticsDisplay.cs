@@ -1,36 +1,112 @@
 ﻿using System.Diagnostics;
+using System.IO;
 using System.Text;
 using ModKit;
+using SolastaCommunityExpansion.DataMiner;
 using SolastaCommunityExpansion.Models;
 using static SolastaCommunityExpansion.Viewers.Displays.CreditsDisplay;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
-{
+{ 
     internal static class DiagnosticsDisplay
     {
-        [Conditional("DEBUG")]
-        internal static void DisplayDiagnostics()
+        private static bool IsUnityExplorerEnabled { get; set; }
+
+        internal static void DisplayModdingTools()
         {
-            if (DiagnosticsContext.HasDiagnosticsFolder)
+            UI.Label("");
+
+            using (UI.HorizontalScope())
             {
-                using (UI.HorizontalScope())
+                UI.ActionButton("Enable the Unity Explorer UI", () =>
                 {
-                    UI.ActionButton("Create TA diagnostics", () => DiagnosticsContext.CreateTADefinitionDiagnostics(), UI.Width(200));
-                    UI.ActionButton("Create CE diagnostics", () => DiagnosticsContext.CreateCEDefinitionDiagnostics(), UI.Width(200));
-                }
+                    if (!IsUnityExplorerEnabled)
+                    {
+                        IsUnityExplorerEnabled = true;
+                        UnityExplorer.ExplorerStandalone.CreateInstance();
+                    }
+                }, UI.Width(200));
+
+                DisplayDumpDescription();
+            }
+
+            UI.Label("");
+            UI.Label(". You can set the environment variable " + "SolastaCEDiagnosticsDir".italic().yellow() + " to customize the output folder");
+
+            if (!DiagnosticsContext.HasDiagnosticsFolder)
+            {
+                UI.Label(". The output folder is set to " + "your game folder".yellow().bold());
             }
             else
             {
-                UI.Label("");
-                UI.Label(". Please set the diagnostic folder environment variable SolastaCEDiagnosticsDir".red());
+                UI.Label(". The output folder is set to " + DiagnosticsContext.DiagnosticsOutputFolder.yellow().bold());
             }
+
+            UI.Label("");
+
+            string exportTaLabel;
+            string exportCeLabel;
+            float percentageCompleteTa = BlueprintExporter.CurrentExports[DiagnosticsContext.TA].percentageComplete;
+            float percentageCompleteCe = BlueprintExporter.CurrentExports[DiagnosticsContext.CE].percentageComplete;
+
+            if (percentageCompleteTa == 0)
+            {
+                exportTaLabel = "Export TA blueprints";
+            }
+            else
+            {
+                exportTaLabel = "Cancel TA export at " + $"{percentageCompleteTa:00.0%}".bold().yellow();
+            }
+
+            if (percentageCompleteCe == 0)
+            {
+                exportCeLabel = "Export CE blueprints";
+            }
+            else
+            {
+                exportCeLabel = "Cancel CE export at " + $"{percentageCompleteCe:00.0%}".bold().yellow();
+            }
+
+            using (UI.HorizontalScope())
+            {
+                UI.ActionButton(exportTaLabel, () =>
+                {
+                    if (percentageCompleteTa == 0)
+                    {
+                        DiagnosticsContext.ExportTADefinitions();
+                    }
+                    else
+                    {
+                        BlueprintExporter.Cancel(DiagnosticsContext.TA);
+                    }
+                }, UI.Width(200));
+
+                UI.ActionButton(exportCeLabel, () =>
+                {
+                    if (percentageCompleteCe == 0)
+                    {
+                        DiagnosticsContext.ExportCEDefinitions();
+                    }
+                    else
+                    {
+                        BlueprintExporter.Cancel(DiagnosticsContext.CE);
+                    }
+                }, UI.Width(200));
+            }
+#if DEBUG
+            using (UI.HorizontalScope())
+            {
+                UI.ActionButton("Create TA diagnostics", () => DiagnosticsContext.CreateTADefinitionDiagnostics(), UI.Width(200));
+                UI.ActionButton("Create CE diagnostics", () => DiagnosticsContext.CreateCEDefinitionDiagnostics(), UI.Width(200));
+            }
+#endif
+            UI.Label("");
         }
 
         [Conditional("DEBUG")]
         internal static void DisplayDumpDescription()
         {
-            UI.Label("");
-            UI.ActionButton("Dump Description to Logs", () =>
+            UI.ActionButton("Dump Nexus Description", () =>
             {
                 var collectedString = new StringBuilder();
                 collectedString.Append("[heading][size=5] [b] [i] Solasta Community Expansion[/i][/b][/size][/heading]");
@@ -212,7 +288,11 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 collectedString.Append("\n[*]Wizard Spell Master");
                 collectedString.Append("\n[/list]");
                 // items
-                Main.Error(collectedString.ToString());
+
+                // NexusDescription.txt
+                var path = Path.Combine(DiagnosticsContext.HasDiagnosticsFolder ? DiagnosticsContext.DiagnosticsOutputFolder : DiagnosticsContext.GAME_FOLDER);
+                using var sw = new StreamWriter($"{path}/NexusDescription.txt");
+                sw.WriteLine(collectedString);
             },
             UI.Width(200));
         }
