@@ -121,11 +121,10 @@ namespace SolastaCommunityExpansion.DataMiner
             for (var i = 0; i < total; i++)
             {
                 var definition = baseDefinitions[i];
+                var dbType = definition.GetType();
 
-                if (definition is NarrativeTreeDefinition || definition is SoundbanksDefinition)
+                if (Array.IndexOf(Main.Settings.ExcludeFromExport, dbType) > 0)
                 {
-                    // Very large and not very useful definitions.  NarrativeTreeDefinition causes crash with PreserveReferencesHandling.None
-                    // TODO: skip other large definitions?
                     continue;
                 }
 
@@ -134,7 +133,7 @@ namespace SolastaCommunityExpansion.DataMiner
                 var serializer = JsonSerializer.Create(JsonUtil.CreateSettings(PreserveReferencesHandling.Objects));
 
 
-                var dbType = definition.GetType();
+
                 var subfolder = definition.GetType().Name;
 
                 if (definition.GetType() != dbType)
