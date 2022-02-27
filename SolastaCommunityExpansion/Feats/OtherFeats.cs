@@ -23,13 +23,29 @@ namespace SolastaCommunityExpansion.Feats
             FeatureDefinitionDieRollModifier savageMagicDieRoll = BuildDieRollModifier(RuleDefinitions.RollContext.MagicDamageValueRoll,
                 1 /* reroll count */, 1 /* reroll min value */, rerollKey, "DieRollModifierFeatSavageMagicAttacker",
                 savageAttackerPresentation.Build());
-
+            
             FeatDefinitionBuilder savageAttacker = new FeatDefinitionBuilder("FeatSavageAttacker", GuidHelper.Create(OtherFeatNamespace, "FeatSavageAttacker").ToString(), new List<FeatureDefinition>()
             {
                 savageAttackDieRoll,
                 savageMagicDieRoll,
             }, savageAttackerPresentation.Build());
             feats.Add(savageAttacker.AddToDB());
+
+            GuiPresentationBuilder improvedCriticalPresentation = new GuiPresentationBuilder(
+                "Feat/&FeatimprovedCriticalDescription",
+                "Feat/&FeatimprovedCriticalTitle");
+
+            FeatureDefinitionAttributeModifier improvedCriticalThresholdIncrease = BuildAttributeModifier(
+                FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set,
+                AttributeDefinitions.CriticalThreshold,
+                19,
+                "AttributeModifierImprovedCriticalFeat", improvedCriticalPresentation.Build());
+
+            FeatDefinitionBuilder improvedCritical = new FeatDefinitionBuilder("FeatImprovedCritical", GuidHelper.Create(OtherFeatNamespace, "FeatImprovedCritical").ToString(), new List<FeatureDefinition>()
+            {
+                improvedCriticalThresholdIncrease,
+            }, improvedCriticalPresentation.Build());
+            feats.Add(improvedCritical.AddToDB());
 
             // Tough
             GuiPresentationBuilder toughPresentation = new GuiPresentationBuilder(

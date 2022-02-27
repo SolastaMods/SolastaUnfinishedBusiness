@@ -11,6 +11,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
     internal static class SpellSelectionPanelPatcher
     {
         private static readonly List<RectTransform> spellLineTables = new List<RectTransform>();
+        private static readonly GameObject spellLineHolder = new GameObject();
 
         // second line bind
         [HarmonyPatch(typeof(SpellSelectionPanel), "Bind")]
@@ -36,19 +37,19 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
                 spellRepertoireSecondaryLine.Unbind();
                 spellRepertoireSecondaryLine.gameObject.SetActive(false);
 
-                if (spellRepertoireLinesTable.parent.GetChild(0).GetComponent<VerticalLayoutGroup>() == null)
+                if (spellLineHolder.GetComponent<VerticalLayoutGroup>() == null)
                 {
-                    GameObject spellLineHolder = new GameObject();
                     VerticalLayoutGroup vertGroup = spellLineHolder.AddComponent<VerticalLayoutGroup>();
-                    vertGroup.spacing = Main.Settings.SpellPanelGapBetweenLines;
-                    spellLineHolder.transform.SetParent(spellRepertoireLinesTable.parent);
+                    vertGroup.spacing = 10;
+                    spellLineHolder.AddComponent<ContentSizeFitter>();
+                    spellLineHolder.transform.SetParent(spellRepertoireLinesTable.parent, true);
                     spellLineHolder.transform.SetAsFirstSibling();
+                    spellLineHolder.transform.localScale = Vector3.one;
                     spellRepertoireLinesTable.SetParent(spellLineHolder.transform);
                 }
 
                 var spellRepertoires = __instance.Caster.RulesetCharacter.SpellRepertoires;
 
-                spellRepertoireLines.Clear();
                 bool needNewLine = true;
                 int lineIndex = 0;
                 int indexOfLine = 0;
@@ -84,7 +85,7 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
                     }
                 }
                 LayoutRebuilder.ForceRebuildLayoutImmediate(curTable);
-                __instance.RectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, curTable.rect.width);
+                __instance.RectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, spellRepertoireLinesTable.rect.width);
             }
 
             private static RectTransform AddActiveSpellsToLine(SpellSelectionPanel __instance, GameLocationCharacter caster,
@@ -97,7 +98,6 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
                 {
                     RectTransform previousTable = spellRepertoireLinesTable;
                     LayoutRebuilder.ForceRebuildLayoutImmediate(previousTable);
-                    __instance.RectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, previousTable.rect.width);
 
                     if (lineIndex > 0)
                     {

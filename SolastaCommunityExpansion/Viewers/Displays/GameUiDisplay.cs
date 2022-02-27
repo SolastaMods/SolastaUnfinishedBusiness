@@ -11,7 +11,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         {
             bool toggle;
             int intValue;
-            float floatValue;
 
             #region AdventureLog
             UI.Label("");
@@ -226,12 +225,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (UI.Slider("Max levels per line on Spell Panel".white(), ref intValue, 3, 7, 5, "", UI.AutoWidth()))
                 {
                     Main.Settings.MaxSpellLevelsPerLine = intValue;
-                }
-
-                floatValue = Main.Settings.SpellPanelGapBetweenLines;
-                if (UI.Slider("Gap between spell lines on Spell Panel".white(), ref floatValue, 0f, 200f, 50f, 0, "", UI.AutoWidth()))
-                {
-                    Main.Settings.SpellPanelGapBetweenLines = floatValue;
                 }
             }
             #endregion

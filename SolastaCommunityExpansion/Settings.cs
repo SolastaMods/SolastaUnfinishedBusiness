@@ -71,6 +71,7 @@ namespace SolastaCommunityExpansion
         public bool KeepCharactersPanelOpenAndHeroSelectedOnLevelUp { get; set; } = true;
         public bool KeepSpellsOpenSwitchingEquipment { get; set; } = true;
         public bool ShowAllAutoPreparedSpells { get; set; } = true;
+        public bool SupportAutoPreparedSpellsOnSubclassCasters { get; set; } = true;
 
         //
         // Character - General
@@ -269,7 +270,6 @@ namespace SolastaCommunityExpansion
 
         // Spells
         public int MaxSpellLevelsPerLine { get; set; } = 5;
-        public float SpellPanelGapBetweenLines { get; set; } = 30f;
 
         //
         // Interface - Hotkeys
