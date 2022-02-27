@@ -99,6 +99,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 UI.ActionButton("Create CE diagnostics", () => DiagnosticsContext.CreateCEDefinitionDiagnostics(), UI.Width(200));
             }
 #endif
+            UI.Label("");
         }
 
         [Conditional("DEBUG")]
