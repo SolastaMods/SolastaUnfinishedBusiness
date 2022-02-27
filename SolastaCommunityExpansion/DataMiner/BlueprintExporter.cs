@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion.DataMiner
             internal float percentageComplete;
         }
 
-        private static readonly Dictionary<string, ExportStatus> CurrentExports = new();
+        private static readonly Dictionary<int, ExportStatus> CurrentExports = new();
 
         private static BlueprintExporter Exporter;
 
@@ -44,45 +44,45 @@ namespace SolastaCommunityExpansion.DataMiner
             }
         }
 
-        internal static float PercentageComplete(string exportName)
+        internal static float PercentageComplete(int exportId)
         {
-            if (CurrentExports.ContainsKey(exportName))
+            if (CurrentExports.ContainsKey(exportId))
             {
-                return CurrentExports[exportName].percentageComplete;
+                return CurrentExports[exportId].percentageComplete;
             }
 
             return 0f;
         }
 
-        internal static void Cancel(string exportName)
+        internal static void Cancel(int exportId)
         {
-            if (!CurrentExports.ContainsKey(exportName))
+            if (!CurrentExports.ContainsKey(exportId))
             {
                 return;
             }
 
-            Singleton.StopCoroutine(CurrentExports[exportName].coroutine);
-            CurrentExports.Remove(exportName);
+            Singleton.StopCoroutine(CurrentExports[exportId].coroutine);
+            CurrentExports.Remove(exportId);
         }
 
         internal static void ExportBlueprints(
-            string exportName,
+            int exportId,
             HashSet<BaseDefinition> baseDefinitions,
             Dictionary<Type, List<BaseDefinition>> baseDefinitionsMap,
             string path)
         {
-            if (baseDefinitionsMap == null || baseDefinitions == null || CurrentExports.ContainsKey(exportName))
+            if (baseDefinitionsMap == null || baseDefinitions == null || CurrentExports.ContainsKey(exportId))
             {
                 return;
             }
 
             CurrentExports.Add(
-                exportName,
+                exportId,
                 new ExportStatus
                 {
                     percentageComplete = 0.0001f,
                     coroutine = Singleton.StartCoroutine(ExportMany(
-                        exportName,
+                        exportId,
                         baseDefinitions,
                         baseDefinitionsMap,
                         path))
@@ -91,7 +91,7 @@ namespace SolastaCommunityExpansion.DataMiner
         }
 
         private static IEnumerator ExportMany(
-            string exportName,
+            int exportId,
             HashSet<BaseDefinition> baseDefinitions,
             Dictionary<Type, List<BaseDefinition>> baseDefinitionsMap,
             string path)
@@ -168,12 +168,12 @@ namespace SolastaCommunityExpansion.DataMiner
                     Main.Error(ex);
                 }
 
-                CurrentExports[exportName].percentageComplete = (float)d.Index / total;
+                CurrentExports[exportId].percentageComplete = (float)d.Index / total;
 
                 yield return null;
             }
 
-            CurrentExports.Remove(exportName);
+            CurrentExports.Remove(exportId);
         }
     }
 }

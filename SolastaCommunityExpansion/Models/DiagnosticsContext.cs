@@ -21,8 +21,13 @@ namespace SolastaCommunityExpansion.Models
         private static HashSet<BaseDefinition> CEBaseDefinitions;
         private static Dictionary<Type, List<BaseDefinition>> CEBaseDefinitionsMap;
 
+        internal const int TA = 0;
+        internal const int CE = 1;
+
         internal const string DiagnosticsEnvironmentVariable = "SolastaCEDiagnosticsDir";
+
         internal static string DiagnosticsOutputFolder { get; } = GetDiagnosticsFolder();
+
         internal static bool HasDiagnosticsFolder => !string.IsNullOrWhiteSpace(DiagnosticsOutputFolder);
 
         private static string GetDiagnosticsFolder()
@@ -155,14 +160,14 @@ namespace SolastaCommunityExpansion.Models
         {
             var path = Path.Combine(HasDiagnosticsFolder ? DiagnosticsOutputFolder : GAME_FOLDER, OFFICIAL_BP_FOLDER);
 
-            BlueprintExporter.ExportBlueprints("TA", TABaseDefinitions, TABaseDefinitionsMap, path);
+            BlueprintExporter.ExportBlueprints(TA, TABaseDefinitions, TABaseDefinitionsMap, path);
         }
-
+        
         internal static void ExportCEDefinitions()
         {
             var path = Path.Combine(HasDiagnosticsFolder ? DiagnosticsOutputFolder : GAME_FOLDER, COMMUNITY_EXPANSION_BP_FOLDER);
 
-            BlueprintExporter.ExportBlueprints("CE", CEBaseDefinitions, CEBaseDefinitionsMap, path);
+            BlueprintExporter.ExportBlueprints(CE, CEBaseDefinitions, CEBaseDefinitionsMap, path);
         }
 
         internal static void CreateTADefinitionDiagnostics()

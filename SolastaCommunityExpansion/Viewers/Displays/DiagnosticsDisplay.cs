@@ -39,8 +39,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             string exportTaLabel;
             string exportCeLabel;
-            float percentageCompleteTa = BlueprintExporter.PercentageComplete("TA");
-            float percentageCompleteCe = BlueprintExporter.PercentageComplete("CE");
+            float percentageCompleteTa = BlueprintExporter.PercentageComplete(DiagnosticsContext.TA);
+            float percentageCompleteCe = BlueprintExporter.PercentageComplete(DiagnosticsContext.CE);
 
             if (percentageCompleteTa == 0)
             {
@@ -70,7 +70,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     }
                     else
                     {
-                        BlueprintExporter.Cancel("TA");
+                        BlueprintExporter.Cancel(DiagnosticsContext.TA);
                     }
                 }, UI.Width(200));
 
@@ -82,11 +82,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     }
                     else
                     {
-                        BlueprintExporter.Cancel("CE");
+                        BlueprintExporter.Cancel(DiagnosticsContext.CE);
                     }
                 }, UI.Width(200));
             }
-
 #if DEBUG
             using (UI.HorizontalScope())
             {
