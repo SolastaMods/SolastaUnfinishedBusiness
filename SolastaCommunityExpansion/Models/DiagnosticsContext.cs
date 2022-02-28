@@ -102,7 +102,7 @@ namespace SolastaCommunityExpansion.Models
                 definitions.Add(db.Key, arr);
             }
 
-            CEBaseDefinitionsMap = definitions;
+            CEBaseDefinitionsMap = definitions.OrderBy(db => db.Key.FullName).ToDictionary(v => v.Key, v => v.Value);
             CEBaseDefinitions = CEBaseDefinitionsMap.Values
                 .SelectMany(v => v)
                 .Where(x => Array.IndexOf(Main.Settings.ExcludeFromExport, x.GetType().Name) < 0)
