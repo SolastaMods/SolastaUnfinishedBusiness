@@ -10,7 +10,7 @@ using static CharacterClassDefinition;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public sealed class CharacterClassDefinitionBuilder : DefinitionBuilder<CharacterClassDefinition>
+    public sealed class CharacterClassDefinitionBuilder : DefinitionBuilder<CharacterClassDefinition, CharacterClassDefinitionBuilder>
     {
         #region Constructors
         private CharacterClassDefinitionBuilder(string name, string guid) : base(name, guid)

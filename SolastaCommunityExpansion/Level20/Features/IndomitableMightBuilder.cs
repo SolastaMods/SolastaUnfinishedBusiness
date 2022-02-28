@@ -1,10 +1,11 @@
 ﻿using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal sealed class IndomitableMightBuilder : DefinitionBuilder<IndomitableMight>
+    internal sealed class IndomitableMightBuilder : FeatureDefinitionBuilder<IndomitableMight, IndomitableMightBuilder>
     {
         private const string IndomitableMightName = "ZSBarbarianIndomitableMight";
         private const string IndomitableMightGuid = "2a0e9082-c81d-4d02-800a-92f04fbe85dc";

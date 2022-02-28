@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using HarmonyLib;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -12,7 +13,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		ProtectorConstructFeatureSetBuilder		***********************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class ProtectorConstructFeatureSetBuilder : DefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal sealed class ProtectorConstructFeatureSetBuilder : FeatureDefinitionFeatureSetBuilder
     {
         private const string Name = "ProtectorConstructFeatureSet";
         private const string Guid = "9b699719-0d02-4949-ad94-cff6a05f36c7";
@@ -36,7 +37,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static readonly FeatureDefinitionFeatureSet ProtectorConstructFeatureSet = CreateAndAddToDB(Name, Guid);
     }
 
-    public sealed class ProtectorConstructLevel3AutopreparedSpellsBuilder : DefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
+    public sealed class ProtectorConstructLevel3AutopreparedSpellsBuilder : FeatureDefinitionAutoPreparedSpellsBuilder
     {
         private const string Name = "ProtectorConstructLevel3AutopreparedSpells";
         private const string Guid = "25403813-58eb-47f4-b5ee-b7956cc02ccf";
@@ -67,12 +68,13 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummoningAffinityTinkererConstructBuilder		***********************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SummoningAffinityTinkererConstructBuilder : DefinitionBuilder<FeatureDefinitionSummoningAffinity>
+    internal sealed class SummoningAffinityTinkererConstructBuilder : FeatureDefinitionSummoningAffinityBuilder
     {
         private const string Name = "SummoningAffinityTinkererConstruct";
         private const string Guid = "0dbd3d80-96ce-4cf9-8ffa-597f1ea84c3b";
 
-        private SummoningAffinityTinkererConstructBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritBond, name, guid)
+        private SummoningAffinityTinkererConstructBuilder(string name, string guid)
+            : base(DatabaseHelper.FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritBond, name, guid)
         {
             Definition.GuiPresentation.Title = "Feature/&NoContentTitle";
             Definition.GuiPresentation.Description = "Feature/&NoContentTitle";
@@ -124,7 +126,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummonProtectorConstructBuilder		***********************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SummonProtectorPowerConstructBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class SummonProtectorPowerConstructBuilder : FeatureDefinitionPowerBuilder
     {
         private const string SummonProtectorConstructName = "SummonProtectorConstruct";
         private const string SummonProtectorConstructNameGuid = "20b5ab3e-5124-4d08-9907-347f2f1284d4";
@@ -162,7 +164,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummonProtectorPowerConstruct_UpgradeBuilder		***************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SummonProtectorPowerConstructUpgradeBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class SummonProtectorPowerConstructUpgradeBuilder : FeatureDefinitionPowerBuilder
     {
         private const string Name = "SummonProtectorPowerConstruct_Upgrade";
         private const string Guid = "34c307e9-5883-438c-9130-1f286b9cdafc";
@@ -189,7 +191,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummonProtectorSpellConstructBuilder		***************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SummonProtectorSpellConstructBuilder : DefinitionBuilder<SpellDefinition>
+    internal sealed class SummonProtectorSpellConstructBuilder : SpellDefinitionBuilder
     {
         private const string SummonProtectorConstructName = "SummonProtectorConstruct";
         private const string SummonProtectorConstructNameGuid = "60f2462e-b801-48ee-a543-c69771e3917c";
@@ -226,7 +228,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     // need a new featuredefintionAutopreparedSpells list with the summon upgrade spell for the two different subclasses
     // as features can be added at any lvl and it's 1st lvl spell
     //
-    internal sealed class SummonProtectorSpellConstructUpgradeBuilder : DefinitionBuilder<SpellDefinition>
+    internal sealed class SummonProtectorSpellConstructUpgradeBuilder : SpellDefinitionBuilder
     {
         private const string Name = "SummonProtectorConstruct_Upgrade";
         private const string Guid = "ccd2a793-e566-4c1e-9588-ac36b578ae89";
@@ -247,7 +249,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static readonly SpellDefinition SummonProtectorConstructUpgrade = CreateAndAddToDB(Name, Guid);
     }
 
-    public sealed class ProtectorConstructLevel15AutopreparedSpellsBuilder : DefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
+    public sealed class ProtectorConstructLevel15AutopreparedSpellsBuilder : FeatureDefinitionAutoPreparedSpellsBuilder
     {
         private const string Name = "ProtectorConstructLevel15AutopreparedSpells";
         private const string Guid = "4515c27b-f17b-4262-9e8c-a19c251f666e";
@@ -281,7 +283,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		ProtectorConstructUpgradeFeatureSetBuilder		***********************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class ProtectorConstructUpgradeFeatureSetBuilder : DefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal sealed class ProtectorConstructUpgradeFeatureSetBuilder : FeatureDefinitionFeatureSetBuilder
     {
         private const string Name = "ProtectorConstructUpgradeFeatureSet";
         private const string Guid = "59bc566d-5204-4e53-89cb-eebc537ae6ab";
@@ -308,7 +310,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		ProtectorConstructBuilder		***************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class ProtectorConstructBuilder : DefinitionBuilder<MonsterDefinition>
+    internal sealed class ProtectorConstructBuilder : MonsterDefinitionBuilder
     {
         private const string ProtectorConstructName = "ProtectorConstruct";
         private const string ProtectorConstructNameGuid = "db1cd36f-7dc7-454f-baeb-143cd9dd374f";
@@ -380,7 +382,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		ProtectorConstruct_UpgradeBuilder		*******************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class ProtectorConstructUpgradeBuilder : DefinitionBuilder<MonsterDefinition>
+    internal sealed class ProtectorConstructUpgradeBuilder : MonsterDefinitionBuilder
     {
         private const string Name = "ProtectorConstruct_Upgrade";
         private const string Guid = "c6f711d8-9b83-497f-8e90-6440776cf644";
@@ -406,7 +408,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		ProtectorConstructAttacksBuilder		*******************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class ProtectorConstructAttackBuilder : DefinitionBuilder<MonsterAttackDefinition>
+    internal sealed class ProtectorConstructAttackBuilder : MonsterAttackDefinitionBuilder
     {
         private const string ProtectorConstructAttacksName = "ProtectorConstructAttacks";
         private const string ProtectorConstructAttacksGuid = "dad5a3f6-3b44-4476-85fc-d5235b9ad9cd";
@@ -463,7 +465,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SelfRepairBuilder		***********************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SelfRepairBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class SelfRepairBuilder : FeatureDefinitionPowerBuilder
     {
         private const string SelfRepairName = "SelfRepair";
         private const string SelfRepairNameGuid = "68db5cab-6fc9-4795-88a6-f89d81b0e4ef";
@@ -511,7 +513,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		RetributionBuilder		***********************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class RetributionBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class RetributionBuilder : FeatureDefinitionPowerBuilder
     {
         private const string RetributionName = "Retribution";
         private const string RetributionNameGuid = "1fc63d9f-263c-4642-b75c-f7684ca6dd3d";

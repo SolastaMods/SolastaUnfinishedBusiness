@@ -122,11 +122,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             return battleSmith.AddToDB();
         }
 
-        private sealed class FeatureDefinitionAttackModifierBuilder : DefinitionBuilder<FeatureDefinitionAttackModifier>
+        private sealed class FeatureDefinitionAttackModifierBuilder : Builders.Features.FeatureDefinitionAttackModifierBuilder
         {
             public FeatureDefinitionAttackModifierBuilder(string name, string guid,
-            AbilityScoreReplacement abilityReplacement, string additionalAttackTag,
-            GuiPresentation guiPresentation) : base(name, guid)
+                AbilityScoreReplacement abilityReplacement, string additionalAttackTag,
+                GuiPresentation guiPresentation) : base(name, guid)
             {
                 Definition.SetAbilityScoreReplacement(abilityReplacement);
                 Definition.SetAdditionalAttackTag(additionalAttackTag);

@@ -351,13 +351,18 @@ namespace SolastaCommunityExpansion.Multiclass.Models
         // allows casters to use slots above their caster level if multiclassed
         internal static void Load()
         {
+            if (!Main.Settings.EnableMulticlass)
+            {
+                return;
+            }
+
             var SpellListDefinition = DatabaseRepository.GetDatabase<SpellListDefinition>();
 
             foreach (var spellsByLevel in SpellListDefinition.Select(x => x.SpellsByLevel))
             {
                 while (spellsByLevel.Count < 9)
                 {
-                    spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet { Level = spellsByLevel.Count, Spells = new List<SpellDefinition>() });
+                    spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet { Level = spellsByLevel.Count, Spells = new() });
                 }
             }
         }

@@ -5,24 +5,25 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionSummoningAffinityBuilder : DefinitionBuilder<FeatureDefinitionSummoningAffinity>
+    public class FeatureDefinitionSummoningAffinityBuilder
+        : FeatureDefinitionAffinityBuilder<FeatureDefinitionSummoningAffinity, FeatureDefinitionSummoningAffinityBuilder>
     {
-        private FeatureDefinitionSummoningAffinityBuilder(string name, string guid)
+        protected FeatureDefinitionSummoningAffinityBuilder(string name, string guid)
             : base(name, guid)
         {
         }
 
-        private FeatureDefinitionSummoningAffinityBuilder(string name, Guid namespaceGuid)
+        protected FeatureDefinitionSummoningAffinityBuilder(string name, Guid namespaceGuid)
             : base(name, namespaceGuid)
         {
         }
 
-        private FeatureDefinitionSummoningAffinityBuilder(FeatureDefinitionSummoningAffinity original, string name, string guid)
+        protected FeatureDefinitionSummoningAffinityBuilder(FeatureDefinitionSummoningAffinity original, string name, string guid)
             : base(original, name, guid)
         {
         }
 
-        private FeatureDefinitionSummoningAffinityBuilder(FeatureDefinitionSummoningAffinity original, string name, Guid namespaceGuid)
+        protected FeatureDefinitionSummoningAffinityBuilder(FeatureDefinitionSummoningAffinity original, string name, Guid namespaceGuid)
             : base(original, name, namespaceGuid)
         {
         }

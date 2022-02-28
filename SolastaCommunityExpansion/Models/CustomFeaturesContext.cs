@@ -19,6 +19,15 @@ namespace SolastaCommunityExpansion.Models
                 {
                     customFeature.ApplyFeature(hero);
                 }
+                if (!(grantedFeature is FeatureDefinitionProficiency featureDefinitionProficiency))
+                {
+                    continue;
+                }
+                if (featureDefinitionProficiency.ProficiencyType != RuleDefinitions.ProficiencyType.FightingStyle)
+                {
+                    continue;
+                }
+                featureDefinitionProficiency.Proficiencies.ForEach(prof => hero.TrainedFightingStyles.Add(DatabaseRepository.GetDatabase<FightingStyleDefinition>().GetElement(prof, false)));
             }
         }
 

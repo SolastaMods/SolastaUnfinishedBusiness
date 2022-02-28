@@ -218,5 +218,8 @@
     <None Update="Names-en.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Diagnostics\CE-Definitions.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None> 
   </ItemGroup>
 </Project>

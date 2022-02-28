@@ -257,6 +257,7 @@ Equipment/&Enchanted_Spear_Acuteness_Description	This enchanted weapon was creat
 Equipment/&Enchanted_Spear_Acuteness_Title	Spear of Acuteness
 Equipment/&Enchanted_Spear_BlackViper_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths, using a spear and the venom of a legendary spider from Solasta's depths. The blade's designer was Grigg Blackheart, a notorious Marsh halfling smith working in the forges of the Aer Elai.
 Equipment/&Enchanted_Spear_BlackViper_Title	Black Viper Spear
+Equipment/&Enchanted_Spear_Doomblade_Description This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. Kenaloth Darkmind devised the Doomblades as a tool of punishment for those who resisted the magic of the Empire.
 Equipment/&Enchanted_Spear_Doomblade_Title	Doom Tipped Spear
 Equipment/&Enchanted_Spear_Lightbringer_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
 Equipment/&Enchanted_Spear_Lightbringer_Title	Lightbringer Spear
@@ -401,6 +402,8 @@ Feat/&FeatFeyTeleportationWisDescription	Increase Wisdom attribute by 1. Gain th
 Feat/&FeatFeyTeleportationWisTitle	Fey Teleportation (Wisdom)
 Feat/&FeatHeavyArmorMasterClassDescription	Resistance to Bludgeoning, Slashing, and Piercing damage.
 Feat/&FeatHeavyArmorMasterClassTitle	Heavy Defense Mastery
+Feat/&FeatImprovedCriticalDescription Your attacks are critical hits on a roll of 19 or 20.
+Feat/&FeatImprovedCriticalTitle Improved Critical
 Feat/&FeatIntIncrementDescription	+1 Intelligence
 Feat/&FeatIntIncrementTitle	Intelligence Attribute Increase
 Feat/&FeatLightArmorDescription	Gain proficiency with Light Armor and +1 Dexterity
@@ -926,7 +929,7 @@ Spell/&FindFamiliarTitle	Find Familiar
 Spell/&FrenzyDescription	With a gesture, you reduce a crowd to base instinct and violence. Choose a point you can see within range. Each creature within 20 feet of that point must make a Wisdom saving throw. On a failed save, a creature is frenzied for the duration. When a creature is frenzied, it draws a melee weapon, if it has one. A frenzied creature must use its action at the beginning of its turn to attack a creature within its reach. It uses a melee weapon, if it has one, or an improvised weapon or unarmed strike, if it doesn't. If multiple targets are within the creature's reach, it chooses its target randomly. If there is no target within the creature's reach, it attacks itself, against its own AC, dealing damage as normal on a hit. At the end of its turn, a frenzied creature can repeat its saving throw, ending the effect on it early on a success.
 Spell/&FrenzyTitle	Frenzy
 Spell/&IPConjureInvisibleStalkerTitle	Conjure Elemental (Invisible Stalker)
-Spell/&MinorLifestealDescription	You drain life energy from a hostile creature you can see within range. You then gain temporary hit points equal to the amount of damage dealt, which lasts until you finish a long rest. This spell has no effect on undead or constructs.
+Spell/&MinorLifestealDescription	You drain life energy from a hostile creature you can see within range. You then heal hit points equal to the amount of damage dealt. This spell has no effect on undead or constructs.
 Spell/&MinorLifestealTitle	Minor Lifesteal
 Spell/&PetalStormDescription	Choose an unoccupied 15-foot cube of air that you can see within range. An elemental force of swirling winds appears in the cube and lasts for the spell's duration. The cloud heavily obscures its area. Any creature that enters the storm for the first time on a turn or starts its turn there must make a Strength saving throw. On a failed save, the creature takes 3d4 slashing damage. As a bonus action, you can move the storm up to 30 feet in any direction.
 Spell/&PetalStormTitle	Petal Storm

@@ -1,6 +1,6 @@
 ﻿namespace SolastaCommunityExpansion.Builders
 {
-    public class LootPackDefinitionBuilder : DefinitionBuilder<LootPackDefinition>
+    public class LootPackDefinitionBuilder : DefinitionBuilder<LootPackDefinition, LootPackDefinitionBuilder>
     {
         protected LootPackDefinitionBuilder(LootPackDefinition original, string name, string guid) : base(original, name, guid)
         {

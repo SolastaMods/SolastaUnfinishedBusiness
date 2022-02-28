@@ -167,7 +167,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                     AttributeDefinitions.Intelligence, effectBuilder.Build(), false /* unique instance */).AddToDB();
         }
 
-        private sealed class FeatureDefinitionAttackModifierBuilder : DefinitionBuilder<FeatureDefinitionAttackModifier>
+        private sealed class FeatureDefinitionAttackModifierBuilder : Builders.Features.FeatureDefinitionAttackModifierBuilder
         {
             public FeatureDefinitionAttackModifierBuilder(string name, string guid,
                 RuleDefinitions.AbilityScoreReplacement abilityReplacement, string additionalAttackTag,

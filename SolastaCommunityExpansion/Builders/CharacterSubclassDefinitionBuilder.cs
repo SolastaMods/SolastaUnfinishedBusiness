@@ -4,7 +4,7 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public sealed class CharacterSubclassDefinitionBuilder : DefinitionBuilder<CharacterSubclassDefinition>
+    public sealed class CharacterSubclassDefinitionBuilder : DefinitionBuilder<CharacterSubclassDefinition, CharacterSubclassDefinitionBuilder>
     {
         private CharacterSubclassDefinitionBuilder(string name, string guid)
             : base(name, guid)

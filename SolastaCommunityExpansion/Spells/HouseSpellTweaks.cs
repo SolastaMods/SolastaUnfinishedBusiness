@@ -16,21 +16,32 @@ namespace SolastaCommunityExpansion.Spells
 
         internal static void SpikeGrowthDoesNotAffectFlyingCreatures()
         {
-            if (!Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures)
-            {
-                return;
-            }
-
             var spikeGrowthEffect = SpikeGrowth.EffectDescription;
-            spikeGrowthEffect.EffectForms
-                .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
-                .ToList()
-                .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(false));
+            spikeGrowthEffect.SetTargetParameter(4);
 
-            spikeGrowthEffect.SetTargetType(RuleDefinitions.TargetType.Cylinder);
-            spikeGrowthEffect.SetTargetParameter2(1);
+            if (Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures)
+            {
+                // Set to Cylinder radius 4, height 1
+                spikeGrowthEffect.EffectForms
+                    .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
+                    .ToList()
+                    .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(false));
+
+                spikeGrowthEffect.SetTargetType(RuleDefinitions.TargetType.Cylinder);
+                spikeGrowthEffect.SetTargetParameter2(1);
+            }
+            else
+            {
+                // Restore default of Sphere radius 4
+                spikeGrowthEffect.EffectForms
+                    .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
+                    .ToList()
+                    .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(true));
+
+                spikeGrowthEffect.SetTargetType(RuleDefinitions.TargetType.Sphere);
+                spikeGrowthEffect.SetTargetParameter2(0);
+            }
         }
-
 
         internal static void SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures()
         {
@@ -38,6 +49,7 @@ namespace SolastaCommunityExpansion.Spells
             ClearTargetParameter2ForTargetTypeCube();
 
             // Spells with TargetType.Cube and defaults values of (tp, tp2)
+            // Note that tp2 should be 0 for Cube and is ignored in game.
             // BlackTentacles: (4, 2)
             // Entangle: (4, 1)
             // FaerieFire: (4, 2)

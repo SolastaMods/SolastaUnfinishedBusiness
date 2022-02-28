@@ -47,7 +47,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
     }
 
-    public class FeatureDefinitionCombatAffinityBuilder 
+    public class FeatureDefinitionCombatAffinityBuilder
         : FeatureDefinitionCombatAffinityBuilder<FeatureDefinitionCombatAffinity, FeatureDefinitionCombatAffinityBuilder>
     {
         #region Constructors

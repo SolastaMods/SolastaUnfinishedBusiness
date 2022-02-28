@@ -112,14 +112,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures;
-                if (UI.Toggle("Spike Growth".orange() + " does not affect flying creatures flying higher than 1 cell.", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Spike Growth".orange() + " does not affect flying creatures flying higher than 1 cell", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures = toggle;
                     HouseSpellTweaks.SpikeGrowthDoesNotAffectFlyingCreatures();
                 }
 
                 toggle = Main.Settings.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures;
-                if (UI.Toggle("Black Tentacles, Entangle, Grease".orange() + " do not affect flying creatures flying higher than 1 cell.", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Black Tentacles, Entangle, Grease".orange() + " do not affect flying creatures flying higher than 1 cell", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures = toggle;
                     HouseSpellTweaks.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures();
@@ -128,7 +128,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (Main.Settings.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures)
                 {
                     toggle = Main.Settings.EnableTargetTypeSquareCylinder;
-                    if (UI.Toggle("+ Use a square area of effect for these spells (SRD). (A circular area requires less code changes but is non-SRD.)".italic(), ref toggle, UI.AutoWidth()))
+                    if (UI.Toggle("+ Use a square area of effect for these spells ".italic() + "[A circular area requires less code changes but is non-SRD]".yellow().italic(), ref toggle, UI.AutoWidth()))
                     {
                         Main.Settings.EnableTargetTypeSquareCylinder = toggle;
                         HouseSpellTweaks.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures();
@@ -169,7 +169,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.MakeAllMagicStaveArcaneFoci;
-                if (UI.Toggle("Make all magic staves arcane foci " + "[except for ".italic().yellow() + "Staff of Healing".italic().orange() + " which is Universal]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Make all magic staves arcane foci " + "[except for ".italic().yellow() + "Staff of Healing".italic().orange() + " which is Universal] ".italic().yellow() + RequiresRestart, ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.MakeAllMagicStaveArcaneFoci = toggle;
                     ItemOptionsContext.SwitchMagicStaffFoci();

@@ -1,10 +1,10 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal sealed class PowerClericTurnUndeadBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class PowerClericTurnUndeadBuilder : FeatureDefinitionPowerBuilder
     {
         private const string PowerClericTurnUndead14Name = "ZSPowerClericTurnUndead14";
         private const string PowerClericTurnUndead14Guid = "1258a27f594542e1b9df6f9d36a50fbe";

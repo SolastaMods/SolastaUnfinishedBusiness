@@ -5,24 +5,14 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionPointPoolBuilder : DefinitionBuilder<FeatureDefinitionPointPool>
+    public class FeatureDefinitionPointPoolBuilder : FeatureDefinitionBuilder<FeatureDefinitionPointPool, FeatureDefinitionPointPoolBuilder>
     {
-        /*        private FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, string guid)
-                    : base(original, name, guid)
-                {
-                }
-
-                private FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, Guid namespaceGuid)
-                    : base(original, name, namespaceGuid)
-                {
-                }*/
-
-        private FeatureDefinitionPointPoolBuilder(string name, string guid)
+        protected FeatureDefinitionPointPoolBuilder(string name, string guid)
             : base(name, guid)
         {
         }
 
-        private FeatureDefinitionPointPoolBuilder(string name, Guid namespaceGuid)
+        protected FeatureDefinitionPointPoolBuilder(string name, Guid namespaceGuid)
             : base(name, namespaceGuid)
         {
         }

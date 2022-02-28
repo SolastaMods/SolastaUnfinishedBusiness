@@ -3,7 +3,7 @@ using SolastaCommunityExpansion.CustomFeatureDefinitions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionConditionalPowerBuilder 
+    public sealed class FeatureDefinitionConditionalPowerBuilder
         : FeatureDefinitionPowerBuilder<FeatureDefinitionConditionalPower, FeatureDefinitionConditionalPowerBuilder>
     {
         private FeatureDefinitionConditionalPowerBuilder(string name, Guid namespaceGuid)

@@ -1,10 +1,10 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal sealed class AttributeModifierFighterIndomitableBuilder : DefinitionBuilder<FeatureDefinitionAttributeModifier>
+    internal sealed class AttributeModifierFighterIndomitableBuilder : FeatureDefinitionAttributeModifierBuilder
     {
         private const string AttributeModifierFighterIndomitableAddName = "ZSAttributeModifierFighterIndomitableAdd";
         private const string AttributeModifierFighterIndomitableAddGuid = "8a2f09cafd7b47d886cb0ce098c4f477";

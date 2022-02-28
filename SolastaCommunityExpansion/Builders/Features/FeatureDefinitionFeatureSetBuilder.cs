@@ -6,56 +6,69 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public abstract class FeatureDefinitionFeatureSetBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
+    public abstract class FeatureDefinitionFeatureSetBuilder<TDefinition, TBuilder> : FeatureDefinitionBuilder<TDefinition, TBuilder>
         where TDefinition : FeatureDefinitionFeatureSet
         where TBuilder : FeatureDefinitionFeatureSetBuilder<TDefinition, TBuilder>
     {
-        private protected FeatureDefinitionFeatureSetBuilder(TDefinition original) : base(original) { }
+        #region Constructors
+        protected FeatureDefinitionFeatureSetBuilder(TDefinition original) : base(original) { }
 
-        private protected FeatureDefinitionFeatureSetBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        protected FeatureDefinitionFeatureSetBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        private protected FeatureDefinitionFeatureSetBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        protected FeatureDefinitionFeatureSetBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        private protected FeatureDefinitionFeatureSetBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        protected FeatureDefinitionFeatureSetBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
         {
         }
 
-        private protected FeatureDefinitionFeatureSetBuilder(TDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        protected FeatureDefinitionFeatureSetBuilder(TDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 
-        private protected FeatureDefinitionFeatureSetBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected FeatureDefinitionFeatureSetBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
-        private protected FeatureDefinitionFeatureSetBuilder(TDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected FeatureDefinitionFeatureSetBuilder(TDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
+        #endregion
 
-        public TBuilder ClearFeatures()
+        public TBuilder ClearFeatureSet()
         {
             Definition.ClearFeatureSet();
             return (TBuilder)this;
         }
 
-        public TBuilder AddFeature(FeatureDefinition featureDefinition)
+        public TBuilder SetFeatureSet(params FeatureDefinition[] featureDefinitions)
         {
-            Definition.FeatureSet.Add(featureDefinition);
+            return SetFeatureSet(featureDefinitions.AsEnumerable());
+        }
+
+        public TBuilder SetFeatureSet(IEnumerable<FeatureDefinition> featureDefinitions)
+        {
+            Definition.SetFeatureSet(featureDefinitions);
             return (TBuilder)this;
         }
 
-        public TBuilder SetFeatures(params FeatureDefinition[] featureDefinitions)
+        public TBuilder AddFeatureSet(params FeatureDefinition[] featureDefinitions)
         {
-            return SetFeatures(featureDefinitions.AsEnumerable());
+            return AddFeatureSet(featureDefinitions.AsEnumerable());
         }
 
-        public TBuilder SetFeatures(IEnumerable<FeatureDefinition> featureDefinitions)
+        public TBuilder AddFeatureSet(IEnumerable<FeatureDefinition> featureDefinitions)
         {
-            Definition.FeatureSet.SetRange(featureDefinitions);
+            Definition.AddFeatureSet(featureDefinitions);
+            return (TBuilder)this;
+        }
+
+        public TBuilder SetEnumerateInDescription(bool value)
+        {
+            Definition.SetEnumerateInDescription(value);
             return (TBuilder)this;
         }
 

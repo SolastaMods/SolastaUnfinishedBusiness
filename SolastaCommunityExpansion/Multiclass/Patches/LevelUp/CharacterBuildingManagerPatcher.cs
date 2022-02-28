@@ -310,7 +310,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                     return true;
                 }
 
-                if (!(LevelUpContext.LevelingUp && LevelUpContext.IsMulticlass)) 
+                if (!(LevelUpContext.LevelingUp && LevelUpContext.IsMulticlass))
                 {
                     return true;
                 }

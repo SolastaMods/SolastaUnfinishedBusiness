@@ -46,7 +46,7 @@ namespace SolastaCommunityExpansion
 
                     if (termData?.Languages[languageIndex] != null)
                     {
-                        Main.Warning($"term {term} overwritten with {code} text {text}");
+                        Main.Log($"term {term} overwritten with {code} text {text}");
 
                         termData.Languages[languageIndex] = text;
                     }

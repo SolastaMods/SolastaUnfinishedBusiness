@@ -68,7 +68,10 @@ namespace SolastaCommunityExpansion
 
         internal static void OnShowGui(UnityModManager.ModEntry modEntry)
         {
-            Models.PlayerControllerContext.RefreshGuiState();
+            if (Main.Settings.EnableHeroesControlledByComputer)
+            {
+                Models.PlayerControllerContext.RefreshGuiState();
+            }
         }
     }
 }

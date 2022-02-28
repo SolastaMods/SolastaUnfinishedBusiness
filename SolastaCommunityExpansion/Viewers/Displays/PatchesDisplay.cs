@@ -41,7 +41,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     // modId <=> color
                     using (new GUILayout.VerticalScope())
                     {
-                        if (GUILayout.Button("Refresh List Of Patch Owners", _buttonStyle))
+                        if (GUILayout.Button("Refresh list of patch owners", _buttonStyle, UI.Width(200)))
                         {
                             RefreshListOfPatchOwners();
                         }
@@ -73,11 +73,11 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         using (new GUILayout.VerticalScope())
                         {
                             selectedPatchName = string.IsNullOrEmpty(_modID) ? "All".bold() : _modID.Color(_modIdsToColor[_modID]).bold();
-                            if (GUILayout.Button($"Refresh Patch Info ({selectedPatchName})", _buttonStyle))
+                            if (GUILayout.Button($"Refresh Patch Info ({selectedPatchName})", _buttonStyle, UI.Width(200)))
                             {
                                 RefreshPatchInfoOfAllMods();
                             }
-                            if (GUILayout.Button($"Potential Conflicts for ({selectedPatchName})", _buttonStyle))
+                            if (GUILayout.Button($"Potential Conflicts for ({selectedPatchName})", _buttonStyle, UI.Width(200)))
                             {
                                 RefreshPatchInfoOfPotentialConflict();
                             }
@@ -100,47 +100,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         GUILayout.Label($"Selected Patch Owner: {selectedPatchName}", UI.AutoWidth());
                         UI.Space(25);
                         UI.TextField(ref searchText, "Search", UI.Width(400));
-                        UI.Space(25);
-                        UI.Label("Patch Debug");
-                        UI.Space(25);
-                        if (_patches.Sum(entry => entry.Value.Count) > 0)
-                        {
-                            UI.ActionButton("Disable All", () =>
-                            {
-                                var actions = new List<Action>();
-                                foreach (var method in methodBases)
-                                {
-                                    var enabledPatches = EnabledPatchesForMethod(method);
-                                    foreach (var patch in enabledPatches)
-                                    {
-                                        actions.Add(() => EnablePatchForMethod(false, patch, method));
-                                    }
-                                }
-                                foreach (var action in actions)
-                                {
-                                    action();
-                                }
-                            });
-                        }
-                        if (_disabled.Sum(entry => entry.Value.Count) > 0)
-                        {
-                            UI.ActionButton("Enable All", () =>
-                            {
-                                var actions = new List<Action>();
-                                foreach (var method in methodBases)
-                                {
-                                    var disabledPatches = DisabledPatchesForMethod(method);
-                                    foreach (var patch in disabledPatches)
-                                    {
-                                        actions.Add(() => EnablePatchForMethod(true, patch, method));
-                                    }
-                                }
-                                foreach (var action in actions)
-                                {
-                                    action();
-                                }
-                            });
-                        }
                     }
                     UI.Space(25);
                     UI.Label($"Patches Found: {methodBases.Count().ToString().cyan()}".orange());
@@ -151,9 +110,9 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         var methodComponents = method.ToString().Split();
                         var returnTypeStr = methodComponents[0];
                         var methodName = methodComponents[1];
-                        UI.Space(15);
-                        UI.Div();
-                        UI.Space(10);
+
+                        UI.Label("");
+
                         using (new GUILayout.VerticalScope())
                         {
                             using (new GUILayout.HorizontalScope())
@@ -244,6 +203,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 _modID = null;
                 _modIdsToColor = null;
             }
+
+            UI.Label("");
         }
         private static List<Patch> EnabledPatchesForMethod(MethodBase method)
         {

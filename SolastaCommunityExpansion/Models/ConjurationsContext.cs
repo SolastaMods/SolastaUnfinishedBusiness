@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
-using SolastaModApi;
 using SolastaModApi.Extensions;
 using static RuleDefinitions;
 using static SolastaModApi.DatabaseHelper.MonsterDefinitions;
@@ -10,6 +10,37 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class ConjurationsContext
     {
+        internal static readonly HashSet<MonsterDefinition> ConjuredMonsters = new()
+        {
+            // Conjure animals (3)
+            ConjuredOneBeastTiger_Drake,
+            ConjuredTwoBeast_Direwolf,
+            ConjuredFourBeast_BadlandsSpider,
+            ConjuredEightBeast_Wolf,
+
+            // Conjure minor elementals (4)
+            SkarnGhoul, // CR 2
+            WindSnake, // CR 2
+            Fire_Jester, // CR 1
+
+            // Conjure woodland beings (4) - not implemented
+
+            // Conjure elemental (5)
+            Air_Elemental, // CR 5
+            Fire_Elemental, // CR 5
+            Earth_Elemental, // CR 5
+
+            InvisibleStalker, // CR 6
+
+            // Conjure fey (6)
+            FeyGiantApe, // CR 6
+            FeyGiant_Eagle, // CR 5
+            FeyBear, // CR 4
+            Green_Hag, // CR 3
+            FeyWolf, // CR 2
+            FeyDriad, // CR 1
+        };
+
         /// <summary>
         /// Allow conjurations to fully controlled party members instead of AI controlled.
         /// </summary>
@@ -19,33 +50,10 @@ namespace SolastaCommunityExpansion.Models
 
             var controlled = Main.Settings.FullyControlConjurations;
 
-            // Conjure animals (3)
-            ConjuredOneBeastTiger_Drake.SetFullyControlledWhenAllied(controlled);
-            ConjuredTwoBeast_Direwolf.SetFullyControlledWhenAllied(controlled);
-            ConjuredFourBeast_BadlandsSpider.SetFullyControlledWhenAllied(controlled);
-            ConjuredEightBeast_Wolf.SetFullyControlledWhenAllied(controlled);
-
-            // Conjure minor elementals (4)
-            SkarnGhoul.SetFullyControlledWhenAllied(controlled); // CR 2
-            WindSnake.SetFullyControlledWhenAllied(controlled); // CR 2
-            Fire_Jester.SetFullyControlledWhenAllied(controlled); // CR 1
-
-            // Conjure woodland beings (4) - not implemented
-
-            // Conjure elemental (5)
-            Air_Elemental.SetFullyControlledWhenAllied(controlled); // CR 5
-            Fire_Elemental.SetFullyControlledWhenAllied(controlled); // CR 5
-            Earth_Elemental.SetFullyControlledWhenAllied(controlled); // CR 5
-
-            InvisibleStalker.SetFullyControlledWhenAllied(controlled); // CR 6
-
-            // Conjure fey (6)
-            FeyGiantApe.SetFullyControlledWhenAllied(controlled); // CR 6
-            FeyGiant_Eagle.SetFullyControlledWhenAllied(controlled); // CR 5
-            FeyBear.SetFullyControlledWhenAllied(controlled); // CR 4
-            Green_Hag.SetFullyControlledWhenAllied(controlled); // CR 3
-            FeyWolf.SetFullyControlledWhenAllied(controlled); // CR 2
-            FeyDriad.SetFullyControlledWhenAllied(controlled); // CR 1
+            foreach (var conjuredMonster in ConjuredMonsters)
+            {
+                conjuredMonster.SetFullyControlledWhenAllied(controlled);
+            }
 
             if (Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration)
             {

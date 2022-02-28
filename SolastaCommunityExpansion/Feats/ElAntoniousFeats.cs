@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Feats
         }
     }
 
-    internal sealed class DualFlurryFeatBuilder : DefinitionBuilder<FeatDefinition>
+    internal sealed class DualFlurryFeatBuilder : FeatDefinitionBuilder
     {
         public static readonly Guid DualFlurryGuid = new("03C523EB-91B9-4F1B-A697-804D1BC2D6DD");
         private const string DualFlurryFeatName = "DualFlurryFeat";
@@ -74,7 +74,7 @@ namespace SolastaCommunityExpansion.Feats
         }
     }
 
-    internal sealed class ConditionDualFlurryApplyBuilder : DefinitionBuilder<ConditionDefinition>
+    internal sealed class ConditionDualFlurryApplyBuilder : ConditionDefinitionBuilder
     {
         private ConditionDualFlurryApplyBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionSurged, name, guid)
         {
@@ -105,7 +105,7 @@ namespace SolastaCommunityExpansion.Feats
         }
     }
 
-    internal sealed class ConditionDualFlurryGrantBuilder : DefinitionBuilder<ConditionDefinition>
+    internal sealed class ConditionDualFlurryGrantBuilder : ConditionDefinitionBuilder
     {
         private ConditionDualFlurryGrantBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionSurged, name, guid)
         {
@@ -148,7 +148,7 @@ namespace SolastaCommunityExpansion.Feats
         }
     }
 
-    internal sealed class TorchbearerFeatBuilder : DefinitionBuilder<FeatDefinition>
+    internal sealed class TorchbearerFeatBuilder : FeatDefinitionBuilder
     {
         private static readonly Guid TorchbearerGuid = new("03C523EB-91B9-4F1B-A697-804D1BC2D6DD");
         private const string TorchbearerFeatName = "TorchbearerFeat";

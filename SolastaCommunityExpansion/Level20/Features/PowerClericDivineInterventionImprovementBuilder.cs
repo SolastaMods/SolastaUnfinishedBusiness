@@ -1,10 +1,10 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal sealed class PowerClericDivineInterventionImprovementBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class PowerClericDivineInterventionImprovementBuilder : FeatureDefinitionPowerBuilder
     {
         private const string PowerClericDivineInterventionImprovementClericName = "ZSPowerClericDivineInterventionImprovementCleric";
         private const string PowerClericDivineInterventionImprovementClericGuid = "cc4303e4-114e-43aa-a7ee-e197c9f8ef40";

@@ -179,15 +179,10 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             return ConditionDefinitionBuilder
                 .Create(name, SubclassNamespace)
                 .SetGuiPresentation(guiPresentation)
-                .Configure(definition =>
-                {
-                    definition.Features.AddRange(conditionFeatures);
-                    definition
-                        .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
-                        .SetAllowMultipleInstances(false)
-                        .SetDurationType(durationType)
-                        .SetDurationParameter(durationParameter);
-                })
+                .SetFeatures(conditionFeatures)
+                .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
+                .SetAllowMultipleInstances(false)
+                .SetDuration(durationType, durationParameter, false) // No validation due to existing configuration
                 .AddToDB();
         }
 

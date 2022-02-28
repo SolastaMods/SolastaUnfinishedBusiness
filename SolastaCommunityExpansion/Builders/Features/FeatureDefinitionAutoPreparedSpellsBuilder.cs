@@ -7,31 +7,40 @@ using static FeatureDefinitionAutoPreparedSpells;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionAutoPreparedSpellsBuilder : DefinitionBuilder<FeatureDefinitionAutoPreparedSpells>
+    public class FeatureDefinitionAutoPreparedSpellsBuilder
+        : FeatureDefinitionBuilder<FeatureDefinitionAutoPreparedSpells, FeatureDefinitionAutoPreparedSpellsBuilder>
     {
-        /*
-        private FeatureDefinitionAutoPreparedSpellsBuilder(string name, string guid)
-            : base(name, guid)
+        #region Constructors
+        protected FeatureDefinitionAutoPreparedSpellsBuilder(FeatureDefinitionAutoPreparedSpells original) : base(original)
         {
         }
 
-        private FeatureDefinitionAutoPreparedSpellsBuilder(FeatureDefinitionAutoPreparedSpells original, string name, string guid)
-            : base(original, name, guid)
+        protected FeatureDefinitionAutoPreparedSpellsBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        private FeatureDefinitionAutoPreparedSpellsBuilder(FeatureDefinitionAutoPreparedSpells original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
-        {
-        }
-        */
-
-        private FeatureDefinitionAutoPreparedSpellsBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid)
+        protected FeatureDefinitionAutoPreparedSpellsBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        // Add other standard Create methods and constructors as required.
+        protected FeatureDefinitionAutoPreparedSpellsBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionAutoPreparedSpellsBuilder(FeatureDefinitionAutoPreparedSpells original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionAutoPreparedSpellsBuilder(FeatureDefinitionAutoPreparedSpells original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionAutoPreparedSpellsBuilder(FeatureDefinitionAutoPreparedSpells original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
+
+        // Add other standard Create methods as required.
 
         public static FeatureDefinitionAutoPreparedSpellsBuilder Create(string name, Guid namespaceGuid)
         {

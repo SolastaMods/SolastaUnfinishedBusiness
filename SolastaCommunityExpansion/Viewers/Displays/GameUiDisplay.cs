@@ -11,28 +11,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         {
             bool toggle;
             int intValue;
-            float floatValue;
-
-            #region AdventureLog
-            UI.Label("");
-
-            toggle = Main.Settings.DisplayAdventureLogToggle;
-            if (UI.DisclosureToggle("Adventure Log: ".yellow(), ref toggle, 200))
-            {
-                Main.Settings.DisplayAdventureLogToggle = toggle;
-            }
-
-            if (Main.Settings.DisplayAdventureLogToggle)
-            {
-                UI.Label("");
-
-                toggle = Main.Settings.EnableAdventureLogDocuments;
-                if (UI.Toggle("Record read documents and notes " + "[This setting only works in custom campaigns or locations]".yellow().italic(), ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableAdventureLogDocuments = toggle;
-                }
-            }
-            #endregion
 
             #region Battle
             UI.Label("");
@@ -76,13 +54,21 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.DisplayCampaignToggle;
-            if (UI.DisclosureToggle("Campaigns and locations:".yellow(), ref toggle, 200))
+            if (UI.DisclosureToggle("Custom campaigns and locations:".yellow(), ref toggle, 200))
             {
                 Main.Settings.DisplayCampaignToggle = toggle;
             }
 
             if (Main.Settings.DisplayCampaignToggle)
             {
+                UI.Label("");
+
+                toggle = Main.Settings.EnableAdventureLogDocuments;
+                if (UI.Toggle("Record read documents and notes " + "[This setting only works in custom campaigns or locations]".yellow().italic(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableAdventureLogDocuments = toggle;
+                }
+
                 UI.Label("");
 
                 toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
@@ -200,12 +186,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (UI.Slider("Max levels per line on Spell Panel".white(), ref intValue, 3, 7, 5, "", UI.AutoWidth()))
                 {
                     Main.Settings.MaxSpellLevelsPerLine = intValue;
-                }
-
-                floatValue = Main.Settings.SpellPanelGapBetweenLines;
-                if (UI.Slider("Gap between spell lines on Spell Panel".white(), ref floatValue, 0f, 200f, 50f, 0, "", UI.AutoWidth()))
-                {
-                    Main.Settings.SpellPanelGapBetweenLines = floatValue;
                 }
             }
             #endregion
