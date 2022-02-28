@@ -177,15 +177,15 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             classWarlockBuilder.AddFeatureAtLevel(8, DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
             classWarlockBuilder.AddFeatureAtLevel(9, WarlockEldritchInvocationSetBuilderLevel9.WarlockEldritchInvocationSetLevel9);
             //level 10 - subclass feature
-            classWarlockBuilder.AddFeatureAtLevel(11, WarlockMysticArcanumSetBuilderLevel11.WarlockMysticArcanumSetLevel11);
+            classWarlockBuilder.AddFeatureAtLevel(11, WarlockMysticArcanumSetBuilder.WarlockMysticArcanumSetLevel11);
             classWarlockBuilder.AddFeatureAtLevel(12, DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice) ;
             classWarlockBuilder.AddFeatureAtLevel(12, WarlockEldritchInvocationSetBuilderLevel12.WarlockEldritchInvocationSetLevel12);
-            classWarlockBuilder.AddFeatureAtLevel(13, WarlockMysticArcanumSetBuilderLevel13.WarlockMysticArcanumSetLevel13);
+            classWarlockBuilder.AddFeatureAtLevel(13, WarlockMysticArcanumSetBuilder.WarlockMysticArcanumSetLevel13);
             //level 14 - subclass feature
-            classWarlockBuilder.AddFeatureAtLevel(15, WarlockMysticArcanumSetBuilderLevel15.WarlockMysticArcanumSetLevel15);
+            classWarlockBuilder.AddFeatureAtLevel(15, WarlockMysticArcanumSetBuilder.WarlockMysticArcanumSetLevel15);
             classWarlockBuilder.AddFeatureAtLevel(15, WarlockEldritchInvocationSetBuilderLevel15.WarlockEldritchInvocationSetLevel15);
             classWarlockBuilder.AddFeatureAtLevel(16, DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
-            classWarlockBuilder.AddFeatureAtLevel(17, WarlockMysticArcanumSetBuilderLevel17.WarlockMysticArcanumSetLevel17);
+            classWarlockBuilder.AddFeatureAtLevel(17, WarlockMysticArcanumSetBuilder.WarlockMysticArcanumSetLevel17);
             classWarlockBuilder.AddFeatureAtLevel(18, WarlockEldritchInvocationSetBuilderLevel18.WarlockEldritchInvocationSetLevel18);
             classWarlockBuilder.AddFeatureAtLevel(19, DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
             classWarlockBuilder.AddFeatureAtLevel(20, WarlockEldritchMasterBuilder.WarlockEldritchMaster);
