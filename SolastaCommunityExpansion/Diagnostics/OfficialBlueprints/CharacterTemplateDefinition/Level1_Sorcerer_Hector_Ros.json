@@ -1,0 +1,140 @@
+{
+  "$type": "CharacterTemplateDefinition, Assembly-CSharp",
+  "editorOnly": false,
+  "firstName": "Race/&HumanSurName14Title",
+  "surName": "Race/&HumanSurName3Title",
+  "abilityScores": [
+    12,
+    14,
+    17,
+    13,
+    13,
+    18
+  ],
+  "automateAbilityScoreIncreases": false,
+  "mainRace": "Definition:Human:d844f80cc9ab3cb4d95630e35163eedd",
+  "subRace": null,
+  "originMorphotype": "Origin_CA",
+  "skinMorphotype": "FaceAndSkin_11",
+  "musculatureMorphotypeValue": 25.0,
+  "ageMorphotypeValue": 20.0,
+  "faceShapeMorphotype": "FaceShape_CA_D",
+  "hairShapeMorphotype": "HairShape_None",
+  "hairColorMorphotype": "HairColorSilver",
+  "beardShapeMorphotype": "BeardShape_None",
+  "eyeColorMorphotype": "EyeColorBlue",
+  "eyeMorphotype": "Eye_SorcererChildOfTheRift",
+  "bodyDecorationMorphotype": "BodyDecoration_SorcererChildOfTheRift",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "",
+  "mainClass": "Definition:Sorcerer:7214644869e323444b7817d1804eb985",
+  "subClass": "Definition:SorcerousChildRift:a5f62682f02bbd24a9dd3dd8e98b5d00",
+  "deity": null,
+  "background": "Definition:Lowlife:05f5b783f6a05a74a90f0aa645d10aab",
+  "backgroundPersonalityFlag1": "Selfishness",
+  "backgroundPersonalityFlag2": "Friendliness",
+  "alignment": "ChaoticNeutral",
+  "alignmentPersonalityFlag1": "Cynicism",
+  "alignmentPersonalityFlag2": "Selfishness",
+  "fightingStyle": null,
+  "equipment": [
+    "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
+    "Definition:ComponentPouch:792f520ab845d5e4e99248603ab0ffd8",
+    "Definition:SorcererArmor:47654cd8e260fcf419effb71f8d5c64e",
+    "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+    "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
+    "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
+    "Definition:DungeoneerPack:6286cf8295c47af42bca166999993f2b"
+  ],
+  "startingMoney": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "skillsOverride": [
+    "Arcana",
+    "Intimidation"
+  ],
+  "toolsOverride": [],
+  "featsOverride": [],
+  "expertisesOverride": [],
+  "languagesOverride": [
+    "Language_Tirmarian"
+  ],
+  "metamagicOverride": [],
+  "characterLevel": 1,
+  "knownRaceCantrips": [
+    "Definition:ShadowArmor:2542a6717952164479079fcad2ed60f9"
+  ],
+  "knownClassCantrips": [
+    "Definition:FireBolt:fac7c06d87f301d4ca3798b4c18d86c8",
+    "Definition:Light:c1d0bf7d6cd76e543a665bd1cb3aa01c",
+    "Definition:ShadowDagger:3402c51b9ccb99b48bb7cb62eaa5dcab",
+    "Definition:ShockingGrasp:0bcfc5c29da450c4bb0f27df027616eb"
+  ],
+  "knownSubclassCantrips": [],
+  "knownRaceSpells": [],
+  "knownClassSpells": [
+    "Definition:MagicMissile:2b2b43fb6eeb735479a21209286db382",
+    "Definition:BurningHands:a2c42e38e03448e438a2abfc3252352a"
+  ],
+  "knownSubclassSpells": [],
+  "preparedClassSpells": [],
+  "preparedSubclassSpells": [],
+  "sex": "Male",
+  "pronoun": "Male",
+  "age": 30,
+  "facePath": "",
+  "wieldedItemsConfigurations": [
+    {
+      "$id": "1",
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
+      "offHandItemDefinition": "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e"
+    },
+    {
+      "$id": "2",
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+      "offHandItemDefinition": null
+    },
+    {
+      "$id": "3",
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": null,
+      "offHandItemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994"
+    }
+  ],
+  "voiceId": "MAL1",
+  "guiPresentation": {
+    "$id": "4",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Race/&HumanSurName14Title",
+    "description": "Race/&HumanSurName3Title",
+    "spriteReference": {
+      "$id": "5",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "3b5272914a5d5ab4bbe21d27124428ca",
+      "m_SubObjectName": "HectorRos",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "6",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "0b07c5683a102bc43b9729034c108a86",
+  "contentPack": "BaseGame",
+  "name": "Level1_Sorcerer_Hector_Ros"
+}

@@ -1,0 +1,46 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:FeatChefWisIncrement:66525b26-9796-563b-9896-ec7d61d38526",
+    "Definition:FeatChefShortRestFeast:a2c52704-5388-503d-b1bb-0d1a1e21c8be",
+    "Definition:FeatChefCookTreats:14888452-6cdf-53d6-bfb6-cdd5648f9956"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feat/&ChefWisTitle",
+    "description": "Feat/&ChefWisDescription",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "dcd8761b-ce46-56e6-a636-38fbd9902f6b",
+  "contentPack": "BaseGame",
+  "name": "FeatChefWis"
+}

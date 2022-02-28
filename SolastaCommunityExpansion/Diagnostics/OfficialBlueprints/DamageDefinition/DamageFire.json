@@ -1,0 +1,32 @@
+{
+  "$type": "DamageDefinition, Assembly-CSharp",
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Rules/&DamageFireTitle",
+    "description": "Rules/&DamageFireDescription",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "7a5ee0539d5eef140afcd2321cc4f0cc",
+      "m_SubObjectName": "DamageNecrotic",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 0.8567709,
+      "b": 0.7311321,
+      "a": 1.0
+    },
+    "symbolChar": "25F3",
+    "sortOrder": 3,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "528e9301f77c08d4085c83e8f963f66d",
+  "contentPack": "BaseGame",
+  "name": "DamageFire"
+}

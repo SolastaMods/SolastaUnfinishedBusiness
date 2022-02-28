@@ -2,6 +2,7 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Multiclass.Models;
+using SolastaCommunityExpansion.Patches.Diagnostic;
 
 namespace SolastaCommunityExpansion.Patches
 {
@@ -11,6 +12,11 @@ namespace SolastaCommunityExpansion.Patches
     {
         internal static void Postfix()
         {
+#if DEBUG
+            ItemDefinitionVerification.Load();
+            EffectFormVerification.Load();
+#endif
+
             // Cache TA definitions for diagnostics and export
             DiagnosticsContext.CacheTADefinitions();
 
@@ -76,6 +82,9 @@ namespace SolastaCommunityExpansion.Patches
                 InspectionPanelContext.Load();
                 LevelUpContext.Load();
                 SharedSpellsContext.Load();
+
+                // Save by location initialization depends on services to be ready
+                SaveByLocationContext.Load();
 
                 // Recache all gui collections
                 GuiWrapperContext.Recache();

@@ -1,0 +1,131 @@
+{
+  "$type": "CharacterTemplateDefinition, Assembly-CSharp",
+  "editorOnly": false,
+  "firstName": "Race/&DwarfMaleName4Title",
+  "surName": "Race/&DwarfSurName3Title",
+  "abilityScores": [
+    17,
+    11,
+    16,
+    9,
+    14,
+    18
+  ],
+  "automateAbilityScoreIncreases": false,
+  "mainRace": "Definition:Dwarf:2e3395f10bfa00e4487d852ec3b20154",
+  "subRace": "Definition:DwarfHill:451ad40e6513f2d46a8afef7c7345175",
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkinObsidian",
+  "musculatureMorphotypeValue": 100.0,
+  "ageMorphotypeValue": 0.0,
+  "faceShapeMorphotype": "FaceShape_A",
+  "hairShapeMorphotype": "HairShape_A",
+  "hairColorMorphotype": "HairColorCopper",
+  "beardShapeMorphotype": "BeardShape_B",
+  "eyeColorMorphotype": "EyeColorSilver",
+  "eyeMorphotype": "Eye_Default",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
+  "mainClass": "Definition:Paladin:b2e60f3a15ee5de40a14cce2d16f02ba",
+  "subClass": null,
+  "deity": "Definition:Einar:ba8feffc3aa81ea42bbf641959d7259b",
+  "background": "Definition:Lowlife:05f5b783f6a05a74a90f0aa645d10aab",
+  "backgroundPersonalityFlag1": "Greed",
+  "backgroundPersonalityFlag2": "Self-Preservation",
+  "alignment": "ChaoticGood",
+  "alignmentPersonalityFlag1": "Friendliness",
+  "alignmentPersonalityFlag2": "Helpfulness",
+  "fightingStyle": null,
+  "equipment": [
+    "Definition:ExplorerPack:03fbaf29ed08637449084486fe78a3c8",
+    "Definition:Greataxe:f5f24f61e9777684d8507f438660300a",
+    "Definition:ChainMail:80f0c1abf6973fe4fa5e2fc9ecb26ff0",
+    "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+    "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
+    "Definition:Battleaxe:40695efa6b4f77e47beab08ec4cbef91"
+  ],
+  "startingMoney": [
+    0,
+    15,
+    0,
+    0,
+    0
+  ],
+  "skillsOverride": [
+    "Persuasion",
+    "Medecine"
+  ],
+  "toolsOverride": [
+    "HerbalismKitType"
+  ],
+  "featsOverride": [],
+  "expertisesOverride": [],
+  "languagesOverride": [
+    "Language_Elvish"
+  ],
+  "metamagicOverride": [],
+  "characterLevel": 1,
+  "knownRaceCantrips": [],
+  "knownClassCantrips": [],
+  "knownSubclassCantrips": [],
+  "knownRaceSpells": [],
+  "knownClassSpells": [],
+  "knownSubclassSpells": [],
+  "preparedClassSpells": [],
+  "preparedSubclassSpells": [],
+  "sex": "Male",
+  "pronoun": "Male",
+  "age": 40,
+  "facePath": "",
+  "wieldedItemsConfigurations": [
+    {
+      "$id": "1",
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Greataxe:f5f24f61e9777684d8507f438660300a",
+      "offHandItemDefinition": null
+    },
+    {
+      "$id": "2",
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+      "offHandItemDefinition": null
+    },
+    {
+      "$id": "3",
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": null,
+      "offHandItemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994"
+    }
+  ],
+  "voiceId": "MAL2",
+  "guiPresentation": {
+    "$id": "4",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "CharacterTemplate/&GarradTitle",
+    "description": "CharacterTemplate/&GarradDescription",
+    "spriteReference": {
+      "$id": "5",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "1e9bc9aff2306c8459ef4685007fca81",
+      "m_SubObjectName": "Level1_Paladin_Berden_Redstone",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "6",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "7a4486e979b349d4bb762826044ee51d",
+  "contentPack": "BaseGame",
+  "name": "Level1_Paladin_Berden_Redstone"
+}

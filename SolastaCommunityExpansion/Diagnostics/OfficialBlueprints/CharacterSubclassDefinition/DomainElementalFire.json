@@ -1,0 +1,78 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$id": "1",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:BonusCantripsDomainElementaFire:4820a4af5166c4a41b5426a418d9b320",
+      "level": 1
+    },
+    {
+      "$id": "2",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsDomainElemental:ca56c9b9c8913784991e465e7697d664",
+      "level": 1
+    },
+    {
+      "$id": "3",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DamageAffinityDomainElementaFirePrimalHarmony:32be9b0039f530740b3549dae474ee2c",
+      "level": 1
+    },
+    {
+      "$id": "4",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainElementalFireBurst:08ccbdac61b374d40b4ad68055587539",
+      "level": 2
+    },
+    {
+      "$id": "5",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainElementalDiscipleOfTheElementsFire:5f83a6f044f93064d9d206c5917414b7",
+      "level": 6
+    },
+    {
+      "$id": "6",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainElementalHeraldOfTheElementsFire:bc08276ab3bafb945846e60fed692321",
+      "level": 8
+    },
+    {
+      "$id": "7",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerClericDivineInterventionWizard:0b20466699780a74e801804f86af806b",
+      "level": 10
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$id": "8",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&DomainElementalFireTitle",
+    "description": "Subclass/&DomainElementalFireDescription",
+    "spriteReference": {
+      "$id": "9",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "6546b72bf75bd1f4b8e16068391909f9",
+      "m_SubObjectName": "Cleric_Red",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "10",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 2,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "b2302cd673875504fbcccdbaa1cc0e77",
+  "contentPack": "BaseGame",
+  "name": "DomainElementalFire"
+}

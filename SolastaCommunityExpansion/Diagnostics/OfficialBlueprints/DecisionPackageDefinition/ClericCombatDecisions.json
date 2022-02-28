@@ -1,0 +1,126 @@
+{
+  "$type": "TA.AI.DecisionPackageDefinition, Assembly-CSharp",
+  "package": {
+    "$id": "1",
+    "$type": "TA.AI.DecisionPackageDescription, Assembly-CSharp",
+    "weightedDecisions": [
+      {
+        "$id": "2",
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_Heal_SingleTarget:d20af47bb10f50641898b60aac8c7288",
+        "weight": 6.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$id": "3",
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_Buff_AoE:17ac82843a6e0a146892a58b3f439bd3",
+        "weight": 5.5,
+        "cooldown": 3,
+        "dynamicCooldown": true
+      },
+      {
+        "$id": "4",
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_Buff_WithRandom:b014b52d0c44d9a4797c29f7d8a0bf9c",
+        "weight": 5.0,
+        "cooldown": 3,
+        "dynamicCooldown": false
+      },
+      {
+        "$id": "5",
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:ShoveDown_Default:96539282bfa8ee1448e20ab0a19aaedb",
+        "weight": 4.0,
+        "cooldown": 3,
+        "dynamicCooldown": false
+      },
+      {
+        "$id": "6",
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:ShoveBack_Default:fd641a2fe08864d4297599a7c508d53d",
+        "weight": 4.0,
+        "cooldown": 3,
+        "dynamicCooldown": false
+      },
+      {
+        "$id": "7",
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_DPS_AoE:1574fe0b89cfdfb438968fe5dfb92c52",
+        "weight": 4.0,
+        "cooldown": 2,
+        "dynamicCooldown": true
+      },
+      {
+        "$id": "8",
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:MeleeAttack_Default:c7500087a5f8b764e9bc131a06fbdd3e",
+        "weight": 3.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$id": "9",
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_DPS_SingleTarget:a03b2b9514d7dfa489be3748a07a43e9",
+        "weight": 3.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$id": "10",
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:Move_AggressiveSingleTargetAndPack:c5e5bc9d61c6a0c458abea634844ad85",
+        "weight": 2.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$id": "11",
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:RangedAttack_Default:a96934f6775237944a7beb403b13c731",
+        "weight": 1.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$id": "12",
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:LongRangePathToEnemy_Dash:4e5f0f365b7acb54d81b527719d373d1",
+        "weight": 0.1,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      }
+    ]
+  },
+  "guiPresentation": {
+    "$id": "13",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$id": "14",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "15",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "d5ceea03da8e7be4c86e2c1e37dda354",
+  "contentPack": "BaseGame",
+  "name": "ClericCombatDecisions"
+}

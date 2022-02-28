@@ -1,0 +1,64 @@
+{
+  "$type": "AlignmentDefinition, Assembly-CSharp",
+  "lawAxis": -1,
+  "goodnessAxis": 0,
+  "defaultPersonalityFlags": [
+    "Selfishness",
+    "Self-Preservation"
+  ],
+  "optionalPersonalityFlags": [
+    {
+      "$id": "1",
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 10,
+      "personalityFlag": "Selfishness"
+    },
+    {
+      "$id": "2",
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 10,
+      "personalityFlag": "Cynicism"
+    },
+    {
+      "$id": "3",
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 10,
+      "personalityFlag": "Self-Preservation"
+    },
+    {
+      "$id": "4",
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 10,
+      "personalityFlag": "Pragmatism"
+    }
+  ],
+  "guiPresentation": {
+    "$id": "5",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Alignment/&ChaoticNeutralTitle",
+    "description": "Alignment/&ChaoticNeutralDescription",
+    "spriteReference": {
+      "$id": "6",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "7",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 5,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "7877c17b67f56a54e985f102835cfa52",
+  "contentPack": "BaseGame",
+  "name": "ChaoticNeutral"
+}

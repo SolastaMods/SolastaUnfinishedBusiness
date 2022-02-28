@@ -1,0 +1,52 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "craftedItem": "Definition:Enchanted_Dagger_Frostburn:5f421e0121f8b53498573705e1c316e9",
+  "stackCount": 1,
+  "craftingHours": 24,
+  "craftingDC": 12,
+  "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
+  "ingredients": [
+    {
+      "$id": "1",
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Primed Dagger:6b3401851b033f74088e7977f516d55b"
+    },
+    {
+      "$id": "2",
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Enchant_Crystal_Of_Winter:349532dfea26d5a42b43427baab99160"
+    }
+  ],
+  "spellDefinition": null,
+  "guiPresentation": {
+    "$id": "3",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&Enchanted_Dagger_Frostburn_Title",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "4",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "5",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "65273726965b4ef40b6f0a581d998c4f",
+  "contentPack": "BaseGame",
+  "name": "Recipe_Enchantment_DaggerFrostburn"
+}

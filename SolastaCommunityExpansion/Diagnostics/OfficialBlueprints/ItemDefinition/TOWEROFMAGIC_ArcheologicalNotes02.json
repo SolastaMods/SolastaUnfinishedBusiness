@@ -1,0 +1,262 @@
+{
+  "$type": "ItemDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "merchantCategory": "Adventuring",
+  "weight": 0.1,
+  "slotTypes": [
+    "ContainerSlot"
+  ],
+  "slotsWhereActive": [],
+  "activeOnGround": false,
+  "destroyedWhenUnequiped": false,
+  "forceEquip": false,
+  "forceEquipSlot": "",
+  "canBeStacked": false,
+  "stackSize": 10,
+  "defaultStackCount": -1,
+  "costs": [
+    0,
+    0,
+    0,
+    1,
+    0
+  ],
+  "itemTags": [
+    "Paper"
+  ],
+  "activeTags": [],
+  "inactiveTags": [],
+  "magical": false,
+  "requiresAttunement": false,
+  "requiresIdentification": false,
+  "requiredAttunementClasses": [],
+  "itemRarity": "Common",
+  "staticProperties": [],
+  "isArmor": false,
+  "isWeapon": false,
+  "isAmmunition": false,
+  "isUsableDevice": false,
+  "isTool": false,
+  "isStarterPack": false,
+  "isContainerItem": false,
+  "isLightSourceItem": false,
+  "isFocusItem": false,
+  "isWealthPile": false,
+  "isSpellbook": false,
+  "isDocument": true,
+  "documentDescription": {
+    "$id": "1",
+    "$type": "DocumentDescription, Assembly-CSharp",
+    "format": "Parchment",
+    "contentFragments": [
+      {
+        "$id": "2",
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "Body",
+        "text": "Equipment/&ToM_ArchaeologicalNotes_02_Content",
+        "spriteReference": {
+          "$id": "3",
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        }
+      }
+    ],
+    "script": "Narrative",
+    "language": "Language_Common",
+    "loreType": "None",
+    "recipeDefinition": null,
+    "locationDefinition": null,
+    "locationKnowledgeLevel": "Known",
+    "unlockedBestiaryContent": [],
+    "destroyAfterReading": false
+  },
+  "isFood": false,
+  "isFactionRelic": true,
+  "factionRelicDescription": {
+    "$id": "4",
+    "$type": "FactionRelicDescription, Assembly-CSharp",
+    "loreValue": 2,
+    "interestedFactions": [
+      "TowerOfKnowledge",
+      "Antiquarians"
+    ],
+    "redeemCosts": [
+      0,
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  "personalityFlagOccurences": [],
+  "soundEffectDescriptionOverride": {
+    "$id": "5",
+    "$type": "SoundEffectDescription, Assembly-CSharp",
+    "startEvent": {
+      "$id": "6",
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "stopEvent": {
+      "$id": "7",
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "startSwitch": {
+      "$id": "8",
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "stopSwitch": {
+      "$id": "9",
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiStoreBody": {
+      "$id": "10",
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiPickBody": {
+      "$id": "11",
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiStoreOther": {
+      "$id": "12",
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiPickOther": {
+      "$id": "13",
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
+  "soundEffectOnHitDescriptionOverride": {
+    "$id": "14",
+    "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
+    "switchOnHit": {
+      "$id": "15",
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
+  "itemPresentation": {
+    "$id": "16",
+    "$type": "ItemPresentation, Assembly-CSharp",
+    "unidentifiedTitle": "",
+    "unidentifiedDescription": "",
+    "overrideSubtype": "None",
+    "assetReference": {
+      "$id": "17",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "scaleFactorWhileWielded": 1.0,
+    "useArmorAddressableName": false,
+    "armorAddressableName": "",
+    "useCustomArmorMaterial": false,
+    "customArmorMaterial": "",
+    "hasCrownVariationMask": false,
+    "crownVariationMask": 0,
+    "sameBehavioursForMaleAndFemale": true,
+    "maleBodyPartBehaviours": [],
+    "femaleBodyPartBehaviours": [],
+    "itemFlags": [],
+    "serializedVersion": 1
+  },
+  "guiPresentation": {
+    "$id": "18",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ToM_ArchaeologicalNotes_02_Title",
+    "description": "Equipment/&ToM_ArchaeologicalNotes_02_Description",
+    "spriteReference": {
+      "$id": "19",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "9410a505b22f24f40b1a56c0ea38fa21",
+      "m_SubObjectName": "PickupQuest_CrownNotes",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "20",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "9a2a30a9e5d8d3a4084c4d8384d2d513",
+  "contentPack": "BaseGame",
+  "name": "TOWEROFMAGIC_ArcheologicalNotes02"
+}

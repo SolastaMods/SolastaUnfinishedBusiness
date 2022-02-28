@@ -20,16 +20,36 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
             Throw = 4
         }
 
-        public static Verification Mode { get; set; } = Verification.Log;
+        public static Verification Mode { get; set; } = Verification.None;
+
+        private const string LogName = "EffectForm.txt";
+
+        internal static void Load()
+        {
+            // Delete the log file to stop it growing out of control
+            var path = Path.Combine(DiagnosticsContext.DiagnosticsFolder, LogName);
+
+            try
+            {
+                File.Delete(path);
+            }
+            catch (Exception ex)
+            {
+                Main.Error(ex);
+            }
+
+            // Apply mode before any definitions are created
+            Mode = Main.Settings.DebugLogVariantMisuse ? Verification.Log : Verification.None;
+        }
 
         public static void VerifyUsage<T>(EffectForm form, EffectForm.EffectFormType type, ref T __result) where T : class
         {
-            if(Mode == Verification.None)
+            if (Mode == Verification.None)
             {
                 return;
             }
 
-            if(form.FormType == type)
+            if (form.FormType == type)
             {
                 return;
             }
@@ -40,16 +60,13 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
             {
                 Main.Log(msg);
 
-                if (DiagnosticsContext.HasDiagnosticsFolder)
-                {
-                    var path = Path.Combine(DiagnosticsContext.DiagnosticsOutputFolder, "EffectForm.txt");
-                    File.AppendAllLines(path, new string[] {
+                var path = Path.Combine(DiagnosticsContext.DiagnosticsFolder, LogName);
+                File.AppendAllLines(path, new string[] {
                         $"{Environment.NewLine}",
                         $"------------------------------------------------------------------------------------",
                         msg
                     });
-                    File.AppendAllText(path, Environment.StackTrace);
-                }
+                File.AppendAllText(path, Environment.StackTrace);
             }
 
             if (Mode.HasFlag(Verification.ReturnNull))
@@ -57,7 +74,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
                 __result = null;
             }
 
-            if(Mode.HasFlag(Verification.Throw))
+            if (Mode.HasFlag(Verification.Throw))
             {
                 throw new SolastaModApiException(msg);
             }

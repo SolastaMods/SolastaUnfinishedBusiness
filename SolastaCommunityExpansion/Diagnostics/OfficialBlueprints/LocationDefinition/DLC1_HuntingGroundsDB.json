@@ -1,0 +1,250 @@
+{
+  "$type": "LocationDefinition, Assembly-CSharp",
+  "isUserLocation": false,
+  "alwaysHidden": false,
+  "registeredFactions": [],
+  "registeredVariables": [],
+  "sceneFilePath": "",
+  "sceneReference": {
+    "$id": "1",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "fcd7c189c4f62f04c82a9db531a2f6bb",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "audioState": {
+    "$id": "2",
+    "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$id": "3",
+      "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseStateGroupReference": {
+        "$id": "4",
+        "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+        "objectName": "State_LocationName",
+        "id": 598649695,
+        "guid": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE",
+        "name": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE"
+      },
+      "objectName": "DLC1_HuntingGrounds",
+      "id": 1521329063,
+      "guid": "3D4732AD-D728-47BD-9E27-A34E607AC595",
+      "name": "3D4732AD-D728-47BD-9E27-A34E607AC595"
+    },
+    "groupIdInternal": 0,
+    "groupGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "renderSettingsSceneProfile": {
+    "$id": "5",
+    "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
+    "useSkybox": true,
+    "backgroundColor": {
+      "$id": "6",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    "skyboxMaterial": {
+      "$id": "7",
+      "$type": "UnityEngine.Material, UnityEngine.CoreModule",
+      "name": "Default_Skybox"
+    },
+    "ambientLight": {
+      "$id": "8",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.5,
+      "g": 0.5,
+      "b": 0.5,
+      "a": 1.0
+    },
+    "fog": false,
+    "fogColor": {
+      "$id": "9",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "fogMode": "Exponential",
+    "fogDensity": 0.0638,
+    "excludeSkybox": false,
+    "auraBaseSettings": {
+      "$id": "10",
+      "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
+      "useDensity": true,
+      "density": 0.01,
+      "useScattering": true,
+      "scattering": 0.5,
+      "useAmbientLighting": true,
+      "ambientLightingStrength": 1.0,
+      "useColor": false,
+      "color": {
+        "$id": "11",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.0,
+        "g": 0.5,
+        "b": 0.5,
+        "a": 0.5
+      },
+      "colorStrength": 1.0,
+      "useTint": false,
+      "tint": {
+        "$id": "12",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 1.0,
+        "g": 0.921568632,
+        "b": 0.0156862754,
+        "a": 1.0
+      },
+      "tintStrength": 1.0,
+      "useExtinction": false,
+      "extinction": 0.75,
+      "name": "DLC1_Encounter_Jungle_Road_AuraBaseParameters"
+    },
+    "userDungeonAuraVolumeDensity": 0.2,
+    "userDungeonAuraVolumeFogType": "Height",
+    "userDungeonAuraVolumeHeight": 3.0,
+    "userDungeonAuraVolumeNoise": false,
+    "userDungeonAuraVolumeNoiseScale": 3.0,
+    "dayCycleProfile": {
+      "$id": "13",
+      "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
+      "noonColor": {
+        "$id": "14",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.6886792,
+        "g": 0.623136163,
+        "b": 0.529503345,
+        "a": 1.0
+      },
+      "sunriseColor": {
+        "$id": "15",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8962264,
+        "g": 0.6984592,
+        "b": 0.477705568,
+        "a": 1.0
+      },
+      "sunsetColor": {
+        "$id": "16",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 1.0,
+        "g": 0.3648698,
+        "b": 0.109803915,
+        "a": 1.0
+      },
+      "globalSunIntensity": 2.0,
+      "sunDirection": -90.0,
+      "sunTilt": 0.01,
+      "moonLightColor": {
+        "$id": "17",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.108134575,
+        "g": 0.481081933,
+        "b": 0.8490566,
+        "a": 1.0
+      },
+      "moonLightFadeOffset": 0.1,
+      "moonLightFadeMinIntensity": 1.0,
+      "moonLightFadeDuration": 0.25,
+      "moonSpeedFactor": 1.0,
+      "moonBaseAngle": 0.0,
+      "globalMoonIntensity": 0.7,
+      "ambientSunriseColor": {
+        "$id": "18",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8490566,
+        "g": 0.8490566,
+        "b": 0.8490566,
+        "a": 1.0
+      },
+      "ambientNoonColor": {
+        "$id": "19",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.522249937,
+        "g": 0.605980754,
+        "b": 0.6792453,
+        "a": 1.0
+      },
+      "ambientSunsetColor": {
+        "$id": "20",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.461107165,
+        "g": 0.5300958,
+        "b": 0.6226415,
+        "a": 1.0
+      },
+      "ambientNightColor": {
+        "$id": "21",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.219829112,
+        "g": 0.381397873,
+        "b": 0.490566015,
+        "a": 1.0
+      },
+      "ambientFadeDuration": 1.0,
+      "dayAtmosphereThickness": 1.35,
+      "nightAtmosphereThickness": 0.5,
+      "name": "RandomEncounter_DayCycleProfile 1"
+    },
+    "name": "DLC1_Encounter_Jungle_Road_RenderSettings"
+  },
+  "locationPresentation": {
+    "$id": "22",
+    "$type": "LocationPresentation, Assembly-CSharp",
+    "unchartedTitle": "Feature/&Emptystring",
+    "unchartedDescription": "Feature/&Emptystring",
+    "knownTitle": "LocationType/&DLC1_HuntingGrounds_Title",
+    "knownDescription": "LocationType/&DLC1_HuntingGrounds_Description",
+    "exploredTitle": "LocationType/&DLC1_HuntingGrounds_Title",
+    "exploredDescription": "LocationType/&DLC1_HuntingGrounds_Description"
+  },
+  "challengeRating": 5,
+  "focusWhenRevealed": false,
+  "startsWithScavengerCamp": false,
+  "ignoredByScavengers": false,
+  "keepSectorCullingResultsWhenInactive": false,
+  "setCurrentCampaignNodeWhenLeaving": false,
+  "hasPriorityForTeleporter": false,
+  "canAttackNonHostileCharacters": false,
+  "guiPresentation": {
+    "$id": "23",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "LocationType/&DLC1_HuntingGrounds_Title",
+    "description": "LocationType/&DLC1_HuntingGrounds_Description",
+    "spriteReference": {
+      "$id": "24",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "c85b65424e57dca4789ece628f193a1a",
+      "m_SubObjectName": "RandomEncounter_DLC1_Jungle_Road",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "25",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "a15fe9171b8e18e4a8044d98682c5d15",
+  "contentPack": "LostValley",
+  "name": "DLC1_HuntingGroundsDB"
+}

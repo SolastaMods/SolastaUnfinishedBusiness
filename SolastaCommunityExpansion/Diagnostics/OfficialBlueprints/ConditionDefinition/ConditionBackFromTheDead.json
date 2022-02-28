@@ -1,0 +1,274 @@
+{
+  "$type": "ConditionDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "parentCondition": null,
+  "conditionType": "Detrimental",
+  "features": [],
+  "allowMultipleInstances": false,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
+  "terminateWhenRemoved": false,
+  "specialDuration": false,
+  "durationType": "Hour",
+  "durationParameterDie": "D4",
+  "durationParameter": 1,
+  "turnOccurence": "EndOfTurn",
+  "specialInterruptions": [],
+  "interruptionRequiresSavingThrow": false,
+  "interruptionDamageThreshold": 0,
+  "conditionTags": [],
+  "recurrentEffectForms": [],
+  "cancellingConditions": [],
+  "additionalDamageWhenHit": false,
+  "additionalDamageType": "",
+  "additionalDamageQuantity": "AbilityBonus",
+  "additionalDamageDieType": "D1",
+  "additionalDamageDieNumber": 1,
+  "additionalConditionWhenHit": false,
+  "additionalCondition": null,
+  "additionalConditionDurationType": "Round",
+  "additionalConditionDurationParameter": 1,
+  "additionalConditionTurnOccurenceType": "StartOfTurn",
+  "conditionStartParticleReference": {
+    "$id": "1",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "conditionParticleReference": {
+    "$id": "2",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "conditionEndParticleReference": {
+    "$id": "3",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "characterShaderReference": {
+    "$id": "4",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "particlesBasedOnAncestryDamageType": false,
+  "acidParticleParameters": {
+    "$id": "5",
+    "$type": "ConditionParticleParameters, Assembly-CSharp",
+    "startParticleReference": {
+      "$id": "6",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "particleReference": {
+      "$id": "7",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "endParticleReference": {
+      "$id": "8",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    }
+  },
+  "coldParticleParameters": {
+    "$id": "9",
+    "$type": "ConditionParticleParameters, Assembly-CSharp",
+    "startParticleReference": {
+      "$id": "10",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "particleReference": {
+      "$id": "11",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "endParticleReference": {
+      "$id": "12",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    }
+  },
+  "fireParticleParameters": {
+    "$id": "13",
+    "$type": "ConditionParticleParameters, Assembly-CSharp",
+    "startParticleReference": {
+      "$id": "14",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "particleReference": {
+      "$id": "15",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "endParticleReference": {
+      "$id": "16",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    }
+  },
+  "lightningParticleParameters": {
+    "$id": "17",
+    "$type": "ConditionParticleParameters, Assembly-CSharp",
+    "startParticleReference": {
+      "$id": "18",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "particleReference": {
+      "$id": "19",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "endParticleReference": {
+      "$id": "20",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    }
+  },
+  "poisonParticleParameters": {
+    "$id": "21",
+    "$type": "ConditionParticleParameters, Assembly-CSharp",
+    "startParticleReference": {
+      "$id": "22",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "particleReference": {
+      "$id": "23",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "endParticleReference": {
+      "$id": "24",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    }
+  },
+  "overrideCharacterShaderColors": false,
+  "firstCharacterShaderColor": {
+    "$id": "25",
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+  },
+  "secondCharacterShaderColor": {
+    "$id": "26",
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+  },
+  "timeToWaitBeforeApplyingShader": 0.5,
+  "timeToWaitBeforeRemovingShader": 0.5,
+  "possessive": false,
+  "amountOrigin": "None",
+  "baseAmount": 0,
+  "additiveAmount": false,
+  "sourceAbilityBonusMinValue": 1,
+  "subsequentOnRemoval": null,
+  "subsequentHasSavingThrow": false,
+  "subsequentSavingThrowAbilityScore": "Constitution",
+  "subsequentVariableForDC": "FrenzyExhaustionDC",
+  "subsequentDCIncrease": 5,
+  "forceBehavior": false,
+  "fearSource": false,
+  "battlePackage": null,
+  "explorationPackage": null,
+  "removedFromTheGame": false,
+  "permanentlyRemovedIfExtraPlanar": false,
+  "followSourcePosition": false,
+  "disolveCharacterOnDeath": false,
+  "disolveParameters": {
+    "$id": "27",
+    "$type": "GraphicsCharacterDefinitions+DisolveParameters, Assembly-CSharp",
+    "color": {
+      "$id": "28",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "colorWidth": 0.0,
+    "noiseScale": 5.0,
+    "hueScale": 0.0,
+    "vertexOffset": 0.0,
+    "curve": {
+      "$id": "29",
+      "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+    },
+    "startAfterDeathAnimation": false,
+    "duration": 0.0
+  },
+  "guiPresentation": {
+    "$id": "30",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Rules/&ConditionBackFromTheDeadTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "31",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "32",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "74a5e5af88a2fbf4dbc1324c88b614aa",
+  "contentPack": "BaseGame",
+  "name": "ConditionBackFromTheDead"
+}

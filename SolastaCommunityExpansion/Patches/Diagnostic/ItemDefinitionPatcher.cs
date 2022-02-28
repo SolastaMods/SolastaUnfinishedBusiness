@@ -18,7 +18,27 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
             Throw = 4
         }
 
-        public static Verification Mode { get; set; } = Verification.Log;
+        public static Verification Mode { get; set; } = Verification.None;
+
+        private const string LogName = "ItemDefinition.txt";
+
+        internal static void Load()
+        {
+            // Delete the log file to stop it growing out of control
+            var path = Path.Combine(DiagnosticsContext.DiagnosticsFolder, LogName);
+
+            try
+            {
+                File.Delete(path);
+            }
+            catch (Exception ex)
+            {
+                Main.Error(ex);
+            }
+
+            // Apply mode before any definitions are created
+            Mode = Main.Settings.DebugLogVariantMisuse ? Verification.Log : Verification.None;
+        }
 
         public static void VerifyUsage<T>(ItemDefinition definition, bool hasFlag, ref T __result) where T : class
         {
@@ -38,154 +58,151 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
             {
                 Main.Log(msg);
 
-                if (DiagnosticsContext.HasDiagnosticsFolder)
-                {
-                    var path = Path.Combine(DiagnosticsContext.DiagnosticsOutputFolder, "ItemDefinition.txt");
-                    File.AppendAllLines(path, new string[] {
+                var path = Path.Combine(DiagnosticsContext.DiagnosticsFolder, LogName);
+                File.AppendAllLines(path, new string[] {
                         $"{Environment.NewLine}",
-                        $"------------------------------------------------------------------------------------", 
+                        $"------------------------------------------------------------------------------------",
                         msg
                     });
-                    File.AppendAllText(path, Environment.StackTrace);
+                File.AppendAllText(path, Environment.StackTrace);
+
+                if (Mode.HasFlag(Verification.ReturnNull))
+                {
+                    __result = null;
+                }
+
+                if (Mode.HasFlag(Verification.Throw))
+                {
+                    throw new SolastaModApiException(msg);
                 }
             }
+        }
 
-            if (Mode.HasFlag(Verification.ReturnNull))
+        [HarmonyPatch(typeof(ItemDefinition), "ArmorDescription", MethodType.Getter)]
+        internal static class ItemDefinitionPatch_ArmorDescription
+        {
+            public static void Postfix(ItemDefinition __instance, ref ArmorDescription __result)
             {
-                __result = null;
+                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsArmor, ref __result);
             }
+        }
 
-            if (Mode.HasFlag(Verification.Throw))
+        [HarmonyPatch(typeof(ItemDefinition), "WeaponDescription", MethodType.Getter)]
+        internal static class ItemDefinitionPatch_WeaponDescription
+        {
+            public static void Postfix(ItemDefinition __instance, ref WeaponDescription __result)
             {
-                throw new SolastaModApiException(msg);
+                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsWeapon, ref __result);
             }
         }
-    }
 
-    [HarmonyPatch(typeof(ItemDefinition), "ArmorDescription", MethodType.Getter)]
-    internal static class ItemDefinitionPatch_ArmorDescription
-    {
-        public static void Postfix(ItemDefinition __instance, ref ArmorDescription __result)
+        [HarmonyPatch(typeof(ItemDefinition), "AmmunitionDescription", MethodType.Getter)]
+        internal static class ItemDefinitionPatch_AmmunitionDescription
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsArmor, ref __result);
+            public static void Postfix(ItemDefinition __instance, ref AmmunitionDescription __result)
+            {
+                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsAmmunition, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(ItemDefinition), "WeaponDescription", MethodType.Getter)]
-    internal static class ItemDefinitionPatch_WeaponDescription
-    {
-        public static void Postfix(ItemDefinition __instance, ref WeaponDescription __result)
+        [HarmonyPatch(typeof(ItemDefinition), "UsableDeviceDescription", MethodType.Getter)]
+        internal static class ItemDefinitionPatch_UsableDeviceDescription
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsWeapon, ref __result);
+            public static void Postfix(ItemDefinition __instance, ref UsableDeviceDescription __result)
+            {
+                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsUsableDevice, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(ItemDefinition), "AmmunitionDescription", MethodType.Getter)]
-    internal static class ItemDefinitionPatch_AmmunitionDescription
-    {
-        public static void Postfix(ItemDefinition __instance, ref AmmunitionDescription __result)
+        [HarmonyPatch(typeof(ItemDefinition), "ToolDescription", MethodType.Getter)]
+        internal static class ItemDefinitionPatch_ToolDescription
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsAmmunition, ref __result);
+            public static void Postfix(ItemDefinition __instance, ref ToolDescription __result)
+            {
+                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsTool, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(ItemDefinition), "UsableDeviceDescription", MethodType.Getter)]
-    internal static class ItemDefinitionPatch_UsableDeviceDescription
-    {
-        public static void Postfix(ItemDefinition __instance, ref UsableDeviceDescription __result)
+        [HarmonyPatch(typeof(ItemDefinition), "StarterPackDescription", MethodType.Getter)]
+        internal static class ItemDefinitionPatch_StarterPackDescription
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsUsableDevice, ref __result);
+            public static void Postfix(ItemDefinition __instance, ref StarterPackDescription __result)
+            {
+                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsStarterPack, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(ItemDefinition), "ToolDescription", MethodType.Getter)]
-    internal static class ItemDefinitionPatch_ToolDescription
-    {
-        public static void Postfix(ItemDefinition __instance, ref ToolDescription __result)
+        [HarmonyPatch(typeof(ItemDefinition), "ContainerItemDescription", MethodType.Getter)]
+        internal static class ItemDefinitionPatch_ContainerItemDescription
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsTool, ref __result);
+            public static void Postfix(ItemDefinition __instance, ref ContainerItemDescription __result)
+            {
+                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsContainerItem, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(ItemDefinition), "StarterPackDescription", MethodType.Getter)]
-    internal static class ItemDefinitionPatch_StarterPackDescription
-    {
-        public static void Postfix(ItemDefinition __instance, ref StarterPackDescription __result)
+        [HarmonyPatch(typeof(ItemDefinition), "LightSourceItemDescription", MethodType.Getter)]
+        internal static class ItemDefinitionPatch_LightSourceItemDescription
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsStarterPack, ref __result);
+            public static void Postfix(ItemDefinition __instance, ref LightSourceItemDescription __result)
+            {
+                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsLightSourceItem, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(ItemDefinition), "ContainerItemDescription", MethodType.Getter)]
-    internal static class ItemDefinitionPatch_ContainerItemDescription
-    {
-        public static void Postfix(ItemDefinition __instance, ref ContainerItemDescription __result)
+        [HarmonyPatch(typeof(ItemDefinition), "FocusItemDescription", MethodType.Getter)]
+        internal static class ItemDefinitionPatch_FocusItemDescription
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsContainerItem, ref __result);
+            public static void Postfix(ItemDefinition __instance, ref FocusItemDescription __result)
+            {
+                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsFocusItem, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(ItemDefinition), "LightSourceItemDescription", MethodType.Getter)]
-    internal static class ItemDefinitionPatch_LightSourceItemDescription
-    {
-        public static void Postfix(ItemDefinition __instance, ref LightSourceItemDescription __result)
+        [HarmonyPatch(typeof(ItemDefinition), "WealthPileDescription", MethodType.Getter)]
+        internal static class ItemDefinitionPatch_WealthPileDescription
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsLightSourceItem, ref __result);
+            public static void Postfix(ItemDefinition __instance, ref WealthPileDescription __result)
+            {
+                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsWealthPile, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(ItemDefinition), "FocusItemDescription", MethodType.Getter)]
-    internal static class ItemDefinitionPatch_FocusItemDescription
-    {
-        public static void Postfix(ItemDefinition __instance, ref FocusItemDescription __result)
+        [HarmonyPatch(typeof(ItemDefinition), "SpellbookDescription", MethodType.Getter)]
+        internal static class ItemDefinitionPatch_SpellbookDescription
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsFocusItem, ref __result);
+            public static void Postfix(ItemDefinition __instance, ref SpellbookDescription __result)
+            {
+                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsSpellbook, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(ItemDefinition), "WealthPileDescription", MethodType.Getter)]
-    internal static class ItemDefinitionPatch_WealthPileDescription
-    {
-        public static void Postfix(ItemDefinition __instance, ref WealthPileDescription __result)
+        [HarmonyPatch(typeof(ItemDefinition), "FoodDescription", MethodType.Getter)]
+        internal static class ItemDefinitionPatch_FoodDescription
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsWealthPile, ref __result);
+            public static void Postfix(ItemDefinition __instance, ref FoodDescription __result)
+            {
+                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsFood, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(ItemDefinition), "SpellbookDescription", MethodType.Getter)]
-    internal static class ItemDefinitionPatch_SpellbookDescription
-    {
-        public static void Postfix(ItemDefinition __instance, ref SpellbookDescription __result)
+        [HarmonyPatch(typeof(ItemDefinition), "FactionRelicDescription", MethodType.Getter)]
+        internal static class ItemDefinitionPatch_FactionRelicDescription
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsSpellbook, ref __result);
+            public static void Postfix(ItemDefinition __instance, ref FactionRelicDescription __result)
+            {
+                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsFactionRelic, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(ItemDefinition), "FoodDescription", MethodType.Getter)]
-    internal static class ItemDefinitionPatch_FoodDescription
-    {
-        public static void Postfix(ItemDefinition __instance, ref FoodDescription __result)
+        [HarmonyPatch(typeof(ItemDefinition), "DocumentDescription", MethodType.Getter)]
+        internal static class ItemDefinitionPatch_DocumentDescription
         {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsFood, ref __result);
+            public static void Postfix(ItemDefinition __instance, ref DocumentDescription __result)
+            {
+                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsDocument, ref __result);
+            }
         }
-    }
-
-    [HarmonyPatch(typeof(ItemDefinition), "FactionRelicDescription", MethodType.Getter)]
-    internal static class ItemDefinitionPatch_FactionRelicDescription
-    {
-        public static void Postfix(ItemDefinition __instance, ref FactionRelicDescription __result)
-        {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsFactionRelic, ref __result);
-        }
-    }
-
-    [HarmonyPatch(typeof(ItemDefinition), "DocumentDescription", MethodType.Getter)]
-    internal static class ItemDefinitionPatch_DocumentDescription
-    {
-        public static void Postfix(ItemDefinition __instance, ref DocumentDescription __result)
-        {
-            ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsDocument, ref __result);
-        }
-    }
 #endif
+    }
 }

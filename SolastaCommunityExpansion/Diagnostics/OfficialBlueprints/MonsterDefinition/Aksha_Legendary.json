@@ -1,0 +1,410 @@
+{
+  "$type": "MonsterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": "None",
+  "characterFamily": "Humanoid",
+  "creatureTags": [],
+  "defaultFaction": "HostileMonsters",
+  "fullyControlledWhenAllied": false,
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "alignment": "LawfulEvil",
+  "armorClass": 16,
+  "armor": "",
+  "hitDice": 10,
+  "hitDiceType": "D8",
+  "hitPointsBonus": 40,
+  "standardHitPoints": 85,
+  "abilityScores": [
+    18,
+    18,
+    18,
+    18,
+    12,
+    18
+  ],
+  "savingThrowScores": [
+    {
+      "$id": "1",
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "bonus": 8
+    },
+    {
+      "$id": "2",
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Wisdom",
+      "bonus": 5
+    },
+    {
+      "$id": "3",
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Charisma",
+      "bonus": 8
+    }
+  ],
+  "skillScores": [
+    {
+      "$id": "4",
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "Perception",
+      "bonus": 5
+    },
+    {
+      "$id": "5",
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "Intimidation",
+      "bonus": 8
+    }
+  ],
+  "legendaryCreature": true,
+  "maxLegendaryResistances": 3,
+  "maxLegendaryActionPoints": 3,
+  "differentActionEachTurn": false,
+  "legendaryActionOptions": [
+    {
+      "$id": "6",
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 1,
+      "subaction": "MonsterAttack",
+      "monsterAttackDefinition": "Definition:Attack_Dagger_Aksha:4ce2dd8bda77e8f4fb32649d80fbeb7c",
+      "featureDefinitionPower": null,
+      "spellDefinition": null,
+      "magicAttackBonus": 5,
+      "saveDC": 13,
+      "magicAbilityBonus": 3,
+      "canMove": true,
+      "moveMode": "Definition:MoveModeFly6:017c6a5ac95be2841bea36b7dac041fe",
+      "noOpportunityAttack": true,
+      "decisionPackage": "Definition:LegendaryDefilerAttack:6dbbf7b9171790744a64102f7ed7de29"
+    },
+    {
+      "$id": "7",
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 1,
+      "subaction": "Power",
+      "monsterAttackDefinition": null,
+      "featureDefinitionPower": "Definition:PowerDefilerDarkness:fd6fb44696a51b24e907474087d41bd7",
+      "spellDefinition": null,
+      "magicAttackBonus": 5,
+      "saveDC": 13,
+      "magicAbilityBonus": 3,
+      "canMove": false,
+      "moveMode": null,
+      "noOpportunityAttack": false,
+      "decisionPackage": "Definition:LegendaryDefilerDarkness:e06c0164fc6c0dc4a9f673aef9760576"
+    },
+    {
+      "$id": "8",
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 2,
+      "subaction": "Spell",
+      "monsterAttackDefinition": null,
+      "featureDefinitionPower": null,
+      "spellDefinition": "Definition:Fireball:3f88bf59a445ce64aa23dfb935750535",
+      "magicAttackBonus": 5,
+      "saveDC": 13,
+      "magicAbilityBonus": 3,
+      "canMove": false,
+      "moveMode": null,
+      "noOpportunityAttack": false,
+      "decisionPackage": "Definition:LegendaryDefilerAoE_DpS:895bae81310359f40b3edb66d9c93229"
+    }
+  ],
+  "defaultBattleDecisionPackage": "Definition:DefilerCombatDecisions:052d0dd896c140b4984658ab13ab7729",
+  "threatEvaluatorDefinition": {
+    "$id": "9",
+    "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
+    "threatEvaluator": {
+      "$id": "10",
+      "$type": "TA.AI.ThreatEvaluator, Assembly-CSharp",
+      "hateResponse": {
+        "$id": "11",
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "woundRatioResponse": {
+        "$id": "12",
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "maxHPResponse": {
+        "$id": "13",
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "attackersCountResponse": {
+        "$id": "14",
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "meleeVsRangedResponse": {
+        "$id": "15",
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "previousTargetRelatedMalus": 0.1
+    },
+    "name": "PrioritizeNoone"
+  },
+  "languages": [
+    "Language_Common",
+    "Language_Elvish",
+    "Language_Tirmarian",
+    "Language_Dwarvish",
+    "Language_Goblin"
+  ],
+  "audioSwitches": [
+    {
+      "$id": "16",
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": {
+        "$id": "17",
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$id": "18",
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_VoiceBarks",
+          "id": 2399735075,
+          "guid": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8",
+          "name": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8"
+        },
+        "objectName": "NPC_F_Aksha",
+        "id": 2592397722,
+        "guid": "3A720477-A9E3-49EC-87C8-D9E453B20975",
+        "name": "3A720477-A9E3-49EC-87C8-D9E453B20975"
+      },
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    {
+      "$id": "19",
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": {
+        "$id": "20",
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$id": "21",
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_Armor",
+          "id": 71308029,
+          "guid": "FC976271-2B39-44EB-B359-06F67CBF04CC",
+          "name": "FC976271-2B39-44EB-B359-06F67CBF04CC"
+        },
+        "objectName": "Clothes",
+        "id": 2231306511,
+        "guid": "5AD84947-62F9-45E2-BF16-96064AFDBF3C",
+        "name": "5AD84947-62F9-45E2-BF16-96064AFDBF3C"
+      },
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  ],
+  "audioSwitchesOnHands": [],
+  "audioRaceRTPCValue": 4.0,
+  "challengeRating": 7.0,
+  "noExperienceGain": false,
+  "droppedLootDefinition": null,
+  "stealableLootDefinition": null,
+  "bestiaryLootOptions": [],
+  "features": [
+    "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+    "Definition:MoveModeFly8:d7d73f75fe686914f998f3c7b3f83e28",
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+    "Definition:LightAffinityHypersensitivity:cad5a138934aad54885b54000570b74d",
+    "Definition:SenseSuperiorDarkvision:388ca3fa81ee8a84c831be14214fd1c0",
+    "Definition:SenseTremorsense16:0c4195ea1bc8d6a48b516f82161efbae",
+    "Definition:DamageAffinityNecroticResistance:ee5f1fbda4f516844b493f08fdd4fb5a",
+    "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
+    "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff",
+    "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6",
+    "Definition:PowerDefilerDarkness:fd6fb44696a51b24e907474087d41bd7",
+    "Definition:PowerDefilerMistyFormEscape:327b24f39c0894a49be64a1a3c973c34",
+    "Definition:LightAffinity_Defiler_Darkness:902accce294ba2f46a32c6dd76296eff",
+    "Definition:MagicAffinityConditionImmuneToShine:aba30aa5368daef44aa55ef9bc994557",
+    "Definition:ConditionAffinityVeilImmunity:b4378ac746dd4ed46b2b0ec63f910629"
+  ],
+  "attackIterations": [
+    {
+      "$id": "22",
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:Attack_Defiler_Bite_Aksha:4d299a0fba33e854593ec7d5972d3ed7"
+    }
+  ],
+  "sneakStance": "Stealth",
+  "patrolStance": "SlowWalk",
+  "interceptStance": "Run",
+  "dualSex": false,
+  "minimalAge": 80,
+  "maximalAge": 60,
+  "height": 5,
+  "weight": 190,
+  "isHusk": false,
+  "isPet": false,
+  "forcePersistentBody": false,
+  "bestiaryEntry": "None",
+  "bestiaryReference": null,
+  "bestiaryCameraOffset": {
+    "$id": "23",
+    "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 7.0,
+    "z": -35.0
+  },
+  "alwaysHideStats": false,
+  "bestiarySpriteReference": {
+    "$id": "24",
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "monsterPresentation": {
+    "$id": "25",
+    "$type": "MonsterPresentation, Assembly-CSharp",
+    "hasUniqueName": false,
+    "uniqueNameTitle": "",
+    "humanoidMonsterPresentationDefinitions": [
+      "Definition:NPC_Presentation_Aksha:14dc8b5e61abddb40b0b2003f3ee7d5b"
+    ],
+    "useCustomMaterials": false,
+    "customMaterials": [],
+    "customShaderReference": {
+      "$id": "26",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "mutantFleshDirection": {
+      "$id": "27",
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -1.0,
+      "z": 0.0
+    },
+    "overrideCharacterShaderColors": false,
+    "firstCharacterShaderColor": {
+      "$id": "28",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "secondCharacterShaderColor": {
+      "$id": "29",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "hasPhantomDistortion": true,
+    "attachedParticlesReference": {
+      "$id": "30",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "bestiaryAttachedParticlesReference": {
+      "$id": "31",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "hasPrefabVariants": false,
+    "monsterPresentationDefinitions": [],
+    "malePrefabReference": {
+      "$id": "32",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "d87d7b85f0eaa1d44a82d38236f9e830",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "maleModelScale": 0.5891955,
+    "femalePrefabReference": {
+      "$id": "33",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "d87d7b85f0eaa1d44a82d38236f9e830",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "femaleModelScale": 0.5891955,
+    "wieldedItemsScale": 1.0,
+    "hideDuringCutscene": false,
+    "hasLightingCutscene": true,
+    "canGeneratePortrait": false,
+    "needMerchantPortrait": false,
+    "hasMonsterPortraitBackground": true,
+    "portraitCameraFollowOffset": {
+      "$id": "34",
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -0.5,
+      "z": -5.0
+    },
+    "portraitCameraLookAtScreenOffset": {
+      "$id": "35",
+      "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+      "x": 0.5,
+      "y": 0.4
+    },
+    "portraitCameraFOV": 40.0,
+    "portraitCameraLightingOffset": {
+      "$id": "36",
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "forceCombatStartsAnimation": false,
+  "hasLookAt": false,
+  "forceNoFlyAnimation": true,
+  "followFloorAngle": false,
+  "groupAttacks": false,
+  "isUnique": false,
+  "uniqueNameId": "",
+  "guiPresentation": {
+    "$id": "37",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&NPC_AkshaTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "38",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "39",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "35f738bea7e1fb248a792cc8f09e75c7",
+  "contentPack": "BaseGame",
+  "name": "Aksha_Legendary"
+}

@@ -44,15 +44,21 @@ namespace SolastaCommunityExpansion.DataMiner
             }
         }
 
+        private static void SetExport(int exportId, Coroutine coroutine, float percentageComplete)
+        {
+            CurrentExports[exportId].coroutine = coroutine;
+            CurrentExports[exportId].percentageComplete = percentageComplete;
+        }
+
         internal static void Cancel(int exportId)
         {
-            if (CurrentExports[exportId].percentageComplete == 0)
+            if (CurrentExports[exportId].coroutine == null)
             {
                 return;
             }
 
             Exporter.StopCoroutine(CurrentExports[exportId].coroutine);
-            CurrentExports[exportId].percentageComplete = 0f;
+            SetExport(exportId, null, 0f);
         }
 
         internal static void ExportBlueprints(
@@ -61,18 +67,14 @@ namespace SolastaCommunityExpansion.DataMiner
             Dictionary<Type, BaseDefinition[]> baseDefinitionsMap,
             string path)
         {
-            if (baseDefinitionsMap == null || baseDefinitions == null || CurrentExports[exportId].percentageComplete > 0)
+            if (baseDefinitionsMap == null || baseDefinitions == null || CurrentExports[exportId].coroutine != null)
             {
                 return;
             }
 
-            CurrentExports[exportId].percentageComplete = 0.001f;
-            CurrentExports[exportId].coroutine = Exporter.StartCoroutine(
-                ExportMany(
-                    exportId,
-                    baseDefinitions,
-                    baseDefinitionsMap,
-                    path));
+            var coroutine = ExportMany(exportId, baseDefinitions, baseDefinitionsMap, path);
+
+            SetExport(exportId, Exporter.StartCoroutine(coroutine), 0f);
         }
 
         private static IEnumerator ExportMany(
@@ -82,7 +84,8 @@ namespace SolastaCommunityExpansion.DataMiner
             string path)
         {
             var start = DateTime.UtcNow;
-            Main.Log($"Export started: {DateTime.UtcNow}");
+
+            Main.Log($"Export started: {DateTime.UtcNow:G}");
 
             yield return null;
 
@@ -91,7 +94,7 @@ namespace SolastaCommunityExpansion.DataMiner
             // Types.txt
             using (var sw = new StreamWriter($"{path}/Types.txt"))
             {
-                foreach (var type in baseDefinitions.Select(t => t.GetType()).Distinct().OrderBy(t => t.Name))
+                foreach (var type in baseDefinitions.Select(t => t.GetType()).Distinct().OrderBy(t => t.FullName))
                 {
                     sw.WriteLine($"{type.FullName}");
                 }
@@ -104,9 +107,9 @@ namespace SolastaCommunityExpansion.DataMiner
             {
                 sw.WriteLine("{0}\t{1}\t{2}\t{3}", "Name", "Type", "DatabaseType", "GUID");
 
-                foreach (var db in baseDefinitionsMap.OrderBy(db => db.Key.FullName))
+                foreach (var db in baseDefinitionsMap.OrderBy(kvp => kvp.Key.Name))
                 {
-                    foreach (var definition in db.Value)
+                    foreach (var definition in db.Value.OrderBy(d => d.Name).ThenBy(d => d.GetType().FullName))
                     {
                         sw.WriteLine("{0}\t{1}\t{2}\t{3}", definition.Name, definition.GetType().FullName, db.Key.FullName, definition.GUID);
                     }
@@ -121,41 +124,27 @@ namespace SolastaCommunityExpansion.DataMiner
             for (var i = 0; i < total; i++)
             {
                 var definition = baseDefinitions[i];
-                var dbType = definition.GetType();
-
-                if (Array.IndexOf(Main.Settings.ExcludeFromExport, dbType) > 0)
-                {
-                    continue;
-                }
-
-                // Don't put this outside the loop or it caches objects already serialized and then outputs a reference instead 
-                // of the whole object.
-                var serializer = JsonSerializer.Create(JsonUtil.CreateSettings(PreserveReferencesHandling.Objects));
-
-
-
-                var subfolder = definition.GetType().Name;
-
-                if (definition.GetType() != dbType)
-                {
-                    subfolder = $"{dbType.FullName}/{subfolder}";
-                }
-
-                EnsureFolderExists($"{path}/{subfolder}");
+                var definitionType = definition.GetType().Name;
 
                 var filename = $"{definition.Name}.json";
-                var folder = $"{path}/{subfolder}";
-                var fullFilename = $"{folder}/{filename}";
+                var foldername = $"{path}/{definitionType}";
+                var fullname = $"{foldername}/{filename}";
 
-                if (fullFilename.Length > MAX_PATH_LENGTH)
+                EnsureFolderExists(foldername);
+
+                if (fullname.Length > MAX_PATH_LENGTH)
                 {
-                    Main.Log($"Shortened path {fullFilename}, to {folder}/{definition.GUID}.json");
-                    fullFilename = $"{folder}/{definition.GUID}.json";
+                    Main.Log($"Shortened path {fullname}, to {foldername}/{definition.GUID}.json");
+                    fullname = $"{foldername}/{definition.GUID}.json";
                 }
 
                 try
                 {
-                    using StreamWriter sw = new StreamWriter(fullFilename);
+                    // Don't put this outside the loop or it caches objects already serialized and then outputs a reference instead 
+                    // of the whole object.
+                    var serializer = JsonSerializer.Create(JsonUtil.CreateSettings(PreserveReferencesHandling.Objects));
+
+                    using StreamWriter sw = new StreamWriter(fullname);
                     using JsonWriter writer = new JsonTextWriter(sw);
                     serializer.Serialize(writer, definition);
                 }
@@ -169,7 +158,7 @@ namespace SolastaCommunityExpansion.DataMiner
                 yield return null;
             }
 
-            CurrentExports[exportId].percentageComplete = 0f;
+            SetExport(exportId, null, 0f);
 
             Main.Log($"Export finished: {DateTime.UtcNow}, {DateTime.UtcNow - start}.");
         }

@@ -1,0 +1,58 @@
+{
+  "$type": "MonsterPresentationDefinition, Assembly-CSharp",
+  "prefabReference": {
+    "$id": "1",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "2351ec8d0f454e04ebcc2826e16f6ed5",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "sex": "Male",
+  "modelScale": 1.0,
+  "useCustomMaterials": true,
+  "customMaterials": [
+    {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "83ac12bed26276441a0e67b07b7ae34f",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    {
+      "$id": "3",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "d9ec87b5d3a4ae240b6eb9586dc84daa",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    }
+  ],
+  "guiPresentation": {
+    "$id": "4",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$id": "5",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "6",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "e9a49bf6fb199d34cae39e88daf2f802",
+  "contentPack": "BaseGame",
+  "name": "Giant_Hill_Presentation_Rugan"
+}

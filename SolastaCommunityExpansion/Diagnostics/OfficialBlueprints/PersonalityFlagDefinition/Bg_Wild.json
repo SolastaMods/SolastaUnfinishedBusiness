@@ -1,0 +1,41 @@
+{
+  "$type": "PersonalityFlagDefinition, Assembly-CSharp",
+  "inDungeonEditor": true,
+  "dialog": true,
+  "anchor": {
+    "$id": "1",
+    "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 0.0
+  },
+  "type": "Background",
+  "guiPresentation": {
+    "$id": "2",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Background/&WandererTitle",
+    "description": "Background/&AcolyteDescription",
+    "spriteReference": {
+      "$id": "3",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "4",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "6b298c61da3fcf146891db3e54f0ea7f",
+  "contentPack": "BaseGame",
+  "name": "Bg_Wild"
+}

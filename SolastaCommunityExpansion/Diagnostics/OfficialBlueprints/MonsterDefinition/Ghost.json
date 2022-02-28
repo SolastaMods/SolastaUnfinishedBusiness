@@ -1,0 +1,244 @@
+{
+  "$type": "MonsterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": "Monster",
+  "characterFamily": "Undead",
+  "creatureTags": [],
+  "defaultFaction": "HostileMonsters",
+  "fullyControlledWhenAllied": false,
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "alignment": "ChaoticEvil",
+  "armorClass": 11,
+  "armor": "",
+  "hitDice": 10,
+  "hitDiceType": "D8",
+  "hitPointsBonus": 0,
+  "standardHitPoints": 45,
+  "abilityScores": [
+    7,
+    13,
+    10,
+    10,
+    12,
+    17
+  ],
+  "savingThrowScores": [],
+  "skillScores": [],
+  "legendaryCreature": false,
+  "maxLegendaryResistances": 3,
+  "maxLegendaryActionPoints": 3,
+  "differentActionEachTurn": false,
+  "legendaryActionOptions": [],
+  "defaultBattleDecisionPackage": "Definition:GhostCombatDecisions:d42a962f4e4a4f744897603dca8fd927",
+  "threatEvaluatorDefinition": null,
+  "languages": [
+    "Language_Common"
+  ],
+  "audioSwitches": [],
+  "audioSwitchesOnHands": [],
+  "audioRaceRTPCValue": 33.0,
+  "challengeRating": 4.0,
+  "noExperienceGain": false,
+  "droppedLootDefinition": "Definition:Ghost_loot_drop:d0df50bf74366bb438f09b5cc1822147",
+  "stealableLootDefinition": null,
+  "bestiaryLootOptions": [],
+  "features": [
+    "Definition:MoveModeFly8:d7d73f75fe686914f998f3c7b3f83e28",
+    "Definition:ConditionAffinityCharmImmunity:a631ef6239aa7764db463cf3f29d65fb",
+    "Definition:ConditionAffinityExhaustionImmunity:9e9405220f0bbc24ca6cafa5fb2d6858",
+    "Definition:ConditionAffinityFrightenedImmunity:561b7a96b31b8064e85df039829c050b",
+    "Definition:ConditionAffinityGrappledImmunity:c71d4f4faab7c754fbe9d52fa8ca428b",
+    "Definition:ConditionAffinityParalyzedmmunity:fb168e0f7aeed9c479746505d1df5da7",
+    "Definition:ConditionAffinityPetrifiedImmunity:7661e50eda0f67540b4bf452c5764ba1",
+    "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
+    "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6",
+    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d",
+    "Definition:ConditionAffinityRestrainedmmunity:76af0d7e11d8bf6488233fd523d0616b",
+    "Definition:DamageAffinityNecroticImmunity:0c4d40bf6e1946143bae2746a57972b3",
+    "Definition:DamageAffinityPoisonImmunity:7f47b64e57ec7b247acaa220a510b131",
+    "Definition:DamageAffinityColdImmunity:de8ec1fc795a48a41b7cece77d95bc1c",
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+    "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
+    "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff",
+    "Definition:DamageAffinityLightningResistance:443d9129d7904f14b8d9977881f95c08",
+    "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
+    "Definition:DamageAffinityAcidResistance:10a85b220b55a28479e26b695ba7392d",
+    "Definition:DamageAffinityThunderResistance:510045c677352854ca27ebea37c85d02",
+    "Definition:MoveModeMove8:4c110104739c99e4d920529a058ab2e2",
+    "Definition:ConditionAffinityHinderedByFrostImmunity:f0b82f8e00ab71b499cba40f950a034b"
+  ],
+  "attackIterations": [
+    {
+      "$id": "1",
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:Attack_Ghost_Withering_Touch:eaac2986c67b8f8458f7e032ae8c780c"
+    }
+  ],
+  "sneakStance": "Stealth",
+  "patrolStance": "SlowWalk",
+  "interceptStance": "Walk",
+  "dualSex": true,
+  "minimalAge": 20,
+  "maximalAge": 100,
+  "height": 6,
+  "weight": 100,
+  "isHusk": false,
+  "isPet": false,
+  "forcePersistentBody": false,
+  "bestiaryEntry": "Full",
+  "bestiaryReference": null,
+  "bestiaryCameraOffset": {
+    "$id": "2",
+    "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 7.0,
+    "z": -35.0
+  },
+  "alwaysHideStats": false,
+  "bestiarySpriteReference": {
+    "$id": "3",
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "9f25e58bcc210ba49b09def82b5f70e2",
+    "m_SubObjectName": "Ghost",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+  },
+  "monsterPresentation": {
+    "$id": "4",
+    "$type": "MonsterPresentation, Assembly-CSharp",
+    "hasUniqueName": false,
+    "uniqueNameTitle": "",
+    "humanoidMonsterPresentationDefinitions": [
+      "Definition:NPC_Presentation_Generic_Ghost:1689664173c65ff4db02702af9aeb5ce"
+    ],
+    "useCustomMaterials": false,
+    "customMaterials": [],
+    "customShaderReference": {
+      "$id": "5",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "06a468f2a92070841bf16acd0e7bd262",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "mutantFleshDirection": {
+      "$id": "6",
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -1.0,
+      "z": 0.0
+    },
+    "overrideCharacterShaderColors": false,
+    "firstCharacterShaderColor": {
+      "$id": "7",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "secondCharacterShaderColor": {
+      "$id": "8",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "hasPhantomDistortion": true,
+    "attachedParticlesReference": {
+      "$id": "9",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "62a22b407b0619549997a357f6344630",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "bestiaryAttachedParticlesReference": {
+      "$id": "10",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "hasPrefabVariants": false,
+    "monsterPresentationDefinitions": [],
+    "malePrefabReference": {
+      "$id": "11",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "190c5890818bb754fa701852cfc8777a",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "maleModelScale": 0.666666,
+    "femalePrefabReference": {
+      "$id": "12",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "femaleModelScale": 0.666666,
+    "wieldedItemsScale": 1.0,
+    "hideDuringCutscene": false,
+    "hasLightingCutscene": true,
+    "canGeneratePortrait": false,
+    "needMerchantPortrait": false,
+    "hasMonsterPortraitBackground": true,
+    "portraitCameraFollowOffset": {
+      "$id": "13",
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -0.5,
+      "z": -5.0
+    },
+    "portraitCameraLookAtScreenOffset": {
+      "$id": "14",
+      "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+      "x": 0.5,
+      "y": 0.4
+    },
+    "portraitCameraFOV": 40.0,
+    "portraitCameraLightingOffset": {
+      "$id": "15",
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "forceCombatStartsAnimation": false,
+  "hasLookAt": false,
+  "forceNoFlyAnimation": false,
+  "followFloorAngle": false,
+  "groupAttacks": false,
+  "isUnique": false,
+  "uniqueNameId": "",
+  "guiPresentation": {
+    "$id": "16",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Monster/&Ghost_Title",
+    "description": "Monster/&Ghost_Description",
+    "spriteReference": {
+      "$id": "17",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "18",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "30434138da6acb14186bbeeb238311ae",
+  "contentPack": "BaseGame",
+  "name": "Ghost"
+}

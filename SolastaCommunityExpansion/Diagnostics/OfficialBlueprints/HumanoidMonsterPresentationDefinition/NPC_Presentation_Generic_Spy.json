@@ -1,0 +1,87 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:Halfling:d6a9a559998c0974abd8077d7012ef84",
+  "subRaceDefinition": "Definition:HalflingIsland:487b212a28e81714198a6acc3472e018",
+  "sex": "Male",
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkin_05",
+  "musculatureMorphotypeValue": 0.0,
+  "ageMorphotypeValue": 0.0,
+  "faceShapeMorphotype": "FaceShape_F",
+  "hairShapeMorphotype": "HairShape_A",
+  "hairColorMorphotype": "HairColor_21",
+  "beardShapeMorphotype": "BeardShape_None",
+  "eyeMorphotype": "Eye_Default",
+  "eyeColorMorphotype": "EyeColorBlue",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "",
+  "armorDefinition": "Enchanted_LeatherArmorOfRobustness",
+  "helmetDefinition": "",
+  "tabardDefinition": "",
+  "showHelmet": false,
+  "firstColor": {
+    "$id": "1",
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 1.0
+  },
+  "secondColor": {
+    "$id": "2",
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.9339623,
+    "g": 0.9339623,
+    "b": 0.9339623,
+    "a": 1.0
+  },
+  "thirdColor": {
+    "$id": "3",
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.452830136,
+    "g": 0.452830136,
+    "b": 0.452830136,
+    "a": 1.0
+  },
+  "fourthColor": {
+    "$id": "4",
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 0.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$id": "5",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Monster/&Spy_Title",
+    "description": "Monster/&Spy_Description",
+    "spriteReference": {
+      "$id": "6",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "1da44ba909b5d974bbe365fbd135e2ac",
+      "m_SubObjectName": "CustomPortrait_NPC_Presentation_Generic_Spy",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "7",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "60e15a6c639d91a42b726d3da849033f",
+  "contentPack": "BaseGame",
+  "name": "NPC_Presentation_Generic_Spy"
+}

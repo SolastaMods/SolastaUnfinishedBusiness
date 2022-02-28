@@ -1,0 +1,74 @@
+{
+  "$type": "ActionDefinition, Assembly-CSharp",
+  "id": "HideMain",
+  "actionType": "Main",
+  "actionScope": "Battle",
+  "pairedActionId": "HideMain",
+  "usesPerTurn": -1,
+  "classNameOverride": "Hide",
+  "requiresAuthorization": false,
+  "stealthBreakerBehavior": "None",
+  "feedbackOnHoverType": 255,
+  "iterativeTargeting": false,
+  "canTriggerBattle": false,
+  "parameter": "None",
+  "formType": "Large",
+  "focusCameraOnAction": false,
+  "addedConditionName": "",
+  "removedConditionName": "",
+  "preventsSerialization": false,
+  "activatedPower": null,
+  "displayPowerTooltip": false,
+  "dieType": "D10",
+  "abilityScore": "Dexterity",
+  "maxCells": 1,
+  "targetType": "Sphere",
+  "targetParameter": 1,
+  "matchingCondition": "",
+  "particlePrefab": {
+    "$id": "1",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "soundEvent": {
+    "$id": "2",
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": null,
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "guiPresentation": {
+    "$id": "3",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Action/&HideTitle",
+    "description": "Action/&HideDescription",
+    "spriteReference": {
+      "$id": "4",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "2c51732659edc6e4e8ec0f6b92db4b1a",
+      "m_SubObjectName": "Hide",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "5",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 28,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "b75f4640e52b2ce4fb7e44ef4466bec3",
+  "contentPack": "BaseGame",
+  "name": "HideMain"
+}

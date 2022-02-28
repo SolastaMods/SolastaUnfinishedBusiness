@@ -1,0 +1,33 @@
+{
+  "$type": "NamedPlaceDefinition, Assembly-CSharp",
+  "namedPlaceType": "Region",
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NamedPlace/&MASGARTH_Title",
+    "description": "",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "db4fb8d9a62a97c49a52fec82c4bde3a",
+  "contentPack": "BaseGame",
+  "name": "Map_Principality_Title"
+}

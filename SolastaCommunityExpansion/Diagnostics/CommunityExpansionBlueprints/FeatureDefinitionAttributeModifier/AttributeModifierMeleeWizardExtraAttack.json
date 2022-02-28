@@ -1,0 +1,37 @@
+{
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifierType2": "Additive",
+  "modifiedAttribute": "AttacksNumber",
+  "modifierValue": 1,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": "None",
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&AttributeModifierMeleeWizardExtraAttackTitle",
+    "description": "Subclass/&AttributeModifierMeleeWizardExtraAttackDescription",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "51476c8a-052b-56a6-9152-3f65ef323d42",
+  "contentPack": "BaseGame",
+  "name": "AttributeModifierMeleeWizardExtraAttack"
+}

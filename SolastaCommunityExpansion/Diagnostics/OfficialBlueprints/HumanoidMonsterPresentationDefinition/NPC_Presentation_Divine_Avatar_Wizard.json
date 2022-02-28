@@ -1,0 +1,87 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:Human:d844f80cc9ab3cb4d95630e35163eedd",
+  "subRaceDefinition": null,
+  "sex": "Male",
+  "originMorphotype": "Origin_CA",
+  "skinMorphotype": "FaceAndSkin_11",
+  "musculatureMorphotypeValue": 0.0,
+  "ageMorphotypeValue": 0.0,
+  "faceShapeMorphotype": "FaceShape_CA_F",
+  "hairShapeMorphotype": "HairShape_B",
+  "hairColorMorphotype": "HairColorSilver",
+  "beardShapeMorphotype": "BeardShape_K",
+  "eyeMorphotype": "Eye_Default",
+  "eyeColorMorphotype": "EyeColorInfiltrator",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
+  "armorDefinition": "ClothesWizard_B",
+  "helmetDefinition": "",
+  "tabardDefinition": "",
+  "showHelmet": true,
+  "firstColor": {
+    "$id": "1",
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 0.7192635,
+    "b": 0.419811279,
+    "a": 1.0
+  },
+  "secondColor": {
+    "$id": "2",
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.9339623,
+    "g": 0.80532223,
+    "b": 0.6123621,
+    "a": 1.0
+  },
+  "thirdColor": {
+    "$id": "3",
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 0.780660331,
+    "b": 0.5613207,
+    "a": 1.0
+  },
+  "fourthColor": {
+    "$id": "4",
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 0.923297763,
+    "b": 0.8443396,
+    "a": 1.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$id": "5",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Monster/&Generic_Warlord_Title",
+    "description": "Monster/&Generic_Warlord_Description",
+    "spriteReference": {
+      "$id": "6",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "e145b388c28ef6d4a88250a52ffd373d",
+      "m_SubObjectName": "CustomPortrait_NPC_Presentation_Divine_Avatar_Wizard",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "7",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "297cb1ef6913b634c81979c53f1e55ac",
+  "contentPack": "BaseGame",
+  "name": "NPC_Presentation_Divine_Avatar_Wizard"
+}

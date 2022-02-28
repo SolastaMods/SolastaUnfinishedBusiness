@@ -1,0 +1,52 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "craftedItem": "Definition:ScrollMageArmor:8f66ccb0c86021240a05b9bec3722dd5",
+  "stackCount": 1,
+  "craftingHours": 8,
+  "craftingDC": 13,
+  "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
+  "ingredients": [
+    {
+      "$id": "1",
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 2,
+      "itemDefinition": "Definition:Ingredient_AbyssMoss:b066ff3c236988e4a9520cf44b555395"
+    },
+    {
+      "$id": "2",
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_AngryViolet:0ea316a14e9d7d344a648184b7b09af0"
+    }
+  ],
+  "spellDefinition": "Definition:MageArmor:4772a21b455a76149adcc38d58267a10",
+  "guiPresentation": {
+    "$id": "3",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ScrollMageArmorTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "4",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "5",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "7909a249465f1c249ae44edb7e7d2cc1",
+  "contentPack": "BaseGame",
+  "name": "RecipeScroll_L1_OfMageArmor"
+}

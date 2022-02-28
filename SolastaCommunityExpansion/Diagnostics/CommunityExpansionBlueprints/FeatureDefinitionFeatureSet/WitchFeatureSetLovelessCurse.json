@@ -1,0 +1,40 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:WitchLovelessCharmImmunity:1cf5a377-af27-579b-9112-d617a682e2cd"
+  ],
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Class/&WitchFeatureSetLovelessCurseTitle",
+    "description": "Class/&WitchFeatureSetLovelessCurseDescription",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "fad735f1-4e69-521d-8c8d-288a4835dcf4",
+  "contentPack": "BaseGame",
+  "name": "WitchFeatureSetLovelessCurse"
+}

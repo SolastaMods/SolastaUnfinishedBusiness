@@ -21,12 +21,25 @@ namespace SolastaCommunityExpansion
         // Diagnostics
         //
 
-        // Very large and not very useful definitions
-        // TODO: skip other large definitions?
+        // very large or not very useful definitions
         public string[] ExcludeFromExport = new string[]
         {
+            "AdventureLogDefinition",
+            "ConsoleTableDefinition",
+            "CreditsGroupDefinition",
+            "CreditsTableDefinition",
+            "DocumentTableDefinition",
+            "NarrativeEventTableDefinition",
             "NarrativeTreeDefinition", // NarrativeTreeDefinition causes crash with PreserveReferencesHandling.None
             "SoundbanksDefinition",
+            "SubtitleTableDefinition",
+            "TravelJournalDefinition",
+            "TutorialSectionDefinition",
+            "TutorialStepDefinition",
+            "TutorialSubsectionDefinition",
+            "TutorialTocDefinition",
+            "TutorialTableDefinition",
+            "QuestTreeDefinition",
         };
 
         //
@@ -246,6 +259,9 @@ namespace SolastaCommunityExpansion
         public bool DebugLogDefinitionCreation { get; set; }
         public bool DebugLogFieldInitialization { get; set; }
         public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
+#if DEBUG
+        public bool DebugLogVariantMisuse { get; set; }
+#endif
 
         // Faction Relations
 

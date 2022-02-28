@@ -1,0 +1,246 @@
+{
+  "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
+  "notificationTag": "SneakAttack",
+  "limitedUsage": "OncePerTurn",
+  "triggerCondition": "AdvantageOrNearbyAlly",
+  "requiredProperty": "FinesseOrRangeWeapon",
+  "attackModeOnly": false,
+  "requiredTargetCondition": null,
+  "requiredTargetSenseType": "Darkvision",
+  "requiredTargetCreatureTag": "",
+  "requiredCharacterFamily": null,
+  "damageValueDetermination": "Die",
+  "damageDieType": "D6",
+  "damageDiceNumber": 1,
+  "additionalDamageType": "SameAsBaseDamage",
+  "specificDamageType": "DamageFire",
+  "damageAdvancement": "ClassLevel",
+  "diceByRankTable": [
+    {
+      "$id": "1",
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 1,
+      "diceNumber": 1
+    },
+    {
+      "$id": "2",
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 2,
+      "diceNumber": 1
+    },
+    {
+      "$id": "3",
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 3,
+      "diceNumber": 2
+    },
+    {
+      "$id": "4",
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 4,
+      "diceNumber": 2
+    },
+    {
+      "$id": "5",
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 5,
+      "diceNumber": 3
+    },
+    {
+      "$id": "6",
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 6,
+      "diceNumber": 3
+    },
+    {
+      "$id": "7",
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 7,
+      "diceNumber": 4
+    },
+    {
+      "$id": "8",
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 8,
+      "diceNumber": 4
+    },
+    {
+      "$id": "9",
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 9,
+      "diceNumber": 5
+    },
+    {
+      "$id": "10",
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 10,
+      "diceNumber": 5
+    },
+    {
+      "$id": "11",
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 11,
+      "diceNumber": 6
+    },
+    {
+      "$id": "12",
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 12,
+      "diceNumber": 6
+    },
+    {
+      "$id": "13",
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 13,
+      "diceNumber": 7
+    },
+    {
+      "$id": "14",
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 14,
+      "diceNumber": 7
+    },
+    {
+      "$id": "15",
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 15,
+      "diceNumber": 8
+    },
+    {
+      "$id": "16",
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 16,
+      "diceNumber": 8
+    },
+    {
+      "$id": "17",
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 17,
+      "diceNumber": 9
+    },
+    {
+      "$id": "18",
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 18,
+      "diceNumber": 9
+    },
+    {
+      "$id": "19",
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 19,
+      "diceNumber": 10
+    },
+    {
+      "$id": "20",
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 20,
+      "diceNumber": 10
+    }
+  ],
+  "familiesWithAdditionalDice": [],
+  "familiesDiceNumber": 1,
+  "ignoreCriticalDoubleDice": false,
+  "hasSavingThrow": false,
+  "savingThrowAbility": "Dexterity",
+  "dcComputation": "FixedValue",
+  "savingThrowDC": 10,
+  "damageSaveAffinity": "None",
+  "conditionOperations": [],
+  "addLightSource": false,
+  "lightSourceForm": {
+    "$id": "21",
+    "$type": "LightSourceForm, Assembly-CSharp",
+    "lightSourceType": "Basic",
+    "brightRange": 4,
+    "dimAdditionalRange": 4,
+    "color": {
+      "$id": "22",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "graphicsPrefabReference": {
+      "$id": "23",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "applyToSelf": false
+  },
+  "impactParticleReference": {
+    "$id": "24",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "particlesBasedOnAncestryDamageType": false,
+  "acidImpactParticleReference": {
+    "$id": "25",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "coldImpactParticleReference": {
+    "$id": "26",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "fireImpactParticleReference": {
+    "$id": "27",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "lightningImpactParticleReference": {
+    "$id": "28",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "poisonImpactParticleReference": {
+    "$id": "29",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "computeDescription": false,
+  "guiPresentation": {
+    "$id": "30",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&RogueSneakAttackTitle",
+    "description": "Feature/&RogueSneakAttackDescription",
+    "spriteReference": {
+      "$id": "31",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "32",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "eef48eb7618b4894abd0f5d05a856a2c",
+  "contentPack": "BaseGame",
+  "name": "AdditionalDamageRogueSneakAttack"
+}

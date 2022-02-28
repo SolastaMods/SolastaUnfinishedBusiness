@@ -1,0 +1,253 @@
+{
+  "$type": "MonsterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": "None",
+  "characterFamily": "Construct",
+  "creatureTags": [],
+  "defaultFaction": "HostileMonsters",
+  "fullyControlledWhenAllied": false,
+  "sizeDefinition": "Definition:Large:6dde335b40d952b4ea82fa0b49a03c11",
+  "alignment": "Neutral",
+  "armorClass": 20,
+  "armor": "",
+  "hitDice": 20,
+  "hitDiceType": "D10",
+  "hitPointsBonus": 100,
+  "standardHitPoints": 210,
+  "abilityScores": [
+    24,
+    9,
+    20,
+    3,
+    11,
+    1
+  ],
+  "savingThrowScores": [],
+  "skillScores": [],
+  "legendaryCreature": false,
+  "maxLegendaryResistances": 3,
+  "maxLegendaryActionPoints": 3,
+  "differentActionEachTurn": false,
+  "legendaryActionOptions": [],
+  "defaultBattleDecisionPackage": "Definition:DefaultMeleeWithBackupRangeDecisions:36bb3688d84582249bf0f1c85064ad10",
+  "threatEvaluatorDefinition": null,
+  "languages": [],
+  "audioSwitches": [],
+  "audioSwitchesOnHands": [],
+  "audioRaceRTPCValue": 64.0,
+  "challengeRating": 16.0,
+  "noExperienceGain": false,
+  "droppedLootDefinition": "Definition:Golem_Iron_loot_drop:bba6bcae387f0d04d8493d5714fab012",
+  "stealableLootDefinition": null,
+  "bestiaryLootOptions": [],
+  "features": [
+    "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+    "Definition:DamageAffinityFireImmunity:6f4ede3c34539284e941dd084eaf4429",
+    "Definition:DamageAffinityPoisonImmunity:7f47b64e57ec7b247acaa220a510b131",
+    "Definition:DamageAffinityPsychicImmunity:b52cfcbb789ae27428958d10a45529ac",
+    "Definition:DamageAffinityBludgeoningImmunity_except_magical:78ea11738d3e10345a5d3bc71e1899e2",
+    "Definition:DamageAffinitySlashingImmunity_except_magical:188cb95c327e56e4093239b4d4fc2a8c",
+    "Definition:DamageAffinityPiercingImmunity_except_magical:a4fa74652b5aee6448c5c4226cc4556a",
+    "Definition:ConditionAffinityCalmEmotionCharmedImmunity:7f9cfd9f309debf4988ec184b56b7faf",
+    "Definition:ConditionAffinityCharmImmunityHypnoticPattern:566f797ed2499ed46afb4754192b65f1",
+    "Definition:ConditionAffinityCharmImmunity:a631ef6239aa7764db463cf3f29d65fb",
+    "Definition:ConditionAffinityProtectedFromEvilCharmImmunity:bf41fdbba71ead741a2031129b024627",
+    "Definition:ConditionAffinityExhaustionImmunity:9e9405220f0bbc24ca6cafa5fb2d6858",
+    "Definition:CombatAffinityFrightened:bd7a11317eacebb44966fa78e8b8f2dc",
+    "Definition:ConditionAffinityParalyzedmmunity:fb168e0f7aeed9c479746505d1df5da7",
+    "Definition:ConditionAffinityPetrifiedImmunity:7661e50eda0f67540b4bf452c5764ba1",
+    "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
+    "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
+    "Definition:PowerIronGolemBreath:47ee827598e33fc4584bf3b555785ce3"
+  ],
+  "attackIterations": [
+    {
+      "$id": "1",
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 2,
+      "monsterAttackDefinition": "Definition:Attack_Golem_Iron_Slam:3cfd57a18b07118419037b8e4ca88e8b"
+    }
+  ],
+  "sneakStance": "Stealth",
+  "patrolStance": "SlowWalk",
+  "interceptStance": "Run",
+  "dualSex": true,
+  "minimalAge": 20,
+  "maximalAge": 100,
+  "height": 10,
+  "weight": 1000,
+  "isHusk": false,
+  "isPet": false,
+  "forcePersistentBody": false,
+  "bestiaryEntry": "Full",
+  "bestiaryReference": null,
+  "bestiaryCameraOffset": {
+    "$id": "2",
+    "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 7.0,
+    "z": -35.0
+  },
+  "alwaysHideStats": false,
+  "bestiarySpriteReference": {
+    "$id": "3",
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "557635a7fad73394f8efe6775b2547b0",
+    "m_SubObjectName": "Golem_Iron",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+  },
+  "monsterPresentation": {
+    "$id": "4",
+    "$type": "MonsterPresentation, Assembly-CSharp",
+    "hasUniqueName": false,
+    "uniqueNameTitle": "",
+    "humanoidMonsterPresentationDefinitions": [],
+    "useCustomMaterials": true,
+    "customMaterials": [
+      {
+        "$id": "5",
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "c7c218a81b9485b4b908cf970b86a0b7",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      {
+        "$id": "6",
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "207d36cf02ae2a144b25ada1d12bfd73",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    ],
+    "customShaderReference": {
+      "$id": "7",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "mutantFleshDirection": {
+      "$id": "8",
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -1.0,
+      "z": 0.0
+    },
+    "overrideCharacterShaderColors": false,
+    "firstCharacterShaderColor": {
+      "$id": "9",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "secondCharacterShaderColor": {
+      "$id": "10",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "hasPhantomDistortion": true,
+    "attachedParticlesReference": {
+      "$id": "11",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "bestiaryAttachedParticlesReference": {
+      "$id": "12",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "hasPrefabVariants": true,
+    "monsterPresentationDefinitions": [
+      "Definition:Golem_Iron_Presentation:8bc0020aa7035934496c384f7ad86730"
+    ],
+    "malePrefabReference": {
+      "$id": "13",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "0ff0b1c4180816e468ec3dcab4b18c35",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "maleModelScale": 0.655,
+    "femalePrefabReference": {
+      "$id": "14",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "0ff0b1c4180816e468ec3dcab4b18c35",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "femaleModelScale": 0.655,
+    "wieldedItemsScale": 1.0,
+    "hideDuringCutscene": false,
+    "hasLightingCutscene": true,
+    "canGeneratePortrait": false,
+    "needMerchantPortrait": false,
+    "hasMonsterPortraitBackground": true,
+    "portraitCameraFollowOffset": {
+      "$id": "15",
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -0.5,
+      "z": -5.0
+    },
+    "portraitCameraLookAtScreenOffset": {
+      "$id": "16",
+      "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+      "x": 0.5,
+      "y": 0.4
+    },
+    "portraitCameraFOV": 40.0,
+    "portraitCameraLightingOffset": {
+      "$id": "17",
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "forceCombatStartsAnimation": false,
+  "hasLookAt": false,
+  "forceNoFlyAnimation": false,
+  "followFloorAngle": false,
+  "groupAttacks": false,
+  "isUnique": false,
+  "uniqueNameId": "",
+  "guiPresentation": {
+    "$id": "18",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Monster/&IronGolem_Title",
+    "description": "Monster/&Golem_Description",
+    "spriteReference": {
+      "$id": "19",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "b50fdd5ac8b945f4a8a4b639f5d4df22",
+      "m_SubObjectName": "CustomPortrait_Golem_Iron",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "20",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "4a02c1d20726e4246bcb80c3a27761cf",
+  "contentPack": "LostValley",
+  "name": "Golem_Iron"
+}

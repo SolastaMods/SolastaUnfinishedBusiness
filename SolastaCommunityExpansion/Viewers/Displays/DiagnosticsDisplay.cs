@@ -4,10 +4,11 @@ using System.Text;
 using ModKit;
 using SolastaCommunityExpansion.DataMiner;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Patches.Diagnostic;
 using static SolastaCommunityExpansion.Viewers.Displays.CreditsDisplay;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
-{ 
+{
     internal static class DiagnosticsDisplay
     {
         private static bool IsUnityExplorerEnabled { get; set; }
@@ -31,15 +32,15 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             UI.Label("");
-            UI.Label(". You can set the environment variable " + "SolastaCEDiagnosticsDir".italic().yellow() + " to customize the output folder");
+            UI.Label(". You can set the environment variable " + DiagnosticsContext.ProjectEnvironmentVariable.italic().yellow() + " to customize the output folder");
 
-            if (!DiagnosticsContext.HasDiagnosticsFolder)
+            if (DiagnosticsContext.ProjectFolder == null)
             {
                 UI.Label(". The output folder is set to " + "your game folder".yellow().bold());
             }
             else
             {
-                UI.Label(". The output folder is set to " + DiagnosticsContext.DiagnosticsOutputFolder.yellow().bold());
+                UI.Label(". The output folder is set to " + DiagnosticsContext.DiagnosticsFolder.yellow().bold());
             }
 
             UI.Label("");
@@ -99,6 +100,18 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 UI.ActionButton("Create TA diagnostics", () => DiagnosticsContext.CreateTADefinitionDiagnostics(), UI.Width(200));
                 UI.ActionButton("Create CE diagnostics", () => DiagnosticsContext.CreateCEDefinitionDiagnostics(), UI.Width(200));
             }
+
+            UI.Label("");
+
+            bool logVariantMisuse = Main.Settings.DebugLogVariantMisuse;
+
+            if (UI.Toggle("Log misuse of EffectForm and ItemDefinition " + Shared.RequiresRestart, ref logVariantMisuse))
+            {
+                Main.Settings.DebugLogVariantMisuse = logVariantMisuse;
+            }
+
+            ItemDefinitionVerification.Mode = Main.Settings.DebugLogVariantMisuse ? ItemDefinitionVerification.Verification.Log : ItemDefinitionVerification.Verification.None;
+            EffectFormVerification.Mode = Main.Settings.DebugLogVariantMisuse ? EffectFormVerification.Verification.Log : EffectFormVerification.Verification.None;
 #endif
             UI.Label("");
         }
@@ -290,8 +303,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 // items
 
                 // NexusDescription.txt
-                var path = Path.Combine(DiagnosticsContext.HasDiagnosticsFolder ? DiagnosticsContext.DiagnosticsOutputFolder : DiagnosticsContext.GAME_FOLDER);
-                using var sw = new StreamWriter($"{path}/NexusDescription.txt");
+                using var sw = new StreamWriter($"{DiagnosticsContext.DiagnosticsFolder}/NexusDescription.txt");
                 sw.WriteLine(collectedString);
             },
             UI.Width(200));

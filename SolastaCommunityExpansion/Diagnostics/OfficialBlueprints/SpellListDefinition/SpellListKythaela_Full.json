@@ -1,0 +1,96 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": true,
+  "maxSpellLevel": 5,
+  "spellsByLevel": [
+    {
+      "$id": "1",
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": [
+        "Definition:ShadowDagger:3402c51b9ccb99b48bb7cb62eaa5dcab",
+        "Definition:Sparkle:ac43e07871656cd4db792bdbdc77ac44",
+        "Definition:ShadowArmor:2542a6717952164479079fcad2ed60f9"
+      ]
+    },
+    {
+      "$id": "2",
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:MagicMissile:2b2b43fb6eeb735479a21209286db382",
+        "Definition:BurningHands:a2c42e38e03448e438a2abfc3252352a",
+        "Definition:ColorSpray:72939f681f479494e97e0025f67726fe",
+        "Definition:FaerieFire:72b2d8c811efbb04e8d70c0a41f5d963",
+        "Definition:Shield:f69bd9c9375fc074a90043c42f9868fe"
+      ]
+    },
+    {
+      "$id": "3",
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:AcidArrow:f37e9c53e7ea033458b5eba667a67f84",
+        "Definition:Blindness:3470e52d7a8b472498ee397e2532db04",
+        "Definition:HoldPerson:cbc582b44f08e7f4b8ea69077471bc64",
+        "Definition:MistyStep:f4619f117544fe148aae6952202da5e3",
+        "Definition:ScorchingRay:2196d4d1af65ab8469bcb2b382014a58"
+      ]
+    },
+    {
+      "$id": "4",
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:Fireball:3f88bf59a445ce64aa23dfb935750535",
+        "Definition:Slow:ee93dd5046aabe14e90ba99da310fbb4",
+        "Definition:Counterspell:699759f98dacad84fb2d7323e0788179"
+      ]
+    },
+    {
+      "$id": "5",
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "spells": [
+        "Definition:Blight:bd131ed580e31734abb8189ab7e17a10",
+        "Definition:IceStorm:433fb934e19f1b5409b89bfa7fed3e3d",
+        "Definition:Confusion:206eb2e0497fe014595e99aa7d4fae5e"
+      ]
+    },
+    {
+      "$id": "6",
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "spells": []
+    }
+  ],
+  "guiPresentation": {
+    "$id": "7",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "8",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "9",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "c471c5e27be15254db80755ff13ae8c8",
+  "contentPack": "BaseGame",
+  "name": "SpellListKythaela_Full"
+}

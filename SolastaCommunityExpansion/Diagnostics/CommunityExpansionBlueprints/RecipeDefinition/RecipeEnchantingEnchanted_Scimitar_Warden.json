@@ -1,0 +1,52 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "craftedItem": "Definition:Enchanted_Scimitar_Warden:bab94f36-c0ec-5ff2-b035-afcf769a56a1",
+  "stackCount": 1,
+  "craftingHours": 24,
+  "craftingDC": 12,
+  "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
+  "ingredients": [
+    {
+      "$id": "1",
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Scimitar:12289d60dd3a4144fa8308ffc2a6e80d"
+    },
+    {
+      "$id": "2",
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Enchant_Diamond_Of_Elai:9257ab496a5d1394890a9b142eb89397"
+    }
+  ],
+  "spellDefinition": null,
+  "guiPresentation": {
+    "$id": "3",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&Enchanted_Scimitar_Warden_Title",
+    "description": "Equipment/&Enchanted_Scimitar_Warden_Description",
+    "spriteReference": {
+      "$id": "4",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$id": "5",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "f84f1db6-0bc1-5675-b0c5-d911f2c2a8e7",
+  "contentPack": "BaseGame",
+  "name": "RecipeEnchantingEnchanted_Scimitar_Warden"
+}

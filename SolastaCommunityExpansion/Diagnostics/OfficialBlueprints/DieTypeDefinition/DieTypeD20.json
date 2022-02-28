@@ -1,0 +1,41 @@
+{
+  "$type": "DieTypeDefinition, Assembly-CSharp",
+  "dieType": "D20",
+  "rollingMeshReference": {
+    "$id": "1",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "e16ec1beb7d1909418416569d56eaa7c",
+    "m_SubObjectName": "D20_low",
+    "m_SubObjectType": ""
+  },
+  "scaleFactor": 28.0,
+  "guiPresentation": {
+    "$id": "2",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Rules/&DieD20Title",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "3",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "8e97c8cd52e28dd4f96b3dc346162636",
+      "m_SubObjectName": "D20Empty",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "4",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "fcfd454d3349df44396c538ac7768692",
+  "contentPack": "BaseGame",
+  "name": "DieTypeD20"
+}

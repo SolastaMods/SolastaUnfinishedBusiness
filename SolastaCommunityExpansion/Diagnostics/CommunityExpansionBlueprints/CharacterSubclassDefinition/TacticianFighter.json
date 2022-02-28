@@ -1,0 +1,84 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$id": "1",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:CounterStrikePower:88c294ce-14fa-4f7e-8b81-ea4d289e3d8b",
+      "level": 3
+    },
+    {
+      "$id": "2",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:GambitResourcePool:00da2b27-139a-4ca0-a285-aaa70d108bc8",
+      "level": 3
+    },
+    {
+      "$id": "3",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:InspirePower:163c28de-48e5-4f75-bdd0-d42374a75ef8",
+      "level": 3
+    },
+    {
+      "$id": "4",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:KnockDownPower:90dd5e81-40d7-4824-89b4-45bcf4c05218",
+      "level": 3
+    },
+    {
+      "$id": "5",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetChampionRemarkableAthlete:51427fc1ded4fe14fac8457df1dee9ed",
+      "level": 7
+    },
+    {
+      "$id": "6",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:GambitResourcePoolAdd10:52b74360-eecf-407c-9445-4515cbb372f3",
+      "level": 10
+    },
+    {
+      "$id": "7",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:GambitResourcePoolAdd15:b4307074-cd80-4376-96f0-46f7a3a79b5a",
+      "level": 15
+    },
+    {
+      "$id": "8",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:GambitResourcePoolAdd18:c7ced45a-572f-4af0-8ec5-2add074dd7c3",
+      "level": 18
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$id": "9",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&TactitionFighterSubclassTitle",
+    "description": "Subclass/&TactitionFighterSubclassDescription",
+    "spriteReference": {
+      "$id": "10",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "29d762aa92314b04ea0c8f607efe10ae",
+      "m_SubObjectName": "Rogue_Shadowcaster",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "11",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "9d32577d-d3ec-4859-b66d-451d071bb117",
+  "contentPack": "BaseGame",
+  "name": "TacticianFighter"
+}

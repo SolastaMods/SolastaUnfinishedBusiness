@@ -1,0 +1,70 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": true,
+  "maxSpellLevel": 3,
+  "spellsByLevel": [
+    {
+      "$id": "1",
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": [
+        "Definition:VenomousSpike:804bffd98d2384c4b9c01ebb30f3cbee"
+      ]
+    },
+    {
+      "$id": "2",
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:Entangle:0224dcb79ea69f34eb9a51546fc78d0d",
+        "Definition:ColorSpray:72939f681f479494e97e0025f67726fe"
+      ]
+    },
+    {
+      "$id": "3",
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:HoldPerson:cbc582b44f08e7f4b8ea69077471bc64"
+      ]
+    },
+    {
+      "$id": "4",
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:Counterspell:699759f98dacad84fb2d7323e0788179",
+        "Definition:Slow:ee93dd5046aabe14e90ba99da310fbb4"
+      ]
+    }
+  ],
+  "guiPresentation": {
+    "$id": "5",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "6",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "7",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "21702657382a3e34fb5b02bc0de58930",
+  "contentPack": "BaseGame",
+  "name": "SpellListDryad_Water"
+}

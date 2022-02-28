@@ -1,0 +1,58 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:PowerInvisibilityFromFeat:b0baf5f2-42f4-554a-b807-3cf4be82af25",
+    "Definition:PowerInflictWoundsChaFromFeat:141634ae-5a67-5357-842c-45155504bea5",
+    "Definition:PowerFalseLifeFromFeat:83c00463-e193-5b37-8983-2dafeb789772",
+    "Definition:FeatChaIncrement:e34d5fec-6431-5d65-b40b-25944621de35",
+    "Definition:ShadowTouchedAutoPrepBarbarian:b7acf706-9bbc-514b-b378-4bb805007d32",
+    "Definition:ShadowTouchedAutoPrepCleric:f6467972-bed2-52e5-b110-c62209c9a6d1",
+    "Definition:ShadowTouchedAutoPrepDruid:2d7ac948-e904-59ff-b600-6ccdd5cbf3cc",
+    "Definition:ShadowTouchedAutoPrepFighter:bff027a0-8d8d-5c79-a168-4fde7d8e261d",
+    "Definition:ShadowTouchedAutoPrepPaladin:c9c22360-c603-50cd-90c5-1ac7532dc66c",
+    "Definition:ShadowTouchedAutoPrepRanger:29358b66-329f-5546-890d-a7f1a4354fef",
+    "Definition:ShadowTouchedAutoPrepRogue:6b280ce2-71f0-5403-be98-02b591dc04ed",
+    "Definition:ShadowTouchedAutoPrepSorcerer:778c7686-ed1a-5845-9cb3-b542fc60a72f",
+    "Definition:ShadowTouchedAutoPrepWizard:d0b88e6a-94e9-5379-a64d-916f70fe19c6",
+    "Definition:ShadowTouchedAutoPrepClassWitch:65988a55-e876-5b3e-8293-67af63841484",
+    "Definition:ShadowTouchedAutoPrepClassTinkerer:9b04bd07-5abe-5c39-b0e6-1e05b39afcb4"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feat/&FeatShadowTouchedChaTitle",
+    "description": "Feat/&FeatShadowTouchedChaDescription",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "a86a44dd-14a2-53da-a489-293308f10381",
+  "contentPack": "BaseGame",
+  "name": "FeatShadowTouchedCha"
+}
