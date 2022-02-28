@@ -9,19 +9,12 @@ namespace SolastaCommunityExpansion
     {
         internal static void Load(string fromFolder)
         {
-            var currentLanguageCode = LocalizationManager.CurrentLanguageCode;
             var languageSourceData = LocalizationManager.Sources[0];
 
             foreach (var path in Directory.EnumerateFiles(fromFolder, "Translations-??.txt"))
             {
                 var filename = Path.GetFileName(path);
                 var code = filename.Substring(13, 2).ToLower();
-
-                if (!currentLanguageCode.ToLower().StartsWith(code))
-                {
-                    continue;
-                }
-
                 var languageIndex = languageSourceData.GetLanguageIndexFromCode(code);
 
                 if (languageIndex < 0)
