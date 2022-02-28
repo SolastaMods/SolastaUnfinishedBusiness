@@ -20,30 +20,22 @@ namespace SolastaCommunityExpansion.Models
         private static BaseDefinition[] CEBaseDefinitions;
         private static Dictionary<Type, BaseDefinition[]> CEBaseDefinitionsMap;
 
-        internal const string GAME_FOLDER = ".\\";
+        internal const string GAME_FOLDER = ".";
         internal const int TA = 0;
         internal const int CE = 1;
         internal const string ProjectEnvironmentVariable = "SolastaCEProjectDir";
 
-        internal static string DiagnosticsOutputFolder { get; } = GetDiagnosticsFolder();
+        internal static readonly string ProjectFolder = Environment.GetEnvironmentVariable(ProjectEnvironmentVariable, EnvironmentVariableTarget.Machine);
 
-        internal static bool HasDiagnosticsFolder => !string.IsNullOrWhiteSpace(DiagnosticsOutputFolder);
+        internal static readonly string DiagnosticsFolder = GetDiagnosticsFolder();
 
         private static string GetDiagnosticsFolder()
         {
-            var folder = Environment.GetEnvironmentVariable(ProjectEnvironmentVariable, EnvironmentVariableTarget.Machine);
+            var path = Path.Combine(ProjectFolder ?? GAME_FOLDER, "SolastaCommunityExpansion/Diagnostics");
 
-            if (string.IsNullOrWhiteSpace(folder))
-            {
-                folder = "SolastaCommunityExpansion/Diagnostics";
-                Main.Log($"[{ProjectEnvironmentVariable}] is not set.");
-            }
-            else
-            {
-                folder += "/SolastaCommunityExpansion/Diagnostics";
-            }
+            EnsureFolderExists(path);
 
-            return folder;
+            return path;
         }
 
         private static void EnsureFolderExists(string path)
@@ -125,13 +117,11 @@ namespace SolastaCommunityExpansion.Models
                 return;
             }
 
-            var path = Path.Combine(HasDiagnosticsFolder ? DiagnosticsOutputFolder : GAME_FOLDER);
-
-            EnsureFolderExists(path);
+            EnsureFolderExists(DiagnosticsFolder);
 
             /////////////////////////////////////////////////////////////////////////////////////////////////
             // Write all definitions with no GUI presentation to file
-            File.WriteAllLines(Path.Combine(path, $"{baseFilename}-GuiPresentation-MissingValue.txt"),
+            File.WriteAllLines(Path.Combine(DiagnosticsFolder, $"{baseFilename}-GuiPresentation-MissingValue.txt"),
                 baseDefinitions
                     .Where(d => string.IsNullOrWhiteSpace(d.GuiPresentation?.Title) || string.IsNullOrWhiteSpace(d.GuiPresentation?.Description))
                     .Distinct()
@@ -163,19 +153,19 @@ namespace SolastaCommunityExpansion.Models
                 .Distinct()
                 .Select(d => $"{d.Name}\t{d.Type}='{d.Key}'.");
 
-            File.WriteAllLines(Path.Combine(path, $"{baseFilename}-GuiPresentation-MissingTranslation-{currentLanguage}.txt"), allLines);
+            File.WriteAllLines(Path.Combine(DiagnosticsFolder, $"{baseFilename}-GuiPresentation-MissingTranslation-{currentLanguage}.txt"), allLines);
         }
 
         internal static void ExportTADefinitions()
         {
-            var path = Path.Combine(HasDiagnosticsFolder ? DiagnosticsOutputFolder : GAME_FOLDER, OFFICIAL_BP_FOLDER);
+            var path = Path.Combine(DiagnosticsFolder, OFFICIAL_BP_FOLDER);
 
             BlueprintExporter.ExportBlueprints(TA, TABaseDefinitions, TABaseDefinitionsMap, path);
         }
-        
+
         internal static void ExportCEDefinitions()
         {
-            var path = Path.Combine(HasDiagnosticsFolder ? DiagnosticsOutputFolder : GAME_FOLDER, COMMUNITY_EXPANSION_BP_FOLDER);
+            var path = Path.Combine(DiagnosticsFolder, COMMUNITY_EXPANSION_BP_FOLDER);
 
             BlueprintExporter.ExportBlueprints(CE, CEBaseDefinitions, CEBaseDefinitionsMap, path);
         }
