@@ -1,0 +1,87 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:Human:d844f80cc9ab3cb4d95630e35163eedd",
+  "subRaceDefinition": null,
+  "sex": "Male",
+  "originMorphotype": "Origin_AF",
+  "skinMorphotype": "FaceAndSkin_06",
+  "musculatureMorphotypeValue": 0.0,
+  "ageMorphotypeValue": 100.0,
+  "faceShapeMorphotype": "FaceShape_NPC_Halman_Summer",
+  "hairShapeMorphotype": "HairShape_E",
+  "hairColorMorphotype": "HairColor_22",
+  "beardShapeMorphotype": "BeardShape_P",
+  "eyeMorphotype": "Eye_Default",
+  "eyeColorMorphotype": "EyeColorGreen",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
+  "armorDefinition": "ClothesSage",
+  "helmetDefinition": "",
+  "tabardDefinition": "",
+  "showHelmet": false,
+  "firstColor": {
+    "$id": "1",
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.450980365,
+    "g": 0.5547248,
+    "b": 0.5647059,
+    "a": 1.0
+  },
+  "secondColor": {
+    "$id": "2",
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.350480556,
+    "g": 0.4150943,
+    "b": 0.364375979,
+    "a": 1.0
+  },
+  "thirdColor": {
+    "$id": "3",
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.305936247,
+    "g": 0.4290768,
+    "b": 0.51886785,
+    "a": 1.0
+  },
+  "fourthColor": {
+    "$id": "4",
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.0,
+    "g": 0.665758967,
+    "b": 0.9150943,
+    "a": 1.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$id": "5",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&NPC_Dackin_Title",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "6",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "01d1cb74eeebcf84aaf99e3f13f98a5b",
+      "m_SubObjectName": "CustomPortrait_NPC_Presentation_Academic_Dackin",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "7",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "dafc30efc5057f3409633d6766bac707",
+  "contentPack": "BaseGame",
+  "name": "NPC_Presentation_Academic_Dackin"
+}

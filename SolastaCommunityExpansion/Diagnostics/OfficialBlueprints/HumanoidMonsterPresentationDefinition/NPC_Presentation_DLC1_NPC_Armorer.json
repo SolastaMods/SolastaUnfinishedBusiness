@@ -1,0 +1,87 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:Human:d844f80cc9ab3cb4d95630e35163eedd",
+  "subRaceDefinition": null,
+  "sex": "Female",
+  "originMorphotype": "Origin_AF",
+  "skinMorphotype": "FaceAndSkin_03",
+  "musculatureMorphotypeValue": 23.45595,
+  "ageMorphotypeValue": 0.0,
+  "faceShapeMorphotype": "FaceShape_AF_D",
+  "hairShapeMorphotype": "HairShape_O",
+  "hairColorMorphotype": "HairColor_43",
+  "beardShapeMorphotype": "",
+  "eyeMorphotype": "Eye_Default",
+  "eyeColorMorphotype": "EyeColorBrown",
+  "bodyDecorationMorphotype": "BodyDecoration_Tattoo_01",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
+  "armorDefinition": "StuddedLeather",
+  "helmetDefinition": "",
+  "tabardDefinition": "",
+  "showHelmet": true,
+  "firstColor": {
+    "$id": "1",
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.3009078,
+    "g": 0.52271086,
+    "b": 0.9245283,
+    "a": 1.0
+  },
+  "secondColor": {
+    "$id": "2",
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.1273585,
+    "g": 0.431215674,
+    "b": 1.0,
+    "a": 1.0
+  },
+  "thirdColor": {
+    "$id": "3",
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.6509434,
+    "g": 0.242568523,
+    "b": 0.242568523,
+    "a": 1.0
+  },
+  "fourthColor": {
+    "$id": "4",
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.6981132,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 1.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$id": "5",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&NPC_DLC_Armorer",
+    "description": "NPC/&NPC_DLC_Armorer",
+    "spriteReference": {
+      "$id": "6",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "90abe5a0f2c8f204fab04ffa294e4c8c",
+      "m_SubObjectName": "CustomPortrait_DLC1_Gail",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "7",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "4c97d25922a1c754fa065a7b64edd775",
+  "contentPack": "LostValley",
+  "name": "NPC_Presentation_DLC1_NPC_Armorer"
+}

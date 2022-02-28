@@ -1,0 +1,35 @@
+{
+  "$type": "FeatureDefinitionSense, Assembly-CSharp",
+  "senseType": "DetectInvisibility",
+  "senseRange": 24,
+  "stealthBreakerRange": 6,
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&VisionDetectInvisibilityTitle",
+    "description": "Feature/&VisionDetectInvisibilityDescription",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "b99e1bc1bca11dc4ba4160ad09dcf6fe",
+  "contentPack": "BaseGame",
+  "name": "SenseSeeInvisible24"
+}

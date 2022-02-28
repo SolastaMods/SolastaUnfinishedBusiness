@@ -2,6 +2,7 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Multiclass.Models;
+using SolastaCommunityExpansion.Patches.Diagnostic;
 
 namespace SolastaCommunityExpansion.Patches
 {
@@ -13,6 +14,11 @@ namespace SolastaCommunityExpansion.Patches
         {
             // Cache TA definitions for diagnostics and export
             DiagnosticsContext.CacheTADefinitions();
+
+#if DEBUG
+            ItemDefinitionVerification.DeleteLogFile();
+            EffectFormVerification.DeleteLogFile();
+#endif
 
             AdditionalNamesContext.Load();
             AsiAndFeatContext.Load();

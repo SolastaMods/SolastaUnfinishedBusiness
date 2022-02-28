@@ -1,0 +1,58 @@
+{
+  "$type": "FeatureDefinitionAttackModifier, Assembly-CSharp",
+  "attackRollModifierMethod": "FlatValue",
+  "attackRollModifier": 2,
+  "attackRollAbilityScore": "",
+  "damageRollModifierMethod": "FlatValue",
+  "damageRollModifier": 2,
+  "damageRollAbilityScore": "",
+  "additionalDamageDice": 0,
+  "canDualWieldNonLight": false,
+  "canAddAbilityBonusToSecondary": false,
+  "additionalAttackTag": "",
+  "followUpStrike": false,
+  "followUpDamageDie": "D4",
+  "followUpAddAbilityBonus": true,
+  "additionalBonusAttackFromMain": false,
+  "abilityScoreReplacement": "None",
+  "damageDieReplacement": "None",
+  "replacedDieType": "D8",
+  "impactParticleReference": {
+    "$id": "1",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$id": "2",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "3",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "4",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "b05099f93a9a4b643a42ed859937b474",
+  "contentPack": "BaseGame",
+  "name": "AttackModifier_ChildOfDarkness_DimLight"
+}

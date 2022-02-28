@@ -1,0 +1,199 @@
+{
+  "$type": "LocationDefinition, Assembly-CSharp",
+  "isUserLocation": false,
+  "alwaysHidden": false,
+  "registeredFactions": [],
+  "registeredVariables": [],
+  "sceneFilePath": "",
+  "sceneReference": {
+    "$id": "1",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "e9a09f3b1b2c71a489a9fa96d6066f0a",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "audioState": {
+    "$id": "2",
+    "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": null,
+    "groupIdInternal": 0,
+    "groupGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "renderSettingsSceneProfile": {
+    "$id": "3",
+    "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
+    "useSkybox": true,
+    "backgroundColor": {
+      "$id": "4",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    "skyboxMaterial": null,
+    "ambientLight": {
+      "$id": "5",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.231815487,
+      "g": 0.231815487,
+      "b": 0.231815487,
+      "a": 1.0
+    },
+    "fog": true,
+    "fogColor": {
+      "$id": "6",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.498039216,
+      "g": 0.5520674,
+      "b": 0.58431375,
+      "a": 1.0
+    },
+    "fogMode": "ExponentialSquared",
+    "fogDensity": 0.0101,
+    "excludeSkybox": true,
+    "auraBaseSettings": null,
+    "userDungeonAuraVolumeDensity": 0.2,
+    "userDungeonAuraVolumeFogType": "Height",
+    "userDungeonAuraVolumeHeight": 3.0,
+    "userDungeonAuraVolumeNoise": false,
+    "userDungeonAuraVolumeNoiseScale": 3.0,
+    "dayCycleProfile": {
+      "$id": "7",
+      "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
+      "noonColor": {
+        "$id": "8",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.7912806,
+        "g": 0.8773585,
+        "b": 0.492479533,
+        "a": 1.0
+      },
+      "sunriseColor": {
+        "$id": "9",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.7912806,
+        "g": 0.8773585,
+        "b": 0.492479533,
+        "a": 1.0
+      },
+      "sunsetColor": {
+        "$id": "10",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.7912806,
+        "g": 0.8773585,
+        "b": 0.492479533,
+        "a": 1.0
+      },
+      "globalSunIntensity": 1.0,
+      "sunDirection": -90.0,
+      "sunTilt": 0.01,
+      "moonLightColor": {
+        "$id": "11",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8490566,
+        "g": 0.8490566,
+        "b": 0.8490566,
+        "a": 1.0
+      },
+      "moonLightFadeOffset": 0.1,
+      "moonLightFadeMinIntensity": 1.0,
+      "moonLightFadeDuration": 0.25,
+      "moonSpeedFactor": 1.0,
+      "moonBaseAngle": 0.0,
+      "globalMoonIntensity": 0.63,
+      "ambientSunriseColor": {
+        "$id": "12",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.9764151,
+        "g": 0.987365246,
+        "b": 1.0,
+        "a": 1.0
+      },
+      "ambientNoonColor": {
+        "$id": "13",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8490566,
+        "g": 0.8490566,
+        "b": 0.8490566,
+        "a": 1.0
+      },
+      "ambientSunsetColor": {
+        "$id": "14",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8490566,
+        "g": 0.8490566,
+        "b": 0.8490566,
+        "a": 1.0
+      },
+      "ambientNightColor": {
+        "$id": "15",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8490566,
+        "g": 0.8490566,
+        "b": 0.8490566,
+        "a": 1.0
+      },
+      "ambientFadeDuration": 1.0,
+      "dayAtmosphereThickness": 1.48,
+      "nightAtmosphereThickness": 0.5,
+      "name": "AcidLake_Location_DayCycleProfile"
+    },
+    "name": "QuickBattleScene_RenderSettings"
+  },
+  "locationPresentation": {
+    "$id": "16",
+    "$type": "LocationPresentation, Assembly-CSharp",
+    "unchartedTitle": "",
+    "unchartedDescription": "",
+    "knownTitle": "",
+    "knownDescription": "",
+    "exploredTitle": "",
+    "exploredDescription": ""
+  },
+  "challengeRating": 1,
+  "focusWhenRevealed": false,
+  "startsWithScavengerCamp": false,
+  "ignoredByScavengers": true,
+  "keepSectorCullingResultsWhenInactive": false,
+  "setCurrentCampaignNodeWhenLeaving": false,
+  "hasPriorityForTeleporter": false,
+  "canAttackNonHostileCharacters": false,
+  "guiPresentation": {
+    "$id": "17",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Location/&QuickBattleTitle",
+    "description": "Location/&QuickBattleDescription",
+    "spriteReference": {
+      "$id": "18",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "a5f8f319b8aaa694b894c487dc4cc501",
+      "m_SubObjectName": "KeyArt_Forsplashscreen",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "19",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "bf934664a5d431d4ea87d7ef06f210f2",
+  "contentPack": "BaseGame",
+  "name": "QuickBattle"
+}

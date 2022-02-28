@@ -1,0 +1,38 @@
+{
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "SavingThrow",
+  "proficiencies": [
+    "Charisma",
+    "Wisdom"
+  ],
+  "forbiddenItemTags": [],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&RoguishConArtistMentalSavingThrowsTitle",
+    "description": "Subclass/&RoguishConArtistMentalSavingThrowsDescription",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "f2be4d53-1cc4-5146-a822-1c94456266f2",
+  "contentPack": "BaseGame",
+  "name": "RoguishConArtistMentalSavingThrows"
+}

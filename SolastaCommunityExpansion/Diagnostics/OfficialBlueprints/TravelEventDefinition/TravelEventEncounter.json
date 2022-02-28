@@ -1,0 +1,48 @@
+{
+  "$type": "TravelEventDefinition, Assembly-CSharp",
+  "eventType": "Encounter",
+  "eventPeriodicity": "CooldownDays",
+  "cooldownValue": 3,
+  "recordedInAdventureLog": false,
+  "dumpsAdventureLog": true,
+  "successLogEntries": [
+    "Travel/&TravelEventEncounterSuccess1Title"
+  ],
+  "failureLogEntries": [
+    "Travel/&TravelEventEncounterFailure1Title"
+  ],
+  "otherLogEntries": [
+    "Travel/&TravelEventEncounterOther1Title",
+    "Travel/&TravelEventEncounterOther2Title"
+  ],
+  "ingredientGatheringProficiencies": [],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "65074d13f674e1741a3bf4f2d4e740b4",
+      "m_SubObjectName": "Shove",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "8f968f3bb1d825442bdd6954aaca90e1",
+  "contentPack": "BaseGame",
+  "name": "TravelEventEncounter"
+}

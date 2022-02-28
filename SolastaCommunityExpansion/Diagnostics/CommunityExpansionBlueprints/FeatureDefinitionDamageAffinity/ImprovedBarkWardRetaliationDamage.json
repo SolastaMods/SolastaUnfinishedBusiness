@@ -1,0 +1,53 @@
+{
+  "$type": "FeatureDefinitionDamageAffinity, Assembly-CSharp",
+  "ancestryDefinesDamageType": false,
+  "damageType": "DamagePoison",
+  "savingThrowAdvantageType": "None",
+  "savingThrowModifier": 0,
+  "damageAffinityType": "None",
+  "tagsIgnoringAffinity": [],
+  "situationalContext": "None",
+  "healsBack": false,
+  "healBackCap": 10,
+  "retaliateWhenHit": true,
+  "retaliateProximity": "Melee",
+  "retaliateRangeCells": 1,
+  "retaliatePower": "Definition:improvedBarkWardRetaliate:f78fde0d-e495-5cc1-affb-84613f0e0ca1",
+  "knockOutAffinity": "None",
+  "knockOutOccurencesNumber": 1,
+  "knockOutRequiredCondition": null,
+  "knockOutDCAttribute": "RelentlessRageDC",
+  "knockOutAddDC": 5,
+  "instantDeathImmunity": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "9213ab09-a35f-59e3-ac3e-d4dbd3eddd3f",
+  "contentPack": "BaseGame",
+  "name": "ImprovedBarkWardRetaliationDamage"
+}

@@ -1,0 +1,38 @@
+{
+  "$type": "MetamagicOptionDefinition, Assembly-CSharp",
+  "costMethod": "FixedValue",
+  "sorceryPointsCost": 1,
+  "metamagicType": "EmpoweredSpell",
+  "parameterMethod": "BoundFeature",
+  "parameterValue": 2,
+  "boundFeature": "Definition:DieRollModifierEmpoweredSpell:4f1ded0678f0d6e4eb6f1ed237699a99",
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Rules/&MetamagicOptionEmpoweredSpellTitle",
+    "description": "Rules/&MetamagicOptionEmpoweredSpellDescription",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "60aa7f9b10c0e6540987ab64abae02db",
+  "contentPack": "BaseGame",
+  "name": "MetamagicEmpoweredSpell"
+}

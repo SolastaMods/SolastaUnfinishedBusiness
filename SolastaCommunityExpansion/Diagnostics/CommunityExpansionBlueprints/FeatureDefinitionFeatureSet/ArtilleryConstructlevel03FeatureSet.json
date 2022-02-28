@@ -1,0 +1,45 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:ArtilleryModePool:89d9c1f5-75e9-4b25-b7e8-a24f30d1befb",
+    "Definition:TempHPShieldModePower:b104ec34-5489-43b7-a887-0ffbb604ca8d",
+    "Definition:FlameArtilleryModePower:f1559469-cf41-4204-a8c1-53379d04df43",
+    "Definition:ForceArtilleryModePower:b01c40ca-685a-4d5d-9ee4-ed47d39cb5b9",
+    "Definition:AddConstructCantrips:942183c0-e581-464a-afe4-cc00a9cd9c26",
+    "Definition:SummoningAffinityTinkererArtilleryConstruct:edae2ec0-f871-4918-855a-117bd428d51e"
+  ],
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feat/&SummonArtilleryConstructTitle",
+    "description": "Feat/&SummonArtilleryConstructDescription",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "59f857e6-7b06-4c2b-a241-b73c42d64c23",
+  "contentPack": "BaseGame",
+  "name": "ArtilleryConstructlevel03FeatureSet"
+}

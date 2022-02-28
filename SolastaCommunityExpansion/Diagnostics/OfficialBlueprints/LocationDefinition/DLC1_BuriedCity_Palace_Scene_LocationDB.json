@@ -1,0 +1,166 @@
+{
+  "$type": "LocationDefinition, Assembly-CSharp",
+  "isUserLocation": false,
+  "alwaysHidden": false,
+  "registeredFactions": [],
+  "registeredVariables": [],
+  "sceneFilePath": "",
+  "sceneReference": {
+    "$id": "1",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "89b130b924b61a447be6dc9f88010f2a",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "audioState": {
+    "$id": "2",
+    "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$id": "3",
+      "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseStateGroupReference": {
+        "$id": "4",
+        "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+        "objectName": "State_LocationName",
+        "id": 598649695,
+        "guid": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE",
+        "name": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE"
+      },
+      "objectName": "DLC1_BuriedCity_Palace",
+      "id": 3143852017,
+      "guid": "E973074A-9B5E-4B8C-9DF5-473DFAAE1E74",
+      "name": "E973074A-9B5E-4B8C-9DF5-473DFAAE1E74"
+    },
+    "groupIdInternal": 0,
+    "groupGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "renderSettingsSceneProfile": {
+    "$id": "5",
+    "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
+    "useSkybox": true,
+    "backgroundColor": {
+      "$id": "6",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    "skyboxMaterial": null,
+    "ambientLight": {
+      "$id": "7",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "fog": false,
+    "fogColor": {
+      "$id": "8",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "fogMode": "Exponential",
+    "fogDensity": 0.0638,
+    "excludeSkybox": false,
+    "auraBaseSettings": {
+      "$id": "9",
+      "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
+      "useDensity": true,
+      "density": 0.025,
+      "useScattering": false,
+      "scattering": 1.0,
+      "useAmbientLighting": true,
+      "ambientLightingStrength": 0.5,
+      "useColor": true,
+      "color": {
+        "$id": "10",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.211444974,
+        "g": 0.5,
+        "b": 0.424453169,
+        "a": 1.0
+      },
+      "colorStrength": 1.0,
+      "useTint": false,
+      "tint": {
+        "$id": "11",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.999999,
+        "g": 0.748079062,
+        "b": 0.3809202,
+        "a": 1.0
+      },
+      "tintStrength": 1.0,
+      "useExtinction": false,
+      "extinction": 0.75,
+      "name": "DLC1_BuriedCity_Palace_Scene_AuraBaseParameters"
+    },
+    "userDungeonAuraVolumeDensity": 0.2,
+    "userDungeonAuraVolumeFogType": "Height",
+    "userDungeonAuraVolumeHeight": 3.0,
+    "userDungeonAuraVolumeNoise": false,
+    "userDungeonAuraVolumeNoiseScale": 3.0,
+    "dayCycleProfile": null,
+    "name": "DLC1_BuriedCity_Palace_Scene_RenderSettings"
+  },
+  "locationPresentation": {
+    "$id": "12",
+    "$type": "LocationPresentation, Assembly-CSharp",
+    "unchartedTitle": "Map/&Location_Uncharted_Title_City",
+    "unchartedDescription": "Map/&Location_Uncharted_Description_City",
+    "knownTitle": "Map/&Location_Known_Title_City",
+    "knownDescription": "Map/&Location_Known_Description_City",
+    "exploredTitle": "Map/&Location_Explored_Title_City",
+    "exploredDescription": "Map/&Location_Explored_Description_City"
+  },
+  "challengeRating": 9,
+  "focusWhenRevealed": true,
+  "startsWithScavengerCamp": false,
+  "ignoredByScavengers": false,
+  "keepSectorCullingResultsWhenInactive": false,
+  "setCurrentCampaignNodeWhenLeaving": true,
+  "hasPriorityForTeleporter": false,
+  "canAttackNonHostileCharacters": true,
+  "guiPresentation": {
+    "$id": "13",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Map/&Location_Presentation_Title_BuriedCity_Palace",
+    "description": "Map/&Location_Presentation_Description_BuriedCity_Palace",
+    "spriteReference": {
+      "$id": "14",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "4652c7dcf76cb7840855e3595f1e15fc",
+      "m_SubObjectName": "DLC1_BuriedCity_Palace",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "15",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "678672245f0af744ca2fd6fa4a8ec342",
+  "contentPack": "LostValley",
+  "name": "DLC1_BuriedCity_Palace_Scene_LocationDB"
+}

@@ -125,15 +125,11 @@ namespace SolastaCommunityExpansion.Models
             EnsureFolderExists(path);
 
             /////////////////////////////////////////////////////////////////////////////////////////////////
-            // Write all definitions name/guid to file (txt)
-            File.WriteAllLines(Path.Combine(path, $"{baseFilename}.txt"),
-                baseDefinitions.Select(d => $"{d.Name}, {d.GUID}"));
-
-            /////////////////////////////////////////////////////////////////////////////////////////////////
             // Write all definitions with no GUI presentation to file
             File.WriteAllLines(Path.Combine(path, $"{baseFilename}-GuiPresentation-MissingValue.txt"),
                 baseDefinitions
                     .Where(d => string.IsNullOrWhiteSpace(d.GuiPresentation?.Title) || string.IsNullOrWhiteSpace(d.GuiPresentation?.Description))
+                    .Distinct()
                     .Select(d => $"{d.Name}:\tTitle='{d.GuiPresentation?.Title ?? string.Empty}', Desc='{d.GuiPresentation?.Description ?? string.Empty}'"));
 
             /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -159,6 +155,7 @@ namespace SolastaCommunityExpansion.Models
                     var termData = languageSourceData.GetTermData(d.Key);
                     return string.IsNullOrWhiteSpace(termData?.Languages[languageIndex]);
                 })
+                .Distinct()
                 .Select(d => $"{d.Name}\t{d.Type}='{d.Key}'.");
 
             File.WriteAllLines(Path.Combine(path, $"{baseFilename}-GuiPresentation-MissingTranslation-{currentLanguage}.txt"), allLines);

@@ -1,0 +1,87 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:Halfling:d6a9a559998c0974abd8077d7012ef84",
+  "subRaceDefinition": "Definition:HalflingMarsh:7d54ea787abc11642a15214c750157f3",
+  "sex": "Male",
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkinTan",
+  "musculatureMorphotypeValue": 0.0,
+  "ageMorphotypeValue": 0.0,
+  "faceShapeMorphotype": "FaceShape_C",
+  "hairShapeMorphotype": "HairShape_C",
+  "hairColorMorphotype": "HairColorBrown",
+  "beardShapeMorphotype": "BeardShape_C",
+  "eyeMorphotype": "",
+  "eyeColorMorphotype": "EyeColorBlack",
+  "bodyDecorationMorphotype": "",
+  "bodyDecorationColorMorphotype": "",
+  "scarsMorphotype": "",
+  "armorDefinition": "Leather",
+  "helmetDefinition": "",
+  "tabardDefinition": "",
+  "showHelmet": true,
+  "firstColor": {
+    "$id": "1",
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.670588255,
+    "g": 0.3647059,
+    "b": 0.3647059,
+    "a": 1.0
+  },
+  "secondColor": {
+    "$id": "2",
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.819607854,
+    "g": 0.7176471,
+    "b": 0.7176471,
+    "a": 1.0
+  },
+  "thirdColor": {
+    "$id": "3",
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.670588255,
+    "g": 0.431372553,
+    "b": 0.431372553,
+    "a": 1.0
+  },
+  "fourthColor": {
+    "$id": "4",
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.596078455,
+    "g": 0.180392161,
+    "b": 0.180392161,
+    "a": 1.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$id": "5",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "6",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f4e2d292ce1eda148a7bdf03eb543407",
+      "m_SubObjectName": "NPC_Presentation_Generic_Bandit_Halfling_Male",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "7",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "95255269ac683674b97f7d7c4cf405e4",
+  "contentPack": "BaseGame",
+  "name": "NPC_Presentation_Generic_Bandit_Halfling_Male"
+}

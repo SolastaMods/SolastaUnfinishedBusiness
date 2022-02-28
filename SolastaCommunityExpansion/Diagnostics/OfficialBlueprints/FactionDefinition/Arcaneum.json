@@ -1,0 +1,49 @@
+{
+  "$type": "FactionDefinition, Assembly-CSharp",
+  "builtIn": false,
+  "minRelationCap": -100,
+  "maxRelationCap": 100,
+  "stealingPenalty": 0,
+  "attackingPenalty": 0,
+  "killingPenalty": 0,
+  "prominentMembers": [
+    "Definition:Ilastar_Keenmind_Airgetine:0060775cf180657468a4012de8d3c154",
+    "Definition:Heddlon_Surespell:3ca98882d9577824dac2ee8e3cf7da5f"
+  ],
+  "smallSpriteReference": {
+    "$id": "1",
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "54b0c43e30a37714da048cdcef33fba2",
+    "m_SubObjectName": "ArcaneumFlagSmall",
+    "m_SubObjectType": ""
+  },
+  "guiPresentation": {
+    "$id": "2",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Faction/&ArcaniumTitle",
+    "description": "Faction/&ArcaniumDescription",
+    "spriteReference": {
+      "$id": "3",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "2a1fe651a6cf4f946a86e02bdc1d0b1f",
+      "m_SubObjectName": "ArcaneumFlag",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "4",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "18f67d1a42e232842a3cff083cd9a3be",
+  "contentPack": "BaseGame",
+  "name": "Arcaneum"
+}

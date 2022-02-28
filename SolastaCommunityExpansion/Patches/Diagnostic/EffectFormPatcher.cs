@@ -20,7 +20,25 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
             Throw = 4
         }
 
-        public static Verification Mode { get; set; } = Verification.Log;
+        public static Verification Mode { get; set; } = Verification.None;
+
+        private const string LogName = "EffectForm.txt";
+
+        internal static void DeleteLogFile()
+        {
+            if (DiagnosticsContext.HasDiagnosticsFolder)
+            {
+                var path = Path.Combine(DiagnosticsContext.DiagnosticsOutputFolder, LogName);
+                try
+                {
+                    File.Delete(path);
+                }
+                catch (Exception ex)
+                {
+                    Main.Error(ex);
+                }
+            }
+        }
 
         public static void VerifyUsage<T>(EffectForm form, EffectForm.EffectFormType type, ref T __result) where T : class
         {
@@ -42,7 +60,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
 
                 if (DiagnosticsContext.HasDiagnosticsFolder)
                 {
-                    var path = Path.Combine(DiagnosticsContext.DiagnosticsOutputFolder, "EffectForm.txt");
+                    var path = Path.Combine(DiagnosticsContext.DiagnosticsOutputFolder, LogName);
                     File.AppendAllLines(path, new string[] {
                         $"{Environment.NewLine}",
                         $"------------------------------------------------------------------------------------",

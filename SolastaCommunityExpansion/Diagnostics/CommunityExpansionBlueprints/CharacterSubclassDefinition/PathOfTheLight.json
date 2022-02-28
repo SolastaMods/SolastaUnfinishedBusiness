@@ -1,0 +1,72 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$id": "1",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PathOfTheLightIlluminatingStrikeFeatureSet:e4ba61d8-8696-5665-a1bc-82452204a669",
+      "level": 3
+    },
+    {
+      "$id": "2",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PathOfTheLightPierceTheDarkness:c9a6bd92-bebc-5e6d-a0e8-a0f9896b9ebc",
+      "level": 3
+    },
+    {
+      "$id": "3",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PathOfTheLightLightsProtection:d9ff8401-7b25-5e78-8bdb-1b6c0ee3fa51",
+      "level": 6
+    },
+    {
+      "$id": "4",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PathOfTheLightEyesOfTruth:b9dfa978-a406-5b1b-80ea-e1e1764f7524",
+      "level": 10
+    },
+    {
+      "$id": "5",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PathOfTheLightIlluminatingStrikeImprovement:7218770d-3acb-5f2a-977e-07cfccae974c",
+      "level": 10
+    },
+    {
+      "$id": "6",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PathOfTheLightIlluminatingBurstFeatureSet:5ca3e3fc-f90d-5998-8bc3-dec3f0221e9d",
+      "level": 14
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$id": "7",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&BarbarianPathOfTheLightTitle",
+    "description": "Subclass/&BarbarianPathOfTheLightDescription",
+    "spriteReference": {
+      "$id": "8",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "68e9a23b8059ee54b8e7230258b11d7d",
+      "m_SubObjectName": "DomainSun",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "9",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "69b21a8d-8f7a-5cda-b600-c68a44b6b280",
+  "contentPack": "BaseGame",
+  "name": "PathOfTheLight"
+}

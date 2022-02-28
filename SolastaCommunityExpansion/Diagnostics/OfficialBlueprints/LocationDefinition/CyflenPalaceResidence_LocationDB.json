@@ -1,0 +1,250 @@
+{
+  "$type": "LocationDefinition, Assembly-CSharp",
+  "isUserLocation": false,
+  "alwaysHidden": true,
+  "registeredFactions": [],
+  "registeredVariables": [],
+  "sceneFilePath": "",
+  "sceneReference": {
+    "$id": "1",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "3a9cf6aa87f65f24e96d3efe1bf3e9ea",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "audioState": {
+    "$id": "2",
+    "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$id": "3",
+      "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseStateGroupReference": {
+        "$id": "4",
+        "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+        "objectName": "State_LocationName",
+        "id": 598649695,
+        "guid": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE",
+        "name": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE"
+      },
+      "objectName": "CaerCyflen_PalaceResidence",
+      "id": 2670639914,
+      "guid": "25E1168F-D383-4F39-A122-069852527069",
+      "name": "25E1168F-D383-4F39-A122-069852527069"
+    },
+    "groupIdInternal": 0,
+    "groupGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "renderSettingsSceneProfile": {
+    "$id": "5",
+    "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
+    "useSkybox": true,
+    "backgroundColor": {
+      "$id": "6",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    "skyboxMaterial": {
+      "$id": "7",
+      "$type": "UnityEngine.Material, UnityEngine.CoreModule",
+      "name": "Default-Skybox"
+    },
+    "ambientLight": {
+      "$id": "8",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    "fog": false,
+    "fogColor": {
+      "$id": "9",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0601573475,
+      "g": 0.03631186,
+      "b": 0.4528302,
+      "a": 1.0
+    },
+    "fogMode": "Exponential",
+    "fogDensity": 0.0,
+    "excludeSkybox": false,
+    "auraBaseSettings": {
+      "$id": "10",
+      "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
+      "useDensity": true,
+      "density": 0.006,
+      "useScattering": true,
+      "scattering": 0.0,
+      "useAmbientLighting": true,
+      "ambientLightingStrength": 2.0,
+      "useColor": false,
+      "color": {
+        "$id": "11",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.0,
+        "g": 0.5,
+        "b": 0.5,
+        "a": 0.5
+      },
+      "colorStrength": 1.0,
+      "useTint": false,
+      "tint": {
+        "$id": "12",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.999999,
+        "g": 0.425347328,
+        "b": 0.236739933,
+        "a": 1.0
+      },
+      "tintStrength": 1.0,
+      "useExtinction": false,
+      "extinction": 0.75,
+      "name": "CyflenPalaceResidence_AuraBaseParameters"
+    },
+    "userDungeonAuraVolumeDensity": 0.2,
+    "userDungeonAuraVolumeFogType": "Height",
+    "userDungeonAuraVolumeHeight": 3.0,
+    "userDungeonAuraVolumeNoise": false,
+    "userDungeonAuraVolumeNoiseScale": 3.0,
+    "dayCycleProfile": {
+      "$id": "13",
+      "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
+      "noonColor": {
+        "$id": "14",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.7912806,
+        "g": 0.8773585,
+        "b": 0.492479533,
+        "a": 1.0
+      },
+      "sunriseColor": {
+        "$id": "15",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.7912806,
+        "g": 0.8773585,
+        "b": 0.492479533,
+        "a": 1.0
+      },
+      "sunsetColor": {
+        "$id": "16",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.7912806,
+        "g": 0.8773585,
+        "b": 0.492479533,
+        "a": 1.0
+      },
+      "globalSunIntensity": 1.0,
+      "sunDirection": -90.0,
+      "sunTilt": 0.01,
+      "moonLightColor": {
+        "$id": "17",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8490566,
+        "g": 0.8490566,
+        "b": 0.8490566,
+        "a": 1.0
+      },
+      "moonLightFadeOffset": 0.1,
+      "moonLightFadeMinIntensity": 1.0,
+      "moonLightFadeDuration": 0.25,
+      "moonSpeedFactor": 1.0,
+      "moonBaseAngle": 0.0,
+      "globalMoonIntensity": 0.63,
+      "ambientSunriseColor": {
+        "$id": "18",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.9764151,
+        "g": 0.987365246,
+        "b": 1.0,
+        "a": 1.0
+      },
+      "ambientNoonColor": {
+        "$id": "19",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8490566,
+        "g": 0.8490566,
+        "b": 0.8490566,
+        "a": 1.0
+      },
+      "ambientSunsetColor": {
+        "$id": "20",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8490566,
+        "g": 0.8490566,
+        "b": 0.8490566,
+        "a": 1.0
+      },
+      "ambientNightColor": {
+        "$id": "21",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8490566,
+        "g": 0.8490566,
+        "b": 0.8490566,
+        "a": 1.0
+      },
+      "ambientFadeDuration": 1.0,
+      "dayAtmosphereThickness": 1.48,
+      "nightAtmosphereThickness": 0.5,
+      "name": "AcidLake_Location_DayCycleProfile"
+    },
+    "name": "CyflenPalaceResidence_RenderSettings"
+  },
+  "locationPresentation": {
+    "$id": "22",
+    "$type": "LocationPresentation, Assembly-CSharp",
+    "unchartedTitle": "Map/&Location_VIPResidence_Title",
+    "unchartedDescription": "Map/&Location_VIPResidence_Description",
+    "knownTitle": "Map/&Location_VIPResidence_Title",
+    "knownDescription": "Map/&Location_VIPResidence_Description",
+    "exploredTitle": "Map/&Location_VIPResidence_Title",
+    "exploredDescription": "Map/&Location_VIPResidence_Description"
+  },
+  "challengeRating": 1,
+  "focusWhenRevealed": false,
+  "startsWithScavengerCamp": false,
+  "ignoredByScavengers": true,
+  "keepSectorCullingResultsWhenInactive": false,
+  "setCurrentCampaignNodeWhenLeaving": true,
+  "hasPriorityForTeleporter": false,
+  "canAttackNonHostileCharacters": false,
+  "guiPresentation": {
+    "$id": "23",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Map/&Location_VIPResidence_Title",
+    "description": "Map/&Location_VIPResidence_Description",
+    "spriteReference": {
+      "$id": "24",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "2a041aa1a61e4f94c9b49675bdd79011",
+      "m_SubObjectName": "residense",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "25",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "c4d894d2b81381546bda75100b87736c",
+  "contentPack": "BaseGame",
+  "name": "CyflenPalaceResidence_LocationDB"
+}

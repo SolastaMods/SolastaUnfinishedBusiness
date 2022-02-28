@@ -1,0 +1,90 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$id": "1",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerBattleSmithWeapon:87a49f0c-5774-5a9e-8a8e-251c3f48225d",
+      "level": 3
+    },
+    {
+      "$id": "2",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ArtificerBattleSmithAutoPrepSpells:90e5c394-59bb-5cbe-9120-9fa626c2c7b4",
+      "level": 3
+    },
+    {
+      "$id": "3",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProtectorConstructFeatureSet:9b699719-0d02-4949-ad94-cff6a05f36c7",
+      "level": 3
+    },
+    {
+      "$id": "4",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModiferArtificerBattleSmithInfusionHealingPool:97e8a72f-7e4e-592b-abd0-8bb58456de9c",
+      "level": 3
+    },
+    {
+      "$id": "5",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyWeaponArtificerBattleSmith:2dfc30c6-e1d5-5dfc-bdd5-38a874762850",
+      "level": 3
+    },
+    {
+      "$id": "6",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierBattleSmithExtraAttack:0bc6f9a4-2220-50e1-a7b0-47bebf91d7be",
+      "level": 5
+    },
+    {
+      "$id": "7",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttackModifierArtificerBattleSmithJolt:12babdac-a241-5072-ba6e-5f683d1e51f9",
+      "level": 9
+    },
+    {
+      "$id": "8",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttackModifierArtificerBattleSmithJolt2:3a017fa3-7e9a-5a6f-b134-15d75b4dec90",
+      "level": 15
+    },
+    {
+      "$id": "9",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProtectorConstructUpgradeFeatureSet:59bc566d-5204-4e53-89cb-eebc537ae6ab",
+      "level": 15
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$id": "10",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&ArtificerBattleSmithTitle",
+    "description": "Subclass/&ArtificerBattleSmithDescription",
+    "spriteReference": {
+      "$id": "11",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "7b10e54d6037d314e93fd7e7f81c4798",
+      "m_SubObjectName": "Spellblade",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "12",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "09470c35-5fc0-558c-a93e-91704d82d938",
+  "contentPack": "BaseGame",
+  "name": "BattleSmith"
+}

@@ -1,0 +1,62 @@
+{
+  "$type": "TreasureTableDefinition, Assembly-CSharp",
+  "treasureOptions": [
+    {
+      "$id": "1",
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
+      "amount": 1
+    },
+    {
+      "$id": "2",
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 12,
+      "itemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
+      "amount": 1
+    },
+    {
+      "$id": "3",
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 12,
+      "itemDefinition": "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
+      "amount": 1
+    },
+    {
+      "$id": "4",
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 12,
+      "itemDefinition": "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
+      "amount": 1
+    }
+  ],
+  "guiPresentation": {
+    "$id": "5",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "6",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "7",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "bacdb374741c4504f9e5d6b0376a0b7a",
+  "contentPack": "BaseGame",
+  "name": "Random_Necromancer_BoneKeep_Table"
+}

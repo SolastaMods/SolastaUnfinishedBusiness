@@ -1,0 +1,46 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:AttributeModifierDiscretionOfTheCoedymwarth:0bf3f4a58ac30784a96ab3f7a4f3de28",
+    "Definition:ProficiencyDiscretionOfTheCoedymwarthArmor:ce94c2d957d588b47ae6fec817151d02",
+    "Definition:ProficiencyDiscretionOfTheCoedymwarth:873420c03b0e4af4bbf7c2f040384703"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feat/&DiscretionOfTheCoedymwarthTitle",
+    "description": "Feat/&DiscretionOfTheCoedymwarthDescription",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "a9ade687a0f3d314cb606e9e59c30a29",
+  "contentPack": "BaseGame",
+  "name": "DiscretionOfTheCoedymwarth"
+}

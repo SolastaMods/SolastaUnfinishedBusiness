@@ -1,0 +1,57 @@
+{
+  "$type": "FeatureDefinitionLightAffinity, Assembly-CSharp",
+  "lightingEffectAndConditionList": [
+    {
+      "$id": "1",
+      "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
+      "lightingState": "Dim",
+      "condition": "Definition:ConditionApostleOfDarkness_DimLight:9a883e1937002f649aa37361850a839a",
+      "effect": null
+    },
+    {
+      "$id": "2",
+      "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
+      "lightingState": "Darkness",
+      "condition": "Definition:ConditionApostleOfDarkness_Darkness:be1544aac7e55424cb1126fc3ea91da4",
+      "effect": null
+    },
+    {
+      "$id": "3",
+      "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
+      "lightingState": "Unlit",
+      "condition": "Definition:ConditionApostleOfDarkness_Darkness:be1544aac7e55424cb1126fc3ea91da4",
+      "effect": null
+    }
+  ],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$id": "4",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Condition/&ChildOfDarkness2_Title",
+    "description": "Condition/&ChildOfDarkness2_Description",
+    "spriteReference": {
+      "$id": "5",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "6",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "2be19cead003d1143baa1255e1456240",
+  "contentPack": "BaseGame",
+  "name": "LightAffinity_ApostleOfDarkness"
+}

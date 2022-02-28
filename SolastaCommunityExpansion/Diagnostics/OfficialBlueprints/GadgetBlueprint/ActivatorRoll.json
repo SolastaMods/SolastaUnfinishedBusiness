@@ -1,0 +1,198 @@
+{
+  "$type": "GadgetBlueprint, Assembly-CSharp",
+  "parameters": [
+    {
+      "$id": "1",
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "AbilityScore",
+      "type": "AbilityScore",
+      "conditionalDisplay": false,
+      "conditionalParameter": "IsAbilityCheck",
+      "conditionalMatch": true,
+      "intDefaultValue": 10,
+      "intMinValue": 1,
+      "intMaxValue": 30,
+      "boolDefaultValue": true,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": true,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$id": "2",
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "IsAbilityCheck",
+      "type": "GenericBool",
+      "conditionalDisplay": false,
+      "conditionalParameter": "",
+      "conditionalMatch": true,
+      "intDefaultValue": 10,
+      "intMinValue": 0,
+      "intMaxValue": 30,
+      "boolDefaultValue": true,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": true,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$id": "3",
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "Proficiency",
+      "type": "Proficiency",
+      "conditionalDisplay": true,
+      "conditionalParameter": "IsAbilityCheck",
+      "conditionalMatch": true,
+      "intDefaultValue": 10,
+      "intMinValue": 1,
+      "intMaxValue": 30,
+      "boolDefaultValue": true,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": true,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$id": "4",
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "RollDC",
+      "type": "DifficultyClass",
+      "conditionalDisplay": false,
+      "conditionalParameter": "IsAbilityCheck",
+      "conditionalMatch": false,
+      "intDefaultValue": 10,
+      "intMinValue": 1,
+      "intMaxValue": 30,
+      "boolDefaultValue": true,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": true,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$id": "5",
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "SuccessActivations",
+      "type": "GadgetList",
+      "conditionalDisplay": false,
+      "conditionalParameter": "IsAbilityCheck",
+      "conditionalMatch": true,
+      "intDefaultValue": 10,
+      "intMinValue": 1,
+      "intMaxValue": 30,
+      "boolDefaultValue": true,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": "Success"
+    },
+    {
+      "$id": "6",
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "FailureActivations",
+      "type": "GadgetList",
+      "conditionalDisplay": false,
+      "conditionalParameter": "IsAbilityCheck",
+      "conditionalMatch": true,
+      "intDefaultValue": 10,
+      "intMinValue": 1,
+      "intMaxValue": 30,
+      "boolDefaultValue": true,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": "Failure"
+    },
+    {
+      "$id": "7",
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "Param_DefaultAsEnabled",
+      "type": "GenericBool",
+      "conditionalDisplay": false,
+      "conditionalParameter": "",
+      "conditionalMatch": true,
+      "intDefaultValue": 0,
+      "intMinValue": 0,
+      "intMaxValue": 0,
+      "boolDefaultValue": true,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": true,
+      "gadgetExecutionFilter": ""
+    }
+  ],
+  "interactionNodes": [
+    {
+      "$id": "8",
+      "$type": "InteractionNodeDescription, Assembly-CSharp",
+      "position": {
+        "$id": "9",
+        "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+        "x": 0.0,
+        "y": -1.0
+      },
+      "orientation": "North"
+    }
+  ],
+  "canBeActivated": true,
+  "customizableDimensions": false,
+  "minCustomizableDimensions": {
+    "$id": "10",
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "maxCustomizableDimensions": {
+    "$id": "11",
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "campaignOnly": false,
+  "groundPlacement": false,
+  "groundLowPlacement": false,
+  "groundHighPlacement": false,
+  "wallPlacement": true,
+  "openingPlacement": false,
+  "openingLowPlacement": false,
+  "openingHighPlacement": false,
+  "propPlacement": true,
+  "lightSources": [],
+  "category": "Activators",
+  "dimensions": {
+    "$id": "12",
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "prefabsByEnvironment": [
+    {
+      "$id": "13",
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "",
+      "prefabReference": {
+        "$id": "14",
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "1dcf47684f92b5241828f6f8daa403fd",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    }
+  ],
+  "guiPresentation": {
+    "$id": "15",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Gadget/&ActivatorRollTitle",
+    "description": "Gadget/&ActivatorRollDescription",
+    "spriteReference": {
+      "$id": "16",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "505de5c8cb0bf6340bc8a4d364b5c1cf",
+      "m_SubObjectName": "ActivatorRoll",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "17",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 5,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "4ebf2a04a8028c24ca0ada21e2fcccdb",
+  "contentPack": "BaseGame",
+  "name": "ActivatorRoll"
+}

@@ -1,0 +1,41 @@
+{
+  "$type": "DieTypeDefinition, Assembly-CSharp",
+  "dieType": "D6",
+  "rollingMeshReference": {
+    "$id": "1",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "6b04fffa8868a284f9944e67d6df86f7",
+    "m_SubObjectName": "D6_low",
+    "m_SubObjectType": ""
+  },
+  "scaleFactor": 20.0,
+  "guiPresentation": {
+    "$id": "2",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Rules/&DieD6Title",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "3",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f63781ed7ca78ca4097d1fef47d8ebff",
+      "m_SubObjectName": "D6Empty",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "4",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "fe88e306592f5b34191b2441855facd2",
+  "contentPack": "BaseGame",
+  "name": "DieTypeD6"
+}

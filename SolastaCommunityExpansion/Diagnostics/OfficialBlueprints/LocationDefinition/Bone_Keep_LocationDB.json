@@ -1,0 +1,296 @@
+{
+  "$type": "LocationDefinition, Assembly-CSharp",
+  "isUserLocation": false,
+  "alwaysHidden": false,
+  "registeredFactions": [],
+  "registeredVariables": [
+    {
+      "$id": "1",
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "IsFighting_Adam_BoneKeep",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$id": "2",
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "IsFighting_Talbut_BoneKeep",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$id": "3",
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "IsKnown_Talbut_BoneKeep",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$id": "4",
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "IsAngry_Angbi_BoneKeep",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$id": "5",
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "IsFighting_Angbi_BoneKeep",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    }
+  ],
+  "sceneFilePath": "",
+  "sceneReference": {
+    "$id": "6",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "5ac8bf58b2c3faf42ae1d14cabc1814a",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "audioState": {
+    "$id": "7",
+    "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$id": "8",
+      "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseStateGroupReference": {
+        "$id": "9",
+        "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+        "objectName": "State_LocationName",
+        "id": 598649695,
+        "guid": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE",
+        "name": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE"
+      },
+      "objectName": "Bonekeep_Outdoor",
+      "id": 116494813,
+      "guid": "F63F2963-A864-472B-9CF1-F006FFF607E9",
+      "name": "F63F2963-A864-472B-9CF1-F006FFF607E9"
+    },
+    "groupIdInternal": 0,
+    "groupGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "renderSettingsSceneProfile": {
+    "$id": "10",
+    "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
+    "useSkybox": true,
+    "backgroundColor": {
+      "$id": "11",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    "skyboxMaterial": {
+      "$id": "12",
+      "$type": "UnityEngine.Material, UnityEngine.CoreModule",
+      "name": "BoneKeep_Skybox"
+    },
+    "ambientLight": {
+      "$id": "13",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    "fog": false,
+    "fogColor": {
+      "$id": "14",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "fogMode": "Exponential",
+    "fogDensity": 0.0,
+    "excludeSkybox": false,
+    "auraBaseSettings": {
+      "$id": "15",
+      "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
+      "useDensity": true,
+      "density": 0.02,
+      "useScattering": false,
+      "scattering": 0.5,
+      "useAmbientLighting": false,
+      "ambientLightingStrength": 1.0,
+      "useColor": false,
+      "color": {
+        "$id": "16",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 5.066395E-07,
+        "g": 0.5,
+        "b": 0.5,
+        "a": 1.0
+      },
+      "colorStrength": 1.0,
+      "useTint": false,
+      "tint": {
+        "$id": "17",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8210449,
+        "g": 0.999999,
+        "b": 0.931896031,
+        "a": 1.0
+      },
+      "tintStrength": 1.0,
+      "useExtinction": false,
+      "extinction": 0.75,
+      "name": "BoneKeep_AuraBaseParameters"
+    },
+    "userDungeonAuraVolumeDensity": 0.2,
+    "userDungeonAuraVolumeFogType": "Height",
+    "userDungeonAuraVolumeHeight": 3.0,
+    "userDungeonAuraVolumeNoise": false,
+    "userDungeonAuraVolumeNoiseScale": 3.0,
+    "dayCycleProfile": {
+      "$id": "18",
+      "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
+      "noonColor": {
+        "$id": "19",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8113208,
+        "g": 0.8113208,
+        "b": 0.8113208,
+        "a": 1.0
+      },
+      "sunriseColor": {
+        "$id": "20",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.7735849,
+        "g": 0.7498665,
+        "b": 0.726148069,
+        "a": 1.0
+      },
+      "sunsetColor": {
+        "$id": "21",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.6896582,
+        "g": 0.746067941,
+        "b": 0.7735849,
+        "a": 1.0
+      },
+      "globalSunIntensity": 0.4,
+      "sunDirection": 12.01,
+      "sunTilt": 48.74,
+      "moonLightColor": {
+        "$id": "22",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.214845151,
+        "g": 0.43102172,
+        "b": 0.6415094,
+        "a": 1.0
+      },
+      "moonLightFadeOffset": 0.1,
+      "moonLightFadeMinIntensity": 1.0,
+      "moonLightFadeDuration": 0.25,
+      "moonSpeedFactor": 1.0,
+      "moonBaseAngle": 0.0,
+      "globalMoonIntensity": 0.4,
+      "ambientSunriseColor": {
+        "$id": "23",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 1.0
+      },
+      "ambientNoonColor": {
+        "$id": "24",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 1.0
+      },
+      "ambientSunsetColor": {
+        "$id": "25",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.13443397,
+        "g": 0.1672956,
+        "b": 0.1792453,
+        "a": 1.0
+      },
+      "ambientNightColor": {
+        "$id": "26",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 1.0
+      },
+      "ambientFadeDuration": 1.0,
+      "dayAtmosphereThickness": 1.35,
+      "nightAtmosphereThickness": 0.5,
+      "name": "BoneKeep_Location_DayCycleProfile"
+    },
+    "name": "BoneKeep_RenderSettingsScene"
+  },
+  "locationPresentation": {
+    "$id": "27",
+    "$type": "LocationPresentation, Assembly-CSharp",
+    "unchartedTitle": "Map/&Location_BoneKeep_UnchartedTitle",
+    "unchartedDescription": "Map/&Location_BoneKeep_UnchartedDescription",
+    "knownTitle": "Map/&Location_BoneKeep_UnvisitedTitle",
+    "knownDescription": "Map/&Location_BoneKeep_UnvisitedDescription",
+    "exploredTitle": "Map/&Location_BoneKeep_UnvisitedTitle",
+    "exploredDescription": "Map/&Location_BoneKeep_Description"
+  },
+  "challengeRating": 4,
+  "focusWhenRevealed": true,
+  "startsWithScavengerCamp": false,
+  "ignoredByScavengers": false,
+  "keepSectorCullingResultsWhenInactive": false,
+  "setCurrentCampaignNodeWhenLeaving": true,
+  "hasPriorityForTeleporter": false,
+  "canAttackNonHostileCharacters": false,
+  "guiPresentation": {
+    "$id": "28",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Map/&Location_BoneKeep_UnvisitedTitle",
+    "description": "Location/&Bone_Keep_Scene_Description",
+    "spriteReference": {
+      "$id": "29",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "ac4654f4427b90e4e9f048fc1291d911",
+      "m_SubObjectName": "BoneKeep",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "30",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "e0667c64450b1484da6f3a5d1cf0ad3d",
+  "contentPack": "BaseGame",
+  "name": "Bone_Keep_LocationDB"
+}

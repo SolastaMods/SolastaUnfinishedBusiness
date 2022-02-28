@@ -1,0 +1,73 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$id": "1",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PointPoolCircleLandBonusCantrip:5d6a744aa6aad9141b2b9453ff0f8687",
+      "level": 2
+    },
+    {
+      "$id": "2",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerCircleLandNaturalRecovery:62a2094b3dffdcb47b1a01c5fe242d07",
+      "level": 2
+    },
+    {
+      "$id": "3",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetCircleLandCircleSpells:dbb8786ead66ae848bb8315bf04bf9cd",
+      "level": 3
+    },
+    {
+      "$id": "4",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetCircleLandLandsStride:fa722d8d4ce783941a25840b04fa990e",
+      "level": 6
+    },
+    {
+      "$id": "5",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetCircleLandNaturesWard:0355dd29eeae17a4e8b685f83166c928",
+      "level": 10
+    }
+  ],
+  "personalityFlagOccurences": [
+    {
+      "$id": "6",
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 3,
+      "personalityFlag": "Selfishness"
+    }
+  ],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$id": "7",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&CircleLandTitle",
+    "description": "Subclass/&CircleLandDescription",
+    "spriteReference": {
+      "$id": "8",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "1cb18bdf0f4d38b4aa247cf12a35f2ec",
+      "m_SubObjectName": "Druid_Circle_Land",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "9",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "56f2dc49012dda44895725e359efa31f",
+  "contentPack": "PrimalCalling",
+  "name": "CircleLand"
+}

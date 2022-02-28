@@ -94,7 +94,7 @@ namespace SolastaCommunityExpansion.DataMiner
             // Types.txt
             using (var sw = new StreamWriter($"{path}/Types.txt"))
             {
-                foreach (var type in baseDefinitions.Select(t => t.GetType()).Distinct().OrderBy(t => t.Name))
+                foreach (var type in baseDefinitions.Select(t => t.GetType()).Distinct().OrderBy(t => t.FullName))
                 {
                     sw.WriteLine($"{type.FullName}");
                 }
@@ -107,9 +107,9 @@ namespace SolastaCommunityExpansion.DataMiner
             {
                 sw.WriteLine("{0}\t{1}\t{2}\t{3}", "Name", "Type", "DatabaseType", "GUID");
 
-                foreach (var db in baseDefinitionsMap)
+                foreach (var db in baseDefinitionsMap.OrderBy(kvp => kvp.Key.Name))
                 {
-                    foreach (var definition in db.Value)
+                    foreach (var definition in db.Value.OrderBy(d => d.Name).ThenBy(d => d.GetType().FullName))
                     {
                         sw.WriteLine("{0}\t{1}\t{2}\t{3}", definition.Name, definition.GetType().FullName, db.Key.FullName, definition.GUID);
                     }

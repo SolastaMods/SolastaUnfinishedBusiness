@@ -1,0 +1,40 @@
+{
+  "$type": "EnvironmentDefinition, Assembly-CSharp",
+  "outdoor": true,
+  "sceneReferenceOverride": {
+    "$id": "1",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "1ecd0bdb71d2d154ebae05ba8c59157c",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "guiPresentation": {
+    "$id": "2",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Environment/&WoodlandTitle",
+    "description": "Environment/&WoodlandDescription",
+    "spriteReference": {
+      "$id": "3",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "6815eddbdff42b343a2b5ab69dc32432",
+      "m_SubObjectName": "EnvironmentWoodland",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "4",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 6,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "6fdd64dbb2b4e80498c7d6accf652ba9",
+  "contentPack": "BaseGame",
+  "name": "WoodLand"
+}

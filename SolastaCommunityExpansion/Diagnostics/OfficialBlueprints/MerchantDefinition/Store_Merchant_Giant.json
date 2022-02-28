@@ -1,0 +1,88 @@
+{
+  "$type": "MerchantDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "overchargePercent": 10,
+  "buyBackPercent": 1,
+  "factionAffinity": "NeutralMonsters",
+  "exposeFaction": false,
+  "canDetectMagic": false,
+  "detectMagicCostGp": 100,
+  "canIdentify": false,
+  "identifyCostGp": 100,
+  "stockUnitDescriptions": [
+    {
+      "$id": "1",
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:Spear:f188e2e2e3e6ab04ba786bcaca6e8bd9",
+      "stackCount": 1,
+      "initialAmount": 3,
+      "minAmount": 0,
+      "maxAmount": 10,
+      "reassortAmount": 1,
+      "reassortRateType": "Day",
+      "reassortRateValue": 1,
+      "requiredFaction": "",
+      "factionStatus": "Alliance"
+    },
+    {
+      "$id": "2",
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
+      "stackCount": 1,
+      "initialAmount": 99,
+      "minAmount": 0,
+      "maxAmount": 50,
+      "reassortAmount": 10,
+      "reassortRateType": "Hour",
+      "reassortRateValue": 1,
+      "requiredFaction": "",
+      "factionStatus": "Alliance"
+    },
+    {
+      "$id": "3",
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
+      "stackCount": 10,
+      "initialAmount": 50,
+      "minAmount": 0,
+      "maxAmount": 50,
+      "reassortAmount": 10,
+      "reassortRateType": "Hour",
+      "reassortRateValue": 1,
+      "requiredFaction": "",
+      "factionStatus": "Alliance"
+    }
+  ],
+  "guiPresentation": {
+    "$id": "4",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Merchant/&DLC1_GiantTrader_StoreTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "5",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "c14f2bea3cf985144a4dc057ec685ccf",
+      "m_SubObjectName": "Gartok_MerchantPhoto",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "6",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "c68bd030626e2f94f8d8a8bd1344004b",
+  "contentPack": "BaseGame",
+  "name": "Store_Merchant_Giant"
+}

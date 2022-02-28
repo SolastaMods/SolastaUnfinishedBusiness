@@ -1,0 +1,55 @@
+{
+  "$type": "TreasureTableDefinition, Assembly-CSharp",
+  "treasureOptions": [
+    {
+      "$id": "1",
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Arrow:0b2e8c437ac65034b8055735aa5da873",
+      "amount": 1
+    },
+    {
+      "$id": "2",
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
+      "amount": 1
+    },
+    {
+      "$id": "3",
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 2,
+      "itemDefinition": "Definition:Ingredient_Acid:bd7e07506aad3a244807052e95004020",
+      "amount": 1
+    }
+  ],
+  "guiPresentation": {
+    "$id": "4",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "5",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "6",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "a44cccd0443e34c46be0b3dc8dfc0c88",
+  "contentPack": "BaseGame",
+  "name": "Random_CrimsonSpider_Table"
+}
