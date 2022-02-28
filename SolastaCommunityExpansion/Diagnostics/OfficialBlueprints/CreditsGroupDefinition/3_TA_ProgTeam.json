@@ -1,0 +1,272 @@
+{
+  "$type": "CreditsGroupDefinition, Assembly-CSharp",
+  "creditEntries": [
+    {
+      "$id": "1",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "BackgroundScreen",
+      "textContent": "Credits/&TechnicalTeamTitle",
+      "spriteReference": {
+        "$id": "2",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "80f02153efbf3b047a253c7ce9d91c3a",
+        "m_SubObjectName": "Screenshot_127",
+        "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "3",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Section",
+      "textContent": "Credits/&TechnicalTeamTitle",
+      "spriteReference": {
+        "$id": "4",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "5",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "JobTitle",
+      "textContent": "Credits/&TechLeadTitle",
+      "spriteReference": {
+        "$id": "6",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "7",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Karim Kadar",
+      "spriteReference": {
+        "$id": "8",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "9",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "SmallSpacing",
+      "textContent": "Goliat Gashi",
+      "spriteReference": {
+        "$id": "10",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "11",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "JobTitle",
+      "textContent": "Credits/&GraphicsProgrammerTitle",
+      "spriteReference": {
+        "$id": "12",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "13",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Thomas Demenat ",
+      "spriteReference": {
+        "$id": "14",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "15",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "SmallSpacing",
+      "textContent": "Goliat Gashi",
+      "spriteReference": {
+        "$id": "16",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "17",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "JobTitle",
+      "textContent": "Credits/&UIRuleserProgrammerTitle",
+      "spriteReference": {
+        "$id": "18",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "19",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Mathieu Girard",
+      "spriteReference": {
+        "$id": "20",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "21",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "SmallSpacing",
+      "textContent": "Goliat Gashi",
+      "spriteReference": {
+        "$id": "22",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "23",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "JobTitle",
+      "textContent": "Credits/&ToolsGameplayProgrammerTitle",
+      "spriteReference": {
+        "$id": "24",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "25",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Adrien Cambon de Lavalette",
+      "spriteReference": {
+        "$id": "26",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "27",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "SmallSpacing",
+      "textContent": "Goliat Gashi",
+      "spriteReference": {
+        "$id": "28",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "29",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "JobTitle",
+      "textContent": "Credits/&AutotestTitle",
+      "spriteReference": {
+        "$id": "30",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "31",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "TactiBot",
+      "spriteReference": {
+        "$id": "32",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "33",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "LargeSpacing",
+      "textContent": "Goliat Gashi",
+      "spriteReference": {
+        "$id": "34",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    }
+  ],
+  "guiPresentation": {
+    "$id": "35",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$id": "36",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "37",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "fe6939ecd5167d742ad9ae3c59677049",
+  "contentPack": "BaseGame",
+  "name": "3_TA_ProgTeam"
+}

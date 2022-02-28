@@ -1,0 +1,230 @@
+{
+  "$type": "CreditsGroupDefinition, Assembly-CSharp",
+  "creditEntries": [
+    {
+      "$id": "1",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "BackgroundScreen",
+      "textContent": "Credits/&DesignTeamTitle",
+      "spriteReference": {
+        "$id": "2",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "b2b8e23ab4d07744c8958254525a7144",
+        "m_SubObjectName": "weird_room",
+        "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "3",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Section",
+      "textContent": "Credits/&DesignTeamTitle",
+      "spriteReference": {
+        "$id": "4",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "5",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "JobTitle",
+      "textContent": "Credits/&GameplayDirectorTitle",
+      "spriteReference": {
+        "$id": "6",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "7",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Xavier Penin",
+      "spriteReference": {
+        "$id": "8",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "9",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "SmallSpacing",
+      "textContent": "Goliat Gashi",
+      "spriteReference": {
+        "$id": "10",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "11",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "JobTitle",
+      "textContent": "Credits/&SeniorLevelDesignerTitle",
+      "spriteReference": {
+        "$id": "12",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "13",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Christophe Monnerot",
+      "spriteReference": {
+        "$id": "14",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "15",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "SmallSpacing",
+      "textContent": "Goliat Gashi",
+      "spriteReference": {
+        "$id": "16",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "17",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "JobTitle",
+      "textContent": "Credits/&SeniorTechLevelDesignerTitle",
+      "spriteReference": {
+        "$id": "18",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "19",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Pierre Gaudillère",
+      "spriteReference": {
+        "$id": "20",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "21",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "SmallSpacing",
+      "textContent": "Goliat Gashi",
+      "spriteReference": {
+        "$id": "22",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "23",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "JobTitle",
+      "textContent": "Credits/&LevelBuilderTitle",
+      "spriteReference": {
+        "$id": "24",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "25",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Bertrand Le Cabec",
+      "spriteReference": {
+        "$id": "26",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "27",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "LargeSpacing",
+      "textContent": "Goliat Gashi",
+      "spriteReference": {
+        "$id": "28",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    }
+  ],
+  "guiPresentation": {
+    "$id": "29",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$id": "30",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "31",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "444f9ceadf75c8f46b5dc9d6939dacf8",
+  "contentPack": "BaseGame",
+  "name": "4_TA_DesignTeam"
+}

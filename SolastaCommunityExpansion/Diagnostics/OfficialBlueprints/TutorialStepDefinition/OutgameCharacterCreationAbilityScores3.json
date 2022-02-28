@@ -1,0 +1,35 @@
+{
+  "$type": "TutorialStepDefinition, Assembly-CSharp",
+  "nextStepDefinition": null,
+  "hideJournal": true,
+  "hideCharacterInspection": true,
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "TutorialStep/&OutgameCharacterCreationAbilityScores3Title",
+    "description": "TutorialStep/&OutgameCharacterCreationAbilityScores3Description",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "a1d8ca5f747d06d4c8eb03577825abab",
+      "m_SubObjectName": "OutgameCharacterCreationAbilityScores3",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "1a7c66c6e3aa68244967c48214a519e5",
+  "contentPack": "BaseGame",
+  "name": "OutgameCharacterCreationAbilityScores3"
+}

@@ -1,0 +1,370 @@
+{
+  "$type": "CreditsGroupDefinition, Assembly-CSharp",
+  "creditEntries": [
+    {
+      "$id": "1",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Section",
+      "textContent": "Credits/&SpecialThanks",
+      "spriteReference": {
+        "$id": "2",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "3",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Jean-Baptiste PALIES",
+      "spriteReference": {
+        "$id": "4",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "5",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Ghita CHAFCHAOUNI",
+      "spriteReference": {
+        "$id": "6",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "7",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Mina RAMI ",
+      "spriteReference": {
+        "$id": "8",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "9",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Pascale FAUCON",
+      "spriteReference": {
+        "$id": "10",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "11",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Vanessa PINHEIRO",
+      "spriteReference": {
+        "$id": "12",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "13",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Grégoire BIGOT ",
+      "spriteReference": {
+        "$id": "14",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "15",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Bérangère RICHARD",
+      "spriteReference": {
+        "$id": "16",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "17",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Yasmine BAKHOUN",
+      "spriteReference": {
+        "$id": "18",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "19",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Stéphane LOISEL  ",
+      "spriteReference": {
+        "$id": "20",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "21",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "François DINEUR, Aurélie ANNE ",
+      "spriteReference": {
+        "$id": "22",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "23",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Mélana KALI, Florent CHARPENTIER ",
+      "spriteReference": {
+        "$id": "24",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "25",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Mortimer PIGNON ",
+      "spriteReference": {
+        "$id": "26",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "27",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Sébastien TASSERIE ",
+      "spriteReference": {
+        "$id": "28",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "29",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Julien LEMARCHAND ",
+      "spriteReference": {
+        "$id": "30",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "31",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Edouard TUNC ",
+      "spriteReference": {
+        "$id": "32",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "33",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Julien VILLEDIEU ",
+      "spriteReference": {
+        "$id": "34",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "35",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Hélène DELAY & Romain LENOIR",
+      "spriteReference": {
+        "$id": "36",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "37",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Lionel PREVOT ",
+      "spriteReference": {
+        "$id": "38",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "39",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Laurent MAHUTEAU ",
+      "spriteReference": {
+        "$id": "40",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "41",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Jean-François MORISSE ",
+      "spriteReference": {
+        "$id": "42",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "43",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Thomas BIDAUX",
+      "spriteReference": {
+        "$id": "44",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "45",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Our Solastan Veterans ",
+      "spriteReference": {
+        "$id": "46",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "47",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "LargeSpacing",
+      "textContent": "Credits/&ExternalCommSeptimeCEO",
+      "spriteReference": {
+        "$id": "48",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    }
+  ],
+  "guiPresentation": {
+    "$id": "49",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$id": "50",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "51",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "89bcdcb6effb967479c7ee347fa5c637",
+  "contentPack": "BaseGame",
+  "name": "16_SpecialThanks"
+}

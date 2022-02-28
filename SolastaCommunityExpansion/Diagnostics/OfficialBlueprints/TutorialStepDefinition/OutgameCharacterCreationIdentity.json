@@ -1,0 +1,35 @@
+{
+  "$type": "TutorialStepDefinition, Assembly-CSharp",
+  "nextStepDefinition": null,
+  "hideJournal": true,
+  "hideCharacterInspection": true,
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "TutorialStep/&OutgameCharacterCreationIdentityTitle",
+    "description": "TutorialStep/&OutgameCharacterCreationIdentityDescription",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "960381952c35eb14dace90d4c1ccba4a",
+      "m_SubObjectName": "OutgameCharacterCreationIdentity",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "0acf1ba2d3fa35549ad8f9322baec204",
+  "contentPack": "BaseGame",
+  "name": "OutgameCharacterCreationIdentity"
+}

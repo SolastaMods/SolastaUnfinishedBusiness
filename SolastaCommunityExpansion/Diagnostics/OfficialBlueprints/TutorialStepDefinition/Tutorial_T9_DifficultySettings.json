@@ -1,0 +1,35 @@
+{
+  "$type": "TutorialStepDefinition, Assembly-CSharp",
+  "nextStepDefinition": null,
+  "hideJournal": true,
+  "hideCharacterInspection": true,
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Tutorial/&DiffSettings_Title",
+    "description": "Tutorial/&DiffSettings_Description",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "a0ad848d509a33646ba03b8afa98f912",
+      "m_SubObjectName": "Tutorial_T9_DifficultySettings",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "d158f0b1dda359a4eb485da81ea8db22",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_T9_DifficultySettings"
+}

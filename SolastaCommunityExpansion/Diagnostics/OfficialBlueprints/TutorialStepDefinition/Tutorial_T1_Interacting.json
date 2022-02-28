@@ -1,0 +1,35 @@
+{
+  "$type": "TutorialStepDefinition, Assembly-CSharp",
+  "nextStepDefinition": null,
+  "hideJournal": true,
+  "hideCharacterInspection": true,
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "TutorialStep/&Tuto01_Interacting_Title",
+    "description": "TutorialStep/&Tuto01_Interacting_Description",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "cba43bfbdec68f647841d34fae238a82",
+      "m_SubObjectName": "Tutorial_T1_Interacting",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "8770364b4879f7a40bd7b9df2fbc712c",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_T1_Interacting"
+}

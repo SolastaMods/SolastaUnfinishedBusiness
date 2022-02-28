@@ -1,0 +1,37 @@
+{
+  "$type": "TutorialSubsectionDefinition, Assembly-CSharp",
+  "tutorialSteps": [
+    "Definition:Tutorial_T3_PrepareSpells:add8edf4254fd614badcbe6f422facff",
+    "Definition:Tutorial_Telema_Identify:83c5a81c1e0183c4ea1faef987750382",
+    "Definition:Tutorial_Telema_RitualCasting:e32fa16fc9d986b4f9747082fb396184"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&GenericCastSpellTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "c74a78e3ed978ab49a2193a05988c954",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_Wiki_Section_Magic_Subsection_Spells"
+}

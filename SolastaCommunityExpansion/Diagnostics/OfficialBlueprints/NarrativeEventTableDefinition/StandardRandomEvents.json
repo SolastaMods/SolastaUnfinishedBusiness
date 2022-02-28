@@ -1,0 +1,184 @@
+{
+  "$type": "NarrativeEventTableDefinition, Assembly-CSharp",
+  "eventDescriptions": [
+    {
+      "$id": "1",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents1Title"
+    },
+    {
+      "$id": "2",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents2Title"
+    },
+    {
+      "$id": "3",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents3Title"
+    },
+    {
+      "$id": "4",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents4Title"
+    },
+    {
+      "$id": "5",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents5Title"
+    },
+    {
+      "$id": "6",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents6Title"
+    },
+    {
+      "$id": "7",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents7Title"
+    },
+    {
+      "$id": "8",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents8Title"
+    },
+    {
+      "$id": "9",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents9Title"
+    },
+    {
+      "$id": "10",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents10Title"
+    },
+    {
+      "$id": "11",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents11Title"
+    },
+    {
+      "$id": "12",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents12Title"
+    },
+    {
+      "$id": "13",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents13Title"
+    },
+    {
+      "$id": "14",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents14Title"
+    },
+    {
+      "$id": "15",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents15Title"
+    },
+    {
+      "$id": "16",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents16Title"
+    },
+    {
+      "$id": "17",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents17Title"
+    },
+    {
+      "$id": "18",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents18Title"
+    },
+    {
+      "$id": "19",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents19Title"
+    },
+    {
+      "$id": "20",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents20Title"
+    },
+    {
+      "$id": "21",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents21Title"
+    },
+    {
+      "$id": "22",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents22Title"
+    },
+    {
+      "$id": "23",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents23Title"
+    },
+    {
+      "$id": "24",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents24Title"
+    },
+    {
+      "$id": "25",
+      "$type": "NarrativeEventDescription, Assembly-CSharp",
+      "occurenceWeight": 1,
+      "quote": "Travel/&StandardRandomEvents25Title"
+    }
+  ],
+  "guiPresentation": {
+    "$id": "26",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Travel/&StandardRandomEventsTitle",
+    "description": "Travel/&StandardRandomEventsDescription",
+    "spriteReference": {
+      "$id": "27",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "28",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "2c6f6367851c8064e9b0962fb5b63314",
+  "contentPack": "BaseGame",
+  "name": "StandardRandomEvents"
+}

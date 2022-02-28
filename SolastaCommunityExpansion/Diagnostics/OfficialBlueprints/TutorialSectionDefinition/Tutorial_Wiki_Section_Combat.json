@@ -1,0 +1,37 @@
+{
+  "$type": "TutorialSectionDefinition, Assembly-CSharp",
+  "subsections": [
+    "Definition:Tutorial_Wiki_Section_Combat_Subsection_CombatMovement:39eb79d347af3b043b731c05eb793674",
+    "Definition:Tutorial_Wiki_Section_Combat_Subsection_CombatSpecial:17b942c6cc9ab6144b8230bf7d4347bb",
+    "Definition:Tutorial_Wiki_Section_Combat_Subsection_CombatEnviro:fcef71d089136fe4fb66da4a035a62fc"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "TutorialSection/&CombatTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "ec6f5a933e209ad48b54c6c3325e62ba",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_Wiki_Section_Combat"
+}

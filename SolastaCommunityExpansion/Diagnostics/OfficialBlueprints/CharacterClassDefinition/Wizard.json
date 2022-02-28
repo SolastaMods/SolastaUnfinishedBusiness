@@ -1,0 +1,324 @@
+{
+  "$type": "CharacterClassDefinition, Assembly-CSharp",
+  "equipmentRows": [
+    {
+      "$id": "1",
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$id": "2",
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$id": "3",
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Weapon",
+              "itemReference": "Definition:Quarterstaff:e02fa6fe6682b034ea74a6c48c9ee134",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "$id": "4",
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$id": "5",
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Weapon",
+              "itemReference": "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    },
+    {
+      "$id": "6",
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$id": "7",
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$id": "8",
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Focus",
+              "itemReference": "Definition:ComponentPouch:792f520ab845d5e4e99248603ab0ffd8",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "$id": "9",
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$id": "10",
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "FocusArcaneChoice",
+              "itemReference": null,
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    },
+    {
+      "$id": "11",
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$id": "12",
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$id": "13",
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "StarterPack",
+              "itemReference": "Definition:ScholarPack:703d461b7ed1eea49b9df30e1a178707",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "$id": "14",
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$id": "15",
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "StarterPack",
+              "itemReference": "Definition:ExplorerPack:03fbaf29ed08637449084486fe78a3c8",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    },
+    {
+      "$id": "16",
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$id": "17",
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$id": "18",
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "GenericItem",
+              "itemReference": "Definition:Spellbook:8fba4fb82a318ea4ab1076b0b607c9a9",
+              "defaultChoice": "",
+              "number": 1
+            },
+            {
+              "$id": "19",
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "GenericItem",
+              "itemReference": "Definition:ClothesWizard:b4665400531663847b34d9df971d3e78",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    }
+  ],
+  "hitDice": "D6",
+  "requiresDeity": false,
+  "abilityScoresPriority": [
+    "Intelligence",
+    "Constitution",
+    "Dexterity",
+    "Wisdom",
+    "Charisma",
+    "Strength"
+  ],
+  "featureUnlocks": [
+    {
+      "$id": "20",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyWizardTools:2c345e90dd967ec4fa692fae757a75cf",
+      "level": 1
+    },
+    {
+      "$id": "21",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetWizardRitualCasting:bab38716f7cc9824bb498156b661422f",
+      "level": 1
+    },
+    {
+      "$id": "22",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyWizardSavingThrow:25753a6dc3e608d43bbf4648c7855bea",
+      "level": 1
+    },
+    {
+      "$id": "23",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PointPoolWizardSkillPoints:2c68bd1101a20324d9c4fd61e40610fb",
+      "level": 1
+    },
+    {
+      "$id": "24",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:CastSpellWizard:399373f8f5f9ede498cb06ca39268290",
+      "level": 1
+    },
+    {
+      "$id": "25",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyWizardWeapon:3daf77db56dbc494aab0dc4c80f66c02",
+      "level": 1
+    },
+    {
+      "$id": "26",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWizardArcaneRecovery:c1066a5d900816e49ad9a47725bc69d8",
+      "level": 2
+    },
+    {
+      "$id": "27",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SubclassChoiceWizardArcaneTraditions:e8d05f81af078134fb3179d25900a22d",
+      "level": 2
+    },
+    {
+      "$id": "28",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 4
+    },
+    {
+      "$id": "29",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 8
+    },
+    {
+      "$id": "30",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 12
+    },
+    {
+      "$id": "31",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 16
+    },
+    {
+      "$id": "32",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 19
+    }
+  ],
+  "personalityFlagOccurences": [
+    {
+      "$id": "33",
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 3,
+      "personalityFlag": "Pragmatism"
+    },
+    {
+      "$id": "34",
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 3,
+      "personalityFlag": "Normal"
+    },
+    {
+      "$id": "35",
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 5,
+      "personalityFlag": "GpSpellcaster"
+    },
+    {
+      "$id": "36",
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 1,
+      "personalityFlag": "GpExplorer"
+    },
+    {
+      "$id": "37",
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "ClassWizardFlag"
+    }
+  ],
+  "skillAutolearnPreference": [
+    "Arcana",
+    "History",
+    "Insight",
+    "Investigation",
+    "Medecine",
+    "Religion",
+    "Medecine",
+    "Nature",
+    "Perception"
+  ],
+  "toolAutolearnPreference": [
+    "ScrollKitType",
+    "HerbalismKitType",
+    "EnchantingToolType"
+  ],
+  "expertiseAutolearnPreference": [],
+  "featAutolearnPreference": [
+    "PowerfulCantrip",
+    "Robust",
+    "Lockbreaker"
+  ],
+  "metamagicAutolearnPreference": [],
+  "ingredientGatheringOdds": 2,
+  "classPictogramReference": {
+    "$id": "38",
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "9bf940be035c7c64eb6ee577a4e9efef",
+    "m_SubObjectName": "Class_wizard",
+    "m_SubObjectType": ""
+  },
+  "defaultBattleDecisions": "Definition:CasterCombatDecisions:a8306539d792bbd408f6a6151b5b443a",
+  "classAnimationId": "Wizard",
+  "vocalSpellSemeClass": "Arcana",
+  "guiPresentation": {
+    "$id": "39",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Class/&WizardTitle",
+    "description": "Class/&WizardDescription",
+    "spriteReference": {
+      "$id": "40",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "eaad22adde115de43bf2dffb56f36c8f",
+      "m_SubObjectName": "Wizard",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "41",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 11,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "a279003a65f95a64eb58fcc71463c734",
+  "contentPack": "BaseGame",
+  "name": "Wizard"
+}

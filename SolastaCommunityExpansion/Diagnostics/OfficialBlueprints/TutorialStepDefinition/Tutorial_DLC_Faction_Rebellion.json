@@ -1,0 +1,35 @@
+{
+  "$type": "TutorialStepDefinition, Assembly-CSharp",
+  "nextStepDefinition": "Definition:Tutorial_T4_Sleight_Of_Hand:f5de458255228364cbded22540f80aaf",
+  "hideJournal": true,
+  "hideCharacterInspection": true,
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Tutorials/&Tuto_DLCFaction_Rebellion_Title",
+    "description": "Tutorials/&Tuto_DLCFaction_Rebellion_Description",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "24719081efc2eb6458baee4fe076d301",
+      "m_SubObjectName": "Tutorial_DLC_Faction_Rebellion",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "5ae42e62eef5f0a4dbe981e3a3c57f2c",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_DLC_Faction_Rebellion"
+}

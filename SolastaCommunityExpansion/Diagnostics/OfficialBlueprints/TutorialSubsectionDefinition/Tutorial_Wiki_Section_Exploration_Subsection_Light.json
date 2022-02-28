@@ -1,0 +1,36 @@
+{
+  "$type": "TutorialSubsectionDefinition, Assembly-CSharp",
+  "tutorialSteps": [
+    "Definition:Tutorial_T3_Lighting:d3619433ce4626a4498f3944aedfa892",
+    "Definition:Tutorial_T3_Light_Up_Torches:3d15a3d1045622345be258c646a97c5a"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Skill/&StealthTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "86525b35b99e47241a2015209d4c5983",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_Wiki_Section_Exploration_Subsection_Light"
+}

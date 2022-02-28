@@ -1,0 +1,39 @@
+{
+  "$type": "TutorialSubsectionDefinition, Assembly-CSharp",
+  "tutorialSteps": [
+    "Definition:Tutorial_Telema_MovingCharacters:6ab06a18e704faf41a5068264ce62ed7",
+    "Definition:Tutorial_T1_Climbing_and_Jumping:bc377d6ce061028468bdd146ada3526e",
+    "Definition:Tutorial_T1_Climbing_and_Jumping2:6d7aae79ce7b3e148be9f291b9dbfc9c",
+    "Definition:Tutorial_T1_Climbing_and_Jumping3:b7d4466d479387c459631d43cc83ea93",
+    "Definition:Tutorial_T1_Crawl:3fc054cb48246a94c8021ca21a56b57e"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "TutorialSubsection/&Basics_MovingTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "55ede389c942e6845a1f8d9f0a2ba957",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_Wiki_Section_Basics_Subsection_Moving"
+}

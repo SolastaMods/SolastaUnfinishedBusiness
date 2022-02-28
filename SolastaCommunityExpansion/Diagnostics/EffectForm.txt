@@ -1,0 +1,799 @@
+
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildEldritchOrb () [0x000cf] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:81 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x0000f] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:20 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildMinorLifesteal () [0x001b1] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:259 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x0002d] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:23 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildMinorLifesteal () [0x001ce] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:260 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x0002d] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:23 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildPetalStorm () [0x001af] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:299 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x00037] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:24 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildPetalStorm () [0x001cc] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:300 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x00037] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:24 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildProtectThreshold () [0x001b5] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:355 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x00041] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:25 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildProtectThreshold () [0x001d2] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:356 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x00041] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:25 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildEldritchOrb () [0x000cf] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:81 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x0000f] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:20 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildMinorLifesteal () [0x001b1] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:259 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x0002d] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:23 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildMinorLifesteal () [0x001ce] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:260 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x0002d] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:23 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildPetalStorm () [0x001af] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:299 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x00037] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:24 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildPetalStorm () [0x001cc] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:300 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x00037] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:24 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildProtectThreshold () [0x001b5] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:355 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x00041] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:25 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildProtectThreshold () [0x001d2] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:356 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x00041] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:25 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildEldritchOrb () [0x000cf] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:81 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x0000f] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:20 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildMinorLifesteal () [0x001b1] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:259 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x0002d] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:23 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildMinorLifesteal () [0x001ce] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:260 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x0002d] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:23 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildPetalStorm () [0x001af] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:299 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x00037] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:24 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildPetalStorm () [0x001cc] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:300 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x00037] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:24 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildProtectThreshold () [0x001b5] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:355 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x00041] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:25 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildProtectThreshold () [0x001d2] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:356 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x00041] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:25 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildEldritchOrb () [0x000cf] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:81 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x0000f] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:20 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildMinorLifesteal () [0x001b1] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:259 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x0002d] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:23 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildMinorLifesteal () [0x001ce] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:260 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x0002d] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:23 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildPetalStorm () [0x001af] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:299 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x00037] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:24 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildPetalStorm () [0x001cc] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:300 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x00037] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:24 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildProtectThreshold () [0x001b5] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:355 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x00041] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:25 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildProtectThreshold () [0x001d2] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:356 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x00041] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:25 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildEldritchOrb () [0x000cf] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:81 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x0000f] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:20 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildMinorLifesteal () [0x001b1] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:259 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x0002d] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:23 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildMinorLifesteal () [0x001ce] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:260 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x0002d] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:23 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildPetalStorm () [0x001af] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:299 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x00037] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:24 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildPetalStorm () [0x001cc] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:300 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x00037] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:24 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildProtectThreshold () [0x001b5] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:355 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x00041] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:25 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildProtectThreshold () [0x001d2] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:356 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x00041] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:25 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildEldritchOrb () [0x000cf] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:81 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x0000f] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:20 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildMinorLifesteal () [0x001b1] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:259 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x0002d] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:23 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildMinorLifesteal () [0x001ce] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:260 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x0002d] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:23 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildPetalStorm () [0x001af] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:299 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x00037] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:24 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildPetalStorm () [0x001cc] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:300 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x00037] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:24 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildProtectThreshold () [0x001b5] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:355 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x00041] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:25 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+
+------------------------------------------------------------------------------------
+EffectForm with type Damage is being used as type Alteration.
+  at System.Environment.get_StackTrace () [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormVerification.VerifyUsage[T] (EffectForm form, EffectForm+EffectFormType type, T& __result) [0x000ab] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:51 
+  at SolastaCommunityExpansion.Patches.Diagnostic.EffectFormPatch_Alteration.Postfix (EffectForm __instance, AlterationForm& __result) [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\Diagnostic\EffectFormPatcher.cs:171 
+  at EffectForm.EffectForm.get_AlterationForm_Patch1 (EffectForm ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at SolastaCommunityExpansion.Spells.BazouSpells.BuildProtectThreshold () [0x001d2] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:356 
+  at SolastaCommunityExpansion.Spells.BazouSpells..cctor () [0x00041] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Spells\BazouSpells.cs:25 
+  at SolastaCommunityExpansion.Models.SpellsContext.AddToDB () [0x00001] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Models\SpellsContext.cs:111 
+  at SolastaCommunityExpansion.Patches.GameManager_BindPostDatabase.Postfix () [0x0008b] in C:\Users\paulo\Repos\SolastaCommunityExpansion\SolastaCommunityExpansion\Patches\GameManagerPatcher.cs:47 
+  at GameManager.GameManager.BindPostDatabase_Patch1 (GameManager ) [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting+<AsyncLoadDatabases>d__10.MoveNext () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.Coroutine.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at TA.CoroutineQueue.Run () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeState_Booting.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at FiniteStateMachine.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at Runtime.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 
+  at RuntimeManager.Update () [0x00000] in <23f73dbc63ad4deeb73a884413e258f8>:0 

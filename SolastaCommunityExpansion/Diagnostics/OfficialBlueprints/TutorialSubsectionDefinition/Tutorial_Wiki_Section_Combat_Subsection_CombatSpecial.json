@@ -1,0 +1,40 @@
+{
+  "$type": "TutorialSubsectionDefinition, Assembly-CSharp",
+  "tutorialSteps": [
+    "Definition:Tutorial_T2_Attack_Shove:2cff176ed7563d34ba14491f0f6fc165",
+    "Definition:Tutorial_T2_Attack_Shove2:259edbd98fa733341b9fb7b6ae91b623",
+    "Definition:Tutorial_T2_Dodging:ec9ee47dcc01adc4fb2f70a74bd6452b",
+    "Definition:Tutorial_T2_Opportunity:d61a79cbb65ebb64280e9acbb6552bd0",
+    "Definition:Tutorial_T6_ReadyAnAction:680b4528cefec9243a9f345a0190eb62",
+    "Definition:Tutorial_T6_SurpriseAttack3:c2341ba2096fd164d8cc68289395e746"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Screen/&ExplorationActionsTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "17b942c6cc9ab6144b8230bf7d4347bb",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_Wiki_Section_Combat_Subsection_CombatSpecial"
+}

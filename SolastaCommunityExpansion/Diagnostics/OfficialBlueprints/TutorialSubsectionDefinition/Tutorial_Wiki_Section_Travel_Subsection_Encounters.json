@@ -1,0 +1,37 @@
+{
+  "$type": "TutorialSubsectionDefinition, Assembly-CSharp",
+  "tutorialSteps": [
+    "Definition:Tutorial_T6_SurpriseAttack:b4f431412a2fce947972a894fd639119",
+    "Definition:Tutorial_T6_SurpriseAttack2:b040973140f678f4bbb583175225f107",
+    "Definition:Tutorial_T6_CampaignMap7:f3ba7a1e7e8fda640bde13417a6ac171"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Screen/&EncounterCombatTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "56165d0f8c9fad64e86802936e131e61",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_Wiki_Section_Travel_Subsection_Encounters"
+}

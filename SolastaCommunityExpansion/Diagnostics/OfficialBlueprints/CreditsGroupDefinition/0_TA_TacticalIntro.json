@@ -1,0 +1,146 @@
+{
+  "$type": "CreditsGroupDefinition, Assembly-CSharp",
+  "creditEntries": [
+    {
+      "$id": "1",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "BackgroundScreen",
+      "textContent": "Mathieu Girard",
+      "spriteReference": {
+        "$id": "2",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "ea76026b09bc9b04ea1f3859e5daa53e",
+        "m_SubObjectName": "crown_room",
+        "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "3",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "FullScreenSpace",
+      "textContent": "",
+      "spriteReference": {
+        "$id": "4",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "5",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Image",
+      "textContent": "",
+      "spriteReference": {
+        "$id": "6",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "e28bbf509d7a6c646ab3b709196758ee",
+        "m_SubObjectName": "CompanyLogo",
+        "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      },
+      "imageHeight": 200.0
+    },
+    {
+      "$id": "7",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "LargeSpacing",
+      "textContent": "",
+      "spriteReference": {
+        "$id": "8",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "e28bbf509d7a6c646ab3b709196758ee",
+        "m_SubObjectName": "CompanyLogo",
+        "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "9",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Section",
+      "textContent": "Credits/&TATeamName",
+      "spriteReference": {
+        "$id": "10",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "e28bbf509d7a6c646ab3b709196758ee",
+        "m_SubObjectName": "CompanyLogo",
+        "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "11",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "JobTitle",
+      "textContent": "Credits/&GameTechnicalVisionTitle",
+      "spriteReference": {
+        "$id": "12",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "e28bbf509d7a6c646ab3b709196758ee",
+        "m_SubObjectName": "CompanyLogo",
+        "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "13",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Mathieu Girard",
+      "spriteReference": {
+        "$id": "14",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "e28bbf509d7a6c646ab3b709196758ee",
+        "m_SubObjectName": "CompanyLogo",
+        "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "15",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "LargeSpacing",
+      "textContent": "Mathieu Girard",
+      "spriteReference": {
+        "$id": "16",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "e28bbf509d7a6c646ab3b709196758ee",
+        "m_SubObjectName": "CompanyLogo",
+        "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      },
+      "imageHeight": 100.0
+    }
+  ],
+  "guiPresentation": {
+    "$id": "17",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$id": "18",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "19",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "af07d66cba15d544c972c47e62d0ee27",
+  "contentPack": "BaseGame",
+  "name": "0_TA_TacticalIntro"
+}

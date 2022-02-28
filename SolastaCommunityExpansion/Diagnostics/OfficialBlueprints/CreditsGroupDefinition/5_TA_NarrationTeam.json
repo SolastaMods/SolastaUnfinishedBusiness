@@ -1,0 +1,146 @@
+{
+  "$type": "CreditsGroupDefinition, Assembly-CSharp",
+  "creditEntries": [
+    {
+      "$id": "1",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Section",
+      "textContent": "Credits/&NarrationTeamTitle",
+      "spriteReference": {
+        "$id": "2",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "3",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "JobTitle",
+      "textContent": "Credits/&NarrationDirection",
+      "spriteReference": {
+        "$id": "4",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "5",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Xavier Penin",
+      "spriteReference": {
+        "$id": "6",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "7",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "SmallSpacing",
+      "textContent": "Goliat Gashi",
+      "spriteReference": {
+        "$id": "8",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "9",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "JobTitle",
+      "textContent": "Credits/&UniverseStorylineTitle",
+      "spriteReference": {
+        "$id": "10",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "11",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Antoine Guillaud",
+      "spriteReference": {
+        "$id": "12",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "13",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "Name",
+      "textContent": "Graeme Davis",
+      "spriteReference": {
+        "$id": "14",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    },
+    {
+      "$id": "15",
+      "$type": "CreditsGroupDefinition+CreditsEntryDescription, Assembly-CSharp",
+      "entryType": "LargeSpacing",
+      "textContent": "Goliat Gashi",
+      "spriteReference": {
+        "$id": "16",
+        "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "imageHeight": 100.0
+    }
+  ],
+  "guiPresentation": {
+    "$id": "17",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$id": "18",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "19",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "1a1dc8afc2a32da4e9b18cc2f7db4d18",
+  "contentPack": "BaseGame",
+  "name": "5_TA_NarrationTeam"
+}

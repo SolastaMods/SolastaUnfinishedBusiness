@@ -1,0 +1,37 @@
+{
+  "$type": "TutorialSubsectionDefinition, Assembly-CSharp",
+  "tutorialSteps": [
+    "Definition:Tutorial_T1_Climbing_and_Jumping:bc377d6ce061028468bdd146ada3526e",
+    "Definition:Tutorial_T1_Climbing_and_Jumping2:6d7aae79ce7b3e148be9f291b9dbfc9c",
+    "Definition:Tutorial_T1_Climbing_and_Jumping3:b7d4466d479387c459631d43cc83ea93"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "TutorialSubsection/&ExplorationJumpingClimbingTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "63f887f4c0fba9e4187014a2b80f443c",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_Wiki_Section_Exploration_Subsection_ExplorationJumpingClimbing"
+}

@@ -1,0 +1,37 @@
+{
+  "$type": "TutorialSubsectionDefinition, Assembly-CSharp",
+  "tutorialSteps": [
+    "Definition:OutgameCharacterCreationSpells:2642e284690e79245ab3a4672a4e9cf5",
+    "Definition:OutgameCharacterCreationSpells2:631c302ec5c9b50438c1f85df948d932",
+    "Definition:OutgameCharacterCreationSpells3:0f2498657db697346b7e0803b0790ec3"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "TutorialSubsection/&Basics_QuestTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "f4ae08e32e46eb44c9c6ee8a1377a415",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_Wiki_Section_Character_Creation_Magic"
+}

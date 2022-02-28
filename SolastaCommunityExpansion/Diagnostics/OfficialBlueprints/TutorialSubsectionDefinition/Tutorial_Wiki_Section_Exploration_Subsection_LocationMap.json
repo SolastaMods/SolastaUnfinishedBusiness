@@ -1,0 +1,40 @@
+{
+  "$type": "TutorialSubsectionDefinition, Assembly-CSharp",
+  "tutorialSteps": [
+    "Definition:Tutorial_Generic_LocationMap1:8eb0e775e3dba1843be2361ed14902ed",
+    "Definition:Tutorial_Generic_LocationMap2:0bae12ecba192194b94895312ad98fa0",
+    "Definition:Tutorial_Generic_LocationMap3:c54524a234b81494eab03b02bf2acbb9",
+    "Definition:Tutorial_Generic_LocationMap4:11e5b11f486ed254b984c541bdf804dd",
+    "Definition:Tutorial_Telema_Gathering:55bcd441ab945d84d8c82802511ad495",
+    "Definition:Tutorial_T1_Interacting:8770364b4879f7a40bd7b9df2fbc712c"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "TutorialSubsection/&Exploration_LocationMapTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "377475521b620954fae9175b1967d9cf",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_Wiki_Section_Exploration_Subsection_LocationMap"
+}

@@ -1,0 +1,41 @@
+{
+  "$type": "TutorialSectionDefinition, Assembly-CSharp",
+  "subsections": [
+    "Definition:Tutorial_Wiki_Section_Character_Creation_Subsection_Abilities:ae099bfe734b53c48a56d299fd729ab6",
+    "Definition:Tutorial_Wiki_Section_Character_Creation_Subsection_Origins:9ee05483534e5584496e0b38faa45597",
+    "Definition:Tutorial_Wiki_Section_Character_Creation_Magic:f4ae08e32e46eb44c9c6ee8a1377a415",
+    "Definition:Tutorial_Wiki_Section_Basics_Subsection_Camera:d883604dea9094a4f9019bccd9b91e46",
+    "Definition:Tutorial_Wiki_Section_Basics_Subsection_QuestLog:1b3e7a13b50d7574abe5aa18776242f9",
+    "Definition:Tutorial_Wiki_Section_Basics_Subsection_PartyManagement:16224e073b83ad7488af092fbc11a0cd",
+    "Definition:Tutorial_Wiki_Section_Basics_Subsection_Moving:55ede389c942e6845a1f8d9f0a2ba957"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "TutorialSection/&BasicsTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "dbd70b189523f544a85c6ae9a38c644b",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_Wiki_Section_Basics"
+}

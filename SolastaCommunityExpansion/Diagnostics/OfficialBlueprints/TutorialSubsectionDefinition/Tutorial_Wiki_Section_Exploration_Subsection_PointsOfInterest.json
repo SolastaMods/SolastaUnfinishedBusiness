@@ -1,0 +1,38 @@
+{
+  "$type": "TutorialSubsectionDefinition, Assembly-CSharp",
+  "tutorialSteps": [
+    "Definition:Tutorial_T5_Merchants:2d51bed29bbe0bd4eac911c7df4e4e3c",
+    "Definition:Tutorial_T5_Factions:d20d476d73bf7d84da466c522878b1e2",
+    "Definition:Tutorial_Telema_Long_Rest_01:3c47f3011b00d3740995ec4a310ed807",
+    "Definition:Tutorial_Telema_Long_Rest_02:7b3d83ac4f0a9cb4e95751c260dbe1d8"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "TutorialSubsection/&Exploration_PointsOfInterestTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "03055c8aa717f1b46b01614c04bf72a9",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_Wiki_Section_Exploration_Subsection_PointsOfInterest"
+}

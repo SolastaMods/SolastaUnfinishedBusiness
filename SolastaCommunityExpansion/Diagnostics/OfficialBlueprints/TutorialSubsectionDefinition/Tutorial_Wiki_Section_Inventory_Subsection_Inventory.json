@@ -1,0 +1,37 @@
+{
+  "$type": "TutorialSubsectionDefinition, Assembly-CSharp",
+  "tutorialSteps": [
+    "Definition:Tutorial_Telema_WeaponsConfigs01:815a418b2d312f54ebec6a36b517230c",
+    "Definition:Tutorial_Telema_WeaponsConfigs02:80ce7b4d40d66ad42880977d7fa2011d",
+    "Definition:Tutorial_T6_UtilitySlot:0c1016261c5d4164dab915e5db86b578"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Action/&InventoryTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "1e06787efb1672145b42a13ba1afbc94",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_Wiki_Section_Inventory_Subsection_Inventory"
+}

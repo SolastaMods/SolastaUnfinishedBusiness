@@ -1,0 +1,63 @@
+{
+  "$type": "FormationDefinition, Assembly-CSharp",
+  "defaultFormation": false,
+  "formationPositions": [
+    {
+      "$id": "1",
+      "$type": "TA.int3, Assembly-CSharp",
+      "x": 0,
+      "y": 0,
+      "z": -1
+    },
+    {
+      "$id": "2",
+      "$type": "TA.int3, Assembly-CSharp",
+      "x": 1,
+      "y": 0,
+      "z": -1
+    },
+    {
+      "$id": "3",
+      "$type": "TA.int3, Assembly-CSharp",
+      "x": 0,
+      "y": 0,
+      "z": -2
+    },
+    {
+      "$id": "4",
+      "$type": "TA.int3, Assembly-CSharp",
+      "x": 1,
+      "y": 0,
+      "z": -2
+    }
+  ],
+  "guiPresentation": {
+    "$id": "5",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "6",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "7",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "79c9e28f4d1b81c4782293a6970c47f8",
+  "contentPack": "BaseGame",
+  "name": "Caer_Lem_Cutscene_05_Nego"
+}

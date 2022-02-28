@@ -1,0 +1,36 @@
+{
+  "$type": "MorphotypeCategoryDefinition, Assembly-CSharp",
+  "choiceForm": "Slider",
+  "hasDependency": false,
+  "dependency": "Max",
+  "dependencyNoneEntry": "",
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Stage/&IdentityMorphotypeAgeHeader",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "26e5a83caccc95e4db1427b35d62d60c",
+      "m_SubObjectName": "MorphotypeAge",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "435f17e2693a5364993e64801382f8db",
+  "contentPack": "BaseGame",
+  "name": "Age"
+}

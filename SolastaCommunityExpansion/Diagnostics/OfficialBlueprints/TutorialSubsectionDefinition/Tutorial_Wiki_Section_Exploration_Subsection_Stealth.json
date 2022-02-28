@@ -1,0 +1,42 @@
+{
+  "$type": "TutorialSubsectionDefinition, Assembly-CSharp",
+  "tutorialSteps": [
+    "Definition:Tutorial_T3_Cautious_Stealth:d236ed7f5986e954eb161bb3b82f0812",
+    "Definition:Tutorial_T4_Cautious:e8716394a01f08f41bebeb64aed4ea41",
+    "Definition:Tutorial_T4_Cautious2:43ba0d3158fbb8140a7c06e429932c7d",
+    "Definition:Tutorial_T4_Disarm:fc11f775d11e5084ca5af846f5bb171e",
+    "Definition:Tutorial_T4_Disarm2:5068bf744ba8c3240b5a93d6866a69ae",
+    "Definition:Tutorial_T4_Lockpick:cd0f33d1c3d007a449191bb338d49388",
+    "Definition:Tutorial_T4_Sleight_Of_Hand:f5de458255228364cbded22540f80aaf",
+    "Definition:Tutorial_T4_Surprise_and_Sneak_Attack:4d4685fd019c07e4084f848428c6552d"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Skill/&StealthTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "51a807ca66e5d4d47990a8f5009a8f02",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_Wiki_Section_Exploration_Subsection_Stealth"
+}

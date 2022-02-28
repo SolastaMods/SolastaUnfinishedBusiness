@@ -1,0 +1,37 @@
+{
+  "$type": "TutorialSubsectionDefinition, Assembly-CSharp",
+  "tutorialSteps": [
+    "Definition:OutgameCharacterCreationAbilityScores:dd480c3956f12d24fa1cd4dc222fdea5",
+    "Definition:OutgameCharacterCreationAbilityScores2:4fa5ee35a26ccf149bd2d2a38aab23df",
+    "Definition:OutgameCharacterCreationAbilityScores3:1a7c66c6e3aa68244967c48214a519e5"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AbilityScoreImprovementTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "ae099bfe734b53c48a56d299fd729ab6",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_Wiki_Section_Character_Creation_Subsection_Abilities"
+}

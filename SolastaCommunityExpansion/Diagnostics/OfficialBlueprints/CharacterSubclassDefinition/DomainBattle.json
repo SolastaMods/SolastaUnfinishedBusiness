@@ -1,0 +1,108 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$id": "1",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsDomainBattle:7669d11841031e942af67f35475a09ed",
+      "level": 1
+    },
+    {
+      "$id": "2",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MagicAffinityBattleMagic:daf4e911e0bf3d74ebabeebfe28fcfe5",
+      "level": 1
+    },
+    {
+      "$id": "3",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyDomainBattleWepaon:bca0a31618c211b448dc1094ce9565f8",
+      "level": 1
+    },
+    {
+      "$id": "4",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainBattleDivineWrath:3edc0c6a67963bf4f9121bea46d40d07",
+      "level": 1
+    },
+    {
+      "$id": "5",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainBattleDecisiveStrike:0ebef581935f2844e95d4948aa67fd5d",
+      "level": 2
+    },
+    {
+      "$id": "6",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainBattleDecisiveStrike5:053a4fc771db3f2429bb20e33c8481a5",
+      "level": 5
+    },
+    {
+      "$id": "7",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainBattleHeraldOfBattle:efe7d4d84e723ed47bdbf24c27f64966",
+      "level": 6
+    },
+    {
+      "$id": "8",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainBattleDecisiveStrike8:b879a5667738ef94ba5346fe38bbc0d1",
+      "level": 8
+    },
+    {
+      "$id": "9",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierDomainBattleExtraAttack:18a16de30197d53469a9f07447bbcaa9",
+      "level": 8
+    },
+    {
+      "$id": "10",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerClericDivineInterventionPaladin:4f9a2e4ff332b204aae612753dada617",
+      "level": 10
+    },
+    {
+      "$id": "11",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainBattleDecisiveStrike11:15b98402b645c17429a2d4eff4d1827b",
+      "level": 11
+    },
+    {
+      "$id": "12",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ZSPowerClericDivineInterventionImprovementPaladin:3a9f52a1-ca5d-4138-a95a-5c4d9748763d",
+      "level": 20
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$id": "13",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&DomainBattleTitle",
+    "description": "Subclass/&DomainBattleDescription",
+    "spriteReference": {
+      "$id": "14",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "a934d22a89555934da76c63cc0346839",
+      "m_SubObjectName": "Cleric_Battler",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "15",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "bf3c54c59b182fd4a84e5df0656c161c",
+  "contentPack": "BaseGame",
+  "name": "DomainBattle"
+}

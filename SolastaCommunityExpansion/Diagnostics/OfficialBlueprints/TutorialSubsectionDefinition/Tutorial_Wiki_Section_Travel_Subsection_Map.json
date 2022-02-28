@@ -1,0 +1,40 @@
+{
+  "$type": "TutorialSubsectionDefinition, Assembly-CSharp",
+  "tutorialSteps": [
+    "Definition:Tutorial_T6_CampaignMap:641e51124ec8aa841a11d5087600aced",
+    "Definition:Tutorial_T6_CampaignMap2:64e7c0c56e26245408b6f488e1c80d1b",
+    "Definition:Tutorial_T6_CampaignMap3:f91e1de7c86a43f4faf3c4d4751eb13f",
+    "Definition:Tutorial_T6_CampaignMap4:196d3e997baf104458d68c3474bf408f",
+    "Definition:Tutorial_T6_CampaignMap5:f37e1a47aa06b4a4b9af3592b95f1e73",
+    "Definition:Tutorial_T6_CampaignMap6:de34ed15ba339e24ea5b7d52f5eaace5"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Label/&TravelToLocationTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "f7e6d55ed38c4ab4bb77ad239b5ee94c",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_Wiki_Section_Travel_Subsection_Map"
+}

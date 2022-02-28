@@ -1,0 +1,45 @@
+{
+  "$type": "TutorialTocDefinition, Assembly-CSharp",
+  "sectionLineHeight": 46.0,
+  "subsectionIndentWidth": 24.0,
+  "subsectionHeaderHeight": 14.0,
+  "subsectionLineHeight": 20.0,
+  "subsectionLineSpacing": 27.0,
+  "subsectionTrailingHeight": 10.0,
+  "areaWidth": 362.0,
+  "spacing": 0.0,
+  "maxEntries": -1,
+  "maxSerializedEntries": 0,
+  "layout": "VerticalList",
+  "offsetX": 2.0,
+  "offsetY": 2.0,
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "6e391b7edf3098a4c980798e7fc07b76",
+  "contentPack": "BaseGame",
+  "name": "TutorialToc"
+}

@@ -1,0 +1,55 @@
+{
+  "$type": "FeatureDefinitionHealingModifier, Assembly-CSharp",
+  "healingBonusDiceNumber": 0,
+  "healingBonusDiceType": "D1",
+  "addLevel": "None",
+  "healsSelfWhenCastingHealingSpell": true,
+  "selfHealingDiceNumber": 2,
+  "selfHealingDiceType": "D1",
+  "selfHealingAddLevel": "EffectLevel",
+  "addsConditionWhenCastingHealingSpell": null,
+  "addedConditionOccurenceType": "StartOfTurn",
+  "cannotGainHitPoints": false,
+  "advantageOnHitDieSpending": false,
+  "maximizeReceivedHealing": false,
+  "hitDiceHealsKindred": false,
+  "healSelfHealsKindred": false,
+  "healingReceivedParticleReference": {
+    "$id": "1",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$id": "2",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&DomainLifeBlessedHealerTitle",
+    "description": "Feature/&DomainLifeBlessedHealerDescription",
+    "spriteReference": {
+      "$id": "3",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "4",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "0e9d5efbae84d7a478f498ce72f9b726",
+  "contentPack": "BaseGame",
+  "name": "HealingModifierDomainLifeBlessedHealer"
+}

@@ -1,0 +1,41 @@
+{
+  "$type": "TutorialSubsectionDefinition, Assembly-CSharp",
+  "tutorialSteps": [
+    "Definition:Tutorial_T3_Healing:7f09a446a8e42424f852c91b11d7be6a",
+    "Definition:Tutorial_T6_ShortRest:e48e3ee97a7b9fb40acda9301e01c7b7",
+    "Definition:Tutorial_T6_ShortRest2:772d6c1c667ce8d409414ef2eacbf5a6",
+    "Definition:Tutorial_Telema_Long_Rest_01:3c47f3011b00d3740995ec4a310ed807",
+    "Definition:Tutorial_Telema_Long_Rest_02:7b3d83ac4f0a9cb4e95751c260dbe1d8",
+    "Definition:Tutorial_T4_Surprise_and_Sneak_Attack:4d4685fd019c07e4084f848428c6552d",
+    "Definition:Tutorial_T4_CriticalCharacter:bb19f490cfe61a24fab7644fff73e492"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Screen/&EffectFormRollFooterHealingTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "32bf2e1611a1ee6439b7c071b7c791e2",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_Wiki_Section_Exploration_Subsection_Healing"
+}

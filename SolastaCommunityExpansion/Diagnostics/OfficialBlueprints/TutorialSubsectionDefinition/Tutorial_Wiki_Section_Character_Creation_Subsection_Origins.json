@@ -1,0 +1,44 @@
+{
+  "$type": "TutorialSubsectionDefinition, Assembly-CSharp",
+  "tutorialSteps": [
+    "Definition:OutgameCharacterCreationAncestry:b2f1be1dcd1ebd3479362e1b40e074d3",
+    "Definition:OutgameCharacterCreationBackground:74c3b9a5a646690418fbd7c8f8e14cff",
+    "Definition:OutgameCharacterCreationBackground3:c42c4fe4d5b136548918f9e380e512aa",
+    "Definition:OutgameCharacterCreationClass:16127cbfd9a1b1c4da2f4059e474f659",
+    "Definition:OutgameCharacterCreationDeity:6829c90ebbc086f44957ad76b12ce481",
+    "Definition:OutgameCharacterCreationFightingStyle:82464d194c3ccd941889708e59ddcfff",
+    "Definition:OutgameCharacterCreationIdentity:0acf1ba2d3fa35549ad8f9322baec204",
+    "Definition:OutgameCharacterCreationProficiencies:ae6ef7d4bb8b08249acf2e287f4edcf3",
+    "Definition:OutgameCharacterCreationProficiencies2:323f65a7501491f48bfd1855662ff12f",
+    "Definition:OutgameCharacterCreationSubclass:ec14d6ae11609ee47bfe1ccfdea0732a"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Stage/&IdentityDefinitionTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "9ee05483534e5584496e0b38faa45597",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_Wiki_Section_Character_Creation_Subsection_Origins"
+}

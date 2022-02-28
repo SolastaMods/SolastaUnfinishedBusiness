@@ -1,0 +1,36 @@
+{
+  "$type": "TutorialSectionDefinition, Assembly-CSharp",
+  "subsections": [
+    "Definition:Tutorial_Wiki_Section_Inventory_Subsection_Looting:692c9f92204b2a841a69740ab5c2e72d",
+    "Definition:Tutorial_Wiki_Section_Inventory_Subsection_Inventory:1e06787efb1672145b42a13ba1afbc94"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Action/&InventoryTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "3b0d1bfc56426c34dab6cf2c83d0c287",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_Wiki_Section_Inventory"
+}

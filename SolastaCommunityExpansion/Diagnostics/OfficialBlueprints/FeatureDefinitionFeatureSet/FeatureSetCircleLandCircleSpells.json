@@ -1,0 +1,46 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:AutoPreparedSpellsCircleLandForest:748c374a6ab017146ac74d524f0181d9",
+    "Definition:AutoPreparedSpellsCircleLandGrassland:58fa1dec1ae336541ac7bfef5d88f1d4",
+    "Definition:AutoPreparedSpellsCircleLandMountain:3211d01509175a3429161e8bff2b102e",
+    "Definition:AutoPreparedSpellsCircleLandSwamp:a9d2e3a27ccd26642ac29972156d2e88",
+    "Definition:AutoPreparedSpellsCircleLandDesert:72f7e232d3f5d4d4da3d65166370abca",
+    "Definition:AutoPreparedSpellsCircleLandCoast:6030968db5a1de048b72d37aa16f56e4",
+    "Definition:AutoPreparedSpellsCircleLandArctic:65db062fbb963db459bd54d4d4ed180b"
+  ],
+  "mode": "Exclusion",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": true,
+  "hasRacialAffinity": true,
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetCircleLandCircleSpellsTitle",
+    "description": "Feature/&FeatureSetCircleLandCircleSpellsDescription",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "dbb8786ead66ae848bb8315bf04bf9cd",
+  "contentPack": "BaseGame",
+  "name": "FeatureSetCircleLandCircleSpells"
+}

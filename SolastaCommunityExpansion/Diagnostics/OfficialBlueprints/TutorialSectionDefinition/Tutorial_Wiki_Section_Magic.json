@@ -1,0 +1,36 @@
+{
+  "$type": "TutorialSectionDefinition, Assembly-CSharp",
+  "subsections": [
+    "Definition:Tutorial_Wiki_Section_Magic_Subsection_Spells:c74a78e3ed978ab49a2193a05988c954",
+    "Definition:Tutorial_Wiki_Section_Magic_Subsection_Crafting:cf6be81017a68ac4abb15ea872d7aa7d"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "TutorialSubsection/&Exploration_MagicTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "5339d2659a0738a4a81472299a92e20c",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_Wiki_Section_Magic"
+}

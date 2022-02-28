@@ -1,0 +1,38 @@
+{
+  "$type": "TutorialSubsectionDefinition, Assembly-CSharp",
+  "tutorialSteps": [
+    "Definition:Tutorial_Telema_BattleCamera:7a9fe2c56b9834c478774f284195020e",
+    "Definition:Tutorial_T2_Dashing:90ddddebe37b2a446933c4e15c1bbe1e",
+    "Definition:Tutorial_T2_Disengaging:c761ef5a373c0cf4a89dda1e3d67cc5d",
+    "Definition:Tutorial_T6_UseCovers:e81203047f3a1bf43a2a778a650b9bb1"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "TutorialSubsection/&CombatMovementTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "39eb79d347af3b043b731c05eb793674",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_Wiki_Section_Combat_Subsection_CombatMovement"
+}

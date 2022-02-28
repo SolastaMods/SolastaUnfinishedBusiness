@@ -1,0 +1,40 @@
+{
+  "$type": "TutorialSubsectionDefinition, Assembly-CSharp",
+  "tutorialSteps": [
+    "Definition:Tutorial_T5_Crafting01:501e41bc8c08dc24ba91cc9152808b50",
+    "Definition:Tutorial_T5_Crafting02:a323cbad9ae4ffb4a8cc56b644a26d11",
+    "Definition:Tutorial_T5_Crafting03:237bd41b7c23e1d4fbd99d8434886a6a",
+    "Definition:Tutorial_T5_Crafting04:e62248dc144658f47b853df868ae5392",
+    "Definition:Tutorial_T5_Crafting05:03ac4cef439483d42b62bc3438ade392",
+    "Definition:Tutorial_T5_Crafting06:19f6a80e472ae6f4183f98c9d2d6f6fd"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "MerchantCategory/&CraftingTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "cf6be81017a68ac4abb15ea872d7aa7d",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_Wiki_Section_Magic_Subsection_Crafting"
+}

@@ -1,0 +1,39 @@
+{
+  "$type": "TutorialSectionDefinition, Assembly-CSharp",
+  "subsections": [
+    "Definition:Tutorial_Wiki_Section_Exploration_Subsection_LocationMap:377475521b620954fae9175b1967d9cf",
+    "Definition:Tutorial_Wiki_Section_Exploration_Subsection_Light:86525b35b99e47241a2015209d4c5983",
+    "Definition:Tutorial_Wiki_Section_Exploration_Subsection_PointsOfInterest:03055c8aa717f1b46b01614c04bf72a9",
+    "Definition:Tutorial_Wiki_Section_Exploration_Subsection_Stealth:51a807ca66e5d4d47990a8f5009a8f02",
+    "Definition:Tutorial_Wiki_Section_Exploration_Subsection_Healing:32bf2e1611a1ee6439b7c071b7c791e2"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "TutorialSection/&ExplorationTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "2458534060fb81545b96ee71abba2a31",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_Wiki_Section_Exploration"
+}

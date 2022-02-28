@@ -1,0 +1,70 @@
+{
+  "$type": "VoiceDefinition, Assembly-CSharp",
+  "sex": "Neutral",
+  "individualName": "homer",
+  "amplitude": 0.5,
+  "speechSpeed": 1.0,
+  "wavePrefix": "MAL1",
+  "wavePath": "Voices/",
+  "wwiseSuffix": "_M1",
+  "wwiseSwitch": {
+    "$id": "1",
+    "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$id": "2",
+      "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseSwitchGroupReference": {
+        "$id": "3",
+        "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+        "objectName": "Switch_VoiceBarks",
+        "id": 2399735075,
+        "guid": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8",
+        "name": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8"
+      },
+      "objectName": "M1",
+      "id": 1685527111,
+      "guid": "C044B360-832B-4D02-AB24-11BC180392CC",
+      "name": "C044B360-832B-4D02-AB24-11BC180392CC"
+    },
+    "groupIdInternal": 0,
+    "groupGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "availableInCharacterCreation": true,
+  "guiPresentation": {
+    "$id": "4",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Voice/&Voice3Title",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "5",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "6",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 2,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "ba10dcc9919050640a2b002c48a0e7e3",
+  "contentPack": "BaseGame",
+  "name": "NEUTRAL1"
+}

@@ -1,0 +1,62 @@
+{
+  "$type": "TravelActivityDefinition, Assembly-CSharp",
+  "isDynamic": true,
+  "standardStartHour": 10,
+  "standardDurationHours": 8,
+  "fatigueImpactPerHour": 1.0,
+  "randomEvents": [
+    {
+      "$id": "1",
+      "$type": "TravelEventProbabilityDescription, Assembly-CSharp",
+      "eventDefinition": "Definition:TravelEventFoodSearch:631bfc8bb77557e4c85363977ee18a83",
+      "basePercent": 13,
+      "incremental": true
+    },
+    {
+      "$id": "2",
+      "$type": "TravelEventProbabilityDescription, Assembly-CSharp",
+      "eventDefinition": "Definition:TravelEventIngredientGathering:4f18574d002d40c48bbae9826376d5cb",
+      "basePercent": 13,
+      "incremental": true
+    },
+    {
+      "$id": "3",
+      "$type": "TravelEventProbabilityDescription, Assembly-CSharp",
+      "eventDefinition": "Definition:TravelEventNarrative:bf2b4d417c915844f8c1edcee329a58b",
+      "basePercent": 13,
+      "incremental": true
+    }
+  ],
+  "fixedEvents": [],
+  "navigationActivity": true,
+  "restActivity": false,
+  "guiPresentation": {
+    "$id": "4",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Travel/&TravelActivityExplorationTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "5",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "6",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "fe39bcde314067943a2b5355cd77262a",
+  "contentPack": "BaseGame",
+  "name": "TravelActivityExploration"
+}

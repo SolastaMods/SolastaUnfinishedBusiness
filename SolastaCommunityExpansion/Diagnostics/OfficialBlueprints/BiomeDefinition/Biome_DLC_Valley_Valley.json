@@ -1,0 +1,65 @@
+{
+  "$type": "BiomeDefinition, Assembly-CSharp",
+  "terrainType": "Forest",
+  "encounterTable": "Definition:DLC1_EncounterTable_NoMutants:187fce30cb5c3d34983ef29b65b87f81",
+  "narrativeEventBasicLines": [
+    "Travel/&DLC1_StandardRandomEvents1",
+    "Travel/&DLC1_StandardRandomEvents2",
+    "Travel/&DLC1_StandardRandomEvents3",
+    "Travel/&DLC1_StandardRandomEvents4",
+    "Travel/&DLC1_StandardRandomEvents5",
+    "Travel/&DLC1_StandardRandomEvents6",
+    "Travel/&DLC1_StandardRandomEvents7",
+    "Travel/&StandardRandomEvents11Title",
+    "Travel/&DLC1_StandardRandomEvents21",
+    "Travel/&DLC1_StandardRandomEvents22",
+    "Travel/&DLC1_StandardRandomEvents23",
+    "Travel/&DLC1_StandardRandomEvents24",
+    "Travel/&DLC1_StandardRandomEvents25",
+    "Travel/&StandardRandomEvents1Title",
+    "Travel/&StandardRandomEvents9Title",
+    "Travel/&StandardRandomEvents11Title",
+    "Travel/&DLC1_StandardRandomEvents14",
+    "Travel/&DLC1_StandardRandomEvents15"
+  ],
+  "encounterLocations": [
+    "Definition:DLC1_Encounter_Jungle_River_LocationDB:37a12bdacdb526c41abebe05a5cf2359",
+    "Definition:DLC1_Encounter_Jungle_Ruin_LocationDB:aaff8b2e23eb7794da24e12827427454",
+    "Definition:DLC1_Encounter_Jungle_Village_LocationDB:3e811de9356099c4db4a7dc291711eec",
+    "Definition:DLC1_Encounter_Bridge_LocationDB:65d167a73f6102a4e925e8cd4974792c",
+    "Definition:DLC1_Encounter_Mines_LocationDB:756c643c07a7edd4685c4ad3fae33001",
+    "Definition:Encounter_Cemetery_LocationDB:05ccd4e38ea7c3f4c9f7e6290bba0223",
+    "Definition:EncounterCrossroads_LocationDB:a1b9f35b7028fe24184b3a5b92265a74",
+    "Definition:EncounterWaterfall_LocationDB:d8798cdee1aaf304d93e9cfc4bb0d6b9",
+    "Definition:Encounter_OldElf_LocationDB:3ce08492587ce6f4a9f780306dccfbc9"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "0b33e22314e10014ba924eeb6b96619f",
+  "contentPack": "BaseGame",
+  "name": "Biome_DLC_Valley_Valley"
+}

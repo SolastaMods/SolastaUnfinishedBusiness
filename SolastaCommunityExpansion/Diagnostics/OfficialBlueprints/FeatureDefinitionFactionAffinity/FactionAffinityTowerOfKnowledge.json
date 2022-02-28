@@ -1,0 +1,40 @@
+{
+  "$type": "FeatureDefinitionFactionAffinity, Assembly-CSharp",
+  "operation": {
+    "$id": "1",
+    "$type": "FactionOperationDescription, Assembly-CSharp",
+    "operation": "Increase",
+    "factionName": "TowerOfKnowledge",
+    "value": 5,
+    "statusName": ""
+  },
+  "guiPresentation": {
+    "$id": "2",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&TowerOfKnowledgeAffinityTitle",
+    "description": "Feature/&TowerOfKnowledgeAffinityDescription",
+    "spriteReference": {
+      "$id": "3",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "4",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "b920145ce5806b1409090f0433e40c4d",
+  "contentPack": "BaseGame",
+  "name": "FactionAffinityTowerOfKnowledge"
+}

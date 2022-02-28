@@ -1,0 +1,262 @@
+{
+  "$type": "GadgetBlueprint, Assembly-CSharp",
+  "parameters": [
+    {
+      "$id": "1",
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "ExplicitItems",
+      "type": "GenericBool",
+      "conditionalDisplay": false,
+      "conditionalParameter": "",
+      "conditionalMatch": true,
+      "intDefaultValue": 0,
+      "intMinValue": 0,
+      "intMaxValue": 0,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$id": "2",
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "LootPack",
+      "type": "LootPack",
+      "conditionalDisplay": true,
+      "conditionalParameter": "ExplicitItems",
+      "conditionalMatch": false,
+      "intDefaultValue": 0,
+      "intMinValue": 0,
+      "intMaxValue": 0,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": true,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$id": "3",
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "ItemList",
+      "type": "ItemList",
+      "conditionalDisplay": true,
+      "conditionalParameter": "ExplicitItems",
+      "conditionalMatch": true,
+      "intDefaultValue": 0,
+      "intMinValue": 0,
+      "intMaxValue": 0,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$id": "4",
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "Param_Locked",
+      "type": "GenericBool",
+      "conditionalDisplay": false,
+      "conditionalParameter": "",
+      "conditionalMatch": true,
+      "intDefaultValue": 0,
+      "intMinValue": 0,
+      "intMaxValue": 0,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$id": "5",
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "Unlock_DC",
+      "type": "DifficultyClass",
+      "conditionalDisplay": true,
+      "conditionalParameter": "Param_Locked",
+      "conditionalMatch": true,
+      "intDefaultValue": 10,
+      "intMinValue": 1,
+      "intMaxValue": 30,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$id": "6",
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "KeyItem",
+      "type": "Item",
+      "conditionalDisplay": true,
+      "conditionalParameter": "Param_Locked",
+      "conditionalMatch": true,
+      "intDefaultValue": 1,
+      "intMinValue": 1,
+      "intMaxValue": 30,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$id": "7",
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "Param_Trapped",
+      "type": "GenericBool",
+      "conditionalDisplay": false,
+      "conditionalParameter": "",
+      "conditionalMatch": true,
+      "intDefaultValue": 10,
+      "intMinValue": 1,
+      "intMaxValue": 30,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$id": "8",
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "Perception_DC",
+      "type": "DifficultyClass",
+      "conditionalDisplay": true,
+      "conditionalParameter": "Param_Trapped",
+      "conditionalMatch": true,
+      "intDefaultValue": 10,
+      "intMinValue": 1,
+      "intMaxValue": 30,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$id": "9",
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "Disarm_DC",
+      "type": "DifficultyClass",
+      "conditionalDisplay": true,
+      "conditionalParameter": "Param_Trapped",
+      "conditionalMatch": true,
+      "intDefaultValue": 10,
+      "intMinValue": 1,
+      "intMaxValue": 30,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$id": "10",
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "TrapEffect",
+      "type": "TrapEffect",
+      "conditionalDisplay": true,
+      "conditionalParameter": "Param_Trapped",
+      "conditionalMatch": true,
+      "intDefaultValue": 10,
+      "intMinValue": 1,
+      "intMaxValue": 30,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": true,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$id": "11",
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "AddDice",
+      "type": "AddDice",
+      "conditionalDisplay": true,
+      "conditionalParameter": "Param_Trapped",
+      "conditionalMatch": true,
+      "intDefaultValue": 1,
+      "intMinValue": 1,
+      "intMaxValue": 30,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": true,
+      "gadgetExecutionFilter": ""
+    }
+  ],
+  "interactionNodes": [
+    {
+      "$id": "12",
+      "$type": "InteractionNodeDescription, Assembly-CSharp",
+      "position": {
+        "$id": "13",
+        "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+        "x": 0.0,
+        "y": -1.0
+      },
+      "orientation": "North"
+    }
+  ],
+  "canBeActivated": false,
+  "customizableDimensions": false,
+  "minCustomizableDimensions": {
+    "$id": "14",
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "maxCustomizableDimensions": {
+    "$id": "15",
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "campaignOnly": false,
+  "groundPlacement": false,
+  "groundLowPlacement": false,
+  "groundHighPlacement": true,
+  "wallPlacement": false,
+  "openingPlacement": false,
+  "openingLowPlacement": false,
+  "openingHighPlacement": false,
+  "propPlacement": true,
+  "lightSources": [],
+  "category": "Loot",
+  "dimensions": {
+    "$id": "16",
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "prefabsByEnvironment": [
+    {
+      "$id": "17",
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "",
+      "prefabReference": {
+        "$id": "18",
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "0031a5d6fe3f42a4c83723b91587e671",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    }
+  ],
+  "guiPresentation": {
+    "$id": "19",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Gadget/&VirtualLootTitle",
+    "description": "Gadget/&VirtualLootDescription",
+    "spriteReference": {
+      "$id": "20",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "0e2cf271ded58d74a9f17e069dd34779",
+      "m_SubObjectName": "VirtualLoot",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "21",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "23a9e02c994c3ef4f8171f456bf40d3f",
+  "contentPack": "BaseGame",
+  "name": "VirtualLoot"
+}

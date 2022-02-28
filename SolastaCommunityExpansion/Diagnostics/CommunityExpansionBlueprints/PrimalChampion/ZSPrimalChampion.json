@@ -1,0 +1,26 @@
+{
+  "$type": "SolastaCommunityExpansion.Level20.Features.PrimalChampion, SolastaCommunityExpansion",
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PrimalChampionTitle",
+    "description": "Feature/&PrimalChampionDescription",
+    "spriteReference": null,
+    "color": {
+      "$id": "2",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "118a5ea1-8a19-4bee-9db1-7a2464c8e7b5",
+  "contentPack": "BaseGame",
+  "name": "ZSPrimalChampion"
+}

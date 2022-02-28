@@ -1,0 +1,35 @@
+{
+  "$type": "ReactionDefinition, Assembly-CSharp",
+  "reactTitle": "Reaction/&SharedPainReactTitle",
+  "reactDescription": "Reaction/&SharedPainReactDescription",
+  "validationDismissesSimilarReactions": false,
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Reaction/&SharedPainTitle",
+    "description": "Reaction/&SharedPainDescription",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "caaf9b35313b03b4aa3d5c20664391ed",
+  "contentPack": "BaseGame",
+  "name": "SharedPain"
+}

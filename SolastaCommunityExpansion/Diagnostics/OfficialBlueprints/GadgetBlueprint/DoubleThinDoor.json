@@ -1,0 +1,177 @@
+{
+  "$type": "GadgetBlueprint, Assembly-CSharp",
+  "parameters": [
+    {
+      "$id": "1",
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "Param_Locked",
+      "type": "GenericBool",
+      "conditionalDisplay": false,
+      "conditionalParameter": "Param_HardLocked",
+      "conditionalMatch": false,
+      "intDefaultValue": 0,
+      "intMinValue": 0,
+      "intMaxValue": 0,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$id": "2",
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "Param_HardLocked",
+      "type": "GenericBool",
+      "conditionalDisplay": true,
+      "conditionalParameter": "Param_Locked",
+      "conditionalMatch": true,
+      "intDefaultValue": 10,
+      "intMinValue": 1,
+      "intMaxValue": 30,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$id": "3",
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "Unlock_DC",
+      "type": "DifficultyClass",
+      "conditionalDisplay": true,
+      "conditionalParameter": "Param_HardLocked",
+      "conditionalMatch": false,
+      "intDefaultValue": 10,
+      "intMinValue": 1,
+      "intMaxValue": 30,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$id": "4",
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "KeyItem",
+      "type": "Item",
+      "conditionalDisplay": true,
+      "conditionalParameter": "Param_Locked",
+      "conditionalMatch": true,
+      "intDefaultValue": 10,
+      "intMinValue": 1,
+      "intMaxValue": 30,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$id": "5",
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "Param_DefaultAsOpened",
+      "type": "GenericBool",
+      "conditionalDisplay": false,
+      "conditionalParameter": "Param_Locked",
+      "conditionalMatch": true,
+      "intDefaultValue": 10,
+      "intMinValue": 1,
+      "intMaxValue": 30,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
+    }
+  ],
+  "interactionNodes": [
+    {
+      "$id": "6",
+      "$type": "InteractionNodeDescription, Assembly-CSharp",
+      "position": {
+        "$id": "7",
+        "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+        "x": -0.5000001,
+        "y": -0.99999994
+      },
+      "orientation": "North"
+    },
+    {
+      "$id": "8",
+      "$type": "InteractionNodeDescription, Assembly-CSharp",
+      "position": {
+        "$id": "9",
+        "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+        "x": 0.5000003,
+        "y": 1.00000024
+      },
+      "orientation": "South"
+    }
+  ],
+  "canBeActivated": true,
+  "customizableDimensions": false,
+  "minCustomizableDimensions": {
+    "$id": "10",
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "maxCustomizableDimensions": {
+    "$id": "11",
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "campaignOnly": false,
+  "groundPlacement": true,
+  "groundLowPlacement": false,
+  "groundHighPlacement": false,
+  "wallPlacement": false,
+  "openingPlacement": true,
+  "openingLowPlacement": false,
+  "openingHighPlacement": false,
+  "propPlacement": false,
+  "lightSources": [],
+  "category": "Openings",
+  "dimensions": {
+    "$id": "12",
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "prefabsByEnvironment": [
+    {
+      "$id": "13",
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "WoodLand",
+      "prefabReference": {
+        "$id": "14",
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "811b0a96aa122524d9b6dbcbd8215c9c",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    }
+  ],
+  "guiPresentation": {
+    "$id": "15",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Prop/&DoubleThinDoorTitle",
+    "description": "Prop/&DoubleThinDoorDescription",
+    "spriteReference": {
+      "$id": "16",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f58974c77564f3149971228c3847b75e",
+      "m_SubObjectName": "DoubleDoor",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "17",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "fb16e1b6e035454499d9047d56f10550",
+  "contentPack": "BaseGame",
+  "name": "DoubleThinDoor"
+}

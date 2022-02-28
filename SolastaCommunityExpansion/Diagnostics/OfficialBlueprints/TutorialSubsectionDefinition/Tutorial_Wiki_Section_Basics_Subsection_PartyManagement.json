@@ -1,0 +1,38 @@
+{
+  "$type": "TutorialSubsectionDefinition, Assembly-CSharp",
+  "tutorialSteps": [
+    "Definition:Tutorial_T1_Selection:18194f5dea6302e47bfeef24cb6bc329",
+    "Definition:Tutorial_T1_TAB:7655ca629b9f65841a8349bedc6160e4",
+    "Definition:Tutorial_Generic_LevelUp:ea554467eaca0dd44a84b3aa4797aac7",
+    "Definition:Tutorial_T1_Interacting:8770364b4879f7a40bd7b9df2fbc712c"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "TutorialSubsection/&Basics_PartyMngtTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "16224e073b83ad7488af092fbc11a0cd",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_Wiki_Section_Basics_Subsection_PartyManagement"
+}
