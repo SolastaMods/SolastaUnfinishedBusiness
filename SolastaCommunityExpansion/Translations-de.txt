@@ -1,0 +1,1200 @@
+ActionAffinity/&DHFeeblemindSpellDescription	Kann keine Zauber wirken
+ActionAffinity/&DHFeeblemindSpellTitle	Schwache Zauberei
+AttributeModifier/&DHFeeblemindChaSpellDescription	Charismawert ist gleich 1
+AttributeModifier/&DHFeeblemindChaSpellTitle	Schwaches Charisma
+AttributeModifier/&DHFeeblemindIntSpellDescription	Intelligenzwert ist gleich 1
+AttributeModifier/&DHFeeblemindIntSpellTitle	Schwache Intelligenz
+BlindingWeaponStrike	Blendende Waffe
+BlueprintCategory/&FlatRoomsTitle	Flache Zimmer
+Caption/&GadgetParametersCustomRemoveDescription	Entfernen:\n{0}
+Class/&TinkererDescription	Tüftler sind Erfinder, Alchemisten und mehr. Sie überbrücken den Raum zwischen Magie und Technologie
+Class/&TinkererTitle	Tüftler
+Class/&WitchArmorProficiencyDescription	Leichte Rüstung
+Class/&WitchArmorProficiencyTitle	Hexenrüstungskenntnisse
+Class/&WitchCacklePowerDescription	Sie können Ihre Bonusaktion zum Gackern verwenden. Die Dauer deines Fluchs verlängert sich um 1 Runde für jede betroffene Kreatur innerhalb von 60 Fuß von dir.\nNicht alle Hexen lachen wahnsinnig, wenn sie gackern, aber jedes Gackern erfordert eine verbale Komponente als Zauber. Diese reichen von weltlichen Flüchen und Beleidigungen bis hin zum Murmeln toter Sprachen und Rückwärtssprechen.
+Class/&WitchCacklePowerTitle	Gackern
+Class/&WitchDescription	Von einem finsteren Fluch heimgesucht, können Hexen dunkle Magie in Verwünschungen verwandeln, die sie verwenden, um Feinde zu schwächen. Sie werden auch von ihren Vertrauten begleitet, treuen magischen Gefährten, mit denen sie den Todesstoß versetzen.
+Class/&WitchFamiliarPowerDescription	Du lernst den Witch Familiar-Zauber, also einen verbesserten Find Familiar-Zauber, und kannst ihn als Ritual ohne materielle Komponenten wirken. Der Zauber zählt nicht zu deiner Anzahl bekannter Zauber. Der Zauber verbessert Find Familiar auf folgende Weise:\n• Dein Vertrauter ist in jeder Runde unmittelbar vor oder nach deinem Zug an der Reihe (deine Wahl).\n• Einmal pro Zug als Aktion oder Bonusaktion kannst du deinem Vertrauten im Geiste befehlen, seine Reaktion zu nutzen, um einen Angriff auszuführen.\n• Wenn du einen Zauber wirkst, kannst du ihn durch deinen Vertrauten übermitteln, als ob er den Zauber gewirkt hätte, selbst wenn der Zauber keine Reichweite hat.\n• Ihr Vertrauter kann Ihren Zauberangriffsbonus für seine Angriffswürfe verwenden.\n• Ihr Vertrauter addiert Ihren Fertigkeitsbonus zu seiner Rüstungsklasse, Rettungswürfen und Schadenswürfen.\n• Du addierst das Doppelte deiner Hexenstufe zu den maximalen Trefferpunkten deines Vertrauten.
+Class/&WitchFamiliarPowerTitle	Vertraut
+Class/&WitchFeatureSetBurnedCurseDescription	Fast dein ganzer Körper wurde von arkanen Flammen versengt und hinterlässt auffällige schwarze Narben und magische Glut, die unter der Haut brennen. Infolgedessen haben Sie Widerstand gegen Feuerschaden und kennen die Cantrip-Produce-Flamme, die nicht zu Ihrer Gesamtzahl bekannter Cantrips zählt.
+Class/&WitchFeatureSetBurnedCurseTitle	Verbrannt
+Class/&WitchFeatureSetLovelessCurseDescription	Du bist verflucht, niemals die wahre Liebe zu finden. Erschöpft und desillusioniert, nicht einmal Magie kann dein Herz wenden; Infolgedessen sind Sie immun gegen Bezauberung.
+Class/&WitchFeatureSetLovelessCurseTitle	Lieblos
+Class/&WitchFeatureSetMaledictionsDescription	Sie können eine Reihe von mächtigen Beschwörungen erlernen, die als Maledictions bekannt sind und von derselben heimtückischen Magie stammen, die Sie verflucht hat.
+Class/&WitchFeatureSetMaledictionsTitle	Verwünschungen
+Class/&WitchFeatureSetRitualCastingDescription	Du kannst jeden Hexenzauber, den du kennst, als Ritual wirken, wenn dieser Zauber das Ritual-Tag hat.
+Class/&WitchFeatureSetRitualCastingTitle	Hexenritual-Casting
+Class/&WitchFeatureSetVisionsCurseDescription	Du bist verflucht, schreckliche Zukunftsvisionen zu haben, die den Tod deiner Freunde, deiner Familie und dir selbst vorhersagen. Obwohl viele dieser Visionen grausame Täuschungen sind, sind sie manchmal grimmig genau. Du kannst deinen Charisma-Modifikator zusätzlich zu deinem Geschicklichkeits-Modifikator zu deinen Initiativewürfen hinzufügen.
+Class/&WitchFeatureSetVisionsCurseTitle	Visionen
+Class/&WitchFeatureSetWitchCurseDescription	Sie werden von einem schrecklichen Fluch heimgesucht, der Ihren Körper und Ihre Seele infiziert.
+Class/&WitchFeatureSetWitchCurseTitle	Hexenfluch
+Class/&WitchMaledictionAbateDescription	Wähle als Aktion eine Kreatur, die du innerhalb von 60 Fuß von dir sehen kannst, um einen Charisma-Rettungswurf zu machen. Bei einem fehlgeschlagenen Rettungswurf kann die Kreatur bis zum Ende deines nächsten Zuges keine Reaktionen annehmen.
+Class/&WitchMaledictionAbateTitle	Beseitigen Sie die Verwünschung
+Class/&WitchMaledictionApathyDescription	Wähle als Aktion eine Kreatur, die du innerhalb von 60 Fuß von dir sehen kannst, um einen Charisma-Rettungswurf zu machen. Bei einem misslungenen Rettungswurf wird die Kreatur bis zum Ende deines nächsten Zuges einer Kreatur deiner Wahl gegenüber, der sie feindlich gesinnt ist, gleichgültig. Diese Gleichgültigkeit endet, wenn das Ziel durch einen Zauber der Kreatur, der es gleichgültig ist, angegriffen oder verletzt wird.
+Class/&WitchMaledictionApathyTitle	Apathie Verwünschung
+Class/&WitchMaledictionCharmDescription	Wähle als Aktion eine Kreatur, die du innerhalb von 60 Fuß sehen kannst, um einen Weisheitswurf zu machen. Bei einem fehlgeschlagenen Rettungswurf wird die Kreatur bis zum Ende deines nächsten Zuges von dir verzaubert.
+Class/&WitchMaledictionCharmTitle	Zauberspruch
+Class/&WitchMaledictionDisorientDescription	Wähle als Aktion eine Kreatur, die du innerhalb von 60 Fuß sehen kannst, um einen Konstitutionsrettungswurf zu machen. Bei einem fehlgeschlagenen Rettungswurf muss dieses Ziel jedes Mal, wenn es vor dem Ende deines nächsten Zuges einen Angriffswurf macht, einen W6 würfeln und die gewürfelte Zahl vom Angriffswurf abziehen.
+Class/&WitchMaledictionDisorientTitle	Verwirrung der Verwünschung
+Class/&WitchMaledictionEvilEyeDescription	Wähle als Aktion eine Kreatur, die du sehen kannst und die dich innerhalb von 18 m sehen kann, um einen Weisheitswurf zu machen. Bei einem fehlgeschlagenen Rettungswurf hat die Kreatur bis zum Ende deines nächsten Zuges Angst vor dir.
+Class/&WitchMaledictionEvilEyeTitle	Verwünschung des bösen Blicks
+Class/&WitchMaledictionObfuscateDescription	Als Aktion erzeugst du eine Nebelkugel mit einem Radius von 20 Fuß, die auf dich selbst zentriert ist. Die Kugel breitet sich um Ecken herum aus und ihr Bereich ist stark verdeckt. Dieser Effekt hält bis zum Ende deines nächsten Zuges an oder bis ein Wind mit mittlerer oder höherer Geschwindigkeit (mindestens 10 Meilen pro Stunde) ihn zerstreut.
+Class/&WitchMaledictionObfuscateTitle	Fluch verschleiern
+Class/&WitchMaledictionPoxDescription	Wähle als Aktion eine Kreatur, die du innerhalb von 1,50 m sehen kannst, um einen Konstitutionsrettungswurf zu machen. Bei einem fehlgeschlagenen Rettungswurf ist die Kreatur bis zum Ende deines nächsten Zuges vergiftet.
+Class/&WitchMaledictionPoxTitle	Pocken-Verwünschung
+Class/&WitchMaledictionRuinDescription	Wähle als Aktion eine Kreatur, die du innerhalb von 60 Fuß sehen kannst, um einen Konstitutionsrettungswurf zu machen. Bei einem fehlgeschlagenen Rettungswurf sinkt die Rüstungsklasse der Kreatur bis zum Ende deines nächsten Zuges um 3 auf ein Minimum von 10.
+Class/&WitchMaledictionRuinTitle	Ruin Verwünschung
+Class/&WitchSavingthrowProficiencyDescription	Weisheit, Charisma
+Class/&WitchSavingthrowProficiencyTitle	Hexenwurffähigkeiten
+Class/&WitchSkillProficiencyDescription	Wählen Sie zwei aus Arcana, Täuschung, Einsicht, Einschüchterung, Überzeugung, Natur und Religion
+Class/&WitchSkillProficiencyTitle	Hexenfähigkeiten
+Class/&WitchSpellcastingDescription	Kann Zauber aus der Hexenzauberliste wirken.
+Class/&WitchSpellcastingTitle	Hexenzauber
+Class/&WitchTitle	Hexe
+Class/&WitchToolProficiencyDescription	Wähle eines aus dem Kräuterkundler-Kit und dem Poisoner-Kit
+Class/&WitchToolProficiencyTitle	Hexenwerkzeugkenntnisse
+Class/&WitchWeaponProficiencyDescription	Einfache Waffen
+Class/&WitchWeaponProficiencyTitle	Hexenwaffenfähigkeiten
+Condition/&ConditionBarkWardDescription	Beschützt von den Geistern des Waldes.
+Condition/&ConditionBarkWardTitle	Rinde Ward
+Condition/&ConditionDualFlurryApplyDescription	Du baust Schwung auf...
+Condition/&ConditionDualFlurryApplyTitle	Doppelte Flut!
+Condition/&ConditionDualFlurryGrantDescription	Deine Feinde taumeln!
+Condition/&ConditionDualFlurryGrantTitle	Doppelte Flut!
+Condition/&ConditionImprovedBarkWardDescription	Die Geister des Waldes fügen Nahkampfangreifern 2W8 Stichschaden zu.
+Condition/&ConditionImprovedBarkWardTitle	Verbesserter Bark Ward
+Condition/&ConditionMarkedByArcanistDescription	Vom Zeichen des Arkanisten betroffen.
+Condition/&ConditionMarkedByArcanistTitle	Zeichen des Arkanisten
+Condition/&ConditionSuperiorBarkWardDescription	Die Geister des Waldes gewähren dir Giftimmunität und fügen Nahkampfangreifern 3W8 Stichschaden zu.
+Condition/&ConditionSuperiorBarkWardTitle	Superior Bark Ward
+Condition/&DHFeeblemindSpellDescription	Die Intelligenz- und Charismawerte der Kreatur werden zu 1. Die Kreatur kann keine Zauber wirken, magische Gegenstände aktivieren, Sprache verstehen oder auf irgendeine verständliche Weise kommunizieren
+Condition/&DHFeeblemindSpellTitle	Schwachsinn
+Condition/&DHForesightSpellDescription	Vorteil bei Angriffswürfen, Attributswürfen und Rettungswürfen. Außerdem haben andere Kreaturen einen Nachteil bei Angriffswürfen
+Condition/&DHForesightSpellTitle	Voraussicht
+Condition/&DHHolyAuraSpellDescription	Du wirkst diesen Zauber, der in einem Radius von 1,50 m schwaches Licht ausstrahlt und bei allen Rettungswürfen im Vorteil ist, während andere Kreaturen bei Angriffswürfen gegen sie im Nachteil sind, bis der Zauber endet. Wenn ein Unterweltler oder ein Untoter eine betroffene Kreatur mit einem Nahkampfangriff trifft, blitzt die Aura außerdem in strahlendem Licht auf. Dem Angreifer muss ein Konstitutionsrettungswurf gelingen oder er wird geblendet, bis der Zauber endet.
+Condition/&DHHolyAuraSpellTitle	Geschützt durch Heilige Aura
+Condition/&DHMindBlankSpellDescription	Immun gegen psychischen Schaden und den verzauberten Zustand
+Condition/&DHMindBlankSpellTitle	Verstand leer
+Condition/&DHReverseGravitySpellDescription	kann sich nicht bewegen
+Condition/&DHReverseGravitySpellTitle	Eingefangen von der umgekehrten Schwerkraft
+Condition/&DHTimeStopSpellDescription	Eingefroren durch Zeitstopp
+Condition/&DHTimeStopSpellTitle	Eingefroren durch Zeitstopp
+Condition/&DHWeirdSpellDescription	Die Illusion ruft die tiefsten Ängste der Kreatur hervor und manifestiert ihre schlimmsten Alpträume als unerbittliche Bedrohung. Am Ende jedes Zuges der verängstigten Kreatur muss ihr ein Weisheitsrettungswurf gelingen oder sie erleidet 4W10 psychischen Schaden. Bei einem erfolgreichen Rettungswurf endet der Zauber für diese Kreatur.
+Condition/&DHWeirdSpellTitle	Seltsam
+Condition/&DisorientDescription	Die Genauigkeit dieser Kreatur ist verringert.
+Condition/&DisorientTitle	Desorientiert
+Condition/&Frenzied	Diese Kreatur ist rasend und greift die nächste Kreatur an.
+Condition/&FrenziedTitle	Wahnsinnig
+Condition/&HelpActionDescription	Diese Kreatur wurde abgelenkt.
+Condition/&HelpActionTitle	Abgelenkt
+Condition/&RuinedDescription	Die Verteidigung dieser Kreatur ist reduziert.
+Condition/&RuinedTitle	Ruiniert
+CraftyFeats/&ApothecaryIntFeatDescription	+1 Intelligenz, Kompetenz oder Expertise mit Herbalism Kit und Arcana
+CraftyFeats/&ApothecaryIntFeatTitle	Apotheker (Geheimdienst)
+CraftyFeats/&ApothecaryWisFeatDescription	+1 Weisheit, Kompetenz oder Expertise mit Kräuterkunde-Kit und Medizin
+CraftyFeats/&ApothecaryWisFeatTitle	Apotheker (Weisheit)
+CraftyFeats/&AttributeDexDescription	+1 Geschicklichkeit
+CraftyFeats/&AttributeDexTitle	Geschicklichkeit
+CraftyFeats/&AttributeIntDescription	+1 Intelligenz
+CraftyFeats/&AttributeIntTitle	Intelligenz
+CraftyFeats/&AttributeWisDescription	+1 Weisheit
+CraftyFeats/&AttributeWisTitle	Weisheit
+CraftyFeats/&CraftyArcanaDescription	Arcana-Kenntnisse oder -Expertise
+CraftyFeats/&CraftyBowsDescription	Beherrschung aller Bögen und Armbrüste
+CraftyFeats/&CraftyBowsTitle	Beherrschung des Bogens
+CraftyFeats/&CraftyFletcherFeatDescription	+1 Geschicklichkeit, Beherrschung oder Erfahrung mit Schmieds Werkzeugen, Beherrschung mit Bögen und Armbrüsten
+CraftyFeats/&CraftyFletcherFeatTitle	Fletcher
+CraftyFeats/&CraftyHerbalismKitDescription	Kenntnisse oder Fachkenntnisse im Kräuterkunde-Kit
+CraftyFeats/&CraftyMedicineDescription	Medizinische Kenntnisse oder Fachkenntnisse
+CraftyFeats/&CraftyNatureDescription	Naturkenntnisse oder Fachwissen
+CraftyFeats/&CraftyScribeFeatDescription	+1 Intelligenz, Kompetenz oder Expertise mit Scroll Kit und Arcana, erfordert die Fähigkeit, Zauber zu wirken
+CraftyFeats/&CraftyScribeFeatTitle	Schreiber
+CraftyFeats/&CraftySkillsTitle	Fähigkeiten
+CraftyFeats/&CraftyToolsTitle	Werkzeuge
+CraftyFeats/&ManacalonCrafterFeatDescription	+1 Intelligenz, Kompetenz oder Expertise im Umgang mit Manacalon-Rosenkranz und Arcana, erfordert die Fähigkeit, Zauber zu wirken
+CraftyFeats/&ManacalonCrafterFeatTitle	Handwerker von Manacalon
+CraftyFeats/&ToxicologistIntFeatDescription	+1 Intelligenz, Beherrschung oder Expertise im Umgang mit Poisoner's Kit und Nature
+CraftyFeats/&ToxicologistIntFeatTitle	Toxikologe (Geheimdienst)
+CraftyFeats/&ToxicologistWisFeatDescription	+1 Weisheit, Kompetenz oder Expertise im Umgang mit Giftausrüstung und Medizin
+CraftyFeats/&ToxicologistWisFeatTitle	Toxikologe (Weisheit)
+DamageAffinity/&DHHolyAuraSpellDescription	Wenn ein Teufel oder ein Untoter eine betroffene Kreatur mit einem Nahkampfangriff trifft, blitzt die Aura in strahlendem Licht auf. Dem Angreifer muss ein Konstitutionsrettungswurf gelingen oder er wird geblendet, bis der Zauber endet
+DamageAffinity/&DHHolyAuraSpellTitle	Vergeltung der Heiligen Aura
+Equipment/&ArcaneStaffDescription	Dieser Stab ist mit magischer Schrift beschriftet und kann als Fokus für das Wirken arkaner Zauber verwendet werden.
+Equipment/&ArcaneStaffTitle	Arkaner Stab
+Equipment/&DruidicAmuletDescription	Dieses totemistische Amulett kann als Fokus für druidische Zaubersprüche verwendet werden.
+Equipment/&DruidicAmuletTitle	Druidisches Amulett
+Equipment/&Enchanted_Club_Acuteness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Equipment/&Enchanted_Club_Acuteness_Title	Club der Schärfe
+Equipment/&Enchanted_Club_Bearclaw_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Die scharfen Stacheln der Bärenkralle zerfetzen die Rüstung, um zusätzlichen Schaden zuzufügen – genau wie von Ildurial Stronghand erwartet, der die erste Waffe dieser Art entwickelt hat.
+Equipment/&Enchanted_Club_Bearclaw_Title	Club der Bärenklauen
+Equipment/&Enchanted_Club_Lightbringer_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen von Colthannins Schmiedemeistern geschmiedet. Es wurde von Elgador Keenspirit, Magesmith des Arcaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
+Equipment/&Enchanted_Club_Lightbringer_Title	Club der Lichtbringer
+Equipment/&Enchanted_Club_Power_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Einige Kreaturen respektieren nur körperliche Stärken. Manacalon-Arkaner haben diese Keule geschaffen, um Champions der Iron Legions die Kraft zu geben, die ihre Elfenkörper nicht bieten.
+Equipment/&Enchanted_Club_Power_Title	Club der Macht
+Equipment/&Enchanted_Club_Punisher_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Die Kombination aus bestem Metall und Sklavenstein verlieh dieser Axt eine unglaubliche Durchschlagskraft.
+Equipment/&Enchanted_Club_Punisher_Title	Punisher-Club
+Equipment/&Enchanted_Dart_Acuteness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Equipment/&Enchanted_Dart_Acuteness_Title	Pfeil der Schärfe
+Equipment/&Enchanted_Dart_Frostburn_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Es wurde von Keliandir Moltenheart entworfen, der diese Waffe geschmiedet hat, um Salamander zu bekämpfen, nachdem eine Erkundung der Elementarebenen schief gelaufen war.
+Equipment/&Enchanted_Dart_Frostburn_Title	Frostbrandpfeil
+Equipment/&Enchanted_Dart_Sharpness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Equipment/&Enchanted_Dart_Sharpness_Title	Pfeil der Schärfe
+Equipment/&Enchanted_Dart_Souldrinker_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Diese Waffe ist ein Favorit der Silent Whisper-Agenten und wurde von Cylordir Redblade entworfen.
+Equipment/&Enchanted_Dart_Souldrinker_Title	Seelentrinker Dart
+Equipment/&Enchanted_Handaxe_Acuteness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Equipment/&Enchanted_Handaxe_Acuteness_Title	Faustkeil der Schärfe
+Equipment/&Enchanted_Handaxe_Frostburn_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Es wurde von Keliandir Moltenheart entworfen, der diese Waffe geschmiedet hat, um Salamander zu bekämpfen, nachdem eine Erkundung der Elementarebenen schief gelaufen war.
+Equipment/&Enchanted_Handaxe_Frostburn_Title	Frostbrand-Handaxt
+Equipment/&Enchanted_Handaxe_Sharpness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Equipment/&Enchanted_Handaxe_Sharpness_Title	Faustkeil der Schärfe
+Equipment/&Enchanted_Handaxe_Souldrinker_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Diese Waffe ist ein Favorit der Silent Whisper-Agenten und wurde von Cylordir Redblade entworfen.
+Equipment/&Enchanted_Handaxe_Souldrinker_Title	Seelentrinker-Handaxt
+Equipment/&Enchanted_HeavyCrossbow_Accuracy_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Sein ursprüngliches Design trug das Siegel von Defineth Sharpsight, einem bekannten Zauberer der Waldelfen.
+Equipment/&Enchanted_HeavyCrossbow_Accuracy_Title	Schwere Armbrust der Genauigkeit
+Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Es wurde von Elgador Keenspirit, Magesmith des Arcaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
+Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Title	Schwere Armbrust des Lichtbringers
+Equipment/&Enchanted_HeavyCrossbow_Medusa_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Magie verschmolz Medusenkoralle und Hartholz zu einem tödlichen Bogen, der von den Enterkommandos der Inselhalblinge bevorzugt wurde.
+Equipment/&Enchanted_HeavyCrossbow_Medusa_Title	Medusa Schwere Armbrust
+Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Der Coedymwarth zog es vor, mit Manacalons Arkanisten eher physisch als magisch umzugehen. Seine besten Bogenschützen erhielten Armbrüste, die Schöpfung von Defineth Sharpsight.
+Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Title	Schwere Armbrust des Scharfschießens
+Equipment/&Enchanted_HeavyCrossbow_Stormbow_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Es wurde von Galar Stromforge entworfen, dem ersten Zwergenschmied, der die Macht des Sturms in einer Waffe nutzte – mit verheerender Wirkung!
+Equipment/&Enchanted_HeavyCrossbow_Stormbow_Title	Schwere Sturmarmbrust
+Equipment/&Enchanted_HideArmor_Deflection_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_HideArmor_Deflection_Title	Rüstung der Ablenkung verstecken
+Equipment/&Enchanted_HideArmor_FlameDancing_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_HideArmor_FlameDancing_Title	Rüstung des Flammentanzes verstecken
+Equipment/&Enchanted_HideArmor_FrostWalking_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_HideArmor_FrostWalking_Title	Hide Armor of Frost Walking
+Equipment/&Enchanted_HideArmor_Robustness_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_HideArmor_Robustness_Title	Rüstung der Robustheit verstecken
+Equipment/&Enchanted_HideArmor_Sturdiness_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_HideArmor_Sturdiness_Title	Hide Rüstung der Robustheit
+Equipment/&Enchanted_HideArmor_Survival_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_HideArmor_Survival_Title	Rüstung des Überlebens verstecken
+Equipment/&Enchanted_Javelin_Acuteness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Equipment/&Enchanted_Javelin_Acuteness_Title	Speer der Schärfe
+Equipment/&Enchanted_Javelin_Frostburn_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Es wurde von Keliandir Moltenheart entworfen, der diese Waffe geschmiedet hat, um Salamander zu bekämpfen, nachdem eine Erkundung der Elementarebenen schief gelaufen war.
+Equipment/&Enchanted_Javelin_Frostburn_Title	Frostbrand-Speer
+Equipment/&Enchanted_Javelin_Sharpness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Equipment/&Enchanted_Javelin_Sharpness_Title	Speer der Schärfe
+Equipment/&Enchanted_Javelin_Souldrinker_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Diese Waffe ist ein Favorit der Silent Whisper-Agenten und wurde von Cylordir Redblade entworfen.
+Equipment/&Enchanted_Javelin_Souldrinker_Title	Seelentrinker-Speer
+Equipment/&Enchanted_LightCrossbow_Accuracy_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Sein ursprüngliches Design trug das Siegel von Defineth Sharpsight, einem bekannten Zauberer der Waldelfen.
+Equipment/&Enchanted_LightCrossbow_Accuracy_Title	Leichte Armbrust der Genauigkeit
+Equipment/&Enchanted_LightCrossbow_Lightbringer_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Es wurde von Elgador Keenspirit, Magesmith des Arcaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
+Equipment/&Enchanted_LightCrossbow_Lightbringer_Title	Lightbringer Leichte Armbrust
+Equipment/&Enchanted_LightCrossbow_Medusa_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Magie verschmolz Medusenkoralle und Hartholz zu einem tödlichen Bogen, der von den Enterkommandos der Inselhalblinge bevorzugt wurde.
+Equipment/&Enchanted_LightCrossbow_Medusa_Title	Medusa Leichte Armbrust
+Equipment/&Enchanted_LightCrossbow_Sharpshooting_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Der Coedymwarth zog es vor, mit Manacalons Arkanisten eher physisch als magisch umzugehen. Seine besten Bogenschützen erhielten Armbrüste, die Schöpfung von Defineth Sharpsight.
+Equipment/&Enchanted_LightCrossbow_Sharpshooting_Title	Leichte Armbrust des Scharfschießens
+Equipment/&Enchanted_LightCrossbow_Stormbow_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Es wurde von Galar Stromforge entworfen, dem ersten Zwergenschmied, der die Macht des Sturms in einer Waffe nutzte – mit verheerender Wirkung!
+Equipment/&Enchanted_LightCrossbow_Stormbow_Title	Leichte Sturmarmbrust
+Equipment/&Enchanted_Maul_Acuteness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Equipment/&Enchanted_Maul_Acuteness_Title	Maul der Schärfe
+Equipment/&Enchanted_Maul_Bearclaw_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Die scharfen Stacheln der Bärenkralle zerfetzen die Rüstung, um zusätzlichen Schaden zuzufügen – genau wie von Ildurial Stronghand erwartet, der die erste Waffe dieser Art entwickelt hat.
+Equipment/&Enchanted_Maul_Bearclaw_Title	Bärenklauenmaul
+Equipment/&Enchanted_Maul_Lightbringer_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen von Colthannins Schmiedemeistern geschmiedet. Es wurde von Elgador Keenspirit, Magesmith des Arcaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
+Equipment/&Enchanted_Maul_Lightbringer_Title	Lichtbringer Maul
+Equipment/&Enchanted_Maul_Power_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Einige Kreaturen respektieren nur körperliche Stärken. Arkanisten aus Manacalon haben diesen Maul erschaffen, um Champions der Iron Legions die Kraft zu geben, die ihre Elfenkörper nicht bieten.
+Equipment/&Enchanted_Maul_Power_Title	Maul der Macht
+Equipment/&Enchanted_Maul_Punisher_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Die Kombination aus bestem Metall und Sklavenstein verlieh dieser Axt eine unglaubliche Durchschlagskraft.
+Equipment/&Enchanted_Maul_Punisher_Title	Bestrafer Maul
+Equipment/&Enchanted_Quarterstaff_Acuteness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Equipment/&Enchanted_Quarterstaff_Acuteness_Title	Quartierstab der Schärfe
+Equipment/&Enchanted_Quarterstaff_Dragonblade_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Es wurde von Lestoreth Steelarm entworfen, um im gefrorenen Norden des Imperiums zu kämpfen.
+Equipment/&Enchanted_Quarterstaff_Dragonblade_Title	Kampfstab der Drachenklinge
+Equipment/&Enchanted_Quarterstaff_Frostburn_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Es wurde von Keliandir Moltenheart entworfen, der diese Waffe geschmiedet hat, um Salamander zu bekämpfen, nachdem eine Erkundung der Elementarebenen schief gelaufen war.
+Equipment/&Enchanted_Quarterstaff_Frostburn_Title	Frostbrand-Quarterstab
+Equipment/&Enchanted_Quarterstaff_Lightbringer_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen von Colthannins Schmiedemeistern geschmiedet. Es wurde von Elgador Keenspirit, Magesmith des Arcaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
+Equipment/&Enchanted_Quarterstaff_Lightbringer_Title	Stab des Lichtbringers
+Equipment/&Enchanted_Quarterstaff_Souldrinker_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Diese Waffe ist ein Favorit der Silent Whisper-Agenten und wurde von Cylordir Redblade entworfen.
+Equipment/&Enchanted_Quarterstaff_Souldrinker_Title	Seelentrinker-Viertelstab
+Equipment/&Enchanted_Quarterstaff_Stormblade_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Es wurde von Galar Stromforge entworfen, dem ersten Zwergenschmied, der die Macht des Sturms in einer Waffe nutzte – mit verheerender Wirkung!
+Equipment/&Enchanted_Quarterstaff_Stormblade_Title	Sturmklingen-Quarterstab
+Equipment/&Enchanted_Quarterstaff_Warden_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Es wurde von Ildurial Strongarm entworfen, einem berühmten Klingenschmied aus Manacalon. Die erste derartige Klinge, die Manacalon Warden, wurde dem Kommandanten der Euraidd angeboten.
+Equipment/&Enchanted_Quarterstaff_Warden_Title	Warden Quarterstaff
+Equipment/&Enchanted_Quarterstaff_Whiteburn_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Whiteburn wurde vom ersten Danantar geschaffen, um eine Trollinvasion zu bekämpfen, die aus den Sümpfen südlich seiner Domäne zwischen den Sioltafin und den Scarafin kam.
+Equipment/&Enchanted_Quarterstaff_Whiteburn_Title	Whiteburn-Quarterstab
+Equipment/&Enchanted_Scimitar_Dragonblade_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Es wurde von Lestoreth Steelarm entworfen, um im gefrorenen Norden des Imperiums zu kämpfen.
+Equipment/&Enchanted_Scimitar_Dragonblade_Title	Scimitar der Drachenklinge
+Equipment/&Enchanted_Scimitar_Frostburn_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Es wurde von Keliandir Moltenheart entworfen, der diese Waffe geschmiedet hat, um Salamander zu bekämpfen, nachdem eine Erkundung der Elementarebenen schief gelaufen war.
+Equipment/&Enchanted_Scimitar_Frostburn_Title	Frostbrandsäbel
+Equipment/&Enchanted_Scimitar_Lightbringer_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen von Colthannins Schmiedemeistern geschmiedet. Es wurde von Elgador Keenspirit, Magesmith des Arcaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
+Equipment/&Enchanted_Scimitar_Lightbringer_Title	Scimitar des Lichtbringers
+Equipment/&Enchanted_Scimitar_Souldrinker_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Diese Waffe ist ein Favorit der Silent Whisper-Agenten und wurde von Cylordir Redblade entworfen.
+Equipment/&Enchanted_Scimitar_Souldrinker_Title	Seelentrinker Scimitar
+Equipment/&Enchanted_Scimitar_Stormblade_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Es wurde von Galar Stromforge entworfen, dem ersten Zwergenschmied, der die Macht des Sturms in einer Waffe nutzte – mit verheerender Wirkung!
+Equipment/&Enchanted_Scimitar_Stormblade_Title	Scimitar der Sturmklinge
+Equipment/&Enchanted_Scimitar_Warden_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Es wurde von Ildurial Strongarm entworfen, einem berühmten Klingenschmied aus Manacalon. Die erste derartige Klinge, die Manacalon Warden, wurde dem Kommandanten der Euraidd angeboten.
+Equipment/&Enchanted_Scimitar_Warden_Title	Wächter Scimitar
+Equipment/&Enchanted_Scimitar_Whiteburn_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Whiteburn wurde vom ersten Danantar geschaffen, um eine Trollinvasion zu bekämpfen, die aus den Sümpfen südlich seiner Domäne zwischen den Sioltafin und den Scarafin kam.
+Equipment/&Enchanted_Scimitar_Whiteburn_Title	Weißbrandsäbel
+Equipment/&Enchanted_Shield_Deflection_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_Shield_Deflection_Title	Schild der Ablenkung
+Equipment/&Enchanted_Shield_FlameDancing_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_Shield_FlameDancing_Title	Schild des Flammentanzens
+Equipment/&Enchanted_Shield_FrostWalking_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_Shield_FrostWalking_Title	Schild des Frostwandelns
+Equipment/&Enchanted_Shield_Robustness_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_Shield_Robustness_Title	Schild der Robustheit
+Equipment/&Enchanted_Shield_Sturdiness_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_Shield_Sturdiness_Title	Schild der Robustheit
+Equipment/&Enchanted_Shield_Survival_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_Shield_Survival_Title	Schild des Überlebens
+Equipment/&Enchanted_Shield_Wooden_Deflection_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_Shield_Wooden_Deflection_Title	Hölzerner Schild der Ablenkung
+Equipment/&Enchanted_Shield_Wooden_FlameDancing_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_Shield_Wooden_FlameDancing_Title	Holzschild des Flammentanzes
+Equipment/&Enchanted_Shield_Wooden_FrostWalking_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_Shield_Wooden_FrostWalking_Title	Hölzerner Schild des Frostwandelns
+Equipment/&Enchanted_Shield_Wooden_Robustness_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_Shield_Wooden_Robustness_Title	Hölzerner Schild der Robustheit
+Equipment/&Enchanted_Shield_Wooden_Sturdiness_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_Shield_Wooden_Sturdiness_Title	Hölzerner Schild der Robustheit
+Equipment/&Enchanted_Shield_Wooden_Survival_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_Shield_Wooden_Survival_Title	Überlebensschild aus Holz
+Equipment/&Enchanted_Spear_Acuteness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Equipment/&Enchanted_Spear_Acuteness_Title	Speer der Schärfe
+Equipment/&Enchanted_Spear_BlackViper_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterschmiede von Manacalon geschmiedet, wobei ein Speer und das Gift einer legendären Spinne aus Solastas Tiefen verwendet wurden. Der Konstrukteur der Klinge war Grigg Blackheart, ein berüchtigter Halblingsschmied aus den Marsh, der in den Schmieden der Aer Elai arbeitete.
+Equipment/&Enchanted_Spear_BlackViper_Title	Schwarzer Viper-Speer
+Equipment/&Enchanted_Spear_Doomblade_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Kenaloth Darkmind erfand die Schicksalsklingen als Werkzeug zur Bestrafung derjenigen, die sich der Magie des Imperiums widersetzten.
+Equipment/&Enchanted_Spear_Doomblade_Title	Speer mit Doom-Spitze
+Equipment/&Enchanted_Spear_Lightbringer_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen von Colthannins Schmiedemeistern geschmiedet. Es wurde von Elgador Keenspirit, Magesmith des Arcaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
+Equipment/&Enchanted_Spear_Lightbringer_Title	Speer des Lichtbringers
+Equipment/&Enchanted_Spear_Sharpness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Equipment/&Enchanted_Spear_Sharpness_Title	Speer der Schärfe
+Equipment/&Enchanted_Spear_Stormblade_Title	Speer der Sturmklinge
+Equipment/&Enchanted_Spear_Whiteburn_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Whiteburn wurde vom ersten Danantar geschaffen, um eine Trollinvasion zu bekämpfen, die aus den Sümpfen südlich seiner Domäne zwischen den Sioltafin und den Scarafin kam.
+Equipment/&Enchanted_Spear_Whiteburn_Title	Whiteburn-Speer
+Equipment/&Enchanted_StuddedLeather_Deflection_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_StuddedLeather_Deflection_Title	Beschlagenes Leder der Ablenkung
+Equipment/&Enchanted_StuddedLeather_FlameDancing_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_StuddedLeather_FlameDancing_Title	Beschlagenes Leder des Flammentanzes
+Equipment/&Enchanted_StuddedLeather_FrostWalking_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_StuddedLeather_FrostWalking_Title	Beschlagenes Leder des Frostwandelns
+Equipment/&Enchanted_StuddedLeather_Robustness_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_StuddedLeather_Robustness_Title	Nietenleder der Robustheit
+Equipment/&Enchanted_StuddedLeather_Sturdiness_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_StuddedLeather_Sturdiness_Title	Nietenleder der Robustheit
+Equipment/&Enchanted_StuddedLeather_Survival_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
+Equipment/&Enchanted_StuddedLeather_Survival_Title	Beschlagenes Leder des Überlebens
+Equipment/&Enchanted_Warhammer_Acuteness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Equipment/&Enchanted_Warhammer_Acuteness_Title	Kriegshammer der Schärfe
+Equipment/&Enchanted_Warhammer_Bearclaw_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Die scharfen Stacheln der Bärenkralle zerfetzen die Rüstung, um zusätzlichen Schaden zuzufügen – genau wie von Ildurial Stronghand erwartet, der die erste Waffe dieser Art entwickelt hat.
+Equipment/&Enchanted_Warhammer_Bearclaw_Title	Bärenklauen-Kriegshammer
+Equipment/&Enchanted_Warhammer_Lightbringer_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen von Colthannins Schmiedemeistern geschmiedet. Es wurde von Elgador Keenspirit, Magesmith des Arcaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
+Equipment/&Enchanted_Warhammer_Lightbringer_Title	Lichtbringer Kriegshammer
+Equipment/&Enchanted_Warhammer_Power_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Einige Kreaturen respektieren nur körperliche Stärken. Arkanisten aus Manacalon erschufen diesen Kriegshammer, um Champions der Iron Legions die Kraft zu geben, die ihre Elfenkörper nicht bieten.
+Equipment/&Enchanted_Warhammer_Power_Title	Kriegshammer der Macht
+Equipment/&Enchanted_Warhammer_Punisher_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Die Kombination aus bestem Metall und Sklavenstein verlieh dieser Axt eine unglaubliche Durchschlagskraft.
+Equipment/&Enchanted_Warhammer_Punisher_Title	Punisher Warhammer
+Equipment/&ImprovedLightningSpearDescription	Kann jetzt mit einem einzigen Angriff Vorteile für Verbündete und Nachteile für Feinde schaffen
+Equipment/&ImprovedLightningSpearTitle	Verbesserter Blitzspeer
+Equipment/&ImprovedThunderPunchDescription	Kann Gegner jetzt mit einer Bonusaktion in Nahkampfreichweite ziehen und 1W8 Donnerschaden zufügen
+Equipment/&ImprovedThunderPunchTitle	Verbesserter Donnerschlag
+Equipment/&LightningSpearDescription	1W6 Blitzschaden mit 1W6 extra einmal pro Zug
+Equipment/&LightningSpearTitle	Blitzspeer
+Equipment/&LivewoodClubDescription	Diese Keule besteht aus lebendigem Holz mit sprießenden Blättern und vielleicht saisonalen Blüten. Es kann als Fokus für druidische Zaubersprüche verwendet werden.
+Equipment/&LivewoodClubTitle	Livewood Club
+Equipment/&LivewoodStaffDescription	Dieser Stab besteht aus lebendigem Holz mit sprießenden Blättern und vielleicht saisonalen Blüten. Es kann als Fokus für druidische Zaubersprüche verwendet werden.
+Equipment/&LivewoodStaffTitle	Livewood-Stab
+Equipment/&ThunderPunchDescription	1W8 Donnerschaden und benachteiligt Angriffswürfe gegen Verbündete
+Equipment/&ThunderPunchTitle	Donner Schlag
+Equipment/&WandIdentifyDescription	Text Wirkt den Zauber Identifizieren, indem eine Ladung verbraucht wird. Der Zauberstab hat 3 Ladungen und gewinnt bei jedem Morgengrauen 1W3 Ladungen zurück.
+Equipment/&WandIdentifyTitle	Textstab von Identifizieren
+Feat/&AddProtectorConstructCantripDescription	Fügt Cantrips zum Ausbessern von Konstrukten und zum Entlassen von Konstrukten hinzu, um die Flexibilität Ihrer Konstrukte zu erhöhen
+Feat/&AddProtectorConstructCantripTitle	Bonus-Konstrukt Cantrips
+Feat/&AlchemistSubclassElixirsDescription	Lerne, experimentelle Elixiere herzustellen: Heilung, Schnelligkeit, Belastbarkeit, Kühnheit, Flucht
+Feat/&AlchemistSubclassElixirsTitle	Experimentelle Elixiere
+Feat/&AlchemistSubclassSpellsDescription	Level 3: Wort heilen, Wunden zufügen, Gift entdecken, Krankheit\nStufe 5: Flammenkugel, Säurepfeil, Schwächungsstrahl\nLevel 9: Massenheilungswort, Vampirische Berührung, Fluch entfernen, Verlangsamen\nStufe 13: Blight, Todesschutz\nLevel 17: Cloud Kill, Tote erwecken
+Feat/&AlchemistSubclassSpellsTitle	Lerne Zaubersprüche für Zaubertränke
+Feat/&ArmorModePoolDescription	Ermöglicht es Ihnen, zwischen Rüstungsmodi zu wechseln
+Feat/&ArmorModePoolTitle	Rüstungsmodus
+Feat/&ArtificerAlchemistAlchemicalSavantDescription	Wenn du heilst, heilst du zusätzlich 1W4 + deine Level-HP
+Feat/&ArtificerAlchemistAlchemicalSavantTitle	Elixier Savant
+Feat/&ArtificerAlchemistBoldnessElixirDescription	Das Ziel kann einen W4 würfeln und die gewürfelte Zahl zu jedem Angriffswurf und Rettungswurf addieren, den es für die nächste Minute macht
+Feat/&ArtificerAlchemistBoldnessElixirTitle	Elixier der Kühnheit
+Feat/&ArtificerAlchemistFlyElixirDescription	Das Ziel kann 10 Minuten lang langsam fliegen
+Feat/&ArtificerAlchemistFlyElixirTitle	Fliegen-Elixier
+Feat/&ArtificerAlchemistHealElixirDescription	Heile das Ziel um 2W4 + Intelligenzmodifikator
+Feat/&ArtificerAlchemistHealElixirTitle	Heilendes Elixier
+Feat/&ArtificerAlchemistResilienceElixirDescription	Erhöht die RK des Ziels um +1 für 10 Minuten
+Feat/&ArtificerAlchemistResilienceElixirTitle	Resilienz-Elixier
+Feat/&ArtificerAlchemistSwiftnessElixirDescription	Erhöht die Bewegungsgeschwindigkeit des Ziels 1 Stunde lang um 10 Fuß
+Feat/&ArtificerAlchemistSwiftnessElixirTitle	Elixier der Schnelligkeit
+Feat/&ArtificerArtilleristArcaneFirearmDescription	Verursacht beim Wirken von Hervorrufungszaubern einmal pro Runde 1W8 zusätzlichen Schaden
+Feat/&ArtificerArtilleristArcaneFirearmTitle	Explosionsverbesserung
+Feat/&ArtificerArtillerstDetonationSpellPreparedDescription	Sie erhalten die Fähigkeit, eines Ihrer Geräte zur Detonation zu bringen, wodurch Personen in der Nähe des Ziels Schaden zufügen
+Feat/&ArtificerArtillerstDetonationSpellPreparedTitle	Detonation des Geräts
+Feat/&ArtificerArtillerstImprovedCannonsDescription	Die Wirkung Ihrer Kanonen erhöht sich. Zusätzlicher Schaden durch das Feuer, ein zusätzliches Ziel durch die Streitmacht und zusätzliche temporäre HP durch den Schild.
+Feat/&ArtificerArtillerstImprovedCannonsTitle	Verbesserte Kanonen
+Feat/&ArtificialServantAttackDescription	Fernkampfangriff 1W6 Machtschaden von deinem treuen Kumpel
+Feat/&ArtificialServantAttackTitle	Kraftschlinge
+Feat/&ArtificialServantDescription	Der Diener ist freundlich zu dir und deinen Gefährten und gehorcht deinen Befehlen
+Feat/&ArtificialServantTitle	Künstlicher Diener
+Feat/&ArtilleristCannonDetonationDescription	Bringen Sie eines Ihrer Geräte zur Explosion und verursachen Sie 3W8 Schaden bei denen, die sich in einem Umkreis von 20 Fuß um den Zielort befinden. Ein Geschicklichkeitswurf erlaubt es den Betroffenen, den halben Schaden zu erleiden.
+Feat/&ArtilleristCannonDetonationTitle	Detonation des Geräts
+Feat/&ArtilleristFlameCannon15Description	Feuer spucken und deinen Feinden als Bonusaktion 6W8 Feuerschaden zufügen
+Feat/&ArtilleristFlameCannon15Title	Flammenwerfer
+Feat/&ArtilleristFlameCannon9Description	Feuer spucken und deinen Feinden als Bonusaktion 3W8 Feuerschaden zufügen
+Feat/&ArtilleristFlameCannon9Title	Flammenwerfer
+Feat/&ArtilleristFlameCannonDescription	Feuer spucken und deinen Feinden als Bonusaktion 2W8 Feuerschaden zufügen
+Feat/&ArtilleristFlameCannonTitle	Flammenwerfer
+Feat/&ArtilleristForceCannon15Description	Verwende einen Machtangriff, der einem Ziel 3W8 Machtschaden zufügt, als Bonusaktion für 2 Ziele.
+Feat/&ArtilleristForceCannon15Title	Kraftkanone
+Feat/&ArtilleristForceCannon9Description	Setze als Bonusaktion einen Machtangriff ein, der einem Ziel 3W8 Machtschaden zufügt
+Feat/&ArtilleristForceCannon9Title	Kraftkanone
+Feat/&ArtilleristForceCannonDescription	Setze als Bonusaktion einen Machtangriff ein, der einem Ziel 2W8 Machtschaden zufügt
+Feat/&ArtilleristForceCannonTitle	Kraftkanone
+Feat/&ArtilleristProtectorCannon15Description	Sende positive Energie als Bonusaktion aus. Verbündete innerhalb von 20 Fuß erhalten 3W8 + deine temporären Trefferpunkte für den Intelligenzmodifikator
+Feat/&ArtilleristProtectorCannon15Title	Arkaner Schild
+Feat/&ArtilleristProtectorCannonDescription	Sende positive Energie als Bonusaktion aus. Verbündete innerhalb von 3 m erhalten 1W8 + deine temporären Trefferpunkte für den Intelligenzmodifikator
+Feat/&ArtilleristProtectorCannonTitle	Arkaner Schild
+Feat/&ArtilleristSubclassSpellsDescription	Stufe 3: Schild, Donnerwelle\nLevel 5: Sengender Strahl, Splitter\nLevel 9: Feuerball, Windwand\nLevel 13: Eissturm, Feuerwand\nLevel 17: Kältekegel, Machtwand
+Feat/&ArtilleristSubclassSpellsTitle	Lerne Blaster-Zauber
+Feat/&ArtilleryConstructDescription	Kann Verbündete beschädigen oder schützen
+Feat/&ArtilleryConstructLevel03AutopreparedSpellsDescription	Cantrips: Ausbesserungskonstrukt, Entlassungskonstrukt\nLevel 1: Artilleriekonstrukt wiederbeschwören
+Feat/&ArtilleryConstructLevel03AutopreparedSpellsTitle	Zauber konstruieren
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	LEER
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	LEER
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	LEER
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle	LEER
+Feat/&ArtilleryConstructTitle	Artillerie-Konstrukt
+Feat/&ArtilleryConstructTitle_3	Artillerie-Konstrukt
+Feat/&ArtilleryConstructTitle_5	Artillerie-Konstrukt
+Feat/&AttackModifierArtificerBattleSmithJolt2Description	Eure Waffenangriffe verursachen 3 zusätzlichen Schaden
+Feat/&AttackModifierArtificerBattleSmithJolt2Title	Verbesserter Waffenangriffsruck
+Feat/&AttackModifierArtificerBattleSmithJoltDescription	Eure Waffenangriffe verursachen 3 zusätzlichen Schaden
+Feat/&AttackModifierArtificerBattleSmithJoltTitle	Waffenangriffsruck
+Feat/&AutoPreparedSpellsDescription	Stufe 3 Magische Rakete, Donnerwelle\nLevel 5 Unschärfe, Zerschmetterung\nLevel 9 Lightning Bolt, Wind Wall, Wall of Fire
+Feat/&AutoPreparedSpellsTitle	Lernen Sie Scout Sentinel-Zauber
+Feat/&BattleSmithSubclassSpellsDescription	Level 3: Schild, Heldentum, Zeichen des Jägers\nLevel 5: Branding Smite, Spirituelle Waffe\nLevel 9: Entferne den Fluch, Leuchtfeuer der Hoffnung\nLevel 13: Feuerschild, Death Ward Level\n17: Massenheilung von Wunden, Mauer der Macht
+Feat/&BattleSmithSubclassSpellsTitle	Waffenschmiede-Zauber lernen
+Feat/&CancelFlyingConditionDescription	Beenden Sie den Flugzustand, um Springen und Kriechen zu ermöglichen.
+Feat/&CancelFlyingConditionTitle	Fliegen abbrechen
+Feat/&ChefConDescription	Du erhältst +1 auf Konstitution. Verbringen Sie 1 Stunde damit, eine Mahlzeit zu kochen, um sich selbst und Ihre Gefährten zu heilen 1W8. Einmal am Tag können Sie eine Stunde damit verbringen, Leckereien zu kochen, die beim Verzehr vorübergehend HP liefern.
+Feat/&ChefConTitle	Chef (Verfassung)
+Feat/&ChefShortRestFeastDescription	Verbringen Sie 1 Stunde damit, eine Mahlzeit zuzubereiten, die Ihnen und Ihren Gefährten hilft 1W8.
+Feat/&ChefShortRestFeastTitle	Kurze Pausenmahlzeit
+Feat/&ChefWisDescription	Du erhältst +1 auf Weisheit. Verbringen Sie 1 Stunde damit, eine Mahlzeit zu kochen, um sich und Ihre Gefährten zu heilen. Einmal am Tag können Sie eine Stunde damit verbringen, Leckereien zu kochen, die beim Verzehr vorübergehend HP liefern.
+Feat/&ChefWisTitle	Koch (Weisheit)
+Feat/&ConstructSelectingPoolDescription	Wählen Sie den Modus für Ihr Konstrukt
+Feat/&ConstructSelectingPoolTitle	Artillerie-Modus
+Feat/&DismissConstructDescription	Beschwöre dein Konstrukt
+Feat/&DismissConstructTitle	Konstrukt verwerfen
+Feat/&DualFlurryDescription	Du bist ein Meister im Kampf mit gepaarten Waffen. In jedem Zug, in dem du zweimal mit Nahkampfangriffen triffst, während du eine Waffe in jeder Hand führst, darfst du einen zusätzlichen Nebenhandangriff ausführen.
+Feat/&DualFlurryTitle	Zweifacher Flurry
+Feat/&ExtraInfusionSlotsDescription	Sie erhalten zusätzliche Infusionsplätze, die für Rüstungen/Waffen verwendet werden sollten
+Feat/&ExtraInfusionSlotsTitle	Zusätzliche Aufgüsse
+Feat/&FeatChaIncrementDescription	+1 Ausstrahlung
+Feat/&FeatChaIncrementTitle	Erhöhung des Charisma-Attributs
+Feat/&FeatChefConIncrementDescription	+1 Verfassung
+Feat/&FeatChefConIncrementTitle	Attributerhöhung
+Feat/&FeatChefWisIncrementDescription	+1 Weisheit
+Feat/&FeatChefWisIncrementTitle	Attributerhöhung
+Feat/&FeatDexIncrementDescription	+1 Geschicklichkeit
+Feat/&FeatDexIncrementTitle	Attributerhöhung
+Feat/&FeatFeyTeleportationChaDescription	Erhöhe das Charisma-Attribut um 1. Erhalte die Fähigkeit zu Misty Step einmal pro kurzer Pause und lerne den Zauber. Erwerben Sie Kenntnisse in Tirmarian.
+Feat/&FeatFeyTeleportationChaTitle	Feen-Teleportation (Charisma)
+Feat/&FeatFeyTeleportationIntDescription	Erhöhe das Intelligenzattribut um 1. Erhalte die Fähigkeit zu Misty Step einmal pro kurzer Pause und lerne den Zauber. Erwerben Sie Kenntnisse in Tirmarian.
+Feat/&FeatFeyTeleportationIntTitle	Feen-Teleportation (Intelligenz)
+Feat/&FeatFeyTeleportationWisDescription	Erhöhe das Weisheitsattribut um 1. Erhalte die Fähigkeit Nebelschritt einmal pro kurzer Pause und lerne den Zauber. Erwerben Sie Kenntnisse in Tirmarian.
+Feat/&FeatFeyTeleportationWisTitle	Feen-Teleportation (Weisheit)
+Feat/&FeatHeavyArmorMasterClassDescription	Resistenz gegen Knüppel-, Hieb- und Stichschaden.
+Feat/&FeatHeavyArmorMasterClassTitle	Beherrschung der schweren Verteidigung
+Feat/&FeatImprovedCriticalDescription	Ihre Angriffe sind kritische Treffer bei einem Wurf von 19 oder 20.
+Feat/&FeatImprovedCriticalTitle	Kritisch verbessert
+Feat/&FeatIntIncrementDescription	+1 Intelligenz
+Feat/&FeatIntIncrementTitle	Erhöhung der Intelligenzattribute
+Feat/&FeatLightArmorDescription	Erlangen Sie Kenntnisse im Umgang mit Leichter Rüstung und +1 Geschicklichkeit
+Feat/&FeatLightArmorProficiencyDescription	Erwerben Sie Kenntnisse im Umgang mit Leichter Rüstung
+Feat/&FeatLightArmorProficiencyTitle	Leichte Rüstung
+Feat/&FeatLightArmorTitle	Leichte Rüstung
+Feat/&FeatMediumArmorDexDescription	Erlangen Sie Kenntnisse im Umgang mit mittlerer Rüstung und Schilden und +1 Geschicklichkeit
+Feat/&FeatMediumArmorDexTitle	Mittlere Rüstung (Geschicklichkeit)
+Feat/&FeatMediumArmorProficiencyDescription	Erwerben Sie Kenntnisse im Umgang mit mittlerer Rüstung und Schilden
+Feat/&FeatMediumArmorProficiencyTitle	Mittlere Rüstung
+Feat/&FeatMediumArmorStrengthDescription	Erlangen Sie Kenntnisse im Umgang mit mittlerer Rüstung und Schilden und +1 Stärke
+Feat/&FeatMediumArmorStrengthTitle	Mittlere Rüstung (Stärke)
+Feat/&FeatSavageAttackerDescription	Waffen- und Zauberschadenswürfel neu würfeln, wenn sie eine 1 würfeln (es werden nicht alle Schadensquellen neu gewürfelt, z. B. ausgenommen Sneak Attack und Smite).
+Feat/&FeatSavageAttackerReroll	Da er ein Wilder Angreifer ist, würfelt {0} den {1}-Würfel von einer {2} zu einer {3} neu.
+Feat/&FeatSavageAttackerTitle	Wilder Angreifer
+Feat/&FeatShadowTouchedChaDescription	Erhöhe das Charisma-Attribut um 1. Erhalte die Fähigkeit, Unsichtbarkeit, Wunden zufügen und Falsches Leben einmal pro langer Pause zu wirken und lerne die Zauber.
+Feat/&FeatShadowTouchedChaTitle	Schatten berührt (Charisma)
+Feat/&FeatShadowTouchedIntDescription	Erhöhe das Intelligenzattribut um 1. Erhalte die Fähigkeit, Unsichtbarkeit, Wunden zufügen und Falsches Leben einmal pro langer Pause zu wirken und lerne die Zauber.
+Feat/&FeatShadowTouchedIntTitle	Schattenberührt (Intelligenz)
+Feat/&FeatShadowTouchedWisDescription	Erhöhe das Weisheitsattribut um 1. Erhalte die Fähigkeit, Unsichtbarkeit, Wunden zufügen und Falsches Leben einmal pro langer Pause zu wirken und lerne die Zauber.
+Feat/&FeatShadowTouchedWisTitle	Schatten berührt (Weisheit)
+Feat/&FeatStrengthIncrementDescription	+1 Stärke
+Feat/&FeatStrengthIncrementTitle	Attributerhöhung
+Feat/&FeatTelekineticChaDescription	Erhöhe das Charisma-Attribut um 1. Erhalte eine Bonus-Aktionsfähigkeit, um Kreaturen zu schieben oder zu ziehen.
+Feat/&FeatTelekineticChaPullDescription	Ziehe telekinetisch eine Kreatur zu dir.
+Feat/&FeatTelekineticChaPullTitle	Telekinetischer Zug
+Feat/&FeatTelekineticChaPushDescription	Schiebe eine Kreatur telekinetisch von dir weg.
+Feat/&FeatTelekineticChaPushTitle	Telekinetischer Schub
+Feat/&FeatTelekineticChaTitle	Telekinese (Charisma)
+Feat/&FeatTelekineticIntDescription	Erhöhe das Intelligenzattribut um 1. Erhalte eine Bonus-Aktionsfähigkeit, um Kreaturen zu schieben oder zu ziehen.
+Feat/&FeatTelekineticIntPullDescription	Ziehe telekinetisch eine Kreatur zu dir.
+Feat/&FeatTelekineticIntPullTitle	Telekinetischer Zug
+Feat/&FeatTelekineticIntPushDescription	Schiebe eine Kreatur telekinetisch von dir weg.
+Feat/&FeatTelekineticIntPushTitle	Telekinetischer Schub
+Feat/&FeatTelekineticIntTitle	Telekinetik (Intelligenz)
+Feat/&FeatTelekineticWisDescription	Erhöhe das Weisheitsattribut um 1. Erhalte eine Bonus-Aktionsfähigkeit, um Kreaturen zu schieben oder zu ziehen.
+Feat/&FeatTelekineticWisPullDescription	Ziehe telekinetisch eine Kreatur zu dir.
+Feat/&FeatTelekineticWisPullTitle	Telekinetischer Zug
+Feat/&FeatTelekineticWisPushDescription	Schiebe eine Kreatur telekinetisch von dir weg.
+Feat/&FeatTelekineticWisPushTitle	Telekinetischer Schub
+Feat/&FeatTelekineticWisTitle	Telekinese (Weisheit)
+Feat/&FeatToughDescription	Dein Trefferpunktmaximum erhöht sich um das Zweifache deiner Stufe, wenn du dieses Talent erlangst. Jedes Mal, wenn Sie danach eine Stufe aufsteigen, erhöht sich Ihr Trefferpunktmaximum um weitere 2 Trefferpunkte.
+Feat/&FeatToughTitle	Zäh
+Feat/&FeatWarCasterDescription	Du verschaffst dir einen Vorteil bei Würfen, um die Konzentration aufrechtzuerhalten. Sie erhalten die Fähigkeit, die somatische Komponente von Zaubersprüchen auch mit vollen Händen auszuführen. Du erhältst +2 auf Zauberangriffswürfe.
+Feat/&FeatWarCasterTitle	Kriegswirker
+Feat/&FeatWisIncrementDescription	+1 Weisheit
+Feat/&FeatWisIncrementTitle	Erhöhung des Weisheitsattributs
+Feat/&FeyTeleportationLanguageTirmarianDescription	Erwerben Sie Kenntnisse in Tirmarian.
+Feat/&FeyTeleportationLanguageTirmarianTitle	timarian
+Feat/&FightingStyleArcheryDescription	Du erhältst einen Bonus von +2 auf Angriffswürfe mit Fernkampfwaffen.
+Feat/&FightingStyleArcheryTitle	Kampfstil: Bogenschießen
+Feat/&FightingStyleDefenseDescription	Während du eine Rüstung trägst, erhältst du einen Bonus von +1 auf die RK.
+Feat/&FightingStyleDefenseTitle	Kampfstil: Verteidigung
+Feat/&FightingStyleDuelingDescription	Wenn du eine Nahkampfwaffe in einer Hand führst und keine anderen Waffen, erhältst du mit dieser Waffe einen Bonus von +2 auf Schadenswürfe.
+Feat/&FightingStyleDuelingTitle	Kampfstil: Duell
+Feat/&FightingStyleGeneralFeatDescription	Du kannst einen Kampfstil auswählen.
+Feat/&FightingStyleGeneralFeatitle	Kampfstil
+Feat/&FightingStyleGreatWeaponDescription	Wenn Sie für einen Angriff, den Sie mit einer Nahkampfwaffe ausführen, die Sie mit zwei Händen führen, eine 1 oder 2 auf einem Schadenswürfel würfeln, können Sie den Würfel erneut würfeln. Sie müssen den neuen Wurf verwenden, auch wenn es eine 1 oder 2 ist. Die Waffe muss die Eigenschaft Zweihand oder Vielseitigkeit haben, damit Sie diesen Vorteil erhalten.
+Feat/&FightingStyleGreatWeaponTitle	Kampfstil: Große Waffe
+Feat/&FightingStyleProtectionDescription	Wenn eine Kreatur, die du sehen kannst, ein anderes Ziel als dich angreift, das sich innerhalb von 1,50 m von dir entfernt befindet, kannst du deine Reaktion nutzen, um den Angriffswurf zu benachteiligen. Sie müssen einen Schild tragen.
+Feat/&FightingStyleProtectionTitle	Kampfstil: Schutz
+Feat/&FightingStyleTwoWeaponDescription	Wenn Sie mit zwei Waffen kämpfen, können Sie Ihren Fähigkeitsmodifikator zum Schaden des zweiten Angriffs hinzufügen.
+Feat/&FightingStyleTwoWeaponTitle	Kampfstil: Zwei Waffen
+Feat/&FlameArtillery_2Description	3W8 Feuerschaden (Kegel)
+Feat/&FlameArtillery_2Title	Flammenartillerie (Verbessert)
+Feat/&FlameArtilleryConstructDescription	Erzeugt einen Feuerkegel, der bei einem fehlgeschlagenen Rettungswurf 2W8 Schaden verursacht.
+Feat/&FlameArtilleryConstructDescription_3	Erzeugt einen Feuerkegel, der bei einem fehlgeschlagenen Rettungswurf 3W8 Schaden verursacht.
+Feat/&FlameArtilleryConstructTitle	Flammenartillerie-Konstrukt
+Feat/&FlameArtilleryConstructTitle_3	Flammenartillerie-Konstrukt
+Feat/&FlameArtilleryConstructTitle_5	Flammenartillerie-Konstrukt
+Feat/&FlameArtilleryDescription	2W8 Feuerschaden (Kegel)
+Feat/&FlameArtilleryTitle	Flammenartillerie
+Feat/&ForceArtillery_2Description	3W8 Schaden erzwingen und Ziel 1,50 m weit schieben
+Feat/&ForceArtillery_2Title	Force Artillery (Verbessert)
+Feat/&ForceArtilleryAdditionalDamageDescription	Das aufgewertete Konstrukt verursacht 1W8 mehr Schaden pro Treffer
+Feat/&ForceArtilleryConstructDescription	Verursacht 2W8 Kraftschaden und stößt den Gegner 1,50 m vom Konstrukt weg.
+Feat/&ForceArtilleryConstructDescription_3	Verursacht 3W8 Kraftschaden und stößt den Gegner 1,50 m vom Konstrukt weg.
+Feat/&ForceArtilleryConstructTitle	Force-Artillerie-Konstrukt
+Feat/&ForceArtilleryConstructTitle_3	Force-Artillerie-Konstrukt
+Feat/&ForceArtilleryConstructTitle_5	Force-Artillerie-Konstrukt
+Feat/&ForceArtilleryDescription	2W8 Schaden erzwingen und 1,50 m vorstoßen
+Feat/&ForceStrikePowerDescription	Fernkampfangriff 1W6 Machtschaden von deinem treuen Kumpel
+Feat/&ForceStrikePowerTitle	Force Sling (Künstlicher Diener)
+Feat/&GauntletsGrappleDescription	Kann Gegner jetzt mit einer Bonusaktion in Nahkampfreichweite ziehen und 1W8 Donnerschaden zufügen
+Feat/&GauntletsGrappleTitle	Gauntlet-Greifer
+Feat/&HalfCoverShieldDescription	Gibt 2 AC innerhalb von 10 Fuß
+Feat/&HalfCoverShieldTitle	Kuppel mit halber Abdeckung
+Feat/&HealerDescription	Sie erwerben Kenntnisse oder Fachkenntnisse in Medizinprüfungen. Du erhältst die Fähigkeit, eine sterbende Kreatur zu stabilisieren sowie eine Kreatur, die in den letzten 12 Sekunden gestorben ist, einmal pro langer Pause wiederzubeleben. Du kannst eine Aktion verwenden, um 1W6 + 4 + Trefferpunkte auf Charakterstufe so oft pro kurzer Pause wiederherzustellen, wie es deinem WE-Modifikator entspricht.
+Feat/&HealerResuscitateDescription	Verwenden Sie eine Aktion, um eine Kreatur wiederzubeleben, die innerhalb der letzten 15 Sekunden gestorben ist.
+Feat/&HealerResuscitateTitle	Reanimieren
+Feat/&HealerStabilizeDescription	Verwenden Sie eine Aktion, um eine sterbende Kreatur zu stabilisieren.
+Feat/&HealerStabilizeTitle	Stabilisieren
+Feat/&HealerTitle	Heiler
+Feat/&HealerUseMedicineDescription	Du kannst eine Aktion verwenden, um 1W6 + 4 + Trefferpunkte auf Charakterstufe so oft pro kurzer Pause wiederherzustellen, wie es deinem WE-Modifikator entspricht.
+Feat/&HealerUseMedicineTitle	Verwenden Sie Medizin
+Feat/&IncreaseConstructSelectingDescription	Du kannst jetzt zwei Artilleriekonstrukte beschwören. Die Konstrukte können den gleichen oder unterschiedliche Modi haben
+Feat/&IncreaseConstructSelectingTitle	Verstärkung
+Feat/&InspiringLeaderDescription	Verbringen Sie 10 Minuten damit, bis zu 6 freundliche Kreaturen (darunter auch Sie selbst) innerhalb von 30 Fuß von Ihnen zu inspirieren. Jede Kreatur erhält temporäre Trefferpunkte in Höhe deiner Stufe + deines Charisma-Modifikators. Einmal pro kurzer Pause verwendbar.
+Feat/&InspiringLeaderTitle	Inspirierende Führungskraft
+Feat/&IntToAttackAndDamageDescription	Fügen Sie Int anstelle von Str oder Dex zu Ihren Rüstungswaffen hinzu
+Feat/&IntToAttackAndDamageTitle	Amror-Waffe
+Feat/&MendingConstructDescription	Repariere dein Konstrukt für 2W6 über 1 Minute
+Feat/&MendingConstructTitle	Ausbesserungskonstrukt
+Feat/&ModeSwitchingPoolDescription	Sie können einmal täglich zwischen den Modi wechseln, indem Sie temporäre Waffen erstellen und verwenden
+Feat/&ModeSwitchingPoolTitle	Rüstungsmodus
+Feat/&PickPocketFeatDescription	Sie erwerben Kenntnisse im Umgang mit Fingerfertigkeit oder Fachwissen, wenn Sie bereits geübt sind. Sie haben auch einen Vorteil bei Fertigkeitswürfen für Fingerfertigkeit.
+Feat/&PickPocketFeatTitle	Taschendieb
+Feat/&PowerAlchemistEmboldeningShotsDescription	Du erhältst die Fähigkeit, ein Elixier zu verabreichen, das deine Verbündeten ermutigt und ihnen vorübergehend 4W6+Intelligenzmodifikator-Trefferpunkte verleiht
+Feat/&PowerAlchemistEmboldeningShotsTitle	Ermutigende Aufnahmen
+Feat/&PowerAlchemistGreaterRestorativeElixirsDescription	Einmal am Tag kannst du „Große Wiederherstellung“ wirken
+Feat/&PowerAlchemistGreaterRestorativeElixirsTitle	Größere Wiederherstellung
+Feat/&PowerAlchemistHealElixirsDescription	Einmal am Tag kannst du Heilen wirken
+Feat/&PowerAlchemistHealElixirsTitle	Heilen
+Feat/&PowerAlchemistRestorativeElixirsDescription	Du kannst Geringe Rotation wirken, ohne einen Zauberslot zu verbrauchen. Du kannst dies so oft pro langer Pause tun, wie es deinem Intelligenzmodifikator entspricht
+Feat/&PowerAlchemistRestorativeElixirsTitle	Wiederherstellende Elixiere
+Feat/&PowerAttackFeatDescription	Sie haben gelernt, Genauigkeit gegen tödlichere/härtere Schläge einzutauschen. Du kannst einen Malus von -{0} auf deinen Treffer erleiden, um mehr Schaden zu verursachen (+{0} Schaden für einhändige Waffen, +{1} Schaden für zweihändige Waffen). Hält nach Aktivierung für die gesamte Runde an. Funktioniert mit Nah- und Fernkampfwaffen.
+Feat/&PowerAttackFeatTitle	Machtangriff
+Feat/&PowerFalseLifeFromFeatDescription	Wenn du dich mit einem nekromantischen Abbild des Lebens stärkst, erhältst du für die Dauer 1W4+4 temporäre Trefferpunkte.
+Feat/&PowerFalseLifeFromFeatTitle	Falsches Leben
+Feat/&PowerInflictWoundsFromFeatDescription	Führe einen Nahkampfzauberangriff gegen eine Kreatur durch, die du erreichen kannst. Bei einem Treffer erleidet das Ziel 3W10 nekrotischen Schaden.
+Feat/&PowerInflictWoundsFromFeatTitle	Wunden zufügen
+Feat/&PowerInvisibilityFromFeatDescription	Eine Kreatur, die du berührst, wird unsichtbar, bis der Zauber endet. Alles, was das Ziel trägt oder trägt, ist unsichtbar, solange es am Körper des Ziels ist. Der Zauber endet für ein Ziel, das angreift oder einen Zauber wirkt.
+Feat/&PowerInvisibilityFromFeatTitle	Unsichtbarkeit
+Feat/&PowerMistyStepFromFeatDescription	Kurz von silbrigem Nebel umgeben, teleportierst du dich bis zu 30 Fuß zu einem unbesetzten Raum, den du sehen kannst.
+Feat/&PowerMistyStepFromFeatTitle	Nebliger Schritt
+Feat/&PowerShadowTouchedFromFeatDescription	Lerne, die Zauber Unsichtbarkeit, Falsches Leben und Wunden zufügen zu wirken.
+Feat/&PowerShadowTouchedFromFeatTitle	Lerne Unsichtbarkeit, falsches Leben und füge Wunden zu
+Feat/&ProfChefTreatActionDescription	Iss eine Leckerei als Bonusaktion und erhalte 5 temporäre Trefferpunkte.
+Feat/&ProfChefTreatActionTitle	Leckerbissen des Chefkochs essen
+Feat/&ProfChefTreatCookDescription	Verbringe eine Stunde damit, Leckereien zu kochen, die beim Verzehr 5 temporäre Trefferpunkte liefern.
+Feat/&ProfChefTreatCookTitle	Cook Chef's Treat
+Feat/&ProfChefTreatDescription	Essen als Bonusaktion und erhalte 5 temporäre Trefferpunkte.
+Feat/&ProfChefTreatTitle	Chef's Treat
+Feat/&ProfHealerMedicineDescription	Erwerben Sie Kenntnisse in Medizin oder Fachwissen, wenn Sie bereits Kenntnisse besitzen.
+Feat/&ProfHealerMedicineTitle	Medizinisches Wissen
+Feat/&ProtectorConstructAttackDescription	Nahkampf 1W10 Schaden durch das Beschützerkonstrukt
+Feat/&ProtectorConstructAttackTitle	Stärke macht
+Feat/&ProtectorConstructDescription	Es ist freundlich zu dir und deinen Gefährten und gehorcht deinen Befehlen
+Feat/&ProtectorConstructTitle	Beschützer-Konstrukt
+Feat/&RecklessFuryFeatDescription	Sie erhalten die Fähigkeit, einmal am Tag eine Minute lang in Wut zu geraten (beachten Sie, dass es keine Rüstungsbeschränkung gibt), und Sie können rücksichtslos angreifen, indem Sie sich einen Vorteil aus Ihren Nahkampfangriffen verschaffen, während Sie Ihren Angreifern bis zu Ihrem nächsten Zug einen Vorteil verschaffen.
+Feat/&RecklessFuryFeatTitle	Rücksichtslose Wut
+Feat/&ResummonArtilleryConstruct_03Title	Artilleriekonstrukt 1 wiederbeschwören
+Feat/&ResummonArtilleryConstruct_09Title	Artilleriekonstrukt 2 wiederbeschwören
+Feat/&ResummonArtilleryConstruct_15Title	Artilleriekonstrukt 3 wiederbeschwören
+Feat/&ResummonArtilleryConstructDescription	Dieser Zauber erlaubt es dem Bastler, ein Artilleriekonstrukt in einem von mehreren Modi erneut zu beschwören, nachdem die anfängliche Beschwörung abgelaufen ist. Das wiederbeschworene Konstrukt hält ebenfalls 1 Stunde an.
+Feat/&RetributionDescription	Konstrukt beschädigt 1W4 + Int, wenn es angegriffen wird
+Feat/&RetributionTitle	Vergeltung
+Feat/&ScoutSentinelFeatureSet_level03Description	<size=17><color=#add8e6ff>Lerne Scout-Sentinel-Zauber</color></size>\nStufe 3: Magische Rakete, Donnerwelle\nStufe 5: Unschärfe, Zertrümmerung\nLevel 9: Lightning Bolt, Hypnotisches Muster\nLevel 13: Feuerschild, größere Unsichtbarkeit\nLevel 17: Dimensionstür, Windwand, Feuerwand\n\n<size=17><color=#add8e6ff>Mehrere Rüstungsfunktionen</color></size>\nSie können einmal pro Tag zwischen den Funktionsmodi wechseln, indem Sie temporäre Waffen erstellen und verwenden\n\n<size=17><color=#add8e6ff>Wächtermodus</color></size>\nErhalten Sie eine begrenzte Anzahl temporärer HP, basierend auf dem Level. Benachteiligen Sie Feinde, die Verbündete angreifen\n\n<size=17><color=#add8e6ff>Scout-Modus</color></size>\nErhalte mehr Bewegungsfreiheit, Tarnvorteil und einen Fernkampfangriff, der einmal pro Runde einen zusätzlichen Schadenswürfel verursacht.\n\n<size=17><color=#add8e6ff>Funktionen</color></size>\nDu kannst die Waffen der Rüstung als Zauberfokus für deine Zauber verwenden\nSchwere Rüstung hat keine Stärkeanforderungen\nDu lernst Schmiedewerkzeuge und schwere Rüstungen
+Feat/&ScoutSentinelFeatureSet_level03Title	LEER
+Feat/&ScoutSentinelFeatureSet_level05Description	<size=17><color=#add8e6ff>Extra-Angriff</color></size>\nDu kannst ein weiteres Mal pro Kampfzug angreifen, wenn du die Angriffs- oder Schubs-Aktionen verwendest
+Feat/&ScoutSentinelFeatureSet_level05Title	LEER
+Feat/&ScoutSentinelFeatureSet_level09Description	<size=17><color=#add8e6ff>Zusätzliche Infusionsplätze</color></size>\nSie erhalten zusätzliche Infusionsplätze, die für Rüstungen verwendet werden sollten
+Feat/&ScoutSentinelFeatureSet_level09Title	LEER
+Feat/&ScoutSentinelFeatureSet_level15Description	<size=17><color=#add8e6ff>Verbesserter Sentinel-Modus</color></size>\nKann jetzt Feinde mit einer Bonusaktion in Nahkampfreichweite ziehen und über die Kraft Gauntlet Grapple 1W8 Donnerschaden zufügen\n\n<size=17><color=#add8e6ff>Verbesserter Scout-Modus</color></size>\nKann jetzt mit einem einzigen Angriff Vorteile für Verbündete und Nachteile für Feinde schaffen
+Feat/&ScoutSentinelFeatureSet_level15Title	LEER
+Feat/&SelfDestructDescription	Selbstzerstörung und erzwinge einen GE-Rettungswurf für 3W8 Gewaltschaden innerhalb von 10 Fuß
+Feat/&SelfDestructTitle	Selbstzerstörung
+Feat/&SelfRepairDescription	Heile dreimal täglich 2W8 HP
+Feat/&SelfRepairTitle	Selbstreparatur
+Feat/&SubclassMovementDescription	Schwere Rüstungen haben keine Stärkeanforderungen
+Feat/&SubclassMovementTitle	Immunität gegen schwere Rüstung
+Feat/&SubclassProficienciesDescription	Du lernst Schmiedewerkzeuge und schwere Rüstungen
+Feat/&SubclassProficienciesTitle	Unterklassenkenntnisse
+Feat/&SummonArtificialServantDescription	Der Diener ist freundlich zu dir und deinen Gefährten und gehorcht deinen Befehlen.
+Feat/&SummonArtificialServantTitle	Beschwöre einen künstlichen Diener
+Feat/&SummonArtilleryConstructDescription	Der Blaster erstellt und befehligt ein Artilleriekonstrukt in einem von mehreren Modi. Die HP des Konstrukts steigen mit der Stufe seines Beschwörers und es kann einmal pro Tag für 1 Stunde kostenlos beschworen werden. Das Konstrukt kann mit einem Zauber der 1. Stufe wiederbeschworen werden. Die drei Modi sind:\n<color=#add8e6ff>Schutzkuppel-Konstrukt:</color>\nGewährt Verbündeten innerhalb von 10 Fuß 1W8 + 4 temporäre HP\n<color=#add8e6ff>Flammenartillerie-Konstrukt:</color>\nErzeugt einen Feuerkegel, der bei einem misslungenen GE-Rettungswurf 2W8 Schaden verursacht\n<color=#add8e6ff>Force Artillery Construct:</color>\nVerursacht 2W8 Kraftschaden und stößt den Gegner 1,50 m weit weg.
+Feat/&SummonArtilleryConstructlevel09Description	Eine neue Funktion wurde hinzugefügt. Das Artilleriekonstrukt kann sich selbst zerstören und bei einem fehlgeschlagenen Rettungswurf 3W8 Machtschaden verursachen.\nZusätzlich erhöhen sich sowohl die Flammen- als auch die Machtartillerie-Schadenswürfe um 1W8 auf insgesamt 3W8
+Feat/&SummonArtilleryConstructlevel09Title	Artillerie-Konstrukt-Upgrade: Selbstzerstörung
+Feat/&SummonArtilleryConstructlevel15Description	Eine neue Funktion wurde hinzugefügt. Das Artillerie-Konstrukt bietet Verbündeten innerhalb von 10 Fuß jetzt halbe Deckung\n<size=17><color=#add8e6ff>Artilleriekonstrukt-Upgrade: Verstärkungen</color></size>\nDu kannst jetzt zwei Artilleriekonstrukte beschwören. Die Konstrukte können den gleichen oder unterschiedliche Modi haben
+Feat/&SummonArtilleryConstructlevel15Title	Upgrade des Artilleriekonstrukts: Halbe Deckungskuppel
+Feat/&SummonArtilleryConstructTitle	Artilleriekonstrukt beschwören
+Feat/&SummonProtectorConstructDescription	Dein eigener Battle Buddy steht bereit, um dich zu verteidigen und Feinde anzugreifen. Das Beschützerkonstrukt kann sich dreimal täglich selbst reparieren und Verbündeten bei Angriffen Nachteile zufügen
+Feat/&SummonProtectorConstructTitle	Beschützerkonstrukt beschwören
+Feat/&TempHPShieldConstructDescription	Gewährt Verbündeten innerhalb von 10 Fuß 1W8 + 4 temporäre HP.
+Feat/&TempHPShieldConstructTitle	Schutzkuppelkonstrukt
+Feat/&TempHPShieldConstructTitle_3	Schutzkuppelkonstrukt
+Feat/&TempHPShieldConstructTitle_5	Schutzkuppelkonstrukt
+Feat/&TempHPShieldDescription	Versorge Verbündete innerhalb von 10 Fuß mit 1W8 + 4 TempHP
+Feat/&ThunderShieldDescription	Verteidigungsschild bietet TempHP x Stufe. 5 mal am Tag
+Feat/&ThunderShieldTitle	Donnerschild
+Feat/&TinkererConstructFamilyDescription	Erstellt von Tinkerer
+Feat/&TinkererConstructFamilyTitle	Tüftlerkonstrukt
+Feat/&TorchbearerDescription	Du bist geübt im Umgang mit einer Fackel im Kampf. Einmal pro Runde kannst du dich als Bonusaktion dafür entscheiden, eine von dir ausgerüstete Lichtquelle zu verwenden, um zu versuchen, einen Feind, den du berühren kannst, in Brand zu setzen. Dein Ziel muss einen Geschicklichkeitsrettungswurf bestehen oder 1 Minute lang oder bis es erlischt, 1W4 Feuerschaden pro Runde erleiden. Der SG dieses Rettungswurfs basiert auf Ihrem Geschicklichkeits- und Kompetenzbonus.
+Feat/&TorchbearerTitle	Fackelträger
+Feat/&UseArmorWeaponsAsFocusDescription	Du kannst die Waffen der Rüstung als Zauberfokus für deine Zauber verwenden
+Feat/&UseArmorWeaponsAsFocusTitle	Fokus auf Zauberei
+Feat/&UsingitemPowerDescription	Ermöglicht die Verwendung von Waffenkraft für Bonusaktionen
+Feat/&UsingitemPowerTitle	Benutze Waffenkraft
+Feature/&AdditionalActionDualFlurryDescription	Du darfst einen zusätzlichen Nebenhandangriff ausführen.
+Feature/&AdditionalActionDualFlurryTitle	Doppelte Flut!
+Feature/&AlwaysBeardDescription	{0} % Chancen, einen herrlichen Bart wachsen zu lassen!
+Feature/&ArcaneDetonationDescription	Wenn du eine Kreatur mit dem Mal deines Arkanisten mit einem Waffenangriff triffst, detoniert das Mal, verursacht 1W6 Machtschaden und zerstört das Mal.
+Feature/&ArcaneDetonationTitle	Arkane Detonation
+Feature/&ArcaneDetonationUpgradeDescription	Ab der 11. Stufe erhöht sich der Schaden deiner Arkanen Detonation auf 2W6.
+Feature/&ArcaneDetonationUpgradeTitle	Größere Arkane Detonation
+Feature/&ArcanePulseDescription	Ab der 7. Stufe kannst du eine Eruption arkaner Energie in einer Entfernung von 30 Fuß verursachen. Feindliche Kreaturen innerhalb von 4,5 m um den Einschlagspunkt erleiden 4W8 Schaden und erhalten ein Zeichen des Arkanisten. Du kannst diese Fähigkeit pro langer Pause so oft einsetzen, wie es deinem Weisheitsmodifikator entspricht. Auf der 15. Stufe erhöht sich der Schaden deines Arkanen Pulses auf 8W8.
+Feature/&ArcanePulseTitle	Arkaner Puls
+Feature/&ArcanistMarkDescription	Ab der 3. Stufe verleihen Sie Ihren Waffen arkane Macht. Kreaturen, die von deinen Angriffen getroffen werden, werden vom Zeichen des Arkanisten heimgesucht.
+Feature/&ArcanistMarkTitle	Zeichen des Arkanisten
+Feature/&ArtificerInfusionCastingDescription	Sie können die somatischen Komponenten von Zaubersprüchen ausführen, während Sie Waffen und Schilde halten
+Feature/&ArtificerInfusionCastingTitle	Infusionsguss
+Feature/&ArtificerSpecialistArchetypesDescription	Auf welches Studienfach spezialisieren Sie sich? Bastler können Schadensverursacher, Heiler und Kampfspezialisten sein
+Feature/&ArtificerSpecialistArchetypesTitle	Tüftler-Spezialisierungen
+Feature/&BarbarianIndomitableMightDescription	Wenn Ihr Gesamtwert für einen Stärkewurf geringer ist als Ihr Stärkewert, können Sie diesen Wert anstelle des Gesamtwerts verwenden.
+Feature/&BarbarianIndomitableMightTitle	Unbezwingbare Macht
+Feature/&BardSkillsTitle	Bardenfähigkeiten
+Feature/&CounterStrikePowerDescription	Gib einen Gambit-Würfel aus und kontere den Feind, wenn du triffst, füge zusätzlich 1W6+2 Knüppelschaden zu.
+Feature/&CounterStrikePowerTitle	Gegenschlag
+Feature/&DHHolyAuraBlindingPowerDescription	Wenn ein Teufel oder ein Untoter eine betroffene Kreatur mit einem Nahkampfangriff trifft, blitzt die Aura in strahlendem Licht auf. Dem Angreifer muss ein Konstitutionsrettungswurf gelingen oder er wird geblendet, bis der Zauber endet
+Feature/&DHHolyAuraBlindingPowerTitle	Vergeltung der Heiligen Aura
+Feature/&DruidForestGuardianBarkWardDescription	Du erhältst die Fähigkeit, einen Bark Ward zu beschwören, um dich zu beschützen. Als Bonus-Aktion kannst du eine Verwendung deiner Wilden Form aufwenden, um 5 temporäre Trefferpunkte für jedes Level zu erhalten, das du in dieser Klasse hast. Diese temporären Trefferpunkte halten 10 Minuten lang an oder bis Sie Ihre Wildform erneut verwenden.
+Feature/&DruidForestGuardianBarkWardTitle	Rinde Ward
+Feature/&DruidForestGuardianExtraAttackDescription	Ab der 6. Stufe kannst du zweimal statt einmal angreifen, wenn du in deinem Zug die Angriffsaktion ausführst.
+Feature/&DruidForestGuardianExtraAttackTitle	Extra-Angriff
+Feature/&DruidForestGuardianImprovedBarkWardDescription	Deinem Rindenschutz wachsen jetzt Dornen, die Nahkampfangreifern Schaden zufügen. Feinde, die dich erfolgreich mit einem Nahkampfangriff treffen, erleiden 2W8 Stichschaden.
+Feature/&DruidForestGuardianImprovedBarkWardTitle	Verbesserter Bark Ward
+Feature/&DruidForestGuardianMagicDescription	Ab der 2. Stufe erhältst du, wenn du diesen Kreis wählst, Zugriff auf eine erweiterte Zauberliste, die immer bereit ist:\nStufe 2: Schild, Nebelwolke\nStufe 3: Unschärfe, Flammenklinge\nLevel 5: Schutz vor Energie, Magie bannen\nStufe 7: Flammenschild, Todesschutz\nLevel 9: Monster festhalten, Große Wiederherstellung
+Feature/&DruidForestGuardianMagicTitle	Zirkelzauber
+Feature/&DruidForestGuardianSuperiorBarkWardDescription	Eure Fähigkeit „Bark Ward“ reflektiert jetzt 3W8 Stichschaden auf Nahkampfangreifer. Zusätzlich gewährt dir Bark Ward jetzt Immunität gegen Gift, solange es aktiv ist.
+Feature/&DruidForestGuardianSuperiorBarkWardTitle	Superior Bark Ward
+Feature/&DruidForestGuardianSylvanDurabilityDescription	Waldwächter erhalten auf natürliche Weise die Widerstandsfähigkeit einer mächtigen Eiche. Auf der 2. Stufe erhöht sich Ihr Trefferpunktmaximum um 2 und erhöht sich um 1, wenn Sie in dieser Klasse eine Stufe erreichen.
+Feature/&DruidForestGuardianSylvanDurabilityTitle	Sylvanische Haltbarkeit
+Feature/&DruidForestGuardianSylvanWarMagicDescription	Du bist daran gewöhnt, druidische Magie in Harmonie mit kriegerischen Fähigkeiten einzusetzen. Auf der 2. Stufe kannst du Zauber wirken, die eine somatische Komponente erfordern, selbst wenn du mit beiden Händen eine Waffe oder einen Schild hältst.
+Feature/&DruidForestGuardianSylvanWarMagicTitle	Sylvanische Kriegsmagie
+Feature/&DualFlurryDescription	Du bist ein Meister im Kampf mit gepaarten Waffen. In jedem Zug, in dem du zweimal mit Nahkampfangriffen triffst, während du eine Waffe in jeder Hand führst, darfst du einen zusätzlichen Nebenhandangriff ausführen.
+Feature/&DualFlurryTitle	Zweifacher Flurry
+Feature/&FlameArtillery_09ModePowerDescription	Beschwört ein Konstrukt, das 1 Stunde hält.\nFlammenartillerie: Erzeugt einen Feuerkegel, der bei einem fehlgeschlagenen Rettungswurf 3W8 Schaden verursacht.\nSelbstzerstörung: Verursacht 3W8 Machtschaden bei einem fehlgeschlagenen Rettungswurf und zerstört die Einheit.
+Feature/&FlameArtillery_09ModePowerTitle	Flammenartillerie-Konstrukt beschwören
+Feature/&FlameArtillery_15ModePowerDescription	Beschwört ein Konstrukt, das 1 Stunde hält.\nFlammenartillerie: Erzeugt einen Feuerkegel, der bei einem fehlgeschlagenen Rettungswurf 3W8 Schaden verursacht.\nSelbstzerstörung: Verursacht 3W8 Machtschaden bei einem fehlgeschlagenen Rettungswurf und zerstört die Einheit.\n Half Cover Dome: Bietet Verbündeten innerhalb von 10 Fuß halbe Deckung.
+Feature/&FlameArtillery_15ModePowerTitle	Flammenartillerie-Konstrukt beschwören
+Feature/&FlameArtilleryModePowerDescription	Beschwört ein Konstrukt, das 1 Stunde hält.\nFlammenartillerie: Erzeugt einen Feuerkegel, der bei einem gescheiterten Rettungswurf 2W8 Schaden verursacht.
+Feature/&FlameArtilleryModePowerTitle	Flammenartillerie-Konstrukt beschwören
+Feature/&ForceArtillery_09ModePowerDescription	Beschwört ein Konstrukt, das 1 Stunde hält.\nMachtartillerie: Verursacht 3W8 Machtschaden und stößt den Feind 1,50 m weit weg.\nSelbstzerstörung: Verursacht 3W8 Machtschaden bei einem fehlgeschlagenen Rettungswurf und zerstört die Einheit.
+Feature/&ForceArtillery_09ModePowerTitle	Beschwören Sie Force Artillery Construct
+Feature/&ForceArtillery_15ModePowerDescription	Beschwört ein Konstrukt, das 1 Stunde hält.\nMachtartillerie: Verursacht 3W8 Machtschaden und stößt den Feind 1,50 m weit weg.\nSelbstzerstörung: Verursacht 3W8 Machtschaden bei einem fehlgeschlagenen Rettungswurf und zerstört die Einheit.\n Half Cover Dome: Bietet Verbündeten innerhalb von 10 Fuß halbe Deckung.
+Feature/&ForceArtillery_15ModePowerTitle	Beschwören Sie Force Artillery Construct
+Feature/&ForceArtilleryAdditionalDamageTitle	Verbesserter Schaden
+Feature/&ForceArtilleryModePowerDescription	Beschwört ein Konstrukt, das 1 Stunde hält.\nMachtartillerie: Verursacht 2W8 Machtschaden und stößt das Ziel 1,50 m weit weg.
+Feature/&ForceArtilleryModePowerTitle	Beschwören Sie Force Artillery Construct
+Feature/&ForceArtilleryTitle	Artillerie erzwingen
+Feature/&GambitResourcePoolAddDescription	Fügt einen zusätzlichen Gambit-Würfel hinzu.
+Feature/&GambitResourcePoolAddTitle	Zusätzlicher Gambit-Würfel.
+Feature/&GambitResourcePoolDescription	Pool von Gambit-Würfeln, die für Gambits ausgegeben werden können. Ab 4 laden sie sich bei kurzer Rast wieder auf.
+Feature/&GambitResourcePoolTitle	Gambit-Würfelpool.
+Feature/&ImprovedScoutModePowerDescription	Erhalten Sie verbesserte Scout-Modus-Funktionen. Kann jetzt mit einem einzigen Angriff Vorteile für Verbündete und Nachteile für Feinde schaffen
+Feature/&ImprovedScoutModePowerTitle	Verbesserter Scout-Modus
+Feature/&ImprovedSentinelModePowerDescription	Erhalte verbesserte Sentinel-Modus-Funktionen über die Gauntlet Grapple-Power.
+Feature/&ImprovedSentinelModePowerTitle	Verbesserter Sentinel-Modus
+Feature/&IndomitableResistanceAddDescription	+1 Unbeugsamer Widerstandseinsatz zwischen Pausen.
+Feature/&IndomitableResistanceAddTitle	Unbezwingbarer Widerstand (erhöht)
+Feature/&IndomitableResistanceTitle	Unbezwingbarer Widerstand
+Feature/&InspirePowerDescription	Gib einen Gambit-Würfel aus und inspiriere dich selbst oder deinen Verbündeten, 1W6+2 temporäre TP zu geben
+Feature/&InspirePowerTitle	Inspirieren
+Feature/&InspiringSurgePowerDescription	Gewähre einem Verbündeten eine zusätzliche Hauptaktion für 1 Runde. Nicht stapelbar mit Action Surge.
+Feature/&InspiringSurgePowerTitle	Inspirierende Welle
+Feature/&InspiringSurgePowerTitleShort	Inspirierende Welle
+Feature/&KnockDownPowerDescription	Gib einen Gambit-Würfel aus und ermächtige deinen Angriff, zusätzlich 1W6+2 Knüppelschaden zu verursachen und sie bis zum Beginn ihres nächsten Zuges niederzuschlagen, wenn ihnen ein Stärkewurf gegen 8 + deine Stärke + Geschicklichkeit misslingt
+Feature/&KnockDownPowerTitle	Niederschlagen
+Feature/&KSRogueSubclassThugBrutalMethodsDescription	Sie können als Bonusaktion schubsen.
+Feature/&KSRogueSubclassThugBrutalMethodsTitle	Brutale Methoden
+Feature/&KSRogueSubclassThugExploitVulnerabilitiesSneakAttackDescription	Sie können Sneak Attack mit jeder Art von Nahkampfwaffe verwenden, nicht auf Finesse-Waffen beschränkt.\n1W6 zusätzlichen Schaden (+1W6 alle 2 Stufen) für eine Kreatur, die du mit dem Vorteil triffst, einmal pro Runde. Kein Vorteil erforderlich, wenn sich ein aktiver Verbündeter neben dem Ziel befindet.
+Feature/&KSRogueSubclassThugExploitVulnerabilitiesSneakAttackTitle	Polyvalenter Schleichangriff
+Feature/&KSRogueSubclassThugOvercomeCompetitionDescription	Du bist bei deinen Würfen für Athletik (Stärke) im Vorteil.
+Feature/&KSRogueSubclassThugOvercomeCompetitionTitle	Konkurrenz überwinden
+Feature/&KSRogueSubclassThugProficienciesDescription	Geübt im Umgang mit mittleren Rüstungen und Schilden.
+Feature/&KSRogueSubclassThugProficienciesTitle	Schweres Getriebe
+Feature/&PowerAttackAttackModifierOneHandedDescription	Nehmen Sie für den Rest des Zuges eine -{0} Trefferstrafe auf Ihren Angriff, um +{0} Schaden zu verursachen, wenn Sie Ihre Schläge landen. Nur zu verwenden, wenn mit einer einhändigen, nicht leichten Waffe im Nah- oder Fernkampf angegriffen wird.
+Feature/&PowerAttackAttackModifierOneHandedTitle	Einhändiger Kraftangriff
+Feature/&PowerAttackConditionDescription	Nehmen Sie für den Rest des Zuges eine -{0} Trefferstrafe auf Ihren Angriff, um +{0} Schaden zu verursachen, wenn Sie Ihre Schläge landen. Nur zu verwenden, wenn mit einer einhändigen, nicht leichten Waffe im Nah- oder Fernkampf angegriffen wird.
+Feature/&PowerAttackConditionTitle	Einhändiger Kraftangriff
+Feature/&PowerAttackPowerDescription	Nehmen Sie für den Rest des Zuges eine -{0} Trefferstrafe auf Ihren Angriff, um +{0} Schaden zu verursachen, wenn Sie Ihre Schläge landen. Nur zu verwenden, wenn mit einer einhändigen, nicht leichten Waffe im Nah- oder Fernkampf angegriffen wird.
+Feature/&PowerAttackPowerTitle	Einhändiger Kraftangriff
+Feature/&PowerAttackTwoHandedAttackModifierDescription	Nehmen Sie für den Rest des Zuges eine -{0} Trefferstrafe auf Ihren Angriff, um +{1} Schaden zu verursachen, wenn Sie Ihre Schläge landen. Nur zu verwenden, wenn mit zwei Händen angegriffen wird, im Nah- oder Fernkampf.
+Feature/&PowerAttackTwoHandedAttackModifierTitle	Zweihändiger Kraftangriff
+Feature/&PowerAttackTwoHandedConditionDescription	Nehmen Sie für den Rest des Zuges eine -{0} Trefferstrafe auf Ihren Angriff, um +{1} Schaden zu verursachen, wenn Sie Ihre Schläge landen. Nur zu verwenden, wenn mit zwei Händen angegriffen wird, im Nah- oder Fernkampf.
+Feature/&PowerAttackTwoHandedConditionTitle	Zweihändiger Kraftangriff
+Feature/&PowerAttackTwoHandedPowerDescription	Nehmen Sie für den Rest des Zuges eine -{0} Trefferstrafe auf Ihren Angriff, um +{1} Schaden zu verursachen, wenn Sie Ihre Schläge landen. Nur zu verwenden, wenn mit zwei Händen angegriffen wird, im Nah- oder Fernkampf.
+Feature/&PowerAttackTwoHandedPowerTitle	Zweihändiger Kraftangriff
+Feature/&PowerPaladinAuraOfCourage18Description	Gewährt Verbündeten innerhalb von 30 Fuß einen Rettungswurfbonus.
+Feature/&PowerPaladinAuraOfCourage18Title	Verbesserte Aura des Mutes
+Feature/&PowerPaladinAuraOfProtection18Description	Sie und Ihre Verbündeten innerhalb von 30 Fuß können nicht erschreckt werden.
+Feature/&PowerPaladinAuraOfProtection18Title	Verbesserte Aura des Schutzes
+Feature/&PowerTorchbearerDescription	Versuchen Sie, ein Nahkampfziel in Brand zu setzen!
+Feature/&PowerTorchbearerTitle	Fackelträger
+Feature/&PrimalChampionDescription	Auf Stufe 20 verkörperst du die Macht der Wildnis. Ihre Stärke- und Konstitutionswerte erhöhen sich um 4
+Feature/&PrimalChampionTitle	Erster Champion
+Feature/&ProficiencyRogueBlindSenseDescription	Wenn du ab der 14. Stufe hören kannst, weißt du, wo sich versteckte oder unsichtbare Kreaturen innerhalb von 10 Fuß von dir befinden.
+Feature/&ProficiencyRogueBlindSenseTitle	Blindsinn
+Feature/&ProficiencyRogueSlipperyMindDescription	Bis zur 15. Stufe haben Sie eine größere mentale Stärke erlangt. Du lernst Weisheitswürfe.
+Feature/&ProficiencyRogueSlipperyMindTitle	Schlüpfriger Geist
+Feature/&RageDamageBonusAttackModifierDescription	Füge deinen Angriffen +2 Schaden hinzu, während du tobst.
+Feature/&RageDamageBonusAttackModifierTitle	Wutschaden
+Feature/&RageFeatConditionDescription	Während du in Rage bist, erhältst du Folgendes: Vorteil bei Stärkewürfen und Stärkerettungswürfen, einen Bonus auf Schadenswürfe von +2 und Resistenz gegen Knüppel-, Stich- und Hiebschaden.
+Feature/&RageFeatConditionTitle	Toben
+Feature/&RagePowerDescription	Als Bonusaktion gerätst du für eine Minute in Wut und erhältst Folgendes: Vorteil bei Stärkewürfen und Stärkerettungswürfen, einen Bonus auf Schadenswürfe von +2 und Resistenz gegen Knüppel-, Stich- und Hiebschaden.
+Feature/&RagePowerTitle	Wut
+Feature/&RageStrengthSavingThrowAffinityDescription	Du bekommst einen Vorteil durch Stärkewürfe, während du tobst
+Feature/&RageStrengthSavingThrowAffinityTitle	Rage-Stärke-Save-Vorteil
+Feature/&RallyingCryPowerDescription	Ersetzt Zweiter Wind durch eine Kraft, um 4x Kämpferstufen-Trefferpunkte bei einem oder mehreren Verbündeten innerhalb von 6 Zellen bis zu ihrem Trefferpunkte-Maximum wiederherzustellen.
+Feature/&RallyingCryPowerTitle	Sammelnder Schrei
+Feature/&RallyingCryPowerTitleShort	Sammelnder Schrei
+Feature/&RangerArcanistMagicDescription	Ab der 3. Stufe lernt man in dieser Klasse einen zusätzlichen Zauber, wenn man bestimmte Stufen erreicht. Jeder Zauber zählt für dich als Waldläufer-Zauber, aber er zählt nicht gegen die Anzahl der Waldläufer-Zauber, die du kennst. Die Zaubersprüche sind: Level 3: Schild, Level 5: Misty Step, Level 9: Eile, Level 13: Dimensions Door und Level 17: Hold Monster. Darüber hinaus sind Sie geübt im Wirken von Zaubern im Kampf und können Zauber wirken, die eine somatische Komponente erfordern, selbst wenn Sie mit beiden Händen eine Waffe oder einen Schild halten.
+Feature/&RangerArcanistMagicTitle	Ranger Arcanist Zauberwirken
+Feature/&RangerFeatureSetFoeSlayerDescription	Auf der 20. Stufe wirst du zu einem beispiellosen Jäger deiner Feinde. Einmal in jedem deiner Züge kannst du deinen Weisheitsmodifikator zum Angriffswurf oder zum Schadenswurf eines Angriffs addieren, den du gegen einen deiner begünstigten Feinde durchführst.
+Feature/&RangerFeatureSetFoeSlayerTitle	Feindbezwinger
+Feature/&RangerFeralSensesDescription	Sie gewinnen übernatürliche Sinne, die Ihnen helfen, Kreaturen zu bekämpfen, die Sie nicht sehen können. Wenn du eine Kreatur angreifst, die du nicht sehen kannst, hat deine Unfähigkeit, sie zu sehen, keinen Nachteil bei deinen Angriffswürfen gegen sie.
+Feature/&RangerFeralSensesTitle	Wilde Sinne
+Feature/&RangerVanishActionDescription	Ab der 14. Stufe kannst du die Aktion Verstecken als Bonusaktion in deinem Zug nutzen.
+Feature/&RangerVanishActionTitle	Verschwinden
+Feature/&RoyalEnvoyFeatureDescription	Addiere die Hälfte deines Kompetenzbonus (aufgerundet) zu jedem Charisma-Check, den du machst, der deinen Kompetenzbonus nicht bereits nutzt. Außerdem werden Sie mit Charisma-Rettungswürfen vertraut.
+Feature/&RoyalEnvoyFeatureTitle	Königlicher Gesandter
+Feature/&SavingThrowTinkererProficiencyDescription	Beherrschung von Konstitutions- und Intelligenzwürfen
+Feature/&SavingThrowTinkererProficiencyTitle	Rettungswurf-Fertigkeit
+Feature/&ScoutModePowerDescription	Erhalte mehr Bewegungsfreiheit, Tarnvorteil und einen Fernkampfangriff, der einmal pro Runde einen zusätzlichen Schadenswürfel verursacht.
+Feature/&ScoutModePowerTitle	Scout-Modus
+Feature/&SentinelModePowerDescription	Erhalten Sie eine begrenzte Anzahl von TempHP basierend auf dem Level. Verhängt einen Nachteil für Feinde, die Verbündete angreifen.
+Feature/&SentinelModePowerTitle	Sentinel-Modus
+Feature/&TempHPShield_09ModePowerDescription	Beschwört ein Konstrukt, das 1 Stunde hält.\nSchutzkuppel: Gewährt Verbündeten innerhalb von 10 Fuß 1W8 + 4 temporäre HP.\nSelbstzerstörung: Verursacht 3W8 Machtschaden bei einem fehlgeschlagenen Rettungswurf und zerstört die Einheit.
+Feature/&TempHPShield_09ModePowerTitle	Beschwöre ein schützendes Kuppelkonstrukt
+Feature/&TempHPShield_15ModePowerDescription	Beschwört ein Konstrukt, das 1 Stunde hält.\nSchutzkuppel: Gewährt Verbündeten innerhalb von 10 Fuß 1W8 + 4 temporäre HP.\nSelbstzerstörung: Verursacht 3W8 Machtschaden bei einem fehlgeschlagenen Rettungswurf und zerstört die Einheit.\n Half Cover Dome: Bietet Verbündeten innerhalb von 10 Fuß halbe Deckung.
+Feature/&TempHPShield_15ModePowerTitle	Beschwöre ein schützendes Kuppelkonstrukt
+Feature/&TempHPShieldModePowerDescription	Beschwört ein Konstrukt, das 1 Stunde hält.\nSchutzkuppel: Gewährt Verbündeten innerhalb von 10 Fuß 1W8 + 4 temporäre HP.
+Feature/&TempHPShieldModePowerTitle	Beschwöre ein schützendes Kuppelkonstrukt
+Feature/&TempHPShieldTitle	Schutzkuppel
+Feature/&TinkererArmorProficiencyTitle	Tüftler-Rüstungskompetenz
+Feature/&TinkererArmorTrainingShortDescription	Kenntnisse im Umgang mit leichten und mittleren Rüstungen sowie Schilden
+Feature/&TinkererSkillGainChoicesPluralDescription	Tüftlerfähigkeiten sind Arcana, Geschichte, Ermittlung, Medizin, Natur, Wahrnehmung und Fingerfertigkeit
+Feature/&TinkererSkillPointsTitle	Tüftlerfähigkeiten
+Feature/&TinkererToolProficiencyPluralShortDescription	Erwerben Sie Kenntnisse im Umgang mit vielen Werkzeugen, darunter Diebeswerkzeuge, Schriftrollen-Kits, Poisoner's Kit, Herbalism Kit und Enchanting Tools
+Feature/&TinkererToolsExpertisePluralShortDescription	Sammeln Sie Erfahrung mit vielen Werkzeugen, darunter Werkzeuge des Diebes, Schriftrollen-Kits, Poisoner's Kit, Herbalism Kit und Enchanting Tools
+Feature/&TinkererToolsExpertiseTitle	Tüftler-Tool-Expertise
+Feature/&TinkererToolsProficiencyTitle	Werkzeugkenntnisse
+Feature/&TinkererWeaponProficiencyTitle	Tüftler-Waffenkenntnisse
+Feature/&TinkererWeaponTrainingShortDescription	Umgang mit einfachen Waffen
+Feature/&ZSPowerPaladinCleansingTouchDescription	Entferne Zaubereffekte, indem du einen Verbündeten berührst. Du kannst dies so oft am Tag tun, wie es deinem Charisma-Modifikator entspricht.
+Feature/&ZSPowerPaladinCleansingTouchTitle	Reinigende Berührung
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat	Zusätzlicher Schaden durch magisch angetriebene Angriffe
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine	Zusätzlicher Schaden durch magisch angetriebene Angriffe
+Feedback/&AdditionalDamageArcaneFirearmFormat	Explosionsverbesserung!
+Feedback/&AdditionalDamageArcaneFirearmLine	Verursacht zusätzlichen Schaden durch Sprengverstärkung
+Feedback/&AdditionalDamageArcanistMarkFormat	Zeichen des Arkanisten!
+Feedback/&AdditionalDamageArcanistMarkLine	Das Zeichen des Arkanisten detoniert und fügt dem Ziel zusätzlichen Schaden zu!
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat	Erleuchtender Schlag!
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	Illuminating Strike fügt dem Ziel zusätzlichen Schaden zu!
+Feedback/&AdditionalDamageBlindingWeaponStrikeFormat	Blendende Waffe
+Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Zusätzlicher Schaden und Versuch, Blindness von Blending Weapon anzuwenden.
+Feedback/&AdditionalDamagePugilistFormat	Faustkämpfer
+Feedback/&AdditionalDamagePugilistLine	Zusätzlicher unbewaffneter Schaden durch Faustkämpfer
+Feedback/&AdditionalDamageUpgradedConstructFormat	Verbesserter Schaden
+Feedback/&AdditionalDamageUpgradedConstructLine	Das aufgewertete Konstrukt verursacht 1W8 mehr Schaden pro Treffer
+Feedback/&ExtraDamageDescription	Zusätzlicher Schaden durch Blitzspeer
+Feedback/&ExtraDamageTitle	Blitzspeer zusätzlichen Schaden
+Feedback/&LightningSpearAdditionalDamageDescription	Blitzschaden 1W6 extra einmal pro Zug
+Feedback/&LightningSpearAdditionalDamageTitle	Blitzspeer zusätzlichen Schaden
+FightingStyle/&BlindFightingDescription	Sie haben Blindsicht mit einer Reichweite von 10 Fuß.
+FightingStyle/&BlindFightingTitle	Blindes Kämpfen
+FightingStyle/&PugilistFightingDescription	Während Sie völlig unbewaffnet sind, verursachen Ihre unbewaffneten Schläge einen zusätzlichen W8 Schaden und Sie können als Bonusaktion mit Ihrer Nebenhand schlagen.
+FightingStyle/&PugilistFightingTitle	Faustkämpfer
+FlexibleBackgrounds/&BackgroundSkillSelect2Description	Wählen Sie 2 Fähigkeiten aus
+FlexibleBackgrounds/&BackgroundSkillSelect2Title	Fähigkeiten
+FlexibleBackgrounds/&BackgroundSkillSelect3Description	Wählen Sie 3 Fähigkeiten aus
+FlexibleBackgrounds/&BackgroundSkillSelect3Title	Fähigkeiten
+FlexibleBackgrounds/&BackgroundToolSelectDescription	Wählen Sie eine Werkzeugkompetenz aus
+FlexibleBackgrounds/&BackgroundToolSelectTitle	Werkzeug
+FlexibleRaces/&PointPoolAbilityScore3Description	Verwenden Sie drei Boosts auf Fähigkeitswerte in einer beliebigen Kombination Ihrer Wahl.
+FlexibleRaces/&PointPoolAbilityScore3Title	Erhöhung des Fähigkeitswerts
+FlexibleRaces/&PointPoolAbilityScore4Description	Verwenden Sie vier Boosts auf Fähigkeitswerte in einer beliebigen Kombination Ihrer Wahl.
+FlexibleRaces/&PointPoolAbilityScore4Title	Erhöhung des Fähigkeitswerts
+Format/&LevelAndExperienceFormat	Stufe: {0}\nErfahrung: {1}\n{2} Punkte erforderlich, um Stufe {3} zu erreichen
+Format/&LevelAndExperienceMaxedFormat	Stufe: {0}\nErfahrung: {1}\nMaximales Level erreicht.
+MainMenu/&ExportPdfDescription	Nivelliere den ausgewählten Charakter
+MainMenu/&ExportPdfTitle	Einebnen
+Message/&CharacterExportDuplicateNameErrorDescription	Export abgebrochen:\n\nEin Held mit diesem Namen existiert bereits im Pool.\nBitte versuchen Sie es mit einem anderen Namen.
+Message/&CharacterExportEmptyNameErrorDescription	Export abgebrochen:\n\nBitte versuchen Sie es mit einem nicht leeren Namen.
+Message/&CharacterExportModalContentDescription	Geben Sie den zu exportierenden Heldennamen ein:
+Message/&CharacterExportModalTitleDescription	Zeichenexport
+Message/&SpawnCustomEncounterDescription	Spawn-Begegnung bei den Koordinaten ({0}, {1})?
+Message/&SpawnCustomEncounterTitle	Begegnen
+Message/&TeleportPartyDescription	Gruppe zu Koordinaten ({0}, {1}) teleportieren?\nSie können Quests oder Karten zerstören, wenn Sie sich an einen unentdeckten Ort teleportieren
+Message/&TeleportPartyTitle	Teleportieren
+Message/&ZSLevelDownConfirmationDescription	Diesen Helden runterleveln?
+Message/&ZSLevelDownConfirmationTitle	Einebnen
+Message/&ZSLevelDownWarnedConfirmationDescription	Klasse {0} noch im Beta-Support. Diesen Helden runterleveln?
+Modifier/&DisorientDescription	-1W6 auf Angriffswürfe
+Modifier/&DisorientTitle	Desorientiert
+Modifier/&RuinedDescription	-3 auf Rüstungsklasse
+Modifier/&RuinedTitle	Ruiniert
+Monster/&DHCustomCouatlDescription	Couatls sind wohlwollende Schlangenwesen von großem Intellekt und Einsicht. Ihre leuchtend gefärbten Flügel und ihre sanfte Art sprechen für ihre himmlische Herkunft.
+Monster/&DHCustomCouatlTitle	Couatl
+Monster/&OwlFamiliarDescription	Eule vertraut
+Monster/&OwlFamiliarTitle	Eule
+Monster/&WitchOwlFamiliarDescription	Eule vertraut
+Monster/&WitchOwlFamiliarTitle	Eule
+MonsterAttack/&DHCouatlBiteAttackDescription	Durchdringender Schaden, und dem Ziel muss ein Konstitutionswurf gegen SG 13 gelingen oder es wird 24 Stunden lang vergiftet. Bis dieses Gift endet, ist das Ziel bewusstlos.
+MonsterAttack/&DHCouatlBiteAttackTitle	Beissen
+Power/&HelpActionDescription	Du kannst einer verbündeten Kreatur dabei helfen, eine Kreatur innerhalb von 1,50 m von dir anzugreifen. Sie täuschen vor, lenken das Ziel ab oder schließen sich auf andere Weise zusammen, um den Angriff Ihres Verbündeten effektiver zu machen. Wenn Ihr Verbündeter das Ziel vor Ihrem nächsten Zug angreift, wird der erste Angriffswurf mit Vorteil durchgeführt.
+Power/&HelpActionTitle	Hilfe
+Pugilist	Faustkämpfer-Schaden
+Race/&PointPoolSelect10FeatsDescription	Wähle 10 zusätzliche Talente für deinen Charakter aus.
+Race/&PointPoolSelect10FeatsTitle	10 Bonusfeats
+Race/&PointPoolSelect11FeatsDescription	Wähle 11 zusätzliche Talente für deinen Charakter aus.
+Race/&PointPoolSelect11FeatsTitle	11 Bonusfeats
+Race/&PointPoolSelect2FeatsDescription	Wähle 2 zusätzliche Talente für deinen Charakter aus.
+Race/&PointPoolSelect2FeatsTitle	2 Bonusfeats
+Race/&PointPoolSelect3FeatsDescription	Wähle 3 zusätzliche Talente für deinen Charakter aus.
+Race/&PointPoolSelect3FeatsTitle	3 Bonusfeats
+Race/&PointPoolSelect4FeatsDescription	Wähle 4 zusätzliche Talente für deinen Charakter aus.
+Race/&PointPoolSelect4FeatsTitle	4 Bonusfeats
+Race/&PointPoolSelect5FeatsDescription	Wähle 5 zusätzliche Talente für deinen Charakter aus.
+Race/&PointPoolSelect5FeatsTitle	5 Bonusfeats
+Race/&PointPoolSelect6FeatsDescription	Wähle 6 zusätzliche Talente für deinen Charakter aus.
+Race/&PointPoolSelect6FeatsTitle	6 Bonus-Talente
+Race/&PointPoolSelect7FeatsDescription	Wähle 7 zusätzliche Talente für deinen Charakter aus.
+Race/&PointPoolSelect7FeatsTitle	7 Bonusfeats
+Race/&PointPoolSelect8FeatsDescription	Wähle 8 zusätzliche Talente für deinen Charakter aus.
+Race/&PointPoolSelect8FeatsTitle	8 Bonusfeats
+Race/&PointPoolSelect9FeatsDescription	Wähle 9 zusätzliche Talente für deinen Charakter aus.
+Race/&PointPoolSelect9FeatsTitle	9 Bonusfeats
+Reaction/&SpendPowerCounterStrikePowerDescription	Gib einen Gambit-Würfel aus und kontere den Feind, wenn du triffst, füge zusätzlich 1W6+2 Knüppelschaden zu.
+Reaction/&SpendPowerCounterStrikePowerReactDescription	Gib einen Gambit-Würfel aus und kontere den Feind, wenn du triffst, füge zusätzlich 1W6+2 Knüppelschaden zu.
+Reaction/&SpendPowerCounterStrikePowerReactTitle	Gegenschlag
+Reaction/&SpendPowerCounterStrikePowerTitle	Gegenschlag
+Reaction/&SpendPowerInspirePowerDescription	Gib einen Gambit-Würfel aus und inspiriere oder deinen Verbündeten, 1W6+2 temporäre HP zu geben
+Reaction/&SpendPowerInspirePowerTitle	Inspirieren
+Reaction/&SpendPowerKnockDownPowerDescription	Gib einen Gambit-Würfel aus und ermächtige deinen Angriff, zusätzlich 1W6+2 Knüppelschaden zu verursachen und sie bis zum Beginn ihres nächsten Zuges niederzuschlagen, wenn ihnen ein Stärkewurf gegen 8 + deine Stärke + Geschicklichkeit misslingt
+Reaction/&SpendPowerKnockDownPowerReactDescription	Gib einen Gambit-Würfel aus und ermächtige deinen Angriff, zusätzlich 1W6+2 Knüppelschaden zu verursachen und sie bis zum Beginn ihres nächsten Zuges niederzuschlagen, wenn ihnen ein Stärkewurf gegen 8 + deine Stärke + Geschicklichkeit misslingt
+Reaction/&SpendPowerKnockDownPowerReactTitle	Niederschlagen
+Reaction/&SpendPowerKnockDownPowerTitle	Niederschlagen
+Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageDescription	Addiere deinen Weisheitsmodifikator zu deinem Schadenswurf.
+Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageReactDescription	Addiere deinen Weisheitsmodifikator zu deinem Schadenswurf.
+Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageReactTitle	Feindbezwinger
+Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageTitle	Feindbezwinger
+Reaction/&UseZSPowerRangerFoeSlayerAttackDescription	Addiere deinen Weisheitsmodifikator zu deinem Angriffswurf.
+Reaction/&UseZSPowerRangerFoeSlayerAttackReactTitle	Feindbezwinger
+Reaction/&UseZSPowerRangerFoeSlayerAttackTitle	Feindbezwinger
+Reaction/&UseZSPowerRangerFoeSlayerDamageReactDescription	Addiere deinen Weisheitsmodifikator zu deinem Angriffswurf.
+RestActivity/&ZSLevelDownDescription	Stufen Sie diesen Helden herunter
+RestActivity/&ZSLevelDownTitle	Einebnen
+RestActivity/&ZSRespecDescription	Respektiere diesen Helden
+RestActivity/&ZSRespecTitle	Respekt
+RestActivity/&ZSSorcerousRestorationDescription	Erhalte während einer kurzen Pause 4 Hexereipunkte zurück.
+RestActivity/&ZSSorcerousRestorationTitle	Zauberhafte Wiederherstellung
+Rules/&AdvantageAttackOnEnemyDescription	Vorteil, um den Feind anzugreifen
+Rules/&AdvantageAttackOnEnemyTitle	Beleuchtet
+Rules/&CounterFormDismissCreatureFormat	Tüftlerkonstrukt verwerfen
+Rules/&DisadvantageOnAttackByEnemyDescription	Abgelenkt durch Blitzschlag
+Rules/&DisadvantageOnAttackByEnemyTitle	Erschüttert
+Rules/&ExtraDamageOnAttackConditionDescription	Zusätzlicher Schaden durch Blitzspeer
+Rules/&ExtraDamageOnAttackConditionTitle	Statisch geschockt
+Rules/&HalfCoverShieldAttributeDescription	Verbündete erhalten +2 RK innerhalb von 10 Fuß
+Rules/&HalfCoverShieldAttributeTitle	Kuppel mit halber Abdeckung
+Rules/&HalfCoverShieldConditionDescription	+2AC
+Rules/&HalfCoverShieldConditionTitle	Geschützt durch Dome
+Rules/&LightningSpearPowerDescription	Blitzschaden 1W6 + 1W6
+Rules/&LightningSpearPowerTitle	Blitzspeer
+Rules/&ThunderStruckBalancingAdvantageDescription	Balancieren von Thunderstruck, um nur für Verbündete zu funktionieren
+Rules/&ThunderStruckBalancingAdvantageTitle	Verspottet
+Rules/&ThunderStruckDescription	Nachteil beim Angriff auf die Verbündeten von Scout Sentinel
+Rules/&ThunderStruckTitle	Vom Blitz getroffen (abgelenkt)
+Screen/&CovenSpellDescription	Zauber, der bekannt ist, weil er Teil eines Hexenzirkels ist
+Screen/&CovenSpellHeader	Zirkel
+Screen/&CovenSpellTitle	Zirkel
+Screen/&EditorLocationSize3Title	Riesig [MODDED]
+Screen/&EditorLocationSize4Title	Gigantisch [MODDED]
+Screen/&FeyTeleportSpellDescription	Dieser Fey-Zauber ist immer vorbereitet.
+Screen/&FeyTeleportSpellTitle	Fey
+Screen/&ShadowTouchedSpellDescription	Dieser Schattenzauber ist immer vorbereitet.
+Screen/&ShadowTouchedSpellTitle	Schatten
+Screen/&SpellSlotsUsedLongDescription	Sie haben {0} Slots für lange Pausen dieses Levels aufgebraucht.
+Screen/&SpellSlotsUsedShortDescription	Sie haben {0} Kurzpausen-Slots dieses Levels aufgebraucht.
+Screen/&SpellSlotsUsedShortLongDescription	Sie haben {0} Slot(s) für kurze Pausen und {1} Slot(s) für lange Pausen dieses Levels aufgebraucht.
+Screen/&WitchSpellDescription	Als Hexe bekannter Zauber
+Screen/&WitchSpellHeader	Hexe
+Screen/&WitchSpellTitle	Hexe
+Sorceror/&ZSSorcerousRestorationDescription	Erhalte während einer kurzen Pause 4 Hexereipunkte zurück.
+Sorceror/&ZSSorcerousRestorationTitle	Zauberhafte Wiederherstellung
+Spell/&CJDivineWordDescription	Du sprichst ein göttliches Wort, erfüllt von der Kraft, die die Welt zu Beginn der Schöpfung geformt hat. Wähle eine beliebige Anzahl an Kreaturen, die du in Reichweite sehen kannst. Jede Kreatur, die dich hören kann, muss einen Charisma-Rettungswurf machen. Bei einem fehlgeschlagenen Rettungswurf erleidet eine Kreatur einen Effekt basierend auf ihren aktuellen Trefferpunkten:\n50 Trefferpunkte oder weniger: 1 Minute lang taub\n40 Trefferpunkte oder weniger: 10 Minuten lang taub und geblendet\n30 Trefferpunkte oder weniger: 1 Stunde lang geblendet, taub und betäubt\n20 Trefferpunkte oder weniger: sofort getötet\nUnabhängig von seinen aktuellen Trefferpunkten wird ein Himmlischer, ein Elementar, ein Feenwesen oder ein Unterweltler, dem sein Rettungswurf misslingt, auf seine Ursprungsebene zurückgedrängt (falls er nicht bereits dort ist) und kann nicht auf deine aktuelle Ebene zurückkehren 24 Stunden auf jeden Fall kurz vor einem Wunschzauber.
+Spell/&CJDivineWordTitle	Göttliches Wort
+Spell/&DHAnimalShapesSpellDescription	Wähle eine beliebige Anzahl williger Kreaturen, die du in Reichweite sehen kannst. Du verwandelst jedes Ziel in die Form einer großen oder kleineren Bestie mit einem Herausforderungswert von 4 oder niedriger.
+Spell/&DHAnimalShapesSpellTitle	Tierische Formen
+Spell/&DHConjureCelestialSpellDescription	Du beschwörst einen Himmlischen der Herausforderungsstufe 4 oder niedriger, der in einem unbesetzten Feld erscheint, das du in Reichweite sehen kannst. Der Himmel verschwindet, wenn er auf 0 Trefferpunkte fällt oder wenn der Zauber endet. Der Himmlische ist für die Dauer freundlich zu dir und deinen Gefährten.
+Spell/&DHConjureCelestialSpellTitle	Celestial beschwören (Couatl)
+Spell/&DHDominateMonsterSpellDescription	Du versuchst, eine Kreatur zu betören, die du in Reichweite sehen kannst. Ihr muss ein Weisheitsrettungswurf gelingen oder für die Dauer von dir bezaubert sein.
+Spell/&DHDominateMonsterSpellTitle	Beherrsche Monster
+Spell/&DHFeeblemindSpellDescription	Sie sprengen den Geist einer Kreatur, die Sie in Reichweite sehen können, und versuchen, ihren Intellekt und ihre Persönlichkeit zu zerstören. Das Ziel erleidet 4W6 psychischen Schaden und muss einen Intelligenzrettungswurf ablegen. Bei einem misslungenen Rettungswurf werden die Intelligenz- und Charismawerte der Kreatur zu 1. Die Kreatur kann keine Zauber wirken, magische Gegenstände aktivieren, Sprache verstehen oder auf verständliche Weise kommunizieren.
+Spell/&DHFeeblemindSpellTitle	Schwachsinn
+Spell/&DHFingerOfDeathSpellDescription	Das Ziel muss einen Konstitutionsrettungswurf machen. Es erleidet 7W8 + 30 nekrotischen Schaden bei einem fehlgeschlagenen Rettungswurf oder halb so viel Schaden bei einem erfolgreichen.
+Spell/&DHFingerOfDeathSpellTitle	Finger des Todes (kein Zombie)
+Spell/&DHForesightSpellDescription	Sie berühren eine willige Kreatur und verleihen ihr eine begrenzte Fähigkeit, in die unmittelbare Zukunft zu sehen. Für die Dauer kann das Ziel nicht überrascht werden und ist bei Angriffswürfen, Attributswürfen und Rettungswürfen im Vorteil. Zusätzlich haben andere Kreaturen für die Dauer einen Nachteil bei Angriffswürfen gegen das Ziel.
+Spell/&DHForesightSpellTitle	Voraussicht
+Spell/&DHHolyAuraSpellDescription	Göttliches Licht strömt aus dir heraus und verschmilzt in einem weichen Glanz in einem 30-Fuß-Radius um dich herum. Kreaturen deiner Wahl in diesem Radius, wenn du diesen Zauber wirkst, werfen schwaches Licht in einem Radius von 1,50 m und haben einen Vorteil bei allen Rettungswürfen, und andere Kreaturen haben einen Nachteil bei Angriffswürfen gegen sie, bis der Zauber endet.
+Spell/&DHHolyAuraSpellTitle	Heilige Aura
+Spell/&DHIncendiaryCloudSpellDescription	Eine wirbelnde Rauchwolke, die von weiß glühender Glut durchzogen ist, erscheint in einer Kugel mit einem Radius von 20 Fuß, die auf einem Punkt in Reichweite zentriert ist. Die Wolke breitet sich um Ecken aus und ist stark verdeckt. Sie dauert so lange an, bis ein Wind mittlerer oder höherer Geschwindigkeit (mindestens 10 Meilen pro Stunde) sie zerstreut. Wenn die Wolke erscheint, muss jede Kreatur darin einen Geschicklichkeitsrettungswurf machen. Eine Kreatur erleidet 10W8 Feuerschaden bei einem fehlgeschlagenen Rettungswurf oder halb so viel Schaden bei einem erfolgreichen Rettungswurf. Eine Kreatur muss diesen Rettungswurf auch machen, wenn sie das Wirkungsgebiet des Zaubers zum ersten Mal in einem Zug betritt oder dort ihren Zug beendet. Die Wolke bewegt sich 10 Fuß direkt von dir weg in eine Richtung, die du zu Beginn jedes deiner Züge wählst .
+Spell/&DHIncendiaryCloudSpellTitle	Brandwolke
+Spell/&DHMassHealSpellDescription	Eine Flut heilender Energie fließt von dir in verletzte Kreaturen um dich herum. Sie stellen bis zu 700 Trefferpunkte wieder her, die Sie nach Belieben auf eine beliebige Anzahl von Kreaturen aufteilen, die Sie in Reichweite sehen können. Durch diesen Zauber geheilte Kreaturen werden auch von allen Krankheiten und allen Effekten geheilt, die sie blind oder taub machen. Dieser Zauber hat keine Wirkung auf Untote oder Konstrukte.
+Spell/&DHMassHealSpellTitle	Massenheilung
+Spell/&DHMazeSpellDescription	Du verbannst eine Kreatur, die du in Reichweite sehen kannst, in eine labyrinthartige Halbebene. Das Ziel bleibt dort für die Dauer oder bis es aus dem Labyrinth entkommt. /nDas Ziel kann mit seiner Aktion versuchen zu entkommen. Wenn es das tut, macht es einen Intelligenzwurf gegen SG 20.
+Spell/&DHMazeSpellTitle	Labyrinth
+Spell/&DHMeteorSwarmSingleTargetSpellDescription	Lodernde Feuerkugeln stürzen an einem einzigen Punkt, den Sie in Reichweite sehen können, zu Boden. Jede Kreatur in einer Kugel mit einem Radius von 40 Fuß, deren Mittelpunkt der von Ihnen gewählte Punkt ist, muss einen Geschicklichkeitsrettungswurf machen. Die Kugel breitet sich um Ecken aus. Eine Kreatur erleidet 20W6 Feuerschaden und 20W6 Wuchtschaden bei einem fehlgeschlagenen Rettungswurf oder halb so viel Schaden bei einem erfolgreichen Rettungswurf. Eine Kreatur im Bereich von mehr als einem feurigen Ausbruch wird nur einmal betroffen.
+Spell/&DHMeteorSwarmSingleTargetSpellTitle	Meteorschwarm (Einzelziel)
+Spell/&DHMindBlankSpellDescription	Bis der Zauber endet, ist eine willige Kreatur, die du berührst, immun gegen psychischen Schaden, jeden Effekt, der ihre Emotionen spüren oder ihre Gedanken lesen würde, Weissagungszauber und den verzauberten Zustand.
+Spell/&DHMindBlankSpellTitle	Verstand leer
+Spell/&DHPowerWordHealSpellDescription	Eine Welle heilender Energie spült über die Kreatur, die du berührst. Das Ziel erhält alle seine Trefferpunkte zurück. Wenn die Kreatur bezaubert, verängstigt, gelähmt oder betäubt ist, endet der Zustand. Wenn die Kreatur am Boden liegt, kann sie ihre Reaktion nutzen, um aufzustehen. Dieser Zauber hat keine Wirkung auf Untote oder Konstrukte.
+Spell/&DHPowerWordHealSpellTitle	Kraftwort heilen
+Spell/&DHPowerWordKillSpellDescription	Du sprichst ein Wort der Macht, das eine Kreatur, die du in Reichweite sehen kannst, dazu zwingen kann, sofort zu sterben. Wenn die gewählte Kreatur 100 Trefferpunkte oder weniger hat, stirbt sie. Andernfalls hat der Zauber keine Wirkung.
+Spell/&DHPowerWordKillSpellTitle	Machtwort-Kill
+Spell/&DHPowerWordStunSpellDescription	Du sprichst ein Wort der Macht, das den Verstand einer Kreatur überwältigen kann, die du in Reichweite sehen kannst, und sie verblüfft zurücklässt. Wenn das Ziel 150 Trefferpunkte oder weniger hat, ist es betäubt. Andernfalls hat der Zauber keine Wirkung.
+Spell/&DHPowerWordStunSpellTitle	Machtwort betäuben
+Spell/&DHReverseGravitySpellDescription	Dieser Zauber kehrt die Schwerkraft in einem 100 Fuß hohen Zylinder mit einem Radius von 50 Fuß um, der auf einen Punkt in Reichweite zentriert ist.
+Spell/&DHReverseGravitySpellTitle	Umgekehrte Schwerkraft
+Spell/&DHShapechangeSpellDescription	Du nimmst für die Dauer die Form einer anderen Kreatur an. Die neue Form kann jede Kreatur sein, deren Herausforderungswert deiner Stufe entspricht oder darunter liegt.
+Spell/&DHShapechangeSpellTitle	Formänderung
+Spell/&DHSunBurstSpellDescription	Brillantes Sonnenlicht blitzt in einem 60-Fuß-Radius um einen von Ihnen gewählten Punkt in Reichweite auf. Jede Kreatur in diesem Licht muss einen Konstitutionsrettungswurf machen. Bei einem fehlgeschlagenen Rettungswurf erleidet eine Kreatur 12W6 Strahlungsschaden und wird 1 Minute lang geblendet. Bei einem erfolgreichen Rettungswurf erleidet es halb so viel Schaden und wird von diesem Zauber nicht geblendet. Untote und Schlicke sind bei diesem Rettungswurf benachteiligt. Eine von diesem Zauber geblendete Kreatur macht am Ende jedes ihrer Züge einen weiteren Konstitutionsrettungswurf. Bei einem erfolgreichen Rettungswurf ist es nicht mehr geblendet. Dieser Zauber vertreibt jegliche Dunkelheit in seinem Bereich, die durch einen Zauber erzeugt wurde.
+Spell/&DHSunBurstSpellTitle	Sonnendurchbruch
+Spell/&DHTimeStopSpellDescription	Du stoppst kurzzeitig den Fluss der Zeit für alle außer für dich selbst. Für andere Kreaturen vergeht keine Zeit, während Sie 1W4 + 1 Züge hintereinander machen, in denen Sie Aktionen verwenden und sich wie gewohnt bewegen können.
+Spell/&DHTimeStopSpellTitle	Zeitstopp
+Spell/&DHWeirdSpellDescription	Du schöpfst aus den tiefsten Ängsten einer Gruppe von Kreaturen und erschaffst illusorische Kreaturen in ihren Köpfen, die nur für sie sichtbar sind. Jede Kreatur in einer Kugel mit einem Radius von 30 Fuß, deren Mittelpunkt ein Punkt deiner Wahl in Reichweite ist, muss einen Weisheitswurf ablegen. Bei einem fehlgeschlagenen Rettungswurf bekommt eine Kreatur für die Dauer Angst. Die Illusion ruft die tiefsten Ängste der Kreatur hervor und manifestiert ihre schlimmsten Alpträume als unerbittliche Bedrohung. Am Ende jedes Zuges der verängstigten Kreatur muss ihr ein Weisheitsrettungswurf gelingen oder sie erleidet 4W10 psychischen Schaden. Bei einem erfolgreichen Rettungswurf endet der Zauber für diese Kreatur.
+Spell/&DHWeirdSpellTitle	Seltsam
+Spell/&EldritchOrbDescription	Du schleuderst einen Ball unheimlicher Energie auf eine Kreatur oder ein Objekt in Reichweite.
+Spell/&EldritchOrbTitle	Unheimliche Kugel
+Spell/&FindFamiliarDescription	Sie erhalten den Dienst eines Vertrauten.
+Spell/&FindFamiliarTitle	Vertraut finden
+Spell/&FrenzyDescription	Mit einer Geste reduzieren Sie eine Menschenmenge auf Instinkt und Gewalt. Wählen Sie einen Punkt, den Sie in Reichweite sehen können. Jede Kreatur innerhalb von 20 Fuß um diesen Punkt muss einen Weisheitsrettungswurf machen. Bei einem fehlgeschlagenen Rettungswurf ist eine Kreatur für die Dauer in Raserei. Wenn eine Kreatur in Raserei ist, zieht sie eine Nahkampfwaffe, falls sie eine hat. Eine rasende Kreatur muss ihre Aktion zu Beginn ihres Zuges nutzen, um eine Kreatur in ihrer Reichweite anzugreifen. Es verwendet eine Nahkampfwaffe, wenn es eine hat, oder eine improvisierte Waffe oder einen waffenlosen Schlag, wenn es keine hat. Wenn sich mehrere Ziele in Reichweite der Kreatur befinden, wählt sie ihr Ziel zufällig aus. Befindet sich kein Ziel in Reichweite der Kreatur, greift sie sich selbst gegen ihre eigene RK an und verursacht bei einem Treffer wie gewohnt Schaden. Am Ende ihres Zuges kann eine rasende Kreatur ihren Rettungswurf wiederholen, wodurch der Effekt bei einem Erfolg vorzeitig beendet wird.
+Spell/&FrenzyTitle	Raserei
+Spell/&IPConjureInvisibleStalkerTitle	Elementar beschwören (Unsichtbarer Stalker)
+Spell/&MinorLifestealDescription	Du entziehst einer feindlichen Kreatur, die du in Reichweite sehen kannst, Lebensenergie. Du heilst dann Trefferpunkte in Höhe des verursachten Schadens. Dieser Zauber hat keine Wirkung auf Untote oder Konstrukte.
+Spell/&MinorLifestealTitle	Kleiner Lebensraub
+Spell/&PetalStormDescription	Wählen Sie einen unbesetzten 15-Fuß-Luftwürfel, den Sie in Reichweite sehen können. Eine elementare Kraft wirbelnder Winde erscheint im Würfel und hält für die Dauer des Zaubers an. Die Wolke verdeckt stark ihren Bereich. Jede Kreatur, die den Sturm zum ersten Mal in einem Zug betritt oder dort ihren Zug beginnt, muss einen Kraftrettungswurf machen. Bei einem fehlgeschlagenen Rettungswurf erleidet die Kreatur 3W4 Hiebschaden. Als Bonusaktion kannst du den Sturm um bis zu 30 Fuß in jede Richtung bewegen.
+Spell/&PetalStormTitle	Blütensturm
+Spell/&ProtectThresholdDescription	Indem du arkane Siegel entlang seiner Grenze zeichnest, kannst du eine Tür, ein Fenster oder ein anderes Portal vor dem Eintritt schützen. Für die Dauer schleicht eine unsichtbare unheimliche Kreatur durch das geschützte Portal. Jede Kreatur, die versucht, durch das Portal zu gehen, muss einen Weisheitswurf machen oder 4W6 psychischen Schaden erleiden oder halb so viel bei einem erfolgreichen Rettungswurf.
+Spell/&ProtectThresholdTitle	Schwellenwert schützen
+Spell/&WitchFamiliarDescription	Sie erhalten den Dienst eines Vertrauten.
+Spell/&WitchFamiliarTitle	Hexe vertraut
+SpellList/&SpellListTinkererTitle	Zauberliste für die Tinkerer-Klasse.
+Stage/&IdentityMorphotypeEyeHeader	Augenstil
+Stage/&SubclassSelectionStageCovenDescription	Zirkel
+Stage/&SubclassSelectionStageCovenFeaturesDescription	Zirkel
+Stage/&SubclassSelectionStageCovenFeaturesHeader	Coven-Funktionen
+Stage/&SubclassSelectionStageCovenFeaturesTitle	Zirkel
+Stage/&SubclassSelectionStageCovenHeader	Wähle einen Zirkel aus
+Stage/&SubclassSelectionStageCovenTitle	Zirkel
+Stage/&SubclassSelectionStageSpecialistDescription	Beschreibung Es gibt eine große Auswahl an Spezialitäten in Tinkerers, darunter die Herstellung von Elixieren als Tränkemacher, das Erzeugen von Explosionen als Blaster und das Führen magischer Waffen als Waffenschmied.
+Stage/&SubclassSelectionStageSpecialistFeatures	Spezialfunktionen
+Stage/&SubclassSelectionStageSpecialistHeader	Spezialisierungen
+Stage/&SubclassSelectionStageSpecialistNoneDescription	Spezialist Keine Beschreibung
+Stage/&SubclassSelectionStageSpecialistTitle	Spezialisierung auswählen
+Subclass/&AbilityAffinityRogueConArtistDescription	Vorteil bei Fähigkeitsprüfungen mit Überzeugung, Täuschung, Leistung und Fingerfertigkeit.
+Subclass/&AbilityAffinityRogueConArtistTitle	Manipulativ
+Subclass/&ArcaneFighterAdditionalActionDescription	Du kannst einen Zauber wirken, nachdem du einen Feind mit deinen Waffenangriffen besiegt hast.
+Subclass/&ArcaneFighterAdditionalActionTitle	Zauberkampf
+Subclass/&ArcaneFighterBonusWeaponDamageDescription	Einmal pro Zug verursachen deine Waffenangriffe 1W8 zusätzlichen Schaden.
+Subclass/&ArcaneFighterBonusWeaponDamageTitle	Magisch angetriebene Angriffe
+Subclass/&ArtificerAlchemistDescription	Du bist auf Tränke, Buffs, Heilung und Zaubersprüche spezialisiert
+Subclass/&ArtificerAlchemistTitle	Zaubertrankhersteller
+Subclass/&ArtificerArtileristCannonsDescription	Sie erstellen eine Reihe von Kanonen, die Sie im Kampf als Bonusaktion aktivieren können
+Subclass/&ArtificerArtileristCannonsTitle	Kanonen
+Subclass/&ArtificerArtilleristDescription	Du bist darauf spezialisiert, Projektile zu schleudern und Explosionen zu verursachen
+Subclass/&ArtificerArtilleristTitle	Blaster
+Subclass/&ArtificerBattleSmithDescription	Sie spezialisieren sich auf den Einsatz magischer Waffen im Kampf
+Subclass/&ArtificerBattleSmithTitle	Waffenschmied
+Subclass/&ArtificerSpellcastingDescription	Wirke Tinkerer-Zauber
+Subclass/&ArtificerSpellcastingTitle	Tinkerer Zaubersprüche
+Subclass/&AttackModifierArtificerBattleSmithWeaponDescription	Deine Angriffe zählen als magisch und du nutzt deine Intelligenz für Angriffs- und Schadenswürfe
+Subclass/&AttackModifierArtificerBattleSmithWeaponTitle	Infundierte Waffe
+Subclass/&AttackModifierArtificerBlindingWeaponDescription	Berühre eine Waffe, die die Fähigkeit erhält, Ziele bei einem Treffer zu blenden (gegen einen Konstitutionswurf). Beachten Sie, dass Sie eine Infusion nur einmal aktiv haben können. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&AttackModifierArtificerBlindingWeaponTitle	Blendende Waffe
+Subclass/&AttackModifierArtificerEnhancedArmorDescription	Berühre Rüstung und sie wird magisch und gibt +1 RK. Beachten Sie, dass Sie eine Infusion nur einmal aktiv haben können. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&AttackModifierArtificerEnhancedArmorTitle	Verbesserte Rüstung
+Subclass/&AttackModifierArtificerEnhancedFocusDescription	Berühre einen Fokus und er wird magisch und erhält +1 auf Angriffs- und Zauber-DC. Beachten Sie, dass Sie eine Infusion nur einmal aktiv haben können. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&AttackModifierArtificerEnhancedFocusTitle	Verbesserter Fokus
+Subclass/&AttackModifierArtificerEnhancedWeaponDescription	Berühre eine Waffe und sie wird magisch und erhält +1 auf Angriffs- und Schadenswürfe. Beachten Sie, dass Sie eine Infusion nur einmal aktiv haben können. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&AttackModifierArtificerEnhancedWeaponTitle	Verbesserte Waffe
+Subclass/&AttackModifierArtificerImprovedEnhancedArmorDescription	Berühre Rüstung und sie wird magisch und gibt +2 RK. Beachten Sie, dass Sie eine Infusion nur einmal aktiv haben können. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&AttackModifierArtificerImprovedEnhancedArmorTitle	Verbesserte verstärkte Rüstung
+Subclass/&AttackModifierArtificerImprovedEnhancedFocusDescription	Berühre einen Fokus und er wird magisch und erhält +2 auf Angriffs- und Zauber-SG. Beachten Sie, dass Sie eine Infusion nur einmal aktiv haben können. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&AttackModifierArtificerImprovedEnhancedFocusTitle	Verbesserter verstärkter Fokus
+Subclass/&AttackModifierArtificerImprovedEnhancedWeaponDescription	Berühre eine Waffe und sie wird magisch und erhält +2 auf Angriffs- und Schadenswürfe. Beachten Sie, dass Sie eine Infusion nur einmal aktiv haben können. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&AttackModifierArtificerImprovedEnhancedWeaponTitle	Verbesserte verbesserte Waffe
+Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponDescription	Du verleihst deiner Waffe Kraft. Deine Angriffe zählen als magisch und du addierst +7 zu deinen Angriffs- und Schadenswürfen.
+Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponTitle	Verbesserte Infusionswaffe
+Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription	Wenn eine Waffe aktiv ist, zählen ihre Angriffe als magisch und Sie nutzen Ihre Intelligenz für Ihre Angriffs- und Schadenswürfe.
+Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle	Arkane Waffe
+Subclass/&AttributeModifierArtificerBattleSmithExtraAttackDescription	Du erhältst einen zusätzlichen Angriff
+Subclass/&AttributeModifierArtificerBattleSmithExtraAttackTitle	Extra-Angriff
+Subclass/&AttributeModifierMeleeWizardExtraAttackDescription	Du erhältst einen zusätzlichen Angriff
+Subclass/&AttributeModifierMeleeWizardExtraAttackTitle	Extra-Angriff
+Subclass/&BarbarianPathOfTheLightDescription	Barbaren, die dem Pfad des Lichts folgen, erhellen die Dunkelheit und schützen ihre Verbündeten vor Gefahren, die darin lauern.
+Subclass/&BarbarianPathOfTheLightEyesOfTruthDescription	Du stehst immer unter der Wirkung eines Zaubers „Unsichtbarkeit sehen“.
+Subclass/&BarbarianPathOfTheLightEyesOfTruthTitle	Augen der Wahrheit
+Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription	Abgelenkt durch Erleuchtenden Schlag.
+Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle	Beleuchtet
+Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription	Nachteil bei jedem Angriffswurf, der nicht gegen den Pfad des Lichtbarbaren gerichtet ist.
+Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription	Kann nicht unsichtbar werden.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstDescription	In der Runde, in der Sie in Ihre Wut geraten, können Sie bis zu drei Feinde innerhalb von 30 Fuß von Ihnen beleuchten. Sie müssen einen Konstitutionsrettungswurf (SG gleich 8 + dein Kompetenzbonus + dein Konstitutionsmodifikator) bestehen oder 4W6 Strahlungsschaden erleiden und 1 Minute lang von deinem Erleuchtenden Schlag erleuchtet werden. Eine auf diese Weise beleuchtete Kreatur macht am Ende jedes ihrer Züge einen weiteren Konstitutionsrettungswurf. Bei einem erfolgreichen Speichern endet der Effekt dafür.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription	Bis zu drei Feinde erleiden 4W6 Strahlungsschaden und werden von deinem Erleuchtenden Schlag erleuchtet. (Konstitutionsrettungswurf negiert.)
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle	Erleuchtender Ausbruch
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstTitle	Erleuchtender Ausbruch
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeDescription	Während du tobst, erleidet die erste Kreatur, die du in deinem Zug mit einem Angriff triffst, zusätzlich 1W6 Strahlenschaden und wird bis zum Beginn deines nächsten Zuges magisch erleuchtet. Außerdem hat die Kreatur einen Nachteil bei jedem Angriffswurf, der nicht gegen dich ist, und kann nicht unsichtbar werden.
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementDescription	Der zusätzliche Schaden von Illuminating Strike erhöht sich auf 2W6.
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementTitle	Beleuchtungsschlag-Verbesserung
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeTitle	Erleuchtender Schlag
+Subclass/&BarbarianPathOfTheLightLightsProtectionDescription	Sie erhalten Trefferpunkte in Höhe der Hälfte Ihrer Barbarenstufe zurück, wenn eine feindliche Kreatur stirbt, die von Ihrem Erleuchtenden Schlag betroffen ist. Außerdem provozierst du keine Gelegenheitsangriffe mehr von Kreaturen, die von deinem Erleuchtenden Schlag betroffen sind.
+Subclass/&BarbarianPathOfTheLightLightsProtectionTitle	Schutz des Lichts
+Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription	Du erhältst überlegene Dunkelsicht.
+Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle	Durchdringe die Dunkelheit
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Kann unsichtbare Kreaturen wahrnehmen.
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Unsichtbarkeit
+Subclass/&BarbarianPathOfTheLightTitle	Weg des Lichts
+Subclass/&BloodWitchDescription	Blutmagie, die von den meisten Hexenzirkeln verboten ist, konzentriert sich auf die Verwendung von dunklen Zaubersprüchen und tödlichen Flüchen, die aus der Essenz des Zauberkundigen schöpfen. Es ist grundsätzlich gefährlicher als andere Hexenhandwerke, aber seine vielen Risiken sind mit reichlich Belohnungen verbunden.
+Subclass/&BloodWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zauber zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl bekannter Zauber.\n\nLevel-Zauber\n1. Verschränkung, Goodberry\n2. Rindenhaut, Schutz vor Gift\n3. Tiere beschwören, Nahrung herstellen\n4. Rieseninsekt, Steinhaut\n5. Böses und Gutes vertreiben, Insektenplage
+Subclass/&BloodWitchMagicTitle	Die Blutmagie
+Subclass/&BloodWitchTitle	Blut Hexe
+Subclass/&CancelCancelElixirFlyDescription	Beende die Fliegen-Bedingung durch das Trankmacher-Elixier.
+Subclass/&CancelCancelElixirFlyTitle	Fliegen abbrechen
+Subclass/&CancelCancelElixirResilienceDescription	Beenden Sie die Resilienz-Bedingung des Trankmacher-Elixiers.
+Subclass/&CancelCancelElixirResilienceTitle	Resilienz abbrechen
+Subclass/&CancelCancelElixirSwiftnessDescription	Beende den Schnelligkeits-Zustand des Trankmacher-Elixiers.
+Subclass/&CancelCancelElixirSwiftnessTitle	Schnelligkeit abbrechen
+Subclass/&ConditionResistantArmorTitle	Widerstandsfähige Rüstung
+Subclass/&ConditionResistnatArmorDescription	Ihre Rüstung ist resistent gegen Säure-, Kälte-, Feuer-, Kraft-, Blitz-, Nekrotik-, Gift-, psychische, Strahlungs- und Donnerschäden
+Subclass/&ConditionSpellShieldArcaneDeflectionDescription	Du kannst deine arkanen Kräfte einsetzen, um dich als Reaktion abzuschirmen. Dadurch erhältst du bis zu deinem nächsten Zug +{0} auf deine AC.
+Subclass/&ConditionSpellShieldArcaneDeflectionTitle	Arkane Ablenkung
+Subclass/&ConditionTransmuteConstitutionSaveDescription	Temporärer Konstitutionsschutz, der durch die Kraft der Machtumwandlung gewährt wird.
+Subclass/&ConditionTransmuteConstitutionSaveTitle	Verfassung speichert
+Subclass/&ConditionTransmutePoisonDescription	Temporäre Säure-, Kälte-, Feuer-, Blitz-, Nekrotik-, Donner- und Giftresistenz, die durch die Macht Transmute Force gewährt wird.
+Subclass/&ConditionTransmutePoisonTitle	Elementarer Widerstand
+Subclass/&CraftingTinkererMagicItemAdeptDescription	Du bist geschickt darin, magische Gegenstände herzustellen. Sie benötigen 1/4 der Zeit, um Gegenstände herzustellen, und Sie wenden beim Herstellen den doppelten Kompetenzbonus an.
+Subclass/&CraftingTinkererMagicItemAdeptTitle	Adept der magischen Gegenstände
+Subclass/&DruidForestGuardianDruidSubclassDescription	Kreis der Waldwächter-Druiden haben geschworen, die Wälder und alle, die darin leben, zu beschützen. Die Mitglieder dieses druidischen Zirkels sind geübt im Umgang mit Abschwörungsmagie und kriegerischen Kämpfen und sind furchterregende Gegner auf dem Schlachtfeld.
+Subclass/&DruidForestGuardianDruidSubclassTitle	Kreis der Waldwächter
+Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Berühren Sie eine Tasche und schaffen Sie zusätzlichen Raum, damit sie mehr Gewicht tragen kann, ohne Sie zu belasten. Beachten Sie, dass Sie eine Infusion nur einmal aktiv haben können. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Tasche des Haltens
+Subclass/&FighterRoyalKnightDescription	Ein Ritter, der andere zu Größe inspiriert, indem er mutige Taten im Kampf begeht. Ein einsamer Ritter ist ein erfahrener Krieger, aber einer, der eine Gruppe von Verbündeten anführt, kann selbst die am schlechtesten ausgerüstete Miliz in eine wilde Kriegsbande verwandeln.
+Subclass/&FighterRoyalKnightTitle	königlicher Ritter
+Subclass/&FighterSpellShieldDescription	Zauberschilde sind Kämpfer, die sich auf Verteidigung und Schutz spezialisiert haben. Sie verwenden Magie, um ihre natürlichen Fähigkeiten zu unterstützen.
+Subclass/&FighterSpellShieldSpellcastingDescription	Wirke Zaubersprüche und Cantrips aus den Schulen der Abschwörung, Illusion, Transmutation und Nekromantie.
+Subclass/&FighterSpellShieldSpellcastingTitle	Zaubern
+Subclass/&FighterSpellShieldSpellResistanceDescription	Deine Erfahrung mit Zaubersprüchen und insbesondere der Bannzaubermagie hat dich resistent gegen gegen dich gerichtete Zauber gemacht.
+Subclass/&FighterSpellShieldSpellResistanceTitle	Zauberwiderstand
+Subclass/&FighterSpellShieldTitle	Zauberschild
+Subclass/&GreenWitchDescription	Pflanzen, Natur und Dinge, die wachsen, sind die Domäne der grünen Magie. Normalerweise eine Art von Arkana, die von Druiden verfochten wird, haben einige Hexen eine enge Verbindung zu den Kräften der grünen Magie und können Pflanzen und Tiere dazu bringen, ihr Gebot abzugeben.
+Subclass/&GreenWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zauber zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl bekannter Zauber.\n\nLevel-Zauber\n1. Verschränkung, Goodberry\n2. Rindenhaut, Schutz vor Gift\n3. Tiere beschwören, Nahrung herstellen\n4. Rieseninsekt, Steinhaut\n5. Böses und Gutes vertreiben, Insektenplage
+Subclass/&GreenWitchMagicTitle	Grüne Magie
+Subclass/&GreenWitchTitle	Grüne Hexe
+Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseDescription	Sie können jetzt jeden Tag zwei zusätzliche Gegenstände infundieren, die für Ihre spezielle Waffenschmied-Waffe verwendet werden sollen
+Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseTitle	Waffe Schmied Waffeninfusion
+Subclass/&HealingPoolArtificerInfusionsDescription	Ergänze Gegenstände 2-mal täglich mit magischen Effekten
+Subclass/&HealingPoolArtificerInfusionsIncreaseDescription	Sie können jetzt jeden Tag ein zusätzliches Item infundieren
+Subclass/&HealingPoolArtificerInfusionsIncreaseTitle	Mehr Aufgüsse
+Subclass/&HealingPoolArtificerInfusionsTitle	Aufgüsse
+Subclass/&HealingPoolLifeTransmuterBonusDescription	2 weitere Male pro Tag kannst du deinen Willen der Realität aufzwingen.
+Subclass/&HealingPoolLifeTransmuterBonusExtraDescription	4 weitere Male pro Tag kannst du deinen Willen der Realität aufzwingen.
+Subclass/&HealingPoolLifeTransmuterBonusExtraTitle	Zusätzliche Transmutationskraft
+Subclass/&HealingPoolLifeTransmuterBonusTitle	Zusätzliche Transmutationskraft
+Subclass/&HealingPoolLifeTransmuterListDescription	2 mal täglich deinen Willen mit Spezialfähigkeiten in die Realität umsetzen.
+Subclass/&HealingPoolLifeTransmuterListTitle	Kraft umwandeln
+Subclass/&KSRogueSubclassThugDescription	Schläger sind scharfsinnige Kämpfer, die den Nervenkitzel des Kampfes suchen und ihre Feinde mit allen Mitteln dazu bringen, ins Gras zu beißen. Sie profitieren von einem fortgeschrittenen Kampftraining und lernen, ihren Witz und ihre Muskelkraft gleichermaßen einzusetzen, um im Kampf zu triumphieren.
+Subclass/&KSRogueSubclassThugTitle	Schurke
+Subclass/&MagicAffinityAlchemicalSavantListDescription	Beim Wirken von Säurepfeil und Flammenkugel verhalten sie sich, als ob sie 2 Stufen höher gewirkt würden. Ihre Cantrips werden ebenfalls verstärkt, sodass sie selbst dann, wenn der Feind rettet, immer noch den halben Schaden erleiden
+Subclass/&MagicAffinityAlchemicalSavantListTitle	Elixiergelehrte Zauber
+Subclass/&MagicAffinityAlchemistSpellRecoveryDescription	Ihr könnt während einer kurzen Pause zweimal täglich Zauberslots wiederherstellen
+Subclass/&MagicAffinityAlchemistSpellRecoveryTitle	Alchemistische Zubereitung
+Subclass/&MagicAffinityFighterSpellShieldDescription	Vorteil bei Konzentrationswürfen sowie die Fähigkeit, somatische Komponenten von Zaubersprüchen auszuführen, während Gegenstände gehalten werden.
+Subclass/&MagicAffinityFighterSpellShieldTitle	Kampf-Casting
+Subclass/&MagicAffinityLifeTransmuterListDescription	Wenn einige Transmutations- und Nekromantiezauber gewirkt werden, werden sie auf einem Zauberplatz gewirkt, der 2 Stufen höher ist als der verwendete. Zu den verbesserten Zaubern gehören: Falsches Leben, Blindheit, Fliegen, Fluch verleihen, Vampirberührung, Seuche und Wolkentötung. -- Hinweis Es ist beabsichtigt, auch den Vorteil von Magic Weapon zu haben, aber derzeit hat das Erhöhen des Zauberlevels auf Magic Weapon keine Auswirkung.
+Subclass/&MagicAffinityLifeTransmuterListTitle	Realitätsbeugung
+Subclass/&MagicAffinityMasterManipulatorDC0Description	Es ist schwieriger für Gegner, Ihren Zaubern zu widerstehen. Der SG des Rettungswurfs erhöht sich um 0.
+Subclass/&MagicAffinityMasterManipulatorDC1Description	Es ist schwieriger für Gegner, Ihren Zaubern zu widerstehen. Der SG des Rettungswurfs erhöht sich um 1.
+Subclass/&MagicAffinityMasterManipulatorDC2Description	Es ist schwieriger für Gegner, Ihren Zaubern zu widerstehen. Der SG des Rettungswurfs erhöht sich um 2.
+Subclass/&MagicAffinityMasterManipulatorDC3Description	Es ist schwieriger für Gegner, Ihren Zaubern zu widerstehen. Der SG des Rettungswurfs erhöht sich um 3.
+Subclass/&MagicAffinityMasterManipulatorDC4Description	Es ist schwieriger für Gegner, Ihren Zaubern zu widerstehen. Der SG des Rettungswurfs erhöht sich um 4.
+Subclass/&MagicAffinityMasterManipulatorDC5Description	Es ist schwieriger für Gegner, Ihren Zaubern zu widerstehen. Der SG des Rettungswurfs erhöht sich um 5.
+Subclass/&MagicAffinityMasterManipulatorDCDescription	Es ist schwieriger für Gegner, Ihren Zaubern zu widerstehen. Der SG des Rettungswurfs erhöht sich um 3.
+Subclass/&MagicAffinityMasterManipulatorDCTitle	Arkane Kraft
+Subclass/&MagicAffinityMasterManipulatorListDescription	Wenn einige Verzauberungs-, Bann- und Illusionszauber gewirkt werden, werden sie mit einem Zauberplatz gewirkt, der 1 Stufe höher ist als der verwendete. Zu den verbesserten Zaubern gehören: Person bezaubern, Schlaf, Farbspray, Person festhalten, Unsichtbarkeit, Gegenzauber, Magie bannen, Verbannung, Verwirrung, Phantasmal Killer, Person beherrschen und Monster festhalten.
+Subclass/&MagicAffinityMasterManipulatorListTitle	Arkane Manipulation
+Subclass/&MagicAffinityMeleeWizardConcentrationDescription	Verschaffen Sie sich aufgrund der Erfahrung im Chaos des Kampfes einen Vorteil bei Konzentrationswürfen.
+Subclass/&MagicAffinityMeleeWizardConcentrationTitle	Verbesserte Konzentration
+Subclass/&MagicAffinityRoguishConArtistDC0Description	Der SG deines Zauberwurfs erhöht sich um 0.
+Subclass/&MagicAffinityRoguishConArtistDC1Description	Der SG deines Zauberwurfs erhöht sich um 1.
+Subclass/&MagicAffinityRoguishConArtistDC2Description	Der SG deines Zauberwurfs erhöht sich um 2.
+Subclass/&MagicAffinityRoguishConArtistDC3Description	Der SG deines Zauberwurfs erhöht sich um 3.
+Subclass/&MagicAffinityRoguishConArtistDC4Description	Der SG deines Zauberwurfs erhöht sich um 4.
+Subclass/&MagicAffinityRoguishConArtistDC5Description	Der SG deines Zauberwurfs erhöht sich um 5.
+Subclass/&MagicAffinityRoguishConArtistDCTitle	Verbesserte Manipulation
+Subclass/&MagicAffinitySpellMasterBonusScribingDescription	Schreiben Sie einen zusätzlichen Zauber bei jedem Levelaufstieg.
+Subclass/&MagicAffinitySpellMasterBonusScribingTitle	Breite des Wissens
+Subclass/&MagicAffinitySpellMasterRecoveryDescription	Einmal pro langer Rast kannst du Zauberslots wiederherstellen (zusätzlich zur Arkanen Erholung).
+Subclass/&MagicAffinitySpellMasterRecoveryTitle	Arkane Tiefe
+Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedDescription	Unbegrenzt oft kannst du Zauberslots wiederherstellen (zusätzlich zur Arkanen Wiederherstellung).
+Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedTitle	Arkane Tiefe
+Subclass/&MagicAffinitySpellMasterScribingDescription	Das Schreiben von Zaubersprüchen dauert 1/4 der Zeit und Kosten, und Sie haben einen Vorteil.
+Subclass/&MagicAffinitySpellMasterScribingTitle	Meister Schreiber
+Subclass/&ManipulatorMentalSavingThrowsDescription	Erlange Erfahrung in Rettungswürfen mit Konstitution und Charisma.
+Subclass/&ManipulatorMentalSavingThrowsTitle	Geistiger Widerstand
+Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription	Du verleihst deiner Waffe Kraft. Ihre Angriffe zählen als magisch und Sie addieren Ihre +7 zu Ihren Angriffs- und Schadenswürfen. Beachten Sie, dass Sie eine Infusion nur einmal aktiv haben können. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponTitle	Verbesserte Infusionswaffe
+Subclass/&PowerArtificerBattleSmithInfuseWeaponDescription	Du verleihst deiner Waffe Kraft. Deine Angriffe zählen als magisch und du nutzt deine Intelligenz für Angriffs- und Schadenswürfe bis zur nächsten langen Pause
+Subclass/&PowerArtificerBattleSmithInfuseWeaponTitle	Waffe einflößen
+Subclass/&PowerInfuseArmorMagicalStrengthDescription	Ergänze Rüstungen mit magischer Stärke. Du verschaffst dir Vorteile bei Stärke-Fähigkeits-Checks und Rettungswürfen. Beachten Sie, dass Sie eine Infusion nur einmal aktiv haben können. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&PowerInfuseArmorMagicalStrengthTitle	Rüstung der magischen Stärke
+Subclass/&PowerInfuseDarkvisionDescription	Verleihen Sie einer Brille die Fähigkeit, im Dunkeln zu sehen. Beachten Sie, dass Sie eine Infusion nur einmal aktiv haben können. Eine zweite Aktivierung bricht die erste ab. Beachten Sie, dass Sie eine Infusion nur einmal aktiv haben können. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&PowerInfuseDarkvisionTitle	Brille der Nacht
+Subclass/&PowerInfuseMindSharpenerDescription	Ergänze eine Rüstung oder Robe mit der Fähigkeit, deine Konzentration beim Zaubern zu unterstützen. Du erhältst einen Vorteil bei Konzentrationswürfen und jeder Schaden unter 20 löst keinen Wurf aus. Beachten Sie, dass Sie eine Infusion nur einmal aktiv haben können. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&PowerInfuseMindSharpenerTitle	Geistschärfer
+Subclass/&PowerInfuseResistantArmorDescription	Verleihe deiner Rüstung Schadensresistenz. Es wird resistent gegen Säure-, Kälte-, Feuer-, Kraft-, Blitz-, Nekrotik-, Gift-, psychische, strahlende und Donnerschäden. Beachten Sie, dass Sie eine Infusion nur einmal aktiv haben können. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&PowerInfuseResistantArmorTitle	Widerstandsfähige Rüstung
+Subclass/&PowerManipulatorDominatePersonDescription	Du kannst Dominante Person so oft pro langer Pause verwenden, wie es deinem Intelligenzmodifikator entspricht.
+Subclass/&PowerManipulatorDominatePersonTitle	Person dominieren
+Subclass/&PowerSpellRefuelingRingDescription	Wenn Sie dies aktivieren, gewinnen Sie die Hälfte Ihres Levels an Zauberslots zurück.
+Subclass/&PowerSpellRefuelingRingTitle	Zauber-Auftankring
+Subclass/&PowerSpellShieldArcaneDeflectionDescription	Du kannst deine arkanen Kräfte einsetzen, um dich als Reaktion abzuschirmen. Dadurch erhältst du bis zu deinem nächsten Zug +{0} auf deine AC.
+Subclass/&PowerSpellShieldArcaneDeflectionTitle	Arkane Ablenkung
+Subclass/&PowerSpellShieldRangedDeflectionDescription	Wenn ein Angreifer, den du sehen kannst, dich mit einem Fernkampfangriff oder Zauber trifft, kannst du deine Reaktion nutzen, um den Schaden des Angriffs gegen dich zu halbieren.
+Subclass/&PowerSpellShieldRangedDeflectionTitle	Fernablenkung
+Subclass/&PowerTinkererSoulOfArtificeSavesDescription	Ihre Rüstung ist von magischen Verbesserungen Ihrer Fähigkeit durchdrungen, schlechte Auswirkungen zu vermeiden. Du erhältst 3W4 für jeden Rettungswurf, den du machst.
+Subclass/&PowerTinkererSoulOfArtificeSavesTitle	Seele des Tüftlers
+Subclass/&PowerTinkererSpellStoringItemDescription	Als Bonusaktion kannst du Zauberslots zurückgewinnen. Sie können dies so oft pro Tag tun, wie es Ihrem Intellifence-Modifikator entspricht.
+Subclass/&PowerTinkererSpellStoringItemTitle	Zauberspeichergegenstand
+Subclass/&PowerTransmuteConstitutionDescription	Benutze deine Transmutationskraft, um Konstitutionswürfe bis zur nächsten langen Pause zu beherrschen.
+Subclass/&PowerTransmuteConstitutionTitle	Verfassung speichert
+Subclass/&PowerTransmuteDarkvisionDescription	Nutze deine Transmutierungskraft, um bis zur nächsten langen Pause überlegene Dunkelsicht zu gewähren.
+Subclass/&PowerTransmuteDarkvisionTitle	Überlegene Dunkelsicht
+Subclass/&PowerTransmuteElementalResistanceDescription	Nutze deine Transmutierungskraft, um bis zur nächsten langen Pause Widerstand gegen Säure, Kälte, Feuer, Blitz, Nekrotik, Donner und Gift zu gewähren.
+Subclass/&PowerTransmuteElemnetalResistanceTitle	Elementarer Widerstand
+Subclass/&PowerTransmuteFlyDescription	Benutze deine Transmutierungskraft, um die Fähigkeit zu fliegen zu gewähren.
+Subclass/&PowerTransmuteFlyTitle	Fliegen
+Subclass/&PowerTransmuteHealDescription	Nutze deine Transmutierungskraft, um bis zu 6 Ziele zu heilen.
+Subclass/&PowerTransmuteHealTitle	Heilen
+Subclass/&PowerTransmuteReviveDescription	Verwenden Sie Ihre Transmute Force, um einen Charakter wiederzubeleben (innerhalb von 1 Minute nach seinem Tod).
+Subclass/&PowerTransmuteReviveTitle	Beleben
+Subclass/&PurpleWitchDescription	Lila Magie herrscht über die Bereiche der Illusionen und Verzauberungen, die den Geist der Menschen beherrschen, und über alles, was nicht ganz so ist, wie es scheint. Praktizierende dieser Form der Magie sind Puppenspieler, die die scheinbare Realität ihrer Umgebung zu ihrem Vorteil gestalten.
+Subclass/&PurpleWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zauber zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl bekannter Zauber.\n\nLevel-Zauber\n1. Verschränkung, Goodberry\n2. Rindenhaut, Schutz vor Gift\n3. Tiere beschwören, Nahrung herstellen\n4. Rieseninsekt, Steinhaut\n5. Böses und Gutes vertreiben, Insektenplage
+Subclass/&PurpleWitchMagicTitle	Lila Magie
+Subclass/&PurpleWitchTitle	Lila Hexe
+Subclass/&RangerArcanistRangerSubclassDescription	Der Waldläufer-Arkanist verschmilzt seine Waldläuferfähigkeiten mit arkanen Fähigkeiten. Ihre Waffen können ihre Gegner mit dem Zeichen des Arkanisten belegen, und sie haben gelernt, einige Zaubersprüche als Teil ihres Zauberrepertoires für Waldläufer zu wirken.
+Subclass/&RangerArcanistRangerSubclassTitle	Ranger-Arkanist
+Subclass/&RedWitchDescription	Arkane Magie, die mit dem Kanalisieren der Elemente verbunden ist, gilt als rote Magie und ist bei Verwendung äußerst gefährlich. Hexen, die sich auf rote Magie spezialisiert haben, gehören zu den tödlichsten Zauberkundigen, die es gibt, und kanalisieren ihren Fluch ungehindert in arkanen Zorn.
+Subclass/&RedWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zauber zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl bekannter Zauber.\n\nLevel-Zauber\n1. Brennende Hände, Magische Rakete\n2. Säurepfeil, Sengender Strahl\n3. Feuerball, Schutz vor Energie\n4. Eissturm, Feuerwand\n5. Kältekegel, Mind Twist
+Subclass/&RedWitchMagicTitle	Rote Magie
+Subclass/&RedWitchTitle	Rote Hexe
+Subclass/&RoguishConArtistDescription	Betrüger sind Schurken, die sich darauf spezialisiert haben, andere zu täuschen und auszutricksen. Sie verwenden Magie, um ihre natürlichen manipulativen Fähigkeiten zu unterstützen.
+Subclass/&RoguishConArtistFeintConditionDescription	Ausgetrickst zu werden gewährt beim nächsten Angriff einen Vorteil.
+Subclass/&RoguishConArtistFeintConditionTitle	Ausgetrickst
+Subclass/&RoguishConArtistFeintDescription	Erhalte als Bonusaktion die Fähigkeit, im Kampf zu antäuschen. Wenn dem Ziel der Rettungswurf misslingt, gewährt dies einen Vorteil beim nächsten Angriff gegen das Ziel.
+Subclass/&RoguishConArtistFeintTitle	Finte
+Subclass/&RoguishConArtistMentalSavingThrowsDescription	Du erlernst Weisheits- und Charisma-Rettungswürfe.
+Subclass/&RoguishConArtistMentalSavingThrowsTitle	Mentale Stärke
+Subclass/&RoguishConArtistSpellcastingDescription	Wirke Zaubersprüche und Cantrips aus den Schulen der Beschwörung, Verzauberung, Illusion und Transmutation. Der Betrüger nutzt Charisma, um seine Zauber zu wirken.
+Subclass/&RoguishConArtistSpellcastingTitle	Zaubern
+Subclass/&RoguishConArtistTitle	Trickbetrüger
+Subclass/&ScoutSentinelTinkererSubclassDescription	Ein Scout Sentinel-Tüftler modifiziert Rüstungen, um ihre Funktion zu verbessern und verbesserten Schutz und Mobilität zu bieten.
+Subclass/&ScoutSentinelTinkererSubclassTitle	Scout-Wächter
+Subclass/&SpellShieldAdditionalActionDescription	Du kannst einen Zauber wirken, nachdem du einen Feind mit deinen Waffenangriffen besiegt hast.
+Subclass/&SpellShieldAdditionalActionTitle	Zauberkampf
+Subclass/&TactitionFighterSubclassDescription	Der Taktiker nutzt sein Wissen und seine Macht auf dem Schlachtfeld, um verschiedene Schachzüge nach Bedarf auszuführen. Sie können Feinde niederschlagen, ihre Verbündeten inspirieren und tödliche Gegenschläge gegen ihre Feinde ausführen. Mod-Hinweis – Diese Klasse verwendet Channel Divinity für diese Features erneut.
+Subclass/&TactitionFighterSubclassTitle	Der Taktiker
+Subclass/&TinkererFlashOfGeniusConditionDescription	Inspiriert von einem Geistesblitz, einen Bonus auf Fähigkeitschecks und Rettungswürfe zu haben
+Subclass/&TinkererFlashOfGeniusConditionTitle	Blitz des Genies
+Subclass/&TinkererFlashOfGeniusPowerDescription	Du kannst dein Genie einsetzen, um dich und andere bei Fähigkeitsprüfungen und Rettungswürfen zu inspirieren
+Subclass/&TinkererFlashOfGeniusPowerTitle	Blitz des Genies
+Subclass/&TinkererInfusionChoiceDescription	Wählen Sie die Infusionen aus, die Ihnen zur Verfügung stehen. Beachten Sie, dass Sie eine Infusion nur einmal aktiv haben können. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&TinkererInfusionChoiceTitle	Wahl der Infusion
+Subclass/&TinkererMagicalTinkeringDescription	Erhalte die Fähigkeit, mehrere kleinere Effekte auszuführen (Dazzle, Sparkle, Shine).
+Subclass/&TinkererMagicalTinkeringTitle	Magisches Basteln
+Subclass/&TraditionArcaneFighterDescription	Kanalisieren Sie Ihre Magie in Waffenangriffe.
+Subclass/&TraditionArcaneFighterTitle	Arkaner Kämpfer
+Subclass/&TraditionLifeTransmuterDescription	Meister der Manipulation von Materie und Lebensenergie.
+Subclass/&TraditionLifeTransmuterTitle	Lebenswandler
+Subclass/&TraditionMasterManipulatorDescription	Meistermanipulatoren zeichnen sich dadurch aus, dass sie das Schlachtfeld kontrollieren und verhindern, dass ihre Feinde sie angreifen können.
+Subclass/&TraditionMasterManipulatorTitle	Meister Manipulator
+Subclass/&TraditionSpellMasterBonusCantripsDescription	Erhalte 2 zusätzliche bekannte Cantrips.
+Subclass/&TraditionSpellMasterBonusCantripsTitle	Bonus-Cantrips
+Subclass/&TraditionSpellMasterDescription	Zaubermeister tauchen in die Magie ein und versuchen, jeden Zauber zu lernen, den sie in die Finger bekommen können. Sie sind unübertroffen in ihrem Zauberwissen.
+Subclass/&TraditionSpellMasterExtraPreparedDescription	Bereiten Sie Intelligenzmodifikator-Zusatzzauber vor, damit Sie immer das haben, was Sie brauchen.
+Subclass/&TraditionSpellMasterExtraPreparedTitle	Extra vorbereitet
+Subclass/&TraditionSpellMasterPreparedDescription	Bereiten Sie zusätzliche Fertigkeitsbonuszauber vor, damit Sie immer das haben, was Sie brauchen.
+Subclass/&TraditionSpellMasterPreparedTitle	Sei vorbereitet
+Subclass/&TraditionSpellMasterSpellResistanceDescription	Dein Training mit Magie verschafft dir einen Vorteil bei Rettungswürfen gegen Zauber.
+Subclass/&TraditionSpellMasterSpellResistanceTitle	Zauberwiderstand
+Subclass/&TraditionSpellMasterTitle	Zaubermeister
+Subclass/&WeaponProfArcaneFighterDescription	Die Erfahrung im Kampf hat dem Arcane Fighter eine Ausbildung in einfachen und Kampfwaffen gegeben.
+Subclass/&WeaponProfArcaneFighterTitle	Waffentraining
+Subclass/&WeaponProfArtificerBattleSmithDescription	Die Erfahrung im Kampf hat dem Waffenschmied eine Ausbildung in Kampfwaffen gegeben
+Subclass/&WeaponProfArtificerBattleSmithTitle	Waffentraining
+Subclass/&WhiteWitchDescription	Weiße Magie ist grundsätzlich gut und wohlwollend für alle Lebewesen. Hexen, die dieses Handwerk annehmen, widmen sich trotz des hasserfüllten Fluchs, der sie infiziert, oft der Heilung und Pflege, mit der Absicht, die Welt zu verbessern.
+Subclass/&WhiteWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zauber zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl bekannter Zauber.\n\nLevel-Zauber\n1. Segne, heile Wunden\n2. Kleine Wiederherstellung, Gebet der Heilung\n3. Leuchtfeuer der Hoffnung, Wiederbelebung\n4. Death Ward, Wächter des Glaubens\n5. Masse Wunden heilen, Tote erwecken
+Subclass/&WhiteWitchMagicTitle	Weiße Magie
+Subclass/&WhiteWitchTitle	weiße Hexe
+Subclass/&WitchSubclassPathDescription	Dein Wissen über Magie hat seinen Höhepunkt erreicht, indem du einem Coven beigetreten bist, einem angeborenen Kreis von Hexen, die einen bestimmten Pfad der Hexerei und der Flüche beschreiten.
+Subclass/&WitchSubclassPathTitle	Hexenzirkel
+Tooltip/&Tag9000Title	Benutzerdefinierter Effekt
+Tooltip/&TagMaledictionTitle	Fluch
+Tooltip/&TagScoutSentinelWeaponTitle	Verwendet Int für Angriff und Schaden

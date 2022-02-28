@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion
             foreach (var path in Directory.EnumerateFiles(fromFolder, "Translations-??.txt"))
             {
                 var filename = Path.GetFileName(path);
-                var code = filename.Substring(13, 2);
+                var code = filename.Substring(13, 2).ToLower();
                 var languageIndex = languageSourceData.GetLanguageIndexFromCode(code);
 
                 if (languageIndex < 0)
@@ -44,7 +44,7 @@ namespace SolastaCommunityExpansion
 
                     var termData = languageSourceData.GetTermData(term);
 
-                    if (termData?.Languages[languageIndex] != null)
+                    if (termData != null && termData.Languages[languageIndex] != null)
                     {
                         Main.Log($"term {term} overwritten with {code} text {text}");
 
