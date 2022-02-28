@@ -44,15 +44,21 @@ namespace SolastaCommunityExpansion.DataMiner
             }
         }
 
+        private static void SetExport(int exportId, Coroutine coroutine, float percentageComplete)
+        {
+            CurrentExports[exportId].coroutine = coroutine;
+            CurrentExports[exportId].percentageComplete = percentageComplete;
+        }
+
         internal static void Cancel(int exportId)
         {
-            if (CurrentExports[exportId].percentageComplete == 0)
+            if (CurrentExports[exportId].coroutine == null)
             {
                 return;
             }
 
             Exporter.StopCoroutine(CurrentExports[exportId].coroutine);
-            CurrentExports[exportId].percentageComplete = 0f;
+            SetExport(exportId, null, 0f);
         }
 
         internal static void ExportBlueprints(
@@ -61,18 +67,14 @@ namespace SolastaCommunityExpansion.DataMiner
             Dictionary<Type, BaseDefinition[]> baseDefinitionsMap,
             string path)
         {
-            if (baseDefinitionsMap == null || baseDefinitions == null || CurrentExports[exportId].percentageComplete > 0)
+            if (baseDefinitionsMap == null || baseDefinitions == null || CurrentExports[exportId].coroutine != null)
             {
                 return;
             }
 
-            CurrentExports[exportId].percentageComplete = 0.001f;
-            CurrentExports[exportId].coroutine = Exporter.StartCoroutine(
-                ExportMany(
-                    exportId,
-                    baseDefinitions,
-                    baseDefinitionsMap,
-                    path));
+            var coroutine = ExportMany(exportId, baseDefinitions, baseDefinitionsMap, path);
+
+            SetExport(exportId, Exporter.StartCoroutine(coroutine), 0f);
         }
 
         private static IEnumerator ExportMany(
@@ -82,7 +84,8 @@ namespace SolastaCommunityExpansion.DataMiner
             string path)
         {
             var start = DateTime.UtcNow;
-            Main.Log($"Export started: {DateTime.UtcNow}");
+
+            Main.Log($"Export started: {DateTime.UtcNow:G}");
 
             yield return null;
 
@@ -104,7 +107,7 @@ namespace SolastaCommunityExpansion.DataMiner
             {
                 sw.WriteLine("{0}\t{1}\t{2}\t{3}", "Name", "Type", "DatabaseType", "GUID");
 
-                foreach (var db in baseDefinitionsMap.OrderBy(db => db.Key.FullName))
+                foreach (var db in baseDefinitionsMap)
                 {
                     foreach (var definition in db.Value)
                     {
@@ -121,44 +124,41 @@ namespace SolastaCommunityExpansion.DataMiner
             for (var i = 0; i < total; i++)
             {
                 var definition = baseDefinitions[i];
-                var subfolder = definition.GetType().Name;
+                var definitionType = definition.GetType().Name;
 
-                if (Array.IndexOf(Main.Settings.ExcludeFromExport, subfolder) < 0)
+                var filename = $"{definition.Name}.json";
+                var foldername = $"{path}/{definitionType}";
+                var fullname = $"{foldername}/{filename}";
+
+                EnsureFolderExists(foldername);
+
+                if (fullname.Length > MAX_PATH_LENGTH)
+                {
+                    Main.Log($"Shortened path {fullname}, to {foldername}/{definition.GUID}.json");
+                    fullname = $"{foldername}/{definition.GUID}.json";
+                }
+
+                try
                 {
                     // Don't put this outside the loop or it caches objects already serialized and then outputs a reference instead 
                     // of the whole object.
                     var serializer = JsonSerializer.Create(JsonUtil.CreateSettings(PreserveReferencesHandling.Objects));
 
-                    EnsureFolderExists($"{path}/{subfolder}");
-
-                    var filename = $"{definition.Name}.json";
-                    var folder = $"{path}/{subfolder}";
-                    var fullFilename = $"{folder}/{filename}";
-
-                    if (fullFilename.Length > MAX_PATH_LENGTH)
-                    {
-                        Main.Log($"Shortened path {fullFilename}, to {folder}/{definition.GUID}.json");
-                        fullFilename = $"{folder}/{definition.GUID}.json";
-                    }
-
-                    try
-                    {
-                        using StreamWriter sw = new StreamWriter(fullFilename);
-                        using JsonWriter writer = new JsonTextWriter(sw);
-                        serializer.Serialize(writer, definition);
-                    }
-                    catch (Exception ex)
-                    {
-                        Main.Error(ex);
-                    }
-
-                    CurrentExports[exportId].percentageComplete = (float)i / total;
+                    using StreamWriter sw = new StreamWriter(fullname);
+                    using JsonWriter writer = new JsonTextWriter(sw);
+                    serializer.Serialize(writer, definition);
                 }
+                catch (Exception ex)
+                {
+                    Main.Error(ex);
+                }
+
+                CurrentExports[exportId].percentageComplete = (float)i / total;
 
                 yield return null;
             }
 
-            CurrentExports[exportId].percentageComplete = 0f;
+            SetExport(exportId, null, 0f);
 
             Main.Log($"Export finished: {DateTime.UtcNow}, {DateTime.UtcNow - start}.");
         }

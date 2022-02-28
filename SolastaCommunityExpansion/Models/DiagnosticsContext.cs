@@ -65,8 +65,13 @@ namespace SolastaCommunityExpansion.Models
                 definitions.Add(db.Key, arr);
             }
 
-            TABaseDefinitionsMap = definitions;
-            TABaseDefinitions = TABaseDefinitionsMap.Values.SelectMany(v => v).ToArray();
+            TABaseDefinitionsMap = definitions.OrderBy(db => db.Key.FullName).ToDictionary(v => v.Key, v => v.Value);
+            TABaseDefinitions = TABaseDefinitionsMap.Values
+                .SelectMany(v => v)
+                .Where(x => Array.IndexOf(Main.Settings.ExcludeFromExport, x.GetType().Name) < 0)
+                .OrderBy(x => x.Name)
+                .ThenBy(x => x.GetType().Name)
+                .ToArray();
 
             Main.Log($"Cached {TABaseDefinitions.Length} TA definitions");
         }
@@ -98,7 +103,12 @@ namespace SolastaCommunityExpansion.Models
             }
 
             CEBaseDefinitionsMap = definitions;
-            CEBaseDefinitions = CEBaseDefinitionsMap.Values.SelectMany(v => v).ToArray();
+            CEBaseDefinitions = CEBaseDefinitionsMap.Values
+                .SelectMany(v => v)
+                .Where(x => Array.IndexOf(Main.Settings.ExcludeFromExport, x.GetType().Name) < 0)
+                .OrderBy(x => x.Name)
+                .ThenBy(x => x.GetType().Name)
+                .ToArray();
 
             Main.Log($"Cached {CEBaseDefinitions.Length} CE definitions");
         }
@@ -111,19 +121,18 @@ namespace SolastaCommunityExpansion.Models
             }
 
             var path = Path.Combine(HasDiagnosticsFolder ? DiagnosticsOutputFolder : GAME_FOLDER);
-            var definitions = baseDefinitions.OrderBy(x => x.Name).ThenBy(x => x.GetType().Name).ToList();
 
             EnsureFolderExists(path);
 
             /////////////////////////////////////////////////////////////////////////////////////////////////
             // Write all definitions name/guid to file (txt)
             File.WriteAllLines(Path.Combine(path, $"{baseFilename}.txt"),
-                definitions.Select(d => $"{d.Name}, {d.GUID}"));
+                baseDefinitions.Select(d => $"{d.Name}, {d.GUID}"));
 
             /////////////////////////////////////////////////////////////////////////////////////////////////
             // Write all definitions with no GUI presentation to file
             File.WriteAllLines(Path.Combine(path, $"{baseFilename}-GuiPresentation-MissingValue.txt"),
-                definitions
+                baseDefinitions
                     .Where(d => string.IsNullOrWhiteSpace(d.GuiPresentation?.Title) || string.IsNullOrWhiteSpace(d.GuiPresentation?.Description))
                     .Select(d => $"{d.Name}:\tTitle='{d.GuiPresentation?.Title ?? string.Empty}', Desc='{d.GuiPresentation?.Description ?? string.Empty}'"));
 
@@ -133,7 +142,7 @@ namespace SolastaCommunityExpansion.Models
             var currentLanguage = LocalizationManager.CurrentLanguageCode;
             var languageIndex = languageSourceData.GetLanguageIndexFromCode(currentLanguage);
 
-            var allLines = definitions
+            var allLines = baseDefinitions
                 .Select(d => new[] {
                     new { d.Name, Key = d.GuiPresentation?.Title, Type = "Title" },
                     new { d.Name, Key = d.GuiPresentation?.Description, Type = "Description" }
