@@ -1,0 +1,57 @@
+{
+  "$type": "FeatureDefinitionCraftingAffinity, Assembly-CSharp",
+  "affinityGroups": [
+    {
+      "$id": "1",
+      "$type": "FeatureDefinitionCraftingAffinity+CraftingAffinityGroup, Assembly-CSharp",
+      "tooltype": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
+      "durationMultiplier": 0.5,
+      "doubleProficiencyBonus": false
+    },
+    {
+      "$id": "2",
+      "$type": "FeatureDefinitionCraftingAffinity+CraftingAffinityGroup, Assembly-CSharp",
+      "tooltype": "Definition:HerbalismKitType:f470a833c25f4ca4e810ff7c7ea51369",
+      "durationMultiplier": 0.5,
+      "doubleProficiencyBonus": false
+    },
+    {
+      "$id": "3",
+      "$type": "FeatureDefinitionCraftingAffinity+CraftingAffinityGroup, Assembly-CSharp",
+      "tooltype": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
+      "durationMultiplier": 0.5,
+      "doubleProficiencyBonus": false
+    }
+  ],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$id": "4",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "5",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "6",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "f984cf1b01aaa78438c7e3bcfcbca32f",
+  "contentPack": "BaseGame",
+  "name": "CraftingAffinityLoremasterKeenMindCrafting"
+}

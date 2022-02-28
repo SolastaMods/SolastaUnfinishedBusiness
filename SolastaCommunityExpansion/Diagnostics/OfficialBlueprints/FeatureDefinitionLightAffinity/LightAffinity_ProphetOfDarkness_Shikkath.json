@@ -1,0 +1,57 @@
+{
+  "$type": "FeatureDefinitionLightAffinity, Assembly-CSharp",
+  "lightingEffectAndConditionList": [
+    {
+      "$id": "1",
+      "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
+      "lightingState": "Dim",
+      "condition": "Definition:ConditionProphetOfDarkness_DimLight_Shikkath:7cc3533cab831ed418f31aaae9114d75",
+      "effect": null
+    },
+    {
+      "$id": "2",
+      "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
+      "lightingState": "Darkness",
+      "condition": "Definition:ConditionProphetOfDarkness_Darkness_Shikkath:5d68cecafc34a2f41833f2755a1e3ace",
+      "effect": null
+    },
+    {
+      "$id": "3",
+      "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
+      "lightingState": "Unlit",
+      "condition": "Definition:ConditionProphetOfDarkness_Darkness_Shikkath:5d68cecafc34a2f41833f2755a1e3ace",
+      "effect": null
+    }
+  ],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$id": "4",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Condition/&ChildOfDarkness3_Title",
+    "description": "Condition/&ChildOfDarkness3_Description",
+    "spriteReference": {
+      "$id": "5",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "6",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "5d10af3718f93c840ba03065b00a1e79",
+  "contentPack": "BaseGame",
+  "name": "LightAffinity_ProphetOfDarkness_Shikkath"
+}

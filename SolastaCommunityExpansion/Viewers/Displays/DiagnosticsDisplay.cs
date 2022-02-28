@@ -4,10 +4,11 @@ using System.Text;
 using ModKit;
 using SolastaCommunityExpansion.DataMiner;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Patches.Diagnostic;
 using static SolastaCommunityExpansion.Viewers.Displays.CreditsDisplay;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
-{ 
+{
     internal static class DiagnosticsDisplay
     {
         private static bool IsUnityExplorerEnabled { get; set; }
@@ -99,6 +100,18 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 UI.ActionButton("Create TA diagnostics", () => DiagnosticsContext.CreateTADefinitionDiagnostics(), UI.Width(200));
                 UI.ActionButton("Create CE diagnostics", () => DiagnosticsContext.CreateCEDefinitionDiagnostics(), UI.Width(200));
             }
+
+            UI.Label("");
+
+            bool logVariantMisuse = Main.Settings.DebugLogVariantMisuse;
+
+            if (UI.Toggle("Log misuse of EffectForm and ItemDefinition " + Shared.RequiresRestart, ref logVariantMisuse))
+            {
+                Main.Settings.DebugLogVariantMisuse = logVariantMisuse;
+            }
+
+            ItemDefinitionVerification.Mode = Main.Settings.DebugLogVariantMisuse ? ItemDefinitionVerification.Verification.Log : ItemDefinitionVerification.Verification.None;
+            EffectFormVerification.Mode = Main.Settings.DebugLogVariantMisuse ? EffectFormVerification.Verification.Log : EffectFormVerification.Verification.None;
 #endif
             UI.Label("");
         }

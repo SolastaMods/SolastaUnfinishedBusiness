@@ -259,6 +259,9 @@ namespace SolastaCommunityExpansion
         public bool DebugLogDefinitionCreation { get; set; }
         public bool DebugLogFieldInitialization { get; set; }
         public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
+#if DEBUG
+        public bool DebugLogVariantMisuse { get; set; }
+#endif
 
         // Faction Relations
 

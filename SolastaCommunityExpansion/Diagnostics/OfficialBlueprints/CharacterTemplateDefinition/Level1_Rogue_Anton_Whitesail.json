@@ -1,0 +1,138 @@
+{
+  "$type": "CharacterTemplateDefinition, Assembly-CSharp",
+  "editorOnly": false,
+  "firstName": "Race/&HalflingMaleName1Title",
+  "surName": "Race/&HalflingSurName3Title",
+  "abilityScores": [
+    12,
+    19,
+    15,
+    13,
+    14,
+    8
+  ],
+  "automateAbilityScoreIncreases": false,
+  "mainRace": "Definition:Halfling:d6a9a559998c0974abd8077d7012ef84",
+  "subRace": "Definition:HalflingIsland:487b212a28e81714198a6acc3472e018",
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkinBronze",
+  "musculatureMorphotypeValue": 0.0,
+  "ageMorphotypeValue": 0.0,
+  "faceShapeMorphotype": "FaceShape_A",
+  "hairShapeMorphotype": "HairShape_A",
+  "hairColorMorphotype": "HairColorCopper",
+  "beardShapeMorphotype": "BeardShape_C",
+  "eyeColorMorphotype": "EyeColorGreen",
+  "eyeMorphotype": "Eye_Default",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
+  "mainClass": "Definition:Rogue:8ae0dcdf1cf0a264c8198e0ca715eaf3",
+  "subClass": null,
+  "deity": null,
+  "background": "Definition:Spy:842f14f4a92d18f4a8d1d1f401f0af25",
+  "backgroundPersonalityFlag1": "Cynicism",
+  "backgroundPersonalityFlag2": "Pragmatism",
+  "alignment": "NeutralEvil",
+  "alignmentPersonalityFlag1": "Self-Preservation",
+  "alignmentPersonalityFlag2": "Greed",
+  "fightingStyle": null,
+  "equipment": [
+    "Definition:ExplorerPack:03fbaf29ed08637449084486fe78a3c8",
+    "Definition:Shortsword:5d0f8d61d53786448920cad0485b77b7",
+    "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
+    "Definition:Shortbow:127ccd4869d66bb48aa8e800a6f1d9d8",
+    "Definition:Leather:3eb1973bc4b1dac46b8814ab902e523a",
+    "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
+    "Definition:Arrow:0b2e8c437ac65034b8055735aa5da873",
+    "Definition:ThievesTool:91bc47b45dfb1f540a7c0672d95af251"
+  ],
+  "startingMoney": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "skillsOverride": [
+    "Nature",
+    "Insight",
+    "Perception",
+    "Investigation",
+    "SleightOfHand",
+    "Stealth"
+  ],
+  "toolsOverride": [
+    "ThievesToolsType"
+  ],
+  "featsOverride": [],
+  "expertisesOverride": [
+    "Deception",
+    "Stealth"
+  ],
+  "languagesOverride": [],
+  "metamagicOverride": [],
+  "characterLevel": 1,
+  "knownRaceCantrips": [],
+  "knownClassCantrips": [],
+  "knownSubclassCantrips": [],
+  "knownRaceSpells": [],
+  "knownClassSpells": [],
+  "knownSubclassSpells": [],
+  "preparedClassSpells": [],
+  "preparedSubclassSpells": [],
+  "sex": "Male",
+  "pronoun": "Male",
+  "age": 22,
+  "facePath": "",
+  "wieldedItemsConfigurations": [
+    {
+      "$id": "1",
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Shortsword:5d0f8d61d53786448920cad0485b77b7",
+      "offHandItemDefinition": "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e"
+    },
+    {
+      "$id": "2",
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Shortbow:127ccd4869d66bb48aa8e800a6f1d9d8",
+      "offHandItemDefinition": null
+    },
+    {
+      "$id": "3",
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": null,
+      "offHandItemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994"
+    }
+  ],
+  "voiceId": "NEUTRAL1",
+  "guiPresentation": {
+    "$id": "4",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "CharacterTemplate/&GarradTitle",
+    "description": "CharacterTemplate/&GarradDescription",
+    "spriteReference": {
+      "$id": "5",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "c0d557455b0dd8447af6c992012b6f81",
+      "m_SubObjectName": "Level1_Rogue_Anton_Whitesail",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "6",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "bafcc153dd29d314385b9348b303e57d",
+  "contentPack": "BaseGame",
+  "name": "Level1_Rogue_Anton_Whitesail"
+}

@@ -1,0 +1,44 @@
+{
+  "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
+  "poolType": "Language",
+  "poolAmount": 1,
+  "restrictedChoices": [
+    "Language_Dwarvish",
+    "Language_Elvish",
+    "Language_Orc",
+    "Language_Goblin",
+    "Language_Giant",
+    "Language_Terran",
+    "Language_Draconic"
+  ],
+  "uniqueChoices": false,
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&HalflingIslandLanguagesTitle",
+    "description": "Feature/&HalflingIslandLanguagesDescription",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "8e0b27e53d5323d49b59cd51b5a54b3c",
+  "contentPack": "BaseGame",
+  "name": "PointPoolHalflingIslandLanguageChoice"
+}

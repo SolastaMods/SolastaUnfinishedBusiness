@@ -1,0 +1,78 @@
+{
+  "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
+  "allowedActionTypes": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "eitherMainOrBonus": false,
+  "maxAttacksNumber": -1,
+  "forbiddenActions": [],
+  "authorizedActions": [],
+  "restrictedActions": [],
+  "actionExecutionModifiers": [],
+  "specialBehaviour": "RandomBehaviour",
+  "randomBehaviorDie": "D10",
+  "randomBehaviourOptions": [
+    {
+      "$id": "1",
+      "$type": "BehaviorModeDescription, Assembly-CSharp",
+      "weight": 1,
+      "behaviour": "ConditionDuringTurn",
+      "condition": "Definition:ConditionConfusedMove:be4c73f30e7c27b48baa9bf1f5ce2130"
+    },
+    {
+      "$id": "2",
+      "$type": "BehaviorModeDescription, Assembly-CSharp",
+      "weight": 5,
+      "behaviour": "ConditionDuringTurn",
+      "condition": "Definition:ConditionConfusedIncapacitated:5080467181c250c4c9c2b899f661fac4"
+    },
+    {
+      "$id": "3",
+      "$type": "BehaviorModeDescription, Assembly-CSharp",
+      "weight": 2,
+      "behaviour": "ConditionDuringTurn",
+      "condition": "Definition:ConditionConfusedAttack:5abe994a151fff24f92ef7a490cb35b2"
+    },
+    {
+      "$id": "4",
+      "$type": "BehaviorModeDescription, Assembly-CSharp",
+      "weight": 2,
+      "behaviour": "None",
+      "condition": null
+    }
+  ],
+  "guiPresentation": {
+    "$id": "5",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "6",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "7",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "475b6c4aabec292429cb3c59608ff94f",
+  "contentPack": "BaseGame",
+  "name": "ActionAffinityConditionConfused"
+}

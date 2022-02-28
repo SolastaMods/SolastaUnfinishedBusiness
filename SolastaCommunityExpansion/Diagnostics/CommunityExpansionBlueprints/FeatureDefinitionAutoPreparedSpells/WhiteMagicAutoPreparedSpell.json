@@ -1,0 +1,82 @@
+{
+  "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
+  "autopreparedTag": "Coven",
+  "autoPreparedSpellsGroups": [
+    {
+      "$id": "1",
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 1,
+      "spellsList": [
+        "Definition:Bless:c2c3de28b2c1e294f9a604cdf03b9fd8",
+        "Definition:CureWounds:c401c5cf11ac8274f98a0dc809ff5863"
+      ]
+    },
+    {
+      "$id": "2",
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 3,
+      "spellsList": [
+        "Definition:LesserRestoration:5da149e59ebb042419041382af919aea",
+        "Definition:PrayerOfHealing:f560b05d2587f5e4894220356a589968"
+      ]
+    },
+    {
+      "$id": "3",
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 5,
+      "spellsList": [
+        "Definition:BeaconOfHope:5252b1be2462c8140ada004d265e277b",
+        "Definition:Revivify:16e7fb95186cf9b41806d15fbacd81af"
+      ]
+    },
+    {
+      "$id": "4",
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 7,
+      "spellsList": [
+        "Definition:DeathWard:5791cc9bac327d444bd26ece3c2e150e",
+        "Definition:GuardianOfFaith:9a2e9a322fd95a94197cfb894349d665"
+      ]
+    },
+    {
+      "$id": "5",
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 9,
+      "spellsList": [
+        "Definition:MassCureWounds:31c98fc81cea919499357f8b2cc26bee",
+        "Definition:RaiseDead:d35f9eee1baf295468f1dd7c696a15ba"
+      ]
+    }
+  ],
+  "spellcastingClass": "Definition:ClassWitch:dedb5cef-3036-5d46-92b7-d1fbbfa265f1",
+  "affinityRace": null,
+  "guiPresentation": {
+    "$id": "6",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "7",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$id": "8",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "790e347d-b2eb-5188-9c71-fc69c56b9d95",
+  "contentPack": "BaseGame",
+  "name": "WhiteMagicAutoPreparedSpell"
+}

@@ -1,0 +1,68 @@
+{
+  "$type": "TravelActivityDefinition, Assembly-CSharp",
+  "isDynamic": false,
+  "standardStartHour": 16,
+  "standardDurationHours": 8,
+  "fatigueImpactPerHour": 0.0,
+  "randomEvents": [
+    {
+      "$id": "1",
+      "$type": "TravelEventProbabilityDescription, Assembly-CSharp",
+      "eventDefinition": "Definition:TravelEventCampActivityNarrative:906f5c7e7d18f2d4ab9e59937c08b0a5",
+      "basePercent": 60,
+      "incremental": false
+    },
+    {
+      "$id": "2",
+      "$type": "TravelEventProbabilityDescription, Assembly-CSharp",
+      "eventDefinition": "Definition:TravelEventEncounter:8f968f3bb1d825442bdd6954aaca90e1",
+      "basePercent": 5,
+      "incremental": false
+    }
+  ],
+  "fixedEvents": [
+    {
+      "$id": "3",
+      "$type": "TravelEventFixedOccurenceDescription, Assembly-CSharp",
+      "eventDefinition": "Definition:TravelEventSetCamp:8c73fdcde6b5ffe44a4a84c07111013f",
+      "fixedOccurence": "FirstHour"
+    },
+    {
+      "$id": "4",
+      "$type": "TravelEventFixedOccurenceDescription, Assembly-CSharp",
+      "eventDefinition": "Definition:TravelEventCrafting:46af7553e2d43d24685f6e6f9ba3aa3e",
+      "fixedOccurence": "EveryHour"
+    }
+  ],
+  "navigationActivity": false,
+  "restActivity": false,
+  "guiPresentation": {
+    "$id": "5",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Travel/&TravelActivityCampTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "6",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "7",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "a72e5333913a37d469fdf934f1e67096",
+  "contentPack": "BaseGame",
+  "name": "TravelActivityCamp"
+}

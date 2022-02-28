@@ -1,0 +1,136 @@
+{
+  "$type": "InventoryDefinition, Assembly-CSharp",
+  "slotsMap": [
+    {
+      "$id": "1",
+      "$type": "InventoryDefinition+SlotPair, Assembly-CSharp",
+      "slotName": "Ammunition1Slot",
+      "slotType": "AmmunitionSlot"
+    },
+    {
+      "$id": "2",
+      "$type": "InventoryDefinition+SlotPair, Assembly-CSharp",
+      "slotName": "Ammunition2Slot",
+      "slotType": "AmmunitionSlot"
+    },
+    {
+      "$id": "3",
+      "$type": "InventoryDefinition+SlotPair, Assembly-CSharp",
+      "slotName": "HeadSlot",
+      "slotType": "HeadSlot"
+    },
+    {
+      "$id": "4",
+      "$type": "InventoryDefinition+SlotPair, Assembly-CSharp",
+      "slotName": "BackSlot",
+      "slotType": "BackSlot"
+    },
+    {
+      "$id": "5",
+      "$type": "InventoryDefinition+SlotPair, Assembly-CSharp",
+      "slotName": "NeckSlot",
+      "slotType": "NeckSlot"
+    },
+    {
+      "$id": "6",
+      "$type": "InventoryDefinition+SlotPair, Assembly-CSharp",
+      "slotName": "ShouldersSlot",
+      "slotType": "ShouldersSlot"
+    },
+    {
+      "$id": "7",
+      "$type": "InventoryDefinition+SlotPair, Assembly-CSharp",
+      "slotName": "TorsoSlot",
+      "slotType": "TorsoSlot"
+    },
+    {
+      "$id": "8",
+      "$type": "InventoryDefinition+SlotPair, Assembly-CSharp",
+      "slotName": "WristsSlot",
+      "slotType": "WristsSlot"
+    },
+    {
+      "$id": "9",
+      "$type": "InventoryDefinition+SlotPair, Assembly-CSharp",
+      "slotName": "GlovesSlot",
+      "slotType": "GlovesSlot"
+    },
+    {
+      "$id": "10",
+      "$type": "InventoryDefinition+SlotPair, Assembly-CSharp",
+      "slotName": "MainHandSlot",
+      "slotType": "MainHandSlot"
+    },
+    {
+      "$id": "11",
+      "$type": "InventoryDefinition+SlotPair, Assembly-CSharp",
+      "slotName": "OffHandSlot",
+      "slotType": "OffHandSlot"
+    },
+    {
+      "$id": "12",
+      "$type": "InventoryDefinition+SlotPair, Assembly-CSharp",
+      "slotName": "Finger1Slot",
+      "slotType": "FingerSlot"
+    },
+    {
+      "$id": "13",
+      "$type": "InventoryDefinition+SlotPair, Assembly-CSharp",
+      "slotName": "Finger2Slot",
+      "slotType": "FingerSlot"
+    },
+    {
+      "$id": "14",
+      "$type": "InventoryDefinition+SlotPair, Assembly-CSharp",
+      "slotName": "BeltSlot",
+      "slotType": "BeltSlot"
+    },
+    {
+      "$id": "15",
+      "$type": "InventoryDefinition+SlotPair, Assembly-CSharp",
+      "slotName": "UtilitySlot",
+      "slotType": "UtilitySlot"
+    },
+    {
+      "$id": "16",
+      "$type": "InventoryDefinition+SlotPair, Assembly-CSharp",
+      "slotName": "FeetSlot",
+      "slotType": "FeetSlot"
+    },
+    {
+      "$id": "17",
+      "$type": "InventoryDefinition+SlotPair, Assembly-CSharp",
+      "slotName": "TabardSlot",
+      "slotType": "TabardSlot"
+    }
+  ],
+  "guiPresentation": {
+    "$id": "18",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "19",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "20",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "2a836ff45f2eb274eb079425509421ac",
+  "contentPack": "BaseGame",
+  "name": "HumanoidInventory"
+}

@@ -1,0 +1,96 @@
+{
+  "$type": "BanterEventDefinition, Assembly-CSharp",
+  "eventTrigger": "CriticalHitReceived",
+  "searchKey": "Critical_Hit_Received",
+  "eventProbability": 0.8,
+  "selfProbability": 0.0,
+  "playbackDelay": 1.0,
+  "canUseWhileCautious": false,
+  "eventVariants": [
+    {
+      "$id": "1",
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Cynical1_Critical_Hit_Received_Other",
+      "list": "Cynical",
+      "mode": "Other"
+    },
+    {
+      "$id": "2",
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Cynical2_Critical_Hit_Received_Other",
+      "list": "Cynical",
+      "mode": "Other"
+    },
+    {
+      "$id": "3",
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Serious1_Critical_Hit_Received_Other",
+      "list": "Serious",
+      "mode": "Other"
+    },
+    {
+      "$id": "4",
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Serious2_Critical_Hit_Received_Other",
+      "list": "Serious",
+      "mode": "Other"
+    },
+    {
+      "$id": "5",
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Heroic1_Critical_Hit_Received_Other",
+      "list": "Heroic",
+      "mode": "Other"
+    },
+    {
+      "$id": "6",
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Heroic2_Critical_Hit_Received_Other",
+      "list": "Heroic",
+      "mode": "Other"
+    },
+    {
+      "$id": "7",
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Formal1_Critical_Hit_Received_Other",
+      "list": "Formal",
+      "mode": "Other"
+    },
+    {
+      "$id": "8",
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Formal2_Critical_Hit_Received_Other",
+      "list": "Formal",
+      "mode": "Other"
+    }
+  ],
+  "guiPresentation": {
+    "$id": "9",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$id": "10",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "11",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "45f70fc447b52fa498e9c20181a0cc24",
+  "contentPack": "BaseGame",
+  "name": "BanterEventCriticalHitReceived"
+}

@@ -1,0 +1,177 @@
+{
+  "$type": "CharacterTemplateDefinition, Assembly-CSharp",
+  "editorOnly": true,
+  "firstName": "Battle6",
+  "surName": "Cleric",
+  "abilityScores": [
+    13,
+    9,
+    13,
+    10,
+    18,
+    10
+  ],
+  "automateAbilityScoreIncreases": true,
+  "mainRace": "Definition:Dwarf:2e3395f10bfa00e4487d852ec3b20154",
+  "subRace": "Definition:DwarfSnow:a826525c554ef754ca0e841c8d072749",
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkinFair",
+  "musculatureMorphotypeValue": 0.0,
+  "ageMorphotypeValue": 0.0,
+  "faceShapeMorphotype": "FaceShape_A",
+  "hairShapeMorphotype": "HairShape_C",
+  "hairColorMorphotype": "HairColorBlond",
+  "beardShapeMorphotype": "",
+  "eyeColorMorphotype": "EyeColorBlack",
+  "eyeMorphotype": "Eye_Default",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "",
+  "mainClass": "Definition:Cleric:ae0f550f733a7e04aa225da694b2827c",
+  "subClass": "Definition:DomainBattle:bf3c54c59b182fd4a84e5df0656c161c",
+  "deity": "Definition:Einar:ba8feffc3aa81ea42bbf641959d7259b",
+  "background": "Definition:Acolyte:cffd1c24676e7a742beae67376e661c4",
+  "backgroundPersonalityFlag1": "Lawfulness",
+  "backgroundPersonalityFlag2": "Helpfulness",
+  "alignment": "LawfulGood",
+  "alignmentPersonalityFlag1": "Authority",
+  "alignmentPersonalityFlag2": "Lawfulness",
+  "fightingStyle": null,
+  "equipment": [
+    "Definition:Backpack:9548f1e58e784c34aaee1a179c7ff3d5",
+    "Definition:Morningstar+1:765d5d65a4025534a8877141b7710242",
+    "Definition:Shield:28e1f623fc28c7242a89072ee116a1dc",
+    "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+    "Definition:ScaleMail+1:c82d600fa7f58e0448d2c9237f45901b",
+    "Definition:HolySymbolAmulet:8c3c56e926a899447abdff0c6fee3ff3",
+    "Definition:Candle:f32994a2227137f4684c54cb148faff5",
+    "Definition:Candle:f32994a2227137f4684c54cb148faff5",
+    "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
+    "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
+    "Definition:ScrollRevivify:67a2c72f62b599946923a0a95a85e45c",
+    "Definition:ScrollRaiseDead:c1d6f26b1782eed42aee7f4168d2c73e",
+    "Definition:Ingredient_BloodDaffodil:7d3fe4ee8c57f7f45bbc5be4e279b115",
+    "Definition:Enchanted_Morningstar_Bearclaw:a992bd848c00fe1488d346cf2707c993",
+    "Definition:Enchanted_Morningstar_Of_Power:73a59fadb6c6d6243b465d8ff81a89ac"
+  ],
+  "startingMoney": [
+    0,
+    1200,
+    0,
+    0,
+    0
+  ],
+  "skillsOverride": [
+    "Insight",
+    "Religion",
+    "Medecine",
+    "Persuasion"
+  ],
+  "toolsOverride": [
+    "GamingSetDiceType"
+  ],
+  "featsOverride": [
+    "FlawlessConcentration"
+  ],
+  "expertisesOverride": [],
+  "languagesOverride": [
+    "Language_Halfling"
+  ],
+  "metamagicOverride": [],
+  "characterLevel": 6,
+  "knownRaceCantrips": [],
+  "knownClassCantrips": [
+    "Definition:Guidance:94ed96edd24acbe4f87e72375221868a",
+    "Definition:Light:c1d0bf7d6cd76e543a665bd1cb3aa01c",
+    "Definition:Resistance:384dce9da39ad4e4b82106fa7829c17c",
+    "Definition:SacredFlame:e49182bcdd6632e428a185bd55ef8355",
+    "Definition:SpareTheDying:4f1e3d9c88278a94fbc457664ab8d6bf"
+  ],
+  "knownSubclassCantrips": [],
+  "knownRaceSpells": [],
+  "knownClassSpells": [],
+  "knownSubclassSpells": [],
+  "preparedClassSpells": [
+    "Definition:Bane:2e60d6f650100a84f917bd5d0e69b356",
+    "Definition:Bless:c2c3de28b2c1e294f9a604cdf03b9fd8",
+    "Definition:CureWounds:c401c5cf11ac8274f98a0dc809ff5863",
+    "Definition:GuidingBolt:97277a5063bcd6d48af24984618dc218",
+    "Definition:HealingWord:0d615e01b2fdf5f42815342ea1e0a26f",
+    "Definition:InflictWounds:473bbe804543d0f4ebe68ba6db675a49",
+    "Definition:ProtectionFromEvilGood:b8a59d1a01529b04893e0c440cecee39",
+    "Definition:ShieldOfFaith:eb2cf2e67b1a4fb458de58dcee2bd309",
+    "Definition:FogCloud:c0914cf3ec2124242b9f64d267e94c17",
+    "Definition:Aid:d2af062b671377f449bad1b3f920d331",
+    "Definition:Blindness:3470e52d7a8b472498ee397e2532db04",
+    "Definition:EnhanceAbility:08840275ddebe7f40abaa4bc145ee9f8",
+    "Definition:HoldPerson:cbc582b44f08e7f4b8ea69077471bc64",
+    "Definition:LesserRestoration:5da149e59ebb042419041382af919aea",
+    "Definition:PrayerOfHealing:f560b05d2587f5e4894220356a589968",
+    "Definition:SpiritualWeapon:2a304c1b2bfa7be4c9cf7c7e08268fd7",
+    "Definition:BeaconOfHope:5252b1be2462c8140ada004d265e277b",
+    "Definition:CreateFood:ec735d1c4c89e0a4eb77dd6422948d3b",
+    "Definition:Daylight:73762817061cfec47b824d2f3a9fc3f6",
+    "Definition:DispelMagic:296e789b353c0324b804bee2c16a419a",
+    "Definition:BestowCurse:c7af146d2e243eb42910adbddec1d7d3",
+    "Definition:RemoveCurse:ecabaf5104767c04b9a6549866fccfa0",
+    "Definition:Revivify:16e7fb95186cf9b41806d15fbacd81af",
+    "Definition:SpiritGuardians:e44bc16c38bca35458599d87cf6def2d",
+    "Definition:RaiseDead:d35f9eee1baf295468f1dd7c696a15ba",
+    "Definition:DivineFavor:1a1c36371776b464fb7a633c5cd22af4"
+  ],
+  "preparedSubclassSpells": [],
+  "sex": "Female",
+  "pronoun": "Female",
+  "age": 47,
+  "facePath": "",
+  "wieldedItemsConfigurations": [
+    {
+      "$id": "1",
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Morningstar+1:765d5d65a4025534a8877141b7710242",
+      "offHandItemDefinition": "Definition:Shield:28e1f623fc28c7242a89072ee116a1dc"
+    },
+    {
+      "$id": "2",
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+      "offHandItemDefinition": null
+    },
+    {
+      "$id": "3",
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": null,
+      "offHandItemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994"
+    }
+  ],
+  "voiceId": "FEM1",
+  "guiPresentation": {
+    "$id": "4",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "CharacterTemplate/&GarradTitle",
+    "description": "CharacterTemplate/&GarradDescription",
+    "spriteReference": {
+      "$id": "5",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "6d92e08a3f027be42b4d7037ee542fe6",
+      "m_SubObjectName": "Cleric_DomainBattle_Level06",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "6",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "cce6e00b669200047ba1fe9d6d7d31f4",
+  "contentPack": "BaseGame",
+  "name": "Cleric_DomainBattle_Level06"
+}

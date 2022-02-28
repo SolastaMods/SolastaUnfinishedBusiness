@@ -1,0 +1,32 @@
+{
+  "$type": "LocationTypeDefinition, Assembly-CSharp",
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "LocationType/&RuinTitle",
+    "description": "LocationType/&RuinDescription",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "a8773a1a07e602848a2d7a1c6c4a3e40",
+      "m_SubObjectName": "LocationTypeRuin",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "917292f5b3519bd4d82c3a837048b579",
+  "contentPack": "BaseGame",
+  "name": "Ruin"
+}

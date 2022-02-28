@@ -1,0 +1,64 @@
+{
+  "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
+  "allowedActionTypes": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "eitherMainOrBonus": false,
+  "maxAttacksNumber": -1,
+  "forbiddenActions": [],
+  "authorizedActions": [],
+  "restrictedActions": [],
+  "actionExecutionModifiers": [
+    {
+      "$id": "1",
+      "$type": "ActionDefinitions+ActionExecutionModifier, Assembly-CSharp",
+      "actionId": "Shove",
+      "advantageType": "Advantage",
+      "equipmentContext": "WieldingShield"
+    },
+    {
+      "$id": "2",
+      "$type": "ActionDefinitions+ActionExecutionModifier, Assembly-CSharp",
+      "actionId": "ShoveBonus",
+      "advantageType": "Advantage",
+      "equipmentContext": "WieldingShield"
+    }
+  ],
+  "specialBehaviour": "None",
+  "randomBehaviorDie": "D10",
+  "randomBehaviourOptions": [],
+  "guiPresentation": {
+    "$id": "3",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&MartialMountainerShieldBashTitle",
+    "description": "Feature/&MartialMountainerShieldBashDescription",
+    "spriteReference": {
+      "$id": "4",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "5",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "d629b7d423721c64087a5e03628ae704",
+  "contentPack": "BaseGame",
+  "name": "ActionAffinityMartialMountainerShieldBash"
+}

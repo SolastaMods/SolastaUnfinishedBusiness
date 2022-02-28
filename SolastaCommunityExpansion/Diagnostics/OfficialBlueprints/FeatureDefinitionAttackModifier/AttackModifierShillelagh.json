@@ -1,0 +1,58 @@
+{
+  "$type": "FeatureDefinitionAttackModifier, Assembly-CSharp",
+  "attackRollModifierMethod": "None",
+  "attackRollModifier": 0,
+  "attackRollAbilityScore": "",
+  "damageRollModifierMethod": "None",
+  "damageRollModifier": 0,
+  "damageRollAbilityScore": "",
+  "additionalDamageDice": 0,
+  "canDualWieldNonLight": false,
+  "canAddAbilityBonusToSecondary": false,
+  "additionalAttackTag": "Magical",
+  "followUpStrike": false,
+  "followUpDamageDie": "D4",
+  "followUpAddAbilityBonus": true,
+  "additionalBonusAttackFromMain": false,
+  "abilityScoreReplacement": "SpellcastingAbility",
+  "damageDieReplacement": "FirstDamageForm",
+  "replacedDieType": "D8",
+  "impactParticleReference": {
+    "$id": "1",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "c6f38dde8ef440348bf5a95bc045aaba",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$id": "2",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Spell/&ShillelaghTitle",
+    "description": "Feature/&AttackModifierShillelaghDescription",
+    "spriteReference": {
+      "$id": "3",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "0f3dce44a4275884c8da8280637876c7",
+      "m_SubObjectName": "PropertyShillelagh",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "4",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "0dee4862758e39c4ca86faeafd1507a1",
+  "contentPack": "BaseGame",
+  "name": "AttackModifierShillelagh"
+}

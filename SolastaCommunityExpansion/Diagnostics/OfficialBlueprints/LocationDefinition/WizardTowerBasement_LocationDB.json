@@ -1,0 +1,246 @@
+{
+  "$type": "LocationDefinition, Assembly-CSharp",
+  "isUserLocation": false,
+  "alwaysHidden": false,
+  "registeredFactions": [],
+  "registeredVariables": [],
+  "sceneFilePath": "",
+  "sceneReference": {
+    "$id": "1",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "348fe687ccd40c2439cadce7f87e3ca9",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "audioState": {
+    "$id": "2",
+    "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$id": "3",
+      "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseStateGroupReference": {
+        "$id": "4",
+        "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+        "objectName": "State_LocationName",
+        "id": 598649695,
+        "guid": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE",
+        "name": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE"
+      },
+      "objectName": "WizardTower_Basement",
+      "id": 254145909,
+      "guid": "356EC26C-1CE3-4D13-8E31-73435901BC49",
+      "name": "356EC26C-1CE3-4D13-8E31-73435901BC49"
+    },
+    "groupIdInternal": 0,
+    "groupGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "renderSettingsSceneProfile": {
+    "$id": "5",
+    "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
+    "useSkybox": true,
+    "backgroundColor": {
+      "$id": "6",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    "skyboxMaterial": null,
+    "ambientLight": {
+      "$id": "7",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.2924528,
+      "g": 0.2924528,
+      "b": 0.2924528,
+      "a": 1.0
+    },
+    "fog": false,
+    "fogColor": {
+      "$id": "8",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "fogMode": "Exponential",
+    "fogDensity": 0.0638,
+    "excludeSkybox": false,
+    "auraBaseSettings": {
+      "$id": "9",
+      "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
+      "useDensity": true,
+      "density": 0.001,
+      "useScattering": false,
+      "scattering": 0.5,
+      "useAmbientLighting": false,
+      "ambientLightingStrength": 1.0,
+      "useColor": false,
+      "color": {
+        "$id": "10",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.0,
+        "g": 0.5,
+        "b": 0.5,
+        "a": 0.5
+      },
+      "colorStrength": 1.0,
+      "useTint": false,
+      "tint": {
+        "$id": "11",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 1.0,
+        "g": 0.921568632,
+        "b": 0.0156862754,
+        "a": 1.0
+      },
+      "tintStrength": 1.0,
+      "useExtinction": false,
+      "extinction": 0.75,
+      "name": "WizardTowerBasement_AuraBaseParameters"
+    },
+    "userDungeonAuraVolumeDensity": 0.2,
+    "userDungeonAuraVolumeFogType": "Height",
+    "userDungeonAuraVolumeHeight": 3.0,
+    "userDungeonAuraVolumeNoise": false,
+    "userDungeonAuraVolumeNoiseScale": 3.0,
+    "dayCycleProfile": {
+      "$id": "12",
+      "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
+      "noonColor": {
+        "$id": "13",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.6698113,
+        "g": 0.629200339,
+        "b": 0.5718672,
+        "a": 1.0
+      },
+      "sunriseColor": {
+        "$id": "14",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.7830189,
+        "g": 0.682673454,
+        "b": 0.5724902,
+        "a": 1.0
+      },
+      "sunsetColor": {
+        "$id": "15",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8113208,
+        "g": 0.492625326,
+        "b": 0.371217549,
+        "a": 1.0
+      },
+      "globalSunIntensity": 1.8,
+      "sunDirection": -60.0,
+      "sunTilt": 0.01,
+      "moonLightColor": {
+        "$id": "16",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.3445621,
+        "g": 0.5835921,
+        "b": 0.8207547,
+        "a": 1.0
+      },
+      "moonLightFadeOffset": 0.1,
+      "moonLightFadeMinIntensity": 1.0,
+      "moonLightFadeDuration": 0.25,
+      "moonSpeedFactor": 1.0,
+      "moonBaseAngle": 0.0,
+      "globalMoonIntensity": 1.56,
+      "ambientSunriseColor": {
+        "$id": "17",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.6886792,
+        "g": 0.6886792,
+        "b": 0.6886792,
+        "a": 1.0
+      },
+      "ambientNoonColor": {
+        "$id": "18",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.5524653,
+        "g": 0.585873544,
+        "b": 0.6132076,
+        "a": 1.0
+      },
+      "ambientSunsetColor": {
+        "$id": "19",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.454031646,
+        "g": 0.488738269,
+        "b": 0.5377358,
+        "a": 1.0
+      },
+      "ambientNightColor": {
+        "$id": "20",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.220274121,
+        "g": 0.4704877,
+        "b": 0.6226415,
+        "a": 1.0
+      },
+      "ambientFadeDuration": 1.0,
+      "dayAtmosphereThickness": 1.35,
+      "nightAtmosphereThickness": 0.5,
+      "name": "coparann_DayCycleProfile"
+    },
+    "name": "WizardTowerBasement_RenderSettings_Scene"
+  },
+  "locationPresentation": {
+    "$id": "21",
+    "$type": "LocationPresentation, Assembly-CSharp",
+    "unchartedTitle": "Map/&Location_AbjurationWizardTower_Teleport_Title",
+    "unchartedDescription": "Map/&Location_AbjurationWizardTower_Title",
+    "knownTitle": "Map/&Location_AbjurationWizardTower_Title",
+    "knownDescription": "Map/&Location_AbjurationWizardTower_Title",
+    "exploredTitle": "Map/&Location_AbjurationWizardTower_Title",
+    "exploredDescription": "Map/&Location_AbjurationWizardTower_Title"
+  },
+  "challengeRating": 6,
+  "focusWhenRevealed": false,
+  "startsWithScavengerCamp": false,
+  "ignoredByScavengers": false,
+  "keepSectorCullingResultsWhenInactive": false,
+  "setCurrentCampaignNodeWhenLeaving": true,
+  "hasPriorityForTeleporter": true,
+  "canAttackNonHostileCharacters": false,
+  "guiPresentation": {
+    "$id": "22",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Map/&Location_AbjurationWizardTower_Title",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "23",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "8234e7a0b6c229d449e9cd02ffb1345c",
+      "m_SubObjectName": "WizardTowerBasement",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "24",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "5a17d5ff0ed2b784597b868c07c351fb",
+  "contentPack": "BaseGame",
+  "name": "WizardTowerBasement_LocationDB"
+}

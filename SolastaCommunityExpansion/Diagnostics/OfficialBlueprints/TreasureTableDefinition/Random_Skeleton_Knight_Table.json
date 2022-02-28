@@ -1,0 +1,83 @@
+{
+  "$type": "TreasureTableDefinition, Assembly-CSharp",
+  "treasureOptions": [
+    {
+      "$id": "1",
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Art_Item_25_GP_SilverBrooch:b0ae9ad3c2268434da513d75bf340628",
+      "amount": 1
+    },
+    {
+      "$id": "2",
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Art_Item_25_GP_GoldBracelet:b5eb965df15a17e4fb9fb75ae0069c44",
+      "amount": 1
+    },
+    {
+      "$id": "3",
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Art_Item_25_GP_SilverBrooch:b0ae9ad3c2268434da513d75bf340628",
+      "amount": 1
+    },
+    {
+      "$id": "4",
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Art_Item_25_GP_GoldLocket:fbf29c0c18c788d4b8a662ae9377ec79",
+      "amount": 1
+    },
+    {
+      "$id": "5",
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:PotionOfHealing:5afaa2c317ec2374fab78be504014255",
+      "amount": 1
+    },
+    {
+      "$id": "6",
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:PotionOfGiantStrengthHill:a6d6ad10a14b9504bb684d0bfe1f4b13",
+      "amount": 1
+    },
+    {
+      "$id": "7",
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Art_Item_50_GP_GemRing:2062db6f5dce31b4c9054ae3ef91fa55",
+      "amount": 1
+    }
+  ],
+  "guiPresentation": {
+    "$id": "8",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "9",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "10",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "ae32c108e94390a4995057a2453feeaa",
+  "contentPack": "BaseGame",
+  "name": "Random_Skeleton_Knight_Table"
+}

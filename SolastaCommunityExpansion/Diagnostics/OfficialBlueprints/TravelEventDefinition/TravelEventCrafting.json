@@ -1,0 +1,46 @@
+{
+  "$type": "TravelEventDefinition, Assembly-CSharp",
+  "eventType": "CraftingProgress",
+  "eventPeriodicity": "Unlimited",
+  "cooldownValue": 1,
+  "recordedInAdventureLog": true,
+  "dumpsAdventureLog": false,
+  "successLogEntries": [
+    "Travel/&TravelEventCraftingProgressFinishedTitle",
+    "Travel/&TravelEventCraftingProgressHalfwayTitle"
+  ],
+  "failureLogEntries": [
+    "Travel/&TravelEventCraftingProgressFailure1Title"
+  ],
+  "otherLogEntries": [],
+  "ingredientGatheringProficiencies": [],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "2972596744dd62a43a0a1d43da05d3be",
+      "m_SubObjectName": "CategoryCrafting",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "46af7553e2d43d24685f6e6f9ba3aa3e",
+  "contentPack": "BaseGame",
+  "name": "TravelEventCrafting"
+}

@@ -18,7 +18,30 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
             Throw = 4
         }
 
-        public static Verification Mode { get; set; } = Verification.Log;
+        public static Verification Mode { get; set; } = Verification.None;
+
+        private const string LogName = "ItemDefinition.txt";
+
+        internal static void Load()
+        {
+            if (DiagnosticsContext.HasDiagnosticsFolder)
+            {
+                // Delete the log file to stop it growing out of control
+                var path = Path.Combine(DiagnosticsContext.DiagnosticsOutputFolder, LogName);
+
+                try
+                {
+                    File.Delete(path);
+                }
+                catch (Exception ex)
+                {
+                    Main.Error(ex);
+                }
+            }
+
+            // Apply mode before any definitions are created
+            Mode = Main.Settings.DebugLogVariantMisuse ? Verification.Log : Verification.None;
+        }
 
         public static void VerifyUsage<T>(ItemDefinition definition, bool hasFlag, ref T __result) where T : class
         {
@@ -40,7 +63,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
 
                 if (DiagnosticsContext.HasDiagnosticsFolder)
                 {
-                    var path = Path.Combine(DiagnosticsContext.DiagnosticsOutputFolder, "ItemDefinition.txt");
+                    var path = Path.Combine(DiagnosticsContext.DiagnosticsOutputFolder, LogName);
                     File.AppendAllLines(path, new string[] {
                         $"{Environment.NewLine}",
                         $"------------------------------------------------------------------------------------", 

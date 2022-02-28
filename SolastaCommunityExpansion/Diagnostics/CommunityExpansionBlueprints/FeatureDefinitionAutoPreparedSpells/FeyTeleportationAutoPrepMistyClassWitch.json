@@ -1,0 +1,45 @@
+{
+  "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
+  "autopreparedTag": "FeyTeleport",
+  "autoPreparedSpellsGroups": [
+    {
+      "$id": "1",
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 0,
+      "spellsList": [
+        "Definition:MistyStep:f4619f117544fe148aae6952202da5e3"
+      ]
+    }
+  ],
+  "spellcastingClass": "Definition:ClassWitch:dedb5cef-3036-5d46-92b7-d1fbbfa265f1",
+  "affinityRace": null,
+  "guiPresentation": {
+    "$id": "2",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feat/&PowerMistyStepFromFeatTitle",
+    "description": "Feat/&PowerMistyStepFromFeatDescription",
+    "spriteReference": {
+      "$id": "3",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$id": "4",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "a4e13108-4b9d-5f73-96da-9340d0fba050",
+  "contentPack": "BaseGame",
+  "name": "FeyTeleportationAutoPrepMistyClassWitch"
+}

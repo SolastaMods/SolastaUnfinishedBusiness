@@ -1,0 +1,67 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$id": "1",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerOathOfJugementPurgeCorruption:7ff8494085d06144eae66418911cc6bc",
+      "level": 3
+    },
+    {
+      "$id": "2",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerOathOfJugementWeightOfJustice:cc9c9ad8cb758af4f836764bcddcc6dc",
+      "level": 3
+    },
+    {
+      "$id": "3",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsOathOfJugement:f305e1cd301f1564f94c4161b1b8c965",
+      "level": 3
+    },
+    {
+      "$id": "4",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerOathOfJugementAuraRightenousness:04e1b71b315b8d341b67ac441404ed88",
+      "level": 7
+    }
+  ],
+  "personalityFlagOccurences": [
+    {
+      "$id": "5",
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 3,
+      "personalityFlag": "Lawfulness"
+    }
+  ],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$id": "6",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&OathOfJugementTitle",
+    "description": "Subclass/&OathOfJugementDescription",
+    "spriteReference": {
+      "$id": "7",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "0f2d6e477012b904d99d09f537a30478",
+      "m_SubObjectName": "Paladin_Oath_Of_Jugement",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "8",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 3,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "0e2d80fa6c0c4c542b91c90ff84c5ab6",
+  "contentPack": "LostValley",
+  "name": "OathOfJugement"
+}

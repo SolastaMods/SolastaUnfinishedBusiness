@@ -1,0 +1,103 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$id": "1",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SavingThrowAffinityDomainMischiefBorrowLuck:6041ac31ca9ac2a4aab10fcbf4baa12f",
+      "level": 1
+    },
+    {
+      "$id": "2",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsDomainMischief:27377b10acc7fb8478cbfe52564e283c",
+      "level": 1
+    },
+    {
+      "$id": "3",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyDomainMischiefTrickster:b52e06fd31a96c548a9ad308f23ea0b5",
+      "level": 1
+    },
+    {
+      "$id": "4",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainMischiefStrikeOfChaos:1b1dded152b565e45b3abae2f8cf032f",
+      "level": 2
+    },
+    {
+      "$id": "5",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainMischiefStrikeOfChaos5:8b8c70dc30c820b4984118c1e700628b",
+      "level": 5
+    },
+    {
+      "$id": "6",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainMischiefElusiveTarget:e71b59f944aaa7346ab334b75e86b77d",
+      "level": 6
+    },
+    {
+      "$id": "7",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageDomainMischiefDivineStrike:4e8842d607d02fc4988a60a1119d51df",
+      "level": 8
+    },
+    {
+      "$id": "8",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainMischiefStrikeOfChaos8:cb3cc3203567d6e47b4f158fceab3f35",
+      "level": 8
+    },
+    {
+      "$id": "9",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerClericDivineInterventionWizard:0b20466699780a74e801804f86af806b",
+      "level": 10
+    },
+    {
+      "$id": "10",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainMischiefStrikeOfChaos11:eb05326230913954db1a88f9046b6869",
+      "level": 11
+    }
+  ],
+  "personalityFlagOccurences": [
+    {
+      "$id": "11",
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 5,
+      "personalityFlag": "Cynicism"
+    }
+  ],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$id": "12",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&DomainMischiefTitle",
+    "description": "Subclass/&DomainMischiefDescription",
+    "spriteReference": {
+      "$id": "13",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "4218d50fb51e07940a335e58e07e4e68",
+      "m_SubObjectName": "DomainMischief",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "14",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "ddd19f644f2ce1742bc12c9efb4adab2",
+  "contentPack": "LostValley",
+  "name": "DomainMischief"
+}

@@ -1,0 +1,32 @@
+{
+  "$type": "CurrencyDefinition, Assembly-CSharp",
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&CurrencyGoldTitle",
+    "description": "Equipment/&CurrencyGoldDescription",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "784ac1ed87a0bd34ab64b0a3e580fea0",
+      "m_SubObjectName": "CurrencyGold",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.92549026,
+      "g": 0.82745105,
+      "b": 0.494117677,
+      "a": 1.0
+    },
+    "symbolChar": "25EB",
+    "sortOrder": 1,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "3919ad49aeed3734e9ca1b1438949d8f",
+  "contentPack": "BaseGame",
+  "name": "CurrencyGold"
+}
