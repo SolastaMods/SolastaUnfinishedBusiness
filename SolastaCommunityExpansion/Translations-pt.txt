@@ -4,14 +4,11 @@ AttributeModifier/&DHFeeblemindChaSpellDescription	A pontuação de carisma é i
 AttributeModifier/&DHFeeblemindChaSpellTitle	Carisma fraco
 AttributeModifier/&DHFeeblemindIntSpellDescription	A pontuação de inteligência é igual a 1
 AttributeModifier/&DHFeeblemindIntSpellTitle	Inteligência fraca
-BlindingWeaponStrike Blinding Weapon
-	VAZIO
+BlindingWeaponStrike	Arma de Cegueira
 BlueprintCategory/&FlatRoomsTitle	Apartamentos
 Caption/&GadgetParametersCustomRemoveDescription	Remover:\n{0}
-Class/&TinkererDescription Tinkerers are inventors, alchemists, and more. They bridge the space between magic and technology
-	VAZIO
-Class/&TinkererTitle Tinkerer
-	VAZIO
+Class/&TinkererDescription	Tinkerers são inventores, alquimistas e muito mais. Eles preenchem o espaço entre magia e tecnologia
+Class/&TinkererTitle	Funileiro
 Class/&WitchArmorProficiencyDescription	Armadura leve
 Class/&WitchArmorProficiencyTitle	Proficiências em Armadura de Bruxa
 Class/&WitchCacklePowerDescription	Você pode usar sua ação bônus para gargalhar. A duração de sua Maldição se estende por 1 rodada para cada criatura afetada a até 18 metros de você.\nNem todas as bruxas riem loucamente quando cacarejam, mas todas as gargalhadas requerem um componente verbal, como um feitiço. Estes variam de maldições e insultos mundanos, ao murmúrio de línguas mortas e falar de trás para frente.
@@ -260,8 +257,7 @@ Equipment/&Enchanted_Spear_Acuteness_Description	Esta arma encantada foi criada 
 Equipment/&Enchanted_Spear_Acuteness_Title	Lança da Agudeza
 Equipment/&Enchanted_Spear_BlackViper_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres ferreiros de Manacalon, usando uma lança e o veneno de uma aranha lendária das profundezas de Solasta. O designer da lâmina foi Grigg Blackheart, um notório ferreiro halfling de Marsh que trabalhava nas forjas de Aer Elai.
 Equipment/&Enchanted_Spear_BlackViper_Title	Lança da Víbora Negra
-Equipment/&Enchanted_Spear_Doomblade_Description This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. Kenaloth Darkmind devised the Doomblades as a tool of punishment for those who resisted the magic of the Empire.
-	VAZIO
+Equipment/&Enchanted_Spear_Doomblade_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Kenaloth Darkmind concebeu as Doomblades como uma ferramenta de punição para aqueles que resistiram à magia do Império.
 Equipment/&Enchanted_Spear_Doomblade_Title	Lança com Ponta da Perdição
 Equipment/&Enchanted_Spear_Lightbringer_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres ferreiros de Colthannin. Ele foi projetado por Elgador Keenspirit, Magesmith of the Arcaneum para apoiar o combate contra criaturas mortas-vivas.
 Equipment/&Enchanted_Spear_Lightbringer_Title	Lança da Luz
@@ -277,203 +273,137 @@ Equipment/&Enchanted_StuddedLeather_FlameDancing_Title	Couro cravejado de dança
 Equipment/&Enchanted_StuddedLeather_FrostWalking_Description	Esta armadura encantada foi criada usando o antigo conhecimento dos mestres armeiros de Manacalon. Ildurial Stronghand forjou a primeira dessas armaduras para a guarda pessoal do Imperador.
 Equipment/&Enchanted_StuddedLeather_FrostWalking_Title	Couro cravejado de caminhada no gelo
 Equipment/&Enchanted_StuddedLeather_Robustness_Description	Esta armadura encantada foi criada usando o antigo conhecimento dos mestres armeiros de Manacalon. Ildurial Stronghand forjou a primeira dessas armaduras para a guarda pessoal do Imperador.
-Equipment/&Enchanted_StuddedLeather_Robustness_Title	Couro cravejado de Robustez
+Equipment/&Enchanted_StuddedLeather_Robustness_Title	Couro cravejado de robustez
 Equipment/&Enchanted_StuddedLeather_Sturdiness_Description	Esta armadura encantada foi criada usando o antigo conhecimento dos mestres armeiros de Manacalon. Ildurial Stronghand forjou a primeira dessas armaduras para a guarda pessoal do Imperador.
-Equipment/&Enchanted_StuddedLeather_Sturdiness_Title	Couro cravejado de Robustez
+Equipment/&Enchanted_StuddedLeather_Sturdiness_Title	Couro cravejado de robustez
 Equipment/&Enchanted_StuddedLeather_Survival_Description	Esta armadura encantada foi criada usando o antigo conhecimento dos mestres armeiros de Manacalon. Ildurial Stronghand forjou a primeira dessas armaduras para a guarda pessoal do Imperador.
-Equipment/&Enchanted_StuddedLeather_Survival_Title	Couro cravejado de Sobrevivência
+Equipment/&Enchanted_StuddedLeather_Survival_Title	Couro cravejado de sobrevivência
 Equipment/&Enchanted_Warhammer_Acuteness_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Seu design foi um dos primeiros trabalhos de Elgador Keenspirit, Magesmith of the Arcaneum.
-Equipment/&Enchanted_Warhammer_Acuteness_Title	Warhammer de acuidade
+Equipment/&Enchanted_Warhammer_Acuteness_Title	Warhammer da agudeza
 Equipment/&Enchanted_Warhammer_Bearclaw_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres ferreiros de Manacalon. As pontas afiadas da garra do urso rasgam a armadura para infligir dano adicional – exatamente como esperado por Ildurial Stronghand, que projetou a primeira arma desse tipo.
-Equipment/&Enchanted_Warhammer_Bearclaw_Title	Bearclaw Warhammer
+Equipment/&Enchanted_Warhammer_Bearclaw_Title	Martelo de Guerra de Garra de Urso
 Equipment/&Enchanted_Warhammer_Lightbringer_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres ferreiros de Colthannin. Ele foi projetado por Elgador Keenspirit, Magesmith of the Arcaneum para apoiar o combate contra criaturas mortas-vivas.
-Equipment/&Enchanted_Warhammer_Lightbringer_Title	Lightbringer Warhammer
-Equipment/&Enchanted_Warhammer_Power_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Algumas criaturas respeitam apenas as forças físicas. arcanists Manacalon criou esta Warhammer para dar campeões do Ferro Legions a força seus elfos corpos não forneceu.
-Equipment/&Enchanted_Warhammer_Power_Title	Warhammer do Poder
+Equipment/&Enchanted_Warhammer_Lightbringer_Title	Martelo de Guerra Lightbringer
+Equipment/&Enchanted_Warhammer_Power_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Algumas criaturas respeitam apenas as forças físicas. Arcanistas de Manacalon criaram este Warhammer para dar aos campeões das Iron Legions a força que seus corpos élficos não forneciam.
+Equipment/&Enchanted_Warhammer_Power_Title	Martelo de Guerra do Poder
 Equipment/&Enchanted_Warhammer_Punisher_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. A combinação do melhor metal e Slavestone deu a este machado um poder de perfuração incrível.
-Equipment/&Enchanted_Warhammer_Punisher_Title	Punisher Warhammer
-Equipment/&ImprovedLightningSpearDescription	agora pode criar vantagem para aliados e desvantagem para os inimigos com um único ataque
-Equipment/&ImprovedLightningSpearTitle	Improved relâmpago Lança
-Equipment/&ImprovedThunderPunchDescription	Agora pode puxar inimigos em melee com uma ação de bônus e infligir 1d8 trovão danos
-Equipment/&ImprovedThunderPunchTitle	Improved Soco de Trovão
-Equipment/&LightningSpearDescription	danos causados por relâmpagos 1d6 com 1D6 extra, uma vez por turno
-Equipment/&LightningSpearTitle	relâmpago Lança
-Equipment/&LivewoodClubDescription	Este clube é composto por completo madeira viva com folhas brotando e flores talvez sazonais. Ele pode ser usado como um foco para feitiços Druidic.
-Equipment/&LivewoodClubTitle	Livewood Clube
-Equipment/&LivewoodStaffDescription	Esta equipe é composta por completo madeira viva com folhas brotando e flores talvez sazonais. Ele pode ser usado como um foco para feitiços Druidic.
-Equipment/&LivewoodStaffTitle	Staff Livewood
-Equipment/&ThunderPunchDescription	1d8 danos trovões e impõe desvantagem em rolos de ataque contra aliados
-Equipment/&ThunderPunchTitle	Soco de trovão
-Equipment/&WandIdentifyDescription	Texto lança o feitiço identificar, gastando uma carga. A varinha tem 3 cargas e recupera 1d3 a cada madrugada.
-Equipment/&WandIdentifyTitle	Texto Wand of Identificar
-Feat/&AddProtectorConstructCantripDescription	Adiciona Mending Construct e destituir truques construir aumentar a sua flexibilidade construções
-Feat/&AddProtectorConstructCantripTitle	Truques Construir Bonus
-Feat/&AlchemistSubclassElixirsDescription Learn to make experimental elixirs: Healing, Swiftness, Resilience, Boldness, Flight
-	VAZIO
-Feat/&AlchemistSubclassElixirsTitle Experimental Elixirs
-	VAZIO
-Feat/&AlchemistSubclassSpellsDescription Level 3: Healing Word, Inflict Wounds, Detect Poison, Disease\nLevel 5: Flaming Sphere, Acid Arrow, Ray of Enfeeblement\nLevel 9: Mass Healing Word, Vampiric Touch, Remove Curse, Slow\nLevel 13: Blight, Death Ward\nLevel 17: Cloud Kill, Raise Dead
-	VAZIO
-Feat/&AlchemistSubclassSpellsTitle Learn Potion Maker Spells
-	VAZIO
-Feat/&ArmorModePoolDescription Allows you to switch between armor modes
-	VAZIO
-Feat/&ArmorModePoolTitle Armor Mode
-	VAZIO
-Feat/&ArtificerAlchemistAlchemicalSavantDescription When you heal, you heal an extra 1d4 + Your Level HP
-	VAZIO
-Feat/&ArtificerAlchemistAlchemicalSavantTitle Elixir Savant
-	VAZIO
-Feat/&ArtificerAlchemistBoldnessElixirDescription The target can roll a d4 and add the number rolled to every attack roll and saving throw they make for the next minute
-	VAZIO
-Feat/&ArtificerAlchemistBoldnessElixirTitle Boldness Elixir
-	VAZIO
-Feat/&ArtificerAlchemistFlyElixirDescription The target can fly slowly for 10 minutes
-	VAZIO
-Feat/&ArtificerAlchemistFlyElixirTitle Fly Elixir
-	VAZIO
-Feat/&ArtificerAlchemistHealElixirDescription Heal target for 2d4 + Intelligence modifier
-	VAZIO
-Feat/&ArtificerAlchemistHealElixirTitle Healing Elixir
-	VAZIO
-Feat/&ArtificerAlchemistResilienceElixirDescription Increase target AC by +1 for 10 minutes
-	VAZIO
-Feat/&ArtificerAlchemistResilienceElixirTitle Resilience Elixir
-	VAZIO
-Feat/&ArtificerAlchemistSwiftnessElixirDescription Increase target movement speed by 10ft for 1 hour
-	VAZIO
-Feat/&ArtificerAlchemistSwiftnessElixirTitle Swiftness Elixir
-	VAZIO
-Feat/&ArtificerArtilleristArcaneFirearmDescription When casting evocation spells, deal an extra 1d8 in damage once per turn
-	VAZIO
-Feat/&ArtificerArtilleristArcaneFirearmTitle Blasting Enhancement
-	VAZIO
-Feat/&ArtificerArtillerstDetonationSpellPreparedDescription You gain the ability to detonate one of your devices causing damage to those near the target
-	VAZIO
-Feat/&ArtificerArtillerstDetonationSpellPreparedTitle Device Detonation
-	VAZIO
-Feat/&ArtificerArtillerstImprovedCannonsDescription The effect from your cannons increases. Additional damage from the fire, an additional target from the force, and additional temp HP from the shield.
-	VAZIO
-Feat/&ArtificerArtillerstImprovedCannonsTitle Improved Cannons
-	VAZIO
-Feat/&ArtificialServantAttackDescription	ataque à distância dano de força 1d6 de seu fiel companheiro
-Feat/&ArtificialServantAttackTitle	força Sling
-Feat/&ArtificialServantDescription	O servo é amigável para você e seus companheiros, e ele obedece seus comandos
-Feat/&ArtificialServantTitle	Servo artificial
-Feat/&ArtilleristCannonDetonationDescription Detonate one of your devices causing 3d8 damage to those within 20 feet of the targeted location. A dexterity save allows those effected to take half damage.
-	VAZIO
-Feat/&ArtilleristCannonDetonationTitle Device Detonation
-	VAZIO
-Feat/&ArtilleristFlameCannon15Description Spew fire, dealing 6d8 fire damage at your enemies as a bonus action
-	VAZIO
-Feat/&ArtilleristFlameCannon15Title Flamethrower
-	VAZIO
-Feat/&ArtilleristFlameCannon9Description Spew fire, dealing 3d8 fire damage at your enemies as a bonus action
-	VAZIO
-Feat/&ArtilleristFlameCannon9Title Flamethrower
-	VAZIO
-Feat/&ArtilleristFlameCannonDescription Spew fire, dealing 2d8 fire damage at your enemies as a bonus action
-	VAZIO
-Feat/&ArtilleristFlameCannonTitle Flamethrower
-	VAZIO
-Feat/&ArtilleristForceCannon15Description Use a force attack dealing 3d8 force damage at a target as a bonus action to 2 targets.
-	VAZIO
-Feat/&ArtilleristForceCannon15Title Force Cannon
-	VAZIO
-Feat/&ArtilleristForceCannon9Description Use a force attack dealing 3d8 force damage at a target as a bonus action
-	VAZIO
-Feat/&ArtilleristForceCannon9Title Force Cannon
-	VAZIO
-Feat/&ArtilleristForceCannonDescription Use a force attack dealing 2d8 force damage at a target as a bonus action
-	VAZIO
-Feat/&ArtilleristForceCannonTitle Force Cannon
-	VAZIO
-Feat/&ArtilleristProtectorCannon15Description Emit positive energy as a bonus action. Allies within 20 feet gain 3d8 + your Intelligence modifier temporary hit points
-	VAZIO
-Feat/&ArtilleristProtectorCannon15Title Arcane Shield
-	VAZIO
-Feat/&ArtilleristProtectorCannonDescription Emit positive energy as a bonus action. Allies within 10 feet gain 1d8 + your Intelligence modifier temporary hit points
-	VAZIO
-Feat/&ArtilleristProtectorCannonTitle Arcane Shield
-	VAZIO
-Feat/&ArtilleristSubclassSpellsDescription Level 3: Shield, Thunderwave\nLevel 5: Scorching Ray, Shatter\nLevel 9: Fireball, Wind Wall\nLevel 13: Ice Storm, Wall of Fire\nLevel 17: Cone of Cold, Wall of Force
-	VAZIO
-Feat/&ArtilleristSubclassSpellsTitle Learn Blaster Spells
-	VAZIO
-Feat/&ArtilleryConstructDescription Can damage or protect allies
-	VAZIO
-Feat/&ArtilleryConstructLevel03AutopreparedSpellsDescription Cantrips:Mending Construct, Dismiss Construct \nLevel 1: Resummon Artillery Construct
-	VAZIO
-Feat/&ArtilleryConstructLevel03AutopreparedSpellsTitle Construct Spells
-	VAZIO
-Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription  
-	VAZIO
-Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle  
-	VAZIO
-Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription  
-	VAZIO
-Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle  
-	VAZIO
-Feat/&ArtilleryConstructTitle Artillery Construct
-	VAZIO
-Feat/&ArtilleryConstructTitle_3 Artillery Construct
-	VAZIO
-Feat/&ArtilleryConstructTitle_5 Artillery Construct
-	VAZIO
-Feat/&AttackModifierArtificerBattleSmithJolt2Description Your weapon attacks deal 3 additional damage
-	VAZIO
-Feat/&AttackModifierArtificerBattleSmithJolt2Title Improved Weapon Attack Jolt
-	VAZIO
-Feat/&AttackModifierArtificerBattleSmithJoltDescription Your weapon attacks deal 3 additional damage
-	VAZIO
-Feat/&AttackModifierArtificerBattleSmithJoltTitle Weapon Attack Jolt
-	VAZIO
-Feat/&AutoPreparedSpellsDescription	Nível 3 Magia Míssil, Thunderwave\nNível 5 Blur, Shatter\nNível 9 Lightning Bolt, Wall Vento, Muralha de Fogo
-Feat/&AutoPreparedSpellsTitle	Saiba feitiços Escoteiro sentinela
-Feat/&BattleSmithSubclassSpellsDescription Level 3: Shield, Heroism, Hunter's Mark\nLevel 5: Branding Smite, Spiritual Weapon\nLevel 9: Remove Curse, Beacon of Hope\nLevel 13: Fire Shield, Death Ward Level\n17: Mass Cure Wounds, Wall of Force
-	VAZIO
-Feat/&BattleSmithSubclassSpellsTitle Learn Weapon Smith Spells
-	VAZIO
-Feat/&CancelFlyingConditionDescription End flying condtion to allow jumping and crawling. 
-	VAZIO
-Feat/&CancelFlyingConditionTitle Cancel Fly
-	VAZIO
-Feat/&ChefConDescription	Você ganha +1 de Constituição. Gastar 1 hora para cozinhar uma refeição para curar a si mesmo e seus companheiros de 1d8. Uma vez por dia você pode passar uma hora para cozinhar iguarias que proporcionam HP temporária quando comido.
-Feat/&ChefConTitle	Chef (Constituição)
-Feat/&ChefShortRestFeastDescription	Gastar 1 hora para preparar uma refeição que ajuda a curar você e seus companheiros 1d8.
-Feat/&ChefShortRestFeastTitle	Breve descanso Meal
-Feat/&ChefWisDescription	Você ganha +1 à Sabedoria. Gastar 1 hora para cozinhar uma refeição para curar a si mesmo e seus companheiros. Uma vez por dia você pode passar uma hora para cozinhar iguarias que proporcionam HP temporária quando comido.
-Feat/&ChefWisTitle	Chef (sabedoria)
-Feat/&ConstructSelectingPoolDescription Select the mode for your Construct
-	VAZIO
-Feat/&ConstructSelectingPoolTitle Artillery Mode
-	VAZIO
-Feat/&DismissConstructDescription	Esconjurar sua construção
-Feat/&DismissConstructTitle	dispensar Construct
-Feat/&DualFlurryDescription	Você é um mestre de lutar com armas emparelhados. Em qualquer turno em que você bater duas vezes com ataques corpo a corpo enquanto estiver empunhando uma arma em cada mão, você pode fazer um ataque off-mão adicional.
-Feat/&DualFlurryTitle	Flurry dupla
-Feat/&ExtraInfusionSlotsDescription	Você ganha ranhuras infusão extras, deve ser usado em armaduras / armas
+Equipment/&Enchanted_Warhammer_Punisher_Title	Justiceiro Warhammer
+Equipment/&ImprovedLightningSpearDescription	Agora pode criar vantagem para aliados e desvantagem para inimigos com um único ataque
+Equipment/&ImprovedLightningSpearTitle	Lança Relâmpago Aprimorada
+Equipment/&ImprovedThunderPunchDescription	Agora pode puxar os inimigos para o alcance corpo a corpo com uma ação bônus e causar 1D8 de dano trovejante
+Equipment/&ImprovedThunderPunchTitle	Soco do Trovão Aprimorado
+Equipment/&LightningSpearDescription	1d6 de dano de raio com 1D6 extra uma vez por turno
+Equipment/&LightningSpearTitle	Lança Relâmpago
+Equipment/&LivewoodClubDescription	Este clube é composto de madeira viva completa com folhas brotando e talvez flores sazonais. Pode ser usado como foco para lançar feitiços druídicos.
+Equipment/&LivewoodClubTitle	Clube Livewood
+Equipment/&LivewoodStaffDescription	Este cajado é composto de madeira viva completa com folhas brotando e talvez flores sazonais. Pode ser usado como foco para lançar feitiços druídicos.
+Equipment/&LivewoodStaffTitle	Cajado de Livewood
+Equipment/&ThunderPunchDescription	1D8 de dano trovejante e impõe desvantagem nas jogadas de ataque contra aliados
+Equipment/&ThunderPunchTitle	Soco do Trovão
+Equipment/&WandIdentifyDescription	Texto Conjura a identificação mágica gastando uma carga. A varinha tem 3 cargas e recupera 1d3 cargas a cada amanhecer.
+Equipment/&WandIdentifyTitle	Varinha de texto de identificação
+Feat/&AddProtectorConstructCantripDescription	Adiciona os truques Mending Construct e Dismiss Construct para aumentar a flexibilidade de suas construções
+Feat/&AddProtectorConstructCantripTitle	Truques de construção de bônus
+Feat/&AlchemistSubclassElixirsDescription	Aprenda a fazer elixires experimentais: Cura, Rapidez, Resiliência, Ousadia, Voo
+Feat/&AlchemistSubclassElixirsTitle	Elixires Experimentais
+Feat/&AlchemistSubclassSpellsDescription	Nível 3: Palavra de Cura, Infligir Ferimentos, Detectar Veneno, Doença\nNível 5: Esfera Flamejante, Flecha Ácida, Raio de Enfraquecimento\nNível 9: Palavra de Cura em Massa, Toque Vampírico, Remover Maldição, Desacelerar\nNível 13: Praga, Proteção contra a Morte\nNível 17: Cloud Kill, Raise Dead
+Feat/&AlchemistSubclassSpellsTitle	Aprenda feitiços para fazer poções
+Feat/&ArmorModePoolDescription	Permite alternar entre os modos de armadura
+Feat/&ArmorModePoolTitle	Modo de armadura
+Feat/&ArtificerAlchemistAlchemicalSavantDescription	Quando você cura, você cura um extra 1d4 + Seu Nível de HP
+Feat/&ArtificerAlchemistAlchemicalSavantTitle	Elixir Savant
+Feat/&ArtificerAlchemistBoldnessElixirDescription	O alvo pode rolar um d4 e adicionar o número rolado a cada jogada de ataque e teste de resistência que fizer para o próximo minuto
+Feat/&ArtificerAlchemistBoldnessElixirTitle	Elixir da Ousadia
+Feat/&ArtificerAlchemistFlyElixirDescription	O alvo pode voar lentamente por 10 minutos
+Feat/&ArtificerAlchemistFlyElixirTitle	Elixir da mosca
+Feat/&ArtificerAlchemistHealElixirDescription	Cura o alvo por 2d4 + modificador de Inteligência
+Feat/&ArtificerAlchemistHealElixirTitle	Elixir de Cura
+Feat/&ArtificerAlchemistResilienceElixirDescription	Aumente a CA alvo em +1 por 10 minutos
+Feat/&ArtificerAlchemistResilienceElixirTitle	Elixir de Resiliência
+Feat/&ArtificerAlchemistSwiftnessElixirDescription	Aumenta a velocidade de movimento do alvo em 3 metros por 1 hora
+Feat/&ArtificerAlchemistSwiftnessElixirTitle	Elixir da Rapidez
+Feat/&ArtificerArtilleristArcaneFirearmDescription	Ao lançar feitiços de evocação, cause 1d8 extra de dano uma vez por turno
+Feat/&ArtificerArtilleristArcaneFirearmTitle	Aprimoramento de detonação
+Feat/&ArtificerArtillerstDetonationSpellPreparedDescription	Você ganha a habilidade de detonar um de seus dispositivos causando danos àqueles próximos ao alvo
+Feat/&ArtificerArtillerstDetonationSpellPreparedTitle	Detonação do dispositivo
+Feat/&ArtificerArtillerstImprovedCannonsDescription	O efeito de seus canhões aumenta. Dano adicional do fogo, um alvo adicional da força e HP temporário adicional do escudo.
+Feat/&ArtificerArtillerstImprovedCannonsTitle	Canhões Aprimorados
+Feat/&ArtificialServantAttackDescription	Ataque à distância 1d6 de dano de força do seu fiel ajudante
+Feat/&ArtificialServantAttackTitle	Eslinga de Força
+Feat/&ArtificialServantDescription	O servo é amigável com você e seus companheiros, e obedece aos seus comandos
+Feat/&ArtificialServantTitle	Servo Artificial
+Feat/&ArtilleristCannonDetonationDescription	Detone um de seus dispositivos causando 3d8 de dano àqueles a até 6 metros do local alvo. Um teste de destreza permite que aqueles afetados recebam metade do dano.
+Feat/&ArtilleristCannonDetonationTitle	Detonação do dispositivo
+Feat/&ArtilleristFlameCannon15Description	Cospe fogo, causando 6d8 de dano de fogo em seus inimigos como uma ação bônus
+Feat/&ArtilleristFlameCannon15Title	Lança-chamas
+Feat/&ArtilleristFlameCannon9Description	Cospe fogo, causando 3d8 de dano de fogo em seus inimigos como uma ação bônus
+Feat/&ArtilleristFlameCannon9Title	Lança-chamas
+Feat/&ArtilleristFlameCannonDescription	Cospe fogo, causando 2d8 de dano de fogo em seus inimigos como uma ação bônus
+Feat/&ArtilleristFlameCannonTitle	Lança-chamas
+Feat/&ArtilleristForceCannon15Description	Use um ataque de força causando 3d8 de dano de força em um alvo como uma ação bônus para 2 alvos.
+Feat/&ArtilleristForceCannon15Title	Canhão de Força
+Feat/&ArtilleristForceCannon9Description	Use um ataque de força causando 3d8 de dano de força em um alvo como uma ação bônus
+Feat/&ArtilleristForceCannon9Title	Canhão de Força
+Feat/&ArtilleristForceCannonDescription	Use um ataque de força causando 2d8 de dano de força em um alvo como uma ação bônus
+Feat/&ArtilleristForceCannonTitle	Canhão de Força
+Feat/&ArtilleristProtectorCannon15Description	Emite energia positiva como uma ação bônus. Aliados a até 6 metros ganham 3d8 + seus pontos de vida temporários do modificador de Inteligência
+Feat/&ArtilleristProtectorCannon15Title	Escudo Arcano
+Feat/&ArtilleristProtectorCannonDescription	Emite energia positiva como uma ação bônus. Aliados a até 3 metros ganham 1d8 + seus pontos de vida temporários do modificador de Inteligência
+Feat/&ArtilleristProtectorCannonTitle	Escudo Arcano
+Feat/&ArtilleristSubclassSpellsDescription	Nível 3: Escudo, Thunderwave\nNível 5: Raio Escaldante, Estilhaçar\nNível 9: Bola de Fogo, Parede de Vento\nNível 13: Tempestade de Gelo, Muralha de Fogo\nNível 17: Cone de Frio, Muro de Força
+Feat/&ArtilleristSubclassSpellsTitle	Aprenda feitiços de blaster
+Feat/&ArtilleryConstructDescription	Pode danificar ou proteger aliados
+Feat/&ArtilleryConstructLevel03AutopreparedSpellsDescription	Truques: Construir Remendar, Construir Dispensar\nNível 1: Retomar Construto de Artilharia
+Feat/&ArtilleryConstructLevel03AutopreparedSpellsTitle	Construir Feitiços
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	VAZIO
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	VAZIO
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	VAZIO
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle	VAZIO
+Feat/&ArtilleryConstructTitle	Construção de Artilharia
+Feat/&ArtilleryConstructTitle_3	Construção de Artilharia
+Feat/&ArtilleryConstructTitle_5	Construção de Artilharia
+Feat/&AttackModifierArtificerBattleSmithJolt2Description	Seus ataques com arma causam 3 de dano adicional
+Feat/&AttackModifierArtificerBattleSmithJolt2Title	Choque de Ataque de Arma Aprimorado
+Feat/&AttackModifierArtificerBattleSmithJoltDescription	Seus ataques com arma causam 3 de dano adicional
+Feat/&AttackModifierArtificerBattleSmithJoltTitle	Golpe de Ataque de Arma
+Feat/&AutoPreparedSpellsDescription	Míssil Mágico Nível 3, Thunderwave\nNível 5 desfoque, estilhaçar\nNível 9 Lightning Bolt, Wind Wall, Wall of Fire
+Feat/&AutoPreparedSpellsTitle	Aprenda feitiços de Sentinela Escoteiro
+Feat/&BattleSmithSubclassSpellsDescription	Nível 3: Escudo, Heroísmo, Marca do Caçador\nNível 5: Golpe de Marca, Arma Espiritual\nNível 9: Remover Maldição, Farol da Esperança\nNível 13: Fire Shield, Death Ward Level\n17: Cura de Ferimentos em Massa, Muro de Força
+Feat/&BattleSmithSubclassSpellsTitle	Aprenda feitiços de ferreiro de arma
+Feat/&CancelFlyingConditionDescription	Acabar com a condição de voo para permitir saltar e rastejar.
+Feat/&CancelFlyingConditionTitle	Cancelar voo
+Feat/&ChefConDescription	Você ganha +1 em Constituição. Gaste 1 hora para cozinhar uma refeição para curar você e seus companheiros 1d8. Uma vez por dia você pode gastar uma hora para cozinhar guloseimas que fornecem HP temporário quando comidas.
+Feat/&ChefConTitle	Chefe (Constituição)
+Feat/&ChefShortRestFeastDescription	Gaste 1 hora para preparar uma refeição que ajude a curar você e seus companheiros 1d8.
+Feat/&ChefShortRestFeastTitle	Refeição de Descanso Curto
+Feat/&ChefWisDescription	Você ganha +1 em Sabedoria. Gaste 1 hora para cozinhar uma refeição para curar você e seus companheiros. Uma vez por dia você pode gastar uma hora para cozinhar guloseimas que fornecem HP temporário quando comidas.
+Feat/&ChefWisTitle	Chef (Sabedoria)
+Feat/&ConstructSelectingPoolDescription	Selecione o modo para o seu Construct
+Feat/&ConstructSelectingPoolTitle	Modo Artilharia
+Feat/&DismissConstructDescription	Desinvoque sua construção
+Feat/&DismissConstructTitle	Dispensar construção
+Feat/&DualFlurryDescription	Você é um mestre da luta com armas emparelhadas. Em qualquer turno em que você acertar duas vezes com ataques corpo a corpo enquanto empunha uma arma em cada mão, você pode fazer um ataque adicional com a mão inábil.
+Feat/&DualFlurryTitle	Dupla rajada
+Feat/&ExtraInfusionSlotsDescription	Você ganha slots de infusão extras, deve ser usado em armaduras/armas
 Feat/&ExtraInfusionSlotsTitle	Infusões extras
 Feat/&FeatChaIncrementDescription	+1 Carisma
-Feat/&FeatChaIncrementTitle	Carisma Aumento Atributo
+Feat/&FeatChaIncrementTitle	Aumento do Atributo Carisma
 Feat/&FeatChefConIncrementDescription	+1 Constituição
-Feat/&FeatChefConIncrementTitle	Aumento atributo
+Feat/&FeatChefConIncrementTitle	Aumento de atributo
 Feat/&FeatChefWisIncrementDescription	+1 Sabedoria
-Feat/&FeatChefWisIncrementTitle	Aumento atributo
+Feat/&FeatChefWisIncrementTitle	Aumento de atributo
 Feat/&FeatDexIncrementDescription	+1 Destreza
-Feat/&FeatDexIncrementTitle	Aumento atributo
-Feat/&FeatFeyTeleportationChaDescription	Aumentar atributo Carisma por 1. Ganhar a capacidade de Misty Passo uma vez por breve descanso e aprender o feitiço. Ganhar proficiência em Tirmarian.
-Feat/&FeatFeyTeleportationChaTitle	Fey teletransporte (Carisma)
-Feat/&FeatFeyTeleportationIntDescription	Aumentar atributo de Inteligência por 1. Ganhar a capacidade de Misty Passo uma vez por breve descanso e aprender o feitiço. Ganhar proficiência em Tirmarian.
-Feat/&FeatFeyTeleportationIntTitle	Fey teletransporte (Inteligência)
-Feat/&FeatFeyTeleportationWisDescription	Aumentar atributo sabedoria por 1. Ganhar a capacidade de Misty Passo uma vez por breve descanso e aprender o feitiço. Ganhar proficiência em Tirmarian.
-Feat/&FeatFeyTeleportationWisTitle	Fey Teletransporte (Sabedoria)
-Feat/&FeatHeavyArmorMasterClassDescription	A resistência à Bludgeoning, que reduz, e danos por perfuração.
-Feat/&FeatHeavyArmorMasterClassTitle	Pesado Defesa Mastery
-Feat/&FeatImprovedCriticalDescription Your attacks are critical hits on a roll of 19 or 20.
-	VAZIO
-Feat/&FeatImprovedCriticalTitle Improved Critical
-	VAZIO
+Feat/&FeatDexIncrementTitle	Aumento de atributo
+Feat/&FeatFeyTeleportationChaDescription	Aumente o atributo Carisma em 1. Ganhe a habilidade de Misty Step uma vez por descanso curto e aprenda o feitiço. Ganhe proficiência em Tirmarian.
+Feat/&FeatFeyTeleportationChaTitle	Teletransporte Fey (Carisma)
+Feat/&FeatFeyTeleportationIntDescription	Aumente o atributo Inteligência em 1. Ganhe a habilidade de Passo Nebuloso uma vez por descanso curto e aprenda o feitiço. Ganhe proficiência em Tirmarian.
+Feat/&FeatFeyTeleportationIntTitle	Teletransporte Fey (Inteligência)
+Feat/&FeatFeyTeleportationWisDescription	Aumente o atributo Sabedoria em 1. Ganhe a habilidade de Passo Nebuloso uma vez por descanso curto e aprenda o feitiço. Ganhe proficiência em Tirmarian.
+Feat/&FeatFeyTeleportationWisTitle	Teletransporte Fey (Sabedoria)
+Feat/&FeatHeavyArmorMasterClassDescription	Resistência a dano de Concussão, Corte e Perfuração.
+Feat/&FeatHeavyArmorMasterClassTitle	Maestria em Defesa Pesada
+Feat/&FeatImprovedCriticalDescription	Seus ataques são acertos críticos em uma rolagem de 19 ou 20.
+Feat/&FeatImprovedCriticalTitle	Crítico aprimorado
 Feat/&FeatIntIncrementDescription	+1 Inteligência
 Feat/&FeatIntIncrementTitle	Aumento do atributo de inteligência
 Feat/&FeatLightArmorDescription	Ganhe proficiência com Armadura Leve e +1 de Destreza
@@ -522,7 +452,7 @@ Feat/&FeatWarCasterTitle	Conjurador de Guerra
 Feat/&FeatWisIncrementDescription	+1 Sabedoria
 Feat/&FeatWisIncrementTitle	Aumento de Atributo de Sabedoria
 Feat/&FeyTeleportationLanguageTirmarianDescription	Ganhe proficiência em Tirmarian.
-Feat/&FeyTeleportationLanguageTirmarianTitle	Timariano
+Feat/&FeyTeleportationLanguageTirmarianTitle	timário
 Feat/&FightingStyleArcheryDescription	Você ganha um bônus de +2 nas jogadas de ataque com armas de longo alcance.
 Feat/&FightingStyleArcheryTitle	Estilo de luta: Tiro com arco
 Feat/&FightingStyleDefenseDescription	Enquanto estiver usando armadura, você ganha +1 de bônus na CA.
@@ -537,50 +467,30 @@ Feat/&FightingStyleProtectionDescription	Quando uma criatura que você pode ver 
 Feat/&FightingStyleProtectionTitle	Estilo de luta: Proteção
 Feat/&FightingStyleTwoWeaponDescription	Quando você luta com duas armas, você pode adicionar seu modificador de habilidade ao dano do segundo ataque.
 Feat/&FightingStyleTwoWeaponTitle	Estilo de luta: Duas armas
-Feat/&FlameArtillery_2Description 3D8 fire damage (Cone)
-	VAZIO
-Feat/&FlameArtillery_2Title Flame Artillery (Improved)
-	VAZIO
-Feat/&FlameArtilleryConstructDescription Creates a cone of fire that deals 2D8 damage on a failed save.
-	VAZIO
-Feat/&FlameArtilleryConstructDescription_3 Creates a cone of fire that deals 3D8 damage on a failed save.
-	VAZIO
-Feat/&FlameArtilleryConstructTitle Flame Artillery Construct
-	VAZIO
-Feat/&FlameArtilleryConstructTitle_3 Flame Artillery Construct
-	VAZIO
-Feat/&FlameArtilleryConstructTitle_5 Flame Artillery Construct
-	VAZIO
-Feat/&FlameArtilleryDescription 2D8 fire damage (Cone)
-	VAZIO
-Feat/&FlameArtilleryTitle Flame Artillery
-	VAZIO
-Feat/&ForceArtillery_2Description 3D8 Force damage and push target 5ft
-	VAZIO
-Feat/&ForceArtillery_2Title Force Artillery (Improved)
-	VAZIO
-Feat/&ForceArtilleryAdditionalDamageDescription The upgraded construct deals 1D8 more damage per hit
-	VAZIO
-Feat/&ForceArtilleryConstructDescription Deals 2D8 force damage and pushs enemy 5ft away from Construct.
-	VAZIO
-Feat/&ForceArtilleryConstructDescription_3 Deals 3D8 force damage and pushs enemy 5ft away from Construct.
-	VAZIO
-Feat/&ForceArtilleryConstructTitle Force Artillery Construct
-	VAZIO
-Feat/&ForceArtilleryConstructTitle_3 Force Artillery Construct
-	VAZIO
-Feat/&ForceArtilleryConstructTitle_5 Force Artillery Construct
-	VAZIO
-Feat/&ForceArtilleryDescription 2D8 Force damage and push 5ft
-	VAZIO
+Feat/&FlameArtillery_2Description	3D8 de dano de fogo (Cone)
+Feat/&FlameArtillery_2Title	Artilharia Flamejante (Melhorada)
+Feat/&FlameArtilleryConstructDescription	Cria um cone de fogo que causa 2D8 de dano se falhar na resistência.
+Feat/&FlameArtilleryConstructDescription_3	Cria um cone de fogo que causa 3D8 de dano se falhar na resistência.
+Feat/&FlameArtilleryConstructTitle	Construção de Artilharia Flamejante
+Feat/&FlameArtilleryConstructTitle_3	Construção de Artilharia Flamejante
+Feat/&FlameArtilleryConstructTitle_5	Construção de Artilharia Flamejante
+Feat/&FlameArtilleryDescription	2D8 de dano de fogo (Cone)
+Feat/&FlameArtilleryTitle	Artilharia Flamejante
+Feat/&ForceArtillery_2Description	3D8 Dano de força e empurra o alvo 5 pés
+Feat/&ForceArtillery_2Title	Artilharia da Força (Aprimorado)
+Feat/&ForceArtilleryAdditionalDamageDescription	A construção atualizada causa 1D8 a mais de dano por acerto
+Feat/&ForceArtilleryConstructDescription	Causa 2D8 de dano de força e empurra o inimigo 1,5 metro para longe do Constructo.
+Feat/&ForceArtilleryConstructDescription_3	Causa 3D8 de dano de força e empurra o inimigo 1,5 metro para longe do Constructo.
+Feat/&ForceArtilleryConstructTitle	Força Artilharia Construída
+Feat/&ForceArtilleryConstructTitle_3	Força Artilharia Construída
+Feat/&ForceArtilleryConstructTitle_5	Força Artilharia Construída
+Feat/&ForceArtilleryDescription	2D8 Dano de força e empurrão 5 pés
 Feat/&ForceStrikePowerDescription	Ataque à distância 1d6 de dano de força do seu fiel ajudante
 Feat/&ForceStrikePowerTitle	Force Sling (Servo Artificial)
 Feat/&GauntletsGrappleDescription	Agora pode puxar os inimigos para o alcance corpo a corpo com uma ação bônus e causar 1D8 de dano trovejante
 Feat/&GauntletsGrappleTitle	Garra de manopla
-Feat/&HalfCoverShieldDescription Gives 2 AC within 10ft
-	VAZIO
-Feat/&HalfCoverShieldTitle Half Cover Dome
-	VAZIO
+Feat/&HalfCoverShieldDescription	Dá 2 AC dentro de 10 pés
+Feat/&HalfCoverShieldTitle	Cúpula Meia Cobertura
 Feat/&HealerDescription	Você ganha proficiência ou perícia em testes de Medicina. Você ganha a habilidade de estabilizar uma criatura moribunda, bem como reviver uma criatura que morreu nos últimos 12 segundos uma vez por descanso longo. Você pode usar uma ação para restaurar 1d6 + 4 + pontos de vida do nível do personagem um número de vezes por descanso curto igual ao seu modificador de Sabedoria.
 Feat/&HealerResuscitateDescription	Use uma ação para reviver uma criatura que morreu nos últimos 15 segundos.
 Feat/&HealerResuscitateTitle	Ressuscitar
@@ -589,38 +499,26 @@ Feat/&HealerStabilizeTitle	Estabilizar
 Feat/&HealerTitle	Curador
 Feat/&HealerUseMedicineDescription	Você pode usar uma ação para restaurar 1d6 + 4 + pontos de vida do nível do personagem um número de vezes por descanso curto igual ao seu modificador de Sabedoria.
 Feat/&HealerUseMedicineTitle	Usar Medicina
-Feat/&IncreaseConstructSelectingDescription You can now summon two Artillery Constructs. The constructs can be of the same or different modes
-	VAZIO
-Feat/&IncreaseConstructSelectingTitle Reinforcements
-	VAZIO
+Feat/&IncreaseConstructSelectingDescription	Agora você pode convocar dois Constructos de Artilharia. As construções podem ser do mesmo modo ou de modos diferentes
+Feat/&IncreaseConstructSelectingTitle	Reforços
 Feat/&InspiringLeaderDescription	Gaste 10 minutos para inspirar até 6 criaturas amigas (que podem incluir você mesmo) a até 9 metros de você. Cada criatura ganha pontos de vida temporários iguais ao seu nível + seu modificador de Carisma. Utilizável uma vez por descanso curto.
 Feat/&InspiringLeaderTitle	Líder inspirador
-Feat/&IntToAttackAndDamageDescription Add Int instead of Str or Dex to your Armor Weapons
-	VAZIO
-Feat/&IntToAttackAndDamageTitle Amror Weapon
-	VAZIO
+Feat/&IntToAttackAndDamageDescription	Adicione Int em vez de Str ou Dex às suas Armas de Armadura
+Feat/&IntToAttackAndDamageTitle	Arma de Amor
 Feat/&MendingConstructDescription	Conserte sua construção por 2D6 ao longo de 1 min
 Feat/&MendingConstructTitle	Consertando Construto
 Feat/&ModeSwitchingPoolDescription	Você pode alternar entre os modos uma vez por dia criando e usando armas temporárias
 Feat/&ModeSwitchingPoolTitle	Modo de armadura
 Feat/&PickPocketFeatDescription	Você ganha proficiência com Prestidigitação, ou perícia se já for proficiente. Você também tem vantagem em testes de Prestidigitação.
 Feat/&PickPocketFeatTitle	Batedor de carteiras
-Feat/&PowerAlchemistEmboldeningShotsDescription You gain the ability to administer an elixier that emboldens your allies, providing them 4d6+intelligence modifier temporary hit points
-	VAZIO
-Feat/&PowerAlchemistEmboldeningShotsTitle Emboldening Shots
-	VAZIO
-Feat/&PowerAlchemistGreaterRestorativeElixirsDescription Once per day you can cast Greater Restoration
-	VAZIO
-Feat/&PowerAlchemistGreaterRestorativeElixirsTitle Greater Restoration
-	VAZIO
-Feat/&PowerAlchemistHealElixirsDescription Once per day you can cast Heal
-	VAZIO
-Feat/&PowerAlchemistHealElixirsTitle Heal
-	VAZIO
-Feat/&PowerAlchemistRestorativeElixirsDescription You can cast Lesser Rotation without expending a spell slot. You can do this a number of times per long rest equal to your intelligence modifier
-	VAZIO
-Feat/&PowerAlchemistRestorativeElixirsTitle Restorative Elixirs
-	VAZIO
+Feat/&PowerAlchemistEmboldeningShotsDescription	Você ganha a habilidade de administrar um elixier que encoraja seus aliados, fornecendo a eles 4d6+modificador de inteligência pontos de vida temporários
+Feat/&PowerAlchemistEmboldeningShotsTitle	Tiros encorajadores
+Feat/&PowerAlchemistGreaterRestorativeElixirsDescription	Uma vez por dia você pode lançar Greater Restoration
+Feat/&PowerAlchemistGreaterRestorativeElixirsTitle	Maior Restauração
+Feat/&PowerAlchemistHealElixirsDescription	Uma vez por dia você pode lançar Curar
+Feat/&PowerAlchemistHealElixirsTitle	Curar
+Feat/&PowerAlchemistRestorativeElixirsDescription	Você pode lançar Rotação Menor sem gastar um espaço de magia. Você pode fazer isso um número de vezes por descanso longo igual ao seu modificador de inteligência
+Feat/&PowerAlchemistRestorativeElixirsTitle	Elixires Restauradores
 Feat/&PowerAttackFeatDescription	Você aprendeu a trocar precisão com golpes mais mortais/mais fortes. Você pode escolher receber uma penalidade de -{0} ao seu acerto para causar mais dano (+{0} de dano para armas de uma mão, +{1} de dano para armas de duas mãos). Dura o turno inteiro uma vez ativado. Funciona com armas brancas e de longo alcance.
 Feat/&PowerAttackFeatTitle	Ataque de poder
 Feat/&PowerFalseLifeFromFeatDescription	Reforçando-se com um fac-símile necromântico da vida, você ganha 1d4+4 Pontos de Vida Temporários pela Duração.
@@ -642,37 +540,25 @@ Feat/&ProfChefTreatTitle	Delícia do Chef
 Feat/&ProfHealerMedicineDescription	Ganhe Proficiência em Medicina ou Especialização se você já for proficiente.
 Feat/&ProfHealerMedicineTitle	Conhecimento em Medicina
 Feat/&ProtectorConstructAttackDescription	Corpo a corpo 1d10 de dano de força do constructo protetor
-Feat/&ProtectorConstructAttackTitle	Forçar rasgo
+Feat/&ProtectorConstructAttackTitle	Força faz
 Feat/&ProtectorConstructDescription	É amigável com você e seus companheiros e obedece aos seus comandos
 Feat/&ProtectorConstructTitle	Construto Protetor
 Feat/&RecklessFuryFeatDescription	Você ganha a habilidade de entrar em fúria por um minuto uma vez por dia (observe nenhuma restrição de armadura), e você pode atacar imprudentemente ganhando vantagem em seus ataques corpo a corpo enquanto dá vantagem aos seus atacantes até seu próximo turno.
 Feat/&RecklessFuryFeatTitle	Fúria Imprudente
-Feat/&ResummonArtilleryConstruct_03Title Resummon Artillery Construct 1
-	VAZIO
-Feat/&ResummonArtilleryConstruct_09Title Resummon Artillery Construct 2
-	VAZIO
-Feat/&ResummonArtilleryConstruct_15Title Resummon Artillery Construct 3
-	VAZIO
-Feat/&ResummonArtilleryConstructDescription This spell allows the tinkerer to resummon an Artillery Construct in one of multiple modes after the initial summons expires. The resummoned construct also lasts 1 hour.
-	VAZIO
+Feat/&ResummonArtilleryConstruct_03Title	Retomar Construto de Artilharia 1
+Feat/&ResummonArtilleryConstruct_09Title	Retomar Construto de Artilharia 2
+Feat/&ResummonArtilleryConstruct_15Title	Retomar Construto de Artilharia 3
+Feat/&ResummonArtilleryConstructDescription	Este feitiço permite que o funileiro ressuscite um Artillery Construct em um dos vários modos após a convocação inicial expirar. A construção recuperada também dura 1 hora.
 Feat/&RetributionDescription	Dano de construção 1D4 + Int quando atacado
 Feat/&RetributionTitle	Retribuição
-Feat/&ScoutSentinelFeatureSet_level03Description <size=17><color=#add8e6ff>Learn Scout Sentinel Spells</color></size>\nLevel 3: Magic Missile, Thunderwave\nLevel 5: Blur, Shatter\nLevel 9: Lightning Bolt, Hypnotic Pattern \nLevel 13: Fire Shield, Greater Invisibility\nLevel 17: Dimension Door, Wind Wall, Wall of Fire\n\n<size=17><color=#add8e6ff>Multiple Armor Functions</color></size>\nYou can switch between function modes once per day by creating and using temporary weapons\n\n<size=17><color=#add8e6ff>Sentinel Mode</color></size>\nGain a limited number of temporary HP based on level. Impose disadvantage on enemies attacking allies\n\n<size=17><color=#add8e6ff>Scout Mode</color></size>\nGain increased movement, stealth advantage and a ranged attack which deals an extra die of damage once a turn.\n\n<size=17><color=#add8e6ff>Features</color></size>\nYou can use the armor's weapons as a spellcasting focus for your spells\nHeavy Armor does not have a strength requirement\nYou gain proficiency in smith's tools and heavy armor
-	VAZIO
-Feat/&ScoutSentinelFeatureSet_level03Title  
-	VAZIO
-Feat/&ScoutSentinelFeatureSet_level05Description <size=17><color=#add8e6ff>Extra Attack</color></size>\nYou can attack one more time, per combat turn, when you use the attack or shove actions
-	VAZIO
-Feat/&ScoutSentinelFeatureSet_level05Title  
-	VAZIO
-Feat/&ScoutSentinelFeatureSet_level09Description <size=17><color=#add8e6ff>Extra Infusion Slots</color></size>\nYou gain extra infusion slots, should be used on armor
-	VAZIO
-Feat/&ScoutSentinelFeatureSet_level09Title  
-	VAZIO
-Feat/&ScoutSentinelFeatureSet_level15Description <size=17><color=#add8e6ff>Improved Sentinel Mode</color></size>\nCan now pull enemies into melee range with a bonus action and inflict 1D8 thunder damage via the Gauntlet Grapple power\n\n<size=17><color=#add8e6ff>Improved Scout Mode</color></size>\nCan now create advantage for allies and disadvantage for enemies with a single attack
-	VAZIO
-Feat/&ScoutSentinelFeatureSet_level15Title  
-	VAZIO
+Feat/&ScoutSentinelFeatureSet_level03Description	<size=17><color=#add8e6ff>Aprenda os Feitiços de Sentinela de Escoteiro</color></size>\nNível 3: Míssil Mágico, Thunderwave\nNível 5: Blur, Shatter\nNível 9: Relâmpago, Padrão Hipnótico\nNível 13: Escudo de Fogo, Maior Invisibilidade\nNível 17: Porta Dimensional, Muralha de Vento, Muralha de Fogo\n\n<size=17><color=#add8e6ff>Várias funções de armadura</color></size>\nVocê pode alternar entre os modos de função uma vez por dia criando e usando armas temporárias\n\n<size=17><color=#add8e6ff>Modo Sentinela</color></size>\nGanhe um número limitado de HP temporário com base no nível. Impor desvantagem em inimigos atacando aliados\n\n<size=17><color=#add8e6ff>Modo Explorador</color></size>\nGanhe movimento aumentado, vantagem furtiva e um ataque à distância que causa um dado extra de dano uma vez por turno.\n\n<size=17><color=#add8e6ff>Recursos</color></size>\nVocê pode usar as armas da armadura como um foco de conjuração para seus feitiços\nArmadura Pesada não tem um requisito de força\nVocê ganha proficiência em ferramentas de ferreiro e armaduras pesadas
+Feat/&ScoutSentinelFeatureSet_level03Title	VAZIO
+Feat/&ScoutSentinelFeatureSet_level05Description	<size=17><color=#add8e6ff>Ataque Extra</color></size>\nVocê pode atacar mais uma vez, por turno de combate, quando usar as ações de ataque ou empurrão
+Feat/&ScoutSentinelFeatureSet_level05Title	VAZIO
+Feat/&ScoutSentinelFeatureSet_level09Description	<size=17><color=#add8e6ff>Slots de infusão extra</color></size>\nVocê ganha slots de infusão extras, deve ser usado em armaduras
+Feat/&ScoutSentinelFeatureSet_level09Title	VAZIO
+Feat/&ScoutSentinelFeatureSet_level15Description	<size=17><color=#add8e6ff>Modo Sentinela Aprimorado</color></size>\nAgora pode puxar os inimigos para o alcance corpo a corpo com uma ação bônus e causar 1D8 de dano trovejante através do poder Gauntlet Grapple\n\n<size=17><color=#add8e6ff>Modo Explorador Aprimorado</color></size>\nAgora pode criar vantagem para aliados e desvantagem para inimigos com um único ataque
+Feat/&ScoutSentinelFeatureSet_level15Title	VAZIO
 Feat/&SelfDestructDescription	Autodestruir e forçar um teste de resistência de Dex para 3D8 de dano de força dentro de 10 pés
 Feat/&SelfDestructTitle	Auto-destruição
 Feat/&SelfRepairDescription	Cure 2D8 HP, 3 vezes por dia
@@ -683,29 +569,19 @@ Feat/&SubclassProficienciesDescription	Você ganha proficiência em ferramentas 
 Feat/&SubclassProficienciesTitle	Proficiências de Subclasse
 Feat/&SummonArtificialServantDescription	O servo é amigável com você e seus companheiros e obedece às suas ordens.
 Feat/&SummonArtificialServantTitle	Invocar Servo Artificial
-Feat/&SummonArtilleryConstructDescription The Blaster creates and commands an Artillery Construct in one of multiple modes. The construct's HP increases with it's summoners levels and can be summoned for free for 1 hour once per day. The construct can be resummoned via 1st level spell. The three modes are : \n<color=#add8e6ff>Protecting Dome Construct:</color>\nGrants 1D8 + 4 temporary HP to allies within 10ft \n<color=#add8e6ff>Flame Artillery Construct:</color>\nCreates a cone of fire that deals 2D8 damage on a failed Dex save\n<color=#add8e6ff>Force Artillery Construct:</color>\nDeals 2D8 force damage and pushs enemy 5ft away.
-	VAZIO
-Feat/&SummonArtilleryConstructlevel09Description A new function has been added. The Artillery Construct can destroy itself dealing 3D8 force damage on a failed save. \nAddditionally both the Flame and Force Artillery damage rolls increase by 1D8 to a total of 3D8
-	VAZIO
-Feat/&SummonArtilleryConstructlevel09Title Artillery Construct Upgrade : Self-Destruct
-	VAZIO
-Feat/&SummonArtilleryConstructlevel15Description A new function has been added. The Artillery Construct now provides half cover to allies within 10ft \n<size=17><color=#add8e6ff>Artillery Construct Upgrade : Reinforcements</color></size>\nYou can now summon two Artillery Constructs. The constructs can be of the same or different modes
-	VAZIO
-Feat/&SummonArtilleryConstructlevel15Title Artillery Construct Upgrade : Half Cover Dome
-	VAZIO
+Feat/&SummonArtilleryConstructDescription	O Blaster cria e comanda um Artillery Construct em um dos vários modos. O HP do constructo aumenta com os níveis de invocador e pode ser invocado gratuitamente por 1 hora uma vez por dia. O constructo pode ser invocado através de uma magia de 1º nível. Os três modos são:\n<color=#add8e6ff>Proteção da construção do domo:</color>\nConcede 1D8 + 4 HP temporário para aliados dentro de 10 pés\n<color=#add8e6ff>Construção de Artilharia Flamejante:</color>\nCria um cone de fogo que causa 2D8 de dano se falhar no teste de Dex\n<color=#add8e6ff>Construção de Artilharia da Força:</color>\nCausa 2D8 de dano de força e empurra o inimigo 5 pés para longe.
+Feat/&SummonArtilleryConstructlevel09Description	Uma nova função foi adicionada. O Artillery Construct pode se destruir causando 3D8 de dano de força se falhar na resistência.\nAlém disso, as jogadas de dano da Artilharia Flame e Force aumentam em 1D8 para um total de 3D8
+Feat/&SummonArtilleryConstructlevel09Title	Atualização de construção de artilharia: autodestruição
+Feat/&SummonArtilleryConstructlevel15Description	Uma nova função foi adicionada. O Artillery Construct agora oferece meia cobertura para aliados em até 10 pés\n<size=17><color=#add8e6ff>Atualização de construção de artilharia: reforços</color></size>\nAgora você pode convocar dois Constructos de Artilharia. As construções podem ser do mesmo modo ou de modos diferentes
+Feat/&SummonArtilleryConstructlevel15Title	Atualização de construção de artilharia: Meia Cúpula de Cobertura
 Feat/&SummonArtilleryConstructTitle	Evocar Construto de Artilharia
 Feat/&SummonProtectorConstructDescription	Seu próprio Battle Buddy está pronto para defendê-lo e atacar os inimigos. O Protector Construct pode se auto-reparar 3 vezes ao dia e pode impor desvantagem em ataques a aliados
 Feat/&SummonProtectorConstructTitle	Invocar Construto Protetor
-Feat/&TempHPShieldConstructDescription Grants 1D8 + 4 temporary HP to allies within 10ft.
-	VAZIO
-Feat/&TempHPShieldConstructTitle Protecting Dome Construct
-	VAZIO
-Feat/&TempHPShieldConstructTitle_3 Protecting Dome Construct
-	VAZIO
-Feat/&TempHPShieldConstructTitle_5 Protecting Dome Construct
-	VAZIO
-Feat/&TempHPShieldDescription Provide 1D8 + 4 TempHP to allies within 10ft
-	VAZIO
+Feat/&TempHPShieldConstructDescription	Concede 1D8 + 4 HP temporários para aliados dentro de 10 pés.
+Feat/&TempHPShieldConstructTitle	Construção de Cúpula de Proteção
+Feat/&TempHPShieldConstructTitle_3	Construção de Cúpula de Proteção
+Feat/&TempHPShieldConstructTitle_5	Construção de Cúpula de Proteção
+Feat/&TempHPShieldDescription	Fornece 1D8 + 4 TempHP para aliados dentro de 10 pés
 Feat/&ThunderShieldDescription	Escudo defensivo fornece nível TempHP x. 5 vezes por dia
 Feat/&ThunderShieldTitle	Escudo do Trovão
 Feat/&TinkererConstructFamilyDescription	Criado por Tinker
@@ -727,14 +603,10 @@ Feature/&ArcanePulseDescription	A partir do 7º nível, você pode causar uma er
 Feature/&ArcanePulseTitle	Pulso Arcano
 Feature/&ArcanistMarkDescription	A partir do 3º nível, você imbui suas armas com poder arcano. Criaturas que são atingidas por seus ataques são afligidas pela Marca do Arcanista.
 Feature/&ArcanistMarkTitle	Marca do Arcanista
-Feature/&ArtificerInfusionCastingDescription You can perform the somatic components of spells while holding weapons and shields
-	VAZIO
-Feature/&ArtificerInfusionCastingTitle Infusion Casting
-	VAZIO
-Feature/&ArtificerSpecialistArchetypesDescription What field of study do you specialize in? Tinkerers can be damage dealers, healers, and martial specialists
-	VAZIO
-Feature/&ArtificerSpecialistArchetypesTitle Tinkerer Specializations
-	VAZIO
+Feature/&ArtificerInfusionCastingDescription	Você pode executar os componentes somáticos de feitiços enquanto segura armas e escudos
+Feature/&ArtificerInfusionCastingTitle	Fundição de infusão
+Feature/&ArtificerSpecialistArchetypesDescription	Em que área de estudo você se especializou? Tinkerers podem ser causadores de danos, curandeiros e especialistas marciais
+Feature/&ArtificerSpecialistArchetypesTitle	Especializações de Tinker
 Feature/&BarbarianIndomitableMightDescription	Se seu total para um teste de Força for menor que seu valor de Força, você pode usar esse valor no lugar do total.
 Feature/&BarbarianIndomitableMightTitle	Força Indomável
 Feature/&BardSkillsTitle	Habilidades de Bardo
@@ -758,34 +630,20 @@ Feature/&DruidForestGuardianSylvanWarMagicDescription	Você está acostumado a m
 Feature/&DruidForestGuardianSylvanWarMagicTitle	Magia de Guerra Silvestre
 Feature/&DualFlurryDescription	Você é um mestre da luta com armas emparelhadas. Em qualquer turno em que você acertar duas vezes com ataques corpo a corpo enquanto empunha uma arma em cada mão, você pode fazer um ataque adicional com a mão inábil.
 Feature/&DualFlurryTitle	Dupla rajada
-Feature/&FlameArtillery_09ModePowerDescription Summons a construct that lasts 1 hour. \nFlame Artillery : Creates a cone of fire that deals 3D8 damage on a failed save. \nSelf-Destruct : deals 3D8 force damage on a failed save and destroys the unit.
-	VAZIO
-Feature/&FlameArtillery_09ModePowerTitle Summon Flame Artillery Construct
-	VAZIO
-Feature/&FlameArtillery_15ModePowerDescription Summons a construct that lasts 1 hour. \nFlame Artillery : Creates a cone of fire that deals 3D8 damage on a failed save. \nSelf-Destruct : deals 3D8 force damage on a failed save and destroys the unit. \n Half Cover Dome : provides half cover to allies within 10ft.
-	VAZIO
-Feature/&FlameArtillery_15ModePowerTitle Summon Flame Artillery Construct
-	VAZIO
-Feature/&FlameArtilleryModePowerDescription Summons a construct that lasts 1 hour. \nFlame Artillery : Creates a cone of fire that deals 2D8 damage on a failed save.
-	VAZIO
-Feature/&FlameArtilleryModePowerTitle Summon Flame Artillery Construct
-	VAZIO
-Feature/&ForceArtillery_09ModePowerDescription Summons a construct that lasts 1 hour. \nForce Artillery : Deals 3D8 force damage and pushs enemy 5ft away. \nSelf-Destruct : deals 3D8 force damage on a failed save and destroys the unit.
-	VAZIO
-Feature/&ForceArtillery_09ModePowerTitle Summon Force Artillery Construct
-	VAZIO
-Feature/&ForceArtillery_15ModePowerDescription Summons a construct that lasts 1 hour. \nForce Artillery : Deals 3D8 force damage and pushs enemy 5ft away. \nSelf-Destruct : deals 3D8 force damage on a failed save and destroys the unit. \n Half Cover Dome : provides half cover to allies within 10ft.
-	VAZIO
-Feature/&ForceArtillery_15ModePowerTitle Summon Force Artillery Construct
-	VAZIO
-Feature/&ForceArtilleryAdditionalDamageTitle Upgraded damage
-	VAZIO
-Feature/&ForceArtilleryModePowerDescription Summons a construct that lasts 1 hour. \nForce Artillery : Deals 2D8 force damage and pushs target 5ft away.
-	VAZIO
-Feature/&ForceArtilleryModePowerTitle Summon Force Artillery Construct
-	VAZIO
-Feature/&ForceArtilleryTitle Force Artillery
-	VAZIO
+Feature/&FlameArtillery_09ModePowerDescription	Evoca uma construção que dura 1 hora.\nArtilharia Flamejante: Cria um cone de fogo que causa 3D8 de dano se falhar na resistência.\nAutodestruição: causa 3D8 de dano de força em uma falha na resistência e destrói a unidade.
+Feature/&FlameArtillery_09ModePowerTitle	Evocar Construto de Artilharia Flamejante
+Feature/&FlameArtillery_15ModePowerDescription	Evoca uma construção que dura 1 hora.\nArtilharia Flamejante: Cria um cone de fogo que causa 3D8 de dano se falhar na resistência.\nAutodestruição: causa 3D8 de dano de força em uma falha na resistência e destrói a unidade.\n Meia Cobertura Dome: fornece meia cobertura aos aliados dentro de 10 pés.
+Feature/&FlameArtillery_15ModePowerTitle	Evocar Construto de Artilharia Flamejante
+Feature/&FlameArtilleryModePowerDescription	Evoca uma construção que dura 1 hora.\nArtilharia Flamejante: Cria um cone de fogo que causa 2D8 de dano se falhar na resistência.
+Feature/&FlameArtilleryModePowerTitle	Evocar Construto de Artilharia Flamejante
+Feature/&ForceArtillery_09ModePowerDescription	Evoca uma construção que dura 1 hora.\nArtilharia de Força: Causa 3D8 de dano de força e empurra o inimigo 5 pés de distância.\nAutodestruição: causa 3D8 de dano de força em uma falha na resistência e destrói a unidade.
+Feature/&ForceArtillery_09ModePowerTitle	Evocar Construto de Artilharia da Força
+Feature/&ForceArtillery_15ModePowerDescription	Evoca uma construção que dura 1 hora.\nArtilharia de Força: Causa 3D8 de dano de força e empurra o inimigo 5 pés de distância.\nAutodestruição: causa 3D8 de dano de força em uma falha na resistência e destrói a unidade.\n Meia Cobertura Dome: fornece meia cobertura aos aliados dentro de 10 pés.
+Feature/&ForceArtillery_15ModePowerTitle	Evocar Construto de Artilharia da Força
+Feature/&ForceArtilleryAdditionalDamageTitle	Dano atualizado
+Feature/&ForceArtilleryModePowerDescription	Evoca uma construção que dura 1 hora.\nArtilharia de Força: Causa 2D8 de dano de força e empurra o alvo 5 pés de distância.
+Feature/&ForceArtilleryModePowerTitle	Evocar Construto de Artilharia da Força
+Feature/&ForceArtilleryTitle	Artilharia da Força
 Feature/&GambitResourcePoolAddDescription	Adiciona um dado de gambito adicional.
 Feature/&GambitResourcePoolAddTitle	Dados de Gambit adicionais.
 Feature/&GambitResourcePoolDescription	Conjunto de dados de gambito que podem ser gastos em gambitos. Começa com 4 eles recarregam em descanso curto.
@@ -857,70 +715,45 @@ Feature/&RangerVanishActionDescription	A partir do 14º nível, você pode usar 
 Feature/&RangerVanishActionTitle	Desaparecer
 Feature/&RoyalEnvoyFeatureDescription	Adicione metade do seu bônus de proficiência (arredondado para cima) a qualquer teste de Carisma que você fizer que ainda não use seu bônus de proficiência. Além disso, você se torna proficiente em testes de resistência de Carisma.
 Feature/&RoyalEnvoyFeatureTitle	enviado real
-Feature/&SavingThrowTinkererProficiencyDescription Proficiency in Constitution and Intelligence saving throws
-	VAZIO
-Feature/&SavingThrowTinkererProficiencyTitle Saving Throw Proficiency
-	VAZIO
+Feature/&SavingThrowTinkererProficiencyDescription	Proficiência em testes de resistência de Constituição e Inteligência
+Feature/&SavingThrowTinkererProficiencyTitle	Proficiência em jogadas de proteção
 Feature/&ScoutModePowerDescription	Ganhe movimento aumentado, vantagem furtiva e um ataque à distância que causa um dado extra de dano uma vez por turno.
 Feature/&ScoutModePowerTitle	Modo Escoteiro
 Feature/&SentinelModePowerDescription	Ganhe um número limitado de TempHP com base no nível. Imponha Desvantagem aos inimigos que atacam aliados.
 Feature/&SentinelModePowerTitle	Modo Sentinela
-Feature/&TempHPShield_09ModePowerDescription Summons a construct that lasts 1 hour. \nProtecting Dome : Grants 1D8 + 4 temporary HP to allies within 10ft. \nSelf-Destruct : deals 3D8 force damage on a failed save and destroys the unit.
-	VAZIO
-Feature/&TempHPShield_09ModePowerTitle Summon Protecting Dome Construct
-	VAZIO
-Feature/&TempHPShield_15ModePowerDescription Summons a construct that lasts 1 hour. \nProtecting Dome : Grants 1D8 + 4 temporary HP to allies within 10ft. \nSelf-Destruct : deals 3D8 force damage on a failed save and destroys the unit. \n Half Cover Dome : Provides half cover to allies within 10ft.
-	VAZIO
-Feature/&TempHPShield_15ModePowerTitle Summon Protecting Dome Construct
-	VAZIO
-Feature/&TempHPShieldModePowerDescription Summons a construct that lasts 1 hour. \nProtecting Dome : Grants 1D8 + 4 temporary HP to allies within 10ft.
-	VAZIO
-Feature/&TempHPShieldModePowerTitle Summon Protecting Dome Construct
-	VAZIO
-Feature/&TempHPShieldTitle Protecting Dome
-	VAZIO
-Feature/&TinkererArmorProficiencyTitle Tinkerer Armor Proficiency
-	VAZIO
-Feature/&TinkererArmorTrainingShortDescription Proficiency with Light and Medium armors as well as shields
-	VAZIO
-Feature/&TinkererSkillGainChoicesPluralDescription Tinkerer skills are Arcana, History, Investigation, Medecine, Nature, Perception and Sleight of Hand
-	VAZIO
-Feature/&TinkererSkillPointsTitle Tinkerer Skills
-	VAZIO
-Feature/&TinkererToolProficiencyPluralShortDescription Gain proficiency with many tools including Thieve's Tools, Scroll Kits, Poisoner's Kit, Herbalism Kit, and Enchanting Tools
-	VAZIO
-Feature/&TinkererToolsExpertisePluralShortDescription Gain expertise with many tools including Thieve's Tools, Scroll Kits, Poisoner's Kit, Herbalism Kit, and Enchanting Tools
-	VAZIO
-Feature/&TinkererToolsExpertiseTitle Tinkerer Tool Expertise
-	VAZIO
-Feature/&TinkererToolsProficiencyTitle Tool Proficiencies
-	VAZIO
-Feature/&TinkererWeaponProficiencyTitle Tinkerer Weapon Proficiencies
-	VAZIO
-Feature/&TinkererWeaponTrainingShortDescription Proficiency with simple weapons
-	VAZIO
+Feature/&TempHPShield_09ModePowerDescription	Evoca uma construção que dura 1 hora.\nProtecting Dome: Concede 1D8 + 4 HP temporário para aliados dentro de 10 pés.\nAutodestruição: causa 3D8 de dano de força em uma falha na resistência e destrói a unidade.
+Feature/&TempHPShield_09ModePowerTitle	Invocar Construção de Cúpula Protetora
+Feature/&TempHPShield_15ModePowerDescription	Evoca uma construção que dura 1 hora.\nProtecting Dome: Concede 1D8 + 4 HP temporário para aliados dentro de 10 pés.\nAutodestruição: causa 3D8 de dano de força em uma falha na resistência e destrói a unidade.\n Meia Cobertura Dome: Fornece meia cobertura aos aliados dentro de 10 pés.
+Feature/&TempHPShield_15ModePowerTitle	Invocar Construção de Cúpula Protetora
+Feature/&TempHPShieldModePowerDescription	Evoca uma construção que dura 1 hora.\nProtecting Dome: Concede 1D8 + 4 HP temporário para aliados dentro de 10 pés.
+Feature/&TempHPShieldModePowerTitle	Invocar Construção de Cúpula Protetora
+Feature/&TempHPShieldTitle	Cúpula de Proteção
+Feature/&TinkererArmorProficiencyTitle	Proficiência em Armadura do Tinkerer
+Feature/&TinkererArmorTrainingShortDescription	Proficiência com armaduras leves e médias, bem como escudos
+Feature/&TinkererSkillGainChoicesPluralDescription	As habilidades do Tinkerer são Arcana, História, Investigação, Medicina, Natureza, Percepção e Prestidigitação
+Feature/&TinkererSkillPointsTitle	Habilidades de funileiro
+Feature/&TinkererToolProficiencyPluralShortDescription	Ganhe proficiência com muitas ferramentas, incluindo Ferramentas do Ladrão, Kits de Pergaminho, Kit do Envenenador, Kit de Herbalismo e Ferramentas de Encantamento
+Feature/&TinkererToolsExpertisePluralShortDescription	Adquira experiência com muitas ferramentas, incluindo Ferramentas do Ladrão, Kits de Pergaminho, Kit do Envenenador, Kit de Herbalismo e Ferramentas de Encantamento
+Feature/&TinkererToolsExpertiseTitle	Expertise em ferramentas Tinkerer
+Feature/&TinkererToolsProficiencyTitle	Proficiências em Ferramentas
+Feature/&TinkererWeaponProficiencyTitle	Proficiências com Armas do Tinkerer
+Feature/&TinkererWeaponTrainingShortDescription	Proficiência com armas simples
 Feature/&ZSPowerPaladinCleansingTouchDescription	Remova os efeitos da magia tocando em um aliado. Você pode fazer isso um número de vezes por dia igual ao seu modificador de Carisma.
 Feature/&ZSPowerPaladinCleansingTouchTitle	Toque de limpeza
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat	Dano Adicional de Ataques com Poder Mágico
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine	Dano Adicional de Ataques com Poder Mágico
-Feedback/&AdditionalDamageArcaneFirearmFormat Blasting Enhancement!
-	VAZIO
-Feedback/&AdditionalDamageArcaneFirearmLine Dealing additional damage from Blasting Enhancement
-	VAZIO
+Feedback/&AdditionalDamageArcaneFirearmFormat	Aprimoramento de explosão!
+Feedback/&AdditionalDamageArcaneFirearmLine	Causando dano adicional do Aprimoramento Explosivo
 Feedback/&AdditionalDamageArcanistMarkFormat	Marca do Arcanista!
 Feedback/&AdditionalDamageArcanistMarkLine	A Marca do Arcanista detona e causa dano extra ao alvo!
 Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat	Golpe Iluminador!
 Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	Illuminating Strike causa dano extra ao alvo!
-Feedback/&AdditionalDamageBlindingWeaponStrikeFormat Blinding Weapon
-	VAZIO
-Feedback/&AdditionalDamageBlindingWeaponStrikeLine Additional damage and trying to apply Blindness from Blinding Weapon.
-	VAZIO
+Feedback/&AdditionalDamageBlindingWeaponStrikeFormat	Arma de Cegueira
+Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Dano adicional e tentativa de aplicar Blindness from Blinding Weapon.
 Feedback/&AdditionalDamagePugilistFormat	Pugilista
 Feedback/&AdditionalDamagePugilistLine	Dano Desarmado Adicional do Pugilista
-Feedback/&AdditionalDamageUpgradedConstructFormat Upgraded Damage
-	VAZIO
-Feedback/&AdditionalDamageUpgradedConstructLine The upgraded construct deals 1D8 more damage per hit
-	VAZIO
+Feedback/&AdditionalDamageUpgradedConstructFormat	Dano atualizado
+Feedback/&AdditionalDamageUpgradedConstructLine	A construção atualizada causa 1D8 a mais de dano por acerto
 Feedback/&ExtraDamageDescription	Dano extra de Lighting Spear
 Feedback/&ExtraDamageTitle	Dano extra da Lança Relâmpago
 Feedback/&LightningSpearAdditionalDamageDescription	dano de raio 1D6 extra uma vez por turno
@@ -960,14 +793,10 @@ Modifier/&RuinedDescription	-3 para Classe de Armadura
 Modifier/&RuinedTitle	Arruinado
 Monster/&DHCustomCouatlDescription	Couatls são seres serpentinos benevolentes de grande intelecto e discernimento. Suas asas brilhantemente coloridas e maneiras gentis falam de suas origens celestiais.
 Monster/&DHCustomCouatlTitle	Couatl
-Monster/&OwlFamiliarDescription Owl familiar
-	VAZIO
-Monster/&OwlFamiliarTitle Owl
-	VAZIO
-Monster/&WitchOwlFamiliarDescription Owl familiar
-	VAZIO
-Monster/&WitchOwlFamiliarTitle Owl
-	VAZIO
+Monster/&OwlFamiliarDescription	Coruja familiar
+Monster/&OwlFamiliarTitle	Coruja
+Monster/&WitchOwlFamiliarDescription	Coruja familiar
+Monster/&WitchOwlFamiliarTitle	Coruja
 MonsterAttack/&DHCouatlBiteAttackDescription	Dano perfurante e o alvo deve ser bem sucedido em um teste de resistência de Constituição CD 13 ou ficará envenenado por 24 horas. Até que este veneno termine, o alvo está inconsciente.
 MonsterAttack/&DHCouatlBiteAttackTitle	Morder
 Power/&HelpActionDescription	Você pode ajudar uma criatura amiga a atacar uma criatura a até 1,5 metro de você. Você finta, distrai o alvo ou de alguma outra forma se une para tornar o ataque do seu aliado mais eficaz. Se seu aliado atacar o alvo antes do seu próximo turno, a primeira jogada de ataque é feita com vantagem.
@@ -1024,14 +853,10 @@ Rules/&DisadvantageOnAttackByEnemyDescription	Distraído por um relâmpago
 Rules/&DisadvantageOnAttackByEnemyTitle	Sacudido
 Rules/&ExtraDamageOnAttackConditionDescription	Dano extra de Lighting Spear
 Rules/&ExtraDamageOnAttackConditionTitle	Chocado estático
-Rules/&HalfCoverShieldAttributeDescription Allies Gain +2AC within 10ft
-	VAZIO
-Rules/&HalfCoverShieldAttributeTitle Half Cover Dome
-	VAZIO
-Rules/&HalfCoverShieldConditionDescription +2AC
-	VAZIO
-Rules/&HalfCoverShieldConditionTitle Protected by Dome
-	VAZIO
+Rules/&HalfCoverShieldAttributeDescription	Aliados ganham +2AC dentro de 10 pés
+Rules/&HalfCoverShieldAttributeTitle	Cúpula Meia Cobertura
+Rules/&HalfCoverShieldConditionDescription	+2AC
+Rules/&HalfCoverShieldConditionTitle	Protegido por Domo
 Rules/&LightningSpearPowerDescription	Dano de Raio 1D6 + 1D6
 Rules/&LightningSpearPowerTitle	Lança Relâmpago
 Rules/&ThunderStruckBalancingAdvantageDescription	Equilibrar o estrondoso para funcionar apenas para aliados
@@ -1055,7 +880,7 @@ Screen/&WitchSpellHeader	Bruxa
 Screen/&WitchSpellTitle	Bruxa
 Sorceror/&ZSSorcerousRestorationDescription	Recupere 4 pontos de feitiçaria durante um descanso curto.
 Sorceror/&ZSSorcerousRestorationTitle	Restauração Feiticeira
-Spell/&CJDivineWordDescription	Você pronuncia uma palavra divina, imbuída do poder que moldou o mundo no início da criação. Escolha qualquer número de criaturas que você possa ver dentro do alcance. Cada criatura que pode ouvir você deve fazer um teste de resistência de Carisma. Em uma falha na resistência, uma criatura sofre um efeito baseado em seus pontos de vida atuais:\n50 pontos de vida ou menos: surdo por 1 minuto\n40 pontos de vida ou menos: surdo e cego por 10 minutos\n30 pontos de vida ou menos: cego, surdo e atordoado por 1 hora\n20 pontos de vida ou menos: morto instantaneamente\nIndependentemente de seus pontos de vida atuais, um celestial, um elemental, uma fada ou um demônio que falhe no teste de resistência é forçado a voltar ao seu plano de origem (se já não estiver lá) e não pode retornar ao seu plano atual por 24 horas por qualquer meio que não seja um feitiço de desejo.\n
+Spell/&CJDivineWordDescription	Você pronuncia uma palavra divina, imbuída do poder que moldou o mundo no início da criação. Escolha qualquer número de criaturas que você possa ver dentro do alcance. Cada criatura que pode ouvir você deve fazer um teste de resistência de Carisma. Em uma falha na resistência, uma criatura sofre um efeito baseado em seus pontos de vida atuais:\n50 pontos de vida ou menos: surdo por 1 minuto\n40 pontos de vida ou menos: surdo e cego por 10 minutos\n30 pontos de vida ou menos: cego, surdo e atordoado por 1 hora\n20 pontos de vida ou menos: morto instantaneamente\nIndependentemente de seus pontos de vida atuais, um celestial, um elemental, uma fada ou um demônio que falhe no teste de resistência é forçado a voltar ao seu plano de origem (se já não estiver lá) e não pode retornar ao seu plano atual por 24 horas por qualquer meio que não seja um feitiço de desejo.
 Spell/&CJDivineWordTitle	Palavra Divina
 Spell/&DHAnimalShapesSpellDescription	Escolha qualquer número de criaturas voluntárias que você possa ver dentro do alcance. Você transforma cada alvo na forma de uma besta Grande ou menor com nível de desafio 4 ou menor.
 Spell/&DHAnimalShapesSpellTitle	Formas de animais
@@ -1112,8 +937,7 @@ Spell/&ProtectThresholdDescription	Traçando sigilos arcanos ao longo de seu lim
 Spell/&ProtectThresholdTitle	Limite de proteção
 Spell/&WitchFamiliarDescription	Você ganha o serviço de um familiar.
 Spell/&WitchFamiliarTitle	Bruxo Familiar
-SpellList/&SpellListTinkererTitle Spell list for the Tinkerer class.
-	VAZIO
+SpellList/&SpellListTinkererTitle	Lista de feitiços para a classe Tinkerer.
 Stage/&IdentityMorphotypeEyeHeader	Estilo dos olhos
 Stage/&SubclassSelectionStageCovenDescription	Multidão
 Stage/&SubclassSelectionStageCovenFeaturesDescription	Multidão
@@ -1121,84 +945,49 @@ Stage/&SubclassSelectionStageCovenFeaturesHeader	Recursos do Coven
 Stage/&SubclassSelectionStageCovenFeaturesTitle	Multidão
 Stage/&SubclassSelectionStageCovenHeader	Selecione um Coven
 Stage/&SubclassSelectionStageCovenTitle	Multidão
-Stage/&SubclassSelectionStageSpecialistDescription Description There are a wide range of specialties in Tinkerers including making elixirs as a Potion Maker, making explosions as a Blaster, and wielding magical weaponry as a Weapon Smith.
-	VAZIO
-Stage/&SubclassSelectionStageSpecialistFeatures Specialist Features
-	VAZIO
-Stage/&SubclassSelectionStageSpecialistHeader Specializations
-	VAZIO
-Stage/&SubclassSelectionStageSpecialistNoneDescription Specialist None Description
-	VAZIO
-Stage/&SubclassSelectionStageSpecialistTitle Select Specialization
-	VAZIO
+Stage/&SubclassSelectionStageSpecialistDescription	Descrição Há uma grande variedade de especialidades em Tinkerers, incluindo fazer elixires como um Potion Maker, fazer explosões como um Blaster e empunhar armas mágicas como um Weapon Smith.
+Stage/&SubclassSelectionStageSpecialistFeatures	Recursos especializados
+Stage/&SubclassSelectionStageSpecialistHeader	Especializações
+Stage/&SubclassSelectionStageSpecialistNoneDescription	Especialista Nenhum Descrição
+Stage/&SubclassSelectionStageSpecialistTitle	Selecionar especialização
 Subclass/&AbilityAffinityRogueConArtistDescription	Vantagem em testes de habilidade usando Persuasão, Enganação, Performance e Prestidigitação.
 Subclass/&AbilityAffinityRogueConArtistTitle	Manipulativo
 Subclass/&ArcaneFighterAdditionalActionDescription	Você pode lançar um feitiço depois de derrotar um inimigo com seus ataques de arma.
 Subclass/&ArcaneFighterAdditionalActionTitle	Combate a Feitiços
 Subclass/&ArcaneFighterBonusWeaponDamageDescription	Uma vez por turno, seus ataques com arma causam 1d8 de dano extra.
 Subclass/&ArcaneFighterBonusWeaponDamageTitle	Ataques com poderes mágicos
-Subclass/&ArtificerAlchemistDescription You specialize in potions, buffs, healing, and spell casting
-	VAZIO
-Subclass/&ArtificerAlchemistTitle Potion Maker
-	VAZIO
-Subclass/&ArtificerArtileristCannonsDescription You create a set of cannons that you can activate in battle as a bonus action
-	VAZIO
-Subclass/&ArtificerArtileristCannonsTitle Cannons
-	VAZIO
-Subclass/&ArtificerArtilleristDescription You specialize in hurling projectiles and causing explosions
-	VAZIO
-Subclass/&ArtificerArtilleristTitle Blaster
-	VAZIO
-Subclass/&ArtificerBattleSmithDescription You specialize in using magical weapons in combat
-	VAZIO
-Subclass/&ArtificerBattleSmithTitle Weapon Smith
-	VAZIO
-Subclass/&ArtificerSpellcastingDescription Cast Tinkerer spells
-	VAZIO
-Subclass/&ArtificerSpellcastingTitle Tinkerer Spellcasting
-	VAZIO
-Subclass/&AttackModifierArtificerBattleSmithWeaponDescription Your attacks count as Magical and you use your intelligence for attack and damage rolls
-	VAZIO
-Subclass/&AttackModifierArtificerBattleSmithWeaponTitle Infused Weapon
-	VAZIO
-Subclass/&AttackModifierArtificerBlindingWeaponDescription Touch a weapon that gains the ability to blind targets on hit (against a Constitution save). Note you can only have an infusion active once. Activating it a second time will cancel the first.
-	VAZIO
-Subclass/&AttackModifierArtificerBlindingWeaponTitle Blinding Weapon
-	VAZIO
-Subclass/&AttackModifierArtificerEnhancedArmorDescription Touch Armor and it becomes magical and provides +1 AC. Note you can only have an infusion active once. Activating it a second time will cancel the first.
-	VAZIO
-Subclass/&AttackModifierArtificerEnhancedArmorTitle Enhanced Armor
-	VAZIO
-Subclass/&AttackModifierArtificerEnhancedFocusDescription Touch a Focus and it becomes magical and gains +1 to attack and spell dc. Note you can only have an infusion active once. Activating it a second time will cancel the first.
-	VAZIO
-Subclass/&AttackModifierArtificerEnhancedFocusTitle Enhanced Focus
-	VAZIO
-Subclass/&AttackModifierArtificerEnhancedWeaponDescription Touch a weapon and it becomes magical and gains +1 to attack and damage rolls. Note you can only have an infusion active once. Activating it a second time will cancel the first.
-	VAZIO
-Subclass/&AttackModifierArtificerEnhancedWeaponTitle Enhanced Weapon
-	VAZIO
-Subclass/&AttackModifierArtificerImprovedEnhancedArmorDescription Touch Armor and it becomes magical and provides +2 AC. Note you can only have an infusion active once. Activating it a second time will cancel the first.
-	VAZIO
-Subclass/&AttackModifierArtificerImprovedEnhancedArmorTitle Improved Enhanced Armor
-	VAZIO
-Subclass/&AttackModifierArtificerImprovedEnhancedFocusDescription Touch a Focus and it becomes magical and gains +2 to attack and spell dc. Note you can only have an infusion active once. Activating it a second time will cancel the first.
-	VAZIO
-Subclass/&AttackModifierArtificerImprovedEnhancedFocusTitle Improved Enhanced Focus
-	VAZIO
-Subclass/&AttackModifierArtificerImprovedEnhancedWeaponDescription Touch a weapon and it becomes magical and gains +2 to attack and damage rolls. Note you can only have an infusion active once. Activating it a second time will cancel the first.
-	VAZIO
-Subclass/&AttackModifierArtificerImprovedEnhancedWeaponTitle Improved Enhanced Weapon
-	VAZIO
-Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponDescription You infuse your weapon with power. Your attacks count as Magical and you add +7 to your attack and damage rolls.
-	VAZIO
-Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponTitle Improved Infuse Weapon
-	VAZIO
+Subclass/&ArtificerAlchemistDescription	Você se especializa em poções, buffs, cura e feitiços
+Subclass/&ArtificerAlchemistTitle	Fabricante de Poções
+Subclass/&ArtificerArtileristCannonsDescription	Você cria um conjunto de canhões que você pode ativar na batalha como uma ação bônus
+Subclass/&ArtificerArtileristCannonsTitle	Canhões
+Subclass/&ArtificerArtilleristDescription	Você é especialista em arremessar projéteis e causar explosões
+Subclass/&ArtificerArtilleristTitle	Lançador
+Subclass/&ArtificerBattleSmithDescription	Você se especializa em usar armas mágicas em combate
+Subclass/&ArtificerBattleSmithTitle	Ferreiro de Arma
+Subclass/&ArtificerSpellcastingDescription	Lançar feitiços do Tinkerer
+Subclass/&ArtificerSpellcastingTitle	Feitiço do Tinkerer
+Subclass/&AttackModifierArtificerBattleSmithWeaponDescription	Seus ataques contam como Mágicos e você usa sua inteligência para jogadas de ataque e dano
+Subclass/&AttackModifierArtificerBattleSmithWeaponTitle	Arma Infundida
+Subclass/&AttackModifierArtificerBlindingWeaponDescription	Toque uma arma que ganhe a habilidade de cegar alvos ao acertar (contra um teste de Constituição). Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&AttackModifierArtificerBlindingWeaponTitle	Arma de Cegueira
+Subclass/&AttackModifierArtificerEnhancedArmorDescription	Toque em Armadura e ela se torna mágica e fornece +1 AC. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&AttackModifierArtificerEnhancedArmorTitle	Armadura Aprimorada
+Subclass/&AttackModifierArtificerEnhancedFocusDescription	Toque em um Focus e ele se torna mágico e ganha +1 para atacar e feitiço dc. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&AttackModifierArtificerEnhancedFocusTitle	Foco Aprimorado
+Subclass/&AttackModifierArtificerEnhancedWeaponDescription	Toque em uma arma e ela se torna mágica e ganha +1 nas jogadas de ataque e dano. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&AttackModifierArtificerEnhancedWeaponTitle	Arma Aprimorada
+Subclass/&AttackModifierArtificerImprovedEnhancedArmorDescription	Toque em Armadura e ela se torna mágica e fornece +2 AC. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&AttackModifierArtificerImprovedEnhancedArmorTitle	Armadura Aprimorada Aprimorada
+Subclass/&AttackModifierArtificerImprovedEnhancedFocusDescription	Toque em um Focus e ele se torna mágico e ganha +2 para atacar e feitiço dc. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&AttackModifierArtificerImprovedEnhancedFocusTitle	Foco Aprimorado Aprimorado
+Subclass/&AttackModifierArtificerImprovedEnhancedWeaponDescription	Toque em uma arma e ela se torna mágica e ganha +2 nas jogadas de ataque e dano. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&AttackModifierArtificerImprovedEnhancedWeaponTitle	Arma Aprimorada Aprimorada
+Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponDescription	Você infunde sua arma com poder. Seus ataques contam como Mágicos e você adiciona +7 às suas jogadas de ataque e dano.
+Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponTitle	Arma de Infusão Aprimorada
 Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription	Quando ativo em uma arma, seus ataques contam como Mágicos e você usa sua inteligência para suas jogadas de ataque e dano.
 Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle	Arma Arcana
-Subclass/&AttributeModifierArtificerBattleSmithExtraAttackDescription You gain an extra attack
-	VAZIO
-Subclass/&AttributeModifierArtificerBattleSmithExtraAttackTitle Extra Attack
-	VAZIO
+Subclass/&AttributeModifierArtificerBattleSmithExtraAttackDescription	Você ganha um ataque extra
+Subclass/&AttributeModifierArtificerBattleSmithExtraAttackTitle	Ataque Extra
 Subclass/&AttributeModifierMeleeWizardExtraAttackDescription	Você ganha um ataque extra
 Subclass/&AttributeModifierMeleeWizardExtraAttackTitle	Ataque Extra
 Subclass/&BarbarianPathOfTheLightDescription	Bárbaros que seguem o Caminho da Luz iluminam a escuridão e protegem seus aliados dos perigos que espreitam dentro dela.
@@ -1227,38 +1016,26 @@ Subclass/&BloodWitchDescription	Proibida pela maioria dos covens de bruxas, a ma
 Subclass/&BloodWitchMagicDescription	Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos.\n\nFeitiços de Nível\n1º Emaranhado, Goodberry\n2º Barkkin, Proteção contra Veneno\n3º Conjurar Animais, Criar Comida\n4º Inseto Gigante, Pele de Pedra\n5º Dissipar o Mal e o Bem, Praga de Insetos
 Subclass/&BloodWitchMagicTitle	Magia de Sangue
 Subclass/&BloodWitchTitle	Bruxa de Sangue
-Subclass/&CancelCancelElixirFlyDescription End the Fly condition from the Potion Maker Elixir.
-	VAZIO
-Subclass/&CancelCancelElixirFlyTitle Cancel Fly
-	VAZIO
-Subclass/&CancelCancelElixirResilienceDescription End the Resilience condition from the Potion Maker Elixir.
-	VAZIO
-Subclass/&CancelCancelElixirResilienceTitle Cancel Resilience
-	VAZIO
-Subclass/&CancelCancelElixirSwiftnessDescription End the Swiftness condition from the Potion Maker Elixir.
-	VAZIO
-Subclass/&CancelCancelElixirSwiftnessTitle Cancel Swiftness
-	VAZIO
-Subclass/&ConditionResistantArmorTitle Resistant Armor
-	VAZIO
-Subclass/&ConditionResistnatArmorDescription Your armor is resistant to acid, cold, fire, force, lightning, necrotic, poison, psychic, radiant, and thunder damage
-	VAZIO
+Subclass/&CancelCancelElixirFlyDescription	Termine a condição Fly do Potion Maker Elixir.
+Subclass/&CancelCancelElixirFlyTitle	Cancelar voo
+Subclass/&CancelCancelElixirResilienceDescription	Encerre a condição de Resiliência do Elixir do Fabricante de Poções.
+Subclass/&CancelCancelElixirResilienceTitle	Cancelar resiliência
+Subclass/&CancelCancelElixirSwiftnessDescription	Encerre a condição de Rapidez do Elixir do Criador de Poções.
+Subclass/&CancelCancelElixirSwiftnessTitle	Cancelar Rapidez
+Subclass/&ConditionResistantArmorTitle	Armadura Resistente
+Subclass/&ConditionResistnatArmorDescription	Sua armadura é resistente a dano de ácido, frio, fogo, força, raio, necrótico, veneno, psíquico, radiante e trovão
 Subclass/&ConditionSpellShieldArcaneDeflectionDescription	Você pode usar seus poderes arcanos para se proteger como uma reação. Isso lhe dá +{0} na sua CA até seu próximo turno.
 Subclass/&ConditionSpellShieldArcaneDeflectionTitle	Deflexão Arcana
 Subclass/&ConditionTransmuteConstitutionSaveDescription	A Constituição Temporária salva a proficiência concedida pelo poder da Força de Transmutação.
 Subclass/&ConditionTransmuteConstitutionSaveTitle	Salvamentos de Constituição
 Subclass/&ConditionTransmutePoisonDescription	Resistência temporária a ácido, frio, fogo, relâmpago, necrótica, trovão e veneno concedida pelo poder Transmute Force.
 Subclass/&ConditionTransmutePoisonTitle	Resistência Elementar
-Subclass/&CraftingTinkererMagicItemAdeptDescription You are adept at crafting magic items. It takes you 1/4 the time to craft items and you apply double your proficiency bonus when crafting.
-	VAZIO
-Subclass/&CraftingTinkererMagicItemAdeptTitle Magic Item Adept
-	VAZIO
+Subclass/&CraftingTinkererMagicItemAdeptDescription	Você é perito em criar itens mágicos. Você leva 1/4 do tempo para criar itens e você aplica o dobro do seu bônus de proficiência ao criar.
+Subclass/&CraftingTinkererMagicItemAdeptTitle	Adepto de itens mágicos
 Subclass/&DruidForestGuardianDruidSubclassDescription	Círculo do Guardião da Floresta Druidas juram proteger as florestas e tudo o que nelas habita. Habilidosos no uso da magia de Abjuração e combate marcial, os membros deste círculo druídico são oponentes temíveis no campo de batalha.
 Subclass/&DruidForestGuardianDruidSubclassTitle	Círculo do Guardião da Floresta
-Subclass/&EquipmentModifierArtificerBagOfHolderDescription Touch an bag and infuse an extra dimmensional space to help it hold more weight without encumbering you. Note you can only have an infusion active once. Activating it a second time will cancel the first.
-	VAZIO
-Subclass/&EquipmentModifierArtificerBagOfHolderTitle Bag of Holding
-	VAZIO
+Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Toque em uma bolsa e infunda um espaço dimensional extra para ajudá-la a suportar mais peso sem sobrecarregar você. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Saco de Segurar
 Subclass/&FighterRoyalKnightDescription	Um cavaleiro que inspira grandeza nos outros ao cometer atos de bravura em batalha. Um cavaleiro solitário é um guerreiro habilidoso, mas um líder de um bando de aliados pode transformar até mesmo a milícia mais mal equipada em um bando de guerra feroz.
 Subclass/&FighterRoyalKnightTitle	Cavaleiro real
 Subclass/&FighterSpellShieldDescription	Spell Shields são lutadores especializados em defesa e proteção. Eles usam magia para ajudar suas habilidades naturais.
@@ -1271,18 +1048,12 @@ Subclass/&GreenWitchDescription	Plantas, natureza e coisas que crescem são o do
 Subclass/&GreenWitchMagicDescription	Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos.\n\nFeitiços de Nível\n1º Emaranhado, Goodberry\n2º Barkkin, Proteção contra Veneno\n3º Conjurar Animais, Criar Comida\n4º Inseto Gigante, Pele de Pedra\n5º Dissipar o Mal e o Bem, Praga de Insetos
 Subclass/&GreenWitchMagicTitle	Magia Verde
 Subclass/&GreenWitchTitle	Bruxa Verde
-Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseDescription You can now infuse two additional items each day, this is intended to be use for your special Weapon Smith weapon
-	VAZIO
-Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseTitle Weapon Smith Weapon Infusion
-	VAZIO
-Subclass/&HealingPoolArtificerInfusionsDescription 2 times per day infuse items with magical effects
-	VAZIO
-Subclass/&HealingPoolArtificerInfusionsIncreaseDescription You can now infuse one additional item each day
-	VAZIO
-Subclass/&HealingPoolArtificerInfusionsIncreaseTitle More Infusions
-	VAZIO
-Subclass/&HealingPoolArtificerInfusionsTitle Infusions
-	VAZIO
+Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseDescription	Agora você pode infundir dois itens adicionais a cada dia, isso deve ser usado para sua arma especial Weapon Smith
+Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseTitle	Infusão de Arma Smith
+Subclass/&HealingPoolArtificerInfusionsDescription	2 vezes por dia infundir itens com efeitos mágicos
+Subclass/&HealingPoolArtificerInfusionsIncreaseDescription	Agora você pode infundir um item adicional a cada dia
+Subclass/&HealingPoolArtificerInfusionsIncreaseTitle	Mais infusões
+Subclass/&HealingPoolArtificerInfusionsTitle	Infusões
 Subclass/&HealingPoolLifeTransmuterBonusDescription	2 vezes adicionais por dia você pode forçar sua vontade na realidade.
 Subclass/&HealingPoolLifeTransmuterBonusExtraDescription	4 vezes adicionais por dia você pode forçar sua vontade na realidade.
 Subclass/&HealingPoolLifeTransmuterBonusExtraTitle	Força de Transmutação Adicional
@@ -1291,14 +1062,10 @@ Subclass/&HealingPoolLifeTransmuterListDescription	2 vezes por dia decrete sua v
 Subclass/&HealingPoolLifeTransmuterListTitle	Força de Transmutação
 Subclass/&KSRogueSubclassThugDescription	Bandidos são combatentes de mente afiada que buscam a emoção da luta e farão seus inimigos morder o pó por qualquer meio necessário. Eles se beneficiam de um treinamento marcial avançado e aprendem a usar sua inteligência e força para triunfar na batalha.
 Subclass/&KSRogueSubclassThugTitle	Bandido
-Subclass/&MagicAffinityAlchemicalSavantListDescription When casting Acid Arrow and Flaming Sphere they behave as if cast 2 levels higher. Your cantrips are also boosted so even when the enemy saves they still take half damage
-	VAZIO
-Subclass/&MagicAffinityAlchemicalSavantListTitle Elixir Savant Spells
-	VAZIO
-Subclass/&MagicAffinityAlchemistSpellRecoveryDescription You can recover spell slots during a short rest twice per day
-	VAZIO
-Subclass/&MagicAffinityAlchemistSpellRecoveryTitle Alchemical Preparation
-	VAZIO
+Subclass/&MagicAffinityAlchemicalSavantListDescription	Ao lançar Acid Arrow e Flaming Sphere, eles se comportam como se tivessem lançado 2 níveis acima. Seus truques também são aprimorados, então, mesmo quando o inimigo salva, eles ainda recebem metade do dano
+Subclass/&MagicAffinityAlchemicalSavantListTitle	Feitiços de Elixir Savant
+Subclass/&MagicAffinityAlchemistSpellRecoveryDescription	Você pode recuperar espaços de magia durante um descanso curto duas vezes por dia
+Subclass/&MagicAffinityAlchemistSpellRecoveryTitle	Preparação Alquímica
 Subclass/&MagicAffinityFighterSpellShieldDescription	Vantagem em testes de concentração, bem como a capacidade de realizar componentes somáticos de feitiços enquanto segura itens.
 Subclass/&MagicAffinityFighterSpellShieldTitle	Conjuração de Combate
 Subclass/&MagicAffinityLifeTransmuterListDescription	Ao lançar alguns feitiços de Transmutação e Necromancia, eles são lançados em um slot de feitiço 2 níveis superior ao usado. Os feitiços aprimorados incluem: Vida Falsa, Cegueira, Voar, Doar Maldição, Toque Vampírico, Praga e Matar Nuvem. -- Nota A intenção é ter o benefício de Arma Mágica também, mas atualmente aumentar o nível de feitiço dessa forma em Arma Mágica não tem efeito.
@@ -1332,48 +1099,30 @@ Subclass/&MagicAffinitySpellMasterScribingDescription	Escrever feitiços leva 1/
 Subclass/&MagicAffinitySpellMasterScribingTitle	Escriba Mestre
 Subclass/&ManipulatorMentalSavingThrowsDescription	Ganhe proficiência em testes de resistência com Constituição e Carisma.
 Subclass/&ManipulatorMentalSavingThrowsTitle	Resistência Mental
-Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription You infuse your weapon with power. Your attacks count as Magical and you add your +7 to your attack and damage rolls. Note you can only have an infusion active once. Activating it a second time will cancel the first.
-	VAZIO
-Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponTitle Improved Infuse Weapon
-	VAZIO
-Subclass/&PowerArtificerBattleSmithInfuseWeaponDescription You infuse your weapon with power. Your attacks count as Magical and you use your intelligence for attack and damage rolls until the next long rest
-	VAZIO
-Subclass/&PowerArtificerBattleSmithInfuseWeaponTitle Infuse Weapon
-	VAZIO
-Subclass/&PowerInfuseArmorMagicalStrengthDescription Infuse armor with magical strength. You gain advantage on strength ability checks and saving throws. Note you can only have an infusion active once. Activating it a second time will cancel the first.
-	VAZIO
-Subclass/&PowerInfuseArmorMagicalStrengthTitle Armor of Magical Strength
-	VAZIO
-Subclass/&PowerInfuseDarkvisionDescription Infuse the ability to see in the dark into a pair of goggles. Note you can only have an infusion active once. Activating it a second time will cancel the first. Note you can only have an infusion active once. Activating it a second time will cancel the first.
-	VAZIO
-Subclass/&PowerInfuseDarkvisionTitle Goggles of Night
-	VAZIO
-Subclass/&PowerInfuseMindSharpenerDescription Infuse an armor or robe with the ability to aid your spell casting concentration. You gain advantage on concentration checks and any damage less than 20 doesn't trigger a check. Note you can only have an infusion active once. Activating it a second time will cancel the first.
-	VAZIO
-Subclass/&PowerInfuseMindSharpenerTitle Mind Sharpener
-	VAZIO
-Subclass/&PowerInfuseResistantArmorDescription Infuse damage resistance into your armor. It becomes resistant to acid, cold, fire, force, lightning, necrotic, poison, psychic, radiant, and thunder damage. Note you can only have an infusion active once. Activating it a second time will cancel the first.
-	VAZIO
-Subclass/&PowerInfuseResistantArmorTitle Resistant Armor
-	VAZIO
+Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription	Você infunde sua arma com poder. Seus ataques contam como Mágicos e você adiciona +7 às suas jogadas de ataque e dano. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponTitle	Arma de Infusão Aprimorada
+Subclass/&PowerArtificerBattleSmithInfuseWeaponDescription	Você infunde sua arma com poder. Seus ataques contam como Mágicos e você usa sua inteligência para jogadas de ataque e dano até o próximo descanso longo
+Subclass/&PowerArtificerBattleSmithInfuseWeaponTitle	Infundir Arma
+Subclass/&PowerInfuseArmorMagicalStrengthDescription	Infundir armadura com força mágica. Você ganha vantagem em testes de habilidade de força e testes de resistência. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&PowerInfuseArmorMagicalStrengthTitle	Armadura de Força Mágica
+Subclass/&PowerInfuseDarkvisionDescription	Infundir a capacidade de ver no escuro em um par de óculos. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&PowerInfuseDarkvisionTitle	óculos de noite
+Subclass/&PowerInfuseMindSharpenerDescription	Infundir uma armadura ou túnica com a habilidade de ajudar a sua concentração de lançamento de feitiços. Você ganha vantagem em testes de concentração e qualquer dano menor que 20 não desencadeia um teste. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&PowerInfuseMindSharpenerTitle	Afiador de Mentes
+Subclass/&PowerInfuseResistantArmorDescription	Infundir resistência a danos em sua armadura. Torna-se resistente a dano de ácido, frio, fogo, força, raio, necrótico, veneno, psíquico, radiante e trovão. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&PowerInfuseResistantArmorTitle	Armadura Resistente
 Subclass/&PowerManipulatorDominatePersonDescription	Você pode usar Dominar Pessoa um número de vezes por descanso longo igual ao seu modificador de inteligência.
 Subclass/&PowerManipulatorDominatePersonTitle	Dominar pessoa
-Subclass/&PowerSpellRefuelingRingDescription When you activate this, you regain half your level in spell slots.
-	VAZIO
-Subclass/&PowerSpellRefuelingRingTitle Spell Refueling Ring
-	VAZIO
+Subclass/&PowerSpellRefuelingRingDescription	Quando você ativa isso, você recupera metade do seu nível nos espaços de magia.
+Subclass/&PowerSpellRefuelingRingTitle	Anel de reabastecimento de feitiços
 Subclass/&PowerSpellShieldArcaneDeflectionDescription	Você pode usar seus poderes arcanos para se proteger como uma reação. Isso lhe dá +{0} na sua CA até seu próximo turno.
 Subclass/&PowerSpellShieldArcaneDeflectionTitle	Deflexão Arcana
 Subclass/&PowerSpellShieldRangedDeflectionDescription	Quando um atacante que você pode ver o atinge com um ataque à distância ou feitiço, você pode usar sua reação para reduzir pela metade o dano do ataque contra você.
 Subclass/&PowerSpellShieldRangedDeflectionTitle	Deflexão à distância
-Subclass/&PowerTinkererSoulOfArtificeSavesDescription Imbued into your armor is magical improvements to your ability to avoid bad effects. You gain 3d4 to every saving throw you make.
-	VAZIO
-Subclass/&PowerTinkererSoulOfArtificeSavesTitle Soul of Tinkerer
-	VAZIO
-Subclass/&PowerTinkererSpellStoringItemDescription As a bonus action you can regain spell slots. You can do this a number of times per day equal to your Intellifence modifier.
-	VAZIO
-Subclass/&PowerTinkererSpellStoringItemTitle Spell Storing Item
-	VAZIO
+Subclass/&PowerTinkererSoulOfArtificeSavesDescription	Imbuídas em sua armadura estão melhorias mágicas em sua habilidade de evitar efeitos ruins. Você ganha 3d4 para cada teste de resistência que fizer.
+Subclass/&PowerTinkererSoulOfArtificeSavesTitle	Alma de Tinker
+Subclass/&PowerTinkererSpellStoringItemDescription	Como uma ação bônus, você pode recuperar espaços de magia. Você pode fazer isso um número de vezes por dia igual ao seu modificador de Inteligência.
+Subclass/&PowerTinkererSpellStoringItemTitle	Item de armazenamento de feitiços
 Subclass/&PowerTransmuteConstitutionDescription	Use sua Força de Transmutação para conceder proficiência em Resistências de Constituição até o próximo descanso longo.
 Subclass/&PowerTransmuteConstitutionTitle	Salvamentos de Constituição
 Subclass/&PowerTransmuteDarkvisionDescription	Use sua Força de Transmutação para conceder Visão no Escuro Superior até o próximo descanso longo.
@@ -1412,22 +1161,14 @@ Subclass/&SpellShieldAdditionalActionDescription	Você pode lançar um feitiço 
 Subclass/&SpellShieldAdditionalActionTitle	Combate a Feitiços
 Subclass/&TactitionFighterSubclassDescription	O Estrategista usa seu conhecimento e poder no campo de batalha para realizar diferentes jogadas conforme necessário. Eles podem derrubar inimigos, inspirar seus aliados e entrar em contra-ataques mortais contra seus inimigos. Nota do mod - Esta classe reutiliza a divindade do canal para esses recursos.
 Subclass/&TactitionFighterSubclassTitle	O Estrategista
-Subclass/&TinkererFlashOfGeniusConditionDescription Inspired by a flash of genius to have a bonus on ability checks and saving throws
-	VAZIO
-Subclass/&TinkererFlashOfGeniusConditionTitle Flash of Genius
-	VAZIO
-Subclass/&TinkererFlashOfGeniusPowerDescription You can use your genius to inspire yourself and others on ability checks and saving throws
-	VAZIO
-Subclass/&TinkererFlashOfGeniusPowerTitle Flash of Genius
-	VAZIO
-Subclass/&TinkererInfusionChoiceDescription Select the infusions that you will have available to use. Note you can only have an infusion active once. Activating it a second time will cancel the first.
-	VAZIO
-Subclass/&TinkererInfusionChoiceTitle Infusion Choice
-	VAZIO
-Subclass/&TinkererMagicalTinkeringDescription Gain the ability to do several minor effects (Dazzle, Sparkle, Shine).
-	VAZIO
-Subclass/&TinkererMagicalTinkeringTitle Magical Tinkering
-	VAZIO
+Subclass/&TinkererFlashOfGeniusConditionDescription	Inspirado por um lampejo de gênio para ter um bônus em testes de habilidade e testes de resistência
+Subclass/&TinkererFlashOfGeniusConditionTitle	Flash de Gênio
+Subclass/&TinkererFlashOfGeniusPowerDescription	Você pode usar seu gênio para inspirar a si mesmo e aos outros em testes de habilidade e testes de resistência
+Subclass/&TinkererFlashOfGeniusPowerTitle	Flash de Gênio
+Subclass/&TinkererInfusionChoiceDescription	Selecione as infusões que você terá disponíveis para uso. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&TinkererInfusionChoiceTitle	Escolha de infusão
+Subclass/&TinkererMagicalTinkeringDescription	Ganhe a habilidade de fazer vários efeitos menores (Dazzle, Sparkle, Shine).
+Subclass/&TinkererMagicalTinkeringTitle	Consertos Mágicos
 Subclass/&TraditionArcaneFighterDescription	Canalize sua magia em ataques com armas.
 Subclass/&TraditionArcaneFighterTitle	Lutador Arcano
 Subclass/&TraditionLifeTransmuterDescription	Mestres da manipulação da matéria e da energia vital.
@@ -1446,10 +1187,8 @@ Subclass/&TraditionSpellMasterSpellResistanceTitle	Resistência à Magia
 Subclass/&TraditionSpellMasterTitle	Mestre de Feitiços
 Subclass/&WeaponProfArcaneFighterDescription	A experiência em combate deu ao Guerreiro Arcano treinamento em Armas Simples e Marciais.
 Subclass/&WeaponProfArcaneFighterTitle	Treinamento de Armas
-Subclass/&WeaponProfArtificerBattleSmithDescription Experience in combat has given the Weapon Smith training in Martial Weapons
-	VAZIO
-Subclass/&WeaponProfArtificerBattleSmithTitle Weapon Training
-	VAZIO
+Subclass/&WeaponProfArtificerBattleSmithDescription	A experiência em combate deu ao Weapon Smith treinamento em Armas Marciais
+Subclass/&WeaponProfArtificerBattleSmithTitle	Treinamento de Armas
 Subclass/&WhiteWitchDescription	A magia branca é fundamentalmente boa e benevolente para todas as coisas vivas. As bruxas que adotam esse ofício, apesar da odiosa maldição que as infecta, muitas vezes se dedicam à cura e ao cuidado, com a intenção de melhorar o mundo.
 Subclass/&WhiteWitchMagicDescription	Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos.\n\nFeitiços de Nível\n1º Abençoe, Cure Feridas\n2ª Restauração Menor, Oração de Cura\n3º Farol da Esperança, Revivificar\n4ª Ala da Morte, Guardiã da Fé\n5º Curar Ferimentos em Massa, Ressuscitar Mortos
 Subclass/&WhiteWitchMagicTitle	Magia branca

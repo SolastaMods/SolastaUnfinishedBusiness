@@ -100,24 +100,6 @@ def get_records(filename):
         print("ERROR")
 
 
-def get_chunks(filename):
-    chars_len = 0 
-    terms = []
-    texts = []
-    for term, text in get_records(filename):
-        chars_len += len(text) + len(SEPARATOR)
-        if chars_len > CHARS_MAX:
-            yield SEPARATOR.join(terms), SEPARATOR.join(texts)
-            chars_len = len(text) + len(SEPARATOR)
-            terms = []
-            texts = []
-
-        terms.append(term)
-        texts.append(text)
-
-    yield SEPARATOR.join(terms), SEPARATOR.join(texts)
-
-
 def translate_chunk(text, code):
     text = text.replace("\\n", "\n")
     translated = GoogleTranslator(source="auto", target=code).translate(text) if len(text) <= CHARS_MAX else text
@@ -150,26 +132,15 @@ def apply_dictionary(dictionary, text):
     return text
 
 
-def get_output_folder(code):
-    path = f"./{OUTPUT_FOLDER}{code}"
-    try:
-        shutil.rmtree(path)
-    except:
-        pass
-    os.mkdir(path)
-
-    return path
-
-
 def translate_file(input_file, output_file, code, dictionary=None):
     with open(output_file, "wt", encoding="utf-8") as f:
-        for terms, texts in get_chunks(input_file):
-            translated = translate_chunk(texts, code)
+
+        for term, text in get_records(input_file):
+            translated = translate_chunk(text, code)
             fixed = fix_translated_format(translated)
             replaced = apply_dictionary(dictionary, fixed)
-            replaceds = replaced.split(SEPARATOR)
-            for term in terms.split(SEPARATOR):
-                f.write(f"{term}\t{replaceds.pop(0)}\n")
+            f.write(f"{term}\t{replaced}\n")
+
 
 def main():
     args = parse_command_line()
