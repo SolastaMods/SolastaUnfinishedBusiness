@@ -203,6 +203,6 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
                 ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsDocument, ref __result);
             }
         }
-#endif
     }
+#endif
 }
