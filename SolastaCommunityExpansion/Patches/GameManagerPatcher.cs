@@ -77,6 +77,9 @@ namespace SolastaCommunityExpansion.Patches
                 LevelUpContext.Load();
                 SharedSpellsContext.Load();
 
+                // Save by location initialization depends on services to be ready
+                SaveByLocationContext.Load();
+
                 // Recache all gui collections
                 GuiWrapperContext.Recache();
 
