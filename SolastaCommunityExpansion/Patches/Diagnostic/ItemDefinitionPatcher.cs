@@ -22,11 +22,13 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
 
         private const string LogName = "ItemDefinition.txt";
 
-        internal static void DeleteLogFile()
+        internal static void Load()
         {
             if (DiagnosticsContext.HasDiagnosticsFolder)
             {
+                // Delete the log file to stop it growing out of control
                 var path = Path.Combine(DiagnosticsContext.DiagnosticsOutputFolder, LogName);
+
                 try
                 {
                     File.Delete(path);
@@ -36,6 +38,9 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
                     Main.Error(ex);
                 }
             }
+
+            // Apply mode before any definitions are created
+            Mode = Main.Settings.DebugLogVariantMisuse ? Verification.Log : Verification.None;
         }
 
         public static void VerifyUsage<T>(ItemDefinition definition, bool hasFlag, ref T __result) where T : class

@@ -12,13 +12,13 @@ namespace SolastaCommunityExpansion.Patches
     {
         internal static void Postfix()
         {
+#if DEBUG
+            ItemDefinitionVerification.Load();
+            EffectFormVerification.Load();
+#endif
+
             // Cache TA definitions for diagnostics and export
             DiagnosticsContext.CacheTADefinitions();
-
-#if DEBUG
-            ItemDefinitionVerification.DeleteLogFile();
-            EffectFormVerification.DeleteLogFile();
-#endif
 
             AdditionalNamesContext.Load();
             AsiAndFeatContext.Load();

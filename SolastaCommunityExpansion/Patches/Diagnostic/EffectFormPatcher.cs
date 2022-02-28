@@ -24,11 +24,13 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
 
         private const string LogName = "EffectForm.txt";
 
-        internal static void DeleteLogFile()
+        internal static void Load()
         {
+            // Delete the log file to stop it growing out of control
             if (DiagnosticsContext.HasDiagnosticsFolder)
             {
                 var path = Path.Combine(DiagnosticsContext.DiagnosticsOutputFolder, LogName);
+
                 try
                 {
                     File.Delete(path);
@@ -38,6 +40,9 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
                     Main.Error(ex);
                 }
             }
+
+            // Apply mode before any definitions are created
+            Mode = Main.Settings.DebugLogVariantMisuse ? Verification.Log : Verification.None;
         }
 
         public static void VerifyUsage<T>(EffectForm form, EffectForm.EffectFormType type, ref T __result) where T : class
