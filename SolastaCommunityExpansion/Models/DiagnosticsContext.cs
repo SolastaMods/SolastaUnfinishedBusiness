@@ -25,9 +25,18 @@ namespace SolastaCommunityExpansion.Models
         internal const int CE = 1;
         internal const string ProjectEnvironmentVariable = "SolastaCEProjectDir";
 
-        internal static string ProjectFolder = Environment.GetEnvironmentVariable(ProjectEnvironmentVariable, EnvironmentVariableTarget.Machine);
+        internal static readonly string ProjectFolder = Environment.GetEnvironmentVariable(ProjectEnvironmentVariable, EnvironmentVariableTarget.Machine);
 
-        internal static string DiagnosticsFolder = (ProjectFolder ?? GAME_FOLDER) + "/SolastaCommunityExpansion/Diagnostics";
+        internal static readonly string DiagnosticsFolder = GetDiagnosticsFolder();
+
+        private static string GetDiagnosticsFolder()
+        {
+            var path = Path.Combine(ProjectFolder ?? GAME_FOLDER, "SolastaCommunityExpansion/Diagnostics");
+
+            EnsureFolderExists(path);
+
+            return path;
+        }
 
         private static void EnsureFolderExists(string path)
         {
@@ -153,7 +162,7 @@ namespace SolastaCommunityExpansion.Models
 
             BlueprintExporter.ExportBlueprints(TA, TABaseDefinitions, TABaseDefinitionsMap, path);
         }
-        
+
         internal static void ExportCEDefinitions()
         {
             var path = Path.Combine(DiagnosticsFolder, COMMUNITY_EXPANSION_BP_FOLDER);
