@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion.Models
         internal const string GAME_FOLDER = ".\\";
         internal const int TA = 0;
         internal const int CE = 1;
-        internal const string DiagnosticsEnvironmentVariable = "SolastaCEProjectDir";
+        internal const string ProjectEnvironmentVariable = "SolastaCEProjectDir";
 
         internal static string DiagnosticsOutputFolder { get; } = GetDiagnosticsFolder();
 
@@ -31,12 +31,12 @@ namespace SolastaCommunityExpansion.Models
 
         private static string GetDiagnosticsFolder()
         {
-            var folder = Environment.GetEnvironmentVariable(DiagnosticsEnvironmentVariable, EnvironmentVariableTarget.Machine);
+            var folder = Environment.GetEnvironmentVariable(ProjectEnvironmentVariable, EnvironmentVariableTarget.Machine);
 
             if (string.IsNullOrWhiteSpace(folder))
             {
                 folder = "SolastaCommunityExpansion/Diagnostics";
-                Main.Log($"[{DiagnosticsEnvironmentVariable}] is not set.");
+                Main.Log($"[{ProjectEnvironmentVariable}] is not set.");
             }
             else
             {
