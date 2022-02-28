@@ -34,13 +34,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
             UI.Label(". You can set the environment variable " + DiagnosticsContext.ProjectEnvironmentVariable.italic().yellow() + " to customize the output folder");
 
-            if (!DiagnosticsContext.HasDiagnosticsFolder)
+            if (DiagnosticsContext.ProjectFolder == null)
             {
                 UI.Label(". The output folder is set to " + "your game folder".yellow().bold());
             }
             else
             {
-                UI.Label(". The output folder is set to " + DiagnosticsContext.DiagnosticsOutputFolder.yellow().bold());
+                UI.Label(". The output folder is set to " + DiagnosticsContext.DiagnosticsFolder.yellow().bold());
             }
 
             UI.Label("");
@@ -303,8 +303,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 // items
 
                 // NexusDescription.txt
-                var path = Path.Combine(DiagnosticsContext.HasDiagnosticsFolder ? DiagnosticsContext.DiagnosticsOutputFolder : DiagnosticsContext.GAME_FOLDER);
-                using var sw = new StreamWriter($"{path}/NexusDescription.txt");
+                using var sw = new StreamWriter($"{DiagnosticsContext.DiagnosticsFolder}/NexusDescription.txt");
                 sw.WriteLine(collectedString);
             },
             UI.Width(200));
