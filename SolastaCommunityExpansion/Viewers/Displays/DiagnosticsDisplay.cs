@@ -32,7 +32,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             UI.Label("");
-            UI.Label(". You can set the environment variable " + "SolastaCEDiagnosticsDir".italic().yellow() + " to customize the output folder");
+            UI.Label(". You can set the environment variable " + DiagnosticsContext.DiagnosticsEnvironmentVariable.italic().yellow() + " to customize the output folder");
 
             if (!DiagnosticsContext.HasDiagnosticsFolder)
             {
