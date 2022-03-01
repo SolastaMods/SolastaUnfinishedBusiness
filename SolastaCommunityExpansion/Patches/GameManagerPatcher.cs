@@ -94,7 +94,23 @@ namespace SolastaCommunityExpansion.Patches
 
                 Main.Enabled = true;
                 Main.Logger.Log("Enabled.");
+
+                DisplayWelcomeMessage();
             };
+        }
+
+        private static void DisplayWelcomeMessage()
+        {
+            if (!Main.Settings.WelcomeMessageDisplayed)
+            {
+                Main.Settings.WelcomeMessageDisplayed = true;
+
+                Gui.GuiService.ShowMessage(
+                MessageModal.Severity.Informative1,
+                "Welcome to Solasta Community Expansion Mod", "Test Message",
+                "Message/&MessageOkTitle", "",
+                null, null);
+            }
         }
     }
 }
