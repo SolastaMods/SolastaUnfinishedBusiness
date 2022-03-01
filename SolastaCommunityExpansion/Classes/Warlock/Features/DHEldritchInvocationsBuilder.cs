@@ -27,7 +27,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
         public static void Build()
         {
-
             SpellsToCantripsForEldritchInvocations();
             EldritchBlastAndEBInvocations();
             EIAttributeModifers();

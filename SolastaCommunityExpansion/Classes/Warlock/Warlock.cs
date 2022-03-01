@@ -4,12 +4,11 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Warlock.Features;
 using SolastaModApi;
-using UnityEngine;
-using static CharacterClassDefinition;
 using static EquipmentDefinitions;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.ToolTypeDefinitions;
+using static SolastaCommunityExpansion.Builders.EquipmentOptionsBuilder;
 
 namespace SolastaCommunityExpansion.Classes.Warlock
 {
@@ -31,35 +30,23 @@ namespace SolastaCommunityExpansion.Classes.Warlock
 
         private static void BuildEquipment(CharacterClassDefinitionBuilder classWarlockBuilder)
         {
-            classWarlockBuilder.AddEquipmentRow(
-                new List<HeroEquipmentOption>
-                {
-                    EquipmentOptionsBuilder.Option(ItemDefinitions.LightCrossbow, OptionWeapon, 1),
-                    EquipmentOptionsBuilder.Option(ItemDefinitions.Bolt, OptionAmmoPack, 1),
-                },
-                new List<HeroEquipmentOption>
-                {
-                    EquipmentOptionsBuilder.Option(ItemDefinitions.LightCrossbow, OptionWeaponSimpleChoice, 1),
-                });
-
-            classWarlockBuilder.AddEquipmentRow(
-                new List<HeroEquipmentOption>
-                {
-                    EquipmentOptionsBuilder.Option(ItemDefinitions.ScholarPack, OptionStarterPack, 1),
-                },
-                new List<HeroEquipmentOption>
-                {
-                    EquipmentOptionsBuilder.Option(ItemDefinitions.DungeoneerPack, OptionStarterPack, 1),
-                });
-
-            classWarlockBuilder.AddEquipmentRow(
-                new List<HeroEquipmentOption>
-                {
-                    EquipmentOptionsBuilder.Option(ItemDefinitions.Leather, OptionArmor, 1),
-                    EquipmentOptionsBuilder.Option(ItemDefinitions.ComponentPouch, OptionFocus, 1),
-                    EquipmentOptionsBuilder.Option(ItemDefinitions.Dagger, OptionWeapon, 2),
-                    EquipmentOptionsBuilder.Option(ItemDefinitions.Dagger, OptionWeaponSimpleChoice, 1),
-                });
+            classWarlockBuilder
+                .AddEquipmentRow(
+                    Column(
+                        Option(ItemDefinitions.LightCrossbow, OptionWeapon, 1),
+                        Option(ItemDefinitions.Bolt, OptionAmmoPack, 1)
+                    ),
+                    Column(Option(ItemDefinitions.LightCrossbow, OptionWeaponSimpleChoice, 1)))
+                .AddEquipmentRow(
+                    Column(Option(ItemDefinitions.ScholarPack, OptionStarterPack, 1)),
+                    Column(Option(ItemDefinitions.DungeoneerPack, OptionStarterPack, 1)))
+                .AddEquipmentRow(
+                    Column(
+                        Option(ItemDefinitions.Leather, OptionArmor, 1),
+                        Option(ItemDefinitions.ComponentPouch, OptionFocus, 1),
+                        Option(ItemDefinitions.Dagger, OptionWeapon, 2),
+                        Option(ItemDefinitions.Dagger, OptionWeaponSimpleChoice, 1)
+                    ));
         }
 
         private static void BuildProficiencies()
@@ -186,54 +173,40 @@ namespace SolastaCommunityExpansion.Classes.Warlock
 
         internal static void BuildWarlockClass()
         {
-            var className = "ClassWarlock";
-            var classGuid = GuidHelper.Create(new Guid(Settings.GUID), className).ToString();
-            var classWarlockBuilder = CharacterClassDefinitionBuilder.Create(className, classGuid);
-            var classWarlockGuiPresentationBuilder = new GuiPresentationBuilder("Class/&ClassWarlockDescription", "Class/&ClassWarlockTitle");
-
-            classWarlockGuiPresentationBuilder.SetColor(new Color(1.0f, 1.0f, 1.0f, 1.0f));
-
-            // TODO: add setting
+            // TODO: is this required?
             //classWarlockGuiPresentationBuilder.SetHidden(!Main.Settings.EnableClassWarlock);
-            classWarlockGuiPresentationBuilder.SetSortOrder(1);
-            classWarlockGuiPresentationBuilder.SetSpriteReference(Cleric.GuiPresentation.SpriteReference);
 
-            classWarlockBuilder.AddFeatPreference(FeatDefinitions.PowerfulCantrip);
-            classWarlockBuilder.AddFeatPreference(FeatDefinitions.FlawlessConcentration);
-            classWarlockBuilder.AddFeatPreference(FeatDefinitions.Robust);
-
-            classWarlockBuilder.AddPersonality(PersonalityFlagDefinitions.Violence, 3);
-            classWarlockBuilder.AddPersonality(PersonalityFlagDefinitions.Self_Preservation, 3);
-            classWarlockBuilder.AddPersonality(PersonalityFlagDefinitions.Normal, 3);
-            classWarlockBuilder.AddPersonality(PersonalityFlagDefinitions.GpSpellcaster, 5);
-            classWarlockBuilder.AddPersonality(PersonalityFlagDefinitions.GpExplorer, 1);
-
-            classWarlockBuilder.AddSkillPreference(DatabaseHelper.SkillDefinitions.Deception);
-            classWarlockBuilder.AddSkillPreference(DatabaseHelper.SkillDefinitions.Intimidation);
-            classWarlockBuilder.AddSkillPreference(DatabaseHelper.SkillDefinitions.Arcana);
-            classWarlockBuilder.AddSkillPreference(DatabaseHelper.SkillDefinitions.History);
-            classWarlockBuilder.AddSkillPreference(DatabaseHelper.SkillDefinitions.Investigation);
-            classWarlockBuilder.AddSkillPreference(DatabaseHelper.SkillDefinitions.Religion);
-            classWarlockBuilder.AddSkillPreference(DatabaseHelper.SkillDefinitions.Nature);
-            classWarlockBuilder.AddSkillPreference(DatabaseHelper.SkillDefinitions.Persuasion);
-
-            classWarlockBuilder.AddToolPreference(EnchantingToolType);
-            classWarlockBuilder.AddToolPreference(HerbalismKitType);
-
-            classWarlockBuilder.SetAbilityScorePriorities(
-                AttributeDefinitions.Charisma,
-                AttributeDefinitions.Constitution,
-                AttributeDefinitions.Dexterity,
-                AttributeDefinitions.Strength,
-                AttributeDefinitions.Wisdom,
-                AttributeDefinitions.Intelligence);
-
-            classWarlockBuilder.SetAnimationId(AnimationDefinitions.ClassAnimationId.Wizard);
-            classWarlockBuilder.SetBattleAI(DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions);
-            classWarlockBuilder.SetGuiPresentation(classWarlockGuiPresentationBuilder.Build());
-            classWarlockBuilder.SetHitDice(RuleDefinitions.DieType.D8);
-            classWarlockBuilder.SetIngredientGatheringOdds(Sorcerer.IngredientGatheringOdds);
-            classWarlockBuilder.SetPictogram(Wizard.ClassPictogramReference);
+            var classWarlockBuilder = CharacterClassDefinitionBuilder
+                .Create("ClassWarlock", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Class, Cleric.GuiPresentation.SpriteReference, 1 /*hidden=true/false?*/)
+                .AddFeatPreferences(FeatDefinitions.PowerfulCantrip, FeatDefinitions.FlawlessConcentration, FeatDefinitions.Robust)
+                .AddPersonalityWeights(
+                    (PersonalityFlagDefinitions.Violence, 3),
+                    (PersonalityFlagDefinitions.Self_Preservation, 3),
+                    (PersonalityFlagDefinitions.Normal, 3),
+                    (PersonalityFlagDefinitions.GpSpellcaster, 5),
+                    (PersonalityFlagDefinitions.GpExplorer, 1))
+                .AddSkillPreferences(DatabaseHelper.SkillDefinitions.Deception,
+                    DatabaseHelper.SkillDefinitions.Intimidation,
+                    DatabaseHelper.SkillDefinitions.Arcana,
+                    DatabaseHelper.SkillDefinitions.History,
+                    DatabaseHelper.SkillDefinitions.Investigation,
+                    DatabaseHelper.SkillDefinitions.Religion,
+                    DatabaseHelper.SkillDefinitions.Nature,
+                    DatabaseHelper.SkillDefinitions.Persuasion)
+                .AddToolPreferences(EnchantingToolType, HerbalismKitType)
+                .SetAbilityScorePriorities(
+                    AttributeDefinitions.Charisma,
+                    AttributeDefinitions.Constitution,
+                    AttributeDefinitions.Dexterity,
+                    AttributeDefinitions.Strength,
+                    AttributeDefinitions.Wisdom,
+                    AttributeDefinitions.Intelligence)
+                .SetAnimationId(AnimationDefinitions.ClassAnimationId.Wizard)
+                .SetBattleAI(DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)
+                .SetHitDice(RuleDefinitions.DieType.D8)
+                .SetIngredientGatheringOdds(Sorcerer.IngredientGatheringOdds)
+                .SetPictogram(Wizard.ClassPictogramReference);
 
             DHEldritchInvocationsBuilder.Build();
             BuildEquipment(classWarlockBuilder);
@@ -243,8 +216,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             BuildSubclasses(classWarlockBuilder);
 
             ClassWarlock = classWarlockBuilder.AddToDB();
-
-
 
             var itemlist = new List<ItemDefinition>
             {

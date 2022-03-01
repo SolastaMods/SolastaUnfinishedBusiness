@@ -68,9 +68,19 @@ namespace SolastaCommunityExpansion.Builders
         public CharacterClassDefinitionBuilder AddPersonality(PersonalityFlagDefinition personalityType, int weight)
         {
             Definition.PersonalityFlagOccurences.Add(
-              new PersonalityFlagOccurence(DatabaseHelper.CharacterClassDefinitions.Fighter.PersonalityFlagOccurences[0])
-                .SetWeight(weight)
-                .SetPersonalityFlag(personalityType.Name));
+                // Dummy reference because there's no constructor without parameters
+                new PersonalityFlagOccurence(DatabaseHelper.CharacterClassDefinitions.Fighter.PersonalityFlagOccurences[0])
+                    .SetWeight(weight)
+                    .SetPersonalityFlag(personalityType.Name));
+            return this;
+        }
+
+        public CharacterClassDefinitionBuilder AddPersonalityWeights(params (PersonalityFlagDefinition personalityType, int weight)[] personalities)
+        {
+            foreach(var (personalityType, weight) in personalities)
+            {
+                AddPersonality(personalityType, weight);
+            }
             return this;
         }
 

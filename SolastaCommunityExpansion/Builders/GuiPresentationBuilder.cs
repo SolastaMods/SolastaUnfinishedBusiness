@@ -141,11 +141,11 @@ namespace SolastaCommunityExpansion.Builders
         /// </summary>
         /// <typeparam name="TBuilder"></typeparam>
         public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder,
-                Category category, AssetReferenceSprite sprite = null, int sortOrder = 0)
+                Category category, AssetReferenceSprite sprite = null, int sortOrder = 0, bool hidden = false)
             where TBuilder : IDefinitionBuilder
         {
             return SetGuiPresentation(builder,
-                GuiPresentationBuilder.Build(((IDefinitionBuilder)builder).Name, category, sprite, sortOrder));
+                GuiPresentationBuilder.Build(((IDefinitionBuilder)builder).Name, category, sprite, sortOrder, hidden));
         }
 
         // TODO: More SetGuiPresentation/Generate(...) overloads as required
