@@ -54,11 +54,11 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
 
                     if (found)
                     {
-                        var newPlayerPlacementMarkers = functorParameters.PlayerPlacementMarkers.AddToArray(functorParameters.PlayerPlacementMarkers[idx % len]);
+                        var playerPlacementMarkers = functorParameters.PlayerPlacementMarkers;
+                        var newPlayerPlacementMarkers = playerPlacementMarkers.AddToArray(playerPlacementMarkers[idx++ % len]);
 
-                        selectedCharacters.Add(guestCharacter);
                         functorParameters.SetField("playerPlacementMarkers", newPlayerPlacementMarkers);
-                        idx++;
+                        selectedCharacters.Add(guestCharacter);
 
                         break;
                     }
