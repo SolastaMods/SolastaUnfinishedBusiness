@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
@@ -136,15 +137,15 @@ namespace SolastaCommunityExpansion.Feats
         private const string IgnoreDamageResistanceLightningName = "IgnoreDamageResistanceLightning";
         private const string IgnoreDamageResistanceLightningGuid = "a9dd2c782b474d83bb8e38921d270ee3";
 
-        private FeatureDefinitionIgnoreDamageResistanceBuilder(string name, string guid, string damageType) : base(name, guid)
+        private FeatureDefinitionIgnoreDamageResistanceBuilder(string name, string guid, params string[] damageTypes) : base(name, guid)
         {
-            Definition.SetGuiPresentation("FeatElementalAdept" + damageType, Category.Feat);
-            Definition.DamageTypes = new() { damageType };
+            Definition.SetGuiPresentation("FeatElementalAdept" + String.Join("_", damageTypes), Category.Feat);
+            Definition.DamageTypes = damageTypes.ToList();
         }
 
-        private static FeatureDefinition CreateAndAddToDB(string name, string guid, string damageType)
+        private static FeatureDefinition CreateAndAddToDB(string name, string guid, params string[] damageTypes)
         {
-            return new FeatureDefinitionIgnoreDamageResistanceBuilder(name, guid, damageType).AddToDB();
+            return new FeatureDefinitionIgnoreDamageResistanceBuilder(name, guid, damageTypes).AddToDB();
         }
 
         internal static readonly FeatureDefinition IgnoreDamageResistanceAcid =
