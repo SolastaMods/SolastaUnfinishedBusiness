@@ -37,20 +37,11 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
                     continue;
                 }
 
-                foreach (var kvp in rulesetCharacter.ConditionsByCategory)
+                foreach (var rulesetConditions in rulesetCharacter.ConditionsByCategory.Values)
                 {
-                    var found = false;
-
-                    foreach (var rulesetCondition in kvp.Value)
-                    {
-                        if (rulesetCondition.ConditionDefinition == DatabaseHelper.ConditionDefinitions.ConditionConjuredCreature
-                            && gameLocationCharacterService.PartyCharacters.Any(x => x.RulesetCharacter.Guid == rulesetCondition.SourceGuid))
-                        {
-                            found = true;
-
-                            break;
-                        }
-                    }
+                    var found = rulesetConditions
+                        .Where(x => x.ConditionDefinition == DatabaseHelper.ConditionDefinitions.ConditionConjuredCreature)
+                        .Any(x => gameLocationCharacterService.PartyCharacters.Any(y => y.RulesetCharacter.Guid == x.SourceGuid));
 
                     if (found)
                     {
