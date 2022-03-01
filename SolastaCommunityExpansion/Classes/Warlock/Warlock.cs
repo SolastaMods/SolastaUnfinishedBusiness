@@ -85,21 +85,19 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             FeatureDefinitionProficiencySavingThrow =
                 Build("ClassWarlockSavingThrowProficiency", RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom);
 
-            FeatureDefinitionSkillPoints = FeatureDefinitionPointPoolBuilder.Build(HeroDefinitions.PointsPoolType.Skill, 2,
-                new List<string>
-                {
+            FeatureDefinitionPointPoolBuilder
+                .Create("ClassWarlockSkillProficiency", DefinitionBuilder.CENamespaceGuid)
+                .SetPool(HeroDefinitions.PointsPoolType.Skill, 2)
+                .OnlyUniqueChoices()
+                .RestrictChoices(
                     SkillDefinitions.Arcana,
                     SkillDefinitions.Deception,
                     SkillDefinitions.History,
                     SkillDefinitions.Intimidation,
                     SkillDefinitions.Investigation,
                     SkillDefinitions.Nature,
-                    SkillDefinitions.Religion
-                },
-                "ClassWarlockSkillProficiency",
-                new GuiPresentationBuilder(
-                    "Feature/&ClassWarlockSkillProficiencyDescription",
-                    "Feature/&ClassWarlockSkillProficiencyTitle").Build());
+                    SkillDefinitions.Religion)
+                .SetGuiPresentation(Category.Feature);
         }
 
         private static void BuildSpells()
