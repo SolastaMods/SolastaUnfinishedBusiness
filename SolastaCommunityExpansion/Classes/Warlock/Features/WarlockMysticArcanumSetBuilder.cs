@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         private static FeatureDefinitionPower CreatePower(string baseName, SpellDefinition spell)
         {
             return FeatureDefinitionPowerBuilder
-                .Create(baseName + spell.name, Settings.GUID)
+                .Create(baseName + spell.name, DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(spell.GuiPresentation)
                 .Configure(
                     1,
@@ -38,7 +38,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         public static FeatureDefinitionFeatureSet CreateSet11AndAddToDB()
         {
             return FeatureDefinitionFeatureSetBuilder
-                .Create(TerrainTypeAffinityRangerNaturalExplorerChoice, "ClassWarlockMysticArcanumSetLevel11", Settings.GUID)
+                .Create(TerrainTypeAffinityRangerNaturalExplorerChoice, "ClassWarlockMysticArcanumSetLevel11", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("ClassWarlockMysticArcanumSet", Category.Feature)
                 .SetFeatureSet(GetSpells(6).Select(spell => CreatePower("DH_MysticArcanum11_", spell)))
                 .SetUniqueChoices(true)
@@ -48,7 +48,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         public static FeatureDefinitionFeatureSet CreateSet13AndAddToDB()
         {
             return FeatureDefinitionFeatureSetBuilder
-                .Create(TerrainTypeAffinityRangerNaturalExplorerChoice, "ClassWarlockMysticArcanumSetLevel13", Settings.GUID)
+                .Create(TerrainTypeAffinityRangerNaturalExplorerChoice, "ClassWarlockMysticArcanumSetLevel13", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("ClassWarlockMysticArcanumSet", Category.Feature)
                 .SetFeatureSet(GetSpells(7, 6).Select(spell => CreatePower("DH_MysticArcanum13_", spell)))
                 .SetUniqueChoices(true)
@@ -58,7 +58,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         public static FeatureDefinitionFeatureSet CreateSet15AndAddToDB()
         {
             return FeatureDefinitionFeatureSetBuilder
-                .Create(TerrainTypeAffinityRangerNaturalExplorerChoice, "ClassWarlockMysticArcanumSetLevel15", Settings.GUID)
+                .Create(TerrainTypeAffinityRangerNaturalExplorerChoice, "ClassWarlockMysticArcanumSetLevel15", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("ClassWarlockMysticArcanumSet", Category.Feature)
                 .SetFeatureSet(GetSpells(8, 7, 6).Select(spell => CreatePower("DH_MysticArcanum15_", spell)))
                 .SetUniqueChoices(true)
@@ -68,7 +68,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         public static FeatureDefinitionFeatureSet CreateSet17AndAddToDB()
         {
             return FeatureDefinitionFeatureSetBuilder
-                .Create(TerrainTypeAffinityRangerNaturalExplorerChoice, "ClassWarlockMysticArcanumSetLevel17", Settings.GUID)
+                .Create(TerrainTypeAffinityRangerNaturalExplorerChoice, "ClassWarlockMysticArcanumSetLevel17", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("ClassWarlockMysticArcanumSet", Category.Feature)
                 .SetFeatureSet(GetSpells(9, 8, 7, 6).Select(spell => CreatePower("DH_MysticArcanum17_", spell)))
                 .SetUniqueChoices(true)

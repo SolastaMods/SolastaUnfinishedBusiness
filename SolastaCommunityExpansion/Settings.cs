@@ -15,6 +15,7 @@ namespace SolastaCommunityExpansion
     [XmlRoot(ElementName = "Settings")]
     public class Settings : UnityModManager.ModSettings
     {
+        // TODO: move this to DefinitionBuilder
         internal const string GUID = "b1ffaca74824486ea74a68d45e6b1925";
 
         //

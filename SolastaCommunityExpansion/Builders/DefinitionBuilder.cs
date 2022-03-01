@@ -89,7 +89,7 @@ namespace SolastaCommunityExpansion.Builders
             typeof(DatabaseRepository).GetMethod("GetDatabase", BindingFlags.Public | BindingFlags.Static);
 
         protected const string CENamePrefix = "_CE_";
-        protected static readonly Guid CENamespaceGuid = new("4ce4cabe-0d35-4419-86ef-13ce1bef32fd");
+        protected internal static readonly Guid CENamespaceGuid = new(Settings.GUID);
     }
 
     // Used to allow extension methods in other mods to set GuiPresentation 
