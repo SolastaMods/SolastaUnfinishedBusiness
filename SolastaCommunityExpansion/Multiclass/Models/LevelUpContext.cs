@@ -170,9 +170,9 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             {
                 CLASS_WARLOCK,
                 new List<string> {
-                "WarlockWeaponProficiency",
-                "WarlockSkillProficiency",
-                "WarlockSavingthrowProficiency" }
+                "ClassWarlockWeaponProficiency",
+                "ClassWarlockSkillProficiency",
+                "ClassWarlockSavingThrowProficiency" }
             },
         };
 

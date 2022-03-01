@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
         public const string CLASS_ALCHEMIST = "AlchemistClass";
         public const string CLASS_BARD = "BardClass";
         public const string CLASS_MONK = "MonkClass";
-        public const string CLASS_WARLOCK = "WarlockClass";
+        public const string CLASS_WARLOCK = "ClassWarlock";
 
         internal static CharacterClassDefinition DummyClass { get; private set; }
         internal static CharacterClassDefinition TinkererClass { get; private set; }
