@@ -2,7 +2,9 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Multiclass.Models;
+#if DEBUG
 using SolastaCommunityExpansion.Patches.Diagnostic;
+#endif
 
 namespace SolastaCommunityExpansion.Patches
 {
