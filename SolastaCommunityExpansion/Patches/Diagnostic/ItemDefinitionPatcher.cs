@@ -47,7 +47,9 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
                 return;
             }
 
-            if (hasFlag)
+            // If the return val is null we can be sure it's either throwing an exception
+            // or being checked for.
+            if (hasFlag || __result == null)
             {
                 return;
             }
@@ -83,7 +85,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         {
             public static void Postfix(ItemDefinition __instance, ref ArmorDescription __result)
             {
-                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsArmor, ref __result);
+                VerifyUsage(__instance, __instance.IsArmor, ref __result);
             }
         }
 
@@ -92,7 +94,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         {
             public static void Postfix(ItemDefinition __instance, ref WeaponDescription __result)
             {
-                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsWeapon, ref __result);
+                VerifyUsage(__instance, __instance.IsWeapon, ref __result);
             }
         }
 
@@ -101,7 +103,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         {
             public static void Postfix(ItemDefinition __instance, ref AmmunitionDescription __result)
             {
-                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsAmmunition, ref __result);
+                VerifyUsage(__instance, __instance.IsAmmunition, ref __result);
             }
         }
 
@@ -110,7 +112,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         {
             public static void Postfix(ItemDefinition __instance, ref UsableDeviceDescription __result)
             {
-                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsUsableDevice, ref __result);
+                VerifyUsage(__instance, __instance.IsUsableDevice, ref __result);
             }
         }
 
@@ -119,7 +121,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         {
             public static void Postfix(ItemDefinition __instance, ref ToolDescription __result)
             {
-                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsTool, ref __result);
+                VerifyUsage(__instance, __instance.IsTool, ref __result);
             }
         }
 
@@ -128,7 +130,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         {
             public static void Postfix(ItemDefinition __instance, ref StarterPackDescription __result)
             {
-                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsStarterPack, ref __result);
+                VerifyUsage(__instance, __instance.IsStarterPack, ref __result);
             }
         }
 
@@ -137,7 +139,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         {
             public static void Postfix(ItemDefinition __instance, ref ContainerItemDescription __result)
             {
-                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsContainerItem, ref __result);
+                VerifyUsage(__instance, __instance.IsContainerItem, ref __result);
             }
         }
 
@@ -146,7 +148,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         {
             public static void Postfix(ItemDefinition __instance, ref LightSourceItemDescription __result)
             {
-                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsLightSourceItem, ref __result);
+                VerifyUsage(__instance, __instance.IsLightSourceItem, ref __result);
             }
         }
 
@@ -155,7 +157,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         {
             public static void Postfix(ItemDefinition __instance, ref FocusItemDescription __result)
             {
-                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsFocusItem, ref __result);
+                VerifyUsage(__instance, __instance.IsFocusItem, ref __result);
             }
         }
 
@@ -164,7 +166,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         {
             public static void Postfix(ItemDefinition __instance, ref WealthPileDescription __result)
             {
-                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsWealthPile, ref __result);
+                VerifyUsage(__instance, __instance.IsWealthPile, ref __result);
             }
         }
 
@@ -173,7 +175,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         {
             public static void Postfix(ItemDefinition __instance, ref SpellbookDescription __result)
             {
-                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsSpellbook, ref __result);
+                VerifyUsage(__instance, __instance.IsSpellbook, ref __result);
             }
         }
 
@@ -182,7 +184,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         {
             public static void Postfix(ItemDefinition __instance, ref FoodDescription __result)
             {
-                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsFood, ref __result);
+                VerifyUsage(__instance, __instance.IsFood, ref __result);
             }
         }
 
@@ -191,7 +193,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         {
             public static void Postfix(ItemDefinition __instance, ref FactionRelicDescription __result)
             {
-                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsFactionRelic, ref __result);
+                VerifyUsage(__instance, __instance.IsFactionRelic, ref __result);
             }
         }
 
@@ -200,7 +202,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         {
             public static void Postfix(ItemDefinition __instance, ref DocumentDescription __result)
             {
-                ItemDefinitionVerification.VerifyUsage(__instance, __instance.IsDocument, ref __result);
+                VerifyUsage(__instance, __instance.IsDocument, ref __result);
             }
         }
     }
