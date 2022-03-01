@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Warlock.Features;
-using SolastaCommunityExpansion.Classes.Warlock.Subclasses;
 using SolastaModApi;
 using UnityEngine;
 using static CharacterClassDefinition;
+using static EquipmentDefinitions;
+using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaModApi.DatabaseHelper.ToolTypeDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock
 {
@@ -32,71 +34,56 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             classWarlockBuilder.AddEquipmentRow(
                 new List<HeroEquipmentOption>
                 {
-                    EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.LightCrossbow, EquipmentDefinitions.OptionWeapon, 1),
-                    EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.Bolt, EquipmentDefinitions.OptionAmmoPack, 1),
+                    EquipmentOptionsBuilder.Option(ItemDefinitions.LightCrossbow, OptionWeapon, 1),
+                    EquipmentOptionsBuilder.Option(ItemDefinitions.Bolt, OptionAmmoPack, 1),
                 },
                 new List<HeroEquipmentOption>
                 {
-                    EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.LightCrossbow, EquipmentDefinitions.OptionWeaponSimpleChoice, 1),
+                    EquipmentOptionsBuilder.Option(ItemDefinitions.LightCrossbow, OptionWeaponSimpleChoice, 1),
                 });
 
             classWarlockBuilder.AddEquipmentRow(
                 new List<HeroEquipmentOption>
                 {
-                    EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.ScholarPack, EquipmentDefinitions.OptionStarterPack, 1),
+                    EquipmentOptionsBuilder.Option(ItemDefinitions.ScholarPack, OptionStarterPack, 1),
                 },
                 new List<HeroEquipmentOption>
                 {
-                    EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.DungeoneerPack, EquipmentDefinitions.OptionStarterPack, 1),
+                    EquipmentOptionsBuilder.Option(ItemDefinitions.DungeoneerPack, OptionStarterPack, 1),
                 });
 
             classWarlockBuilder.AddEquipmentRow(
                 new List<HeroEquipmentOption>
                 {
-                    EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.Leather, EquipmentDefinitions.OptionArmor, 1),
-                    EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.ComponentPouch, EquipmentDefinitions.OptionFocus, 1),
-                    EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.Dagger, EquipmentDefinitions.OptionWeapon, 2),
-                    EquipmentOptionsBuilder.Option(DatabaseHelper.ItemDefinitions.Dagger, EquipmentDefinitions.OptionWeaponSimpleChoice, 1),
+                    EquipmentOptionsBuilder.Option(ItemDefinitions.Leather, OptionArmor, 1),
+                    EquipmentOptionsBuilder.Option(ItemDefinitions.ComponentPouch, OptionFocus, 1),
+                    EquipmentOptionsBuilder.Option(ItemDefinitions.Dagger, OptionWeapon, 2),
+                    EquipmentOptionsBuilder.Option(ItemDefinitions.Dagger, OptionWeaponSimpleChoice, 1),
                 });
         }
 
         private static void BuildProficiencies()
         {
-            FeatureDefinitionProficiencyArmor = FeatureDefinitionProficiencyBuilder.Build(
-                RuleDefinitions.ProficiencyType.Armor,
-                new List<string>() { EquipmentDefinitions.LightArmorCategory },
-                "ClassWarlockArmorProficiency",
-                new GuiPresentationBuilder(
-                    "Feature/&ClassWarlockArmorProficiencyDescription",
-                    "Feature/&ClassWarlockArmorProficiencyTitle").Build());
+            static FeatureDefinitionProficiency Build(string name, RuleDefinitions.ProficiencyType type, params string[] proficiencies)
+            {
+                return FeatureDefinitionProficiencyBuilder
+                    .Create(name, DefinitionBuilder.CENamespaceGuid)
+                    .SetGuiPresentation(Category.Feature)
+                    .SetProficiencies(type, proficiencies)
+                    .AddToDB();
+            }
 
-            FeatureDefinitionProficiencyWeapon = FeatureDefinitionProficiencyBuilder.Build(
-                RuleDefinitions.ProficiencyType.Weapon,
-                new List<string>() { EquipmentDefinitions.SimpleWeaponCategory },
-                "ClassWarlockWeaponProficiency",
-                new GuiPresentationBuilder(
-                    "Feature/&ClassWarlockWeaponProficiencyDescription",
-                    "Feature/&ClassWarlockWeaponProficiencyTitle").Build());
+            FeatureDefinitionProficiencyArmor =
+                Build("ClassWarlockArmorProficiency", RuleDefinitions.ProficiencyType.Armor, LightArmorCategory);
 
-            FeatureDefinitionProficiencyTool = FeatureDefinitionProficiencyBuilder.Build(
-                RuleDefinitions.ProficiencyType.Tool,
-                new List<string>
-                {
-                    DatabaseHelper.ToolTypeDefinitions.EnchantingToolType.Name,
-                    DatabaseHelper.ToolTypeDefinitions.HerbalismKitType.Name
-                },
-                "ClassWarlockToolsProficiency",
-                new GuiPresentationBuilder(
-                    "Feature/&ClassWarlockToolsProficiencyDescription",
-                    "Feature/&ClassWarlockToolsProficiencyTitle").Build());
+            FeatureDefinitionProficiencyWeapon =
+                Build("ClassWarlockWeaponProficiency", RuleDefinitions.ProficiencyType.Armor, SimpleWeaponCategory);
 
-            FeatureDefinitionProficiencySavingThrow = FeatureDefinitionProficiencyBuilder.Build(
-                RuleDefinitions.ProficiencyType.SavingThrow,
-                new List<string>() { AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom },
-                "ClassWarlockSavingThrowProficiency",
-                new GuiPresentationBuilder(
-                    "Feature/&ClassWarlockSavingThrowProficiencyDescription",
-                    "Feature/&ClassWarlockSavingThrowProficiencyTitle").Build());
+            FeatureDefinitionProficiencyTool =
+                Build("ClassWarlockToolsProficiency", RuleDefinitions.ProficiencyType.Tool, EnchantingToolType.Name, HerbalismKitType.Name);
+
+            FeatureDefinitionProficiencySavingThrow =
+                Build("ClassWarlockSavingThrowProficiency", RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom);
 
             FeatureDefinitionSkillPoints = FeatureDefinitionPointPoolBuilder.Build(HeroDefinitions.PointsPoolType.Skill, 2,
                 new List<string>
@@ -178,24 +165,24 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             classWarlockBuilder.AddFeatureAtLevel(2, WarlockEldritchInvocationSetBuilderLevel2.WarlockEldritchInvocationSetLevel2);
             classWarlockBuilder.AddFeatureAtLevel(2, WarlockEldritchInvocationSetBuilderLevel2.WarlockEldritchInvocationSetLevel2);
             classWarlockBuilder.AddFeatureAtLevel(2, AHWarlockClassPactBoonSetBuilder.AHWarlockClassPactBoonSet);
-            classWarlockBuilder.AddFeatureAtLevel(2, DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
+            classWarlockBuilder.AddFeatureAtLevel(2, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
             classWarlockBuilder.AddFeatureAtLevel(2, WarlockEldritchInvocationSetBuilderLevel5.WarlockEldritchInvocationSetLevel5);
             //level 6 - subclass feature
             classWarlockBuilder.AddFeatureAtLevel(7, WarlockEldritchInvocationSetBuilderLevel7.WarlockEldritchInvocationSetLevel7);
-            classWarlockBuilder.AddFeatureAtLevel(8, DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
+            classWarlockBuilder.AddFeatureAtLevel(8, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
             classWarlockBuilder.AddFeatureAtLevel(9, WarlockEldritchInvocationSetBuilderLevel9.WarlockEldritchInvocationSetLevel9);
             //level 10 - subclass feature
             classWarlockBuilder.AddFeatureAtLevel(11, WarlockMysticArcanumSetBuilder.WarlockMysticArcanumSetLevel11);
-            classWarlockBuilder.AddFeatureAtLevel(12, DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice) ;
+            classWarlockBuilder.AddFeatureAtLevel(12, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
             classWarlockBuilder.AddFeatureAtLevel(12, WarlockEldritchInvocationSetBuilderLevel12.WarlockEldritchInvocationSetLevel12);
             classWarlockBuilder.AddFeatureAtLevel(13, WarlockMysticArcanumSetBuilder.WarlockMysticArcanumSetLevel13);
             //level 14 - subclass feature
             classWarlockBuilder.AddFeatureAtLevel(15, WarlockMysticArcanumSetBuilder.WarlockMysticArcanumSetLevel15);
             classWarlockBuilder.AddFeatureAtLevel(15, WarlockEldritchInvocationSetBuilderLevel15.WarlockEldritchInvocationSetLevel15);
-            classWarlockBuilder.AddFeatureAtLevel(16, DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
+            classWarlockBuilder.AddFeatureAtLevel(16, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
             classWarlockBuilder.AddFeatureAtLevel(17, WarlockMysticArcanumSetBuilder.WarlockMysticArcanumSetLevel17);
             classWarlockBuilder.AddFeatureAtLevel(18, WarlockEldritchInvocationSetBuilderLevel18.WarlockEldritchInvocationSetLevel18);
-            classWarlockBuilder.AddFeatureAtLevel(19, DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
+            classWarlockBuilder.AddFeatureAtLevel(19, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
             classWarlockBuilder.AddFeatureAtLevel(20, WarlockEldritchMasterBuilder.WarlockEldritchMaster);
         }
 
@@ -213,15 +200,15 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             classWarlockGuiPresentationBuilder.SetSortOrder(1);
             classWarlockGuiPresentationBuilder.SetSpriteReference(Cleric.GuiPresentation.SpriteReference);
 
-            classWarlockBuilder.AddFeatPreference(DatabaseHelper.FeatDefinitions.PowerfulCantrip);
-            classWarlockBuilder.AddFeatPreference(DatabaseHelper.FeatDefinitions.FlawlessConcentration);
-            classWarlockBuilder.AddFeatPreference(DatabaseHelper.FeatDefinitions.Robust);
+            classWarlockBuilder.AddFeatPreference(FeatDefinitions.PowerfulCantrip);
+            classWarlockBuilder.AddFeatPreference(FeatDefinitions.FlawlessConcentration);
+            classWarlockBuilder.AddFeatPreference(FeatDefinitions.Robust);
 
-            classWarlockBuilder.AddPersonality(DatabaseHelper.PersonalityFlagDefinitions.Violence, 3);
-            classWarlockBuilder.AddPersonality(DatabaseHelper.PersonalityFlagDefinitions.Self_Preservation, 3);
-            classWarlockBuilder.AddPersonality(DatabaseHelper.PersonalityFlagDefinitions.Normal, 3);
-            classWarlockBuilder.AddPersonality(DatabaseHelper.PersonalityFlagDefinitions.GpSpellcaster, 5);
-            classWarlockBuilder.AddPersonality(DatabaseHelper.PersonalityFlagDefinitions.GpExplorer, 1);
+            classWarlockBuilder.AddPersonality(PersonalityFlagDefinitions.Violence, 3);
+            classWarlockBuilder.AddPersonality(PersonalityFlagDefinitions.Self_Preservation, 3);
+            classWarlockBuilder.AddPersonality(PersonalityFlagDefinitions.Normal, 3);
+            classWarlockBuilder.AddPersonality(PersonalityFlagDefinitions.GpSpellcaster, 5);
+            classWarlockBuilder.AddPersonality(PersonalityFlagDefinitions.GpExplorer, 1);
 
             classWarlockBuilder.AddSkillPreference(DatabaseHelper.SkillDefinitions.Deception);
             classWarlockBuilder.AddSkillPreference(DatabaseHelper.SkillDefinitions.Intimidation);
@@ -232,8 +219,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             classWarlockBuilder.AddSkillPreference(DatabaseHelper.SkillDefinitions.Nature);
             classWarlockBuilder.AddSkillPreference(DatabaseHelper.SkillDefinitions.Persuasion);
 
-            classWarlockBuilder.AddToolPreference(DatabaseHelper.ToolTypeDefinitions.EnchantingToolType);
-            classWarlockBuilder.AddToolPreference(DatabaseHelper.ToolTypeDefinitions.HerbalismKitType);
+            classWarlockBuilder.AddToolPreference(EnchantingToolType);
+            classWarlockBuilder.AddToolPreference(HerbalismKitType);
 
             classWarlockBuilder.SetAbilityScorePriorities(
                 AttributeDefinitions.Charisma,
@@ -244,7 +231,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 AttributeDefinitions.Intelligence);
 
             classWarlockBuilder.SetAnimationId(AnimationDefinitions.ClassAnimationId.Wizard);
-            classWarlockBuilder.SetBattleAI(DatabaseHelper.DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions);
+            classWarlockBuilder.SetBattleAI(DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions);
             classWarlockBuilder.SetGuiPresentation(classWarlockGuiPresentationBuilder.Build());
             classWarlockBuilder.SetHitDice(RuleDefinitions.DieType.D8);
             classWarlockBuilder.SetIngredientGatheringOdds(Sorcerer.IngredientGatheringOdds);
@@ -263,10 +250,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock
 
             var itemlist = new List<ItemDefinition>
             {
-                DatabaseHelper.ItemDefinitions.WandOfLightningBolts,
-                DatabaseHelper.ItemDefinitions.StaffOfFire,
-                DatabaseHelper.ItemDefinitions.ArcaneShieldstaff,
-                DatabaseHelper.ItemDefinitions.WizardClothes_Alternate
+                ItemDefinitions.WandOfLightningBolts,
+                ItemDefinitions.StaffOfFire,
+                ItemDefinitions.ArcaneShieldstaff,
+                ItemDefinitions.WizardClothes_Alternate
             };
 
             foreach (ItemDefinition item in itemlist)
