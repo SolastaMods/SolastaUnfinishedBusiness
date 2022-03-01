@@ -1,15 +1,15 @@
 ﻿using System;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
-    internal class WarlockEldritchInvocationSetBuilderLevel2 : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal class WarlockEldritchInvocationSetBuilderLevel2 : FeatureDefinitionFeatureSetBuilder
     {
         private const string WarlockEldritchInvocationSetLevel2Name = "ClassWarlockEldritchInvocationSetLevel2";
         private static readonly string WarlockEldritchInvocationSetLevel2Guid = GuidHelper.Create(new Guid(Settings.GUID), WarlockEldritchInvocationSetLevel2Name).ToString();
 
-        [Obsolete]
         protected WarlockEldritchInvocationSetBuilderLevel2(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.TerrainTypeAffinityRangerNaturalExplorerChoice, name, guid)
         {
             Definition.GuiPresentation.Title = "Feature/&ClassWarlockEldritchInvocationSetLevelTitle";
@@ -48,24 +48,21 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             Definition.SetUniqueChoices(false); //ACEHIGH NOTE : Seems to be a bug with unique choices where it makes the list smaller but then selects from the wrong index from the master list, using the index of the item in the smaller list.  My tests on higher levels would have RepellingBlast chosen from the master list when choosing ThirstingBlade from the smaller unique list as an example.
         }
 
-        [Obsolete]
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
         {
             return new WarlockEldritchInvocationSetBuilderLevel2(name, guid).AddToDB();
         }
 
-        [Obsolete]
         public static FeatureDefinitionFeatureSet WarlockEldritchInvocationSetLevel2 = CreateAndAddToDB(WarlockEldritchInvocationSetLevel2Name, WarlockEldritchInvocationSetLevel2Guid);
     }
 
 
 
-    internal class WarlockEldritchInvocationSetBuilderLevel5 : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal class WarlockEldritchInvocationSetBuilderLevel5 : FeatureDefinitionFeatureSetBuilder
     {
         private const string WarlockEldritchInvocationSetLevel5Name = "ClassWarlockEldritchInvocationSetLevel5";
         private static readonly string WarlockEldritchInvocationSetLevel5Guid = GuidHelper.Create(new Guid(Settings.GUID), WarlockEldritchInvocationSetLevel5Name).ToString();
 
-        [Obsolete]
         protected WarlockEldritchInvocationSetBuilderLevel5(string name, string guid) : base(WarlockEldritchInvocationSetBuilderLevel2.WarlockEldritchInvocationSetLevel2, name, guid)
         {
             Definition.GuiPresentation.Title = "Feature/&ClassWarlockEldritchInvocationSetLevelTitle";
@@ -89,23 +86,20 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             Definition.SetUniqueChoices(false);
         }
 
-        [Obsolete]
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
         {
             return new WarlockEldritchInvocationSetBuilderLevel5(name, guid).AddToDB();
         }
 
-        [Obsolete]
         public static FeatureDefinitionFeatureSet WarlockEldritchInvocationSetLevel5 = CreateAndAddToDB(WarlockEldritchInvocationSetLevel5Name, WarlockEldritchInvocationSetLevel5Guid);
     }
 
 
-    internal class WarlockEldritchInvocationSetBuilderLevel7 : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal class WarlockEldritchInvocationSetBuilderLevel7 : FeatureDefinitionFeatureSetBuilder
     {
         private const string WarlockEldritchInvocationSetLevel7Name = "ClassWarlockEldritchInvocationSetLevel7";
         private static readonly string WarlockEldritchInvocationSetLevel7Guid = GuidHelper.Create(new Guid(Settings.GUID), WarlockEldritchInvocationSetLevel7Name).ToString();
 
-        [Obsolete]
         protected WarlockEldritchInvocationSetBuilderLevel7(string name, string guid) : base(WarlockEldritchInvocationSetBuilderLevel5.WarlockEldritchInvocationSetLevel5, name, guid)
         {
             Definition.GuiPresentation.Title = "Feature/&ClassWarlockEldritchInvocationSetLevelTitle";
@@ -116,23 +110,20 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             Definition.SetUniqueChoices(false);
         }
 
-        [Obsolete]
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
         {
             return new WarlockEldritchInvocationSetBuilderLevel7(name, guid).AddToDB();
         }
 
-        [Obsolete]
         public static FeatureDefinitionFeatureSet WarlockEldritchInvocationSetLevel7 = CreateAndAddToDB(WarlockEldritchInvocationSetLevel7Name, WarlockEldritchInvocationSetLevel7Guid);
     }
 
 
-    internal class WarlockEldritchInvocationSetBuilderLevel9 : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal class WarlockEldritchInvocationSetBuilderLevel9 : FeatureDefinitionFeatureSetBuilder
     {
         private const string WarlockEldritchInvocationSetLevel9Name = "ClassWarlockEldritchInvocationSetLevel9";
         private static readonly string WarlockEldritchInvocationSetLevel9Guid = GuidHelper.Create(new Guid(Settings.GUID), WarlockEldritchInvocationSetLevel9Name).ToString();
 
-        [Obsolete]
         protected WarlockEldritchInvocationSetBuilderLevel9(string name, string guid) : base(WarlockEldritchInvocationSetBuilderLevel5.WarlockEldritchInvocationSetLevel5, name, guid)
         {
             Definition.GuiPresentation.Title = "Feature/&ClassWarlockEldritchInvocationSetLevelTitle";
@@ -151,23 +142,20 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             Definition.SetUniqueChoices(false);
         }
 
-        [Obsolete]
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
         {
             return new WarlockEldritchInvocationSetBuilderLevel9(name, guid).AddToDB();
         }
 
-        [Obsolete]
         public static FeatureDefinitionFeatureSet WarlockEldritchInvocationSetLevel9 = CreateAndAddToDB(WarlockEldritchInvocationSetLevel9Name, WarlockEldritchInvocationSetLevel9Guid);
     }
 
 
-    internal class WarlockEldritchInvocationSetBuilderLevel12 : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal class WarlockEldritchInvocationSetBuilderLevel12 : FeatureDefinitionFeatureSetBuilder
     {
         private const string WarlockEldritchInvocationSetLevel12Name = "ClassWarlockEldritchInvocationSetLevel12";
         private static readonly string WarlockEldritchInvocationSetLevel12Guid = GuidHelper.Create(new Guid(Settings.GUID), WarlockEldritchInvocationSetLevel12Name).ToString();
 
-        [Obsolete]
         protected WarlockEldritchInvocationSetBuilderLevel12(string name, string guid) : base(WarlockEldritchInvocationSetBuilderLevel5.WarlockEldritchInvocationSetLevel5, name, guid)
         {
             Definition.GuiPresentation.Title = "Feature/&ClassWarlockEldritchInvocationSetLevelTitle";
@@ -185,23 +173,20 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             Definition.SetUniqueChoices(false);
         }
 
-        [Obsolete]
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
         {
             return new WarlockEldritchInvocationSetBuilderLevel12(name, guid).AddToDB();
         }
 
-        [Obsolete]
         public static FeatureDefinitionFeatureSet WarlockEldritchInvocationSetLevel12 = CreateAndAddToDB(WarlockEldritchInvocationSetLevel12Name, WarlockEldritchInvocationSetLevel12Guid);
     }
 
 
-    internal class WarlockEldritchInvocationSetBuilderLevel15 : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal class WarlockEldritchInvocationSetBuilderLevel15 : FeatureDefinitionFeatureSetBuilder
     {
         private const string WarlockEldritchInvocationSetLevel15Name = "ClassWarlockEldritchInvocationSetLevel15";
         private static readonly string WarlockEldritchInvocationSetLevel15Guid = GuidHelper.Create(new Guid(Settings.GUID), WarlockEldritchInvocationSetLevel15Name).ToString();
 
-        [Obsolete]
         protected WarlockEldritchInvocationSetBuilderLevel15(string name, string guid) : base(WarlockEldritchInvocationSetBuilderLevel5.WarlockEldritchInvocationSetLevel5, name, guid)
         {
             Definition.GuiPresentation.Title = "Feature/&ClassWarlockEldritchInvocationSetLevelTitle";
@@ -220,23 +205,20 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             Definition.SetUniqueChoices(false);
         }
 
-        [Obsolete]
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
         {
             return new WarlockEldritchInvocationSetBuilderLevel15(name, guid).AddToDB();
         }
 
-        [Obsolete]
         public static FeatureDefinitionFeatureSet WarlockEldritchInvocationSetLevel15 = CreateAndAddToDB(WarlockEldritchInvocationSetLevel15Name, WarlockEldritchInvocationSetLevel15Guid);
     }
 
 
-    internal class WarlockEldritchInvocationSetBuilderLevel18 : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
+    internal class WarlockEldritchInvocationSetBuilderLevel18 : FeatureDefinitionFeatureSetBuilder
     {
         private const string WarlockEldritchInvocationSetLevel18Name = "ClassWarlockEldritchInvocationSetLevel18";
         private static readonly string WarlockEldritchInvocationSetLevel18Guid = GuidHelper.Create(new Guid(Settings.GUID), WarlockEldritchInvocationSetLevel18Name).ToString();
 
-        [Obsolete]
         protected WarlockEldritchInvocationSetBuilderLevel18(string name, string guid) : base(WarlockEldritchInvocationSetBuilderLevel5.WarlockEldritchInvocationSetLevel5, name, guid)
         {
             Definition.GuiPresentation.Title = "Feature/&ClassWarlockEldritchInvocationSetLevelTitle";
@@ -246,13 +228,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             Definition.SetUniqueChoices(false);
         }
 
-        [Obsolete]
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
         {
             return new WarlockEldritchInvocationSetBuilderLevel18(name, guid).AddToDB();
         }
 
-        [Obsolete]
         public static FeatureDefinitionFeatureSet WarlockEldritchInvocationSetLevel18 = CreateAndAddToDB(WarlockEldritchInvocationSetLevel18Name, WarlockEldritchInvocationSetLevel18Guid);
     }
 

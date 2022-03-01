@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using SolastaModApi;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {
@@ -11,11 +13,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
     {
         public const string Name = "DHWarlockSubclassRiftWalker";
         private static readonly string Guid = GuidHelper.Create(new Guid(Settings.GUID), Name).ToString();
-        public static FeatureDefinitionPower RiftWalk   ;
+        public static FeatureDefinitionPower RiftWalk;
         public static FeatureDefinitionDamageAffinity FadeIntoTheVoid;
-        public static FeatureDefinitionPower RiftBlink  ;
-        public static FeatureDefinitionPower RiftStrike ;
-        public static FeatureDefinitionPower RiftJump   ;
+        public static FeatureDefinitionPower RiftBlink;
+        public static FeatureDefinitionPower RiftStrike;
+        public static FeatureDefinitionPower RiftJump;
         public static FeatureDefinitionPower RiftCloak;
         public static SpellDefinition AtWillCantripWardingBond;
         public static FeatureDefinitionBonusCantrips WardingBondBonusCantrip;
@@ -23,11 +25,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
         public static void Build()
         {
-            RiftStepBuilder()   ;
-            RiftBlinkBuilder()  ;
+            RiftStepBuilder();
+            RiftBlinkBuilder();
             RiftWalkerSpells();
-            RiftStrikeBuilder() ;
-            RiftJumpBuilder()   ;
+            RiftStrikeBuilder();
+            RiftJumpBuilder();
             FadeIntoTheVoidBuilder();
             // RiftCloakBuilder();
             AtWillWardingBond();
@@ -43,19 +45,19 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
 
 
-            var definition = new CharacterSubclassDefinitionBuilder(Name, Guid);
+            var definition = CharacterSubclassDefinitionBuilder.Create(Name, Guid);
             definition.SetGuiPresentation(subclassGuiPresentation)
 
 
 
-               .AddFeatureAtLevel(RiftWalkerMagicAffinity,1)
-               .AddFeatureAtLevel(RiftWalk,1)
-               .AddFeatureAtLevel(RiftBlink,1)
-               .AddFeatureAtLevel(DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityRestrainedmmunity,6)
-               .AddFeatureAtLevel(RiftStrike,6)
-               .AddFeatureAtLevel(RiftJump,10)
-               .AddFeatureAtLevel(FadeIntoTheVoid,10)
-               .AddFeatureAtLevel(WardingBondBonusCantrip,14) //RiftCloak,14 )
+               .AddFeatureAtLevel(RiftWalkerMagicAffinity, 1)
+               .AddFeatureAtLevel(RiftWalk, 1)
+               .AddFeatureAtLevel(RiftBlink, 1)
+               .AddFeatureAtLevel(DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityRestrainedmmunity, 6)
+               .AddFeatureAtLevel(RiftStrike, 6)
+               .AddFeatureAtLevel(RiftJump, 10)
+               .AddFeatureAtLevel(FadeIntoTheVoid, 10)
+               .AddFeatureAtLevel(WardingBondBonusCantrip, 14) //RiftCloak,14 )
                .AddToDB();
 
 
@@ -69,9 +71,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
              .SetSpriteReference(DatabaseHelper.SpellDefinitions.MistyStep.GuiPresentation.SpriteReference)
              .Build();
 
-            var RiftWalkBuilder = new FeatureDefinitionPowerBuilder(
+            var RiftWalkBuilder = FeatureDefinitionPowerBuilder.Create(
                        "DH_RiftWalk",
-                       GuidHelper.Create(new Guid(Settings.GUID), "DH_RiftWalk").ToString(),
+                       GuidHelper.Create(new Guid(Settings.GUID), "DH_RiftWalk").ToString())
+                .SetGuiPresentation(guiPresentationRiftWalk)
+                .Configure(
                        1,
                        RuleDefinitions.UsesDetermination.ProficiencyBonus,
                        AttributeDefinitions.Charisma,
@@ -82,7 +86,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                        false,
                        AttributeDefinitions.Charisma,
                        DatabaseHelper.SpellDefinitions.MistyStep.EffectDescription,
-                       guiPresentationRiftWalk,
                        true);
             RiftWalk = RiftWalkBuilder.AddToDB();
         }
@@ -95,13 +98,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetSpriteReference(DatabaseHelper.SpellDefinitions.Blur.GuiPresentation.SpriteReference)
                 .Build();
 
-            var FadeIntoTheVoidBuilder = new FeatureDefinitionDamageAffinityBuilder(
-                DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityHalfOrcRelentlessEndurance,
-                "DH_FadeIntoTheVoid",
-                GuidHelper.Create(new Guid(Settings.GUID), "DH_FadeIntoTheVoid").ToString(),
-                guiPresentationFadeIntoTheVoid);
+            var FadeIntoTheVoidBuilder = FeatureDefinitionDamageAffinityBuilder
+                .Create(DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityHalfOrcRelentlessEndurance, "DH_FadeIntoTheVoid", GuidHelper.Create(new Guid(Settings.GUID), "DH_FadeIntoTheVoid").ToString())
+                .SetGuiPresentation(guiPresentationFadeIntoTheVoid);
 
-             FadeIntoTheVoid = FadeIntoTheVoidBuilder.AddToDB();
+            FadeIntoTheVoid = FadeIntoTheVoidBuilder.AddToDB();
 
 
         }
@@ -115,9 +116,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerSpellBladeSpellTyrant.GuiPresentation.SpriteReference)
                 .Build();
 
-            var RiftStrikeBuilder = new FeatureDefinitionPowerBuilder(
-                       "DH_RiftStrike",
-                       GuidHelper.Create(new Guid(Settings.GUID), "DH_RiftStrike").ToString(),
+            var RiftStrikeBuilder = FeatureDefinitionPowerBuilder
+                .Create("DH_RiftStrike", GuidHelper.Create(new Guid(Settings.GUID), "DH_RiftStrike").ToString())
+                .SetGuiPresentation(guiPresentationRiftStrike)
+                .Configure(
                        1,
                        RuleDefinitions.UsesDetermination.Fixed,
                        AttributeDefinitions.Charisma,
@@ -128,15 +130,14 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                        false,
                        AttributeDefinitions.Charisma,
                        DatabaseHelper.SpellDefinitions.Banishment.EffectDescription,
-                       guiPresentationRiftStrike,
                        true);
             RiftStrike = RiftStrikeBuilder.AddToDB();
 
-            RiftStrike.EffectDescription.durationType = RuleDefinitions.DurationType.Round;
-            RiftStrike.EffectDescription.targetType = RuleDefinitions.TargetType.Self;
-            RiftStrike.EffectDescription.endOfEffect = RuleDefinitions.TurnOccurenceType.StartOfTurn;
-            RiftStrike.EffectDescription.hasSavingThrow = false;
-            RiftStrike.reactionContext = RuleDefinitions.ReactionTriggerContext.HitByMelee;
+            RiftStrike.EffectDescription.DurationType = RuleDefinitions.DurationType.Round;
+            RiftStrike.EffectDescription.TargetType = RuleDefinitions.TargetType.Self;
+            RiftStrike.EffectDescription.EndOfEffect = RuleDefinitions.TurnOccurenceType.StartOfTurn;
+            RiftStrike.EffectDescription.HasSavingThrow = false;
+            RiftStrike.SetReactionContext(RuleDefinitions.ReactionTriggerContext.HitByMelee);
 
         }
 
@@ -148,9 +149,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             .SetSpriteReference(DatabaseHelper.SpellDefinitions.DimensionDoor.GuiPresentation.SpriteReference)
             .Build();
 
-            var RiftControlBuilder = new FeatureDefinitionPowerBuilder(
-                       "DH_RiftControl",
-                       GuidHelper.Create(new Guid(Settings.GUID), "DH_RiftControl").ToString(),
+            var RiftControlBuilder = FeatureDefinitionPowerBuilder
+                .Create("DH_RiftControl", GuidHelper.Create(new Guid(Settings.GUID), "DH_RiftControl").ToString())
+                .SetGuiPresentation(guiPresentationRiftControl)
+                .Configure(
                        1,
                        RuleDefinitions.UsesDetermination.ProficiencyBonus,
                        AttributeDefinitions.Charisma,
@@ -161,10 +163,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                        false,
                        AttributeDefinitions.Charisma,
                        DatabaseHelper.SpellDefinitions.DimensionDoor.EffectDescription,
-                       guiPresentationRiftControl,
                        true);
             RiftJump = RiftControlBuilder.AddToDB();
-            RiftJump.overriddenPower = RiftWalk;
+            RiftJump.SetOverriddenPower(RiftWalk);
 
 
         }
@@ -177,9 +178,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
            .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerShadowcasterShadowDodge.GuiPresentation.SpriteReference)
            .Build();
 
-            var BlinkBuilder = new FeatureDefinitionPowerBuilder(
-                       "DH_Blink",
-                       GuidHelper.Create(new Guid(Settings.GUID), "DH_Blink").ToString(),
+            var BlinkBuilder = FeatureDefinitionPowerBuilder
+                .Create("DH_Blink", GuidHelper.Create(new Guid(Settings.GUID), "DH_Blink").ToString())
+                .SetGuiPresentation(guiPresentationBlink)
+                .Configure(
                        1,
                        RuleDefinitions.UsesDetermination.ProficiencyBonus,
                        AttributeDefinitions.Charisma,
@@ -190,13 +192,12 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                        false,
                        AttributeDefinitions.Charisma,
                        DatabaseHelper.SpellDefinitions.Banishment.EffectDescription,
-                       guiPresentationBlink,
                        true);
             RiftBlink = BlinkBuilder.AddToDB();
-            RiftBlink.EffectDescription.durationType = RuleDefinitions.DurationType.Round;
-            RiftBlink.EffectDescription.targetType = RuleDefinitions.TargetType.Self;
-            RiftBlink.EffectDescription.endOfEffect = RuleDefinitions.TurnOccurenceType.StartOfTurn;
-            RiftBlink.EffectDescription.hasSavingThrow = false;
+            RiftBlink.EffectDescription.DurationType = RuleDefinitions.DurationType.Round;
+            RiftBlink.EffectDescription.TargetType = RuleDefinitions.TargetType.Self;
+            RiftBlink.EffectDescription.EndOfEffect = RuleDefinitions.TurnOccurenceType.StartOfTurn;
+            RiftBlink.EffectDescription.HasSavingThrow = false;
         }
 
         public static void RiftCloakBuilder()
@@ -207,41 +208,37 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetSpriteReference(DatabaseHelper.SpellDefinitions.DimensionDoor.GuiPresentation.SpriteReference)
                 .Build();
 
-        var RiftCloakBuilder = new FeatureDefinitionPowerBuilder(
-                   "DH_RiftCloak",
-                   GuidHelper.Create(new Guid(Settings.GUID), "DH_RiftCloak").ToString(),
-                   1,
-                   RuleDefinitions.UsesDetermination.ProficiencyBonus,
-                   AttributeDefinitions.Charisma,
-                   RuleDefinitions.ActivationTime.BonusAction,
-                   1,
-                   RuleDefinitions.RechargeRate.AtWill,
-                   false,
-                   false,
-                   AttributeDefinitions.Charisma,
-                   DatabaseHelper.SpellDefinitions.WardingBond.EffectDescription,
-                   guiPresentationRiftCloak,
-                   true);
-         RiftCloak = RiftCloakBuilder.AddToDB();
+            var RiftCloakBuilder = FeatureDefinitionPowerBuilder
+                .Create("DH_RiftCloak", GuidHelper.Create(new Guid(Settings.GUID), "DH_RiftCloak").ToString())
+                .SetGuiPresentation(guiPresentationRiftCloak)
+                .Configure(
+                       1,
+                       RuleDefinitions.UsesDetermination.ProficiencyBonus,
+                       AttributeDefinitions.Charisma,
+                       RuleDefinitions.ActivationTime.BonusAction,
+                       1,
+                       RuleDefinitions.RechargeRate.AtWill,
+                       false,
+                       false,
+                       AttributeDefinitions.Charisma,
+                       DatabaseHelper.SpellDefinitions.WardingBond.EffectDescription,
+                       true);
+            RiftCloak = RiftCloakBuilder.AddToDB();
 
-        RiftCloak.uniqueInstance = true;
+            RiftCloak.SetUniqueInstance(true);
         }
 
         public static void AtWillWardingBond()
         {
 
-            SpellBuilder AtWillWardingBondBuilder = new SpellBuilder(
-                 DatabaseHelper.SpellDefinitions.WardingBond,
-                 "DHAtWillWardingBond",
-                 GuidHelper.Create(new System.Guid(Settings.GUID), "DHAtWillWardingBond").ToString());
+            SpellDefinitionBuilder AtWillWardingBondBuilder = SpellDefinitionBuilder
+                .Create(DatabaseHelper.SpellDefinitions.WardingBond, "DHAtWillWardingBond", GuidHelper.Create(new System.Guid(Settings.GUID), "DHAtWillWardingBond").ToString());
             AtWillWardingBondBuilder.SetSpellLevel(0);
             AtWillCantripWardingBond = AtWillWardingBondBuilder.AddToDB();
 
-            FeatureDefinitionBonusCantripsBuilder WardingBondBonusCantripBuilder = new FeatureDefinitionBonusCantripsBuilder(
-                DatabaseHelper.FeatureDefinitionBonusCantripss.BonusCantripsDomainOblivion,
-                 "DHWardingBondBonusCantrip",
-                 GuidHelper.Create(new System.Guid(Settings.GUID), "DHAtWillWardingBondBonusCantrip").ToString(),
-                 new GuiPresentationBuilder("Feature/&DHWardingBondBonusCantripDescription", "Feature/&DHWardingBondBonusCantripTitle").Build());
+            FeatureDefinitionBonusCantripsBuilder WardingBondBonusCantripBuilder = FeatureDefinitionBonusCantripsBuilder
+                .Create(DatabaseHelper.FeatureDefinitionBonusCantripss.BonusCantripsDomainOblivion, "DHWardingBondBonusCantrip", GuidHelper.Create(new System.Guid(Settings.GUID), "DHAtWillWardingBondBonusCantrip").ToString())
+                .SetGuiPresentation(new GuiPresentationBuilder("Feature/&DHWardingBondBonusCantripDescription", "Feature/&DHWardingBondBonusCantripTitle").Build());
             WardingBondBonusCantripBuilder.ClearBonusCantrips();
             WardingBondBonusCantripBuilder.AddBonusCantrip(AtWillCantripWardingBond);
             WardingBondBonusCantrip = WardingBondBonusCantripBuilder.AddToDB();
@@ -252,18 +249,16 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
         public static void RiftWalkerSpells()
         {
-            SpellListDefinition RiftWalkerSpellList = new SpellListBuilder
-            (
-                "RiftWalkerSpellsList",
-                GuidHelper.Create(new Guid(Settings.GUID), "RiftWalkerSpellsList").ToString(),
-                "SpellList/&RiftWalkerSpellsListTitle",
+            SpellListDefinition RiftWalkerSpellList = SpellListDefinitionBuilder
+                .Create(
                 DatabaseHelper.SpellListDefinitions.SpellListSkeletonKnight,
-                new List<SpellDefinition>
-                { }
-            ).AddToDB();
+                "RiftWalkerSpellsList",
+                GuidHelper.Create(new Guid(Settings.GUID), "RiftWalkerSpellsList").ToString())
+                .SetGuiPresentation("RiftWalkerSpellsList", Category.SpellList)
+            .ClearSpells().AddToDB();
 
             RiftWalkerSpellList.SpellsByLevel.Clear();
-            RiftWalkerSpellList.spellsByLevel.AddRange(new List<SpellListDefinition.SpellsByLevelDuplet>()
+            RiftWalkerSpellList.SpellsByLevel.AddRange(new List<SpellListDefinition.SpellsByLevelDuplet>()
             {
                 new SpellListDefinition.SpellsByLevelDuplet
                 {
@@ -321,18 +316,18 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             });
 
 
-       var RiftWalkerMagicAffintyBuilder = new FeatureDefinitionMagicAffinityBuilder
-                (
-                    "RiftWalkerSpellsMagicAffinity",
-                    GuidHelper.Create(new Guid(Settings.GUID), "RiftWalkerSpellsMagicAffinity").ToString(),
-                    new GuiPresentationBuilder(
-                    "Feature/&RiftWalkerSpellsMagicAffinityDescription",
-                    "Feature/&RiftWalkerSpellsMagicAffinityTitle"
-                    ).Build()
-                );
+            var RiftWalkerMagicAffintyBuilder = FeatureDefinitionMagicAffinityBuilder
+                .Create("RiftWalkerSpellsMagicAffinity", GuidHelper.Create(new Guid(Settings.GUID), "RiftWalkerSpellsMagicAffinity").ToString())
+                .SetGuiPresentation(
+                         new GuiPresentationBuilder(
+                         "Feature/&RiftWalkerSpellsMagicAffinityDescription",
+                         "Feature/&RiftWalkerSpellsMagicAffinityTitle"
+                         ).Build()
+                     );
+
             RiftWalkerMagicAffinity = RiftWalkerMagicAffintyBuilder.AddToDB();
 
-            RiftWalkerMagicAffinity.extendedSpellList=(RiftWalkerSpellList);
+            RiftWalkerMagicAffinity.SetExtendedSpellList(RiftWalkerSpellList);
 
         }
 

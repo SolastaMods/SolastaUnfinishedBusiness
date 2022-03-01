@@ -43,6 +43,11 @@ namespace SolastaCommunityExpansion.Builders
             return new SpellListDefinitionBuilder(original, name, guidNamespace);
         }
 
+        public static SpellListDefinitionBuilder Create(SpellListDefinition original, string name, string guid)
+        {
+            return new SpellListDefinitionBuilder(original, name, guid);
+        }
+
         public SpellListDefinitionBuilder ClearSpells()
         {
             Definition.SpellsByLevel.ForEach(s => s.Spells.Clear());

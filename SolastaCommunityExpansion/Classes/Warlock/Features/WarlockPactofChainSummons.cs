@@ -5,6 +5,8 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using UnityEngine.AddressableAssets;
+using UnityEngine;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
@@ -24,22 +26,22 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             EffectDescription effectDescription = new EffectDescription();
             effectDescription.Copy(invisibilty.EffectDescription);
 
-             PactofChainFamiliarInvisibilityPower = new FeatureDefinitionPowerBuilder(
-                "PactofChainFamiliarInvisibilityPower",
-                GuidHelper.Create(new Guid(Settings.GUID), "PactofChainFamiliarInvisibilityPower").ToString(),
-                1,
-                RuleDefinitions.UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
-                RuleDefinitions.ActivationTime.Action,
-                1,
-                RuleDefinitions.RechargeRate.AtWill,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
-                effectDescription,
-                invisibilty.GuiPresentation,
-                true)
-                .AddToDB();
+            PactofChainFamiliarInvisibilityPower = FeatureDefinitionPowerBuilder
+                .Create("PactofChainFamiliarInvisibilityPower", GuidHelper.Create(new Guid(Settings.GUID), "PactofChainFamiliarInvisibilityPower").ToString())
+                .SetGuiPresentation(invisibilty.GuiPresentation)
+                .Configure(
+                   1,
+                   RuleDefinitions.UsesDetermination.Fixed,
+                   AttributeDefinitions.Charisma,
+                   RuleDefinitions.ActivationTime.Action,
+                   1,
+                   RuleDefinitions.RechargeRate.AtWill,
+                   false,
+                   false,
+                   AttributeDefinitions.Charisma,
+                   effectDescription,
+                   true)
+               .AddToDB();
 
         }
 
@@ -51,25 +53,27 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     "SpellResistenceConditionTitle")
                     .Build();
 
-            ConditionDefinition SpellResistenceCondtion = new ConditionDefinitionBuilder(
+            ConditionDefinition spellResistanceCondition = new Tinkerer.FeatureHelpers.ConditionDefinitionBuilder(
                 "DHSpellResistenceCondition", GuidHelper.Create(new Guid(Settings.GUID), "DHSpellResistenceCondition").ToString(),
-                new List<FeatureDefinition>()
-                { DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance },
                 RuleDefinitions.DurationType.Minute,
                 1,
                 false,
-                guiPresentationSpellResistenceCondition
+                guiPresentationSpellResistenceCondition,
+                DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance
                 ).AddToDB();
+
 
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder();
             effectDescription.SetDurationData(RuleDefinitions.DurationType.Permanent, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectDescription.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Sphere, 2, 1, ActionDefinitions.ItemSelectionType.Equiped);
-            effectDescription.AddEffectForm(new EffectFormBuilder().SetConditionForm(SpellResistenceCondtion, ConditionForm.ConditionOperation.Add, true, true, new List<ConditionDefinition>()).Build());
+            effectDescription.AddEffectForm(new EffectFormBuilder().SetConditionForm(spellResistanceCondition, ConditionForm.ConditionOperation.Add, true, true, new List<ConditionDefinition>()).Build());
 
 
-            PactofChainFamiliarSpellResistencePower = new FeatureDefinitionPowerBuilder(
+            PactofChainFamiliarSpellResistencePower = FeatureDefinitionPowerBuilder
+                .Create(
                 "PactofChainFamiliarSpellResistencePower",
-                GuidHelper.Create(new Guid(Settings.GUID), "PactofChainFamiliarSpellResistencePower").ToString(),
+                GuidHelper.Create(new Guid(Settings.GUID), "PactofChainFamiliarSpellResistencePower").ToString())
+                .Configure(
                 1,
                 RuleDefinitions.UsesDetermination.Fixed,
                 AttributeDefinitions.Charisma,
@@ -80,12 +84,12 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 false,
                 AttributeDefinitions.Charisma,
                 effectDescription.Build(),
-                new GuiPresentationBuilder("FamiliarSpellResistenceDescription", "FamiliarSpellResistenceTitle").Build(),
                 true)
+                .SetGuiPresentation(new GuiPresentationBuilder("FamiliarSpellResistenceDescription", "FamiliarSpellResistenceTitle").Build())
                 .AddToDB();
         }
 
-            public static void buildCustomPseudodragon()
+        public static void buildCustomPseudodragon()
         {
 
 
@@ -218,12 +222,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             //   AssetReferenceSprite SpriteReference = DatabaseHelper.MonsterDefinitions.KindredSpiritViper.GuiPresentation.SpriteReference;
 
 
-            MonsterDefinitionBuilder Definition = new MonsterDefinitionBuilder(
+            MonsterDefinitionBuilder Definition = MonsterDefinitionBuilder
+                .Create(BaseTemplateName,
                 text + NewName,
-                GuidHelper.Create(new Guid(Settings.GUID), text + NewName).ToString(),
-                "Monster/&" + text + NewTitle,
-                "Monster/&" + text + NewDescription,
-                BaseTemplateName);
+                GuidHelper.Create(new Guid(Settings.GUID), text + NewName).ToString())
+                .SetGuiPresentation("Monster/&" + text + NewTitle, "Monster/&" + text + NewDescription);
 
             Definition.SetInDungeonEditor(false);
             Definition.SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
@@ -309,13 +312,13 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             Definition.SetDefaultFaction("Party");
 
             PactChainPseudodragon = Definition.AddToDB();
-            PactChainPseudodragon.MonsterPresentation.hasPrefabVariants = false;
+            PactChainPseudodragon.MonsterPresentation.SetHasPrefabVariants(false);
             PactChainPseudodragon.CreatureTags.Clear();
             PactChainPseudodragon.MonsterPresentation.MonsterPresentationDefinitions.Empty();
             PactChainPseudodragon.MonsterPresentation.SetUseCustomMaterials(true);
-            PactChainPseudodragon.MonsterPresentation.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions.Silver_Dragon_Presentation.customMaterials);
+            PactChainPseudodragon.MonsterPresentation.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions.Silver_Dragon_Presentation.CustomMaterials);
 
-            }
+        }
 
         public static void buildCustomSprite()
         {
@@ -446,12 +449,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             //  AssetReference AttachedParticlesReference = DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation.GetField<UnityEngine.AddressableAssets.AssetReference>("attachedParticlesReference");
             //   AssetReferenceSprite SpriteReference = DatabaseHelper.MonsterDefinitions.KindredSpiritViper.GuiPresentation.SpriteReference;
 
-            MonsterBuilder Definition = new MonsterBuilder(
-            text + NewName,
-            GuidHelper.Create(new Guid(Settings.GUID), text + NewName).ToString(),
-            "Monster/&" + text + NewTitle,
-            "Monster/&" + text + NewDescription,
-            BaseTemplateName);
+            MonsterDefinitionBuilder Definition = MonsterDefinitionBuilder.Create(BaseTemplateName,
+                text + NewName,
+                GuidHelper.Create(new Guid(Settings.GUID), text + NewName).ToString())
+                .SetGuiPresentation("Monster/&" + text + NewTitle, "Monster/&" + text + NewDescription);
 
             Definition.SetInDungeonEditor(false);
             Definition.SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
@@ -526,14 +527,16 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             Definition.SetNoExperienceGain(false);
             Definition.SetHasMonsterPortraitBackground(true);
             Definition.SetCanGeneratePortrait(true);
-            Definition.SetCustomShaderReference(MonsterShaderReference);
+
+            // TODO;
+            //Definition.SetCustomShaderReference(MonsterShaderReference);
 
 
             PactChainSprite = Definition.AddToDB();
 
             PactChainSprite.MonsterPresentation.SetOverrideCharacterShaderColors(true);
-            PactChainSprite.MonsterPresentation.SetFirstCharacterShaderColor(DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation.firstCharacterShaderColor);
-            PactChainSprite.MonsterPresentation.SetSecondCharacterShaderColor(DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation.secondCharacterShaderColor);
+            PactChainSprite.MonsterPresentation.SetFirstCharacterShaderColor(DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation.GetField<Color>("firstCharacterShaderColor"));
+            PactChainSprite.MonsterPresentation.SetSecondCharacterShaderColor(DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation.GetField<Color>("secondCharacterShaderColor"));
 
             PactChainSprite.CreatureTags.Clear();
             PactChainSprite.MonsterPresentation.MonsterPresentationDefinitions.Empty();
@@ -543,14 +546,14 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
             PactChainSprite.MonsterPresentation.SetMaleModelScale(0.2f);
             PactChainSprite.MonsterPresentation.SetFemaleModelScale(0.2f);
-            PactChainSprite.MonsterPresentation.SetMalePrefabReference(DatabaseHelper.MonsterDefinitions.Dryad.MonsterPresentation.malePrefabReference);
-            PactChainSprite.MonsterPresentation.SetFemalePrefabReference(DatabaseHelper.MonsterDefinitions.Dryad.MonsterPresentation.malePrefabReference);
+            PactChainSprite.MonsterPresentation.SetMalePrefabReference(DatabaseHelper.MonsterDefinitions.Dryad.MonsterPresentation.GetField<AssetReference>("malePrefabReference"));
+            PactChainSprite.MonsterPresentation.SetFemalePrefabReference(DatabaseHelper.MonsterDefinitions.Dryad.MonsterPresentation.GetField<AssetReference>("malePrefabReference"));
 
             PactChainSprite.SetFullyControlledWhenAllied(true);
             PactChainSprite.SetDefaultFaction("Party");
 
 
-            PactChainSprite.MonsterPresentation.hasPrefabVariants = false;
+            PactChainSprite.MonsterPresentation.SetHasPrefabVariants(false);
         }
 
 
@@ -684,12 +687,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             //  AssetReference AttachedParticlesReference = DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation.GetField<UnityEngine.AddressableAssets.AssetReference>("attachedParticlesReference");
             //   AssetReferenceImp ImpReference = DatabaseHelper.MonsterDefinitions.KindredSpiritViper.GuiPresentation.ImpReference;
 
-            MonsterBuilder Definition = new MonsterBuilder(
+            MonsterDefinitionBuilder Definition = MonsterDefinitionBuilder.Create(BaseTemplateName,
                 text + NewName,
-                GuidHelper.Create(new Guid(Settings.GUID), text + NewName).ToString(),
-                "Monster/&" + text + NewTitle,
-                "Monster/&" + text + NewDescription,
-                BaseTemplateName);
+                GuidHelper.Create(new Guid(Settings.GUID), text + NewName).ToString())
+                .SetGuiPresentation("Monster/&" + text + NewTitle, "Monster/&" + text + NewDescription);
 
             Definition.SetInDungeonEditor(false);
             Definition.SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
@@ -772,17 +773,17 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             PactChainImp.MonsterPresentation.MonsterPresentationDefinitions.Empty();
             PactChainImp.MonsterPresentation.SetMonsterPresentationDefinitions(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.MonsterPresentationDefinitions);
             PactChainImp.MonsterPresentation.SetUseCustomMaterials(true);
-            PactChainImp.MonsterPresentation.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions.Orc_Female_Archer_RedScar.customMaterials);
+            PactChainImp.MonsterPresentation.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions.Orc_Female_Archer_RedScar.CustomMaterials);
 
             PactChainImp.MonsterPresentation.SetMaleModelScale(0.2f);
             PactChainImp.MonsterPresentation.SetFemaleModelScale(0.2f);
-            PactChainImp.MonsterPresentation.SetMalePrefabReference(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.malePrefabReference);
-            PactChainImp.MonsterPresentation.SetFemalePrefabReference(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.malePrefabReference);
+            PactChainImp.MonsterPresentation.SetMalePrefabReference(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.GetField<AssetReference>("malePrefabReference"));
+            PactChainImp.MonsterPresentation.SetFemalePrefabReference(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.GetField<AssetReference>("mMalePrefabReference"));
 
             PactChainImp.SetFullyControlledWhenAllied(true);
 
             PactChainImp.SetDefaultFaction("Party");
-            PactChainImp.MonsterPresentation.hasPrefabVariants = false;
+            PactChainImp.MonsterPresentation.SetHasPrefabVariants(false);
 
         }
 
@@ -915,12 +916,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             //  AssetReference AttachedParticlesReference = DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation.GetField<UnityEngine.AddressableAssets.AssetReference>("attachedParticlesReference");
             //   AssetReferenceQuasit QuasitReference = DatabaseHelper.MonsterDefinitions.KindredSpiritViper.GuiPresentation.QuasitReference;
 
-            MonsterBuilder Definition = new MonsterBuilder(
-                text + NewName,
-                GuidHelper.Create(new Guid(Settings.GUID), text + NewName).ToString(),
-                "Monster/&" + text + NewTitle,
-                "Monster/&" + text + NewDescription,
-                BaseTemplateName);
+            MonsterDefinitionBuilder Definition = MonsterDefinitionBuilder
+                .Create(BaseTemplateName, text + NewName, GuidHelper.Create(new Guid(Settings.GUID), text + NewName).ToString())
+                .SetGuiPresentation("Monster/&" + text + NewTitle, "Monster/&" + text + NewDescription);
 
             Definition.SetInDungeonEditor(false);
             Definition.SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
@@ -1003,17 +1001,17 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             PactChainQuasit.MonsterPresentation.MonsterPresentationDefinitions.Empty();
             PactChainQuasit.MonsterPresentation.SetMonsterPresentationDefinitions(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.MonsterPresentationDefinitions);
             PactChainQuasit.MonsterPresentation.SetUseCustomMaterials(true);
-            PactChainQuasit.MonsterPresentation.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions.Orc_Male_Chieftain_BladeFang.customMaterials);
+            PactChainQuasit.MonsterPresentation.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions.Orc_Male_Chieftain_BladeFang.CustomMaterials);
 
             PactChainQuasit.MonsterPresentation.SetMaleModelScale(0.3f);
             PactChainQuasit.MonsterPresentation.SetFemaleModelScale(0.3f);
-            PactChainQuasit.MonsterPresentation.SetMalePrefabReference(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.malePrefabReference);
-            PactChainQuasit.MonsterPresentation.SetFemalePrefabReference(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.malePrefabReference);
+            PactChainQuasit.MonsterPresentation.SetMalePrefabReference(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.GetField<AssetReference>("malePrefabReference"));
+            PactChainQuasit.MonsterPresentation.SetFemalePrefabReference(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.GetField<AssetReference>("malePrefabReference"));
 
             PactChainQuasit.SetFullyControlledWhenAllied(true);
 
             PactChainQuasit.SetDefaultFaction("Party");
-            PactChainQuasit.MonsterPresentation.hasPrefabVariants = false;
+            PactChainQuasit.MonsterPresentation.SetHasPrefabVariants(false);
 
         }
 

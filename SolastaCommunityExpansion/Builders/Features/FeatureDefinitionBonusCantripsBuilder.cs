@@ -44,6 +44,11 @@ namespace SolastaCommunityExpansion.Builders.Features
             return new FeatureDefinitionBonusCantripsBuilder(original, name, namespaceGuid);
         }
 
+        public static FeatureDefinitionBonusCantripsBuilder Create(FeatureDefinitionBonusCantrips original, string name, string guid)
+        {
+            return new FeatureDefinitionBonusCantripsBuilder(original, name, guid);
+        }
+
         public FeatureDefinitionBonusCantripsBuilder ClearBonusCantrips()
         {
             Definition.BonusCantrips.Clear();

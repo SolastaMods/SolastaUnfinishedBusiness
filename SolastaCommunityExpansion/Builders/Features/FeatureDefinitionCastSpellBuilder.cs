@@ -16,6 +16,12 @@ namespace SolastaCommunityExpansion.Builders.Features
             THIRD_CASTER
         }
 
+        private FeatureDefinitionCastSpellBuilder(string name, string guid)
+            : base(name, guid)
+        {
+            InitializeFields();
+        }
+
         private FeatureDefinitionCastSpellBuilder(string name, Guid namespaceGuid)
             : base(name, namespaceGuid)
         {
@@ -35,6 +41,11 @@ namespace SolastaCommunityExpansion.Builders.Features
         public static FeatureDefinitionCastSpellBuilder Create(string name, Guid namespaceGuid)
         {
             return new FeatureDefinitionCastSpellBuilder(name, namespaceGuid);
+        }
+
+        public static FeatureDefinitionCastSpellBuilder Create(string name, string guid)
+        {
+            return new FeatureDefinitionCastSpellBuilder(name, guid);
         }
 
         private void InitializeFields()

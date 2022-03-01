@@ -90,7 +90,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                     "Feature/&ClassWarlockToolsProficiencyDescription",
                     "Feature/&ClassWarlockToolsProficiencyTitle").Build());
 
-            FeatureDefinitionProficiencySavingThrow = FeatureDefinitionProficiency.Build(
+            FeatureDefinitionProficiencySavingThrow = FeatureDefinitionProficiencyBuilder.Build(
                 RuleDefinitions.ProficiencyType.SavingThrow,
                 new List<string>() { AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom },
                 "ClassWarlockSavingThrowProficiency",
@@ -119,7 +119,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock
         {
             var castSpellName = "ClassWarlockCastSpell";
             var castSpellGuid = GuidHelper.Create(new Guid(Settings.GUID), castSpellName).ToString();
-            var classWarlockCastSpell = new CastSpellBuilder(castSpellName, castSpellGuid);
+            var classWarlockCastSpell = FeatureDefinitionCastSpellBuilder.Create(castSpellName, castSpellGuid);
+
+            // TODO: can't find ClassWarlockSpellListBuilder
+            /*
             ClassWarlockSpellListBuilder.Build();
             var classWarlockSpellList = ClassWarlockSpellListBuilder.ClassWarlockSpellList;
 
@@ -132,7 +135,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             {
                 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15
             });
-            classWarlockCastSpell.SetSlotsPerLevel(Models.SharedSpellsContext.WarlockCastingSlots);
+
+            // TODO: 
+            //classWarlockCastSpell.SetSlotsPerLevel(Models.SharedSpellsContext.WarlockCastingSlots);
             classWarlockCastSpell.SetSlotsRecharge(RuleDefinitions.RechargeRate.ShortRest);
             classWarlockCastSpell.SetSpellCastingAbility(AttributeDefinitions.Charisma);
             classWarlockCastSpell.SetSpellCastingLevel(5);
@@ -143,6 +148,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             classWarlockCastSpell.SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
 
             FeatureDefinitionClassWarlockCastSpell = classWarlockCastSpell.AddToDB();
+            */
         }
 
         private static void BuildSubclasses(CharacterClassDefinitionBuilder classWarlockBuilder)
@@ -150,12 +156,14 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             var subClassChoiceName = "ClassWarlockSubclassChoice";
             var subClassChoiceGuid = GuidHelper.Create(new Guid(Settings.GUID), subClassChoiceName).ToString();
             var classWarlockPatronPresentationBuilder = new GuiPresentationBuilder("Subclass/&ClassWarlockPatronDescription", "Subclass/&ClassWarlockPatronTitle");
-            var subclassChoices = classWarlockBuilder.BuildSubclassChoice(1, "Patron", false, subClassChoiceName, classWarlockPatronPresentationBuilder.Build(), subClassChoiceGuid);
 
-            DHWarlockSubclassRiftWalker.Build();
-            subclassChoices.Subclasses.Add(DHWarlockSubclassRiftWalker.Name);
-            DHWarlockSubclassElementalPatron.Build();
-            subclassChoices.Subclasses.Add(DHWarlockSubclassElementalPatron.Name);
+            // TODO
+            //var subclassChoices = classWarlockBuilder.BuildSubclassChoice(1, "Patron", false, subClassChoiceName, classWarlockPatronPresentationBuilder.Build(), subClassChoiceGuid);
+
+            //DHWarlockSubclassRiftWalker.Build();
+            //subclassChoices.Subclasses.Add(DHWarlockSubclassRiftWalker.Name);
+            //DHWarlockSubclassElementalPatron.Build();
+            //subclassChoices.Subclasses.Add(DHWarlockSubclassElementalPatron.Name);
         }
 
         private static void BuildProgression(CharacterClassDefinitionBuilder classWarlockBuilder)
@@ -195,11 +203,13 @@ namespace SolastaCommunityExpansion.Classes.Warlock
         {
             var className = "ClassWarlock";
             var classGuid = GuidHelper.Create(new Guid(Settings.GUID), className).ToString();
-            var classWarlockBuilder = new CharacterClassDefinitionBuilder(className, classGuid);
+            var classWarlockBuilder = CharacterClassDefinitionBuilder.Create(className, classGuid);
             var classWarlockGuiPresentationBuilder = new GuiPresentationBuilder("Class/&ClassWarlockDescription", "Class/&ClassWarlockTitle");
 
             classWarlockGuiPresentationBuilder.SetColor(new Color(1.0f, 1.0f, 1.0f, 1.0f));
-            classWarlockGuiPresentationBuilder.SetHidden(!Main.Settings.EnableClassWarlock);
+
+            // TODO: add setting
+            //classWarlockGuiPresentationBuilder.SetHidden(!Main.Settings.EnableClassWarlock);
             classWarlockGuiPresentationBuilder.SetSortOrder(1);
             classWarlockGuiPresentationBuilder.SetSpriteReference(Cleric.GuiPresentation.SpriteReference);
 

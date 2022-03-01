@@ -73,5 +73,10 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
             return new FeatureDefinitionDamageAffinityBuilder(original, name, namespaceGuid);
         }
+
+        public static FeatureDefinitionDamageAffinityBuilder Create(FeatureDefinitionDamageAffinity original, string name, string guid)
+        {
+            return new FeatureDefinitionDamageAffinityBuilder(original, name, guid);
+        }
     }
 }

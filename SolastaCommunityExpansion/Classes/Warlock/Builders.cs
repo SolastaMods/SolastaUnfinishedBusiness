@@ -5,10 +5,10 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock
 {
-    internal class FeatureDefinitionProficiencyBuilder : BaseDefinitionBuilder<FeatureDefinitionProficiency>
+    internal class FeatureDefinitionProficiencyBuilder : Builders.Features.FeatureDefinitionProficiencyBuilder
     {
         public FeatureDefinitionProficiencyBuilder(string name, string guid, RuleDefinitions.ProficiencyType type,
-        List<string> proficiencies, GuiPresentation guiPresentation) : base(name, guid)
+            List<string> proficiencies, GuiPresentation guiPresentation) : base(name, guid)
         {
             Definition.SetProficiencyType(type);
             Definition.SetGuiPresentation(guiPresentation);
@@ -27,10 +27,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock
         }
     }
 
-    internal class FeatureDefinitionPointPoolBuilder : BaseDefinitionBuilder<FeatureDefinitionPointPool>
+    internal class FeatureDefinitionPointPoolBuilder : Builders.Features.FeatureDefinitionPointPoolBuilder
     {
         public FeatureDefinitionPointPoolBuilder(string name, string guid, HeroDefinitions.PointsPoolType poolType, int poolAmount,
-        List<string> choices, bool uniqueChoices, GuiPresentation guiPresentation) : base(name, guid)
+            List<string> choices, bool uniqueChoices, GuiPresentation guiPresentation) : base(name, guid)
         {
             Definition.SetPoolType(poolType);
             Definition.SetPoolAmount(poolAmount);
