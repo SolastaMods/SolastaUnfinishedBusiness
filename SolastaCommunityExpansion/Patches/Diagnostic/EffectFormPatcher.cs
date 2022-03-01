@@ -79,149 +79,149 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
                 throw new SolastaModApiException(msg);
             }
         }
-    }
 
-    [HarmonyPatch(typeof(EffectForm), "DamageForm", MethodType.Getter)]
-    internal static class EffectFormPatch_Damage
-    {
-        public static void Postfix(EffectForm __instance, ref DamageForm __result)
+        [HarmonyPatch(typeof(EffectForm), "DamageForm", MethodType.Getter)]
+        internal static class EffectFormPatch_Damage
         {
-            EffectFormVerification.VerifyUsage(__instance, Damage, ref __result);
+            public static void Postfix(EffectForm __instance, ref DamageForm __result)
+            {
+                VerifyUsage(__instance, Damage, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(EffectForm), "HealingForm", MethodType.Getter)]
-    internal static class EffectFormPatch_Healing
-    {
-        public static void Postfix(EffectForm __instance, ref HealingForm __result)
+        [HarmonyPatch(typeof(EffectForm), "HealingForm", MethodType.Getter)]
+        internal static class EffectFormPatch_Healing
         {
-            EffectFormVerification.VerifyUsage(__instance, Healing, ref __result);
+            public static void Postfix(EffectForm __instance, ref HealingForm __result)
+            {
+                VerifyUsage(__instance, Healing, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(EffectForm), "ConditionForm", MethodType.Getter)]
-    internal static class EffectFormPatch_Condition
-    {
-        public static void Postfix(EffectForm __instance, ref ConditionForm __result)
+        [HarmonyPatch(typeof(EffectForm), "ConditionForm", MethodType.Getter)]
+        internal static class EffectFormPatch_Condition
         {
-            EffectFormVerification.VerifyUsage(__instance, Condition, ref __result);
+            public static void Postfix(EffectForm __instance, ref ConditionForm __result)
+            {
+                VerifyUsage(__instance, Condition, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(EffectForm), "LightSourceForm", MethodType.Getter)]
-    internal static class EffectFormPatch_LightSource
-    {
-        public static void Postfix(EffectForm __instance, ref LightSourceForm __result)
+        [HarmonyPatch(typeof(EffectForm), "LightSourceForm", MethodType.Getter)]
+        internal static class EffectFormPatch_LightSource
         {
-            EffectFormVerification.VerifyUsage(__instance, LightSource, ref __result);
+            public static void Postfix(EffectForm __instance, ref LightSourceForm __result)
+            {
+                VerifyUsage(__instance, LightSource, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(EffectForm), "SummonForm", MethodType.Getter)]
-    internal static class EffectFormPatch_Summon
-    {
-        public static void Postfix(EffectForm __instance, ref SummonForm __result)
+        [HarmonyPatch(typeof(EffectForm), "SummonForm", MethodType.Getter)]
+        internal static class EffectFormPatch_Summon
         {
-            EffectFormVerification.VerifyUsage(__instance, Summon, ref __result);
+            public static void Postfix(EffectForm __instance, ref SummonForm __result)
+            {
+                VerifyUsage(__instance, Summon, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(EffectForm), "CounterForm", MethodType.Getter)]
-    internal static class EffectFormPatch_Counter
-    {
-        public static void Postfix(EffectForm __instance, ref CounterForm __result)
+        [HarmonyPatch(typeof(EffectForm), "CounterForm", MethodType.Getter)]
+        internal static class EffectFormPatch_Counter
         {
-            EffectFormVerification.VerifyUsage(__instance, Counter, ref __result);
+            public static void Postfix(EffectForm __instance, ref CounterForm __result)
+            {
+                VerifyUsage(__instance, Counter, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(EffectForm), "TemporaryHitPointsForm", MethodType.Getter)]
-    internal static class EffectFormPatch_TemporaryHitPoints
-    {
-        public static void Postfix(EffectForm __instance, ref TemporaryHitPointsForm __result)
+        [HarmonyPatch(typeof(EffectForm), "TemporaryHitPointsForm", MethodType.Getter)]
+        internal static class EffectFormPatch_TemporaryHitPoints
         {
-            EffectFormVerification.VerifyUsage(__instance, TemporaryHitPoints, ref __result);
+            public static void Postfix(EffectForm __instance, ref TemporaryHitPointsForm __result)
+            {
+                VerifyUsage(__instance, TemporaryHitPoints, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(EffectForm), "MotionForm", MethodType.Getter)]
-    internal static class EffectFormPatch_Motion
-    {
-        public static void Postfix(EffectForm __instance, ref MotionForm __result)
+        [HarmonyPatch(typeof(EffectForm), "MotionForm", MethodType.Getter)]
+        internal static class EffectFormPatch_Motion
         {
-            EffectFormVerification.VerifyUsage(__instance, Motion, ref __result);
+            public static void Postfix(EffectForm __instance, ref MotionForm __result)
+            {
+                VerifyUsage(__instance, Motion, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(EffectForm), "SpellSlotsForm", MethodType.Getter)]
-    internal static class EffectFormPatch_SpellSlots
-    {
-        public static void Postfix(EffectForm __instance, ref SpellSlotsForm __result)
+        [HarmonyPatch(typeof(EffectForm), "SpellSlotsForm", MethodType.Getter)]
+        internal static class EffectFormPatch_SpellSlots
         {
-            EffectFormVerification.VerifyUsage(__instance, SpellSlots, ref __result);
+            public static void Postfix(EffectForm __instance, ref SpellSlotsForm __result)
+            {
+                VerifyUsage(__instance, SpellSlots, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(EffectForm), "DivinationForm", MethodType.Getter)]
-    internal static class EffectFormPatch_Divination
-    {
-        public static void Postfix(EffectForm __instance, ref DivinationForm __result)
+        [HarmonyPatch(typeof(EffectForm), "DivinationForm", MethodType.Getter)]
+        internal static class EffectFormPatch_Divination
         {
-            EffectFormVerification.VerifyUsage(__instance, Divination, ref __result);
+            public static void Postfix(EffectForm __instance, ref DivinationForm __result)
+            {
+                VerifyUsage(__instance, Divination, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(EffectForm), "ItemPropertyForm", MethodType.Getter)]
-    internal static class EffectFormPatch_ItemProperty
-    {
-        public static void Postfix(EffectForm __instance, ref ItemPropertyForm __result)
+        [HarmonyPatch(typeof(EffectForm), "ItemPropertyForm", MethodType.Getter)]
+        internal static class EffectFormPatch_ItemProperty
         {
-            EffectFormVerification.VerifyUsage(__instance, ItemProperty, ref __result);
+            public static void Postfix(EffectForm __instance, ref ItemPropertyForm __result)
+            {
+                VerifyUsage(__instance, ItemProperty, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(EffectForm), "AlterationForm", MethodType.Getter)]
-    internal static class EffectFormPatch_Alteration
-    {
-        public static void Postfix(EffectForm __instance, ref AlterationForm __result)
+        [HarmonyPatch(typeof(EffectForm), "AlterationForm", MethodType.Getter)]
+        internal static class EffectFormPatch_Alteration
         {
-            EffectFormVerification.VerifyUsage(__instance, Alteration, ref __result);
+            public static void Postfix(EffectForm __instance, ref AlterationForm __result)
+            {
+                VerifyUsage(__instance, Alteration, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(EffectForm), "TopologyForm", MethodType.Getter)]
-    internal static class EffectFormPatch_Topology
-    {
-        public static void Postfix(EffectForm __instance, ref TopologyForm __result)
+        [HarmonyPatch(typeof(EffectForm), "TopologyForm", MethodType.Getter)]
+        internal static class EffectFormPatch_Topology
         {
-            EffectFormVerification.VerifyUsage(__instance, Topology, ref __result);
+            public static void Postfix(EffectForm __instance, ref TopologyForm __result)
+            {
+                VerifyUsage(__instance, Topology, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(EffectForm), "ReviveForm", MethodType.Getter)]
-    internal static class EffectFormPatch_Revive
-    {
-        public static void Postfix(EffectForm __instance, ref ReviveForm __result)
+        [HarmonyPatch(typeof(EffectForm), "ReviveForm", MethodType.Getter)]
+        internal static class EffectFormPatch_Revive
         {
-            EffectFormVerification.VerifyUsage(__instance, Revive, ref __result);
+            public static void Postfix(EffectForm __instance, ref ReviveForm __result)
+            {
+                VerifyUsage(__instance, Revive, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(EffectForm), "KillForm", MethodType.Getter)]
-    internal static class EffectFormPatch_Kill
-    {
-        public static void Postfix(EffectForm __instance, ref KillForm __result)
+        [HarmonyPatch(typeof(EffectForm), "KillForm", MethodType.Getter)]
+        internal static class EffectFormPatch_Kill
         {
-            EffectFormVerification.VerifyUsage(__instance, Kill, ref __result);
+            public static void Postfix(EffectForm __instance, ref KillForm __result)
+            {
+                VerifyUsage(__instance, Kill, ref __result);
+            }
         }
-    }
 
-    [HarmonyPatch(typeof(EffectForm), "ShapeChangeForm", MethodType.Getter)]
-    internal static class EffectFormPatch_ShapeChange
-    {
-        public static void Postfix(EffectForm __instance, ref ShapeChangeForm __result)
+        [HarmonyPatch(typeof(EffectForm), "ShapeChangeForm", MethodType.Getter)]
+        internal static class EffectFormPatch_ShapeChange
         {
-            EffectFormVerification.VerifyUsage(__instance, ShapeChange, ref __result);
+            public static void Postfix(EffectForm __instance, ref ShapeChangeForm __result)
+            {
+                VerifyUsage(__instance, ShapeChange, ref __result);
+            }
         }
     }
 #endif
