@@ -12,6 +12,7 @@ using static FeatureDefinitionAttributeModifier;
 using static FeatureDefinitionCastSpell;
 using static RuleDefinitions;
 using static SolastaCommunityExpansion.Builders.EquipmentOptionsBuilder;
+using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
@@ -819,8 +820,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 var preparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
                     .Create("WitchFamiliarAutoPreparedSpell", WITCH_BASE_GUID)
                     .SetGuiPresentation("WitchFamiliarPower", Category.Class, AnimalFriendship.GuiPresentation.SpriteReference)
-                    .SetPreparedSpellGroups(AutoPreparedSpellsGroupBuilder.Build(2, spell))
-                    .SetCharacterClass(witch)
+                    .SetPreparedSpellGroups(BuildSpellGroup(2, spell))
+                    .SetCastingClass(witch)
                     .SetAutoTag("Witch")
                     .AddToDB();
 
