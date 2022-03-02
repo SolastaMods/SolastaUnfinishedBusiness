@@ -3,15 +3,44 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using SolastaCommunityExpansion.Models;
 using SolastaModApi.Extensions;
 using UnityEngine;
+using static SolastaCommunityExpansion.Models.ModContext;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {
-    //
-    // this patch shouldn't be protected
-    //
+    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttack")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class GameLocationBattleManager_HandleCharacterAttack
+    {
+        internal static IEnumerator Postfix(
+            IEnumerator values,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackerAttackMode)
+        {
+            HandleCharacterAttackHandler?.Invoke(
+                ref attacker,
+                ref defender,
+                ref attackModifier,
+                ref attackerAttackMode,
+                isPrefix: true);
+
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+
+            HandleCharacterAttackHandler?.Invoke(
+                ref attacker,
+                ref defender,
+                ref attackModifier,
+                ref attackerAttackMode,
+                isPrefix: false);
+        }
+    }
+
     [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttackDamage")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameLocationBattleManager_HandleCharacterAttackDamage
@@ -29,38 +58,41 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             bool criticalHit,
             bool firstTarget)
         {
-            BattleContext.SetHandleCharacterAttackDamageContext(
-                isPrefix: true,
-                attacker,
-                defender,
-                attackModifier,
-                attackMode,
-                rangedAttack,
-                advantageType,
-                actualEffectForms,
-                rulesetEffect,
-                criticalHit,
-                firstTarget);
+            HandleCharacterAttackDamageHandler?.Invoke(
+                ref attacker,
+                ref defender,
+                ref attackModifier,
+                ref attackMode,
+                ref rangedAttack,
+                ref advantageType,
+                ref actualEffectForms,
+                ref rulesetEffect,
+                ref criticalHit,
+                ref firstTarget,
+                isPrefix: true);
 
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
 
-            BattleContext.SetHandleCharacterAttackDamageContext(
-                isPrefix: false,
-                attacker,
-                defender,
-                attackModifier,
-                attackMode,
-                rangedAttack,
-                advantageType,
-                actualEffectForms,
-                rulesetEffect,
-                criticalHit,
-                firstTarget);
+            HandleCharacterAttackDamageHandler?.Invoke(
+                ref attacker,
+                ref defender,
+                ref attackModifier,
+                ref attackMode,
+                ref rangedAttack,
+                ref advantageType,
+                ref actualEffectForms,
+                ref rulesetEffect,
+                ref criticalHit,
+                ref firstTarget,
+                isPrefix: false);
         }
 
+        //
+        // @Chris, won't touch this for now. Ideally we should register a delegate to run this code using above pattern...
+        //
         internal static void Postfix(GameLocationCharacter attacker,
             GameLocationCharacter defender, ActionModifier attackModifier, RulesetAttackMode attackMode,
             bool rangedAttack, RuleDefinitions.AdvantageType advantageType, List<EffectForm> actualEffectForms,
@@ -78,63 +110,32 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         }
     }
 
-
-    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttack")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GameLocationBattleManager_HandleCharacterAttack
-    {
-        internal static IEnumerator Postfix(
-            IEnumerator values, 
-            GameLocationCharacter attacker, 
-            GameLocationCharacter defender, 
-            ActionModifier attackModifier, 
-            RulesetAttackMode attackerAttackMode)
-        {
-            while (values.MoveNext())
-            {
-                yield return values.Current;
-            }
-        }
-    }
-
-    //[HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttackDamage")]
-    //[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    //internal static class GameLocationBattleManager_HandleCharacterAttackDamage
-    //{
-    //    internal static IEnumerator Postfix(
-    //        IEnumerator values,
-    //        GameLocationCharacter attacker,
-    //        GameLocationCharacter defender,
-    //        ActionModifier attackModifier,
-    //        RulesetAttackMode attackMode,
-    //        bool rangedAttack,
-    //        RuleDefinitions.AdvantageType advantageType,
-    //        List<EffectForm> actualEffectForms,
-    //        RulesetEffect rulesetEffect,
-    //        bool criticalHit,
-    //        bool firstTarget)
-    //    {
-    //        while (values.MoveNext())
-    //        {
-    //            yield return values.Current;
-    //        }
-    //    }
-    //}
-
     [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttackFinished")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameLocationBattleManager_HandleCharacterAttackFinished
     {
         internal static IEnumerator Postfix(
-            IEnumerator values, 
+            IEnumerator values,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackerAttackMode)
         {
+            HandleCharacterAttackFinishedHandler?.Invoke(
+                ref attacker,
+                ref defender,
+                ref attackerAttackMode,
+                isPrefix: true);
+
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
+
+            HandleCharacterAttackFinishedHandler?.Invoke(
+                ref attacker,
+                ref defender,
+                ref attackerAttackMode,
+                isPrefix: false);
         }
     }
 
@@ -143,7 +144,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     internal static class GameLocationBattleManager_HandleCharacterAttackHit
     {
         internal static IEnumerator Postfix(
-            IEnumerator values, 
+            IEnumerator values,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
@@ -151,10 +152,28 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             int successDelta,
             bool ranged)
         {
+            HandleCharacterAttackHitHandler?.Invoke(
+                ref attacker,
+                ref defender,
+                ref attackModifier,
+                ref attackRoll,
+                ref successDelta,
+                ref ranged,
+                isPrefix: true);
+
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
+
+            HandleCharacterAttackHitHandler?.Invoke(
+                ref attacker,
+                ref defender,
+                ref attackModifier,
+                ref attackRoll,
+                ref successDelta,
+                ref ranged,
+                isPrefix: false);
         }
     }
 
@@ -163,7 +182,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     internal static class GameLocationBattleManager_HandleCharacterMagicalAttackDamage
     {
         internal static IEnumerator Postfix(
-            IEnumerator values, 
+            IEnumerator values,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,
@@ -171,10 +190,28 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             List<EffectForm> actualEffectForms,
             bool firstTarget)
         {
+            HandleCharacterMagicalAttackDamageHandler?.Invoke(
+                ref attacker,
+                ref defender,
+                ref magicModifier,
+                ref activeEffect,
+                ref actualEffectForms,
+                ref firstTarget,
+                isPrefix: true);
+
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
+
+            HandleCharacterMagicalAttackDamageHandler?.Invoke(
+                ref attacker,
+                ref defender,
+                ref magicModifier,
+                ref activeEffect,
+                ref actualEffectForms,
+                ref firstTarget,
+                isPrefix: false);
         }
     }
 
@@ -183,13 +220,21 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     internal static class GameLocationBattleManager_HandleCharacterMoveEnd
     {
         internal static IEnumerator Postfix(
-            IEnumerator values, 
+            IEnumerator values,
             GameLocationCharacter mover)
         {
+            HandleCharacterMoveEndHandler?.Invoke(
+                ref mover,
+                isPrefix: true);
+
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
+
+            HandleCharacterMoveEndHandler?.Invoke(
+                ref mover,
+                isPrefix: false);
         }
     }
 
@@ -198,14 +243,24 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     internal static class GameLocationBattleManager_HandleCharacterMoveStart
     {
         internal static IEnumerator Postfix(
-            IEnumerator values, 
+            IEnumerator values,
             GameLocationCharacter mover,
             TA.int3 destination)
         {
+            HandleCharacterMoveStartHandler?.Invoke(
+                ref mover,
+                ref destination,
+                isPrefix: true);
+
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
+
+            HandleCharacterMoveStartHandler?.Invoke(
+                ref mover,
+                ref destination,
+                isPrefix: false);
         }
     }
 
@@ -214,13 +269,21 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     internal static class GameLocationBattleManager_HandleCharacterSurprise
     {
         internal static IEnumerator Postfix(
-            IEnumerator values, 
+            IEnumerator values,
             GameLocationCharacter character)
         {
+            HandleCharacterSurpriseHandler?.Invoke(
+                ref character,
+                isPrefix: true);
+
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
+
+            HandleCharacterSurpriseHandler?.Invoke(
+                ref character,
+                isPrefix: false);
         }
     }
 
@@ -229,7 +292,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     internal static class GameLocationBattleManager_HandleFailedSavingThrowAgainstEffect
     {
         internal static IEnumerator Postfix(
-            IEnumerator values, 
+            IEnumerator values,
             CharacterActionMagicEffect action,
             GameLocationCharacter caster,
             GameLocationCharacter defender,
@@ -237,10 +300,28 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             ActionModifier saveModifier,
             bool hasHitVisual)
         {
+            HandleFailedSavingThrowAgainstEffectHandler?.Invoke(
+                ref action,
+                ref caster,
+                ref defender,
+                ref rulesetEffect,
+                ref saveModifier,
+                ref hasHitVisual,
+                isPrefix: true);
+
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
+
+            HandleFailedSavingThrowAgainstEffectHandler?.Invoke(
+                ref action,
+                ref caster,
+                ref defender,
+                ref rulesetEffect,
+                ref saveModifier,
+                ref hasHitVisual,
+                isPrefix: false);
         }
     }
 
@@ -249,7 +330,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     internal static class GameLocationBattleManager_HandleRangeAttack
     {
         internal static IEnumerator Postfix(
-            IEnumerator values, 
+            IEnumerator values,
             GameLocationCharacter launcher,
             GameLocationCharacter target,
             RulesetAttackMode attackMode,
@@ -257,10 +338,28 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             Vector3 impactPoint,
             float projectileFlightDuration)
         {
+            HandleRangeAttackHandler?.Invoke(
+                ref launcher,
+                ref target,
+                ref attackMode,
+                ref sourcePoint,
+                ref impactPoint,
+                ref projectileFlightDuration,
+                isPrefix: true);
+
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
+
+            HandleRangeAttackHandler?.Invoke(
+                ref launcher,
+                ref target,
+                ref attackMode,
+                ref sourcePoint,
+                ref impactPoint,
+                ref projectileFlightDuration,
+                isPrefix: false);
         }
     }
 
@@ -269,14 +368,24 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     internal static class GameLocationBattleManager_HandleReactionToDamageShare
     {
         internal static IEnumerator Postfix(
-            IEnumerator values, 
+            IEnumerator values,
             GameLocationCharacter damagedCharacter,
             int damageAmount)
         {
+            HandleReactionToDamageShareHandler?.Invoke(
+                ref damagedCharacter,
+                ref damageAmount,
+                isPrefix: true);
+
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
+
+            HandleReactionToDamageShareHandler?.Invoke(
+                ref damagedCharacter,
+                ref damageAmount,
+                isPrefix: false);
         }
     }
 
@@ -285,13 +394,21 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     internal static class GameLocationBattleManager_HandleReactionToRageStart
     {
         internal static IEnumerator Postfix(
-            IEnumerator values, 
+            IEnumerator values,
             GameLocationCharacter rager)
         {
+            HandleReactionToRageStartHandler?.Invoke(
+                ref rager,
+                isPrefix: true);
+
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
+
+            HandleReactionToRageStartHandler?.Invoke(
+                ref rager,
+                isPrefix: false);
         }
     }
 
@@ -300,16 +417,30 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     internal static class GameLocationBattleManager_HandleSpellCast
     {
         internal static IEnumerator Postfix(
-            IEnumerator values, 
+            IEnumerator values,
             GameLocationCharacter caster,
             CharacterActionCastSpell castAction,
             RulesetSpellRepertoire selectedRepertoire,
             SpellDefinition selectedSpellDefinition)
         {
+            HandleSpellCastHandler?.Invoke(
+                ref caster,
+                ref castAction,
+                ref selectedRepertoire,
+                ref selectedSpellDefinition,
+                isPrefix: true);
+
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
+
+            HandleSpellCastHandler?.Invoke(
+                ref caster,
+                ref castAction,
+                ref selectedRepertoire,
+                ref selectedSpellDefinition,
+                isPrefix: false);
         }
     }
 
@@ -318,16 +449,30 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     internal static class GameLocationBattleManager_HandleSpellTargeted
     {
         internal static IEnumerator Postfix(
-            IEnumerator values, 
+            IEnumerator values,
             GameLocationCharacter caster,
             RulesetEffectSpell hostileSpell,
             GameLocationCharacter defender,
             ActionModifier attackModifier)
         {
+            HandleSpellTargetedHandler?.Invoke(
+                ref caster,
+                ref hostileSpell,
+                ref defender,
+                ref attackModifier,
+                isPrefix: true);
+
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
+
+            HandleSpellTargetedHandler?.Invoke(
+                ref caster,
+                ref hostileSpell,
+                ref defender,
+                ref attackModifier,
+                isPrefix: false);
         }
     }
 }
