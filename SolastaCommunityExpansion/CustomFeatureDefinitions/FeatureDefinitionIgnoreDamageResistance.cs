@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
           List<string> sourceTags,
           string ancestryDamageType)
         {
-            if (DamageTypes.Contains(damageType))
+            if (DamageAffinityType == RuleDefinitions.DamageAffinityType.Resistance && DamageTypes.Contains(damageType))
             {
                 return multiplier;
             }
