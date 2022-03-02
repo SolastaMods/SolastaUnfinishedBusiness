@@ -2,23 +2,27 @@
 
 namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 {
-    public interface IIgnoreDamageAffinity
+    public class FeatureDefinitionIgnoreDamageResistance : FeatureDefinitionDamageAffinity
     {
-        bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, string damageType);
-    }
+        private readonly List<string> DamageTypes = new();
 
-    public class FeatureDefinitionIgnoreDamageResistance : FeatureDefinition, IIgnoreDamageAffinity
-    {
-        public List<string> DamageTypes = new();
-
-        public bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, string damageType)
+        public FeatureDefinitionIgnoreDamageResistance(params string[] damageTypes)
         {
-            if (provider.DamageAffinityType != RuleDefinitions.DamageAffinityType.Resistance)
+            DamageTypes.AddRange(damageTypes);
+        }
+
+        public new float ModulateSustainedDamage(
+          string damageType,
+          float multiplier,
+          List<string> sourceTags,
+          string ancestryDamageType)
+        {
+            if (DamageTypes.Contains(damageType))
             {
-                return false;
+                return multiplier;
             }
 
-            return DamageTypes.Contains(damageType);
+            return base.ModulateSustainedDamage(damageType, multiplier, sourceTags, ancestryDamageType);
         }
     }
 }

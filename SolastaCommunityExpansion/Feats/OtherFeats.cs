@@ -4,6 +4,7 @@ using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
+using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions.RollContext;
@@ -69,7 +70,8 @@ namespace SolastaCommunityExpansion.Feats
             var elementalAdeptAcid = FeatDefinitionBuilder
                 .Create("FeatElementalAdeptAcid", OtherFeatNamespace)
                 .SetFeatures(
-                    FeatureDefinitionIgnoreDamageResistanceBuilder.IgnoreDamageResistanceAcid
+                    new FeatureDefinitionIgnoreDamageResistance("DamageAcid"),
+                    new FeatureDefinitionModifyDamageRollOnDamageType("DamageAcid")
                 )
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
@@ -78,7 +80,8 @@ namespace SolastaCommunityExpansion.Feats
             var elementalAdeptCold = FeatDefinitionBuilder
                 .Create("FeatElementalAdeptCold", OtherFeatNamespace)
                 .SetFeatures(
-                    FeatureDefinitionIgnoreDamageResistanceBuilder.IgnoreDamageResistanceCold
+                    new FeatureDefinitionIgnoreDamageResistance("DamageCold"),
+                    new FeatureDefinitionModifyDamageRollOnDamageType("DamageCold")
                 )
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
@@ -87,7 +90,8 @@ namespace SolastaCommunityExpansion.Feats
             var elementalAdeptFire = FeatDefinitionBuilder
                 .Create("FeatElementalAdeptFire", OtherFeatNamespace)
                 .SetFeatures(
-                    FeatureDefinitionIgnoreDamageResistanceBuilder.IgnoreDamageResistanceFire
+                    new FeatureDefinitionIgnoreDamageResistance("DamageFire"),
+                    new FeatureDefinitionModifyDamageRollOnDamageType("DamageFire")
                 )
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
@@ -96,7 +100,8 @@ namespace SolastaCommunityExpansion.Feats
             var elementalAdeptLightning = FeatDefinitionBuilder
                 .Create("FeatElementalAdeptLightning", OtherFeatNamespace)
                 .SetFeatures(
-                    FeatureDefinitionIgnoreDamageResistanceBuilder.IgnoreDamageResistanceAcid
+                    new FeatureDefinitionIgnoreDamageResistance("DamageLightning"),
+                    new FeatureDefinitionModifyDamageRollOnDamageType("DamageLightning")
                 )
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
@@ -121,43 +126,5 @@ namespace SolastaCommunityExpansion.Feats
                 .SetGuiPresentation("FeatSavageAttacker", Category.Feat)
                 .AddToDB();
         }
-    }
-
-    internal sealed class FeatureDefinitionIgnoreDamageResistanceBuilder : FeatureDefinitionBuilder<FeatureDefinitionIgnoreDamageResistance, FeatureDefinitionIgnoreDamageResistanceBuilder>
-    {
-        private const string IgnoreDamageResistanceAcidName = "IgnoreDamageResistanceAcid";
-        private const string IgnoreDamageResistanceAcidGuid = "a324917bd3d3402bbd8b5b616b183242";
-
-        private const string IgnoreDamageResistanceColdName = "IgnoreDamageResistanceAcid";
-        private const string IgnoreDamageResistanceColdGuid = "3872825980854ec28c7cef6dddc4c669";
-
-        private const string IgnoreDamageResistanceFireName = "IgnoreDamageResistanceAcid";
-        private const string IgnoreDamageResistanceFireGuid = "b778c242d70c42439a68d13832a7413f";
-
-        private const string IgnoreDamageResistanceLightningName = "IgnoreDamageResistanceLightning";
-        private const string IgnoreDamageResistanceLightningGuid = "a9dd2c782b474d83bb8e38921d270ee3";
-
-        private FeatureDefinitionIgnoreDamageResistanceBuilder(string name, string guid, params string[] damageTypes) : base(name, guid)
-        {
-            Definition.SetGuiPresentation("FeatElementalAdept" + String.Join("_", damageTypes), Category.Feat);
-            Definition.DamageTypes = damageTypes.ToList();
-        }
-
-        private static FeatureDefinition CreateAndAddToDB(string name, string guid, params string[] damageTypes)
-        {
-            return new FeatureDefinitionIgnoreDamageResistanceBuilder(name, guid, damageTypes).AddToDB();
-        }
-
-        internal static readonly FeatureDefinition IgnoreDamageResistanceAcid =
-            CreateAndAddToDB(IgnoreDamageResistanceAcidName, IgnoreDamageResistanceAcidGuid, RuleDefinitions.DamageTypeAcid);
-
-        internal static readonly FeatureDefinition IgnoreDamageResistanceCold =
-            CreateAndAddToDB(IgnoreDamageResistanceColdName, IgnoreDamageResistanceColdGuid, RuleDefinitions.DamageTypeCold);
-
-        internal static readonly FeatureDefinition IgnoreDamageResistanceFire =
-            CreateAndAddToDB(IgnoreDamageResistanceFireName, IgnoreDamageResistanceFireGuid, RuleDefinitions.DamageTypeFire);
-
-        internal static readonly FeatureDefinition IgnoreDamageResistanceLightning =
-            CreateAndAddToDB(IgnoreDamageResistanceLightningName, IgnoreDamageResistanceLightningGuid, RuleDefinitions.DamageTypeLightning);
     }
 }

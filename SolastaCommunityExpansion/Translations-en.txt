@@ -1198,3 +1198,12 @@ Subclass/&WitchSubclassPathTitle	Witch Covens
 Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagMaledictionTitle	Malediction
 Tooltip/&TagScoutSentinelWeaponTitle	Uses Int for attack & damage
+Feature/&FeatElementalAdeptRerollDescription	{0} rerolls {1} die from {2} to {3} because of Elemental Focus
+Feat/&FeatElementalAdeptAcid	Elemental Focus (Acid)
+Feat/&FeatElementalAdeptAcid	Acid spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any critical miss.
+Feat/&FeatElementalAdeptCold	Elemental Focus (Cold)
+Feat/&FeatElementalAdeptCold	Cold spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any critical miss.
+Feat/&FeatElementalAdeptFire	Elemental Focus (Fire)
+Feat/&FeatElementalAdeptFire	Fire spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any critical miss.
+Feat/&FeatElementalAdeptLightning	Elemental Focus (Lightning)
+Feat/&FeatElementalAdeptLightning	Lightning spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any critical miss.
