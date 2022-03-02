@@ -121,6 +121,12 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
+        public EffectFormBuilder SetCreatedByCharacter(bool createdByCharacter)
+        {
+            effectForm.SetCreatedByCharacter(createdByCharacter);
+            return this;
+        }
+
         public EffectFormBuilder SetDamageForm(bool versatile, RuleDefinitions.DieType versatileDieType, string damageType, int bonusDamage,
             RuleDefinitions.DieType dieType, int diceNumber, RuleDefinitions.HealFromInflictedDamage healFromInflictedDamage,
             params RuleDefinitions.TrendInfo[] damageBonusTrends)
@@ -294,5 +300,13 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         public static EffectFormBuilder Create() { return new EffectFormBuilder(); }
+
+        internal static EffectFormBuilder Create(ConditionDefinition markedByPactCondition, 
+            ConditionForm.ConditionOperation operation = ConditionForm.ConditionOperation.Add, 
+            bool applyToSelf = false, bool forceOnSelf = false, params ConditionDefinition[] detrimentalConditions)
+        {
+            return Create().SetConditionForm(markedByPactCondition, operation, applyToSelf, forceOnSelf, detrimentalConditions);
+        }
+
     }
 }

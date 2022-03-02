@@ -94,6 +94,12 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
+        public SpellDefinitionBuilder SetMaterialComponentType(RuleDefinitions.MaterialComponentType componentType)
+        {
+            Definition.SetMaterialComponentType(componentType);
+            return this;
+        }
+
         public SpellDefinitionBuilder SetRitualCasting(RuleDefinitions.ActivationTime ritualCastingTime)
         {
             Definition.SetRitual(true);

@@ -122,6 +122,18 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetImpactParticleReference(asset);
             return This();
         }
+
+        public TBuilder SetAttackModeOnly(bool attackModeOnly)
+        {
+            Definition.SetAttackModeOnly(attackModeOnly);
+            return This();
+        }
+
+        public TBuilder SetRequiredTargetCondition(ConditionDefinition condition)
+        {
+            Definition.SetRequiredTargetCondition(condition);
+            return This();
+        }
     }
 
     public class FeatureDefinitionAdditionalDamageBuilder : FeatureDefinitionAdditionalDamageBuilder<FeatureDefinitionAdditionalDamage, FeatureDefinitionAdditionalDamageBuilder>
