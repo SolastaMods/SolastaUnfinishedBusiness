@@ -44,6 +44,11 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
             return new FeatureDefinitionPowerBuilder(name, namespaceGuid);
         }
+
+        public static FeatureDefinitionPowerBuilder Create(FeatureDefinitionPower original, string name, Guid namespaceGuid)
+        {
+            return new FeatureDefinitionPowerBuilder(original, name, namespaceGuid);
+        }
     }
 
     public abstract class FeatureDefinitionPowerBuilder<TDefinition, TBuilder> : FeatureDefinitionBuilder<TDefinition, TBuilder>

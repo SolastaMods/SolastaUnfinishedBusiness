@@ -292,6 +292,8 @@ namespace SolastaCommunityExpansion.Builders
 
         public CharacterClassDefinitionBuilder AddFeatureAtLevel(int level, FeatureDefinition feature, int number = 1)
         {
+            Preconditions.IsNotNull(feature, nameof(feature));
+
             for (int i = 0; i < number; i++)
             {
                 Definition.FeatureUnlocks.Add(new FeatureUnlockByLevel(feature, level));

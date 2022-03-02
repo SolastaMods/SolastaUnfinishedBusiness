@@ -16,17 +16,17 @@ namespace SolastaCommunityExpansion.Classes.Warlock
     {
         public static CharacterClassDefinition ClassWarlock { get; private set; }
 
-        public static FeatureDefinitionProficiency FeatureDefinitionProficiencyArmor { get; private set; }
+        private static FeatureDefinitionProficiency FeatureDefinitionProficiencyArmor { get; set; }
 
-        public static FeatureDefinitionProficiency FeatureDefinitionProficiencyWeapon { get; private set; }
+        private static FeatureDefinitionProficiency FeatureDefinitionProficiencyWeapon { get; set; }
 
-        public static FeatureDefinitionProficiency FeatureDefinitionProficiencyTool { get; private set; }
+        private static FeatureDefinitionProficiency FeatureDefinitionProficiencyTool { get; set; }
 
-        public static FeatureDefinitionProficiency FeatureDefinitionProficiencySavingThrow { get; private set; }
+        private static FeatureDefinitionProficiency FeatureDefinitionProficiencySavingThrow { get; set; }
 
-        public static FeatureDefinitionPointPool FeatureDefinitionSkillPoints { get; private set; }
+        private static FeatureDefinitionPointPool FeatureDefinitionSkillPoints { get; set; }
 
-        public static FeatureDefinitionCastSpell FeatureDefinitionClassWarlockCastSpell { get; private set; }
+        private static FeatureDefinitionCastSpell FeatureDefinitionClassWarlockCastSpell { get; set; }
 
         private static void BuildEquipment(CharacterClassDefinitionBuilder classWarlockBuilder)
         {
@@ -51,7 +51,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
 
         private static void BuildProficiencies()
         {
-            static FeatureDefinitionProficiency Build(string name, RuleDefinitions.ProficiencyType type, params string[] proficiencies)
+            static FeatureDefinitionProficiency BuildProficiency(string name, RuleDefinitions.ProficiencyType type, params string[] proficiencies)
             {
                 return FeatureDefinitionProficiencyBuilder
                     .Create(name, DefinitionBuilder.CENamespaceGuid)
@@ -61,18 +61,18 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             }
 
             FeatureDefinitionProficiencyArmor =
-                Build("ClassWarlockArmorProficiency", RuleDefinitions.ProficiencyType.Armor, LightArmorCategory);
+                BuildProficiency("ClassWarlockArmorProficiency", RuleDefinitions.ProficiencyType.Armor, LightArmorCategory);
 
             FeatureDefinitionProficiencyWeapon =
-                Build("ClassWarlockWeaponProficiency", RuleDefinitions.ProficiencyType.Armor, SimpleWeaponCategory);
+                BuildProficiency("ClassWarlockWeaponProficiency", RuleDefinitions.ProficiencyType.Armor, SimpleWeaponCategory);
 
             FeatureDefinitionProficiencyTool =
-                Build("ClassWarlockToolsProficiency", RuleDefinitions.ProficiencyType.Tool, EnchantingToolType.Name, HerbalismKitType.Name);
+                BuildProficiency("ClassWarlockToolsProficiency", RuleDefinitions.ProficiencyType.Tool, EnchantingToolType.Name, HerbalismKitType.Name);
 
             FeatureDefinitionProficiencySavingThrow =
-                Build("ClassWarlockSavingThrowProficiency", RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom);
+                BuildProficiency("ClassWarlockSavingThrowProficiency", RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom);
 
-            FeatureDefinitionPointPoolBuilder
+            FeatureDefinitionSkillPoints = FeatureDefinitionPointPoolBuilder
                 .Create("ClassWarlockSkillProficiency", DefinitionBuilder.CENamespaceGuid)
                 .SetPool(HeroDefinitions.PointsPoolType.Skill, 2)
                 .OnlyUniqueChoices()
@@ -84,7 +84,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                     SkillDefinitions.Investigation,
                     SkillDefinitions.Nature,
                     SkillDefinitions.Religion)
-                .SetGuiPresentation(Category.Feature);
+                .SetGuiPresentation(Category.Feature)
+                .AddToDB();
         }
 
         private static void BuildSpells()
@@ -140,27 +141,32 @@ namespace SolastaCommunityExpansion.Classes.Warlock
 
         private static void BuildProgression(CharacterClassDefinitionBuilder classWarlockBuilder)
         {
-            classWarlockBuilder.AddFeatureAtLevel(1, FeatureDefinitionProficiencySavingThrow);
-            classWarlockBuilder.AddFeatureAtLevel(1, FeatureDefinitionProficiencyArmor);
-            classWarlockBuilder.AddFeatureAtLevel(1, FeatureDefinitionProficiencyWeapon);
-            classWarlockBuilder.AddFeatureAtLevel(1, FeatureDefinitionProficiencyTool);
-            classWarlockBuilder.AddFeatureAtLevel(1, FeatureDefinitionSkillPoints);
-            classWarlockBuilder.AddFeatureAtLevel(1, FeatureDefinitionClassWarlockCastSpell);
+            classWarlockBuilder.AddFeaturesAtLevel(1, 
+                FeatureDefinitionProficiencySavingThrow,
+                FeatureDefinitionProficiencyArmor,
+                FeatureDefinitionProficiencyWeapon,
+                FeatureDefinitionProficiencyTool,
+                FeatureDefinitionSkillPoints,
+                FeatureDefinitionClassWarlockCastSpell);
+
             //level 1 - subclass feature
-            classWarlockBuilder.AddFeatureAtLevel(2, WarlockEldritchInvocationSetBuilderLevel2.WarlockEldritchInvocationSetLevel2);
-            classWarlockBuilder.AddFeatureAtLevel(2, WarlockEldritchInvocationSetBuilderLevel2.WarlockEldritchInvocationSetLevel2);
+            classWarlockBuilder.AddFeatureAtLevel(2, WarlockFeatures.WarlockEldritchInvocationSetLevel2);
+            classWarlockBuilder.AddFeatureAtLevel(2, WarlockFeatures.WarlockEldritchInvocationSetLevel2);
             classWarlockBuilder.AddFeatureAtLevel(2, AHWarlockClassPactBoonSetBuilder.AHWarlockClassPactBoonSet);
             classWarlockBuilder.AddFeatureAtLevel(2, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
-            classWarlockBuilder.AddFeatureAtLevel(2, WarlockEldritchInvocationSetBuilderLevel5.WarlockEldritchInvocationSetLevel5);
+            classWarlockBuilder.AddFeatureAtLevel(2, WarlockFeatures.WarlockEldritchInvocationSetLevel5);
+
             //level 6 - subclass feature
             classWarlockBuilder.AddFeatureAtLevel(7, WarlockEldritchInvocationSetBuilderLevel7.WarlockEldritchInvocationSetLevel7);
             classWarlockBuilder.AddFeatureAtLevel(8, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
             classWarlockBuilder.AddFeatureAtLevel(9, WarlockEldritchInvocationSetBuilderLevel9.WarlockEldritchInvocationSetLevel9);
+            
             //level 10 - subclass feature
             classWarlockBuilder.AddFeatureAtLevel(11, WarlockMysticArcanumSetBuilder.WarlockMysticArcanumSetLevel11);
             classWarlockBuilder.AddFeatureAtLevel(12, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
             classWarlockBuilder.AddFeatureAtLevel(12, WarlockEldritchInvocationSetBuilderLevel12.WarlockEldritchInvocationSetLevel12);
             classWarlockBuilder.AddFeatureAtLevel(13, WarlockMysticArcanumSetBuilder.WarlockMysticArcanumSetLevel13);
+            
             //level 14 - subclass feature
             classWarlockBuilder.AddFeatureAtLevel(15, WarlockMysticArcanumSetBuilder.WarlockMysticArcanumSetLevel15);
             classWarlockBuilder.AddFeatureAtLevel(15, WarlockEldritchInvocationSetBuilderLevel15.WarlockEldritchInvocationSetLevel15);
@@ -168,7 +174,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             classWarlockBuilder.AddFeatureAtLevel(17, WarlockMysticArcanumSetBuilder.WarlockMysticArcanumSetLevel17);
             classWarlockBuilder.AddFeatureAtLevel(18, WarlockEldritchInvocationSetBuilderLevel18.WarlockEldritchInvocationSetLevel18);
             classWarlockBuilder.AddFeatureAtLevel(19, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
-            classWarlockBuilder.AddFeatureAtLevel(20, WarlockEldritchMasterBuilder.WarlockEldritchMaster);
+            classWarlockBuilder.AddFeatureAtLevel(20, WarlockFeatures.WarlockEldritchMasterPower);
         }
 
         internal static void BuildWarlockClass()
@@ -186,7 +192,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                     (PersonalityFlagDefinitions.Normal, 3),
                     (PersonalityFlagDefinitions.GpSpellcaster, 5),
                     (PersonalityFlagDefinitions.GpExplorer, 1))
-                .AddSkillPreferences(DatabaseHelper.SkillDefinitions.Deception,
+                .AddSkillPreferences(
+                    DatabaseHelper.SkillDefinitions.Deception,
                     DatabaseHelper.SkillDefinitions.Intimidation,
                     DatabaseHelper.SkillDefinitions.Arcana,
                     DatabaseHelper.SkillDefinitions.History,
