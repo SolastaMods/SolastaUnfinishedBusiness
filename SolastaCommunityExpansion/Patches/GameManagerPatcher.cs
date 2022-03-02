@@ -1,7 +1,9 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Multiclass.Models;
+using UnityModManagerNet;
 #if DEBUG
 using SolastaCommunityExpansion.Patches.Diagnostic;
 #endif
@@ -103,16 +105,25 @@ namespace SolastaCommunityExpansion.Patches
 
         private static void DisplayWelcomeMessage()
         {
-            if (!Main.Settings.WelcomeMessageDisplayed)
-            {
-                Main.Settings.WelcomeMessageDisplayed = true;
+            var assemblyVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
-                Gui.GuiService.ShowMessage(
-                MessageModal.Severity.Informative1,
-                "Welcome to Solasta Community Expansion Mod", "Test Message",
-                "Message/&MessageOkTitle", "",
-                null, null);
+#if RELEASE
+            if (Main.Settings.CurrentModVersion == assemblyVersion)
+            {
+                return;
             }
+#endif
+
+            Main.Settings.CurrentModVersion = assemblyVersion;
+
+            Gui.GuiService.ShowMessage(
+                MessageModal.Severity.Informative1,
+                "Message/&MessageModWelcomeTitle",
+                "Message/&MessageModWelcomeDescription",
+                "Message/&MessageOkTitle",
+                string.Empty,
+                () => UnityModManager.UI.Instance.ToggleWindow(),
+                null);
         }
     }
 }
