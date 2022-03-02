@@ -27,7 +27,7 @@ namespace SolastaCommunityExpansion.Models
                     bool isPrefix
                 ) =>
                 {
-                    Main.Warningger.Log($"HandleCharacterAttackHandler {Stage(isPrefix)} attacker: {attacker.RulesetActor.Name} defender: {defender.RulesetActor.Name}");
+                    Main.Warning($"HandleCharacterAttackHandler {Stage(isPrefix)} attacker: {attacker.RulesetActor.Name} defender: {defender.RulesetActor.Name}");
                 });
 
             HandleCharacterAttackFinishedHandler += new HandleCharacterAttackFinished(
