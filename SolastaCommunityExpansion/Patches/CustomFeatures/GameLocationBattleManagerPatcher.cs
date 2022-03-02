@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using SolastaModApi.Extensions;
 using UnityEngine;
 using static SolastaCommunityExpansion.Models.ModContext;
 
@@ -88,25 +86,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
                 ref criticalHit,
                 ref firstTarget,
                 isPrefix: false);
-        }
-
-        //
-        // @Chris, won't touch this for now. Ideally we should register a delegate to run this code using above pattern...
-        //
-        internal static void Postfix(GameLocationCharacter attacker,
-            GameLocationCharacter defender, ActionModifier attackModifier, RulesetAttackMode attackMode,
-            bool rangedAttack, RuleDefinitions.AdvantageType advantageType, List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect, bool criticalHit, bool firstTarget)
-        {
-            if (attacker.RulesetCharacter == null)
-            {
-                return;
-            }
-
-            foreach (IOnAttackHitEffect feature in attacker.RulesetCharacter.EnumerateFeaturesToBrowse<IOnAttackHitEffect>())
-            {
-                feature.OnAttackHit(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
-            }
         }
     }
 
