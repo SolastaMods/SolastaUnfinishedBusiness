@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Models
             //    {
             //        var typeName = characterAction.GetType().Name;
 
-            //        Main.Log($"CharacterActionExecute {Stage(isPrefix)} {typeName}");
+            //        Main.Warning($"CharacterActionExecute {Stage(isPrefix)} {typeName}");
             //    });
 
             HandleCharacterAttackHandler += new HandleCharacterAttack(
@@ -27,7 +27,7 @@ namespace SolastaCommunityExpansion.Models
                     bool isPrefix
                 ) =>
                 {
-                    Main.Log($"HandleCharacterAttackHandler {Stage(isPrefix)} attacker: {attacker.RulesetActor.Name} defender: {defender.RulesetActor.Name}");
+                    Main.Warningger.Log($"HandleCharacterAttackHandler {Stage(isPrefix)} attacker: {attacker.RulesetActor.Name} defender: {defender.RulesetActor.Name}");
                 });
 
             HandleCharacterAttackFinishedHandler += new HandleCharacterAttackFinished(
@@ -38,7 +38,7 @@ namespace SolastaCommunityExpansion.Models
                     bool isPrefix
                 ) =>
                 {
-                    Main.Log($"HandleCharacterAttackFinished {Stage(isPrefix)} attacker: {attacker.RulesetActor.Name} defender: {defender.RulesetActor.Name}");
+                    Main.Warning($"HandleCharacterAttackFinished {Stage(isPrefix)} attacker: {attacker.RulesetActor.Name} defender: {defender.RulesetActor.Name}");
                 });
 
             HandleCharacterAttackHitHandler += new HandleCharacterAttackHit(
@@ -52,7 +52,7 @@ namespace SolastaCommunityExpansion.Models
                     bool isPrefix
                 ) =>
                 {
-                    Main.Log($"HandleCharacterAttackHit {Stage(isPrefix)} attacker: {attacker.RulesetActor.Name} defender: {defender.RulesetActor.Name}");
+                    Main.Warning($"HandleCharacterAttackHit {Stage(isPrefix)} attacker: {attacker.RulesetActor.Name} defender: {defender.RulesetActor.Name}");
                 });
 
             HandleCharacterMagicalAttackDamageHandler += new HandleCharacterMagicalAttackDamage(
@@ -66,7 +66,7 @@ namespace SolastaCommunityExpansion.Models
                     bool isPrefix
                 ) =>
                 {
-                    Main.Log($"HandleCharacterMagicalAttackDamage {Stage(isPrefix)} attacker: {attacker.RulesetActor.Name} defender: {defender.RulesetActor.Name}");
+                    Main.Warning($"HandleCharacterMagicalAttackDamage {Stage(isPrefix)} attacker: {attacker.RulesetActor.Name} defender: {defender.RulesetActor.Name}");
                 });
 
             HandleSpellCastHandler += new HandleSpellCast(
@@ -78,7 +78,7 @@ namespace SolastaCommunityExpansion.Models
                     bool isPrefix
                 ) =>
                 {
-                    Main.Log($"HandleSpellCast {Stage(isPrefix)} caster: {caster.RulesetActor.Name}");
+                    Main.Warning($"HandleSpellCast {Stage(isPrefix)} caster: {caster.RulesetActor.Name}");
                 });
         }
 
