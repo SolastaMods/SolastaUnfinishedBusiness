@@ -35,26 +35,19 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             return levels.SelectMany(level => ClassWarlockSpellList.SpellsByLevel[level].Spells);
         }
 
-        private static FeatureDefinitionFeatureSet Create(string name, string powerName, params int[] levels)
+        private static FeatureDefinitionFeatureSet Create(int setLevel, params int[] spellLevels)
         {
             return FeatureDefinitionFeatureSetBuilder
-                .Create(TerrainTypeAffinityRangerNaturalExplorerChoice, name, DefinitionBuilder.CENamespaceGuid)
+                .Create(TerrainTypeAffinityRangerNaturalExplorerChoice, $"ClassWarlockMysticArcanumSetLevel{setLevel}", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("ClassWarlockMysticArcanumSet", Category.Feature)
-                .SetFeatureSet(GetSpells(levels).Select(spell => CreatePower(powerName, spell)))
+                .SetFeatureSet(GetSpells(spellLevels).Select(spell => CreatePower($"DH_MysticArcanum{setLevel}_", spell)))
                 .SetUniqueChoices(true)
                 .AddToDB();
         }
 
-        public static readonly FeatureDefinitionFeatureSet WarlockMysticArcanumSetLevel11 
-            = Create("ClassWarlockMysticArcanumSetLevel11", "DH_MysticArcanum11_", 6);
-
-        public static readonly FeatureDefinitionFeatureSet WarlockMysticArcanumSetLevel13
-            = Create("ClassWarlockMysticArcanumSetLevel13", "DH_MysticArcanum13_", 7, 6);
-
-        public static readonly FeatureDefinitionFeatureSet WarlockMysticArcanumSetLevel15
-            = Create("ClassWarlockMysticArcanumSetLevel15", "DH_MysticArcanum15_", 8, 7, 6);
-
-        public static readonly FeatureDefinitionFeatureSet WarlockMysticArcanumSetLevel17
-            = Create("ClassWarlockMysticArcanumSetLevel17", "DH_MysticArcanum17_", 9, 8, 7, 6);
+        public static readonly FeatureDefinitionFeatureSet WarlockMysticArcanumSetLevel11 = Create(11, 6);
+        public static readonly FeatureDefinitionFeatureSet WarlockMysticArcanumSetLevel13 = Create(13, 7, 6);
+        public static readonly FeatureDefinitionFeatureSet WarlockMysticArcanumSetLevel15 = Create(15, 8, 7, 6);
+        public static readonly FeatureDefinitionFeatureSet WarlockMysticArcanumSetLevel17 = Create(17, 9, 8, 7, 6);
     }
 }
