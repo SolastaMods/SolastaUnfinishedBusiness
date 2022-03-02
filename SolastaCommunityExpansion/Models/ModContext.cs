@@ -5,6 +5,83 @@ namespace SolastaCommunityExpansion.Models
 {
     public static class ModContext
     {
+        internal static string Stage(bool isPrefix) => isPrefix ? "prefix" : "postfix";
+
+        internal static void Load()
+        {
+            //CharacterActionExecuteHandler += new CharacterActionExecute(
+            //    (
+            //        ref CharacterAction characterAction, bool isPrefix) =>
+            //    {
+            //        var typeName = characterAction.GetType().Name;
+
+            //        Main.Log($"CharacterActionExecute {Stage(isPrefix)} {typeName}");
+            //    });
+
+            HandleCharacterAttackHandler += new HandleCharacterAttack(
+                (
+                    ref GameLocationCharacter attacker,
+                    ref GameLocationCharacter defender,
+                    ref ActionModifier attackModifier,
+                    ref RulesetAttackMode attackerAttackMode,
+                    bool isPrefix
+                ) =>
+                {
+                    Main.Log($"HandleCharacterAttackHandler {Stage(isPrefix)} attacker: {attacker.RulesetActor.Name} defender: {defender.RulesetActor.Name}");
+                });
+
+            HandleCharacterAttackFinishedHandler += new HandleCharacterAttackFinished(
+                (
+                    ref GameLocationCharacter attacker,
+                    ref GameLocationCharacter defender,
+                    ref RulesetAttackMode attackerAttackMode,
+                    bool isPrefix
+                ) =>
+                {
+                    Main.Log($"HandleCharacterAttackFinished {Stage(isPrefix)} attacker: {attacker.RulesetActor.Name} defender: {defender.RulesetActor.Name}");
+                });
+
+            HandleCharacterAttackHitHandler += new HandleCharacterAttackHit(
+                (
+                    ref GameLocationCharacter attacker,
+                    ref GameLocationCharacter defender,
+                    ref ActionModifier attackModifier,
+                    ref int attackRoll,
+                    ref int successDelta,
+                    ref bool ranged,
+                    bool isPrefix
+                ) =>
+                {
+                    Main.Log($"HandleCharacterAttackHit {Stage(isPrefix)} attacker: {attacker.RulesetActor.Name} defender: {defender.RulesetActor.Name}");
+                });
+
+            HandleCharacterMagicalAttackDamageHandler += new HandleCharacterMagicalAttackDamage(
+                (
+                    ref GameLocationCharacter attacker,
+                    ref GameLocationCharacter defender,
+                    ref ActionModifier magicModifier,
+                    ref RulesetEffect activeEffect,
+                    ref List<EffectForm> actualEffectForms,
+                    ref bool firstTarget,
+                    bool isPrefix
+                ) =>
+                {
+                    Main.Log($"HandleCharacterMagicalAttackDamage {Stage(isPrefix)} attacker: {attacker.RulesetActor.Name} defender: {defender.RulesetActor.Name}");
+                });
+
+            HandleSpellCastHandler += new HandleSpellCast(
+                (
+                    ref GameLocationCharacter caster,
+                    ref CharacterActionCastSpell castAction,
+                    ref RulesetSpellRepertoire selectedRepertoire,
+                    ref SpellDefinition selectedSpellDefinition,
+                    bool isPrefix
+                ) =>
+                {
+                    Main.Log($"HandleSpellCast {Stage(isPrefix)} caster: {caster.RulesetActor.Name}");
+                });
+        }
+
         //
         // delegates that get called before / after these enumerator calls
         // we can use them to get a context on specific character actions or battle scenarios and add custom logic for more complex features
@@ -127,6 +204,5 @@ namespace SolastaCommunityExpansion.Models
         public static HandleReactionToRageStart HandleReactionToRageStartHandler { get; set; }
         public static HandleSpellCast HandleSpellCastHandler { get; set; }
         public static HandleSpellTargeted HandleSpellTargetedHandler { get; set; }
-
     }
 }

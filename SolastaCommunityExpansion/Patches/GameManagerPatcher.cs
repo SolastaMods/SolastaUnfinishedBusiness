@@ -86,6 +86,9 @@ namespace SolastaCommunityExpansion.Patches
                 // Save by location initialization depends on services to be ready
                 SaveByLocationContext.Load();
 
+                // Initialize all delegates on ModContext
+                ModContext.Load();
+
                 // Recache all gui collections
                 GuiWrapperContext.Recache();
 
