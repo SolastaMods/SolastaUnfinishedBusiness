@@ -162,16 +162,16 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             classWarlockBuilder.AddFeatureAtLevel(9, WarlockEldritchInvocationSetBuilderLevel9.WarlockEldritchInvocationSetLevel9);
             
             //level 10 - subclass feature
-            classWarlockBuilder.AddFeatureAtLevel(11, WarlockMysticArcanumSetBuilder.WarlockMysticArcanumSetLevel11);
+            classWarlockBuilder.AddFeatureAtLevel(11, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel11);
             classWarlockBuilder.AddFeatureAtLevel(12, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
             classWarlockBuilder.AddFeatureAtLevel(12, WarlockEldritchInvocationSetBuilderLevel12.WarlockEldritchInvocationSetLevel12);
-            classWarlockBuilder.AddFeatureAtLevel(13, WarlockMysticArcanumSetBuilder.WarlockMysticArcanumSetLevel13);
+            classWarlockBuilder.AddFeatureAtLevel(13, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel13);
             
             //level 14 - subclass feature
-            classWarlockBuilder.AddFeatureAtLevel(15, WarlockMysticArcanumSetBuilder.WarlockMysticArcanumSetLevel15);
+            classWarlockBuilder.AddFeatureAtLevel(15, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel15);
             classWarlockBuilder.AddFeatureAtLevel(15, WarlockEldritchInvocationSetBuilderLevel15.WarlockEldritchInvocationSetLevel15);
             classWarlockBuilder.AddFeatureAtLevel(16, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
-            classWarlockBuilder.AddFeatureAtLevel(17, WarlockMysticArcanumSetBuilder.WarlockMysticArcanumSetLevel17);
+            classWarlockBuilder.AddFeatureAtLevel(17, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel17);
             classWarlockBuilder.AddFeatureAtLevel(18, WarlockEldritchInvocationSetBuilderLevel18.WarlockEldritchInvocationSetLevel18);
             classWarlockBuilder.AddFeatureAtLevel(19, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
             classWarlockBuilder.AddFeatureAtLevel(20, WarlockFeatures.WarlockEldritchMasterPower);
