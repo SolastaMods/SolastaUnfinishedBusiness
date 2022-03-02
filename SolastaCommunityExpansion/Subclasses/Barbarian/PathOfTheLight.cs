@@ -372,34 +372,33 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                     .SetDamageDiceNumber(1)
                     .SetDamageDieType(RuleDefinitions.DieType.D6)
                     .SetDamageSaveAffinity(RuleDefinitions.EffectSavingThrowType.None)
-                    .SetDamageAdvancement(RuleDefinitions.AdditionalDamageAdvancement.ClassLevel)
                     .SetLimitedUsage(RuleDefinitions.FeatureLimitedUsage.OnceInMyturn)
                     .SetNotificationTag("BarbarianPathOfTheLightIlluminatingStrike")
                     .SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty.None)
                     .SetAddLightSource(true)
                     .SetLightSourceForm(CreateIlluminatedLightSource());
 
-                Definition.DiceByRankTable.AddRange(new[]
-                {
-                    BuildDiceByRank(3, 1),
-                    BuildDiceByRank(4, 1),
-                    BuildDiceByRank(5, 1),
-                    BuildDiceByRank(6, 1),
-                    BuildDiceByRank(7, 1),
-                    BuildDiceByRank(8, 1),
-                    BuildDiceByRank(9, 1),
-                    BuildDiceByRank(10, 2),
-                    BuildDiceByRank(11, 2),
-                    BuildDiceByRank(12, 2),
-                    BuildDiceByRank(13, 2),
-                    BuildDiceByRank(14, 2),
-                    BuildDiceByRank(15, 2),
-                    BuildDiceByRank(16, 2),
-                    BuildDiceByRank(17, 2),
-                    BuildDiceByRank(18, 2),
-                    BuildDiceByRank(19, 2),
-                    BuildDiceByRank(20, 2)
-                });
+                SetAdvancement(
+                    RuleDefinitions.AdditionalDamageAdvancement.ClassLevel,
+                    (3, 1),
+                    (4, 1),
+                    (5, 1),
+                    (6, 1),
+                    (7, 1),
+                    (8, 1),
+                    (9, 1),
+                    (10, 2),
+                    (11, 2),
+                    (12, 2),
+                    (13, 2),
+                    (14, 2),
+                    (15, 2),
+                    (16, 2),
+                    (17, 2),
+                    (18, 2),
+                    (19, 2),
+                    (20, 2)
+                );
 
                 Definition.ConditionOperations.Add(
                     new ConditionOperationDescription
@@ -436,15 +435,6 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                     .SetDimAdditionalRange(4);
 
                 return lightSourceForm;
-            }
-
-            // Common helper: factor out
-            private static DiceByRank BuildDiceByRank(int rank, int dice)
-            {
-                DiceByRank diceByRank = new DiceByRank();
-                diceByRank.SetRank(rank);
-                diceByRank.SetDiceNumber(dice);
-                return diceByRank;
             }
         }
 

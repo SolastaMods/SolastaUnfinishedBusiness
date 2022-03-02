@@ -496,15 +496,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 concentrationAffinity, threshold, guiPresentation).AddToDB();
         }
 
-        // Common helper: factor out
-        public static DiceByRank BuildDiceByRank(int rank, int dice)
-        {
-            DiceByRank diceByRank = new DiceByRank();
-            diceByRank.SetRank(rank);
-            diceByRank.SetDiceNumber(dice);
-            return diceByRank;
-        }
-
         public class FeatureDefinitionFeatureSetBuilder : Builders.Features.FeatureDefinitionFeatureSetBuilder
         {
             public FeatureDefinitionFeatureSetBuilder(string name, string guid, IEnumerable<FeatureDefinition> featureSet,
