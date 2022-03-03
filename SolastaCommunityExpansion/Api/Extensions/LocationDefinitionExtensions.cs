@@ -217,5 +217,12 @@ namespace SolastaModApi.Extensions
             entity.SetField("startsWithScavengerCamp", value);
             return entity;
         }
+
+        public static T SetUseNewSectorCullingAlgorithm<T>(this T entity, System.Boolean value)
+            where T : LocationDefinition
+        {
+            entity.SetField("useNewSectorCullingAlgorithm", value);
+            return entity;
+        }
     }
 }
