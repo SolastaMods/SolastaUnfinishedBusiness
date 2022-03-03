@@ -84,6 +84,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetConcentrationLost<T>(this T entity, System.Boolean value)
+            where T : RulesetEffectSpell
+        {
+            entity.SetField("<ConcentrationLost>k__BackingField", value);
+            return entity;
+        }
+
         public static T SetCounterAffinity<T>(this T entity, RuleDefinitions.AdvantageType value)
             where T : RulesetEffectSpell
         {

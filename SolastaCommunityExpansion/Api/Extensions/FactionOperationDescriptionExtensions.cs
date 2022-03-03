@@ -50,10 +50,17 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetOperation<T>(this T entity, FactionDefinition.RelationOperation value)
+        public static T SetOperation<T>(this T entity, FactionDefinition.FactionOperation value)
             where T : FactionOperationDescription
         {
             entity.Operation = value;
+            return entity;
+        }
+
+        public static T SetProminentMember<T>(this T entity, MonsterDefinition value)
+            where T : FactionOperationDescription
+        {
+            entity.ProminentMember = value;
             return entity;
         }
 

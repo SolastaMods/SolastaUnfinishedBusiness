@@ -43,6 +43,13 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(FeatureDefinitionSense)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class FeatureDefinitionSenseExtensions
     {
+        public static T SetRevealsHiddenObjects<T>(this T entity, System.Boolean value)
+            where T : FeatureDefinitionSense
+        {
+            entity.SetField("revealsHiddenObjects", value);
+            return entity;
+        }
+
         public static T SetSenseRange<T>(this T entity, System.Int32 value)
             where T : FeatureDefinitionSense
         {
