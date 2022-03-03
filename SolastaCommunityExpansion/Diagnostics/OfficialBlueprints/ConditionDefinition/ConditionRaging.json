@@ -22,7 +22,10 @@
   "durationParameterDie": "D1",
   "durationParameter": 1,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    "BattleEnd",
+    "NoAttackOrDamagedInTurn"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionDamageThreshold": 0,
   "conditionTags": [],

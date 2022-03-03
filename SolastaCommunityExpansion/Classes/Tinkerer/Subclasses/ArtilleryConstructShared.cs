@@ -18,11 +18,17 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         private const string Name = "ArtilleryConstructlevel03FeatureSet";
         private const string Guid = "59f857e6-7b06-4c2b-a241-b73c42d64c23";
 
-        // TODO: convert to lazy loading properties
-        public static readonly FeatureDefinitionPower ArtilleryModePool = CreateArtilleryModePool();
-        public static readonly FeatureDefinitionPowerSharedPool FlameArtillery_03modepower = CreateFlameArtillery03ModePower();
-        public static readonly FeatureDefinitionPowerSharedPool ForceArtillery_03modepower = CreateForceArtillery03ModePower();
-        public static readonly FeatureDefinitionPowerSharedPool TempHPShield_03modepower = CreateTempHPShield03ModePower();
+        private static FeatureDefinitionPower artilleryModePool;
+        public static FeatureDefinitionPower ArtilleryModePool => artilleryModePool ??= CreateArtilleryModePool();
+
+        private static FeatureDefinitionPowerSharedPool flameArtillery_03modepower;
+        public static FeatureDefinitionPowerSharedPool FlameArtillery_03modepower => flameArtillery_03modepower ??= CreateFlameArtillery03ModePower();
+
+        private static FeatureDefinitionPowerSharedPool forceArtillery_03modepower;
+        public static FeatureDefinitionPowerSharedPool ForceArtillery_03modepower => forceArtillery_03modepower ??= CreateForceArtillery03ModePower();
+
+        private static FeatureDefinitionPowerSharedPool tempHPShield_03modepower;
+        public static FeatureDefinitionPowerSharedPool TempHPShield_03modepower => tempHPShield_03modepower ??= CreateTempHPShield03ModePower();
 
         private static FeatureDefinitionPowerSharedPool CreateTempHPShield03ModePower()
         {
@@ -158,10 +164,14 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         private const string Name = "ArtilleryConstructlevel09FeatureSet";
         private const string Guid = "a1e9557c-c1a9-4912-9fea-1a16c4124331";
 
-        // TODO: convert to lazy loading properties
-        public static readonly FeatureDefinitionPowerSharedPool FlameArtillery_09modepower = CreateFlameArtillery09ModePower();
-        public static readonly FeatureDefinitionPowerSharedPool ForceArtillery_09modepower = CreateForceArtillery09ModePower();
-        public static readonly FeatureDefinitionPowerSharedPool TempHPShield_09modepower = CreateTempHPShield09ModePower();
+        private static FeatureDefinitionPowerSharedPool flameArtillery_09modepower;
+        public static FeatureDefinitionPowerSharedPool FlameArtillery_09modepower => flameArtillery_09modepower ??= CreateFlameArtillery09ModePower();
+
+        private static FeatureDefinitionPowerSharedPool forceArtillery_09modepower;
+        public static FeatureDefinitionPowerSharedPool ForceArtillery_09modepower => forceArtillery_09modepower ??= CreateForceArtillery09ModePower();
+
+        private static FeatureDefinitionPowerSharedPool tempHPShield_09modepower;
+        public static FeatureDefinitionPowerSharedPool TempHPShield_09modepower => tempHPShield_09modepower ??= CreateTempHPShield09ModePower();
 
         private static FeatureDefinitionPowerSharedPool CreateFlameArtillery09ModePower()
         {
@@ -288,10 +298,14 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         private const string Name = "ArtilleryConstructlevel15FeatureSet";
         private const string Guid = "50c91d16-1a84-494a-ba72-dd4879955f2f";
 
-        // TODO: convert to lazy loading properties
-        public static readonly FeatureDefinitionPowerSharedPool FlameArtillery_15modepower = CreateFlameArtillery15ModePower();
-        public static readonly FeatureDefinitionPowerSharedPool ForceArtillery_15modepower = CreateForceArtillery15ModePower();
-        public static readonly FeatureDefinitionPowerSharedPool TempHPShield_15modepower = CreateTempHPShield15ModePower();
+        private static FeatureDefinitionPowerSharedPool flameArtillery_15modepower;
+        public static FeatureDefinitionPowerSharedPool FlameArtillery_15modepower => flameArtillery_15modepower ??= CreateFlameArtillery15ModePower();
+
+        private static FeatureDefinitionPowerSharedPool forceArtillery_15modepower;
+        public static FeatureDefinitionPowerSharedPool ForceArtillery_15modepower => forceArtillery_15modepower ??= CreateForceArtillery15ModePower();
+
+        private static FeatureDefinitionPowerSharedPool tempHPShield_15modepower;
+        public static FeatureDefinitionPowerSharedPool TempHPShield_15modepower => tempHPShield_15modepower ??= CreateTempHPShield15ModePower();
 
         private static FeatureDefinitionPowerSharedPool CreateFlameArtillery15ModePower()
         {

@@ -6,10 +6,7 @@
   "stealingPenalty": 20,
   "attackingPenalty": 5,
   "killingPenalty": 25,
-  "prominentMembers": [
-    "Definition:DLC1_NPC_ThePeople_Rose:40520f4ed20b142469ae9f025e76917e",
-    "Definition:DLC1_NPC_ThePeople_Reya:4c54c86f73ffd064abdbf5f6969e6987"
-  ],
+  "prominentMembers": [],
   "smallSpriteReference": {
     "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

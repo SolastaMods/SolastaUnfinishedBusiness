@@ -1,6 +1,7 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
   "dungeonMakerPresence": "Monster",
+  "overrideSpawnDecision": null,
   "characterFamily": "Fey",
   "creatureTags": [],
   "defaultFaction": "HostileMonsters",
@@ -102,6 +103,8 @@
   "weight": 100,
   "isHusk": false,
   "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
   "forcePersistentBody": false,
   "bestiaryEntry": "Full",
   "bestiaryReference": null,
@@ -116,8 +119,8 @@
   "bestiarySpriteReference": {
     "$id": "11",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-    "m_AssetGUID": "539ab800b5fb6074abd127f9f93512a8",
-    "m_SubObjectName": "Wolf",
+    "m_AssetGUID": "abaa3d1b886943847b2e0c720e594aca",
+    "m_SubObjectName": "Fey_Wolf",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "monsterPresentation": {
@@ -193,6 +196,7 @@
     },
     "femaleModelScale": 1.1,
     "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
     "hasLightingCutscene": true,
     "canGeneratePortrait": true,

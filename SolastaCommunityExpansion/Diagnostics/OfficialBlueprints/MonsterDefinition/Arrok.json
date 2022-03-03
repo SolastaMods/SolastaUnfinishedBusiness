@@ -1,6 +1,7 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
   "dungeonMakerPresence": "None",
+  "overrideSpawnDecision": null,
   "characterFamily": "Humanoid",
   "creatureTags": [
     "Orc"
@@ -181,6 +182,8 @@
   "weight": 250,
   "isHusk": false,
   "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
   "forcePersistentBody": false,
   "bestiaryEntry": "None",
   "bestiaryReference": null,
@@ -274,6 +277,7 @@
     },
     "femaleModelScale": 0.66,
     "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
     "hasLightingCutscene": true,
     "canGeneratePortrait": false,

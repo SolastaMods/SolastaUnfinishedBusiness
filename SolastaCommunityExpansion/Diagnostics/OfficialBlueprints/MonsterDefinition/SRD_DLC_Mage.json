@@ -1,6 +1,7 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
   "dungeonMakerPresence": "Monster",
+  "overrideSpawnDecision": null,
   "characterFamily": "Humanoid",
   "creatureTags": [],
   "defaultFaction": "HostileMonsters",
@@ -70,7 +71,7 @@
       },
       "previousTargetRelatedMalus": 0.1
     },
-    "name": "PrioritizeHurtMeatyDamageDealers"
+    "name": "PrioritizeHurtDamageDealers"
   },
   "languages": [
     "Language_Common"
@@ -106,9 +107,11 @@
   "weight": 200,
   "isHusk": false,
   "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "Full",
-  "bestiaryReference": null,
+  "bestiaryEntry": "Reference",
+  "bestiaryReference": "Definition:SRD_Mage:dae12a4dfa3c78142b8ec13279123fae",
   "bestiaryCameraOffset": {
     "$id": "11",
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -200,6 +203,7 @@
     },
     "femaleModelScale": 0.66,
     "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
     "hasLightingCutscene": true,
     "canGeneratePortrait": false,
@@ -261,6 +265,6 @@
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "1f87e230692d2ef458a9da39c424f834",
-  "contentPack": "BaseGame",
+  "contentPack": "LostValley",
   "name": "SRD_DLC_Mage"
 }

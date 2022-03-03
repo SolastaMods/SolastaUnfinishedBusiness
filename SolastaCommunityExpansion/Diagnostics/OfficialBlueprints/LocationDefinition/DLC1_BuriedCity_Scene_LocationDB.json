@@ -323,6 +323,7 @@
   "focusWhenRevealed": true,
   "startsWithScavengerCamp": false,
   "ignoredByScavengers": false,
+  "useNewSectorCullingAlgorithm": true,
   "keepSectorCullingResultsWhenInactive": false,
   "setCurrentCampaignNodeWhenLeaving": true,
   "hasPriorityForTeleporter": false,

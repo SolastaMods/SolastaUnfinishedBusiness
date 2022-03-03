@@ -95,6 +95,7 @@
           "hitPointsFloor": 0,
           "forceKillOnZeroHp": false,
           "specialDeathCondition": null,
+          "ignoreFlyingCharacters": false,
           "ignoreCriticalDoubleDice": false
         }
       },
@@ -209,7 +210,7 @@
       "impactParticleReference": {
         "$id": "16",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "8bf042051751f9a48874e912997107ed",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -307,7 +308,7 @@
       "conditionStartParticleReference": {
         "$id": "30",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "8bf042051751f9a48874e912997107ed",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

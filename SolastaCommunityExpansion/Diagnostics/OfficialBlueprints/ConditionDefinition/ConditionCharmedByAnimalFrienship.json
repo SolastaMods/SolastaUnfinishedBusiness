@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
-    "Definition:FactionChangeConditionCharmedByAnimalFriendship:a16ccb0137b44604aac482654c40611e"
+    "Definition:ActionAffinityConditionCharmedByAnimalFriendship:839a5bccd0b237a4aa4e11f6c396aed1"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
