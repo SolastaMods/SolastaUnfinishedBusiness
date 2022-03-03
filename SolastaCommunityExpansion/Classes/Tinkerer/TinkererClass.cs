@@ -430,8 +430,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 .SetSubclasses(
                     AlchemistBuilder.Build(tinkerer),
                     ArtilleristBuilder.Build(tinkerer, featureSpellCasting),
-                    BattleSmithBuilder.Build(tinkerer),
-                    ScoutSentinelTinkererSubclassBuilder.BuildAndAddSubclass())
+                    BattleSmithBuilder.Build(tinkerer))
+                    //ScoutSentinelTinkererSubclassBuilder.BuildAndAddSubclass())
                 .AddToDB();
 
             artificerBuilder.AddFeatureAtLevel(3, subclasses);
