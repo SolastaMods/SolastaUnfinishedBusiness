@@ -64,10 +64,10 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetPartySurprised<T>(this T entity, System.Boolean value)
+        public static T SetSurpriseOutcome<T>(this T entity, EncounterDefinitions.SurpriseOutcome value)
             where T : EncounterParametersDescription
         {
-            entity.PartySurprised = value;
+            entity.SurpriseOutcome = value;
             return entity;
         }
     }

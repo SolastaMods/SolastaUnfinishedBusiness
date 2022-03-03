@@ -28,7 +28,7 @@
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "targetFilteringMethod": "CharacterOnly",
-    "targetFilteringTag": "No",
+    "targetFilteringTag": "NotFlying",
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
     "slotTypes": [],

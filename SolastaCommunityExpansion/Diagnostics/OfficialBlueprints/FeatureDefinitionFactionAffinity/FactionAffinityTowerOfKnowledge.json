@@ -6,7 +6,8 @@
     "operation": "Increase",
     "factionName": "TowerOfKnowledge",
     "value": 5,
-    "statusName": ""
+    "statusName": "",
+    "prominentMember": null
   },
   "guiPresentation": {
     "$id": "2",

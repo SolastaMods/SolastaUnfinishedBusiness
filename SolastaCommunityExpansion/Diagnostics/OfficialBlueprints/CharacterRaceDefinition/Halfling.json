@@ -181,8 +181,15 @@
       "Tosscobble"
     ],
     "needBeard": false,
-    "useBeardBlendShape": false,
-    "beardBlendShapes": [],
+    "useBeardBlendShape": true,
+    "beardBlendShapes": [
+      {
+        "$id": "9",
+        "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
+        "faceShapeName": "FaceShape_NPC_Hanno_Mudstrider",
+        "blendShapeIndex": 0
+      }
+    ],
     "canModifyMusculature": false,
     "originOptions": [
       "Origin_NonHuman"
@@ -283,40 +290,40 @@
     "maleVoiceDefinition": "NEUTRAL1",
     "femaleVoiceDefinition": "FEM2",
     "portraitShieldOffset": {
-      "$id": "9",
+      "$id": "10",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.02,
       "y": 0.08,
       "z": 0.0
     },
     "preferedSkinColors": {
-      "$id": "10",
+      "$id": "11",
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 1,
       "maxValue": 15
     },
     "preferedHairColors": {
-      "$id": "11",
+      "$id": "12",
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 0,
       "maxValue": 24
     }
   },
   "guiPresentation": {
-    "$id": "12",
+    "$id": "13",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Race/&HalflingTitle",
     "description": "Race/&HalflingDescription",
     "spriteReference": {
-      "$id": "13",
+      "$id": "14",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "12c20f39d1b9b7a46954c61b0d16412f",
       "m_SubObjectName": "IslandHalfling",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "14",
+      "$id": "15",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,
