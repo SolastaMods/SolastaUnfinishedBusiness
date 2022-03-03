@@ -64,8 +64,8 @@
     "spriteReference": {
       "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "8f8d54e7a855576449b7ae64947428af",
-      "m_SubObjectName": "NPC_Presentation_DLC1_City_Guard_Male_04",
+      "m_AssetGUID": "df38cd9834feb54468eeb8e1ab90f82e",
+      "m_SubObjectName": "CustomPortrait_NPC_Presentation_DLC1_People03_Bodyguard",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

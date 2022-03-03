@@ -1,6 +1,7 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
   "dungeonMakerPresence": "Monster",
+  "overrideSpawnDecision": null,
   "characterFamily": "Fey",
   "creatureTags": [],
   "defaultFaction": "HostileMonsters",
@@ -74,6 +75,8 @@
   "weight": 1000,
   "isHusk": false,
   "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
   "forcePersistentBody": false,
   "bestiaryEntry": "Full",
   "bestiaryReference": null,
@@ -88,9 +91,9 @@
   "bestiarySpriteReference": {
     "$id": "5",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-    "m_AssetGUID": "eb733229823988c4fa81cb68b1f22e55",
-    "m_SubObjectName": "Ogre",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "94a14621d871b494a977e00cb0436ad0",
+    "m_SubObjectName": "Fey_Ape",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "monsterPresentation": {
     "$id": "6",
@@ -165,6 +168,7 @@
     },
     "femaleModelScale": 0.7,
     "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
     "hasLightingCutscene": true,
     "canGeneratePortrait": false,

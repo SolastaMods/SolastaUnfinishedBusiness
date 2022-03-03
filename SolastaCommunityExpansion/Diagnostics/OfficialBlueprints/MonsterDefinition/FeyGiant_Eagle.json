@@ -1,6 +1,7 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
   "dungeonMakerPresence": "Monster",
+  "overrideSpawnDecision": null,
   "characterFamily": "Fey",
   "creatureTags": [],
   "defaultFaction": "HostileMonsters",
@@ -83,6 +84,8 @@
   "weight": 100,
   "isHusk": false,
   "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
   "forcePersistentBody": false,
   "bestiaryEntry": "Full",
   "bestiaryReference": null,
@@ -97,8 +100,8 @@
   "bestiarySpriteReference": {
     "$id": "5",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-    "m_AssetGUID": "2ef8f77ea11033549b35a44ce06d7c2c",
-    "m_SubObjectName": "Giant_Eagle",
+    "m_AssetGUID": "2057fd6fc51285e48bbda683413143c4",
+    "m_SubObjectName": "Fey_Eagle",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "monsterPresentation": {
@@ -174,6 +177,7 @@
     },
     "femaleModelScale": 0.8,
     "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
     "hasLightingCutscene": true,
     "canGeneratePortrait": true,

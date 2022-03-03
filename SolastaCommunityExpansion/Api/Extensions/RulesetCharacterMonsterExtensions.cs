@@ -369,6 +369,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetDummyMonster<T>(this T entity, System.Boolean value)
+            where T : RulesetCharacterMonster
+        {
+            entity.SetField("<DummyMonster>k__BackingField", value);
+            return entity;
+        }
+
         public static T SetFactionDamagingPenaltyOverride<T>(this T entity, System.Int32 value)
             where T : RulesetCharacterMonster
         {

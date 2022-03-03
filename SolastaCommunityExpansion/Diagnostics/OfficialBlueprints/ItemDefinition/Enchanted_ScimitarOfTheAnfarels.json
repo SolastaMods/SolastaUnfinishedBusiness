@@ -154,6 +154,7 @@
             "hitPointsFloor": 0,
             "forceKillOnZeroHp": false,
             "specialDeathCondition": null,
+            "ignoreFlyingCharacters": false,
             "ignoreCriticalDoubleDice": false
           }
         }
@@ -524,7 +525,7 @@
     "assetReference": {
       "$id": "49",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "a8e5c0b9d6351e243a14bf1b2cc07752",
+      "m_AssetGUID": "d95d826c68749ec459e3c55488cb0f71",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },

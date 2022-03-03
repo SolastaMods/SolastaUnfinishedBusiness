@@ -1,6 +1,7 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
   "dungeonMakerPresence": "NPC",
+  "overrideSpawnDecision": null,
   "characterFamily": "Humanoid",
   "creatureTags": [],
   "defaultFaction": "DLC1_Faction_Orenitis",
@@ -130,8 +131,10 @@
   "weight": 200,
   "isHusk": false,
   "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "Full",
+  "bestiaryEntry": "None",
   "bestiaryReference": "Definition:DLC1_NPC_CityGuard:316c1619accb61f408128375090dd749",
   "bestiaryCameraOffset": {
     "$id": "14",
@@ -226,6 +229,7 @@
     },
     "femaleModelScale": 0.66,
     "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
     "hasLightingCutscene": true,
     "canGeneratePortrait": false,

@@ -1,6 +1,7 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
   "dungeonMakerPresence": "Monster",
+  "overrideSpawnDecision": null,
   "characterFamily": "Fey",
   "creatureTags": [],
   "defaultFaction": "HostileMonsters",
@@ -70,7 +71,7 @@
       },
       "previousTargetRelatedMalus": 0.1
     },
-    "name": "PrioritizeNooneButFocus"
+    "name": "PrioritizeHurtDamageDealers"
   },
   "languages": [],
   "audioSwitches": [],
@@ -112,6 +113,8 @@
   "weight": 100,
   "isHusk": false,
   "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
   "forcePersistentBody": false,
   "bestiaryEntry": "Full",
   "bestiaryReference": null,
@@ -213,6 +216,7 @@
     },
     "femaleModelScale": 0.655,
     "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
     "hasLightingCutscene": true,
     "canGeneratePortrait": true,

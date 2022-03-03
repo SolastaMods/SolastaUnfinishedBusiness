@@ -146,6 +146,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetHideWieldedItemsWhenPassive<T>(this T entity, System.Boolean value)
+            where T : MonsterPresentation
+        {
+            entity.SetField("hideWieldedItemsWhenPassive", value);
+            return entity;
+        }
+
         public static T SetHumanoidMonsterPresentationDefinitions<T>(this T entity, HumanoidMonsterPresentationDefinition[] value)
             where T : MonsterPresentation
         {

@@ -4,13 +4,13 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:SenseDarkvision12:b7ab84f45ce51764ca9c430f745a6b4e"
+    "Definition:SenseTruesight16:ea70a5054de732f4f8112f2ffca185a6"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
+  "specialDuration": false,
   "durationType": "Hour",
   "durationParameterDie": "D4",
   "durationParameter": 1,
