@@ -192,7 +192,6 @@ namespace SolastaCommunityExpansion
         public bool FixSorcererTwinnedLogic { get; set; }
         public bool EnableUpcastConjureElementalAndFey { get; set; }
         public bool FullyControlConjurations { get; set; }
-        public bool DismissControlledConjurationsWhenDeliberatelyDropConcentration { get; set; }
         public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
         public bool SpikeGrowthDoesNotAffectFlyingCreatures { get; set; }
         public bool SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures { get; set; }
