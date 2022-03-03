@@ -6,7 +6,8 @@
     "operation": "Increase",
     "factionName": "Antiquarians",
     "value": 15,
-    "statusName": ""
+    "statusName": "",
+    "prominentMember": null
   },
   "guiPresentation": {
     "$id": "2",

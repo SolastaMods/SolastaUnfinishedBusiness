@@ -248,6 +248,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetEndOfDurationReached<T>(this T entity, System.Boolean value)
+            where T : RulesetEffect
+        {
+            entity.SetField("<EndOfDurationReached>k__BackingField", value);
+            return entity;
+        }
+
         public static T SetMagicAttackTrends<T>(this T entity,  params  RuleDefinitions . TrendInfo [ ]  value)
             where T : RulesetEffect
         {

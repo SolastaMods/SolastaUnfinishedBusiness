@@ -1,6 +1,7 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
   "dungeonMakerPresence": "Monster",
+  "overrideSpawnDecision": null,
   "characterFamily": "Beast",
   "creatureTags": [],
   "defaultFaction": "HostileMonsters",
@@ -42,7 +43,36 @@
   "differentActionEachTurn": false,
   "legendaryActionOptions": [],
   "defaultBattleDecisionPackage": "Definition:DefaultRangeWithBackupMeleeDecisions:a938084b17b2aad46bffadc07456119a",
-  "threatEvaluatorDefinition": null,
+  "threatEvaluatorDefinition": {
+    "$id": "3",
+    "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
+    "threatEvaluator": {
+      "$id": "4",
+      "$type": "TA.AI.ThreatEvaluator, Assembly-CSharp",
+      "hateResponse": {
+        "$id": "5",
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "woundRatioResponse": {
+        "$id": "6",
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "maxHPResponse": {
+        "$id": "7",
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "attackersCountResponse": {
+        "$id": "8",
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "meleeVsRangedResponse": {
+        "$id": "9",
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "previousTargetRelatedMalus": 0.1
+    },
+    "name": "PrioritizeNooneButSpread"
+  },
   "languages": [],
   "audioSwitches": [],
   "audioSwitchesOnHands": [],
@@ -58,13 +88,13 @@
   ],
   "attackIterations": [
     {
-      "$id": "3",
+      "$id": "10",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 2,
       "monsterAttackDefinition": "Definition:Attack_Ape_Fist:c20bdbeeeccfae648b9d24f3610a289e"
     },
     {
-      "$id": "4",
+      "$id": "11",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_Ape_Toss_Rock:07c248b3215517348a106702034aaec6"
@@ -80,11 +110,13 @@
   "weight": 1000,
   "isHusk": false,
   "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
   "forcePersistentBody": false,
   "bestiaryEntry": "Reference",
   "bestiaryReference": "Definition:Ape_MonsterDefinition:0486705bbb7af0d4c8146e40ec2b99f8",
   "bestiaryCameraOffset": {
-    "$id": "5",
+    "$id": "12",
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
     "y": 7.0,
@@ -92,14 +124,14 @@
   },
   "alwaysHideStats": false,
   "bestiarySpriteReference": {
-    "$id": "6",
+    "$id": "13",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "eb733229823988c4fa81cb68b1f22e55",
     "m_SubObjectName": "Ogre",
     "m_SubObjectType": ""
   },
   "monsterPresentation": {
-    "$id": "7",
+    "$id": "14",
     "$type": "MonsterPresentation, Assembly-CSharp",
     "hasUniqueName": false,
     "uniqueNameTitle": "",
@@ -107,14 +139,14 @@
     "useCustomMaterials": false,
     "customMaterials": [],
     "customShaderReference": {
-      "$id": "8",
+      "$id": "15",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "mutantFleshDirection": {
-      "$id": "9",
+      "$id": "16",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -1.0,
@@ -122,7 +154,7 @@
     },
     "overrideCharacterShaderColors": false,
     "firstCharacterShaderColor": {
-      "$id": "10",
+      "$id": "17",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -130,7 +162,7 @@
       "a": 0.0
     },
     "secondCharacterShaderColor": {
-      "$id": "11",
+      "$id": "18",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -139,14 +171,14 @@
     },
     "hasPhantomDistortion": true,
     "attachedParticlesReference": {
-      "$id": "12",
+      "$id": "19",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "bestiaryAttachedParticlesReference": {
-      "$id": "13",
+      "$id": "20",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -155,7 +187,7 @@
     "hasPrefabVariants": false,
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
-      "$id": "14",
+      "$id": "21",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "8f4589a9a294b444785fab045256a713",
       "m_SubObjectName": "",
@@ -163,7 +195,7 @@
     },
     "maleModelScale": 0.4,
     "femalePrefabReference": {
-      "$id": "15",
+      "$id": "22",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "8f4589a9a294b444785fab045256a713",
       "m_SubObjectName": "",
@@ -171,27 +203,28 @@
     },
     "femaleModelScale": 0.4,
     "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
     "hasLightingCutscene": true,
     "canGeneratePortrait": false,
     "needMerchantPortrait": false,
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {
-      "$id": "16",
+      "$id": "23",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -0.5,
       "z": -5.0
     },
     "portraitCameraLookAtScreenOffset": {
-      "$id": "17",
+      "$id": "24",
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
       "x": 0.5,
       "y": 0.4
     },
     "portraitCameraFOV": 40.0,
     "portraitCameraLightingOffset": {
-      "$id": "18",
+      "$id": "25",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": 0.0,
@@ -206,20 +239,20 @@
   "isUnique": false,
   "uniqueNameId": "",
   "guiPresentation": {
-    "$id": "19",
+    "$id": "26",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Monster/&Ape_Title",
     "description": "Monster/&Ape_Description",
     "spriteReference": {
-      "$id": "20",
+      "$id": "27",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "09f3dbfab952810479815a0d5855c995",
       "m_SubObjectName": "CustomPortrait_Ape_Range_MonsterDefinition",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "21",
+      "$id": "28",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

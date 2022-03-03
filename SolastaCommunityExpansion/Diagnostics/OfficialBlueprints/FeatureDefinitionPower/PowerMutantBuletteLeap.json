@@ -85,6 +85,7 @@
           "hitPointsFloor": 0,
           "forceKillOnZeroHp": false,
           "specialDeathCondition": null,
+          "ignoreFlyingCharacters": false,
           "ignoreCriticalDoubleDice": false
         }
       },
@@ -116,6 +117,7 @@
           "hitPointsFloor": 0,
           "forceKillOnZeroHp": false,
           "specialDeathCondition": null,
+          "ignoreFlyingCharacters": false,
           "ignoreCriticalDoubleDice": false
         }
       },
@@ -248,7 +250,7 @@
       "impactParticleReference": {
         "$id": "20",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "31293299f547bf54c9c9be5307712272",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -418,8 +420,8 @@
     "$id": "39",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerDragonBreath_Acid_Title",
-    "description": "Feature/&PowerDragonBreath_Acid_Description",
+    "title": "Powers/&Power_Deady_Leap_Title",
+    "description": "Powers/&Power_Deady_Leap_Description",
     "spriteReference": {
       "$id": "40",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
