@@ -42,7 +42,7 @@ namespace SolastaCommunityExpansion.Level20.Features
         {
             if (character == null || abilityScoreName != AttributeDefinitions.Strength)
             {
-                return 0;
+                return 1;
             }
 
             return character.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
