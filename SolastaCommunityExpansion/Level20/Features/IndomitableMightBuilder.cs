@@ -28,11 +28,28 @@ namespace SolastaCommunityExpansion.Level20.Features
             CreateAndAddToDB(IndomitableMightName, IndomitableMightGuid);
     }
 
-    internal sealed class IndomitableMight : FeatureDefinition, IMinimumAbilityCheckTotal
+    internal sealed class IndomitableMight : FeatureDefinition, IChangeAbilityCheck
     {
-        public int? MinimumStrengthAbilityCheckTotal(RulesetCharacter character, string proficiencyName)
+        public int MinAbilityCheck(
+            RulesetCharacter character,
+            int baseBonus,
+            int rollModifier,
+            string abilityScoreName,
+            string proficiencyName)
         {
-            return character?.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
+            if (character == null || abilityScoreName != AttributeDefinitions.Strength)
+            {
+                return 0;
+            }
+
+            return character.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
         }
+
+        public int MaxAbilityCheck(
+            RulesetCharacter character,
+            int baseBonus,
+            int rollModifier,
+            string abilityScoreName,
+            string proficiencyName) => 9999;
     }
 }

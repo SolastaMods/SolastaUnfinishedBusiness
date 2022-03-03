@@ -1,12 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {
+    //
+    // INotifyConditionRemoval
+    //
     [HarmonyPatch(typeof(RulesetCharacter), "Kill")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacter_Kill
@@ -26,6 +31,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         }
     }
 
+    //
+    // IStartOfTurnRecharge
+    //
     [HarmonyPatch(typeof(RulesetCharacter), "RechargePowersForTurnStart")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacter_RechargePowersForTurnStart
@@ -47,11 +55,14 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         }
     }
 
+    //
+    // IChangeAbilityCheck
+    //
     [HarmonyPatch(typeof(RulesetCharacter), "RollAbilityCheck")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacter_RollAbilityCheck
     {
-        internal static void Prefix(
+        internal static void Postfix(
             RulesetCharacter __instance,
             int baseBonus,
             int rollModifier,
@@ -59,91 +70,123 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             string proficiencyName,
             ref int minRoll)
         {
-            if (abilityScoreName != AttributeDefinitions.Strength)
-            {
-                return;
-            }
-
-            int? modifiedMinRoll = RulesetCharacter_ResolveContestCheck.MinimumStrengthAbilityCheckDieRoll(__instance, baseBonus, rollModifier, proficiencyName);
-
-            if (modifiedMinRoll > minRoll)
-            {
-                minRoll = modifiedMinRoll.Value;
-            }
+            minRoll = RulesetCharacter_ResolveContestCheck.GetNewResult(__instance, baseBonus, rollModifier, abilityScoreName, proficiencyName, minRoll);
         }
     }
 
+    //
+    // IChangeAbilityCheck
+    //
     [HarmonyPatch(typeof(RulesetCharacter), "ResolveContestCheck")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacter_ResolveContestCheck
     {
-        internal static void Prefix(
-            RulesetCharacter __instance,
+        internal static int GetNewResult(
+            RulesetCharacter rulesetCharacter,
             int baseBonus,
             int rollModifier,
             string abilityScoreName,
             string proficiencyName,
-            RulesetCharacter opponent,
-            int opponentBaseBonus,
-            int opponentRollModifier,
-            string opponentAbilityScoreName,
-            string opponentProficiencyName)
+            int result)
         {
-            // ResolveContestCheck calls RulesetActor.RollDie twice (once for you, once for your opponent).
-            // SetNextAbilityCheckMinimum below tells the RulesetActor.RollDie patch that the next call to RollDie (for the specified RulesetCharacter) must have a certain minimum value.
-
-            if (abilityScoreName == AttributeDefinitions.Strength)
-            {
-                int? instanceMinRoll = MinimumStrengthAbilityCheckDieRoll(__instance, baseBonus, rollModifier, proficiencyName);
-
-                if (instanceMinRoll.HasValue)
-                {
-                    RulesetActor_RollDie.SetNextAbilityCheckMinimum(__instance, instanceMinRoll.Value);
-                }
-            }
-
-            if (opponentAbilityScoreName == AttributeDefinitions.Strength)
-            {
-                int? opponentMinRoll = MinimumStrengthAbilityCheckDieRoll(opponent, opponentBaseBonus, opponentRollModifier, opponentProficiencyName);
-
-                if (opponentMinRoll.HasValue)
-                {
-                    RulesetActor_RollDie.SetNextAbilityCheckMinimum(opponent, opponentMinRoll.Value);
-                }
-            }
-        }
-
-        internal static int? MinimumStrengthAbilityCheckDieRoll(RulesetCharacter character, int baseBonus, int rollModifier, string proficiencyName)
-        {
-            if (character == null)
-            {
-                return null;
-            }
-
-            int? minimumTotal = MinimumStrengthAbilityCheckTotal(character, proficiencyName);
-
-            if (!minimumTotal.HasValue)
-            {
-                return null;
-            }
-
-            // Set the minimum die roll based on the bonuses, which indirectly sets the minimum total.
-            // This can result in impossible die rolls, like rolling 23 on a d20, which the game doesn't seem to mind.
-            return minimumTotal.Value - (baseBonus + rollModifier);
-        }
-
-        private static int? MinimumStrengthAbilityCheckTotal(RulesetCharacter character, string proficiencyName)
-        {
+            var min = 9999;
+            var max = 0;
             var featuresToBrowse = new List<FeatureDefinition>();
 
-            character.EnumerateFeaturesToBrowse<IMinimumAbilityCheckTotal>(featuresToBrowse);
+            rulesetCharacter.EnumerateFeaturesToBrowse<IChangeAbilityCheck>(featuresToBrowse);
 
-            return featuresToBrowse
-                .OfType<IMinimumAbilityCheckTotal>()
-                .Max(feature => feature.MinimumStrengthAbilityCheckTotal(character, proficiencyName));
+            foreach (var feature in featuresToBrowse.OfType<IChangeAbilityCheck>())
+            {
+                min = Math.Min(min, feature.MinAbilityCheck(rulesetCharacter, baseBonus, rollModifier, abilityScoreName, proficiencyName));
+                max = Math.Max(max, feature.MaxAbilityCheck(rulesetCharacter, baseBonus, rollModifier, abilityScoreName, proficiencyName));
+            }
+
+            if (max < min)
+            {
+                return result;
+            }
+
+            if (result < min)
+            {
+                result = min;
+            }
+
+            if (result > max)
+            {
+                result = max;
+            }
+
+            return result;
+        }
+
+        public static int ExtendedRollDie(
+            RulesetCharacter rulesetCharacter,
+            RuleDefinitions.DieType dieType,
+            RuleDefinitions.RollContext rollContext,
+            bool isProficient,
+            RuleDefinitions.AdvantageType advantageType,
+            out int firstRoll,
+            out int secondRoll,
+            bool enumerateFeatures,
+            bool canRerollDice,
+            int baseBonus,
+            int rollModifier,
+            string abilityScoreName,
+            string proficiencyName)
+        {
+            var result = rulesetCharacter.RollDie(dieType, rollContext, isProficient, advantageType, out firstRoll, out secondRoll, enumerateFeatures, canRerollDice);
+
+            return GetNewResult(
+                rulesetCharacter,
+                baseBonus,
+                rollModifier,
+                abilityScoreName,
+                proficiencyName, 
+                result);
+        }
+
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            var found = 0;
+            var rollDieMethod = typeof(RulesetActor).GetMethod("RollDie");
+            var extendedRollDieMethod = typeof(RulesetCharacter_ResolveContestCheck).GetMethod("ExtendedRollDie");
+
+            foreach (CodeInstruction instruction in instructions)
+            {
+                if (instruction.Calls(rollDieMethod))
+                {
+                    ++found;
+
+                    // first call to roll die checks the initiator
+                    if (found == 1)
+                    {
+                        yield return new CodeInstruction(OpCodes.Ldarg, 1); // baseBonus
+                        yield return new CodeInstruction(OpCodes.Ldarg, 2); // rollModifier
+                        yield return new CodeInstruction(OpCodes.Ldarg, 3); // abilityScoreName
+                        yield return new CodeInstruction(OpCodes.Ldarg, 4); // proficiencyName
+                    }
+                    // second call to roll die checks the opponent
+                    else if (found == 2)
+                    {
+                        yield return new CodeInstruction(OpCodes.Ldarg, 7); // opponentBaseBonus
+                        yield return new CodeInstruction(OpCodes.Ldarg, 8); // opponentRollModifier
+                        yield return new CodeInstruction(OpCodes.Ldarg, 9); // opponentAbilityScoreName
+                        yield return new CodeInstruction(OpCodes.Ldarg, 10); // opponentProficiencyName
+                    }
+
+                    yield return new CodeInstruction(OpCodes.Call, extendedRollDieMethod);
+                }
+                else
+                {
+                    yield return instruction;
+                }
+            }
         }
     }
 
+    //
+    // Power Related Patches
+    //
     [HarmonyPatch(typeof(RulesetCharacter), "UsePower")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacter_UsePower
