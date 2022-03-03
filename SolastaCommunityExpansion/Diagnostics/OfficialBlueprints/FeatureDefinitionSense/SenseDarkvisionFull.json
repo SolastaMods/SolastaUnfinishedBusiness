@@ -3,6 +3,7 @@
   "senseType": "Darkvision",
   "senseRange": 16,
   "stealthBreakerRange": 6,
+  "revealsHiddenObjects": false,
   "guiPresentation": {
     "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",

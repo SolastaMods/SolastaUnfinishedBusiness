@@ -145,6 +145,7 @@
             "hitPointsFloor": 0,
             "forceKillOnZeroHp": false,
             "specialDeathCondition": null,
+            "ignoreFlyingCharacters": false,
             "ignoreCriticalDoubleDice": false
           }
         }
@@ -508,7 +509,7 @@
     "assetReference": {
       "$id": "47",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "1f643e9d1fdeddc4fb2b7ddb0b3fbd19",
+      "m_AssetGUID": "c477b75e2f4c7b94ebe8d93725cd9c10",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -534,8 +535,8 @@
     "spriteReference": {
       "$id": "49",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a5d7ccd2eae6b7346b595a27d5a2a441",
-      "m_SubObjectName": "StandardHeavyCrossbow",
+      "m_AssetGUID": "e94ea6f478f66ef4d8a3b4ba6ba50e1a",
+      "m_SubObjectName": "Heavy_Crossbow02",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

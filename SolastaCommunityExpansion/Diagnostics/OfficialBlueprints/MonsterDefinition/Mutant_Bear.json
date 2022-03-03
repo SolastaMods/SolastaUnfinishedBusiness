@@ -1,6 +1,7 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
   "dungeonMakerPresence": "Monster",
+  "overrideSpawnDecision": null,
   "characterFamily": "Aberration",
   "creatureTags": [],
   "defaultFaction": "HostileMonsters",
@@ -97,6 +98,8 @@
   "weight": 1000,
   "isHusk": false,
   "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
   "forcePersistentBody": false,
   "bestiaryEntry": "Full",
   "bestiaryReference": null,
@@ -111,8 +114,8 @@
   "bestiarySpriteReference": {
     "$id": "7",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-    "m_AssetGUID": "3377661fb543df348af49db3d9034918",
-    "m_SubObjectName": "Mutant_Bear_CustomPortrait",
+    "m_AssetGUID": "9237f0b6ce0a89646a981b07bb52157f",
+    "m_SubObjectName": "",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "monsterPresentation": {
@@ -190,6 +193,7 @@
     },
     "femaleModelScale": 0.655,
     "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
     "hasLightingCutscene": true,
     "canGeneratePortrait": false,

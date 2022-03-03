@@ -3,6 +3,7 @@
   "senseType": "DetectInvisibility",
   "senseRange": 24,
   "stealthBreakerRange": 6,
+  "revealsHiddenObjects": false,
   "guiPresentation": {
     "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",

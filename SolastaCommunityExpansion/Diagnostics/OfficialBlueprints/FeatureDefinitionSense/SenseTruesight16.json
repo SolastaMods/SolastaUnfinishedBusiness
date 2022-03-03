@@ -3,6 +3,7 @@
   "senseType": "Truesight",
   "senseRange": 16,
   "stealthBreakerRange": 6,
+  "revealsHiddenObjects": true,
   "guiPresentation": {
     "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",

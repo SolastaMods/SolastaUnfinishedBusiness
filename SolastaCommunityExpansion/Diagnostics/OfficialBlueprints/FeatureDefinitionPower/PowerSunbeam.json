@@ -98,6 +98,7 @@
           "hitPointsFloor": 0,
           "forceKillOnZeroHp": false,
           "specialDeathCondition": null,
+          "ignoreFlyingCharacters": false,
           "ignoreCriticalDoubleDice": false
         }
       },
@@ -351,7 +352,7 @@
     "animationMagicEffect": "Animation0"
   },
   "delegatedToAction": true,
-  "surrogateToSpell": null,
+  "surrogateToSpell": "Definition:Sunbeam:ec547e11445032d4f9519982399724a6",
   "triggeredBySpecialMove": false,
   "activationTime": "Action",
   "reactionContext": "None",

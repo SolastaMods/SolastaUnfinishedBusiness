@@ -144,6 +144,7 @@
             "hitPointsFloor": 0,
             "forceKillOnZeroHp": false,
             "specialDeathCondition": null,
+            "ignoreFlyingCharacters": false,
             "ignoreCriticalDoubleDice": false
           }
         },
@@ -175,6 +176,7 @@
             "hitPointsFloor": 0,
             "forceKillOnZeroHp": false,
             "specialDeathCondition": null,
+            "ignoreFlyingCharacters": false,
             "ignoreCriticalDoubleDice": false
           }
         }
@@ -538,7 +540,7 @@
     "assetReference": {
       "$id": "49",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "b2d509a5a68e2324ba96836f18fba070",
+      "m_AssetGUID": "e2e3b62f1d704e347b26e12d32c5bd61",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -564,8 +566,8 @@
     "spriteReference": {
       "$id": "51",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "39e03e1f1dcb317458968d28fddebab9",
-      "m_SubObjectName": "StandardLightCrossbow",
+      "m_AssetGUID": "8b168287779ca5343b227adacd869c40",
+      "m_SubObjectName": "CrossbowLight_+2",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

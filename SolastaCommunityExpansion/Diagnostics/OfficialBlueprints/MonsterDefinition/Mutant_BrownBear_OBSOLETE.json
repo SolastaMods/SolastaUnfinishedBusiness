@@ -1,6 +1,7 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
   "dungeonMakerPresence": "None",
+  "overrideSpawnDecision": null,
   "characterFamily": "Aberration",
   "creatureTags": [],
   "defaultFaction": "HostileMonsters",
@@ -90,8 +91,10 @@
   "weight": 1000,
   "isHusk": false,
   "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "Full",
+  "bestiaryEntry": "None",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$id": "6",
@@ -183,6 +186,7 @@
     },
     "femaleModelScale": 0.655,
     "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
     "hasLightingCutscene": true,
     "canGeneratePortrait": false,
