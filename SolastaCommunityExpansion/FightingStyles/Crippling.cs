@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.FightingStyles
     internal class Crippling : AbstractFightingStyle
     {
         public readonly Guid Namespace = new("3f7f25de-0ff9-4b63-b38d-8cd7f3a381fc");
-        private CustomizableFightingStyle instance;
+        private CustomizableFightingStyleDefinition instance;
 
         internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
         {
@@ -52,14 +52,10 @@ namespace SolastaCommunityExpansion.FightingStyles
                     .SetConditionOperations(conditionOperation)
                     .AddToDB();
 
-                instance = new CustomizableFightingStyleBuilder(
-                    "Crippling", 
-                    "b570d166-c65c-4a68-ab78-aeb16d491fce", 
-                    new List<FeatureDefinition>() { additionalDamage },
-                    new GuiPresentationBuilder(
-                        "FightingStyle/&CripplingTitle", 
-                        "FightingStyle/&CripplingDescription",
-                        DatabaseHelper.CharacterSubclassDefinitions.PathBerserker.GuiPresentation.SpriteReference).Build())
+                instance = CustomizableFightingStyleBuilder
+                    .Create("Crippling", "b570d166-c65c-4a68-ab78-aeb16d491fce")
+                    .SetGuiPresentation("Crippling", Category.FightingStyle, DatabaseHelper.CharacterSubclassDefinitions.RangerShadowTamer.GuiPresentation.SpriteReference)
+                    .SetFeatures(additionalDamage)
                     .AddToDB();
             }
             return instance;

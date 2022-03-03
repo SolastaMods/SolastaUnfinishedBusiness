@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.FightingStyles
     internal class TitanFighting : AbstractFightingStyle
     {
         public readonly Guid TITAN_FIGHTING_BASE_GUID = new("3f7f25de-0ff9-4b63-b38d-8cd7f3a381fc");
-        private CustomizableFightingStyle instance;
+        private CustomizableFightingStyleDefinition instance;
 
         internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
         {
@@ -34,13 +34,13 @@ namespace SolastaCommunityExpansion.FightingStyles
                     .SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty.MeleeWeapon)
                     .SetDamageDice(RuleDefinitions.DieType.D1, 2)
                     .AddToDB();
-                
-                GuiPresentationBuilder gui = new GuiPresentationBuilder("FightingStyle/&TitanFightingTitle", "FightingStyle/&TitanFightingDescription");
-                gui.SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.PathBerserker.GuiPresentation.SpriteReference);
-                CustomizableFightingStyleBuilder builder = new CustomizableFightingStyleBuilder("TitanFighting", "edc2a2d1-9f72-4825-b204-d810e911ed12",
-                    new List<FeatureDefinition>() { additionalDamage },
-                    gui.Build());
-                instance = builder.AddToDB();
+
+                instance = CustomizableFightingStyleBuilder
+                    .Create("TitanFighting", "edc2a2d1-9f72-4825-b204-d810e911ed12")
+                    .SetGuiPresentation("TitanFighting", Category.FightingStyle, DatabaseHelper.CharacterSubclassDefinitions.PathBerserker.GuiPresentation.SpriteReference)
+                    .SetFeatures(additionalDamage)
+                    .AddToDB();
+
             }
             return instance;
         }
