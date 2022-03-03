@@ -97,6 +97,7 @@
           "hitPointsFloor": 0,
           "forceKillOnZeroHp": false,
           "specialDeathCondition": null,
+          "ignoreFlyingCharacters": false,
           "ignoreCriticalDoubleDice": false
         }
       },
@@ -128,6 +129,7 @@
           "hitPointsFloor": 0,
           "forceKillOnZeroHp": false,
           "specialDeathCondition": null,
+          "ignoreFlyingCharacters": false,
           "ignoreCriticalDoubleDice": false
         }
       },

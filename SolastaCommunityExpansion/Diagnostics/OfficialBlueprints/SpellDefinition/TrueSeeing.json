@@ -86,7 +86,7 @@
           "$id": "3",
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "",
-          "conditionDefinition": "Definition:ConditionTrueSeeing:1183f2ef9e26a8e42b8e022d17736e49",
+          "conditionDefinition": "Definition:ConditionTruesight:c06a89a13f0855e4b9ba00219fce32ed",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,

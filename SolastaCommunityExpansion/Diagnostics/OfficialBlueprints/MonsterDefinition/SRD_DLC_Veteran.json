@@ -1,6 +1,7 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
   "dungeonMakerPresence": "Monster",
+  "overrideSpawnDecision": null,
   "characterFamily": "Humanoid",
   "creatureTags": [],
   "defaultFaction": "HostileMonsters",
@@ -117,9 +118,11 @@
   "weight": 200,
   "isHusk": false,
   "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "Full",
-  "bestiaryReference": null,
+  "bestiaryEntry": "Reference",
+  "bestiaryReference": "Definition:SRD_Veteran:97d21070354567849b2d5e0a5a34a0ba",
   "bestiaryCameraOffset": {
     "$id": "13",
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -211,6 +214,7 @@
     },
     "femaleModelScale": 0.66,
     "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
     "hasLightingCutscene": true,
     "canGeneratePortrait": false,
@@ -272,6 +276,6 @@
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "0b057e0cf8868404f8222bcea0dc0396",
-  "contentPack": "BaseGame",
+  "contentPack": "LostValley",
   "name": "SRD_DLC_Veteran"
 }

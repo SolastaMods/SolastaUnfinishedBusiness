@@ -1,6 +1,7 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "Monster",
+  "dungeonMakerPresence": "NPC",
+  "overrideSpawnDecision": null,
   "characterFamily": "Humanoid",
   "creatureTags": [],
   "defaultFaction": "HostileMonsters",
@@ -148,8 +149,10 @@
   "weight": 200,
   "isHusk": false,
   "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "Full",
+  "bestiaryEntry": "None",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$id": "16",
@@ -241,6 +244,7 @@
     },
     "femaleModelScale": 0.66,
     "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
     "hasLightingCutscene": true,
     "canGeneratePortrait": false,
