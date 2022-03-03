@@ -114,6 +114,12 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         public static FeatureDefinitionAbilityCheckAffinityBuilder Create(
+            FeatureDefinitionAbilityCheckAffinity original, string name, Guid namespaceGuid)
+        {
+            return new FeatureDefinitionAbilityCheckAffinityBuilder(original, name, namespaceGuid);
+        }
+
+        public static FeatureDefinitionAbilityCheckAffinityBuilder Create(
             FeatureDefinitionAbilityCheckAffinity original, string name, string guid)
         {
             return new FeatureDefinitionAbilityCheckAffinityBuilder(original, name, guid);
