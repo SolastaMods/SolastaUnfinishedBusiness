@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
@@ -590,10 +591,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             ThunderPunch.SetEffectDescription(newEffectDescription);
             ThunderPunch.WeaponTags.Add("ScoutSentinelWeapon");
 
-            ItemPropertyDescription UsingBonusActionItemPower = new ItemPropertyDescription(DatabaseHelper.ItemDefinitions.BeltOfDwarvenKind.StaticProperties[6]);
-            UsingBonusActionItemPower.SetFeatureDefinition(UsingitemPowerBuilder.UsingitemPower);
-            UsingBonusActionItemPower.SetType(ItemPropertyDescription.PropertyType.Feature);
-            UsingBonusActionItemPower.SetKnowledgeAffinity(EquipmentDefinitions.KnowledgeAffinity.InactiveAndHidden);
+            ItemPropertyDescription usingBonusActionItemPower = (ItemPropertyDescription)FormatterServices.GetUninitializedObject(typeof(ItemPropertyDescription));
+            usingBonusActionItemPower.SetFeatureDefinition(UsingitemPowerBuilder.UsingitemPower);
+            usingBonusActionItemPower.SetType(ItemPropertyDescription.PropertyType.Feature);
+            usingBonusActionItemPower.SetKnowledgeAffinity(EquipmentDefinitions.KnowledgeAffinity.InactiveAndHidden);
 
             DeviceFunctionDescription deviceFunctionDescription = new DeviceFunctionDescription(DatabaseHelper.ItemDefinitions.PotionOfComprehendLanguages.UsableDeviceDescription.DeviceFunctions[0]);
             deviceFunctionDescription.SetCanOverchargeSpell(false);
@@ -641,7 +642,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.SetUsableDeviceDescription(usableDeviceDescription);
             Definition.SetWeaponDescription(ThunderPunch);
             Definition.SetWeight(1);
-            Definition.StaticProperties.Add(UsingBonusActionItemPower);
+            Definition.StaticProperties.Add(usingBonusActionItemPower);
 
             Definition.GuiPresentation.Title = "Equipment/&ThunderPunchTitle";
             Definition.GuiPresentation.Description = "Equipment/&ThunderPunchDescription";
@@ -896,17 +897,17 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             LightningSpear.SetEffectDescription(newEffectDescription);
             LightningSpear.WeaponTags.Add("ScoutSentinelWeapon");
 
-            ItemPropertyDescription LightningSpearAdditionalDamage = new ItemPropertyDescription(DatabaseHelper.ItemDefinitions.BeltOfDwarvenKind.StaticProperties[6]);
+            ItemPropertyDescription LightningSpearAdditionalDamage = (ItemPropertyDescription)FormatterServices.GetUninitializedObject(typeof(ItemPropertyDescription));
             LightningSpearAdditionalDamage.SetFeatureDefinition(LightningSpearAdditionalDamageBuilder.LightningSpearAdditionalDamage);
             LightningSpearAdditionalDamage.SetType(ItemPropertyDescription.PropertyType.Feature);
             LightningSpearAdditionalDamage.SetKnowledgeAffinity(EquipmentDefinitions.KnowledgeAffinity.InactiveAndHidden);
 
-            ItemPropertyDescription LightningCloakStealth = new ItemPropertyDescription(DatabaseHelper.ItemDefinitions.BeltOfDwarvenKind.StaticProperties[6]);
+            ItemPropertyDescription LightningCloakStealth = (ItemPropertyDescription)FormatterServices.GetUninitializedObject(typeof(ItemPropertyDescription));
             LightningCloakStealth.SetFeatureDefinition(LightningCloakAbilityCheckAffinityBuilder.LightningCloakAbilityCheckAffinity);
             LightningCloakStealth.SetType(ItemPropertyDescription.PropertyType.Feature);
             LightningCloakStealth.SetKnowledgeAffinity(EquipmentDefinitions.KnowledgeAffinity.InactiveAndHidden);
 
-            ItemPropertyDescription LightningCloakMovement = new ItemPropertyDescription(DatabaseHelper.ItemDefinitions.BeltOfDwarvenKind.StaticProperties[6]);
+            ItemPropertyDescription LightningCloakMovement = (ItemPropertyDescription)FormatterServices.GetUninitializedObject(typeof(ItemPropertyDescription));
             LightningCloakMovement.SetFeatureDefinition(LightningCloakMovementAffinitiesBuilder.LightningCloakMovementAffinities);
             LightningCloakMovement.SetType(ItemPropertyDescription.PropertyType.Feature);
             LightningCloakMovement.SetKnowledgeAffinity(EquipmentDefinitions.KnowledgeAffinity.InactiveAndHidden);
