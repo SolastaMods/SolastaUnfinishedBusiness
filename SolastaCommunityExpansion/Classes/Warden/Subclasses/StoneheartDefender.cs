@@ -34,10 +34,10 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
             public RootsOfRockEffectForm() : base()
             {
                 if (conditionRestricted == null) {
-                    var rootsOfRockMovementAffinity = FeatureDefinitionBuilder<FeatureDefinitionMovementAffinity>
-                    .Create(FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained, "MovementRootsOfRock", Namespace)
-                    .SetGuiPresentation("MovementRootsOfRock", Category.Modifier)
-                    .AddToDB();
+                    var rootsOfRockMovementAffinity = FeatureDefinitionMovementAffinityBuilder
+                        .Create(FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained, "MovementRootsOfRock", Namespace)
+                        .SetGuiPresentation("MovementRootsOfRock", Category.Modifier)
+                        .AddToDB();
 
                     var rootsOfRockRestrictedConditionDefinition = ConditionDefinitionBuilder
                         .Create(ConditionDefinitions.ConditionHeavilyEncumbered, "ConditionRootsOfRockRestricted", Namespace)
@@ -136,9 +136,9 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
                 .Create("RootsOfRock", Namespace)
                 .SetGuiPresentation(Category.Power, Barkskin.GuiPresentation.SpriteReference)
                 .SetActivation(RuleDefinitions.ActivationTime.BonusAction, 0)
-                .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+                .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
                 .SetUsesFixed(1)
-                .SetEffect(rootsOfRockEffectDescription)
+                .SetEffectDescription(rootsOfRockEffectDescription)
                 .AddToDB();
 
             if (DatabaseRepository.GetDatabase<FeatureDefinitionPower>().TryGetElement("WardenGrasp", out var originalWardenGrasp))
@@ -233,9 +233,9 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
                 .Create("Earthshatter", Namespace)
                 .SetGuiPresentation(Category.Power, Thunderwave.GuiPresentation.SpriteReference)
                 .SetActivation(RuleDefinitions.ActivationTime.Action, 1)
-                .SetRecharge(RuleDefinitions.RechargeRate.LongRest)
+                .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest)
                 .SetUsesAbility(0, AttributeDefinitions.Strength)
-                .SetEffect(earthshatterEffectDescription)
+                .SetEffectDescription(earthshatterEffectDescription)
                 .AddToDB();
         }
 

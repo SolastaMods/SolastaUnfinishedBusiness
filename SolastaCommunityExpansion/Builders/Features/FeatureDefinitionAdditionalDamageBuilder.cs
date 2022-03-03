@@ -202,10 +202,5 @@ namespace SolastaCommunityExpansion.Builders.Features
             return This();
         }
 
-        public FeatureDefinitionAdditionalDamageBuilder SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty property)
-        {
-            Definition.SetRequiredProperty(property);
-            return this;
-        }
     }
 }
