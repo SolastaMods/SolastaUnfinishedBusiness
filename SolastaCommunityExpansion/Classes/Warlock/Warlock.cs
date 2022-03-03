@@ -9,6 +9,7 @@ using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.ToolTypeDefinitions;
 using static SolastaCommunityExpansion.Builders.EquipmentOptionsBuilder;
+using static SolastaCommunityExpansion.Classes.Warlock.Features.WarlockFeatures;
 
 namespace SolastaCommunityExpansion.Classes.Warlock
 {
@@ -141,40 +142,38 @@ namespace SolastaCommunityExpansion.Classes.Warlock
 
         private static void BuildProgression(CharacterClassDefinitionBuilder classWarlockBuilder)
         {
-            classWarlockBuilder.AddFeaturesAtLevel(1, 
-                FeatureDefinitionProficiencySavingThrow,
-                FeatureDefinitionProficiencyArmor,
-                FeatureDefinitionProficiencyWeapon,
-                FeatureDefinitionProficiencyTool,
-                FeatureDefinitionSkillPoints,
-                FeatureDefinitionClassWarlockCastSpell);
-
-            //level 1 - subclass feature
-            classWarlockBuilder.AddFeatureAtLevel(2, WarlockFeatures.WarlockEldritchInvocationSetLevel2);
-            classWarlockBuilder.AddFeatureAtLevel(2, WarlockFeatures.WarlockEldritchInvocationSetLevel2);
-            classWarlockBuilder.AddFeatureAtLevel(2, AHWarlockClassPactBoonSetBuilder.AHWarlockClassPactBoonSet);
-            classWarlockBuilder.AddFeatureAtLevel(2, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
-            classWarlockBuilder.AddFeatureAtLevel(2, WarlockFeatures.WarlockEldritchInvocationSetLevel5);
-
-            //level 6 - subclass feature
-            classWarlockBuilder.AddFeatureAtLevel(7, WarlockEldritchInvocationSetBuilderLevel7.WarlockEldritchInvocationSetLevel7);
-            classWarlockBuilder.AddFeatureAtLevel(8, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
-            classWarlockBuilder.AddFeatureAtLevel(9, WarlockEldritchInvocationSetBuilderLevel9.WarlockEldritchInvocationSetLevel9);
-            
-            //level 10 - subclass feature
-            classWarlockBuilder.AddFeatureAtLevel(11, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel11);
-            classWarlockBuilder.AddFeatureAtLevel(12, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
-            classWarlockBuilder.AddFeatureAtLevel(12, WarlockEldritchInvocationSetBuilderLevel12.WarlockEldritchInvocationSetLevel12);
-            classWarlockBuilder.AddFeatureAtLevel(13, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel13);
-            
-            //level 14 - subclass feature
-            classWarlockBuilder.AddFeatureAtLevel(15, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel15);
-            classWarlockBuilder.AddFeatureAtLevel(15, WarlockEldritchInvocationSetBuilderLevel15.WarlockEldritchInvocationSetLevel15);
-            classWarlockBuilder.AddFeatureAtLevel(16, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
-            classWarlockBuilder.AddFeatureAtLevel(17, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel17);
-            classWarlockBuilder.AddFeatureAtLevel(18, WarlockEldritchInvocationSetBuilderLevel18.WarlockEldritchInvocationSetLevel18);
-            classWarlockBuilder.AddFeatureAtLevel(19, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
-            classWarlockBuilder.AddFeatureAtLevel(20, WarlockFeatures.WarlockEldritchMasterPower);
+            classWarlockBuilder
+                .AddFeaturesAtLevel(1,
+                    FeatureDefinitionProficiencySavingThrow,
+                    FeatureDefinitionProficiencyArmor,
+                    FeatureDefinitionProficiencyWeapon,
+                    FeatureDefinitionProficiencyTool,
+                    FeatureDefinitionSkillPoints,
+                    FeatureDefinitionClassWarlockCastSpell)
+                //TODO? level 1 - subclass feature
+                .AddFeaturesAtLevel(2,
+                    WarlockEldritchInvocationSetLevel2,
+                    WarlockEldritchInvocationSetLevel2, // TODO: should this be here twice?
+                    AHWarlockClassPactBoonSetBuilder.AHWarlockClassPactBoonSet,
+                    FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
+                    WarlockEldritchInvocationSetLevel5) // TODO: should this be at level 2 or 5?
+                //level 6 - subclass feature
+                .AddFeatureAtLevel(7, WarlockEldritchInvocationSetBuilderLevel7.WarlockEldritchInvocationSetLevel7)
+                .AddFeatureAtLevel(8, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+                .AddFeatureAtLevel(9, WarlockEldritchInvocationSetBuilderLevel9.WarlockEldritchInvocationSetLevel9)
+                //level 10 - subclass feature
+                .AddFeatureAtLevel(11, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel11)
+                .AddFeatureAtLevel(12, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+                .AddFeatureAtLevel(12, WarlockEldritchInvocationSetBuilderLevel12.WarlockEldritchInvocationSetLevel12)
+                .AddFeatureAtLevel(13, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel13)
+                //level 14 - subclass feature
+                .AddFeatureAtLevel(15, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel15)
+                .AddFeatureAtLevel(15, WarlockEldritchInvocationSetBuilderLevel15.WarlockEldritchInvocationSetLevel15)
+                .AddFeatureAtLevel(16, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+                .AddFeatureAtLevel(17, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel17)
+                .AddFeatureAtLevel(18, WarlockEldritchInvocationSetBuilderLevel18.WarlockEldritchInvocationSetLevel18)
+                .AddFeatureAtLevel(19, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+                .AddFeatureAtLevel(20, WarlockEldritchMasterPower);
         }
 
         internal static void BuildWarlockClass()
