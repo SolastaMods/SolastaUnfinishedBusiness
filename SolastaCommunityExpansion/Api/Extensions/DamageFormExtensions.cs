@@ -141,6 +141,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetIgnoreFlyingCharacters<T>(this T entity, System.Boolean value)
+            where T : DamageForm
+        {
+            entity.IgnoreFlyingCharacters = value;
+            return entity;
+        }
+
         public static T SetIgnoreSpellAdvancementDamageDice<T>(this T entity, System.Boolean value)
             where T : DamageForm
         {

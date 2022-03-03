@@ -106,6 +106,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetEndOfDurationReached<T>(this T entity, System.Boolean value)
+            where T : RulesetCondition
+        {
+            entity.SetField("<EndOfDurationReached>k__BackingField", value);
+            return entity;
+        }
+
         public static T SetHasSaveOverride<T>(this T entity, System.Boolean value)
             where T : RulesetCondition
         {
