@@ -1,4 +1,5 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi.Extensions;
@@ -35,7 +36,9 @@ namespace SolastaCommunityExpansion.Level20.Features
             int baseBonus,
             int rollModifier,
             string abilityScoreName,
-            string proficiencyName)
+            string proficiencyName,
+            List<RuleDefinitions.TrendInfo> advantageTrends,
+            List<RuleDefinitions.TrendInfo> modifierTrends)
         {
             if (character == null || abilityScoreName != AttributeDefinitions.Strength)
             {
@@ -44,12 +47,5 @@ namespace SolastaCommunityExpansion.Level20.Features
 
             return character.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
         }
-
-        public int MaxAbilityCheck(
-            RulesetCharacter character,
-            int baseBonus,
-            int rollModifier,
-            string abilityScoreName,
-            string proficiencyName) => 9999;
     }
 }

@@ -62,15 +62,41 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacter_RollAbilityCheck
     {
-        internal static void Postfix(
-            RulesetCharacter __instance,
+        internal static void GetNewResult(
+            RulesetCharacter rulesetCharacter,
             int baseBonus,
             int rollModifier,
             string abilityScoreName,
             string proficiencyName,
+            List<RuleDefinitions.TrendInfo> advantageTrends,
+            List<RuleDefinitions.TrendInfo> modifierTrends,
+            ref int result)
+        {
+            var featuresToBrowse = new List<FeatureDefinition>();
+
+            rulesetCharacter.EnumerateFeaturesToBrowse<IChangeAbilityCheck>(featuresToBrowse);
+
+            var min = featuresToBrowse
+                .OfType<IChangeAbilityCheck>()
+                .Max(x => x.MinAbilityCheck(rulesetCharacter, baseBonus, rollModifier, abilityScoreName, proficiencyName, advantageTrends, modifierTrends));
+
+            if (result < min)
+            {
+                result = min;
+            }
+        }
+
+        internal static void Prefix(
+            RulesetCharacter __instance,
+            int baseBonus,
+            string abilityScoreName,
+            string proficiencyName,
+            List<RuleDefinitions.TrendInfo> modifierTrends,
+            List<RuleDefinitions.TrendInfo> advantageTrends,
+            int rollModifier,
             ref int minRoll)
         {
-            minRoll = RulesetCharacter_ResolveContestCheck.GetNewResult(__instance, baseBonus, rollModifier, abilityScoreName, proficiencyName, minRoll);
+            GetNewResult(__instance, baseBonus, rollModifier, abilityScoreName, proficiencyName, advantageTrends, modifierTrends, ref minRoll);
         }
     }
 
@@ -81,44 +107,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacter_ResolveContestCheck
     {
-        internal static int GetNewResult(
-            RulesetCharacter rulesetCharacter,
-            int baseBonus,
-            int rollModifier,
-            string abilityScoreName,
-            string proficiencyName,
-            int result)
-        {
-            var min = 9999;
-            var max = 0;
-            var featuresToBrowse = new List<FeatureDefinition>();
-
-            rulesetCharacter.EnumerateFeaturesToBrowse<IChangeAbilityCheck>(featuresToBrowse);
-
-            foreach (var feature in featuresToBrowse.OfType<IChangeAbilityCheck>())
-            {
-                min = Math.Min(min, feature.MinAbilityCheck(rulesetCharacter, baseBonus, rollModifier, abilityScoreName, proficiencyName));
-                max = Math.Max(max, feature.MaxAbilityCheck(rulesetCharacter, baseBonus, rollModifier, abilityScoreName, proficiencyName));
-            }
-
-            if (max < min)
-            {
-                return result;
-            }
-
-            if (result < min)
-            {
-                result = min;
-            }
-
-            if (result > max)
-            {
-                result = max;
-            }
-
-            return result;
-        }
-
         public static int ExtendedRollDie(
             RulesetCharacter rulesetCharacter,
             RuleDefinitions.DieType dieType,
@@ -132,17 +120,23 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             int baseBonus,
             int rollModifier,
             string abilityScoreName,
-            string proficiencyName)
+            string proficiencyName,
+            List<RuleDefinitions.TrendInfo> advantageTrends,
+            List<RuleDefinitions.TrendInfo> modifierTrends)
         {
             var result = rulesetCharacter.RollDie(dieType, rollContext, isProficient, advantageType, out firstRoll, out secondRoll, enumerateFeatures, canRerollDice);
 
-            return GetNewResult(
+            RulesetCharacter_RollAbilityCheck.GetNewResult(
                 rulesetCharacter,
                 baseBonus,
                 rollModifier,
                 abilityScoreName,
-                proficiencyName, 
-                result);
+                proficiencyName,
+                advantageTrends,
+                modifierTrends,
+                ref result);
+
+            return result;
         }
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
@@ -164,6 +158,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
                         yield return new CodeInstruction(OpCodes.Ldarg, 2); // rollModifier
                         yield return new CodeInstruction(OpCodes.Ldarg, 3); // abilityScoreName
                         yield return new CodeInstruction(OpCodes.Ldarg, 4); // proficiencyName
+                        yield return new CodeInstruction(OpCodes.Ldarg, 5); // advantageTrends
+                        yield return new CodeInstruction(OpCodes.Ldarg, 6); // modifierTrends
                     }
                     // second call to roll die checks the opponent
                     else if (found == 2)
@@ -172,6 +168,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
                         yield return new CodeInstruction(OpCodes.Ldarg, 8); // opponentRollModifier
                         yield return new CodeInstruction(OpCodes.Ldarg, 9); // opponentAbilityScoreName
                         yield return new CodeInstruction(OpCodes.Ldarg, 10); // opponentProficiencyName
+                        yield return new CodeInstruction(OpCodes.Ldarg, 11); // opponentAdvantageTrends
+                        yield return new CodeInstruction(OpCodes.Ldarg, 12); // opponentModifierTrends
                     }
 
                     yield return new CodeInstruction(OpCodes.Call, extendedRollDieMethod);

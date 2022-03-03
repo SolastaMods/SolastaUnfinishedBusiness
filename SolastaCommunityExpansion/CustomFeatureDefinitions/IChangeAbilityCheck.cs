@@ -1,4 +1,6 @@
-﻿namespace SolastaCommunityExpansion.CustomFeatureDefinitions
+﻿using System.Collections.Generic;
+
+namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 {
     /// <summary>
     /// Implement on a FeatureDefinition to be able to change the min / max values on ability checks
@@ -10,13 +12,8 @@
             int baseBonus,
             int rollModifier,
             string abilityScoreName,
-            string proficiencyName);
-
-        public int MaxAbilityCheck(
-            RulesetCharacter character,
-            int baseBonus,
-            int rollModifier,
-            string abilityScoreName,
-            string proficiencyName);
+            string proficiencyName,
+            List<RuleDefinitions.TrendInfo> advantageTrends,
+            List<RuleDefinitions.TrendInfo> modifierTrends);
     }
 }
