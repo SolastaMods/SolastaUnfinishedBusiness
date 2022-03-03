@@ -6,6 +6,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaCommunityExpansion.Models;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {
@@ -72,13 +73,14 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             List<RuleDefinitions.TrendInfo> modifierTrends,
             ref int result)
         {
-            var featuresToBrowse = new List<FeatureDefinition>();
-
-            rulesetCharacter.EnumerateFeaturesToBrowse<IChangeAbilityCheck>(featuresToBrowse);
-
-            var min = featuresToBrowse
-                .OfType<IChangeAbilityCheck>()
+            var min = rulesetCharacter
+                .EnumerateFeaturesToBrowse<IChangeAbilityCheck>()
                 .Max(x => x.MinAbilityCheck(rulesetCharacter, baseBonus, rollModifier, abilityScoreName, proficiencyName, advantageTrends, modifierTrends));
+
+            if (result < min)
+            {
+                result = min;
+            }
 
             if (result < min)
             {
