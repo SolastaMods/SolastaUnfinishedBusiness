@@ -15,19 +15,28 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     {
         internal static void Postfix(RulesetCharacterHero __instance, RuleDefinitions.RitualCasting ritualType, List<SpellDefinition> ritualSpells)
         {
-            if ((ExtraRitualCasting)ritualType != ExtraRitualCasting.Known) { return; }
+            if ((ExtraRitualCasting)ritualType != ExtraRitualCasting.Known)
+            {
+                return; 
+            }
 
             var spellRepertoire = __instance.SpellRepertoires
                 .Where(r => r.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.AllKnown)
                 .FirstOrDefault(r => r.SpellCastingFeature.SpellKnowledge == RuleDefinitions.SpellKnowledge.Selection);
 
-            if (spellRepertoire == null) { return; }
+            if (spellRepertoire == null)
+            {
+                return;
+            }
 
             ritualSpells.AddRange(spellRepertoire.KnownSpells
                 .Where(s => s.Ritual)
                 .Where(s => spellRepertoire.MaxSpellLevelOfSpellCastingLevel >= s.SpellLevel));
 
-            if (spellRepertoire.AutoPreparedSpells == null) { return; }
+            if (spellRepertoire.AutoPreparedSpells == null)
+            {
+                return;
+            }
 
             ritualSpells.AddRange(spellRepertoire.AutoPreparedSpells
                 .Where(s => s.Ritual)
@@ -39,17 +48,12 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacterHero_FindClassHoldingFeature
     {
-        //
-        // TODO @CHRIS: should we protect this patch? What is the purpose?
-        //
         internal static void Postfix(
             RulesetCharacterHero __instance,
             FeatureDefinition featureDefinition,
             ref CharacterClassDefinition __result)
         {
-            var overrideClassHoldingFeature = featureDefinition as IClassHoldingFeature;
-
-            if (overrideClassHoldingFeature?.Class == null)
+            if (featureDefinition is not IClassHoldingFeature overrideClassHoldingFeature || overrideClassHoldingFeature.Class == null)
             {
                 return;
             }
@@ -132,13 +136,16 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             List<RulesetUsablePower> curPowers = new List<RulesetUsablePower>();
             bool newPower = false;
             hero.EnumerateFeaturesToBrowse<FeatureDefinitionPower>(hero.FeaturesToBrowse, null);
+
             foreach (FeatureDefinitionPower featureDefinitionPower in hero.FeaturesToBrowse.Cast<FeatureDefinitionPower>())
             {
                 if ((featureDefinitionPower as IConditionalPower)?.IsActive(hero) == false)
                 {
                     continue;
                 }
+
                 RulesetUsablePower rulesetUsablePower = hero.UsablePowers.Find(up => up.PowerDefinition == featureDefinitionPower);
+
                 if (rulesetUsablePower != null)
                 {
                     // If we found a power that was already on the character, re-add the same instance.
@@ -154,6 +161,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
                     {
                         hero.UpdateUsageForPowerPool(power, 0);
                     }
+
                     curPowers.Add(power);
                     newPower = true;
                 }
@@ -181,15 +189,15 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
 
             if (featureDefinitionPower.RechargeRate == RuleDefinitions.RechargeRate.ChannelDivinity)
             {
-                rulesetUsablePower.UsesAttribute = hero.GetAttribute("ChannelDivinityNumber", false);
+                rulesetUsablePower.UsesAttribute = hero.GetAttribute(AttributeDefinitions.ChannelDivinityNumber, false);
             }
             else if (featureDefinitionPower.RechargeRate == RuleDefinitions.RechargeRate.HealingPool)
             {
-                rulesetUsablePower.UsesAttribute = hero.GetAttribute("HealingPool", false);
+                rulesetUsablePower.UsesAttribute = hero.GetAttribute(AttributeDefinitions.HealingPool, false);
             }
             else if (featureDefinitionPower.RechargeRate == RuleDefinitions.RechargeRate.SorceryPoints)
             {
-                rulesetUsablePower.UsesAttribute = hero.GetAttribute("SorceryPoints", false);
+                rulesetUsablePower.UsesAttribute = hero.GetAttribute(AttributeDefinitions.SorceryPoints, false);
             }
             else if (featureDefinitionPower.UsesDetermination == RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed)
             {
@@ -197,8 +205,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             }
             else if (featureDefinitionPower.UsesDetermination == RuleDefinitions.UsesDetermination.ProficiencyBonus)
             {
-                rulesetUsablePower.UsesAttribute = hero.GetAttribute("ProficiencyBonus", false);
+                rulesetUsablePower.UsesAttribute = hero.GetAttribute(AttributeDefinitions.ProficiencyBonus, false);
             }
+
             rulesetUsablePower.Recharge();
             return rulesetUsablePower;
         }

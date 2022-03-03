@@ -11,34 +11,116 @@ namespace SolastaCommunityExpansion.Spells
         {
             AddBleedingToRestoration();
             SpikeGrowthDoesNotAffectFlyingCreatures();
+            SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures();
         }
 
-        private static void SpikeGrowthDoesNotAffectFlyingCreatures()
+        internal static void SpikeGrowthDoesNotAffectFlyingCreatures()
         {
-            if (!Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures)
+            var spikeGrowthEffect = SpikeGrowth.EffectDescription;
+            spikeGrowthEffect.SetTargetParameter(4);
+
+            if (Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures)
             {
+                // Set to Cylinder radius 4, height 1
+                spikeGrowthEffect.EffectForms
+                    .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
+                    .ToList()
+                    .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(false));
+
+                spikeGrowthEffect.SetTargetType(RuleDefinitions.TargetType.Cylinder);
+                spikeGrowthEffect.SetTargetParameter2(1);
+            }
+            else
+            {
+                // Restore default of Sphere radius 4
+                spikeGrowthEffect.EffectForms
+                    .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
+                    .ToList()
+                    .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(true));
+
+                spikeGrowthEffect.SetTargetType(RuleDefinitions.TargetType.Sphere);
+                spikeGrowthEffect.SetTargetParameter2(0);
+            }
+        }
+
+        internal static void SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures()
+        {
+            // always applicable
+            ClearTargetParameter2ForTargetTypeCube();
+
+            // Spells with TargetType.Cube and defaults values of (tp, tp2)
+            // Note that tp2 should be 0 for Cube and is ignored in game.
+            // BlackTentacles: (4, 2)
+            // Entangle: (4, 1)
+            // FaerieFire: (4, 2)
+            // FlamingSphere: (3, 2) <- a flaming sphere is a cube?
+            // Grease: (2, 2)
+            // HypnoticPattern: (6, 2)
+            // PetalStorm: (3, 2)
+            // Slow: (8, 2)
+
+            if (!Main.Settings.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures)
+            {
+                RestoreDefinition(BlackTentacles);
+                RestoreDefinition(Entangle);
+                RestoreDefinition(Grease);
                 return;
             }
 
-            var spikeGrowthEffect = SpikeGrowth.EffectDescription;
-            spikeGrowthEffect.EffectForms
-                .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
-                .ToList()
-                .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(false));
+            SetHeight(BlackTentacles);
+            SetHeight(Entangle);
+            SetHeight(Grease);
 
-            spikeGrowthEffect.SetTargetType(RuleDefinitions.TargetType.Cylinder);
-            spikeGrowthEffect.SetTargetParameter2(1);
+            static void SetHeight(SpellDefinition sd, int height = 1)
+            {
+                var effect = sd.EffectDescription;
 
-            // Entangle is more difficult because it's a cube, and what we need is a Square Cylinder height 1.
-/*            var entangleEffect = Entangle.EffectDescription;
-            entangleEffect.EffectForms
-                .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
-                .ToList()
-                .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(false));
+                effect.EffectForms
+                    .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
+                    .ToList()
+                    .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(false));
 
-            entangleEffect.SetTargetType(RuleDefinitions.TargetType.CubeWithOffset);
-            entangleEffect.SetTargetParameter();
-*/        }
+                if (Main.Settings.EnableTargetTypeSquareCylinder)
+                {
+                    Main.Log($"Changing {sd.Name} to target type=Cube");
+                    effect.SetTargetType(RuleDefinitions.TargetType.Cube);
+                }
+                else
+                {
+                    Main.Log($"Changing {sd.Name} to target type=CylinderWithDiameter");
+                    effect.SetTargetType(RuleDefinitions.TargetType.CylinderWithDiameter);
+                }
+
+                effect.SetTargetParameter2(height);
+            }
+
+            static void RestoreDefinition(SpellDefinition sd)
+            {
+                var effect = sd.EffectDescription;
+
+                // Topology forms have ImpactsFlyingCharacters = true as default
+                effect.EffectForms
+                    .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
+                    .ToList()
+                    .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(true));
+
+                Main.Log($"Restoring {sd.Name} to target type=Cube");
+                effect.SetTargetType(RuleDefinitions.TargetType.Cube);
+                effect.SetTargetParameter2(0);
+            }
+
+            static void ClearTargetParameter2ForTargetTypeCube()
+            {
+                foreach (var sd in DatabaseRepository
+                    .GetDatabase<SpellDefinition>()
+                    .Where(sd => sd.EffectDescription.TargetType == RuleDefinitions.TargetType.Cube))
+                {
+                    // TargetParameter2 is not used by TargetType.Cube but has random values assigned.
+                    // We are going to use it to create a square cylinder with height so set to zero for all spells with TargetType.Cube.
+                    sd.EffectDescription.SetTargetParameter2(0);
+                }
+            }
+        }
 
         public static void AddBleedingToRestoration()
         {

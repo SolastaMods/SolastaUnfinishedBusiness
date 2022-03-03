@@ -1,0 +1,46 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:ArmorModePool:fd0567d8-a728-4459-8569-273f3ead3f73",
+    "Definition:ScoutModePower:ff6b9eb1-01ad-4100-ab12-7d6dc38ccc70",
+    "Definition:SentinelModePower:410768a3-757f-48ee-8a2f-bffd963c0a5b",
+    "Definition:SubclassProficiencies:1923caf6-672b-475a-bcdf-50d535ce65d1",
+    "Definition:UseArmorWeaponsAsFocus:55a4d71f-2b9d-4df6-abf1-c0cc6682eb9d",
+    "Definition:SubclassMovementAffinities:14ef799a-edc6-4749-866b-9a6afc26d4fa",
+    "Definition:SubclassAutopreparedSpells:c5f03caa-7078-4da7-b166-00f292fcebfc"
+  ],
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feat/&ScoutSentinelFeatureSet_level03Title",
+    "description": "Feat/&ScoutSentinelFeatureSet_level03Description",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "a6560212-c665-49fd-94b7-378512e68edb",
+  "contentPack": "BaseGame",
+  "name": "ScoutSentinelFeatureSet_level03"
+}

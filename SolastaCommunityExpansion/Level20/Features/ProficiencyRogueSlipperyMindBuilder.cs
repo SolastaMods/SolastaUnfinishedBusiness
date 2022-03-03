@@ -1,9 +1,9 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Builders.Features;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal sealed class ProficiencyRogueSlipperyMindBuilder : DefinitionBuilder<FeatureDefinitionProficiency>
+    internal sealed class ProficiencyRogueSlipperyMindBuilder : FeatureDefinitionProficiencyBuilder
     {
         private const string ProficiencyRogueSlipperyMindName = "ZSProficiencyRogueSlipperyMind";
         private const string ProficiencyRogueSlipperyMindGuid = "b7eb00f96e13495ea4af1389fafca546";

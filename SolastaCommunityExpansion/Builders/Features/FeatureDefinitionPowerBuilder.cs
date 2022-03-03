@@ -3,26 +3,34 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionPowerBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    public class FeatureDefinitionPowerBuilder : FeatureDefinitionPowerBuilder<FeatureDefinitionPower, FeatureDefinitionPowerBuilder>
     {
         #region Constructors
-        protected FeatureDefinitionPowerBuilder(string name, string guid)
-            : base(name, guid)
+        protected FeatureDefinitionPowerBuilder(FeatureDefinitionPower original) : base(original)
         {
         }
 
-        protected FeatureDefinitionPowerBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid)
+        protected FeatureDefinitionPowerBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionPowerBuilder(FeatureDefinitionPower original, string name, string guid)
-            : base(original, name, guid)
+        protected FeatureDefinitionPowerBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        protected FeatureDefinitionPowerBuilder(FeatureDefinitionPower original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
+        protected FeatureDefinitionPowerBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionPowerBuilder(FeatureDefinitionPower original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionPowerBuilder(FeatureDefinitionPower original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionPowerBuilder(FeatureDefinitionPower original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
         #endregion
@@ -36,9 +44,45 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
             return new FeatureDefinitionPowerBuilder(name, namespaceGuid);
         }
+    }
+
+    public abstract class FeatureDefinitionPowerBuilder<TDefinition, TBuilder> : FeatureDefinitionBuilder<TDefinition, TBuilder>
+        where TDefinition : FeatureDefinitionPower
+        where TBuilder : FeatureDefinitionPowerBuilder<TDefinition, TBuilder>
+    {
+        #region Constructors
+        protected FeatureDefinitionPowerBuilder(TDefinition original) : base(original)
+        {
+        }
+
+        protected FeatureDefinitionPowerBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionPowerBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected FeatureDefinitionPowerBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionPowerBuilder(TDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionPowerBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionPowerBuilder(TDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
 
         // Over specific method?
-        public FeatureDefinitionPowerBuilder Configure(
+        // TODO: split into smaller methods
+        public TBuilder Configure(
             int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination, string usesAbilityScoreName,
             RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge,
             bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
@@ -55,143 +99,150 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetAbilityScore(abilityScore);
             Definition.SetEffectDescription(effectDescription);
             Definition.SetUniqueInstance(uniqueInstance);
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionPowerBuilder SetEffect(EffectDescription effect)
+        public TBuilder SetEffectDescription(EffectDescription effect)
         {
             Definition.SetEffectDescription(effect);
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionPowerBuilder DelegatedToAction()
+        public TBuilder DelegatedToAction()
         {
             Definition.SetDelegatedToAction(true);
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionPowerBuilder SurrogateToSpell(SpellDefinition spell)
+        public TBuilder SurrogateToSpell(SpellDefinition spell)
         {
             Definition.SetSurrogateToSpell(spell);
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionPowerBuilder SetActivation(RuleDefinitions.ActivationTime time, int costPerUse)
+        public TBuilder SetActivation(RuleDefinitions.ActivationTime time, int costPerUse)
         {
             Definition.SetActivationTime(time);
             Definition.SetCostPerUse(costPerUse);
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionPowerBuilder SetReaction(RuleDefinitions.ReactionTriggerContext context, string name)
+        // TODO: combine with above with default?
+        public TBuilder SetActivationTime(RuleDefinitions.ActivationTime value)
+        {
+            Definition.SetActivationTime(value);
+            return This();
+        }
+
+        public TBuilder SetReaction(RuleDefinitions.ReactionTriggerContext context, string name)
         {
             Definition.SetReactionContext(context);
             Definition.SetReactionName(name);
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionPowerBuilder SetCastingFailure(RuleDefinitions.CastingSuccessComputation computation)
+        public TBuilder SetCastingFailure(RuleDefinitions.CastingSuccessComputation computation)
         {
             Definition.SetHasCastingFailure(true);
             Definition.SetCastingSuccessComputation(computation);
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionPowerBuilder CanUseInDialog()
+        public TBuilder CanUseInDialog()
         {
             Definition.SetCanUseInDialog(true);
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionPowerBuilder SetDisablingCondition(ConditionDefinition condition)
+        public TBuilder SetDisablingCondition(ConditionDefinition condition)
         {
             Definition.SetDisableIfConditionIsOwned(condition);
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionPowerBuilder SetRecharge(RuleDefinitions.RechargeRate rate)
+        public TBuilder SetRechargeRate(RuleDefinitions.RechargeRate rate)
         {
             Definition.SetRechargeRate(rate);
-            return this;
+            return This();
         }
-
-        public FeatureDefinitionPowerBuilder SetSpellCastingFeature(FeatureDefinitionCastSpell spellFeature)
+        
+        public TBuilder SetSpellCastingFeature(FeatureDefinitionCastSpell spellFeature)
         {
             Definition.SetSpellcastingFeature(spellFeature);
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionPowerBuilder SetUsesFixed(int fixedUses)
+        public TBuilder SetUsesFixed(int fixedUses)
         {
             Definition.SetFixedUsesPerRecharge(fixedUses);
             Definition.SetUsesDetermination(RuleDefinitions.UsesDetermination.Fixed);
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionPowerBuilder SetUsesProficiency()
+        public TBuilder SetUsesProficiency()
         {
             Definition.SetUsesDetermination(RuleDefinitions.UsesDetermination.ProficiencyBonus);
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionPowerBuilder SetUsesAbility(int fixedUses, string attribute)
+        public TBuilder SetUsesAbility(int fixedUses, string attribute)
         {
             Definition.SetFixedUsesPerRecharge(fixedUses);
             Definition.SetUsesAbilityScoreName(attribute);
             Definition.SetUsesDetermination(RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed);
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionPowerBuilder UseSpellCastingModifier()
+        public TBuilder UseSpellCastingModifier()
         {
             Definition.SetAbilityScoreDetermination(RuleDefinitions.AbilityScoreDetermination.SpellcastingAbility);
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionPowerBuilder SetAttackModifierAbility(bool ability, bool proficiency, string attribute)
+        public TBuilder SetAttackModifierAbility(bool ability, bool proficiency, string attribute)
         {
             Definition.SetAbilityScore(attribute);
             Definition.SetAbilityScoreBonusToAttack(ability);
             Definition.SetProficiencyBonusToAttack(proficiency);
             Definition.SetAttackHitComputation(RuleDefinitions.PowerAttackHitComputation.AbilityScore);
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionPowerBuilder SetAttackModifierStatic(int attackModifier)
+        public TBuilder SetAttackModifierStatic(int attackModifier)
         {
             Definition.SetFixedAttackHit(attackModifier);
             Definition.SetAttackHitComputation(RuleDefinitions.PowerAttackHitComputation.Fixed);
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionPowerBuilder SetUniqueInstance(bool uniqueInstance)
+        public TBuilder SetUniqueInstance(bool uniqueInstance)
         {
             Definition.SetUniqueInstance(uniqueInstance);
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionPowerBuilder SetShowCasting(bool casting)
+        public TBuilder SetShowCasting(bool casting)
         {
             Definition.SetShowCasting(casting);
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionPowerBuilder AddOverriddenPower(FeatureDefinitionPower overridenPower)
+        public TBuilder SetOverriddenPower(FeatureDefinitionPower overridenPower)
         {
             Definition.SetOverriddenPower(overridenPower);
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionPowerBuilder SetShortTitle(string title)
+        public TBuilder SetShortTitle(string title)
         {
             Definition.SetShortTitleOverride(title);
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionPowerBuilder SetAbility(string ability)
+        public TBuilder SetAbility(string ability)
         {
             Definition.SetAbilityScore(ability);
-            return this;
+            return This();
         }
     }
 }

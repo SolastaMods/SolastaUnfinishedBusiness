@@ -1,0 +1,62 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": false,
+  "maxSpellLevel": 3,
+  "spellsByLevel": [
+    {
+      "$id": "1",
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:Bane:2e60d6f650100a84f917bd5d0e69b356",
+        "Definition:ShieldOfFaith:eb2cf2e67b1a4fb458de58dcee2bd309",
+        "Definition:CureWounds:c401c5cf11ac8274f98a0dc809ff5863"
+      ]
+    },
+    {
+      "$id": "2",
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:Aid:d2af062b671377f449bad1b3f920d331",
+        "Definition:BrandingSmite:1da57f03be1764642968c141460fe859",
+        "Definition:LesserRestoration:5da149e59ebb042419041382af919aea"
+      ]
+    },
+    {
+      "$id": "3",
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": []
+    }
+  ],
+  "guiPresentation": {
+    "$id": "4",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "5",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "6",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "f2993f7bfe07f86498e64628a9a95842",
+  "contentPack": "BaseGame",
+  "name": "SpellListHyeronimus"
+}

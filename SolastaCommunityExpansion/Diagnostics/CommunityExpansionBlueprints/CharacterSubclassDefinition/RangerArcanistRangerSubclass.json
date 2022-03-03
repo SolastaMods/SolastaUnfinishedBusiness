@@ -1,0 +1,72 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$id": "1",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageArcaneDetonation:2c2fd5c6-ea16-5ae6-92d2-4e1357d35c50",
+      "level": 3
+    },
+    {
+      "$id": "2",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageArcanistMark:4240bb3c-8a2d-5ab9-bd2d-c8fc7d79ded5",
+      "level": 3
+    },
+    {
+      "$id": "3",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:RangerArcanistMagic:bf642eda-eb57-5e22-945b-7f43b58e933d",
+      "level": 3
+    },
+    {
+      "$id": "4",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ArcanePulse:1cbe6058-6daf-5832-b5dd-8fc344ec5a4c",
+      "level": 7
+    },
+    {
+      "$id": "5",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageArcaneDetonationUpgrade:30eb8943-0b75-5d3d-b42f-ff0a0076bc31",
+      "level": 11
+    },
+    {
+      "$id": "6",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ArcanePulseUpgrade:f3ad4df7-6d49-50de-a311-639719c9bcd0",
+      "level": 15
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$id": "7",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&RangerArcanistRangerSubclassTitle",
+    "description": "Subclass/&RangerArcanistRangerSubclassDescription",
+    "spriteReference": {
+      "$id": "8",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "29d762aa92314b04ea0c8f607efe10ae",
+      "m_SubObjectName": "Rogue_Shadowcaster",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "9",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "5ABD870D-9ABD-4953-A2EC-E2109324FAB9",
+  "contentPack": "BaseGame",
+  "name": "RangerArcanistRangerSubclass"
+}

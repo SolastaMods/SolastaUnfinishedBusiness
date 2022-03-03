@@ -1,0 +1,78 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": true,
+  "maxSpellLevel": 3,
+  "spellsByLevel": [
+    {
+      "$id": "1",
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": [
+        "Definition:RayOfFrost:637a3697f05a4614e8200abfa5daaaff",
+        "Definition:PoisonSpray:d3aec91794deb6646b41c246e57a1f1e",
+        "Definition:ShockingGrasp:0bcfc5c29da450c4bb0f27df027616eb"
+      ]
+    },
+    {
+      "$id": "2",
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:InflictWounds:473bbe804543d0f4ebe68ba6db675a49",
+        "Definition:MagicMissile:2b2b43fb6eeb735479a21209286db382",
+        "Definition:Shield:f69bd9c9375fc074a90043c42f9868fe"
+      ]
+    },
+    {
+      "$id": "3",
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:HoldPerson:cbc582b44f08e7f4b8ea69077471bc64",
+        "Definition:Blindness:3470e52d7a8b472498ee397e2532db04",
+        "Definition:Darkness:b8d5ac9f43f55be479da08cd37744584",
+        "Definition:ScorchingRay:2196d4d1af65ab8469bcb2b382014a58"
+      ]
+    },
+    {
+      "$id": "4",
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:Haste:134efafc59c7c58438b711271fb2c785",
+        "Definition:Fear:cff391ef9dd8106448ed464270dcc9c4",
+        "Definition:Counterspell:699759f98dacad84fb2d7323e0788179",
+        "Definition:Fly:6c13f5461f5047645a8c165cc0f43f83"
+      ]
+    }
+  ],
+  "guiPresentation": {
+    "$id": "5",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "6",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "7",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "53e0069ec0ad5494d82114a3fa52bf22",
+  "contentPack": "BaseGame",
+  "name": "SpellListAdria"
+}

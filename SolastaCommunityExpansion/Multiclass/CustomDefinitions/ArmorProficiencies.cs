@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
 
 namespace SolastaCommunityExpansion.Multiclass.CustomDefinitions
 {
-    internal sealed class ArmorProficiencyMulticlassBuilder : DefinitionBuilder<FeatureDefinitionProficiency>
+    internal sealed class ArmorProficiencyMulticlassBuilder : FeatureDefinitionProficiencyBuilder
     {
         private const string BarbarianArmorProficiencyMulticlassName = "BarbarianArmorProficiencyMulticlass";
         private const string BarbarianArmorProficiencyMulticlassGuid = "86558227b0cd4771b42978a60dc610db";

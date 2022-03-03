@@ -1,0 +1,41 @@
+{
+  "$type": "PersonalityFlagDefinition, Assembly-CSharp",
+  "inDungeonEditor": true,
+  "dialog": true,
+  "anchor": {
+    "$id": "1",
+    "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 0.0
+  },
+  "type": "Background",
+  "guiPresentation": {
+    "$id": "2",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Background/&SellswordTitle",
+    "description": "Background/&SellswordDescription",
+    "spriteReference": {
+      "$id": "3",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "4",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "32340fcce0a88a7459783974c5db3325",
+  "contentPack": "BaseGame",
+  "name": "Bg_Lukewarm"
+}

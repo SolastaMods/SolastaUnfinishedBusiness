@@ -1,35 +1,49 @@
 ﻿using System;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionActionAffinityBuilder : DefinitionBuilder<FeatureDefinitionActionAffinity>
+    public class FeatureDefinitionActionAffinityBuilder : FeatureDefinitionBuilder<FeatureDefinitionActionAffinity, FeatureDefinitionActionAffinityBuilder>
     {
-        /*        private FeatureDefinitionActionAffinityBuilder(string name, string guid)
-                    : base(name, guid)
-                {
-                }
-
-                private FeatureDefinitionActionAffinityBuilder(string name, Guid namespaceGuid, Category category = Category.None)
-                    : base(name, namespaceGuid, category)
-                {
-                }
-
-                private FeatureDefinitionActionAffinityBuilder(FeatureDefinitionActionAffinity original, string name, string guid)
-                    : base(original, name, guid)
-                {
-                }
-        */
-
-        // Add other standard Create methods and constructors as required.
-
-        private FeatureDefinitionActionAffinityBuilder(FeatureDefinitionActionAffinity original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
+        #region Constructors
+        protected FeatureDefinitionActionAffinityBuilder(FeatureDefinitionActionAffinity original) : base(original)
         {
         }
+
+        protected FeatureDefinitionActionAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionActionAffinityBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected FeatureDefinitionActionAffinityBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionActionAffinityBuilder(FeatureDefinitionActionAffinity original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionActionAffinityBuilder(FeatureDefinitionActionAffinity original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionActionAffinityBuilder(FeatureDefinitionActionAffinity original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
 
         public static FeatureDefinitionActionAffinityBuilder Create(FeatureDefinitionActionAffinity original, string name, Guid namespaceGuid)
         {
             return new FeatureDefinitionActionAffinityBuilder(original, name, namespaceGuid);
+        }
+
+        public FeatureDefinitionActionAffinityBuilder SetAuthorizedActions(params ActionDefinitions.Id[] actions)
+        {
+            Definition.SetAuthorizedActions(actions);
+            return This();
         }
     }
 }

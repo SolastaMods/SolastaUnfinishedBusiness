@@ -1,0 +1,516 @@
+{
+  "$type": "ItemDefinition, Assembly-CSharp",
+  "inDungeonEditor": true,
+  "merchantCategory": "Weapon",
+  "weight": 0.05,
+  "slotTypes": [
+    "AmmunitionSlot",
+    "ContainerSlot"
+  ],
+  "slotsWhereActive": [
+    "AmmunitionSlot"
+  ],
+  "activeOnGround": false,
+  "destroyedWhenUnequiped": false,
+  "forceEquip": false,
+  "forceEquipSlot": "",
+  "canBeStacked": true,
+  "stackSize": 20,
+  "defaultStackCount": 10,
+  "costs": [
+    0,
+    25,
+    0,
+    0,
+    0
+  ],
+  "itemTags": [
+    "Wood"
+  ],
+  "activeTags": [],
+  "inactiveTags": [],
+  "magical": true,
+  "requiresAttunement": false,
+  "requiresIdentification": true,
+  "requiredAttunementClasses": [],
+  "itemRarity": "Uncommon",
+  "staticProperties": [
+    {
+      "$id": "1",
+      "$type": "ItemPropertyDescription, Assembly-CSharp",
+      "appliesOnItemOnly": true,
+      "type": "Feature",
+      "featureDefinition": "Definition:AttackModifierWeapon+1:45e5b7165fa58854bb859e5b205dcc71",
+      "conditionDefinition": null,
+      "knowledgeAffinity": "ActiveAndHidden"
+    }
+  ],
+  "isArmor": false,
+  "isWeapon": false,
+  "isAmmunition": true,
+  "ammunitionDefinition": {
+    "$id": "2",
+    "$type": "AmmunitionDescription, Assembly-CSharp",
+    "ammunitionType": "ArrowType",
+    "applyCharacterScale": true,
+    "effectDescription": {
+      "$id": "3",
+      "$type": "EffectDescription, Assembly-CSharp",
+      "rangeType": "Self",
+      "rangeParameter": 0,
+      "halfDamageOnAMiss": false,
+      "hitAffinitiesByTargetTag": [],
+      "targetType": "Self",
+      "itemSelectionType": "Equiped",
+      "targetParameter": 1,
+      "targetParameter2": 2,
+      "emissiveBorder": "None",
+      "emissiveParameter": 1,
+      "requiresTargetProximity": false,
+      "targetProximityDistance": 30,
+      "targetExcludeCaster": false,
+      "canBePlacedOnCharacter": true,
+      "targetFilteringMethod": "AllCharacterAndGadgets",
+      "targetFilteringTag": "No",
+      "requiresVisibilityForPosition": true,
+      "inviteOptionalAlly": false,
+      "slotTypes": [],
+      "recurrentEffect": "No",
+      "retargetAfterDeath": false,
+      "retargetActionType": "Bonus",
+      "poolFilterDiceNumber": 5,
+      "poolFilterDieType": "D8",
+      "trapRangeType": "Triggerer",
+      "targetConditionName": "",
+      "targetConditionAsset": null,
+      "targetSide": "Enemy",
+      "durationType": "Instantaneous",
+      "durationParameter": 1,
+      "endOfEffect": "EndOfTurn",
+      "hasSavingThrow": false,
+      "disableSavingThrowOnAllies": false,
+      "savingThrowAbility": "Dexterity",
+      "ignoreCover": false,
+      "grantedConditionOnSave": null,
+      "hasShoveRoll": false,
+      "createdByCharacter": false,
+      "difficultyClassComputation": "FixedValue",
+      "savingThrowDifficultyAbility": "Wisdom",
+      "fixedSavingThrowDifficultyClass": 15,
+      "savingThrowAffinitiesBySense": [],
+      "savingThrowAffinitiesByFamily": [],
+      "advantageForEnemies": false,
+      "canBeDispersed": false,
+      "hasVelocity": false,
+      "velocityCellsPerRound": 2,
+      "velocityType": "AwayFromSourceOriginalPosition",
+      "restrictedCreatureFamilies": [],
+      "immuneCreatureFamilies": [],
+      "restrictedCharacterSizes": [],
+      "hasLimitedEffectPool": false,
+      "effectPoolAmount": 60,
+      "effectForms": [],
+      "effectAdvancement": {
+        "$id": "4",
+        "$type": "EffectAdvancement, Assembly-CSharp",
+        "effectIncrementMethod": "None",
+        "incrementMultiplier": 1,
+        "additionalTargetsPerIncrement": 0,
+        "additionalSubtargetsPerIncrement": 0,
+        "additionalDicePerIncrement": 0,
+        "additionalSpellLevelPerIncrement": 0,
+        "additionalSummonsPerIncrement": 0,
+        "additionalHPPerIncrement": 0,
+        "additionalTempHPPerIncrement": 0,
+        "additionalTargetCellsPerIncrement": 0,
+        "additionalItemBonus": 0,
+        "additionalWeaponDie": 0,
+        "alteredDuration": "None"
+      },
+      "speedType": "Instant",
+      "speedParameter": 10.0,
+      "offsetImpactTimeBasedOnDistance": false,
+      "offsetImpactTimeBasedOnDistanceFactor": 0.1,
+      "offsetImpactTimePerTarget": 0.0,
+      "effectParticleParameters": {
+        "$id": "5",
+        "$type": "EffectParticleParameters, Assembly-CSharp",
+        "casterParticleReference": {
+          "$id": "6",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "casterSelfParticleReference": {
+          "$id": "7",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "casterQuickSpellParticleReference": {
+          "$id": "8",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "targetParticleReference": {
+          "$id": "9",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "effectParticleReference": {
+          "$id": "10",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "effectSubTargetParticleReference": {
+          "$id": "11",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "zoneParticleReference": {
+          "$id": "12",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "beforeImpactParticleReference": {
+          "$id": "13",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "impactParticleReference": {
+          "$id": "14",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "activeEffectImpactParticleReference": {
+          "$id": "15",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "activeEffectCellStartParticleReference": {
+          "$id": "16",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "activeEffectCellParticleReference": {
+          "$id": "17",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "activeEffectCellEndParticleReference": {
+          "$id": "18",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "activeEffectSurfaceStartParticleReference": {
+          "$id": "19",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "activeEffectSurfaceParticleReference": {
+          "$id": "20",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "activeEffectSurfaceEndParticleReference": {
+          "$id": "21",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "emissiveBorderCellStartParticleReference": {
+          "$id": "22",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "emissiveBorderCellParticleReference": {
+          "$id": "23",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "emissiveBorderCellEndParticleReference": {
+          "$id": "24",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "emissiveBorderSurfaceStartParticleReference": {
+          "$id": "25",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "emissiveBorderSurfaceParticleReference": {
+          "$id": "26",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "emissiveBorderSurfaceEndParticleReference": {
+          "$id": "27",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "conditionStartParticleReference": {
+          "$id": "28",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "conditionParticleReference": {
+          "$id": "29",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "conditionEndParticleReference": {
+          "$id": "30",
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        },
+        "applyEmissionColorOnWeapons": false,
+        "emissionColor": {
+          "$id": "31",
+          "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+          "r": 0.0,
+          "g": 0.0,
+          "b": 0.0,
+          "a": 0.0
+        },
+        "emissionColorFadeInDuration": 0.0,
+        "emissionColorFadeOutDuration": 0.0
+      },
+      "effectAIParameters": {
+        "$id": "32",
+        "$type": "EffectAIParameters, Assembly-CSharp",
+        "aoeScoreMultiplier": 1.0,
+        "cooldownForCaster": 0,
+        "cooldownForBattle": 0,
+        "dynamicCooldown": false
+      },
+      "animationMagicEffect": "Animation0"
+    }
+  },
+  "isUsableDevice": false,
+  "isTool": false,
+  "isStarterPack": false,
+  "isContainerItem": false,
+  "isLightSourceItem": false,
+  "isFocusItem": false,
+  "isWealthPile": false,
+  "isSpellbook": false,
+  "isDocument": false,
+  "isFood": false,
+  "isFactionRelic": false,
+  "personalityFlagOccurences": [],
+  "soundEffectDescriptionOverride": {
+    "$id": "33",
+    "$type": "SoundEffectDescription, Assembly-CSharp",
+    "startEvent": {
+      "$id": "34",
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "stopEvent": {
+      "$id": "35",
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "startSwitch": {
+      "$id": "36",
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "stopSwitch": {
+      "$id": "37",
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiStoreBody": {
+      "$id": "38",
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiPickBody": {
+      "$id": "39",
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiStoreOther": {
+      "$id": "40",
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiPickOther": {
+      "$id": "41",
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
+  "soundEffectOnHitDescriptionOverride": {
+    "$id": "42",
+    "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
+    "switchOnHit": {
+      "$id": "43",
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
+  "itemPresentation": {
+    "$id": "44",
+    "$type": "ItemPresentation, Assembly-CSharp",
+    "unidentifiedTitle": "Equipment/&Magic_Arrow_Unidentified_Title",
+    "unidentifiedDescription": "Equipment/&Magic_Arrow_Unidentified_Description",
+    "overrideSubtype": "None",
+    "assetReference": {
+      "$id": "45",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "fe496d891371ce3439529b53284f28e5",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "scaleFactorWhileWielded": 1.0,
+    "useArmorAddressableName": false,
+    "armorAddressableName": "",
+    "useCustomArmorMaterial": false,
+    "customArmorMaterial": "",
+    "hasCrownVariationMask": false,
+    "crownVariationMask": 0,
+    "sameBehavioursForMaleAndFemale": true,
+    "maleBodyPartBehaviours": [],
+    "femaleBodyPartBehaviours": [],
+    "itemFlags": [],
+    "serializedVersion": 1
+  },
+  "guiPresentation": {
+    "$id": "46",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ArrowPlus1Title",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "47",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "512e6a1f4e275f444b2b96c36d6c9e33",
+      "m_SubObjectName": "Arrow_plus_one",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "48",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "00e9f1acc34f18649ac6588f6b5877f3",
+  "contentPack": "BaseGame",
+  "name": "Arrow+1"
+}

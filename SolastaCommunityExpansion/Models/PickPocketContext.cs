@@ -30,7 +30,7 @@ namespace SolastaCommunityExpansion.Models
 
             FeatureDefinitionProficiency pickpocket_proficiency = FeatureDefinitionProficiencyBuilder
                 .Create(DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyFeatLockbreaker, "ProficiencyFeatPickPocket", "d8046b0c-2f93-4b47-b2dd-110234a4a848")
-                .SetGuiPresentation(Category.Feat)
+                .SetGuiPresentation("PickPocketFeat", Category.Feat)
                 .AddToDB();
 
             pickpocket_proficiency.SetProficiencyType(ProficiencyType.SkillOrExpertise);

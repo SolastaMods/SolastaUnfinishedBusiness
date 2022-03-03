@@ -1,0 +1,50 @@
+{
+  "$type": "CharacterSizeDefinition, Assembly-CSharp",
+  "wieldingSize": "Huge",
+  "carryingSize": "Huge",
+  "minExtent": {
+    "$id": "1",
+    "$type": "TA.int3, Assembly-CSharp",
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "maxExtent": {
+    "$id": "2",
+    "$type": "TA.int3, Assembly-CSharp",
+    "x": 2,
+    "y": 2,
+    "z": 2
+  },
+  "visionHeightFactor": 0.93,
+  "bestiaryScaleFactor": 0.33,
+  "guiPresentation": {
+    "$id": "3",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Size/&HugeTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "4",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "5",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 4,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "5b85854ce261190429aabf462c72ea0d",
+  "contentPack": "BaseGame",
+  "name": "Huge"
+}

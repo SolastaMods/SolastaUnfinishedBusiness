@@ -210,25 +210,26 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         }
 
         // A builder to help us build a custom damage affinity for our Bark Ward conditions
-        internal class FeatureDefinitionDamageAffinityBuilder : DefinitionBuilder<FeatureDefinitionDamageAffinity>
+        internal class FeatureDefinitionDamageAffinityBuilder : Builders.Features.FeatureDefinitionDamageAffinityBuilder
         {
             public FeatureDefinitionDamageAffinityBuilder(string name, string guid, bool retaliateWhenHit, int retaliationRange,
                 FeatureDefinitionPower retaliationPower, RuleDefinitions.DamageAffinityType damageAffinityType, string damageType,
                 GuiPresentation guiPresentation) : base(DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireShieldWarm, name, guid)
             {
-                Definition.SetDamageAffinityType(damageAffinityType);
-                Definition.SetDamageType(damageType);
-                Definition.SetRetaliateWhenHit(retaliateWhenHit);
-                Definition.SetRetaliateRangeCells(retaliationRange);
-                Definition.SetRetaliatePower(retaliationPower);
-                Definition.SetGuiPresentation(guiPresentation);
-                Definition.SetAncestryDefinesDamageType(false);
+                Definition
+                    .SetDamageAffinityType(damageAffinityType)
+                    .SetDamageType(damageType)
+                    .SetRetaliateWhenHit(retaliateWhenHit)
+                    .SetRetaliateRangeCells(retaliationRange)
+                    .SetRetaliatePower(retaliationPower)
+                    .SetGuiPresentation(guiPresentation)
+                    .SetAncestryDefinesDamageType(false);
             }
         }
     }
 
     // Creates a dedicated builder for the the three Bark Ward conditions
-    internal class ConditionBarkWardBuilder : DefinitionBuilder<ConditionDefinition>
+    internal class ConditionBarkWardBuilder : ConditionDefinitionBuilder
     {
         protected ConditionBarkWardBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionBarkskin, name, guid)
         {
@@ -254,7 +255,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         }
     }
 
-    internal class ConditionImprovedBarkWardBuilder : DefinitionBuilder<ConditionDefinition>
+    internal class ConditionImprovedBarkWardBuilder : ConditionDefinitionBuilder
     {
         private static FeatureDefinitionPower CreateImprovedBarkWardRetaliate()
         {
@@ -309,12 +310,10 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             Definition.GuiPresentation.Title = "Condition/&ConditionImprovedBarkWardTitle";
             Definition.GuiPresentation.Description = "Condition/&ConditionImprovedBarkWardDescription";
 
-            Definition.Features.Clear();
-            Definition.Features.Add(CreateImprovedBarkWardDamage());
-            Definition.SetAllowMultipleInstances(false);
-            Definition.SetDurationParameter(10);
-            Definition.SetDurationType(RuleDefinitions.DurationType.Minute);
-            Definition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            SetFeatures(CreateImprovedBarkWardDamage());
+            SetAllowMultipleInstances(false);
+            SetDuration(RuleDefinitions.DurationType.Minute, 10);
+            SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
         }
 
         public static ConditionDefinition CreateAndAddToDB()
@@ -329,7 +328,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         }
     }
 
-    internal class ConditionSuperiorBarkWardBuilder : DefinitionBuilder<ConditionDefinition>
+    internal class ConditionSuperiorBarkWardBuilder : ConditionDefinitionBuilder
     {
         private static FeatureDefinitionPower CreateSuperiorBarkWardRetaliate()
         {

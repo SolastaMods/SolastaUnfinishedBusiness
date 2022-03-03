@@ -3,7 +3,7 @@ using SolastaCommunityExpansion.CustomFeatureDefinitions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionOnAttackHitEffectBuilder : DefinitionBuilder<FeatureDefinitionOnAttackHitEffect>
+    public sealed class FeatureDefinitionOnAttackHitEffectBuilder : FeatureDefinitionBuilder<FeatureDefinitionOnAttackHitEffect, FeatureDefinitionOnAttackHitEffectBuilder>
     {
         private FeatureDefinitionOnAttackHitEffectBuilder(string name, Guid namespaceGuid)
             : base(name, namespaceGuid)

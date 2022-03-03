@@ -1,0 +1,33 @@
+{
+  "$type": "MerchantCategoryDefinition, Assembly-CSharp",
+  "assignableToItem": true,
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "MerchantCategory/&IngredientTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "bc270e9c017c0c64bae57f50d141110b",
+      "m_SubObjectName": "CategoryIngredient",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 6,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "dec1230b90ee9254f82ed6157f19a033",
+  "contentPack": "BaseGame",
+  "name": "Ingredient"
+}

@@ -1,0 +1,368 @@
+{
+  "$type": "FeatureDefinitionCastSpell, Assembly-CSharp",
+  "spellCastingOrigin": "Monster",
+  "spellcastingAbility": "Intelligence",
+  "spellcastingParametersComputation": "Static",
+  "staticDCValue": 17,
+  "staticToHitValue": 9,
+  "spellListDefinition": "Definition:SpellListCubeOfLight:82b8e7acff8281a4dbab5715a86c6be3",
+  "restrictedSchools": [],
+  "spellKnowledge": "FixedList",
+  "spellReadyness": "AllKnown",
+  "spellPreparationCount": "AbilityBonusPlusLevel",
+  "slotsRecharge": "LongRest",
+  "spellCastingLevel": 9,
+  "knownCantrips": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "knownSpells": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "scribedSpells": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "replacedSpells": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "slotsPerLevels": [
+    {
+      "$id": "1",
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "slots": [
+        3,
+        2,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$id": "2",
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "slots": [
+        3,
+        3,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$id": "3",
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "slots": [
+        3,
+        4,
+        2,
+        0,
+        0
+      ]
+    },
+    {
+      "$id": "4",
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "slots": [
+        4,
+        4,
+        3,
+        0,
+        0
+      ]
+    },
+    {
+      "$id": "5",
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "slots": [
+        4,
+        4,
+        3,
+        0,
+        0
+      ]
+    },
+    {
+      "$id": "6",
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 6,
+      "slots": [
+        4,
+        4,
+        3,
+        0,
+        0
+      ]
+    },
+    {
+      "$id": "7",
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 7,
+      "slots": [
+        4,
+        4,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "$id": "8",
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 8,
+      "slots": [
+        4,
+        4,
+        3,
+        2,
+        0
+      ]
+    },
+    {
+      "$id": "9",
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 9,
+      "slots": [
+        8,
+        8,
+        8,
+        5,
+        1
+      ]
+    },
+    {
+      "$id": "10",
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 10,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$id": "11",
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 11,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$id": "12",
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 12,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$id": "13",
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 13,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$id": "14",
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 14,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$id": "15",
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 15,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$id": "16",
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 16,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$id": "17",
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 17,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$id": "18",
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 18,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$id": "19",
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 19,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$id": "20",
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 20,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "focusType": "None",
+  "guiPresentation": {
+    "$id": "21",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "22",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "23",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "bf6788cf31aaaae49a95c4c246187516",
+  "contentPack": "BaseGame",
+  "name": "CastSpellCubeOfLight"
+}

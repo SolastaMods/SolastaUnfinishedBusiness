@@ -1,0 +1,43 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:ProficiencyGreenmageWardenOfTheForestBow:fa78caed9b59d3342b64e59e6771bed3",
+    "Definition:ProficiencyGreenmageWardenOfTheForestStyle:635932027d220304287ee23d5561f9df",
+    "Definition:ProficiencyGreenmageWardenOfTheForestArmor:961479ea10022d24fa3754985fcbe8b3",
+    "Definition:TerrainTypeAffinityRangerNaturalExplorerForest:105c7b19608adaa4ba65f0e7f2914b07"
+  ],
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&TraditionGreenmageWardenOfTheForestTitle",
+    "description": "Feature/&TraditionGreenmageWardenOfTheForestDescription",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "35a05f7d212f7c24cb9dc108b3e2a9e0",
+  "contentPack": "BaseGame",
+  "name": "FeatureSetGreenmageWardenOfTheForest"
+}

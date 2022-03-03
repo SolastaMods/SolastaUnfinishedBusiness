@@ -3,7 +3,7 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class RecipeDefinitionBuilder : DefinitionBuilder<RecipeDefinition>
+    public class RecipeDefinitionBuilder : DefinitionBuilder<RecipeDefinition, RecipeDefinitionBuilder>
     {
         public RecipeDefinitionBuilder(string name, string guid) : base(name, guid)
         {

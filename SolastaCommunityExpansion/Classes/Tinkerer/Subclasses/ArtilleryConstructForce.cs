@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -11,7 +12,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		ForceArtilleryConstructBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class ForceArtilleryConstructBuilder : DefinitionBuilder<MonsterDefinition>
+    internal sealed class ForceArtilleryConstructBuilder : MonsterDefinitionBuilder
     {
         private const string ForceArtilleryConstructName = "ForceArtilleryConstruct";
         private const string ForceArtilleryConstructGuid = "91cc706f-97b7-47d9-a46e-89b251fd5efe";
@@ -90,7 +91,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		ForceArtilleryConstruct_9Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class ForceArtilleryConstruct9Builder : DefinitionBuilder<MonsterDefinition>
+    internal sealed class ForceArtilleryConstruct9Builder : MonsterDefinitionBuilder
     {
         private const string ForceArtilleryConstruct_9Name = "ForceArtilleryConstruct_9";
         private const string ForceArtilleryConstruct_9Guid = "1a479ea4-0f72-4847-bd0b-54b2ded48057";
@@ -118,7 +119,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		ForceArtilleryConstruct_15Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class ForceArtilleryConstruct15Builder : DefinitionBuilder<MonsterDefinition>
+    internal sealed class ForceArtilleryConstruct15Builder : MonsterDefinitionBuilder
     {
         private const string ForceArtilleryConstruct_15Name = "ForceArtilleryConstruct_15";
         private const string ForceArtilleryConstruct_15Guid = "e7d49f53-cb44-4348-82d7-b8b561861448";
@@ -143,7 +144,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummonForceArtillerySpellConstructBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SummonForceArtillerySpellConstructBuilder : DefinitionBuilder<SpellDefinition>
+    internal sealed class SummonForceArtillerySpellConstructBuilder : SpellDefinitionBuilder
     {
         private const string SummonForceArtilleryConstructName = "SummonForceArtilleryConstruct";
         private const string SummonForceArtilleryConstructGuid = "c584b73c-9fa8-453f-90ad-944b8d1b5b05";
@@ -174,7 +175,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummonForceArtillerySpellConstruct_9Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SummonForceArtillerySpellConstruct9Builder : DefinitionBuilder<SpellDefinition>
+    internal sealed class SummonForceArtillerySpellConstruct9Builder : SpellDefinitionBuilder
     {
         private const string SummonForceArtilleryConstruct_9Name = "SummonForceArtilleryConstruct_9";
         private const string SummonForceArtilleryConstruct_9Guid = "f1e8d7e1-44d9-4a82-ac23-5e0013b40650";
@@ -199,7 +200,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummonForceArtillerySpellConstruct_15Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SummonForceArtillerySpellConstruct15Builder : DefinitionBuilder<SpellDefinition>
+    internal sealed class SummonForceArtillerySpellConstruct15Builder : SpellDefinitionBuilder
     {
         private const string SummonForceArtilleryConstruct_15Name = "SummonForceArtilleryConstruct_15";
         private const string SummonForceArtilleryConstruct_15Guid = "b529386c-defa-4c39-a03c-09a08a104cc6";
@@ -221,7 +222,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static readonly SpellDefinition SummonForceArtilleryConstruct15 = CreateAndAddToDB(SummonForceArtilleryConstruct_15Name, SummonForceArtilleryConstruct_15Guid);
     }
 
-    internal sealed class ForceArtilleryAttackBuilder : DefinitionBuilder<MonsterAttackDefinition>
+    internal sealed class ForceArtilleryAttackBuilder : MonsterAttackDefinitionBuilder
     {
         private const string ForceArtilleryAttackName = "ForceArtilleryAttack";
         private const string ForceArtilleryAttackGuid = "39c5b7ef-47f9-462c-9f24-accaee85d325";
@@ -322,7 +323,7 @@ Web
         public static readonly MonsterAttackDefinition ForceArtilleryAttack = CreateAndAddToDB(ForceArtilleryAttackName, ForceArtilleryAttackGuid);
     }
 
-    internal sealed class ForceArtilleryAdditionalDamageBuilder : DefinitionBuilder<FeatureDefinitionAdditionalDamage>
+    internal sealed class ForceArtilleryAdditionalDamageBuilder : FeatureDefinitionAdditionalDamageBuilder
     {
         private const string ForceArtilleryAdditionalDamageName = "ForceArtilleryAdditionalDamage";
         private const string ForceArtilleryAdditionalDamageGuid = "2e726b2e-052f-482f-a869-721851fcb407";
@@ -349,7 +350,7 @@ Web
         public static readonly FeatureDefinitionAdditionalDamage ForceArtilleryAdditionalDamage = CreateAndAddToDB(ForceArtilleryAdditionalDamageName, ForceArtilleryAdditionalDamageGuid);
     }
 
-    internal sealed class ForceArtilleryProjectileBuilder : DefinitionBuilder<ItemDefinition>
+    internal sealed class ForceArtilleryProjectileBuilder : ItemDefinitionBuilder
     {
         private const string ForceArtilleryProjectileName = "ForceArtilleryProjectile";
         private const string ForceArtilleryProjectileGuid = "b30b1971-6ad6-4ea2-af5b-998043415f04";

@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi;
+using SolastaModApi.Diagnostics;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
@@ -22,6 +24,21 @@ namespace SolastaCommunityExpansion.Builders
             particleParams.Copy(DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters);
 
             effect.SetEffectParticleParameters(particleParams);
+        }
+
+        public EffectDescriptionBuilder(EffectDescription effect)
+        {
+            this.effect = effect.Copy();
+        }
+
+        public static EffectDescriptionBuilder Create()
+        {
+            return new EffectDescriptionBuilder();
+        }
+
+        public static EffectDescriptionBuilder Create(EffectDescription effect)
+        {
+            return new EffectDescriptionBuilder(effect);
         }
 
         public EffectDescriptionBuilder SetCreatedByCharacter()
@@ -177,9 +194,22 @@ namespace SolastaCommunityExpansion.Builders
 
         public EffectDescriptionBuilder SetDurationData(RuleDefinitions.DurationType durationType, int durationParameter, RuleDefinitions.TurnOccurenceType endOfEffect)
         {
-            effect.DurationType = durationType;
-            effect.DurationParameter = durationParameter;
+            effect.SetDurationType(durationType);
+            effect.SetDurationParameter(durationParameter);
             effect.SetEndOfEffect(endOfEffect);
+            return this;
+        }
+
+        public EffectDescriptionBuilder SetDurationData(RuleDefinitions.DurationType type, int duration = 0, bool validate = true)
+        {
+            if (validate)
+            {
+                Preconditions.IsValidDuration(type, duration);
+            }
+
+            effect.SetDurationParameter(duration);
+            effect.SetDurationType(type);
+
             return this;
         }
 

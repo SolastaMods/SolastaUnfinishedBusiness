@@ -477,10 +477,24 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetForbidFastTravel<T>(this T entity, System.Boolean value)
+            where T : MonsterDefinition
+        {
+            entity.SetField("forbidFastTravel", value);
+            return entity;
+        }
+
         public static T SetForceCombatStartsAnimation<T>(this T entity, System.Boolean value)
             where T : MonsterDefinition
         {
             entity.SetField("forceCombatStartsAnimation", value);
+            return entity;
+        }
+
+        public static T SetForceHasComplexActions<T>(this T entity, System.Boolean value)
+            where T : MonsterDefinition
+        {
+            entity.SetField("forceHasComplexActions", value);
             return entity;
         }
 
@@ -649,6 +663,13 @@ namespace SolastaModApi.Extensions
             where T : MonsterDefinition
         {
             entity.SetField("noExperienceGain", value);
+            return entity;
+        }
+
+        public static T SetOverrideSpawnDecision<T>(this T entity, TA.AI.DecisionPackageDefinition value)
+            where T : MonsterDefinition
+        {
+            entity.SetField("overrideSpawnDecision", value);
             return entity;
         }
 

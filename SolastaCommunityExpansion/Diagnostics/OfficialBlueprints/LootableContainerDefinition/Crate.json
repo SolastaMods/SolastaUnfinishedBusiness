@@ -1,0 +1,37 @@
+{
+  "$type": "LootableContainerDefinition, Assembly-CSharp",
+  "minSlotsNumber": 1,
+  "contentAlwaysKnown": false,
+  "forbidDrop": false,
+  "ignoredByScavengers": false,
+  "restrictedItems": [],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ContainerCrateTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "abc1da3a3eaf5de4087e2a6966afab84",
+  "contentPack": "BaseGame",
+  "name": "Crate"
+}

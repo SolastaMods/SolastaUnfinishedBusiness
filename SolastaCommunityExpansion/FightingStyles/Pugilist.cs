@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.FightingStyles
 {
     internal class Pugilist : AbstractFightingStyle
     {
-        private CustomizableFightingStyle instance;
+        private CustomizableFightingStyleDefinition instance;
 
         internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
         {
@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion.FightingStyles
                 FeatureDefinitionFightingStyleChoices.FightingStyleRanger,};
         }
 
-        private sealed class FeatureDefinitionAdditionalDamageBuilder : DefinitionBuilder<FeatureDefinitionAdditionalDamage>
+        private sealed class FeatureDefinitionAdditionalDamageBuilder : Builders.Features.FeatureDefinitionAdditionalDamageBuilder
         {
             internal FeatureDefinitionAdditionalDamageBuilder(string name, string guid, string notificationTag, RuleDefinitions.FeatureLimitedUsage limitedUsage,
             RuleDefinitions.AdditionalDamageValueDetermination damageValueDetermination,
@@ -66,29 +66,33 @@ namespace SolastaCommunityExpansion.FightingStyles
                     .SetDamageForm(false, RuleDefinitions.DieType.D10, "DamageBludgeoning", 1, RuleDefinitions.DieType.D8, 1,
                     RuleDefinitions.HealFromInflictedDamage.Never, new List<RuleDefinitions.TrendInfo>()).Build());
 
-                FeatureDefinitionPower offhandAttack = FeatureDefinitionPowerBuilder.Create("PowerPugilistOffhandAttack", "a97a1c9c-232b-42ae-8003-30d244e958b3")
+                var gui = GuiPresentationBuilder.Build("PugilistFighting", Category.FightingStyle, PathBerserker.GuiPresentation.SpriteReference);
+
+                FeatureDefinitionPower offhandAttack = FeatureDefinitionPowerBuilder
+                    .Create("PowerPugilistOffhandAttack", "a97a1c9c-232b-42ae-8003-30d244e958b3")
+                    .SetGuiPresentation(gui)
                     .Configure(
                         1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Strength, RuleDefinitions.ActivationTime.BonusAction,
                         0, RuleDefinitions.RechargeRate.AtWill, true, true, AttributeDefinitions.Strength, offhandEffect.Build(), false /* unique */)
                     .SetShowCasting(false)
-                    .SetGuiPresentation("PugilistFighting", Category.FightingStyle, PathBerserker.GuiPresentation.SpriteReference)
                     .AddToDB();
 
-                GuiPresentationBuilder gui = new GuiPresentationBuilder("FightingStyle/&PugilistFightingTitle", "FightingStyle/&PugilistFightingDescription");
-                gui.SetSpriteReference(PathBerserker.GuiPresentation.SpriteReference);
-
-                CustomizableFightingStyleBuilder builder = new CustomizableFightingStyleBuilder("PugilistFightingStlye", "b14f91dc-8706-498b-a9a0-d583b7b00d09",
-                    new List<FeatureDefinition>() {
-                        new FeatureDefinitionAdditionalDamageBuilder("AdditionalDamagePugilist", "36d24b2e-8ef4-4037-a82f-05e63d56f3d2", "Pugilist", RuleDefinitions.FeatureLimitedUsage.None,
+                var pugilistAdditionalDamage =
+                    new FeatureDefinitionAdditionalDamageBuilder("AdditionalDamagePugilist", "36d24b2e-8ef4-4037-a82f-05e63d56f3d2", "Pugilist", RuleDefinitions.FeatureLimitedUsage.None,
                         RuleDefinitions.AdditionalDamageValueDetermination.Die, RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive, RuleDefinitions.AdditionalDamageRequiredProperty.MeleeWeapon,
                         true, RuleDefinitions.DieType.D8, 1, RuleDefinitions.AdditionalDamageType.SameAsBaseDamage, "", RuleDefinitions.AdditionalDamageAdvancement.None, new List<DiceByRank>(),
-                        false, AttributeDefinitions.Constitution, 15, RuleDefinitions.EffectSavingThrowType.None, new List<ConditionOperationDescription>(), gui.Build()).AddToDB(),
-                        offhandAttack,
-                    },
-                    gui.Build())
-                    .SetIsActive(IsValid);
-                instance = builder.AddToDB();
+                        false, AttributeDefinitions.Constitution, 15, RuleDefinitions.EffectSavingThrowType.None, new List<ConditionOperationDescription>(), gui)
+                    .AddToDB();
+
+
+                instance = CustomizableFightingStyleBuilder
+                    .Create("PugilistFightingStlye", "b14f91dc-8706-498b-a9a0-d583b7b00d09")
+                    .SetFeatures(pugilistAdditionalDamage, offhandAttack)
+                    .SetGuiPresentation(gui)
+                    .SetIsActive(IsValid)
+                    .AddToDB();
             }
+
             return instance;
         }
 

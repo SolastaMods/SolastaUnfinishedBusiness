@@ -6,19 +6,19 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public sealed class FeatDefinitionBuilder : DefinitionBuilder<FeatDefinition>
+    public class FeatDefinitionBuilder : DefinitionBuilder<FeatDefinition, FeatDefinitionBuilder>
     {
-        private FeatDefinitionBuilder(string name, Guid namespaceGuid)
+        protected FeatDefinitionBuilder(string name, Guid namespaceGuid)
             : base(name, namespaceGuid)
         {
         }
 
-        private FeatDefinitionBuilder(FeatDefinition original, string name, string guid)
+        protected FeatDefinitionBuilder(FeatDefinition original, string name, string guid)
             : base(original, name, guid)
         {
         }
 
-        private FeatDefinitionBuilder(FeatDefinition original, string name, Guid namespaceGuid)
+        protected FeatDefinitionBuilder(FeatDefinition original, string name, Guid namespaceGuid)
             : base(original, name, namespaceGuid)
         {
         }

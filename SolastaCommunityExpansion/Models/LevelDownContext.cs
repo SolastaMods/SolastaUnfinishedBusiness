@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class LevelDownContext
     {
-        internal sealed class RestActivityLevelDownBuilder : DefinitionBuilder<RestActivityDefinition>
+        internal sealed class RestActivityLevelDownBuilder : RestActivityDefinitionBuilder
         {
             private const string LevelDownName = "ZSLevelDown";
             private const string LevelDownGuid = "fdb4d86eaef942d1a22dbf1fb5a7299f";

@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.Builders
 {
     internal static class ItemBuilder
     {
-        public static ItemDefinition BuilderCopyFromItemSetRecipe(ItemDefinition original, string name, Guid collectionGuid, 
+        public static ItemDefinition BuilderCopyFromItemSetRecipe(ItemDefinition original, string name, Guid collectionGuid,
             RecipeDefinition recipeDefinition, int gold, GuiPresentation guiPresentation)
         {
             return ItemDefinitionBuilder

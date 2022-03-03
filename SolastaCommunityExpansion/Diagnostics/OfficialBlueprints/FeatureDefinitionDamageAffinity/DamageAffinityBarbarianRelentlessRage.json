@@ -1,0 +1,53 @@
+{
+  "$type": "FeatureDefinitionDamageAffinity, Assembly-CSharp",
+  "ancestryDefinesDamageType": false,
+  "damageType": "DamageFire",
+  "savingThrowAdvantageType": "None",
+  "savingThrowModifier": 0,
+  "damageAffinityType": "None",
+  "tagsIgnoringAffinity": [],
+  "situationalContext": "None",
+  "healsBack": false,
+  "healBackCap": 10,
+  "retaliateWhenHit": false,
+  "retaliateProximity": "Melee",
+  "retaliateRangeCells": 1,
+  "retaliatePower": null,
+  "knockOutAffinity": "ConstitutionCheck",
+  "knockOutOccurencesNumber": 1,
+  "knockOutRequiredCondition": "Definition:ConditionRaging:1567bb2d092a2bf4fbe78f6ea6afdf49",
+  "knockOutDCAttribute": "RelentlessRageDC",
+  "knockOutAddDC": 5,
+  "instantDeathImmunity": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&RelentlessRageTitle",
+    "description": "Feature/&RelentlessRageDescription",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "887d8d883e74f6243b905e2d080c8a97",
+  "contentPack": "BaseGame",
+  "name": "DamageAffinityBarbarianRelentlessRage"
+}

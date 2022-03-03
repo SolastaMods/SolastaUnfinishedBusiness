@@ -6,9 +6,7 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
-using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionCharacterPresentations;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaModApi.DatabaseHelper.ItemDefinitions;
 using static SolastaModApi.DatabaseHelper.MerchantDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
@@ -17,7 +15,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class ItemOptionsContext
     {
-        private sealed class WandIdentifyBuilder : DefinitionBuilder<ItemDefinition>
+        private sealed class WandIdentifyBuilder : ItemDefinitionBuilder
         {
             private WandIdentifyBuilder(string name, string guid, string title, string description, ItemDefinition original) : base(original, name, guid)
             {
@@ -54,7 +52,7 @@ namespace SolastaCommunityExpansion.Models
                 WandMagicMissile);
         }
 
-        private sealed class FocusDefinitionBuilder : DefinitionBuilder<ItemDefinition>
+        private sealed class FocusDefinitionBuilder : ItemDefinitionBuilder
         {
             private FocusDefinitionBuilder(
                 string name,
@@ -66,6 +64,8 @@ namespace SolastaCommunityExpansion.Models
                 AssetReferenceSprite assetReferenceSprite,
                 params string[] slotTypes) : base(original, name, guid)
             {
+                // Use IsXXXItem = true/SetIsXXXItem(true) before using the XXXItemDescription
+                Definition.IsFocusItem = true;
                 Definition.FocusItemDescription.SetFocusType(type);
                 Definition.GuiPresentation.Title = title;
                 Definition.GuiPresentation.Description = description;
@@ -76,7 +76,6 @@ namespace SolastaCommunityExpansion.Models
                 }
 
                 Definition.SetCosts(ComponentPouch.Costs);
-                Definition.SetIsFocusItem(true);
 
                 if (slotTypes.Length > 0)
                 {
@@ -120,7 +119,7 @@ namespace SolastaCommunityExpansion.Models
                 "Equipment/&ArcaneStaffTitle",
                 "Equipment/&ArcaneStaffDescription",
                 Quarterstaff,
-                EquipmentDefinitions.FocusType.Druidic,
+                EquipmentDefinitions.FocusType.Arcane,
                 QuarterstaffPlus1.GuiPresentation.SpriteReference);
 
             internal static readonly ItemDefinition DruidicAmulet = CreateAndAddToDB(
@@ -311,12 +310,13 @@ namespace SolastaCommunityExpansion.Models
         internal static void SwitchMagicStaffFoci()
         {
             foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>()
-                .Where(x => x.WeaponDescription.WeaponType == EquipmentDefinitions.WeaponTypeQuarterstaff && x.Magical && !x.Name.Contains("OfHealing")))
+                .Where(x => x.IsWeapon) // WeaponDescription could be null
+                .Where(x => x.WeaponDescription.WeaponType == EquipmentDefinitions.WeaponTypeQuarterstaff)
+                .Where(x => x.Magical && !x.Name.Contains("OfHealing")))
             {
-                item.SetIsFocusItem(Main.Settings.MakeAllMagicStaveArcaneFoci);
-
-                if (item.IsFocusItem)
+                if (Main.Settings.MakeAllMagicStaveArcaneFoci)
                 {
+                    item.IsFocusItem = true;
                     item.FocusItemDescription.SetFocusType(EquipmentDefinitions.FocusType.Arcane);
                 }
             }

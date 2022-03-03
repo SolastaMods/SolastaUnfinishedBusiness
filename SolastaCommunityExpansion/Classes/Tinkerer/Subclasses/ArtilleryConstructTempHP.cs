@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 
@@ -9,7 +10,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		TempHPShieldBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class TempHPShieldBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class TempHPShieldBuilder : FeatureDefinitionPowerBuilder
     {
         private const string TempHPShieldName = "TempHPShield";
         private const string TempHPShieldGuid = "9ca27524-0b49-479e-b11d-085e00e77b8f";
@@ -71,7 +72,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		TempHPShieldConstructBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class TempHPShieldConstructBuilder : DefinitionBuilder<MonsterDefinition>
+    internal sealed class TempHPShieldConstructBuilder : MonsterDefinitionBuilder
     {
         private const string TempHPShieldConstructName = "TempHPShieldConstruct";
         private const string TempHPShieldConstructGuid = "65223373-24a2-4596-b778-75e6f197b73f";
@@ -147,7 +148,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		TempHPShieldConstruct_9Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class TempHPShieldConstruct9Builder : DefinitionBuilder<MonsterDefinition>
+    internal sealed class TempHPShieldConstruct9Builder : MonsterDefinitionBuilder
     {
         private const string TempHPShieldConstruct_9Name = "TempHPShieldConstruct_9";
         private const string TempHPShieldConstruct_9Guid = "75f8541a-65c3-4226-9c42-a80dd76b04cd";
@@ -171,7 +172,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		TempHPShieldConstruct_15Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class TempHPShieldConstruct15Builder : DefinitionBuilder<MonsterDefinition>
+    internal sealed class TempHPShieldConstruct15Builder : MonsterDefinitionBuilder
     {
         private const string TempHPShieldConstruct_15Name = "TempHPShieldConstruct_15";
         private const string TempHPShieldConstruct_15Guid = "243d5f04-2106-4c20-a3f2-38484ecc345c";
@@ -195,7 +196,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummonTempHPShieldSpellConstructBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SummonTempHPShieldSpellConstructBuilder : DefinitionBuilder<SpellDefinition>
+    internal sealed class SummonTempHPShieldSpellConstructBuilder : SpellDefinitionBuilder
     {
         private const string SummonTempHPShieldConstructName = "SummonTempHPShieldConstruct";
         private const string SummonTempHPShieldConstructGuid = "db9e7e8e-b749-4b46-9ba3-60a7bf221b0b";
@@ -226,7 +227,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummonTempHPShieldSpellConstruct_9Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SummonTempHPShieldSpellConstruct9Builder : DefinitionBuilder<SpellDefinition>
+    internal sealed class SummonTempHPShieldSpellConstruct9Builder : SpellDefinitionBuilder
     {
         private const string SummonTempHPShieldConstruct_9Name = "SummonTempHPShieldConstruct_9";
         private const string SummonTempHPShieldConstruct_9Guid = "f1e88575-40ca-4f4e-9447-616058e213a4";
@@ -251,7 +252,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummonTempHPShieldSpellConstruct_15Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SummonTempHPShieldSpellConstruct15Builder : DefinitionBuilder<SpellDefinition>
+    internal sealed class SummonTempHPShieldSpellConstruct15Builder : SpellDefinitionBuilder
     {
         private const string SummonTempHPShieldConstruct_15Name = "SummonTempHPShieldConstruct_15";
         private const string SummonTempHPShieldConstruct_15Guid = "84ddce96-ec58-4141-933d-371080d611d2";

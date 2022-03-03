@@ -1,11 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using SolastaModApi.Diagnostics;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Builders
 {
+    [Flags]
+    public enum Silent
+    {
+        None,
+        WhenAdded = 1,
+        WhenRemoved = 2,
+        WhenAddedOrRemoved = WhenAdded | WhenRemoved
+    }
+
+
     /// <summary>
     /// Abstract ConditionDefinitionBuilder that allows creating builders for custom ConditionDefinition types.
     /// </summary>
@@ -52,92 +62,122 @@ namespace SolastaCommunityExpansion.Builders
         public TBuilder SetAllowMultipleInstances(bool value)
         {
             Definition.SetAllowMultipleInstances(value);
-            return (TBuilder)this;
+            return This();
         }
 
         public TBuilder SetAmountOrigin(ConditionDefinition.OriginOfAmount value)
         {
             Definition.SetAmountOrigin(value);
-            return (TBuilder)this;
+            return This();
         }
 
         public TBuilder SetConditionType(RuleDefinitions.ConditionType value)
         {
             Definition.SetConditionType(value);
-            return (TBuilder)this;
+            return This();
         }
 
         public TBuilder SetTurnOccurence(RuleDefinitions.TurnOccurenceType value)
         {
             Definition.SetTurnOccurence(value);
-            return (TBuilder)this;
+            return This();
         }
 
         public TBuilder AddConditionTags(IEnumerable<string> value)
         {
             Definition.AddConditionTags(value);
-            return (TBuilder)this;
+            return This();
         }
 
         public TBuilder AddConditionTags(params string[] value)
         {
             Definition.AddConditionTags(value);
-            return (TBuilder)this;
+            return This();
         }
 
         public TBuilder AddFeatures(IEnumerable<FeatureDefinition> value)
         {
             Definition.AddFeatures(value);
-            return (TBuilder)this;
+            return This();
         }
 
         public TBuilder AddFeatures(params FeatureDefinition[] value)
         {
             Definition.AddFeatures(value);
-            return (TBuilder)this;
+            return This();
         }
 
         public TBuilder SetFeatures(IEnumerable<FeatureDefinition> value)
         {
             Definition.SetFeatures(value);
-            return (TBuilder)this;
+            return This();
         }
 
         public TBuilder SetFeatures(params FeatureDefinition[] value)
         {
             Definition.SetFeatures(value);
-            return (TBuilder)this;
+            return This();
+        }
+
+        public TBuilder SetParentCondition(ConditionDefinition value)
+        {
+            Definition.SetParentCondition(value);
+            return This();
+        }
+
+        public TBuilder SetTerminateWhenRemoved(bool value)
+        {
+            Definition.SetTerminateWhenRemoved(value);
+            return This();
+        }
+
+        public TBuilder SetSilentWhenAdded(bool value)
+        {
+            Definition.SetSilentWhenAdded(value);
+            return This();
+        }
+
+        public TBuilder SetSilentWhenRemoved(bool value)
+        {
+            Definition.SetSilentWhenRemoved(value);
+            return This();
+        }
+
+        public TBuilder SetSilent(Silent silent)
+        {
+            SetSilentWhenRemoved(silent.HasFlag(Silent.WhenRemoved));
+            SetSilentWhenAdded(silent.HasFlag(Silent.WhenAdded));
+            return This();
+        }
+
+        public TBuilder SetSpecialDuration(bool value)
+        {
+            Definition.SetSpecialDuration(value);
+            return This();
+        }
+
+        public TBuilder SetSpecialInterruptions(params RuleDefinitions.ConditionInterruption[] value)
+        {
+            Definition.SetSpecialInterruptions(value);
+            return This();
         }
 
         public TBuilder ClearRecurrentEffectForms()
         {
             Definition.ClearRecurrentEffectForms();
-            return (TBuilder)this;
+            return This();
         }
 
-        public TBuilder SetDuration(RuleDefinitions.DurationType type, int? duration = null)
+        // TODO: rename to match names of similar method in EffectDescriptionBuilder (and elsewhere)
+        public TBuilder SetDuration(RuleDefinitions.DurationType type, int duration = 0, bool validate = true)
         {
-            Definition.SetDurationType(type);
-
-            switch (type)
+            if (validate)
             {
-                case RuleDefinitions.DurationType.Round:
-                case RuleDefinitions.DurationType.Minute:
-                case RuleDefinitions.DurationType.Hour:
-                case RuleDefinitions.DurationType.Day:
-                    if(duration == null)
-                    {
-                        throw new ArgumentNullException(nameof(duration), $"A duration value is required for duration type {type}.");
-                    }
-                    Definition.SetDurationParameter(duration.Value);
-                    break;
-                default:
-                    if(duration != null)
-                    {
-                        throw new SolastaModApiException($"A duration value is not expected for duration type {type}");
-                    }
-                    break;
+                Preconditions.IsValidDuration(type, duration);
             }
+
+            Definition.SetDurationParameter(duration);
+            Definition.SetDurationType(type);
 
             return (TBuilder)this;
         }

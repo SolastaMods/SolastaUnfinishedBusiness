@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
         private static int selectedClass { get; set; }
 
-        private static readonly List<string> classesWithDeity = new () { RuleDefinitions.ClericClass, RuleDefinitions.PaladinClass };
+        private static readonly List<string> classesWithDeity = new() { RuleDefinitions.ClericClass, RuleDefinitions.PaladinClass };
 
         internal static RulesetCharacterHero SelectedHero
         {
@@ -34,6 +34,11 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
         internal static void Load()
         {
+            if (!Main.Settings.EnableMulticlass)
+            {
+                return;
+            }
+
             var inputService = ServiceRepository.GetService<IInputService>();
 
             inputService.RegisterCommand(PLAIN_UP, 273, -1, -1, -1, -1, -1);

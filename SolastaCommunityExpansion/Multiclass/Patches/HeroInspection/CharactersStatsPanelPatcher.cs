@@ -21,8 +21,8 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.HeroInspection
                 {
                     var guiCharacter = __instance.GetField<CharacterStatsPanel, GuiCharacter>("guiCharacter");
 
-                    hitDiceBox.ValueLabel.Text = Models.GameUiContext.GetAllClassesHitDiceLabel(guiCharacter, out var dieTypeCount);
-                    hitDiceBox.ValueLabel.TMP_Text.fontSize = Models.GameUiContext.GetFontSize(dieTypeCount);
+                    hitDiceBox.ValueLabel.Text = Models.MulticlassGameUiContext.GetAllClassesHitDiceLabel(guiCharacter, out var dieTypeCount);
+                    hitDiceBox.ValueLabel.TMP_Text.fontSize = Models.MulticlassGameUiContext.GetFontSize(dieTypeCount);
                 }
             }
         }

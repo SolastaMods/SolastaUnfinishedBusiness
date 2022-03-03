@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using UnityEngine.AddressableAssets;
@@ -10,7 +11,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		FlameArtilleryBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class FlameArtilleryBuilder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class FlameArtilleryBuilder : FeatureDefinitionPowerBuilder
     {
         private const string FlameArtilleryName = "FlameArtillery";
         private const string FlameArtilleryGuid = "3a93be16-4398-47cb-9c1c-4ec56903bd2f";
@@ -77,7 +78,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		FlameArtillery_2Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class FlameArtillery2Builder : DefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class FlameArtillery2Builder : FeatureDefinitionPowerBuilder
     {
         private const string FlameArtillery_2Name = "FlameArtillery_2";
         private const string FlameArtillery_2Guid = "2ba003a5-718a-4eea-a0f8-33fa79884cb1";
@@ -104,7 +105,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		FlameArtilleryConstructBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class FlameArtilleryConstructBuilder : DefinitionBuilder<MonsterDefinition>
+    internal sealed class FlameArtilleryConstructBuilder : MonsterDefinitionBuilder
     {
         private const string FlameArtilleryConstructName = "FlameArtilleryConstruct";
         private const string FlameArtilleryConstructGuid = "26631741-1de8-4f4c-871e-0d71a2ed8c4b";
@@ -173,7 +174,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public static readonly MonsterDefinition FlameArtilleryConstruct = CreateAndAddToDB(FlameArtilleryConstructName, FlameArtilleryConstructGuid);
     }
 
-    internal sealed class FlameArtilleryConstruct9Builder : DefinitionBuilder<MonsterDefinition>
+    internal sealed class FlameArtilleryConstruct9Builder : MonsterDefinitionBuilder
     {
         private const string FlameArtilleryConstruct_9Name = "FlameArtilleryConstruct_9";
         private const string FlameArtilleryConstruct_9Guid = "3445274f-9668-4606-8a91-4c6a420a7c30";
@@ -198,7 +199,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		FlameArtilleryConstruct_15Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class FlameArtilleryConstruct15Builder : DefinitionBuilder<MonsterDefinition>
+    internal sealed class FlameArtilleryConstruct15Builder : MonsterDefinitionBuilder
     {
         private const string FlameArtilleryConstruct_15Name = "FlameArtilleryConstruct_15";
         private const string FlameArtilleryConstruct_15Guid = "8c4ff931-4a17-4de4-8571-6c94e8327e8e";
@@ -222,7 +223,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummonFlameArtillerySpellConstructBuilder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SummonFlameArtillerySpellConstructBuilder : DefinitionBuilder<SpellDefinition>
+    internal sealed class SummonFlameArtillerySpellConstructBuilder : SpellDefinitionBuilder
     {
         private const string SummonFlameArtilleryConstructName = "SummonFlameArtilleryConstruct";
         private const string SummonFlameArtilleryConstructGuid = "785ca8dc-27a3-4805-88fd-6d013631bbbb";
@@ -253,7 +254,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummonFlameArtillerySpellConstruct_9Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SummonFlameArtillerySpellConstruct9Builder : DefinitionBuilder<SpellDefinition>
+    internal sealed class SummonFlameArtillerySpellConstruct9Builder : SpellDefinitionBuilder
     {
         private const string SummonFlameArtilleryConstruct_9Name = "SummonFlameArtilleryConstruct_9";
         private const string SummonFlameArtilleryConstruct_9Guid = "4aaaf381-c54c-4285-9045-6a4d69aa37c9";
@@ -277,7 +278,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     //***********************************		SummonFlameArtillerySpellConstruct_15Builder		*******************************************************************
     //*****************************************************************************************************************************************
 
-    internal sealed class SummonFlameArtillerySpellConstruct15Builder : DefinitionBuilder<SpellDefinition>
+    internal sealed class SummonFlameArtillerySpellConstruct15Builder : SpellDefinitionBuilder
     {
         private const string SummonFlameArtilleryConstruct_15Name = "SummonFlameArtilleryConstruct_15";
         private const string SummonFlameArtilleryConstruct_15Guid = "68aba04a-07c5-4b83-bda7-db08cec2dec8";

@@ -1,0 +1,139 @@
+{
+  "$type": "CharacterBackgroundDefinition, Assembly-CSharp",
+  "requiresDeity": false,
+  "hasSubtype": false,
+  "banterList": "Serious",
+  "subTypeName": "Specialty",
+  "backgroudSubtypes": [],
+  "features": [
+    "Definition:ProficiencyWandererSkills:84f2dfd0683b383478d1f936193c5c68",
+    "Definition:ProficiencyWandererTools:b33e36032f2146749902f10464ced6ba"
+  ],
+  "equipmentRows": [
+    {
+      "$id": "1",
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$id": "2",
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$id": "3",
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "GenericItem",
+              "itemReference": "Definition:ExplorerPack:03fbaf29ed08637449084486fe78a3c8",
+              "defaultChoice": "",
+              "number": 1
+            },
+            {
+              "$id": "4",
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "GenericItem",
+              "itemReference": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
+              "defaultChoice": "",
+              "number": 1
+            },
+            {
+              "$id": "5",
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Armor",
+              "itemReference": "Definition:ClothesCommon:2d37f478395d1014ebcb56b9f4fb3003",
+              "defaultChoice": "",
+              "number": 1
+            },
+            {
+              "$id": "6",
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Tool",
+              "itemReference": "Definition:HerbalismKit:074f1654b516bab49b8cf7bd96ecfe9e",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    }
+  ],
+  "staticPersonalityFlags": [
+    {
+      "$id": "7",
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "Bg_Wild"
+    },
+    {
+      "$id": "8",
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 5,
+      "personalityFlag": "Normal"
+    },
+    {
+      "$id": "9",
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 15,
+      "personalityFlag": "Slang"
+    }
+  ],
+  "optionalPersonalityFlags": [
+    {
+      "$id": "10",
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Self-Preservation"
+    },
+    {
+      "$id": "11",
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Selfishness"
+    },
+    {
+      "$id": "12",
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Pragmatism"
+    },
+    {
+      "$id": "13",
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Friendliness"
+    }
+  ],
+  "defaultOptionalPersonalityFlags": [
+    "Self-Preservation",
+    "Pragmatism"
+  ],
+  "forbiddenAlignments": [],
+  "guiPresentation": {
+    "$id": "14",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Background/&WandererTitle",
+    "description": "Background/&WandererDescription",
+    "spriteReference": {
+      "$id": "15",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "ef8166d2e4c89824289d3cab5ad6af82",
+      "m_SubObjectName": "Wanderer",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "16",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "6e2e429b693317945887cb99508990df",
+  "contentPack": "PrimalCalling",
+  "name": "Wanderer"
+}

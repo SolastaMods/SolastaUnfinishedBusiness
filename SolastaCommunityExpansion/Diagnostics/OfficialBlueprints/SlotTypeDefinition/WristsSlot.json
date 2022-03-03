@@ -1,0 +1,41 @@
+{
+  "$type": "SlotTypeDefinition, Assembly-CSharp",
+  "canStack": false,
+  "canDisplayArmor": true,
+  "canDisplayArmorForPhoto": false,
+  "displayArmorSortingIndex": 1,
+  "canDisplayLight": true,
+  "bodySlot": true,
+  "alwaysLocked": false,
+  "lockedInBattle": false,
+  "hasDefaultVisual": false,
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "SlotType/&WristsSlotTitle",
+    "description": "SlotType/&WristsSlotDescription",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "9d6d5e568bf364b45837b71fe8035406",
+      "m_SubObjectName": "WristsSlot",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 14,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "b5643f0395ff90e49805db32722e57e1",
+  "contentPack": "BaseGame",
+  "name": "WristsSlot"
+}

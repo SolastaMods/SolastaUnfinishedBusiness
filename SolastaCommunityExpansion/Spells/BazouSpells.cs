@@ -78,7 +78,8 @@ namespace SolastaCommunityExpansion.Spells
             // Second one should be adjacent aoe to first target, half of damage of first effect, no damage on saving throw negates
             var effectForm = spell.EffectDescription.EffectForms[0];
             effectForm.SetHasSavingThrow(false).SetLevelMultiplier(1);
-            effectForm.AlterationForm.SetMaximumIncrease(2).SetValueIncrease(2);
+            // Bazou to rework - can't have DamageForm and AlterationForm on the same EffectForm
+            //effectForm.AlterationForm.SetMaximumIncrease(2).SetValueIncrease(2);
             effectForm.DamageForm.SetDiceNumber(1).SetDieType(RuleDefinitions.DieType.D4).SetDamageType(RuleDefinitions.DamageTypeForce);
 
             // Not sure if I prefer copying and editing existing effect forms
@@ -256,8 +257,9 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.EffectForms[1].DamageForm.SetDamageType(RuleDefinitions.DamageTypeNecrotic);
             spell.EffectDescription.EffectForms[1].DamageForm.SetHealFromInflictedDamage(RuleDefinitions.HealFromInflictedDamage.Full);
             spell.EffectDescription.EffectForms[1].SetLevelMultiplier(1);
-            spell.EffectDescription.EffectForms[1].AlterationForm.SetMaximumIncrease(2);
-            spell.EffectDescription.EffectForms[1].AlterationForm.SetValueIncrease(2);
+            // Bazou to rework - can't have DamageForm and AlterationForm on the same EffectForm
+            //spell.EffectDescription.EffectForms[1].AlterationForm.SetMaximumIncrease(2);
+            //spell.EffectDescription.EffectForms[1].AlterationForm.SetValueIncrease(2);
 
             return spell;
         }
@@ -296,8 +298,9 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D4);
             spell.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeSlashing);
             spell.EffectDescription.EffectForms[0].SetLevelMultiplier(1);
-            spell.EffectDescription.EffectForms[0].AlterationForm.SetMaximumIncrease(2);
-            spell.EffectDescription.EffectForms[0].AlterationForm.SetValueIncrease(2);
+            // Bazou to rework - can't have DamageForm and AlterationForm on the same EffectForm
+            //spell.EffectDescription.EffectForms[0].AlterationForm.SetMaximumIncrease(2);
+            //spell.EffectDescription.EffectForms[0].AlterationForm.SetValueIncrease(2);
 
             var effectProxyDefinition = EffectProxyDefinitionBuilder
                 .Create(EffectProxyDefinitions.ProxyInsectPlague, "ProxyPetalStorm", BAZOU_SPELLS_BASE_GUID)
@@ -352,8 +355,9 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.EffectForms[1].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
             spell.EffectDescription.EffectForms[1].DamageForm.SetDamageType(RuleDefinitions.DamageTypePsychic);
             spell.EffectDescription.EffectForms[1].SetLevelMultiplier(1);
-            spell.EffectDescription.EffectForms[1].AlterationForm.SetMaximumIncrease(2);
-            spell.EffectDescription.EffectForms[1].AlterationForm.SetValueIncrease(2);
+            // Bazou to rework - can't have DamageForm and AlterationForm on the same EffectForm
+            //spell.EffectDescription.EffectForms[1].AlterationForm.SetMaximumIncrease(2);
+            //spell.EffectDescription.EffectForms[1].AlterationForm.SetValueIncrease(2);
 
             const string proxyProtectThreshold = "ProxyProtectThreshold";
 

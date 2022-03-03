@@ -1,0 +1,183 @@
+{
+  "$type": "EffectProxyDefinition, Assembly-CSharp",
+  "canMove": true,
+  "canRotate": false,
+  "canMoveOnCharacters": false,
+  "canAttack": false,
+  "actionId": "ProxyVengefulSpirits",
+  "freeActionId": "NoAction",
+  "attackMethod": "ReproduceDamageForms",
+  "firstAttackIsFree": false,
+  "constrainedToSpellArea": false,
+  "damageDie": "D8",
+  "damageType": "DamageRadiant",
+  "attackPower": null,
+  "impactsPlacement": false,
+  "additionalFeatures": [
+    "Definition:MoveModeMove2:0127a492ba7a429408b3282dde9374d7",
+    "Definition:MoveModeFly6:017c6a5ac95be2841bea36b7dac041fe"
+  ],
+  "attackParticle": {
+    "$id": "1",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "attackImpactParticle": {
+    "$id": "2",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "addLightSource": false,
+  "lightSourceForm": {
+    "$id": "3",
+    "$type": "LightSourceForm, Assembly-CSharp",
+    "lightSourceType": "Basic",
+    "brightRange": 4,
+    "dimAdditionalRange": 4,
+    "color": {
+      "$id": "4",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.945098042,
+      "g": 0.360026062,
+      "b": 0.24313724,
+      "a": 1.0
+    },
+    "graphicsPrefabReference": {
+      "$id": "5",
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "382beb45afcab144c934e4a1f34b619d",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "applyToSelf": false
+  },
+  "lightSourceOffset": {
+    "$id": "6",
+    "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 0.5,
+    "z": 0.0
+  },
+  "spellImmunityFromOutside": false,
+  "maxSpellLevelImmunity": 1,
+  "hasPresentation": true,
+  "prefabReference": {
+    "$id": "7",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "d3e8cb1c8d2beca40bc20c00fab3814c",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "isEmptyPresentation": false,
+  "modelScale": 1.0,
+  "showWorldLocationFeedbacks": true,
+  "hasPortrait": true,
+  "portraitSpriteReference": {
+    "$id": "8",
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "1416149cf8aa6104d870f0b1cb17dea4",
+    "m_SubObjectName": "ProxyVengefulSpirits",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+  },
+  "startEvent": {
+    "$id": "9",
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$id": "10",
+      "$type": "WwiseEventReference, AK.Wwise.Unity.API.WwiseTypes",
+      "objectName": "Play_Vfx_SORC_VengefulSpirit_Proxy_Loop",
+      "id": 2282066264,
+      "guid": "A277B65F-4708-4F28-ACA1-ECA4362702D8",
+      "name": "A277B65F-4708-4F28-ACA1-ECA4362702D8"
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "stopEvent": {
+    "$id": "11",
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$id": "12",
+      "$type": "WwiseEventReference, AK.Wwise.Unity.API.WwiseTypes",
+      "objectName": "Stop_Vfx_SORC_VengefulSpirit_Proxy_Loop",
+      "id": 2824675486,
+      "guid": "8F03B28B-F414-42BB-B27C-88F067EFA753",
+      "name": "8F03B28B-F414-42BB-B27C-88F067EFA753"
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "soundEffectOnHitDescription": {
+    "$id": "13",
+    "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
+    "switchOnHit": {
+      "$id": "14",
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": {
+        "$id": "15",
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$id": "16",
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_Damage",
+          "id": 1103537035,
+          "guid": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A",
+          "name": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A"
+        },
+        "objectName": "Spell",
+        "id": 523506649,
+        "guid": "225A6C3B-22D3-4B63-9E92-62510CD541D1",
+        "name": "225A6C3B-22D3-4B63-9E92-62510CD541D1"
+      },
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
+  "guiPresentation": {
+    "$id": "17",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&SorcerousHauntedSoulVengefulSpiritsTitle",
+    "description": "EffectProxy/&ProxyHauntedSoulVengefulSpiritsDescription",
+    "spriteReference": {
+      "$id": "18",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "1416149cf8aa6104d870f0b1cb17dea4",
+      "m_SubObjectName": "ProxyVengefulSpirits",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "19",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "85910ba92b2800e41940d0b011df53b4",
+  "contentPack": "LostValley",
+  "name": "ProxyVengefulSpirits"
+}

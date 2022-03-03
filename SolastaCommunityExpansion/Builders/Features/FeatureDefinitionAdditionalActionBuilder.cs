@@ -6,7 +6,7 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionAdditionalActionBuilder : DefinitionBuilder<FeatureDefinitionAdditionalAction>
+    public sealed class FeatureDefinitionAdditionalActionBuilder : FeatureDefinitionBuilder<FeatureDefinitionAdditionalAction, FeatureDefinitionAdditionalActionBuilder>
     {
         private FeatureDefinitionAdditionalActionBuilder(string name, Guid namespaceGuid)
             : base(name, namespaceGuid)

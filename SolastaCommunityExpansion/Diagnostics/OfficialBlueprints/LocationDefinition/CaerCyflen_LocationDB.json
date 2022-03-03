@@ -1,0 +1,342 @@
+{
+  "$type": "LocationDefinition, Assembly-CSharp",
+  "isUserLocation": false,
+  "alwaysHidden": false,
+  "registeredFactions": [],
+  "registeredVariables": [
+    {
+      "$id": "1",
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "ScavengerBusinessOn",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$id": "2",
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "Benice",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$id": "3",
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "StartAcademicQuest",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$id": "4",
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "StartLowlifeQuest",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$id": "5",
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "StartSellswordQuest",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$id": "6",
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "SleptAtInn_Surespell_CaerCyflen-C",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$id": "7",
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "ReadyToUnlockScavengers",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$id": "8",
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "TalkWithGarth",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$id": "9",
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "CanUseBench",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$id": "10",
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "TakeCrownAway-C",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    }
+  ],
+  "sceneFilePath": "",
+  "sceneReference": {
+    "$id": "11",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "2b11e3a7e89b0f74fb2b3200a610356e",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "audioState": {
+    "$id": "12",
+    "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$id": "13",
+      "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseStateGroupReference": {
+        "$id": "14",
+        "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+        "objectName": "State_LocationName",
+        "id": 598649695,
+        "guid": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE",
+        "name": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE"
+      },
+      "objectName": "CaerCyflen",
+      "id": 1510604671,
+      "guid": "446250B6-52FB-44B7-B105-A5686EA3B0AA",
+      "name": "446250B6-52FB-44B7-B105-A5686EA3B0AA"
+    },
+    "groupIdInternal": 0,
+    "groupGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "renderSettingsSceneProfile": {
+    "$id": "15",
+    "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
+    "useSkybox": true,
+    "backgroundColor": {
+      "$id": "16",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    "skyboxMaterial": {
+      "$id": "17",
+      "$type": "UnityEngine.Material, UnityEngine.CoreModule",
+      "name": "Default_Skybox"
+    },
+    "ambientLight": {
+      "$id": "18",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.5,
+      "g": 0.5,
+      "b": 0.5,
+      "a": 1.0
+    },
+    "fog": false,
+    "fogColor": {
+      "$id": "19",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.6117647,
+      "g": 0.6117647,
+      "b": 0.6117647,
+      "a": 1.0
+    },
+    "fogMode": "Exponential",
+    "fogDensity": 0.01,
+    "excludeSkybox": true,
+    "auraBaseSettings": {
+      "$id": "20",
+      "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
+      "useDensity": true,
+      "density": 0.003,
+      "useScattering": true,
+      "scattering": 0.5,
+      "useAmbientLighting": true,
+      "ambientLightingStrength": 1.0,
+      "useColor": true,
+      "color": {
+        "$id": "21",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.5,
+        "g": 0.4999995,
+        "b": 0.4999995,
+        "a": 1.0
+      },
+      "colorStrength": 1.0,
+      "useTint": false,
+      "tint": {
+        "$id": "22",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 1.0,
+        "g": 0.921568632,
+        "b": 0.0156862754,
+        "a": 1.0
+      },
+      "tintStrength": 1.0,
+      "useExtinction": true,
+      "extinction": 0.75,
+      "name": "CaerCyflen_AuraBaseParameters"
+    },
+    "userDungeonAuraVolumeDensity": 0.2,
+    "userDungeonAuraVolumeFogType": "Height",
+    "userDungeonAuraVolumeHeight": 3.0,
+    "userDungeonAuraVolumeNoise": false,
+    "userDungeonAuraVolumeNoiseScale": 3.0,
+    "dayCycleProfile": {
+      "$id": "23",
+      "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
+      "noonColor": {
+        "$id": "24",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8018868,
+        "g": 0.7195127,
+        "b": 0.616545,
+        "a": 1.0
+      },
+      "sunriseColor": {
+        "$id": "25",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8962264,
+        "g": 0.6984592,
+        "b": 0.477705568,
+        "a": 1.0
+      },
+      "sunsetColor": {
+        "$id": "26",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 1.0,
+        "g": 0.48294118,
+        "b": 0.108490586,
+        "a": 1.0
+      },
+      "globalSunIntensity": 1.71,
+      "sunDirection": -36.5,
+      "sunTilt": 0.01,
+      "moonLightColor": {
+        "$id": "27",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.2956123,
+        "g": 0.492145777,
+        "b": 0.6886792,
+        "a": 1.0
+      },
+      "moonLightFadeOffset": 0.1,
+      "moonLightFadeMinIntensity": 1.0,
+      "moonLightFadeDuration": 0.25,
+      "moonSpeedFactor": 1.0,
+      "moonBaseAngle": 0.0,
+      "globalMoonIntensity": 0.63,
+      "ambientSunriseColor": {
+        "$id": "28",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.7527145,
+        "g": 0.775544465,
+        "b": 0.8018868,
+        "a": 1.0
+      },
+      "ambientNoonColor": {
+        "$id": "29",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.58873266,
+        "g": 0.6269432,
+        "b": 0.6603774,
+        "a": 1.0
+      },
+      "ambientSunsetColor": {
+        "$id": "30",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.6574849,
+        "g": 0.6788657,
+        "b": 0.7075472,
+        "a": 1.0
+      },
+      "ambientNightColor": {
+        "$id": "31",
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.379004985,
+        "g": 0.393594563,
+        "b": 0.4811321,
+        "a": 1.0
+      },
+      "ambientFadeDuration": 1.0,
+      "dayAtmosphereThickness": 1.78,
+      "nightAtmosphereThickness": 0.5,
+      "name": "Caer_Cyflen_Location_DayCycleProfile"
+    },
+    "name": "CaerCyflen_RenderSettings"
+  },
+  "locationPresentation": {
+    "$id": "32",
+    "$type": "LocationPresentation, Assembly-CSharp",
+    "unchartedTitle": "Map/&Location_CapitalCity_UnchartedTitle",
+    "unchartedDescription": "Map/&Location_CapitalCity_UnchartedDescription",
+    "knownTitle": "Map/&Location_CapitalCity_UnvisitedTitle",
+    "knownDescription": "Map/&Location_CapitalCity_UnvisitedDescription",
+    "exploredTitle": "Map/&Location_CapitalCity_Title",
+    "exploredDescription": "Map/&Location_CapitalCity_Description"
+  },
+  "challengeRating": -1,
+  "focusWhenRevealed": false,
+  "startsWithScavengerCamp": true,
+  "ignoredByScavengers": true,
+  "useNewSectorCullingAlgorithm": false,
+  "keepSectorCullingResultsWhenInactive": false,
+  "setCurrentCampaignNodeWhenLeaving": true,
+  "hasPriorityForTeleporter": false,
+  "canAttackNonHostileCharacters": false,
+  "guiPresentation": {
+    "$id": "33",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Location/&Caer_Cyflen_Title",
+    "description": "Location/&Caer_Cyflen_Description",
+    "spriteReference": {
+      "$id": "34",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "5889741c23ded3649893d394f42b5278",
+      "m_SubObjectName": "CaerCyflen",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "35",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "9dbd5e377e2c2434c9ee6b6e8a34d83c",
+  "contentPack": "BaseGame",
+  "name": "CaerCyflen_LocationDB"
+}

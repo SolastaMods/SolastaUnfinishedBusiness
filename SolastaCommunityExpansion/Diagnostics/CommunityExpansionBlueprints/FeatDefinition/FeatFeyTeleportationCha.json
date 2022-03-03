@@ -1,0 +1,57 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:FeatChaIncrement:e34d5fec-6431-5d65-b40b-25944621de35",
+    "Definition:FeyTeleportationLanguageTirmarian:a2c603ae-7c49-5207-865e-6ffecb60182e",
+    "Definition:PowerMistyStepFromFeat:825e4d2f-6946-582e-9c10-bacf0da37b83",
+    "Definition:FeyTeleportationAutoPrepMistyBarbarian:8a5682f7-8563-52f3-936b-138645322366",
+    "Definition:FeyTeleportationAutoPrepMistyCleric:d2d8e5bf-c09a-58fb-b7fb-91a52b4a6db2",
+    "Definition:FeyTeleportationAutoPrepMistyDruid:c3c6eac2-6450-5f65-a5bd-33e5d2fdf6af",
+    "Definition:FeyTeleportationAutoPrepMistyFighter:6bd5b9ee-5b24-570f-9ec8-adc93c73e509",
+    "Definition:FeyTeleportationAutoPrepMistyPaladin:9476f170-0f88-5c05-b62d-9df90ee9b951",
+    "Definition:FeyTeleportationAutoPrepMistyRanger:c15bfa2f-1ebc-52b4-a3f9-cef567102d29",
+    "Definition:FeyTeleportationAutoPrepMistyRogue:97143a76-c009-50f9-90d7-679c2c892b4a",
+    "Definition:FeyTeleportationAutoPrepMistySorcerer:b2ec4b3e-2fe9-560a-af5d-7c24872747e5",
+    "Definition:FeyTeleportationAutoPrepMistyWizard:2c2c8f9d-8420-5041-b238-509aec321a2a",
+    "Definition:FeyTeleportationAutoPrepMistyClassWitch:a4e13108-4b9d-5f73-96da-9340d0fba050",
+    "Definition:FeyTeleportationAutoPrepMistyClassTinkerer:5902baac-de33-5c7d-ac6d-0c07a57b56f2"
+  ],
+  "guiPresentation": {
+    "$id": "1",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feat/&FeatFeyTeleportationChaTitle",
+    "description": "Feat/&FeatFeyTeleportationChaDescription",
+    "spriteReference": {
+      "$id": "2",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$id": "3",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "7031c704-d9c6-5b05-8c50-b21a9420e070",
+  "contentPack": "BaseGame",
+  "name": "FeatFeyTeleportationCha"
+}

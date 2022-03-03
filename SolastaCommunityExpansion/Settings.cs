@@ -15,7 +15,32 @@ namespace SolastaCommunityExpansion
     [XmlRoot(ElementName = "Settings")]
     public class Settings : UnityModManager.ModSettings
     {
-        public const string GUID = "b1ffaca74824486ea74a68d45e6b1925";
+        internal const string GUID = "b1ffaca74824486ea74a68d45e6b1925";
+
+        //
+        // Diagnostics
+        //
+
+        // very large or not very useful definitions
+        public string[] ExcludeFromExport = new string[]
+        {
+            "AdventureLogDefinition",
+            "ConsoleTableDefinition",
+            "CreditsGroupDefinition",
+            "CreditsTableDefinition",
+            "DocumentTableDefinition",
+            "NarrativeEventTableDefinition",
+            "NarrativeTreeDefinition", // NarrativeTreeDefinition causes crash with PreserveReferencesHandling.None
+            "SoundbanksDefinition",
+            "SubtitleTableDefinition",
+            "TravelJournalDefinition",
+            "TutorialSectionDefinition",
+            "TutorialStepDefinition",
+            "TutorialSubsectionDefinition",
+            "TutorialTocDefinition",
+            "TutorialTableDefinition",
+            "QuestTreeDefinition",
+        };
 
         //
         // Blueprints Viewer UI
@@ -38,7 +63,6 @@ namespace SolastaCommunityExpansion
         public bool DisplayFightingStylesToggle { get; set; }
         public bool DisplaySrdRulesToggle { get; set; }
         public bool DisplayHouseRulesToggle { get; set; }
-        public bool DisplayAdventureLogToggle { get; set; }
         public bool DisplayBattleToggle { get; set; }
         public bool DisplayCampaignToggle { get; set; }
         public bool DisplayItemToggle { get; set; }
@@ -53,6 +77,7 @@ namespace SolastaCommunityExpansion
 
         public bool AllowDynamicPowers { get; set; } = true;
         public bool BugFixButtonActivatorTriggerIssue { get; set; } = true;
+        public bool BugFixConjuredUnitsTeleportWithParty { get; set; } = true;
         public bool BugFixExpandColorTables { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
         public bool EnableDungeonMakerPro { get; set; } = true;
@@ -97,6 +122,7 @@ namespace SolastaCommunityExpansion
         public bool EnableLevel20 { get; set; }
 
         // Visuals
+        public bool EnableAdditionalBackstoryDisplay { get; set; }
         public bool UnlockAllNpcFaces { get; set; }
         public bool AllowUnmarkedSorcerers { get; set; }
         public bool UnlockMarkAndTatoosForAllCharacters { get; set; }
@@ -169,6 +195,8 @@ namespace SolastaCommunityExpansion
         public bool DismissControlledConjurationsWhenDeliberatelyDropConcentration { get; set; }
         public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
         public bool SpikeGrowthDoesNotAffectFlyingCreatures { get; set; }
+        public bool SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures { get; set; }
+        public bool EnableTargetTypeSquareCylinder { get; set; }
 
         // House
         public bool AllowAnyClassToWearSylvanArmor { get; set; }
@@ -224,28 +252,16 @@ namespace SolastaCommunityExpansion
         //
 
         // General
-        public bool EnableAdditionalBackstoryDisplay { get; set; }
         public bool EnableRespec { get; set; }
         public bool EnableCheatMenu { get; set; }
         public bool NoExperienceOnLevelUp { get; set; }
 
         // Debug
-        public bool DebugShowTADefinitionsWithMissingGuiPresentation { get; set; }
         public bool DebugLogDefinitionCreation { get; set; }
         public bool DebugLogFieldInitialization { get; set; }
         public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
-        public List<string> KnownDuplicateDefinitionNames { get; } = new()
-        {
-            "SummonProtectorConstruct"
-        };
 #if DEBUG
-        public bool DebugShowCEDefinitionsWithMissingGuiPresentation { get; set; } = true;
-        public bool DebugLogCEDefinitionsToFile { get; set; } = true;
-        public bool DebugLogCEGuiPresentationsToFile { get; set; } = true;
-#else
-        internal bool DebugShowCEDefinitionsWithMissingGuiPresentation { get; set; }
-        internal bool DebugLogCEDefinitionsToFile { get; set; }
-        internal bool DebugLogCEGuiPresentationsToFile { get; set; }
+        public bool DebugLogVariantMisuse { get; set; }
 #endif
 
         // Faction Relations
@@ -275,8 +291,7 @@ namespace SolastaCommunityExpansion
         //
 
         public bool AllowDungeonsMaxLevel20 { get; set; }
-        public bool AllowGadgetsToBePlacedAnywhere { get; set; }
-        public bool AllowPropsToBePlacedAnywhere { get; set; }
+        public bool AllowGadgetsAndPropsToBePlacedAnywhere { get; set; }
         public bool UnleashNpcAsEnemy { get; set; }
         public bool UnleashEnemyAsNpc { get; set; }
         public bool EnableDungeonMakerModdedContent { get; set; }
@@ -285,16 +300,13 @@ namespace SolastaCommunityExpansion
         // Interface - Game UI
         //
 
-        // Adventure Log
-        public bool EnableAdventureLogDocuments { get; set; }
-
-
         // Battle
         public bool DontFollowCharacterInBattle { get; set; }
         public int DontFollowMargin { get; set; } = 5;
         public bool AutoPauseOnVictory { get; set; }
 
         // Campaigns and Locations
+        public bool EnableAdventureLogDocuments { get; set; }
         public bool EnableAdditionalIconsOnLevelMap { get; set; }
         public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
         public bool HideExitAndTeleporterGizmosIfNotDiscovered { get; set; }
@@ -310,7 +322,6 @@ namespace SolastaCommunityExpansion
 
         // Spells
         public int MaxSpellLevelsPerLine { get; set; } = 5;
-        public float SpellPanelGapBetweenLines { get; set; } = 30f;
 
         //
         // Interface - Keyboard & Mouse

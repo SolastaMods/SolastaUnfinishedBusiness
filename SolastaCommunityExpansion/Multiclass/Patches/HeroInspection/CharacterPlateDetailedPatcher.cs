@@ -31,8 +31,8 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.HeroInspection
 
                 var classLabel = __instance.GetField<CharacterPlateDetailed, GuiLabel>("classLabel");
 
-                classLabel.Text = Models.GameUiContext.GetAllClassesLabel(__instance.GuiCharacter, separator) ?? classLabel.Text;
-                classLabel.TMP_Text.fontSize = Models.GameUiContext.GetFontSize(classesCount);
+                classLabel.Text = Models.MulticlassGameUiContext.GetAllClassesLabel(__instance.GuiCharacter, separator) ?? classLabel.Text;
+                classLabel.TMP_Text.fontSize = Models.MulticlassGameUiContext.GetFontSize(classesCount);
             }
         }
     }

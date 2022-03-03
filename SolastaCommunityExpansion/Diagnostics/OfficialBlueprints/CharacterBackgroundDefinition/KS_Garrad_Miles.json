@@ -1,0 +1,77 @@
+{
+  "$type": "CharacterBackgroundDefinition, Assembly-CSharp",
+  "requiresDeity": false,
+  "hasSubtype": false,
+  "banterList": "Serious",
+  "subTypeName": "Specialty",
+  "backgroudSubtypes": [],
+  "features": [
+    "Definition:ProficiencySellSwordSkills:b1416afa69c73264f8d23948d6f65c3b",
+    "Definition:ProficiencySellSwordSkillsArmor:d9a04fa0b455acd4aaf3cbd7a988e068"
+  ],
+  "equipmentRows": [],
+  "staticPersonalityFlags": [
+    {
+      "$id": "1",
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "Bg_Lukewarm"
+    },
+    {
+      "$id": "2",
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 18,
+      "personalityFlag": "Authority"
+    },
+    {
+      "$id": "3",
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 10,
+      "personalityFlag": "Pragmatism"
+    },
+    {
+      "$id": "4",
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 15,
+      "personalityFlag": "Slang"
+    },
+    {
+      "$id": "5",
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 5,
+      "personalityFlag": "Normal"
+    }
+  ],
+  "optionalPersonalityFlags": [],
+  "defaultOptionalPersonalityFlags": [],
+  "forbiddenAlignments": [],
+  "guiPresentation": {
+    "$id": "6",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Background/&SellswordTitle",
+    "description": "Background/&KS_GarradMilesBackground_Description",
+    "spriteReference": {
+      "$id": "7",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "7acdbd578b7d47e46a720bda796891f1",
+      "m_SubObjectName": "Sellsword",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "8",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "9c0e0a6309ebbda479943f6bb321227e",
+  "contentPack": "BaseGame",
+  "name": "KS_Garrad_Miles"
+}

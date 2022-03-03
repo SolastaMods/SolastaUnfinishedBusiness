@@ -1,0 +1,54 @@
+{
+  "$type": "FeatureDefinitionSavingThrowAffinity, Assembly-CSharp",
+  "useControllerSavingThrows": false,
+  "priorityAbilityScore": "",
+  "affinityGroups": [
+    {
+      "$id": "1",
+      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Constitution",
+      "affinity": "Disadvantage",
+      "savingThrowModifierType": "AddDice",
+      "savingThrowModifierDiceNumber": 0,
+      "savingThrowModifierDieType": "D4",
+      "restrictedForms": [],
+      "restrictedSchools": [],
+      "restrictedSpells": [],
+      "restrictedPowers": [],
+      "savingThrowContext": "None"
+    }
+  ],
+  "indomitableSavingThrows": 0,
+  "canBorrowLuck": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$id": "2",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$id": "3",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$id": "4",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "0ade77e01b65d8f448d4e99e4656fe1c",
+  "contentPack": "BaseGame",
+  "name": "SavingThrowAffinityConditionBestowCurseConstitution"
+}

@@ -4,24 +4,24 @@ using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionAttributeModifierBuilder : DefinitionBuilder<FeatureDefinitionAttributeModifier>
+    public class FeatureDefinitionAttributeModifierBuilder : FeatureDefinitionBuilder<FeatureDefinitionAttributeModifier, FeatureDefinitionAttributeModifierBuilder>
     {
-        private FeatureDefinitionAttributeModifierBuilder(FeatureDefinitionAttributeModifier original, string name, string guid)
+        protected FeatureDefinitionAttributeModifierBuilder(FeatureDefinitionAttributeModifier original, string name, string guid)
             : base(original, name, guid)
         {
         }
 
-        private FeatureDefinitionAttributeModifierBuilder(string name, string guid)
+        protected FeatureDefinitionAttributeModifierBuilder(string name, string guid)
             : base(name, guid)
         {
         }
 
-        private FeatureDefinitionAttributeModifierBuilder(string name, Guid namespaceGuid)
+        protected FeatureDefinitionAttributeModifierBuilder(string name, Guid namespaceGuid)
             : base(name, namespaceGuid)
         {
         }
 
-        private FeatureDefinitionAttributeModifierBuilder(FeatureDefinitionAttributeModifier original, string name, Guid namespaceGuid)
+        protected FeatureDefinitionAttributeModifierBuilder(FeatureDefinitionAttributeModifier original, string name, Guid namespaceGuid)
             : base(original, name, namespaceGuid)
         {
         }

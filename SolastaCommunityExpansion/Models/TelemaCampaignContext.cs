@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class TelemaCampaignContext
     {
-        private sealed class TelemaCampaignUnleashedBuilder : DefinitionBuilder<CampaignDefinition>
+        private sealed class TelemaCampaignUnleashedBuilder : CampaignDefinitionBuilder
         {
             private const string TelemaDemoUnleashedName = "TelemaDemoUnleashed";
             private const string TelemaDemoUnleashedGuid = "397df3dcfcd444f09df11d05034ec52e";
@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion.Models
                 Definition.PredefinedParty.Clear();
             }
 
-            public static CampaignDefinition CreateAndAddToDB(string name, string guid)
+            private static CampaignDefinition CreateAndAddToDB(string name, string guid)
             {
                 return new TelemaCampaignUnleashedBuilder(name, guid).AddToDB();
             }

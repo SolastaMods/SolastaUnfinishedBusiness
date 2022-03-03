@@ -1,0 +1,78 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$id": "1",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyDomainLifeArmor:215dcdafae0e7a84381bd2951728ab4f",
+      "level": 1
+    },
+    {
+      "$id": "2",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:HealingModifierDomainLifeDiscipleOfLife:01c167967680875469f909ff492ad5ff",
+      "level": 1
+    },
+    {
+      "$id": "3",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsDomainLife:33e933fdb9b0e9f4e978a611d8d82785",
+      "level": 1
+    },
+    {
+      "$id": "4",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainLifePreserveLife:c8d09bed8c83e6f41b2ac5325ec7ac10",
+      "level": 2
+    },
+    {
+      "$id": "5",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:HealingModifierDomainLifeBlessedHealer:0e9d5efbae84d7a478f498ce72f9b726",
+      "level": 6
+    },
+    {
+      "$id": "6",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageDomainLifeDivineStrike:e27a8cd930880bf4ebdc7cfa2c880266",
+      "level": 8
+    },
+    {
+      "$id": "7",
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerClericDivineInterventionCleric:c774c974d5902a640a1e82a7608e8051",
+      "level": 10
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$id": "8",
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&DomainLifeTitle",
+    "description": "Subclass/&DomainLifeDescription",
+    "spriteReference": {
+      "$id": "9",
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f13740c3947aa0f49a79fa8da3a44eba",
+      "m_SubObjectName": "DomainLife",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$id": "10",
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 2,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "67493523943f9dc45bd2d33f6de4ee91",
+  "contentPack": "BaseGame",
+  "name": "DomainLife"
+}

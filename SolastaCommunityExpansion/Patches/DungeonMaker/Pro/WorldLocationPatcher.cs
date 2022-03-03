@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro
         //
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            if (!Main.Settings.EnableMulticlass)
+            if (!Main.Settings.EnableDungeonMakerPro)
             {
                 foreach (var instruction in instructions)
                 {

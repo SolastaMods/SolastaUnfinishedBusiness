@@ -1,5 +1,5 @@
-﻿using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using SolastaModApi.Extensions;
+﻿using System;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
@@ -12,16 +12,23 @@ namespace SolastaCommunityExpansion.Builders.Features
     // Replace a class feature - We need to inform the feature to be removed, the level and the class
     // Replace a subclass feature - We need to inform the feature to be removed, the level, the class and the subclass
     //
-    public sealed class RemoveGrantedFeatureBuilder : DefinitionBuilder<FeatureDefinitionRemoveGrantedFeature>
+    public sealed class FeatureDefinitionRemoveGrantedFeatureBuilder : FeatureDefinitionBuilder<FeatureDefinitionRemoveGrantedFeature, FeatureDefinitionRemoveGrantedFeatureBuilder>
     {
-        public RemoveGrantedFeatureBuilder(string name, string guid, FeatureDefinition featureToRemove, int classLevel, CharacterClassDefinition characterClass, CharacterSubclassDefinition characterSubclass = null)
-            : base(name, guid)
+        private FeatureDefinitionRemoveGrantedFeatureBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid) { }
+
+        public static FeatureDefinitionRemoveGrantedFeatureBuilder Create(string name, Guid namespaceGuid)
+        {
+            return new FeatureDefinitionRemoveGrantedFeatureBuilder(name, namespaceGuid);
+        }
+
+        public FeatureDefinitionRemoveGrantedFeatureBuilder SetFeatureInfo(FeatureDefinition featureToRemove, int classLevel, CharacterClassDefinition characterClass, CharacterSubclassDefinition characterSubclass = null)
         {
             Definition.ClassLevel = classLevel;
             Definition.FeatureToRemove = featureToRemove;
             Definition.CharacterClass = characterClass;
             Definition.CharacterSubclass = characterSubclass;
-            Definition.GuiPresentation.SetHidden(true);
+
+            return This();
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Multiclass.Models;
+using SolastaCommunityExpansion.Patches.Diagnostic;
 
 namespace SolastaCommunityExpansion.Patches
 {
@@ -10,19 +12,26 @@ namespace SolastaCommunityExpansion.Patches
     {
         internal static void Postfix()
         {
-            GuiPresentationCheck.PostDatabaseLoadCheck();
+#if DEBUG
+            ItemDefinitionVerification.Load();
+            EffectFormVerification.Load();
+#endif
+
+            // Cache TA definitions for diagnostics and export
+            DiagnosticsContext.CacheTADefinitions();
 
             AdditionalNamesContext.Load();
             AsiAndFeatContext.Load();
             BugFixContext.Load();
             CharacterExportContext.Load();
             ConjurationsContext.Load();
-            DungeonMakerContext.Load();
             DmProEditorContext.Load();
             EpicArrayContext.Load();
             FaceUnlockContext.Load();
+
             // Fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones.
             FightingStyleContext.Load();
+
             FlexibleBackgroundsContext.Switch();
             InitialChoicesContext.Load();
             GameUiContext.Load();
@@ -31,12 +40,15 @@ namespace SolastaCommunityExpansion.Patches
             ItemOptionsContext.Load();
             Level20Context.Load();
             PickPocketContext.Load();
+
             // Powers needs to be added to db before spells because of summoned creatures that have new powers defined here.
             PowersContext.AddToDB();
+
             RemoveBugVisualModelsContext.Load();
             RemoveIdentificationContext.Load();
             LevelDownContext.Load();
             RespecContext.Load();
+
             // There are spells that rely on new monster definitions with powers loaded during the PowersContext. So spells should get added to db after powers.
             SpellsContext.AddToDB();
             SrdAndHouseRulesContext.Load();
@@ -45,37 +57,43 @@ namespace SolastaCommunityExpansion.Patches
 
             // Classes may rely on spells and powers being in the DB before they can properly load.
             ClassesContext.Load();
+
             // Subclasses may rely on classes being loaded (as well as spells and powers) in order to properly refer back to the class.
             SubclassesContext.Load();
 
             ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (_) =>
             {
+                // Both are late initialized to allow feats and races from other mods
                 FlexibleRacesContext.Switch();
                 InitialChoicesContext.RefreshFirstLevelTotalFeats();
 
                 // There are feats that need all character classes loaded before they can properly be setup.
                 FeatsContext.Load();
+
                 // Generally available powers need all classes in the db before they are initialized here.
                 PowersContext.Switch();
+
                 // Spells context needs character classes (specifically spell lists) in the db in order to do it's work.
                 SpellsContext.Load();
 
-                // the spells cache is required by both level down or multiclass
-                Multiclass.Models.CacheSpellsContext.Load();
+                // Multiclass
+                CacheSpellsContext.Load();
+                IntegrationContext.Load();
+                InspectionPanelContext.Load();
+                LevelUpContext.Load();
+                SharedSpellsContext.Load();
 
-                GuiPresentationCheck.PostCELoadCheck();
+                // Save by location initialization depends on services to be ready
+                SaveByLocationContext.Load();
 
+                // Recache all gui collections
                 GuiWrapperContext.Recache();
 
-                if (Main.Settings.EnableMulticlass)
-                {
-                    Multiclass.Models.IntegrationContext.Load();
-                    Multiclass.Models.InspectionPanelContext.Load();
-                    Multiclass.Models.LevelUpContext.Load();
-                    Multiclass.Models.SharedSpellsContext.Load();
-                }
+                // Cache CE definitions for diagnostics and export
+                DiagnosticsContext.CacheCEDefinitions();
 
                 Main.Enabled = true;
+                Main.Logger.Log("Enabled.");
             };
         }
     }
