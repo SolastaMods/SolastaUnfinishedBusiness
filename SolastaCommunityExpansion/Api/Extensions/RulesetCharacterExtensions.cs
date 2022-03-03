@@ -267,6 +267,20 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T AddUsableSpells<T>(this T entity,  params  SpellDefinition [ ]  value)
+            where T : RulesetCharacter
+        {
+            AddUsableSpells(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddUsableSpells<T>(this T entity, IEnumerable<SpellDefinition> value)
+            where T : RulesetCharacter
+        {
+            entity.UsableSpells.AddRange(value);
+            return entity;
+        }
+
         public static T ClearAllUsableDeviceFunctions<T>(this T entity)
             where T : RulesetCharacter
         {
@@ -379,6 +393,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T ClearUsableSpells<T>(this T entity)
+            where T : RulesetCharacter
+        {
+            entity.UsableSpells.Clear();
+            return entity;
+        }
+
         public static System.Collections.Generic.List<RulesetItem> GetConsumedItems<T>(this T entity)
             where T : RulesetCharacter
         {
@@ -443,12 +464,6 @@ namespace SolastaModApi.Extensions
             where T : RulesetCharacter
         {
             return entity.GetField<System.Collections.Generic.List<RulesetCondition>>("toRemove");
-        }
-
-        public static System.Collections.Generic.List<SpellDefinition> GetUsableSpells<T>(this T entity)
-            where T : RulesetCharacter
-        {
-            return entity.GetField<System.Collections.Generic.List<SpellDefinition>>("usableSpells");
         }
 
         public static T SetAbilityCheckRolled<T>(this T entity, RulesetCharacter.AbilityCheckRolledHandler value)
@@ -700,6 +715,13 @@ namespace SolastaModApi.Extensions
             where T : RulesetCharacter
         {
             entity.SetField("<CraftingUpdated>k__BackingField", value);
+            return entity;
+        }
+
+        public static T SetDamageAbsorbedByTemporaryHitPoints<T>(this T entity, RulesetCharacter.DamageAbsorbedByTemporaryHitPointsHandler value)
+            where T : RulesetCharacter
+        {
+            entity.SetField("<DamageAbsorbedByTemporaryHitPoints>k__BackingField", value);
             return entity;
         }
 
@@ -1151,6 +1173,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetPowerAppliesNoAdditionalCondition<T>(this T entity, RulesetCharacter.PowerAppliesNoAdditionalConditionHandler value)
+            where T : RulesetCharacter
+        {
+            entity.SetField("<PowerAppliesNoAdditionalCondition>k__BackingField", value);
+            return entity;
+        }
+
         public static T SetPowerFailureChecked<T>(this T entity, RulesetCharacter.PowerFailureCheckedHandler value)
             where T : RulesetCharacter
         {
@@ -1302,6 +1331,13 @@ namespace SolastaModApi.Extensions
             where T : RulesetCharacter
         {
             entity.SetField("<SharedDamage>k__BackingField", value);
+            return entity;
+        }
+
+        public static T SetShouldClearOverridenFactionFromCharmSpells<T>(this T entity, System.Boolean value)
+            where T : RulesetCharacter
+        {
+            entity.SetField("shouldClearOverridenFactionFromCharmSpells", value);
             return entity;
         }
 
@@ -1477,6 +1513,20 @@ namespace SolastaModApi.Extensions
             where T : RulesetCharacter
         {
             entity.UsablePowers.SetRange(value);
+            return entity;
+        }
+
+        public static T SetUsableSpells<T>(this T entity,  params  SpellDefinition [ ]  value)
+            where T : RulesetCharacter
+        {
+            SetUsableSpells(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetUsableSpells<T>(this T entity, IEnumerable<SpellDefinition> value)
+            where T : RulesetCharacter
+        {
+            entity.UsableSpells.SetRange(value);
             return entity;
         }
 

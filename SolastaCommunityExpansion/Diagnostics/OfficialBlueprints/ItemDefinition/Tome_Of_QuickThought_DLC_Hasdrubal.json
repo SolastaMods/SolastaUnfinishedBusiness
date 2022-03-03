@@ -30,7 +30,7 @@
   "inactiveTags": [],
   "magical": true,
   "requiresAttunement": false,
-  "requiresIdentification": true,
+  "requiresIdentification": false,
   "requiredAttunementClasses": [],
   "itemRarity": "VeryRare",
   "staticProperties": [],
@@ -224,7 +224,9 @@
     "sameBehavioursForMaleAndFemale": true,
     "maleBodyPartBehaviours": [],
     "femaleBodyPartBehaviours": [],
-    "itemFlags": [],
+    "itemFlags": [
+      "Definition:ItemFlagQuest:316eb03c4817bde459759480ab0dcbce"
+    ],
     "serializedVersion": 1
   },
   "guiPresentation": {

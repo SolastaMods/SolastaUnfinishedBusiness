@@ -95,6 +95,7 @@
           "hitPointsFloor": 0,
           "forceKillOnZeroHp": true,
           "specialDeathCondition": "Definition:ConditionDisintegrated:bc6b8b76e32d19945a94c1d6aba58425",
+          "ignoreFlyingCharacters": false,
           "ignoreCriticalDoubleDice": false
         }
       }

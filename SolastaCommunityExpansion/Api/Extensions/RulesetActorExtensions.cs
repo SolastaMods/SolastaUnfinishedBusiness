@@ -194,6 +194,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetAttackAutomaticCritical<T>(this T entity, RulesetActor.AttackAutomaticCriticalHandler value)
+            where T : RulesetActor
+        {
+            entity.SetField("<AttackAutomaticCritical>k__BackingField", value);
+            return entity;
+        }
+
         public static T SetAttackAutomaticHit<T>(this T entity, RulesetActor.AttackAutomaticHitHandler value)
             where T : RulesetActor
         {

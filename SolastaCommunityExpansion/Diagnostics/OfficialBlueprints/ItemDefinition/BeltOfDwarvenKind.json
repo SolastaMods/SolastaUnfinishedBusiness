@@ -67,7 +67,7 @@
       "$type": "ItemPropertyDescription, Assembly-CSharp",
       "appliesOnItemOnly": false,
       "type": "Feature",
-      "featureDefinition": "Definition:DamageAffinityPoisonResistance_BeltOfDwarvenkind:3f3380a2f6956c44d8cc58cb1cd2ed3d",
+      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
       "conditionDefinition": null,
       "knowledgeAffinity": "InactiveAndHidden"
     },
@@ -76,21 +76,12 @@
       "$type": "ItemPropertyDescription, Assembly-CSharp",
       "appliesOnItemOnly": false,
       "type": "Feature",
-      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
-      "conditionDefinition": null,
-      "knowledgeAffinity": "InactiveAndHidden"
-    },
-    {
-      "$id": "6",
-      "$type": "ItemPropertyDescription, Assembly-CSharp",
-      "appliesOnItemOnly": false,
-      "type": "Feature",
       "featureDefinition": "Definition:ProficiencyBeltOfDwarvenKind:abad00ce6976c7744bed26af06077390",
       "conditionDefinition": null,
       "knowledgeAffinity": "InactiveAndHidden"
     },
     {
-      "$id": "7",
+      "$id": "6",
       "$type": "ItemPropertyDescription, Assembly-CSharp",
       "appliesOnItemOnly": false,
       "type": "Feature",
@@ -115,10 +106,10 @@
   "isFactionRelic": false,
   "personalityFlagOccurences": [],
   "soundEffectDescriptionOverride": {
-    "$id": "8",
+    "$id": "7",
     "$type": "SoundEffectDescription, Assembly-CSharp",
     "startEvent": {
-      "$id": "9",
+      "$id": "8",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -128,7 +119,7 @@
       }
     },
     "stopEvent": {
-      "$id": "10",
+      "$id": "9",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -138,7 +129,7 @@
       }
     },
     "startSwitch": {
-      "$id": "11",
+      "$id": "10",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -153,7 +144,7 @@
       }
     },
     "stopSwitch": {
-      "$id": "12",
+      "$id": "11",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -168,7 +159,7 @@
       }
     },
     "guiStoreBody": {
-      "$id": "13",
+      "$id": "12",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -178,7 +169,7 @@
       }
     },
     "guiPickBody": {
-      "$id": "14",
+      "$id": "13",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -188,7 +179,7 @@
       }
     },
     "guiStoreOther": {
-      "$id": "15",
+      "$id": "14",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -198,7 +189,7 @@
       }
     },
     "guiPickOther": {
-      "$id": "16",
+      "$id": "15",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -209,10 +200,10 @@
     }
   },
   "soundEffectOnHitDescriptionOverride": {
-    "$id": "17",
+    "$id": "16",
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
-      "$id": "18",
+      "$id": "17",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -228,13 +219,13 @@
     }
   },
   "itemPresentation": {
-    "$id": "19",
+    "$id": "18",
     "$type": "ItemPresentation, Assembly-CSharp",
     "unidentifiedTitle": "Equipment/&BeltOfDwarvenkind_Unidentified_Title",
     "unidentifiedDescription": "Equipment/&BeltOfDwarvenkind_Unidentified_Description",
     "overrideSubtype": "None",
     "assetReference": {
-      "$id": "20",
+      "$id": "19",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -254,20 +245,20 @@
     "serializedVersion": 1
   },
   "guiPresentation": {
-    "$id": "21",
+    "$id": "20",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Equipment/&BeltOfDwarvenkind_Title",
     "description": "Equipment/&BeltOfDwarvenkind_Description",
     "spriteReference": {
-      "$id": "22",
+      "$id": "21",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "c9ab6f70cb671fd4abd32854ca3866c1",
       "m_SubObjectName": "BeltOfDwarvenkind",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "23",
+      "$id": "22",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

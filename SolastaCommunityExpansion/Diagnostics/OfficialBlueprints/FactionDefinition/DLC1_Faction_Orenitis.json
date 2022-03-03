@@ -6,9 +6,7 @@
   "stealingPenalty": 20,
   "attackingPenalty": 5,
   "killingPenalty": 25,
-  "prominentMembers": [
-    "Definition:DLC1_NPC_Orenetis:14e7c8a16052b4c4282d2812353f479e"
-  ],
+  "prominentMembers": [],
   "smallSpriteReference": {
     "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

@@ -60,7 +60,7 @@
         "$type": "DeviceFunctionDescription, Assembly-CSharp",
         "parentUsage": "ByFunction",
         "useAffinity": "IterationPerRecharge",
-        "useAmount": 0,
+        "useAmount": 1,
         "rechargeRate": "Dawn",
         "durationType": "Instantaneous",
         "canOverchargeSpell": false,

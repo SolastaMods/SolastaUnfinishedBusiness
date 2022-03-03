@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
-    "Definition:FactionChangeConditionCharmedByCaster:ecdb296a421d38a419c857de7bb52152"
+    "Definition:ActionAffinityConditionCharmed:3fd625e10e2a2ff40b2ead2c29067c55"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -16,7 +16,7 @@
   "durationParameter": 1,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [
-    "DamagedByFriendly"
+    "Damaged"
   ],
   "interruptionRequiresSavingThrow": false,
   "interruptionDamageThreshold": 0,

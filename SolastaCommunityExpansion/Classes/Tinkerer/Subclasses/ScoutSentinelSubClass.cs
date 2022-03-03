@@ -17,11 +17,15 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         public const string Name = "ScoutSentinel";
         public const string Guid = "fb2e5f73-d552-430f-b329-1f0a2ecdf6bd";
 
-        // TODO: convert to lazy loading properties
         // ArmorModePool needs to be instantiated before the two modes.
-        public static readonly FeatureDefinitionPower ArmorModePool = CreateArmorModePool();
-        public static readonly FeatureDefinitionPowerSharedPool ScoutModePower = CreateScoutModePower();
-        public static readonly FeatureDefinitionPowerSharedPool SentinelModePower = CreateSentinelModePower();
+        private static FeatureDefinitionPower armorModePool;
+        public static FeatureDefinitionPower ArmorModePool => armorModePool ??= CreateArmorModePool();
+
+        private static FeatureDefinitionPowerSharedPool scoutModePower;
+        public static FeatureDefinitionPowerSharedPool ScoutModePower => scoutModePower ??= CreateScoutModePower();
+
+        private static FeatureDefinitionPowerSharedPool sentinelModePower;
+        public static FeatureDefinitionPowerSharedPool SentinelModePower => sentinelModePower ??= CreateSentinelModePower();
 
         private static EffectForm CreateEffectItem()
         {

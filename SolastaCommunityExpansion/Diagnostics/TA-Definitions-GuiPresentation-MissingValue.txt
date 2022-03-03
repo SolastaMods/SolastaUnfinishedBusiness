@@ -774,7 +774,7 @@ MapWaypointDefinition_DLC1_City_MaskHQ_Low:	Title='Map/&Waypoint_DLC1_City_MaskH
 MapWaypointDefinition_DLC1_City_MiddleGate:	Title='Map/&Waypoint_DLC1_City_MiddleGate', Desc=''
 MapWaypointDefinition_DLC1_City_Palace:	Title='Map/&Waypoint_DLC1_City_Palace', Desc=''
 MapWaypointDefinition_DLC1_City_PeoplesHideout:	Title='Map/&Waypoint_DLC1_City_PeopleHideout', Desc=''
-MapWaypointDefinition_DLC1_City_PeoplesShelter:	Title='Map/&Waypoint_DLC1_City_PeoplesShelter', Desc=''
+MapWaypointDefinition_DLC1_City_PeoplesShelter:	Title='Map/&Waypoint_DLC1_City_Temple', Desc=''
 MapWaypointDefinition_DLC1_City_SecretEntrance:	Title='Map/&Waypoint_DLC1_City_SecretEntrance', Desc=''
 MapWaypointDefinition_DLC1_City_ThroneRoom:	Title='Map/&Waypoint_DLC1_City_ThroneRoom', Desc=''
 MapWaypointDefinition_DLC1_Complex_Captivity_Quarters:	Title='Map/&Waypoint_DLC1_Complex_Captivity_Quarters', Desc=''

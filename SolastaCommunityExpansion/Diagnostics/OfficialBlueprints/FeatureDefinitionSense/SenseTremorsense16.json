@@ -3,6 +3,7 @@
   "senseType": "Tremorsense",
   "senseRange": 16,
   "stealthBreakerRange": 16,
+  "revealsHiddenObjects": false,
   "guiPresentation": {
     "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",
