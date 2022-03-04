@@ -6,6 +6,7 @@ using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using static FeatureDefinitionAttributeModifier.AttributeModifierOperation;
+using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
@@ -56,11 +57,11 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
                 .Create("ForestGuardianAutoPreparedSpells", DFG_BASE_GUID)
                 .SetGuiPresentation("DruidForestGuardianMagic", Category.Feature)
                 .SetPreparedSpellGroups(
-                    AutoPreparedSpellsGroupBuilder.Build(2, Shield, FogCloud),
-                    AutoPreparedSpellsGroupBuilder.Build(3, Blur, FlameBlade),
-                    AutoPreparedSpellsGroupBuilder.Build(5, ProtectionFromEnergy, DispelMagic),
-                    AutoPreparedSpellsGroupBuilder.Build(7, FireShield, DeathWard),
-                    AutoPreparedSpellsGroupBuilder.Build(9, HoldMonster, GreaterRestoration))
+                    BuildSpellGroup(2, Shield, FogCloud),
+                    BuildSpellGroup(3, Blur, FlameBlade),
+                    BuildSpellGroup(5, ProtectionFromEnergy, DispelMagic),
+                    BuildSpellGroup(7, FireShield, DeathWard),
+                    BuildSpellGroup(9, HoldMonster, GreaterRestoration))
                 .SetSpellcastingClass(DatabaseHelper.CharacterClassDefinitions.Druid)
                 .AddToDB();
         }

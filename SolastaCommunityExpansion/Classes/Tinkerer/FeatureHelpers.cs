@@ -7,7 +7,6 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 using static FeatureDefinitionAttributeModifier;
-using static FeatureDefinitionAutoPreparedSpells;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
@@ -265,17 +264,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             }
         }
 
-        public class FeatureDefinitionAutoPreparedSpellsBuilder : Builders.Features.FeatureDefinitionAutoPreparedSpellsBuilder
-        {
-            public FeatureDefinitionAutoPreparedSpellsBuilder(string name, string guid, IEnumerable<AutoPreparedSpellsGroup> autospelllists,
-                CharacterClassDefinition characterclass, GuiPresentation guiPresentation) : base(name, guid)
-            {
-                Definition.AutoPreparedSpellsGroups.SetRange(autospelllists);
-                Definition.SetSpellcastingClass(characterclass);
-                Definition.SetGuiPresentation(guiPresentation);
-            }
-        }
-
         public class RestActivityDefinitionBuilder : Builders.RestActivityDefinitionBuilder
         {
             public RestActivityDefinitionBuilder(string name, string guid, RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType,
@@ -366,33 +354,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 Definition.ConditionOperations.SetRange(conditionOperations);
                 Definition.SetGuiPresentation(guiPresentation);
             }
-        }
-
-        public static FeatureDefinitionAutoPreparedSpells BuildAutoPreparedSpells(
-            CharacterClassDefinition characterclass, string name, GuiPresentation guiPresentation, params AutoPreparedSpellsGroup[] autospelllists)
-        {
-            return BuildAutoPreparedSpells(autospelllists.AsEnumerable(), characterclass, name, guiPresentation);
-        }
-
-        public static FeatureDefinitionAutoPreparedSpells BuildAutoPreparedSpells(IEnumerable<AutoPreparedSpellsGroup> autospelllists,
-            CharacterClassDefinition characterclass, string name, GuiPresentation guiPresentation)
-        {
-            return new FeatureDefinitionAutoPreparedSpellsBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
-                autospelllists, characterclass, guiPresentation).AddToDB();
-        }
-
-        public static AutoPreparedSpellsGroup BuildAutoPreparedSpellGroup(int classLevel, params SpellDefinition[] spellnames)
-        {
-            return BuildAutoPreparedSpellGroup(classLevel, spellnames.AsEnumerable());
-        }
-
-        public static AutoPreparedSpellsGroup BuildAutoPreparedSpellGroup(int classLevel, IEnumerable<SpellDefinition> spellnames)
-        {
-            return new AutoPreparedSpellsGroup
-            {
-                ClassLevel = classLevel,
-                SpellsList = new List<SpellDefinition>(spellnames)
-            };
         }
 
         public static SpellListDefinition.SpellsByLevelDuplet BuildSpellList(int classLevel, params SpellDefinition[] spellnames)
@@ -533,15 +494,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             return new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
                 concentrationAffinity, threshold, guiPresentation).AddToDB();
-        }
-
-        // Common helper: factor out
-        public static DiceByRank BuildDiceByRank(int rank, int dice)
-        {
-            DiceByRank diceByRank = new DiceByRank();
-            diceByRank.SetRank(rank);
-            diceByRank.SetDiceNumber(dice);
-            return diceByRank;
         }
 
         public class FeatureDefinitionFeatureSetBuilder : Builders.Features.FeatureDefinitionFeatureSetBuilder

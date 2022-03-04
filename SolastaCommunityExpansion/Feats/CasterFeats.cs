@@ -4,6 +4,7 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Infrastructure;
+using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
@@ -113,7 +114,7 @@ namespace SolastaCommunityExpansion.Feats
             // Power that mimics misty step once per short rest
             // DatabaseHelper.LanguageDefinitions.Language_Tirmarian
             // restrict to elf??
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup mistyStepGroup = AutoPreparedSpellsGroupBuilder.Build(0, MistyStep);
+            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup mistyStepGroup = BuildSpellGroup(0, MistyStep);
 
             CharacterClassDefinition[] classes = DatabaseRepository.GetDatabase<CharacterClassDefinition>().GetAllElements();
 
@@ -172,7 +173,7 @@ namespace SolastaCommunityExpansion.Feats
             // power that mimics ^^ spells once per long rest
 
             FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup shadowTouchedGroup =
-                AutoPreparedSpellsGroupBuilder.Build(0, Invisibility, FalseLife, InflictWounds);
+                BuildSpellGroup(0, Invisibility, FalseLife, InflictWounds);
 
             var learnShadowTouchedPresentation = GuiPresentationBuilder.Build("PowerShadowTouchedFromFeat", Category.Feat);
 
@@ -305,7 +306,7 @@ namespace SolastaCommunityExpansion.Feats
                 .Create(name, CasterFeatsNamespace)
                 .SetGuiPresentation(guiPresentation)
                 .SetPreparedSpellGroups(autospelllists)
-                .SetCharacterClass(characterclass)
+                .SetCastingClass(characterclass)
                 .SetAutoTag(tag)
                 .AddToDB();
         }

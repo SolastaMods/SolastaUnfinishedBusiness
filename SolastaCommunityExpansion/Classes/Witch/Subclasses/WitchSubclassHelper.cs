@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
                 .Create($"{color}MagicAutoPreparedSpell", namespaceGuid)
                 .SetGuiPresentationNoContent()
                 .SetPreparedSpellGroups(autoSpellLists)
-                .SetCharacterClass(witchClass)
+                .SetCastingClass(witchClass)
                 .SetAutoTag("Coven")
                 .AddToDB();
 
