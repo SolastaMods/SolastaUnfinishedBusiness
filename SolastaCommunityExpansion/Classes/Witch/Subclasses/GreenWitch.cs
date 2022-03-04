@@ -1,5 +1,5 @@
 ﻿using System;
-using SolastaCommunityExpansion.Builders.Features;
+using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
@@ -23,17 +23,17 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
                 TraditionGreenmage.GuiPresentation.SpriteReference,
                 witchClass,
                 Namespace,
-                AutoPreparedSpellsGroupBuilder.Build(1, Entangle, Goodberry),
-                AutoPreparedSpellsGroupBuilder.Build(3,
+                BuildSpellGroup(1, Entangle, Goodberry),
+                BuildSpellGroup(3,
                     Barkskin,
                     ProtectionFromPoison),// This should be Beast Sense
-                AutoPreparedSpellsGroupBuilder.Build(5,
+                BuildSpellGroup(5,
                     ConjureAnimals,
                     CreateFood), // This should be Plant Growth
-                AutoPreparedSpellsGroupBuilder.Build(7,
+                BuildSpellGroup(7,
                     GiantInsect, // This should be Conjure Woodland Beings
                     Stoneskin),
-                AutoPreparedSpellsGroupBuilder.Build(9,
+                BuildSpellGroup(9,
                     DispelEvilAndGood, // This should be Awaken
                     InsectPlague)   // This should be Tree Stride
             );

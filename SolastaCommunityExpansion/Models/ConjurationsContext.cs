@@ -55,22 +55,6 @@ namespace SolastaCommunityExpansion.Models
                 conjuredMonster.SetFullyControlledWhenAllied(controlled);
             }
 
-            if (Main.Settings.DismissControlledConjurationsWhenDeliberatelyDropConcentration)
-            {
-                // Change conjured Fey to persist and become hostile when concentration accidentally dropped
-                SetPersist(ConjureFey_Ape);
-                SetPersist(ConjureFey_Bear);
-                SetPersist(ConjureFey_Dryad);
-                SetPersist(ConjureFey_Eagle);
-                SetPersist(ConjureFey_GreenHag);
-                SetPersist(ConjureFey_Wolf);
-
-                static void SetPersist(SpellDefinition spell)
-                {
-                    spell.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Summon).SummonForm.SetPersistOnConcentrationLoss(true);
-                }
-            }
-
             if (Main.Settings.EnableUpcastConjureElementalAndFey)
             {
                 CreateAdditionalSummons();

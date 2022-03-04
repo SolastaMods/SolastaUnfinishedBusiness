@@ -1,5 +1,5 @@
 ﻿using System;
-using SolastaCommunityExpansion.Builders.Features;
+using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
@@ -23,11 +23,11 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
                 DomainLife.GuiPresentation.SpriteReference,
                 witchClass,
                 Namespace,
-                AutoPreparedSpellsGroupBuilder.Build(1, Bless, CureWounds),
-                AutoPreparedSpellsGroupBuilder.Build(3, LesserRestoration, PrayerOfHealing),
-                AutoPreparedSpellsGroupBuilder.Build(5, BeaconOfHope, Revivify),
-                AutoPreparedSpellsGroupBuilder.Build(7, DeathWard, GuardianOfFaith),
-                AutoPreparedSpellsGroupBuilder.Build(9, MassCureWounds, RaiseDead)
+                BuildSpellGroup(1, Bless, CureWounds),
+                BuildSpellGroup(3, LesserRestoration, PrayerOfHealing),
+                BuildSpellGroup(5, BeaconOfHope, Revivify),
+                BuildSpellGroup(7, DeathWard, GuardianOfFaith),
+                BuildSpellGroup(9, MassCureWounds, RaiseDead)
            );
         }
     }

@@ -69,14 +69,19 @@ namespace SolastaCommunityExpansion.Builders.Features
             return This();
         }
 
-        public TBuilder SetClassAdvancement(params DiceByRank[] diceByRanks)
+        public TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement, params (int rank, int dice)[] diceByRank)
         {
-            return SetClassAdvancement(diceByRanks.AsEnumerable());
+            return SetAdvancement(advancement, diceByRank.Select(d => DiceByRankBuilder.BuildDiceByRank(d.rank, d.dice)));
         }
 
-        public TBuilder SetClassAdvancement(IEnumerable<DiceByRank> diceByRanks)
+        public TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement, params DiceByRank[] diceByRanks)
         {
-            Definition.SetDamageAdvancement(RuleDefinitions.AdditionalDamageAdvancement.ClassLevel);
+            return SetAdvancement(advancement, diceByRanks.AsEnumerable());
+        }
+
+        public TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement, IEnumerable<DiceByRank> diceByRanks)
+        {
+            Definition.SetDamageAdvancement(advancement);
             Definition.DiceByRankTable.SetRange(diceByRanks);
             return This();
         }
@@ -132,6 +137,19 @@ namespace SolastaCommunityExpansion.Builders.Features
         public TBuilder SetRequiredTargetCondition(ConditionDefinition condition)
         {
             Definition.SetRequiredTargetCondition(condition);
+            return This();
+        }
+    }
+
+        public TBuilder SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty property)
+        {
+            Definition.SetRequiredProperty(property);
+            return This();
+        }
+
+        public TBuilder SetDiceByRank(params (int rank, int dice)[] diceByRank)
+        {
+            Definition.SetDiceByRankTable(diceByRank.Select(d => DiceByRankBuilder.BuildDiceByRank(d.rank, d.dice)));
             return This();
         }
     }
@@ -206,12 +224,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         public static FeatureDefinitionAdditionalDamageBuilder Create(string name, Guid namespaceGuid)
         {
             return new FeatureDefinitionAdditionalDamageBuilder(name, namespaceGuid);
-        }
-
-        public FeatureDefinitionAdditionalDamageBuilder SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty property)
-        {
-            Definition.SetRequiredProperty(property);
-            return This();
         }
     }
 }

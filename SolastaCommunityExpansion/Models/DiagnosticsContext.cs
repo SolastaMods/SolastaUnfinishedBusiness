@@ -31,7 +31,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static string GetDiagnosticsFolder()
         {
-            var path = Path.Combine(ProjectFolder ?? GAME_FOLDER, "SolastaCommunityExpansion/Diagnostics");
+            var path = Path.Combine(ProjectFolder ?? GAME_FOLDER, @"SolastaCommunityExpansion\Diagnostics");
 
             EnsureFolderExists(path);
 
@@ -66,6 +66,7 @@ namespace SolastaCommunityExpansion.Models
             TABaseDefinitions = TABaseDefinitionsMap.Values
                 .SelectMany(v => v)
                 .Where(x => Array.IndexOf(Main.Settings.ExcludeFromExport, x.GetType().Name) < 0)
+                .Distinct()
                 .OrderBy(x => x.Name)
                 .ThenBy(x => x.GetType().Name)
                 .ToArray();
@@ -103,6 +104,7 @@ namespace SolastaCommunityExpansion.Models
             CEBaseDefinitions = CEBaseDefinitionsMap.Values
                 .SelectMany(v => v)
                 .Where(x => Array.IndexOf(Main.Settings.ExcludeFromExport, x.GetType().Name) < 0)
+                .Distinct()
                 .OrderBy(x => x.Name)
                 .ThenBy(x => x.GetType().Name)
                 .ToArray();
