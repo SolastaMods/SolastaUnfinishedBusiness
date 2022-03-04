@@ -40,12 +40,14 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
-        // Add other standard Create methods as required.
-
+        #region Create
+        
         public static FeatureDefinitionAutoPreparedSpellsBuilder Create(string name, Guid namespaceGuid)
         {
             return new FeatureDefinitionAutoPreparedSpellsBuilder(name, namespaceGuid);
         }
+        
+        #endregion
 
         public FeatureDefinitionAutoPreparedSpellsBuilder SetPreparedSpellGroups(params AutoPreparedSpellsGroup[] autospelllists)
         {
@@ -58,7 +60,7 @@ namespace SolastaCommunityExpansion.Builders.Features
             return this;
         }
 
-        public FeatureDefinitionAutoPreparedSpellsBuilder SetCharacterClass(CharacterClassDefinition castingClass)
+        public FeatureDefinitionAutoPreparedSpellsBuilder SetCastingClass(CharacterClassDefinition castingClass)
         {
             Definition.SetSpellcastingClass(castingClass);
             return this;
@@ -90,12 +92,12 @@ namespace SolastaCommunityExpansion.Builders.Features
 
     public static class AutoPreparedSpellsGroupBuilder
     {
-        public static AutoPreparedSpellsGroup Build(int classLevel, params SpellDefinition[] spellnames)
+        public static AutoPreparedSpellsGroup BuildSpellGroup(int classLevel, params SpellDefinition[] spellnames)
         {
-            return Build(classLevel, spellnames.AsEnumerable());
+            return BuildSpellGroup(classLevel, spellnames.AsEnumerable());
         }
 
-        public static AutoPreparedSpellsGroup Build(int classLevel, IEnumerable<SpellDefinition> spellnames)
+        public static AutoPreparedSpellsGroup BuildSpellGroup(int classLevel, IEnumerable<SpellDefinition> spellnames)
         {
             return new AutoPreparedSpellsGroup
             {

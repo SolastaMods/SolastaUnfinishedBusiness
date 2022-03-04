@@ -1,5 +1,5 @@
 ﻿using System;
-using SolastaCommunityExpansion.Builders.Features;
+using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
@@ -23,15 +23,15 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
                 DomainOblivion.GuiPresentation.SpriteReference,
                 witchClass,
                 Namespace,
-                AutoPreparedSpellsGroupBuilder.Build(1,
+                BuildSpellGroup(1,
                     FalseLife, // This should be Hellish Rebuke
                     InflictWounds),// This should be Hollowing Curse,
-                AutoPreparedSpellsGroupBuilder.Build(3, AcidArrow, HoldPerson),
-                AutoPreparedSpellsGroupBuilder.Build(5,
+                BuildSpellGroup(3, AcidArrow, HoldPerson),
+                BuildSpellGroup(5,
                     BestowCurse, // This should be Rube-Eye Curse
                     VampiricTouch),
-                AutoPreparedSpellsGroupBuilder.Build(7, Blight, DominateBeast),
-                AutoPreparedSpellsGroupBuilder.Build(9, CloudKill, DominatePerson)
+                BuildSpellGroup(7, Blight, DominateBeast),
+                BuildSpellGroup(9, CloudKill, DominatePerson)
             );
         }
     }
