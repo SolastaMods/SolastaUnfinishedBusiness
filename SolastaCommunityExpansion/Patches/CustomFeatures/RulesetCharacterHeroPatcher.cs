@@ -9,6 +9,9 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {
+    //
+    // Extra Ritual Casting
+    //
     [HarmonyPatch(typeof(RulesetCharacterHero), "EnumerateUsableRitualSpells")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacterHero_EnumerateUsableRitualSpells
@@ -44,6 +47,25 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         }
     }
 
+    //
+    // FeatureDefinitionCustomCode & CustomFightingStyle
+    //
+    [HarmonyPatch(typeof(RulesetCharacterHero), "TrainFeats")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetCharacterHero_TrainFeats
+    {
+        internal static void Postfix(RulesetCharacterHero __instance, List<FeatDefinition> feats)
+        {
+            foreach (FeatDefinition feat in feats)
+            {
+                CustomFeaturesContext.RecursiveGrantCustomFeatures(__instance, feat.Features);
+            }
+        }
+    }
+
+    //
+    // Dynamic Powers
+    //
     [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshAll")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacterHero_RefreshAll
