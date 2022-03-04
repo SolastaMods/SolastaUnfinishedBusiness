@@ -5,7 +5,10 @@ using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using static RuleDefinitions;
+using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
+using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 {
@@ -18,28 +21,18 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 .Create("BattleSmith", TinkererClass.GuidNamespace)
                 .SetGuiPresentation("ArtificerBattleSmith", Category.Subclass, MartialSpellblade.GuiPresentation.SpriteReference);
 
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup battleSmithSpells1 = FeatureHelpers.BuildAutoPreparedSpellGroup(
-                3, DatabaseHelper.SpellDefinitions.Heroism, DatabaseHelper.SpellDefinitions.Shield, DatabaseHelper.SpellDefinitions.HuntersMark);
+            FeatureDefinitionAutoPreparedSpells battleSmithPrepSpells = FeatureDefinitionAutoPreparedSpellsBuilder
+                .Create("ArtificerBattleSmithAutoPrepSpells", TinkererClass.GuidNamespace)
+                .SetGuiPresentation("BattleSmithSubclassSpells", Category.Feat)
+                .SetCastingClass(artificer)
+                .SetPreparedSpellGroups(
+                    BuildSpellGroup(3, Heroism, Shield, HuntersMark),
+                    BuildSpellGroup(5, BrandingSmite, SpiritualWeapon),
+                    BuildSpellGroup(9, RemoveCurse, BeaconOfHope),
+                    BuildSpellGroup(13, FireShield, DeathWard),
+                    BuildSpellGroup(17, MassCureWounds, WallOfForce))
+                .AddToDB();
 
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup battleSmithSpells2 = FeatureHelpers.BuildAutoPreparedSpellGroup(
-                5, DatabaseHelper.SpellDefinitions.BrandingSmite, DatabaseHelper.SpellDefinitions.SpiritualWeapon);
-
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup battleSmithSpells3 = FeatureHelpers.BuildAutoPreparedSpellGroup(
-                9, DatabaseHelper.SpellDefinitions.RemoveCurse, DatabaseHelper.SpellDefinitions.BeaconOfHope);
-
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup battleSmithSpells4 = FeatureHelpers.BuildAutoPreparedSpellGroup(
-                13, DatabaseHelper.SpellDefinitions.FireShield, DatabaseHelper.SpellDefinitions.DeathWard);
-
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup battleSmithSpells5 = FeatureHelpers.BuildAutoPreparedSpellGroup(
-                17, DatabaseHelper.SpellDefinitions.MassCureWounds, DatabaseHelper.SpellDefinitions.WallOfForce);
-
-            GuiPresentationBuilder battleSmithSpellsPresentation = new GuiPresentationBuilder(
-                "Feat/&BattleSmithSubclassSpellsTitle",
-                "Feat/&BattleSmithSubclassSpellsDescription");
-            FeatureDefinitionAutoPreparedSpells battleSmithPrepSpells = FeatureHelpers.BuildAutoPreparedSpells(
-                new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>() {
-                    battleSmithSpells1, battleSmithSpells2, battleSmithSpells3, battleSmithSpells4, battleSmithSpells5 },
-                artificer, "ArtificerBattleSmithAutoPrepSpells", battleSmithSpellsPresentation.Build());
             battleSmith.AddFeatureAtLevel(battleSmithPrepSpells, 3);
 
             GuiPresentationBuilder weaponProfPresentation = new GuiPresentationBuilder(
@@ -61,7 +54,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             GuiPresentationBuilder attackModGui = new GuiPresentationBuilder(
                 "Subclass/&AttackModifierArtificerBattleSmithWeaponTitle",
                 "Subclass/&AttackModifierArtificerBattleSmithWeaponDescription");
-            attackModGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference);
+            attackModGui.SetSpriteReference(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference);
             FeatureDefinitionAttackModifier battleSmithInfusedWeapon = new FeatureDefinitionAttackModifierBuilder("AttackModifierArtificerBattleSmithWeapon",
                  GuidHelper.Create(TinkererClass.GuidNamespace, "AttackModifierArtificerBattleSmithWeapon").ToString(),
                 // Note this is not magical because that causes a conflict with the enhanced weapon effect.
@@ -70,7 +63,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             GuiPresentationBuilder infuseWeaponGui = new GuiPresentationBuilder(
                 "Subclass/&PowerArtificerBattleSmithInfuseWeaponTitle",
                 "Subclass/&PowerArtificerBattleSmithInfuseWeaponDescription");
-            infuseWeaponGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference);
+            infuseWeaponGui.SetSpriteReference(FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference);
 
             FeatureDefinitionPowerSharedPool enchantWeapon = InfusionHelpers.BuildItemModifierInfusion(battleSmithInfusedWeapon,
                ActionDefinitions.ItemSelectionType.Weapon, "PowerBattleSmithWeapon", infuseWeaponGui.Build()).AddToDB();
@@ -100,12 +93,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             GuiPresentationBuilder improvedInfuseWeaponGui = new GuiPresentationBuilder(
                 "Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponTitle",
                 "Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription");
-            improvedInfuseWeaponGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference);
+            improvedInfuseWeaponGui.SetSpriteReference(FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference);
 
             GuiPresentationBuilder attackImprovedModGui = new GuiPresentationBuilder(
                 "Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponTitle",
                 "Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponDescription");
-            attackImprovedModGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference);
+            attackImprovedModGui.SetSpriteReference(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference);
 
             GuiPresentationBuilder jolt2AttackGui = new GuiPresentationBuilder(
                 "Feat/&AttackModifierArtificerBattleSmithJolt2Title",

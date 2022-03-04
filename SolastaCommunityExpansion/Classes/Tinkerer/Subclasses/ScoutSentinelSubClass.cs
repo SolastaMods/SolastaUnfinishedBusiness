@@ -7,6 +7,7 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
+using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
@@ -348,55 +349,16 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.GuiPresentation.Title = "Feat/&AutoPreparedSpellsTitle";
             Definition.GuiPresentation.Description = "Feat/&AutoPreparedSpellsDescription";
 
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup autoPreparedSpellsGroup_Level_3 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
-            {
-                ClassLevel = 3,
-                SpellsList = new List<SpellDefinition> { Thunderwave, MagicMissile }
-            };
-
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup autoPreparedSpellsGroup_Level_5 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
-            {
-                ClassLevel = 5,
-                SpellsList = new List<SpellDefinition> { Shatter, Blur }
-            };
-
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup autoPreparedSpellsGroup_Level_9 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
-            {
-                ClassLevel = 9,
-                SpellsList = new List<SpellDefinition> { LightningBolt, HypnoticPattern }
-            };
-
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup autoPreparedSpellsGroup_Level_13 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
-            {
-                ClassLevel = 13,
-                SpellsList = new List<SpellDefinition> { FireShield, GreaterInvisibility }
-            };
-
-            //  added extra spells to balance spells withput "implemented"=true flag yet
-            //blur for mirror image
-            // dimension door for passwall
-            // wall of fire (4th lvl) and wind wall (3th lvl) for wall of force (5th lvl)
-
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup autoPreparedSpellsGroup_Level_17 = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
-            {
-                ClassLevel = 17,
-                SpellsList = new List<SpellDefinition> {
-                DimensionDoor
-            //    ,DatabaseHelper.SpellDefinitions.WallOfForce
-                ,WallOfFire
-                ,WindWall
-            }
-            };
-
-            Definition.AutoPreparedSpellsGroups.Clear();
-            Definition.AutoPreparedSpellsGroups.AddRange(new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>
-            {
-                autoPreparedSpellsGroup_Level_3,
-                autoPreparedSpellsGroup_Level_5,
-                autoPreparedSpellsGroup_Level_9,
-                autoPreparedSpellsGroup_Level_13,
-                autoPreparedSpellsGroup_Level_17
-            });
+            SetPreparedSpellGroups(
+                BuildSpellGroup(3, Thunderwave, MagicMissile),
+                BuildSpellGroup(5, Shatter, Blur),
+                BuildSpellGroup(9, LightningBolt, HypnoticPattern),
+                BuildSpellGroup(13, FireShield, GreaterInvisibility),
+                // added extra spells to balance spells withput "implemented"=true flag yet
+                // blur for mirror image
+                // dimension door for passwall
+                // wall of fire (4th lvl) and wind wall (3th lvl) for wall of force (5th lvl)
+                BuildSpellGroup(17, DimensionDoor, WallOfFire, WindWall));
 
             // todo: refactor so the Tinkerer class can easily get passed in to BuildAndAddSubclass and into the auto prepared spells builder instead of using a getter.
             CharacterClassDefinition tinkerer = DatabaseRepository.GetDatabase<CharacterClassDefinition>().TryGetElement("ClassTinkerer", GuidHelper.Create(TinkererClass.GuidNamespace, "ClassTinkerer").ToString());

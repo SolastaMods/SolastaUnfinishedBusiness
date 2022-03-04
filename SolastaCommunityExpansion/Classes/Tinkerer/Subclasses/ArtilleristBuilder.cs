@@ -2,6 +2,7 @@
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using static RuleDefinitions;
+using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaCommunityExpansion.Classes.Tinkerer.FeatureHelpers;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
@@ -20,29 +21,19 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 .Create("Artillerist", TinkererClass.GuidNamespace)
                 .SetGuiPresentation("ArtificerArtillerist", Category.Subclass, TraditionShockArcanist.GuiPresentation.SpriteReference);
 
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells1 = BuildAutoPreparedSpellGroup(
-                3, Shield, Thunderwave);
+            var artilleristPreparedSpells = Builders.Features.FeatureDefinitionAutoPreparedSpellsBuilder
+                .Create("ArtificerArtilleristAutoPrepSpells", TinkererClass.GuidNamespace)
+                .SetGuiPresentation("ArtilleristSubclassSpells", Category.Feat)
+                .SetCastingClass(artificer)
+                .SetPreparedSpellGroups(
+                    BuildSpellGroup(3, Shield, Thunderwave),
+                    BuildSpellGroup(5, ScorchingRay, Shatter),
+                    BuildSpellGroup(9, Fireball, WindWall),
+                    BuildSpellGroup(13, IceStorm, WallOfFire),
+                    BuildSpellGroup(17, ConeOfCold, WallOfForce))
+                .AddToDB();
 
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells2 = BuildAutoPreparedSpellGroup(
-                5, ScorchingRay, Shatter);
-
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells3 = BuildAutoPreparedSpellGroup(
-                9, Fireball, WindWall);
-
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells4 = BuildAutoPreparedSpellGroup(
-                13, IceStorm, WallOfFire);
-
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup artilleristSpells5 = BuildAutoPreparedSpellGroup(
-                17, ConeOfCold, WallOfForce);
-
-            GuiPresentationBuilder artilleristSpellsPresentation = new GuiPresentationBuilder(
-                "Feat/&ArtilleristSubclassSpellsTitle",
-                "Feat/&ArtilleristSubclassSpellsDescription");
-            FeatureDefinitionAutoPreparedSpells ArtilleristPrepSpells = BuildAutoPreparedSpells(
-                new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>() {
-                    artilleristSpells1, artilleristSpells2, artilleristSpells3, artilleristSpells4, artilleristSpells5 },
-                artificer, "ArtificerArtilleristAutoPrepSpells", artilleristSpellsPresentation.Build());
-            artillerist.AddFeatureAtLevel(ArtilleristPrepSpells, 3);
+            artillerist.AddFeatureAtLevel(artilleristPreparedSpells, 3);
 
             // Level 3: Cannons
             // Flame
@@ -103,19 +94,15 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
             artillerist.AddFeatureAtLevel(ArtilleryConstructlevel03FeatureSetBuilder.ArtilleryConstructlevel03FeatureSet, 3);
 
-            GuiPresentationBuilder ArtilleryConstructLevel03AutopreparedSpellsPresentation = new GuiPresentationBuilder(
-                 "Feat/&ArtilleryConstructLevel03AutopreparedSpellsTitle",
-                 "Feat/&ArtilleryConstructLevel03AutopreparedSpellsDescription");
-            FeatureDefinitionAutoPreparedSpells ArtilleryConstructLevel03AutopreparedSpells = BuildAutoPreparedSpells(
-                new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>() {
-                    new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup() {
-                        ClassLevel=1,
-                        SpellsList=new List<SpellDefinition>
-                            {SummonArtillerySpellConstructBuilder.SummonArtillerySpellConstruct}} },
-                artificer,
-                "ArtilleryConstructLevel03AutopreparedSpells",
-                ArtilleryConstructLevel03AutopreparedSpellsPresentation.Build());
-            artillerist.AddFeatureAtLevel(ArtilleryConstructLevel03AutopreparedSpells, 03);
+            var artilleryConstructLevel03AutopreparedSpells = Builders.Features.FeatureDefinitionAutoPreparedSpellsBuilder
+                .Create("ArtilleryConstructLevel03AutopreparedSpells", TinkererClass.GuidNamespace)
+                .SetGuiPresentation(Category.Feat)
+                .SetCastingClass(artificer)
+                .SetPreparedSpellGroups(
+                    BuildSpellGroup(1, SummonArtillerySpellConstructBuilder.SummonArtillerySpellConstruct))
+                .AddToDB();
+
+            artillerist.AddFeatureAtLevel(artilleryConstructLevel03AutopreparedSpells, 03);
 
             // Level 5: Arcane Firearm-- additional damage, school of evocation spells
             GuiPresentationBuilder arcaneFirearmGui = new GuiPresentationBuilder(
@@ -153,15 +140,13 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 .AddToDB();
 
             // TODO- add an option to enable the power/spell version of the Blaster (there have been some requests for this) instead of the summons
-            GuiPresentationBuilder artilleristDetonationPreparedPresentation = new GuiPresentationBuilder(
-                "Feat/&ArtificerArtillerstDetonationSpellPreparedTitle",
-                "Feat/&ArtificerArtillerstDetonationSpellPreparedDescription");
 #pragma warning disable IDE0059, S1481 // Unused local variables should be removed
-            FeatureDefinitionAutoPreparedSpells artilleristDetonationSpell = BuildAutoPreparedSpells(
-                new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>() {
-                    BuildAutoPreparedSpellGroup(9, new List<SpellDefinition>() { detonation })
-                },
-                artificer, "ArtificerArtillerstDetonationSpellPrepared", artilleristDetonationPreparedPresentation.Build());
+            FeatureDefinitionAutoPreparedSpells artilleristDetonationSpell = Builders.Features.FeatureDefinitionAutoPreparedSpellsBuilder
+                .Create("ArtificerArtillerstDetonationSpellPrepared", TinkererClass.GuidNamespace)
+                .SetGuiPresentation(Category.Feat)
+                .SetCastingClass(artificer)
+                .SetPreparedSpellGroups(BuildSpellGroup(9, detonation))
+                .AddToDB();
             //    artillerist.AddFeatureAtLevel(artilleristDetonationSpell, 9);
 #pragma warning restore IDE0059, S1481 // Unused local variables should be removed
 
@@ -206,19 +191,15 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
             artillerist.AddFeatureAtLevel(ArtilleryConstructlevel09FeatureSetBuilder.ArtilleryConstructlevel09FeatureSet, 9);
 
-            GuiPresentationBuilder ArtilleryConstructLevel09AutopreparedSpellsPresentation = new GuiPresentationBuilder(
-                 "Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle",
-                 "Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription");
-            FeatureDefinitionAutoPreparedSpells ArtilleryConstructLevel09AutopreparedSpells = BuildAutoPreparedSpells(
-                new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>() {
-                    new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup() {
-                        ClassLevel=1,
-                        SpellsList=new List<SpellDefinition>
-                            {SummonArtillerySpellConstruct9Builder.SummonArtillerySpellConstruct9}} },
-                artificer,
-                "ArtilleryConstructLevel09AutopreparedSpells",
-                ArtilleryConstructLevel09AutopreparedSpellsPresentation.Build());
-            artillerist.AddFeatureAtLevel(ArtilleryConstructLevel09AutopreparedSpells, 09);
+            var artilleryConstructLevel09AutopreparedSpells = Builders.Features.FeatureDefinitionAutoPreparedSpellsBuilder
+                .Create("ArtilleryConstructLevel09AutopreparedSpells", TinkererClass.GuidNamespace)
+                .SetGuiPresentation(Category.Feat)
+                .SetCastingClass(artificer)
+                // TODO: should this be level 1 or level 9?
+                .SetPreparedSpellGroups(BuildSpellGroup(1, SummonArtillerySpellConstruct9Builder.SummonArtillerySpellConstruct9))
+                .AddToDB();
+
+            artillerist.AddFeatureAtLevel(artilleryConstructLevel09AutopreparedSpells, 09);
 
             // cannons doubled
             GuiPresentationBuilder flame15Gui = new GuiPresentationBuilder(
@@ -285,19 +266,15 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
             artillerist.AddFeatureAtLevel(ArtilleryConstructlevel15FeatureSetBuilder.ArtilleryConstructlevel15FeatureSet, 15);
 
-            GuiPresentationBuilder ArtilleryConstructLevel15AutopreparedSpellsPresentation = new GuiPresentationBuilder(
-    "Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle",
-    "Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription");
-            FeatureDefinitionAutoPreparedSpells ArtilleryConstructLevel15AutopreparedSpells = BuildAutoPreparedSpells(
-                new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup>() {
-                    new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup() {
-                        ClassLevel=1,
-                        SpellsList=new List<SpellDefinition>
-                            {SummonArtillerySpellConstruct15Builder.SummonArtillerySpellConstruct15}} },
-                artificer,
-                "ArtilleryConstructLevel15AutopreparedSpells",
-                ArtilleryConstructLevel15AutopreparedSpellsPresentation.Build());
-            artillerist.AddFeatureAtLevel(ArtilleryConstructLevel15AutopreparedSpells, 15);
+            FeatureDefinitionAutoPreparedSpells artilleryConstructLevel15AutopreparedSpells = Builders.Features.FeatureDefinitionAutoPreparedSpellsBuilder
+                .Create("ArtilleryConstructLevel15AutopreparedSpells", TinkererClass.GuidNamespace)
+                .SetGuiPresentation(Category.Feat)
+                .SetCastingClass(artificer)
+                // TODO: should this be level 1 or level 15?
+                .SetPreparedSpellGroups(BuildSpellGroup(1, SummonArtillerySpellConstruct15Builder.SummonArtillerySpellConstruct15))
+                .AddToDB();
+
+            artillerist.AddFeatureAtLevel(artilleryConstructLevel15AutopreparedSpells, 15);
 
             // build the subclass and add to the db
             return artillerist.AddToDB();

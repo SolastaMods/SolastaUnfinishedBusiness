@@ -1,5 +1,5 @@
 ﻿using System;
-using SolastaCommunityExpansion.Builders.Features;
+using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
@@ -23,11 +23,11 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
                 DomainElementalFire.GuiPresentation.SpriteReference,
                 witchClass,
                 Namespace,
-                AutoPreparedSpellsGroupBuilder.Build(1, BurningHands, MagicMissile),
-                AutoPreparedSpellsGroupBuilder.Build(3, AcidArrow, ScorchingRay),
-                AutoPreparedSpellsGroupBuilder.Build(5, Fireball, ProtectionFromEnergy),
-                AutoPreparedSpellsGroupBuilder.Build(7, IceStorm, WallOfFire),
-                AutoPreparedSpellsGroupBuilder.Build(9, ConeOfCold, MindTwist)// This should be Telekinesis
+                BuildSpellGroup(1, BurningHands, MagicMissile),
+                BuildSpellGroup(3, AcidArrow, ScorchingRay),
+                BuildSpellGroup(5, Fireball, ProtectionFromEnergy),
+                BuildSpellGroup(7, IceStorm, WallOfFire),
+                BuildSpellGroup(9, ConeOfCold, MindTwist)// This should be Telekinesis
             );
         }
     }

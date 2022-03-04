@@ -1,5 +1,5 @@
 ﻿using System;
-using SolastaCommunityExpansion.Builders.Features;
+using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
@@ -23,19 +23,19 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
                 DomainInsight.GuiPresentation.SpriteReference,
                 witchClass,
                 Namespace,
-                AutoPreparedSpellsGroupBuilder.Build(1,
+                BuildSpellGroup(1,
                     CharmPerson,
                     HideousLaughter),   // This should be Silent Image
-                AutoPreparedSpellsGroupBuilder.Build(3,
+                BuildSpellGroup(3,
                     CalmEmotions, // This should be Enthrall
                     Invisibility),
-                AutoPreparedSpellsGroupBuilder.Build(5,
+                BuildSpellGroup(5,
                     HypnoticPattern,
                     Fear),  // This should be Major Image
-                AutoPreparedSpellsGroupBuilder.Build(7,
+                BuildSpellGroup(7,
                     Confusion,
                     PhantasmalKiller),   // This should be Private Sanctum
-                AutoPreparedSpellsGroupBuilder.Build(9,
+                BuildSpellGroup(9,
                     DominatePerson, // This should be Modify Memory
                     HoldMonster)    // This should be Seeming
             );
