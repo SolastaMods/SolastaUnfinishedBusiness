@@ -26,14 +26,18 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.ChangeAbilityCheck
             int rollModifier,
             ref int minRoll)
         {
-            int? newMinRoll = __instance
-                .EnumerateFeaturesToBrowse<IChangeAbilityCheck>()
-                .Max(x => x.MinRoll(__instance, baseBonus, rollModifier, abilityScoreName, proficiencyName, advantageTrends, modifierTrends)));
+            var features = __instance.EnumerateFeaturesToBrowse<IChangeAbilityCheck>();
 
-            if (newMinRoll.HasValue && minRoll < newMinRoll)
+            if (features.Count > 0)
             {
-                minRoll = newMinRoll.Value;
-            }  
+                var newMinRoll = features
+                    .Max(x => x.MinRoll(__instance, baseBonus, rollModifier, abilityScoreName, proficiencyName, advantageTrends, modifierTrends));
+
+                if (minRoll < newMinRoll)
+                {
+                    minRoll = newMinRoll;
+                }
+            }
         }
     }
 
@@ -62,13 +66,17 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.ChangeAbilityCheck
             List<RuleDefinitions.TrendInfo> modifierTrends)
         {
             var result = rulesetCharacter.RollDie(dieType, rollContext, isProficient, advantageType, out firstRoll, out secondRoll, enumerateFeatures, canRerollDice);
-            int? newMinRoll = rulesetCharacter
-                .EnumerateFeaturesToBrowse<IChangeAbilityCheck>()
-                .Max(x => x.MinRoll(rulesetCharacter, baseBonus, rollModifier, abilityScoreName, proficiencyName, advantageTrends, modifierTrends)));
+            var features = rulesetCharacter.EnumerateFeaturesToBrowse<IChangeAbilityCheck>();
 
-            if (newMinRoll.HasValue && result < newMinRoll)
+            if (features.Count > 0)
             {
-                result = newMinRoll.Value;
+                var newMinRoll = features
+                    .Max(x => x.MinRoll(rulesetCharacter, baseBonus, rollModifier, abilityScoreName, proficiencyName, advantageTrends, modifierTrends));
+
+                if (result < newMinRoll)
+                {
+                    result = newMinRoll;
+                }
             }
 
             return result;
