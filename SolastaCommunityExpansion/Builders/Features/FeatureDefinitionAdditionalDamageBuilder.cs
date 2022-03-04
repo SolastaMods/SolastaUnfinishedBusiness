@@ -139,17 +139,10 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetRequiredTargetCondition(condition);
             return This();
         }
-    }
 
         public TBuilder SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty property)
         {
             Definition.SetRequiredProperty(property);
-            return This();
-        }
-
-        public TBuilder SetDiceByRank(params (int rank, int dice)[] diceByRank)
-        {
-            Definition.SetDiceByRankTable(diceByRank.Select(d => DiceByRankBuilder.BuildDiceByRank(d.rank, d.dice)));
             return This();
         }
     }
