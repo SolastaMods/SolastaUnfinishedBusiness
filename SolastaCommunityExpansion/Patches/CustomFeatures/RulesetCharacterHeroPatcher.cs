@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         {
             if ((ExtraRitualCasting)ritualType != ExtraRitualCasting.Known)
             {
-                return; 
+                return;
             }
 
             var spellRepertoire = __instance.SpellRepertoires
@@ -120,7 +120,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         internal static void Postfix(RulesetCharacterHero __instance)
         {
             // Anything that grants powers dynamically will stop working if this is turned off.
-            // I'm making it a setting to allow it to be disabled if that becomes necesary, but 
+            // I'm making it a setting to allow it to be disabled if that becomes necesary, but
             // this shouldn't get exposed in the UI.
             if (Main.Settings.AllowDynamicPowers)
             {

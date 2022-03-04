@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
     /// </summary>
     public interface IChangeAbilityCheck
     {
-        public int MinAbilityCheck(
+        public int MinRoll(
             RulesetCharacter character,
             int baseBonus,
             int rollModifier,

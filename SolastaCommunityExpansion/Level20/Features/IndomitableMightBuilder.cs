@@ -31,7 +31,7 @@ namespace SolastaCommunityExpansion.Level20.Features
 
     internal sealed class IndomitableMight : FeatureDefinition, IChangeAbilityCheck
     {
-        public int MinAbilityCheck(
+        public int MinRoll(
             RulesetCharacter character,
             int baseBonus,
             int rollModifier,

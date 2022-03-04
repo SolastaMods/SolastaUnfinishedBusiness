@@ -4,7 +4,7 @@ using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.ConditionRemovedOnSourceTurnStart
 {
     //
     // IConditionRemovedOnSourceTurnStart
@@ -47,22 +47,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
                 {
                     contender.RulesetActor.RemoveCondition(conditionToRemove);
                 }
-            }
-        }
-    }
-
-    //
-    // INotifyConditionRemoval
-    //
-    [HarmonyPatch(typeof(RulesetActor), "RemoveCondition")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetActor_RemoveCondition
-    {
-        internal static void Postfix(RulesetActor __instance, RulesetCondition rulesetCondition)
-        {
-            if (rulesetCondition?.ConditionDefinition is INotifyConditionRemoval notifiedDefinition)
-            {
-                notifiedDefinition.AfterConditionRemoved(__instance, rulesetCondition);
             }
         }
     }

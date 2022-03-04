@@ -4,7 +4,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnAttackHitEffect
 {
     //
     // this patch shouldn't be protected
