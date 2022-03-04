@@ -107,14 +107,12 @@ namespace SolastaCommunityExpansion.Patches
         {
             var assemblyVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
-#if RELEASE
-            if (Main.Settings.CurrentModVersion == assemblyVersion)
+            if (!Main.Settings.DisplayWelcomeMessage)
             {
                 return;
             }
-#endif
 
-            Main.Settings.CurrentModVersion = assemblyVersion;
+            Main.Settings.DisplayWelcomeMessage = false;
 
             Gui.GuiService.ShowMessage(
                 MessageModal.Severity.Informative1,

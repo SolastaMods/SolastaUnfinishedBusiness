@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion
         // Welcome Message
         //
 
-        public string CurrentModVersion { get; set; }
+        public bool DisplayWelcomeMessage { get; set; } = true;
 
         //
         // Diagnostics
