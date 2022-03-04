@@ -6,9 +6,6 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {
-    //
-    // Power Related Patches
-    //
     [HarmonyPatch(typeof(RulesetCharacter), "UsePower")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacter_UsePower
@@ -62,7 +59,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
 
     [HarmonyPatch(typeof(RulesetCharacter), "ComputeAutopreparedSpells")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetCharacter_ComputeAutopreparedSpells_Patch
+    internal static class RulesetCharacter_ComputeAutopreparedSpells
     {
         internal static bool Prefix(RulesetCharacter __instance, RulesetSpellRepertoire spellRepertoire)
         {
