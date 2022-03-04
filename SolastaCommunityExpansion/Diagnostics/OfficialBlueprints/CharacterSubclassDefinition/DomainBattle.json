@@ -10,19 +10,19 @@
     {
       "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinityBattleMagic:daf4e911e0bf3d74ebabeebfe28fcfe5",
+      "featureDefinition": "Definition:ProficiencyDomainBattleWepaon:bca0a31618c211b448dc1094ce9565f8",
       "level": 1
     },
     {
       "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyDomainBattleWepaon:bca0a31618c211b448dc1094ce9565f8",
+      "featureDefinition": "Definition:PowerDomainBattleDivineWrath:3edc0c6a67963bf4f9121bea46d40d07",
       "level": 1
     },
     {
       "$id": "4",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerDomainBattleDivineWrath:3edc0c6a67963bf4f9121bea46d40d07",
+      "featureDefinition": "Definition:MagicAffinityBattleMagic:daf4e911e0bf3d74ebabeebfe28fcfe5",
       "level": 1
     },
     {
@@ -46,13 +46,13 @@
     {
       "$id": "8",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerDomainBattleDecisiveStrike8:b879a5667738ef94ba5346fe38bbc0d1",
+      "featureDefinition": "Definition:AttributeModifierDomainBattleExtraAttack:18a16de30197d53469a9f07447bbcaa9",
       "level": 8
     },
     {
       "$id": "9",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierDomainBattleExtraAttack:18a16de30197d53469a9f07447bbcaa9",
+      "featureDefinition": "Definition:PowerDomainBattleDecisiveStrike8:b879a5667738ef94ba5346fe38bbc0d1",
       "level": 8
     },
     {

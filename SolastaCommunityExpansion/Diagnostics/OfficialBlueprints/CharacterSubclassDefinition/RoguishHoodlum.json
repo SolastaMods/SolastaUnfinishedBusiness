@@ -4,19 +4,19 @@
     {
       "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamageRoguishHoodlumNonFinesseSneakAttack:5535efe6afb0e14468c2820183e9e94d",
+      "featureDefinition": "Definition:ProficiencyRoguishHoodlumMeanMug:a5cfe2ceb4d88d145b415552a04fb6ba",
       "level": 3
     },
     {
       "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyRoguishHoodlumMeanMug:a5cfe2ceb4d88d145b415552a04fb6ba",
+      "featureDefinition": "Definition:FeatureSetRoguishHoodlumTheRightTools:73765278e9574854e9c60b85c94e22f8",
       "level": 3
     },
     {
       "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetRoguishHoodlumTheRightTools:73765278e9574854e9c60b85c94e22f8",
+      "featureDefinition": "Definition:AdditionalDamageRoguishHoodlumNonFinesseSneakAttack:5535efe6afb0e14468c2820183e9e94d",
       "level": 3
     },
     {

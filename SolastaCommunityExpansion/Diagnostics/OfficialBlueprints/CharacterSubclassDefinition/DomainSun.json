@@ -4,19 +4,19 @@
     {
       "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:BonusCantripsDomainSun:06126cf078446534e9bec57df2e2a522",
+      "featureDefinition": "Definition:AutoPreparedSpellsDomainSun:5ee45dc30fe00f64f8a40c890585f69d",
       "level": 1
     },
     {
       "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinityDomainSunHolyRadiance:b0094c1bcb334ed419e5df62c6df9a50",
+      "featureDefinition": "Definition:BonusCantripsDomainSun:06126cf078446534e9bec57df2e2a522",
       "level": 1
     },
     {
       "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AutoPreparedSpellsDomainSun:5ee45dc30fe00f64f8a40c890585f69d",
+      "featureDefinition": "Definition:MagicAffinityDomainSunHolyRadiance:b0094c1bcb334ed419e5df62c6df9a50",
       "level": 1
     },
     {

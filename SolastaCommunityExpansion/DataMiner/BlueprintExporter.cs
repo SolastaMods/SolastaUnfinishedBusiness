@@ -65,6 +65,7 @@ namespace SolastaCommunityExpansion.DataMiner
             int exportId,
             BaseDefinition[] baseDefinitions,
             Dictionary<Type, BaseDefinition[]> baseDefinitionsMap,
+            Dictionary<BaseDefinition, BaseDefinition> baseDefinitionAndCopy,
             string path)
         {
             if (baseDefinitionsMap == null || baseDefinitions == null || CurrentExports[exportId].coroutine != null)
@@ -72,7 +73,7 @@ namespace SolastaCommunityExpansion.DataMiner
                 return;
             }
 
-            var coroutine = ExportMany(exportId, baseDefinitions, baseDefinitionsMap, path);
+            var coroutine = ExportMany(exportId, baseDefinitions, baseDefinitionsMap, baseDefinitionAndCopy, path);
 
             SetExport(exportId, Exporter.StartCoroutine(coroutine), 0f);
         }
@@ -81,6 +82,7 @@ namespace SolastaCommunityExpansion.DataMiner
             int exportId,
             BaseDefinition[] baseDefinitions,
             Dictionary<Type, BaseDefinition[]> baseDefinitionsMap,
+            Dictionary<BaseDefinition, BaseDefinition> baseDefinitionAndCopy,
             string path)
         {
             var start = DateTime.UtcNow;
@@ -111,7 +113,8 @@ namespace SolastaCommunityExpansion.DataMiner
                 {
                     foreach (var definition in db.Value.OrderBy(d => d.Name).ThenBy(d => d.GetType().FullName))
                     {
-                        sw.WriteLine("{0}\t{1}\t{2}\t{3}", definition.Name, definition.GetType().FullName, db.Key.FullName, definition.GUID);
+                        var copy = GetDefinitionCopy(definition);
+                        sw.WriteLine("{0}\t{1}\t{2}\t{3}", copy.Name, copy.GetType().FullName, db.Key.FullName, copy.GUID);
                     }
                 }
             }
@@ -146,7 +149,9 @@ namespace SolastaCommunityExpansion.DataMiner
 
                     using StreamWriter sw = new StreamWriter(fullname);
                     using JsonWriter writer = new JsonTextWriter(sw);
-                    serializer.Serialize(writer, definition);
+
+                    var copy = GetDefinitionCopy(definition);
+                    serializer.Serialize(writer, copy);
                 }
                 catch (Exception ex)
                 {
@@ -161,6 +166,23 @@ namespace SolastaCommunityExpansion.DataMiner
             SetExport(exportId, null, 0f);
 
             Main.Log($"Export finished: {DateTime.UtcNow}, {DateTime.UtcNow - start}.");
+
+            BaseDefinition GetDefinitionCopy(BaseDefinition definition)
+            {
+                if(baseDefinitionAndCopy == null)
+                {
+                    return definition;
+                }
+
+                if(baseDefinitionAndCopy.TryGetValue(definition, out var copy))
+                {
+                    return copy;
+                }
+
+                Main.Log($"{definition.Name} copy not found.");
+
+                return definition;
+            }
         }
     }
 }

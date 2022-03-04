@@ -308,7 +308,7 @@
     "crownVariationMask": 122,
     "sameBehavioursForMaleAndFemale": true,
     "maleBodyPartBehaviours": [
-      "Shape",
+      "Armor",
       "Shape",
       "Keep",
       "Keep",

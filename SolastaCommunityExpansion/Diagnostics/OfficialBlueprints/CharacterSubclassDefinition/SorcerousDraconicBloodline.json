@@ -10,31 +10,31 @@
     {
       "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencySorcererDraconicKnowledge:832aac71bbcb30546b71bdea1d24a442",
+      "featureDefinition": "Definition:FeatureSetSorcererDraconicChoice:d0daeacd6d9590f439f4c1f6b9894bc7",
       "level": 1
     },
     {
       "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetSorcererDraconicResilience:04335a9aa58b1064eb0b95ae7ae8506c",
+      "featureDefinition": "Definition:ProficiencySorcererDraconicKnowledge:832aac71bbcb30546b71bdea1d24a442",
       "level": 1
     },
     {
       "$id": "4",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetSorcererDraconicChoice:d0daeacd6d9590f439f4c1f6b9894bc7",
+      "featureDefinition": "Definition:FeatureSetSorcererDraconicResilience:04335a9aa58b1064eb0b95ae7ae8506c",
       "level": 1
     },
     {
       "$id": "5",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSorcererDraconicElementalResistance:073aefb4cc1a7c74faf281f79e19fa7f",
+      "featureDefinition": "Definition:AdditionalDamageSorcererDraconicElementalAffinity:4b1f8ed81b6941a4993b86bc4a875c89",
       "level": 6
     },
     {
       "$id": "6",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamageSorcererDraconicElementalAffinity:4b1f8ed81b6941a4993b86bc4a875c89",
+      "featureDefinition": "Definition:PowerSorcererDraconicElementalResistance:073aefb4cc1a7c74faf281f79e19fa7f",
       "level": 6
     }
   ],

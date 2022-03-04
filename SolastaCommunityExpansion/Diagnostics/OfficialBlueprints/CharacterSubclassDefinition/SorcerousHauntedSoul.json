@@ -16,13 +16,13 @@
     {
       "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSorcererHauntedSoulRechargeVengefulSpirits:b02309ada2e3aea40a03931b3bcccabf",
+      "featureDefinition": "Definition:PowerSorcererHauntedSoulVengefulSpirits:d8ccc46795370df45a5e52364e95ec2e",
       "level": 6
     },
     {
       "$id": "4",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSorcererHauntedSoulVengefulSpirits:d8ccc46795370df45a5e52364e95ec2e",
+      "featureDefinition": "Definition:PowerSorcererHauntedSoulRechargeVengefulSpirits:b02309ada2e3aea40a03931b3bcccabf",
       "level": 6
     }
   ],

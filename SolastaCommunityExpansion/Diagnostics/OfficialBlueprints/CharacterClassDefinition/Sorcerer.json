@@ -171,13 +171,13 @@
     {
       "$id": "23",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencySorcererTools:4fee07bb54769b042925d427fc340448",
+      "featureDefinition": "Definition:ProficiencySorcererSavingThrow:7b088eda8c859a0409791dbd3ebf314f",
       "level": 1
     },
     {
       "$id": "24",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencySorcererSavingThrow:7b088eda8c859a0409791dbd3ebf314f",
+      "featureDefinition": "Definition:ProficiencySorcererWeapon:d6e4d7455028117418f54cbda213a3e9",
       "level": 1
     },
     {
@@ -195,7 +195,7 @@
     {
       "$id": "27",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencySorcererWeapon:d6e4d7455028117418f54cbda213a3e9",
+      "featureDefinition": "Definition:ProficiencySorcererTools:4fee07bb54769b042925d427fc340448",
       "level": 1
     },
     {
@@ -207,7 +207,7 @@
     {
       "$id": "29",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetSorcererFlexibleCasting:42cb790f216dcc64091346e6e9ad37e1",
+      "featureDefinition": "Definition:AttributeModifierSorcererSorceryPointsBase:1ddbd33242292a142ac2494b06e86172",
       "level": 2
     },
     {
@@ -219,7 +219,7 @@
     {
       "$id": "31",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierSorcererSorceryPointsBase:1ddbd33242292a142ac2494b06e86172",
+      "featureDefinition": "Definition:FeatureSetSorcererFlexibleCasting:42cb790f216dcc64091346e6e9ad37e1",
       "level": 2
     },
     {

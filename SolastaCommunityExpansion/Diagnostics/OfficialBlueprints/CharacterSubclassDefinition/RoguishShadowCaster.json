@@ -4,13 +4,13 @@
     {
       "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerShadowcasterShadowDodge:742eb7f2cb8853b4eb693ff013bc38ba",
+      "featureDefinition": "Definition:CastSpellShadowcaster:48dca36174f012e46a1c1a7ef190965e",
       "level": 3
     },
     {
       "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:CastSpellShadowcaster:48dca36174f012e46a1c1a7ef190965e",
+      "featureDefinition": "Definition:PowerShadowcasterShadowDodge:742eb7f2cb8853b4eb693ff013bc38ba",
       "level": 3
     },
     {

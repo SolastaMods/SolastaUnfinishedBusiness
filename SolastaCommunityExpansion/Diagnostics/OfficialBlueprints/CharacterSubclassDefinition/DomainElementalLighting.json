@@ -4,19 +4,19 @@
     {
       "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:BonusCantripsDomainElementaLightning:579caec52e7e5af4d9c80e8459a0c286",
+      "featureDefinition": "Definition:AutoPreparedSpellsDomainElemental:ca56c9b9c8913784991e465e7697d664",
       "level": 1
     },
     {
       "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AutoPreparedSpellsDomainElemental:ca56c9b9c8913784991e465e7697d664",
+      "featureDefinition": "Definition:DamageAffinityDomainElementaLightningPrimalHarmony:1cf46254ceecccb459949478e1cd60bf",
       "level": 1
     },
     {
       "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DamageAffinityDomainElementaLightningPrimalHarmony:1cf46254ceecccb459949478e1cd60bf",
+      "featureDefinition": "Definition:BonusCantripsDomainElementaLightning:579caec52e7e5af4d9c80e8459a0c286",
       "level": 1
     },
     {

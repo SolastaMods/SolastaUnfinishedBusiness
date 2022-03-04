@@ -4,13 +4,13 @@
     {
       "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetDomainLawCommandingPresence:b3e77cd19c947d64e980c0adff724b2d",
+      "featureDefinition": "Definition:AutoPreparedSpellsDomainLaw:5259ff08dc555b24b9100e337211e5a1",
       "level": 1
     },
     {
       "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AutoPreparedSpellsDomainLaw:5259ff08dc555b24b9100e337211e5a1",
+      "featureDefinition": "Definition:FeatureSetDomainLawCommandingPresence:b3e77cd19c947d64e980c0adff724b2d",
       "level": 1
     },
     {
@@ -22,13 +22,13 @@
     {
       "$id": "4",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerDomainLawForceOfLaw:35cc82ea560b9274fa1bd8560d834795",
+      "featureDefinition": "Definition:PowerDomainLawHolyRetribution:aaf1f73d548ef034da9bae7a1786cae7",
       "level": 2
     },
     {
       "$id": "5",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerDomainLawHolyRetribution:aaf1f73d548ef034da9bae7a1786cae7",
+      "featureDefinition": "Definition:PowerDomainLawForceOfLaw:35cc82ea560b9274fa1bd8560d834795",
       "level": 2
     },
     {

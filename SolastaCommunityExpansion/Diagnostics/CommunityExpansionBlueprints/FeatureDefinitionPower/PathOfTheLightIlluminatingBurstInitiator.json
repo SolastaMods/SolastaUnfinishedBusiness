@@ -76,7 +76,7 @@
           "$id": "3",
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "",
-          "conditionDefinition": null,
+          "conditionDefinition": "Definition:PathOfTheLightIlluminatingBurstSuppressedCondition:a52f0e2a-51ff-51c7-9a55-8976e68154bb",
           "operation": "Remove",
           "conditionsList": [],
           "applyToSelf": false,

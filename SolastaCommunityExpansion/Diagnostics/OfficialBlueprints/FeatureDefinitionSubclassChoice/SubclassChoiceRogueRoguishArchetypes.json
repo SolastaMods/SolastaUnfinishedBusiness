@@ -4,9 +4,7 @@
     "RoguishThief",
     "RoguishDarkweaver",
     "RoguishShadowCaster",
-    "RoguishHoodlum",
-    "RoguishConArtist",
-    "KSRogueSubclassThug"
+    "RoguishHoodlum"
   ],
   "filterByDeity": false,
   "subclassSuffix": "Roguish",

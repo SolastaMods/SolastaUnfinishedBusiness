@@ -4,7 +4,7 @@
     {
       "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerOathOfMotherlandFieryPresence:09d322403bb52fe46960aa575fc1261e",
+      "featureDefinition": "Definition:AutoPreparedSpellsOathOfMotherland:a1be693f932dc9b44ac28509b715885d",
       "level": 3
     },
     {
@@ -16,7 +16,7 @@
     {
       "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AutoPreparedSpellsOathOfMotherland:a1be693f932dc9b44ac28509b715885d",
+      "featureDefinition": "Definition:PowerOathOfMotherlandFieryPresence:09d322403bb52fe46960aa575fc1261e",
       "level": 3
     },
     {

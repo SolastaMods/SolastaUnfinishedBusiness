@@ -6,7 +6,9 @@
     "MediumArmorCategory",
     "ShieldCategory"
   ],
-  "forbiddenItemTags": [],
+  "forbiddenItemTags": [
+    "Metal"
+  ],
   "guiPresentation": {
     "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",

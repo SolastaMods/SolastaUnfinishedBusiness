@@ -744,38 +744,23 @@
       "reassortRateValue": 1,
       "requiredFaction": "",
       "factionStatus": "Alliance"
-    },
-    {
-      "$id": "50",
-      "$type": "StockUnitDescription, Assembly-CSharp",
-      "initialized": true,
-      "itemDefinition": "Definition:Maul:0b6e83a1958b06e46a5c5159a82aea9a",
-      "stackCount": 1,
-      "initialAmount": 1,
-      "minAmount": 1,
-      "maxAmount": 2,
-      "reassortAmount": 1,
-      "reassortRateType": "Hour",
-      "reassortRateValue": 1,
-      "requiredFaction": "",
-      "factionStatus": "Alliance"
     }
   ],
   "guiPresentation": {
-    "$id": "51",
+    "$id": "50",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Merchant/&CaerCyflen_Gorim_Ironsoot_StoreTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "52",
+      "$id": "51",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "d76affcc51910e34e9a3159f24985cce",
       "m_SubObjectName": "Merchant_Gorim_Ironsoot_MerchantPhoto",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "53",
+      "$id": "52",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

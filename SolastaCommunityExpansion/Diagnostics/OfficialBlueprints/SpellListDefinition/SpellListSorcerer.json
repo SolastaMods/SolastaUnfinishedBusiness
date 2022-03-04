@@ -22,9 +22,7 @@
         "Definition:Shine:5581bdee6e264364cb9b10558010dddf",
         "Definition:ShockingGrasp:0bcfc5c29da450c4bb0f27df027616eb",
         "Definition:Sparkle:ac43e07871656cd4db792bdbdc77ac44",
-        "Definition:TrueStrike:8adca77af0c221445af40629f3743ec8",
-        "Definition:EldritchOrb:0db30b08-c8f6-5dd7-a248-eb9cae787a17",
-        "Definition:MinorLifesteal:708ff12c-4747-534c-955b-5f9438eb58ac"
+        "Definition:TrueStrike:8adca77af0c221445af40629f3743ec8"
       ]
     },
     {
@@ -47,8 +45,7 @@
         "Definition:Shield:f69bd9c9375fc074a90043c42f9868fe",
         "Definition:Sleep:9bfc9d5dc54cc2c4ab7e4baade97bf64",
         "Definition:Thunderwave:6c670662de0366842bca44119e9104da",
-        "Definition:BurningHands_B:ba16d3435466af74abdaa2a3ecaf934b",
-        "Definition:FindFamiliar:7c7a9c9f-2fda-5acc-acb7-eebfb2b4e064"
+        "Definition:BurningHands_B:ba16d3435466af74abdaa2a3ecaf934b"
       ]
     },
     {
@@ -69,9 +66,7 @@
         "Definition:ScorchingRay:2196d4d1af65ab8469bcb2b382014a58",
         "Definition:SeeInvisibility:10c15ca8321632e42825254149dfb885",
         "Definition:Shatter:acb96b651384a47428da7c0c32ab359e",
-        "Definition:SpiderClimb:1ba4092482a450c4da60e17cbe4577df",
-        "Definition:PetalStorm:016e3598-5a09-5249-a225-746d5e038c79",
-        "Definition:ProtectThreshold:ee8d355e-db32-5d06-aa6a-cd1ef06926b7"
+        "Definition:SpiderClimb:1ba4092482a450c4da60e17cbe4577df"
       ]
     },
     {
@@ -134,67 +129,31 @@
         "Definition:Eyebite:ea9050011d6bef2419be7b2d59750659",
         "Definition:GlobeOfInvulnerability:eb567aec38beff84d87040cb9a006177",
         "Definition:Sunbeam:ec547e11445032d4f9519982399724a6",
-        "Definition:TrueSeeing:16c9f67d4a89cbf47baad67ecadafaa5",
-        "Definition:Frenzy:74c02289-00b5-5b12-906d-56cff4687601"
+        "Definition:TrueSeeing:16c9f67d4a89cbf47baad67ecadafaa5"
       ]
     },
     {
       "$id": "8",
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 7,
-      "spells": [
-        "Definition:CJDivineWord:18ecba41-a8ac-4048-979e-2139e66934a7",
-        "Definition:DHFingerOfDeathSpell:cd6d2db3-a3af-5542-9972-053ce0bd2fd6",
-        "Definition:DHReverseGravitySpell:aa36ab1b-1080-5340-910f-4a4a59a5012b",
-        "Definition:DHConjureCelestialSpell:a407f233-c724-562b-b877-e9f3147e33f6"
-      ]
-    },
-    {
-      "$id": "9",
-      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
-      "level": 8,
-      "spells": [
-        "Definition:DHDominateMonsterSpell:011eca3e-7987-5c46-9f1a-968e0c1a935d",
-        "Definition:DHFeeblemindSpell:a75f8a39-7eba-552b-8681-1d7f4f3fc983",
-        "Definition:DHHolyAuraSpell:392c7802-2319-5c41-8207-39039d922d71",
-        "Definition:DHIncendiaryCloudSpell:6a90b597-e2a3-5824-95b3-abbfbf78b0d4",
-        "Definition:DHMazeSpell:0da01d12-5145-5b63-a558-c1d11f5ac1ae",
-        "Definition:DHMindBlankSpell:36dcb2b5-fca0-5860-ad7a-80547847ff25",
-        "Definition:DHPowerWordStunSpell:93a6661d-3f8e-51f6-aa6b-4d23f1e22b48",
-        "Definition:DHSunBurstSpell:654cb89e-ab87-5da8-a79c-5c24ee854885"
-      ]
-    },
-    {
-      "$id": "10",
-      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
-      "level": 9,
-      "spells": [
-        "Definition:DHForesightSpell:9841d601-258a-51f8-bbd9-8402b69625c4",
-        "Definition:DHMassHealSpell:2b7a8065-c4dc-55c8-b35e-59bdc2514e28",
-        "Definition:DHMeteorSwarmSingleTargetSpell:bb8f1362-c35f-581d-86df-c3930fc3dabc",
-        "Definition:DHPowerWordHealSpell:facf3d32-f858-5cd4-8f01-bf4c22c568c3",
-        "Definition:DHPowerWordKillSpell:c67eb2c8-b97f-5dbf-81a6-59ef36771413",
-        "Definition:DHTimeStopSpell:0ab6cde6-d23d-565c-8c7c-6df0006078e8",
-        "Definition:DHShapechangeSpell:a9c23ef5-d971-5cf1-b979-06f9871b4cc0",
-        "Definition:DHWeirdSpell:b77c5b1b-902e-5957-83c1-4a496bf10f0b"
-      ]
+      "spells": []
     }
   ],
   "guiPresentation": {
-    "$id": "11",
+    "$id": "9",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "SpellList/&SpellListSorcererTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "12",
+      "$id": "10",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "13",
+      "$id": "11",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

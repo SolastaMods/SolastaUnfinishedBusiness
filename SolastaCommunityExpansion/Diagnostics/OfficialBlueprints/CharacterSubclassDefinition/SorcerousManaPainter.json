@@ -4,13 +4,13 @@
     {
       "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SavingThrowAffinityManaPainterAbsorption:b4a8ba8d604d35e408b297bc174769d0",
+      "featureDefinition": "Definition:AutoPreparedSpellsSorcererManaPainter:55ad43c28015dd941aa73a95c70286af",
       "level": 1
     },
     {
       "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AutoPreparedSpellsSorcererManaPainter:55ad43c28015dd941aa73a95c70286af",
+      "featureDefinition": "Definition:SavingThrowAffinityManaPainterAbsorption:b4a8ba8d604d35e408b297bc174769d0",
       "level": 1
     },
     {

@@ -193,31 +193,31 @@
     {
       "$id": "26",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyClericArmor:aaad0b8f6c298014ab5597ba052e3de6",
+      "featureDefinition": "Definition:ProficiencyClericSavingThrow:8b24cb1d41e043a4d9fb90180191f946",
       "level": 1
     },
     {
       "$id": "27",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PointPoolClericSkillPoints:49aa06f1e0153354d895089c036309ea",
+      "featureDefinition": "Definition:ProficiencyClericArmor:aaad0b8f6c298014ab5597ba052e3de6",
       "level": 1
     },
     {
       "$id": "28",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:CastSpellCleric:94ac6d781469a6e49beff9d70c0d85f5",
+      "featureDefinition": "Definition:ProficiencyClericWeapon:68162c73a478b304893a294b965b2764",
       "level": 1
     },
     {
       "$id": "29",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyClericWeapon:68162c73a478b304893a294b965b2764",
+      "featureDefinition": "Definition:PointPoolClericSkillPoints:49aa06f1e0153354d895089c036309ea",
       "level": 1
     },
     {
       "$id": "30",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SubclassChoiceClericDivineDomains:d6c7c79a648ae6847876782f4370bbfa",
+      "featureDefinition": "Definition:CastSpellCleric:94ac6d781469a6e49beff9d70c0d85f5",
       "level": 1
     },
     {
@@ -229,7 +229,7 @@
     {
       "$id": "32",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyClericSavingThrow:8b24cb1d41e043a4d9fb90180191f946",
+      "featureDefinition": "Definition:SubclassChoiceClericDivineDomains:d6c7c79a648ae6847876782f4370bbfa",
       "level": 1
     },
     {

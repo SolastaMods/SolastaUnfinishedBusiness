@@ -4,8 +4,7 @@
     "PathBerserker",
     "PathMagebane",
     "PathStone",
-    "PathClaw",
-    "PathOfTheLight"
+    "PathClaw"
   ],
   "filterByDeity": false,
   "subclassSuffix": "Path",
