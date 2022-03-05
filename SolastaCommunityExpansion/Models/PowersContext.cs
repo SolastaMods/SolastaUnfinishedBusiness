@@ -50,14 +50,15 @@ namespace SolastaCommunityExpansion.Models
 
         private static void LoadHelpPower()
         {
-            var effectDescription = new EffectDescription();
-
-            effectDescription.Copy(TrueStrike.EffectDescription);
+            var effectDescription = TrueStrike.EffectDescription.Copy();
             effectDescription.SetRangeType(RuleDefinitions.RangeType.Touch);
             effectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
             effectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
-            effectDescription.EffectForms[0].ConditionForm.ConditionDefinition.GuiPresentation.SetDescription("Condition/&HelpActionDescription");
-            effectDescription.EffectForms[0].ConditionForm.ConditionDefinition.GuiPresentation.SetTitle("Condition/&HelpActionTitle");
+
+            // Copying an EffectDescription copies everything except the GuiPresentation
+            // so we need to set a new one
+            effectDescription.EffectForms[0].ConditionForm.ConditionDefinition.GuiPresentation = 
+                GuiPresentationBuilder.Build("HelpAction", Category.Condition);
 
             FeatureDefinitionPowerHelpAction = FeatureDefinitionPowerBuilder
                 .Create("HelpAction", BAZOU_POWERS_BASE_GUID)
