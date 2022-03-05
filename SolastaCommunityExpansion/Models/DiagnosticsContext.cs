@@ -24,6 +24,7 @@ namespace SolastaCommunityExpansion.Models
         internal const string GAME_FOLDER = ".";
         internal const int TA = 0;
         internal const int CE = 1;
+        internal const int TA2 = 2;
         internal const string ProjectEnvironmentVariable = "SolastaCEProjectDir";
 
         internal static readonly string ProjectFolder = Environment.GetEnvironmentVariable(ProjectEnvironmentVariable, EnvironmentVariableTarget.Machine);
@@ -75,12 +76,9 @@ namespace SolastaCommunityExpansion.Models
                 .ThenBy(x => x.GetType().Name)
                 .ToArray();
 
-            // Get a copy of *all* definitions so we can export the originals
-            TABaseDefinitionAndCopy = TABaseDefinitionsMap.Values
-                .SelectMany(v => v)
-                .Distinct()
-                .OrderBy(x => x.Name)
-                .ThenBy(x => x.GetType().Name)
+            // Get a copy of definitions so we can export the originals.
+            // Note not copying the excluded definitions to save memory.
+            TABaseDefinitionAndCopy = TABaseDefinitions
                 .ToDictionary(x => x, x => { 
                     var copy = UnityEngine.Object.Instantiate(x); 
                     copy.name = x.Name;
@@ -178,14 +176,24 @@ namespace SolastaCommunityExpansion.Models
         {
             var path = Path.Combine(DiagnosticsFolder, OFFICIAL_BP_FOLDER);
 
-            BlueprintExporter.ExportBlueprints(TA, TABaseDefinitions, TABaseDefinitionsMap, TABaseDefinitionAndCopy, path);
+            BlueprintExporter.ExportBlueprints(TA, TABaseDefinitions, TABaseDefinitionsMap, TABaseDefinitionAndCopy, true, path);
+        }
+
+        /// <summary>
+        /// Export all TA definitions with any modifications made by CE.
+        /// </summary>
+        internal static void ExportTADefinitionsAfterCELoaded()
+        {
+            var path = Path.Combine(DiagnosticsFolder, OFFICIAL_BP_FOLDER);
+
+            BlueprintExporter.ExportBlueprints(TA2, TABaseDefinitions, TABaseDefinitionsMap, TABaseDefinitionAndCopy, false, path);
         }
 
         internal static void ExportCEDefinitions()
         {
             var path = Path.Combine(DiagnosticsFolder, COMMUNITY_EXPANSION_BP_FOLDER);
 
-            BlueprintExporter.ExportBlueprints(CE, CEBaseDefinitions, CEBaseDefinitionsMap, null, path);
+            BlueprintExporter.ExportBlueprints(CE, CEBaseDefinitions, CEBaseDefinitionsMap, null, false, path);
         }
 
         internal static void CreateTADefinitionDiagnostics()

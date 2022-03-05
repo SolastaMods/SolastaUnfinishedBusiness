@@ -42,6 +42,7 @@ ConditionCharm	ConditionDefinition	ConditionDefinition	bcbe10ad-80bc-5777-a157-0
 ConditionDisorient	ConditionDefinition	ConditionDefinition	6af55055-ba7b-504a-8a18-c904eeae27ea
 ConditionEvilEye	ConditionDefinition	ConditionDefinition	b8d95cb9-d3c2-5f3c-9bee-83975745dad0
 ConditionFrenzied	ConditionDefinition	ConditionDefinition	09a5ca8a-6f64-51f0-ae67-ec6da8c0204e
+ConditionHelpPower	ConditionDefinition	ConditionDefinition	3071b2bf-0d83-5f1d-9eba-07f2c5c52bc5
 ConditionInfuseAmuletOfHealth	ConditionDefinition	ConditionDefinition	1987d833-9460-5472-812a-cf673836cacf
 ConditionInfuseBeltOfGiantHillStrength	ConditionDefinition	ConditionDefinition	3a3a1fa8-fa39-52fa-913c-b6cbe3dbbdad
 ConditionInfuseBootsOfElvenKind	ConditionDefinition	ConditionDefinition	e5478be7-b8bb-55ba-9af2-145ea2eb3150
@@ -1226,6 +1227,7 @@ ScoutSuitWeapon	ItemDefinition	ItemDefinition	21f90fad-b039-4efe-bee8-5afd444536
 SentinelSuitWeapon	ItemDefinition	ItemDefinition	c86a1f25-3364-42bc-92b8-64f1358cbf15
 WandIdentify	ItemDefinition	ItemDefinition	46ae7624-4d24-455a-98f9-d41403b0ae19
 ArtificialServantAttacksList	MonsterAttackDefinition	MonsterAttackDefinition	86840282-4d84-44b7-a4fd-6bf6b598f776
+AttackWitchOwlTalons	MonsterAttackDefinition	MonsterAttackDefinition	02743cb9-5f9d-5c2c-8a6e-da4e92242eb4
 ForceArtilleryAttack	MonsterAttackDefinition	MonsterAttackDefinition	39c5b7ef-47f9-462c-9f24-accaee85d325
 ProtectorConstructAttacks	MonsterAttackDefinition	MonsterAttackDefinition	dad5a3f6-3b44-4476-85fc-d5235b9ad9cd
 ArtificialServant	MonsterDefinition	MonsterDefinition	fce9181c-f62c-4b33-b0df-fff4fe3ceab2

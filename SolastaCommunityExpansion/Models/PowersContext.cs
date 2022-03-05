@@ -55,10 +55,13 @@ namespace SolastaCommunityExpansion.Models
             effectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
             effectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
 
-            // Copying an EffectDescription copies everything except the GuiPresentation
-            // so we need to set a new one
-            effectDescription.EffectForms[0].ConditionForm.ConditionDefinition.GuiPresentation = 
-                GuiPresentationBuilder.Build("HelpAction", Category.Condition);
+            var trueStrikeCondition = TrueStrike.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Condition).ConditionForm.ConditionDefinition;
+
+            var helpPowerCondition = ConditionDefinitionBuilder.Create(trueStrikeCondition, "ConditionHelpPower", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation("HelpAction", Category.Condition)
+                .AddToDB();
+
+            effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = helpPowerCondition;
 
             FeatureDefinitionPowerHelpAction = FeatureDefinitionPowerBuilder
                 .Create("HelpAction", BAZOU_POWERS_BASE_GUID)

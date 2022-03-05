@@ -736,7 +736,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             void BuildWitchFamiliar()
             {
-                var witchFamiliarAttackIteration = new MonsterAttackIteration(MonsterAttackDefinitions.Attack_EagleMatriarch_Talons.Copy(), 1);
+                var witchAttackDefinition = MonsterAttackDefinitionBuilder.Create(MonsterAttackDefinitions.Attack_EagleMatriarch_Talons, "AttackWitchOwlTalons", WITCH_BASE_GUID).AddToDB();
+                var witchFamiliarAttackIteration = new MonsterAttackIteration(witchAttackDefinition, 1);
                 // We remove the inherent bonus as we will be using the Witch's spell attack bonus
                 witchFamiliarAttackIteration.MonsterAttackDefinition.SetToHitBonus(0);
 
