@@ -101,28 +101,18 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     }
                 }
 
-                toggle = Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures;
-                if (UI.Toggle("Spike Growth".orange() + " does not affect flying creatures flying higher than 1 cell", ref toggle, UI.AutoWidth()))
+                toggle = Main.Settings.UseCylinderForSpikeGrowth;
+                if (UI.Toggle("Display a height 1 cylinder when casting " + "Spike Growth".orange(), ref toggle, UI.AutoWidth()))
                 {
-                    Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures = toggle;
-                    HouseSpellTweaks.SpikeGrowthDoesNotAffectFlyingCreatures();
+                    Main.Settings.UseCylinderForSpikeGrowth = toggle;
+                    HouseSpellTweaks.UseCylinderForSpikeGrowth();
                 }
 
-                toggle = Main.Settings.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures;
-                if (UI.Toggle("Black Tentacles, Entangle, Grease".orange() + " do not affect flying creatures flying higher than 1 cell", ref toggle, UI.AutoWidth()))
+                toggle = Main.Settings.EnableTargetTypeSquareCylinder;
+                if (UI.Toggle("Display a height 1 square cylinder when casting " + "Black Tentacles, Entangle, Grease".orange(), ref toggle, UI.AutoWidth()))
                 {
-                    Main.Settings.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures = toggle;
-                    HouseSpellTweaks.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures();
-                }
-
-                if (Main.Settings.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures)
-                {
-                    toggle = Main.Settings.EnableTargetTypeSquareCylinder;
-                    if (UI.Toggle("+ Use a square area of effect for these spells ".italic() + "[A circular area requires less code changes but is non-SRD]".yellow().italic(), ref toggle, UI.AutoWidth()))
-                    {
-                        Main.Settings.EnableTargetTypeSquareCylinder = toggle;
-                        HouseSpellTweaks.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures();
-                    }
+                    Main.Settings.EnableTargetTypeSquareCylinder = toggle;
+                    HouseSpellTweaks.UseSquareCylinder();
                 }
             }
 
