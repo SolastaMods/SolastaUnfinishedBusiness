@@ -8,7 +8,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {
     [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "ApplySummonForm")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-
     internal static class RulesetImplementationManagerLocation_ApplySummonForm
     {
         public static RulesetCondition ExtendInflictCondition(

@@ -18,6 +18,12 @@ namespace SolastaCommunityExpansion
         internal const string GUID = "b1ffaca74824486ea74a68d45e6b1925";
 
         //
+        // Welcome Message
+        //
+
+        public bool DisplayWelcomeMessage { get; set; } = true;
+
+        //
         // Diagnostics
         //
 
