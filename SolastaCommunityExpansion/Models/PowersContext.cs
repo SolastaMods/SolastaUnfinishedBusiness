@@ -2,6 +2,7 @@
 using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaModApi;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
@@ -55,9 +56,8 @@ namespace SolastaCommunityExpansion.Models
             effectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
             effectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
 
-            var trueStrikeCondition = TrueStrike.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Condition).ConditionForm.ConditionDefinition;
-
-            var helpPowerCondition = ConditionDefinitionBuilder.Create(trueStrikeCondition, "ConditionHelpPower", DefinitionBuilder.CENamespaceGuid)
+            var helpPowerCondition = ConditionDefinitionBuilder
+                .Create(DatabaseHelper.ConditionDefinitions.ConditionTrueStrike, "ConditionHelpPower", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("HelpAction", Category.Condition)
                 .AddToDB();
 
