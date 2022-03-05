@@ -4,13 +4,13 @@
     {
       "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierSwiftBladeBladeDance:79d091104a511e34c92c90f6839fc450",
+      "featureDefinition": "Definition:MovementAffinityRangerSwiftBladeQuickStep:bb411309f48e4c24a99b0fe108a26e79",
       "level": 3
     },
     {
       "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MovementAffinityRangerSwiftBladeQuickStep:bb411309f48e4c24a99b0fe108a26e79",
+      "featureDefinition": "Definition:AttributeModifierSwiftBladeBladeDance:79d091104a511e34c92c90f6839fc450",
       "level": 3
     },
     {

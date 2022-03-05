@@ -4,19 +4,19 @@
     {
       "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyDomainLifeArmor:215dcdafae0e7a84381bd2951728ab4f",
+      "featureDefinition": "Definition:AutoPreparedSpellsDomainLife:33e933fdb9b0e9f4e978a611d8d82785",
       "level": 1
     },
     {
       "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:HealingModifierDomainLifeDiscipleOfLife:01c167967680875469f909ff492ad5ff",
+      "featureDefinition": "Definition:ProficiencyDomainLifeArmor:215dcdafae0e7a84381bd2951728ab4f",
       "level": 1
     },
     {
       "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AutoPreparedSpellsDomainLife:33e933fdb9b0e9f4e978a611d8d82785",
+      "featureDefinition": "Definition:HealingModifierDomainLifeDiscipleOfLife:01c167967680875469f909ff492ad5ff",
       "level": 1
     },
     {

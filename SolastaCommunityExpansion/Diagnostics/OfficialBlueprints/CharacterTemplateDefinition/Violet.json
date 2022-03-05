@@ -1,6 +1,6 @@
 {
   "$type": "CharacterTemplateDefinition, Assembly-CSharp",
-  "editorOnly": false,
+  "editorOnly": true,
   "firstName": "Violet",
   "surName": "Goodcheer",
   "abilityScores": [

@@ -92,8 +92,7 @@
             "Definition:ConditionBlinded:0a89e8d8ad8f21649b744191035357b3",
             "Definition:ConditionDiseased:8aa3c57f0e1674d43a912da83b7d6adb",
             "Definition:ConditionParalyzed:a775cb208dcfe8244bc724c2af40b4fa",
-            "Definition:ConditionPoisoned:185ea6cfd1e758448bf574c4055af482",
-            "Definition:ConditionBleeding:41cc47e6108652246905e39381332cc5"
+            "Definition:ConditionPoisoned:185ea6cfd1e758448bf574c4055af482"
           ],
           "applyToSelf": false,
           "forceOnSelf": false

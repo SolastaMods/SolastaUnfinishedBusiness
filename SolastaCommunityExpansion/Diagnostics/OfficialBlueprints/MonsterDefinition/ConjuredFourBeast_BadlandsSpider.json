@@ -5,7 +5,7 @@
   "characterFamily": "Beast",
   "creatureTags": [],
   "defaultFaction": "Party",
-  "fullyControlledWhenAllied": true,
+  "fullyControlledWhenAllied": false,
   "sizeDefinition": "Definition:Small:79feb0e022c48a7419b88b88e49218d2",
   "alignment": "Unaligned",
   "armorClass": 12,

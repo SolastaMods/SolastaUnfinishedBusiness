@@ -4,9 +4,7 @@
     "Defense",
     "Dueling",
     "Archery",
-    "TwoWeapon",
-    "BlindFightingStlye",
-    "PugilistFightingStlye"
+    "TwoWeapon"
   ],
   "guiPresentation": {
     "$id": "1",

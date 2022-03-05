@@ -16,13 +16,13 @@
     {
       "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerMarksmanRecycler:7e52d1de7ba71c242ad840e3cdec1cab",
+      "featureDefinition": "Definition:ActionAffinityMarksmanStepback:c788bd592d2b3e04fb7f4cb29d8e62f5",
       "level": 7
     },
     {
       "$id": "4",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ActionAffinityMarksmanStepback:c788bd592d2b3e04fb7f4cb29d8e62f5",
+      "featureDefinition": "Definition:PowerMarksmanRecycler:7e52d1de7ba71c242ad840e3cdec1cab",
       "level": 7
     },
     {

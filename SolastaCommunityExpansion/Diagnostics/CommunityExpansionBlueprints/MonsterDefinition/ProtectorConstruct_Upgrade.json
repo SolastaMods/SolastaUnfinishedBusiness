@@ -1,6 +1,7 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
   "dungeonMakerPresence": "None",
+  "overrideSpawnDecision": null,
   "characterFamily": "TinkererConstruct",
   "creatureTags": [
     "ScalingTinkererConstruct"
@@ -125,6 +126,8 @@
   "weight": 100,
   "isHusk": false,
   "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
   "forcePersistentBody": false,
   "bestiaryEntry": "None",
   "bestiaryReference": null,
@@ -216,6 +219,7 @@
     },
     "femaleModelScale": 0.655,
     "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
     "hasLightingCutscene": true,
     "canGeneratePortrait": true,

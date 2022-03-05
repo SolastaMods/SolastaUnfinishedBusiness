@@ -4,7 +4,7 @@
     {
       "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetKindredSpiritBond:09a4626f1b957284bb1e8bcc40917b3e",
+      "featureDefinition": "Definition:FeatureSetKindredSpiritChoice:91b02b6c3f9c3ed468e1b76d8abe69a4",
       "level": 2
     },
     {
@@ -16,7 +16,7 @@
     {
       "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetKindredSpiritChoice:91b02b6c3f9c3ed468e1b76d8abe69a4",
+      "featureDefinition": "Definition:FeatureSetKindredSpiritBond:09a4626f1b957284bb1e8bcc40917b3e",
       "level": 2
     },
     {

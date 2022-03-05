@@ -150,49 +150,49 @@
     {
       "$id": "20",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyWizardTools:2c345e90dd967ec4fa692fae757a75cf",
+      "featureDefinition": "Definition:ProficiencyWizardSavingThrow:25753a6dc3e608d43bbf4648c7855bea",
       "level": 1
     },
     {
       "$id": "21",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetWizardRitualCasting:bab38716f7cc9824bb498156b661422f",
+      "featureDefinition": "Definition:ProficiencyWizardWeapon:3daf77db56dbc494aab0dc4c80f66c02",
       "level": 1
     },
     {
       "$id": "22",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyWizardSavingThrow:25753a6dc3e608d43bbf4648c7855bea",
+      "featureDefinition": "Definition:PointPoolWizardSkillPoints:2c68bd1101a20324d9c4fd61e40610fb",
       "level": 1
     },
     {
       "$id": "23",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PointPoolWizardSkillPoints:2c68bd1101a20324d9c4fd61e40610fb",
+      "featureDefinition": "Definition:CastSpellWizard:399373f8f5f9ede498cb06ca39268290",
       "level": 1
     },
     {
       "$id": "24",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:CastSpellWizard:399373f8f5f9ede498cb06ca39268290",
+      "featureDefinition": "Definition:FeatureSetWizardRitualCasting:bab38716f7cc9824bb498156b661422f",
       "level": 1
     },
     {
       "$id": "25",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyWizardWeapon:3daf77db56dbc494aab0dc4c80f66c02",
+      "featureDefinition": "Definition:ProficiencyWizardTools:2c345e90dd967ec4fa692fae757a75cf",
       "level": 1
     },
     {
       "$id": "26",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerWizardArcaneRecovery:c1066a5d900816e49ad9a47725bc69d8",
+      "featureDefinition": "Definition:SubclassChoiceWizardArcaneTraditions:e8d05f81af078134fb3179d25900a22d",
       "level": 2
     },
     {
       "$id": "27",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SubclassChoiceWizardArcaneTraditions:e8d05f81af078134fb3179d25900a22d",
+      "featureDefinition": "Definition:PowerWizardArcaneRecovery:c1066a5d900816e49ad9a47725bc69d8",
       "level": 2
     },
     {

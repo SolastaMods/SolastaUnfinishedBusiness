@@ -4,19 +4,19 @@
     {
       "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerOathOfDevotionSacredWeapon:b38047e354168b945a07e07b4a4f9b5d",
+      "featureDefinition": "Definition:AutoPreparedSpellsOathOfDevotion:373823dbc1c894149871f2efb16a827d",
       "level": 3
     },
     {
       "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerOathOfDevotionTurnUnholy:1c5bbae205d72874c99f70559d148411",
+      "featureDefinition": "Definition:PowerOathOfDevotionSacredWeapon:b38047e354168b945a07e07b4a4f9b5d",
       "level": 3
     },
     {
       "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AutoPreparedSpellsOathOfDevotion:373823dbc1c894149871f2efb16a827d",
+      "featureDefinition": "Definition:PowerOathOfDevotionTurnUnholy:1c5bbae205d72874c99f70559d148411",
       "level": 3
     },
     {

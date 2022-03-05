@@ -10,19 +10,19 @@
     {
       "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerOathOfTirmarGoldenSpeech:289dddac05a1d2e419a17db71a01b45e",
+      "featureDefinition": "Definition:AutoPreparedSpellsOathOfTirmar:87bf1aa4f87720b4e9c80525d148fb05",
       "level": 3
     },
     {
       "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerOathOfTirmarSmiteTheHidden:dc9d544b98b972d47bc76e447516221c",
+      "featureDefinition": "Definition:PowerOathOfTirmarGoldenSpeech:289dddac05a1d2e419a17db71a01b45e",
       "level": 3
     },
     {
       "$id": "4",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AutoPreparedSpellsOathOfTirmar:87bf1aa4f87720b4e9c80525d148fb05",
+      "featureDefinition": "Definition:PowerOathOfTirmarSmiteTheHidden:dc9d544b98b972d47bc76e447516221c",
       "level": 3
     },
     {

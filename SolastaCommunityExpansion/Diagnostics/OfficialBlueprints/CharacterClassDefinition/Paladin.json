@@ -166,61 +166,61 @@
     {
       "$id": "22",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPaladinCureDisease:2c61b5b506ce2bc4bb880ea878f574c2",
+      "featureDefinition": "Definition:ProficiencyPaladinSavingThrow:f798d66e2501fd94dab4e2863d3f4b95",
       "level": 1
     },
     {
       "$id": "23",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPaladinDivineSense:c14fd4a37fc5d24409dfedfacd43b4e4",
+      "featureDefinition": "Definition:ProficiencyPaladinArmor:fcb8875cea1a0de43859febd16c09bc0",
       "level": 1
     },
     {
       "$id": "24",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierPaladinHealingPoolBase:0ac70f256c400364fb2a799c043f10b2",
+      "featureDefinition": "Definition:ProficiencyPaladinWeapon:3bc43e0283c86d344a080ad772627755",
       "level": 1
     },
     {
       "$id": "25",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPaladinLayOnHands:47bfdf553dbfbb440a66a9f2209d915e",
+      "featureDefinition": "Definition:PointPoolPaladinSkillPoints:51c0505881780d441ab0e3a0c4b14897",
       "level": 1
     },
     {
       "$id": "26",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPaladinNeutralizePoison:2b4c99b243bee17409ecdf7c87018c2c",
+      "featureDefinition": "Definition:PowerPaladinDivineSense:c14fd4a37fc5d24409dfedfacd43b4e4",
       "level": 1
     },
     {
       "$id": "27",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierPaladinHealingPoolMultiplier:8c51f0da0e32a3341980bcd260753749",
+      "featureDefinition": "Definition:AttributeModifierPaladinHealingPoolBase:0ac70f256c400364fb2a799c043f10b2",
       "level": 1
     },
     {
       "$id": "28",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyPaladinArmor:fcb8875cea1a0de43859febd16c09bc0",
+      "featureDefinition": "Definition:AttributeModifierPaladinHealingPoolMultiplier:8c51f0da0e32a3341980bcd260753749",
       "level": 1
     },
     {
       "$id": "29",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PointPoolPaladinSkillPoints:51c0505881780d441ab0e3a0c4b14897",
+      "featureDefinition": "Definition:PowerPaladinLayOnHands:47bfdf553dbfbb440a66a9f2209d915e",
       "level": 1
     },
     {
       "$id": "30",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyPaladinWeapon:3bc43e0283c86d344a080ad772627755",
+      "featureDefinition": "Definition:PowerPaladinNeutralizePoison:2b4c99b243bee17409ecdf7c87018c2c",
       "level": 1
     },
     {
       "$id": "31",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyPaladinSavingThrow:f798d66e2501fd94dab4e2863d3f4b95",
+      "featureDefinition": "Definition:PowerPaladinCureDisease:2c61b5b506ce2bc4bb880ea878f574c2",
       "level": 1
     },
     {

@@ -4,8 +4,7 @@
     "Defense",
     "Dueling",
     "GreatWeapon",
-    "Protection",
-    "BlindFightingStlye"
+    "Protection"
   ],
   "guiPresentation": {
     "$id": "1",

@@ -1,6 +1,6 @@
 {
   "$type": "CampaignDefinition, Assembly-CSharp",
-  "editorOnly": false,
+  "editorOnly": true,
   "isUserCampaign": false,
   "multiplayer": false,
   "partySize": 4,
@@ -1872,7 +1872,7 @@
   "guiPresentation": {
     "$id": "124",
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "Telema",
     "description": "This mini campaign allows you to play the Kickstarter Telema demo.",
     "spriteReference": {

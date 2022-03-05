@@ -4,13 +4,13 @@
     {
       "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AbilityCheckAffinityDomainInsightDivineIntuition:6ebff43b60279014eb3ae400e62b62d9",
+      "featureDefinition": "Definition:AutoPreparedSpellsDomainInsight:82e4fdea01ccbfa46ac56cf2b7a6bdfc",
       "level": 1
     },
     {
       "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AutoPreparedSpellsDomainInsight:82e4fdea01ccbfa46ac56cf2b7a6bdfc",
+      "featureDefinition": "Definition:AbilityCheckAffinityDomainInsightDivineIntuition:6ebff43b60279014eb3ae400e62b62d9",
       "level": 1
     },
     {

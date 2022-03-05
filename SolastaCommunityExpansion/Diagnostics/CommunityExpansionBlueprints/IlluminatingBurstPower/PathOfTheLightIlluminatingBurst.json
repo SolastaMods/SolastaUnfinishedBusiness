@@ -85,6 +85,7 @@
           "hitPointsFloor": 0,
           "forceKillOnZeroHp": false,
           "specialDeathCondition": null,
+          "ignoreFlyingCharacters": false,
           "ignoreCriticalDoubleDice": false
         }
       },
@@ -385,7 +386,7 @@
   "hasCastingFailure": false,
   "castingSuccessComputation": "CasterLevel",
   "canUseInDialog": false,
-  "disableIfConditionIsOwned": null,
+  "disableIfConditionIsOwned": "Definition:PathOfTheLightIlluminatingBurstSuppressedCondition:a52f0e2a-51ff-51c7-9a55-8976e68154bb",
   "rechargeRate": "OneMinute",
   "costPerUse": 1,
   "spellcastingFeature": null,

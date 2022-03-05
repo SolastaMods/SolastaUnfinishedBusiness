@@ -4,10 +4,7 @@
     "MartialChampion",
     "MartialMountaineer",
     "MartialSpellblade",
-    "MartialCommander",
-    "FighterSpellShield",
-    "TacticianFighter",
-    "FighterRoyalKnight"
+    "MartialCommander"
   ],
   "filterByDeity": false,
   "subclassSuffix": "Martial",
