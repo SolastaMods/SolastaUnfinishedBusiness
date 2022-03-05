@@ -6,9 +6,7 @@
     "Dueling",
     "GreatWeapon",
     "Protection",
-    "TwoWeapon",
-    "BlindFightingStlye",
-    "PugilistFightingStlye"
+    "TwoWeapon"
   ],
   "guiPresentation": {
     "$id": "1",

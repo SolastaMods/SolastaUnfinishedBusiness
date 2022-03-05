@@ -196,43 +196,43 @@
     {
       "$id": "26",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyFighterArmor:2509cbf7264d7094eb22ed9a2dd225fc",
+      "featureDefinition": "Definition:ProficiencyFighterSavingThrow:3f18e79fbcbc90c4ca632191a6ba7ca0",
       "level": 1
     },
     {
       "$id": "27",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PointPoolFighterSkillPoints:1f55d4503897a7147b31714e867db2c9",
+      "featureDefinition": "Definition:ProficiencyFighterArmor:2509cbf7264d7094eb22ed9a2dd225fc",
       "level": 1
     },
     {
       "$id": "28",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyFighterWeapon:b042ddec31ba7f04bbc4e0676716c76f",
+      "featureDefinition": "Definition:ProficiencySmithTools:3c6eaf7ff81d3d34fa5cbf659e22dbef",
       "level": 1
     },
     {
       "$id": "29",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FightingStyleFighter:6dbf5f5ab0a6aaf48b194920f879f04c",
+      "featureDefinition": "Definition:ProficiencyFighterWeapon:b042ddec31ba7f04bbc4e0676716c76f",
       "level": 1
     },
     {
       "$id": "30",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyFighterSavingThrow:3f18e79fbcbc90c4ca632191a6ba7ca0",
+      "featureDefinition": "Definition:PointPoolFighterSkillPoints:1f55d4503897a7147b31714e867db2c9",
       "level": 1
     },
     {
       "$id": "31",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerFighterSecondWind:a15c3261b8fda3c44b002c5ee2165469",
+      "featureDefinition": "Definition:FightingStyleFighter:6dbf5f5ab0a6aaf48b194920f879f04c",
       "level": 1
     },
     {
       "$id": "32",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencySmithTools:3c6eaf7ff81d3d34fa5cbf659e22dbef",
+      "featureDefinition": "Definition:PowerFighterSecondWind:a15c3261b8fda3c44b002c5ee2165469",
       "level": 1
     },
     {

@@ -9,15 +9,18 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {
+    //
+    // Extra Ritual Casting
+    //
     [HarmonyPatch(typeof(RulesetCharacterHero), "EnumerateUsableRitualSpells")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RestModuleHitDice_EnumerateUsableRitualSpells_Patch
+    internal static class RulesetCharacterHero_EnumerateUsableRitualSpells
     {
         internal static void Postfix(RulesetCharacterHero __instance, RuleDefinitions.RitualCasting ritualType, List<SpellDefinition> ritualSpells)
         {
             if ((ExtraRitualCasting)ritualType != ExtraRitualCasting.Known)
             {
-                return; 
+                return;
             }
 
             var spellRepertoire = __instance.SpellRepertoires
@@ -44,62 +47,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterHero), "FindClassHoldingFeature")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetCharacterHero_FindClassHoldingFeature
-    {
-        internal static void Postfix(
-            RulesetCharacterHero __instance,
-            FeatureDefinition featureDefinition,
-            ref CharacterClassDefinition __result)
-        {
-            if (featureDefinition is not IClassHoldingFeature overrideClassHoldingFeature || overrideClassHoldingFeature.Class == null)
-            {
-                return;
-            }
-
-            // Only override if the character actually has levels in the class, to prevent errors
-            if (__instance.ClassesAndLevels.TryGetValue(overrideClassHoldingFeature.Class, out int levelsInClass) && levelsInClass > 0)
-            {
-                __result = overrideClassHoldingFeature.Class;
-            }
-        }
-    }
-
-    [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshActiveFightingStyles")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetCharacterHero_RefreshActiveFightingStyles
-    {
-        internal static void Postfix(RulesetCharacterHero __instance)
-        {
-            foreach (FightingStyleDefinition fightingStyleDefinition in __instance.TrainedFightingStyles)
-            {
-                if (fightingStyleDefinition is not ICustomFightingStyle customFightingStyle)
-                {
-                    continue;
-                }
-
-                bool isActive = customFightingStyle.IsActive(__instance);
-                // We don't know what normal fighting style condition was used or if it was met.
-                // The simplest thing to do is just make sure the active state of this fighting style is handled properly.
-                if (isActive)
-                {
-                    if (!__instance.ActiveFightingStyles.Contains(fightingStyleDefinition))
-                    {
-                        __instance.ActiveFightingStyles.Add(fightingStyleDefinition);
-                    }
-                }
-                else
-                {
-                    if (__instance.ActiveFightingStyles.Contains(fightingStyleDefinition))
-                    {
-                        __instance.ActiveFightingStyles.Remove(fightingStyleDefinition);
-                    }
-                }
-            }
-        }
-    }
-
+    //
+    // FeatureDefinitionCustomCode & CustomFightingStyle
+    //
     [HarmonyPatch(typeof(RulesetCharacterHero), "TrainFeats")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacterHero_TrainFeats
@@ -113,6 +63,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         }
     }
 
+    //
+    // Dynamic Powers
+    //
     [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshAll")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacterHero_RefreshAll
@@ -120,7 +73,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         internal static void Postfix(RulesetCharacterHero __instance)
         {
             // Anything that grants powers dynamically will stop working if this is turned off.
-            // I'm making it a setting to allow it to be disabled if that becomes necesary, but 
+            // I'm making it a setting to allow it to be disabled if that becomes necesary, but
             // this shouldn't get exposed in the UI.
             if (Main.Settings.AllowDynamicPowers)
             {

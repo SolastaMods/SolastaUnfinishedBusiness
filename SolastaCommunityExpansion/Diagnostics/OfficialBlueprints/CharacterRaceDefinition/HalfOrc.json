@@ -91,17 +91,7 @@
       "Race/&HalfOrcMaleName7Title",
       "Race/&HalfOrcMaleName8Title",
       "Race/&HalfOrcMaleName9Title",
-      "Race/&HalfOrcMaleName10Title",
-      "Kurgan",
-      "Crugul",
-      "Druk",
-      "Grumogak",
-      "Mokask",
-      "Kronan",
-      "Turruk",
-      "Gruk",
-      "Garruk",
-      "Amalek"
+      "Race/&HalfOrcMaleName10Title"
     ],
     "femaleNameOptions": [
       "Race/&HalfOrcFemaleName1Title",
@@ -113,17 +103,7 @@
       "Race/&HalfOrcFemaleName7Title",
       "Race/&HalfOrcFemaleName8Title",
       "Race/&HalfOrcFemaleName9Title",
-      "Race/&HalfOrcFemaleName10Title",
-      "Tamaz",
-      "Karati",
-      "Gryotah",
-      "Grunish",
-      "Ruda",
-      "Krutish",
-      "Amashi",
-      "Kinha",
-      "Baalah",
-      "Tikna"
+      "Race/&HalfOrcFemaleName10Title"
     ],
     "hasSurName": false,
     "surNameTitle": "",

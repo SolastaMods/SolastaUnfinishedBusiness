@@ -4,13 +4,13 @@
     {
       "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttackModifierMartialSpellBladeMagicWeapon:9de1d9539d9b72048acf914d292e95ad",
+      "featureDefinition": "Definition:CastSpellMartialSpellBlade:31c1daa99cbaf7146a5bd38bfafdbd36",
       "level": 3
     },
     {
       "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:CastSpellMartialSpellBlade:31c1daa99cbaf7146a5bd38bfafdbd36",
+      "featureDefinition": "Definition:AttackModifierMartialSpellBladeMagicWeapon:9de1d9539d9b72048acf914d292e95ad",
       "level": 3
     },
     {

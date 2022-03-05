@@ -1,8 +1,12 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Multiclass.Models;
+using UnityModManagerNet;
+#if DEBUG
 using SolastaCommunityExpansion.Patches.Diagnostic;
+#endif
 
 namespace SolastaCommunityExpansion.Patches
 {
@@ -94,7 +98,30 @@ namespace SolastaCommunityExpansion.Patches
 
                 Main.Enabled = true;
                 Main.Logger.Log("Enabled.");
+
+                DisplayWelcomeMessage();
             };
+        }
+
+        private static void DisplayWelcomeMessage()
+        {
+            var assemblyVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
+            if (!Main.Settings.DisplayWelcomeMessage)
+            {
+                return;
+            }
+
+            Main.Settings.DisplayWelcomeMessage = false;
+
+            Gui.GuiService.ShowMessage(
+                MessageModal.Severity.Informative1,
+                "Message/&MessageModWelcomeTitle",
+                "Message/&MessageModWelcomeDescription",
+                "Message/&MessageOkTitle",
+                string.Empty,
+                () => UnityModManager.UI.Instance.ToggleWindow(),
+                null);
         }
     }
 }

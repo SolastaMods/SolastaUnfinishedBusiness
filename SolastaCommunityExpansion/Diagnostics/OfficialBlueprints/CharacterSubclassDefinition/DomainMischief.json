@@ -4,19 +4,19 @@
     {
       "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SavingThrowAffinityDomainMischiefBorrowLuck:6041ac31ca9ac2a4aab10fcbf4baa12f",
+      "featureDefinition": "Definition:AutoPreparedSpellsDomainMischief:27377b10acc7fb8478cbfe52564e283c",
       "level": 1
     },
     {
       "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AutoPreparedSpellsDomainMischief:27377b10acc7fb8478cbfe52564e283c",
+      "featureDefinition": "Definition:ProficiencyDomainMischiefTrickster:b52e06fd31a96c548a9ad308f23ea0b5",
       "level": 1
     },
     {
       "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyDomainMischiefTrickster:b52e06fd31a96c548a9ad308f23ea0b5",
+      "featureDefinition": "Definition:SavingThrowAffinityDomainMischiefBorrowLuck:6041ac31ca9ac2a4aab10fcbf4baa12f",
       "level": 1
     },
     {

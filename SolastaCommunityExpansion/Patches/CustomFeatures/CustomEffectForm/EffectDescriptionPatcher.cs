@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomEffectForm
 {
     [HarmonyPatch(typeof(EffectDescription), "FillTags")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

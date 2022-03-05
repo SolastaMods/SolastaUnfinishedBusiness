@@ -250,8 +250,8 @@
     "$id": "30",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&HelpActionTitle",
-    "description": "Condition/&HelpActionDescription",
+    "title": "Rules/&ConditionTrueStrikeTitle",
+    "description": "Rules/&ConditionTrueStrikeDescription",
     "spriteReference": {
       "$id": "31",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

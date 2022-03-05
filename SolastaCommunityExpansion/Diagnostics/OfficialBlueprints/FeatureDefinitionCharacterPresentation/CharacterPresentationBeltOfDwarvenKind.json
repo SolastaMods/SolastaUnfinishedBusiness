@@ -11,7 +11,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&NoContentTitle",
-    "description": "50% chances to grow a glorious beard!",
+    "description": "Feature/&CharacterPresentationBeltOfDwarvenKindDescription",
     "spriteReference": {
       "$id": "2",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

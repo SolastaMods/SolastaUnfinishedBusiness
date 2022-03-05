@@ -96,9 +96,7 @@
             "Definition:ConditionCharmed:b625b88863e83524ba652432379348a9",
             "Definition:ConditionCursed:ab888be75dd70924f8160897bd11cb91",
             "Definition:ConditionLifeDrained:ce10be38f182d7046bca13becd0e6bf6",
-            "Definition:ConditionPetrified:e45613adea09c0e4cb33633ffe469282",
-            "Definition:DHFeeblemindSpellcondition:965a09b2-cb22-452b-b93c-2bccdcda4871",
-            "Definition:ConditionBleeding:41cc47e6108652246905e39381332cc5"
+            "Definition:ConditionPetrified:e45613adea09c0e4cb33633ffe469282"
           ],
           "applyToSelf": false,
           "forceOnSelf": false

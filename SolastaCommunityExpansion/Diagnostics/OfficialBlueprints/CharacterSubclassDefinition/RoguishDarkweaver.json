@@ -10,13 +10,13 @@
     {
       "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamageRoguishDarkweaverPredator:b63fac5750d9120479949a5a0ff1ffb8",
+      "featureDefinition": "Definition:MovementAffinityDarkweaverSpiderOnWall:3640df83dd86b20428769df9d4dd95d8",
       "level": 3
     },
     {
       "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MovementAffinityDarkweaverSpiderOnWall:3640df83dd86b20428769df9d4dd95d8",
+      "featureDefinition": "Definition:AdditionalDamageRoguishDarkweaverPredator:b63fac5750d9120479949a5a0ff1ffb8",
       "level": 3
     },
     {

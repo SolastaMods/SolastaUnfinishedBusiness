@@ -4,8 +4,7 @@
   "subspellsList": [
     "Definition:ConjureElementalAir:3cd8a362519adfc4c87ddfa32298046d",
     "Definition:ConjureElementalEarth:b543056f87b2ce6448bc69d1aa794e62",
-    "Definition:ConjureElementalFire:1c764a26cb5545040b30e8e059675d61",
-    "Definition:ConjureElementalInvisibleStalker_CE_SubSpell_CR6:0480dd82-0540-5dd7-99b5-b358cbca4142"
+    "Definition:ConjureElementalFire:1c764a26cb5545040b30e8e059675d61"
   ],
   "implemented": true,
   "schoolOfMagic": "SchoolConjuration",
@@ -75,12 +74,12 @@
     "effectAdvancement": {
       "$id": "2",
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "PerAdditionalSlotLevel",
+      "effectIncrementMethod": "None",
       "incrementMultiplier": 1,
       "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
       "additionalDicePerIncrement": 0,
-      "additionalSpellLevelPerIncrement": 1,
+      "additionalSpellLevelPerIncrement": 0,
       "additionalSummonsPerIncrement": 0,
       "additionalHPPerIncrement": 0,
       "additionalTempHPPerIncrement": 0,

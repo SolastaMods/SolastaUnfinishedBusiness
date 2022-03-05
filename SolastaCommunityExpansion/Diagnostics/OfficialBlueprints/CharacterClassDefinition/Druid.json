@@ -123,25 +123,25 @@
     {
       "$id": "16",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyDruidArmor:a42d9252dcdb2aa4b91f39e839f90240",
+      "featureDefinition": "Definition:ProficiencyDruidSavingThrow:767234f7d5f79054bb941960f304108d",
       "level": 1
     },
     {
       "$id": "17",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PointPoolDruidSkillPoints:19e6b56cbea23144daba63c85ad5bc0f",
+      "featureDefinition": "Definition:ProficiencyDruidWeapon:feaeb6e5b71abce44a8b106116356e32",
       "level": 1
     },
     {
       "$id": "18",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyDruidWeapon:feaeb6e5b71abce44a8b106116356e32",
+      "featureDefinition": "Definition:ProficiencyDruidArmor:a42d9252dcdb2aa4b91f39e839f90240",
       "level": 1
     },
     {
       "$id": "19",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:CastSpellDruid:117201265b662d349b3b7c7f67e15ef6",
+      "featureDefinition": "Definition:PointPoolDruidSkillPoints:19e6b56cbea23144daba63c85ad5bc0f",
       "level": 1
     },
     {
@@ -153,25 +153,25 @@
     {
       "$id": "21",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetDruidRitualCasting:16a0bc81771c47447ba8f59113b082eb",
+      "featureDefinition": "Definition:CastSpellDruid:117201265b662d349b3b7c7f67e15ef6",
       "level": 1
     },
     {
       "$id": "22",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyDruidSavingThrow:767234f7d5f79054bb941960f304108d",
+      "featureDefinition": "Definition:FeatureSetDruidRitualCasting:16a0bc81771c47447ba8f59113b082eb",
       "level": 1
     },
     {
       "$id": "23",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SubclassChoiceDruidCircle:7ab4232a7f4caed43b9a2ec805ca5579",
+      "featureDefinition": "Definition:PowerDruidWildShape:5b4f6371d0bdffb4194ab22c82ff17a3",
       "level": 2
     },
     {
       "$id": "24",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerDruidWildShape:5b4f6371d0bdffb4194ab22c82ff17a3",
+      "featureDefinition": "Definition:SubclassChoiceDruidCircle:7ab4232a7f4caed43b9a2ec805ca5579",
       "level": 2
     },
     {

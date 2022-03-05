@@ -4,7 +4,7 @@
     {
       "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:BonusCantripsDomainOblivion:fc1c3d6a25c595345b526755aa21d799",
+      "featureDefinition": "Definition:AutoPreparedSpellsDomainOblivion:70aea612117a3094ea3ff754b4b6eea8",
       "level": 1
     },
     {
@@ -16,7 +16,7 @@
     {
       "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AutoPreparedSpellsDomainOblivion:70aea612117a3094ea3ff754b4b6eea8",
+      "featureDefinition": "Definition:BonusCantripsDomainOblivion:fc1c3d6a25c595345b526755aa21d799",
       "level": 1
     },
     {

@@ -1,10 +1,5 @@
 ﻿namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 {
-    public interface IConditionalPower
-    {
-        bool IsActive(RulesetCharacterHero character);
-    }
-
     public delegate bool IsActiveConditionalPowerDelegate(RulesetCharacterHero character);
 
     public class FeatureDefinitionConditionalPower : FeatureDefinitionPower, IConditionalPower

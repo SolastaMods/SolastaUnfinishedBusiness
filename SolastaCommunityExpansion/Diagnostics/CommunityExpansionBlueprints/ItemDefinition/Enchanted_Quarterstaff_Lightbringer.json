@@ -144,6 +144,7 @@
             "hitPointsFloor": 0,
             "forceKillOnZeroHp": false,
             "specialDeathCondition": null,
+            "ignoreFlyingCharacters": false,
             "ignoreCriticalDoubleDice": false
           }
         },
@@ -175,6 +176,7 @@
             "hitPointsFloor": 0,
             "forceKillOnZeroHp": false,
             "specialDeathCondition": null,
+            "ignoreFlyingCharacters": false,
             "ignoreCriticalDoubleDice": false
           }
         }
@@ -409,13 +411,7 @@
   "isStarterPack": false,
   "isContainerItem": false,
   "isLightSourceItem": false,
-  "isFocusItem": true,
-  "focusItemDefinition": {
-    "$id": "37",
-    "$type": "FocusItemDescription, Assembly-CSharp",
-    "focusType": "Arcane",
-    "shownAsFocus": true
-  },
+  "isFocusItem": false,
   "isWealthPile": false,
   "isSpellbook": false,
   "isDocument": false,
@@ -423,10 +419,10 @@
   "isFactionRelic": false,
   "personalityFlagOccurences": [],
   "soundEffectDescriptionOverride": {
-    "$id": "38",
+    "$id": "37",
     "$type": "SoundEffectDescription, Assembly-CSharp",
     "startEvent": {
-      "$id": "39",
+      "$id": "38",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -436,7 +432,7 @@
       }
     },
     "stopEvent": {
-      "$id": "40",
+      "$id": "39",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -446,7 +442,7 @@
       }
     },
     "startSwitch": {
-      "$id": "41",
+      "$id": "40",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -461,7 +457,7 @@
       }
     },
     "stopSwitch": {
-      "$id": "42",
+      "$id": "41",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -476,7 +472,7 @@
       }
     },
     "guiStoreBody": {
-      "$id": "43",
+      "$id": "42",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -486,7 +482,7 @@
       }
     },
     "guiPickBody": {
-      "$id": "44",
+      "$id": "43",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -496,7 +492,7 @@
       }
     },
     "guiStoreOther": {
-      "$id": "45",
+      "$id": "44",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -506,7 +502,7 @@
       }
     },
     "guiPickOther": {
-      "$id": "46",
+      "$id": "45",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -517,10 +513,10 @@
     }
   },
   "soundEffectOnHitDescriptionOverride": {
-    "$id": "47",
+    "$id": "46",
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
-      "$id": "48",
+      "$id": "47",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -536,13 +532,13 @@
     }
   },
   "itemPresentation": {
-    "$id": "49",
+    "$id": "48",
     "$type": "ItemPresentation, Assembly-CSharp",
     "unidentifiedTitle": "",
     "unidentifiedDescription": "",
     "overrideSubtype": "None",
     "assetReference": {
-      "$id": "50",
+      "$id": "49",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "1110be87443300f46976c1b313fa6d8e",
       "m_SubObjectName": "",
@@ -562,20 +558,20 @@
     "serializedVersion": 1
   },
   "guiPresentation": {
-    "$id": "51",
+    "$id": "50",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&Enchanted_Quarterstaff_Lightbringer_Title",
     "description": "Equipment/&Enchanted_Quarterstaff_Lightbringer_Description",
     "spriteReference": {
-      "$id": "52",
+      "$id": "51",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
     "color": {
-      "$id": "53",
+      "$id": "52",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

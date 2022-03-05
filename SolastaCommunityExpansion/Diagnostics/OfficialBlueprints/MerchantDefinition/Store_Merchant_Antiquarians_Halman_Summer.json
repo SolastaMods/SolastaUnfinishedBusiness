@@ -21,7 +21,7 @@
       "maxAmount": 1,
       "reassortAmount": 0,
       "reassortRateType": "Day",
-      "reassortRateValue": 21,
+      "reassortRateValue": 7,
       "requiredFaction": "Antiquarians",
       "factionStatus": "LivingLegend"
     },
@@ -36,7 +36,7 @@
       "maxAmount": 1,
       "reassortAmount": 0,
       "reassortRateType": "Day",
-      "reassortRateValue": 21,
+      "reassortRateValue": 7,
       "requiredFaction": "Antiquarians",
       "factionStatus": "Brotherhood"
     },
@@ -51,7 +51,7 @@
       "maxAmount": 1,
       "reassortAmount": 0,
       "reassortRateType": "Day",
-      "reassortRateValue": 21,
+      "reassortRateValue": 7,
       "requiredFaction": "Antiquarians",
       "factionStatus": "Brotherhood"
     },
@@ -66,7 +66,7 @@
       "maxAmount": 1,
       "reassortAmount": 0,
       "reassortRateType": "Day",
-      "reassortRateValue": 21,
+      "reassortRateValue": 7,
       "requiredFaction": "Antiquarians",
       "factionStatus": "Alliance"
     },
@@ -81,7 +81,7 @@
       "maxAmount": 1,
       "reassortAmount": 0,
       "reassortRateType": "Day",
-      "reassortRateValue": 21,
+      "reassortRateValue": 7,
       "requiredFaction": "Antiquarians",
       "factionStatus": "LivingLegend"
     },
@@ -96,7 +96,7 @@
       "maxAmount": 1,
       "reassortAmount": 0,
       "reassortRateType": "Day",
-      "reassortRateValue": 21,
+      "reassortRateValue": 7,
       "requiredFaction": "Antiquarians",
       "factionStatus": "Brotherhood"
     },
@@ -111,7 +111,7 @@
       "maxAmount": 1,
       "reassortAmount": 0,
       "reassortRateType": "Day",
-      "reassortRateValue": 21,
+      "reassortRateValue": 7,
       "requiredFaction": "Antiquarians",
       "factionStatus": "Alliance"
     },
@@ -126,7 +126,7 @@
       "maxAmount": 1,
       "reassortAmount": 0,
       "reassortRateType": "Day",
-      "reassortRateValue": 21,
+      "reassortRateValue": 7,
       "requiredFaction": "Antiquarians",
       "factionStatus": "Brotherhood"
     },
@@ -141,7 +141,7 @@
       "maxAmount": 1,
       "reassortAmount": 0,
       "reassortRateType": "Day",
-      "reassortRateValue": 21,
+      "reassortRateValue": 7,
       "requiredFaction": "Antiquarians",
       "factionStatus": "Brotherhood"
     },
@@ -156,7 +156,7 @@
       "maxAmount": 1,
       "reassortAmount": 0,
       "reassortRateType": "Day",
-      "reassortRateValue": 21,
+      "reassortRateValue": 7,
       "requiredFaction": "Antiquarians",
       "factionStatus": "Brotherhood"
     },
@@ -171,7 +171,7 @@
       "maxAmount": 1,
       "reassortAmount": 0,
       "reassortRateType": "Day",
-      "reassortRateValue": 21,
+      "reassortRateValue": 7,
       "requiredFaction": "Antiquarians",
       "factionStatus": "Brotherhood"
     },
@@ -186,7 +186,7 @@
       "maxAmount": 1,
       "reassortAmount": 0,
       "reassortRateType": "Day",
-      "reassortRateValue": 21,
+      "reassortRateValue": 7,
       "requiredFaction": "Antiquarians",
       "factionStatus": "Alliance"
     },
@@ -201,7 +201,7 @@
       "maxAmount": 1,
       "reassortAmount": 0,
       "reassortRateType": "Day",
-      "reassortRateValue": 21,
+      "reassortRateValue": 7,
       "requiredFaction": "Antiquarians",
       "factionStatus": "Brotherhood"
     },
@@ -216,7 +216,7 @@
       "maxAmount": 1,
       "reassortAmount": 0,
       "reassortRateType": "Day",
-      "reassortRateValue": 21,
+      "reassortRateValue": 7,
       "requiredFaction": "Antiquarians",
       "factionStatus": "Brotherhood"
     },
@@ -231,7 +231,7 @@
       "maxAmount": 1,
       "reassortAmount": 0,
       "reassortRateType": "Day",
-      "reassortRateValue": 21,
+      "reassortRateValue": 7,
       "requiredFaction": "Antiquarians",
       "factionStatus": "LivingLegend"
     },
@@ -246,7 +246,7 @@
       "maxAmount": 1,
       "reassortAmount": 0,
       "reassortRateType": "Day",
-      "reassortRateValue": 21,
+      "reassortRateValue": 7,
       "requiredFaction": "Antiquarians",
       "factionStatus": "Brotherhood"
     },
@@ -261,7 +261,7 @@
       "maxAmount": 1,
       "reassortAmount": 0,
       "reassortRateType": "Day",
-      "reassortRateValue": 21,
+      "reassortRateValue": 7,
       "requiredFaction": "Antiquarians",
       "factionStatus": "Brotherhood"
     },
@@ -274,9 +274,9 @@
       "initialAmount": 1,
       "minAmount": 0,
       "maxAmount": 1,
-      "reassortAmount": 0,
+      "reassortAmount": 1,
       "reassortRateType": "Day",
-      "reassortRateValue": 21,
+      "reassortRateValue": 1,
       "requiredFaction": "Antiquarians",
       "factionStatus": "Brotherhood"
     },
@@ -291,7 +291,7 @@
       "maxAmount": 1,
       "reassortAmount": 0,
       "reassortRateType": "Day",
-      "reassortRateValue": 21,
+      "reassortRateValue": 7,
       "requiredFaction": "Antiquarians",
       "factionStatus": "Alliance"
     },
@@ -306,7 +306,7 @@
       "maxAmount": 1,
       "reassortAmount": 0,
       "reassortRateType": "Day",
-      "reassortRateValue": 21,
+      "reassortRateValue": 1,
       "requiredFaction": "Antiquarians",
       "factionStatus": "Brotherhood"
     },
@@ -321,7 +321,7 @@
       "maxAmount": 1,
       "reassortAmount": 0,
       "reassortRateType": "Day",
-      "reassortRateValue": 21,
+      "reassortRateValue": 1,
       "requiredFaction": "Antiquarians",
       "factionStatus": "Brotherhood"
     },
@@ -381,7 +381,7 @@
       "maxAmount": 1,
       "reassortAmount": 0,
       "reassortRateType": "Day",
-      "reassortRateValue": 21,
+      "reassortRateValue": 1,
       "requiredFaction": "Antiquarians",
       "factionStatus": "LivingLegend"
     },
@@ -394,7 +394,7 @@
       "initialAmount": 1,
       "minAmount": 0,
       "maxAmount": 1,
-      "reassortAmount": 0,
+      "reassortAmount": 1,
       "reassortRateType": "Day",
       "reassortRateValue": 21,
       "requiredFaction": "Antiquarians",

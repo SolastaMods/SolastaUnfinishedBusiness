@@ -4,11 +4,7 @@
     "TraditionShockArcanist",
     "TraditionLoremaster",
     "TraditionGreenmage",
-    "TraditionCourtMage",
-    "MasterManipulator",
-    "SpellMaster",
-    "ArcaneFighter",
-    "LifeTransmuter"
+    "TraditionCourtMage"
   ],
   "filterByDeity": false,
   "subclassSuffix": "Tradition",

@@ -2,11 +2,6 @@
 
 namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 {
-    public interface ICustomFightingStyle
-    {
-        bool IsActive(RulesetCharacterHero character);
-    }
-
     public delegate bool IsActiveFightingStyleDelegate(RulesetCharacterHero character);
 
     public class CustomizableFightingStyleDefinition : FightingStyleDefinition, ICustomFightingStyle

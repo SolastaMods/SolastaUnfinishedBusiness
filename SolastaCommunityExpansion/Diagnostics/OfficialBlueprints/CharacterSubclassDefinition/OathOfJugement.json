@@ -4,7 +4,7 @@
     {
       "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerOathOfJugementPurgeCorruption:7ff8494085d06144eae66418911cc6bc",
+      "featureDefinition": "Definition:AutoPreparedSpellsOathOfJugement:f305e1cd301f1564f94c4161b1b8c965",
       "level": 3
     },
     {
@@ -16,7 +16,7 @@
     {
       "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AutoPreparedSpellsOathOfJugement:f305e1cd301f1564f94c4161b1b8c965",
+      "featureDefinition": "Definition:PowerOathOfJugementPurgeCorruption:7ff8494085d06144eae66418911cc6bc",
       "level": 3
     },
     {

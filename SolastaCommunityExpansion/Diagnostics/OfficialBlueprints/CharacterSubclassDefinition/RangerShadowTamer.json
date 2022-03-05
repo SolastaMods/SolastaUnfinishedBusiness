@@ -4,25 +4,25 @@
     {
       "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetShadowTamerDarkSlayer:c1c96f0fa8eab884bbcdecc603d8f573",
+      "featureDefinition": "Definition:SavingThrowAffinityShadowTamerTunnelWisdom:c4d2fd151623f844ca143b0da76fbaba",
       "level": 3
     },
     {
       "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SavingThrowAffinityShadowTamerTunnelWisdom:c4d2fd151623f844ca143b0da76fbaba",
+      "featureDefinition": "Definition:FeatureSetShadowTamerDarkSlayer:c1c96f0fa8eab884bbcdecc603d8f573",
       "level": 3
     },
     {
       "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetShadowTamerKnowDarkness:b09848b9f5aac9640857de648e0e530c",
+      "featureDefinition": "Definition:PowerShadowTamerRopeGrapple:c271ebfe10e4fe848aacdf2d982ad5e6",
       "level": 7
     },
     {
       "$id": "4",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerShadowTamerRopeGrapple:c271ebfe10e4fe848aacdf2d982ad5e6",
+      "featureDefinition": "Definition:FeatureSetShadowTamerKnowDarkness:b09848b9f5aac9640857de648e0e530c",
       "level": 7
     },
     {

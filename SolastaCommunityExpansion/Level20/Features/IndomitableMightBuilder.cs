@@ -1,4 +1,5 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi.Extensions;
@@ -28,11 +29,23 @@ namespace SolastaCommunityExpansion.Level20.Features
             CreateAndAddToDB(IndomitableMightName, IndomitableMightGuid);
     }
 
-    internal sealed class IndomitableMight : FeatureDefinition, IMinimumAbilityCheckTotal
+    internal sealed class IndomitableMight : FeatureDefinition, IChangeAbilityCheck
     {
-        public int? MinimumStrengthAbilityCheckTotal(RulesetCharacter character, string proficiencyName)
+        public int MinRoll(
+            RulesetCharacter character,
+            int baseBonus,
+            int rollModifier,
+            string abilityScoreName,
+            string proficiencyName,
+            List<RuleDefinitions.TrendInfo> advantageTrends,
+            List<RuleDefinitions.TrendInfo> modifierTrends)
         {
-            return character?.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
+            if (character == null || abilityScoreName != AttributeDefinitions.Strength)
+            {
+                return 1;
+            }
+
+            return character.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
         }
     }
 }
