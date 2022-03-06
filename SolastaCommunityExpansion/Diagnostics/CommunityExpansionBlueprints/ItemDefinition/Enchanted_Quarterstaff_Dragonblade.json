@@ -427,7 +427,13 @@
   "isStarterPack": false,
   "isContainerItem": false,
   "isLightSourceItem": false,
-  "isFocusItem": false,
+  "isFocusItem": true,
+  "focusItemDefinition": {
+    "$id": "38",
+    "$type": "FocusItemDescription, Assembly-CSharp",
+    "focusType": "Arcane",
+    "shownAsFocus": true
+  },
   "isWealthPile": false,
   "isSpellbook": false,
   "isDocument": false,
@@ -435,19 +441,9 @@
   "isFactionRelic": false,
   "personalityFlagOccurences": [],
   "soundEffectDescriptionOverride": {
-    "$id": "38",
+    "$id": "39",
     "$type": "SoundEffectDescription, Assembly-CSharp",
     "startEvent": {
-      "$id": "39",
-      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
-      "WwiseObjectReference": null,
-      "idInternal": 0,
-      "valueGuidInternal": {
-        "$type": "System.Byte[], mscorlib",
-        "$value": ""
-      }
-    },
-    "stopEvent": {
       "$id": "40",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
@@ -457,22 +453,17 @@
         "$value": ""
       }
     },
-    "startSwitch": {
+    "stopEvent": {
       "$id": "41",
-      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
-      "groupIdInternal": 0,
-      "groupGuidInternal": {
-        "$type": "System.Byte[], mscorlib",
-        "$value": ""
-      },
       "idInternal": 0,
       "valueGuidInternal": {
         "$type": "System.Byte[], mscorlib",
         "$value": ""
       }
     },
-    "stopSwitch": {
+    "startSwitch": {
       "$id": "42",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
@@ -487,17 +478,22 @@
         "$value": ""
       }
     },
-    "guiStoreBody": {
+    "stopSwitch": {
       "$id": "43",
-      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
       "idInternal": 0,
       "valueGuidInternal": {
         "$type": "System.Byte[], mscorlib",
         "$value": ""
       }
     },
-    "guiPickBody": {
+    "guiStoreBody": {
       "$id": "44",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
@@ -507,7 +503,7 @@
         "$value": ""
       }
     },
-    "guiStoreOther": {
+    "guiPickBody": {
       "$id": "45",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
@@ -517,8 +513,18 @@
         "$value": ""
       }
     },
-    "guiPickOther": {
+    "guiStoreOther": {
       "$id": "46",
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiPickOther": {
+      "$id": "47",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -529,10 +535,10 @@
     }
   },
   "soundEffectOnHitDescriptionOverride": {
-    "$id": "47",
+    "$id": "48",
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
-      "$id": "48",
+      "$id": "49",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -548,13 +554,13 @@
     }
   },
   "itemPresentation": {
-    "$id": "49",
+    "$id": "50",
     "$type": "ItemPresentation, Assembly-CSharp",
     "unidentifiedTitle": "",
     "unidentifiedDescription": "",
     "overrideSubtype": "None",
     "assetReference": {
-      "$id": "50",
+      "$id": "51",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "1110be87443300f46976c1b313fa6d8e",
       "m_SubObjectName": "",
@@ -574,20 +580,20 @@
     "serializedVersion": 1
   },
   "guiPresentation": {
-    "$id": "51",
+    "$id": "52",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&Enchanted_Quarterstaff_Dragonblade_Title",
     "description": "Equipment/&Enchanted_Quarterstaff_Dragonblade_Description",
     "spriteReference": {
-      "$id": "52",
+      "$id": "53",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
     "color": {
-      "$id": "53",
+      "$id": "54",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,
