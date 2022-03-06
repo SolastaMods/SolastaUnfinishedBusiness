@@ -100,30 +100,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey = toggle;
                     }
                 }
-
-                toggle = Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures;
-                if (UI.Toggle("Spike Growth".orange() + " does not affect flying creatures flying higher than 1 cell", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures = toggle;
-                    HouseSpellTweaks.SpikeGrowthDoesNotAffectFlyingCreatures();
-                }
-
-                toggle = Main.Settings.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures;
-                if (UI.Toggle("Black Tentacles, Entangle, Grease".orange() + " do not affect flying creatures flying higher than 1 cell", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures = toggle;
-                    HouseSpellTweaks.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures();
-                }
-
-                if (Main.Settings.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures)
-                {
-                    toggle = Main.Settings.EnableTargetTypeSquareCylinder;
-                    if (UI.Toggle("+ Use a square area of effect for these spells ".italic() + "[A circular area requires less code changes but is non-SRD]".yellow().italic(), ref toggle, UI.AutoWidth()))
-                    {
-                        Main.Settings.EnableTargetTypeSquareCylinder = toggle;
-                        HouseSpellTweaks.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures();
-                    }
-                }
             }
 
             UI.Label("");
@@ -179,6 +155,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (UI.Toggle("Quick cast light cantrip uses head or torso worn items first", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.QuickCastLightCantripOnWornItemsFirst = toggle;
+                }
+
+                toggle = Main.Settings.UseHeightOneCylinderEffect;
+                if (UI.Toggle("Display a height 1 cylinder effect when casting " + "Black Tentacles, Entangle, Grease ".orange() +
+                    " (square cylinder), ".yellow() + "Spike Growth".orange() + " (round cylinder).".yellow(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.UseHeightOneCylinderEffect = toggle;
+                    HouseSpellTweaks.UseHeightOneCylinderEffect();
                 }
 
                 UI.Label("");
