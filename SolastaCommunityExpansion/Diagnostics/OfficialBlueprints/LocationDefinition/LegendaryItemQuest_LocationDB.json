@@ -5,7 +5,6 @@
   "registeredFactions": [],
   "registeredVariables": [
     {
-      "$id": "1",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "Rune01",
       "type": "Bool",
@@ -14,7 +13,6 @@
       "stringValue": ""
     },
     {
-      "$id": "2",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "Rune02",
       "type": "Bool",
@@ -23,7 +21,6 @@
       "stringValue": ""
     },
     {
-      "$id": "3",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "Rune03",
       "type": "Bool",
@@ -32,7 +29,6 @@
       "stringValue": ""
     },
     {
-      "$id": "4",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "Rune04",
       "type": "Bool",
@@ -41,7 +37,6 @@
       "stringValue": ""
     },
     {
-      "$id": "5",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "Rune05",
       "type": "Bool",
@@ -50,7 +45,6 @@
       "stringValue": ""
     },
     {
-      "$id": "6",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "Rune06",
       "type": "Bool",
@@ -59,7 +53,6 @@
       "stringValue": ""
     },
     {
-      "$id": "7",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "Reset_All",
       "type": "Bool",
@@ -68,7 +61,6 @@
       "stringValue": ""
     },
     {
-      "$id": "8",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "Merton_In_Party",
       "type": "Bool",
@@ -79,20 +71,16 @@
   ],
   "sceneFilePath": "",
   "sceneReference": {
-    "$id": "9",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "8d257d4870508c04f9c182113f3bb6c3",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "audioState": {
-    "$id": "10",
     "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": {
-      "$id": "11",
       "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseStateGroupReference": {
-        "$id": "12",
         "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
         "objectName": "State_LocationName",
         "id": 598649695,
@@ -116,11 +104,9 @@
     }
   },
   "renderSettingsSceneProfile": {
-    "$id": "13",
     "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
     "useSkybox": true,
     "backgroundColor": {
-      "$id": "14",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -128,12 +114,10 @@
       "a": 1.0
     },
     "skyboxMaterial": {
-      "$id": "15",
       "$type": "UnityEngine.Material, UnityEngine.CoreModule",
       "name": "Default_Skybox"
     },
     "ambientLight": {
-      "$id": "16",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.103551082,
       "g": 0.107222319,
@@ -142,7 +126,6 @@
     },
     "fog": false,
     "fogColor": {
-      "$id": "17",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,
@@ -153,7 +136,6 @@
     "fogDensity": 0.1,
     "excludeSkybox": false,
     "auraBaseSettings": {
-      "$id": "18",
       "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
       "useDensity": true,
       "density": 0.02,
@@ -163,7 +145,6 @@
       "ambientLightingStrength": 1.0,
       "useColor": false,
       "color": {
-        "$id": "19",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.0,
         "g": 0.5,
@@ -173,7 +154,6 @@
       "colorStrength": 1.0,
       "useTint": false,
       "tint": {
-        "$id": "20",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 1.0,
         "g": 0.921568632,
@@ -191,10 +171,8 @@
     "userDungeonAuraVolumeNoise": false,
     "userDungeonAuraVolumeNoiseScale": 3.0,
     "dayCycleProfile": {
-      "$id": "21",
       "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
       "noonColor": {
-        "$id": "22",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.8018868,
         "g": 0.7195127,
@@ -202,7 +180,6 @@
         "a": 1.0
       },
       "sunriseColor": {
-        "$id": "23",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.8962264,
         "g": 0.6984592,
@@ -210,7 +187,6 @@
         "a": 1.0
       },
       "sunsetColor": {
-        "$id": "24",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 1.0,
         "g": 0.48294118,
@@ -221,7 +197,6 @@
       "sunDirection": -36.5,
       "sunTilt": 0.01,
       "moonLightColor": {
-        "$id": "25",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.2956123,
         "g": 0.492145777,
@@ -235,7 +210,6 @@
       "moonBaseAngle": 0.0,
       "globalMoonIntensity": 0.63,
       "ambientSunriseColor": {
-        "$id": "26",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.7527145,
         "g": 0.775544465,
@@ -243,7 +217,6 @@
         "a": 1.0
       },
       "ambientNoonColor": {
-        "$id": "27",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.58873266,
         "g": 0.6269432,
@@ -251,7 +224,6 @@
         "a": 1.0
       },
       "ambientSunsetColor": {
-        "$id": "28",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.6574849,
         "g": 0.6788657,
@@ -259,7 +231,6 @@
         "a": 1.0
       },
       "ambientNightColor": {
-        "$id": "29",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.379004985,
         "g": 0.393594563,
@@ -274,7 +245,6 @@
     "name": "LegendaryItemQuest_RenderSettings"
   },
   "locationPresentation": {
-    "$id": "30",
     "$type": "LocationPresentation, Assembly-CSharp",
     "unchartedTitle": "Map/&Location_Legendary_UnvisitedTitle",
     "unchartedDescription": "Map/&Location_Legendary_UnvisitedDescription",
@@ -293,20 +263,17 @@
   "hasPriorityForTeleporter": false,
   "canAttackNonHostileCharacters": false,
   "guiPresentation": {
-    "$id": "31",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Map/&Location_Legendary_UnvisitedTitle",
     "description": "Map/&Location_Legendary_UnvisitedDescription",
     "spriteReference": {
-      "$id": "32",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "a09f10585f638c44cbf7f88c654ce5ee",
       "m_SubObjectName": "Legendary_Quest_LoadingScreen",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "33",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

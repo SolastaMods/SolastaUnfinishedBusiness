@@ -2,21 +2,18 @@
   "$type": "TreasureTableDefinition, Assembly-CSharp",
   "treasureOptions": [
     {
-      "$id": "1",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 1,
       "itemDefinition": "Definition:Ingredient_AngryViolet:0ea316a14e9d7d344a648184b7b09af0",
       "amount": 3
     },
     {
-      "$id": "2",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 1,
       "itemDefinition": "Definition:Ingredient_DwarvenPrimrose:48e03ca4a5f3b8a47bcb385a8d6e3b22",
       "amount": 4
     },
     {
-      "$id": "3",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 1,
       "itemDefinition": "Definition:Ingredient_Moonflower:11b9d6eabd26bbd46a5c027c009fa2fa",
@@ -24,20 +21,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "4",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "TreasureTable/&IngredientsTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "5",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "6",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

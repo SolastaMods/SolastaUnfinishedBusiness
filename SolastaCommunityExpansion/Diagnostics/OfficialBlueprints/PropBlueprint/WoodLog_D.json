@@ -11,16 +11,13 @@
   "lightSources": [],
   "category": "Obstacle",
   "dimensions": {
-    "$id": "1",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "2",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "WoodLand",
       "prefabReference": {
-        "$id": "3",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "afa013699e8ee4e40b391fe552f464e0",
         "m_SubObjectName": "",
@@ -29,20 +26,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "4",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Prop/&WoodLogTitle",
     "description": "",
     "spriteReference": {
-      "$id": "5",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "1f22e5a66e1fc8e41bc61207e3b0edb1",
       "m_SubObjectName": "Debris",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "6",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

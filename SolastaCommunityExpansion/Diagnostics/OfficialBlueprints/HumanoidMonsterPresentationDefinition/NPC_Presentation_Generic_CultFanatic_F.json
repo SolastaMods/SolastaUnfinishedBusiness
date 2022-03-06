@@ -21,7 +21,6 @@
   "tabardDefinition": "",
   "showHelmet": true,
   "firstColor": {
-    "$id": "1",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.358490556,
     "g": 0.3466536,
@@ -29,7 +28,6 @@
     "a": 1.0
   },
   "secondColor": {
-    "$id": "2",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.5660378,
     "g": 0.05489181,
@@ -37,7 +35,6 @@
     "a": 1.0
   },
   "thirdColor": {
-    "$id": "3",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.6792453,
     "g": 0.6792453,
@@ -45,7 +42,6 @@
     "a": 1.0
   },
   "fourthColor": {
-    "$id": "4",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.376957983,
     "g": 0.405660361,
@@ -56,20 +52,17 @@
   "itemDefinitionMainHand": null,
   "itemDefinitionOffHand": null,
   "guiPresentation": {
-    "$id": "5",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Monster/&CultFanatic_Title",
     "description": "Monster/&CultFanatic_Description",
     "spriteReference": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "1dfcb24dce2891947bc14b2b066ef55b",
       "m_SubObjectName": "CustomPortrait_NPC_Presentation_Generic_CultFanatic_F",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

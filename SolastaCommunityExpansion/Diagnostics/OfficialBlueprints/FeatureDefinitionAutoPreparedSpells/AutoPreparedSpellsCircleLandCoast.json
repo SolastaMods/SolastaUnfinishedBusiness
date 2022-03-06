@@ -3,7 +3,6 @@
   "autopreparedTag": "Circle",
   "autoPreparedSpellsGroups": [
     {
-      "$id": "1",
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 3,
       "spellsList": [
@@ -12,7 +11,6 @@
       ]
     },
     {
-      "$id": "2",
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 5,
       "spellsList": [
@@ -21,7 +19,6 @@
       ]
     },
     {
-      "$id": "3",
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 7,
       "spellsList": [
@@ -30,7 +27,6 @@
       ]
     },
     {
-      "$id": "4",
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 9,
       "spellsList": [
@@ -42,20 +38,17 @@
   "spellcastingClass": "Definition:Druid:df2da915a153d7a48a896041cf318953",
   "affinityRace": "Definition:HalflingIsland:487b212a28e81714198a6acc3472e018",
   "guiPresentation": {
-    "$id": "5",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "TerrainType/&CoastTitle",
     "description": "Feature/&DomainSpellsDescription",
     "spriteReference": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

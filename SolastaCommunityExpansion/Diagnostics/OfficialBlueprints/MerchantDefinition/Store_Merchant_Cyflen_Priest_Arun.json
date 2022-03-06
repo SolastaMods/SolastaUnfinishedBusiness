@@ -11,7 +11,6 @@
   "identifyCostGp": 50,
   "stockUnitDescriptions": [
     {
-      "$id": "1",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Potion_Antitoxin:dec4d1e55662531448c0ce56861e0fa3",
@@ -26,7 +25,6 @@
       "factionStatus": "Indifference"
     },
     {
-      "$id": "2",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:PotionOfHealing:5afaa2c317ec2374fab78be504014255",
@@ -41,7 +39,6 @@
       "factionStatus": "Indifference"
     },
     {
-      "$id": "3",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:PotionOfGreaterHealing:cf9b569943609d048a6a0d1843e861d0",
@@ -56,7 +53,6 @@
       "factionStatus": "Sympathy"
     },
     {
-      "$id": "4",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollCureWounds:c11582501e7be5c4aae745008bf0b4e8",
@@ -71,7 +67,6 @@
       "factionStatus": "Sympathy"
     },
     {
-      "$id": "5",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollRevivify:67a2c72f62b599946923a0a95a85e45c",
@@ -86,7 +81,6 @@
       "factionStatus": "Indifference"
     },
     {
-      "$id": "6",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollThunderWave:033edb0536ab4d14d9007d5cff96232a",
@@ -101,7 +95,6 @@
       "factionStatus": "Sympathy"
     },
     {
-      "$id": "7",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollLightningBolt:e39e752f283d2184bb33a569decab2dd",
@@ -116,7 +109,6 @@
       "factionStatus": "Sympathy"
     },
     {
-      "$id": "8",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollFogCloud:bf14134eeccc22246bef874ec7771e00",
@@ -131,7 +123,6 @@
       "factionStatus": "Sympathy"
     },
     {
-      "$id": "9",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:HolySymbolAmulet:8c3c56e926a899447abdff0c6fee3ff3",
@@ -146,7 +137,6 @@
       "factionStatus": "Indifference"
     },
     {
-      "$id": "10",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:HolySymbolBelt:e596afb7cb62cf049a9ecc2f171233a8",
@@ -161,7 +151,6 @@
       "factionStatus": "Indifference"
     },
     {
-      "$id": "11",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:HolySymbolCape:cf6a4d4d0f153704ca4168641322da9f",
@@ -176,7 +165,6 @@
       "factionStatus": "Indifference"
     },
     {
-      "$id": "12",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:HolySymbolCrown:81ab33a4033da5b4dbb93991e4a4e555",
@@ -191,7 +179,6 @@
       "factionStatus": "Indifference"
     },
     {
-      "$id": "13",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Shield_Wooden:3630e54c4b26db945a804382ea120406",
@@ -207,20 +194,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "14",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Merchant/&CC_PriestArun",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "15",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "e94ce884e0f018a40965ba142b358657",
       "m_SubObjectName": "Rogar_Ardentfire_Merchant",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "16",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -11,7 +11,6 @@
   "identifyCostGp": 50,
   "stockUnitDescriptions": [
     {
-      "$id": "1",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed Dagger:6b3401851b033f74088e7977f516d55b",
@@ -26,7 +25,6 @@
       "factionStatus": "Sympathy"
     },
     {
-      "$id": "2",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed Mace:ec264d1ff88a6454bb25187ee2e77a54",
@@ -41,7 +39,6 @@
       "factionStatus": "Sympathy"
     },
     {
-      "$id": "3",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed Shortsword:1ebe57945830a054d81b17695baff2e6",
@@ -56,7 +53,6 @@
       "factionStatus": "Sympathy"
     },
     {
-      "$id": "4",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed Greatsword:95fd3320cac9907409e3b52ac4b2e0c7",
@@ -71,7 +67,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "5",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed Shortbow:f1cfe01f030799e43b4c096dc16635d8",
@@ -86,7 +81,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "6",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed_Longsword:fedb8a0303ddee5418483cd9eaa8fb3f",
@@ -101,7 +95,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "7",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed ChainMail:520c9799bbf64c04ab98408d8e14ff32",
@@ -116,7 +109,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "8",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed Leather Armor:1c84d3c251d7ff04e901b0450dabaab8",
@@ -131,7 +123,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "9",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed HalfPlate:d118f62359ad9fe45a127151a35a9a0f",
@@ -146,7 +137,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "10",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed Longbow:839150e1152e05b419f3af108aa9fcd7",
@@ -161,7 +151,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "11",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed Scimitar:f905b0c4355525d44a49c9af95b3ba76",
@@ -176,7 +165,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "12",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Ingredient_Enchant_Oil_Of_Acuteness:ad0a6236d6ce53344b534dd9c1cdcc00",
@@ -192,20 +180,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "13",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Merchant/&CaerCyflen_Heddlon_Surespell_Store_ArcaneumTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "14",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "21f052bd77c0b3d4a9fb5631757b38cc",
       "m_SubObjectName": "Heddlon_Surespell_MerchantPhoto",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "15",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

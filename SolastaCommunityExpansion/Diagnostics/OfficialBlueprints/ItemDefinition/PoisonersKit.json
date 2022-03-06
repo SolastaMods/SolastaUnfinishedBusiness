@@ -39,7 +39,6 @@
   "isUsableDevice": false,
   "isTool": true,
   "toolDefinition": {
-    "$id": "1",
     "$type": "ToolDescription, Assembly-CSharp",
     "toolType": "PoisonersKitType"
   },
@@ -54,10 +53,8 @@
   "isFactionRelic": false,
   "personalityFlagOccurences": [],
   "soundEffectDescriptionOverride": {
-    "$id": "2",
     "$type": "SoundEffectDescription, Assembly-CSharp",
     "startEvent": {
-      "$id": "3",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -67,7 +64,6 @@
       }
     },
     "stopEvent": {
-      "$id": "4",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -77,7 +73,6 @@
       }
     },
     "startSwitch": {
-      "$id": "5",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -92,7 +87,6 @@
       }
     },
     "stopSwitch": {
-      "$id": "6",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -107,7 +101,6 @@
       }
     },
     "guiStoreBody": {
-      "$id": "7",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -117,7 +110,6 @@
       }
     },
     "guiPickBody": {
-      "$id": "8",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -127,7 +119,6 @@
       }
     },
     "guiStoreOther": {
-      "$id": "9",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -137,7 +128,6 @@
       }
     },
     "guiPickOther": {
-      "$id": "10",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -148,10 +138,8 @@
     }
   },
   "soundEffectOnHitDescriptionOverride": {
-    "$id": "11",
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
-      "$id": "12",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -167,13 +155,11 @@
     }
   },
   "itemPresentation": {
-    "$id": "13",
     "$type": "ItemPresentation, Assembly-CSharp",
     "unidentifiedTitle": "",
     "unidentifiedDescription": "",
     "overrideSubtype": "None",
     "assetReference": {
-      "$id": "14",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -193,20 +179,17 @@
     "serializedVersion": 1
   },
   "guiPresentation": {
-    "$id": "15",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&PoisonersKitToolTypeTitle",
     "description": "Equipment/&PoisonersKitToolTypeDescription",
     "spriteReference": {
-      "$id": "16",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "52444d04cf6603c428eefe78107b44f4",
       "m_SubObjectName": "PoisonersKit",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "17",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

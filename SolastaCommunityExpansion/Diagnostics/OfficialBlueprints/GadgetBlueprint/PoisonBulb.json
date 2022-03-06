@@ -5,11 +5,9 @@
   "canBeActivated": true,
   "customizableDimensions": false,
   "minCustomizableDimensions": {
-    "$id": "1",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "maxCustomizableDimensions": {
-    "$id": "2",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "campaignOnly": false,
@@ -24,16 +22,13 @@
   "lightSources": [],
   "category": "Traps",
   "dimensions": {
-    "$id": "3",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "4",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "WoodLand",
       "prefabReference": {
-        "$id": "5",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "d2b65c09e3a9f644d81a3f4e411bf42d",
         "m_SubObjectName": "",
@@ -41,11 +36,9 @@
       }
     },
     {
-      "$id": "6",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Sewers",
       "prefabReference": {
-        "$id": "7",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "3ea4d5df55632f846a7a0b3533b095ac",
         "m_SubObjectName": "",
@@ -54,20 +47,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "8",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Gadget/&PoisonBulbTitle",
     "description": "",
     "spriteReference": {
-      "$id": "9",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f1e789c6027c5994ea278d952c67f692",
       "m_SubObjectName": "Trap",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "10",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

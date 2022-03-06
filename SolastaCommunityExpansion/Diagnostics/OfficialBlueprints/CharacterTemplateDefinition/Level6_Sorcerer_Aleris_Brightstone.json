@@ -104,19 +104,16 @@
   "facePath": "",
   "wieldedItemsConfigurations": [
     {
-      "$id": "1",
       "$type": "WieldedItemsConfiguration, Assembly-CSharp",
       "mainHandItemDefinition": "Definition:Quarterstaff:e02fa6fe6682b034ea74a6c48c9ee134",
       "offHandItemDefinition": null
     },
     {
-      "$id": "2",
       "$type": "WieldedItemsConfiguration, Assembly-CSharp",
       "mainHandItemDefinition": "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
       "offHandItemDefinition": null
     },
     {
-      "$id": "3",
       "$type": "WieldedItemsConfiguration, Assembly-CSharp",
       "mainHandItemDefinition": null,
       "offHandItemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994"
@@ -124,20 +121,17 @@
   ],
   "voiceId": "FEM1",
   "guiPresentation": {
-    "$id": "4",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "CharacterTemplate/&GarradTitle",
     "description": "CharacterTemplate/&GarradDescription",
     "spriteReference": {
-      "$id": "5",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "c76285644b0937043a88c5c94d0491a0",
       "m_SubObjectName": "Level1_Wizard_Nialla_Wildwind",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "6",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

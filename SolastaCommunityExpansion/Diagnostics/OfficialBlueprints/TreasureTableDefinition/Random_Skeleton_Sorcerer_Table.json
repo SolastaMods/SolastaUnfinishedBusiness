@@ -2,70 +2,60 @@
   "$type": "TreasureTableDefinition, Assembly-CSharp",
   "treasureOptions": [
     {
-      "$id": "1",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 5,
       "itemDefinition": "Definition:Art_Item_25_GP_GoldBracelet:b5eb965df15a17e4fb9fb75ae0069c44",
       "amount": 1
     },
     {
-      "$id": "2",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 5,
       "itemDefinition": "Definition:Art_Item_50_GP_GemstonePendant:10a3d0dae3d25f948aa50a81dcb4bf51",
       "amount": 1
     },
     {
-      "$id": "3",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 4,
       "itemDefinition": "Definition:Poison_Basic:b5b96717da1f5114abfa3b097bc1db7d",
       "amount": 1
     },
     {
-      "$id": "4",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 4,
       "itemDefinition": "Definition:Poison_DarkStab:95fcc2bc8e27b504d956e668caf7a330",
       "amount": 1
     },
     {
-      "$id": "5",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 3,
       "itemDefinition": "Definition:PotionOfInvisibility:9f3974b2b1468d242af51b8bd8a28420",
       "amount": 1
     },
     {
-      "$id": "6",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 3,
       "itemDefinition": "Definition:PotionOfSpeed:d835c99336e337b49b4f9ea802553012",
       "amount": 1
     },
     {
-      "$id": "7",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 1,
       "itemDefinition": "Definition:ScrollConfusion:0cf6dc87c3278304eb76b4b43152b993",
       "amount": 1
     },
     {
-      "$id": "8",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 1,
       "itemDefinition": "Definition:ScrollCloudKill:1e34c0c1d0ddff443834c3c4addd701c",
       "amount": 1
     },
     {
-      "$id": "9",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 1,
       "itemDefinition": "Definition:ScrollBlackTentacles:2d1a43b3cff1dea41a9ed2023de35372",
       "amount": 1
     },
     {
-      "$id": "10",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 1,
       "itemDefinition": "Definition:ScrollContagion:5906dbaa44ac16c47954f28425a847c4",
@@ -73,20 +63,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "11",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "12",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "13",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

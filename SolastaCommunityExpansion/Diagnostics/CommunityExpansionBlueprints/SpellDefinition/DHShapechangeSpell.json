@@ -11,7 +11,6 @@
   "ritualCastingTime": "Action",
   "requiresConcentration": true,
   "effectDescription": {
-    "$id": "1",
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Distance",
     "rangeParameter": 12,
@@ -68,7 +67,6 @@
     "effectPoolAmount": 60,
     "effectForms": [
       {
-        "$id": "2",
         "$type": "EffectForm, Assembly-CSharp",
         "formType": "ShapeChange",
         "addBonusMode": "None",
@@ -83,66 +81,55 @@
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
         "shapeChangeForm": {
-          "$id": "3",
           "$type": "ShapeChangeForm, Assembly-CSharp",
           "shapeChangeType": "FreeListSelection",
           "shapeOptions": [
             {
-              "$id": "4",
               "$type": "ShapeOptionDescription, Assembly-CSharp",
               "requiredLevel": 1,
               "substituteMonster": "Definition:GoldDragon_AerElai:678559ae2adcb19448224941a39c3e08"
             },
             {
-              "$id": "5",
               "$type": "ShapeOptionDescription, Assembly-CSharp",
               "requiredLevel": 1,
               "substituteMonster": "Definition:Divine_Avatar:e2044dfe47f03bc49bb8c98a37bf76da"
             },
             {
-              "$id": "6",
               "$type": "ShapeOptionDescription, Assembly-CSharp",
               "requiredLevel": 1,
               "substituteMonster": "Definition:Sorr-Akkath_Tshar_Boss:1c40ad37c0f81af4fa18522e61670f55"
             },
             {
-              "$id": "7",
               "$type": "ShapeOptionDescription, Assembly-CSharp",
               "requiredLevel": 1,
               "substituteMonster": "Definition:GreenDragon_MasterOfConjuration:0ca3722ada0540f41be312bd4c571c83"
             },
             {
-              "$id": "8",
               "$type": "ShapeOptionDescription, Assembly-CSharp",
               "requiredLevel": 1,
               "substituteMonster": "Definition:BlackDragon_MasterOfNecromancy:88b4c2c2ce21c884ea4421c62ef8d69f"
             },
             {
-              "$id": "9",
               "$type": "ShapeOptionDescription, Assembly-CSharp",
               "requiredLevel": 1,
               "substituteMonster": "Definition:Remorhaz:b1d9f09845585014f96d66348b24144c"
             },
             {
-              "$id": "10",
               "$type": "ShapeOptionDescription, Assembly-CSharp",
               "requiredLevel": 1,
               "substituteMonster": "Definition:Emperor_Laethar:a7200a851aacab5429b9f73d452d6f8c"
             },
             {
-              "$id": "11",
               "$type": "ShapeOptionDescription, Assembly-CSharp",
               "requiredLevel": 1,
               "substituteMonster": "Definition:Giant_Ape:2ab966fe4ae000c4e917022b809e8cee"
             },
             {
-              "$id": "12",
               "$type": "ShapeOptionDescription, Assembly-CSharp",
               "requiredLevel": 1,
               "substituteMonster": "Definition:Spider_Queen:5626a4511d68a3945b9c5d330b9b472c"
             },
             {
-              "$id": "13",
               "$type": "ShapeOptionDescription, Assembly-CSharp",
               "requiredLevel": 1,
               "substituteMonster": "Definition:Sorr-Akkath_Shikkath:de59cb16776e20647a7ed74ba95d2f90"
@@ -154,7 +141,6 @@
       }
     ],
     "effectAdvancement": {
-      "$id": "14",
       "$type": "EffectAdvancement, Assembly-CSharp",
       "effectIncrementMethod": "None",
       "incrementMultiplier": 1,
@@ -176,178 +162,152 @@
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
     "offsetImpactTimePerTarget": 0.0,
     "effectParticleParameters": {
-      "$id": "15",
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
-        "$id": "16",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "casterSelfParticleReference": {
-        "$id": "17",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "casterQuickSpellParticleReference": {
-        "$id": "18",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "targetParticleReference": {
-        "$id": "19",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "511002d2ecb0e4a49903dbe731487e3e",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "effectParticleReference": {
-        "$id": "20",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "effectSubTargetParticleReference": {
-        "$id": "21",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "zoneParticleReference": {
-        "$id": "22",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "beforeImpactParticleReference": {
-        "$id": "23",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "impactParticleReference": {
-        "$id": "24",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "activeEffectImpactParticleReference": {
-        "$id": "25",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "activeEffectCellStartParticleReference": {
-        "$id": "26",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "activeEffectCellParticleReference": {
-        "$id": "27",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "activeEffectCellEndParticleReference": {
-        "$id": "28",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "activeEffectSurfaceStartParticleReference": {
-        "$id": "29",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "activeEffectSurfaceParticleReference": {
-        "$id": "30",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "activeEffectSurfaceEndParticleReference": {
-        "$id": "31",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "emissiveBorderCellStartParticleReference": {
-        "$id": "32",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "emissiveBorderCellParticleReference": {
-        "$id": "33",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "emissiveBorderCellEndParticleReference": {
-        "$id": "34",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "emissiveBorderSurfaceStartParticleReference": {
-        "$id": "35",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "emissiveBorderSurfaceParticleReference": {
-        "$id": "36",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "emissiveBorderSurfaceEndParticleReference": {
-        "$id": "37",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionStartParticleReference": {
-        "$id": "38",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionParticleReference": {
-        "$id": "39",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionEndParticleReference": {
-        "$id": "40",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
@@ -355,7 +315,6 @@
       },
       "applyEmissionColorOnWeapons": false,
       "emissionColor": {
-        "$id": "41",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.0,
         "g": 0.0,
@@ -366,7 +325,6 @@
       "emissionColorFadeOutDuration": 0.0
     },
     "effectAIParameters": {
-      "$id": "42",
       "$type": "EffectAIParameters, Assembly-CSharp",
       "aoeScoreMultiplier": 1.0,
       "cooldownForCaster": 0,
@@ -376,7 +334,6 @@
     "animationMagicEffect": "Animation0"
   },
   "aiParameters": {
-    "$id": "43",
     "$type": "SpellAIParameters, Assembly-CSharp",
     "learnPriority": "Low",
     "preparePriority": "Low"
@@ -392,20 +349,17 @@
   "displayConditionDuration": false,
   "vocalSpellSemeType": "None",
   "guiPresentation": {
-    "$id": "44",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Spell/&DHShapechangeSpellTitle",
     "description": "Spell/&DHShapechangeSpellDescription",
     "spriteReference": {
-      "$id": "45",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "957eec7a8104a44469ea221963733af8",
       "m_SubObjectName": "WildShape",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "46",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -25,13 +25,11 @@
   "savingThrowScores": [],
   "skillScores": [
     {
-      "$id": "1",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Perception",
       "bonus": 3
     },
     {
-      "$id": "2",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Stealth",
       "bonus": 4
@@ -44,29 +42,22 @@
   "legendaryActionOptions": [],
   "defaultBattleDecisionPackage": "Definition:WolfCombatDecisions:77a3ff0e3e333d644b7139f85f1eeb99",
   "threatEvaluatorDefinition": {
-    "$id": "3",
     "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
     "threatEvaluator": {
-      "$id": "4",
       "$type": "TA.AI.ThreatEvaluator, Assembly-CSharp",
       "hateResponse": {
-        "$id": "5",
         "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
       },
       "woundRatioResponse": {
-        "$id": "6",
         "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
       },
       "maxHPResponse": {
-        "$id": "7",
         "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
       },
       "attackersCountResponse": {
-        "$id": "8",
         "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
       },
       "meleeVsRangedResponse": {
-        "$id": "9",
         "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
       },
       "previousTargetRelatedMalus": 0.1
@@ -97,7 +88,6 @@
   ],
   "attackIterations": [
     {
-      "$id": "10",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_Starving_Wolf_Bite:74677558522b0dc48a480a4223ae4884"
@@ -119,7 +109,6 @@
   "bestiaryEntry": "None",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
-    "$id": "11",
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
     "y": 7.0,
@@ -127,14 +116,12 @@
   },
   "alwaysHideStats": false,
   "bestiarySpriteReference": {
-    "$id": "12",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "monsterPresentation": {
-    "$id": "13",
     "$type": "MonsterPresentation, Assembly-CSharp",
     "hasUniqueName": false,
     "uniqueNameTitle": "",
@@ -142,14 +129,12 @@
     "useCustomMaterials": false,
     "customMaterials": [],
     "customShaderReference": {
-      "$id": "14",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "mutantFleshDirection": {
-      "$id": "15",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -1.0,
@@ -157,7 +142,6 @@
     },
     "overrideCharacterShaderColors": false,
     "firstCharacterShaderColor": {
-      "$id": "16",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -165,7 +149,6 @@
       "a": 0.0
     },
     "secondCharacterShaderColor": {
-      "$id": "17",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -174,14 +157,12 @@
     },
     "hasPhantomDistortion": true,
     "attachedParticlesReference": {
-      "$id": "18",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "bestiaryAttachedParticlesReference": {
-      "$id": "19",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -190,7 +171,6 @@
     "hasPrefabVariants": false,
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
-      "$id": "20",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "6e02c9bcfb5122042a533e7732182b1d",
       "m_SubObjectName": "",
@@ -198,7 +178,6 @@
     },
     "maleModelScale": 0.655,
     "femalePrefabReference": {
-      "$id": "21",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "6e02c9bcfb5122042a533e7732182b1d",
       "m_SubObjectName": "",
@@ -213,21 +192,18 @@
     "needMerchantPortrait": false,
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {
-      "$id": "22",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -0.5,
       "z": -5.0
     },
     "portraitCameraLookAtScreenOffset": {
-      "$id": "23",
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
       "x": 0.5,
       "y": 0.4
     },
     "portraitCameraFOV": 40.0,
     "portraitCameraLightingOffset": {
-      "$id": "24",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": 0.0,
@@ -242,20 +218,17 @@
   "isUnique": false,
   "uniqueNameId": "",
   "guiPresentation": {
-    "$id": "25",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Monster/&TutoWolfTitle",
     "description": "Monster/&TutoWolfDescription",
     "spriteReference": {
-      "$id": "26",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "a03d8f80c77a02e43bd6124bdab3df76",
       "m_SubObjectName": "CustomPortrait_StarvingWolf",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "27",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

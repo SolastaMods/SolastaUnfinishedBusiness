@@ -13,20 +13,17 @@
     "Definition:MagicAffinityWarCasterFeat:5ce848d6-8b6c-5397-b26d-eec335220f2c"
   ],
   "guiPresentation": {
-    "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feat/&FeatWarCasterTitle",
     "description": "Feat/&FeatWarCasterDescription",
     "spriteReference": {
-      "$id": "2",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
     "color": {
-      "$id": "3",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

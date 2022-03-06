@@ -46,28 +46,24 @@
   "additionalConditionDurationParameter": 1,
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "c63aa2bcc5341fd499951f124a2c15c5",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionParticleReference": {
-    "$id": "2",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "d2fb5843a154ee44e873b13a1e09703d",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
-    "$id": "3",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "3fe318623e310d3439e47b9e7b3c7e7e",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "characterShaderReference": {
-    "$id": "4",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
@@ -75,24 +71,20 @@
   },
   "particlesBasedOnAncestryDamageType": true,
   "acidParticleParameters": {
-    "$id": "5",
     "$type": "ConditionParticleParameters, Assembly-CSharp",
     "startParticleReference": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "10c6c38d51f5c27439f54630079f451b",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "particleReference": {
-      "$id": "7",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "6f0d8804cb74e7c499e93a11886ebd62",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "endParticleReference": {
-      "$id": "8",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "4b433654191a4e740bcefa6ca56df45f",
       "m_SubObjectName": "",
@@ -100,24 +92,20 @@
     }
   },
   "coldParticleParameters": {
-    "$id": "9",
     "$type": "ConditionParticleParameters, Assembly-CSharp",
     "startParticleReference": {
-      "$id": "10",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "1bb4e00dff144c7439f30a6d79480da8",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "particleReference": {
-      "$id": "11",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "125b3c81f3e0b1f4da52ba4fee99a427",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "endParticleReference": {
-      "$id": "12",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "fdb02c0bf137fe44f9d9a70de0db4fa2",
       "m_SubObjectName": "",
@@ -125,24 +113,20 @@
     }
   },
   "fireParticleParameters": {
-    "$id": "13",
     "$type": "ConditionParticleParameters, Assembly-CSharp",
     "startParticleReference": {
-      "$id": "14",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "034de7f04700edd469a6d361bc868ee3",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "particleReference": {
-      "$id": "15",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "6aa01d66a462c2d4cbdc6d2f6eb2133b",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "endParticleReference": {
-      "$id": "16",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "72dfc2ccbf0bc664ebdc84441ca27c81",
       "m_SubObjectName": "",
@@ -150,24 +134,20 @@
     }
   },
   "lightningParticleParameters": {
-    "$id": "17",
     "$type": "ConditionParticleParameters, Assembly-CSharp",
     "startParticleReference": {
-      "$id": "18",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "b8348388530bd6044b29a04cbe400595",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "particleReference": {
-      "$id": "19",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "20cd6c62620cb404eb07ff760fdcd5d6",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "endParticleReference": {
-      "$id": "20",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "b2ca9731c8139654bae7beeb5015489f",
       "m_SubObjectName": "",
@@ -175,24 +155,20 @@
     }
   },
   "poisonParticleParameters": {
-    "$id": "21",
     "$type": "ConditionParticleParameters, Assembly-CSharp",
     "startParticleReference": {
-      "$id": "22",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "d726c8e4f6eab0540891000e82d99ead",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "particleReference": {
-      "$id": "23",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "8a2472bfcc81ce342899f8a7173955ff",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "endParticleReference": {
-      "$id": "24",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "8ed5256d225958444bac83fd24766130",
       "m_SubObjectName": "",
@@ -201,7 +177,6 @@
   },
   "overrideCharacterShaderColors": false,
   "firstCharacterShaderColor": {
-    "$id": "25",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.0,
     "g": 0.0,
@@ -209,7 +184,6 @@
     "a": 0.0
   },
   "secondCharacterShaderColor": {
-    "$id": "26",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.0,
     "g": 0.0,
@@ -237,10 +211,8 @@
   "followSourcePosition": false,
   "disolveCharacterOnDeath": false,
   "disolveParameters": {
-    "$id": "27",
     "$type": "GraphicsCharacterDefinitions+DisolveParameters, Assembly-CSharp",
     "color": {
-      "$id": "28",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -252,27 +224,23 @@
     "hueScale": 0.0,
     "vertexOffset": 0.0,
     "curve": {
-      "$id": "29",
       "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
     },
     "startAfterDeathAnimation": false,
     "duration": 0.0
   },
   "guiPresentation": {
-    "$id": "30",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Rules/&ConditionRagingTitle",
     "description": "Action/&RageStartDescription",
     "spriteReference": {
-      "$id": "31",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "6521f6beb9eb951438440fa9348b8dec",
       "m_SubObjectName": "RagePointSmall",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "32",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

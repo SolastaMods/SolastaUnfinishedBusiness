@@ -21,7 +21,6 @@
   "tabardDefinition": "",
   "showHelmet": true,
   "firstColor": {
-    "$id": "1",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.192417175,
     "g": 0.3680367,
@@ -29,7 +28,6 @@
     "a": 1.0
   },
   "secondColor": {
-    "$id": "2",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.6117647,
     "g": 0.62985903,
@@ -37,7 +35,6 @@
     "a": 1.0
   },
   "thirdColor": {
-    "$id": "3",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.6886792,
     "g": 0.325819016,
@@ -45,7 +42,6 @@
     "a": 1.0
   },
   "fourthColor": {
-    "$id": "4",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 1.0,
     "g": 0.913522,
@@ -56,20 +52,17 @@
   "itemDefinitionMainHand": null,
   "itemDefinitionOffHand": null,
   "guiPresentation": {
-    "$id": "5",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "NPC/&NPC_Marches_03_Title",
     "description": "NPC/&NPC_Marches_08_Description",
     "spriteReference": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "fa9f6b6fbf811a049a5190e384911019",
       "m_SubObjectName": "NPC_Presentation_DLC1_NPC_3_Marches_Rogue",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

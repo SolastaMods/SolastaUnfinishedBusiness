@@ -3,7 +3,6 @@
   "autopreparedTag": "FeyTeleport",
   "autoPreparedSpellsGroups": [
     {
-      "$id": "1",
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 0,
       "spellsList": [
@@ -14,20 +13,17 @@
   "spellcastingClass": "Definition:Cleric:ae0f550f733a7e04aa225da694b2827c",
   "affinityRace": null,
   "guiPresentation": {
-    "$id": "2",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feat/&PowerMistyStepFromFeatTitle",
     "description": "Feat/&PowerMistyStepFromFeatDescription",
     "spriteReference": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

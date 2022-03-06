@@ -2,7 +2,6 @@
   "$type": "GadgetBlueprint, Assembly-CSharp",
   "parameters": [
     {
-      "$id": "1",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Reveal_DC",
       "type": "DifficultyClass",
@@ -20,10 +19,8 @@
   ],
   "interactionNodes": [
     {
-      "$id": "2",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "3",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": -0.5,
         "y": -1.0
@@ -31,10 +28,8 @@
       "orientation": "North"
     },
     {
-      "$id": "4",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "5",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": 0.5,
         "y": 1.0
@@ -45,11 +40,9 @@
   "canBeActivated": true,
   "customizableDimensions": false,
   "minCustomizableDimensions": {
-    "$id": "6",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "maxCustomizableDimensions": {
-    "$id": "7",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "campaignOnly": false,
@@ -64,16 +57,13 @@
   "lightSources": [],
   "category": "Openings",
   "dimensions": {
-    "$id": "8",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "9",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "TownInterior",
       "prefabReference": {
-        "$id": "10",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "c509c5f32f95d624e8d1fd9fb184d444",
         "m_SubObjectName": "",
@@ -82,20 +72,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "11",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Gadget/&HiddenDoorTitle",
     "description": "Gadget/&HiddenDoorDescription",
     "spriteReference": {
-      "$id": "12",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "ec3e873e4d6637248ae17765856b67ba",
       "m_SubObjectName": "HiddenDoor",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "13",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

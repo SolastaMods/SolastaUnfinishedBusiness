@@ -9,25 +9,21 @@
   "baseWeight": 35,
   "featureUnlocks": [
     {
-      "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AttributeModifierHalflingIslandAbilityScoreIncrease:580823cc14dba644a9c966e8dd6c8228",
       "level": 1
     },
     {
-      "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
       "level": 1
     },
     {
-      "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetHalflingIslandLanguages:619ddc92dc3043142be08e25640a2396",
       "level": 1
     },
     {
-      "$id": "4",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AbilityCheckAffinityIslandHalflingAcrobatics:02e9c67e37288f040b19282529850014",
       "level": 1
@@ -40,7 +36,6 @@
   "audioSwitches": [],
   "audioRaceRTPCValue": 5.0,
   "racePresentation": {
-    "$id": "5",
     "$type": "RacePresentation, Assembly-CSharp",
     "bodyAssetPrefix": "",
     "morphotypeAssetPrefix": "",
@@ -63,40 +58,34 @@
     "maleVoiceDefinition": "NEUTRAL1",
     "femaleVoiceDefinition": "FEM2",
     "portraitShieldOffset": {
-      "$id": "6",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.02,
       "y": 0.0,
       "z": 0.0
     },
     "preferedSkinColors": {
-      "$id": "7",
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 1,
       "maxValue": 15
     },
     "preferedHairColors": {
-      "$id": "8",
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 0,
       "maxValue": 24
     }
   },
   "guiPresentation": {
-    "$id": "9",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Race/&HalflingIslandTitle",
     "description": "Race/&HalflingIslandDescription",
     "spriteReference": {
-      "$id": "10",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "12c20f39d1b9b7a46954c61b0d16412f",
       "m_SubObjectName": "IslandHalfling",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "11",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

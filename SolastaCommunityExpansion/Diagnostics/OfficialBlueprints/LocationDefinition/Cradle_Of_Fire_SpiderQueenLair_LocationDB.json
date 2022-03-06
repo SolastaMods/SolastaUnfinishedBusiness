@@ -6,20 +6,16 @@
   "registeredVariables": [],
   "sceneFilePath": "",
   "sceneReference": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "99fd38478a577394d8bd239d0c9c632b",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "audioState": {
-    "$id": "2",
     "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": {
-      "$id": "3",
       "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseStateGroupReference": {
-        "$id": "4",
         "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
         "objectName": "State_LocationName",
         "id": 598649695,
@@ -43,11 +39,9 @@
     }
   },
   "renderSettingsSceneProfile": {
-    "$id": "5",
     "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
     "useSkybox": false,
     "backgroundColor": {
-      "$id": "6",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -56,7 +50,6 @@
     },
     "skyboxMaterial": null,
     "ambientLight": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -65,7 +58,6 @@
     },
     "fog": false,
     "fogColor": {
-      "$id": "8",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,
@@ -76,7 +68,6 @@
     "fogDensity": 0.0638,
     "excludeSkybox": false,
     "auraBaseSettings": {
-      "$id": "9",
       "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
       "useDensity": true,
       "density": 0.0,
@@ -86,7 +77,6 @@
       "ambientLightingStrength": 1.0,
       "useColor": true,
       "color": {
-        "$id": "10",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.5,
         "g": 0.09793555,
@@ -96,7 +86,6 @@
       "colorStrength": 1.0,
       "useTint": false,
       "tint": {
-        "$id": "11",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 1.0,
         "g": 0.921568632,
@@ -114,10 +103,8 @@
     "userDungeonAuraVolumeNoise": false,
     "userDungeonAuraVolumeNoiseScale": 3.0,
     "dayCycleProfile": {
-      "$id": "12",
       "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
       "noonColor": {
-        "$id": "13",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.7912806,
         "g": 0.8773585,
@@ -125,7 +112,6 @@
         "a": 1.0
       },
       "sunriseColor": {
-        "$id": "14",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.7912806,
         "g": 0.8773585,
@@ -133,7 +119,6 @@
         "a": 1.0
       },
       "sunsetColor": {
-        "$id": "15",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.7912806,
         "g": 0.8773585,
@@ -144,7 +129,6 @@
       "sunDirection": -90.0,
       "sunTilt": 0.01,
       "moonLightColor": {
-        "$id": "16",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.8490566,
         "g": 0.8490566,
@@ -158,7 +142,6 @@
       "moonBaseAngle": 0.0,
       "globalMoonIntensity": 0.63,
       "ambientSunriseColor": {
-        "$id": "17",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.9764151,
         "g": 0.987365246,
@@ -166,7 +149,6 @@
         "a": 1.0
       },
       "ambientNoonColor": {
-        "$id": "18",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.8490566,
         "g": 0.8490566,
@@ -174,7 +156,6 @@
         "a": 1.0
       },
       "ambientSunsetColor": {
-        "$id": "19",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.8490566,
         "g": 0.8490566,
@@ -182,7 +163,6 @@
         "a": 1.0
       },
       "ambientNightColor": {
-        "$id": "20",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.8490566,
         "g": 0.8490566,
@@ -197,7 +177,6 @@
     "name": "CradleOfFire_SpiderQueenLair_RenderSettings"
   },
   "locationPresentation": {
-    "$id": "21",
     "$type": "LocationPresentation, Assembly-CSharp",
     "unchartedTitle": "Map/&Location_CradleOfFire_UnchartedTitle",
     "unchartedDescription": "Map/&Location_CradleOfFire_UnchartedDescription",
@@ -216,20 +195,17 @@
   "hasPriorityForTeleporter": false,
   "canAttackNonHostileCharacters": false,
   "guiPresentation": {
-    "$id": "22",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Location/&CradleOfFire_Scene_Title",
     "description": "Location/&CradleOfFire_Scene_Description",
     "spriteReference": {
-      "$id": "23",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "87b17c18ad056c44a86f4312aa3f2ff6",
       "m_SubObjectName": "CradleOfFire",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "24",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

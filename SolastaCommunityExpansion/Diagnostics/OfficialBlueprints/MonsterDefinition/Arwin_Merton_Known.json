@@ -24,13 +24,11 @@
   ],
   "savingThrowScores": [
     {
-      "$id": "1",
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Strength",
       "bonus": 8
     },
     {
-      "$id": "2",
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Dexterity",
       "bonus": 8
@@ -38,31 +36,26 @@
   ],
   "skillScores": [
     {
-      "$id": "3",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Athletics",
       "bonus": 2
     },
     {
-      "$id": "4",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Stealth",
       "bonus": 2
     },
     {
-      "$id": "5",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "AnimalHandling",
       "bonus": 2
     },
     {
-      "$id": "6",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Perception",
       "bonus": 2
     },
     {
-      "$id": "7",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Survival",
       "bonus": 2
@@ -83,13 +76,10 @@
   ],
   "audioSwitches": [
     {
-      "$id": "8",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": {
-        "$id": "9",
         "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
         "WwiseSwitchGroupReference": {
-          "$id": "10",
           "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
           "objectName": "Switch_VoiceBarks",
           "id": 2399735075,
@@ -141,7 +131,6 @@
   "bestiaryEntry": "None",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
-    "$id": "11",
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
     "y": 7.0,
@@ -149,14 +138,12 @@
   },
   "alwaysHideStats": false,
   "bestiarySpriteReference": {
-    "$id": "12",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "monsterPresentation": {
-    "$id": "13",
     "$type": "MonsterPresentation, Assembly-CSharp",
     "hasUniqueName": false,
     "uniqueNameTitle": "",
@@ -166,14 +153,12 @@
     "useCustomMaterials": false,
     "customMaterials": [],
     "customShaderReference": {
-      "$id": "14",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "mutantFleshDirection": {
-      "$id": "15",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -1.0,
@@ -181,7 +166,6 @@
     },
     "overrideCharacterShaderColors": false,
     "firstCharacterShaderColor": {
-      "$id": "16",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -189,7 +173,6 @@
       "a": 0.0
     },
     "secondCharacterShaderColor": {
-      "$id": "17",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -198,14 +181,12 @@
     },
     "hasPhantomDistortion": true,
     "attachedParticlesReference": {
-      "$id": "18",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "bestiaryAttachedParticlesReference": {
-      "$id": "19",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -214,7 +195,6 @@
     "hasPrefabVariants": false,
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
-      "$id": "20",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "c543fa8b022333745afefe1e9d5b58e6",
       "m_SubObjectName": "",
@@ -222,7 +202,6 @@
     },
     "maleModelScale": 0.5891955,
     "femalePrefabReference": {
-      "$id": "21",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "c543fa8b022333745afefe1e9d5b58e6",
       "m_SubObjectName": "",
@@ -237,21 +216,18 @@
     "needMerchantPortrait": false,
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {
-      "$id": "22",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -0.5,
       "z": -5.0
     },
     "portraitCameraLookAtScreenOffset": {
-      "$id": "23",
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
       "x": 0.5,
       "y": 0.4
     },
     "portraitCameraFOV": 40.0,
     "portraitCameraLightingOffset": {
-      "$id": "24",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": 0.0,
@@ -266,20 +242,17 @@
   "isUnique": false,
   "uniqueNameId": "",
   "guiPresentation": {
-    "$id": "25",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "NPC/&NPC_ArwinMertonTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "26",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "27",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

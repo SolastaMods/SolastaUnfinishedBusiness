@@ -11,7 +11,6 @@
   "identifyCostGp": 50,
   "stockUnitDescriptions": [
     {
-      "$id": "1",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:100_GP_Pearl:c3663c5d326ae1747aa410838f075c83",
@@ -26,7 +25,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "2",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed Dagger:6b3401851b033f74088e7977f516d55b",
@@ -41,7 +39,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "3",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed Greatsword:95fd3320cac9907409e3b52ac4b2e0c7",
@@ -56,7 +53,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "4",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed Greataxe:533cb019e7b95e04eb6612feb99d9fb0",
@@ -71,7 +67,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "5",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed Mace:ec264d1ff88a6454bb25187ee2e77a54",
@@ -86,7 +81,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "6",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed Battleaxe:f97fdb4e5c2b1f043bc1f465e8a0b4a0",
@@ -101,7 +95,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "7",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed Longbow:839150e1152e05b419f3af108aa9fcd7",
@@ -116,7 +109,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "8",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed Rapier:94ee848dc03df8f48a7e2dbe41bc419e",
@@ -131,7 +123,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "9",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed Shortbow:f1cfe01f030799e43b4c096dc16635d8",
@@ -146,7 +137,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "10",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed Shortsword:1ebe57945830a054d81b17695baff2e6",
@@ -161,7 +151,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "11",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed_Longsword:fedb8a0303ddee5418483cd9eaa8fb3f",
@@ -176,7 +165,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "12",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed Scimitar:f905b0c4355525d44a49c9af95b3ba76",
@@ -191,7 +179,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "13",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed Morningstar:023e71e4f8fb4284da68a6fd6d011bcc",
@@ -206,7 +193,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "14",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed Leather Armor:1c84d3c251d7ff04e901b0450dabaab8",
@@ -221,7 +207,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "15",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed Breastplate:1f94fb24c81d1c5449ef6aedeacbea84",
@@ -236,7 +221,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "16",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed ScaleMail:0e6f613ab318293469a43b8310e5021a",
@@ -251,7 +235,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "17",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed ChainMail:520c9799bbf64c04ab98408d8e14ff32",
@@ -266,7 +249,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "18",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed HalfPlate:d118f62359ad9fe45a127151a35a9a0f",
@@ -281,7 +263,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "19",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed Plate:52acc8997c4a38f438d2b87af0ec6872",
@@ -296,7 +277,6 @@
       "factionStatus": "LivingLegend"
     },
     {
-      "$id": "20",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollBane:12caf2714e571e2429b429340f3db433",
@@ -311,7 +291,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "21",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollBless:e53758827b2062f4d9a298d74256d7ab",
@@ -326,7 +305,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "22",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollCharmPerson:604ad4231c86c9c4e9dc5775d9f58815",
@@ -341,7 +319,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "23",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollCommand:29866102003676e438b34d4db2d787cc",
@@ -356,7 +333,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "24",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollComprehendLanguages:0554b2cd7e104534c891bf46126c9b3b",
@@ -371,7 +347,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "25",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollCureWounds:c11582501e7be5c4aae745008bf0b4e8",
@@ -386,7 +361,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "26",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollDetectEvilandGood:1ddf82044d7121c48b775cbbc7a7b116",
@@ -401,7 +375,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "27",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollDetectMagic:310603be831f9f54ab7e4ece1dcf2ea7",
@@ -416,7 +389,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "28",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollDetectPoisonAndDisease:222ea3efc185fc441a6c69af53a8b207",
@@ -431,7 +403,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "29",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollExpeditiousRetreat:71bff2e464044c844803e7f865ac8ca7",
@@ -446,7 +417,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "30",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollFaerieFire:0b3c20e4cc222454583cad2267415099",
@@ -461,7 +431,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "31",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollFeatherFall:a314624d43dc7cf4882098d7e7334597",
@@ -476,7 +445,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "32",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollFogCloud:bf14134eeccc22246bef874ec7771e00",
@@ -491,7 +459,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "33",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollGrease:e796f6bb2dfce474e870211bf2bc2e6d",
@@ -506,7 +473,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "34",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollHideousLaughter:512dcbb67c4a4e6429e03a7e47b5d2fc",
@@ -521,7 +487,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "35",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollIdentify:0d401a88655da224193b17adeae3cd0a",
@@ -536,7 +501,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "36",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollJump:aa5fd0a402884c9409a2aa4a22e29d25",
@@ -551,7 +515,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "37",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollMageArmor:8f66ccb0c86021240a05b9bec3722dd5",
@@ -566,7 +529,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "38",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollProtectionFromEvilandGood:ad398ab03eb39054781ef037d5c37a45",
@@ -581,7 +543,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "39",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollShieldOfFaith:52faa9db26b072a4798615134e146286",
@@ -596,7 +557,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "40",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollSleep:a452b6b70e570864a81253674739d2b5",
@@ -611,7 +571,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "41",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollBarkskin:ec270d0dfe3b62643a165735479b9cc4",
@@ -626,7 +585,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "42",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollBlur:42dce9d9c3789a54f964774d803a6630",
@@ -641,7 +599,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "43",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollDarkness:a0d6d7e9f77a1f140bf132324946f28a",
@@ -656,7 +613,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "44",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollDarkvision:b075fac0bb75aa94e996fcd5868b370a",
@@ -671,7 +627,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "45",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollFindTraps:ef7c5d0766d90d84c9136dfc4c290f3b",
@@ -686,7 +641,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "46",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollFlameblade:d33d113d83dbf474a8caf4af62d7465b",
@@ -701,7 +655,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "47",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollFlamingSphere:358e4cf3fbaeb7747868a679f8b2433b",
@@ -716,7 +669,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "48",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollInvisibility:c4dd442dba7d9cd4fa9f781cb1093e25",
@@ -731,7 +683,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "49",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollKnock:b1bd7cd1d7f3f5d45984586c794b7559",
@@ -746,7 +697,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "50",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollLesserRestoration:6303af2ee40a6c74ca25c490f9e2cacf",
@@ -761,7 +711,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "51",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollLevitate:9447a3c555b918942991a81e74cad739",
@@ -776,7 +725,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "52",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollMistyStep:86a30551d7f5c63409559cc772ac75f5",
@@ -791,7 +739,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "53",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollPassWithoutTrace:db1b29390db8649459190075e7df9bca",
@@ -806,7 +753,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "54",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollSeeInvisibility:c603a2b3647b85945b63710db4c01db4",
@@ -821,7 +767,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "55",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollSilence:66d35d473aabd4e42a9042afaa01d20a",
@@ -836,7 +781,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "56",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollSpiderClimb:519a7222fc1c8b045bfdf7a147576c04",
@@ -851,7 +795,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "57",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollWardingBond:0de5c22d64e8aa64d999804498095508",
@@ -866,7 +809,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "58",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollCounterspell:dc527f2042df22a4e95caa97af02175d",
@@ -881,7 +823,6 @@
       "factionStatus": "LivingLegend"
     },
     {
-      "$id": "59",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollDaylight:46d51e89751fc0f4f9b6c49fe33c6c2b",
@@ -896,7 +837,6 @@
       "factionStatus": "LivingLegend"
     },
     {
-      "$id": "60",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollDispelMagic:b4c6f0dea717fd84789f154f772cc540",
@@ -911,7 +851,6 @@
       "factionStatus": "LivingLegend"
     },
     {
-      "$id": "61",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollFly:ee195999a17fbeb499cc04a1b3218b53",
@@ -926,7 +865,6 @@
       "factionStatus": "LivingLegend"
     },
     {
-      "$id": "62",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollHaste:86282f21c767a9743be81fe51d2f72ba",
@@ -941,7 +879,6 @@
       "factionStatus": "LivingLegend"
     },
     {
-      "$id": "63",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollHypnoticPattern:408f96d7bdab7bd4a9e06705011d05c6",
@@ -956,7 +893,6 @@
       "factionStatus": "LivingLegend"
     },
     {
-      "$id": "64",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollProtectionFromEnergy:acb4366f1672908499a1d6051c32963a",
@@ -971,7 +907,6 @@
       "factionStatus": "LivingLegend"
     },
     {
-      "$id": "65",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollTongues:dba183b613100194f9b308eea722771b",
@@ -986,7 +921,6 @@
       "factionStatus": "LivingLegend"
     },
     {
-      "$id": "66",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollBanishment:a3fa37d897097e3499d04b3522d8b9af",
@@ -1001,7 +935,6 @@
       "factionStatus": "LivingLegend"
     },
     {
-      "$id": "67",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollConjureMinorElementals:524614b193969d841a7cc8d577a26caa",
@@ -1016,7 +949,6 @@
       "factionStatus": "LivingLegend"
     },
     {
-      "$id": "68",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollGreaterInvisibility:229b37743e866bb49a35ddc68958768f",
@@ -1031,7 +963,6 @@
       "factionStatus": "LivingLegend"
     },
     {
-      "$id": "69",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollStoneskin:afa37f31ba1f43a48adc14c13978006a",
@@ -1046,7 +977,6 @@
       "factionStatus": "LivingLegend"
     },
     {
-      "$id": "70",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollConjureElemental:0642940473c4baa4bb38f268f2c2e956",
@@ -1061,7 +991,6 @@
       "factionStatus": "LivingLegend"
     },
     {
-      "$id": "71",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollDispelEvilAndGood:068a1117e91fcc748b2bc6d898978b03",
@@ -1076,7 +1005,6 @@
       "factionStatus": "LivingLegend"
     },
     {
-      "$id": "72",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollDispelEvilAndGood:068a1117e91fcc748b2bc6d898978b03",
@@ -1091,7 +1019,6 @@
       "factionStatus": "LivingLegend"
     },
     {
-      "$id": "73",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed ChainShirt:b0fb4b95b6cb56b4688f4e1f9aac72f9",
@@ -1107,20 +1034,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "74",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Merchant/&CaerCyflen_Heddlon_Surespell_Store_ArcaneumTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "75",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "21f052bd77c0b3d4a9fb5631757b38cc",
       "m_SubObjectName": "Heddlon_Surespell_MerchantPhoto",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "76",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -11,16 +11,13 @@
   "lightSources": [],
   "category": "Ornaments",
   "dimensions": {
-    "$id": "1",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "2",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "TownInterior",
       "prefabReference": {
-        "$id": "3",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "73e14fa975170f24c8a4446d861efba2",
         "m_SubObjectName": "",
@@ -28,11 +25,9 @@
       }
     },
     {
-      "$id": "4",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Town",
       "prefabReference": {
-        "$id": "5",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "a4310fce59c44524fafcb1bb87ef031f",
         "m_SubObjectName": "",
@@ -41,20 +36,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "6",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Prop/&PennantTitle",
     "description": "",
     "spriteReference": {
-      "$id": "7",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f6178a30c7fcb844492a50e6efc75b07",
       "m_SubObjectName": "FireBasin",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "8",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

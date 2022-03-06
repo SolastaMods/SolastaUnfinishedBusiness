@@ -2,7 +2,6 @@
   "$type": "GadgetBlueprint, Assembly-CSharp",
   "parameters": [
     {
-      "$id": "1",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Speech",
       "type": "Speech",
@@ -18,7 +17,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "2",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "LoreFormat",
       "type": "LoreFormat",
@@ -34,7 +32,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "3",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Param_DisplayOnce",
       "type": "GenericBool",
@@ -50,7 +47,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "4",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "ExecutionScope",
       "type": "ExecutionScope",
@@ -66,7 +62,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "5",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "CustomDuration",
       "type": "CustomDuration",
@@ -82,7 +77,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "6",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "LoreDurationSeconds",
       "type": "LoreDurationSeconds",
@@ -102,11 +96,9 @@
   "canBeActivated": true,
   "customizableDimensions": false,
   "minCustomizableDimensions": {
-    "$id": "7",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "maxCustomizableDimensions": {
-    "$id": "8",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "campaignOnly": false,
@@ -121,16 +113,13 @@
   "lightSources": [],
   "category": "Lore",
   "dimensions": {
-    "$id": "9",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "10",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "",
       "prefabReference": {
-        "$id": "11",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "b2f9da9914abf2b4a9a91d0836806c58",
         "m_SubObjectName": "",
@@ -139,20 +128,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "12",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Gadget/&LoreActivatedTitle",
     "description": "Gadget/&LoreActivatedDescription",
     "spriteReference": {
-      "$id": "13",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "069b1e6f6e87bce45917e87fb808d4df",
       "m_SubObjectName": "LoreOperation",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "14",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

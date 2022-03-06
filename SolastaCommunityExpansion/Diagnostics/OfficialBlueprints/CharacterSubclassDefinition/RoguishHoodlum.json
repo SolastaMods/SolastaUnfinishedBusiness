@@ -2,25 +2,21 @@
   "$type": "CharacterSubclassDefinition, Assembly-CSharp",
   "featureUnlocks": [
     {
-      "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyRoguishHoodlumMeanMug:a5cfe2ceb4d88d145b415552a04fb6ba",
       "level": 3
     },
     {
-      "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetRoguishHoodlumTheRightTools:73765278e9574854e9c60b85c94e22f8",
       "level": 3
     },
     {
-      "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AdditionalDamageRoguishHoodlumNonFinesseSneakAttack:5535efe6afb0e14468c2820183e9e94d",
       "level": 3
     },
     {
-      "$id": "4",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerRoguishHoodlumMenacing:d7b456e884cef5049b38d0bf7aa20603",
       "level": 9
@@ -29,20 +25,17 @@
   "personalityFlagOccurences": [],
   "morphotypeSubclassFilterTag": "Default",
   "guiPresentation": {
-    "$id": "5",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Subclass/&RoguishHoodlumTitle",
     "description": "Subclass/&RoguishHoodlumDescription",
     "spriteReference": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "97c9b8bb3c37bc94b91a5e4d84208e24",
       "m_SubObjectName": "Rogue_Hoodlum",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

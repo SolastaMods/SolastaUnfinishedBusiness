@@ -1,11 +1,9 @@
 {
   "$type": "VisualMoodDefinition, Assembly-CSharp",
   "renderSettingsSceneProfile": {
-    "$id": "1",
     "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
     "useSkybox": false,
     "backgroundColor": {
-      "$id": "2",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -14,7 +12,6 @@
     },
     "skyboxMaterial": null,
     "ambientLight": {
-      "$id": "3",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.420915,
       "g": 0.7,
@@ -23,7 +20,6 @@
     },
     "fog": true,
     "fogColor": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.5675294,
       "g": 0.54388237,
@@ -34,7 +30,6 @@
     "fogDensity": 0.005,
     "excludeSkybox": true,
     "auraBaseSettings": {
-      "$id": "5",
       "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
       "useDensity": true,
       "density": 0.0,
@@ -44,7 +39,6 @@
       "ambientLightingStrength": 1.0,
       "useColor": false,
       "color": {
-        "$id": "6",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.4999995,
         "g": 0.5,
@@ -54,7 +48,6 @@
       "colorStrength": 1.0,
       "useTint": true,
       "tint": {
-        "$id": "7",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.999999,
         "g": 0.9089167,
@@ -72,10 +65,8 @@
     "userDungeonAuraVolumeNoise": true,
     "userDungeonAuraVolumeNoiseScale": 3.0,
     "dayCycleProfile": {
-      "$id": "8",
       "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
       "noonColor": {
-        "$id": "9",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.659131348,
         "g": 0.821526,
@@ -83,7 +74,6 @@
         "a": 1.0
       },
       "sunriseColor": {
-        "$id": "10",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.659131348,
         "g": 0.821526,
@@ -91,7 +81,6 @@
         "a": 1.0
       },
       "sunsetColor": {
-        "$id": "11",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.659131348,
         "g": 0.821526,
@@ -102,7 +91,6 @@
       "sunDirection": -90.0,
       "sunTilt": 0.01,
       "moonLightColor": {
-        "$id": "12",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.2956123,
         "g": 0.492145777,
@@ -116,7 +104,6 @@
       "moonBaseAngle": 0.0,
       "globalMoonIntensity": 0.63,
       "ambientSunriseColor": {
-        "$id": "13",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.7527145,
         "g": 0.775544465,
@@ -124,7 +111,6 @@
         "a": 1.0
       },
       "ambientNoonColor": {
-        "$id": "14",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.58873266,
         "g": 0.6269432,
@@ -132,7 +118,6 @@
         "a": 1.0
       },
       "ambientSunsetColor": {
-        "$id": "15",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.6574849,
         "g": 0.6788657,
@@ -140,7 +125,6 @@
         "a": 1.0
       },
       "ambientNightColor": {
-        "$id": "16",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.379004985,
         "g": 0.393594563,
@@ -155,97 +139,80 @@
     "name": "Gloomy_RenderSettings"
   },
   "globalPostProcessProfile": {
-    "$id": "17",
     "$type": "UnityEngine.Rendering.PostProcessing.PostProcessProfile, Unity.Postprocessing.Runtime",
     "settings": [
       {
-        "$id": "18",
         "$type": "UnityEngine.Rendering.PostProcessing.ColorGrading, Unity.Postprocessing.Runtime",
         "gradingMode": {
-          "$id": "19",
           "$type": "UnityEngine.Rendering.PostProcessing.GradingModeParameter, Unity.Postprocessing.Runtime",
           "value": "HighDefinitionRange",
           "overrideState": true
         },
         "externalLut": {
-          "$id": "20",
           "$type": "UnityEngine.Rendering.PostProcessing.TextureParameter, Unity.Postprocessing.Runtime",
           "defaultState": "Black",
           "value": null,
           "overrideState": false
         },
         "tonemapper": {
-          "$id": "21",
           "$type": "UnityEngine.Rendering.PostProcessing.TonemapperParameter, Unity.Postprocessing.Runtime",
           "value": "None",
           "overrideState": false
         },
         "toneCurveToeStrength": {
-          "$id": "22",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 0.0,
           "overrideState": false
         },
         "toneCurveToeLength": {
-          "$id": "23",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 0.5,
           "overrideState": false
         },
         "toneCurveShoulderStrength": {
-          "$id": "24",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 0.0,
           "overrideState": false
         },
         "toneCurveShoulderLength": {
-          "$id": "25",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 0.5,
           "overrideState": false
         },
         "toneCurveShoulderAngle": {
-          "$id": "26",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 0.0,
           "overrideState": false
         },
         "toneCurveGamma": {
-          "$id": "27",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 1.0,
           "overrideState": false
         },
         "ldrLut": {
-          "$id": "28",
           "$type": "UnityEngine.Rendering.PostProcessing.TextureParameter, Unity.Postprocessing.Runtime",
           "defaultState": "Lut2D",
           "value": null,
           "overrideState": false
         },
         "ldrLutContribution": {
-          "$id": "29",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 1.0,
           "overrideState": false
         },
         "temperature": {
-          "$id": "30",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 0.0,
           "overrideState": false
         },
         "tint": {
-          "$id": "31",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 0.0,
           "overrideState": false
         },
         "colorFilter": {
-          "$id": "32",
           "$type": "UnityEngine.Rendering.PostProcessing.ColorParameter, Unity.Postprocessing.Runtime",
           "value": {
-            "$id": "33",
             "$type": "UnityEngine.Color, UnityEngine.CoreModule",
             "r": 1.0,
             "g": 1.0,
@@ -255,94 +222,78 @@
           "overrideState": false
         },
         "hueShift": {
-          "$id": "34",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 0.0,
           "overrideState": false
         },
         "saturation": {
-          "$id": "35",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 10.0,
           "overrideState": true
         },
         "brightness": {
-          "$id": "36",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 0.0,
           "overrideState": false
         },
         "postExposure": {
-          "$id": "37",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 0.0,
           "overrideState": false
         },
         "contrast": {
-          "$id": "38",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 0.0,
           "overrideState": false
         },
         "mixerRedOutRedIn": {
-          "$id": "39",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 100.0,
           "overrideState": false
         },
         "mixerRedOutGreenIn": {
-          "$id": "40",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 0.0,
           "overrideState": false
         },
         "mixerRedOutBlueIn": {
-          "$id": "41",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 0.0,
           "overrideState": false
         },
         "mixerGreenOutRedIn": {
-          "$id": "42",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 0.0,
           "overrideState": false
         },
         "mixerGreenOutGreenIn": {
-          "$id": "43",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 100.0,
           "overrideState": false
         },
         "mixerGreenOutBlueIn": {
-          "$id": "44",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 0.0,
           "overrideState": false
         },
         "mixerBlueOutRedIn": {
-          "$id": "45",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 0.0,
           "overrideState": false
         },
         "mixerBlueOutGreenIn": {
-          "$id": "46",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 0.0,
           "overrideState": false
         },
         "mixerBlueOutBlueIn": {
-          "$id": "47",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 100.0,
           "overrideState": false
         },
         "lift": {
-          "$id": "48",
           "$type": "UnityEngine.Rendering.PostProcessing.Vector4Parameter, Unity.Postprocessing.Runtime",
           "value": {
-            "$id": "49",
             "$type": "UnityEngine.Vector4, UnityEngine.CoreModule",
             "x": 1.0,
             "y": 0.8455494,
@@ -352,10 +303,8 @@
           "overrideState": true
         },
         "gamma": {
-          "$id": "50",
           "$type": "UnityEngine.Rendering.PostProcessing.Vector4Parameter, Unity.Postprocessing.Runtime",
           "value": {
-            "$id": "51",
             "$type": "UnityEngine.Vector4, UnityEngine.CoreModule",
             "x": 0.7474468,
             "y": 0.8389781,
@@ -365,10 +314,8 @@
           "overrideState": true
         },
         "gain": {
-          "$id": "52",
           "$type": "UnityEngine.Rendering.PostProcessing.Vector4Parameter, Unity.Postprocessing.Runtime",
           "value": {
-            "$id": "53",
             "$type": "UnityEngine.Vector4, UnityEngine.CoreModule",
             "x": 1.0,
             "y": 0.885012269,
@@ -378,16 +325,13 @@
           "overrideState": true
         },
         "masterCurve": {
-          "$id": "54",
           "$type": "UnityEngine.Rendering.PostProcessing.SplineParameter, Unity.Postprocessing.Runtime",
           "value": {
-            "$id": "55",
             "$type": "UnityEngine.Rendering.PostProcessing.Spline, Unity.Postprocessing.Runtime",
             "m_Loop": false,
             "m_ZeroValue": 0.0,
             "m_Range": 1.0,
             "curve": {
-              "$id": "56",
               "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
             },
             "cachedData": [
@@ -524,16 +468,13 @@
           "overrideState": false
         },
         "redCurve": {
-          "$id": "57",
           "$type": "UnityEngine.Rendering.PostProcessing.SplineParameter, Unity.Postprocessing.Runtime",
           "value": {
-            "$id": "58",
             "$type": "UnityEngine.Rendering.PostProcessing.Spline, Unity.Postprocessing.Runtime",
             "m_Loop": false,
             "m_ZeroValue": 0.0,
             "m_Range": 1.0,
             "curve": {
-              "$id": "59",
               "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
             },
             "cachedData": [
@@ -670,16 +611,13 @@
           "overrideState": false
         },
         "greenCurve": {
-          "$id": "60",
           "$type": "UnityEngine.Rendering.PostProcessing.SplineParameter, Unity.Postprocessing.Runtime",
           "value": {
-            "$id": "61",
             "$type": "UnityEngine.Rendering.PostProcessing.Spline, Unity.Postprocessing.Runtime",
             "m_Loop": false,
             "m_ZeroValue": 0.0,
             "m_Range": 1.0,
             "curve": {
-              "$id": "62",
               "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
             },
             "cachedData": [
@@ -816,16 +754,13 @@
           "overrideState": false
         },
         "blueCurve": {
-          "$id": "63",
           "$type": "UnityEngine.Rendering.PostProcessing.SplineParameter, Unity.Postprocessing.Runtime",
           "value": {
-            "$id": "64",
             "$type": "UnityEngine.Rendering.PostProcessing.Spline, Unity.Postprocessing.Runtime",
             "m_Loop": false,
             "m_ZeroValue": 0.0,
             "m_Range": 1.0,
             "curve": {
-              "$id": "65",
               "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
             },
             "cachedData": [
@@ -962,16 +897,13 @@
           "overrideState": false
         },
         "hueVsHueCurve": {
-          "$id": "66",
           "$type": "UnityEngine.Rendering.PostProcessing.SplineParameter, Unity.Postprocessing.Runtime",
           "value": {
-            "$id": "67",
             "$type": "UnityEngine.Rendering.PostProcessing.Spline, Unity.Postprocessing.Runtime",
             "m_Loop": true,
             "m_ZeroValue": 0.5,
             "m_Range": 1.0,
             "curve": {
-              "$id": "68",
               "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
             },
             "cachedData": [
@@ -1108,16 +1040,13 @@
           "overrideState": false
         },
         "hueVsSatCurve": {
-          "$id": "69",
           "$type": "UnityEngine.Rendering.PostProcessing.SplineParameter, Unity.Postprocessing.Runtime",
           "value": {
-            "$id": "70",
             "$type": "UnityEngine.Rendering.PostProcessing.Spline, Unity.Postprocessing.Runtime",
             "m_Loop": true,
             "m_ZeroValue": 0.5,
             "m_Range": 1.0,
             "curve": {
-              "$id": "71",
               "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
             },
             "cachedData": [
@@ -1254,16 +1183,13 @@
           "overrideState": false
         },
         "satVsSatCurve": {
-          "$id": "72",
           "$type": "UnityEngine.Rendering.PostProcessing.SplineParameter, Unity.Postprocessing.Runtime",
           "value": {
-            "$id": "73",
             "$type": "UnityEngine.Rendering.PostProcessing.Spline, Unity.Postprocessing.Runtime",
             "m_Loop": false,
             "m_ZeroValue": 0.5,
             "m_Range": 1.0,
             "curve": {
-              "$id": "74",
               "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
             },
             "cachedData": [
@@ -1400,16 +1326,13 @@
           "overrideState": false
         },
         "lumVsSatCurve": {
-          "$id": "75",
           "$type": "UnityEngine.Rendering.PostProcessing.SplineParameter, Unity.Postprocessing.Runtime",
           "value": {
-            "$id": "76",
             "$type": "UnityEngine.Rendering.PostProcessing.Spline, Unity.Postprocessing.Runtime",
             "m_Loop": false,
             "m_ZeroValue": 0.5,
             "m_Range": 1.0,
             "curve": {
-              "$id": "77",
               "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
             },
             "cachedData": [
@@ -1547,7 +1470,6 @@
         },
         "active": true,
         "enabled": {
-          "$id": "78",
           "$type": "UnityEngine.Rendering.PostProcessing.BoolParameter, Unity.Postprocessing.Runtime",
           "value": true,
           "overrideState": true
@@ -1555,49 +1477,40 @@
         "name": "ColorGrading"
       },
       {
-        "$id": "79",
         "$type": "UnityEngine.Rendering.PostProcessing.Bloom, Unity.Postprocessing.Runtime",
         "intensity": {
-          "$id": "80",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 2.0,
           "overrideState": true
         },
         "threshold": {
-          "$id": "81",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 0.5,
           "overrideState": false
         },
         "softKnee": {
-          "$id": "82",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 0.5,
           "overrideState": false
         },
         "clamp": {
-          "$id": "83",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 65472.0,
           "overrideState": false
         },
         "diffusion": {
-          "$id": "84",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 7.0,
           "overrideState": false
         },
         "anamorphicRatio": {
-          "$id": "85",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 0.0,
           "overrideState": false
         },
         "color": {
-          "$id": "86",
           "$type": "UnityEngine.Rendering.PostProcessing.ColorParameter, Unity.Postprocessing.Runtime",
           "value": {
-            "$id": "87",
             "$type": "UnityEngine.Color, UnityEngine.CoreModule",
             "r": 1.0,
             "g": 0.843137264,
@@ -1607,27 +1520,23 @@
           "overrideState": true
         },
         "fastMode": {
-          "$id": "88",
           "$type": "UnityEngine.Rendering.PostProcessing.BoolParameter, Unity.Postprocessing.Runtime",
           "value": false,
           "overrideState": false
         },
         "dirtTexture": {
-          "$id": "89",
           "$type": "UnityEngine.Rendering.PostProcessing.TextureParameter, Unity.Postprocessing.Runtime",
           "defaultState": "Black",
           "value": null,
           "overrideState": false
         },
         "dirtIntensity": {
-          "$id": "90",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 0.0,
           "overrideState": false
         },
         "active": true,
         "enabled": {
-          "$id": "91",
           "$type": "UnityEngine.Rendering.PostProcessing.BoolParameter, Unity.Postprocessing.Runtime",
           "value": true,
           "overrideState": true
@@ -1635,19 +1544,15 @@
         "name": "Bloom"
       },
       {
-        "$id": "92",
         "$type": "UnityEngine.Rendering.PostProcessing.Vignette, Unity.Postprocessing.Runtime",
         "mode": {
-          "$id": "93",
           "$type": "UnityEngine.Rendering.PostProcessing.VignetteModeParameter, Unity.Postprocessing.Runtime",
           "value": "Classic",
           "overrideState": false
         },
         "color": {
-          "$id": "94",
           "$type": "UnityEngine.Rendering.PostProcessing.ColorParameter, Unity.Postprocessing.Runtime",
           "value": {
-            "$id": "95",
             "$type": "UnityEngine.Color, UnityEngine.CoreModule",
             "r": 0.0,
             "g": 0.0,
@@ -1657,10 +1562,8 @@
           "overrideState": false
         },
         "center": {
-          "$id": "96",
           "$type": "UnityEngine.Rendering.PostProcessing.Vector2Parameter, Unity.Postprocessing.Runtime",
           "value": {
-            "$id": "97",
             "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
             "x": 0.5,
             "y": 0.5
@@ -1668,45 +1571,38 @@
           "overrideState": false
         },
         "intensity": {
-          "$id": "98",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 0.45,
           "overrideState": true
         },
         "smoothness": {
-          "$id": "99",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 0.2,
           "overrideState": false
         },
         "roundness": {
-          "$id": "100",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 1.0,
           "overrideState": false
         },
         "rounded": {
-          "$id": "101",
           "$type": "UnityEngine.Rendering.PostProcessing.BoolParameter, Unity.Postprocessing.Runtime",
           "value": false,
           "overrideState": false
         },
         "mask": {
-          "$id": "102",
           "$type": "UnityEngine.Rendering.PostProcessing.TextureParameter, Unity.Postprocessing.Runtime",
           "defaultState": "Black",
           "value": null,
           "overrideState": false
         },
         "opacity": {
-          "$id": "103",
           "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
           "value": 1.0,
           "overrideState": false
         },
         "active": true,
         "enabled": {
-          "$id": "104",
           "$type": "UnityEngine.Rendering.PostProcessing.BoolParameter, Unity.Postprocessing.Runtime",
           "value": true,
           "overrideState": true
@@ -1718,20 +1614,17 @@
   },
   "outdoor": false,
   "guiPresentation": {
-    "$id": "105",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "VisualMood/&GloomyTitle",
     "description": "",
     "spriteReference": {
-      "$id": "106",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "107",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

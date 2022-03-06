@@ -1,20 +1,17 @@
 {
   "$type": "DamageDefinition, Assembly-CSharp",
   "guiPresentation": {
-    "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Rules/&DamageThunderTitle",
     "description": "Rules/&DamageThunderDescription",
     "spriteReference": {
-      "$id": "2",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "7a5ee0539d5eef140afcd2321cc4f0cc",
       "m_SubObjectName": "DamageNecrotic",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "3",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

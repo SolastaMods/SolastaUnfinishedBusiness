@@ -5,7 +5,6 @@
   "locationOverride": null,
   "monsterOccurences": [
     {
-      "$id": "1",
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Flying_Snake:6ea4653d45a6b7a4ca51aafe322d570e",
       "number": 4,
@@ -18,20 +17,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "2",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Encounter/&FlyingSnakesEncounterTitle",
     "description": "Encounter/&FlyingSnakesEncounterDescription",
     "spriteReference": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

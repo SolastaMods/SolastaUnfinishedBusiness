@@ -7,13 +7,11 @@
   "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
   "ingredients": [
     {
-      "$id": "1",
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 2,
       "itemDefinition": "Definition:Ingredient_QueenIvy:01f1fc63a54edfb489a833466920c266"
     },
     {
-      "$id": "2",
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 2,
       "itemDefinition": "Definition:Ingredient_DeepRootLichen:95b954de7fac7c94b8a5888e53c3097b"
@@ -21,20 +19,17 @@
   ],
   "spellDefinition": "Definition:Knock:7b59b8af31053a843a006d0e375dbd89",
   "guiPresentation": {
-    "$id": "3",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&ScrollKnockTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "4",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "5",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

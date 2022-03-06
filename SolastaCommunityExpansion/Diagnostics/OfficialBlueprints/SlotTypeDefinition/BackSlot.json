@@ -10,20 +10,17 @@
   "lockedInBattle": true,
   "hasDefaultVisual": false,
   "guiPresentation": {
-    "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "SlotType/&BackSlotTitle",
     "description": "SlotType/&BackSlotDescription",
     "spriteReference": {
-      "$id": "2",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "4d52575d5cccfea4f8109239060749cd",
       "m_SubObjectName": "BackSlot",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "3",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

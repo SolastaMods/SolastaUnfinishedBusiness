@@ -5,7 +5,6 @@
   "locationOverride": null,
   "monsterOccurences": [
     {
-      "$id": "1",
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Goblin_Skirmisher:eb7bbfdae2a13504281402bdbce75722",
       "number": 2,
@@ -17,7 +16,6 @@
       "factionName": "<None>"
     },
     {
-      "$id": "2",
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Direwolf:46c6fa42b8fefb64882af182eff3aba4",
       "number": 1,
@@ -29,7 +27,6 @@
       "factionName": ""
     },
     {
-      "$id": "3",
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Wolf:639e87dee33292e4a8e8a88e1e414a7d",
       "number": 1,
@@ -41,7 +38,6 @@
       "factionName": ""
     },
     {
-      "$id": "4",
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Goblin:6385eddb59bc18a4b8dd19bffdd279a8",
       "number": 1,
@@ -54,20 +50,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "5",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Encounter/&GoblinhuntingpartyEncounterTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -24,13 +24,11 @@
   ],
   "savingThrowScores": [
     {
-      "$id": "1",
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Dexterity",
       "bonus": 5
     },
     {
-      "$id": "2",
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Intelligence",
       "bonus": 4
@@ -38,37 +36,31 @@
   ],
   "skillScores": [
     {
-      "$id": "3",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Acrobatics",
       "bonus": 5
     },
     {
-      "$id": "4",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Athletics",
       "bonus": 4
     },
     {
-      "$id": "5",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "SleightOfHand",
       "bonus": 4
     },
     {
-      "$id": "6",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Perception",
       "bonus": 5
     },
     {
-      "$id": "7",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Persuasion",
       "bonus": 6
     },
     {
-      "$id": "8",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Intimidation",
       "bonus": 3
@@ -102,13 +94,11 @@
   ],
   "attackIterations": [
     {
-      "$id": "9",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_Galar_Shortbow:232daba204c1355428a20e42a4609491"
     },
     {
-      "$id": "10",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_Galar_Rapier:0e14101adabb8e74da977c36316eddb4"
@@ -130,7 +120,6 @@
   "bestiaryEntry": "None",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
-    "$id": "11",
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
     "y": 7.0,
@@ -138,14 +127,12 @@
   },
   "alwaysHideStats": false,
   "bestiarySpriteReference": {
-    "$id": "12",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "monsterPresentation": {
-    "$id": "13",
     "$type": "MonsterPresentation, Assembly-CSharp",
     "hasUniqueName": false,
     "uniqueNameTitle": "",
@@ -155,14 +142,12 @@
     "useCustomMaterials": false,
     "customMaterials": [],
     "customShaderReference": {
-      "$id": "14",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "mutantFleshDirection": {
-      "$id": "15",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -1.0,
@@ -170,7 +155,6 @@
     },
     "overrideCharacterShaderColors": false,
     "firstCharacterShaderColor": {
-      "$id": "16",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -178,7 +162,6 @@
       "a": 0.0
     },
     "secondCharacterShaderColor": {
-      "$id": "17",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -187,14 +170,12 @@
     },
     "hasPhantomDistortion": true,
     "attachedParticlesReference": {
-      "$id": "18",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "bestiaryAttachedParticlesReference": {
-      "$id": "19",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -203,7 +184,6 @@
     "hasPrefabVariants": false,
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
-      "$id": "20",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "0133818880b4f9d4db5ebd9d6f265bbe",
       "m_SubObjectName": "",
@@ -211,7 +191,6 @@
     },
     "maleModelScale": 0.6553079,
     "femalePrefabReference": {
-      "$id": "21",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "0133818880b4f9d4db5ebd9d6f265bbe",
       "m_SubObjectName": "",
@@ -226,21 +205,18 @@
     "needMerchantPortrait": true,
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {
-      "$id": "22",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -0.5,
       "z": -5.0
     },
     "portraitCameraLookAtScreenOffset": {
-      "$id": "23",
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
       "x": 0.5,
       "y": 0.4
     },
     "portraitCameraFOV": 40.0,
     "portraitCameraLightingOffset": {
-      "$id": "24",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": 0.0,
@@ -255,20 +231,17 @@
   "isUnique": false,
   "uniqueNameId": "",
   "guiPresentation": {
-    "$id": "25",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "NPC/&NPC_Galar_Title",
     "description": "Merchant/&Telema_Merchant_Wanderer_TelemaTitle",
     "spriteReference": {
-      "$id": "26",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "27",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

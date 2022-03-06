@@ -26,7 +26,6 @@
   "damageSaveAffinity": "Negates",
   "conditionOperations": [
     {
-      "$id": "1",
       "$type": "ConditionOperationDescription, Assembly-CSharp",
       "hasSavingThrow": true,
       "operation": "Add",
@@ -39,13 +38,11 @@
   ],
   "addLightSource": false,
   "lightSourceForm": {
-    "$id": "2",
     "$type": "LightSourceForm, Assembly-CSharp",
     "lightSourceType": "Basic",
     "brightRange": 4,
     "dimAdditionalRange": 4,
     "color": {
-      "$id": "3",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,
@@ -53,7 +50,6 @@
       "a": 1.0
     },
     "graphicsPrefabReference": {
-      "$id": "4",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -62,7 +58,6 @@
     "applyToSelf": false
   },
   "impactParticleReference": {
-    "$id": "5",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "e827c1d57d1e906479f876f428cc5e20",
     "m_SubObjectName": "",
@@ -70,35 +65,30 @@
   },
   "particlesBasedOnAncestryDamageType": false,
   "acidImpactParticleReference": {
-    "$id": "6",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "coldImpactParticleReference": {
-    "$id": "7",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "fireImpactParticleReference": {
-    "$id": "8",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "lightningImpactParticleReference": {
-    "$id": "9",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "poisonImpactParticleReference": {
-    "$id": "10",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
@@ -106,20 +96,17 @@
   },
   "computeDescription": false,
   "guiPresentation": {
-    "$id": "11",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "12",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "13",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

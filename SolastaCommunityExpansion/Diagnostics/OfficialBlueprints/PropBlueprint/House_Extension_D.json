@@ -10,13 +10,11 @@
   "propPlacement": false,
   "lightSources": [
     {
-      "$id": "1",
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
       "x": -2.75000024,
       "y": -1.18413007
     },
     {
-      "$id": "2",
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
       "x": 2.66499972,
       "y": -1.18413007
@@ -24,16 +22,13 @@
   ],
   "category": "Structure",
   "dimensions": {
-    "$id": "3",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "4",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Town",
       "prefabReference": {
-        "$id": "5",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "09a9f09f2d456a3469c9e164bf3cf36c",
         "m_SubObjectName": "",
@@ -42,20 +37,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "6",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Prop/&House_ExtensionTitle",
     "description": "Prop/&House_ExtensionDescription",
     "spriteReference": {
-      "$id": "7",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "ab462e25cbfd664438ba0679358408cb",
       "m_SubObjectName": "Statue",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "8",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

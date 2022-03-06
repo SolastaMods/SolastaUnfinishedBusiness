@@ -11,27 +11,23 @@
     "Definition:Captain_Verissa_Ironshell:5eec1cee7cb14294b8477168c77e48d7"
   ],
   "smallSpriteReference": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "e82067991d466364392b596bc29ade31",
     "m_SubObjectName": "PrincipalityFlagSmall",
     "m_SubObjectType": ""
   },
   "guiPresentation": {
-    "$id": "2",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Faction/&PrincipalityTitle",
     "description": "Faction/&PrincipalityDescription",
     "spriteReference": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "c1db8a4dc21511245ade77236961b9b9",
       "m_SubObjectName": "PrincipalityFlag",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

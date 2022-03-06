@@ -7,19 +7,16 @@
   "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
   "ingredients": [
     {
-      "$id": "1",
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 2,
       "itemDefinition": "Definition:Ingredient_AbyssMoss:b066ff3c236988e4a9520cf44b555395"
     },
     {
-      "$id": "2",
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 1,
       "itemDefinition": "Definition:Ingredient_Acid:bd7e07506aad3a244807052e95004020"
     },
     {
-      "$id": "3",
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 3,
       "itemDefinition": "Definition:Ingredient_RefinedOil:cd3fc4d6eb31a454d8e213653c4970d7"
@@ -27,20 +24,17 @@
   ],
   "spellDefinition": "Definition:CharmPerson:9c98e5cba0f8b1649b3217a97cbc111b",
   "guiPresentation": {
-    "$id": "4",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&ScrollCharmPersonTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "5",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "6",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

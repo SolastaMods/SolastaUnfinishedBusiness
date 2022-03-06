@@ -7,7 +7,6 @@
   "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
   "ingredients": [
     {
-      "$id": "1",
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 1,
       "itemDefinition": "Definition:Ingredient_AngryViolet:0ea316a14e9d7d344a648184b7b09af0"
@@ -15,20 +14,17 @@
   ],
   "spellDefinition": null,
   "guiPresentation": {
-    "$id": "2",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&BoneKeep_Document_AkshasJournal_Title",
     "description": "Equipment/&BoneKeep_Document_AkshasJournal_Description",
     "spriteReference": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "d74573c961c69454a916b27d46e5f8e4",
       "m_SubObjectName": "AkshasJournal",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

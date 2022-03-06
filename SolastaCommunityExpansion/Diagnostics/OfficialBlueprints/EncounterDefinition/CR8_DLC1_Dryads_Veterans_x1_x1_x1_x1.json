@@ -5,7 +5,6 @@
   "locationOverride": null,
   "monsterOccurences": [
     {
-      "$id": "1",
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Dryad_Ranged:9d1b5f0b74e014d4fb1bd641f76bb4cf",
       "number": 1,
@@ -17,7 +16,6 @@
       "factionName": ""
     },
     {
-      "$id": "2",
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:SRD_DLC_Veteran:0b057e0cf8868404f8222bcea0dc0396",
       "number": 1,
@@ -29,7 +27,6 @@
       "factionName": ""
     },
     {
-      "$id": "3",
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Dryad_Ranged:9d1b5f0b74e014d4fb1bd641f76bb4cf",
       "number": 1,
@@ -41,7 +38,6 @@
       "factionName": ""
     },
     {
-      "$id": "4",
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:SRD_DLC_Veteran:0b057e0cf8868404f8222bcea0dc0396",
       "number": 1,
@@ -54,20 +50,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "5",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "",
     "description": "",
     "spriteReference": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

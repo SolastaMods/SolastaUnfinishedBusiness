@@ -40,7 +40,6 @@
   "isAmmunition": false,
   "isUsableDevice": true,
   "usableDeviceDescription": {
-    "$id": "1",
     "$type": "UsableDeviceDescription, Assembly-CSharp",
     "usage": "Single",
     "chargesCapital": "Fixed",
@@ -56,7 +55,6 @@
     "saveDC": 13,
     "deviceFunctions": [
       {
-        "$id": "2",
         "$type": "DeviceFunctionDescription, Assembly-CSharp",
         "parentUsage": "Single",
         "useAffinity": "AtWill",
@@ -73,7 +71,6 @@
       "Scroll"
     ],
     "onUseParticle": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -92,10 +89,8 @@
   "isFactionRelic": false,
   "personalityFlagOccurences": [],
   "soundEffectDescriptionOverride": {
-    "$id": "4",
     "$type": "SoundEffectDescription, Assembly-CSharp",
     "startEvent": {
-      "$id": "5",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -105,7 +100,6 @@
       }
     },
     "stopEvent": {
-      "$id": "6",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -115,7 +109,6 @@
       }
     },
     "startSwitch": {
-      "$id": "7",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -130,7 +123,6 @@
       }
     },
     "stopSwitch": {
-      "$id": "8",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -145,7 +137,6 @@
       }
     },
     "guiStoreBody": {
-      "$id": "9",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -155,7 +146,6 @@
       }
     },
     "guiPickBody": {
-      "$id": "10",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -165,7 +155,6 @@
       }
     },
     "guiStoreOther": {
-      "$id": "11",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -175,7 +164,6 @@
       }
     },
     "guiPickOther": {
-      "$id": "12",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -186,10 +174,8 @@
     }
   },
   "soundEffectOnHitDescriptionOverride": {
-    "$id": "13",
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
-      "$id": "14",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -205,13 +191,11 @@
     }
   },
   "itemPresentation": {
-    "$id": "15",
     "$type": "ItemPresentation, Assembly-CSharp",
     "unidentifiedTitle": "",
     "unidentifiedDescription": "",
     "overrideSubtype": "None",
     "assetReference": {
-      "$id": "16",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -231,20 +215,17 @@
     "serializedVersion": 1
   },
   "guiPresentation": {
-    "$id": "17",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&ScrollHasteTitle",
     "description": "Equipment/&ScrollHasteDescription",
     "spriteReference": {
-      "$id": "18",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f32e56525cc7a3e408cc2ede263e2cdf",
       "m_SubObjectName": "Scroll_Haste",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "19",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

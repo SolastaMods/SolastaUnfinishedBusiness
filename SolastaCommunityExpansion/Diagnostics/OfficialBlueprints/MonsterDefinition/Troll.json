@@ -25,7 +25,6 @@
   "savingThrowScores": [],
   "skillScores": [
     {
-      "$id": "1",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Perception",
       "bonus": 2
@@ -58,19 +57,16 @@
   ],
   "attackIterations": [
     {
-      "$id": "2",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_Troll_Bite:70aa1d8e427db224c8db0f93a770c613"
     },
     {
-      "$id": "3",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_Troll_Claw:dfcc93511a5041a4da8af03c2c759a1a"
     },
     {
-      "$id": "4",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_Troll_Claw:dfcc93511a5041a4da8af03c2c759a1a"
@@ -92,7 +88,6 @@
   "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
-    "$id": "5",
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
     "y": 7.0,
@@ -100,14 +95,12 @@
   },
   "alwaysHideStats": false,
   "bestiarySpriteReference": {
-    "$id": "6",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "1e25f23449b9cad488bfff565b050420",
     "m_SubObjectName": "Troll",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "monsterPresentation": {
-    "$id": "7",
     "$type": "MonsterPresentation, Assembly-CSharp",
     "hasUniqueName": false,
     "uniqueNameTitle": "",
@@ -115,14 +108,12 @@
     "useCustomMaterials": false,
     "customMaterials": [],
     "customShaderReference": {
-      "$id": "8",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "mutantFleshDirection": {
-      "$id": "9",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -1.0,
@@ -130,7 +121,6 @@
     },
     "overrideCharacterShaderColors": false,
     "firstCharacterShaderColor": {
-      "$id": "10",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -138,7 +128,6 @@
       "a": 0.0
     },
     "secondCharacterShaderColor": {
-      "$id": "11",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -147,14 +136,12 @@
     },
     "hasPhantomDistortion": true,
     "attachedParticlesReference": {
-      "$id": "12",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "bestiaryAttachedParticlesReference": {
-      "$id": "13",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -163,7 +150,6 @@
     "hasPrefabVariants": false,
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
-      "$id": "14",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "f16df452fac7ca041ba73b6dcc8d8bdc",
       "m_SubObjectName": "",
@@ -171,7 +157,6 @@
     },
     "maleModelScale": 1.0,
     "femalePrefabReference": {
-      "$id": "15",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "f16df452fac7ca041ba73b6dcc8d8bdc",
       "m_SubObjectName": "",
@@ -186,21 +171,18 @@
     "needMerchantPortrait": false,
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {
-      "$id": "16",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -0.5,
       "z": -5.0
     },
     "portraitCameraLookAtScreenOffset": {
-      "$id": "17",
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
       "x": 0.5,
       "y": 0.4
     },
     "portraitCameraFOV": 40.0,
     "portraitCameraLightingOffset": {
-      "$id": "18",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": 0.0,
@@ -215,20 +197,17 @@
   "isUnique": false,
   "uniqueNameId": "",
   "guiPresentation": {
-    "$id": "19",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Monster/&Troll_Title",
     "description": "Monster/&Troll_Description",
     "spriteReference": {
-      "$id": "20",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "974c3c421c5237a4b853bc38106ba4dd",
       "m_SubObjectName": "CustomPortrait_Troll",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "21",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

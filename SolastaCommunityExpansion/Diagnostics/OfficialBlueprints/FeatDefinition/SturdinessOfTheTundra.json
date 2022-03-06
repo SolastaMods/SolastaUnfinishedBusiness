@@ -15,20 +15,17 @@
     "Definition:ProficiencySturdinessOfTheTundra:70680c8d1344fae4d91605a12f7d52b2"
   ],
   "guiPresentation": {
-    "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feat/&SturdinessOfTheTundraTitle",
     "description": "Feat/&SturdinessOfTheTundraDescription",
     "spriteReference": {
-      "$id": "2",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "3",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

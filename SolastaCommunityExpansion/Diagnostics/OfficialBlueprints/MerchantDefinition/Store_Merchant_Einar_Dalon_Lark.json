@@ -11,7 +11,6 @@
   "identifyCostGp": 100,
   "stockUnitDescriptions": [
     {
-      "$id": "1",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:PotionRemedy:1ac685f6f87c5c247ad4332f6b4d08b7",
@@ -26,7 +25,6 @@
       "factionStatus": "Indifference"
     },
     {
-      "$id": "2",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:PotionOfHealing:5afaa2c317ec2374fab78be504014255",
@@ -41,7 +39,6 @@
       "factionStatus": "Sympathy"
     },
     {
-      "$id": "3",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:PotionOfGiantStrengthHill:a6d6ad10a14b9504bb684d0bfe1f4b13",
@@ -56,7 +53,6 @@
       "factionStatus": "Sympathy"
     },
     {
-      "$id": "4",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:PotionOfHeroism:607d6eb133deaf842b3addf6c289340c",
@@ -71,7 +67,6 @@
       "factionStatus": "Sympathy"
     },
     {
-      "$id": "5",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollBless:e53758827b2062f4d9a298d74256d7ab",
@@ -86,7 +81,6 @@
       "factionStatus": "Indifference"
     },
     {
-      "$id": "6",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollRevivify:67a2c72f62b599946923a0a95a85e45c",
@@ -101,7 +95,6 @@
       "factionStatus": "Sympathy"
     },
     {
-      "$id": "7",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:HolySymbolAmulet:8c3c56e926a899447abdff0c6fee3ff3",
@@ -116,7 +109,6 @@
       "factionStatus": "Sympathy"
     },
     {
-      "$id": "8",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:HolySymbolBelt:e596afb7cb62cf049a9ecc2f171233a8",
@@ -131,7 +123,6 @@
       "factionStatus": "Sympathy"
     },
     {
-      "$id": "9",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:HolySymbolCape:cf6a4d4d0f153704ca4168641322da9f",
@@ -146,7 +137,6 @@
       "factionStatus": "Sympathy"
     },
     {
-      "$id": "10",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:HolySymbolCrown:81ab33a4033da5b4dbb93991e4a4e555",
@@ -162,20 +152,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "11",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Merchant/&CaerCyflen_Dalon_Lark_Store_EinarTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "12",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f83876fd2e2f0ff44ba0eb63de8445ea",
       "m_SubObjectName": "Dalon_Lark_MerchantPhoto",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "13",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -18,14 +18,12 @@
     "Definition:MoveModeFly12:5e70172c8e2a40146b375001ab656a44"
   ],
   "attackParticle": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "attackImpactParticle": {
-    "$id": "2",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
@@ -33,13 +31,11 @@
   },
   "addLightSource": true,
   "lightSourceForm": {
-    "$id": "3",
     "$type": "LightSourceForm, Assembly-CSharp",
     "lightSourceType": "Basic",
     "brightRange": 2,
     "dimAdditionalRange": 2,
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.933333337,
       "g": 0.8428167,
@@ -47,7 +43,6 @@
       "a": 1.0
     },
     "graphicsPrefabReference": {
-      "$id": "5",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "b604c9f0be3f29241adbf0c6754b7324",
       "m_SubObjectName": "",
@@ -56,7 +51,6 @@
     "applyToSelf": false
   },
   "lightSourceOffset": {
-    "$id": "6",
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
     "y": 0.5,
@@ -66,7 +60,6 @@
   "maxSpellLevelImmunity": 1,
   "hasPresentation": true,
   "prefabReference": {
-    "$id": "7",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "6c9e02aed79129b4dadb6ea301ee193d",
     "m_SubObjectName": "",
@@ -77,14 +70,12 @@
   "showWorldLocationFeedbacks": true,
   "hasPortrait": true,
   "portraitSpriteReference": {
-    "$id": "8",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "a206bbd84c5d22147a9aa91bb99eeb90",
     "m_SubObjectName": "ProxyDancingLights",
     "m_SubObjectType": ""
   },
   "startEvent": {
-    "$id": "9",
     "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": null,
     "idInternal": 0,
@@ -94,7 +85,6 @@
     }
   },
   "stopEvent": {
-    "$id": "10",
     "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": null,
     "idInternal": 0,
@@ -104,10 +94,8 @@
     }
   },
   "soundEffectOnHitDescription": {
-    "$id": "11",
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
-      "$id": "12",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -123,20 +111,17 @@
     }
   },
   "guiPresentation": {
-    "$id": "13",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "EffectProxy/&ProxyDancingLightsTitle",
     "description": "EffectProxy/&ProxyDancingLightsDescription",
     "spriteReference": {
-      "$id": "14",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "a206bbd84c5d22147a9aa91bb99eeb90",
       "m_SubObjectName": "ProxyDancingLights",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "15",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

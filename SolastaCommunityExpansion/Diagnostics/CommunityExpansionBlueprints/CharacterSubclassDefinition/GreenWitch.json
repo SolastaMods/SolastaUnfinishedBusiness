@@ -2,7 +2,6 @@
   "$type": "CharacterSubclassDefinition, Assembly-CSharp",
   "featureUnlocks": [
     {
-      "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetGreenWitchMagic:507e2c9e-4343-52e9-99d7-b53bedab1d78",
       "level": 3
@@ -11,20 +10,17 @@
   "personalityFlagOccurences": [],
   "morphotypeSubclassFilterTag": "Default",
   "guiPresentation": {
-    "$id": "2",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Subclass/&GreenWitchTitle",
     "description": "Subclass/&GreenWitchDescription",
     "spriteReference": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "05db759cf66168b4495b148ea71ec6c5",
       "m_SubObjectName": "Wizard_Sylvan_Mage",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

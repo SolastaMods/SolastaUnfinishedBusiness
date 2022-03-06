@@ -4,7 +4,6 @@
   "priorityAbilityScore": "",
   "affinityGroups": [
     {
-      "$id": "1",
       "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Strength",
       "affinity": "Advantage",
@@ -18,7 +17,6 @@
       "savingThrowContext": "None"
     },
     {
-      "$id": "2",
       "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Dexterity",
       "affinity": "Advantage",
@@ -32,7 +30,6 @@
       "savingThrowContext": "None"
     },
     {
-      "$id": "3",
       "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Constitution",
       "affinity": "Advantage",
@@ -46,7 +43,6 @@
       "savingThrowContext": "None"
     },
     {
-      "$id": "4",
       "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Intelligence",
       "affinity": "Advantage",
@@ -60,7 +56,6 @@
       "savingThrowContext": "None"
     },
     {
-      "$id": "5",
       "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Wisdom",
       "affinity": "Advantage",
@@ -74,7 +69,6 @@
       "savingThrowContext": "None"
     },
     {
-      "$id": "6",
       "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Wisdom",
       "affinity": "Advantage",
@@ -88,7 +82,6 @@
       "savingThrowContext": "None"
     },
     {
-      "$id": "7",
       "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Charisma",
       "affinity": "Advantage",
@@ -107,20 +100,17 @@
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
-    "$id": "8",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "9",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "10",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

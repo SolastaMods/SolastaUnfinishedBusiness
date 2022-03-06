@@ -1,28 +1,21 @@
 {
   "$type": "TA.AI.DecisionDefinition, Assembly-CSharp",
   "decision": {
-    "$id": "1",
     "$type": "TA.AI.DecisionDescription, Assembly-CSharp",
     "description": "Teleport on a node, trying to pack 6 by 6.",
     "scorer": {
-      "$id": "2",
       "$type": "TA.AI.ActivityScorerDefinition, Assembly-CSharp",
       "scorer": {
-        "$id": "3",
         "$type": "TA.AI.ActivityScorer, Assembly-CSharp",
         "considerations": [
           {
-            "$id": "4",
             "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
             "consideration": {
-              "$id": "5",
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
-                "$id": "6",
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
                 "considerationType": "IsValidPlacementDestination",
                 "curve": {
-                  "$id": "7",
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
@@ -38,17 +31,13 @@
             "weight": 1.0
           },
           {
-            "$id": "8",
             "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
             "consideration": {
-              "$id": "9",
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
-                "$id": "10",
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
                 "considerationType": "InfluenceAllyProximity",
                 "curve": {
-                  "$id": "11",
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
@@ -64,17 +53,13 @@
             "weight": 1.0
           },
           {
-            "$id": "12",
             "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
             "consideration": {
-              "$id": "13",
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
-                "$id": "14",
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
                 "considerationType": "InfluenceAllyCount",
                 "curve": {
-                  "$id": "15",
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
@@ -102,20 +87,17 @@
     "enumParameter": 0
   },
   "guiPresentation": {
-    "$id": "16",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "",
     "description": "",
     "spriteReference": {
-      "$id": "17",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "18",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

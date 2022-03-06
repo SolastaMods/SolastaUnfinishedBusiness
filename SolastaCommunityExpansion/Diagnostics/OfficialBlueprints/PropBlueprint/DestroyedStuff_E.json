@@ -11,16 +11,13 @@
   "lightSources": [],
   "category": "Obstacle",
   "dimensions": {
-    "$id": "1",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "2",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Stronghold",
       "prefabReference": {
-        "$id": "3",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "b72f130214fdcb141bc8dd3d115e5d94",
         "m_SubObjectName": "",
@@ -28,11 +25,9 @@
       }
     },
     {
-      "$id": "4",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "LavaCaves",
       "prefabReference": {
-        "$id": "5",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "2a56ab0084a1d1b4caaf2959fc3b6008",
         "m_SubObjectName": "",
@@ -40,11 +35,9 @@
       }
     },
     {
-      "$id": "6",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Sewers",
       "prefabReference": {
-        "$id": "7",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "43ec556b207de3946b5e0204626d2e91",
         "m_SubObjectName": "",
@@ -52,11 +45,9 @@
       }
     },
     {
-      "$id": "8",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Catacombs",
       "prefabReference": {
-        "$id": "9",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "e33ca48935a82754eb7d604f6e3f78af",
         "m_SubObjectName": "",
@@ -64,11 +55,9 @@
       }
     },
     {
-      "$id": "10",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "TownInterior",
       "prefabReference": {
-        "$id": "11",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "40ef3939a47648a4b97c64fd336413c4",
         "m_SubObjectName": "",
@@ -77,20 +66,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "12",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Prop/&BrokenFurnituresTitle",
     "description": "",
     "spriteReference": {
-      "$id": "13",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "1f22e5a66e1fc8e41bc61207e3b0edb1",
       "m_SubObjectName": "Debris",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "14",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

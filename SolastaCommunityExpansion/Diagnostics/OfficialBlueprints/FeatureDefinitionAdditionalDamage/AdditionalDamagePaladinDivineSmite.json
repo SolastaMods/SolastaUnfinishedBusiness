@@ -17,25 +17,21 @@
   "damageAdvancement": "SlotLevel",
   "diceByRankTable": [
     {
-      "$id": "1",
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 1,
       "diceNumber": 2
     },
     {
-      "$id": "2",
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 2,
       "diceNumber": 3
     },
     {
-      "$id": "3",
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 3,
       "diceNumber": 4
     },
     {
-      "$id": "4",
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 4,
       "diceNumber": 5
@@ -55,13 +51,11 @@
   "conditionOperations": [],
   "addLightSource": false,
   "lightSourceForm": {
-    "$id": "5",
     "$type": "LightSourceForm, Assembly-CSharp",
     "lightSourceType": "Basic",
     "brightRange": 4,
     "dimAdditionalRange": 4,
     "color": {
-      "$id": "6",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,
@@ -69,7 +63,6 @@
       "a": 1.0
     },
     "graphicsPrefabReference": {
-      "$id": "7",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -78,7 +71,6 @@
     "applyToSelf": false
   },
   "impactParticleReference": {
-    "$id": "8",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "86fd94528449883409661f29fac8e1b9",
     "m_SubObjectName": "",
@@ -86,35 +78,30 @@
   },
   "particlesBasedOnAncestryDamageType": false,
   "acidImpactParticleReference": {
-    "$id": "9",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "coldImpactParticleReference": {
-    "$id": "10",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "fireImpactParticleReference": {
-    "$id": "11",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "lightningImpactParticleReference": {
-    "$id": "12",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "poisonImpactParticleReference": {
-    "$id": "13",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
@@ -122,20 +109,17 @@
   },
   "computeDescription": false,
   "guiPresentation": {
-    "$id": "14",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&PaladinDivineSmiteTitle",
     "description": "Feature/&PaladinDivineSmiteDescription",
     "spriteReference": {
-      "$id": "15",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "16",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -11,7 +11,6 @@
   "identifyCostGp": 50,
   "stockUnitDescriptions": [
     {
-      "$id": "1",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Arrow:0b2e8c437ac65034b8055735aa5da873",
@@ -26,7 +25,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "2",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
@@ -41,7 +39,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "3",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Dart:4fd5b12327964f74eae8cd62910dd518",
@@ -56,7 +53,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "4",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Javelin:b4580025f1f488a489f151cc9ae45118",
@@ -71,7 +67,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "5",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Battleaxe:40695efa6b4f77e47beab08ec4cbef91",
@@ -86,7 +81,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "6",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Club:09527ada1527cf94b830ccf53335d1e5",
@@ -101,7 +95,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "7",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
@@ -116,7 +109,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "8",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Greataxe:f5f24f61e9777684d8507f438660300a",
@@ -131,7 +123,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "9",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Greatsword:f8a7ceac8de8c1a4497b55c8b8bd1de6",
@@ -146,7 +137,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "10",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Handaxe:cc2d5d4cf149d5e40b13533e43dc193e",
@@ -161,7 +151,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "11",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:HeavyCrossbow:8de3995cbb4970243bee6a479f8d67cd",
@@ -176,7 +165,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "12",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
@@ -191,7 +179,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "13",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Longbow:8e188e12f1f0daa40a78a6cd72b030e4",
@@ -206,7 +193,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "14",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Longsword:3f0e49932d0ebf444a5039c5df05a02d",
@@ -221,7 +207,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "15",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Mace:639725eb1a28ef242851668eb3d5b2e7",
@@ -236,7 +221,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "16",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Maul:0b6e83a1958b06e46a5c5159a82aea9a",
@@ -251,7 +235,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "17",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Morningstar:d99766c4fc8941f4fb0c26038895fdea",
@@ -266,7 +249,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "18",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Quarterstaff:e02fa6fe6682b034ea74a6c48c9ee134",
@@ -281,7 +263,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "19",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Rapier:ed13ff01b4757f148b8d5d23840cf4b8",
@@ -296,7 +277,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "20",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Scimitar:12289d60dd3a4144fa8308ffc2a6e80d",
@@ -311,7 +291,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "21",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Shortbow:127ccd4869d66bb48aa8e800a6f1d9d8",
@@ -326,7 +305,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "22",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Shortsword:5d0f8d61d53786448920cad0485b77b7",
@@ -341,7 +319,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "23",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Warhammer:642fede86cb34fd499fd36d0a3da9d1a",
@@ -357,20 +334,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "24",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Merchant/&DungeonMakerWeaponsmithTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "25",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "26",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

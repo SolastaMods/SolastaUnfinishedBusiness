@@ -1,13 +1,10 @@
 {
   "$type": "MusicalStateDefinition, Assembly-CSharp",
   "audioStateLocation": {
-    "$id": "1",
     "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": {
-      "$id": "2",
       "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseStateGroupReference": {
-        "$id": "3",
         "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
         "objectName": "State_LocationName",
         "id": 598649695,
@@ -31,7 +28,6 @@
     }
   },
   "audioStateZone": {
-    "$id": "4",
     "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": null,
     "groupIdInternal": 0,
@@ -46,20 +42,17 @@
     }
   },
   "guiPresentation": {
-    "$id": "5",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Music/&CoparanTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -5,7 +5,6 @@
   "locationOverride": null,
   "monsterOccurences": [
     {
-      "$id": "1",
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Generic_BadlandHunter:d95d2ae9a98a5ac43970c2784fc894d0",
       "number": 1,
@@ -17,7 +16,6 @@
       "factionName": ""
     },
     {
-      "$id": "2",
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:SRD_Bandit_Ranged:52c43641e25280e4e9afb0d73682f93b",
       "number": 3,
@@ -30,20 +28,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "3",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Encounter/&StainedHunterTitle",
     "description": "Encounter/&StainedHunterDescription",
     "spriteReference": {
-      "$id": "4",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "5",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

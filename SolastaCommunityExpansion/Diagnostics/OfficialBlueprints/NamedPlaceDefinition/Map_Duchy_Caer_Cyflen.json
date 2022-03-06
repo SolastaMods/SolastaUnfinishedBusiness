@@ -2,20 +2,17 @@
   "$type": "NamedPlaceDefinition, Assembly-CSharp",
   "namedPlaceType": "Region",
   "guiPresentation": {
-    "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "NamedPlace/&DUCHY_caercyflen_Title",
     "description": "",
     "spriteReference": {
-      "$id": "2",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "3",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

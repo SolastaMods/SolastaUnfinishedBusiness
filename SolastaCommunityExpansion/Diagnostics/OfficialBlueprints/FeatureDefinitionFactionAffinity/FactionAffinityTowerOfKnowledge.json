@@ -1,7 +1,6 @@
 {
   "$type": "FeatureDefinitionFactionAffinity, Assembly-CSharp",
   "operation": {
-    "$id": "1",
     "$type": "FactionOperationDescription, Assembly-CSharp",
     "operation": "Increase",
     "factionName": "TowerOfKnowledge",
@@ -10,20 +9,17 @@
     "prominentMember": null
   },
   "guiPresentation": {
-    "$id": "2",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&TowerOfKnowledgeAffinityTitle",
     "description": "Feature/&TowerOfKnowledgeAffinityDescription",
     "spriteReference": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -5,7 +5,6 @@
   "locationOverride": null,
   "monsterOccurences": [
     {
-      "$id": "1",
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:MinotaurSpectral:74939e2a0a09fbf49b8b5a8b446bf177",
       "number": 1,
@@ -18,20 +17,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "2",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "",
     "description": "",
     "spriteReference": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

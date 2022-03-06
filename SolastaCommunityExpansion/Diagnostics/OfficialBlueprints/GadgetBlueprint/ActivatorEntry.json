@@ -2,7 +2,6 @@
   "$type": "GadgetBlueprint, Assembly-CSharp",
   "parameters": [
     {
-      "$id": "1",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "EntranceIndex",
       "type": "EntranceIndex",
@@ -18,7 +17,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "2",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Operation",
       "type": "Operation",
@@ -34,7 +32,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "3",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "TargetGadgets",
       "type": "GadgetList",
@@ -50,7 +47,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "4",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Param_EntryOnce",
       "type": "GenericBool",
@@ -68,10 +64,8 @@
   ],
   "interactionNodes": [
     {
-      "$id": "5",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "6",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": 0.0,
         "y": -1.0
@@ -82,11 +76,9 @@
   "canBeActivated": true,
   "customizableDimensions": false,
   "minCustomizableDimensions": {
-    "$id": "7",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "maxCustomizableDimensions": {
-    "$id": "8",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "campaignOnly": false,
@@ -101,16 +93,13 @@
   "lightSources": [],
   "category": "Activators",
   "dimensions": {
-    "$id": "9",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "10",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "",
       "prefabReference": {
-        "$id": "11",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "3626026b1fc7e724394b78a8df465a2e",
         "m_SubObjectName": "",
@@ -119,20 +108,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "12",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Gadget/&ActivatorEntryTitle",
     "description": "Gadget/&ActivatorEntryDescription",
     "spriteReference": {
-      "$id": "13",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "c2c429d4502f17945aac7859f1aa9966",
       "m_SubObjectName": "ActivatorEntry",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "14",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

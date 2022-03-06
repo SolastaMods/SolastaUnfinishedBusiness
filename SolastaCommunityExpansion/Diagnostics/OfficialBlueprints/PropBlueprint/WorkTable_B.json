@@ -11,16 +11,13 @@
   "lightSources": [],
   "category": "Furniture",
   "dimensions": {
-    "$id": "1",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "2",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "ElvenPalace",
       "prefabReference": {
-        "$id": "3",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "ed0163fb40e8bde49b687c0f11a90160",
         "m_SubObjectName": "",
@@ -28,11 +25,9 @@
       }
     },
     {
-      "$id": "4",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Stronghold",
       "prefabReference": {
-        "$id": "5",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "db6358d089d4c964198cb970200e234d",
         "m_SubObjectName": "",
@@ -40,11 +35,9 @@
       }
     },
     {
-      "$id": "6",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Catacombs",
       "prefabReference": {
-        "$id": "7",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "c2e80e9321568f145a723409ce2395f8",
         "m_SubObjectName": "",
@@ -52,11 +45,9 @@
       }
     },
     {
-      "$id": "8",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "TownInterior",
       "prefabReference": {
-        "$id": "9",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "d5220c2a11f133a4b8a24057f3321a70",
         "m_SubObjectName": "",
@@ -65,20 +56,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "10",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Prop/&WorkTableTitle",
     "description": "",
     "spriteReference": {
-      "$id": "11",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f6178a30c7fcb844492a50e6efc75b07",
       "m_SubObjectName": "FireBasin",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "12",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

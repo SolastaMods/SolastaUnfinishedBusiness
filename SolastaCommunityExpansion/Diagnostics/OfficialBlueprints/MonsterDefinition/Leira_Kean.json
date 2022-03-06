@@ -25,7 +25,6 @@
   "savingThrowScores": [],
   "skillScores": [
     {
-      "$id": "1",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Intimidation",
       "bonus": 2
@@ -71,7 +70,6 @@
   "bestiaryEntry": "None",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
-    "$id": "2",
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
     "y": 7.0,
@@ -79,14 +77,12 @@
   },
   "alwaysHideStats": false,
   "bestiarySpriteReference": {
-    "$id": "3",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "monsterPresentation": {
-    "$id": "4",
     "$type": "MonsterPresentation, Assembly-CSharp",
     "hasUniqueName": false,
     "uniqueNameTitle": "",
@@ -96,14 +92,12 @@
     "useCustomMaterials": false,
     "customMaterials": [],
     "customShaderReference": {
-      "$id": "5",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "mutantFleshDirection": {
-      "$id": "6",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -1.0,
@@ -111,7 +105,6 @@
     },
     "overrideCharacterShaderColors": false,
     "firstCharacterShaderColor": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -119,7 +112,6 @@
       "a": 0.0
     },
     "secondCharacterShaderColor": {
-      "$id": "8",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -128,14 +120,12 @@
     },
     "hasPhantomDistortion": true,
     "attachedParticlesReference": {
-      "$id": "9",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "bestiaryAttachedParticlesReference": {
-      "$id": "10",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -144,7 +134,6 @@
     "hasPrefabVariants": false,
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
-      "$id": "11",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "0baa4c97f93139342b9c9afb26041204",
       "m_SubObjectName": "",
@@ -152,7 +141,6 @@
     },
     "maleModelScale": 0.5891955,
     "femalePrefabReference": {
-      "$id": "12",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "0baa4c97f93139342b9c9afb26041204",
       "m_SubObjectName": "",
@@ -167,21 +155,18 @@
     "needMerchantPortrait": false,
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {
-      "$id": "13",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -0.5,
       "z": -5.0
     },
     "portraitCameraLookAtScreenOffset": {
-      "$id": "14",
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
       "x": 0.5,
       "y": 0.4
     },
     "portraitCameraFOV": 40.0,
     "portraitCameraLightingOffset": {
-      "$id": "15",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": 0.0,
@@ -196,20 +181,17 @@
   "isUnique": false,
   "uniqueNameId": "",
   "guiPresentation": {
-    "$id": "16",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "NPC/&NPC_LeiraKeanTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "17",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "18",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

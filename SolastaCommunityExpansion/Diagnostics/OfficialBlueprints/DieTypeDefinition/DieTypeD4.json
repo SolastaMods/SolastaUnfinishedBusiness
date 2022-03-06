@@ -2,7 +2,6 @@
   "$type": "DieTypeDefinition, Assembly-CSharp",
   "dieType": "D4",
   "rollingMeshReference": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "cbfb6291b5f3f1345a01cfc2a8bc9fdb",
     "m_SubObjectName": "D4_low",
@@ -10,20 +9,17 @@
   },
   "scaleFactor": 20.0,
   "guiPresentation": {
-    "$id": "2",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Rules/&DieD4Title",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "b8c78e8476650004f981554ddc2688c3",
       "m_SubObjectName": "D4Empty",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

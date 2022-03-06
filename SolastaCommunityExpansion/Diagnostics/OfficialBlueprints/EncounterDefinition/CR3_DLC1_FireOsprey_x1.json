@@ -5,7 +5,6 @@
   "locationOverride": null,
   "monsterOccurences": [
     {
-      "$id": "1",
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Fire_Osprey:9ffb357c44214ee43a102271868fa06a",
       "number": 1,
@@ -17,7 +16,6 @@
       "factionName": ""
     },
     {
-      "$id": "2",
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Fire_Jester:67c972a0bf9ea4b4897cf5222b164a02",
       "number": 1,
@@ -30,20 +28,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "3",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Encounter/&DLC_CR3_FireOsprey_Title",
     "description": "Encounter/&DLC_CR3_FireOsprey_Description",
     "spriteReference": {
-      "$id": "4",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "5",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

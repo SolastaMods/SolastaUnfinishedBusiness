@@ -24,13 +24,11 @@
   ],
   "savingThrowScores": [
     {
-      "$id": "1",
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Dexterity",
       "bonus": 7
     },
     {
-      "$id": "2",
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Intelligence",
       "bonus": 7
@@ -38,25 +36,21 @@
   ],
   "skillScores": [
     {
-      "$id": "3",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Arcana",
       "bonus": 7
     },
     {
-      "$id": "4",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Persuasion",
       "bonus": 7
     },
     {
-      "$id": "5",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Perception",
       "bonus": 5
     },
     {
-      "$id": "6",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Medecine",
       "bonus": 7
@@ -76,13 +70,10 @@
   ],
   "audioSwitches": [
     {
-      "$id": "7",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": {
-        "$id": "8",
         "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
         "WwiseSwitchGroupReference": {
-          "$id": "9",
           "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
           "objectName": "Switch_VoiceBarks",
           "id": 2399735075,
@@ -121,13 +112,11 @@
   ],
   "attackIterations": [
     {
-      "$id": "10",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_Kythaela_WithSpells_Dagger_Main:faac612d65cb5ee4c89d90a394945eaf"
     },
     {
-      "$id": "11",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_Kythaela_WithSpells_Dagger_Bonus:53ba82f3fe93caa498c053a0e42a339f"
@@ -149,7 +138,6 @@
   "bestiaryEntry": "None",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
-    "$id": "12",
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
     "y": 7.0,
@@ -157,14 +145,12 @@
   },
   "alwaysHideStats": false,
   "bestiarySpriteReference": {
-    "$id": "13",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "monsterPresentation": {
-    "$id": "14",
     "$type": "MonsterPresentation, Assembly-CSharp",
     "hasUniqueName": false,
     "uniqueNameTitle": "",
@@ -174,14 +160,12 @@
     "useCustomMaterials": false,
     "customMaterials": [],
     "customShaderReference": {
-      "$id": "15",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "mutantFleshDirection": {
-      "$id": "16",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -1.0,
@@ -189,7 +173,6 @@
     },
     "overrideCharacterShaderColors": false,
     "firstCharacterShaderColor": {
-      "$id": "17",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -197,7 +180,6 @@
       "a": 0.0
     },
     "secondCharacterShaderColor": {
-      "$id": "18",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -206,14 +188,12 @@
     },
     "hasPhantomDistortion": true,
     "attachedParticlesReference": {
-      "$id": "19",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "bestiaryAttachedParticlesReference": {
-      "$id": "20",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -222,7 +202,6 @@
     "hasPrefabVariants": false,
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
-      "$id": "21",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "0133818880b4f9d4db5ebd9d6f265bbe",
       "m_SubObjectName": "",
@@ -230,7 +209,6 @@
     },
     "maleModelScale": 0.6553079,
     "femalePrefabReference": {
-      "$id": "22",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "0133818880b4f9d4db5ebd9d6f265bbe",
       "m_SubObjectName": "",
@@ -245,21 +223,18 @@
     "needMerchantPortrait": false,
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {
-      "$id": "23",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -0.5,
       "z": -5.0
     },
     "portraitCameraLookAtScreenOffset": {
-      "$id": "24",
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
       "x": 0.5,
       "y": 0.4
     },
     "portraitCameraFOV": 40.0,
     "portraitCameraLightingOffset": {
-      "$id": "25",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": 0.0,
@@ -274,20 +249,17 @@
   "isUnique": false,
   "uniqueNameId": "",
   "guiPresentation": {
-    "$id": "26",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "NPC/&NPC_Kythaela_Title",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "27",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "28",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

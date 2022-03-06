@@ -1,7 +1,6 @@
 {
   "$type": "ActionTypeDefinition, Assembly-CSharp",
   "color": {
-    "$id": "1",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.5411981,
     "g": 0.7866752,
@@ -9,7 +8,6 @@
     "a": 1.0
   },
   "unavailableColor": {
-    "$id": "2",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.5,
     "g": 0.5,
@@ -17,20 +15,17 @@
     "a": 1.0
   },
   "guiPresentation": {
-    "$id": "3",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Action/&ActionTypeFreeOnceTitle",
     "description": "Action/&ActionTypeNoCostDescription",
     "spriteReference": {
-      "$id": "4",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "5",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

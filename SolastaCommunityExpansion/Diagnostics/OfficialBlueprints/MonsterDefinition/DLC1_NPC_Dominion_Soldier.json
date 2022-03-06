@@ -24,13 +24,11 @@
   ],
   "savingThrowScores": [
     {
-      "$id": "1",
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Strength",
       "bonus": 5
     },
     {
-      "$id": "2",
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Constitution",
       "bonus": 5
@@ -38,13 +36,11 @@
   ],
   "skillScores": [
     {
-      "$id": "3",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Perception",
       "bonus": 2
     },
     {
-      "$id": "4",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Athletics",
       "bonus": 5
@@ -57,29 +53,22 @@
   "legendaryActionOptions": [],
   "defaultBattleDecisionPackage": "Definition:FighterCombatDecisions:669e8d4b54874fc438c5ef24631bb22e",
   "threatEvaluatorDefinition": {
-    "$id": "5",
     "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
     "threatEvaluator": {
-      "$id": "6",
       "$type": "TA.AI.ThreatEvaluator, Assembly-CSharp",
       "hateResponse": {
-        "$id": "7",
         "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
       },
       "woundRatioResponse": {
-        "$id": "8",
         "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
       },
       "maxHPResponse": {
-        "$id": "9",
         "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
       },
       "attackersCountResponse": {
-        "$id": "10",
         "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
       },
       "meleeVsRangedResponse": {
-        "$id": "11",
         "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
       },
       "previousTargetRelatedMalus": 0.1
@@ -109,13 +98,11 @@
   ],
   "attackIterations": [
     {
-      "$id": "12",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 2,
       "monsterAttackDefinition": "Definition:Attack_DLC1_Dominion_Soldier_Morningstar:04dfcab50239461479eb9739ad597677"
     },
     {
-      "$id": "13",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_DLC1_Dominion_Soldier_Dagger:3a553ccbea7b84540ad9cb61b3285404"
@@ -137,7 +124,6 @@
   "bestiaryEntry": "None",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
-    "$id": "14",
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
     "y": 7.0,
@@ -145,14 +131,12 @@
   },
   "alwaysHideStats": false,
   "bestiarySpriteReference": {
-    "$id": "15",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "monsterPresentation": {
-    "$id": "16",
     "$type": "MonsterPresentation, Assembly-CSharp",
     "hasUniqueName": false,
     "uniqueNameTitle": "",
@@ -169,14 +153,12 @@
     "useCustomMaterials": false,
     "customMaterials": [],
     "customShaderReference": {
-      "$id": "17",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "mutantFleshDirection": {
-      "$id": "18",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -1.0,
@@ -184,7 +166,6 @@
     },
     "overrideCharacterShaderColors": false,
     "firstCharacterShaderColor": {
-      "$id": "19",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -192,7 +173,6 @@
       "a": 0.0
     },
     "secondCharacterShaderColor": {
-      "$id": "20",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -201,14 +181,12 @@
     },
     "hasPhantomDistortion": true,
     "attachedParticlesReference": {
-      "$id": "21",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "bestiaryAttachedParticlesReference": {
-      "$id": "22",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -217,7 +195,6 @@
     "hasPrefabVariants": false,
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
-      "$id": "23",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "0133818880b4f9d4db5ebd9d6f265bbe",
       "m_SubObjectName": "",
@@ -225,7 +202,6 @@
     },
     "maleModelScale": 0.6553079,
     "femalePrefabReference": {
-      "$id": "24",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "0133818880b4f9d4db5ebd9d6f265bbe",
       "m_SubObjectName": "",
@@ -240,21 +216,18 @@
     "needMerchantPortrait": false,
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {
-      "$id": "25",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -0.5,
       "z": -5.0
     },
     "portraitCameraLookAtScreenOffset": {
-      "$id": "26",
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
       "x": 0.5,
       "y": 0.4
     },
     "portraitCameraFOV": 40.0,
     "portraitCameraLightingOffset": {
-      "$id": "27",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": 0.0,
@@ -269,20 +242,17 @@
   "isUnique": false,
   "uniqueNameId": "",
   "guiPresentation": {
-    "$id": "28",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "NPC/&NPC_Dominion_Soldier_Title",
     "description": "NPC/&NPC_Dominion_Soldier_Description",
     "spriteReference": {
-      "$id": "29",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "30",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

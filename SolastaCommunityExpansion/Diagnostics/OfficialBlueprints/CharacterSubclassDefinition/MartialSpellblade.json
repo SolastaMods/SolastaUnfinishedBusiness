@@ -2,25 +2,21 @@
   "$type": "CharacterSubclassDefinition, Assembly-CSharp",
   "featureUnlocks": [
     {
-      "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:CastSpellMartialSpellBlade:31c1daa99cbaf7146a5bd38bfafdbd36",
       "level": 3
     },
     {
-      "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AttackModifierMartialSpellBladeMagicWeapon:9de1d9539d9b72048acf914d292e95ad",
       "level": 3
     },
     {
-      "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MagicAffinitySpellBladeIntoTheFray:dcbc028742c7af3479f0c56e3146d286",
       "level": 7
     },
     {
-      "$id": "4",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerSpellBladeSpellTyrant:30d80b470a93c5340a76c867d40ece6f",
       "level": 10
@@ -29,20 +25,17 @@
   "personalityFlagOccurences": [],
   "morphotypeSubclassFilterTag": "Default",
   "guiPresentation": {
-    "$id": "5",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Subclass/&MartialSpellbladeTitle",
     "description": "Subclass/&MartialSpellbladeDescription",
     "spriteReference": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "7b10e54d6037d314e93fd7e7f81c4798",
       "m_SubObjectName": "Spellblade",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

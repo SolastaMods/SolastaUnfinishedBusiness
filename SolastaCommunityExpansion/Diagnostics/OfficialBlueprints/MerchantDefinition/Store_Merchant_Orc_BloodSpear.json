@@ -11,7 +11,6 @@
   "identifyCostGp": 100,
   "stockUnitDescriptions": [
     {
-      "$id": "1",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Spear:f188e2e2e3e6ab04ba786bcaca6e8bd9",
@@ -26,7 +25,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "2",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
@@ -41,7 +39,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "3",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
@@ -57,20 +54,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "4",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Monster/&OrcMerchantTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "5",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f1d0178541a55d64da59189247fe4907",
       "m_SubObjectName": "Rogrok_Merchant",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "6",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -11,16 +11,13 @@
   "lightSources": [],
   "category": "Furniture",
   "dimensions": {
-    "$id": "1",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "2",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Stronghold",
       "prefabReference": {
-        "$id": "3",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "952d4cf58ebfa0e4f88a618ce5c5241b",
         "m_SubObjectName": "",
@@ -28,11 +25,9 @@
       }
     },
     {
-      "$id": "4",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "ElvenPalace",
       "prefabReference": {
-        "$id": "5",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "9e01d3cb9de09a04794fd792e9c1dbd4",
         "m_SubObjectName": "",
@@ -40,11 +35,9 @@
       }
     },
     {
-      "$id": "6",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "WoodLand",
       "prefabReference": {
-        "$id": "7",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "baed16eb67fcfd74d8efb33dec4eaa20",
         "m_SubObjectName": "",
@@ -52,11 +45,9 @@
       }
     },
     {
-      "$id": "8",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Catacombs",
       "prefabReference": {
-        "$id": "9",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "614a28df718d06448a1e31b4290f5706",
         "m_SubObjectName": "",
@@ -64,11 +55,9 @@
       }
     },
     {
-      "$id": "10",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Town",
       "prefabReference": {
-        "$id": "11",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "e6f7a901fce11d34eb48e5ebc23f0c6b",
         "m_SubObjectName": "",
@@ -76,11 +65,9 @@
       }
     },
     {
-      "$id": "12",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "TownInterior",
       "prefabReference": {
-        "$id": "13",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "2360a90424d31774fb26ccaaf2d41ded",
         "m_SubObjectName": "",
@@ -89,20 +76,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "14",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Prop/&StoolTitle",
     "description": "",
     "spriteReference": {
-      "$id": "15",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f6178a30c7fcb844492a50e6efc75b07",
       "m_SubObjectName": "FireBasin",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "16",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

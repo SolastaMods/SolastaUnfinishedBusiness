@@ -3,7 +3,6 @@
   "autopreparedTag": "Witch",
   "autoPreparedSpellsGroups": [
     {
-      "$id": "1",
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 2,
       "spellsList": [
@@ -14,20 +13,17 @@
   "spellcastingClass": "Definition:ClassWitch:dedb5cef-3036-5d46-92b7-d1fbbfa265f1",
   "affinityRace": null,
   "guiPresentation": {
-    "$id": "2",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Class/&WitchFamiliarPowerTitle",
     "description": "Class/&WitchFamiliarPowerDescription",
     "spriteReference": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "8e719830f5ac20e4e842c149ca3efda2",
       "m_SubObjectName": "AnimalFrienship",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

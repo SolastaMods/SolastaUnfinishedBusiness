@@ -21,7 +21,6 @@
   "tabardDefinition": "",
   "showHelmet": false,
   "firstColor": {
-    "$id": "1",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.7075471,
     "g": 0.5780878,
@@ -29,7 +28,6 @@
     "a": 1.0
   },
   "secondColor": {
-    "$id": "2",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.9056604,
     "g": 0.8913714,
@@ -37,7 +35,6 @@
     "a": 1.0
   },
   "thirdColor": {
-    "$id": "3",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.735849,
     "g": 0.558280647,
@@ -45,7 +42,6 @@
     "a": 1.0
   },
   "fourthColor": {
-    "$id": "4",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 1.0,
     "g": 0.6930277,
@@ -56,20 +52,17 @@
   "itemDefinitionMainHand": null,
   "itemDefinitionOffHand": null,
   "guiPresentation": {
-    "$id": "5",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "NPC/&Guard_Captain_Title",
     "description": "NPC/&Guard_Captain_Description",
     "spriteReference": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "b0b983f8ea7227d4098385cd44d413da",
       "m_SubObjectName": "NPC_Presentation_DLC1_NPC_Complex_Guard_Captain",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

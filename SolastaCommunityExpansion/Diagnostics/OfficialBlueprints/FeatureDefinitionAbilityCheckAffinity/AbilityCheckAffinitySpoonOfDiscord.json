@@ -3,7 +3,6 @@
   "useControllerAbilityChecks": false,
   "affinityGroups": [
     {
-      "$id": "1",
       "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Charisma",
       "proficiencyName": "Deception",
@@ -14,7 +13,6 @@
       "lightingContext": "Irrelevant"
     },
     {
-      "$id": "2",
       "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Charisma",
       "proficiencyName": "Persuasion",
@@ -28,20 +26,17 @@
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
-    "$id": "3",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "4",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "5",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

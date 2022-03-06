@@ -21,7 +21,6 @@
   "tabardDefinition": "",
   "showHelmet": true,
   "firstColor": {
-    "$id": "1",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.178800225,
     "g": 0.28702572,
@@ -29,7 +28,6 @@
     "a": 1.0
   },
   "secondColor": {
-    "$id": "2",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.09211462,
     "g": 0.213225573,
@@ -37,7 +35,6 @@
     "a": 1.0
   },
   "thirdColor": {
-    "$id": "3",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.8207547,
     "g": 0.6708632,
@@ -45,7 +42,6 @@
     "a": 1.0
   },
   "fourthColor": {
-    "$id": "4",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.8490566,
     "g": 0.6633341,
@@ -56,20 +52,17 @@
   "itemDefinitionMainHand": null,
   "itemDefinitionOffHand": null,
   "guiPresentation": {
-    "$id": "5",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "NPC/&NPC_DLC_Rebellion_Soldier_Title",
     "description": "NPC/&NPC_DLC_Rebellion_Soldier_Description",
     "spriteReference": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "3f526135b69748243b0202a3316c727b",
       "m_SubObjectName": "NPC_Presentation_DLC1_NPC_RebellionSoldier02",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

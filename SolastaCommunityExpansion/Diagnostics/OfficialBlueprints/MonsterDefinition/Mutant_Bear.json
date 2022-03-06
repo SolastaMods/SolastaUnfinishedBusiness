@@ -24,13 +24,11 @@
   ],
   "savingThrowScores": [
     {
-      "$id": "1",
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Constitution",
       "bonus": 8
     },
     {
-      "$id": "2",
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Strength",
       "bonus": 8
@@ -38,7 +36,6 @@
   ],
   "skillScores": [
     {
-      "$id": "3",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Perception",
       "bonus": 1
@@ -76,13 +73,11 @@
   ],
   "attackIterations": [
     {
-      "$id": "4",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_Mutated_Bear_Bite:903e347f127466743b4ec7abcf0aea03"
     },
     {
-      "$id": "5",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_Mutated_Bear_Claw:7c9a784ef0462c54eb14a08b11145070"
@@ -104,7 +99,6 @@
   "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
-    "$id": "6",
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
     "y": 7.0,
@@ -112,14 +106,12 @@
   },
   "alwaysHideStats": false,
   "bestiarySpriteReference": {
-    "$id": "7",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "9237f0b6ce0a89646a981b07bb52157f",
     "m_SubObjectName": "",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "monsterPresentation": {
-    "$id": "8",
     "$type": "MonsterPresentation, Assembly-CSharp",
     "hasUniqueName": false,
     "uniqueNameTitle": "",
@@ -127,14 +119,12 @@
     "useCustomMaterials": false,
     "customMaterials": [],
     "customShaderReference": {
-      "$id": "9",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "af5d9a6d1abd37c49a92349fa7637729",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "mutantFleshDirection": {
-      "$id": "10",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -1.0,
@@ -142,7 +132,6 @@
     },
     "overrideCharacterShaderColors": false,
     "firstCharacterShaderColor": {
-      "$id": "11",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -150,7 +139,6 @@
       "a": 0.0
     },
     "secondCharacterShaderColor": {
-      "$id": "12",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -159,14 +147,12 @@
     },
     "hasPhantomDistortion": true,
     "attachedParticlesReference": {
-      "$id": "13",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "bestiaryAttachedParticlesReference": {
-      "$id": "14",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -177,7 +163,6 @@
       "Definition:Badlands_Bear_Presentation:ec84ae826743b7e4fbaba4ca5c0e27c2"
     ],
     "malePrefabReference": {
-      "$id": "15",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "cc36634f504fa7049a4499a91749d7d5",
       "m_SubObjectName": "",
@@ -185,7 +170,6 @@
     },
     "maleModelScale": 0.655,
     "femalePrefabReference": {
-      "$id": "16",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "cc36634f504fa7049a4499a91749d7d5",
       "m_SubObjectName": "",
@@ -200,21 +184,18 @@
     "needMerchantPortrait": false,
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {
-      "$id": "17",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -0.5,
       "z": -5.0
     },
     "portraitCameraLookAtScreenOffset": {
-      "$id": "18",
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
       "x": 0.5,
       "y": 0.4
     },
     "portraitCameraFOV": 40.0,
     "portraitCameraLightingOffset": {
-      "$id": "19",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": 0.0,
@@ -229,20 +210,17 @@
   "isUnique": false,
   "uniqueNameId": "",
   "guiPresentation": {
-    "$id": "20",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Monster/&MutatedBear_Title",
     "description": "Monster/&MutatedBear_Description",
     "spriteReference": {
-      "$id": "21",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "3377661fb543df348af49db3d9034918",
       "m_SubObjectName": "Mutant_Bear_CustomPortrait",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "22",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

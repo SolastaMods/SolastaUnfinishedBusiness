@@ -2,7 +2,6 @@
   "$type": "GadgetBlueprint, Assembly-CSharp",
   "parameters": [
     {
-      "$id": "1",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "AbilityScore",
       "type": "AbilityScore",
@@ -18,7 +17,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "2",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "IsAbilityCheck",
       "type": "GenericBool",
@@ -34,7 +32,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "3",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Proficiency",
       "type": "Proficiency",
@@ -50,7 +47,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "4",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "RollDC",
       "type": "DifficultyClass",
@@ -66,7 +62,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "5",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "SuccessActivations",
       "type": "GadgetList",
@@ -82,7 +77,6 @@
       "gadgetExecutionFilter": "Success"
     },
     {
-      "$id": "6",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "FailureActivations",
       "type": "GadgetList",
@@ -98,7 +92,6 @@
       "gadgetExecutionFilter": "Failure"
     },
     {
-      "$id": "7",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Param_DefaultAsEnabled",
       "type": "GenericBool",
@@ -116,10 +109,8 @@
   ],
   "interactionNodes": [
     {
-      "$id": "8",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "9",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": 0.0,
         "y": -1.0
@@ -130,11 +121,9 @@
   "canBeActivated": true,
   "customizableDimensions": false,
   "minCustomizableDimensions": {
-    "$id": "10",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "maxCustomizableDimensions": {
-    "$id": "11",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "campaignOnly": false,
@@ -149,16 +138,13 @@
   "lightSources": [],
   "category": "Activators",
   "dimensions": {
-    "$id": "12",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "13",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "",
       "prefabReference": {
-        "$id": "14",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "1dcf47684f92b5241828f6f8daa403fd",
         "m_SubObjectName": "",
@@ -167,20 +153,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "15",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Gadget/&ActivatorRollTitle",
     "description": "Gadget/&ActivatorRollDescription",
     "spriteReference": {
-      "$id": "16",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "505de5c8cb0bf6340bc8a4d364b5c1cf",
       "m_SubObjectName": "ActivatorRoll",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "17",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

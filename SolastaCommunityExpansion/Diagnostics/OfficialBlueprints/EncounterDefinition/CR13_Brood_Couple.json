@@ -5,7 +5,6 @@
   "locationOverride": null,
   "monsterOccurences": [
     {
-      "$id": "1",
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Brood_of_blood:a12d2fc412e653c4ca4f9b53119ed31c",
       "number": 1,
@@ -17,7 +16,6 @@
       "factionName": ""
     },
     {
-      "$id": "2",
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Brood_of_dread:f8c06b1a573ee5d458baf3bdec369db9",
       "number": 1,
@@ -29,7 +27,6 @@
       "factionName": ""
     },
     {
-      "$id": "3",
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Brood_of_flesh:5aa04462ab7f6b84d8493d8d5c9240fa",
       "number": 1,
@@ -42,20 +39,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "4",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Encounter/&CR13_Brood_Couple_Title",
     "description": "Encounter/&CR13_Brood_Couple_Description",
     "spriteReference": {
-      "$id": "5",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "6",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

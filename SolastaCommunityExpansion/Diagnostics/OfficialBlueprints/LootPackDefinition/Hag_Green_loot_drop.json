@@ -4,7 +4,6 @@
   "lootSpawnMode": "ItemList",
   "itemOccurencesList": [
     {
-      "$id": "1",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -14,7 +13,6 @@
       "treasureTableDefinition": null
     },
     {
-      "$id": "2",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -24,7 +22,6 @@
       "treasureTableDefinition": null
     },
     {
-      "$id": "3",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -34,7 +31,6 @@
       "treasureTableDefinition": "Definition:RandomTreasureTableI2_PoisonedProjectiles:3e0b4ec21fd5d874da7c579d7650a8b2"
     },
     {
-      "$id": "4",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -44,7 +40,6 @@
       "treasureTableDefinition": "Definition:RandomTreasureTableI_Poisons:3df5be1a314f25e42af1efad10339968"
     },
     {
-      "$id": "5",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -54,7 +49,6 @@
       "treasureTableDefinition": "Definition:RandomTreasureTableK_Recipe_Manuals:54c572835a8874c48a72b95d6d226a5d"
     },
     {
-      "$id": "6",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D3",
@@ -67,20 +61,17 @@
   "lootMagnitudeMode": "Individual",
   "lootChallengeMode": "ByPartyLevel",
   "guiPresentation": {
-    "$id": "7",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "8",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "9",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

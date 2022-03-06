@@ -21,7 +21,6 @@
   "tabardDefinition": "ClothesTabardCouncil",
   "showHelmet": true,
   "firstColor": {
-    "$id": "1",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.5943396,
     "g": 0.5943396,
@@ -29,7 +28,6 @@
     "a": 1.0
   },
   "secondColor": {
-    "$id": "2",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.4331612,
     "g": 0.473928332,
@@ -37,7 +35,6 @@
     "a": 1.0
   },
   "thirdColor": {
-    "$id": "3",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.0,
     "g": 0.0,
@@ -45,7 +42,6 @@
     "a": 1.0
   },
   "fourthColor": {
-    "$id": "4",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.231132,
     "g": 0.49908793,
@@ -56,20 +52,17 @@
   "itemDefinitionMainHand": null,
   "itemDefinitionOffHand": null,
   "guiPresentation": {
-    "$id": "5",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "NPC/&NPC_Council_Trooper_Title",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "1655dcc2d1464ad45a77c3afe4a1b0c1",
       "m_SubObjectName": "CustomPortrait_NPC_Presentation_CouncilTrooper_male_04",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

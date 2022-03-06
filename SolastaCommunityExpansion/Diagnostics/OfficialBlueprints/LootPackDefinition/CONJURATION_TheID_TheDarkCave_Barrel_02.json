@@ -4,7 +4,6 @@
   "lootSpawnMode": "ItemList",
   "itemOccurencesList": [
     {
-      "$id": "1",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -14,7 +13,6 @@
       "treasureTableDefinition": "Definition:RandomTreasureTableA_Gem:404fbb8642486c14e9477073f95471f2"
     },
     {
-      "$id": "2",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D2",
@@ -24,7 +22,6 @@
       "treasureTableDefinition": "Definition:RandomTreasureTableB_Consumables:bcfabde319a2a4442818ccdf89636537"
     },
     {
-      "$id": "3",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -34,7 +31,6 @@
       "treasureTableDefinition": "Definition:RandomTreasureTableF_Mundane_Gear:80a88ba5af49ea54d865c8bd7280b524"
     },
     {
-      "$id": "4",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -44,7 +40,6 @@
       "treasureTableDefinition": "Definition:RandomTreasureTableH_50_GP_Art_Items:265092645d2ab8248836855fd9142b58"
     },
     {
-      "$id": "5",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -54,7 +49,6 @@
       "treasureTableDefinition": "Definition:RandomTreasureTableI_Poisons:3df5be1a314f25e42af1efad10339968"
     },
     {
-      "$id": "6",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -64,7 +58,6 @@
       "treasureTableDefinition": "Definition:RandomTreasureTableK_Recipe_Manuals:54c572835a8874c48a72b95d6d226a5d"
     },
     {
-      "$id": "7",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 4,
       "diceType": "D1",
@@ -77,20 +70,17 @@
   "lootMagnitudeMode": "Individual",
   "lootChallengeMode": "ByPartyLevel",
   "guiPresentation": {
-    "$id": "8",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "9",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "10",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

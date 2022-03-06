@@ -14,7 +14,6 @@
   "effectOnConjuredDeath": true,
   "effectForms": [
     {
-      "$id": "1",
       "$type": "EffectForm, Assembly-CSharp",
       "formType": "Damage",
       "addBonusMode": "None",
@@ -29,7 +28,6 @@
       "canSaveToCancel": false,
       "saveOccurence": "StartOfTurn",
       "damageForm": {
-        "$id": "2",
         "$type": "DamageForm, Assembly-CSharp",
         "versatile": false,
         "diceNumber": 3,
@@ -46,7 +44,6 @@
       }
     },
     {
-      "$id": "3",
       "$type": "EffectForm, Assembly-CSharp",
       "formType": "Condition",
       "addBonusMode": "None",
@@ -61,7 +58,6 @@
       "canSaveToCancel": false,
       "saveOccurence": "StartOfTurn",
       "conditionForm": {
-        "$id": "4",
         "$type": "ConditionForm, Assembly-CSharp",
         "conditionDefinitionName": "",
         "conditionDefinition": "Definition:ConditionStunnedConjuredDeath:a270f5d6fa09e63408c0e351a0b41e1e",
@@ -75,20 +71,17 @@
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
-    "$id": "5",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

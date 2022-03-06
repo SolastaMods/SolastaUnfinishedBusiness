@@ -9,37 +9,31 @@
   "baseWeight": 0,
   "featureUnlocks": [
     {
-      "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MoveModeMove5:39236d1a5cbaf114d96e2709eb817529",
       "level": 1
     },
     {
-      "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
       "level": 1
     },
     {
-      "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AttributeModifierHalflingAbilityScoreIncrease:572006887bc6cc94e982dc0ed8e5d903",
       "level": 1
     },
     {
-      "$id": "4",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ConditionAffinityHalflingBrave:fe7490b0a47723c4998036a8c2dc5cce",
       "level": 1
     },
     {
-      "$id": "5",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:DieRollModifierHalfingLucky:8b06899d2a893244fabe45430b25530d",
       "level": 1
     },
     {
-      "$id": "6",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MoveThroughEnemyModifierHalflingNimbleness:6ae832e9873b6e94289d046c87ea2e0f",
       "level": 1
@@ -52,7 +46,6 @@
   "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
   "personalityFlagOccurences": [
     {
-      "$id": "7",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 30,
       "personalityFlag": "HalflingFlag"
@@ -67,7 +60,6 @@
   "audioSwitches": [],
   "audioRaceRTPCValue": 5.0,
   "racePresentation": {
-    "$id": "8",
     "$type": "RacePresentation, Assembly-CSharp",
     "bodyAssetPrefix": "Halfling",
     "morphotypeAssetPrefix": "Halfling",
@@ -102,7 +94,6 @@
     "useBeardBlendShape": true,
     "beardBlendShapes": [
       {
-        "$id": "9",
         "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
         "faceShapeName": "FaceShape_NPC_Hanno_Mudstrider",
         "blendShapeIndex": 0
@@ -208,40 +199,34 @@
     "maleVoiceDefinition": "NEUTRAL1",
     "femaleVoiceDefinition": "FEM2",
     "portraitShieldOffset": {
-      "$id": "10",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.02,
       "y": 0.08,
       "z": 0.0
     },
     "preferedSkinColors": {
-      "$id": "11",
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 1,
       "maxValue": 15
     },
     "preferedHairColors": {
-      "$id": "12",
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 0,
       "maxValue": 24
     }
   },
   "guiPresentation": {
-    "$id": "13",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Race/&HalflingTitle",
     "description": "Race/&HalflingDescription",
     "spriteReference": {
-      "$id": "14",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "12c20f39d1b9b7a46954c61b0d16412f",
       "m_SubObjectName": "IslandHalfling",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "15",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -11,7 +11,6 @@
   "identifyCostGp": 100,
   "stockUnitDescriptions": [
     {
-      "$id": "1",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Battleaxe:40695efa6b4f77e47beab08ec4cbef91",
@@ -27,20 +26,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "2",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Merchant/&CaerCyflen_Annie_Bagmordah_Store_ScavengersTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "4e56e6494c6f54146ad034ed2bbe26bb",
       "m_SubObjectName": "Merchant_Annie_Bagmordah_MerchantPhoto",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

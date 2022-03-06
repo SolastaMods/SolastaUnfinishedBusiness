@@ -8,45 +8,38 @@
   ],
   "optionalPersonalityFlags": [
     {
-      "$id": "1",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 10,
       "personalityFlag": "Authority"
     },
     {
-      "$id": "2",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 10,
       "personalityFlag": "Lawfulness"
     },
     {
-      "$id": "3",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 10,
       "personalityFlag": "Violence"
     },
     {
-      "$id": "4",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 10,
       "personalityFlag": "Greed"
     }
   ],
   "guiPresentation": {
-    "$id": "5",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Alignment/&LawfulEvilTitle",
     "description": "Alignment/&LawfulEvilDescription",
     "spriteReference": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

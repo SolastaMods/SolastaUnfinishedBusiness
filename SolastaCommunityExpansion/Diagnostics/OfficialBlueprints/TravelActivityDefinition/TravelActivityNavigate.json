@@ -6,28 +6,24 @@
   "fatigueImpactPerHour": 1.0,
   "randomEvents": [
     {
-      "$id": "1",
       "$type": "TravelEventProbabilityDescription, Assembly-CSharp",
       "eventDefinition": "Definition:TravelEventFoodSearch:631bfc8bb77557e4c85363977ee18a83",
       "basePercent": 13,
       "incremental": true
     },
     {
-      "$id": "2",
       "$type": "TravelEventProbabilityDescription, Assembly-CSharp",
       "eventDefinition": "Definition:TravelEventIngredientGathering:4f18574d002d40c48bbae9826376d5cb",
       "basePercent": 13,
       "incremental": true
     },
     {
-      "$id": "3",
       "$type": "TravelEventProbabilityDescription, Assembly-CSharp",
       "eventDefinition": "Definition:TravelEventEncounter:8f968f3bb1d825442bdd6954aaca90e1",
       "basePercent": 5,
       "incremental": false
     },
     {
-      "$id": "4",
       "$type": "TravelEventProbabilityDescription, Assembly-CSharp",
       "eventDefinition": "Definition:TravelEventNarrative:bf2b4d417c915844f8c1edcee329a58b",
       "basePercent": 13,
@@ -36,13 +32,11 @@
   ],
   "fixedEvents": [
     {
-      "$id": "5",
       "$type": "TravelEventFixedOccurenceDescription, Assembly-CSharp",
       "eventDefinition": "Definition:TravelEventNewDay:2cd40f076593fe84eb18c83960f85103",
       "fixedOccurence": "FirstHour"
     },
     {
-      "$id": "6",
       "$type": "TravelEventFixedOccurenceDescription, Assembly-CSharp",
       "eventDefinition": "Definition:TravelEventNavigationStarts:b2af2edcc6068d241a52efd37e27359b",
       "fixedOccurence": "FirstHour"
@@ -51,20 +45,17 @@
   "navigationActivity": true,
   "restActivity": false,
   "guiPresentation": {
-    "$id": "7",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Travel/&TravelActivityNavigateTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "8",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "9",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

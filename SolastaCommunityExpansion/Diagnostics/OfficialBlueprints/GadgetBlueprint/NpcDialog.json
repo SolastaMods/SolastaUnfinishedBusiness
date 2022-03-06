@@ -2,7 +2,6 @@
   "$type": "GadgetBlueprint, Assembly-CSharp",
   "parameters": [
     {
-      "$id": "1",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Character",
       "type": "Npc",
@@ -18,7 +17,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "2",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Dialog",
       "type": "Dialog",
@@ -34,7 +32,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "3",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "EncounterGroup",
       "type": "GenericBool",
@@ -50,7 +47,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "4",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "GroupIndex",
       "type": "EncounterIndex",
@@ -66,7 +62,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "5",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "AutoSpawn",
       "type": "GenericBool",
@@ -84,10 +79,8 @@
   ],
   "interactionNodes": [
     {
-      "$id": "6",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "7",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": -0.3,
         "y": -0.3
@@ -98,11 +91,9 @@
   "canBeActivated": true,
   "customizableDimensions": false,
   "minCustomizableDimensions": {
-    "$id": "8",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "maxCustomizableDimensions": {
-    "$id": "9",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "campaignOnly": false,
@@ -117,16 +108,13 @@
   "lightSources": [],
   "category": "Encounter",
   "dimensions": {
-    "$id": "10",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "11",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "",
       "prefabReference": {
-        "$id": "12",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "11e20fee98bcf2645affc1f4ae312669",
         "m_SubObjectName": "",
@@ -135,20 +123,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "13",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Gadget/&NpcDialogTitle",
     "description": "Gadget/&NpcDialogDescription",
     "spriteReference": {
-      "$id": "14",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f97f98ebff8f6514b8c43d110c6ca66c",
       "m_SubObjectName": "NpcDialog",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "15",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

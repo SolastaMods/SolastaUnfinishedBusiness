@@ -25,13 +25,11 @@
   "savingThrowScores": [],
   "skillScores": [
     {
-      "$id": "1",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Arcana",
       "bonus": 6
     },
     {
-      "$id": "2",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "History",
       "bonus": 6
@@ -44,29 +42,22 @@
   "legendaryActionOptions": [],
   "defaultBattleDecisionPackage": "Definition:DefaultSupportCasterWithBackupAttacksDecisions:f99448e8f4c2d9d478837c543e3e205f",
   "threatEvaluatorDefinition": {
-    "$id": "3",
     "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
     "threatEvaluator": {
-      "$id": "4",
       "$type": "TA.AI.ThreatEvaluator, Assembly-CSharp",
       "hateResponse": {
-        "$id": "5",
         "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
       },
       "woundRatioResponse": {
-        "$id": "6",
         "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
       },
       "maxHPResponse": {
-        "$id": "7",
         "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
       },
       "attackersCountResponse": {
-        "$id": "8",
         "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
       },
       "meleeVsRangedResponse": {
-        "$id": "9",
         "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
       },
       "previousTargetRelatedMalus": 0.1
@@ -92,7 +83,6 @@
   ],
   "attackIterations": [
     {
-      "$id": "10",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_Mage_Dagger:711167f70938ce846aa5be08bd918fbb"
@@ -114,7 +104,6 @@
   "bestiaryEntry": "None",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
-    "$id": "11",
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
     "y": 7.0,
@@ -122,14 +111,12 @@
   },
   "alwaysHideStats": false,
   "bestiarySpriteReference": {
-    "$id": "12",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "b79273a27b1380a438305e9df7dc0b25",
     "m_SubObjectName": "Mage",
     "m_SubObjectType": ""
   },
   "monsterPresentation": {
-    "$id": "13",
     "$type": "MonsterPresentation, Assembly-CSharp",
     "hasUniqueName": false,
     "uniqueNameTitle": "",
@@ -139,14 +126,12 @@
     "useCustomMaterials": false,
     "customMaterials": [],
     "customShaderReference": {
-      "$id": "14",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "mutantFleshDirection": {
-      "$id": "15",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -1.0,
@@ -154,7 +139,6 @@
     },
     "overrideCharacterShaderColors": false,
     "firstCharacterShaderColor": {
-      "$id": "16",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -162,7 +146,6 @@
       "a": 0.0
     },
     "secondCharacterShaderColor": {
-      "$id": "17",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -171,14 +154,12 @@
     },
     "hasPhantomDistortion": true,
     "attachedParticlesReference": {
-      "$id": "18",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "bestiaryAttachedParticlesReference": {
-      "$id": "19",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -187,7 +168,6 @@
     "hasPrefabVariants": false,
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
-      "$id": "20",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "190c5890818bb754fa701852cfc8777a",
       "m_SubObjectName": "",
@@ -195,7 +175,6 @@
     },
     "maleModelScale": 0.74,
     "femalePrefabReference": {
-      "$id": "21",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "190c5890818bb754fa701852cfc8777a",
       "m_SubObjectName": "",
@@ -210,21 +189,18 @@
     "needMerchantPortrait": false,
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {
-      "$id": "22",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -0.5,
       "z": -5.0
     },
     "portraitCameraLookAtScreenOffset": {
-      "$id": "23",
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
       "x": 0.5,
       "y": 0.4
     },
     "portraitCameraFOV": 40.0,
     "portraitCameraLightingOffset": {
-      "$id": "24",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": 0.0,
@@ -239,20 +215,17 @@
   "isUnique": true,
   "uniqueNameId": "DLC1_NPC_Tuznut",
   "guiPresentation": {
-    "$id": "25",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "NPC/&NPC_Tuznut_Title",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "26",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "b7ac3b5b0af53dd42a87f52fd7d55dd8",
       "m_SubObjectName": "CustomPortrait_DLC_Tuznan",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "27",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

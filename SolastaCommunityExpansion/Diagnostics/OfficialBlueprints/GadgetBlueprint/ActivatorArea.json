@@ -2,7 +2,6 @@
   "$type": "GadgetBlueprint, Assembly-CSharp",
   "parameters": [
     {
-      "$id": "1",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Operation",
       "type": "Operation",
@@ -18,7 +17,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "2",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "TargetGadgets",
       "type": "GadgetList",
@@ -34,7 +32,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "3",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Param_DefaultAsEnabled",
       "type": "GenericBool",
@@ -54,11 +51,9 @@
   "canBeActivated": true,
   "customizableDimensions": true,
   "minCustomizableDimensions": {
-    "$id": "4",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "maxCustomizableDimensions": {
-    "$id": "5",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "campaignOnly": false,
@@ -73,16 +68,13 @@
   "lightSources": [],
   "category": "Activators",
   "dimensions": {
-    "$id": "6",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "7",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "",
       "prefabReference": {
-        "$id": "8",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "1f27dec6b9ea06d4293a1c0ffacc14d2",
         "m_SubObjectName": "",
@@ -91,20 +83,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "9",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Gadget/&ActivatorAreaTitle",
     "description": "Gadget/&ActivatorAreaDescription",
     "spriteReference": {
-      "$id": "10",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "dab4e1ea16383b24f87a41b139d2f3d1",
       "m_SubObjectName": "ActivatorArea",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "11",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

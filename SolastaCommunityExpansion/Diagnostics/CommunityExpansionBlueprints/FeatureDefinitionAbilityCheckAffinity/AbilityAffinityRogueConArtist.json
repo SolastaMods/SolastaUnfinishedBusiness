@@ -3,7 +3,6 @@
   "useControllerAbilityChecks": false,
   "affinityGroups": [
     {
-      "$id": "1",
       "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Dexterity",
       "proficiencyName": "SleightOfHand",
@@ -14,7 +13,6 @@
       "lightingContext": "Irrelevant"
     },
     {
-      "$id": "2",
       "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Charisma",
       "proficiencyName": "Persuasion",
@@ -25,7 +23,6 @@
       "lightingContext": "Irrelevant"
     },
     {
-      "$id": "3",
       "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Charisma",
       "proficiencyName": "Deception",
@@ -36,7 +33,6 @@
       "lightingContext": "Irrelevant"
     },
     {
-      "$id": "4",
       "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Charisma",
       "proficiencyName": "Performance",
@@ -50,20 +46,17 @@
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
-    "$id": "5",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Subclass/&AbilityAffinityRogueConArtistTitle",
     "description": "Subclass/&AbilityAffinityRogueConArtistDescription",
     "spriteReference": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
     "color": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -1,11 +1,9 @@
 {
   "$type": "TA.AI.DecisionPackageDefinition, Assembly-CSharp",
   "package": {
-    "$id": "1",
     "$type": "TA.AI.DecisionPackageDescription, Assembly-CSharp",
     "weightedDecisions": [
       {
-        "$id": "2",
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:CastMagic_DPS_AoE_DragonBreath:414dfc67c6f582b43be2fe410bd0c12c",
         "weight": 6.0,
@@ -13,7 +11,6 @@
         "dynamicCooldown": true
       },
       {
-        "$id": "3",
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:Move_PrepareDragonBreath_Unsafe:06fcbacb9a2b8b64697513f179a4b8f7",
         "weight": 5.0,
@@ -21,7 +18,6 @@
         "dynamicCooldown": true
       },
       {
-        "$id": "4",
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:CastMagic_FrightfulPresence_Dragon:9752ed26dbef3b548af205d54c2ff2f2",
         "weight": 5.0,
@@ -29,7 +25,6 @@
         "dynamicCooldown": false
       },
       {
-        "$id": "5",
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:MeleeAttack_Default:c7500087a5f8b764e9bc131a06fbdd3e",
         "weight": 3.0,
@@ -37,7 +32,6 @@
         "dynamicCooldown": false
       },
       {
-        "$id": "6",
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:RangedAttack_Default:a96934f6775237944a7beb403b13c731",
         "weight": 3.0,
@@ -45,7 +39,6 @@
         "dynamicCooldown": false
       },
       {
-        "$id": "7",
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:Move_Dragon_Aggressive:a53f9a51cfb5f1349807651772f9bc1b",
         "weight": 1.5,
@@ -53,7 +46,6 @@
         "dynamicCooldown": false
       },
       {
-        "$id": "8",
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:Emote_Angry:49a443454bcd2674d892c5880bd3f43c",
         "weight": 0.05,
@@ -63,20 +55,17 @@
     ]
   },
   "guiPresentation": {
-    "$id": "9",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "",
     "description": "",
     "spriteReference": {
-      "$id": "10",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "11",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -11,7 +11,6 @@
   "identifyCostGp": 50,
   "stockUnitDescriptions": [
     {
-      "$id": "1",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:PotionRemedy:1ac685f6f87c5c247ad4332f6b4d08b7",
@@ -26,7 +25,6 @@
       "factionStatus": "Indifference"
     },
     {
-      "$id": "2",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:PotionOfHealing:5afaa2c317ec2374fab78be504014255",
@@ -42,20 +40,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "3",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Merchant/&CaerCyflen_Maddy_Greenisle_Store_ToKTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "4",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f83876fd2e2f0ff44ba0eb63de8445ea",
       "m_SubObjectName": "Dalon_Lark_MerchantPhoto",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "5",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -7,13 +7,11 @@
   "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
   "ingredients": [
     {
-      "$id": "1",
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 2,
       "itemDefinition": "Definition:Ingredient_Acid:bd7e07506aad3a244807052e95004020"
     },
     {
-      "$id": "2",
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 1,
       "itemDefinition": "Definition:Ingredient_DwarvenPrimrose:48e03ca4a5f3b8a47bcb385a8d6e3b22"
@@ -21,20 +19,17 @@
   ],
   "spellDefinition": "Definition:SpiritualWeapon:2a304c1b2bfa7be4c9cf7c7e08268fd7",
   "guiPresentation": {
-    "$id": "3",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&ScrollSpiritualWeaponTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "4",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "5",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

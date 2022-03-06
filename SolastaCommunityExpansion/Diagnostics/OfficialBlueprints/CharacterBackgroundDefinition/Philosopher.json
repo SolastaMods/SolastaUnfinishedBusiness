@@ -12,15 +12,12 @@
   ],
   "equipmentRows": [
     {
-      "$id": "1",
       "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
       "equipmentColumns": [
         {
-          "$id": "2",
           "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
           "equipmentOptions": [
             {
-              "$id": "3",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "GenericItem",
               "itemReference": "Definition:CraftingStarterPack:9a568dd5f63486a44b5f8607441b3b36",
@@ -28,7 +25,6 @@
               "number": 1
             },
             {
-              "$id": "4",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "WealthPile",
               "itemReference": "Definition:StartingWealth_25GP:250e1e9f425252b47b6620c2f5a75a9c",
@@ -36,7 +32,6 @@
               "number": 1
             },
             {
-              "$id": "5",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "Tool",
               "itemReference": "Definition:HerbalismKit:074f1654b516bab49b8cf7bd96ecfe9e",
@@ -51,19 +46,16 @@
   ],
   "staticPersonalityFlags": [
     {
-      "$id": "6",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 30,
       "personalityFlag": "Bg_Logical"
     },
     {
-      "$id": "7",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 30,
       "personalityFlag": "Formal"
     },
     {
-      "$id": "8",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 5,
       "personalityFlag": "Normal"
@@ -71,25 +63,21 @@
   ],
   "optionalPersonalityFlags": [
     {
-      "$id": "9",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Pragmatism"
     },
     {
-      "$id": "10",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Cynicism"
     },
     {
-      "$id": "11",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Friendliness"
     },
     {
-      "$id": "12",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Helpfulness"
@@ -101,20 +89,17 @@
   ],
   "forbiddenAlignments": [],
   "guiPresentation": {
-    "$id": "13",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Background/&PhilosopherTitle",
     "description": "Background/&PhilosopherDescription",
     "spriteReference": {
-      "$id": "14",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "49d1872eda3c86343894d08b9135f34e",
       "m_SubObjectName": "Philosopher",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "15",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

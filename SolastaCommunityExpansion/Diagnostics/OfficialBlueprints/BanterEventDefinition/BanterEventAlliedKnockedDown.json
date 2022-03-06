@@ -8,84 +8,72 @@
   "canUseWhileCautious": true,
   "eventVariants": [
     {
-      "$id": "1",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Cynical1_Allied_KnockedDown_Self",
       "list": "Cynical",
       "mode": "Other"
     },
     {
-      "$id": "2",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Cynical2_Allied_KnockedDown_Self",
       "list": "Cynical",
       "mode": "Other"
     },
     {
-      "$id": "3",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Cynical3_Allied_KnockedDown_Self",
       "list": "Cynical",
       "mode": "Other"
     },
     {
-      "$id": "4",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Serious1_Allied_KnockedDown_Self",
       "list": "Serious",
       "mode": "Other"
     },
     {
-      "$id": "5",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Serious2_Allied_KnockedDown_Self",
       "list": "Serious",
       "mode": "Other"
     },
     {
-      "$id": "6",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Serious3_Allied_KnockedDown_Self",
       "list": "Serious",
       "mode": "Other"
     },
     {
-      "$id": "7",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Heroic1_Allied_KnockedDown_Self",
       "list": "Heroic",
       "mode": "Other"
     },
     {
-      "$id": "8",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Heroic2_Allied_KnockedDown_Self",
       "list": "Heroic",
       "mode": "Other"
     },
     {
-      "$id": "9",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Heroic3_Allied_KnockedDown_Self",
       "list": "Heroic",
       "mode": "Other"
     },
     {
-      "$id": "10",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Formal1_Allied_KnockedDown_Self",
       "list": "Formal",
       "mode": "Other"
     },
     {
-      "$id": "11",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Formal2_Allied_KnockedDown_Self",
       "list": "Formal",
       "mode": "Other"
     },
     {
-      "$id": "12",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Formal3_Allied_KnockedDown_Self",
       "list": "Formal",
@@ -93,20 +81,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "13",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "",
     "description": "",
     "spriteReference": {
-      "$id": "14",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "15",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

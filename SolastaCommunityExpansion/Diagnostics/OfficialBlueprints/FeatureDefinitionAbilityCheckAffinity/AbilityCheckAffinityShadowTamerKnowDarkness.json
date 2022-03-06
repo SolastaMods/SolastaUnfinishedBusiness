@@ -3,7 +3,6 @@
   "useControllerAbilityChecks": false,
   "affinityGroups": [
     {
-      "$id": "1",
       "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Dexterity",
       "proficiencyName": "Stealth",
@@ -14,7 +13,6 @@
       "lightingContext": "Unlit"
     },
     {
-      "$id": "2",
       "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Dexterity",
       "proficiencyName": "Stealth",
@@ -25,7 +23,6 @@
       "lightingContext": "DimLight"
     },
     {
-      "$id": "3",
       "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Intelligence",
       "proficiencyName": "",
@@ -36,7 +33,6 @@
       "lightingContext": "Unlit"
     },
     {
-      "$id": "4",
       "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Intelligence",
       "proficiencyName": "Investigation",
@@ -47,7 +43,6 @@
       "lightingContext": "DimLight"
     },
     {
-      "$id": "5",
       "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Wisdom",
       "proficiencyName": "Perception",
@@ -58,7 +53,6 @@
       "lightingContext": "Unlit"
     },
     {
-      "$id": "6",
       "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Wisdom",
       "proficiencyName": "Perception",
@@ -72,20 +66,17 @@
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
-    "$id": "7",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&ShadowTamerKnowDarknessTitle",
     "description": "Feature/&ShadowTamerKnowDarknessTitle",
     "spriteReference": {
-      "$id": "8",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "9",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -5,7 +5,6 @@
   "locationOverride": null,
   "monsterOccurences": [
     {
-      "$id": "1",
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Skeleton_Knight:73ea714e5ec0ae64798b9ad64b28de54",
       "number": 1,
@@ -17,7 +16,6 @@
       "factionName": ""
     },
     {
-      "$id": "2",
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Skeleton_Sorcerer:4fd429671cfc3de4ba2c15e147d930c8",
       "number": 1,
@@ -29,7 +27,6 @@
       "factionName": ""
     },
     {
-      "$id": "3",
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Skeleton_Marksman:eddfdac9cc090c44fbb0922ac5285bd7",
       "number": 2,
@@ -42,20 +39,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "4",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Encounter/&DLC_CR12_DeathArmy_Title",
     "description": "Encounter/&DLC_CR12_DeathArmy_Description",
     "spriteReference": {
-      "$id": "5",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "6",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -2,7 +2,6 @@
   "$type": "GadgetBlueprint, Assembly-CSharp",
   "parameters": [
     {
-      "$id": "1",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Perception_DC",
       "type": "DifficultyClass",
@@ -18,7 +17,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "2",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Disarm_DC",
       "type": "DifficultyClass",
@@ -34,7 +32,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "3",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "TrapEffect",
       "type": "TrapEffect",
@@ -50,7 +47,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "4",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "SavingThrowDC",
       "type": "TrapSaveDC",
@@ -66,7 +62,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "5",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "AddDice",
       "type": "AddDice",
@@ -82,7 +77,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "6",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Param_DefaultAsEnabled",
       "type": "GenericBool",
@@ -100,10 +94,8 @@
   ],
   "interactionNodes": [
     {
-      "$id": "7",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "8",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": -0.5,
         "y": -1.5
@@ -111,10 +103,8 @@
       "orientation": "North"
     },
     {
-      "$id": "9",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "10",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": 0.5,
         "y": 1.5
@@ -125,11 +115,9 @@
   "canBeActivated": true,
   "customizableDimensions": false,
   "minCustomizableDimensions": {
-    "$id": "11",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "maxCustomizableDimensions": {
-    "$id": "12",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "campaignOnly": false,
@@ -144,16 +132,13 @@
   "lightSources": [],
   "category": "Traps",
   "dimensions": {
-    "$id": "13",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "14",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "",
       "prefabReference": {
-        "$id": "15",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "84c53edcd49fd8741b5de25e9854c27c",
         "m_SubObjectName": "",
@@ -162,20 +147,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "16",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Gadget/&TrapTitle",
     "description": "Gadget/&TrapDescription",
     "spriteReference": {
-      "$id": "17",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f1e789c6027c5994ea278d952c67f692",
       "m_SubObjectName": "Trap",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "18",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

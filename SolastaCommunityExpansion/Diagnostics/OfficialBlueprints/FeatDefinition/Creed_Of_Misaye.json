@@ -14,20 +14,17 @@
     "Definition:SavingThrowAffinityCreedOfMisaye:92bcddf8216f8054ba01e701ce82b268"
   ],
   "guiPresentation": {
-    "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feat/&Creed_Of_MisayeTitle",
     "description": "Feat/&Creed_Of_MisayeDescription",
     "spriteReference": {
-      "$id": "2",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "3",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -1,20 +1,17 @@
 {
   "$type": "CurrencyDefinition, Assembly-CSharp",
   "guiPresentation": {
-    "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Equipment/&CurrencyElectrumTitle",
     "description": "Equipment/&CurrencyElectrumDescription",
     "spriteReference": {
-      "$id": "2",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "52aad08dc37ab6a4a9d08af7d8cf5feb",
       "m_SubObjectName": "CurrencyElectrum",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "3",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.839215755,
       "g": 0.839215755,

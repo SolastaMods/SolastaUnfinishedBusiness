@@ -9,25 +9,21 @@
   "baseWeight": 110,
   "featureUnlocks": [
     {
-      "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
       "level": 1
     },
     {
-      "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AttributeModifierHumanAbilityScoreIncrease:b0cd677e67d900d45aa4dc0ac9b1b707",
       "level": 1
     },
     {
-      "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
       "level": 1
     },
     {
-      "$id": "4",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetHumanLanguages:6e66fbb7e912e664db535ce59f1f12be",
       "level": 1
@@ -37,7 +33,6 @@
   "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
   "personalityFlagOccurences": [
     {
-      "$id": "5",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 30,
       "personalityFlag": "HumanFlag"
@@ -51,7 +46,6 @@
   "audioSwitches": [],
   "audioRaceRTPCValue": 6.0,
   "racePresentation": {
-    "$id": "6",
     "$type": "RacePresentation, Assembly-CSharp",
     "bodyAssetPrefix": "Human",
     "morphotypeAssetPrefix": "Human",
@@ -234,40 +228,34 @@
     "maleVoiceDefinition": "MAL1",
     "femaleVoiceDefinition": "FEM1",
     "portraitShieldOffset": {
-      "$id": "7",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.02,
       "y": 0.0,
       "z": 0.0
     },
     "preferedSkinColors": {
-      "$id": "8",
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 1,
       "maxValue": 15
     },
     "preferedHairColors": {
-      "$id": "9",
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 0,
       "maxValue": 24
     }
   },
   "guiPresentation": {
-    "$id": "10",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Race/&HumanTitle",
     "description": "Race/&HumanDescription",
     "spriteReference": {
-      "$id": "11",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "8f1b44be9da2c1946a7d26baa71cf663",
       "m_SubObjectName": "Human",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "12",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

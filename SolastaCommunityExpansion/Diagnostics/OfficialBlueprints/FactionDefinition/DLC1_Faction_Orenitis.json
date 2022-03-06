@@ -8,27 +8,23 @@
   "killingPenalty": 25,
   "prominentMembers": [],
   "smallSpriteReference": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "d30761d5487b04641a7469ae4e70d243",
     "m_SubObjectName": "DLC1_Faction_Flag_Orenitis_Small",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "guiPresentation": {
-    "$id": "2",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Faction/&DLC1_Orenitis_Title",
     "description": "Faction/&DLC1_Orenitis_Description",
     "spriteReference": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "e03fb9948b889ac4aa079a6f134fffeb",
       "m_SubObjectName": "DLC1_Faction_Flag_Orenitis",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

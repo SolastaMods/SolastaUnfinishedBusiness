@@ -2,25 +2,21 @@
   "$type": "CharacterSubclassDefinition, Assembly-CSharp",
   "featureUnlocks": [
     {
-      "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MovementAffinityRangerSwiftBladeQuickStep:bb411309f48e4c24a99b0fe108a26e79",
       "level": 3
     },
     {
-      "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AttributeModifierSwiftBladeBladeDance:79d091104a511e34c92c90f6839fc450",
       "level": 3
     },
     {
-      "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerRangerSwiftBladeBattleFocus:0424e71a59a24024f8b100d115d9b06c",
       "level": 7
     },
     {
-      "$id": "4",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AttributeModifierRangerExtraAttack:d09c1238730338c449bb56bc81b4e039",
       "level": 11
@@ -29,20 +25,17 @@
   "personalityFlagOccurences": [],
   "morphotypeSubclassFilterTag": "Default",
   "guiPresentation": {
-    "$id": "5",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Subclass/&RangerSwiftBladeTitle",
     "description": "Subclass/&RangerSwiftBladeDescription",
     "spriteReference": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "2bc90f386449dab49a7897bfa72b4e16",
       "m_SubObjectName": "Ranger_SwiftBlade",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

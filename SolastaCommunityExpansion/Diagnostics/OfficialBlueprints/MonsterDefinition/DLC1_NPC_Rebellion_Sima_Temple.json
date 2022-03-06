@@ -24,13 +24,11 @@
   ],
   "savingThrowScores": [
     {
-      "$id": "1",
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Intelligence",
       "bonus": 3
     },
     {
-      "$id": "2",
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Dexterity",
       "bonus": 5
@@ -38,7 +36,6 @@
   ],
   "skillScores": [
     {
-      "$id": "3",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Perception",
       "bonus": 3
@@ -56,13 +53,10 @@
   ],
   "audioSwitches": [
     {
-      "$id": "4",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": {
-        "$id": "5",
         "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
         "WwiseSwitchGroupReference": {
-          "$id": "6",
           "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
           "objectName": "Switch_VoiceBarks",
           "id": 2399735075,
@@ -100,13 +94,11 @@
   ],
   "attackIterations": [
     {
-      "$id": "7",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 2,
       "monsterAttackDefinition": "Definition:Attack_DLC1_Mask_Spy_Dagger:ca06478358a83f74ca8a4775c9b8c7e4"
     },
     {
-      "$id": "8",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 2,
       "monsterAttackDefinition": "Definition:Attack_DLC1_Mask_Spy_Dart:58f857dbd7da050438cb38079ecbf3ea"
@@ -128,7 +120,6 @@
   "bestiaryEntry": "None",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
-    "$id": "9",
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
     "y": 7.0,
@@ -136,14 +127,12 @@
   },
   "alwaysHideStats": false,
   "bestiarySpriteReference": {
-    "$id": "10",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "monsterPresentation": {
-    "$id": "11",
     "$type": "MonsterPresentation, Assembly-CSharp",
     "hasUniqueName": false,
     "uniqueNameTitle": "",
@@ -153,14 +142,12 @@
     "useCustomMaterials": false,
     "customMaterials": [],
     "customShaderReference": {
-      "$id": "12",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "mutantFleshDirection": {
-      "$id": "13",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -1.0,
@@ -168,7 +155,6 @@
     },
     "overrideCharacterShaderColors": false,
     "firstCharacterShaderColor": {
-      "$id": "14",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -176,7 +162,6 @@
       "a": 0.0
     },
     "secondCharacterShaderColor": {
-      "$id": "15",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -185,14 +170,12 @@
     },
     "hasPhantomDistortion": true,
     "attachedParticlesReference": {
-      "$id": "16",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "bestiaryAttachedParticlesReference": {
-      "$id": "17",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -201,7 +184,6 @@
     "hasPrefabVariants": false,
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
-      "$id": "18",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "0133818880b4f9d4db5ebd9d6f265bbe",
       "m_SubObjectName": "",
@@ -209,7 +191,6 @@
     },
     "maleModelScale": 0.6553079,
     "femalePrefabReference": {
-      "$id": "19",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "0133818880b4f9d4db5ebd9d6f265bbe",
       "m_SubObjectName": "",
@@ -224,21 +205,18 @@
     "needMerchantPortrait": false,
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {
-      "$id": "20",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -0.5,
       "z": -5.0
     },
     "portraitCameraLookAtScreenOffset": {
-      "$id": "21",
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
       "x": 0.5,
       "y": 0.4
     },
     "portraitCameraFOV": 40.0,
     "portraitCameraLightingOffset": {
-      "$id": "22",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": 0.0,
@@ -253,20 +231,17 @@
   "isUnique": true,
   "uniqueNameId": "Sima",
   "guiPresentation": {
-    "$id": "23",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "NPC/&NPC_Sima_Temple",
     "description": "NPC/&NPC_Sima_Temple",
     "spriteReference": {
-      "$id": "24",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "bfabc4f70c152f04f9f585b1e5e279ab",
       "m_SubObjectName": "NPC_Presentation_DLC1_Rebellion_Sima_Temple",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "25",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -25,7 +25,6 @@
   "savingThrowScores": [],
   "skillScores": [
     {
-      "$id": "1",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Perception",
       "bonus": 6
@@ -43,13 +42,10 @@
   ],
   "audioSwitches": [
     {
-      "$id": "2",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": {
-        "$id": "3",
         "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
         "WwiseSwitchGroupReference": {
-          "$id": "4",
           "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
           "objectName": "Switch_Armor",
           "id": 71308029,
@@ -73,13 +69,10 @@
       }
     },
     {
-      "$id": "5",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": {
-        "$id": "6",
         "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
         "WwiseSwitchGroupReference": {
-          "$id": "7",
           "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
           "objectName": "Switch_VoiceBarks",
           "id": 2399735075,
@@ -126,19 +119,16 @@
   ],
   "attackIterations": [
     {
-      "$id": "8",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 3,
       "monsterAttackDefinition": "Definition:Attack_WightLord_Longsword:60744fb5794f689438639592a3bfc48e"
     },
     {
-      "$id": "9",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 3,
       "monsterAttackDefinition": "Definition:Attack_WightLord_Longbow:5897dfc6ae3975a48a4df1b7df1e6959"
     },
     {
-      "$id": "10",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_WightLord_LifeDrain:14588372ac0b89d44805484799c31773"
@@ -160,7 +150,6 @@
   "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
-    "$id": "11",
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
     "y": 7.0,
@@ -168,14 +157,12 @@
   },
   "alwaysHideStats": false,
   "bestiarySpriteReference": {
-    "$id": "12",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "35c52c127c8809e46928ca55c2d91277",
     "m_SubObjectName": "WightLord",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "monsterPresentation": {
-    "$id": "13",
     "$type": "MonsterPresentation, Assembly-CSharp",
     "hasUniqueName": false,
     "uniqueNameTitle": "",
@@ -183,14 +170,12 @@
     "useCustomMaterials": false,
     "customMaterials": [],
     "customShaderReference": {
-      "$id": "14",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "mutantFleshDirection": {
-      "$id": "15",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -1.0,
@@ -198,7 +183,6 @@
     },
     "overrideCharacterShaderColors": false,
     "firstCharacterShaderColor": {
-      "$id": "16",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -206,7 +190,6 @@
       "a": 0.0
     },
     "secondCharacterShaderColor": {
-      "$id": "17",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -215,14 +198,12 @@
     },
     "hasPhantomDistortion": true,
     "attachedParticlesReference": {
-      "$id": "18",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "5bbe5d35725c2cc4492672476f4fc783",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "bestiaryAttachedParticlesReference": {
-      "$id": "19",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "775c97a1aace8764485e7ed15645ffa3",
       "m_SubObjectName": "",
@@ -233,7 +214,6 @@
       "Definition:Wight_Lord_Presentation:dc655162446d0504fab66ab340ba2336"
     ],
     "malePrefabReference": {
-      "$id": "20",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "cab8992a98c1d3749bc0a50d53fcc378",
       "m_SubObjectName": "",
@@ -241,7 +221,6 @@
     },
     "maleModelScale": 0.656,
     "femalePrefabReference": {
-      "$id": "21",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -256,21 +235,18 @@
     "needMerchantPortrait": false,
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {
-      "$id": "22",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -0.5,
       "z": -5.0
     },
     "portraitCameraLookAtScreenOffset": {
-      "$id": "23",
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
       "x": 0.5,
       "y": 0.4
     },
     "portraitCameraFOV": 40.0,
     "portraitCameraLightingOffset": {
-      "$id": "24",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": 0.0,
@@ -285,20 +261,17 @@
   "isUnique": false,
   "uniqueNameId": "",
   "guiPresentation": {
-    "$id": "25",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Monster/&WightLord_Title",
     "description": "Monster/&WightLord_Description",
     "spriteReference": {
-      "$id": "26",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "ac738ab7a6e341946922778e1dcc7bd5",
       "m_SubObjectName": "CustomPortrait_WightLord",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "27",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,
