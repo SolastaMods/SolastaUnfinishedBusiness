@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SquareCylinder
         {
             __instance.UpdateCubePosition_Regular(origin, edgeSize, adaptToGroundLevel, isValid);
 
-            if (!Main.Settings.EnableTargetTypeSquareCylinder)
+            if (!Main.Settings.UseHeightOneCylinderEffect)
             {
 #if DEBUG
                 var t = __instance.GetField<GeometricShape, MeshRenderer>("cubeRenderer").transform;
@@ -112,7 +112,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SquareCylinder
             MetricsDefinitions.GeometricShapeType ___shapeType, Vector3 ___origin, ref Bounds ___bounds,
             float ___geometricParameter, float ___geometricParameter2, bool ___hasMagneticTargeting, RuleDefinitions.RangeType ___rangeType)
         {
-            if (!Main.Settings.EnableTargetTypeSquareCylinder)
+            if (!Main.Settings.UseHeightOneCylinderEffect)
             {
 #if DEBUG
                 var min1 = ___bounds.min;
@@ -175,7 +175,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SquareCylinder
         {
             var __result = GeometryUtils.CubeContainsPoint_Regular(cubeOrigin, edgeSize, hasMagneticTargeting, point);
 
-            if (!Main.Settings.EnableTargetTypeSquareCylinder)
+            if (!Main.Settings.UseHeightOneCylinderEffect)
             {
                 Main.Log($"GeometryUtils_CubeContainsPoint_Regular (off): edge={edgeSize}, origin=({cubeOrigin.x}, {cubeOrigin.y}, {cubeOrigin.z}), point=({point.x}, {point.y}, {point.z}), result={__result}");
                 return __result;

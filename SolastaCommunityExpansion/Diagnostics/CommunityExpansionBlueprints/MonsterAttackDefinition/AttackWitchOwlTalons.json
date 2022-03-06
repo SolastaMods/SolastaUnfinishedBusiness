@@ -1,13 +1,25 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "MonsterAttackDefinition, Assembly-CSharp",
+  "displayedInEditor": true,
+  "methodName": "",
+  "actionType": "Main",
+  "toHitBonus": 0,
+  "afterChargeOnly": false,
+  "limitedUse": false,
+  "maxUses": -1,
+  "proximity": "Melee",
+  "reachRange": 1,
+  "closeRange": 10,
+  "maxRange": 20,
+  "magical": false,
   "effectDescription": {
     "$id": "1",
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Touch",
-    "rangeParameter": 6,
+    "rangeType": "Self",
+    "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Individuals",
+    "targetType": "Self",
     "itemSelectionType": "Equiped",
     "targetParameter": 1,
     "targetParameter2": 2,
@@ -31,7 +43,7 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Enemy",
-    "durationType": "Round",
+    "durationType": "Instantaneous",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
@@ -40,7 +52,7 @@
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "hasShoveRoll": false,
-    "createdByCharacter": true,
+    "createdByCharacter": false,
     "difficultyClassComputation": "SpellCastingFeature",
     "savingThrowDifficultyAbility": "Wisdom",
     "fixedSavingThrowDifficultyClass": 15,
@@ -60,27 +72,33 @@
       {
         "$id": "2",
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
+        "formType": "Damage",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
-        "createdByCharacter": true,
+        "createdByCharacter": false,
         "createdByCondition": false,
         "hasSavingThrow": false,
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "conditionForm": {
+        "saveOccurence": "StartOfTurn",
+        "damageForm": {
           "$id": "3",
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionTrueStrike",
-          "conditionDefinition": "Definition:ConditionHelpPower:3071b2bf-0d83-5f1d-9eba-07f2c5c52bc5",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": false,
-          "forceOnSelf": false
+          "$type": "DamageForm, Assembly-CSharp",
+          "versatile": false,
+          "diceNumber": 1,
+          "dieType": "D1",
+          "versatileDieType": "D1",
+          "bonusDamage": 0,
+          "damageType": "DamageSlashing",
+          "healFromInflictedDamage": "Never",
+          "hitPointsFloor": 0,
+          "forceKillOnZeroHp": false,
+          "specialDeathCondition": null,
+          "ignoreFlyingCharacters": false,
+          "ignoreCriticalDoubleDice": false
         }
       }
     ],
@@ -101,8 +119,8 @@
       "additionalWeaponDie": 0,
       "alteredDuration": "None"
     },
-    "speedType": "Fixed",
-    "speedParameter": 0.85,
+    "speedType": "Instant",
+    "speedParameter": 10.0,
     "offsetImpactTimeBasedOnDistance": false,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
     "offsetImpactTimePerTarget": 0.0,
@@ -112,7 +130,7 @@
       "casterParticleReference": {
         "$id": "6",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "5cbfabafc8a055748b85d5c12d029746",
+        "m_AssetGUID": "26d711e7b571fd64eb59f3018d5ef8e0",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -158,123 +176,135 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "beforeImpactParticleReference": null,
-      "impactParticleReference": {
+      "beforeImpactParticleReference": {
         "$id": "13",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "activeEffectImpactParticleReference": null,
-      "activeEffectCellStartParticleReference": {
+      "impactParticleReference": {
         "$id": "14",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "8f1b462d39de5a8479f20f678f63bf71",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "activeEffectCellParticleReference": {
+      "activeEffectImpactParticleReference": {
         "$id": "15",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "activeEffectCellEndParticleReference": {
+      "activeEffectCellStartParticleReference": {
         "$id": "16",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "activeEffectSurfaceStartParticleReference": {
+      "activeEffectCellParticleReference": {
         "$id": "17",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "activeEffectSurfaceParticleReference": {
+      "activeEffectCellEndParticleReference": {
         "$id": "18",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "activeEffectSurfaceEndParticleReference": {
+      "activeEffectSurfaceStartParticleReference": {
         "$id": "19",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "emissiveBorderCellStartParticleReference": {
+      "activeEffectSurfaceParticleReference": {
         "$id": "20",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "emissiveBorderCellParticleReference": {
+      "activeEffectSurfaceEndParticleReference": {
         "$id": "21",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "emissiveBorderCellEndParticleReference": {
+      "emissiveBorderCellStartParticleReference": {
         "$id": "22",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "emissiveBorderSurfaceStartParticleReference": {
+      "emissiveBorderCellParticleReference": {
         "$id": "23",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "emissiveBorderSurfaceParticleReference": {
+      "emissiveBorderCellEndParticleReference": {
         "$id": "24",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "emissiveBorderSurfaceEndParticleReference": {
+      "emissiveBorderSurfaceStartParticleReference": {
         "$id": "25",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "conditionStartParticleReference": {
+      "emissiveBorderSurfaceParticleReference": {
         "$id": "26",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "cc10f2e8a95e97c4abf49dc07e4c3926",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "conditionParticleReference": {
+      "emissiveBorderSurfaceEndParticleReference": {
         "$id": "27",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "conditionEndParticleReference": {
+      "conditionStartParticleReference": {
         "$id": "28",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "c1d4a479c800d5143a556ef358854800",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "conditionParticleReference": {
+        "$id": "29",
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "conditionEndParticleReference": {
+        "$id": "30",
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "applyEmissionColorOnWeapons": false,
       "emissionColor": {
-        "$id": "29",
+        "$id": "31",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.0,
         "g": 0.0,
@@ -285,7 +315,7 @@
       "emissionColorFadeOutDuration": 0.0
     },
     "effectAIParameters": {
-      "$id": "30",
+      "$id": "32",
       "$type": "EffectAIParameters, Assembly-CSharp",
       "aoeScoreMultiplier": 1.0,
       "cooldownForCaster": 0,
@@ -294,49 +324,89 @@
     },
     "animationMagicEffect": "Animation0"
   },
-  "delegatedToAction": false,
-  "surrogateToSpell": null,
-  "triggeredBySpecialMove": false,
-  "activationTime": "Action",
-  "reactionContext": "None",
-  "reactionName": "",
-  "hasCastingFailure": false,
-  "castingSuccessComputation": "CasterLevel",
-  "canUseInDialog": false,
-  "disableIfConditionIsOwned": null,
-  "rechargeRate": "AtWill",
-  "costPerUse": 0,
-  "spellcastingFeature": null,
-  "usesDetermination": "Fixed",
-  "abilityScoreDetermination": "Explicit",
-  "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 1,
-  "abilityScore": "Charisma",
-  "attackHitComputation": "AbilityScore",
-  "fixedAttackHit": 0,
-  "abilityScoreBonusToAttack": false,
-  "proficiencyBonusToAttack": false,
-  "uniqueInstance": true,
-  "showCasting": true,
-  "shortTitleOverride": "",
-  "overriddenPower": null,
-  "includeBaseDescription": false,
-  "magical": true,
+  "projectile": "Arrow",
+  "projectileBone": "Prop1",
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "useAnimationTag": false,
+  "animationTag": "NoWeapon",
+  "chargePrepareParticle": {
+    "$id": "33",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "chargeStartParticle": {
+    "$id": "34",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "chargeLoopParticle": {
+    "$id": "35",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "chargeEndParticle": {
+    "$id": "36",
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "soundEffectOnHitDescription": {
+    "$id": "37",
+    "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
+    "switchOnHit": {
+      "$id": "38",
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": {
+        "$id": "39",
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$id": "40",
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_Damage",
+          "id": 1103537035,
+          "guid": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A",
+          "name": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A"
+        },
+        "objectName": "Beak_Eagleatriarch",
+        "id": 1268847255,
+        "guid": "EE83037D-6255-4AF9-9734-E77956E955FB",
+        "name": "EE83037D-6255-4AF9-9734-E77956E955FB"
+      },
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
   "guiPresentation": {
-    "$id": "31",
+    "$id": "41",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Power/&HelpActionTitle",
-    "description": "Power/&HelpActionDescription",
+    "title": "MonsterAttacks/&Attack_Talons_Title",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "32",
+      "$id": "42",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f0b4ad7b83123234f94ca22704c686f6",
-      "m_SubObjectName": "Aid",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "color": {
-      "$id": "33",
+      "$id": "43",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,
@@ -347,8 +417,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
-  "guid": "994ab51f-a81a-50fd-af24-45dfd078b637",
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "02743cb9-5f9d-5c2c-8a6e-da4e92242eb4",
   "contentPack": "BaseGame",
-  "name": "HelpAction"
+  "name": "AttackWitchOwlTalons"
 }

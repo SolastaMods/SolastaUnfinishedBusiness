@@ -34,7 +34,7 @@ namespace SolastaCommunityExpansion.DataMiner
             internal float percentageComplete;
         }
 
-        internal static readonly ExportStatus[] CurrentExports = new ExportStatus[2];
+        internal static readonly ExportStatus[] CurrentExports = new ExportStatus[3];
 
         private static void EnsureFolderExists(string path)
         {
@@ -66,6 +66,7 @@ namespace SolastaCommunityExpansion.DataMiner
             BaseDefinition[] baseDefinitions,
             Dictionary<Type, BaseDefinition[]> baseDefinitionsMap,
             Dictionary<BaseDefinition, BaseDefinition> baseDefinitionAndCopy,
+            bool exportOriginalCopy,
             string path)
         {
             if (baseDefinitionsMap == null || baseDefinitions == null || CurrentExports[exportId].coroutine != null)
@@ -73,7 +74,7 @@ namespace SolastaCommunityExpansion.DataMiner
                 return;
             }
 
-            var coroutine = ExportMany(exportId, baseDefinitions, baseDefinitionsMap, baseDefinitionAndCopy, path);
+            var coroutine = ExportMany(exportId, baseDefinitions, baseDefinitionsMap, baseDefinitionAndCopy, exportOriginalCopy, path);
 
             SetExport(exportId, Exporter.StartCoroutine(coroutine), 0f);
         }
@@ -83,6 +84,7 @@ namespace SolastaCommunityExpansion.DataMiner
             BaseDefinition[] baseDefinitions,
             Dictionary<Type, BaseDefinition[]> baseDefinitionsMap,
             Dictionary<BaseDefinition, BaseDefinition> baseDefinitionAndCopy,
+            bool exportOriginalCopy,
             string path)
         {
             var start = DateTime.UtcNow;
@@ -113,8 +115,8 @@ namespace SolastaCommunityExpansion.DataMiner
                 {
                     foreach (var definition in db.Value.OrderBy(d => d.Name).ThenBy(d => d.GetType().FullName))
                     {
-                        var copy = GetDefinitionCopy(definition);
-                        sw.WriteLine("{0}\t{1}\t{2}\t{3}", copy.Name, copy.GetType().FullName, db.Key.FullName, copy.GUID);
+                        var def = GetDefinitionCopy(definition);
+                        sw.WriteLine("{0}\t{1}\t{2}\t{3}", def.Name, def.GetType().FullName, db.Key.FullName, def.GUID);
                     }
                 }
             }
@@ -150,8 +152,8 @@ namespace SolastaCommunityExpansion.DataMiner
                     using StreamWriter sw = new StreamWriter(fullname);
                     using JsonWriter writer = new JsonTextWriter(sw);
 
-                    var copy = GetDefinitionCopy(definition);
-                    serializer.Serialize(writer, copy);
+                    var def = exportOriginalCopy ? GetDefinitionCopy(definition) : definition;
+                    serializer.Serialize(writer, def);
                 }
                 catch (Exception ex)
                 {
@@ -179,7 +181,8 @@ namespace SolastaCommunityExpansion.DataMiner
                     return copy;
                 }
 
-                Main.Log($"{definition.Name} copy not found.");
+                // NOTE: some definitions won't be found when creating Assets.txt because they're explicitly excluded from export.
+                // Assuming we won't have modified the excluded ones.
 
                 return definition;
             }

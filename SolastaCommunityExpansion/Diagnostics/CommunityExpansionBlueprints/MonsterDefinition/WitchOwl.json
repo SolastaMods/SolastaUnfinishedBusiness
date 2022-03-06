@@ -73,7 +73,7 @@
       "$id": "3",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_EagleMatriarch_Talons:b535c4fc37512ba419f413748136fdec"
+      "monsterAttackDefinition": "Definition:AttackWitchOwlTalons:02743cb9-5f9d-5c2c-8a6e-da4e92242eb4"
     }
   ],
   "sneakStance": "Stealth",

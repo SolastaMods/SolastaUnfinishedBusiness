@@ -2,6 +2,7 @@
 using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaModApi;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
@@ -50,14 +51,17 @@ namespace SolastaCommunityExpansion.Models
 
         private static void LoadHelpPower()
         {
-            var effectDescription = new EffectDescription();
-
-            effectDescription.Copy(TrueStrike.EffectDescription);
+            var effectDescription = TrueStrike.EffectDescription.Copy();
             effectDescription.SetRangeType(RuleDefinitions.RangeType.Touch);
             effectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
             effectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
-            effectDescription.EffectForms[0].ConditionForm.ConditionDefinition.GuiPresentation.SetDescription("Condition/&HelpActionDescription");
-            effectDescription.EffectForms[0].ConditionForm.ConditionDefinition.GuiPresentation.SetTitle("Condition/&HelpActionTitle");
+
+            var helpPowerCondition = ConditionDefinitionBuilder
+                .Create(DatabaseHelper.ConditionDefinitions.ConditionTrueStrike, "ConditionHelpPower", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation("HelpAction", Category.Condition)
+                .AddToDB();
+
+            effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = helpPowerCondition;
 
             FeatureDefinitionPowerHelpAction = FeatureDefinitionPowerBuilder
                 .Create("HelpAction", BAZOU_POWERS_BASE_GUID)
