@@ -324,35 +324,55 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void SwitchRestockAntiquarian()
         {
+            if (!Main.Settings.RestockAntiquarians)
+            {
+                return;
+            }
+
             foreach (var stock in Store_Merchant_Antiquarians_Halman_Summer.StockUnitDescriptions.Where(
                 x => !x.ItemDefinition.Name.Contains("Manual") && !x.ItemDefinition.Name.Contains("Tome")))
             {
-                stock.SetReassortAmount(Main.Settings.RestockAntiquarians ? 1 : 0);
-                stock.SetReassortRateValue(Main.Settings.RestockAntiquarians ? 7 : 21);
+                stock.SetReassortAmount(1);
+                stock.SetReassortRateValue(7);
             }
         }
 
         internal static void SwitchRestockArcaneum()
         {
+            if (!Main.Settings.RestockArcaneum)
+            {
+                return;
+            }
+
             foreach (StockUnitDescription stock in Store_Merchant_Arcaneum_Heddlon_Surespell.StockUnitDescriptions)
             {
-                stock.SetReassortAmount(Main.Settings.RestockArcaneum ? 1 : 0);
+                stock.SetReassortAmount(1);
             }
         }
 
         internal static void SwitchRestockCircleOfDanantar()
         {
+            if (!Main.Settings.RestockCircleOfDanantar)
+            {
+                return;
+            }
+
             foreach (StockUnitDescription stock in Store_Merchant_CircleOfDanantar_Joriel_Foxeye.StockUnitDescriptions)
             {
-                stock.SetReassortAmount(Main.Settings.RestockCircleOfDanantar ? 1 : 0);
+                stock.SetReassortAmount(1);
             }
         }
 
         internal static void SwitchRestockTowerOfKnowledge()
         {
+            if (!Main.Settings.RestockTowerOfKnowledge)
+            {
+                return;
+            }
+
             foreach (StockUnitDescription stock in Store_Merchant_TowerOfKnowledge_Maddy_Greenisle.StockUnitDescriptions)
             {
-                stock.SetReassortAmount(Main.Settings.RestockTowerOfKnowledge ? 1 : 0);
+                stock.SetReassortAmount(1);
             }
         }
 
