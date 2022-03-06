@@ -200,7 +200,7 @@ namespace SolastaCommunityExpansion
         public bool FullyControlConjurations { get; set; }
         public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
         public bool UseCylinderForSpikeGrowth { get; set; }
-        public bool EnableTargetTypeSquareCylinder { get; set; }
+        public bool UseHeightOneCylinderEffect { get; set; }
 
         // House
         public bool AllowAnyClassToWearSylvanArmor { get; set; }

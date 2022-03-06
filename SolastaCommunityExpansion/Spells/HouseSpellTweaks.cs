@@ -10,16 +10,20 @@ namespace SolastaCommunityExpansion.Spells
         public static void Register()
         {
             AddBleedingToRestoration();
-            UseCylinderForSpikeGrowth();
-            UseSquareCylinder();
+            UseHeightOneCylinderEffect();
         }
 
-        internal static void UseCylinderForSpikeGrowth()
+        internal static void UseHeightOneCylinderEffect()
         {
+            // always applicable
+            ClearTargetParameter2ForTargetTypeCube();
+
+            ///////////////////////////////////////////////////////////
+            // Change SpikeGrowth to be height 1 round cylinder/sphere
             var spikeGrowthEffect = SpikeGrowth.EffectDescription;
             spikeGrowthEffect.SetTargetParameter(4);
 
-            if (Main.Settings.UseCylinderForSpikeGrowth)
+            if (Main.Settings.UseHeightOneCylinderEffect)
             {
                 // Set to Cylinder radius 4, height 1
                 spikeGrowthEffect.SetTargetType(RuleDefinitions.TargetType.Cylinder);
@@ -31,12 +35,6 @@ namespace SolastaCommunityExpansion.Spells
                 spikeGrowthEffect.SetTargetType(RuleDefinitions.TargetType.Sphere);
                 spikeGrowthEffect.SetTargetParameter2(0);
             }
-        }
-
-        internal static void UseSquareCylinder()
-        {
-            // always applicable
-            ClearTargetParameter2ForTargetTypeCube();
 
             // Spells with TargetType.Cube and defaults values of (tp, tp2)
             // Note that tp2 should be 0 for Cube and is ignored in game.
@@ -49,7 +47,9 @@ namespace SolastaCommunityExpansion.Spells
             // PetalStorm: (3, 2)
             // Slow: (8, 2)
 
-            if (Main.Settings.EnableTargetTypeSquareCylinder)
+            ///////////////////////////////////////////////////////////
+            // Change Black Tentacles, Entangle, Grease to be height 1 square cylinder/cube
+            if (Main.Settings.UseHeightOneCylinderEffect)
             {
                 // Setting height switches to square cylinder (if originally cube)
                 SetHeight(BlackTentacles, 1);

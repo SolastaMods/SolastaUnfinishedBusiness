@@ -100,20 +100,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey = toggle;
                     }
                 }
-
-                toggle = Main.Settings.UseCylinderForSpikeGrowth;
-                if (UI.Toggle("Display a height 1 cylinder when casting " + "Spike Growth".orange(), ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.UseCylinderForSpikeGrowth = toggle;
-                    HouseSpellTweaks.UseCylinderForSpikeGrowth();
-                }
-
-                toggle = Main.Settings.EnableTargetTypeSquareCylinder;
-                if (UI.Toggle("Display a height 1 square cylinder when casting " + "Black Tentacles, Entangle, Grease".orange(), ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableTargetTypeSquareCylinder = toggle;
-                    HouseSpellTweaks.UseSquareCylinder();
-                }
             }
 
             UI.Label("");
@@ -169,6 +155,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (UI.Toggle("Quick cast light cantrip uses head or torso worn items first", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.QuickCastLightCantripOnWornItemsFirst = toggle;
+                }
+
+                toggle = Main.Settings.UseHeightOneCylinderEffect;
+                if (UI.Toggle("Display a height 1 cylinder effect when casting " + "Black Tentacles, Entangle, Grease ".orange() +
+                    " (square cylinder), ".yellow() + "Spike Growth".orange() + " (round cylinder).".yellow(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.UseHeightOneCylinderEffect = toggle;
+                    HouseSpellTweaks.UseHeightOneCylinderEffect();
                 }
 
                 UI.Label("");
