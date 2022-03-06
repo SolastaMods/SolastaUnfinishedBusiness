@@ -46,8 +46,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             string exportTaLabel;
+            string exportTaLabel2;
             string exportCeLabel;
             float percentageCompleteTa = BlueprintExporter.CurrentExports[DiagnosticsContext.TA].percentageComplete;
+            float percentageCompleteTa2 = BlueprintExporter.CurrentExports[DiagnosticsContext.TA2].percentageComplete;
             float percentageCompleteCe = BlueprintExporter.CurrentExports[DiagnosticsContext.CE].percentageComplete;
 
             if (percentageCompleteTa == 0)
@@ -57,6 +59,15 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             else
             {
                 exportTaLabel = "Cancel TA export at " + $"{percentageCompleteTa:00.0%}".bold().yellow();
+            }
+
+            if (percentageCompleteTa2 == 0)
+            {
+                exportTaLabel2 = "Export TA blueprints (modded)";
+            }
+            else
+            {
+                exportTaLabel2 = "Cancel TA export at " + $"{percentageCompleteTa2:00.0%}".bold().yellow();
             }
 
             if (percentageCompleteCe == 0)
@@ -93,6 +104,19 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         BlueprintExporter.Cancel(DiagnosticsContext.CE);
                     }
                 }, UI.Width(200));
+#if DEBUG
+                UI.ActionButton(exportTaLabel2, () =>
+                {
+                    if (percentageCompleteTa2 == 0)
+                    {
+                        DiagnosticsContext.ExportTADefinitionsAfterCELoaded();
+                    }
+                    else
+                    {
+                        BlueprintExporter.Cancel(DiagnosticsContext.TA2);
+                    }
+                }, UI.Width(200));
+#endif
             }
 #if DEBUG
             using (UI.HorizontalScope())
